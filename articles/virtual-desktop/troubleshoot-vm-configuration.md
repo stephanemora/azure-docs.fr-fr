@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 08/29/2019
+ms.date: 09/20/2019
 ms.author: helohr
-ms.openlocfilehash: 03a8e8063f1a66b929311f09bf8e20cd4b951e43
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f919ff1efcb094dec4c810f51a1810f2383ea09d
+ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163298"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71174133"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -72,7 +72,7 @@ Suivez ces instructions si vous rencontrez des problèmes de jonction de machine
 
 **Correctif 3 :** Effectuez l’une des actions suivantes pour résoudre le problème, en suivant les étapes décrites dans [Modifier les serveurs DNS].
 - Définissez les paramètres de serveur DNS de l’interface réseau sur **Personnalisés** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers), puis spécifiez les adresses IP privées des serveurs DNS sur le réseau virtuel.
-- Définissez les paramètres de serveur DNS de l’interface réseau sur **Hériter de VNet** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers).
+- Définissez les paramètres de serveur DNS de l’interface réseau sur **Hériter de VNet** en suivant les étapes décrites dans la section [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers),puis changez les paramètres du serveur DNS du réseau virtuel avec les étapes décrites dans [Modifier les serveurs DNS](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>L'agent Windows Virtual Desktop et le chargeur de démarrage Windows Virtual Desktop ne sont pas installés.
 
@@ -296,17 +296,76 @@ Si vous utilisez Microsoft Windows 10, suivez les instructions ci-dessous :
 
 16. Une fois les cmdlets exécutées, redémarrez la machine virtuelle présentant un dysfonctionnement de pile côte à côte.
 
-## <a name="remote-licensing-model-is-not-configured"></a>Le modèle de gestion des licences à distance n’est pas configuré
+## <a name="remote-licensing-model-isnt-configured"></a>Le mode de licence des services Bureau à distance n’est pas configuré
 
-Si vous vous connectez à Windows 10 Entreprise multisession à l’aide d’un compte d’administrateur, vous pouvez recevoir une notification indiquant que, « Le mode de licence des services Bureau à distance n’est pas configuré, les services Bureau à distance cesseront de fonctionner dans X jours. Sur le serveur Broker pour les connexions, utilisez le gestionnaire de serveur pour spécifier le mode de licence des services Bureau à distance. » Si vous voyez ce message, cela signifie que vous devez configurer manuellement le mode de licence sur **Par utilisateur**.
+Si vous vous connectez à Windows 10 Entreprise multisession à l’aide d’un compte d’administrateur, vous pouvez recevoir une notification indiquant que, « Le mode de licence des services Bureau à distance n’est pas configuré, les services Bureau à distance cesseront de fonctionner dans X jours. Sur le serveur Broker pour les connexions, utilisez le gestionnaire de serveur pour spécifier le mode de licence des services Bureau à distance. »
 
-Pour configurer manuellement le mode de licence :  
+Si le délai limite expire, le message d’erreur « La session distante a été déconnectée, car aucune licence d’accès client Bureau à distance n’est disponible pour cet ordinateur » s’affiche.
 
-1. Accédez à la zone de recherche du **menu Démarrer**, puis recherchez et ouvrez **gpedit.msc** pour accéder à l’éditeur de stratégies de groupe local. 
-2. Accédez à **Configuration de l’ordinateur** > **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Licences**. 
-3. Sélectionnez **Définir le mode de licence des services Bureau à distance** et choisissez **Par utilisateur**.
+Si vous voyez l’un de ces messages, cela signifie que vous devez ouvrir l’éditeur de stratégie de groupe et définir manuellement le mode de licence sur **Par utilisateur**. Le processus de configuration manuelle est différent selon la version de Windows 10 Entreprise multisession que vous utilisez. Les sections suivantes expliquent comment obtenir le numéro de votre version et quelles étapes de configuration effectuer pour chaque version.
 
-Nous nous penchons actuellement sur les problèmes d’expiration de délai d’attente pour les notifications et la période de grâce, et prévoyons d’y remédier dans une prochaine mise à jour. 
+>[!NOTE]
+>Windows Virtual Desktop nécessite une licence d’accès client (CAL) aux services Bureau à distance uniquement si votre pool d’hôtes contient des hôtes de session Windows Server. Pour savoir comment configurer une licence d’accès client aux services Bureau à distance, consultez [Gérer les licences de votre déploiement Services Bureau à distance avec des licences d’accès client (CAL)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identifier le numéro de votre version de Windows 10 Entreprise multisession
+
+Pour identifier le numéro de votre version de Windows 10 Entreprise multisession :
+
+1. Connectez-vous avec votre compte administrateur.
+2. Entrez « À propos de » dans la barre de recherche à côté du menu Démarrer.
+3. Sélectionnez **À propos de votre PC**.
+4. Regardez quel nombre figure à côté de « Version ». Le nombre doit être « 1809 » ou « 1903 », comme dans l’image suivante.
+   
+    ![Capture d’écran de la fenêtre Spécifications Windows. Le numéro de version est mis en surbrillance en bleu.](media/windows-specifications.png)
+
+Maintenant que vous connaissez le numéro de votre version, passez directement à la section correspondante.
+
+### <a name="version-1809"></a>Version 1809
+
+Si vous utilisez la version « 1809 », vous pouvez effectuer une mise à niveau vers la version 1903 de Windows 10 Entreprise multisession, ou redéployer le pool d’hôtes avec l’image la plus récente.
+
+Pour effectuer une mise à niveau vers Windows 10 version 1903 :
+
+1. Si vous ne l’avez pas déjà fait, téléchargez et installez la [mise à jour de mai 2019 de Windows 10](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
+2. Connectez-vous à votre ordinateur avec votre compte administrateur.
+3. Exécutez **gpedit.msc** pour ouvrir l’éditeur de stratégie de groupe.
+4. Sous Configuration de l’ordinateur, accédez à **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Licences**.
+5. Sélectionnez **Définir le mode de licence des services Bureau à distance**.
+6. Dans la fenêtre qui s’ouvre, sélectionnez d’abord **Activé** et, sous Options, spécifiez le mode de licence **Par utilisateur** pour le serveur hôte de session des services Bureau à distance, comme illustré ci-dessous.
+    
+    ![Capture d’écran de la fenêtre « Définir le mode de licence des services Bureau à distance » configurée conformément aux instructions de l’étape 6.](media/group-policy-editor-per-user.png)
+
+7. Sélectionnez **Appliquer**.
+8. Sélectionnez **OK**.
+9.  Redémarrez votre ordinateur.
+
+Pour redéployer le pool d’hôtes avec l’image la plus récente :
+
+1. Suivez les instructions du tutoriel [Créer un pool d’hôtes en utilisant la Place de marché Azure](create-host-pools-azure-marketplace.md) jusqu’à ce que vous soyez invité à choisir une version du système d’exploitation de l’image. Vous pouvez choisir Windows 10 Entreprise multisession avec ou sans Office 365 ProPlus.
+2. Connectez-vous à votre ordinateur avec votre compte administrateur.
+3. Exécutez **gpedit.msc** pour ouvrir l’éditeur de stratégie de groupe.
+4. Sous Configuration de l’ordinateur, accédez à **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Licences**.
+5. Sélectionnez **Définir le mode de licence des services Bureau à distance**.
+6. Dans la fenêtre qui s’ouvre, sélectionnez d’abord **Activé** et, sous Options, spécifiez le mode de licence **Par utilisateur** pour le serveur hôte de session des services Bureau à distance.
+7. Sélectionnez **Appliquer**.
+8. Sélectionnez **OK**.
+9.  Redémarrez votre ordinateur.
+
+### <a name="version-1903"></a>Version 1903
+
+Si vous utilisez la version « 1903 », suivez ces instructions :
+
+1. Connectez-vous à votre ordinateur avec votre compte administrateur.
+2. Exécutez **gpedit.msc** pour ouvrir l’éditeur de stratégie de groupe.
+3. Sous Configuration de l’ordinateur, accédez à **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Licences**.
+4. Sélectionnez **Définir le mode de licence des services Bureau à distance**.
+6. Dans la fenêtre qui s’ouvre, sélectionnez d’abord **Activé** et, sous Options, spécifiez le mode de licence **Par utilisateur** pour le serveur hôte de session des services Bureau à distance, comme illustré ci-dessous.
+    
+    ![Capture d’écran de la fenêtre « Définir le mode de licence des services Bureau à distance » configurée conformément aux instructions de l’étape 6.](media/group-policy-editor-per-user.png)
+
+7. Sélectionnez **Appliquer**.
+8. Sélectionnez **OK**.
+9.  Redémarrez votre ordinateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

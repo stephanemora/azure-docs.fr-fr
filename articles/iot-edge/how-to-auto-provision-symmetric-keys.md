@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414593"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299848"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Créer et approvisionner un appareil IoT Edge à l’aide de l’attestation de clé symétrique
 
@@ -100,11 +100,14 @@ Lorsque vous créez une inscription auprès du service Device Provisioning, vous
 
    1. Sélectionnez **Enregistrer**.
 
-Maintenant qu’une inscription existe pour cet appareil, le runtime IoT Edge peut provisionner automatiquement l’appareil lors de l’installation. Veillez à copier la valeur de **clé primaire** de votre inscription pour l’utiliser lors de la création de votre clé d’appareil.
+Maintenant qu’une inscription existe pour cet appareil, le runtime IoT Edge peut provisionner automatiquement l’appareil lors de l’installation. Veillez à copier la valeur de **Clé primaire** de votre inscription pour l’utiliser lors de l’installation du runtime IoT Edge ou si vous comptez créer des clés d’appareil à utiliser avec une inscription de groupe.
 
 ## <a name="derive-a-device-key"></a>Dériver une clé d’appareil
 
-Votre appareil utilise la clé d’appareil dérivée avec votre ID d’inscription unique pour effectuer l’attestation de clé symétrique avec l’inscription lors de l’approvisionnement. Pour générer la clé de l’appareil, utilisez la clé que vous avez copiée à partir de votre inscription au service Device Provisioning pour calculer un [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) de l’ID d’inscription unique pour l’appareil et convertir le résultat au format Base64.
+> [!NOTE]
+> Cette section n’est obligatoire que si vous utilisez une inscription de groupe.
+
+Chaque appareil utilise sa clé d’appareil dérivée avec votre ID d’inscription unique pour effectuer l’attestation de clé symétrique avec l’inscription lors de l’approvisionnement. Pour générer la clé de l’appareil, utilisez la clé que vous avez copiée à partir de votre inscription au service Device Provisioning pour calculer un [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) de l’ID d’inscription unique pour l’appareil et convertir le résultat au format Base64.
 
 N’incluez pas la clé primaire ou secondaire de votre inscription dans le code de votre appareil.
 
@@ -159,7 +162,10 @@ Vous aurez besoin des informations suivantes lors de l’approvisionnement de vo
 
 * Valeur **Étendue de l’ID** du service Device Provisioning
 * L’**ID d’inscription** de l’appareil que vous avez créé
-* Clé d’appareil dérivée de l’appareil pour l’attestation de clé symétrique
+* La valeur de **Clé primaire** que vous avez copiée lors de l’inscription DPS
+
+> [!TIP]
+> Pour les inscriptions de groupe, vous devez avoir la [clé dérivée](#derive-a-device-key) de chaque appareil au lieu de la clé d’inscription DPS.
 
 ### <a name="linux-device"></a>Appareil Linux
 
