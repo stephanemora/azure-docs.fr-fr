@@ -60,8 +60,9 @@
     - name: Gérer la mise en surbrillance des correspondances
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Passer d’une page web à une autre
-      href: page-webpages.md
+    - name: Parcourir les résultats de la recherche
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: Informations de référence
   items:
     - name: Référence de l’API Suggestion automatique personnalisée Bing

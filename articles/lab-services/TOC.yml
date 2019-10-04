@@ -220,6 +220,8 @@
               href: connect-environment-lab-virtual-network.md
             - name: Configurer des environnements de test avec des modèles imbriqués
               href: deploy-nested-template-environments.md
+            - name: Utiliser des identités managées Azure pour déployer des environnements
+              href: use-managed-identities-environments.md
         - name: Gérer des modèles réutilisables
           items:
             - name: Images personnalisées ou formules

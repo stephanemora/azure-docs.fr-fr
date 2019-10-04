@@ -50,7 +50,8 @@
     - name: Obtenir des vidéos populaires
       href: trending-videos.md
     - name: Vidéos de la page
-      href: paging-videos.md
+      maintainContext: true
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Redimensionner et rogner les miniatures
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

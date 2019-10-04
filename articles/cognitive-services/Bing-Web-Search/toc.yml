@@ -54,7 +54,7 @@
     - name: Gérer la mise en surbrillance des correspondances
       href: hit-highlighting.md
     - name: Parcourir les résultats
-      href: paging-webpages.md
+      href: paging-search-results.md
     - name: Redimensionner et rogner les miniatures
       href: resize-and-crop-thumbnails.md
     - name: Mettre à niveau de v5 vers v7

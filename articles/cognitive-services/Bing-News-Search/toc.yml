@@ -49,8 +49,8 @@
     - name: Gérer la mise en surbrillance des correspondances
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Nouveautés de la page
-      href: paging-news.md
+    - name: Parcourir les résultats de la recherche
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Redimensionner et rogner les miniatures
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

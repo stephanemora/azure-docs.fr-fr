@@ -4,14 +4,14 @@ description: Décrit comment utiliser des modèles Azure Resource Manager pour l
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965310"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300148"
 ---
 # <a name="azure-resource-manager-templates"></a>Modèles Microsoft Azure Resource Manager
 
@@ -47,9 +47,11 @@ Si vous essayez de choisir entre utiliser des modèles Resource Manager et l’u
 
 * **Blueprints de déploiement** : Vous pouvez tirer parti des [plans](../governance/blueprints/overview.md) fournis par Microsoft pour respecter les normes réglementaires et de conformité. Ces blueprints incluent des modèles prédéfinis pour différentes architectures.
 
+* **Intégration CI/CD** : Vous pouvez intégrer des modèles dans vos outils d’intégration et de déploiement continus (CI/CD), qui peuvent automatiser vos pipelines de mise en production en vue d’effectuer des mises à jour rapides et fiables des applications et des infrastructures. À l’aide de la tâche de modèle Resource Manager et Azure DevOps, vous pouvez utiliser Azure Pipelines pour générer et déployer des projets de modèle Azure Resource Manager en continu. Pour en savoir plus, voir Projet VS avec des pipelines et Intégration continue avec Azure Pipelines.
+
 * **Code exportable** : Vous pouvez obtenir un modèle pour un groupe de ressources existant en exportant l’état actuel du groupe de ressources ou en consultant le modèle utilisé pour un déploiement particulier. L’affichage du [modèle exporté](export-template-portal.md) est un moyen utile pour en découvrir plus sur sa syntaxe.
 
-* **Outils de création** : Vous pouvez créer des modèles avec [Visual Studio Code](resource-manager-tools-vs-code.md) et l’extension d’outil de modèle. Vous bénéficiez d’IntelliSense, de la mise en surbrillance de la syntaxe, de l’aide en ligne et de nombreuses autres fonctions de langage.
+* **Outils de création** : Vous pouvez créer des modèles avec [Visual Studio Code](resource-manager-tools-vs-code.md) et l’extension d’outil de modèle. Vous bénéficiez d’IntelliSense, de la mise en surbrillance de la syntaxe, de l’aide en ligne et de nombreuses autres fonctions de langage. Outre Visual Studio code, vous pouvez également utiliser [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="template-file"></a>Fichier de modèle
 
@@ -124,7 +126,4 @@ Pour plus d’informations sur les modèles imbriqués, consultez [Utilisation d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour plus d’informations sur les propriétés de fichiers de modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
-* Pour définir explicitement des dépendances afin qu’une ressource soit déployée avant une autre, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md).
-* Vous pouvez ajouter une ressource à votre modèle et éventuellement la déployer. Pour plus d’informations, consultez [Déploiement conditionnel dans des modèles Resource Manager](conditional-resource-deployment.md).
-* Au lieu de répéter des blocs de code JSON de nombreuses fois dans votre modèle, vous pouvez spécifier plusieurs instances d’une variable, d’une propriété ou d’une ressource. Pour plus d’informations, consultez [Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager](resource-group-create-multiple.md).
 * Pour en savoir plus sur l’exportation de modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).
