@@ -9,6 +9,8 @@
   items:
     - name: Prise en main
       href: video-indexer-get-started.md
+    - name: Inviter des utilisateurs
+      href: invite-users.md
 - name: Tutoriels
   items:
     - name: Utiliser l’API Video Indexer

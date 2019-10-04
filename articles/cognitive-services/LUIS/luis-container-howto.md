@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: b15ab7be5467d35b774dce643d6bb3910560ae01
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a718a2335ed4928c6cd40ad4dc832eaf82bc6a2b
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172329"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695292"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -309,7 +309,9 @@ Pour arrêter le conteneur, dans l’environnement de ligne de commande où le c
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Si vous exécutez le conteneur avec un [montage](luis-container-configuration.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur. 
+Si vous exécutez le conteneur avec un [montage](luis-container-configuration.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Facturation
 
@@ -323,7 +325,6 @@ Pour plus d’informations sur ces options, consultez [Configurer des conteneurs
 
 Le dernier conteneur (publié dans //Build de 2019) prendra en charge :
 
-* Vérification orthographique Bing : envoie des demandes au point de terminaison de prédiction de requête avec les paramètres de chaîne de requête `&spellCheck=true&bing-spell-check-subscription-key={bingKey}`. Consultez le [didacticiel sur la vérification orthographique Bing v7](luis-tutorial-bing-spellcheck.md) pour en savoir plus. Si cette fonctionnalité est utilisée, le conteneur envoie l’énoncé à la ressource de votre vérification orthographique Bing V7.
 * [Nouveaux domaines prédéfinis](luis-reference-prebuilt-domains.md) : ces domaines destinés aux entreprises incluent des entités, des exemples d’énoncé et des modèles. Étendez ces domaines pour votre usage personnel. 
 
 <a name="unsupported-dependencies"></a>
@@ -341,6 +342,7 @@ Configurations d’application non prises en charge|Détails|
 |Entités non prises en charge pour la culture anglais (en-US)|Entités prédéfinies [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2)|
 |Préparation vocale|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
 |analyse de sentiments|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
+|Vérification orthographique Bing|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]

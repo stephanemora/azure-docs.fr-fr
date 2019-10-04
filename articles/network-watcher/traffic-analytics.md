@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: 6c11f415fc1ea3a578893f6d14a60dfc1c4fddb0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ce59b46667f9139157a751d7d7b0205504d71ab0
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203014"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695649"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -182,11 +182,14 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 4. Définissez **Rétention** sur le nombre de jours durant lequel vous souhaitez stocker les données.
 > [!IMPORTANT]
 > Un problème empêche actuellement la suppression automatique des [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher du stockage Blob en fonction des paramètres de stratégie de conservation. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les blobs de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des blobs de stockage du journal de flux de groupe de sécurité réseau, consultez [Supprimer des blobs de stockage du journal de flux de groupe de sécurité réseau](network-watcher-delete-nsg-flow-log-blobs.md).
+
 5. Sélectionnez *Activé* pour **Traffic Analytics Status** (État Traffic Analytics).
 6. Sélectionnez l’intervalle de traitement. Suivant votre choix, les journaux d’activité de flux seront collectés à partir du compte de stockage et traités par Traffic Analytics. Vous pouvez choisir un intervalle de traitement et le définir pour toutes les heures ou toutes les 10 minutes. 
 7. Sélectionnez un espace de travail Log Analytics (OMS) existant ou cliquez sur **Créer un espace de travail** pour en créer un. Un espace de travail Log Analytics est utilisé par Traffic Analytics pour stocker les données agrégées et indexées qui sont ensuite utilisées pour générer l’analyse. Si vous sélectionnez un espace de travail existant, il doit se trouver dans les [régions prises en charge](#supported-regions-log-analytics-workspaces) et avoir été mis à niveau vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau un espace de travail existant ou si vous ne disposez pas d’un espace de travail dans une région prise en charge, créez-en un. Pour plus d’informations sur les langages de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    L’espace de travail Log Analytics qui héberge la solution Traffic Analytics et les groupes de sécurité réseau ne doivent pas nécessairement se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions USA Est et USA Ouest. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
+> [!NOTE]
+>L’espace de travail Log Analytics qui héberge la solution Traffic Analytics et les groupes de sécurité réseau ne doivent pas nécessairement se trouver dans la même région. Par exemple, Traffic Analytics se trouve peut-être dans un espace de travail de la région Europe Ouest, tandis que vos groupes de sécurité réseau sont hébergés dans les régions USA Est et USA Ouest. Plusieurs groupes de sécurité réseau peuvent être configurés dans le même espace de travail.
+
 8. Sélectionnez **Enregistrer**.
 
     ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](./media/traffic-analytics/ta-customprocessinginterval.png)
