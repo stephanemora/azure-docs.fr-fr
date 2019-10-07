@@ -1,7 +1,7 @@
 ---
 title: Qu’est-ce que l’API Text Analytics ? - Capacités -
 titleSuffix: Azure Cognitive Services
-Utiliser l’API Text Analytics dans Azure Cognitive Services pour analyser les sentiments, extraire les expressions clés, détecter la langue et reconnaître des entités.
+description: Utiliser l’API Analyse de texte dans Azure Cognitive Services pour analyser les sentiments, extraire les expressions clés, détecter la langue et reconnaître des entités.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -19,13 +19,13 @@ ms.locfileid: "70032673"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Qu’est-ce que l’API Text Analytics ?
 
-L’API Text Analytics est un service cloud qui fournit un traitement en langage naturel avancé de texte brut. Elle inclut quatre fonctions principales : analyse des sentiments, extraction de phrases clés, détection de la langue et la reconnaissance d’entités.
+L’API Analyse de texte est un service cloud qui fournit un traitement en langage naturel avancé de texte brut. Elle inclut quatre fonctions principales : analyse des sentiments, extraction de phrases clés, détection de la langue et la reconnaissance d’entités.
 
 L’API fait partie d’[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/), une collection d’algorithmes de machine learning et d’intelligence artificielle dans le cloud pour vos projets de développement.
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-L’expression Text Analytics peut signifier différentes choses mais, dans Cognitive Services, l’API Text Analytics fournit quatre types d’analyses, comme décrit ci-dessous. Vous pouvez utiliser ces fonctionnalités avec l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)REST ou une bibliothèque de client pour [.NET](quickstarts/csharp.md), [Python](quickstarts/python-sdk.md), [Node.js](quickstarts/nodejs-sdk.md), [Go](quickstarts/go-sdk.md), ou [Ruby](quickstarts/ruby-sdk.md).
+L’analyse de texte peut signifier différentes choses mais, dans Cognitive Services, l’API Analyse de texte fournit quatre types d’analyses, comme décrit ci-dessous. Vous pouvez utiliser ces fonctionnalités avec l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)REST ou une bibliothèque de client pour [.NET](quickstarts/csharp.md), [Python](quickstarts/python-sdk.md), [Node. js](quickstarts/nodejs-sdk.md), [Go](quickstarts/go-sdk.md), ou [Ruby](quickstarts/ruby-sdk.md).
 
 ## <a name="sentiment-analysis"></a>Analyse des sentiments
 Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) pour découvrir ce que les clients pensent de votre marque ou de votre thématique en analysant du texte brut pour trouver des indices sur les sentiments positifs ou négatifs. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif.<br /> Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](text-analytics-supported-languages.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante.
@@ -81,7 +81,7 @@ Cette section a été déplacée vers un article distinct pour une meilleure dé
 
 ## <a name="data-limits"></a>Limites de données
 
-Tous les points de terminaison de l’API Text Analytics acceptent des données en texte brut. La limite actuelle est de 5 120 caractères par document. Si vous avez besoin d’analyser des documents plus volumineux, vous pouvez les morceler en blocs plus petits.
+Tous les points de terminaison de l’API Analyse de texte acceptent des données en texte brut. La limite actuelle est de 5 120 caractères par document. Si vous avez besoin d’analyser des documents plus volumineux, vous pouvez les morceler en blocs plus petits.
 
 | Limite | Valeur |
 |------------------------|---------------|
@@ -100,11 +100,11 @@ Votre limite de débit varie selon votre niveau tarifaire.
 | S3            | 500                 | 500                 |
 | S4            | 1 000                | 1 000                |
 
-Les requêtes sont mesurées séparément pour chaque fonctionnalité de Text Analytics. Par exemple, vous pouvez envoyer le nombre maximal de requêtes pour votre niveau tarifaire pour chaque fonctionnalité en même temps.     
+Les requêtes sont mesurées séparément pour chaque fonctionnalité de Text Analytics. Par exemple, vous pouvez envoyer le nombre maximal de requêtes pour votre niveau tarifaire pour chaque fonctionnalité en même temps.      
 
 ## <a name="unicode-encoding"></a>Codage Unicode
 
-L’API Text Analytics utilise un codage Unicode pour la représentation textuelle et les calculs de nombre de caractères. Les demandes peuvent être soumises en code UTF-8 ou UTF-16, sans différence mesurable de nombre de caractères. Des points de code Unicode sont utilisés en guise d’heuristique pour la longueur de caractères, et sont considérés comme équivalents en ce qui concerne les limites de données pour Text Analytics. Si vous utilisez [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) pour obtenir le nombre de caractères, vous recourez à la même méthode que nous pour mesurer la taille des données.
+L’API Analyse de texte utilise un codage Unicode pour la représentation textuelle et les calculs de nombre de caractères. Les demandes peuvent être soumises en code UTF-8 ou UTF-16, sans différence mesurable de nombre de caractères. Des points de code Unicode sont utilisés en guise d’heuristique pour la longueur de caractères, et sont considérés comme équivalents en ce qui concerne les limites de données pour l’analyse de texte. Si vous utilisez [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements) pour obtenir le nombre de caractères, vous recourez à la même méthode que nous pour mesurer la taille des données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
