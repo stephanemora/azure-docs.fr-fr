@@ -36,22 +36,30 @@
       items:
         - name: Scénarios courants
           href: entitlement-management-scenarios.md
-        - name: Créer un package d’accès
-          href: entitlement-management-access-package-create.md
-        - name: Modifier un package d’accès
-          href: entitlement-management-access-package-edit.md
-        - name: Créer un catalogue
-          href: entitlement-management-catalog-create.md
-        - name: Demander l'accès
-          href: entitlement-management-request-access.md
-        - name: Approuver les demandes
-          href: entitlement-management-request-approve.md
-        - name: Déléguer des tâches
-          href: entitlement-management-delegate.md
-        - name: Afficher les rapports et les journaux
-          href: entitlement-management-reports.md
-        - name: Résolution des problèmes
-          href: entitlement-management-troubleshoot.md
+        - name: Administrateurs et responsables de département
+          items:
+            - name: Déléguer des tâches
+              href: entitlement-management-delegate.md
+            - name: Créer un catalogue de ressources
+              href: entitlement-management-catalog-create.md
+            - name: Afficher les rapports et les journaux
+              href: entitlement-management-reports.md
+            - name: Résolution des problèmes
+              href: entitlement-management-troubleshoot.md
+        - name: Chefs de projet
+          items:
+            - name: Créer un package d’accès
+              href: entitlement-management-access-package-create.md
+            - name: Modifier un package d’accès
+              href: entitlement-management-access-package-edit.md
+        - name: Approbateurs
+          items:
+            - name: Approuver les demandes
+              href: entitlement-management-request-approve.md
+        - name: Demandeurs
+          items:
+            - name: Demander l'accès
+              href: entitlement-management-request-access.md
     - name: Révisions d’accès
       items:
         - name: Groupes et applications

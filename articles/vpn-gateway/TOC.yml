@@ -140,6 +140,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
         - name: Configurer un tunnel de périphérique VPN Always On
           href: vpn-gateway-howto-always-on-device-tunnel.md
+        - name: Configurer un tunnel utilisateur VPN Always On
+          href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Publier des routes personnalisées vers des clients P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
     - name: Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
@@ -148,7 +150,7 @@
       href: vpn-gateway-ipsecikepolicy-rm-powershell.md
     - name: Configurer des connexions entre deux passerelles actives
       href: vpn-gateway-activeactive-rm-powershell.md
-    - name: 'Routage, BGP et homologation de réseau virtuel'
+    - name: 'Routage, BGP et peering de réseau virtuel'
       items:
         - name: Configurer BGP pour une passerelle VPN
           items:
@@ -162,7 +164,7 @@
               href: vpn-gateway-forced-tunneling-rm.md
             - name: Azure PowerShell (Classic)
               href: vpn-gateway-about-forced-tunneling.md
-        - name: Configurer le transit de passerelle pour l’homologation de réseau virtuel
+        - name: Configurer le transit de passerelle pour le peering de réseau virtuel
           href: vpn-gateway-peering-gateway-transit.md
     - name: Modifier une passerelle de réseau local
       items:

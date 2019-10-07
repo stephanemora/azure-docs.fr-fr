@@ -54,7 +54,7 @@
       href: install-office-on-wvd-master-image.md
     - name: Configurer le GPU pour Windows Virtual Desktop
       href: configure-vm-gpu.md
-    - name: Mettre automatiquement à l’échelle vos hôtes de session
+    - name: Mettre à l’échelle dynamiquement des hôtes de session
       href: set-up-scaling-script.md
     - name: Personnaliser le flux pour les utilisateurs de Windows Virtual Desktop
       href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
     - name: 'Vue d’ensemble du dépannage, commentaires et support'
       href: troubleshoot-set-up-overview.md
-    - name: Identifier les problèmes relatifs à la fonctionnalité de diagnostic
+    - name: Identifier et diagnostiquer les problèmes
       href: diagnostics-role-service.md
     - name: Création d’un pool de locataires et d’hôtes
       href: troubleshoot-set-up-issues.md

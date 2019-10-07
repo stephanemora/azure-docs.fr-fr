@@ -85,7 +85,7 @@
           href: join-rhel-linux-vm.md
         - name: Serveur Ubuntu
           href: join-ubuntu-linux-vm.md
-    - name: Déployer les applications sur Azure AD DS
+    - name: Déployer des applications
       items:
         - name: "Déployer le proxy d’application Azure\_AD"
           href: deploy-azure-app-proxy.md
@@ -95,11 +95,17 @@
       items:
         - name: Erreurs courantes
           href: troubleshoot.md
-        - name: Erreurs relatives à des locataires incompatibles
+        - name: Problèmes de jonction à un domaine
+          href: troubleshoot-domain-join.md
+        - name: Verrouillages de comptes
+          href: troubleshoot-account-lockout.md
+        - name: Problèmes de connexion
+          href: troubleshoot-sign-in.md
+        - name: Résoudre les erreurs relatives à des locataires incompatibles
           href: mismatched-tenant-error.md
         - name: Domaines suspendus
           href: suspension.md
-        - name: LDAP sécurisé
+        - name: Problèmes de protocole LDAP sécurisé
           href: tshoot-ldaps.md
         - name: Problèmes connus
           items:
