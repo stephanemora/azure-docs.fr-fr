@@ -27,14 +27,14 @@
           items:
             - name: .NET
               href: storage-quickstart-blobs-dotnet.md
-            - name: Node.js
-              href: storage-quickstart-blobs-nodejs-v10.md
+            - name: Java
+              href: storage-quickstart-blobs-java.md
             - name: Python
               href: storage-quickstart-blobs-python.md
-            - name: JS/HTML à l’aide du SDK v10
+            - name: Javascript (Node.js)
+              href: storage-quickstart-blobs-nodejs-v10.md
+            - name: Javascript (navigateur)
               href: storage-quickstart-blobs-javascript-client-libraries-v10.md
-            - name: JS/HTML à l’aide du SDK v2
-              href: storage-quickstart-blobs-javascript-client-libraries.md
             - name: Go
               href: storage-quickstart-blobs-go.md
             - name: PHP
@@ -101,7 +101,7 @@
           items:
             - name: Présentation de la sécurité
               href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Storage Service Encryption
+            - name: Chiffrement du stockage Azure
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Authorization
               href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -334,7 +334,7 @@
                       href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Définir une stratégie d’accès stockée
                       href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Configurer les clés gérées par le client pour le chiffrement du service
+            - name: Utiliser des clés gérées par le client pour le chiffrement
               items:
                 - name: Portail
                   href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -410,12 +410,12 @@
                   href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
             - name: Xamarin
               href: storage-xamarin-blob-storage.md
-            - name: Kits de développement logiciel (SDK) hérités
+            - name: Versions précédentes du SDK
               items:
-                - name: "Java (Kit de développement logiciel de stockage\_V7)"
-                  href: storage-quickstart-blobs-java.md
-                - name: "Node.js (Kit de développement logiciel de stockage\_v2)"
+                - name: Javascript (Node.js) (SDK de stockage v2)
                   href: storage-quickstart-blobs-nodejs.md
+                - name: Javascript (navigateur) (SDK de stockage v2)
+                  href: storage-quickstart-blobs-javascript-client-libraries.md
         - name: Gérer les objets blob
           items:
             - name: D’Azure CLI

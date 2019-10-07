@@ -111,6 +111,14 @@
           href: acu.md
         - name: Quotas de processeurs virtuels
           href: quotas.md
+        - name: Instances réservées
+          items:
+            - name: Prépayer pour des machines virtuelles
+              href: prepay-reserved-vm-instances.md
+            - name: "Que sont les réservations Azure\_?"
+              href: ../../billing/billing-save-compute-costs-reservations.md
+            - name: Flexibilité de taille d'instance des machines virtuelles
+              href: reserved-vm-instance-size-flexibility.md
         - name: Scores de test d’évaluation
           href: compute-benchmark-scores.md
     - name: Distributions approuvées
@@ -302,16 +310,6 @@
           href: ../../azure-monitor/platform/alerts-metric.md
         - name: Créer des alertes de journal
           href: ../../azure-monitor/platform/alerts-log.md
-    - name: Gérer les coûts
-      items:
-        - name: Prépayer pour des machines virtuelles - Réservations Azure
-          href: prepay-reserved-vm-instances.md
-        - name: Prépayer les abonnements logiciels Azure
-          href: prepay-suse-software-charges.md
-        - name: "Que sont les réservations Azure\_?"
-          href: ../../billing/billing-save-compute-costs-reservations.md
-        - name: Flexibilité de taille d'instance des machines virtuelles
-          href: reserved-vm-instance-size-flexibility.md
     - name: Utiliser des images
       items:
         - name: Galeries d’images partagées
@@ -378,8 +376,6 @@
           href: manage-availability.md
         - name: Créer un groupe de placements de proximité
           href: proximity-placement-groups.md
-        - name: Mise à l’échelle verticale
-          href: vertical-scaling-automation.md
         - name: Créer une machine virtuelle dans une zone de disponibilité
           href: create-cli-availability-zone.md
     - name: Utiliser des outils d’automatisation

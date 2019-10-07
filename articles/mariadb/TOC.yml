@@ -59,7 +59,8 @@
           href: concepts-connectivity-architecture.md
     - name: Continuité de l’activité
       items:
-        - name: Vue d'ensemble
+        - name: Introduction à la continuité de l’activité
+          displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
           href: concepts-business-continuity.md
         - name: Sauvegarde et restauration
           href: concepts-backup.md
@@ -185,7 +186,7 @@
       href: /rest/api/mariadb
     - name: Modèle Resource Manager
       href: /azure/templates/microsoft.dbformariadb/allversions
-    - name: Procédures stockées Azure
+    - name: Procédures stockées de gestion
       href: reference-stored-procedures.md
 - name: Ressources
   items:

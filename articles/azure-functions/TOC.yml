@@ -82,6 +82,8 @@
       href: functions-deployment-technologies.md
     - name: Événements et messagerie
       items:
+        - name: Traitement des événements fiables
+          href: functions-reliable-event-processing.md
         - name: Conception pour une entrée identique
           href: functions-idempotent.md
     - name: Déclencheurs et liaisons

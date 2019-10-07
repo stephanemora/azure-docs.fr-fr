@@ -241,6 +241,8 @@
           items:
             - name: Résoudre les problèmes de provisionnement d’utilisateurs
               href: application-provisioning-config-problem.md
+            - name: État de la quarantaine
+              href: application-provisioning-quarantine-status.md
             - name: Journaux d’approvisionnement
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
             - name: Synchroniser un attribut pour le mappage - application de galerie
@@ -357,6 +359,8 @@
           href: provisioning-agent-release-version-history.md
     - name: Proxy d’application pour applications locales
       items:
+        - name: Questions fréquentes (FAQ) sur le proxy d’application
+          href: application-proxy-faq.md
         - name: Historique des versions du proxy d’application
           href: application-proxy-release-version-history.md
 - name: Ressources

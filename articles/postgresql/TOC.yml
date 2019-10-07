@@ -94,7 +94,8 @@
               href: concepts-connectivity-architecture.md
         - name: Continuité de l’activité
           items:
-            - name: Vue d'ensemble
+            - name: Introduction à la continuité de l’activité
+              displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
               href: concepts-business-continuity.md
             - name: Sauvegarde et restauration
               href: concepts-backup.md
