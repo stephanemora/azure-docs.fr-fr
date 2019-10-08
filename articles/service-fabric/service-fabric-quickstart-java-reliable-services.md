@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ca6a1063f6ddd5c42d0d08f43b87a3387cc46a14
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 4ef0db5f72f5849942bb043261f1166cf7c046b1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859269"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703293"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>Démarrage rapide :  Déployer une application Java dans Azure Service Fabric sur Linux
 
@@ -28,7 +28,7 @@ Ce guide de démarrage rapide montre comment déployer votre première applicati
 
 Azure Service Fabric est une plateforme de systèmes distribués pour le déploiement et la gestion de microservices et de conteneurs.
 
-![Capture d’écran de l’application](./media/service-fabric-quickstart-java/votingapp.png)
+![Azure Service Fabric - Exemple de vote](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
@@ -62,22 +62,22 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```
     Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080** . Les cinq nœuds sains indiquent que le cluster local est opérationnel.
 
-    ![Cluster local sain](./media/service-fabric-quickstart-java/localclusterup.png)
+    ![Azure Service Fabric Explorer - Affichage des nœuds sains](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Ouvrez Eclipse.
 3. Cliquez sur **Fichier** > **Importer** > **Gradle** > **Projet Gradle existant** et suivez l’assistant.
 4. Cliquez sur **Répertoire**, puis sélectionnez le répertoire `Voting` dans le dossier `service-fabric-java-quickstart` que vous avez cloné à partir de GitHub. Sélectionnez **Terminer**.
 
-    ![Boîte de dialogue Importer - Eclipse](./media/service-fabric-quickstart-java/eclipseimport.png)
+    ![Importer un projet Gradle dans Eclipse](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
 5. Le projet `Voting` se trouve désormais dans l’Explorateur de package pour Eclipse.
 6. Cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier l’application** dans la liste déroulante **Service Fabric**. Choisissez **PublishProfiles/Local.json** comme profil cible, puis cliquez sur **Publier**.
 
-    ![Boîte de dialogue Publier - Local](./media/service-fabric-quickstart-java/localjson.png)
+    ![Azure Service Fabric - Publier du code JSON local](./media/service-fabric-quickstart-java/service-fabric-publish-local-json.png)
 
-7. Ouvrez votre navigateur web préféré et accédez à l’application sur `http://localhost:8080`.
+7. Ouvrez votre navigateur web préféré, puis accédez à l’application à l’adresse `http://localhost:8080`.
 
-    ![Frontend de l’application - Local](./media/service-fabric-quickstart-java/runninglocally.png)
+    ![Azure Service Fabric - Hôte local](./media/service-fabric-quickstart-java/service-fabric-local-host.png)
 
 Vous pouvez à présent ajouter un ensemble d’options de vote et commencer à enregistrer les votes. L’application s’exécute et stocke toutes les données dans votre cluster Service Fabric, sans recourir à une base de données séparée.
 
@@ -92,14 +92,14 @@ Pour mettre à l’échelle le service web frontal, procédez comme suit :
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `https://localhost:19080`.
 2. Cliquez sur le bouton de sélection ( **...** ) à côté du nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis sélectionnez **Scale Service** (Mettre à l’échelle le service).
 
-    ![Mettre à l’échelle le service dans Service Fabric Explorer](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
+    ![Mettre à l’échelle un service dans Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)
 
     Vous pouvez maintenant choisir de mettre à l’échelle le nombre d’instances du service frontal web.
 
 3. Définissez le nombre sur **2**, puis sélectionnez **Scale Service**.
 4. Sélectionnez le nœud **fabric:/Voting/VotingWeb** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID).
 
-    ![Mettre à l’échelle le service dans Service Fabric Explorer - Terminé](./media/service-fabric-quickstart-java/servicescaled.png)
+    ![Service mis à l’échelle dans Azure Service Fabric](./media/service-fabric-quickstart-java/service-fabric-explorer-service-scaled.png)
 
     Vous pouvez maintenant voir que le service a deux instances et, dans l’arborescence, vous voyez les nœuds sur lesquels les instances s’exécutent.
 

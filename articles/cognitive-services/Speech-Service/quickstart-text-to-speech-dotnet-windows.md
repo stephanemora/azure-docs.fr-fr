@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/27/2019
 ms.author: yinhew
-ms.openlocfilehash: 65db847c5df1a05671e3b1c0ac4541f00506c8fd
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 1a411455e4a6dea22e092cdfc8e70ee23b656435
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854694"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327448"
 ---
 # <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Démarrage rapide : Synthèse vocale avec le SDK Speech pour .NET Framework (Windows)
 
@@ -23,15 +23,13 @@ Des guides de démarrage rapide sont également disponibles pour la [reconnaissa
 
 Utilisez ce guide pour créer une application console de synthèse vocale en utilisant .NET Framework pour Windows et le SDK Speech. Quand vous avez terminé, vous pouvez faire la synthèse vocale à partir d’un texte et entendre ces paroles sur votre haut-parleur en temps réel.
 
-Pour une démonstration rapide (sans créer vous-même le projet Visual Studio comme indiqué ci-dessous) :
-
-Obtenez les derniers [exemples de SDK Speech de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-speech-sdk) sur GitHub.
+Pour une démonstration rapide (sans générer vous-même le projet Visual Studio, comme décrit dans cet article), consultez les derniers [exemples du SDK Speech de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-speech-sdk) à partir de GitHub.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Clé d’abonnement pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 * Un haut-parleur (ou un casque) disponible.
 
@@ -41,29 +39,25 @@ Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
-1. Ouvrez `Program.cs` et remplacez le code généré automatiquement par cet exemple :
+1. Ouvrez **Program.cs** et remplacez le code généré automatiquement par cet exemple :
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Recherchez et remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement Speech Services.
+1. Recherchez la chaîne `YourSubscriptionKey` et remplacez-la par votre clé d’abonnement aux services Speech.
 
-1. Recherchez et remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement. Par exemple, si vous utilisez la version d’évaluation gratuite, la région est `westus`.
+1. Recherchez la chaîne `YourServiceRegion`, puis remplacez-la par la [région](regions.md) associée à votre abonnement. Par exemple, si vous utilisez l’abonnement d’essai gratuit, la région est `westus`.
 
-1. Enregistrez les modifications apportées au projet.
+1. Dans la barre de menus, choisissez **Fichier** > **Enregistrer tout**.
 
-## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
+## <a name="build-and-run-the-application"></a>Génération et exécution de l’application
 
-1. Dans la barre de menus, sélectionnez **Générer** > **Générer la solution**. Le code doit maintenant se compiler sans erreurs.
+1. Dans la barre de menus, choisissez **Générer** > **Générer la solution** pour générer l’application. Le code doit maintenant se compiler sans erreurs.
 
-    ![Capture d’écran de l’application Visual Studio, avec l’option Générer la solution mise en surbrillance](media/sdk/qs-csharp-dotnet-windows-08-build.png "Build réussie")
+1. Choisissez **Déboguer** > **Démarrer le débogage** (ou sélectionnez **F5**) pour démarrer l’application **helloworld**.
 
-1. Dans la barre de menus, sélectionnez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5** pour démarrer l’application.
+1. Entrez une phrase ou quelques mots en anglais. L’application transmet votre texte aux services Speech, qui envoient une synthèse vocale à l’application pour qu’elle la lise sur votre haut-parleur.
 
-    ![Capture d’écran de l’application Visual Studio, avec l’option Démarrer le débogage mise en surbrillance](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Démarrer l’application en débogage")
-
-1. Une fenêtre de console apparaît et vous invite à taper du texte. Tapez quelques mots ou une phrase. Le texte que vous avez tapé est transmis aux services Speech et est synthétisé en paroles, qui sont lues sur votre haut-parleur.
-
-    ![Capture d’écran de la sortie de la console après la réussite de la reconnaissance](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Sortie de la console après la réussite de la reconnaissance")
+   ![Interface utilisateur de la synthèse vocale](media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -72,5 +66,5 @@ Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Personnaliser les polices de la voix](how-to-customize-voice-font.md)
-- [Enregistrer des échantillons vocaux](record-custom-voice-samples.md)
+- [Créer une voix personnalisée Custom Voice](how-to-custom-voice-create-voice.md)
+- [Enregistrer des échantillons vocaux personnalisés](record-custom-voice-samples.md)

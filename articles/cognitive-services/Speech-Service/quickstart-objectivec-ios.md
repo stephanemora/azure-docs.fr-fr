@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d87fd06b45d1d3636c442d962daa79cf526e74f2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553643"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803282"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Objective-C sur iOS à l’aide du SDK Speech
+
+Des guides de démarrage rapide sont également disponibles pour la [synthèse vocale](quickstart-text-to-speech-objectivec-ios.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,8 +36,6 @@ Avant de commencer, voici une liste de prérequis :
 ## <a name="get-the-speech-sdk-for-ios"></a>Obtenir le SDK Speech pour iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `1.6.0`.
 
 Le SDK Speech de Cognitive Services pour iOS est actuellement distribué sous forme de framework Cocoa.
 Vous pouvez le télécharger [ici](https://aka.ms/csspeech/iosbinary). Téléchargez le fichier dans votre répertoire de base.
@@ -87,7 +87,7 @@ Remplacez le code XML généré automatiquement par ce code :
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 
-## <a name="building-and-running-the-sample"></a>Génération et exécution de l’exemple
+## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
 
 1. Affichez la sortie de débogage (**View** > **Debug Area** > **Activate Console**).
 1. Choisissez le simulateur iOS ou un appareil iOS connecté à votre machine de développement comme destination pour l’application à partir de la liste présentée dans le menu **Produit** > **Destination**.

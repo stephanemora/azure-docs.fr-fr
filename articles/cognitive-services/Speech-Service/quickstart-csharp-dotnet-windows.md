@@ -8,35 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: 47f955734070be4adfe7f58da98265b976e643d5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cb140647394858fbc0a9a00ea125365d5b7a08d5
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554165"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327047"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour le .NET Framework (Windows)
 
 Des guides de démarrage rapide sont également disponibles pour la [synthèse vocale](quickstart-text-to-speech-dotnet-windows.md) et la [traduction vocale](quickstart-translate-speech-dotnetframework-windows.md).
 
-Si vous le souhaitez, choisissez un autre langage de programmation et/ou environnement :<br/>
+Si vous le souhaitez, choisissez un autre langage de programmation et/ou un autre environnement :<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Utilisez ce guide pour créer une application de console de reconnaissance vocale à l’aide de .NET Framework pour Windows et du kit SDK Speech. Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
 
-Pour une démonstration rapide (sans créer vous-même le projet Visual Studio comme indiqué ci-dessous) :
-
-Obtenez les derniers [exemples de SDK Speech de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-speech-sdk) sur GitHub.
+Pour une démonstration rapide (sans générer vous-même le projet Visual Studio, comme décrit dans cet article), consultez les derniers [exemples du SDK Speech de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-speech-sdk) à partir de GitHub.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * Clé d’abonnement pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
-* Accès au microphone de l’ordinateur
+* Accès au microphone de l’ordinateur.
 
 ## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
@@ -44,29 +42,25 @@ Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 
 ## <a name="add-sample-code"></a>Ajouter un exemple de code
 
-1. Ouvrez `Program.cs` et remplacez le code généré automatiquement par cet exemple :
+1. Ouvrez **Program.cs** et remplacez le code généré automatiquement par cet exemple :
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Recherchez et remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement Speech Services.
+1. Recherchez la chaîne `YourSubscriptionKey` et remplacez-la par votre clé d’abonnement aux services Speech.
 
-1. Recherchez et remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement. Par exemple, si vous utilisez la version d’évaluation gratuite, la région est `westus`.
+1. Recherchez la chaîne `YourServiceRegion`, puis remplacez-la par la [région](regions.md) associée à votre abonnement. Par exemple, si vous utilisez l’abonnement d’évaluation gratuite, la région est `westus`.
 
-1. Enregistrez les modifications apportées au projet.
+1. Dans la barre de menus, choisissez **Fichier** > **Enregistrer tout**.
 
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-1. Dans la barre de menus, sélectionnez **Générer** > **Générer la solution**. Le code doit maintenant se compiler sans erreurs.
+1. Dans la barre de menus, choisissez **Générer** > **Générer la solution** pour générer l’application. Le code doit maintenant se compiler sans erreurs.
 
-    ![Capture d’écran de l’application Visual Studio, avec l’option Générer la solution mise en surbrillance](media/sdk/qs-csharp-dotnet-windows-08-build.png "Build réussie")
+1. Choisissez **Déboguer** > **Démarrer le débogage** (ou sélectionnez **F5**) pour démarrer l’application **helloworld**.
 
-1. Dans la barre de menus, sélectionnez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5** pour démarrer l’application.
+1. Dites une expression ou une phrase en anglais dans le microphone de votre appareil. L’application transmet vos paroles aux services Speech, qui renvoient le texte transcrit à l’application pour qu’elle les affiche.
 
-    ![Capture d’écran de l’application Visual Studio, avec l’option Démarrer le débogage mise en surbrillance](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Démarrer l’application en débogage")
-
-1. Une fenêtre de console s’affiche et vous invite à parler. Maintenant, dites quelque chose en français. Votre production orale est transmise à Speech Services et transcrite en texte en temps réel. Le résultat est inscrit sur la console.
-
-    ![Capture d’écran de la sortie de la console après la réussite de la reconnaissance](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Sortie de la console après la réussite de la reconnaissance")
+   ![Interface utilisateur de la reconnaissance vocale](media/sdk/qs-csharp-dotnet-windows-10-console-output.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -75,5 +69,4 @@ Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
-- [Personnaliser les modèles de langage](how-to-customize-language-model.md)
+- [Entraîner un modèle pour Custom Speech](how-to-custom-speech-train-model.md)

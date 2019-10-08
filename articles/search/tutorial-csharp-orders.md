@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: v-pettur
 author: PeterTurcan
 ms.date: 06/21/2019
-ms.openlocfilehash: 32e253b4e131d753ab6937d0aa2a49bda471e091
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466543"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327648"
 ---
 # <a name="c-tutorial-order-the-results---azure-search"></a>Tutoriel C# : Classer les résultats - Recherche Azure
 
@@ -320,7 +320,7 @@ Il n’est pas nécessaire de modifier les modèles pour activer le classement. 
 
     ![Affichage des plages de prix des chambres](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
-La propriété **OrderBy** des paramètres de recherche n’acceptera pas d’entrée comme **Rooms.BaseRate** pour fournir le prix de la chambre la moins chère, même si les chambres étaient déjà triées sur le prix (ce qui n’est pas le cas). Pour afficher les hôtels de l’exemple de jeu de données, classés en fonction du prix des chambres, il faudrait de trier les résultats dans votre contrôleur home et envoyer ces résultats à la vue dans l’ordre souhaité.
+La propriété **OrderBy** des paramètres de recherche n’accepte pas d’entrée telle que **Rooms.BaseRate** pour fournir le prix de la chambre la moins chère, même si les chambres sont déjà triées en fonction du prix. Dans ce cas, les chambres ne sont pas triées en fonction du prix. Pour afficher les hôtels de l’exemple de jeu de données, classés en fonction du prix des chambres, il faudrait de trier les résultats dans votre contrôleur home et envoyer ces résultats à la vue dans l’ordre souhaité.
 
 ## <a name="order-results-based-on-multiple-values"></a>Classer des résultats en fonction de plusieurs valeurs
 

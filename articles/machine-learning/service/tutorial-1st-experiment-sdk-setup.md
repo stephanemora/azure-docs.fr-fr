@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/28/2019
-ms.openlocfilehash: 9bc5b9688a8cd568b47fe2dad88d6d007ceca0c4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 09/25/2019
+ms.openlocfilehash: 3bbda22689bb330acc836173162a64b840f1bbd8
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004072"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828031"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Didacticiel : Bien démarrer avec la création de votre première expérience ML avec le SDK Python
 
@@ -25,44 +25,65 @@ Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Créer un [espace de travail Azure Machine Learning](concept-workspace.md) à utiliser dans le tutoriel suivant.
+> * Clonez le notebook des tutoriels dans votre dossier au sein de l’espace de travail.
 > * Préinstallez et préconfigurez le SDK Python Azure Machine Learning, puis créez une machine virtuelle Notebook Jupyter basée sur le cloud.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
-Un espace de travail Azure Machine Learning est une ressource fondamentale du cloud que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning. Il lie votre abonnement Azure et votre groupe de ressources à un objet facile à consommer dans le kit de développement logiciel (SDK). Si vous avez déjà un espace de travail Azure Machine Learning, passez à la [section suivante](#azure). Dans le cas contraire, créez-en un maintenant.
+Un espace de travail Azure Machine Learning est une ressource fondamentale du cloud que vous utilisez pour expérimenter, entraîner et déployer des modèles Machine Learning. Il lie votre abonnement Azure et votre groupe de ressources à un objet facile à consommer dans le service. 
+
+Vous créez un espace de travail par le biais du portail Azure, une console web pour la gestion de vos ressources Azure. 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="azure"></a>Créer un serveur de notebooks basé sur le cloud
+>[!IMPORTANT] 
+> Prenez note de votre **espace de travail** et de votre **abonnement**. Vous en aurez besoin pour être sûr de créer votre expérience au bon endroit. 
+
+
+## <a name="azure"></a>Cloner un dossier de notebooks
 
 Cet exemple utilise le serveur de notebook cloud dans votre espace de travail pour une expérience préconfigurée sans installation. Utilisez [votre propre environnement](how-to-configure-environment.md#local) si vous préférez contrôler votre environnement, vos packages et vos dépendances.
 
-À partir de votre espace de travail, créez une ressource cloud pour commencer à utiliser des notebooks Jupyter. Cette ressource est une machine virtuelle Linux cloud préconfigurée avec tout ce dont vous avez besoin pour exécuter Azure Machine Learning.
+Vous effectuez les étapes de configuration et d’exécution d’expérience suivantes dans la page d’accueil de l’espace de travail (préversion), une interface centralisée qui comprend des outils de Machine Learning permettant de mettre en œuvre des scénarios de science des données pour les utilisateurs de science des données de tous niveaux de compétence.
 
-1. Ouvrez votre espace de travail dans le [portail Azure](https://portal.azure.com/).  Si vous ne savez pas comment localiser votre espace de travail sur le portail, découvrez comment [retrouver votre espace de travail](how-to-manage-workspace.md#view).
+1. Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com/).
 
-1. Dans la page de votre espace de travail sur le portail Azure, sélectionnez **Machines virtuelles Notebook** à gauche.
+1. Sélectionnez votre abonnement et l’espace de travail que vous avez créé.
 
-1. Sélectionnez **+Nouveau** pour créer un machine virtuelle Notebook.
+1. Sélectionnez **Notebooks and files** (Notebooks et fichiers) à gauche.
 
-     ![Sélectionner Nouvelle machine virtuelle](./media/tutorial-1st-experiment-sdk-setup/add-workstation.png)
+1. Ouvrez le dossier **samples** (exemples).
 
-1. Attribuez un nom à votre machine virtuelle. 
-   + Le nom de votre machine virtuelle Notebook doit comprendre entre 2 et 16 caractères. Les caractères valides sont les lettres, les chiffres et le caractère « - ».  
-   + Le nom doit aussi être unique dans votre abonnement Azure.
+1. Sélectionnez **« ... »** à droite du dossier **tutorials** (tutoriels), puis sélectionnez **Clone** (Cloner).
 
-1. Sélectionnez ensuite **Créer**. Un certain temps peut être nécessaire pour configurer votre machine virtuelle.
+    ![Cloner un dossier](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. Attendez que l’état du travail passe à **Exécution**.
-   Dès lors que votre machine virtuelle s’exécute, lancez l’interface web Jupyter à partir de la section **Machines virtuelles Notebook**.
+1. Un dossier est affiché pour chaque utilisateur qui accède à l’espace de travail.  Sélectionnez le dossier où cloner le dossier **tutorial**.
 
-1. Sélectionnez **Jupyter** dans la colonne **URI** correspondant à votre machine virtuelle.
+## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Sélectionner une machine virtuelle pour exécuter le notebook
 
-    ![Démarrer le serveur de notebooks Jupyter](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+1. Sous **User Files** (Fichiers utilisateur), ouvrez votre dossier, puis ouvrez le dossier **tutorials** cloné.
 
-   Le lien démarre votre serveur de notebooks et ouvre la page web de notebook Jupyter dans un nouvel onglet du navigateur.  Ce lien fonctionne uniquement pour la personne qui crée la machine virtuelle. Chaque utilisateur de l’espace de travail doit créer sa propre machine virtuelle.
+    ![Ouvrir le dossier tutorials](media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+
+    > [!IMPORTANT]
+    > Vous pouvez voir les notebooks présents dans le dossier **samples** (exemples), mais vous ne pouvez pas exécuter de notebook à partir de cet emplacement.  Pour exécuter un notebook, veillez à ouvrir sa version clonée dans la section **User Files**.
+    
+1. Sélectionnez le fichier **tutorial-1st-experiment-sdk-train.ipynb** dans votre dossier **tutorials**.
+
+1. Dans la barre supérieure, sélectionnez une machine virtuelle Notebook à utiliser pour exécuter le notebook. Ces machines virtuelles sont préconfigurées avec tout ce dont vous avez besoin pour exécuter Azure Machine Learning. Vous pouvez sélectionner une machine virtuelle créée par n’importe quel utilisateur de votre espace de travail. 
+
+1. Si une machine virtuelle est introuvable, sélectionnez **+ New VM** (Nouvelle machine virtuelle) pour créer la machine virtuelle.
+
+    ![Créer une machine virtuelle](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
+
+    1. Quand vous créez une machine virtuelle, indiquez un nom.  Le nom doit être compris entre 2 et 16 caractères. Les caractères valides sont les lettres, les chiffres et le caractère« - ». De plus, les noms doivent être uniques dans votre abonnement Azure.
+
+    1. Sélectionnez ensuite **Créer**. Environ 5 minutes sont nécessaires pour configurer votre machine virtuelle.
+
+1. Une fois la machine virtuelle disponible, elle s’affiche dans la barre d’outils supérieure.  Vous pouvez maintenant exécuter le notebook à l’aide de **Run all** (Tout exécuter) dans la barre d’outils, ou à l’aide de **Maj+Entrée** dans les cellules de code du notebook.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

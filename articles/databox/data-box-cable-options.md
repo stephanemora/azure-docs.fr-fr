@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 661cec672aa02f62b479b7f5831adfdaff9e6b21
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077545"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316553"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Options de câblage de votre Azure Data Box
 
@@ -74,7 +74,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
 
 Procédez comme suit pour brancher les câbles de l’appareil.
 
-1. Utilisez un câble Ethernet RJ45 du serveur directement au port de gestion pour la configuration.
+1. Utilisez un câble Ethernet RJ45 entre l’ordinateur séparé et le port de gestion pour la configuration.
 2. Utilisez un câble RJ45 pour DATA 3 ou SFP+ pour connecter DATA 1 ou DATA 2 au serveur. Pour des bonnes performances, nous vous recommandons d’utiliser le port 10 GbE DATA 1 ou DATA 2. Les ports de données sont connectés au serveur contenant des données via un commutateur 10 GbE.
 3. Configurez la carte Ethernet sur l’ordinateur portable que vous utilisez pour vous connecter à l’appareil avec :
 

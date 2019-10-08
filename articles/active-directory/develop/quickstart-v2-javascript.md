@@ -16,25 +16,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988c73236d9f5ef360ded03bca36a4bb24ebd308
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290819"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827114"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application monopage JavaScript
 
-Dans ce guide de démarrage rapide, vous allez découvrir comment utiliser un exemple de code qui montre comment une application monopage JavaScript peut connecter les utilisateurs de comptes personnels, professionnels et scolaires. Une application monopage JavaScript peut également obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou une API web.
-
-![Fonctionnement de l’exemple d’application dans ce guide de démarrage rapide](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour découvrir comment une application monopage JavaScript peut connecter les utilisateurs de comptes personnels, professionnels et scolaires. Une application monopage JavaScript peut également obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou une API web. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce guide de démarrage rapide utilise la configuration suivante :
-* Pour exécuter le projet avec un serveur Node.js, téléchargez et installez [Node.js](https://nodejs.org/en/download/).
-* Pour modifier les fichiers projet, téléchargez et installez [Visual Studio Code](https://code.visualstudio.com/download).
-* Pour exécuter le projet comme solution Visual Studio, téléchargez et installez [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Node.js](https://nodejs.org/en/download/).
+* [Visual Studio Code](https://code.visualstudio.com/download) (pour modifier des fichiers projet) ou [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (pour exécuter le projet en tant que solution Visual Studio).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Inscrire et télécharger votre application de démarrage rapide
@@ -81,8 +78,6 @@ Sélectionnez l’option qui convient à votre environnement de développement 
 * Pour exécuter le projet avec un serveur web en utilisant Node.js, [téléchargez les fichiers principaux du projet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip). Pour ouvrir les fichiers, utilisez un éditeur comme [Visual Studio Code](https://code.visualstudio.com/).
 
 * (Facultatif) Pour exécuter le projet avec le serveur IIS, [téléchargez le projet Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extrayez le fichier zip dans un dossier local (par exemple, *C:\Azure-Samples*).
-
-
 
 #### <a name="step-3-configure-your-javascript-app"></a>Étape 3 : Configurer une application JavaScript
 
@@ -144,6 +139,10 @@ var msalConfig = {
 Une fois que l’application est chargée dans le navigateur, sélectionnez **Se connecter**. La première fois que vous vous connectez, vous êtes invité à autoriser l’application à accéder à votre profil et à vous connecter. Une fois que vous êtes connecté, les informations de votre profil utilisateur doivent s’afficher sur la page.
 
 ## <a name="more-information"></a>Plus d’informations
+
+### <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
+
+![Fonctionnement de l’exemple d’application dans ce guide de démarrage rapide](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 

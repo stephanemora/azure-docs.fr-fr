@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3ba804f76f8d443c0b49a9b4e5425333f01f0b9a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102325"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828362"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows SQL Server 2017 dans le portail Azure
 
@@ -81,9 +81,10 @@ Sous l’onglet **De base**, fournissez les informations suivantes :
 Sous l’onglet **Paramètres SQL Server**, configurez les options suivantes :
 
 1. Sous **Sécurité et réseaux**, sélectionnez _Public (Internet)_ pour **Connectivité SQL**, puis remplacez le port par `1401` pour éviter d’utiliser un numéro de port connu dans un scénario public. 
-1. Sous **Authentification SQL**, sélectionnez **Activer**. La connexion SQL est définie sur les mêmes nom d’utilisateur et mot de passe que vous avez configurés pour la machine virtuelle. Pour **Azure Key Vault Integration** et **Configuration du stockage**, utilisez les paramètres par défaut.  
+1. Sous **Authentification SQL**, sélectionnez **Activer**. La connexion SQL est définie sur les mêmes nom d’utilisateur et mot de passe que vous avez configurés pour la machine virtuelle. Utilisez le paramètre par défaut pour l’[**intégration Azure Key Vault**](virtual-machines-windows-ps-sql-keyvault.md). La **configuration du stockage** n’est pas disponible pour les images de base des machines virtuelles SQL Server. Si vous souhaitez connaître les options qui sont disponibles pour les autres images, consultez [Configuration du stockage](virtual-machines-windows-sql-server-storage-configuration.md#new-vms).  
 
    ![Paramètres de sécurité SQL Server](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
+
 
 1. Modifiez d’autres paramètres si nécessaire, puis sélectionnez **Vérifier + créer**. 
 

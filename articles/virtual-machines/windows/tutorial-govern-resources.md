@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 8c551e5c61c091e46870efcc8bffcb669aa78ea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100332"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674984"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Didacticiel : Découvrez-en plus sur la gestion des machines virtuelles Windows avec Azure PowerShell.
 
@@ -235,8 +235,8 @@ Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous 
 > * Protéger les ressources critiques avec des verrous
 > * Ajouter des balises aux ressources pour la facturation et la gestion
 
-Passez au didacticiel suivant pour en savoir plus sur les machines virtuelles hautement disponibles.
+Passez au tutoriel suivant pour apprendre à identifier les changements et à gérer les mises à jour de packages d’une machine virtuelle Linux.
 
 > [!div class="nextstepaction"]
-> [Surveiller les machines virtuelles](tutorial-monitoring.md)
+> [Gestion des machines virtuelles](tutorial-config-management.md)
 

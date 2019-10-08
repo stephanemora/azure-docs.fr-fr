@@ -1,22 +1,22 @@
 ---
-title: Créer un pool d’hôtes Windows Virtual Desktop Preview avec la Place de marché Azure - Azure
-description: Comment créer un pool d’hôtes Windows Virtual Desktop Preview avec la Place de marché Azure.
+title: Créer un pool d’hôtes Windows Virtual Desktop à l’aide de la Place de marché Azure - Azure
+description: Guide pratique pour créer un pool d’hôtes Windows Virtual Desktop à l’aide de la Place de marché Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208384"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676711"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Didacticiel : Créer un pool d’hôtes en utilisant la Place de marché Azure
 
-Les pools d’hôtes sont une collection d’une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Windows Virtual Desktop Preview. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
+Les pools d’hôtes sont une collection d’une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Windows Virtual Desktop. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
 
 Ce tutoriel explique comment créer un pool d’hôtes avec un locataire Windows Virtual Desktop à l’aide d’une offre de la Place de marché Microsoft Azure. Les tâches sont les suivantes :
 
@@ -80,7 +80,7 @@ Pour le panneau **Paramètres de la machine virtuelle** :
 3. Sélectionnez le réseau virtuel qui dispose d’une connectivité au serveur Active Directory, puis choisissez un sous-réseau pour héberger les machines virtuelles.
 4. Sélectionnez **OK**.
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Informations sur le locataire Windows Virtual Desktop Preview
+### <a name="windows-virtual-desktop-tenant-information"></a>Informations sur le locataire Windows Virtual Desktop
 
 Pour le panneau **Informations sur le locataire Windows Virtual Desktop** :
 

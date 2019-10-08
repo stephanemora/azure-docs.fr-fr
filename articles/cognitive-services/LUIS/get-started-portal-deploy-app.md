@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257071"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703221"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
 
@@ -87,43 +87,50 @@ Formez l’application lorsque vous êtes prêt à la tester. Publiez l’applic
 
 1. Sélectionnez l’URL de point de terminaison associée au nom de votre nouvelle ressource. Cette action ouvre un navigateur web avec une URL correctement construite pour effectuer une requête `GET` auprès du runtime du point de terminaison de prédiction.
 
-1. Le `q=` à la fin de l’URL est l’abréviation de **query** et est l’endroit où l’énoncé de l’utilisateur est ajouté à la requête GET. Après le `q=`, entrez le même énoncé utilisateur que celui utilisé à la fin du guide de démarrage rapide précédent :
+## <a name="prediction-endpoint-request"></a>Demande de point de terminaison de prédiction
 
-    ```Is there a form named hrf-234098```
+<!-- V3FIX -->
 
-    La réponse du navigateur est le même code JSON que celui reçu par votre application cliente :
+Le `q=` à la fin de l’URL est l’abréviation de **query** et est l’endroit où l’énoncé de l’utilisateur est ajouté à la requête GET. Après le `q=`, entrez le même énoncé utilisateur que celui utilisé à la fin du guide de démarrage rapide précédent :
 
-    ```JSON
+```Is there a form named hrf-234098```
+
+La réponse du navigateur est le même code JSON que celui reçu par votre application cliente :
+
+```JSON
+{
+"query": "Is there a form named hrf-234098",
+"topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.9768753
+},
+"intents": [
     {
-    "query": "Is there a form named hrf-234098",
-    "topScoringIntent": {
-        "intent": "FindForm",
-        "score": 0.9768753
+    "intent": "FindForm",
+    "score": 0.9768753
     },
-    "intents": [
-        {
-        "intent": "FindForm",
-        "score": 0.9768753
-        },
-        {
-        "intent": "None",
-        "score": 0.0216071066
-        }
-    ],
-    "entities": [
-        {
-        "entity": "hrf-234098",
-        "type": "Human Resources Form Number",
-        "startIndex": 22,
-        "endIndex": 31
-        }
-      ]
+    {
+    "intent": "None",
+    "score": 0.0216071066
     }
-    ```
+],
+"entities": [
+    {
+    "entity": "hrf-234098",
+    "type": "Human Resources Form Number",
+    "startIndex": 22,
+    "endIndex": 31
+    }
+    ]
+}
+```
 
-    Cette réponse vous donne plus d’informations que le volet de test par défaut dans le tutoriel précédent. Pour voir ce même niveau d’informations dans le volet de test, vous devez publier l’application. Une fois l’application publiée, sélectionnez **Comparer avec la version publiée** dans le volet de test. Utilisez **Afficher la vue JSON** dans le volet de test publié pour voir le même code JSON qu’à l’étape précédente. Vous pouvez ainsi comparer l’application actuelle sur laquelle vous travaillez et une application publiée sur le point de terminaison.
+Cette réponse vous donne plus d’informations que le volet de test par défaut dans le tutoriel précédent. Pour voir ce même niveau d’informations dans le volet de test, vous devez publier l’application. Une fois l’application publiée, sélectionnez **Comparer avec la version publiée** dans le volet de test. Utilisez **Afficher la vue JSON** dans le volet de test publié pour voir le même code JSON qu’à l’étape précédente. Vous pouvez ainsi comparer l’application actuelle sur laquelle vous travaillez et une application publiée sur le point de terminaison.
 
-    [![Comparer la version en cours de modification avec la version publiée de l’application](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Comparer la version en cours de modification avec la version publiée de l’application](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+
+
+
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

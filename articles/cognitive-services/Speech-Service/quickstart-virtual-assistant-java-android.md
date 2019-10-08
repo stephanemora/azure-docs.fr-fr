@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1c203bb39a90fdb1c77c3a2c844318a748df7c63
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f5b8623c835b4188d098ab2acf842abef30138e9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559211"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800050"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Démarrage rapide : Créer un assistant virtuel « voice-first » dans Java sur Android à l’aide du SDK Speech
 
-Un démarrage rapide est également disponible pour la [reconnaissance vocale](quickstart-java-android.md).
+Un guide de démarrage rapide est également disponible pour la [reconnaissance vocale](quickstart-java-android.md) et la [synthèse vocale](quickstart-text-to-speech-java-android.md).
 
 Dans cet article, vous allez créer un assistant virtuel « voice-first » avec Java pour Android à l’aide du [SDK Speech](speech-sdk.md). Cette application se connecte à un bot que vous avez déjà créé et configuré avec le [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). Elle envoie ensuite une demande de voix au bot et présente une activité de réponse vocale.
 

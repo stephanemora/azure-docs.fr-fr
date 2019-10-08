@@ -1,35 +1,34 @@
 ---
 title: 'Démarrage rapide : Reconnaissance vocale, Unity – Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Utilisez ce guide pour créer une application de reconnaissance vocale avec Unity et le SDK Speech pour Unity (bêta). Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
+description: Utilisez ce guide pour créer une application de reconnaissance vocale avec Unity et le SDK Speech pour Unity. Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 09/17/2019
 ms.author: jhakulin
-ms.openlocfilehash: 1b6e60edd86cff2d657b562f05351e20571c0909
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a7ac6831fd21fcc0dc425b57f5d73d8c328f9350
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815384"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803467"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Démarrage rapide : Reconnaissance vocale avec le SDK Speech pour Unity (bêta).
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity"></a>Démarrage rapide : Reconnaissance vocale avec le SDK Speech pour Unity
 
 Des guides de démarrage rapide sont également disponibles pour la [synthèse vocale](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Utilisez ce guide pour créer une application de reconnaissance vocale avec [Unity](https://unity3d.com/) et le SDK Speech pour Unity (bêta).
+Utilisez ce guide pour créer une application de reconnaissance vocale avec [Unity](https://unity3d.com/) et le SDK Speech pour Unity.
 Quand vous avez terminé, vous pouvez parler dans votre appareil pour une transcription vocale en temps réel.
 Si vous débutez avec Unity, nous vous suggérons de lire le [manuel de l’utilisateur Unity](https://docs.unity3d.com/Manual/UnityManual.html) avant de développer votre application.
 
 > [!NOTE]
-> Le SDK Speech pour Unity est actuellement en version bêta.
-> Il prend en charge Windows Desktop (x86 et x64), ou la plateforme Windows universelle (x86, x64, ARM/ARM64), et Android (x86, ARM32/64).
+> Le SDK Speech pour Unity prend en charge Windows Desktop (x86 et x64), ou la plateforme Windows universelle (x86, x64, ARM/ARM64), Android (x86, ARM32/64) et iOS (simulateur x64, ARM32 et ARM64).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -37,7 +36,7 @@ Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 
 - [Unity version 2018.3 ou ultérieure](https://store.unity.com/) avec [Unity 2019.1 pour la prise en charge d’UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal).
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). La version 15.9 (ou une version ultérieure) de Visual Studio 2017 peut également être utilisée.
-  - Pour la prise en charge d’ARM64, installez les [outils de génération facultatifs pour ARM64 et le SDK Windows 10 pour ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
+- Pour la prise en charge de Windows ARM64, installez les [outils de génération facultatifs pour ARM64 et le SDK Windows 10 pour ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
 - Clé d’abonnement pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 - Accès au microphone de l’ordinateur.
 
@@ -52,7 +51,7 @@ Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 1. Sous **Project Name**, entrez **csharp-unity**.
 1. Sous **Templates**, sélectionnez **3D** si ce n’est déjà fait.
 1. Sous **Location**, sélectionnez ou créez un dossier dans lequel le projet sera enregistré.
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 Après quelques instants, la fenêtre de l’éditeur Unity s’affiche.
 
@@ -62,7 +61,7 @@ Pour installer le SDK Speech pour Unity, procédez comme suit :
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-1. Téléchargez et ouvrez le [SDK Speech pour Unity (bêta)](https://aka.ms/csspeech/unitypackage), fourni sous la forme d’un package de ressources Unity (.unitypackage). Une fois le package de ressources ouvert, la boîte de dialogue **Import Unity Package** s’affiche.
+1. Téléchargez et ouvrez le [SDK Speech pour Unity](https://aka.ms/csspeech/unitypackage), fourni sous la forme d’un package de ressources Unity (.unitypackage). Une fois le package de ressources ouvert, la boîte de dialogue **Import Unity Package** s’affiche.
 
    [![Boîte de dialogue Import Unity Package de l’éditeur Unity](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
 1. Vérifiez que tous les fichiers sont sélectionnés, puis cliquez sur **Import**. Après quelques instants, le package de ressources Unity est importé dans votre projet.

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 07/05/2019
+ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: d61141a0955f916b1d4bfeabb22454ec38415cea
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603237"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326835"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Didacticiel : Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#
 
-Le [kit SDK Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) de Cognitive Services s’intègre au [Language Understanding Intelligent Service (LUIS)](https://www.luis.ai/home) pour fournir **la reconnaissance de l’intention**. Une intention est quelque chose que l’utilisateur souhaite faire : réserver un vol, vérifier la météo ou effectuer un appel. L’utilisateur peut utiliser les termes qui lui semblent naturels. À l’aide du machine learning, LUIS mappe les demandes des utilisateurs aux intentions que vous avez définies.
+Le [SDK Speech](speech-sdk.md) de Cognitive Services s’intègre au [Language Understanding Intelligent Service (LUIS)](https://www.luis.ai/home) pour fournir la **reconnaissance des intentions**. Une intention est quelque chose que l’utilisateur souhaite faire : réserver un vol, vérifier la météo ou effectuer un appel. L’utilisateur peut utiliser les termes qui lui semblent naturels. À l’aide du machine learning, LUIS mappe les demandes des utilisateurs aux intentions que vous avez définies.
 
 > [!NOTE]
 > Une application LUIS définit les intentions et entités à reconnaître. Elle est distincte de l’application C# qui utilise le service Speech. Dans cet article, « appli » fait référence à l’application LUIS tandis que « application » renvoie au code C#.
@@ -36,10 +36,10 @@ Dans ce tutoriel, vous utilisez le kit SDK Speech pour développer une applicati
 
 ## <a name="prerequisites"></a>Prérequis
 
-Assurez-vous de disposer des éléments suivants avant de commencer ce tutoriel.
+Veillez à disposer des éléments suivants avant de commencer ce tutoriel :
 
 * Un compte LUIS. Vous pouvez en obtenir un gratuitement via le [portail LUIS](https://www.luis.ai/home).
-* Visual Studio 2017 (toute édition)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (toute édition).
 
 ## <a name="luis-and-speech"></a>LUIS et Speech
 
@@ -49,27 +49,29 @@ LUIS utilise deux types de clés :
 
 |Type de clé|Objectif|
 |--------|-------|
-|création|permet de créer et de modifier des applis LUIS par programmation|
-|endpoint |autorise l’accès à une appli LUIS particulière|
+|Création|Permet de créer et de modifier des applications LUIS programmatiquement|
+|Point de terminaison |Autorise l’accès à une application LUIS particulière|
 
-La clé du point de terminaison est la clé LUIS nécessaire pour ce tutoriel. Ce tutoriel utilise l’exemple d’appli domotique Home Automation LUIS, que vous pouvez créer en suivant [Utiliser une appli domotique prédéfinie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si vous avez créé votre propre appli LUIS, vous pouvez aussi l’utiliser.
+Pour ce tutoriel, vous avez besoin du type de clé du point de terminaison. Ce tutoriel utilise l’exemple d’application domotique LUIS Home Automation, que vous pouvez créer en suivant le guide de démarrage rapide [Utiliser une application domotique prédéfinie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si vous avez créé votre propre application LUIS, vous pouvez aussi l’utiliser.
 
-Lors de la création d’une appli LUIS, une clé de démarrage est générée automatiquement pour que vous puissiez tester l’appli à l’aide de requêtes de texte. Cette clé n’active pas l’intégration des services Voix et ne fonctionne pas avec ce tutoriel. Vous devez créer une ressource LUIS dans le tableau de bord Azure et l’affecter à l’appli LUIS. Vous pouvez utiliser le niveau d’abonnement gratuit pour ce tutoriel.
+Lors de la création d’une application LUIS, une clé de démarrage est générée automatiquement par LUIS pour que vous puissiez tester l’application à l’aide de requêtes de texte. Cette clé n’active pas l’intégration des services Speech et ne fonctionne pas avec ce tutoriel. Créez une ressource LUIS dans le tableau de bord Azure et affectez-la à l’application LUIS. Vous pouvez utiliser le niveau d’abonnement gratuit pour ce tutoriel.
 
-Après avoir créé la ressource LUIS dans le tableau de bord Azure, connectez-vous au [portail LUIS](https://www.luis.ai/home), choisissez votre application dans la page My apps (Mes applications) et basculez vers la page Manage (Gérer) de l’appli. Enfin, cliquez sur **Keys and Endpoints** (Clés et points de terminaison) dans la barre latérale.
+Après avoir créé la ressource LUIS dans le tableau de bord Azure, connectez-vous au [portail LUIS](https://www.luis.ai/home), choisissez votre application dans la page **My apps** (Mes applications) et basculez vers la page **Manage** (Gérer) de l’application. Enfin, sélectionnez **Keys and Endpoints** (Clés et points de terminaison) dans la barre latérale.
 
 ![Paramètres des clés et point de terminaison du portail LUIS](media/sdk/luis-keys-endpoints-page.png)
 
-Dans la page Keys and Endpoint settings (Paramètres des clés et du point de terminaison) :
+Dans la page **Keys and Endpoint settings** (Paramètres des clés et du point de terminaison) :
 
-1. Faites défiler vers le bas jusqu’à la section des ressources et des clés, puis cliquez sur **Assign resource** (Affecter une ressource).
-1. Dans la boîte de dialogue **Assign a key to your app** (Attribuer une clé à votre appli), faites les choix suivants :
+1. Faites défiler vers le bas jusqu’à la section **Resources and Keys** (Ressources et clés) et des clés, puis sélectionnez **Assign resource** (Attribuer une ressource).
+1. Dans la boîte de dialogue **Assign a key to your app** (Attribuer une clé à votre application), apportez les modifications suivantes :
 
-    * Choisissez Microsoft en tant que Tenant (Locataire).
-    * Sous Subscription Name (Nom de l’abonnement), sélectionnez l’abonnement Azure qui contient la ressource LUIS à utiliser.
-    * Sous Key (Clé), choisissez la ressource LUIS à utiliser avec l’appli.
+   * Sous **Tenant** (Locataire), choisissez **Microsoft**.
+   * Sous **Subscription Name** (Nom de l’abonnement), sélectionnez l’abonnement Azure qui contient la ressource LUIS à utiliser.
+   * Sous **Key** (Clé), choisissez la ressource LUIS à utiliser avec l’application.
 
-Le nouvel abonnement apparaît dans le tableau, en bas de la page, au bout de quelques instants. Cliquez sur l’icône en regard d’une clé pour la copier dans le Presse-papiers. (Vous pouvez utiliser l’une ou l’autre de ces clés.)
+   Le nouvel abonnement apparaît dans le tableau, en bas de la page, au bout de quelques instants. 
+
+1. Sélectionnez l’icône en regard d’une clé pour la copier dans le Presse-papiers. (Vous pouvez utiliser l’une ou l’autre de ces clés.)
 
 ![Clés d’abonnement de l’appli LUIS](media/sdk/luis-keys-assigned.png)
 
@@ -79,62 +81,65 @@ Le nouvel abonnement apparaît dans le tableau, en bas de la page, au bout de qu
 
 ## <a name="add-the-code"></a>Ajouter le code
 
-Ouvrez le fichier `Program.cs` dans le projet Visual Studio et remplacez le bloc d’instructions `using` au début du fichier par les déclarations suivantes.
+Ensuite, vous ajoutez du code au projet.
 
-[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
+1. Dans l’**Explorateur de solutions**, ouvrez le fichier **Program.cs**.
 
-À l’intérieur de la méthode `Main()` fournie, ajoutez le code suivant.
+1. Remplacez le bloc d’instructions `using` au début du fichier par les déclarations suivantes :
 
-```csharp
-RecognizeIntentAsync().Wait();
-Console.WriteLine("Please press Enter to continue.");
-Console.ReadLine();
-```
+   [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-Créez une méthode asynchrone vide `RecognizeIntentAsync()`, comme indiqué ici.
+1. À l’intérieur de la méthode `Main()` fournie, ajoutez le code suivant :
 
-```csharp
-static async Task RecognizeIntentAsync()
-{
-}
-```
+   ```csharp
+   RecognizeIntentAsync().Wait();
+   Console.WriteLine("Please press Enter to continue.");
+   Console.ReadLine();
+   ```
 
-Dans le corps de cette nouvelle méthode, ajoutez ce code.
+1. Créez une méthode asynchrone vide `RecognizeIntentAsync()`, comme indiqué ici :
 
-[!code-csharp[Intent recognition by using a microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
+   ```csharp
+   static async Task RecognizeIntentAsync()
+   {
+   }
+   ```
 
-Remplacez les espaces réservés de cette méthode par votre clé d’abonnement, votre région et votre ID d’appli LUIS, comme suit.
+1. Dans le corps de cette nouvelle méthode, ajoutez ce code :
 
-|Placeholder|Remplacer par|
-|-----------|------------|
-|`YourLanguageUnderstandingSubscriptionKey`|Votre clé de point de terminaison LUIS. Comme indiqué précédemment, cette clé doit être obtenue à partir de votre tableau de bord Azure ; ce n’est pas une « clé de démarrage ». Vous pouvez la trouver dans la page Keys and Endpoints (Clés et points de terminaison) de votre appli, sous Manage (Gérer) dans le [portail LUIS](https://www.luis.ai/home).|
-|`YourLanguageUnderstandingServiceRegion`|L’identificateur court pour la région de votre abonnement LUIS est, par exemple, `westus` pour la région USA Ouest. Voir [Régions](regions.md).|
-|`YourLanguageUnderstandingAppId`|L’ID d’application LUIS. Vous pouvez le trouver sur la page Settings (Paramètres) de votre appli dans le [portail LUIS](https://www.luis.ai/home).|
+   [!code-csharp[Intent recognition by using a microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
 
-Ces modifications étant apportées, vous pouvez générer (Ctrl-Maj-B) et exécuter (F5) l’application du tutoriel. Lorsque vous y êtes invité, essayez de dire « Éteins les lumières » dans le micro de votre PC. Le résultat s’affiche dans la fenêtre de console.
+1. Remplacez les espaces réservés de cette méthode par votre clé d’abonnement, votre région et votre ID d’appli LUIS, comme suit.
+
+   |Placeholder|Remplacer par|
+   |-----------|------------|
+   |`YourLanguageUnderstandingSubscriptionKey`|Votre clé de point de terminaison LUIS. Là encore, vous devez obtenir cet élément à partir de votre tableau de bord Azure, et non d’une « clé de démarrage ». Vous pouvez la trouver dans la page **Keys and Endpoints** (Clés et points de terminaison) de votre application, sous **Manage** (Gérer) dans le [portail LUIS](https://www.luis.ai/home).|
+   |`YourLanguageUnderstandingServiceRegion`|L’identificateur court pour la région de votre abonnement LUIS est, par exemple, `westus` pour la région USA Ouest. Voir [Régions](regions.md).|
+   |`YourLanguageUnderstandingAppId`|L’ID d’application LUIS. Vous pouvez le trouver dans la page **Settings** (Paramètres) de votre application dans le [portail LUIS](https://www.luis.ai/home).|
+
+Ces modifications étant apportées, vous pouvez générer (**Ctrl+Maj+B**) et exécuter (**F5**) l’application du tutoriel. Lorsque vous y êtes invité, essayez de dire « Éteins les lumières » dans le micro de votre PC. L’application affiche le résultat dans la fenêtre de console.
 
 Les sections suivantes comportent un développement du code.
 
-
 ## <a name="create-an-intent-recognizer"></a>Créer un module de reconnaissance de l’intention
 
-La première étape de la reconnaissance d’intentions dans la reconnaissance vocale consiste à créer une configuration de reconnaissance vocale à partir de votre région et de votre clé de point de terminaison LUIS. Les configurations de reconnaissance vocale peuvent servir à créer des modules de reconnaissance pour les différentes fonctionnalités du kit SDK Speech. La configuration de reconnaissance vocale offre plusieurs moyens pour spécifier l’abonnement à utiliser. Ici, nous utilisons `FromSubscription`, qui accepte la région et la clé d’abonnement.
+Tout d’abord, vous devez créer une configuration de reconnaissance vocale à partir de la clé et de la région de votre point de terminaison LUIS. Vous pouvez utiliser les configurations de reconnaissance vocale pour créer des modules de reconnaissance pour les différentes fonctionnalités du SDK Speech. La configuration de reconnaissance vocale offre plusieurs moyens pour spécifier l’abonnement à utiliser. Ici, nous utilisons `FromSubscription`, qui accepte la région et la clé d’abonnement.
 
 > [!NOTE]
 > Utilisez la clé et la région de votre abonnement LUIS, et non celles d’un abonnement aux services Voix.
 
-Ensuite, créez un module de reconnaissance de l’intention à l’aide de `new IntentRecognizer(config)`. La configuration sachant déjà quel abonnement utiliser, il est inutile de spécifier à nouveau la clé d’abonnement et le point de terminaison lors de la création du module de reconnaissance.
+Ensuite, créez un module de reconnaissance de l’intention à l’aide de `new IntentRecognizer(config)`. La configuration sachant déjà quel abonnement utiliser, vous n’avez pas besoin de spécifier à nouveau la clé d’abonnement et le point de terminaison lors de la création du module de reconnaissance.
 
 ## <a name="import-a-luis-model-and-add-intents"></a>Importer un modèle LUIS et ajouter des intentions
 
-À présent, importez le modèle à partir de l’appli LUIS avec `LanguageUnderstandingModel.FromAppId()`, et ajoutez les intentions LUIS à reconnaître par le biais de la méthode `AddIntent()` du module de reconnaissance. Ces deux étapes améliorent la précision de la reconnaissance vocale en indiquant les mots que l’utilisateur est susceptible d’utiliser dans ses requêtes. Il n’est pas nécessaire d’ajouter toutes les intentions de l’appli si vous n’avez pas besoin de toutes les identifier dans votre application.
+À présent, importez le modèle à partir de l’appli LUIS avec `LanguageUnderstandingModel.FromAppId()`, et ajoutez les intentions LUIS à reconnaître par le biais de la méthode `AddIntent()` du module de reconnaissance. Ces deux étapes améliorent la précision de la reconnaissance vocale en indiquant les mots que l’utilisateur est susceptible d’utiliser dans ses requêtes. Il n’est pas nécessaire d’ajouter toutes les intentions de l’application si vous n’avez pas besoin de toutes les identifier dans votre application.
 
-L’ajout d’intentions nécessite trois arguments : le modèle LUIS (qui a été créé et qui est nommé `model`), le nom de l’intention et un ID d’intention. La différence entre l’ID et le nom s’établit comme suit.
+Pour ajouter des intentions, vous devez fournir trois arguments : le modèle LUIS (qui a été créé et qui est nommé `model`), le nom de l’intention et un ID d’intention. La différence entre l’ID et le nom s’établit comme suit.
 
-|Argument `AddIntent()`|Objectif|
+|`AddIntent()`&nbsp;argument|Objectif|
 |--------|-------|
-|intentName |Nom de l’intention, tel que défini dans l’appli LUIS. Doit correspondre exactement au nom d’intention LUIS.|
-|intentID    |ID assigné à une intention reconnue par le kit SDK Speech. Il peut être ce que vous voulez ; il n’est pas nécessaire qu’il corresponde au nom de l’intention, tel que défini dans l’appli LUIS. Par exemple, si plusieurs intentions sont gérées par le même code, vous pouvez utiliser le même ID pour celles-ci.|
+|intentName|Nom de l’intention, tel que défini dans l’appli LUIS. Cette valeur doit correspondre exactement au nom d’intention LUIS.|
+|intentID|ID assigné à une intention reconnue par le kit SDK Speech. Cette valeur peut être ce que vous voulez ; il n’est pas nécessaire qu’elle corresponde au nom de l’intention, tel que défini dans l’application LUIS. Par exemple, si plusieurs intentions sont gérées par le même code, vous pouvez utiliser le même ID pour celles-ci.|
 
 L’application LUIS Home Automation a deux intentions : une pour mettre un appareil sous tension, l’autre pour le mettre hors tension. Les lignes ci-dessous ajoutent ces intentions au module de reconnaissance de l’intention ; remplacez les trois lignes `AddIntent` dans la méthode `RecognizeIntentAsync()` par ce code.
 
@@ -152,38 +157,42 @@ Le module de reconnaissance étant créé, et les intentions ajoutées, la recon
 |Mode de reconnaissance|Méthodes à appeler|Résultat|
 |----------------|-----------------|---------|
 |Ponctuel|`RecognizeOnceAsync()`|Retourne l’intention reconnue, si elle existe, après un énoncé.|
-|Continue|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Reconnaît plusieurs énoncés. Émet des événements (par exemple, `IntermediateResultReceived`) lorsque les résultats sont disponibles.|
+|Continue|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Reconnaît plusieurs énoncés ; émet des événements (par exemple, `IntermediateResultReceived`) lorsque des résultats sont disponibles.|
 
-L’application du tutoriel utilise le mode ponctuel et appelle donc `RecognizeOnceAsync()` pour débuter la reconnaissance. Le résultat est un objet `IntentRecognitionResult` contenant des informations sur l’intention reconnue. La réponse JSON de LUIS est extraite par l’expression suivante :
+L’application du tutoriel utilise le mode ponctuel et appelle donc `RecognizeOnceAsync()` pour débuter la reconnaissance. Le résultat est un objet `IntentRecognitionResult` contenant des informations sur l’intention reconnue. Vous extrayez la réponse JSON LUIS à l’aide de l’expression suivante :
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
 ```
 
-L’application du tutoriel n’analyse pas le résultat JSON, elle ne fait que l’afficher dans la fenêtre de console.
+L’application du tutoriel n’analyse pas le résultat JSON. Elle affiche uniquement le texte JSON dans la fenêtre de console.
 
-![Résultats de la reconnaissance de LUIS](media/sdk/luis-results.png)
+![Résultats de la reconnaissance LUIS uniques](media/sdk/luis-results.png)
 
 ## <a name="specify-recognition-language"></a>Préciser une langue de reconnaissance
 
-Par défaut, LUIS reconnaît les intentions en anglais (États-Unis) (`en-us`). En attribuant un code de paramètres régionaux à la propriété `SpeechRecognitionLanguage` de la configuration de reconnaissance vocale, vous pouvez reconnaître des intentions dans d’autres langues. Par exemple, ajoutez `config.SpeechRecognitionLanguage = "de-de";` dans notre application de tutoriel avant de créer le module de reconnaissance pour reconnaître les intentions en allemand. Voir [Langues prises en charge](language-support.md#speech-to-text).
+Par défaut, LUIS reconnaît les intentions en anglais (États-Unis) (`en-us`). En attribuant un code de paramètres régionaux à la propriété `SpeechRecognitionLanguage` de la configuration de reconnaissance vocale, vous pouvez reconnaître des intentions dans d’autres langues. Par exemple, ajoutez `config.SpeechRecognitionLanguage = "de-de";` dans notre application de tutoriel avant de créer le module de reconnaissance pour reconnaître les intentions en allemand. Pour plus d’informations, consultez [Langues pris en charge](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconnaissance continue depuis un fichier
 
 Le code suivant illustre deux caractéristiques supplémentaires de la reconnaissance de l’intention avec le kit SDK Speech. La première, mentionnée précédemment, est la reconnaissance continue, par laquelle le module de reconnaissance émet des événements lorsque des résultats sont disponibles. Ces événements peuvent ensuite être traités par les gestionnaires d’événements que vous fournissez. Avec la reconnaissance continue, vous appelez la méthode `StartContinuousRecognitionAsync()` du module de reconnaissance pour lancer la reconnaissance à la place de `RecognizeOnceAsync()`.
 
-L’autre caractéristique lit l’audio contenant la reconnaissance vocale à traiter à partir d’un fichier WAV. La création d’une configuration audio utilisable lors de la création du module de reconnaissance de l’intention est pour cela nécessaire. Le fichier doit être de canal unique (mono) avec un taux d’échantillonnage de 16 kHz.
+L’autre caractéristique lit l’audio contenant la reconnaissance vocale à traiter à partir d’un fichier WAV. L’implémentation implique la création d’une configuration audio utilisable lors de la création du module de reconnaissance de l’intention. Le fichier doit être de canal unique (mono) avec un taux d’échantillonnage de 16 kHz.
 
-Pour essayer ces caractéristiques, remplacez le corps de la méthode `RecognizeIntentAsync()` par le code suivant.
+Pour tester ces fonctionnalités, supprimez ou mettez en commentaires le corps de la méthode `RecognizeIntentAsync()`, puis ajoutez le code suivant à la place.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-Révisez le code pour inclure votre clé de point de terminaison, votre région et votre ID d’appli LUIS, et ajouter des intentions domotiques, comme effectué précédemment. Changez `whatstheweatherlike.wav` pour le nom de votre fichier audio. Procédez ensuite à la génération et à l’exécution.
+Révisez le code pour inclure votre clé de point de terminaison, votre région et votre ID d’appli LUIS, et ajouter des intentions domotiques, comme effectué précédemment. Remplacez `whatstheweatherlike.wav` par le nom de votre fichier audio enregistré. Ensuite, générez, copiez le fichier audio dans le répertoire de build, puis exécutez l’application.
+
+Par exemple, si vous dites « Éteins les lumières », faites une pause, puis dites « Allume les lumières » dans votre fichier audio enregistré, une sortie de console similaire à la suivante peut s’afficher :
+
+![Résultats de la reconnaissance LUIS de fichiers audio](media/sdk/luis-results-2.png)
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Retrouvez le code de cet article dans le dossier samples/csharp/sharedcontent/console.
+Retrouvez le code de cet article dans le dossier **samples/csharp/sharedcontent/console**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Comment effectuer une reconnaissance vocale](how-to-recognize-speech-csharp.md)
+> [Comment effectuer une reconnaissance vocale](quickstart-csharp-dotnetcore-windows.md)

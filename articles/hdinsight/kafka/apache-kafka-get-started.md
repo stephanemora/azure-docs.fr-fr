@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: b66306de6b2afa1e39a91ba3b3981aec4b440e1a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f11cbdab59548906f751116a2ca7b9c545b25d91
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123581"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677882"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide du portail Azure
 
-Apache Kafka est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme broker de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement. 
+Apache Kafka est une plateforme de streaming open source distribuée. Elle est souvent utilisée comme broker de messages, car elle propose des fonctionnalités similaires à une file d’attente de messages de publication/abonnement.
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster [Apache Kafka](https://kafka.apache.org) à l’aide du Portail Azure. Il vous expliquera également comment utiliser les utilitaires inclus pour envoyer et recevoir des messages avec Apache Kafka.
 
@@ -37,75 +37,64 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-2. À partir du menu gauche, accédez à **+ Créer une ressource** > **Analytique** > **HDInsight**.
+1. À partir du menu gauche, accédez à **+ Créer une ressource** > **Analytique** > **HDInsight**.
 
     ![Portail Azure > Créer une ressource > HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
-3. Dans **Informations de base**, entrez ou sélectionnez les informations suivantes :
+1. Sous **Informations de base**, entrez ou sélectionnez les valeurs suivantes :
 
-    | Paramètre | Valeur |
-    | --- | --- |
-    | Nom du cluster | Nom unique du cluster HDInsight. |
-    | Abonnement | Sélectionnez votre abonnement. |
+    |Propriété  |Description  |
+    |---------|---------|
+    |Subscription    |  Sélectionnez votre abonnement Azure. |
+    |Resource group     | Sélectionnez un groupe de ressources existant ou créez-en un.  Un groupe de ressources est un conteneur de composants Azure.  Dans ce cas, le groupe de ressources contient le cluster HDInsight et le compte de stockage Azure dépendant. |
+    |Nom du cluster   | Entrez un nom pour le cluster Hadoop. Étant donné que tous les clusters HDInsight partagent le même espace de noms DNS, ce nom doit être unique. Le nom peut comporter jusqu’à 59 caractères, dont des lettres, des chiffres et des traits d’union. Le premier caractère et le dernier caractère du nom ne peuvent pas être des traits d’union. |
+    |Location    | Sélectionnez l’emplacement Azure où vous souhaitez créer votre cluster.  Choisissez un emplacement proche de vous pour obtenir des performances optimales. |
+    |Type de cluster| Choisissez **Sélectionner un type de cluster**. Sélectionnez ensuite **Kafka** comme type de cluster.|
+    |Version|La version par défaut du type de cluster sera spécifiée. Sélectionnez une version dans la liste déroulante si vous souhaitez en spécifier une différente.|
+    |Nom d’utilisateur et mot de passe du cluster    | Le nom de connexion par défaut est **admin**. Le mot de passe doit comporter au moins 10 caractères et inclure au moins un chiffre, une lettre majuscule, une lettre minuscule et un caractère non alphanumérique (à l’exception de ’ " ` \). Veillez à **ne pas indiquer** des mots de passe courants comme « Pass@word1 ».|
+    |Nom d’utilisateur SSH (Secure Shell) | Le nom d’utilisateur par défaut est **sshuser**.  Vous pouvez fournir un autre nom pour le nom d’utilisateur SSH. |
+    |Utiliser le mot de passe de connexion au cluster pour SSH| Cochez cette case pour utiliser le même mot de passe utilisateur SSH que celui fourni pour l’utilisateur de connexion au cluster.|
 
-   Sélectionnez __Type de cluster__ pour afficher la **Configuration du cluster**.
-
-   ![Configuration de base du cluster Apache Kafka sur HDInsight](./media/apache-kafka-get-started/custom-basics-kafka1.png)
-
-4. Dans __Configuration du cluster__, sélectionnez les valeurs suivantes :
-
-    | Paramètre | Valeur |
-    | --- | --- |
-    | Type du cluster | Kafka |
-    | Version | Kafka 1.1.0 (HDI 3.6) |
-
-    Sélectionnez **Sélectionner** pour enregistrer les paramètres de type de cluster et revenir à __Informations de base__.
-
-    ![Type de cluster Apache Kafka dans HDInsight](./media/apache-kafka-get-started/apache-kafka-cluster-type.png)
-
-5. Dans __Informations de base__, entrez ou sélectionnez les informations suivantes :
-
-    | Paramètre | Valeur |
-    | --- | --- |
-    | Nom d’utilisateur de connexion au cluster | Nom de connexion permettant d’accéder aux services web ou aux API REST hébergés sur le cluster. Laissez la valeur par défaut (admin). |
-    | Mot de passe de connexion au cluster | Mot de passe de connexion permettant d’accéder aux services web ou aux API REST hébergés sur le cluster. |
-    | Nom d’utilisateur SSH (Secure Shell) | Information de connexion permettant d’accéder au cluster suivant le protocole SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster. |
-    | Groupe de ressources | Groupe de ressources dans lequel le cluster sera créé. |
-    | Emplacement | Région Azure dans laquelle le cluster sera créé. |
+   ![Portail Azure >Créer un cluster > Informations de base](./media/apache-kafka-get-started/azure-portal-cluster-basics-blank.png)
 
     Chaque région Azure (emplacement) fournit des _domaines d’erreur_. Un domaine d’erreur est un regroupement logique de matériel sous-jacent dans un datacenter Azure. Chaque domaine d’erreur partage une source d’alimentation et un commutateur réseau communs. Les machines virtuelles et les disques managés mettant en œuvre les nœuds au sein d’un cluster HDInsight sont répartis dans ces domaines d’erreur. Cette architecture limite l’impact potentiel des défaillances de matériel physique.
 
     Pour garantir la haute disponibilité des données, sélectionnez une région (emplacement) comportant __trois domaines d’erreur__. Pour plus d’informations sur le nombre de domaines d’erreur dans une région, consultez le document [Disponibilité des machines virtuelles Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-   ![Portail Azure >Créer un cluster > Informations de base](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+    Sélectionnez le bouton **Suivant : Stockage >>** pour passer aux paramètres de stockage.
 
-    Sélectionnez __Suivant__ pour terminer la configuration de base.
+1. À partir de l’onglet **Stockage**, indiquez les valeurs suivantes :
 
-6. Pour ce démarrage rapide, laissez la valeur par défaut des paramètres de sécurité. Pour en savoir plus sur le pack Sécurité Entreprise, visitez [Configurer un cluster HDInsight avec le pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Pour découvrir comment utiliser votre propre clé pour le chiffrement de disque Apache Kafka, visitez [Apporter votre propre clé pour Apache Kafka sur Azure HDInsight](apache-kafka-byok.md)
+    |Propriété  |Description  |
+    |---------|---------|
+    |Type de stockage principal|Utilisez la valeur par défaut : **Stockage Azure**.|
+    |Méthode de sélection|Utilisez la valeur par défaut : **Sélectionner dans la liste**.|
+    |Compte de stockage principal|Utilisez la liste déroulante pour sélectionner un compte de stockage existant, ou sélectionnez **Créer nouveau**. Si vous créez un compte, son nom doit contenir entre 3 et 24 caractères alphanumériques minuscules.|
+    |Conteneur|Utilisez la valeur renseignée automatiquement.|
+
+    ![Bien démarrer avec HDInsight Linux en renseignant les informations relatives au stockage du cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Renseigner les informations relatives au stockage pour la création d’un cluster HDInsight")
+
+    Sélectionnez l’onglet **Sécurité + réseau**.
+
+1. Pour ce démarrage rapide, laissez la valeur par défaut des paramètres de sécurité. Pour en savoir plus sur le pack Sécurité Entreprise, visitez [Configurer un cluster HDInsight avec le pack Sécurité Entreprise en utilisant Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Pour découvrir comment utiliser votre propre clé pour le chiffrement de disque Apache Kafka, visitez [Apporter votre propre clé pour Apache Kafka sur Azure HDInsight](apache-kafka-byok.md)
 
    Si vous souhaitez connecter votre cluster à un réseau virtuel, sélectionnez un réseau virtuel à partir de la liste déroulante du **Réseau virtuel**.
 
-   ![Ajouter un cluster à un réseau virtuel](./media/apache-kafka-get-started/kafka-security-config.png)
+   ![Ajouter un cluster à un réseau virtuel](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
 
-7. À partir du panneau **Stockage**, sélectionnez ou créez un compte de stockage. Concernant les étapes de ce document, laissez les autres champs sur leurs valeurs par défaut. Utilisez le bouton __Suivant__ pour enregistrer la configuration de stockage. Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+    Sélectionnez l’onglet **Configuration + Tarifs**.
 
-   ![Définir les paramètres de compte de stockage pour HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
+1. Pour garantir la disponibilité d’Apache Kafka sur HDInsight, le __nombre de nœuds__ de l’entrée **Nœud Worker** doit être supérieur ou égal à 3. La valeur par défaut est 4.
 
-8. Dans __Applications (facultatif)__ , sélectionnez __Suivant__ pour laisser les paramètres par défaut.
+    L’entrée relative aux **disques standards par nœud worker** configure la scalabilité d’Apache Kafka sur HDInsight. Apache Kafka sur HDInsight utilise le disque local des machines virtuelles du cluster pour stocker les données. En raison de son utilisation intensive des E/S, Apache Kafka utilise [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (brokers Apache Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
 
-9. Dans __Taille du cluster__, sélectionnez __Suivant__ pour laisser les paramètres par défaut.
+   ![Définir la taille du cluster Apache Kafka](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
 
-    Pour garantir la disponibilité d’Apache Kafka sur HDInsight, choisissez un __nombre de nœuds de travail__ supérieur ou égal à 3. La valeur par défaut est 4.
+    Sélectionnez l’onglet **Vérifier + créer**.
 
-    L’entrée relative aux **disques par nœud de travail** configure l’extensibilité d’Apache Kafka sur HDInsight. Apache Kafka sur HDInsight utilise le disque local des machines virtuelles du cluster pour stocker les données. En raison de son utilisation intensive des E/S, Apache Kafka utilise [Azure Disques managés](../../virtual-machines/windows/managed-disks-overview.md) pour obtenir un débit élevé et davantage de stockage à chaque nœud. Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Le type de disque dépend de la taille de la machine virtuelle utilisée par les nœuds de travail (brokers Apache Kafka). Les disques Premium sont utilisés automatiquement avec les machines virtuelles des séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
+1. Passez en revue la configuration du cluster. Changez les éventuels paramètres incorrects. Enfin, sélectionnez **Créer** pour créer le cluster.
 
-   ![Définir la taille du cluster Apache Kafka](./media/apache-kafka-get-started/apace-kafka-cluster-size.png)
-
-10. Dans __Paramètres avancés__, sélectionnez __Suivant__ pour laisser les paramètres par défaut.
-
-11. Dans le panneau **Résumé**, passez en revue la configuration du cluster. Utilisez les liens __Modifier__ pour modifier les éventuels paramètres incorrects. Enfin, sélectionnez **Créer** pour créer le cluster.
-
-    ![Récapitulatif de la configuration du cluster Kafka](./media/apache-kafka-get-started/kafka-configuration-summary.png)
+    ![Récapitulatif de la configuration du cluster Kafka](./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png)
 
     La création du cluster peut prendre jusqu’à 20 minutes.
 
@@ -150,7 +139,7 @@ Si vous utilisez Kafka, vous devez connaître les hôtes *Apache ZooKeeper* et *
 Dans cette section, vous allez obtenir les informations sur l’hôte grâce à l’API REST Apache Ambari sur le cluster.
 
 1. Installez [jq](https://stedolan.github.io/jq/), processeur JSON léger en ligne de commande. Il permet d’analyser des documents JSON, ce qui est utile pour analyser les informations sur l’hôte. À partir de la connexion SSH ouverte, entrez la commande suivante pour installer `jq` :
-   
+
     ```bash
     sudo apt -y install jq
     ```
@@ -200,7 +189,7 @@ Dans cette section, vous allez obtenir les informations sur l’hôte grâce à 
     ```
 
     Cette commande retourne des informations semblables au texte suivant :
-   
+
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
 ## <a name="manage-apache-kafka-topics"></a>Gérer les rubriques Apache Kafka
@@ -213,7 +202,7 @@ Kafka stocke les flux de données dans des *rubriques*. Vous pouvez utiliser l�
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
     ```
 
-    Cette commande se connecte à Zookeeper par le biais des informations d’hôte stockées dans `$KAFKAZKHOSTS`. Elle crée ensuite une rubrique Apache Kafka nommée **test**. 
+    Cette commande se connecte à Zookeeper par le biais des informations d’hôte stockées dans `$KAFKAZKHOSTS`. Elle crée ensuite une rubrique Apache Kafka nommée **test**.
 
     * Les données stockées dans cette rubrique sont partitionnées sur huit partitions.
 
@@ -267,11 +256,11 @@ Kafka stocke les *enregistrements* dans des rubriques. Les enregistrements sont 
 Pour stocker les enregistrements dans la rubrique test créée précédemment, puis les lire à l’aide d’un consommateur, procédez comme suit :
 
 1. Pour écrire des enregistrements dans la rubrique, utilisez l’utilitaire `kafka-console-producer.sh` à partir de la connexion SSH :
-   
+
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $KAFKABROKERS --topic test
     ```
-   
+
     Une fois cette commande exécutée, vous accédez à une ligne vide.
 
 2. Saisissez un message texte sur la ligne vide et appuyez sur Entrée. Entrez quelques messages de cette manière, puis utilisez **Ctrl + C** pour revenir à l’invite de commandes normale. Chaque ligne est envoyée en tant qu’enregistrement distinct vers la rubrique Apache Kafka.
@@ -302,7 +291,7 @@ Pour supprimer le groupe de ressources à l’aide du portail Azure :
 
 > [!WARNING]  
 > La facturation du cluster HDInsight démarre à la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster lorsqu’il n’est plus utilisé.
-> 
+>
 > La suppression d’un cluster Apache Kafka sur HDInsight supprime toutes les données stockées dans Kafka.
 
 ## <a name="next-steps"></a>Étapes suivantes

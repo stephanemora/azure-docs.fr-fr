@@ -1,22 +1,22 @@
 ---
-title: Créer des principaux de service et des attributions de rôles Windows Virtual Desktop Preview avec PowerShell - Azure
-description: Comment créer des principaux de service et attribuer des rôles avec PowerShell dans Windows Virtual Desktop Preview.
+title: Créer des principaux de service Windows Virtual Desktop et des attributions de rôles à l’aide de PowerShell - Azure
+description: Guide pratique pour créer des principaux de service et attribuer des rôles à l’aide de PowerShell dans Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985004"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679630"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell
 
-Les principaux de service sont des identités, que vous pouvez créer dans Azure Active Directory pour attribuer des rôles et des autorisations dans un but précis. Dans Windows Virtual Desktop Preview, vous pouvez créer un principal de service pour :
+Les principaux de service sont des identités, que vous pouvez créer dans Azure Active Directory pour attribuer des rôles et des autorisations dans un but précis. Dans Windows Virtual Desktop, vous pouvez créer un principal de service pour :
 
 - Automatisez des tâches de gestion Windows Virtual Desktop spécifiques.
 - L’utiliser comme informations d’identification à la place des utilisateurs avec MFA (authentification multifacteur) obligatoire lors de l’exécution de tout modèle Azure Resource Manager pour Windows Virtual Desktop.

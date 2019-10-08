@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 38c319fb89e8c763f8231c18cbb59bef099193e2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259325"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350501"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Didacticiel : Créer votre premier modèle de classification avec Machine Learning automatisé
 
@@ -50,7 +50,7 @@ Vous créez un espace de travail par le biais du portail Azure, une console web 
 
 ## <a name="create-and-run-the-experiment"></a>Créer et exécuter l’expérience
 
-Vous effectuez les étapes de configuration et d’exécution de l’expérience suivantes dans la page d’accueil de l’espace de travail, une interface consolidée qui comprend des outils de Machine Learning pour implémenter des scénarios de science des données pour les praticiens de la science des données de tous niveaux de compétence.
+Vous effectuez les étapes de configuration et d’exécution de l’expérience suivantes dans la page d’accueil de l’espace de travail, une interface consolidée qui comprend des outils de Machine Learning pour implémenter des scénarios de science des données pour les praticiens de la science des données de tous niveaux de compétence. La page d’accueil de l’espace de travail n’est pas prise en charge par les navigateurs Internet Explorer.
 
 1. Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com/workspaceportal/).
 
@@ -58,7 +58,7 @@ Vous effectuez les étapes de configuration et d’exécution de l’expérience
 
 1. Sélectionnez **Prise en main**.
 
-1. Dans le volet gauche, sélectionnez **Automated ML** dans la section **Authoring** (Création).
+1. Dans le volet gauche, sélectionnez **Automated ML** (ML automatisé) sous la section **Author** (Créer).
 
    Puisqu’il s’agit de votre premier essai d’Automated ML, l’écran Getting started (Bien démarrer) s’affiche.
 
@@ -99,23 +99,21 @@ Vous effectuez les étapes de configuration et d’exécution de l’expérience
        
     1. Vérifiez que le formulaire **Settings and preview** est renseigné comme ci-dessous, puis sélectionnez **Next** (Suivant).
         
-        Champ|Valeur pour le tutoriel
-        ---|---
-        Format de fichier| Delimited
-        Délimiteur| Comma
-        Encodage| UTF-8
-        En-têtes de colonne| Tous les fichiers ont les mêmes en-têtes
-        Ignorer les lignes | Aucun
+        Champ|Description| Valeur pour le tutoriel
+        ---|---|---
+        Format de fichier|Définit la disposition et le type des données stockées dans un fichier.| Delimited
+        Délimiteur|Un ou plusieurs caractères utilisés pour spécifier la limite entre&nbsp; des régions distinctes et indépendantes dans du texte brut ou d’autres flux de données. |Comma
+        Encodage|Identifie la table de schéma bits/caractères à utiliser pour lire votre jeu de données.| UTF-8
+        En-têtes de colonne| Indique la façon dont les éventuels en-têtes du jeu de données sont traités.| Tous les fichiers ont les mêmes en-têtes
+        Ignorer les lignes | Indique le nombre éventuel de lignes ignorées dans le jeu de données.| Aucun
     
-    1. Le formulaire **Schema** permet de configurer davantage vos données pour cette expérience. Pour cet exemple, sélectionnez le bouton bascule correspondant à la caractéristique **day_of_week**, afin de ne pas l’inclure pour cette expérience. Sélectionnez **Done** (Terminer) pour terminer le chargement de fichier et la création du jeu de données pour votre expérience.
-
         ![Configuration de l’onglet Aperçu](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
 1. Sélectionnez **Classification** comme tâche de prédiction.
 
 1. Sélectionnez **y** comme colonne cible, ce que vous souhaitez prédire. Cette colonne indique si le client a souscrit à un compte de dépôt à terme.
 
-1. Développez **Paramètres avancés** et renseignez les champs comme suit.
+1. Développez **Paramètres avancés** et renseignez les champs comme suit. Ces paramètres permettent de mieux contrôler le travail d’entraînement. Sinon, les valeurs par défaut sont appliquées en fonction de la sélection de l’expérience et des données.
 
    >[!NOTE]
    > Dans ce tutoriel, vous n’allez pas définir un score de métrique ni un nombre de cœurs maximal par itération. Vous n’allez pas non plus bloquer le test des algorithmes.
@@ -138,10 +136,10 @@ Vous effectuez les étapes de configuration et d’exécution de l’expérience
 
 ##  <a name="explore-iteration-results"></a>Explorer les résultats des itérations
 
-À mesure que l’expérience progresse, l’écran met à jour le graphique d’itération (**Iteration chart**) et la liste d’itération (**Iteration list**) avec les différentes itérations (modèles) créées à mesure qu’elles se terminent, puis il les classe en fonction de leur score de métrique. Par défaut, le modèle qui obtient le score le plus élevé d’après la métrique **AUC_weighted** choisie figure en haut de la liste.
+Au fil de l’expérience, l’écran met à jour le **graphique d’itération** et la **liste d’itérations** en fonction des différentes itérations (différents modèles) créées au fur et à mesure de leur exécution. Par défaut, les itérations sont classées par score de métrique. Pour ce tutoriel, le modèle qui obtient le score le plus élevé d’après la métrique **AUC_weighted** choisie figure en haut de la liste.
 
 En attendant que toutes les itérations d’expérience se terminent, sélectionnez le nom (**Name**) d’une itération terminée pour explorer ses performances en détail. 
-   
+
 L’exemple suivant montre les graphiques et les métriques d’exécution générés pour chaque itération, tels qu’une courbe de précision et de rappel, une matrice de confusion, des scores de précision pondérée, etc. 
 
 ![Détails sur l’exécution de l’itération](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
@@ -199,6 +197,7 @@ Dans ce tutoriel de Machine Learning automatisé, vous avez utilisé la page d�
 + En savoir plus sur le [prétraitement](how-to-create-portal-experiments.md#preprocess).
 + En savoir plus sur le [profilage des données](how-to-create-portal-experiments.md#profile).
 + En savoir plus sur le [Machine Learning automatisé](concept-automated-ml.md).
++ Pour plus d’informations sur les métriques et les graphiques de classification, consultez l’article [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md#classification).
 
 >[!NOTE]
 > Ce jeu de données Bank Marketing est disponible sous licence [Creative Commons (CCO : domaine public)](https://creativecommons.org/publicdomain/zero/1.0/). Tous les droits du contenu individuel de la base de données sont concédés sous [licence du contenu de base de données](https://creativecommons.org/publicdomain/zero/1.0/) et sont disponibles sur [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Ce jeu de données était initialement disponible dans la [base de données Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-ms.openlocfilehash: cbd55d3243426f2e6ec84986a2147ff94574bdda
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b5fa5fc13c8ce0c98c04d2451f3a50e89b986c16
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816384"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676446"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>Didacticiel : Configurer des alertes de service
 
@@ -27,7 +27,7 @@ Pour en savoir plus sur Azure Service Health, consultez la [Documentation Azure 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Tutoriel : Créer un locataire dans Windows Virtual Desktop Preview](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
+- [Tutoriel : Créer un locataire dans Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
 - [Tutoriel : Créer des principaux de service et des attributions de rôles avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
 - [Tutoriel : Créer un pool d’hôtes avec la Place de marché Azure](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
 

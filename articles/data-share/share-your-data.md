@@ -1,21 +1,21 @@
 ---
-title: Tutoriel - Partager des données avec des clients et des partenaires via Azure Data Share Preview
+title: 'Didacticiel : Partager en dehors de votre organisation - Azure Data Share Preview'
 description: Tutoriel - Partager des données avec des clients et des partenaires via Azure Data Share Preview
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 01888f3656765b922c1b646e7ca8e07d81e799f3
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838420"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327417"
 ---
 # <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Didacticiel : Partager vos données avec Azure Data Share Preview
 
-Dans ce tutoriel, vous allez apprendre à créer un partage Azure Data Share. Vous allez ensuite commencer à partager vos données avec des clients et des partenaires externes à votre organisation Azure. 
+Dans ce tutoriel, vous allez découvrir comment créer un partage Azure Data Share et commencer à partager vos données avec des clients et des partenaires externes à votre organisation Azure. 
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -68,7 +68,7 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
 1. Sélectionnez **Start sharing your data** (Commencer à partager vos données).
 
-1. Sélectionnez **Créer**.   
+1. Sélectionnez **Create** (Créer).   
 
 1. Indiquez les détails relatifs à votre partage Data Share. Spécifiez un nom, une description du contenu du partage et des conditions d’utilisation (facultatif). 
 

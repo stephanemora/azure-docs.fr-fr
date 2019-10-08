@@ -1,22 +1,22 @@
 ---
 title: Exemples relatifs au service Stockage Azure avec Python | Microsoft Docs
-description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Stockage Azure. Découvrez des exemples permettant de bien démarrer avec les objets blob, les files d’attente, les tables et les fichiers à l’aide des bibliothèques de client de stockage Python.
+description: Affichez, téléchargez et exécutez des exemples de code et des applications pour Azure Storage. Découvrez des exemples permettant de bien démarrer avec les objets blob, les files d’attente, les tables et les fichiers à l’aide des bibliothèques de client de stockage Python.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 5d823059842bf539f00ad372127fc8b636c74b65
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70745966"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351159"
 ---
 # <a name="azure-storage-samples-using-python"></a>Exemples relatifs au service Stockage Azure avec Python
 
-Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemples et des scénarios traités dans chaque exemple. Cliquez sur les liens pour afficher l’exemple de code correspondant dans GitHub.
+Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples et des scénarios traités dans chacun d’eux. Cliquez sur les liens pour afficher l’exemple de code correspondant dans GitHub.
 
 ## <a name="blob-samples"></a>Exemples d’objets blob
 
@@ -99,4 +99,5 @@ Pour plus d’informations sur les exemples pour d’autres langages :
 
 * .NET : [Exemples relatifs au service Stockage Azure avec .NET](storage-samples-dotnet.md)
 * Java : [Exemples relatifs au service Stockage Azure avec Java](storage-samples-java.md)
+* JavaScript/Node.js : [Exemples relatifs au service Stockage Azure en JavaScript](storage-samples-javascript.md)
 * Tous les autres langages : [Exemples relatifs à Stockage Azure](storage-samples.md)

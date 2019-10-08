@@ -1,25 +1,25 @@
 ---
 title: Déployer un outil de gestion - Azure
-description: Comment installer un outil d’interface utilisateur pour gérer les ressources Windows Virtual Desktop Preview.
+description: Guide pratique pour installer un outil d’interface utilisateur permettant de gérer les ressources Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: e0f9dbd9bf6b0c12d3e3f028ab9cd4c80cdb5124
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816507"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679485"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Didacticiel : Déployer un outil de gestion
 
-L’outil de gestion fournit une interface utilisateur pour la gestion des ressources de Microsoft Virtual Desktop Preview. Dans ce tutoriel, vous allez découvrir comment déployer et vous connecter à l’outil de gestion.
+L’outil de gestion fournit une interface utilisateur (IU) pour la gestion des ressources Microsoft Virtual Desktop. Dans ce tutoriel, vous allez découvrir comment déployer et vous connecter à l’outil de gestion.
 
 >[!NOTE]
->Ces instructions concernent une configuration propre à la préversion de Windows Virtual Desktop, que vous pouvez utiliser avec les processus actuels de votre organisation.
+>Ces instructions concernent une configuration spécifique à Windows Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
 
 ## <a name="important-considerations"></a>Points importants à prendre en compte
 

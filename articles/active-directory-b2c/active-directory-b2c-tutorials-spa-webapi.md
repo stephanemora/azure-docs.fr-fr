@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 60fe9569b0e6e92ae161271439ecbf1b04788ed4
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064689"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694581"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -38,32 +38,15 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="add-a-web-api-application"></a>Ajouter une application d’API web
 
-Les ressources d’API web doivent être inscrites auprès de votre locataire pour pouvoir accepter et répondre aux requêtes de ressources protégées émanant des applications clientes qui présentent un jeton d’accès.
-
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Sélectionnez **Applications**, puis **Ajouter**.
-1. Entrez un nom pour l’application. Par exemple, *webapi1*.
-1. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
-1. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans ce tutoriel, l'exemple s'exécute localement et écoute `https://localhost:5000`.
-1. Pour **URI ID d’application**, entrez un identificateur de point de terminaison d’API pour l’URI affiché. Pour le tutoriel, entrez `api`, pour que l’URI complet soit similaire à `https://contosotenant.onmicrosoft.com/api`.
-1. Cliquez sur **Créer**.
-1. Sélectionnez l’application *webapi1* pour ouvrir sa page de propriétés.
-1. Enregistrez l’**ID d’application** indiqué sur la page des propriétés. Vous avez besoin de cet ID dans une étape ultérieure quand vous configurez l’application web.
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## <a name="configure-scopes"></a>Configurer des étendues
 
 Les étendues permettent de gérer l'accès aux ressources protégées. Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, certains utilisateurs peuvent bénéficier d’un accès en lecture et en écriture tandis que d’autres peuvent disposer d’autorisations d’accès en lecture seule. Dans ce tutoriel, vous définissez des autorisations d’accès en lecture et en écriture pour l’API web.
 
-1. Sélectionnez **Applications**, puis sélectionnez *webapi1* pour ouvrir sa page de propriétés si elle n’est pas déjà ouverte.
-1. Sélectionnez **Étendues publiées**.
-1. Pour **ÉTENDUE**, entrez `Hello.Read` puis, pour **DESCRIPTION**, entrez `Read access to hello`.
-1. Pour **ÉTENDUE**, entrez `Hello.Write` puis, pour **DESCRIPTION**, entrez `Write access to hello`.
-1. Sélectionnez **Enregistrer**.
-1. Notez la **VALEUR DE PORTÉE COMPLÈTE** de l’étendue `Hello.Read` pour l’utiliser dans une étape ultérieure, quand vous configurez l’application monopage. La valeur d’étendue complète est similaire à `https://yourtenant.onmicrosoft.com/api/Hello.Read`.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Les étendues publiées peuvent servir à accorder à une application cliente une autorisation d’accès à l’API web.
+Notez la **VALEUR DE PORTÉE COMPLÈTE** de l’étendue `demo.read` pour l’utiliser dans une étape ultérieure, quand vous configurez l’application monopage. La valeur d’étendue complète est similaire à `https://yourtenant.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
@@ -71,12 +54,7 @@ Pour appeler une API web protégée à partir d’une autre application, vous de
 
 Dans le tutoriel sur les prérequis, vous avez créé une application web nommée *webapp1*. Dans ce tutoriel, vous configurez cette application pour appeler l’API web que vous avez créée dans la section précédente, *webapi1*.
 
-1. Accédez à votre locataire B2C dans le portail Azure.
-1. Sélectionnez **Applications**, puis *webapp1*.
-1. Sélectionnez **Accès aux API**, puis sélectionnez **Ajouter**.
-1. Dans la liste déroulante **Sélectionner une API**, sélectionnez *webapi1*.
-1. Dans la liste déroulante **Sélectionnez des étendues**, sélectionnez les étendues **Hello.Read** et **Hello.Write** que vous avez définies précédemment.
-1. Cliquez sur **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Votre application web monopage est inscrite pour appeler l’API web protégée. Un utilisateur s’authentifie auprès d’Azure AD B2C pour utiliser l’application monopage. L’application monopage obtient un octroi d’autorisation d’Azure AD B2C pour accéder à l’API web protégée.
 
@@ -101,8 +79,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
       "ClientId": "<webapi-application-ID>",
       "Policy": "B2C_1_signupsignin1",
 
-      "ScopeRead": "Hello.Read",
-      "ScopeWrite": "Hello.Write"
+      "ScopeRead": "demo.read",
+      "ScopeWrite": "demo.write"
     },
     ```
 
@@ -154,7 +132,7 @@ Dans cette section, vous mettez à jour l’application monopage pour appeler l�
 Pour modifier les paramètres dans l’application monopage :
 
 1. Ouvrez le fichier *index.html* dans le projet [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] que vous avez téléchargé ou cloné dans le tutoriel précédent.
-1. Configurez l’exemple avec l’URI pour l’étendue *Hello.Read* que vous avez créée précédemment et l’URL de l’API web.
+1. Configurez l’exemple avec l’URI pour l’étendue *demo.read* que vous avez créée précédemment et l’URL de l’API web.
     1. Dans la définition de `appConfig`, remplacez la valeur de `b2cScopes` par l’URI complet de l’étendue (la valeur de **VALEUR DE PORTÉE COMPLÈTE** que vous avez notée précédemment).
     1. Remplacez la valeur de `webApi` par la valeur de `applicationURL` que vous avez spécifiée dans la section précédente.
 
@@ -163,7 +141,7 @@ Pour modifier les paramètres dans l’application monopage :
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
     var appConfig = {
-      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/Hello.Read"],
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
       webApi: "http://localhost:5000/"
     };
     ```

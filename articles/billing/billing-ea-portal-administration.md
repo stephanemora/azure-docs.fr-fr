@@ -4,16 +4,16 @@ description: Cet article présente les tâches courantes à la charge d’un adm
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 236a8d6d280e75102df84fec5ab3df51f7ba355b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105485"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308101"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -31,7 +31,7 @@ Lorsque de nouveaux propriétaires de compte sont ajoutés pour la première foi
 
 Une fois qu’un administrateur Azure EA a créé un service, l’administrateur d’entreprise Azure peut ajouter des administrateurs de service et associer chacun d’eux à un service. Un administrateur de service peut créer des comptes. Ces comptes sont nécessaires pour créer des abonnements Azure EA.
 
-Pour plus d’informations sur l’ajout d’un service, consultez Créer un service Azure EA.
+Pour plus d’informations sur l’ajout d’un administrateur de service, consultez [Créer un administrateur de service Azure EA](billing-ea-portal-get-started.md#add-a-department-admin).
 
 ## <a name="enterprise-user-roles"></a>Rôles d’utilisateur Entreprise
 
@@ -124,14 +124,14 @@ Il n’y a aucun temps d’arrêt pendant le transfert de compte. Il peut être 
 
 Lorsque vous demandez un transfert d’inscription, fournissez les informations suivantes :
 
-- Pour l’inscription source, le numéro d’inscription et le compte à transférer
-- Pour l’inscription cible, le numéro de l’inscription vers laquelle transférer
+- Pour l’inscription source, le numéro d’inscription et le compte à transférer.
+- Pour l’inscription cible, le numéro de l’inscription vers laquelle effectuer le transfert.
 - Pour la date de transfert effectif de l’inscription, il peut s’agir d’une date identique ou postérieure à la date de début de l’inscription cible. La date choisie ne peut pas affecter l’utilisation pour une facture de dépassement déjà émise.
 
 Autres points à garder à l’esprit avant un transfert d’inscription :
 
-- L’approbation d’un administrateur EA est requise pour les inscriptions source et cible.
-  - Dans certains cas, Microsoft peut demander une approbation supplémentaire de la part d’un administrateur EA de l’inscription source.
+- L’approbation d’un administrateur EA est obligatoire pour les inscriptions source et cible.
+  - Dans certains cas, Microsoft peut demander une approbation supplémentaire de la part d’un administrateur EA de l’inscription source.
 - Si un transfert d’inscription ne répond pas à vos exigences, envisagez un transfert de compte.
 - Seuls les comptes que vous spécifiez sont transférés. Vous pouvez demander à transférer tous vos comptes.
 - L’inscription source conserve son état actif ou étendu. Vous pouvez continuer à utiliser l’inscription jusqu’à ce qu’elle expire.
@@ -208,7 +208,7 @@ Si une notification n’est pas reçue par un utilisateur, vérifiez que les par
 6. Ajoutez un contact, si nécessaire, puis cliquez sur **Ajouter**.
 7. Cliquez sur **Enregistrer**.
 
-![Exemple illustrant l’ajout d’un contact ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![Exemple montrant la zone Ajouter un contact ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Offre Azure Sponsorship
 L’offre Azure Sponsorship est un compte Microsoft Azure sponsorisé limité. Elle est disponible sur invitation électronique pour certains clients sélectionnés par Microsoft. Si vous bénéficiez de l’offre Microsoft Azure Sponsorship, vous recevrez une invitation électronique pour votre ID de compte.

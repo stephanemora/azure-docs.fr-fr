@@ -4,15 +4,15 @@ description: Découvrez comment intégrer un client à la gestion des ressources
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 09/30/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a199dde6b9e36683b817f908e385aabcc431ce16
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b2e935a3a5ff2b6da99ad693f2d4e924ae811caf
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155125"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694846"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -113,11 +113,11 @@ az role definition list --name "<roleName>" | grep name
 
 ## <a name="create-an-azure-resource-manager-template"></a>Créer un modèle Azure Resource Manager
 
-Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) incluant les éléments suivants :
+Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) pour votre offre et y inclure les éléments suivants : Le client peut voir les valeurs **mspOfferName** et **mspOfferDescription** quand il consulte les détails de l’offre dans la page [Fournisseurs de services](view-manage-service-providers.md) du portail Azure.
 
 |Champ  |Définition  |
 |---------|---------|
-|**mspName**     |Nom du fournisseur de services         |
+|**mspOfferName**     |Nom décrivant cette définition. Cette valeur est présentée au client comme titre de l’offre.         |
 |**mspOfferDescription**     |Brève description de votre offre (par exemple, « Offre de gestion des machines virtuelles Contoso »)      |
 |**managedByTenantId**     |Votre ID d’abonné         |
 |**authorizations**     |Les valeurs **principalId** pour les utilisateurs/groupes/noms de principal de service de votre locataire, chacune avec un **principalIdDisplayName** pour aider votre client à comprendre l’objectif de l’autorisation, et mappée à une valeur **roleDefinitionId** intégrée pour spécifier le niveau d’accès         |
@@ -132,9 +132,9 @@ Pour intégrer l’abonnement d’un client, utilisez le modèle Azure Resource 
 |Abonnement (lors de l’utilisation d’une offre publiée sur la Place de marché Azure)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> Le processus décrit ici nécessite un déploiement distinct pour chaque abonnement intégré.
-> 
-> Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement.
+> Le processus décrit ici nécessite un déploiement distinct pour chaque abonnement intégré. Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement.
+>
+> De plus, vous devez déployer séparément chacune des offres qui sont appliquées à un même abonnement (ou aux groupes de ressources d’un abonnement). Chaque offre appliquée doit utiliser un **mspOfferName** différent.
 
 L’exemple suivant montre un fichier **resourceProjection.parameters.json** modifié qui sera utilisé pour l’intégration d’un abonnement. Les fichiers de paramètres de groupe de ressources (situés dans le dossier [rg-delegated-resource-management](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management)) sont similaires, mais incluent en outre un paramètre **rgName** pour identifier les groupes de ressources à intégrer.
 
@@ -143,7 +143,7 @@ L’exemple suivant montre un fichier **resourceProjection.parameters.json** mod
     "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "mspName": {
+        "mspOfferName": {
             "value": "Fabrikam Managed Services - Interstellar"
         },
         "mspOfferDescription": {

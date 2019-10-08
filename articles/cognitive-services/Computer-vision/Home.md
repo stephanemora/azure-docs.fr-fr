@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967058"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719541"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
-Le service Vision par ordinateur d’Azure offre aux développeurs un accès à des algorithmes avancés permettant de traiter des images et de retourner des informations. Pour analyser une image, vous pouvez télécharger une image ou spécifier une URL d’image. Les algorithmes de traitement d’images peuvent analyser le contenu de différentes manières, selon les composants visuels qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient du contenu pour adultes ou choquant, ou rechercher tous les visages humains dans une image.
+Le service Vision par ordinateur d’Azure offre aux développeurs un accès à des algorithmes avancés permettant de traiter des images et de retourner des informations. Pour analyser une image, vous pouvez télécharger une image ou spécifier une URL d’image. Les algorithmes de traitement d’images peuvent analyser le contenu de différentes manières, selon les composants visuels qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient du contenu pour adultes ou rechercher tous les visages humains dans une image.
 
 Vous pouvez utiliser le service Vision par ordinateur dans votre application en utilisant un kit SDK natif ou en appelant directement l’API REST. Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
 
@@ -52,7 +52,7 @@ Vous pouvez également utiliser l’API [OCR (reconnaissance optique des caract�
 
 ## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 
-Vous pouvez utiliser Vision par ordinateur pour [détecter le contenu pour adultes et choquant](concept-detecting-adult-content.md) dans une image et retourner un score de confiance pour les deux. Vous pouvez définir le filtre pour la détection de contenu choquant et réservé aux adultes sur une échelle variable afin de répondre à vos besoins spécifiques.
+Vous pouvez utiliser Vision par ordinateur pour [détecter des contenus pour adultes](concept-detecting-adult-content.md) dans une image et retourner des scores de confiance pour différentes classifications. Le seuil de marquage du contenu peut être défini sur une échelle pour prendre en compte vos préférences.
 
 ## <a name="use-containers"></a>Utiliser des conteneurs
 

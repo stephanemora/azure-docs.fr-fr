@@ -66,7 +66,7 @@ sections:
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
-        text: "Découvrez comment développer des applications avec l’API Face\_:"
+        text: 'Découvrez comment développer des applications avec l’API Face:'
       - type: list
         style: unordered
         items:
@@ -75,7 +75,7 @@ sections:
   - title: Exemples
     items:
       - type: paragraph
-        text: "Retrouvez des exemples pour l’API Face\_:"
+        text: 'Retrouvez des exemples pour l’API Face:'
       - type: list
         style: unordered
         items:

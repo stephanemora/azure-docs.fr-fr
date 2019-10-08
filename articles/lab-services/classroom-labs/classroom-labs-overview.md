@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/21/2018
+ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 67ebce2130bf5594d3c8c671934f7141a02eb60d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958828"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694666"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introduction aux laboratoires de salle de classe
 Azure Lab Services vous permet de configurer rapidement un environnement pour votre laboratoire de salle de classe dans le cloud. Un formateur crée un laboratoire de salle de classe, configure Windows ou des machines virtuelles Linux, installe les logiciels et laboratoires d’outils nécessaires dans la classe, puis les rend disponibles aux étudiants. Les étudiants de la classe se connectent à des machines virtuelles (VM) dans le laboratoire puis s’en servent pour leurs projets, devoirs et exercices en classe. 
@@ -33,6 +33,9 @@ Les utilisateurs invités à votre labo bénéficient d’un accès immédiat au
 
 ## <a name="cost-optimization-and-tracking"></a>Optimisation et analyse des coûts  
 Maîtrisez votre budget en contrôlant le nombre exact d’heures pendant lesquelles les utilisateurs de votre labo peuvent utiliser les machines virtuelles. Établissez des plannings dans le labo pour permettre aux utilisateurs d’utiliser les machines virtuelles uniquement pendant les créneaux horaires désignés ou configurez des heures récurrentes d’arrêt et de démarrage automatiques. Gardez une trace de l’utilisation pour chaque utilisateur et définissez des limites.
+
+## <a name="example-class-types"></a>Exemples de types de classes
+Vous pouvez configurer des laboratoires pour plusieurs types de classes avec Azure Lab Services. Pour obtenir des exemples de types de classes qu’il est possible d’utiliser avec des laboratoires dans Azure Lab Services, consultez l’article [Exemples de types de classes dans Azure Lab Services](class-types.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Prendre en main un compte de laboratoire qui est requis pour créer un laboratoire de salle de classe à l’aide de Azure Lab Services :

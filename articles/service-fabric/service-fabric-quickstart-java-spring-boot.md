@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2aa5879ee3960bd5d26855ac7e7c3e12994ee54e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 4ec6addb348b8c13f124ec225e056d2003a93c38
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861334"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703522"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Démarrage rapide : Déployer une application Java Spring Boot sur Azure Service Fabric
 
@@ -28,7 +28,7 @@ Ce guide de démarrage rapide montre comment déployer une application Java Spri
 
 Il utilise l’exemple [Getting Started](https://spring.io/guides/gs/spring-boot/) disponible sur le site web de Spring. Il explique comment déployer l’exemple Spring Boot en tant qu’application Service Fabric à l’aide d’outils en ligne de commande familiers. Une fois que vous aurez terminé, l’exemple Getting Started de Spring Boot sera opérationnel sur Service Fabric.
 
-![Capture d’écran de l’application](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+![Exemple Service Fabric Spring Boot](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
@@ -79,7 +79,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 1. Entrez les informations suivantes à chaque invite.
 
-    ![Entrées Yeoman](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
+    ![Entrées Yeoman Spring Boot](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
 1. Dans le dossier `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code`, créez un fichier nommé `entryPoint.sh`. Ajoutez le code suivant au fichier `entryPoint.sh`. 
 
@@ -147,7 +147,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
     Le démarrage du cluster local prend un certain temps. Pour vérifier que le cluster est entièrement opérationnel, accédez à Service Fabric Explorer à l’adresse **http://localhost:19080** . Les cinq nœuds sains indiquent que le cluster local est opérationnel. 
     
-    ![Cluster local sain](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
+    ![Service Fabric Explorer - Affichage des nœuds sains](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
 1. Ouvrez le dossier `gs-spring-boot/SpringServiceFabric`.
 1. Exécutez la commande suivante pour vous connecter à votre cluster local.
@@ -163,7 +163,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 1. Ouvrez votre navigateur web préféré, puis accédez à l’application à l’adresse `http://localhost:8080`.
 
-    ![Frontend de l’application - Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+    ![Exemple Service Fabric Spring Boot](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 Vous pouvez maintenant accéder à l’application Spring Boot qui a été déployée sur un cluster Service Fabric.
 
@@ -178,7 +178,7 @@ Pour mettre à l’échelle le service web frontal, procédez comme suit :
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://localhost:19080`.
 1. Sélectionnez les points de suspension ( **...** ) en regard du nœud **fabric:/SpringServiceFabric/SpringGettingStarted** dans l’arborescence, puis sélectionnez **Scale Service (Mettre le service à l’échelle)** .
 
-    ![Mettre à l’échelle le service dans Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
+    ![Service Fabric Explorer - Exemple de mise à l’échelle d’un service](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
     Vous pouvez maintenant choisir de mettre à l’échelle le nombre d’instances du service.
 
@@ -196,7 +196,7 @@ Pour mettre à l’échelle le service web frontal, procédez comme suit :
 
 1. Sélectionnez **fabric:/SpringServiceFabric/SpringGettingStarted** dans l’arborescence, puis développez le nœud de la partition (représenté par un GUID).
 
-    ![Mettre à l’échelle le service dans Service Fabric Explorer - Terminé](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
+    ![Service Fabric Explorer - Mise à l’échelle du service terminée](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-partition-node.png)
 
     Le service possède trois instances, et l’arborescence indique les nœuds sur lesquels elles s’exécutent.
 
@@ -209,10 +209,10 @@ Pour illustrer le basculement du service, il est possible de simuler un redémar
 1. Ouvrez Service Fabric Explorer dans votre cluster. Par exemple, `http://localhost:19080`.
 1. Cliquez sur les points de suspension ( **...** ) en regard du nœud qui exécute l’instance de votre service et redémarrez le nœud.
 
-    ![Redémarrage du nœud dans Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
+    ![Service Fabric Explorer - Redémarrage du nœud](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. L’instance de votre service est alors déplacée dans un autre nœud, sans que votre application subisse d’interruption de service.
 
-    ![Succès du redémarrage du nœud dans Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
+    ![Service Fabric Explorer - Redémarrage du nœud réussi](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-service-moved.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

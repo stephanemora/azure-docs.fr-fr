@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Utiliser des événements Azure Data Lake Storage Gen2 pour mettre à jour une table Databricks Delta | Microsoft Docs'
+title: 'Didacticiel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Azure Databricks | Microsoft Docs'
 description: Ce tutoriel vous montre comment utiliser un abonnement Event Grid, une fonction Azure et un travail Azure Databricks pour insérer des lignes de données dans une table stockée dans Azure DataLake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
-ms.openlocfilehash: 5a85e3b16a5a93fedd6a2257f5601b0673f825ad
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904662"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326988"
 ---
-# <a name="tutorial-use-azure-data-lake-storage-gen2-events-to-update-a-databricks-delta-table"></a>Didacticiel : Utiliser des événements Azure Data Lake Storage Gen2 pour mettre à jour une table Databricks Delta
+# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Didacticiel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Databricks
 
 Ce tutoriel vous montre comment gérer des événements dans un compte de stockage doté d’un espace de noms hiérarchique.
 

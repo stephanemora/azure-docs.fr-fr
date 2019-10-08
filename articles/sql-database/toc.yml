@@ -34,6 +34,8 @@
           href: sql-database-server-level-firewall-rule.md
         - name: Configurer un point de terminaison public sur une instance managée
           href: sql-database-managed-instance-public-endpoint-configure.md
+        - name: Configurer les types de connexion sur une instance managée
+          href: sql-database-managed-instance-connection-type.md
         - name: Connexion de machine virtuelle cliente à une instance managée
           href: sql-database-managed-instance-configure-vm.md
         - name: Connexion point à site à une instance managée

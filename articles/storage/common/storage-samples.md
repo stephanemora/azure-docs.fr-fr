@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 03a036ce5381130af4bbcea88c87d77cd93cf6a9
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e2816d8e6fdd900473cceebb20c96794f3f9f0f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743882"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350876"
 ---
 # <a name="azure-storage-samples"></a>Exemples relatifs à Microsoft Azure Storage
 
@@ -40,13 +40,7 @@ Pour explorer les exemples relatifs à Python, téléchargez la [bibliothèque d
 ## <a name="nodejs-samples"></a>Exemples relatifs à Node.js
 Pour explorer les exemples relatifs à Node.js, téléchargez la [bibliothèque cliente de stockage Node.js](https://github.com/Azure/azure-storage-node).
 
-* [Téléchargeur d’objets blob](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [Chargement et téléchargement d’objets blob](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [Jeton de liaison](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [Stratégie de nouvelle tentative](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [Signature d’accès partagé](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [Instantané](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [Requête de table](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [Exemples relatifs au service Stockage Azure en JavaScript/Node.js](storage-samples-javascript.md)
 
 ## <a name="c-samples"></a>Exemples C++
 Pour explorer les exemples C++, téléchargez la [bibliothèque cliente de stockage C++](https://www.nuget.org/packages/wastorage/) à partir de NuGet.
@@ -71,4 +65,5 @@ Les articles suivants indexent chacun des exemples par service (blob, fichier, f
 
 * [Exemples relatifs au service Stockage Azure avec .NET](storage-samples-dotnet.md)
 * [Exemples relatifs au service Stockage Azure avec Java](storage-samples-java.md)
+* [Exemples relatifs au service Stockage Azure en JavaScript](storage-samples-javascript.md)
 * [Exemples relatifs au service Stockage Azure avec Python](storage-samples-python.md)

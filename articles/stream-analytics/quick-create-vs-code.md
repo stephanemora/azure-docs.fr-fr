@@ -4,15 +4,15 @@ description: Ce démarrage rapide vous explique comment créer une tâche Stream
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/06/2019
+ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825352"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673127"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Démarrage rapide : Créer une tâche cloud Azure Stream Analytics dans Visual Studio Code (préversion)
 
@@ -60,8 +60,8 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
    
    |**Paramètre**  |**Valeur suggérée**  |**Description**  |
    |---------|---------|---------|
-   |Abonnement  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
-   |Groupe de ressources   |   asaquickstart-resourcegroup  |   Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte. |
+   |Subscription  | \<Votre abonnement\> |  Sélectionnez l’abonnement Azure que vous souhaitez utiliser. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Sélectionnez **Créer** et saisissez le nom du nouveau groupe de ressources pour votre compte. |
    |Région  |  \<Sélectionnez la région la plus proche de vos utilisateurs\> | Sélectionnez l’emplacement géographique où vous pouvez héberger votre hub IoT. Utilisez l’emplacement le plus proche de vos utilisateurs. |
    |Nom du hub IoT  | MyASAIoTHub  |   Sélectionnez un nom pour votre hub IoT.   |
 
@@ -120,6 +120,25 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
 > [!Note]
 > Lorsque vous ajoutez des entrées et sorties à partir de la palette de commandes, les chemins d’accès correspondants sont automatiquement ajoutés au fichier **asaproj.json**. Si vous ajoutez ou supprimez des entrées ou sorties directement sur disque, vous devez le faire manuellement dans le fichier **asaproj.json**. Vous pouvez choisir de placer les entrées et sorties dans un seul emplacement, puis les référencer dans différentes tâches en spécifiant leurs chemins d’accès dans chaque **asaproj.json**.
 
+## <a name="define-the-transformation-query"></a>Définir la requête de transformation
+
+1. Ouvrez **myASAproj.asaql** à partir du dossier de votre projet.
+
+2. Ajoutez la requête suivante :
+
+   ```sql
+   SELECT * 
+   INTO Output
+   FROM Input
+   HAVING Temperature > 27
+   ```
+## <a name="test-with-sample-data"></a>Tester avec des exemples de données
+Avant d’exécuter la requête dans le cloud, vous pouvez tester votre requête sur des exemples de données locaux afin de vérifier la logique de la requête.
+
+Pour plus d’informations, suivez les instructions fournies dans [Effectuer des tests sur des exemples de données](vscode-local-run.md). 
+
+ ![Effectuer des tests sur des exemples de données dans VS Code](./media/quick-create-vs-code/vscode-localrun.gif)
+
 ## <a name="define-an-input"></a>Définition d’une entrée
 
 1. Sélectionnez **Ctrl+Maj+P** pour ouvrir la palette de commandes, puis entrez **ASA : Ajouter une entrée**.
@@ -134,7 +153,7 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
 
    ![Sélectionner un script ASA dans Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
-4. Entrez le nom du fichier d’entrée **IotHub.json**.
+4. Entrez **IotHub** comme nom du fichier d’entrée.
 
 5. Modifiez **IoTHub.json** avec les valeurs suivantes. Conservez les valeurs par défaut pour les champs non mentionnés ci-dessous. Vous pouvez vous aider de CodeLens pour entrer une chaîne, opérer une sélection dans une liste déroulante ou modifier le texte directement dans le fichier.
 
@@ -142,8 +161,11 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
    |-------|---------------|-----------|
    |Nom|Entrée|Saisissez un nom pour identifier l’entrée du travail.|
    |IotHubNamespace|MyASAIoTHub|Choisissez ou entrez le nom de votre hub IoT. Si les hubs IoT sont créés dans le même abonnement, leurs noms sont automatiquement détectés.|
-   |EndPoint|Messagerie| |
    |SharedAccessPolicyName|iothubowner| |
+
+   ![Configurer l’entrée dans Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+
 
 ## <a name="define-an-output"></a>Définition d’une sortie
 
@@ -155,29 +177,18 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
 
 3. Choisissez le script de requête ASA qui utilisera cette entrée.
 
-4. Entrez le nom de fichier de sortie **BlobStorage.json**.
+4. Entrez **BlobStorage** comme nom du fichier de sortie.
 
-5. Modifiez **BlobStorage.json** avec les valeurs suivantes. Conservez les valeurs par défaut pour les champs non mentionnés ci-dessous. Aidez-vous de CodeLens pour entrer une chaîne ou opérez une sélection dans une liste déroulante.
+5. Modifiez **BlobStorage** avec les valeurs suivantes. Conservez les valeurs par défaut pour les champs non mentionnés ci-dessous. Utilisez CodeLens pour opérer une sélection dans une liste déroulante ou pour entrer une chaîne. 
 
    |Paramètre|Valeur suggérée|Description|
    |-------|---------------|-----------|
-   |Nom|Sortie| Saisissez un nom pour identifier la sortie de la tâche.|
+   |Nom|Output| Saisissez un nom pour identifier la sortie de la tâche.|
    |Compte de stockage|asaquickstartstorage|Sélectionnez ou saisissez le nom de votre compte de stockage. Les noms de compte de stockage sont automatiquement détectés s’ils sont créés dans le même abonnement.|
    |Conteneur|conteneur1|Sélectionnez un conteneur existant que vous avez créé dans votre compte de stockage.|
    |Modèle de chemin d'accès|sortie|Entrez le nom d’un chemin de fichier qui doit être créé dans le conteneur.|
 
-## <a name="define-the-transformation-query"></a>Définir la requête de transformation
-
-1. Ouvrez **myASAproj.asaql** à partir du dossier de votre projet.
-
-2. Ajoutez la requête suivante :
-
-   ```sql
-   SELECT * 
-   INTO Output
-   FROM Input
-   HAVING Temperature > 27
-   ```
+ ![Configurer la sortie dans Visual Studio Code](./media/quick-create-vs-code/configure-output.png)
 
 ## <a name="compile-the-script"></a>Compiler le script
 
@@ -211,7 +222,10 @@ Vous pouvez déclencher la compilation du script de deux façons :
 
 5. Sélectionnez **Envoyer sur Azure**. Les journaux figurent dans la fenêtre de sortie. 
 
-6. Une fois la tâche créée, elle apparaît dans l’Explorateur Stream Analytics.
+6. Une fois que vous avez créé votre tâche, vous pouvez la voir dans l’**Explorateur Stream Analytics**.
+
+![Liste des tâches dans l’Explorateur Stream Analytics](./media/quick-create-vs-code/list-job.png)
+
 
 ## <a name="run-the-iot-simulator"></a>Exécuter le simulateur IoT
 

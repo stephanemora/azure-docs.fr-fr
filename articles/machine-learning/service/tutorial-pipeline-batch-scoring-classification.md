@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Pipelines Azure ML pour le scoring par lots'
+title: 'Didacticiel : Pipelines ML pour le scoring par lots'
 titleSuffix: Azure Machine Learning
-description: Créez un pipeline ML pour le scoring par lots sur un modèle de classification d’images. Les pipelines de Machine Learning optimisent votre workflow en termes de vitesse, de portabilité et de réutilisation pour que vous puissiez vous concentrer sur votre domaine d’expertise, le Machine Learning, plutôt que sur l’infrastructure et l’automatisation.
+description: 'Créez un pipeline Machine Learning pour effectuer un scoring par lots sur un modèle de classification d’images dans Azure Machine Learning. Les pipelines Machine Learning optimisent votre workflow à divers niveaux : vitesse, portabilité et réutilisation. Ainsi, vous pouvez vous concentrer sur votre domaine d’expertise, le Machine Learning, plutôt que sur l’infrastructure et l’automatisation.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/05/2019
-ms.openlocfilehash: 15a11ba74262ec5a354f0cb3fe22c09167c8d5a6
-ms.sourcegitcommit: d15b23e23328ce7502dd3d2846b49fd2d6d8209c
+ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71005391"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695611"
 ---
-# <a name="use-azure-machine-learning-pipelines-for-batch-scoring"></a>Utiliser des pipelines Azure Machine Learning pour le scoring par lots
+# <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Créer et utiliser un pipeline Azure Machine Learning pour le scoring par lots
 
-Dans ce tutoriel, vous utilisez les pipelines Azure Machine Learning pour exécuter un travail de scoring par lots. Cet exemple utilise le modèle Tensorflow de réseau neuronal convolutif [Inception-V3](https://arxiv.org/abs/1512.00567) préentraîné pour classifier les images sans étiquette. Après avoir créé et publié un pipeline, vous configurez un point de terminaison REST pour pouvoir déclencher le pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme.
+Dans ce tutoriel, vous utilisez un pipeline Azure Machine Learning pour exécuter un travail de scoring par lots. L’exemple utilise le modèle Tensorflow de réseau neuronal convolutif [Inception-V3](https://arxiv.org/abs/1512.00567) préentraîné pour classifier les images sans étiquette. Après avoir créé et publié un pipeline, vous configurez un point de terminaison REST qui vous permet de déclencher ce pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme.
 
-Les pipelines de Machine Learning optimisent votre workflow en termes de vitesse, de portabilité et de réutilisation pour que vous puissiez vous concentrer sur votre domaine d’expertise, le Machine Learning, plutôt que sur l’infrastructure et l’automatisation. [En savoir plus sur les pipelines ML](concept-ml-pipelines.md).
+Les pipelines Machine Learning optimisent votre workflow à divers niveaux : vitesse, portabilité et réutilisation. Ainsi, vous pouvez vous concentrer sur votre domaine d’expertise, le Machine Learning, plutôt que sur l’infrastructure et l’automatisation. [En savoir plus sur les pipelines Machine Learning](concept-ml-pipelines.md).
 
-Dans ce didacticiel, vous avez appris à effectuer les tâches suivantes :
+Dans ce tutoriel, vous allez effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 > * Configurer l’espace de travail et télécharger des exemples de données
 > * Créer des objets de données pour extraire et sortir des données
-> * Télécharger, préparer et inscrire le modèle auprès de votre espace de travail
+> * Télécharger, préparer et inscrire le modèle dans votre espace de travail
 > * Provisionner des cibles de calcul et créer un script de scoring
 > * Créer, exécuter et publier un pipeline
 > * Activer un point de terminaison REST pour le pipeline
@@ -37,26 +37,26 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Effectuez la [Partie 1 du tutoriel d’installation](tutorial-1st-experiment-sdk-setup.md) si vous n’avez pas encore d’espace de travail Azure Machine Learning ou de machine virtuelle de notebook.
-* Une fois le tutoriel d’installation effectué, ouvrez le notebook **tutorials/tutorial-pipeline-batch-scoring-classification.ipynb** à l’aide du même serveur de notebooks.
+* Si vous n’avez pas encore d’espace de travail Azure Machine Learning ou de machine virtuelle de notebook, effectuez la [Partie 1 du tutoriel d’installation](tutorial-1st-experiment-sdk-setup.md).
+* Une fois le tutoriel d’installation effectué, utilisez le même serveur de notebooks pour ouvrir le notebook *tutorials/tutorial-pipeline-batch-scoring-classification.ipynb*.
 
-Vous trouverez également ce tutoriel sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) si vous souhaitez l’exécuter dans votre propre [environnement local](how-to-configure-environment.md#local). Exécutez `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` pour vous procurer les packages requis.
+Si vous souhaitez suivre le tutoriel d’installation dans votre propre [environnement local](how-to-configure-environment.md#local), vous pouvez y accéder sur [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Exécutez `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` pour vous procurer les packages requis.
 
-## <a name="configure-workspace-and-create-datastore"></a>Configurer l’espace de travail et créer une banque de données
+## <a name="configure-workspace-and-create-a-datastore"></a>Configurer l’espace de travail et créer un magasin de données
 
-Créez un objet d’espace de travail à partir de l’espace de travail Azure Machine Learning existant. 
-+ Un [espace de travail](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) est une classe qui accepte les informations concernant vos abonnements et vos ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle. 
+Créez un objet d’espace de travail à partir de l’espace de travail Azure Machine Learning existant.
 
-+ `Workspace.from_config()` lit le fichier **config.json** et charge les détails d’authentification dans un objet nommé `ws`. `ws` est utilisé dans tout le reste du code de ce didacticiel.
+- Un [espace de travail](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) est une classe qui accepte les informations concernant vos abonnements et ressources Azure. L’espace de travail crée également une ressource cloud qui vous permet de superviser et de suivre les exécutions de votre modèle. 
+- `Workspace.from_config()` lit le fichier `config.json`, puis charge les informations d’authentification dans un objet nommé `ws`. L’objet `ws` est utilisé dans le code tout au long de ce tutoriel.
 
 ```python
 from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-datastore-for-sample-images"></a>Créer une banque de données pour des exemples d’images
+### <a name="create-a-datastore-for-sample-images"></a>Créer un magasin de données pour des exemples d’images
 
-Récupérez l’exemple de données publiques d’évaluation ImageNet à partir du conteneur d’objets blob public `sampledata` sur le compte `pipelinedata`. L’appel de `register_azure_blob_container()` rend les données disponibles dans l’espace de travail sous le nom `images_datastore`. Spécifiez ensuite la banque de données par défaut de l’espace de travail en tant que banque de données de sortie, laquelle vous permet d’effectuer un scoring de la sortie dans le pipeline.
+Pour le compte `pipelinedata`, récupérez l’exemple de données publiques d’évaluation ImageNet à partir du conteneur d’objets blob public `sampledata`. Appelez `register_azure_blob_container()` pour rendre les données disponibles dans l’espace de travail sous le nom `images_datastore`. Définissez ensuite le magasin de données par défaut de l’espace de travail en tant que magasin de données de sortie. Utilisez le magasin de données de sortie pour effectuer un scoring de la sortie dans le pipeline.
 
 ```python
 from azureml.core.datastore import Datastore
@@ -72,16 +72,16 @@ def_data_store = ws.get_default_datastore()
 
 ## <a name="create-data-objects"></a>Créer des objets de données
 
-Durant la création de pipelines, les objets `DataReference` sont utilisés pour lire les données des banques de données d’espace de travail, et les objets `PipelineData` sont utilisés pour transférer les données intermédiaires entre les étapes de pipeline.
+Quand vous créez un pipeline, un objet `DataReference` lit les données dans le magasin de données de l’espace de travail. Un objet `PipelineData` transfère les données intermédiaires entre les étapes du pipeline.
 
 > [!Important]
-> Cet exemple de scoring par lots utilise une seule étape de pipeline. Toutefois, dans les cas d’usage où plusieurs étapes entrent en jeu, le flux classique comprend les éléments suivants :
+> L’exemple de scoring par lots de ce tutoriel utilise une seule étape de pipeline. Dans les cas d’usage qui comportent plusieurs étapes, le flux classique inclut les étapes suivantes :
 >
-> 1. Utilisation d’objets `DataReference` en tant qu’**entrées** pour extraire les données brutes, exécution de certaines transformations, puis **sortie** d’un objet `PipelineData`.
+> 1. Utilisez des objets `DataReference` en tant qu’*entrées* pour extraire les données brutes, exécutez certaines transformations, puis effectuez la *sortie* d’un objet `PipelineData`.
 >
-> 2. Utilisation de l’**objet de sortie** `PipelineData` de l’étape précédente en tant qu’*objet d’entrée*, et cela de manière répétée pour les étapes suivantes.
+> 2. Utilisez l’*objet de sortie* `PipelineData` de l’étape précédente en tant qu’*objet d’entrée*. Répétez cette opération pour les étapes suivantes.
 
-Dans ce scénario, vous créez des objets `DataReference` qui correspondent aux répertoires de banque de données pour les images d’entrée et les étiquettes de classification (valeurs de test y). Vous créez également un objet `PipelineData` pour les données de sortie du scoring par lots.
+Dans ce scénario, vous créez des objets `DataReference` qui correspondent aux répertoires de magasin de données pour les images d’entrée et les étiquettes de classification (valeurs de test y). Vous créez également un objet `PipelineData` pour les données de sortie du scoring par lots.
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -106,7 +106,7 @@ output_dir = PipelineData(name="scores",
 
 ## <a name="download-and-register-the-model"></a>Télécharger et inscrire le modèle
 
-Téléchargez le modèle Tensorflow préentraîné afin de l’utiliser pour le scoring par lots dans le pipeline. Commencez par créer un répertoire local où stocker le modèle, puis téléchargez-le et extrayez-le.
+Téléchargez le modèle Tensorflow préentraîné afin de l’utiliser pour le scoring par lots dans un pipeline. Commencez par créer un répertoire local où stocker le modèle. Téléchargez et extrayez ensuite le modèle.
 
 ```python
 import os
@@ -133,9 +133,11 @@ model = Model.register(model_path="models/inception_v3.ckpt",
                        workspace=ws)
 ```
 
-## <a name="create-and-attach-remote-compute-target"></a>Créer et attacher une cible de calcul distante
+## <a name="create-and-attach-the-remote-compute-target"></a>Créer et attacher la cible de calcul distante
 
-Dans la mesure où les pipelines ML ne peuvent pas être exécutés localement, vous devez les exécuter sur des ressources cloud. Nous les désignons en tant que cibles de calcul distantes. Il s’agit d’environnements de calcul virtuels réutilisables où vous effectuez des expériences et exécutez des workflows ML. Exécutez le code suivant pour créer une cible [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) ayant un GPU, puis attachez-la à votre espace de travail. Pour plus d’informations sur les cibles de calcul, consultez l’[article conceptuel](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
+Vous ne pouvez pas exécuter les pipelines Machine Learning localement, donc exécutez-les sur des ressources cloud ou des *cibles de calcul distantes*. Une cible de calcul distante est un environnement Compute virtuel réutilisable où vous exécutez des expériences et des workflows Machine Learning. 
+
+Exécutez le code suivant pour créer une cible [`AmlCompute`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) ayant un GPU, puis attachez-la à votre espace de travail. Pour plus d’informations sur les cibles de calcul, consultez l’[article conceptuel](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
 
 ```python
@@ -158,17 +160,17 @@ except ComputeTargetException:
 
 ## <a name="write-a-scoring-script"></a>Écrire un script de scoring
 
-Pour effectuer le scoring, créez un script de scoring par lots `batch_scoring.py` dans le répertoire actif. Le script accepte les images d’entrée, applique le modèle de classification et génère les prédictions dans un fichier de résultats.
+Pour effectuer le scoring, créez un script de scoring par lots nommé `batch_scoring.py` dans le répertoire actif. Le script accepte les images d’entrée, applique le modèle de classification, puis génère les prédictions dans un fichier de résultats.
 
 Le script `batch_scoring.py` accepte les paramètres suivants, lesquels sont passés à partir de l’étape de pipeline que vous allez créer plus loin dans ce tutoriel :
 
-- `--model_name` : nom du modèle utilisé
-- `--label_dir` : répertoire contenant le fichier `labels.txt` 
-- `--dataset_path` : répertoire contenant les images d’entrée
-- `--output_dir` : le script exécute le modèle sur les données et génère un `results-label.txt` dans ce répertoire
-- `--batch_size` : taille de lot utilisée pour l’exécution du modèle
+- `--model_name`: Nom du modèle utilisé.
+- `--label_dir`: Répertoire qui contient le fichier `labels.txt`.
+- `--dataset_path`: Répertoire qui contient les images d’entrée.
+- `--output_dir`: Répertoire de sortie du fichier `results-label.txt`, une fois que le script a exécuté le modèle sur les données.
+- `--batch_size`: Taille de lot utilisée pour l’exécution du modèle.
 
-L’infrastructure des pipelines utilise la classe `ArgumentParser` pour passer les paramètres aux étapes de pipeline. Par exemple, dans le code ci-dessous, le premier argument `--model_name` reçoit l’identificateur de propriété `model_name`. Dans la fonction `main()`, cette propriété est accessible à l’aide de `Model.get_model_path(args.model_name)`.
+L’infrastructure de pipeline utilise la classe `ArgumentParser` pour passer les paramètres aux étapes de pipeline. Par exemple, dans le code suivant, le premier argument `--model_name` reçoit l’identificateur de propriété `model_name`. Dans la fonction `main()`, `Model.get_model_path(args.model_name)` permet d’accéder à cette propriété.
 
 
 ```python
@@ -290,11 +292,11 @@ if __name__ == "__main__":
 ```
 
 > [!TIP]
-> Dans ce tutoriel, le pipeline n’a qu’une seule étape et écrit la sortie dans un fichier. Toutefois, dans les pipelines multiétapes, `ArgumentParser` vous permet également de définir un répertoire où écrire les données de sortie à entrer dans les étapes suivantes. Pour obtenir un exemple de passage de données entre plusieurs étapes de pipeline à l’aide du modèle de conception `ArgumentParser`, consultez le [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
+> Le pipeline de ce tutoriel comporte une seule étape et écrit la sortie dans un fichier. Pour les pipelines multiétapes, `ArgumentParser` vous permet également de définir un répertoire où écrire les données de sortie à entrer dans les étapes suivantes. Pour obtenir un exemple de passage de données entre plusieurs étapes de pipeline à l’aide du modèle de conception `ArgumentParser`, consultez le [notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/nyc-taxi-data-regression-model-building/nyc-taxi-data-regression-model-building.ipynb).
 
 ## <a name="build-and-run-the-pipeline"></a>Créer et exécuter le pipeline
 
-Avant d’exécuter le pipeline, vous créez un objet qui définit l’environnement Python et les dépendances nécessaires à votre script `batch_scoring.py`. La dépendance principale nécessaire est Tensorflow. Toutefois, vous devez également installer `azureml-defaults` pour les processus en arrière-plan à partir du kit SDK. Créez un objet `RunConfiguration` à l’aide des dépendances, et spécifiez également la prise en charge de Docker et du GPU Docker.
+Avant d’exécuter le pipeline, créez un objet qui définit l’environnement Python et crée les dépendances nécessaires à votre script `batch_scoring.py`. La dépendance principale nécessaire est Tensorflow. Toutefois, vous devez également installer `azureml-defaults` à partir du kit SDK pour les processus en arrière-plan. Créez un objet `RunConfiguration` à l’aide des dépendances. Spécifiez également la prise en charge de Docker et Docker-GPU.
 
 ```python
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
@@ -310,9 +312,9 @@ amlcompute_run_config.environment.spark.precache_packages = False
 
 ### <a name="parameterize-the-pipeline"></a>Paramétrer le pipeline
 
-Définissez un paramètre personnalisé pour que le pipeline contrôle la taille du lot. Une fois le pipeline publié et exposé via un point de terminaison REST, tous les paramètres configurés sont également exposés et peuvent être spécifiés dans la charge utile JSON durant la réexécution du pipeline avec une requête HTTP.
+Définissez un paramètre personnalisé pour que le pipeline contrôle la taille du lot. Une fois le pipeline publié et exposé via un point de terminaison REST, tous les paramètres configurés sont également exposés. Vous pouvez spécifier des paramètres personnalisés dans la charge utile JSON quand vous réexécutez le pipeline via une requête HTTP.
 
-Créez un objet `PipelineParameter` pour activer ce comportement, puis définissez un nom et une valeur par défaut.
+Créez un objet `PipelineParameter` pour activer ce comportement ainsi que pour définir un nom et une valeur par défaut.
 
 ```python
 from azureml.pipeline.core.graph import PipelineParameter
@@ -328,9 +330,9 @@ Une étape de pipeline est un objet qui encapsule tout ce dont vous avez besoin 
 * Données d’entrée et de sortie ainsi que tous les paramètres personnalisés
 * Référence à un script ou une logique de kit SDK à exécuter au cours de l’étape
 
-Plusieurs classes héritent de la classe parente [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py) pour faciliter la création d’une étape à l’aide de certains frameworks et de certaines piles. Dans cet exemple, vous utilisez la classe [`PythonScriptStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) pour définir votre logique d’étape à l’aide d’un script python personnalisé. Notez que si un argument de votre script est une entrée ou une sortie de l’étape, il doit être défini **à la fois** dans le tableau `arguments` **ainsi que** dans le paramètre `input` ou `output`, respectivement. 
+Plusieurs classes héritent de la classe parente [`PipelineStep`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py). Vous pouvez choisir des classes pour utiliser des frameworks ou des piles spécifiques afin de créer une étape. Dans cet exemple, vous utilisez la classe [`PythonScriptStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) pour définir votre logique d’étape à l’aide d’un script Python personnalisé. Si un argument de votre script est une entrée ou une sortie de l’étape, il doit être défini *à la fois* dans le tableau `arguments` *ainsi que* dans le paramètre `input` ou `output`, respectivement. 
 
-Une référence d’objet dans le tableau `outputs` devient disponible en tant qu’**entrée** pour une étape de pipeline suivante, dans les scénarios qui comportent plusieurs étapes.
+Dans les scénarios qui comportent plusieurs étapes, une référence d’objet dans le tableau `outputs` devient disponible en tant qu’*entrée* pour une étape de pipeline suivante.
 
 ```python
 from azureml.pipeline.steps import PythonScriptStep
@@ -350,16 +352,16 @@ batch_score_step = PythonScriptStep(
 )
 ```
 
-Pour obtenir la liste de toutes les classes des différents types d’étape, consultez les informations relatives au [package d’étapes](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
+Pour obtenir la liste de toutes les classes utilisables dans les différents types d’étape, consultez les informations relatives au [package d’étapes](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py).
 
 ### <a name="run-the-pipeline"></a>Exécuter le pipeline
 
-À présent, vous exécutez le pipeline. Commencez par créer un objet `Pipeline` avec votre référence d’espace de travail et l’étape de pipeline que vous avez créée. Le paramètre `steps` est un tableau d’étapes. Dans le cas présent, le scoring par lots ne comporte qu’une seule étape. Pour créer des pipelines comportant plusieurs étapes, vous devez placer ces dernières dans l’ordre dans ce tableau.
+À présent, exécutez le pipeline. Commencez par créer un objet `Pipeline` en utilisant votre référence d’espace de travail et l’étape de pipeline que vous avez créée. Le paramètre `steps` est un tableau d’étapes. Dans le cas présent, le scoring par lots ne comporte qu’une seule étape. Pour créer des pipelines qui comportent plusieurs étapes, placez ces dernières dans l’ordre dans ce tableau.
 
-Utilisez ensuite la fonction `Experiment.submit()` pour soumettre l’exécution du pipeline. Vous spécifiez également le paramètre personnalisé `param_batch_size`. La fonction `wait_for_completion` crée des journaux pendant le processus de génération du pipeline, ce qui vous permet de voir sa progression.
+Utilisez ensuite la fonction `Experiment.submit()` pour soumettre l’exécution du pipeline. Vous spécifiez également le paramètre personnalisé `param_batch_size`. La fonction `wait_for_completion` génère des journaux durant le processus de création du pipeline. Vous pouvez utiliser les journaux pour voir la progression actuelle.
 
 > [!IMPORTANT]
-> La première exécution du pipeline prend environ **15 minutes**, car toutes les dépendances doivent être téléchargées. Une image Docker est créée, et l’environnement Python est provisionné/créé. Sa réexécution prend beaucoup moins de temps, car ces ressources sont réutilisées. Toutefois, le temps total d’exécution dépend de la charge de travail des scripts et processus qui s’exécutent à chaque étape du pipeline.
+> La première exécution du pipeline prend environ *15 minutes*. Toutes les dépendances doivent être téléchargées, une image Docker est créée, et l’environnement Python est provisionné et créé. La réexécution du pipeline prend beaucoup moins de temps, car ces ressources sont réutilisées au lieu d’être créées. Toutefois, le temps total d’exécution du pipeline dépend de la charge de travail de vos scripts et des processus qui s’exécutent à chaque étape du pipeline.
 
 ```python
 from azureml.core import Experiment
@@ -372,7 +374,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ### <a name="download-and-review-output"></a>Télécharger et passer en revue la sortie
 
-Exécutez le code suivant pour télécharger le fichier de sortie créé à partir du script `batch_scoring.py`, puis explorez les résultats du scoring.
+Exécutez le code suivant pour télécharger le fichier de sortie créé à partir du script `batch_scoring.py`. Examinez ensuite les résultats du scoring.
 
 ```python
 import pandas as pd
@@ -459,11 +461,11 @@ df.head(10)
 </table>
 </div>
 
-## <a name="publish-and-run-from-rest-endpoint"></a>Publier et exécuter à partir du point de terminaison REST
+## <a name="publish-and-run-from-a-rest-endpoint"></a>Publier et exécuter à partir d’un point de terminaison REST
 
-Exécutez le code suivant pour publier le pipeline sur votre espace de travail. Dans votre espace de travail au sein du portail, vous pouvez voir les métadonnées du pipeline, notamment l’historique des exécutions et leurs durées. Vous pouvez également exécuter le pipeline manuellement à partir du portail.
+Exécutez le code suivant pour publier le pipeline sur votre espace de travail. Dans votre espace de travail au sein du portail Azure, vous pouvez voir les métadonnées du pipeline, notamment l’historique des exécutions et leurs durées. Vous pouvez également exécuter le pipeline manuellement à partir du portail.
 
-De plus, la publication du pipeline permet à un point de terminaison REST de réexécuter le pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme.
+La publication du pipeline active un point de terminaison REST qui vous permet de réexécuter le pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme.
 
 ```python
 published_pipeline = pipeline_run.publish_pipeline(
@@ -472,11 +474,11 @@ published_pipeline = pipeline_run.publish_pipeline(
 published_pipeline
 ```
 
-Pour exécuter le pipeline à partir du point de terminaison REST, vous avez d’abord besoin d’un en-tête d’authentification de type porteur OAuth2. Cet exemple utilise l’authentification interactive à des fins d’illustration, mais pour la plupart des scénarios de production nécessitant une authentification automatisée ou sans assistance, utilisez l’authentification du principal de service, comme [indiqué dans ce notebook](https://aka.ms/pl-restep-auth).
+Pour exécuter le pipeline à partir du point de terminaison REST, vous avez besoin d’un en-tête d’authentification de type porteur OAuth2. L’exemple suivant utilise l’authentification interactive (à des fins d’illustration). Toutefois, dans la plupart des scénarios de production qui nécessitent une authentification automatisée ou sans assistance, utilisez l’authentification du principal de service, comme [indiqué dans ce notebook](https://aka.ms/pl-restep-auth).
 
-L’authentification du principal de service implique la création d’une **inscription d’application** dans **Azure Active Directory**, la génération d’un secret client, puis l’octroi au principal de service d’un **accès en fonction du rôle** à votre espace de travail Machine Learning. Vous utilisez ensuite la classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) pour gérer votre flux d’authentification. 
+Pour permettre l’authentification du principal de service, créez une *inscription d’application* dans *Azure Active Directory*. Commencez par générer un secret client, puis accordez au principal de service un *accès en fonction du rôle* à votre espace de travail Machine Learning. Utilisez la classe [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) pour gérer votre flux d’authentification. 
 
-`InteractiveLoginAuthentication` et `ServicePrincipalAuthentication` héritent tous les deux de `AbstractAuthentication`. Dans les deux cas, vous utilisez la fonction `get_authentication_header()` de la même manière pour extraire l’en-tête.
+`InteractiveLoginAuthentication` et `ServicePrincipalAuthentication` héritent de `AbstractAuthentication`. Dans les deux cas, utilisez la fonction `get_authentication_header()` de la même manière pour extraire l’en-tête :
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -485,9 +487,11 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Obtenez l’URL REST de la propriété `endpoint` de l’objet de pipeline publié. Vous pouvez également trouver l’URL REST dans votre espace de travail au sein du portail. Créez une requête HTTP POST au point de terminaison en spécifiant votre en-tête d’authentification. De plus, ajoutez un objet de charge utile JSON avec le nom de l’expérience et le paramètre de taille de lot. N’oubliez pas que `param_batch_size` est passé à votre script `batch_scoring.py`, car vous l’avez défini en tant qu’objet `PipelineParameter` dans la configuration de l’étape.
+Obtenez l’URL REST de la propriété `endpoint` de l’objet de pipeline publié. Vous pouvez également trouver l’URL REST dans votre espace de travail au sein du portail Azure. 
 
-Exécutez la requête pour déclencher l’exécution. Accédez à la clé `Id` à partir du dictionnaire de réponses pour obtenir la valeur de l’ID d’exécution.
+Créez une requête HTTP POST au point de terminaison. Spécifiez votre en-tête d’authentification dans la requête. Ajoutez un objet de charge utile JSON ayant le nom de l’expérience et le paramètre de taille de lot. Comme indiqué plus tôt dans le tutoriel, `param_batch_size` est passé à votre script `batch_scoring.py`, car vous l’avez défini en tant qu’objet `PipelineParameter` dans la configuration de l’étape.
+
+Exécutez la requête pour déclencher l’exécution. Incluez le code permettant d’accéder à la clé `Id` à partir du dictionnaire de réponses pour obtenir la valeur de l’ID d’exécution.
 
 ```python
 import requests
@@ -500,7 +504,9 @@ response = requests.post(rest_endpoint,
 run_id = response.json()["Id"]
 ```
 
-Utilisez l’ID d’exécution pour superviser l’état de la nouvelle exécution. L’exécution prend 10 à 15 minutes de plus et ressemble à la précédente exécution du pipeline. Si vous n’avez pas besoin de voir un autre pipeline s’exécuter, vous pouvez ignorer la visualisation de la sortie complète.
+Utilisez l’ID d’exécution pour superviser l’état de la nouvelle exécution. La nouvelle exécution prend à nouveau 10 à 15 minutes pour s’achever. 
+
+La nouvelle exécution va ressembler au pipeline que vous avez exécuté dans le tutoriel. Vous pouvez choisir de ne pas voir la sortie complète.
 
 ```python
 from azureml.pipeline.core.run import PipelineRun
@@ -512,25 +518,25 @@ RunDetails(published_pipeline_run).show()
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Sautez cette section si vous prévoyez d’exécuter d’autres tutoriels Azure Machine Learning.
+Sautez cette section si vous prévoyez de suivre d’autres tutoriels Azure Machine Learning.
 
 ### <a name="stop-the-notebook-vm"></a>Arrêter la machine virtuelle Notebook
 
-Si vous avez utilisé un serveur de notebook cloud, arrêtez la machine virtuelle lorsque vous ne l’utilisez pas afin de réduire les coûts.
+Si vous avez utilisé un serveur de notebooks cloud, vous pouvez réduire les coûts en arrêtant la machine virtuelle quand vous ne l’utilisez pas :
 
 1. Dans votre espace de travail, sélectionnez **Machines virtuelles Notebook**.
-1. Sélectionnez la machine virtuelle dans la liste.
+1. Dans la liste des machines virtuelles, sélectionnez la machine virtuelle à arrêter.
 1. Sélectionnez **Arrêter**.
 1. Quand vous êtes prêt à utiliser à nouveau le serveur, sélectionnez **Démarrer**.
 
 ### <a name="delete-everything"></a>Tout supprimer
 
-Si vous n’avez pas l’intention d’utiliser les ressources que vous avez créées, supprimez-les pour éviter des frais.
+Si vous n’avez pas l’intention d’utiliser les ressources que vous avez créées, supprimez-les pour éviter des frais :
 
-1. Dans le portail Azure, sélectionnez **Groupes de ressources** tout à gauche.
-1. À partir de la liste, sélectionnez le groupe de ressources créé.
+1. Dans le portail Azure, dans le menu de gauche, sélectionnez **Groupes de ressources**.
+1. Dans la liste des groupes de ressources, sélectionnez le groupe de ressources que vous avez créé.
 1. Sélectionnez **Supprimer le groupe de ressources**.
-1. Entrez le nom du groupe de ressources. Puis sélectionnez **Supprimer**.
+1. Entrez le nom du groupe de ressources. Ensuite, sélectionnez **Supprimer**.
 
 Vous pouvez également conserver le groupe de ressources mais supprimer un espace de travail unique. Affichez les propriétés de l’espace de travail, puis sélectionnez **Supprimer**.
 
@@ -540,7 +546,7 @@ Dans ce tutoriel sur les pipelines Machine Learning, vous avez effectué les tâ
 
 > [!div class="checklist"]
 > * Création d’un pipeline avec des dépendances d’environnement à exécuter sur une ressource de calcul GPU distante
-> * Création d’un script de scoring pour exécuter des prédictions par lots avec un modèle Tensorflow préentraîné
+> * Création d’un script de scoring pour exécuter des prédictions par lots à l’aide d’un modèle Tensorflow préentraîné
 > * Publication d’un pipeline à exécuter à partir d’un point de terminaison REST
 
-Consultez le [dépôt de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines) pour obtenir des exemples supplémentaires de création de pipelines avec le kit SDK Machine Learning.
+Pour obtenir des exemples supplémentaires de création de pipelines à l’aide du kit SDK Machine Learning, consultez le [dépôt de notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines).

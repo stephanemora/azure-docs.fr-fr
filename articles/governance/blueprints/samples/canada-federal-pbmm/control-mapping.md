@@ -7,12 +7,12 @@ ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 64f0517eece5efcd928b18c7f040fb88c3c36546
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 35bc0445494c1d72b833eecd9a8e5bec7ab10423
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309536"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350785"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
 
@@ -87,7 +87,7 @@ La fonctionnalité Découverte et classification des données, qui est fournie d
 
 ## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) Accès à distance | Supervision/contrôle automatisé
 
-Ce blueprint permet de superviser et de contrôler les accès distants en affectant des définitions [Azure Policy](../../../policy/overview.md) permettant de vérifier que le débogage distant pour l’application Azure App Service est désactivé, et en affectant des définitions de stratégie permettant d’auditer les machines virtuelles Linux qui autorisent les connexions distantes à partir de comptes sans mot de passe. Ce blueprint affecte également une définition Azure Policy qui vous aide à superviser les accès non restreints aux comptes de stockage. En supervisant ces indicateurs, vous pouvez vérifier que les méthodes d’accès à distance sont conformes à votre stratégie de sécurité.
+Ce blueprint vous aide à superviser et à contrôler l’accès à distance en affectant des définitions [Azure Policy](../../../policy/overview.md) afin de vérifier que le débogage à distance pour l’application Azure App Service est désactivé. Ce blueprint affecte aussi des définitions de stratégie qui auditent les machines virtuelles Linux autorisant les connexions à distance à partir de comptes sans mot de passe. De plus, ce blueprint affecte une définition Azure Policy qui aide à superviser les accès non restreints aux comptes de stockage. En supervisant ces indicateurs, vous pouvez vérifier que les méthodes d’accès à distance sont conformes à votre stratégie de sécurité.
 
 - \[Préversion\] : Auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe
 - \[Préversion\] : Déployer des exigences pour auditer les machines virtuelles Linux qui autorisent les connexions à distance des comptes sans mot de passe

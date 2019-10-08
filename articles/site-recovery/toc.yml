@@ -371,7 +371,7 @@
               href: delete-vault.md
     - name: Récupération d’urgence pour les applications
       items:
-        - name: Configurer la récupération d’urgence vers Azure pour des applications locales
+        - name: À propos de la reprise d’activité pour les applications locales
           href: site-recovery-workload.md
         - name: Active Directory et DNS
           href: site-recovery-active-directory.md

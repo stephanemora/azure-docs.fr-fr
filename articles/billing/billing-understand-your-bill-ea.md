@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f89d7935af10ebb477125c598a01278a4ceef0bd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490284"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326943"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -28,10 +28,10 @@ Le crédit de votre organisation comprend votre engagement financier. L’engage
 
 Cette section ne s’applique pas aux clients Azure en Australie, au Japon ou à Singapour. Si vous êtes dans un de ces pays/régions, consultez [Factures pour les autres clients](#invoices-for-other-customers).
 
-Vous recevez une facture Azure quand un des événements suivants se produit pendant votre période de facturation :
+Vous recevez une facture Azure si l’un des événements suivants se produit au cours de la période de facturation :
 
 - **Dépassement de service** : les frais d’utilisation de votre organisation dépassent votre solde de crédit.
-- **Frais facturés séparément** : les services utilisés par votre organisation ne sont pas couverts par le crédit. Vous êtes facturé pour les services suivants, quel que soit votre solde de crédit :
+- **Frais facturés séparément** : les services utilisés par votre organisation ne sont pas couverts par le crédit. Les services suivants vous sont facturés, malgré votre solde de crédit :
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -43,7 +43,7 @@ Vous recevez une facture Azure quand un des événements suivants se produit pen
     - Visual Studio Enterprise (annuel)
     - Visual Studio Professional (mensuel)
     - Visual Studio Professional (annuel)
-- **Frais de la Place de marché** : les achats et l’utilisation liés à la Place de marché Azure ne sont pas couverts par le crédit de votre organisation. Ainsi, vous êtes facturé pour les frais de la Place de marché, quel que soit votre solde de crédit. Sur Enterprise Portal, un administrateur d’entreprise peut activer et désactiver les achats liés à la Place de marché.
+- **Frais de la Place de marché** : les achats et l’utilisation liés à la Place de marché Azure ne sont pas couverts par le crédit de votre organisation. Les frais de la Place de marché vous sont donc facturés, malgré votre solde de crédit. Sur Enterprise Portal, un administrateur d’entreprise peut activer et désactiver les achats liés à la Place de marché.
 
 ## <a name="review-charges-for-most-customers"></a>Passer en revue les frais pour la plupart des clients
 Cette section ne s’applique pas aux clients Azure en Australie, au Japon ou à Singapour. Si vous êtes dans un de ces pays, consultez [Passer en revue les frais pour les autres clients](#review-charges-for-other-customers).
@@ -69,7 +69,7 @@ Cette section s’applique uniquement aux clients Azure en Australie, au Japon o
 Vous recevez une ou plusieurs factures Azure dans les cas suivants :
 
 - **Dépassement de service** : les frais d’utilisation de votre organisation dépassent votre solde de crédit.
-- **Frais facturés séparément** : les services utilisés par votre organisation ne sont pas couverts par le crédit. Vous êtes facturé pour les services suivants, quel que soit votre solde de crédit :
+- **Frais facturés séparément** : les services utilisés par votre organisation ne sont pas couverts par le crédit. Les services suivants vous sont facturés :
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -81,7 +81,7 @@ Vous recevez une ou plusieurs factures Azure dans les cas suivants :
     - Visual Studio Enterprise (annuel)
     - Visual Studio Professional (mensuel)
     - Visual Studio Professional (annuel)
-- **Frais de la Place de marché** : les achats et l’utilisation liés à la Place de marché Azure ne sont pas couverts par le crédit de votre organisation et sont facturés séparément. Sur Enterprise Portal, un administrateur d’entreprise peut activer et désactiver les achats liés à la Place de marché.
+- **Frais de la Place de marché** : Les achats et l’utilisation liés à la Place de marché Azure ne sont pas couverts par le crédit de votre organisation et sont facturés séparément. Sur Enterprise Portal, un administrateur d’entreprise peut activer et désactiver les achats liés à la Place de marché.
 
 Quand vous avez des frais de dépassements de service et des frais facturés séparément au cours de la période de facturation, vous recevez une facture. Elle inclut les deux types de frais. Les frais de la Place de marché sont toujours facturés séparément.
 
@@ -97,7 +97,7 @@ Comparez le montant total de votre utilisation sur Enterprise Portal dans **Rapp
 
 1. Connectez-vous à [Enterprise Portal](https://ea.azure.com).
 1. Sélectionnez **Rapports**.
-1. Dans l’angle supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
+1. En haut à droite de l’onglet, changez de vue en passant de **M** à **C**, et faites correspondre la période sur la facture.  
     ![Capture d’écran qui montre l’option M + C dans le récapitulatif de l’utilisation.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. Le montant **Utilisation totale** doit correspondre au **Total final** de votre facture de dépassement de service.  
 1. Pour plus d’informations sur vos frais, accédez à **Télécharger l’utilisation** > **Téléchargement de rapport avancé**. Le rapport n’inclut pas les taxes ou frais de réservation, ni les frais de la Place de marché.  
@@ -121,7 +121,7 @@ Comparez le total de la Place de marché Azure sur **Rapports** > **Récapitulat
 
 1. Connectez-vous à [Enterprise Portal](https://ea.azure.com).
 1. Sélectionnez **Rapports**.
-1. Dans l’angle supérieur droit de l’onglet, changez d’affichage en passant de **M** à **C**, et faites correspondre la période sur la facture.  
+1. En haut à droite de l’onglet, changez de vue en passant de **M** à **C**, et faites correspondre la période sur la facture.  
      ![Capture d’écran qui montre l’option M + C dans le récapitulatif de l’utilisation.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
 1. Le total de la **Place de marché Azure** doit correspondre au **Total de la vente** sur votre facture de la Place de marché.
 1. Pour plus d’informations sur vos frais d’utilisation, accédez à **Télécharger l’utilisation**. Sous **Frais de la Place de marché**, sélectionnez **Télécharger**. Ce rapport n’inclut pas les taxes et ne montre pas les achats définitifs.  

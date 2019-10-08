@@ -1,22 +1,22 @@
 ---
-title: Gérer des groupes d’applications pour Windows Virtual Desktop Preview - Azure
-description: Explique comment configurer des locataires Windows Virtual Desktop Preview dans Azure Active Directory.
+title: Gérer des groupes d’applications pour Windows Virtual Desktop - Azure
+description: Explique comment configurer des locataires Windows Virtual Desktop dans Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163253"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679456"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Didacticiel : Gérer des groupes d’applications pour Windows Virtual Desktop Preview
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Didacticiel : Gérer des groupes d’applications pour Windows Virtual Desktop
 
-Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Windows Virtual Desktop Preview publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu **Démarrer**.
+Le groupe d’applications par défaut créé pour un nouveau pool d’hôtes Windows Virtual Desktop publie également l’intégralité du bureau. De plus, vous pouvez créer un ou plusieurs groupes d’applications RemoteApp pour le pool d’hôtes. Suivez ce tutoriel pour créer un groupe d’applications RemoteApp et publier des applications individuelles du menu **Démarrer**.
 
 Dans ce tutoriel, vous allez apprendre à effectuer les actions suivantes :
 

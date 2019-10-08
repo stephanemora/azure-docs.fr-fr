@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 2289c21fcc172c8dffd7d6b3f9c0e2e11736e71a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265997"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345236"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Personalizer pour .NET
 
@@ -33,9 +33,17 @@ Commencez à utiliser la bibliothèque de client Personalizer pour .NET. Suivez 
 * Abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/)
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
-## <a name="setting-up"></a>Configuration
+## <a name="using-this-quickstart"></a>Utilisation de ce guide de démarrage rapide
 
-### <a name="create-a-personalizer-azure-resource"></a>Créer une ressource Azure Personalizer
+Plusieurs étapes sont nécessaires pour utiliser ce guide de démarrage rapide :
+
+* Dans le portail Azure, créer une ressource Personalizer
+* Dans le portail Azure, pour la ressource Personalizer, dans la page **Paramètres**, changer la fréquence de mise à jour du modèle
+* Dans un éditeur de code, créer un fichier de code et le modifier
+* À partir de la ligne de commande ou du terminal, installer le SDK
+* À partir de la ligne de commande ou du terminal, exécuter le fichier de code
+
+## <a name="create-a-personalizer-azure-resource"></a>Créer une ressource Azure Personalizer
 
 Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Personalizer en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Vous pouvez également :
 
@@ -50,15 +58,15 @@ Après avoir obtenu une clé à partir de votre abonnement ou ressource d’éva
 
 Dans le portail Azure, les valeurs de clé et de point de terminaison sont disponibles à partir de la page **Démarrage rapide**.
 
-### <a name="change-the-model-update-frequency"></a>Changer la fréquence de mise à jour du modèle
+## <a name="change-the-model-update-frequency"></a>Changer la fréquence de mise à jour du modèle
 
-Dans la ressource Personalizer au sein du portail Azure, définissez la **fréquence de mise à jour du modèle** sur 10 secondes. Ainsi, le service est entraîné rapidement, ce qui vous permet de voir comment la première action change pour chaque itération.
+Dans le portail Azure, dans la ressource Personalizer dans la page **Paramètres**, affectez à la **fréquence de mise à jour du modèle** la valeur 10 secondes. Ainsi, le service est entraîné rapidement, ce qui vous permet de voir comment la première action change pour chaque itération.
 
 ![Changer la fréquence de mise à jour du modèle](./media/settings/configure-model-update-frequency-settings.png)
 
 Quand une boucle Personalizer est instanciée pour la première fois, aucun modèle n’est disponible puisqu’il n’y a pas encore d’appels d’API Reward à partir desquels s’entraîner. Les appels Rank retourneront des probabilités égales pour chaque élément. Votre application doit toujours classer le contenu à l’aide de la sortie de RewardActionId.
 
-### <a name="create-a-new-c-application"></a>Créer une application C#
+## <a name="create-a-new-c-application"></a>Créer une application C#
 
 Créez une application .NET Core dans votre éditeur ou IDE favori. 
 
@@ -84,7 +92,7 @@ Build succeeded.
 ...
 ```
 
-### <a name="install-the-sdk"></a>Installer le Kit de développement logiciel (SDK)
+## <a name="install-the-sdk"></a>Installer le Kit de développement logiciel (SDK)
 
 Dans le répertoire de l’application, installez la bibliothèque de client Personalizer pour .NET avec la commande suivante :
 

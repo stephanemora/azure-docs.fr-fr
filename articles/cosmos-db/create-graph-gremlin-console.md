@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261582"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815967"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
 
@@ -55,7 +55,7 @@ Vous devez également installer la [console Gremlin](https://tinkerpop.apache.or
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    hôtes|[*account-name*.gremlin.cosmos.azure.com]|Voir la capture d’écran suivante. Il s’agit de la valeur URI Gremlin sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée.
+    hôtes|[*account-name*.**gremlin**.cosmos.azure.com]|Voir la capture d’écran suivante. Il s’agit de la valeur **URI Gremlin** sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée. Remarque : Veillez à utiliser la valeur Gremlin, et **non** l’URI qui se termine par [*account-name*.documents.azure.com], afin d’éviter que l’exécution ultérieure de requêtes Gremlin se solde par une exception indiquant que l’hôte n’a pas répondu à temps. 
     port|443|Définissez la valeur sur 443.
     username|*Votre nom d’utilisateur*|Ressource sous la forme `/dbs/<db>/colls/<coll>`, où `<db>` est le nom de votre base de données et `<coll>` le nom de votre collection.
     password|*Votre clé primaire*| Reportez-vous à la deuxième capture d’écran ci-dessous. Il s’agit de votre clé primaire, que vous pouvez récupérer à partir de la page Clés du portail Azure, dans la zone Clé primaire. Utilisez le bouton Copier sur le côté gauche de la zone pour copier la valeur.
@@ -85,7 +85,7 @@ Veillez à inclure la valeur du paramètre d’hôtes entre crochets [].
 1. Dans votre terminal, exécutez `:remote connect tinkerpop.server conf/remote-secure.yaml` pour vous connecter à votre service d’application.
 
     > [!TIP]
-    > Si vous recevez l’erreur `No appenders could be found for logger`, vérifiez que vous avez mis à jour la valeur de sérialiseur dans le fichier remote-secure.yaml comme décrit à l’étape 2. 
+    > Si vous recevez l’erreur `No appenders could be found for logger`, vérifiez que vous avez mis à jour la valeur de sérialiseur dans le fichier remote-secure.yaml comme décrit à l’étape 2. Si votre configuration est correcte, cet avertissement peut être ignoré en toute sécurité, car il ne doit pas impacter l’utilisation de la console. 
 
 1. Exécutez ensuite `:remote console` pour rediriger toutes les commandes de la console au serveur distant.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale, Java (Windows, Linux) - Service Speech'
+title: 'Démarrage rapide : Reconnaître une entrée vocale, Java (Windows, Linux, macOS) - Service Speech'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez découvrir comment créer une application Java simple qui capture et transcrit les paroles d’un utilisateur à partir du microphone de votre ordinateur.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9438cd1345d324b068db8837216afb39241cb2a2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554115"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802485"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour Java
 
-Des guides de démarrage rapide sont également disponibles pour la [traduction vocale](quickstart-translate-speech-java-jre.md) et l’[assistant virtuel « voice-first »](quickstart-virtual-assistant-java-jre.md).
+Des guides de démarrage rapide sont également disponibles pour la [traduction vocale](quickstart-translate-speech-java-jre.md), l’[assistant virtuel « voice-first »](quickstart-virtual-assistant-java-jre.md) et la [synthèse vocale](quickstart-text-to-speech-java-jre.md).
 
 Si vous le souhaitez, choisissez un autre langage de programmation et/ou environnement :<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -95,6 +95,7 @@ Des exemples supplémentaires, qui montrent notamment comment lire une entrée o
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Démarrage rapide : traduire une entrée vocale, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Démarrage rapide : Traduire une entrée vocale, Java (Windows, Linux, macOS)](quickstart-translate-speech-java-jre.md)
+- [Démarrage rapide : Synthétiser une entrée vocale, Java (Windows, Linux, macOS)](quickstart-text-to-speech-java-jre.md)
 - [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
 - [Personnaliser les modèles de langage](how-to-customize-language-model.md)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: e5b8cd01a64274e58927a5647897b1f9d86f7c24
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390865"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802820"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Didacticiel : Créer une base de connaissances puis répondre à une question à l’aide de C#
 
@@ -41,7 +41,7 @@ Ce guide de démarrage rapide fait appel aux API REST QnA Maker :
 ## <a name="prerequisites"></a>Prérequis
 
 * La dernière [**édition de Visual Studio Community**](https://www.visualstudio.com/downloads/).
-* Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Pour récupérer votre clé, sélectionnez **Clés** sous **Gestion des ressources** dans votre tableau de bord. 
+* Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Pour récupérer votre clé et le nom de votre ressource, sélectionnez **Démarrage rapide** dans le portail Azure pour votre ressource QnA Maker. 
 
 > [!NOTE] 
 > Les fichiers solution complets sont disponibles dans le dépôt GitHub [**Azure-Samples/cognitive-services-qnamaker-csharp**](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -146,13 +146,13 @@ L’appel API renvoie un état 204 si la publication réussit sans aucun contenu
 Toutes les autres réponses sont renvoyées inchangées.
 
 ## <a name="generating-an-answer"></a>Générer une réponse
-Pour accéder à la base de connaissances afin d’envoyer une question et recevoir la meilleure réponse, le programme a besoin d’obtenir l’_hôte du point de terminaison_ à partir de l’API de détails de la base de connaissances et la _clé du point de terminaison principal_ à partir de l’API des points de terminaison. Ces méthodes sont décrites dans les sections suivantes, ainsi que celle permettant de générer une réponse. 
+Pour accéder à la base de connaissances afin d’envoyer une question et recevoir la meilleure réponse, le programme a besoin d’obtenir le _nom de la ressource_ à partir de l’API de détails de la base de connaissances et la _clé du point de terminaison principal_ à partir de l’API des points de terminaison. Ces méthodes sont décrites dans les sections suivantes, ainsi que celle permettant de générer une réponse. 
 
 Le tableau suivant explique comment utiliser les données pour construire un URI :
 
 |Générer un modèle d’URI de réponse|
 |--|
-|https://**HOSTNAME**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
+|https://**nom_de_votre_ressource**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
 
 Le _point de terminaison principal_ est transféré en tant qu’en-tête afin d’authentifier la requête de génération d’une réponse :
 
@@ -169,7 +169,7 @@ Le corps de la requête doit transférer le JSON approprié :
 ```
 
 ## <a name="get-kb-details"></a>Obtenir les détails de la base de connaissances
-Ajoutez la méthode suivante pour obtenir les détails de la base de connaissances. Ces détails contiennent le nom d’hôte de la base de connaissances. Le nom d’hôte correspond au nom du service web Azure QnA Maker que vous avez saisi lors de la création de la ressource QnA Maker. 
+Ajoutez la méthode suivante pour obtenir les détails de la base de connaissances. Ces détails contiennent le nom de ressource de la base de connaissances, connu sous le nom de `hostName` dans le code JSON suivant. Le nom de la ressource correspond au nom de la ressource QnA Maker que vous avez saisi lors de la création de celle-ci. 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
 

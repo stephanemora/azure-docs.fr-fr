@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 985845197f8a1ece76fe0a620f05194109f51bd6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408676"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687045"
 ---
 # <a name="what-is-azure-app-configuration"></a>Présentation d’Azure App Configuration
 
@@ -75,3 +75,4 @@ Le moyen le plus simple d’ajouter un magasin de configuration d’application 
 * [Démarrage rapide Azure Function](./quickstart-azure-function-csharp.md)
 * [Démarrage rapide Java Spring](./quickstart-java-spring-app.md)
 * [Démarrage rapide des indicateurs de fonctionnalités ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
+* [Démarrage rapide des indicateurs de fonctionnalités Spring Boot](./quickstart-feature-flag-spring-boot.md)

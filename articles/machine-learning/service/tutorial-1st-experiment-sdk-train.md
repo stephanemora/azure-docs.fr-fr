@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004032"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828018"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Didacticiel : Entraîner votre premier modèle ML
 
@@ -35,21 +35,15 @@ Le seul prérequis est d’avoir suivi la première partie de ce tutoriel, [Conf
 
 Dans cette partie du tutoriel, vous exécutez le code dans l’exemple de notebook Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, ouvert à la fin de la première partie. Cet article vous guide tout au long du code qui se trouve dans le notebook.
 
-## <a name="launch-jupyter-web-interface"></a>Lancer l’interface web Jupyter
+## <a name="open-the-notebook"></a>Ouvrir le notebook
 
-1. Dans la page de votre espace de travail sur le portail Azure, sélectionnez **Machines virtuelles Notebook** à gauche.
+1. Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com/).
 
-1. Sélectionnez **Jupyter** dans la colonne **URI** pour la machine virtuelle que vous avez créée dans la première partie de ce tutoriel.
+1. Ouvrez le fichier **tutorial-1st-experiment-sdk-train.ipynb** dans votre dossier comme indiqué dans la [première partie](tutorial-1st-experiment-sdk-setup.md#open).
 
-    ![Démarrer le serveur de notebooks Jupyter](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
 
-   Le lien démarre votre serveur de notebooks et ouvre la page web de notebook Jupyter dans un nouvel onglet du navigateur.  Ce lien fonctionne uniquement pour la personne qui crée la machine virtuelle. Chaque utilisateur de l’espace de travail doit créer sa propre machine virtuelle.
-
-1. Dans la page web du notebook Jupyter, sélectionnez le nom de dossier en haut, qui porte votre nom d’utilisateur.  
-
-   Ce dossier existe dans le [compte de stockage](concept-workspace.md#resources) de l’espace de travail, et non pas sur la machine virtuelle du notebook proprement dit.  Si vous supprimez la machine virtuelle du notebook, vous conservez néanmoins tous vos travaux.  Lorsque vous créez une nouvelle machine virtuelle notebook, elle chargera ce même dossier. Si vous partagez votre espace de travail avec d’autres utilisateurs, ils verront votre dossier et vous verrez le leur.
-
-1. Ouvrez le sous-répertoire `samples-*`, puis ouvrez le notebook Jupyter `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, et **pas** le fichier `.yml` du même nom. 
+> [!Warning]
+> Ne créez **pas** un *autre* notebook dans l’interface Jupyter ! Le notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` comprend l’**ensemble du code et des données nécessaires** pour ce tutoriel.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Connecter un espace de travail et créer une expérience
 
@@ -57,7 +51,7 @@ Dans cette partie du tutoriel, vous exécutez le code dans l’exemple de notebo
 > Le reste de cet article contient le même contenu que ce que vous voyez dans le notebook.  
 >
 > Basculez maintenant vers le notebook Jupyter si vous voulez lire le code à mesure que vous l’exécutez. 
-> Pour exécuter une seule cellule de code dans un notebook, cliquez sur celle-ci et appuyez sur **Maj + Entrée**. Sinon, exécutez l’intégralité du notebook en choisissant **Cellule > Tout exécuter** dans le menu supérieur.
+> Pour exécuter une seule cellule de code dans un notebook, cliquez sur celle-ci et appuyez sur **Maj + Entrée**. Sinon, exécutez l’intégralité du notebook en choisissant **Run all** (Tout exécuter) dans la barre d’outils supérieure.
 
 Importez la classe `Workspace` et chargez les informations de votre abonnement à partir du fichier `config.json` à l’aide de la fonction `from_config().`. Par défaut, celle-ci recherche le fichier JSON dans le répertoire actif, mais vous pouvez également spécifier un paramètre de chemin d’accès pour pointer vers le fichier en utilisant `from_config(path="your/file/path")`. Sur un serveur de notebook cloud, le fichier est automatiquement dans le répertoire racine.
 
@@ -179,7 +173,7 @@ print("Best run_id rmse: " + str(minimum_rmse))
     Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
     Best run_id rmse: 57.234760283951765
 
-Utilisez l’identificateur de meilleur cycle pour extraire le cycle en utilisant le constructeur `Run` avec l’objet expérience. Appelez ensuite `get_file_names()` pour voir tous les fichiers disponibles en téléchargement à partir de ce cycle. Dans ce cas, vous avez chargé un seul fichier pour chaque cycle durant l’apprentissage.
+Utilisez l’ID de meilleure exécution pour extraire l’exécution individuelle à l’aide du constructeur `Run` et de l’objet d’expérience. Appelez ensuite `get_file_names()` pour voir tous les fichiers disponibles en téléchargement à partir de ce cycle. Dans ce cas, vous avez chargé un seul fichier pour chaque cycle durant l’apprentissage.
 
 ```python
 from azureml.core import Run
