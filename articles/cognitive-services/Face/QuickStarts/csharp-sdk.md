@@ -253,7 +253,7 @@ Ajoutez ensuite le code pour authentifier votre abonnement Visage secondaire.
 
 Le reste des opérations de capture instantanée doivent s’effectuer dans une méthode asynchrone. 
 
-1. La première étape consiste à **prendre** la capture instantanée, ce qui enregistre les données de visage de votre abonnement d’origine à un emplacement temporaire dans le cloud. Cette méthode retourne un ID que vous utilisez pour interroger l’état de l’opération.
+1. La première étape consiste à **prendre** la capture instantanée, ce qui enregistre les données de Face de votre abonnement d’origine à un emplacement temporaire dans le cloud. Cette méthode retourne un ID que vous utilisez pour interroger l’état de l’opération.
 
     [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_take)]
 
@@ -261,7 +261,7 @@ Le reste des opérations de capture instantanée doivent s’effectuer dans une 
 
     [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_take_wait)]
 
-1. Utilisez ensuite l’opération d’**application** pour écrire vos données de visage dans votre abonnement cible. Cette méthode retourne également une valeur d’ID.
+1. Utilisez ensuite l’opération d’**application** pour écrire vos données de Face dans votre abonnement cible. Cette méthode retourne également une valeur d’ID.
 
     [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_apply)]
 
@@ -273,7 +273,7 @@ Le reste des opérations de capture instantanée doivent s’effectuer dans une 
 
     [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_trycatch)]
 
-À ce stade, votre nouvel objet **PersonGroup** doit avoir les mêmes données que celui d’origine et doit être accessible à partir de votre nouvel abonnement (cible) Visage Azure.
+À ce stade, votre nouvel objet **PersonGroup** doit avoir les mêmes données que celui d’origine et doit être accessible à partir de votre nouvel abonnement (cible) Azure Face.
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
@@ -304,7 +304,7 @@ Si vous avez migré des données à l’aide de la fonctionnalité de capture in
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque Visage pour .NET afin d’effectuer des tâches de base. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque Face pour .NET afin d’effectuer des tâches de base. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l’API Visage (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
