@@ -1,7 +1,7 @@
 ---
 title: Qu’est-ce que l’API Text Analytics ? - Capacités -
 titleSuffix: Azure Cognitive Services
-description: Utiliser l’API Analyse de texte dans Azure Cognitive Services pour analyser les sentiments, extraire les expressions clés, détecter la langue et reconnaître des entités.
+description: Utiliser l’API Text Analytics dans Azure Cognitive Services pour analyser les sentiments, extraire les expressions clés, détecter la langue et reconnaître des entités.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -25,7 +25,7 @@ L’API fait partie d’[Azure Cognitive Services](https://docs.microsoft.com/az
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-L’analyse de texte peut signifier différentes choses mais, dans Cognitive Services, l’API Analyse de texte fournit quatre types d’analyses, comme décrit ci-dessous. Vous pouvez utiliser ces fonctionnalités avec l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)REST ou une bibliothèque de client pour [.NET](quickstarts/csharp.md), [Python](quickstarts/python-sdk.md), [Node. js](quickstarts/nodejs-sdk.md), [Go](quickstarts/go-sdk.md), ou [Ruby](quickstarts/ruby-sdk.md).
+L’expression Text Analytics peut signifier différentes choses mais, dans Cognitive Services, l’API Text Analytics fournit quatre types d’analyses, comme décrit ci-dessous. Vous pouvez utiliser ces fonctionnalités avec l' [API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)REST ou une bibliothèque de client pour [.NET](quickstarts/csharp.md), [Python](quickstarts/python-sdk.md), [Node.js](quickstarts/nodejs-sdk.md), [Go](quickstarts/go-sdk.md), ou [Ruby](quickstarts/ruby-sdk.md).
 
 ## <a name="sentiment-analysis"></a>Analyse des sentiments
 Utilisez l’[analyse des sentiments](how-tos/text-analytics-how-to-sentiment-analysis.md) pour découvrir ce que les clients pensent de votre marque ou de votre thématique en analysant du texte brut pour trouver des indices sur les sentiments positifs ou négatifs. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif.<br /> Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](text-analytics-supported-languages.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante.
