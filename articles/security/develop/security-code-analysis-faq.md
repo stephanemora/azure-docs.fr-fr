@@ -202,7 +202,7 @@ Une étape entre votre build principale et les analyseurs Roslyn peut avoir mis 
 
 Message d’erreur complet :
 
-« csc. exe » s’est terminé avec le code d’erreur 1 : impossible de créer une instance de l’analyseur *AAAA* à partir de C:\\\*BBBB*.dll : Impossible de charger le fichier ou l’assembly « Microsoft.CodeAnalysis, Version=*X.X.X.X*, Culture=neutral, PublicKeyToken=31bf3856ad364e35 » ou une de ses dépendances. Le système ne peut pas trouver le fichier spécifié. »
+« csc. exe » s’est terminé avec le code d’erreur 1 : impossible de créer une instance de l’analyseur *AAAA* à partir de C:\\*BBBB*.dll : Impossible de charger le fichier ou l’assembly ' Microsoft.CodeAnalysis, Version=*X.X.X.X*, Culture=neutral, PublicKeyToken=31bf3856ad364e35 ' ou une de ses dépendances. Le système ne peut pas trouver le fichier spécifié. »
 
 Vérifiez que votre compilateur prend en charge les analyseurs Roslyn. L’exécution de la commande **csc.exe /version** doit signaler une valeur de version de 2.6 ou ultérieure.
 
