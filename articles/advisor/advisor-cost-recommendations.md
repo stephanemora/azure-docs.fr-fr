@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 96e939f8e3da58a123d9a6733b71b74c2ff0ba87
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311912"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703031"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Réduire les coûts de service grâce à Azure Advisor
 
@@ -21,9 +21,9 @@ Le conseiller vous aide à optimiser et à réduire votre dépense Azure globale
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimiser le coût de la machine virtuelle en redimensionnant ou en arrêtant les instances sous-utilisées 
 
-Alors que certains scénarios d’application peuvent par définition entraîner une faible utilisation, vous pouvez souvent faire des économies grâce à la gestion de la taille de vos machines virtuelles et de leur nombre. Advisor surveille l’utilisation de votre machine virtuelle pendant 7 jours et identifie les machines virtuelles faiblement utilisées. Les machines virtuelles sont considérées de faible utilisation si l’utilisation de leur processeur est inférieure ou égale à 5 % et l’utilisation de leur réseau est inférieure ou égale à 2 %, ou si la charge de travail actuelle peut être prise en charge par une taille de machine virtuelle plus petite.
+Alors que certains scénarios d’application peuvent par définition entraîner une faible utilisation, vous pouvez souvent faire des économies grâce à la gestion de la taille de vos machines virtuelles et de leur nombre. Les modèles d'évaluation avancée d'Advisor envisagent l'arrêt d'une machine virtuelle lorsqu'un P95ème de la valeur maximale d'utilisation de l'UC est inférieur à 3 % et que l'utilisation du réseau est inférieure à 2 % sur une période de 7 jours. La taille des machines virtuelles est considérée comme adéquate lorsqu'il est possible d'intégrer la charge actuelle dans une référence SKU plus petite (au sein de la même famille de références SKU) ou dans un plus petit nombre d'instances, de manière à ce que la charge actuelle ne dépasse pas 80 % d'utilisation pour les charges de travail non orientées utilisateur et 40 % pour les charges de travail orientées utilisateur. Le type de charge de travail est ici déterminé en analysant les caractéristiques d'utilisation de l'UC de la charge de travail.
 
-Advisor vous présente une estimation du coût de l’exécution de votre machine virtuelle, pour que vous puissiez choisir de l’arrêter ou de la redimensionner.
+Les actions recommandées sont l'arrêt ou le redimensionnement, en fonction des ressources recommandées. Advisor vous fournit une estimation des économies réalisables avec l'une ou l'autre des actions recommandées (redimensionnement ou arrêt). En outre, pour l'action recommandée de redimensionnement, Advisor fournit des informations sur les références SKU actuelles et cibles. 
 
 Si vous souhaitez être plus « agressif » dans l’identification des machines virtuelles sous-utilisées, vous pouvez ajuster la règle d’utilisation du processeur par abonnement.
 

@@ -16,20 +16,20 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31fe3877fd6098b18686b9d99a012cbfbef7c300
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5844d440da768ae2647ea7f15c4c913f83078ce1
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60244330"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672964"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
 
 > [!WARNING]
-> Si vous apportez des modifications aux règles de synchronisation par défaut, ces modifications seront remplacées lors de la prochaine mise à jour d’Azure AD Connect, entraînant des résultats de synchronisation inattendus et probablement indésirables.
+> Si vous apportez des modifications aux règles de synchronisation out-of-box par défaut, ces modifications seront remplacées lors de la prochaine mise à jour d'Azure AD Connect, ce qui entraînera des résultats de synchronisation inattendus et potentiellement indésirables.
 >
-> Les règles de synchronisation out-of-box ont une empreinte numérique. Si vous apportez une modification à ces règles, l’empreinte numérique ne correspondra plus. Vous risquez de rencontrer des problèmes lorsque vous tenterez d’appliquer une nouvelle version d’Azure AD Connect. Procédez à des modifications uniquement de la façon décrite dans cet article.
+> Les règles de synchronisation out-of-box par défaut ont une empreinte numérique. Si vous apportez une modification à ces règles, l’empreinte numérique ne correspondra plus. Vous risquez de rencontrer des problèmes lorsque vous tenterez d’appliquer une nouvelle version d’Azure AD Connect. Procédez à des modifications uniquement de la façon décrite dans cet article.
 
 ## <a name="synchronization-rules-editor"></a>Éditeur de règles de synchronisation
 L’éditeur de règles de synchronisation sert à afficher et modifier la configuration par défaut. Il se trouve dans le menu **Démarrer**, sous le groupe **Azure AD Connect**.  

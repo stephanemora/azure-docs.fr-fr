@@ -6,12 +6,12 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 869c1ed41d7f78df184461bc1d8cab6c6eb8d426
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fbc6847dd86b7687d477b2bae0deab1389dc8491
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67788520"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827060"
 ---
 # <a name="monitor-azure-data-share-preview"></a>Surveiller Azure Data Share en préversion 
 
@@ -45,6 +45,10 @@ Dans l’onglet Historique, vous pouvez afficher les instantanés qui ont été 
 ![Historique des instantanés](./media/sent-shares.png "Historique des instantanés") 
 
 Vous pouvez afficher plus de détails sur chaque exécution d’instantané en cliquant sur la date de début de l’exécution. 
+
+Par défaut, l'historique des instantanés est défini sur 30 jours. Si vous souhaitez afficher plus de 30 jours d'historique, accédez à Surveillance -> Paramètres de diagnostic, puis sélectionnez **Ajouter un paramètre de diagnostic**. Vous devez sélectionner un compte de stockage pour y stocker ces journaux. 
+
+![Historique des instantanés](./media/diagnostic-settings.png "Paramètres de diagnostic") 
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

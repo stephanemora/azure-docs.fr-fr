@@ -1,27 +1,24 @@
 ---
-title: Créer et gérer des attributions de rôle dans Azure Digital Twins | Microsoft Docs
-description: Créez et gérez des attributions de rôle dans Azure Digital Twins.
+title: Créer et gérer des attributions de rôle - Azure Digital Twins | Microsoft Docs
+description: Apprenez à créer et gérer des attributions de rôle dans Azure Digital Twins.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815633"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827688"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Créer et gérer des attributions de rôle dans Azure Digital Twins
 
 Azure Digital Twins utilise le contrôle d’accès en fonction du rôle ([RBAC](./security-role-based-access-control.md)) pour gérer l’accès aux ressources.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Vue d’ensemble des attributions de rôle
 
@@ -44,7 +41,7 @@ Le tableau suivant décrit chaque attribut :
 | roleId | Identificateur de la définition de rôle | OUI | Chaîne | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
 | objectId | Identificateur d’objet | OUI | Chaîne | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |
 | objectIdType | Type d’identificateur d’objet | OUI | Chaîne | Type d’identificateur d’objet utilisé. Consultez **ObjectIdTypes pris en charge** ci-dessous. |
-| chemin d’accès | Chemin d’espace | OUI | Chaîne | Chemin complet de l’objet `Space`. Par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
+| path | Chemin d’espace | OUI | Chaîne | Chemin complet de l’objet `Space`. Par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
 | tenantId | Identificateur de locataire | Varie | Chaîne | Dans la plupart des cas, un ID de locataire Azure Active Directory. Interdit pour les ObjectIdTypes `DeviceId` et `TenantId`. Obligatoire pour les ObjectIdTypes `UserId` et `ServicePrincipalId`. Facultatif pour l’ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificateurs de définition de rôle pris en charge
@@ -63,7 +60,7 @@ L’attribut **objectIdType** a été présenté précédemment.
 
 Azure Digital Twins prend en charge les opérations *CREATE*, *READ* et *DELETE* pour les attributions de rôle. Les opérations *UPDATE* sont gérées par l’ajout d’attributions de rôle, la suppression d’attributions de rôle ou la modification des nœuds de [graphique d’intelligence spatiale](./concepts-objectmodel-spatialgraph.md) auxquels les attributions de rôle donnent accès.
 
-![Points de terminaison d’attribution de rôle][1]
+[![Points de terminaison d'attribution de rôle](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
 
 La documentation de référence Swagger fournie contient des informations complémentaires sur tous les point de terminaison d’API disponibles, les opérations de requête et les définitions.
 
@@ -71,23 +68,28 @@ La documentation de référence Swagger fournie contient des informations compl�
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-<div id="grant"></div>
-
 ### <a name="grant-permissions-to-your-service-principal"></a>Accorder des autorisations à votre principal de service
 
 L’octroi d’autorisations à votre principal de service est souvent l’une des premières étapes à franchir lorsque vous utilisez Azure Digital Twins. Cela implique les opérations suivantes :
 
-1. Connexion à votre instance Azure via PowerShell.
+1. Connexion à votre instance Azure via [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) ou [PowerShell](https://docs.microsoft.com/powershell/azure/).
 1. Acquisition de vos informations de principal de service.
 1. Attribution du rôle souhaité à votre principal de service.
 
 Votre ID d’application vous est attribué dans Azure Active Directory. Pour en savoir plus sur la configuration et l’approvisionnement d’Azure Digital Twins dans Active Directory, consultez le guide de [Démarrage rapide](./quickstart-view-occupancy-dotnet.md).
 
-Une fois que vous possédez l’ID d’application, exécutez les commandes PowerShell suivantes :
+Une fois que vous disposez de l'ID d'application, exécutez l'une des commandes suivantes. Dans Azure CLI :
 
-```shell
+```azurecli
+az login
+az ad sp show --id <ApplicationId>
+```
+
+Dans PowerShell :
+
+```powershell
 Login-AzAccount
-Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
+Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 ```
 
 Un utilisateur ayant le rôle **Admin** peut alors assigner le rôle Administrateur d’espace à un autre utilisateur en soumettant une requête HTTP POST authentifiée à l’URL :
@@ -108,11 +110,9 @@ Avec le corps JSON suivant :
 }
 ```
 
-<div id="all"></div>
-
 ### <a name="retrieve-all-roles"></a>Récupérer tous les rôles
 
-![Rôles système][2]
+[![Rôles système](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
 
 Pour dresser la liste de tous les rôles disponibles (définitions de rôles), exécutez une requête HTTP GET authentifiée dans :
 
@@ -153,8 +153,6 @@ Une requête réussie renvoie un tableau JSON répertoriant les rôles pouvant �
 ]
 ```
 
-<div id="check"></div>
-
 ### <a name="check-a-specific-role-assignment"></a>Contrôler une attribution de rôle spécifique
 
 Pour contrôler une attribution de rôle spécifique, exécutez une requête HTTP GET authentifiée dans :
@@ -167,8 +165,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | Chaîne |   ID d’objet pour l’objectIdType UserId. |
 | YOUR_PATH | True | Chaîne |   Chemin dont l’accès est contrôlé. |
-| YOUR_ACCESS_TYPE |  True | Chaîne |   Type d’accès à contrôler. |
-| YOUR_RESOURCE_TYPE | True | Chaîne |  La ressource à contrôler. |
+| YOUR_ACCESS_TYPE |  True | Chaîne |   *Lire*, *Créer*, *Mettre à jour* ou *Supprimer* |
+| YOUR_RESOURCE_TYPE | True | Chaîne |  *Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore*, *Matcher*, *Ontology*, *Report*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*, *UerDefinedFunction*, *User*, *UserBlobMetadata* ou *UserExtendedProperty* |
 
 Une requête réussie renvoie un booléen `true` ou `false` pour indiquer si le type d’accès a été attribué à l’utilisateur pour le chemin et la ressource donnés.
 
@@ -200,7 +198,7 @@ Une requête réussie renvoie un tableau JSON avec chaque attribution de rôle a
 
 ### <a name="revoke-a-permission"></a>Révoquer une autorisation
 
-Pour révoquer les autorisations d’un destinataire, supprimez l’attribution de rôle en effectuant une requête HTTP DELETE authentifiée :
+Pour révoquer l'autorisation d'un destinataire, supprimez l'attribution de rôle en effectuant une requête HTTP DELETE authentifiée :
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
@@ -210,7 +208,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | **id** de l’attribution de rôle à supprimer |
 
-Une requête de suppression réussie renvoie l’état de réponse 204. Vérifiez la suppression de l’attribution de rôle en [contrôlant](#check) si l’attribution de rôle est toujours valable.
+Une requête de suppression réussie renvoie l’état de réponse 204. Vérifiez la suppression de l’attribution de rôle en [contrôlant](#check-a-specific-role-assignment) si l’attribution de rôle est toujours valable.
 
 ### <a name="create-a-role-assignment"></a>Création d'une affectation de rôle
 
@@ -282,7 +280,3 @@ Les exemples suivants montrent comment configurer le corps JSON dans plusieurs s
 - Pour passer en revue le contrôle d’accès en fonction du rôle Azure Digital Twins, lisez [Contrôle d’accès en fonction du rôle](./security-authenticating-apis.md).
 
 - Pour plus d’informations sur l’authentification de l’API Azure Digital Twins, lisez [Authentification des API](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/security-roles/roleassignments.png
-[2]: media/security-roles/system.png

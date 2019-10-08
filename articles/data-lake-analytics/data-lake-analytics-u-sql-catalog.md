@@ -1,6 +1,6 @@
 ---
-title: Bien démarrer avec le catalogue U-SQL dans Azure Data Lake Analytics
-description: Découvrez comment utiliser le catalogue U-SQL pour partager du code et des données.
+title: Utiliser le catalogue U-SQL dans Azure Data Lake Analytics
+description: Découvrez comment utiliser le catalogue U-SQL pour partager du code et des données. Créez des fonctions table, créez des vues, créez des tables, et interrogez-les.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: a6faa7037ccbacc0547401dd52bb3b19abd1c474
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b9f14be4422373fb30f8c3d4909fd9c9546fdf
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813351"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672841"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Bien démarrer avec le catalogue U-SQL dans Azure Data Lake Analytics
 
@@ -108,7 +108,7 @@ OUTPUT @res
     USING Outputters.Csv();
 ```
 
-## <a name="create-tables"></a>créez des tables
+## <a name="create-tables"></a>Créer des tables
 De façon similaire aux tables de base de données relationnelle, U-SQL vous permet de créer une table avec un schéma prédéfini ou de créer une table et de déduire le schéma à partir de la requête de remplissage de la table (également appelée CREATE TABLE AS SELECT ou CTAS).
 
 Créez une base de données et deux tables avec le script suivant :

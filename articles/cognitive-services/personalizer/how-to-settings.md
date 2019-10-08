@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: diberry
-ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bad581fbc53292b5a7c25157ef839e07f33e131e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962521"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827893"
 ---
 # <a name="personalizer-settings"></a>Paramètres de Personalizer
 
@@ -87,6 +87,21 @@ Dans la section Gestion des ressources pour **Modèle et stratégie**, passez en
 
 Dans la section Gestion des ressources pour **Modèle et stratégie**, importez une nouvelle stratégie d’apprentissage ou exportez la stratégie d’apprentissage actuelle.
 Vous pouvez obtenir des fichiers de stratégie d’apprentissage à partir d’exportations précédentes ou télécharger les stratégies optimisées découvertes lors des évaluations hors connexion. Les modifications manuelles apportées à ces fichiers affectent les performances de machine learning et la précision des évaluations hors connexion, et Microsoft ne peut pas garantir la précision du machine learning et des évaluations, ni des exceptions de service résultant de stratégies modifiées manuellement.
+
+## <a name="clear-data-for-your-learning-loop"></a>Effacer les données de votre boucle d'apprentissage
+
+1. Sur le portail Azure, pour votre ressource Personalizer, accédez à la page **Modèle et stratégie** et sélectionnez **Effacer les données**.
+1. Pour effacer toutes les données et rétablir l'état d'origine de la boucle d'apprentissage, cochez les 3 cases.
+
+    ![Sur le portail Azure, effacez les données de la ressource Personalizer.](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |Paramètre|Objectif|
+    |--|--|
+    |Données de personnalisation et de récompense consignées.|Ces données de journalisation sont utilisées lors des évaluations hors connexion. Effacez les données si vous réinitialisez votre ressource.|
+    |Réinitialisez le modèle Personalizer.|Ce modèle change à chaque nouvelle formation. Cette fréquence de formation est spécifiée à la section **Fréquence du modèle de chargement** de la page **Paramètres**. |
+    |Définissez la stratégie d'apprentissage sur le paramètre par défaut.|Si vous avez modifié la stratégie d'apprentissage dans le cadre d'une évaluation hors connexion, la stratégie d'apprentissage d'origine est rétablie.|
+
+1. Sélectionnez **Effacer les données sélectionnées** pour lancer le processus de suppression. L'état est signalé dans les notifications Azure, en haut à droite. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

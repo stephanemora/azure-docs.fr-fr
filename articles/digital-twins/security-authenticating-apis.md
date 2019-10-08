@@ -1,29 +1,32 @@
 ---
-title: Comprendre l’authentification API Azure Digital Twins | Microsoft Docs
-description: Utiliser Azure Digital Twins pour se connecter et s’authentifier aux API
+title: Présentation de l'authentification API via Azure Digital Twins | Microsoft Docs
+description: Apprenez à vous connecter et à vous authentifier à l'aide d'API via Azure Digital Twins.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/30/2019
 ms.author: lyhughes
-ms.openlocfilehash: c0b4b6a13143f613bec64c8507f1726e2450be44
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 6d8d6f03847fcd22a6d78c445ae039c73e9badfa
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815552"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719165"
 ---
-# <a name="connect-and-authenticate-to-apis"></a>Se connecter et s’authentifier aux API
+# <a name="connect-to-and-authenticate-with-apis"></a>Se connecter et s'authentifier à l'aide d'API
 
 Azure Digital Twins utilise Azure Active Directory (Azure AD) pour authentifier les utilisateurs et protéger les applications. Azure AD prend en charge l’authentification pour différentes architectures modernes. Toutes sont basées sur les protocoles standard OAuth 2.0 ou OpenID Connect. En outre, les développeurs peuvent utiliser Azure AD pour créer des applications à client unique et métier (LOB). Les développeurs peuvent également utiliser Azure AD pour développer des applications multilocataires.
 
-Pour une vue d’ensemble d’Azure AD, consultez la [page des notions de base](https://docs.microsoft.com/azure/active-directory/fundamentals/index) et accédez à des guides pas à pas, à des concepts et à des guides de démarrage rapide.
+Pour une vue d’ensemble d’Azure AD, consultez la [page des notions de base](https://docs.microsoft.com/azure/active-directory/fundamentals/) et accédez à des guides pas à pas, à des concepts et à des guides de démarrage rapide.
 
-Pour intégrer une application ou un service à Azure AD, le développeur doit d’abord enregistrer l’application auprès de Azure AD. Pour obtenir des instructions détaillées et des captures d’écran, consultez [ce démarrage rapide](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+> [!TIP]
+> Suivez le [didacticiel](tutorial-facilities-setup.md) pour configurer et exécuter un exemple d'application Azure Digital Twins.
 
-Voici les [cinq principaux scénarios d’application](https://docs.microsoft.com/azure/active-directory/develop/v2-app-types) pris en charge par Azure AD :
+Pour intégrer une application ou un service à Azure AD, le développeur doit d’abord enregistrer l’application auprès de Azure AD. Pour obtenir des instructions détaillées et des captures d’écran, consultez [ce démarrage rapide](../active-directory/develop/quickstart-register-app.md).
+
+Voici les [cinq principaux scénarios d’application](../active-directory/develop/v2-app-types.md) pris en charge par Azure AD :
 
 * Application monopage (SPA) : un utilisateur doit se connecter à une application monopage sécurisée par Azure AD.
 * Navigateur web vers application web : un utilisateur doit se connecter à une application web sécurisée par Azure AD.
@@ -31,7 +34,10 @@ Voici les [cinq principaux scénarios d’application](https://docs.microsoft.co
 * Application web vers API web : une application web doit obtenir des ressources d’une API web sécurisée par Azure AD.
 * Application démon ou serveur vers API web : une application démon ou une application serveur sans interface utilisateur web doit obtenir des ressources d'une API web sécurisée par Azure AD.
 
-La bibliothèque d’authentification Windows Azure propose diverses méthodes d’acquisition de jetons Active Directory. Pour plus d’informations sur la bibliothèque et les exemples de code, consultez [cet article](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+> [!IMPORTANT]
+> Azure Digital Twins prend en charge les deux bibliothèques d'authentification suivantes :
+> * La version la plus récente de la bibliothèque [MSAL (Microsoft Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * La bibliothèque [Azure ADAL (Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Appeler Digital Twins à partir d’une API web de niveau intermédiaire
 

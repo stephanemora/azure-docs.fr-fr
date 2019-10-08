@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: cde42dda47d54c03c50895bc625f99c9350b53e3
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 69dce46052c18eec7c3f1fa2082907ed62b367d6
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210511"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703347"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Gestion JSON du mappage de flux de données
 
@@ -50,7 +50,7 @@ Si cette expression était entrée pour une colonne nommée « complexColumn �
 }
 ```
 
-#### <a name="sample-manual-dsl"></a>Exemple de code DSL manuel
+#### <a name="sample-manual-script-for-complete-hierarchical-definition"></a>Exemple de script manuel pour une définition hiérarchique complète
 ```
 @(
     title=Title,
@@ -144,7 +144,7 @@ File3.json
 { "json": "record 3" }
 ```
 
-# <a name="higher-order-functions"></a>Fonctions d’ordre supérieur
+## <a name="higher-order-functions"></a>Fonctions d’ordre supérieur
 ## <a name="filter"></a>filter
 Filtre hors du tableau les éléments qui ne respectent pas le prédicat fourni. Filter attend une référence à un élément dans la fonction de prédicat comme #item.
 

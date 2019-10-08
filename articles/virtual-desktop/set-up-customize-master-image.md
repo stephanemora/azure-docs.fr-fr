@@ -1,22 +1,22 @@
 ---
 title: Préparer et personnaliser une image de disque dur virtuel principale - Azure
-description: Comment préparer, personnaliser et charger une image principale Windows Virtual Desktop en préversion dans Azure.
+description: Explique comment préparer, personnaliser et charger une image principale Windows Virtual Desktop dans Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981078"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710193"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
-Cet article vous indique comment préparer une image de disque dur virtuel (VHD) principal pour la télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer des logiciels dessus. Ces instructions concernent une configuration spécifique de la préversion de Windows Virtual Desktop qui peut être utilisée avec des processus existants de votre organisation.
+Cet article vous indique comment préparer une image de disque dur virtuel (VHD) principal pour la télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer des logiciels dessus. Ces instructions concernent une configuration spécifique à Windows Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -204,7 +204,7 @@ Après avoir préparé l’image pour le téléchargement, assurez-vous que la m
 
 Cette section s’applique uniquement lorsque l’image principale a été créée localement.
 
-Les instructions suivantes vous indiqueront comment charger votre image principale dans un compte de stockage Azure. Si vous ne disposez pas d’un compte de stockage Azure, suivez les instructions de [cet article](https://code.visualstudio.com/tutorials/static-website/create-storage) pour en créer un.
+Les instructions suivantes vous indiqueront comment charger votre image principale dans un compte de stockage Azure. Si vous ne disposez pas d’un compte de stockage Azure, suivez les instructions de [cet article](/azure/javascript/tutorial-vscode-static-website-node-03) pour en créer un.
 
 1. Convertissez l’image de machine virtuelle (VHD) sur Fixed si vous ne l’avez pas déjà fait. Si vous ne convertissez l’image sur Fixed, vous ne l’avez pas correctement créé.
 
