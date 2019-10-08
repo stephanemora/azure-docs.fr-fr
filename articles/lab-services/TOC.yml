@@ -92,8 +92,6 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Attacher ou détacher une galerie d’images partagées
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-            - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle
-              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Créer et configurer des laboratoires de classe (formateur)
           items:
             - name: Créer et gérer des laboratoires de classe
@@ -112,6 +110,8 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: Définir ou réinitialiser les mots de passe des machines virtuelles
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: Activer la virtualisation imbriquée sur une machine virtuelle modèle
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Se connecter à des machines virtuelles dans des laboratoires de classe (étudiant)
           items:
             - name: Accéder aux laboratoires de salle de classe
