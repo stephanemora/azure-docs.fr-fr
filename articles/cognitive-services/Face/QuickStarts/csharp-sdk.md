@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Bibliothèque de client Visage pour .NET | Microsoft Docs'
+title: 'Démarrage rapide : Bibliothèque de client Visage pour .NET | Microsoft Docs'
 description: Découvrez la bibliothèque de client Visage pour .NET.
 services: cognitive-services
 author: PatrickFarley
@@ -16,11 +16,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 08/29/2019
 ms.locfileid: "70165371"
 ---
-# <a name="quickstart-face-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Visage pour .NET
+# <a name="quickstart-face-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Visage pour .NET
 
-Découvrez la bibliothèque de client Face pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service API Face vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
+Découvrez la bibliothèque de client Visage pour .NET. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base. Le service API Visage vous donne accès à des algorithmes avancés pour la détection et la reconnaissance des visages dans des images.
 
-Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les opérations suivantes :
+Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les opérations suivantes :
 
 * [Authentifier le client](#authenticate-the-client)
 * [Détecter des visages sur une image](#detect-faces-in-an-image)
@@ -40,7 +40,7 @@ Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les opé
 
 ### <a name="create-a-face-azure-resource"></a>Créer une ressource Visage Azure
 
-Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Visage en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Vous pouvez également :
+Les services Azure Cognitive Services sont représentés par des ressources Azure auxquelles vous vous abonnez. Créez une ressource pour Visage en utilisant le [portail Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) sur votre ordinateur local. Vous pouvez également :
 
 * Obtenir une [clé](https://azure.microsoft.com/try/cognitive-services/#decision) pour un essai gratuit valide pendant 7 jours. Une fois l’inscription terminée, elle est disponible sur le [site web Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Afficher cette ressource sur le [portail Azure](https://portal.azure.com/).
@@ -83,7 +83,7 @@ Dans la méthode `Main` de l’application, créez des variables pour le point d
 
 ### <a name="install-the-client-library"></a>Installer la bibliothèque de client
 
-Dans le répertoire de l’application, installez la bibliothèque de client Visage pour .NET avec la commande suivante :
+Dans le répertoire de l’application, installez la bibliothèque de client Visage pour .NET avec la commande suivante :
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.Vision.Face --version 2.5.0-preview.1
@@ -93,7 +93,7 @@ Si vous utilisez l’IDE Visual Studio, la bibliothèque de client est disponibl
 
 ## <a name="object-model"></a>Modèle objet
 
-Les classes et interfaces suivantes gèrent certaines des principales fonctionnalités du SDK .NET Visage :
+Les classes et interfaces suivantes gèrent certaines des principales fonctionnalités du SDK .NET Visage :
 
 |Nom|Description|
 |---|---|
@@ -107,7 +107,7 @@ Les classes et interfaces suivantes gèrent certaines des principales fonctionna
 
 ## <a name="code-examples"></a>Exemples de code
 
-Les extraits de code ci-dessous vous montrent comment effectuer les tâches suivantes avec la bibliothèque de client Visage pour .NET :
+Les extraits de code ci-dessous vous montrent comment effectuer les tâches suivantes avec la bibliothèque de client Visage pour .NET :
 
 * [Authentifier le client](#authenticate-the-client)
 * [Détecter des visages sur une image](#detect-faces-in-an-image)
@@ -309,5 +309,5 @@ Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l’API Visage (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)
 
-* [Qu’est ce que le l’API Visage ?](../overview.md)
+* [Qu’est ce que le l’API Visage ?](../overview.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/Face/Program.cs).
