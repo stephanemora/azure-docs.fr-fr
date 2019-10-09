@@ -745,10 +745,12 @@
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Objets blob, files d’attente, tables et fichiers (v7)'
-              href: /java/api/overview/azure/storage/client?view=azure-java-stable
-            - name: Kit de développement logiciel (SDK) de l’objet Blob (v10)
-              href: /java/api/overview/azure/storage/client?view=azure-java-preview
+            - name: "Objets blob, files d’attente et fichiers (version\_12.x - préversion)"
+              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+            - name: "Objets blob, files d’attente et fichiers (version\_8)"
+              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Fournisseur de ressources de stockage
+              href: /java/api/overview/azure/storage/management
         - name: REST
           items:
             - name: 'Objets blob, files d’attente, tables et fichiers'

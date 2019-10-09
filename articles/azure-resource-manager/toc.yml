@@ -6,6 +6,16 @@
       href: resource-group-overview.md
     - name: Présentation des modèles
       href: template-deployment-overview.md
+- name: Démarrage rapide
+  items:
+    - name: Créer des modèles - portail
+      href: resource-manager-quickstart-create-templates-use-the-portal.md
+    - name: Créer des modèles - VS Code
+      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - name: Créer des modèles - Visual Studio
+      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+    - name: Créer des modèles - IntelliJ IDEA
+      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutoriels
   items:
     - name: Débutant
@@ -32,14 +42,6 @@
           href: template-tutorial-use-parameter-file.md
     - name: Avancé
       items:
-        - name: Créer des modèles - portail
-          href: resource-manager-quickstart-create-templates-use-the-portal.md
-        - name: Créer des modèles - VS Code
-          href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-        - name: Créer des modèles - Visual Studio
-          href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-        - name: Créer des modèles - IntelliJ IDEA
-          href: resource-manager-quickstart-create-templates-use-intellij.md
         - name: Utiliser la référence de modèle
           href: resource-manager-tutorial-create-encrypted-storage-accounts.md
         - name: Créer plusieurs instances
