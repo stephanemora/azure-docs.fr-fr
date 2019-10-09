@@ -7,18 +7,24 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 70ad44eade871d52591014ee24e645b95c52f1e5
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c7860a098096d718a6c5d7cd661ef2b1c1b21e89
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234873"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802667"
 ---
-# <a name="classic-deployment-model"></a>Modèle de déploiement Classic
+# <a name="classic-deployment-model"></a>Modèle de déploiement classique
 
-Le modèle de déploiement Classic est le modèle de déploiement Azure d’ancienne génération et impose une limite de quota de processeurs virtuels globale pour les machines virtuelles et les groupes de machines virtuelles identiques. Le modèle de déploiement Classic n’est plus recommandé et est maintenant remplacé par le modèle Resource Manager. Pour en savoir plus sur ces deux modèles de déploiement et sur l’avantage de Resource Manager, consultez la page consacrée au modèle de déploiement de Resource Manager. Quand un abonnement est créé, un quota de processeurs virtuels par défaut lui est attribué. Chaque fois qu’une nouvelle machine virtuelle doit être déployée à l’aide du modèle de déploiement Classic, la somme de l’utilisation des processeurs virtuels nouveaux et existants dans toutes les régions ne doit pas dépasser le quota de processeurs virtuels approuvé pour le modèle de déploiement Classic. Pour en savoir plus sur les quotas, consultez la page [Abonnement Azure et limites de service](https://aka.ms/quotalimits)
+Le modèle de déploiement Classic est le modèle de déploiement Azure de génération antérieure. Il applique une limite de quota de processeur virtuel global pour les machines virtuelles et les groupes de machines virtuelles identiques. Le modèle de déploiement Classic n’est plus recommandé. Il est désormais remplacé par le modèle Resource Manager. 
 
-Vous pouvez demander une augmentation de la limite de processeurs virtuels pour le modèle de déploiement Classic par le biais du panneau Aide + Support ou du panneau Utilisations + Quota dans le portail.
+Pour en savoir plus sur ces deux modèles de déploiement et sur les avantages liés à l’utilisation de Resource Manager, voir la page [Déploiement Azure Resource Manager et déploiement Classic](../azure-resource-manager/resource-manager-deployment-model.md).
+ 
+Quand un abonnement est créé, un quota de processeurs virtuels par défaut lui est attribué. Chaque fois qu’une nouvelle machine virtuelle doit être déployée à l’aide du modèle de déploiement Classic, la somme de l’utilisation des processeurs virtuels nouveaux et existants dans toutes les régions ne doit pas dépasser le quota de processeur virtuel approuvé pour le modèle de déploiement Classic.
+ 
+Pour en savoir plus sur les quotas, voir la page [Abonnement Azure et limites, quotas et contraintes de service](https://aka.ms/quotalimits).
+
+Vous pouvez demander une augmentation de la limite de quota de processeur virtuel pour le modèle de déploiement Classic par le biais du panneau « Aide + Support » ou « Utilisations + Quota » dans le portail.
 
 ## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Demandez une augmentation du quota total de processeurs virtuels par série de machines virtuelles au niveau de l’abonnement à l’aide du panneau **Aide + Support**
 

@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b731c9936ab85b19428687330044a46c563c49
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 168fbb275f70acd229dfd8f2e3f0d4c325db0f94
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268366"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678014"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Application mobile appelant des API web - Configuration du code
 
@@ -155,9 +155,13 @@ Sur Android et iOS, les répartiteurs activent :
 - L’identification des appareils. Active des stratégies d’accès conditionnel Azure AD liées aux appareils, en accédant au certificat de l’appareil qui a été créé sur l’appareil lorsque ce dernier a été joint à l’espace de travail.
 - Vérification de l’identification de l’application. Lorsqu’une application appelle le répartiteur, elle transmet son URL de redirection et le répartiteur la vérifie.
 
-### <a name="enable-the-brokers-on-xamarin"></a>Activer les répartiteurs sur Xamarin
+### <a name="enable-the-broker-on-xamarin"></a>Activer le répartiteur sur Xamarin
 
 Pour activer l’une de ces fonctionnalités, utilisez le paramètre `WithBroker()` lors de l’appel de la méthode `PublicClientApplicationBuilder.CreateApplication`. `.WithBroker()` a la valeur true par défaut. Pour [Xamarin.iOS](#brokered-authentication-for-xamarinios), procédez comme suit.
+
+### <a name="enable-the-broker-for-msal-for-android"></a>Activer le répartiteur pour MSAL pour Android
+
+Pour plus d’informations sur l’activation d’un répartiteur sur Android, voir [Authentification répartie dans Android](brokered-auth.md). 
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Activer le répartiteur pour MSAL pour iOS et macOS
 

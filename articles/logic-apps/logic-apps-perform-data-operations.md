@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 1b0a7473f1cdfb6aa3533b261979da7c18605a16
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179838"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309391"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Effectuer des opérations sur les données dans Azure Logic Apps
 
@@ -175,55 +175,93 @@ Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier
 
 ### <a name="customize-table-format"></a>Personnaliser le format de la table
 
-Par défaut, la propriété **Colonnes** est définie pour créer automatiquement les colonnes de la table en fonction des éléments du tableau. 
-
-Pour spécifier des en-têtes et valeurs personnalisés, effectuez les étapes suivantes :
+Par défaut, la propriété **Colonnes** est définie pour créer automatiquement les colonnes de la table en fonction des éléments du tableau. Pour spécifier des en-têtes et valeurs personnalisés, effectuez les étapes suivantes :
 
 1. Ouvrez la liste **Colonnes**, puis sélectionnez **Personnalisé**.
 
 1. Dans la propriété **En-tête**, spécifiez le texte d’en-tête personnalisé à utiliser à la place.
 
-1. Dans la propriété **Clé**, spécifiez la valeur personnalisée à utiliser à la place.
+1. Dans la propriété **Valeur**, spécifiez la valeur personnalisée à utiliser à la place.
 
-Pour référencer et changer les valeurs du tableau, vous pouvez ajouter la fonction `@item()` dans la définition JSON de l’action **Créer une table CSV**.
+Pour retourner des valeurs du tableau, vous pouvez utiliser la fonction [`item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) avec l’action **Créer une table CSV**. Dans une boucle `For_each`, vous pouvez utiliser la fonction [`items()`](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
-1. Dans la barre d’outils du Concepteur, sélectionnez **Mode Code**. 
-
-1. Dans l’éditeur de code, modifiez la section `inputs` de l’action pour personnaliser la sortie de la table de la façon souhaitée.
-
-Cet exemple retourne uniquement les valeurs de colonne et pas les en-têtes du tableau `columns`, en affectant à la propriété `header` une valeur vide et en déréférençant chaque propriété `value` :
-
-```json
-"Create_CSV_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "CSV",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Voici le résultat que cet exemple retourne :
+Par exemple, supposons que vous souhaitiez des colonnes de table contenant uniquement les valeurs de propriété et non les noms de propriété d’un tableau. Pour retourner uniquement ces valeurs, procédez comme suit pour travailler en mode Création ou en mode Code. Voici le résultat que cet exemple retourne :
 
 ```text
-Results from Create CSV table action:
-
 Apples,1
 Oranges,2
 ```
 
-Dans le concepteur, l’action **Créer une table CSV** s’affiche maintenant comme ceci :
+#### <a name="work-in-designer-view"></a>Travail en Mode Création
 
-![« Créer une table CSV », sans en-tête de colonne](./media/logic-apps-perform-data-operations/create-csv-table-no-column-headers.png)
+Dans l’action, conservez la colonne **Header** vide. Sur chaque ligne de la colonne **Value**, déréférencez chaque propriété de tableau de votre choix. Chaque ligne sous **Value** retourne toutes les valeurs de la propriété de tableau spécifiée et devient une colonne de votre table.
+
+1. Sous **Value**, sur chaque ligne de votre choix, cliquez à l’intérieur de la zone d’édition afin que la liste de contenu dynamique s’affiche.
+
+1. Dans la liste à contenu dynamique, sélectionnez **Expression**.
+
+1. Dans l’éditeur d’expressions, entrez cette expression spécifiant la valeur de propriété de tableau de votre choix, puis sélectionnez **OK**.
+
+   `item()?['<array-property-name>']`
+
+   Par exemple :
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Expression pour déréférencer une propriété](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+
+1. Répétez les étapes précédentes pour chaque propriété de tableau de votre choix. Une fois que vous avez terminé, votre action ressemble à cet exemple :
+
+   ![Expressions terminées](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+
+1. Pour résoudre des expressions en versions plus descriptives, passez en mode Code, revenez en mode Création, puis rouvrez l’action réduite :
+
+   L’action **Créer une table CSV** s’affiche maintenant comme dans cet exemple :
+
+   ![Action « Créer une table CSV » avec des expressions résolues et aucun en-tête](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+
+#### <a name="work-in-code-view"></a>Travail en mode Code
+
+Dans la définition JSON de l’action, au sein du tableau `columns`, définissez la propriété `header` sur une chaîne vide. Pour chaque propriété `value`, déréférencez chaque propriété de tableau de votre choix.
+
+1. Dans la barre d’outils du Concepteur, sélectionnez **Mode Code**.
+
+1. Dans l’éditeur de code, dans le tableau `columns` de l’action, ajoutez la propriété `header` vide et cette expression `value` pour chaque colonne de valeurs de tableau de votre choix :
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   Par exemple :
+
+   ```json
+   "Create_CSV_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "CSV",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Revenez en mode Création et rouvrez l’action réduite.
+
+   L’action **Créer une table CSV** apparaît désormais comme cet exemple, et les expressions sont résolues en versions plus descriptives :
+
+   ![Action « Créer une table CSV » avec des expressions résolues et aucun en-tête](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 Pour plus d’informations sur cette action dans votre définition de flux de travail sous-jacente, consultez l’[action Table](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -288,55 +326,93 @@ Si vous préférez travailler dans l’éditeur en mode Code, vous pouvez copier
 
 ### <a name="customize-table-format"></a>Personnaliser le format de la table
 
-Par défaut, la propriété **Colonnes** est définie pour créer automatiquement les colonnes de la table en fonction des éléments du tableau. 
-
-Pour spécifier des en-têtes et valeurs personnalisés, effectuez les étapes suivantes :
+Par défaut, la propriété **Colonnes** est définie pour créer automatiquement les colonnes de la table en fonction des éléments du tableau. Pour spécifier des en-têtes et valeurs personnalisés, effectuez les étapes suivantes :
 
 1. Ouvrez la liste **Colonnes**, puis sélectionnez **Personnalisé**.
 
 1. Dans la propriété **En-tête**, spécifiez le texte d’en-tête personnalisé à utiliser à la place.
 
-1. Dans la propriété **Clé**, spécifiez la valeur personnalisée à utiliser à la place.
+1. Dans la propriété **Valeur**, spécifiez la valeur personnalisée à utiliser à la place.
 
-Pour référencer et changer les valeurs du tableau, vous pouvez ajouter la fonction `@item()` dans la définition JSON de l’action **Créer une table HTML**.
+Pour retourner des valeurs du tableau, vous pouvez utiliser la fonction [`item()`](../logic-apps/workflow-definition-language-functions-reference.md#item) avec l’action **Créer une table HTML**. Dans une boucle `For_each`, vous pouvez utiliser la fonction [`items()`](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
-1. Dans la barre d’outils du Concepteur, sélectionnez **Mode Code**. 
-
-1. Dans l’éditeur de code, modifiez la section `inputs` de l’action pour personnaliser la sortie de la table de la façon souhaitée.
-
-Cet exemple retourne uniquement les valeurs de colonne et pas les en-têtes du tableau `columns`, en affectant à la propriété `header` une valeur vide et en déréférençant chaque propriété `value` :
-
-```json
-"Create_HTML_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "HTML",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Voici le résultat que cet exemple retourne :
+Par exemple, supposons que vous souhaitiez des colonnes de table contenant uniquement les valeurs de propriété et non les noms de propriété d’un tableau. Pour retourner uniquement ces valeurs, procédez comme suit pour travailler en mode Création ou en mode Code. Voici le résultat que cet exemple retourne :
 
 ```text
-Results from Create HTML table action:
-
-Apples    1
-Oranges   2
+Apples,1
+Oranges,2
 ```
 
-Dans le concepteur, l’action **Créer une table HTML** s’affiche maintenant comme ceci :
+#### <a name="work-in-designer-view"></a>Travail en Mode Création
 
-![« Créer une table HTML », sans en-tête de colonne](./media/logic-apps-perform-data-operations/create-html-table-no-column-headers.png)
+Dans l’action, conservez la colonne **Header** vide. Sur chaque ligne de la colonne **Value**, déréférencez chaque propriété de tableau de votre choix. Chaque ligne sous **Value** retourne toutes les valeurs de la propriété spécifiée et devient une colonne de votre table.
+
+1. Sous **Value**, sur chaque ligne de votre choix, cliquez à l’intérieur de la zone d’édition afin que la liste de contenu dynamique s’affiche.
+
+1. Dans la liste à contenu dynamique, sélectionnez **Expression**.
+
+1. Dans l’éditeur d’expressions, entrez cette expression spécifiant la valeur de propriété de tableau de votre choix, puis sélectionnez **OK**.
+
+   `item()?['<array-property-name>']`
+
+   Par exemple :
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Expression pour déréférencer une propriété](./media/logic-apps-perform-data-operations/html-table-expression.png)
+
+1. Répétez les étapes précédentes pour chaque propriété de tableau de votre choix. Une fois que vous avez terminé, votre action ressemble à cet exemple :
+
+   ![Expressions terminées](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+
+1. Pour résoudre des expressions en versions plus descriptives, passez en mode Code, revenez en mode Création, puis rouvrez l’action réduite :
+
+   L’action **Créer une table HTML** s’affiche maintenant comme dans cet exemple :
+
+   ![Action « Créer une table HTML » avec des expressions résolues et aucun en-tête](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+
+#### <a name="work-in-code-view"></a>Travail en mode Code
+
+Dans la définition JSON de l’action, au sein du tableau `columns`, définissez la propriété `header` sur une chaîne vide. Pour chaque propriété `value`, déréférencez chaque propriété de tableau de votre choix.
+
+1. Dans la barre d’outils du Concepteur, sélectionnez **Mode Code**.
+
+1. Dans l’éditeur de code, dans le tableau `columns` de l’action, ajoutez la propriété `header` vide et cette expression `value` pour chaque colonne de valeurs de tableau de votre choix :
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   Par exemple :
+
+   ```json
+   "Create_HTML_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "HTML",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Revenez en mode Création et rouvrez l’action réduite.
+
+   L’action **Créer une table HTML** apparaît désormais comme cet exemple, et les expressions sont résolues en versions plus descriptives :
+
+   ![Action « Créer une table HTML » avec des expressions résolues et aucun en-tête](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 Pour plus d’informations sur cette action dans votre définition de flux de travail sous-jacente, consultez l’[action Table](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 

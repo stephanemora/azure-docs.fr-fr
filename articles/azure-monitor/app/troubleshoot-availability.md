@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146595"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695036"
 ---
 # <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -44,11 +44,11 @@ Cet article va vous aider à résoudre les problèmes courants qui peuvent se pr
 |    |Le réacheminement de certaines adresses IP se produit via (Load Balancer, gestionnaires de trafic géographique, Azure Express Route.) 
 |    |Si vous utilisez Azure ExpressRoute, il existe des scénarios où les paquets peuvent être ignorés si un [routage asymétrique se produit](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
-## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Échecs intermittents des tests avec une erreur de violation de protocole
+## <a name="test-failure-with-a-protocol-violation-error"></a>Échec de test avec une erreur de violation de protocole
 
 |Symptôme/message d’erreur| Causes possibles| Résolutions possibles |
 |----|---------|-----|
-|Le serveur a valider une violation de protocole. Section=ResponseHeader Detail=CR doit être suivi par LF | Cela se produit lorsque des en-têtes mal formés sont détectés. Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui viole la spécification HTTP. Application Insights applique cette spécification HTTP et fait échouer les réponses contenant des en-têtes mal formés.| a. Contactez le fournisseur CDN/de l’hôte du site web pour corriger les serveurs défectueux. <br> b. Si les demandes ayant échoué sont des ressources (par exemple, des fichiers de style, des images, des scripts), vous pouvez envisager de désactiver l’analyse des demandes dépendantes. Gardez à l’esprit que si vous procédez ainsi, vous perdrez la possibilité de superviser la disponibilité de ces fichiers.
+|Le serveur a validé une violation de protocole. Section=ResponseHeader Detail=CR doit être suivi par LF | Cela se produit lorsque des en-têtes mal formés sont détectés. Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui viole la spécification HTTP. Application Insights applique cette spécification HTTP et fait échouer les réponses contenant des en-têtes mal formés.| a. Contactez le fournisseur CDN/de l’hôte du site web pour corriger les serveurs défectueux. <br> b. Si les demandes ayant échoué sont des ressources (par exemple, des fichiers de style, des images, des scripts), vous pouvez envisager de désactiver l’analyse des demandes dépendantes. Gardez à l’esprit que si vous procédez ainsi, vous perdrez la possibilité de superviser la disponibilité de ces fichiers.
 
 > [!NOTE]
 > L’URL peut ne pas être en échec sur les navigateurs qui présentent une validation approximative des en-têtes HTTP. Consultez ce billet de blog pour obtenir une explication détaillée de ce problème : http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  

@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120483"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803396"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous
 | Taille maximale des pièces jointes par compte (la fonctionnalité de pièce jointe est dépréciée) | 2 Go | 
 
 > [!NOTE]
-> Pour connaître les bonnes pratiques concernant la gestion des charges de travail dont les clés de partition nécessitent des limites de stockage ou de débit plus élevées, consultez [Conception de clés de partition à chaud](synthetic-partition-keys.md)
+> Pour découvrir les meilleures pratiques en matière de gestion des charges de travail qui ont des clés de partition nécessitant des limites plus élevées de stockage ou de débit, voir [Créer une clé de partition synthétique](synthetic-partition-keys.md).
 >
 
 Un conteneur Cosmos (ou une base de données de débit partagé) doit avoir un débit minimum de 400 unités de requête. À mesure que le conteneur croît, le débit minimal pris en charge dépend également des facteurs suivants :

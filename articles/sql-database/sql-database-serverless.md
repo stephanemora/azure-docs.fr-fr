@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123084"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828234"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
 
@@ -171,7 +171,7 @@ La création d’une base de données ou le déplacement d’une base de donnée
 
    |Paramètre|Choix des valeurs|Valeur par défaut|
    |---|---|---|---|
-   |Nombre minimal de vCores|Au choix, {0,5, 1, 2, 4} ne dépassant pas le nombre maximal de vCores|0,5 vCore|
+   |Nombre minimal de vCores|Dépend du nombre maximal de vCores configuré. Voir [Limites des ressources](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCore|
    |Délai de la mise en pause automatique|Minimum : 60 minutes (1 heure)<br>Maximum : 10 080 minutes (7 jours)<br>Incréments : 60 minutes<br>Désactiver la mise en pause automatique  -1|60 minutes|
 
 > [!NOTE]

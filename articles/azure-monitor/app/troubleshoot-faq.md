@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 09/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875373"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802302"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : Forum Aux Questions (FAQ)
 
@@ -59,7 +59,7 @@ Le plan Entreprise implique un coût journalier pour chaque nœud de serveur web
 
 [Lire le plan de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="how-much-is-it-costing"></a>Combien cela coûte ?
+## <a name="how-much-does-it-cost"></a>Quel est le coût ?
 
 * Ouvrez la **page Utilisation et estimation des coûts** dans une ressource Application Insights. Cette page contient un graphique reflétant l’utilisation récente. Vous pouvez définir une limite de volume de données si vous le souhaitez.
 * Ouvrez le panneau [Facturation Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) pour voir vos factures sur l’ensemble des ressources.
@@ -139,6 +139,8 @@ Nous recherchons l’adresse IP (IPv4 ou IPv6) du client web à l’aide de [Geo
 
 * Télémétrie de navigateur : nous collectons l’adresse IP de l’expéditeur.
 * Télémétrie de serveur : le module Application Insights collecte l’adresse IP du client. Elle n’est pas collectée si `X-Forwarded-For` est défini.
+* Pour en savoir plus sur la façon dont les données d’adresse IP et de géolocalisation sont collectées dans Application Insights, voir cet [article](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+
 
 Vous pouvez configurer le `ClientIpHeaderTelemetryInitializer` pour récupérer l’adresse IP à partir d’un autre en-tête. Dans certains systèmes, par exemple, elle est déplacée vers `X-Originating-IP` par un proxy, un équilibreur de charge ou un CDN. [Plus d’informations](https://apmtips.com/blog/2016/07/05/client-ip-address/)
 

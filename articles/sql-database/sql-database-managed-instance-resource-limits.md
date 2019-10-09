@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 09/16/2019
-ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.date: 10/02/2019
+ms.openlocfilehash: c3f8189cf1b09b38b641b92b9234fde618839987
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146804"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828802"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -38,12 +38,27 @@ L’instance gérée d’Azure SQL Database peut être déployée sur deux gén�
 | Matériel | Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché, vCore = 1 PP (cœur physique) | Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, disque SSD fast NVMe, vCore = 1 LP (hyperthread) |
 | Nombre de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Mémoire maximale (ratio mémoire/cœur) | 7 Go par vCore<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | 5,1 Go par vCore<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
-| Mémoire OLTP maximum en mémoire | Limite de l’instance : 3 Go par vCore<br/>Limites de base de données :<br/> - 8 cœurs : 8 Go par base de données<br/> - 16 cœurs : 20 Go par base de données<br/> - 24 cœurs : 36 Go par base de données | Limite de l’instance : 2,5 Go par vCore<br/>Limites de base de données :<br/> - 8 cœurs : 13 Go par base de données<br/> - 16 cœurs : 32 Go par base de données |
+| Mémoire OLTP maximum en mémoire | Limite de l’instance : 1 à 1,5 Go par vCore| Limite de l’instance : 0,8 à 1,65 Go par vCore |
 | Stockage réservé d’instance max. |  Usage général : 8 To<br/>Critique pour l’entreprise : 1 To | Usage général : 8 To<br/> Critique pour l’entreprise 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 
 > [!IMPORTANT]
 > - Le matériel Gen4 est graduellement abandonné. Il est recommandé de déployer de nouvelles instances gérées sur du matériel Gen5.
 > - Pour le moment, le matériel Gen4 n’est encore disponible que dans les régions suivantes : Europe Nord, Europe Ouest, USA Est, USA Centre Sud, USA Centre Nord, USA Ouest 2, USA Centre, Canada Centre, Inde Sud, Asie Sud-Est et Corée Centre.
+
+#### <a name="in-memory-oltp-available-space"></a>Espace disponible OLTP en mémoire 
+
+La quantité d’espace OLTP en mémoire au niveau de service [Critique pour l’entreprise](sql-database-service-tier-business-critical.md) dépend du nombre de vCores et de la génération du matériel. Le tableau suivant répertorie les limites de mémoire utilisables pour des objets OLTP en mémoire.
+
+| Espace OLTP en mémoire  | **Gen5** | **Gen4** |
+| --- | --- | --- |
+| 4 vCores  | 3,14 Go | |   
+| 8 vCores  | 6,28 Go | 8 Go |
+| 16 vCores | 15,77 Go | 20 Go |
+| 24 vCores | 25,25 Go | 36 Go |
+| 32 vCores | 37,94 Go | |
+| 40 vCores | 52,23 Go | |
+| 64 vCores | 99,9 Go    | |
+| 80 vCores | 131,68 Go| |
 
 ### <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 

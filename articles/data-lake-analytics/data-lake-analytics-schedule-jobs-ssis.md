@@ -1,6 +1,6 @@
 ---
 title: Planifier des tâches U-SQL Azure Data Lake Analytics avec SSIS
-description: Découvrez comment utiliser SQL Server Integration Services (SSIS) pour planifier des tâches U-SQL.
+description: Découvrez comment utiliser SQL Server Integration Services (SSIS) pour planifier des tâches U-SQL avec un script inclus ou à partir de fichiers de requête U-SQL.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0650fcc5023ac57b193fa23b0dedf65113fd64e6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814672"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672888"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planifier des tâches U-SQL à l’aide de SQL Server Integration Services (SSIS)
 
@@ -171,4 +171,3 @@ Dans certains cas, vous pouvez souhaiter définir dynamiquement la valeur de la 
 - [Exécuter des packages SSIS dans Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Feature Pack Azure pour Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
 - [Planifier des tâches U-SQL avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
-

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/2/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b210868c87b06a6b7caf55aece74cba956b406a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290780"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827097"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -43,19 +43,25 @@ Télécharger| [Télécharger Azure AD Connect](https://go.microsoft.com/fwlink/
 Pendant que nous effectuons ce processus, le numéro de la version s’affiche avec un « X » en position de numéro de version mineure, comme dans « 1.3.X.0 ». Cela indique que les notes de publication de ce document sont valides pour toutes les versions commençant par « 1.3. ». Dès que nous aurons finalisé le processus de publication, le numéro de version sera mis à jour vers la version la plus récente, et l’état de lancement sera mis à jour vers « Lancé pour le téléchargement et la mise à niveau automatique ».
 La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="14x0"></a>1.4.X.0
-
->[!IMPORTANT]
->Les ordinateurs Windows inscrits en tant que jonction Azure AD Hybride sont représentés dans Azure AD en tant qu’objets appareils. Ces objets appareils peuvent être utilisés pour un accès conditionnel. Les ordinateurs Windows 10 sont synchronisés avec le cloud via Azure AD Connect. Les ordinateurs Windows de niveau inférieur sont inscrits directement à l’aide d’AD FS ou d’une authentification unique transparente.
->
->Seuls les ordinateurs Windows 10 avec une valeur d’attribut userCertificate spécifique configurée par jonction Azure AD Hybride sont censés être synchronisés dans le cloud par Azure AD Connect.  Dans les versions précédentes d’Azure AD Connect, cette exigence n’était pas rigoureusement appliquée, ce qui entraînait la présence d’objets appareils superflus dans Azure AD. Dans Azure AD, de tels appareils conservaient toujours l’état « en attente », car ces ordinateurs n’avaient pas pour vocation d’être inscrits auprès d’Azure AD.
->
->Cette version de Azure AD Connect synchronise uniquement les ordinateurs Windows 10 correctement configurés pour être joints à une version hybride d’Azure AD. Azure AD Connect ne doit jamais se synchroniser [des appareils Windows de niveau supérieur](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Tous les appareils dans Azure AD précédemment synchronisés de manière incorrecte sont désormais supprimés d’Azure AD.  Toutefois, cette modification ne supprime pas d’appareils Windows correctement inscrits auprès d’Azure AD pour une jonction Azure AD Hybride. 
->
->Certains clients peuvent voir tout ou partie de leurs appareils Windows disparaître d’Azure AD. Cela n’est pas préoccupant car Azure AD n’utilise pas ces identités d’appareil durant l’autorisation d’accès conditionnel. Il se peut que certains clients doivent revisiter la rubrique [Comment planifier l’implémentation de la jointure Azure Active Directory hybride](../../active-directory/devices/hybrid-azuread-join-plan.md) pour inscrire leurs ordinateurs Windows correctement et s’assurer que ces appareils puissent bénéficier pleinement d’un accès conditionnel basé sur l’appareil. Si Azure AD Connect tente de supprimer un [appareil Windows de niveau inférieur](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices), l’appareil n’est pas celui qui a été créé par le [MSI Microsoft Workplace Join pour les ordinateurs non Windows 10](https://www.microsoft.com/download/details.aspx?id=53554) et n’est pas utilisable par une autre fonctionnalité Azure AD.  Si vous constatez que les suppressions d’objets ordinateurs/appareils dans Azure AD dépassent le seuil de suppression des exportations, il est conseillé que le client autorise la poursuite de ces suppressions.
+## <a name="14250"></a>1.4.25.0
 
 ### <a name="release-status"></a>État de la version
-10/09/2019 : publiée pour la mise à niveau automatique uniquement
+28/09/2019 : Mise en production pour la mise à niveau automatique afin de sélectionner des locataires. Non disponible pour téléchargement.
+
+Cette version corrige un bogue qui avait pour effet que certains serveurs étaient mis à niveau automatiquement vers la version 1.4.18.0 et rencontraient des problèmes en lien avec la réinitialisation de mot de passe en libre-service (SSPR) et la réécriture du mot de passe.
+
+### <a name="fixed-issues"></a>Problèmes résolus
+
+Dans certaines circonstances, les serveurs mis à niveau automatiquement vers la version 1.4.18.0 ne réactivaient pas la réinitialisation de mot de passe en libre-service et la réécriture du mot de passe une fois la mise à niveau terminée. Cette mise en production de la mise à niveau automatique corrige ce problème et réactive la réinitialisation de mot de passe en libre-service et la réécriture du mot de passe.
+
+## <a name="14180"></a>1.4.18.0
+
+>[!IMPORTANT]
+>Avec cette version d’Azure AD Connect, certains clients peuvent voir une partie ou l’ensemble de leurs appareils Windows disparaître d’Azure AD. Cela n’est pas préoccupant car Azure AD n’utilise pas ces identités d’appareil durant l’autorisation d’accès conditionnel. Pour plus d’informations, voir [Comprendre la disparition des appareils Azure AD Connect 1.4.xx.x](reference-connect-device-disappearance.md)
+
+
+### <a name="release-status"></a>État de la version
+25/9/2019 : Mise en production pour la mise à niveau automatique et le téléchargement
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 - De nouveaux outils de résolution des problèmes permettent de corriger les scénarios « utilisateur non synchronisé », « groupe non synchronisé » ou « membre de groupe non synchronisé ».
@@ -89,9 +95,7 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 - Amélioration des diagnostics et de la résolution des problèmes liés aux stratégies de groupe qui n’autorisent pas le démarrage du service ADSync lors de l’installation initiale.
 - Correction d’un bogue responsable de l’écriture incorrecte du nom d’affichage d’un ordinateur Windows.
 - Correction d’un bogue responsable de l’écriture incorrecte du type de système d’exploitation d’un ordinateur Windows.
-- Correction d’un bogue responsable de la synchronisation de manière inattendue d’ordinateurs non-Windows 10. Notez que l’effet de cette modification se traduit désormais par la suppression des ordinateurs non-Windows 10 qui, auparavant, étaient synchronisés. Cela n’a pas d’incidence sur les fonctionnalités, car la synchronisation des ordinateurs Windows est uniquement utilisée pour la jonction de domaine Azure AD Hybride, qui ne fonctionne que pour les appareils Windows 10. 
-- Correction d’un bogue responsable de l’écriture incorrecte du nom d’affichage d’un ordinateur Windows.
-- Correction d’un bogue responsable de l’écriture incorrecte du type de système d’exploitation d’un ordinateur Windows.
+- Correction d’un bogue responsable de la synchronisation de manière inattendue d’ordinateurs non-Windows 10. Notez que l’effet de cette modification se traduit désormais par la suppression des ordinateurs non-Windows 10 qui, auparavant, étaient synchronisés. Cela n’a pas d’incidence sur les fonctionnalités, car la synchronisation des ordinateurs Windows est uniquement utilisée pour la jonction de domaine Azure AD Hybride, qui ne fonctionne que pour les appareils Windows 10.
 - Ajout de plusieurs nouvelles applets de commande (internes) au module PowerShell ADSync.
 
 

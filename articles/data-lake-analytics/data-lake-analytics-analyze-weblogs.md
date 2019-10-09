@@ -1,6 +1,6 @@
 ---
 title: Analyser les journaux d’activité des sites web à l’aide d’Azure Data Lake Analytics
-description: Apprendre à analyser les journaux d’activité des sites web à l’aide de Data Lake Analytics.
+description: Découvrez comment analyser des journaux d’activité de site web en utilisant Azure Data Lake Analytics pour exécuter des fonctions et requêtes U-SQL.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,12 +9,12 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04c6d4c74a82ccfbcbb0faecb0dca5ec495f6663
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334111"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672881"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analyser les journaux d’activité des sites web à l’aide d’Azure Data Lake Analytics
 Découvrez comment analyser les journaux d’activité des sites web à l’aide de Data Lake Analytics, en particulier pour découvrir quels points d’accès ont rencontré des erreurs lorsqu’ils ont essayé de visiter le site web.

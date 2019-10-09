@@ -8,29 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4e24246ec4ed30ec93bf8e113d659bc5e3600913
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1a9f3eb0ea79a0cd79850e721d081b00dc582a31
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130117"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695274"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
 
 QnA Maker extrait automatiquement des paires de questions-réponses à partir de contenu semi-structuré tel que des Questions fréquentes (FAQ), manuels de produits, instructions, documents de prise en charge et stratégies stockés sous forme de pages web, fichiers PDF ou fichiers de documents MS Word. Le contenu peut également être ajouté à la base de connaissances à partir de fichiers de contenu QnA structurés. 
 
-## <a name="data-types"></a>Types de données
+<a name="data-types"></a>
+
+## <a name="file-and-url-data-types"></a>Types de données de fichier et d’URL
 
 Le tableau ci-dessous récapitule les types de contenu et formats de fichiers pris en charge par QnA Maker.
 
 |Type de source|Type de contenu| Exemples|
 |--|--|--|
 |URL|FAQ<br> (plates, avec des sections ou une page d’accueil de rubriques)<br>Pages de support <br> (Articles sur les procédures d’une seule page, articles sur la résolution des problèmes, etc.)|[FAQ brut](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Forum aux questions avec des liens](https://www.microsoft.com/software-download/faq),<br> [Forum aux questions avec une page d’accueil contenant des rubriques](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Article de support technique](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF / DOC|FAQs,<br> Manuel de produit,<br> Brochures,<br> Article,<br> Stratégie de prospectus,<br> Guide de support,<br> Questions et réponses structurées,<br> etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
-|Excel|Fichier QnA structuré<br> (y compris la prise en charge de RTF et HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|Fichier QnA structuré|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+|PDF / DOC|FAQs,<br> Manuel de produit,<br> Brochures,<br> Article,<br> Stratégie de prospectus,<br> Guide de support,<br> Questions et réponses structurées,<br> etc.|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Sample multi-turn.docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
+|*Excel|Fichier QnA structuré<br> (y compris la prise en charge de RTF et HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|*TXT/TSV|Fichier QnA structuré|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
+
+L’utilisation de **fichiers TSV et XLS** provenant de bases de connaissances exportées n’est possible qu’en les important à partir de la page **Paramètres** du portail QnA Maker. Il est impossible de les utiliser en tant que sources de données lors de la création de la base de connaissances ou à partir de la fonctionnalité d’ajout de fichier ou d’URL sur la page **Paramètres**. 
+
+Apprenez-en davantage sur l’utilisation de [documents multitours](). 
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données
 
@@ -223,6 +229,10 @@ Une fois que vous avez terminé vos modifications, réimportez le fichier TSV à
 ## <a name="testing-your-markdown"></a>Test de votre Markdown
 
 Utilisez le tutoriel **[CommonMark](https://commonmark.org/help/tutorial/index.html)** pour valider votre Markdown. Ce tutoriel a une fonctionnalité **Essayer** pour la validation rapide de copier/coller. 
+
+## <a name="version-control-for-data-in-your-knowledge-base"></a>Contrôle de version des données de votre base de connaissances
+
+Le contrôle de version des données s’effectue via la [fonctionnalité d’importation/exportation](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) sur la page **Paramètres**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,20 +4,20 @@ description: Décrit comment utiliser des modèles liés dans un modèle Azure 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194388"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827345"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
-Pour déployer votre solution, vous pouvez utiliser un modèle unique ou un modèle principal avec de nombreux modèles associés. Le modèle associé peut être un fichier distinct lié à partir du modèle principal, ou un modèle imbriqué dans le modèle principal.
+Pour déployer votre solution, vous pouvez utiliser un modèle unique ou un modèle principal avec de nombreux modèles associés. Les modèles associés peuvent être des fichiers distincts liés au modèle principal, ou des modèles imbriqués dans le modèle principal.
 
-Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour les scénarios avancés, les modèles liés vous permettent de diviser la solution en composants ciblés et de réutiliser des modèles.
+Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour des scénarios avancés, les modèles liés permettent de diviser la solution en composants ciblés. Vous pouvez facilement réutiliser ces modèles pour d’autres scénarios.
 
 Lorsque vous utilisez des modèles liés, vous créez un modèle principal qui reçoit les valeurs de paramètre au cours du déploiement. Le modèle principal contient tous les modèles liés et transmet des valeurs à ces modèles en fonction des besoins.
 
@@ -27,7 +27,7 @@ Pour obtenir un tutoriel, consultez [Tutoriel : Créer des modèles Azure Resour
 > Pour les modèles liés ou imbriqués, vous pouvez uniquement utiliser le mode de déploiement [Incremental](deployment-modes.md).
 >
 
-## <a name="link-or-nest-a-template"></a>Lier ou imbriquer un modèle
+## <a name="deployments-resource"></a>Ressources de déploiement
 
 Pour créer un lien vers un autre modèle, ajoutez une ressource de **déploiement** à votre modèle principal.
 
@@ -47,7 +47,7 @@ Pour créer un lien vers un autre modèle, ajoutez une ressource de **déploieme
 
 Les propriétés que vous fournissez pour la ressource de déploiement varient selon que vous établissez la liaison à un modèle externe ou que vous imbriquez un modèle inclus dans le modèle principal.
 
-### <a name="nested-template"></a>Modèle imbriqué
+## <a name="nested-template"></a>Modèle imbriqué
 
 Pour imbriquer le modèle dans le modèle principal, utilisez la propriété **template** et spécifiez la syntaxe du modèle.
 
@@ -94,9 +94,17 @@ Pour imbriquer le modèle dans le modèle principal, utilisez la propriété **t
 
 Le modèle imbriqué nécessite les [mêmes propriétés](resource-group-authoring-templates.md) qu’un modèle standard.
 
-### <a name="external-template-and-external-parameters"></a>Modèle externe et paramètres externes
+## <a name="external-template"></a>Modèle externe
 
-Pour établir un lien à un modèle externe et un fichier de paramètres, utilisez **templateLink** et **parametersLink**. Quand vous établissez un lien à un modèle, le service Resource Manager doit être en mesure d’y accéder. Vous ne pouvez pas spécifier un fichier local ni un fichier uniquement disponible sur votre réseau local. Vous pouvez seulement fournir une valeur URI qui inclut soit **http** soit **https**. Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément.
+Pour lier un modèle externe, utilisez la propriété **templateLink**. Vous ne pouvez pas spécifier un fichier local ni un fichier uniquement disponible sur votre réseau local. Vous pouvez seulement fournir une valeur URI qui inclut soit **http** soit **https**. Resource Manager doit être en mesure d’accéder au modèle.
+
+Une possibilité consiste à placer votre modèle lié dans un compte de stockage et à utiliser l’URI de cet élément.
+
+Vous pouvez fournir les paramètres de votre modèle externe dans un fichier externe ou inclus.
+
+### <a name="external-parameters"></a>Paramètres externes
+
+Lorsque vous fournissez un fichier de paramètres externe, utilisez la propriété **parametersLink** :
 
 ```json
 "resources": [
@@ -105,15 +113,15 @@ Pour établir un lien à un modèle externe et un fichier de paramètres, utilis
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -121,11 +129,11 @@ Pour établir un lien à un modèle externe et un fichier de paramètres, utilis
 
 Vous ne devez pas fournir la propriété `contentVersion` pour le modèle ou les paramètres. Si vous ne fournissez pas une valeur de version du contenu, la version actuelle du modèle est déployée. Si vous fournissez une valeur pour la version du contenu, elle doit correspondre à la version du modèle lié ; sinon, le déploiement échoue avec une erreur.
 
-### <a name="external-template-and-inline-parameters"></a>Modèle externe et paramètres inclus
+### <a name="inline-parameters"></a>Paramètres inline
 
 Ou bien, vous pouvez fournir le paramètre inclus. Vous ne pouvez pas utiliser à la fois des paramètres inline et un lien vers un fichier de paramètres. Si `parametersLink` et `parameters` sont spécifiés tous les deux, le déploiement échoue.
 
-Pour passer une valeur du modèle principal au modèle lié, utilisez des **paramètres**.
+Pour transmettre une valeur du modèle principal au modèle lié, utilisez la propriété **parameters**.
 
 ```json
 "resources": [
@@ -269,7 +277,7 @@ Le modèle principal déploie le modèle lié et obtient la valeur retournée. R
 }
 ```
 
-Comme pour d’autres types de ressources, vous pouvez définir des dépendances entre le modèle lié et d’autres ressources. Par conséquent, lorsque d’autres ressources requièrent une valeur de sortie provenant du modèle lié, veillez à ce que ce dernier soit déployé avant celles-ci. Sinon, lorsque le modèle lié s’appuie sur d’autres ressources, vérifiez que celles-ci sont déployées avant le modèle lié.
+Comme pour d’autres types de ressources, vous pouvez définir des dépendances entre le modèle lié et d’autres ressources. Lorsque d’autres ressources requièrent une valeur de sortie provenant du modèle lié, veillez à ce que celui-ci soit déployé avant les ressources. Sinon, lorsque le modèle lié s’appuie sur d’autres ressources, vérifiez que celles-ci sont déployées avant le modèle lié.
 
 L’exemple suivant montre un modèle qui déploie une adresse IP publique et retourne l’ID de ressource :
 

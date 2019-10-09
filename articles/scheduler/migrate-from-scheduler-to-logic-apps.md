@@ -9,17 +9,17 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301041"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695498"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrer des travaux Azure Scheduler vers Azure Logic Apps
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](#retire-date). Pour continuer à traiter les travaux que vous avez configurés dans Scheduler, migrez vers Azure Logic Apps dès que possible en suivant les instructions de cet article.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de [mise hors service](#retire-date). Pour continuer à traiter les travaux que vous avez configurés dans Scheduler, migrez vers Azure Logic Apps dès que possible en suivant les instructions de cet article. 
 
 Cet article vous montre comment planifier des travaux ponctuels et des travaux récurrents en créant des workflows automatisés avec Azure Logic Apps au lieu d’Azure Scheduler. La création de travaux planifiés avec Logic Apps présente les avantages suivants :
 
@@ -38,6 +38,10 @@ Pour plus d’informations, voir [Qu’est-ce qu’Azure Logic Apps ?](../logic-
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Pour déclencher votre application logique en envoyant des requêtes HTTP, utilisez un outil tel que [l’application de bureau Postman](https://www.getpostman.com/apps).
+
+## <a name="migrate-by-using-a-script"></a>Migrer à l’aide d’un script
+
+Chaque tâche du planificateur étant unique, il n’existe pas d’outil standard pour la migration des tâches du planificateur vers Azure Logic Apps. En revanche, vous pouvez [modifier ce script](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) pour l’adapter à vos besoins.
 
 ## <a name="schedule-one-time-jobs"></a>Planifier des travaux ponctuels
 
@@ -203,7 +207,7 @@ Pour en savoir plus sur la gestion des exceptions, consultez [Gérer les erreurs
 **R** : La bonne pratique est de toujours sauvegarder votre travail. Vérifiez que vos nouvelles applications logiques s’exécutent comme prévu avant de supprimer ou désactiver vos travaux Scheduler. 
 
 **Q** : Existe-t-il un outil qui peut m’aider à migrer mes travaux de Scheduler vers Logic Apps ? <br>
-**R** : Il n’existe pas d’outil universel, car chaque travail Scheduler est unique. Toutefois, nous fournirons différents scripts que vous pourrez modifier selon vos besoins. Revenez vérifier ultérieurement si des scripts sont disponibles.
+**R** : Il n’existe pas d’outil universel, car chaque travail Scheduler est unique. Toutefois, en fonction de vos besoins, vous pouvez [modifier ce script pour migrer des tâches du Planificateur Azure vers Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **Q** : Où puis-je obtenir de l’aide pour migrer mes travaux Scheduler ? <br>
 **R** : Voici quelques moyens d’obtenir de l’aide : 

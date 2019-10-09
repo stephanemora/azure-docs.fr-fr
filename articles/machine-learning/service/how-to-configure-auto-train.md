@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5a0f2922763f8fccb9f3eec8bab4d6eddee7e446
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259991"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350587"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 
@@ -328,7 +328,7 @@ Vous pouvez consulter vos résultats de formation dans un widget ou en ligne si 
 
 Tous les modèles produits à l’aide de ML automatisé comprennent les étapes suivantes :
 + Ingénierie des fonctionnalités automatisées (si prétraiter = True)
-+ Mise à l'échelle/Normalisation et algorithme avec valeurs hypermeter
++ Mise à l’échelle/Normalisation et algorithme avec des valeurs d’hyperparamètre
 
 Nous rendons transparente l’obtention de ces informations à partir de la sortie fitted_model de ML automatisé.
 
@@ -410,7 +410,7 @@ Utilisez ces 2 API sur la première étape du modèle ajusté pour en savoir plu
    |EngineeringFeatureCount|Nombre de fonctionnalités générées par le biais de transformations d’ingénierie de la fonctionnalité automatisée.|
    |Transformations|Liste des transformations appliquées à des fonctionnalités d’entrée pour générer des fonctionnalités d’ingénierie.|
 
-### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Mise à l'échelle/Normalisation et algorithme avec valeurs hypermeter :
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Mise à l’échelle/Normalisation et algorithme avec des valeurs d’hyperparamètre :
 
 Pour comprendre les valeurs de mise à l’échelle/normalisation et d’algorithme/hyperparameter pour un pipeline, utilisez fitted_model.steps. [En savoir plus sur la mise à l’échelle/la normalisation](concept-automated-ml.md#preprocess). Voici un exemple de sortie :
 

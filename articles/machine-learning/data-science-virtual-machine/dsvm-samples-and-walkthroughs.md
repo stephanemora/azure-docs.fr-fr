@@ -10,18 +10,22 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195679"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802457"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exemples sur Data Science Virtual Machine
 
 Les machines Azure Data Science Virtual Machine (DSVM) incluent un ensemble complet d’exemple de code. Ces exemples incluent des blocs-notes Jupyter et des scripts dans des langages tels que Python et R.
 > [!NOTE]
 > Pour plus d’informations sur l’exécution de blocs-notes Jupyter Notebook sur vos machines DSVM, consultez la section [Accéder à Jupyter](#access-jupyter).
+
+## <a name="prerequisites"></a>Prérequis
+
+Pour exécuter ces exemples, vous devez avoir approvisionné une Data Science Virtual Machine. Voir les guides de démarrage rapide pour [Windows](./provision-vm.md) et [Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Exemples disponibles
 | Catégorie d’exemples | Description | Emplacements |

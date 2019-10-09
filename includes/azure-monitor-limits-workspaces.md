@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 58a741b369231a353a6b8e282a6e604a63a5727d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 017c02a10137579e6e3497775e9e4a3ac0a5d72d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71210213"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350856"
 ---
 **Volume et rétention de collecte de données** 
 
@@ -67,7 +67,10 @@ ms.locfileid: "71210213"
 
 **Débit d’ingestion de données**
 
-Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Par défaut, le débit d’ingestion maximal est défini sur **500 Mo/min** pour chaque espace de travail. Si vous envoyez des données vers un espace de travail à un débit supérieur, certaines données seront supprimées et un événement sera envoyé toutes les six heures à la table *Opération* de votre espace de travail tant que le seuil sera dépassé. Si votre volume d’ingestion continue de dépasser le débit maximal, ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en effectuant une demande de support.
+
+Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. La limite par défaut du débit d’ingestion de données envoyées à partir de ressources Azure à l’aide des [paramètres de diagnostic](../articles/azure-monitor/platform/diagnostic-settings.md) est d’environ **6 Go/min** par espace de travail. Il s’agit d’une valeur approximative dans la mesure où la taille réelle peut varier d’un type de données à l’autre en fonction de la longueur du journal et de son taux de compression. Cette limite ne s’applique pas aux données envoyées à partir d’agents ou de l’[API de collecteur de données](../articles/azure-monitor/platform/data-collector-api.md).
+
+Si vous envoyez des données vers un espace de travail unique à un débit supérieur, certaines données sont supprimées et un événement est envoyé toutes les 6 heures à la table *Operation* de votre espace de travail tant que le seuil est dépassé. Si votre volume d’ingestion continue de dépasser la limite du débit ou si vous pensez l’atteindre bientôt, vous pouvez demander une augmentation de votre espace de travail en effectuant une demande de support.
  
 Pour être averti de la survenue d’un tel événement dans votre espace de travail, créez une [règle d’alerte de journal](../articles/azure-monitor/platform/alerts-log.md) à l’aide de la requête suivante, où la logique d’alerte est basée sur le nombre de résultats supérieurs à zéro.
 

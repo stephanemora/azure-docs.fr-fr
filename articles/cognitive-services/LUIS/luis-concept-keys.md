@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6c87da7ae62af54990e0a1a2c62065717a201a
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 70e58077fa40ce685324cd24b447886ec3411034
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256948"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703178"
 ---
 # <a name="authoring-and-runtime-keys"></a>Clés de création et d'exécution
 
@@ -46,7 +46,7 @@ Il est important de créer des applications LUIS dans les [régions](luis-refere
 
 Une clé de création est automatiquement et gratuitement générée lorsque vous créez un compte LUIS. Lorsque vous commencez à utiliser LUIS, vous disposez d'une clé de démarrage adaptée à toutes vos applications LUIS pour chaque [région](luis-reference-regions.md) de création. La clé de création est destinée à vous fournir une authentification pour gérer votre application LUIS ou tester les requêtes du point de terminaison de prédiction. 
 
-La génération de clés de création sur le portail Azure vous permet de contrôler les autorisations d'accès à la ressource de création en attribuant le [rôle de contributeur](#contributions-from-other-authors) à des utilisateurs. Vous devez disposer d'une autorisation au niveau de l'abonnement Azure pour ajouter des contributeurs. 
+La génération de clés de création sur le portail Azure vous permet de contrôler les autorisations d'accès à la ressource de création en attribuant le [rôle de contributeur](#contributions-from-other-authors) à des utilisateurs. Vous devez disposer d’une autorisation au niveau de l’abonnement Azure pour ajouter des contributeurs. 
 
 Pour rechercher la clé de création, connectez-vous à [LUIS](luis-reference-regions.md#luis-website), puis cliquez dans la barre de navigation en haut à droite sur le nom du compte pour ouvrir les **Paramètres du compte**.
 
@@ -85,10 +85,28 @@ Le point de terminaison d'exécution LUIS accepte deux styles de requêtes, les 
 
 Le point de terminaison utilisé pour accéder à l'environnement d'exécution utilise un sous-domaine propre à la région de votre ressource, indiquée par le terme `{region}` dans le tableau suivant. 
 
+
+#### <a name="v2-prediction-endpointtabv2"></a>[Point de terminaison de prédiction V2](#tab/V2)
+
 |Verbe|Exemple d’url et emplacement de la clé|
 |--|--|
-|[GET](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>valeur de chaîne de requête pour `runtime-key`<br><br>Modifiez la valeur de requête de votre point de terminaison de la `runtime-key` de la clé de création (démarrage) à la nouvelle clé du point de terminaison afin d’utiliser le quota de clé de terminaison de LUIS. Si vous créez la clé et si vous l’affectez, mais que vous ne modifiez pas la valeur de requête de point de terminaison pour `runtime-key`, vous n’utilisez pas votre quota de clé de point de terminaison.|
-|[POST](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> valeur de l’en-tête pour `Ocp-Apim-Subscription-Key`<br>Si vous créez la clé d'exécution et attribuez celle-ci sans modifier la valeur de requête de point de terminaison de `Ocp-Apim-Subscription-Key`, vous n'utilisez pas votre clé d'exécution.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
+
+#### <a name="v3-prediction-endpointtabv3"></a>[Point de terminaison de prédiction V3](#tab/V3)
+
+|Verbe|Exemple d’url et emplacement de la clé|
+|--|--|
+|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
+|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
+
+Apprenez-en davantage sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
+
+* * * 
+
+**GET** : Modifiez la valeur de requête de votre point de terminaison de la `runtime-key` de la clé de création (démarrage) à la nouvelle clé du point de terminaison afin d’utiliser le quota de clé de terminaison de LUIS. Si vous créez la clé et si vous l’affectez, mais que vous ne modifiez pas la valeur de requête de point de terminaison pour `runtime-key`, vous n’utilisez pas votre quota de clé de point de terminaison.
+
+**POST** : Modifier la valeur d’en-tête pour `Ocp-Apim-Subscription-Key`<br>Si vous créez la clé d'exécution et attribuez celle-ci sans modifier la valeur de requête de point de terminaison de `Ocp-Apim-Subscription-Key`, vous n'utilisez pas votre clé d'exécution.
 
 L’ID d’application utilisé dans les URL précédentes, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, est l’application IoT publique utilisée pour la [démonstration interactive](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
 
@@ -187,7 +205,7 @@ Une application publique est publiée dans toutes les régions. Ainsi, un utilis
 
 ## <a name="transfer-of-ownership"></a>Transfert de propriété
 
-**Pour les applications [migrées avec ressources de création](luis-migration-authoring.md)**  : 
+**Pour les applications [migrées avec ressources de création](luis-migration-authoring.md)**  : En tant que propriétaire de la ressource, vous pouvez ajouter un `contributor`.
 
 **Pour les applications qui n'ont pas encore été migrées** : Exportez votre application sous forme de fichier JSON. Un autre utilisateur LUIS peut importer l'application, devenant ainsi le propriétaire de celle-ci. La nouvelle application aura un ID d'application différent.  
 

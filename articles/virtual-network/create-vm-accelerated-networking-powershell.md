@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8f4f55f2c2aa4a0f9cce08e10c9f12f81a54dba
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190295"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678007"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Windows avec mise en réseau accélérée
 
@@ -44,6 +44,7 @@ Les avantages d’une mise en réseau accélérée s’appliquent uniquement à 
 Les distributions suivantes sont prises en charge sans configuration supplémentaire à partir de la galerie Azure :
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
+* **Windows Server 2019 Datacenter**
 
 ### <a name="supported-vm-instances"></a>Instances de machines virtuelles prises en charge
 La mise en réseau accélérée est prise en charge dans la plupart des instances d’usage général et optimisées pour le calcul (2 processeurs virtuels ou plus).  Séries prises en charge : D/DSv2 et F/Fs
@@ -230,7 +231,7 @@ Si vous avez créé une machine virtuelle sans mise en réseau accélérée, vou
 Tout d’abord, arrêtez/libérez la machine virtuelle individuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe :
 
 ```azurepowershell
-Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
+Stop-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -239,18 +240,18 @@ Important : Si la machine virtuelle a été créée individuellement, en dehors 
 Après avoir arrêté la machine virtuelle, activez la mise en réseau accélérée sur la carte réseau de la machine virtuelle :
 
 ```azurepowershell
-$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzureRMNetworkInterface
+$nic | Set-AzNetworkInterface
 ```
 
 Redémarrez la machine virtuelle ou, dans le cas d’un groupe à haute disponibilité, toutes les machines virtuelles du groupe, puis vérifiez que la mise en réseau accélérée est bien activée :
 
 ```azurepowershell
-Start-AzureRmVM -ResourceGroup "myResourceGroup" `
+Start-AzVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 

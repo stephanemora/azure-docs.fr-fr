@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: d2922f79c0b2ef7098e0f51e0c3bf6ab18a1b0e3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cbae4455ae4cfcc0397b8b50b7f86843f7f82a59
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200278"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695376"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 
@@ -440,7 +440,8 @@ Les paramètres suivants n’affectent pas le chargement du disque dur virtuel. 
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
    ```
   Si un disque de données est attaché à la machine virtuelle, la lettre de lecteur du volume de disque temporaire est généralement *D*. Cette désignation peut être différente, en fonction de vos paramètres et du nombre de disques disponibles.
-
+  * Nous vous recommandons de désactiver les bloqueurs de scripts fournis par des logiciels antivirus. Ils pourraient interférer avec les scripts de l’agent d’approvisionnement Windows et en bloquer l’exécution lorsque vous déployez une nouvelle machine virtuelle à partir de votre image.
+  
 ## <a name="next-steps"></a>Étapes suivantes
 * [Télécharger une image de machine virtuelle Windows dans Azure pour des déploiements Resource Manager](upload-generalized-managed.md)
 * [Résoudre des problèmes liés à l’activation de machines virtuelles Windows Azure](troubleshoot-activation-problems.md)

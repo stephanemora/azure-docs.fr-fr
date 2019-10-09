@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5191f8b565762e9377f3718cc147c96e491f5a0d
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 61a42a8c1176cdd347fd2956a07c295ecf49321e
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067726"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695555"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -23,6 +23,58 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
 
+## <a name="2019-09-30"></a>30-09-2019
+
+### <a name="azure-machine-learning-sdk-for-python-v1065"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.65
+
+  + **Nouvelles fonctionnalités**
+    + Ajout d’environnements organisés. Ces environnements ont été préconfigurés avec des bibliothèques pour des tâches de Machine Learning courantes, et ont été précompilés et mis en cache en tant qu’images Docker afin d’accélérer l’exécution. Celles-ci s’affichent par défaut dans la liste d’environnements de l’espace de travail, avec le préfixe « AzureML ».
+  
+  + **azureml-train-automl**
+    + Ajout de la prise en charge de la conversion ONNX pour ADB et HDI
+
++ **Fonctionnalités préliminaires**  
+  + **azureml-train-automl**
+    + BERT et BiLSTM pris en charge en tant que caractériseur de texte (préversion uniquement)
+    + Personnalisation de caractérisation prise en charge pour les paramètres d’objet de colonne et de transformateur (préversion uniquement)
+    + Explications brutes prises en charge lorsque l’utilisateur active l’explication du modèle pendant l’apprentissage (préversion uniquement)
+    + Ajout de Prophet pour les prévisions de timeseries en tant que pipeline apte à l’apprentissage (préversion uniquement)
+  
+  + **azureml-contrib-datadrift**
+    + Déplacement de packages d’azureml-contrib-datadrift vers azureml-datadrift ; le package de contrib sera supprimé dans une mise en production ultérieure 
+
++ **Résolutions de bogue et améliorations**
+  + **azureml-automl-core**
+    + Introduction de FeaturizationConfig dans AutoMLConfig et AutoMLBaseSettings
+      + Remplacement de l’objectif de la colonne pour caractérisation avec une colonne et un type de caractéristique donnés
+      + Remplacement des paramètres du transformateur
+    + Ajout d’un message de dépréciation pour explain_model() et retrieve_model_explanations()
+    + Ajout de Prophet en tant que pipeline apte à l’apprentissage (préversion uniquement)
+    + Ajout de la prise en charge de la détection automatique des décalages cibles, de la taille de fenêtre dynamique et de l’horizon maximal. Si l’une des valeurs target_lags, target_rolling_window_size ou max_horizon est définie sur « auto », les heuristiques sont appliquées pour estimer la valeur du paramètre correspondant en fonction des données d’apprentissage.
+    + Correction des prévisions lorsque le jeu de données contient une colonne de grain ; ce grain est de type numérique et il y a un écart entre l’apprentissage et le jeu de test
+    + Correction du message d’erreur relatif à l’index dupliqué dans la série distante des tâches de prévision
+    + Ajout d’une barrière de sécurité pour vérifier si un jeu de données est déséquilibré. Si c’est le cas, un message de barrière de sécurité s’affiche sur la console.
+  + **azureml-core**
+    + Ajout de la possibilité de récupérer l’URL SAP du modèle dans le stockage via l’objet de modèle Ex. : model.get_sas_url()
+    + Introduction de `run.get_details()['datasets']` pour obtenir des jeux de données associés à l’exécution envoyée
+    + Ajout de l’API `Dataset.Tabular.from_json_lines_files` pour créer un TabularDataset à partir de fichiers Lignes JSON. Pour découvrir ces données tabulaires dans les fichiers Lignes JSON sur TabularDataset, visitez la page https://aka.ms/azureml-data pour accéder à la documentation.
+    + Ajout de champs de taille de machine virtuelle (disque du système d’exploitation, nombre de GPU) à la fonction supported_vmsizes ()
+    + Ajout de champs à la fonction list_nodes () pour afficher l’exécution, les adresses IP privée et publique, le port, etc.
+    + Possibilité de spécifier un nouveau champ pendant l’approvisionnement du cluster, --remotelogin_port_public_access, qui peut être défini sur activé ou désactivé selon que vous souhaitez laisser le port SSH ouvert ou fermé au moment de la création du cluster. Si vous ne le spécifiez pas, le service ouvre ou ferme intelligemment le port selon que vous déployez ou non le cluster à l’intérieur d’un réseau virtuel.
+  + **azureml-explain-model**
+    + Amélioration de la documentation pour les sorties d’explication dans le scénario de classification.
+    + Ajout de la possibilité de charger les valeurs y prédites sur l’explication des exemples d’évaluation. Déverrouille des visualisations plus utiles.
+    + Ajout de la propriété explainer à MimicWrapper pour permettre l’obtention du MimicExplainer sous-jacent.
+  + **azureml-pipeline-core**
+    + Ajout d’un bloc-notes pour décrire Module, ModuleVersion et ModuleStep
+  + **azureml-pipeline-steps**
+    + Ajout de RScriptStep pour prendre en charge l’exécution de script R via le pipeline AML
+    + Correction de l’analyse des paramètres de métadonnées dans AzureBatchStep qui générait le message d’erreur « assignment for parameter SubscriptionId is not specified » (L’affectation du paramètre SubscriptionId n’est pas spécifiée)
+  + **azureml-train-automl**
+    + Prise en charge de training_data, validation_data, label_column_name, weight_column_name en tant que format d’entrée de données
+    + Ajout d’un message de dépréciation pour explain_model() et retrieve_model_explanations()
+
+  
 ## <a name="2019-09-16"></a>2019-09-16
 
 ### <a name="azure-machine-learning-sdk-for-python-v1062"></a>Kit SDK Azure Machine Learning pour Python v1.0.62

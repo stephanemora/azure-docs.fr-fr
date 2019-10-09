@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/29/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd630fec16ddfb269ead5f1f62af882f52501a86
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390464"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350184"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -149,9 +149,9 @@ Lorsque vous créez un pool, vous devez sélectionner la valeur **nodeAgentSkuId
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Images personnalisées pour les pools de machines virtuelles
 
-Pour utiliser une image personnalisée, vous devez préparer l’image en la généralisant. Pour plus d’informations sur la préparation d’images Linux personnalisées à partir de machines virtuelles Azure, consultez [Guide pratique pour créer une image d’une machine virtuelle ou d’un VHD](../virtual-machines/linux/capture-image.md). Pour plus d’informations sur la préparation d’images Windows personnalisées à partir de machines virtuelles Azure, consultez la section [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md). 
+Pour savoir comment créer un pool d’images personnalisées, voir [Utiliser Shared Image Gallery pour créer un pool personnalisé](batch-sig-images.md).
 
-Pour les configurations requises détaillées, consultez [Utiliser une image personnalisée pour créer un pool de machines virtuelles](batch-custom-images.md).
+Vous pouvez également créer un pool personnalisé de machines virtuelles à l’aide d’une ressource d’[image managée](batch-custom-images.md). Pour plus d’informations sur la préparation d’images Linux personnalisées à partir de machines virtuelles Azure, consultez [Guide pratique pour créer une image d’une machine virtuelle ou d’un VHD](../virtual-machines/linux/capture-image.md). Pour plus d’informations sur la préparation d’images Windows personnalisées à partir de machines virtuelles Azure, consultez la section [Créer une image managée d’une machine virtuelle généralisée dans Azure](../virtual-machines/windows/capture-image-resource.md).
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Prise en charge du conteneur dans les pools de machines virtuelles
 

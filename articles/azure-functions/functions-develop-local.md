@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c50615b9cbe5c3ca926d893858bb39eeb5720067
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 7c2e727ecb080d1db212e8b45a2c48bac81a3949
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129589"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709325"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Coder et tester Azure Functions localement
 
@@ -38,7 +38,7 @@ Chacun de ces environnements de développement local vous permet de créer des p
 ## <a name="next-steps"></a>Étapes suivantes
 
 + Pour en savoir plus sur le développement local de fonctions C# précompilées à l’aide de Visual Studio 2019, consultez [Développer Azure Functions à l’aide de Visual Studio](functions-develop-vs.md).
-+ Pour en savoir plus sur le développement local de fonctions à l’aide de VS Code sur un ordinateur Mac, Linux ou Windows, consultez la [documentation VS Code pour Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).
++ Pour en savoir plus sur le développement local de fonctions à l’aide de VS Code sur un ordinateur Mac, Linux ou Windows, voir [Déployer Azure Functions à partir de Visual Studio Code](/azure/javascript/tutorial-vscode-serverless-node-01).
 + Pour en savoir plus sur le développement de fonctions à partir de l’invite de commandes ou d’un terminal, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
 
 <!-- LINKS -->

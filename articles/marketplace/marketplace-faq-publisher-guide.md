@@ -1,26 +1,26 @@
 ---
-title: FAQ Place de marché Azure
-description: Réponses aux questions les plus courantes sur la Place de marché Microsoft Azure
+title: FAQ sur la Place de marché commerciale de Microsoft
+description: Réponses aux questions courantes sur la Place de marché Azure et Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 10/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259954"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827984"
 ---
-# <a name="marketplace-faqs"></a>Questions fréquentes (FAQ) sur la Place de marché
+# <a name="microsoft-commercial-marketplace-faqs"></a>FAQ sur la Place de marché commerciale de Microsoft
 
-Réponses aux questions les plus courantes sur la Place de marché Microsoft Azure.
+Réponses aux questions courantes sur la Place de marché Azure et Microsoft AppSource.
 
 ## <a name="faq-for-customers"></a>FAQ pour les clients
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Ce qu’il faut savoir sur la Place de marché Microsoft Azure
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Ce qu’il faut savoir sur la Place de marché Azure et Microsoft AppSource
 
 **Qu’est-ce que la Place de marché Microsoft Azure ?**
 
@@ -155,7 +155,7 @@ Voici les options les plus courantes par type d’offre :
 
 **Quels sont les types d’essai pris en charge ?**
 
-Les offres d’essai gratuit sont des références qui demandent une action pour lancer un essai. Elles dirigent le client vers un site web défini par l’éditeur pour configurer l’expérience d’essai. Vous pouvez également ajouter des essais à des produits payants où le premier mois est gratuit. 
+Les éditeurs peuvent ajouter un mois gratuit aux offres SaaS payantes et un ou trois mois gratuits de consommation des images de machine virtuelle. Les offres d’essai gratuit sont des références qui demandent une action pour lancer un essai. Elles dirigent le client vers un site web défini par l’éditeur pour configurer l’expérience d’essai. Vous pouvez également ajouter des essais à des produits payants où le premier mois est gratuit. 
 
 **Un instrument de paiement est-il requis (par exemple, une carte de crédit) pour déployer des offres du niveau Gratuit ou de type BYOL (apportez votre propre licence) ?**
 
@@ -169,6 +169,10 @@ Les clients disposant d’un Contrat Entreprise indirect doivent contacter leur 
 
 Oui, pour les clients Contrat Entreprise, l’administrateur en charge de l’inscription peut désactiver les privilèges d’achat pour tous les comptes inscrits et les réactiver le temps d’effectuer un achat. Par ailleurs, tous les clients peuvent utiliser Azure Policy pour restreindre les options de déploiement de leurs abonnements Azure, y compris la gestion des ressources de la Place de marché Microsoft Azure.
 
+**Quels sont les modes de paiement pris en charge pour les achats sur la Place de marché commerciale ?**
+
+Les clients peuvent acheter des offres de la Place de marché Azure et de Microsoft AppSource à l’aide de cartes de crédit. Si vous disposez d’un abonnement Azure, les achats sur la Place de marché Azure utilisent le mode de paiement configuré sur le compte, et apparaissent sur une ligne distincte de la même facture. Certaines offres utilisent l’engagement financier Azure, mais la plupart des achats sur la Place de marché commerciale ne font pas usage de l’engagement Accord Entreprise, bien que l’utilisation de l’infrastructure Azure le fasse.
+
 **Puis-je convertir des crédits d’abonnement Azure ou un montant monétaire présent sur mon compte pour profiter d’offres sur la Place de marché Azure ?**
 
 Des offres de la Place de marché Azure spécifiques peuvent utiliser des crédits d’abonnement Azure ou des fonds d’engagement financier. Pour la liste complète des produits inclus dans ce programme, consultez [Engagement monétaire Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/). Ces offres ne comprennent pas les options BYOL ou BYOS. Les autres offres de la Place de marché Azure ne peuvent pas toutes utiliser de crédits d’abonnement Azure ni d’engagement financier, comme le crédit d’essai d’un mois gratuit, les crédits mensuels MSDN, les crédits obtenus par des promotions Azure, le solde de votre compte et tout autre crédit gratuit fourni par Azure.
@@ -176,12 +180,6 @@ Des offres de la Place de marché Azure spécifiques peuvent utiliser des crédi
 **Les remises sur les contrats de licence en volume s’appliquent-elles aux achats effectués dans la Place de marché Azure ?**
 
 Non. L’éditeur possédant des solutions sur la Place de marché Azure peut fixer ses tarifs.  Les remises de licences en volume Microsoft standard ne s’appliquent pas aux achats de la Place de marché Azure.
-
-**Comment régler ces abonnements ? Les achats effectués dans la Place de marché Azure apparaissent-ils sur la facture Azure ou sur une facture distincte ?**
-
-Les clients du [Programme d’abonnement en ligne Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (MOSP) (comme les personnes abonnées directement via le web) sont facturés sur la carte de crédit enregistrée pour leur profil d’abonnement Azure. Si vous n’avez enregistré aucune carte de crédit, vous ne pouvez pas effectuer d’achats sur la Place de marché Azure. Dans ce cas, vous avez reçu une dispense spéciale pour que les frais Azure vous soient facturés directement.
-
-Les clients disposant d’un Contrat Entreprise sont facturés sur la base de ce contrat. Les offres spécifiques de la Place de marché Azure énumérées ici sont d’abord déduites de l’engagement financier disponible, puis facturées en tant que dépassement sur une facture trimestrielle. Les clients sous Contrat Entreprise indirect, dans les secteurs éducatif et public, sont facturés par leur fournisseur de solutions de licence.
 
 **Où puis-je obtenir des informations sur mon abonnement et la facturation Place de marché Azure ?**
 
@@ -197,7 +195,7 @@ Comme le complément est associé à la machine virtuelle Azure, pour annuler l�
 
 **À quelle fréquence sont facturés les achats effectués dans la Place de marché Azure ?**
 
-Pour les clients possédant un Contrat Entreprise, pour les services spécifiques décrits, les engagements financiers disponibles sont tout d’abord diminués du coût total de ces services le mois où ils sont consommés. Toutes les offres de la Place de marché Azure qui ne sont pas déduites de l’engagement financier seront facturées trimestriellement à terme échu. Les abonnements SaaS annuels sont facturés une seule fois pour les services d’une année entière.
+Toutes les offres de la Place de marché Azure qui ne sont pas déduites de l’engagement financier seront facturées trimestriellement à terme échu. Les abonnements SaaS annuels sont facturés une seule fois pour les services d’une année entière.
 
 Les clients du [Programme d’abonnement en ligne Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/) (MOSP) (par les personnes abonnées directement via le web) sont facturés une fois par mois sur la carte de crédit enregistrée pour leur profil d’abonnement Azure. Les abonnements SaaS annuels sont facturés une seule fois pour les services d’une année entière.
 
@@ -210,10 +208,6 @@ Pour migrer d’autres services achetés sur la Place de marché Azure vers votr
 **Quelle est la différence entre *prix*, *prix du logiciel* et *prix total* dans la structure de coûts des offres Machine virtuelle dans la Place de marché Azure ?**
 
 *Prix* désigne le coût de la machine virtuelle Azure qui exécute le logiciel. *Prix du logiciel* désigne le coût du logiciel de l’éditeur de la Place de marché qui s’exécute sur une machine virtuelle Azure. *Prix total* désigne le coût total combiné de la machine virtuelle Azure et du logiciel de l’éditeur de la Place de marché exécuté sur celle-ci.
-
-**Puis-je appliquer des crédits d’abonnement ou des montants financiers Azure présents sur mon compte à mes achats de produits et services Azure requis afin d’exécuter des offres de la Place de marché Azure ?**
-
-Oui. Les crédits d’abonnement et les fonds d’engagement financier Azure présents sur le compte peuvent être utilisés pour l’achat de produits Azure et d’offres de la Place de marché Azure. Par exemple, les montants des engagements financiers peuvent être appliqués au composant *prix* d’une offre Machine virtuelle dans la Place de marché Azure. Cependant, les crédits d’abonnement et les montants des engagements financiers ne peuvent s’appliquer qu’à certains logiciels d’éditeurs de la Place de marché (au *prix du logiciel*) exécutés sur une machine virtuelle Azure.
 
 **Comment puis-je accéder à mes informations d’utilisation des achats sur la Place de marché Azure ?**
 
@@ -253,9 +247,26 @@ Les licences ajoutées à un abonnement existant sont gérées au prorata pour l
 
 Les licences annulées sont soumises à la politique de remboursement figurant dans ce FAQ.  Toutes les licences qui sont annulées sont immédiatement supprimées de votre compte et ne peuvent plus être utilisées.
 
+**Les remboursements sont-ils pris en charge pour les offres basées sur la consommation ?**
+
+Les frais basés sur la consommation, qu’il s’agisse de machines virtuelles facturées à l’heure ou de compteurs personnalisés, ne sont pas remboursables en cas d’annulation. Une fois la consommation effectuée, les frais sont traités par la plateforme Commerce de Microsoft, et les litiges en lien avec la qualité du service où un remboursement est demandé sont gérés en dehors des systèmes Microsoft directement entre l’éditeur et le client. Les offres basée sur un taux forfaitaire additionné d’une facturation limitée suivent la politique de remboursement standard des frais forfaitaires.
+
+**Est-il possible de modifier des plans à moyen terme ?**
+
+Non, il n’est pas possible de passer d’un plan mensuel à un plan annuel.
+
+**Un client peut-il acheter deux plans de la même offre ?**
+
+Oui, un client de posséder simultanément deux plans de la même offre.
+
+**Les stratégies de remboursement et de changement de plans diffèrent-elles selon la vitrine ?**
+
+Non, les stratégies commerciales sont cohérentes sur la Place de marché Azure et Microsoft AppSource. En cas de revente par un partenaire dans le cadre du programme Fournisseur de solutions Cloud, le partenaire peut appliquer une stratégie différente à ses clients.
+
+
 ## <a name="faq-for-publishers"></a>FAQ pour les éditeurs
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Ce qu’il faut savoir sur la Place de marché Microsoft Azure
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Ce qu’il faut savoir sur la Place de marché Azure et Microsoft AppSource
 
 **Qu’est-ce que la Place de marché Microsoft Azure ?**
 

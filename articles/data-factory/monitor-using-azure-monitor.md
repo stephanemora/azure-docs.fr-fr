@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6f5472e42b7ef43123698f01ee76fb0e691aa45e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300556"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827799"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 
@@ -468,8 +468,11 @@ Créez ou ajoutez des paramètres de diagnostic pour votre fabrique de données.
 
 Après quelques instants, le nouveau paramètre apparaît dans la liste des paramètres pour cette fabrique de données. Les journaux de diagnostic sont diffusés en continu vers cet espace de travail dès que de nouvelles données d’événement sont générées. Jusqu’à 15 minutes peuvent s’écouler entre l’émission d’un événement et son affichage dans Log Analytics.
 
+* En mode _Spécifique de la ressource_, les journaux de diagnostic d’Azure Data Factory circulent dans les tables _ADFPipelineRun_, _ADFTriggerRun_ et _ADFActivityRun_
+* En mode _Diagnostics Azure_, les journaux de diagnostic circulent dans la table _AzureDiagnostics_
+
 > [!NOTE]
-> Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous recommandons vivement de sélectionner le mode spécifique de la ressource. Pour plus d’informations, consultez [Limitations connues de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
+> Étant donné qu’une table de journal Azure ne peut pas comporter plus de 500 colonnes, nous vous recommandons vivement de sélectionner le mode spécifique de la ressource. Pour plus d’informations, consultez [Limitations connues de Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Installer Azure Data Factory Analytics à partir de la Place de marché Azure
 
@@ -508,6 +511,9 @@ L’installation d’Azure Data Factory Analytics crée un ensemble de vues par 
 Vous pouvez visualiser les métriques ci-dessus, consulter les requêtes derrière ces métriques, modifier les requêtes, créer des alertes, et exécuter d’autres action.
 
 ![Représentation graphique des exécutions de pipeline par Data Factory](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> Azure Data Factory Analytics (préversion) envoie des journaux de diagnostic à des tables de destination _Spécifique de la ressource_. Vous pouvez écrire des requêtes portant sur les tables suivantes : _ADFPipelineRun_, _ADFTriggerRun_ et _ADFActivityRun_.
 
 ## <a name="alerts"></a>Alertes
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 198ce98808c8a62a839d154c365518c9e8263056
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 734389c92ede88d336df60a1a79a738d2abcfa92
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619894"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703174"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Modifier des données d’énoncé avant ou pendant la prédiction
 LUIS fournit des méthodes pour manipuler l’énoncé avant ou pendant la prédiction. Celles-ci incluent la [correction de l’orthographe](luis-tutorial-bing-spellcheck.md) et la résolution des problèmes de fuseau horaire pour l’entité [datetimeV2](luis-reference-prebuilt-datetimev2.md) prédéfinie. 
@@ -37,6 +37,8 @@ Le point de terminaison nécessite deux paramètres pour que les corrections ort
 
 Lorsque [l’API Vérification orthographique Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) détecte une erreur, l’énoncé d’origine et l’énoncé corrigé sont retournés avec des prédictions à partir du point de terminaison.
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+
 ```JSON
 {
   "query": "Book a flite to London?",
@@ -48,9 +50,29 @@ Lorsque [l’API Vérification orthographique Bing V7](https://azure.microsoft.c
   "entities": []
 }
 ```
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
  
+```JSON
+{
+    "query": "Book a flite to London?",
+    "prediction": {
+        "normalizedQuery": "book a flight to london?",
+        "topIntent": "BookFlight",
+        "intents": {
+            "BookFlight": {
+                "score": 0.780123
+            }
+        },
+        "entities": {},
+    }
+}
+```
+
+* * * 
+
 ### <a name="list-of-allowed-words"></a>Liste des mots autorisés
-L’API de vérification orthographique Bing utilisée dans LUIS ne prend pas en charge de liste (également appelée liste verte) de mots à ignorer durant les modifications orthographiques. Si vous avez besoin d’autoriser une liste de mots ou d’acronymes, traitez l’énoncé dans l’application cliente avant de l’envoyer à LUIS pour la prédiction d’intention.
+L’API Vérification orthographique Bing utilisée dans LUIS ne prend pas en charge la liste des mots à ignorer durant les modifications résultant de la vérification orthographique. Si vous avez besoin d’autoriser une liste de mots ou d’acronymes, traitez l’énoncé dans l’application cliente avant de l’envoyer à LUIS pour la prédiction d’intention.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Changer le fuseau horaire de l’entité datetimeV2 prédéfinie
 Quans une application LUIS utilise l’entité [datetimeV2](luis-reference-prebuilt-datetimev2.md) prédéfinie, une valeur datetime peut être retournée dans la réponse de prédiction. Le fuseau horaire de la requête est utilisé pour déterminer la valeur datetime correcte à retourner. Si la requête provient d’un bot ou d’une autre application centralisée avant d’accéder à LUIS, corrigez le fuseau horaire que LUIS utilise. 
@@ -65,6 +87,8 @@ Le fuseau horaire est corrigé par l’ajout du fuseau horaire de l’utilisateu
 ### <a name="daylight-savings-example"></a>Exemple d’économies de l’heure d’été
 Si vous voulez que l’entité datetimeV2 prédéfinie retournée soit ajustée à l’heure d’été, vous devez utiliser le paramètre querystring `timezoneOffset` avec une valeur +/- en minutes pour la requête du [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356).
 
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[Demande de point de terminaison de prédiction V2](#tab/V2)
+
 Ajouter 60 minutes : 
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
@@ -72,6 +96,20 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the l
 Supprimer 60 minutes : 
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[Demande de point de terminaison de prédiction V3](#tab/V3)
+
+Ajouter 60 minutes :
+
+https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+Supprimer 60 minutes : 
+
+https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+Apprenez-en davantage sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
+
+* * * 
 
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>Le code C# détermine la valeur correcte de timezoneOffset
 Le code C# suivant utilise la méthode [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) de la classe [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) pour déterminer la valeur `timezoneOffset` correcte en fonction de l’heure du système :

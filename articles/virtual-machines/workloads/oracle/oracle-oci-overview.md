@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241003"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799558"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Solutions d’applications Oracle intégrant Microsoft Azure et l’infrastructure cloud Oracle (préversion)
 
@@ -28,7 +28,7 @@ Microsoft et Oracle ont collaboré pour fournir une latence faible et une connec
 Cette connectivité entre clouds permet de partitionner une application multiniveau pour exécuter votre niveau de base de données sur une infrastructure cloud Oracle (OCI), et l’application ainsi que d’autres niveaux sur Microsoft Azure. L’expérience est similaire à l’exécution de la pile complète de la solution dans un seul cloud. 
 
 > [!IMPORTANT]
-> Cette fonctionnalité entre clouds est actuellement en préversion, et [des limitations s’appliquent](#preview-limitations). Pour permettre une connectivité à latence faible entre Azure et OCI, votre abonnement Azure doit d’abord être dans la liste verte de cette fonctionnalité. Vous devez vous inscrire à la préversion en répondant à l’enquête de ce petit [formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Vous recevrez un e-mail une fois votre abonnement inscrit. Vous ne pouvez pas utiliser la fonctionnalité tant que vous n’avez pas reçu l’e-mail de confirmation. Vous pouvez également contacter votre représentant Microsoft pour pouvoir utiliser cette préversion. L’accès à la fonctionnalité en préversion est subordonné à la disponibilité et est restreint par Microsoft à sa seule discrétion. Le fait de répondre à l’enquête ne garantit pas l’accès. Cette préversion est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Pour plus d’informations, consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Cette fonctionnalité entre clouds est actuellement en préversion, et [des limitations s’appliquent](#preview-limitations). Pour établir une connectivité à latence faible entre Azure et OCI, cette fonctionnalité doit d’abord être activée dans votre abonnement Azure. Vous devez vous inscrire à la préversion en répondant à l’enquête de ce petit [formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Vous recevrez un e-mail une fois votre abonnement inscrit. Vous ne pouvez pas utiliser la fonctionnalité tant que vous n’avez pas reçu l’e-mail de confirmation. Vous pouvez également contacter votre représentant Microsoft pour pouvoir utiliser cette préversion. L’accès à la fonctionnalité en préversion est subordonné à la disponibilité et est restreint par Microsoft à sa seule discrétion. Le fait de répondre à l’enquête ne garantit pas l’accès. Cette préversion est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Pour plus d’informations, consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
 
 Si vous êtes intéressé par le déploiement complet de solutions Oracle sur l’infrastructure Azure, consultez [Images de machines virtuelles Oracle et leur déploiement sur Microsoft Azure](oracle-vm-solutions.md).
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: danlep
-ms.openlocfilehash: f80956ec401737766f7a85540e90be70b9d621e7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: dc5276227913d2da6e52ee3c0fb493b98e86688a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114701"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827764"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ Quand vous utilisez Azure Container Registry (ACR) avec Azure Kubernetes Service
 
 Vous devez uniquement configurer une de ces méthodes d’authentification. L’approche la plus courante consiste à [accorder l’accès au principal de service AKS](#grant-aks-access-to-acr). Si vous avez des besoins spécifiques, vous pouvez éventuellement [accorder l’accès à l’aide de clés secrètes Kubernetes](#access-with-kubernetes-secret).
 
-Cet article suppose que vous avez déjà créé un cluster AKS et que vous êtes en mesure d’accéder au cluster avec le client de ligne de commande `kubectl`. Si vous préférez créer un cluster et configurer l'accès à un registre de conteneurs au moment de la création du cluster, reportez-vous au [Didacticiel : Déployer un cluster AKS](../aks/tutorial-kubernetes-deploy-cluster.md) ou à [S'authentifier auprès d'Azure Container Registry à partir d'Azure Kubernetes Service (préversion)](../aks/cluster-container-registry-integration.md).
+Cet article suppose que vous avez déjà créé un cluster AKS et que vous êtes en mesure d’accéder au cluster avec le client de ligne de commande `kubectl`. Si vous préférez créer un cluster et configurer l'accès à un registre de conteneurs au moment de la création du cluster, reportez-vous au [Didacticiel : Déployer un cluster AKS](../aks/tutorial-kubernetes-deploy-cluster.md) ou [S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
 
 ## <a name="grant-aks-access-to-acr"></a>Accorder à AKS un accès à ACR
 

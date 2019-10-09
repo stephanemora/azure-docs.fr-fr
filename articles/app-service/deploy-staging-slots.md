@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129716"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720129"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -140,9 +140,6 @@ Si vous rencontrez des problèmes, consultez [Résoudre les problèmes liés aux
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>Échange avec aperçu (échange multiphase)
 
-> [!NOTE]
-> L’échange avec aperçu n’est pas pris en charge dans les applications web sur Linux.
-
 Avant de passer à l’emplacement de production (emplacement cible), contrôlez l’exécution de l’application avec les paramètres échangés. L’emplacement source est également initialisé avant la fin de l’échange, ce qui est souhaitable pour les applications stratégiques.
 
 Lorsque vous effectuez un échange avec aperçu, App Service effectue la même [opération d’échange](#AboutConfiguration), mais il fait une pause après la première étape. Vous pouvez donc vérifier le résultat sur l’emplacement de préproduction avant la fin de l’échange. 
@@ -204,7 +201,8 @@ Si vous rencontrez des problèmes, consultez [Résoudre les problèmes liés aux
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>Spécifier l’initialisation personnalisée
-Quand vous utilisez [Échange automatique](#Auto-Swap), certaines applications peuvent nécessiter quelques actions préparatoires personnalisées avant l’échange. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter. L’[opération d’échange](#AboutConfiguration) attend la fin de l’initialisation personnalisée pour procéder à l’échange avec l’emplacement cible. Voici un exemple de fragment web.config.
+
+Certaines applications peuvent nécessiter quelques actions préparatoires personnalisées avant l’échange. L’élément de configuration `applicationInitialization` du fichier web.config vous permet de spécifier les actions d’initialisation personnalisées à exécuter. L’[opération d’échange](#AboutConfiguration) attend la fin de l’initialisation personnalisée pour procéder à l’échange avec l’emplacement cible. Voici un exemple de fragment web.config.
 
     <system.webServer>
         <applicationInitialization>
@@ -334,7 +332,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## <a name="automate-with-arm-templates"></a>Automatiser avec des modèles ARM
+
+Les [modèles ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) sont des fichiers JSON déclaratifs utilisés pour automatiser le déploiement et la configuration de ressources Azure. Pour échanger des emplacements à l’aide de modèles ARM, vous devez définir deux propriétés sur les ressources *Microsoft.Web/sites/slots* et *Microsoft.Web/sites* :
+
+- `buildVersion` : propriété de type chaîne qui représente la version actuelle de l’application déployée dans l’emplacement. Par exemple : « v1 », « 1.0.0.1 » ou « 2019-09-20T11:53:25.2887393-07:00 ».
+- `targetBuildVersion` : propriété de type chaîne spécifiant la valeur `buildVersion` que l’emplacement doit avoir. Si la valeur targetBuildVersion n’est pas la valeur `buildVersion` actuelle, cela déclenche l’opération d’échange en recherchant l’emplacement qui a la valeur `buildVersion` spécifiée.
+
+### <a name="example-arm-template"></a>Exemple de modèle Resource Manager
+
+Le modèle Resource Manager suivant met à jour la valeur `buildVersion` de l’emplacement de préproduction et définit la valeur `targetBuildVersion` sur l’emplacement de production. Cela a pour effet d’échanger les deux emplacements. Le modèle suppose que vous avez déjà créé un application web avec un emplacement nommé « préproduction ».
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+Ce modèle Resource Manager est idempotent, ce qui signifie qu’il peut être exécuté à plusieurs reprises et produire le même état des emplacements. Après la première exécution, la valeur `targetBuildVersion` correspond à la valeur `buildVersion` actuelle, de sorte qu’aucun échange n’est déclenché.
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>

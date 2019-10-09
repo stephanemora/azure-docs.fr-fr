@@ -2,18 +2,18 @@
 title: Supervision, métriques et alertes - Azure ExpressRoute | Microsoft Docs
 description: Cette page fournit des informations sur la supervision ExpressRoute
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154765"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672130"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervision, métriques et alertes ExpressRoute
 
@@ -56,9 +56,9 @@ Vous pouvez voir les métriques sur l’ensemble des peerings sur un circuit Exp
 
 ### <a name="bits-in-and-out---metrics-per-peering"></a>Bits entrants et sortants : métriques par peering
 
-Vous pouvez afficher des mesures pour l’homologation privée, publique et Microsoft en bits par seconde.
+Vous pouvez afficher des mesures pour le peering privé, public et Microsoft en bits par seconde.
 
-![métriques par homologation](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
+![métriques par peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
 ### <a name="bgp-availability---split-by-peer"></a>Disponibilité du protocole BGP : découpage par pair  
 
@@ -72,9 +72,41 @@ Vous pouvez consulter la disponibilité du protocole [ARP](https://docs.microsof
 
 ![Disponibilité du protocole ARP par pair](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
+## <a name="expressroute-direct-metrics"></a>Métriques de ExpressRoute Direct
+
+### <a name="admin-state---split-by-link"></a>État d’administration – Lien Diviser par
+Vous pouvez afficher l’état d’administration pour chaque lien de la paire de ports directs ExpressRoute Direct.
+
+![état d’administration d’expressroute direct](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+
+### <a name="bits-in-per-second---split-by-link"></a>Bits entrants par seconde – Lien Diviser par
+Vous pouvez afficher les bits entrants par seconde sur les deux liens de la paire de ports ExpressRoute Direct. 
+
+![bits entrants d’expressroute direct par seconde](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+
+### <a name="bits-out-per-second---split-by-link"></a>Bits sortants par seconde – Lien Diviser par
+Vous pouvez également afficher les bits sortants par seconde sur les deux liens de la paire de ports ExpressRoute Direct. 
+
+![bits sortants d’expressroute direct par seconde](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+
+### <a name="line-protocol---split-by-link"></a>Protocole de ligne – Lien Diviser par
+Vous pouvez afficher le protocole de ligne sur chaque lien de la paire de ports ExpressRoute Direct.
+
+![Protocole de ligne d’expressroute direct](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+
+### <a name="rx-light-level---split-by-link"></a>Niveau d’éclairage de réception – Lien Diviser par
+Vous pouvez afficher le niveau d’éclairage de réception (niveau d’éclairage que le port ExpressRoute Direct **reçoit**) pour chaque port. Les niveaux d’éclairage de réception sains s’inscrivent généralement dans une plage de -10 à 0 dBm
+
+![Niveau d’éclairage de réception de ligne d’expressroute direct](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+
+### <a name="tx-light-level---split-by-link"></a>Niveau d’éclairage de transmission – Lien Diviser par
+Vous pouvez afficher le niveau d’éclairage de transmission (niveau d’éclairage que le port ExpressRoute Direct **transmet**) pour chaque port. Les niveaux d’éclairage de transmission sains s’inscrivent généralement dans une plage de -10 à 0 dBm
+
+![Niveau d’éclairage de réception de ligne d’expressroute direct](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>Connexions de passerelle ExpressRoute en bits/secondes
 
-![connexions de passerelle](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
+![connexions de passerelle](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Alertes pour les connexions de passerelle ExpressRoute
 
@@ -93,7 +125,7 @@ Vous pouvez consulter la disponibilité du protocole [ARP](https://docs.microsof
 
    ![ajouter un groupe d'actions](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
-## <a name="alerts-based-on-each-peering"></a>Alertes basées sur chaque homologation
+## <a name="alerts-based-on-each-peering"></a>Alertes basées sur chaque peering
 
  ![quoi](./media/expressroute-monitoring-metrics-alerts/basedpeering.jpg)
 
@@ -108,5 +140,5 @@ Dans les **Critères d’alerte**, vous pouvez sélectionner le Type de signal *
 Configurez votre connexion ExpressRoute.
   
   * [Créer et modifier un circuit](expressroute-howto-circuit-arm.md)
-  * [Créer et modifier une configuration de l’homologation](expressroute-howto-routing-arm.md)
+  * [Créer et modifier une configuration de peering](expressroute-howto-routing-arm.md)
   * [Liaison d’un réseau virtuel à un circuit ExpressRoute](expressroute-howto-linkvnet-arm.md)

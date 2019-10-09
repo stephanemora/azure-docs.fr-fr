@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc6fdde4daa2d671b9d93673c2a78c2d9d85963c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275736"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718936"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -36,7 +36,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | Conflit | Vous demandez une opération qui n’est pas autorisée dans l’état actuel de la ressource. Par exemple, un redimensionnement de disque est autorisé uniquement durant la création ou la libération d’une machine virtuelle. | |
 | DeploymentActive | Attendez le déploiement simultané sur ce groupe de ressources soit terminé. | |
 | DeploymentFailed | L’erreur DeploymentFailed est une erreur générale qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Pour en savoir plus, recherchez un code d’erreur dans les détails de l’erreur. | [Rechercher un code d’erreur](#find-error-code) |
-| DeploymentQuotaExceeded | Si vous atteignez la limite des 800 déploiements par groupe de ressources, supprimez les déploiements inutiles dans l’historique. Vous pouvez supprimer des entrées de l'historique avec la commande [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) dans Azure CLI ou la commande [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) dans PowerShell. La suppression d’une entrée à partir de l’historique des déploiements n’affecte pas les ressources de déploiement. | |
+| DeploymentQuotaExceeded | Si vous atteignez la limite des 800 déploiements par groupe de ressources, supprimez les déploiements inutiles dans l’historique. | [Résoudre l’erreur de nombre de déploiements supérieur à 800](deployment-quota-exceeded.md) |
 | DnsRecordInUse | Le nom de l’enregistrement DNS doit être unique. Entrez un autre nom. | |
 | ImageNotFound | Vérifiez les paramètres d’image de machine virtuelle. |  |
 | InUseSubnetCannotBeDeleted | Vous pouvez rencontrer cette erreur quand vous tentez de mettre à jour une ressource, et que cette requête est traitée en supprimant et en créant la ressource. Veillez à spécifier toutes les valeurs non modifiées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |

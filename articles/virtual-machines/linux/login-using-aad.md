@@ -3,7 +3,7 @@ title: Se connecter à une machine virtuelle Linux avec les informations d’ide
 description: Découvrez comment créer et configurer une machine virtuelle Linux pour utiliser l’authentification Azure Active Directory.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: cynthn
-ms.openlocfilehash: 946ccc61ead7f005667984a490761bc64560a69e
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: iainfou
+ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300733"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327094"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Aperçu : Se connecter à une machine virtuelle Linux dans Azure via l’authentification Azure Active Directory
 
@@ -88,7 +88,7 @@ La création de la machine virtuelle et des ressources de support ne nécessite 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installer le journal Azure AD dans une extension de machine virtuelle
 
 > [!NOTE]
-> Si vous déployez cette extension sur une machine virtuelle précédemment créée, assurez-vous que cette dernière dispose d’au moins 1 Go de mémoire allouée, faute de quoi il ne sera pas possible d’installer l’extension.
+> Si vous déployez cette extension sur une machine virtuelle précédemment créée, assurez-vous que cette dernière dispose d’au moins 1 Go de mémoire allouée, faute de quoi l’installation de l’extension échouera
 
 Pour vous connecter à une machine virtuelle Linux avec des informations d’identification Azure AD, installez le journal Azure Active Directory dans l’extension de machine virtuelle. Les extensions de machine virtuelle sont de petites applications permettant d’exécuter des tâches de configuration et d’automatisation post-déploiement sur des machines virtuelles Azure. Utilisez la commande [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) pour installer l’extension *AADLoginForLinux* sur la machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup* :
 

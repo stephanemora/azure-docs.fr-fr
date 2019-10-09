@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 332ec3930a7654fd5aecf1fc71ccb55c16df127f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f9db07f648956130bb5bdebb23321b0eb14679c7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105121"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695397"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
-Pour la plupart des utilisateurs disposant d’un Contrat Entreprise Azure, une combinaison d’autorisations accordées dans le portail Azure et dans le portail Entreprise permet de définir le niveau d’accès d’un utilisateur aux données d’Azure Cost Management. Pour les utilisateurs titulaires d’autres types de comptes Azure, le niveau d’accès aux données d’Azure Cost Management est plus simple. Cet article vous explique comment affecter un accès aux données Cost Management. Une fois la combinaison d’autorisations affectée, l’utilisateur voit les données dans Cost Management en fonction de l’étendue à laquelle il a accès et de l’étendue qu’il a sélectionnée dans le portail Azure.
+Pour la plupart des utilisateurs disposant d’un Contrat Entreprise Azure, une combinaison d’autorisations accordées dans le portail Azure et dans le portail Entreprise permet de définir le niveau d’accès d’un utilisateur aux données d’Azure Cost Management. Pour les utilisateurs titulaires d’autres types de comptes Azure, la définition d’un niveau d’accès de l’utilisateur aux données d’Azure Cost Management est plus simple en utilisant le contrôle d’accès en fonction du rôle Azure. Cet article vous explique comment affecter un accès aux données Cost Management. Une fois la combinaison d’autorisations affectée, l’utilisateur voit les données dans Cost Management en fonction de l’étendue à laquelle il a accès et de l’étendue qu’il a sélectionnée dans le portail Azure.
 
 L’étendue sélectionnée par l’utilisateur est utilisée dans Cost Management pour regrouper les données et contrôler l’accès aux informations sur les coûts. Quand les utilisateurs emploient des étendues, ils n’effectuent pas plusieurs sélections. À la place, ils sélectionnent une étendue plus grande qui englobe les étendues enfants, puis appliquent un filtre pour voir ce qui les intéresse. Il est important de bien comprendre le fonctionnement du regroupement des données, car certaines personnes ne doivent pas avoir accès à l’étendue parente qui englobe les étendues enfants.
 

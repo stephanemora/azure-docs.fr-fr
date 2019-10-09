@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a7ab908673f60a651db48ae0485592a362741b6d
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c3e22b34dbb770af2b4a719f8b4eaf040b724c47
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242314"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695429"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>À propos de Microsoft Security Code Analysis
 
@@ -73,7 +73,7 @@ Les mots de passe et autres secrets stockés dans le code source constituent un 
 
 ### <a name="microsoft-security-risk-detection"></a>Microsoft Security Risk Detection
 
-Microsoft Security Risk Detection (MSRD) est un service basé sur le cloud destiné aux tests à données aléatoires (fuzzing). Il identifie les bogues de sécurité exploitables dans les logiciels. Ce service nécessite un processus d’intégration distinct. Pour plus d'informations, consultez le [Centre pour développeurs MSRD](https://docs.microsoft.com/security-risk-detection/).
+Microsoft Security Risk Detection (MSRD) est un service basé sur le cloud destiné aux tests à données aléatoires (fuzzing). Il identifie les bogues de sécurité exploitables dans les logiciels. Ce service requiert un abonnement et une activation séparés. Pour plus d'informations, consultez le [Centre pour développeurs MSRD](https://docs.microsoft.com/security-risk-detection/).
 
 ### <a name="roslyn-analyzers"></a>Analyseurs Roslyn
 

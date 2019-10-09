@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/19/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 9c5e87d8d6fe49302bee2b2248f84ba98a650533
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444331"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802310"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -61,7 +61,9 @@ Les [utilisateurs invités](../active-directory/b2b/b2b-quickstart-add-guest-use
 - L’utilisateur A attribue le rôle de coadministrateur à l’utilisateur B.
 - L’utilisateur B peut presque tout faire, mais il ne peut pas inscrire d’applications ni rechercher des utilisateurs dans l’annuaire Azure AD.
 
-Vous vous attendiez sans doute à ce que l’utilisateur B puisse tout gérer. La raison de cette différence est que le compte Microsoft est ajouté à l’abonnement en tant qu’invité utilisateur et non en tant qu’utilisateur membre. Les utilisateurs invités disposent d’autorisations par défaut différentes dans Azure AD par rapport aux utilisateurs membres. Par exemple, les utilisateurs membres peuvent voir les autres utilisateurs dans Azure AD, ce que ne peuvent pas faire les utilisateurs invités. Les utilisateurs membres peuvent inscrire de nouveaux principaux de service dans Azure AD, ce que ne peuvent pas faire les utilisateurs invités. Si un utilisateur invité doit pouvoir effectuer ces tâches, une solution possible consiste à lui affecter le rôle administrateur Azure AD spécifique dont l’utilisateur invité a besoin. Par exemple, dans le scénario précédent, vous pouvez attribuer le rôle [lecteur d’annuaire](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) pour pouvoir lire d’autres utilisateurs et affecter le rôle [développeur d’applications](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) pour pouvoir créer des principaux de service. Pour plus d’informations sur les membres et les utilisateurs invités et leurs autorisations, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md).
+Vous vous attendiez sans doute à ce que l’utilisateur B puisse tout gérer. La raison de cette différence est que le compte Microsoft est ajouté à l’abonnement en tant qu’invité utilisateur et non en tant qu’utilisateur membre. Les utilisateurs invités disposent d’autorisations par défaut différentes dans Azure AD par rapport aux utilisateurs membres. Par exemple, les utilisateurs membres peuvent voir les autres utilisateurs dans Azure AD, ce que ne peuvent pas faire les utilisateurs invités. Les utilisateurs membres peuvent inscrire de nouveaux principaux de service dans Azure AD, ce que ne peuvent pas faire les utilisateurs invités.
+
+Si un utilisateur invité doit pouvoir effectuer ces tâches, une solution possible consiste à lui affecter le rôle administrateur Azure AD spécifique dont l’utilisateur invité a besoin. Par exemple, dans le scénario précédent, vous pouvez attribuer le rôle [lecteur d’annuaire](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) pour pouvoir lire d’autres utilisateurs et affecter le rôle [développeur d’applications](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) pour pouvoir créer des principaux de service. Pour plus d’informations sur les membres et les utilisateurs invités et leurs autorisations, consultez [Quelles sont les autorisations utilisateur par défaut dans Azure Active Directory ?](../active-directory/fundamentals/users-default-permissions.md).
 
 Notez que les [rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md) diffèrent de ceux des [rôles d’administrateur Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). Les rôles intégrés n’accordent aucun accès à Azure AD. Pour plus d’informations, consultez [Comprendre les différents rôles](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
@@ -127,14 +129,16 @@ Il existe deux façons de modifier l’Administrateur de service. Vous pouvez mo
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>Limites de modification de l’Administrateur de service
 
-Chaque abonnement est associé à un annuaire Azure AD. Pour identifier l’annuaire auquel est associé l’abonnement, ouvrez **Abonnements** dans le portail Azure, puis sélectionnez un abonnement pour voir l’annuaire.
+Il ne peut y avoir qu’un seul administrateur de service par abonnement Azure. La modification de l’administrateur de service se comporte différemment selon que l’administrateur de compte est un compte Microsoft ou qu’il s’agit d’un compte Azure AD (professionnel ou scolaire).
 
-Si vous êtes connecté avec un compte professionnel ou scolaire, vous pouvez ajouter d’autres comptes à votre organisation en tant qu’Administrateur de service. Par exemple, abby@contoso.com peut ajouter bob@contoso.com en tant qu’administrateur de services fédérés, mais ne peut pas ajouter john@notcontoso.com, sauf si john@notcontoso.com est présent dans l’annuaire de contoso.com. Les utilisateurs connectés avec des comptes professionnels ou scolaires peuvent continuer à ajouter des utilisateurs de comptes Microsoft en tant qu’Administrateur de service. Il ne peut y avoir qu’un seul administrateur de service par abonnement Azure.
+| Compte d’Administrateur de compte | Est-il possible de modifier l’administrateur de service en un autre compte Microsoft ? | Est-il possible de modifier l’administrateur de service en un compte Azure AD dans le même annuaire ? | Est-il possible de modifier l’administrateur de service en un compte Azure AD dans un annuaire différent ? |
+| --- | --- | --- | --- |
+| Compte Microsoft | OUI | Non | Non |
+| Compte Azure AD | OUI | OUI | Non |
 
-  | Méthode de connexion | Ajouter l’utilisateur de compte Microsoft en tant qu’administrateur de service ? | Ajouter le compte professionnel ou scolaire de la même organisation comme Administrateur de service ? | Ajouter le compte professionnel ou scolaire de la même organisation comme Administrateur de service ? |
-  | --- | --- | --- | --- |
-  |  Compte Microsoft |OUI |Non |Non |
-  |  Comptes professionnels ou scolaires |OUI |OUI |Non |
+Si l’administrateur de compte est un compte Azure AD, vous pouvez modifier l’administrateur de service en un compte Azure AD dans le même annuaire, mais pas dans un autre. Par exemple, abby@contoso.com peut modifier l’administrateur de service en bob@contoso.com, mais ne pas en john@notcontoso.com, sauf si john@notcontoso.com a une présence dans l’annuaire contoso.com.
+
+Pour plus d’informations sur les comptes Microsoft et Azure AD, voir [Qu’est-ce qu’Azure Active Directory ?](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## <a name="view-the-account-administrator"></a>Voir l’administrateur de compte
 

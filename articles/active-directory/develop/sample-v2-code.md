@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0afefe81e81f8ba83a5c8ac2b0fad61926bbf09
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 86f9b6a6139f329a27914eff7a61d0f59c7f48ad
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268530"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678066"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemples de code de la plateforme d’identité Microsoft (point de terminaison v2.0)
 
@@ -77,7 +77,8 @@ Les exemples suivants illustrent des applications clientes publiques (applicatio
 | Mobile (Android, iOS, UWP)   | ![Cette image affiche le logo .NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [interactive](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
 | Mobile (iOS)       | ![Cette image affiche iOS/Objective-C ou Swift](media/sample-v2-code/logo_iOS.png) | [interactive](msal-authentication-flows.md#interactive) |[ios-swift-objc-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
 | Bureau (macOS)       | macOS | [interactive](msal-authentication-flows.md#interactive) |[macOS-swift-objc-native-v2](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) |  |
-| Mobile (Android)   | ![Cette image affiche le logo Android](media/sample-v2-code/logo_Android.png) | [interactive](msal-authentication-flows.md#interactive) |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |  |
+| Mobile (Android-Java)   | ![Cette image affiche le logo Android](media/sample-v2-code/logo_Android.png) | [interactive](msal-authentication-flows.md#interactive) |  [Android-Java](https://github.com/Azure-Samples/ms-identity-android-java) |  |
+| Mobile (Android-Kotlin)   | ![Cette image affiche le logo Android](media/sample-v2-code/logo_Android.png) | [interactive](msal-authentication-flows.md#interactive) |  [Android-Kotlin](https://github.com/Azure-Samples/ms-identity-android-kotlin) |  |
 
 ## <a name="daemon-applications"></a>Applications de démon
 

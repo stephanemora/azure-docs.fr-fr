@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: memildin
-ms.openlocfilehash: b8ca4dfe8b1bba169b1234461dc5e8855fef1d7e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bbb34a0a9d8035ce8cbfd3f3283677133370a9f2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202286"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316722"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>FAQ du Centre de sécurité Azure
 Cette FAQ répond aux questions concernant Azure Security Center, qui vous aide à prévenir, détecter et résoudre les menaces grâce à une meilleure visibilité et à un meilleur contrôle de la sécurité de vos ressources Microsoft Azure.
@@ -44,7 +44,7 @@ Le **niveau Gratuit** vous permet de voir l’état de sécurité de vos ressour
 Le **niveau Standard** fournit des fonctionnalités de détection avancée des menaces, notamment des informations sur les menaces, une analyse comportementale, une détection des anomalies, des informations sur les incidents de sécurité et des rapports sur l’attribution des menaces. Vous pouvez démarrer une version d’évaluation Standard. Pour effectuer la mise à niveau, sélectionnez [Niveau tarifaire](https://docs.microsoft.com/azure/security-center/security-center-pricing) dans la stratégie de sécurité. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/).
 
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Comment puis-je suivre qui a effectué des modifications de niveau tarifaire dans Azure Security Center dans mon organisation
-Dans la mesure où un abonnement Azure peut avoir plusieurs administrateurs disposant d’autorisations pour modifier le niveau tarifaire, un utilisateur peut souhaiter savoir qui a effectué la modification du niveau tarifaire. Pour ce faire, il est possible d’utiliser le journal d’activité Azure. Cliquez [ici](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832) pour plus d’instructions
+Des abonnements Azure peuvent avoir plusieurs administrateurs autorisés à modifier le niveau tarifaire. Pour savoir quel utilisateur a modifié un niveau tarifaire, utilisez le Journal d’activité Azure. Vous pourrez trouver plus d’informations [ici](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832).
 
 ## <a name="permissions"></a>Autorisations
 Azure Security Center utilise le [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) qui fournit des [rôles intégrés](../role-based-access-control/built-in-roles.md) susceptibles d’être affectés à des utilisateurs, des groupes et des services dans Azure.
@@ -59,7 +59,7 @@ Azure Security Center collecte des données à partir de vos machines virtuelles
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Est-ce que je suis facturé pour Journaux Azure Monitor sur des espaces de travail créés par Security Center ?
 Non. Les espaces de travail créés par Security Center, bien qu’ils soient configurés pour une facturation Journaux Azure Monitors par nœud, n’entraînent pas de frais Journaux Azure Monitor. La facturation Security Center est toujours basée sur la stratégie de sécurité Security Center et les solutions installées sur l’espace de travail :
 
-- **Niveau Gratuit** : Security Center active la solution « SecurityCenterFree » sur l’espace de travail par défaut. Vous n’êtes pas facturé pour le niveau gratuit.
+- **Niveau Gratuit** : Security Center active la solution « SecurityCenterFree » sur l’espace de travail par défaut. Vous n’êtes pas facturé pour le niveau Gratuit.
 - **Niveau Standard** : Security Center active la solution « Security » sur l’espace de travail par défaut.
 
 Pour plus d’informations sur la tarification, consultez la page de [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
@@ -71,7 +71,7 @@ Pour plus d’informations sur la tarification, consultez la page de [tarificati
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Qu’est-ce qui rend une machine virtuelle apte pour le provisionnement automatique de l’installation de Microsoft Monitoring Agent ?
+### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Qu’est-ce qui rend une machine virtuelle apte pour l’approvisionnement automatique de l’installation de Microsoft Monitoring Agent ?
 Les machines virtuelles Windows ou Linux IaaS sont retenues dans les cas suivants :
 
 - L’extension Microsoft Monitoring Agent n’est pas actuellement installée sur la machine virtuelle.
@@ -118,9 +118,9 @@ Pour sélectionner un espace de travail Log Analytics existant :
    - Sélectionnez **Annuler** pour annuler l’opération.
 
 ### Que se passe-t-il si l’agent Microsoft Monitoring Agent est déjà installé en tant qu’extension sur la machine virtuelle ?<a name="mmaextensioninstalled"></a>
-Lorsque l’Agent Monitoring est installé en tant qu’extension, la configuration de l’extension permet de générer uniquement un espace de travail unique. Security Center n’écrase pas les connexions existantes des espaces de travail utilisateur. Security Center stocke les données de sécurité à partir d’une machine virtuelle dans un espace de travail qui est déjà connecté, sous réserve que la solution « Security » ou « SecurityCenterFree » y soit installée. Security Center peut mettre à niveau la version d’extension vers la dernière version de ce processus.
+Lorsque l’Agent Monitoring est installé en tant qu’extension, la configuration de l’extension permet de générer uniquement un espace de travail unique. Security Center n’écrase pas les connexions existantes des espaces de travail utilisateur. Security Center stocke les données de sécurité à partir d’une machine virtuelle dans un espace de travail qui est déjà connecté, sous réserve que la solution « Security » ou « SecurityCenterFree » y soit installée. Security Center peut mettre à niveau la version de l'extension vers la dernière version lors de ce processus.
 
-Pour plus d’informations, consultez [Approvisionnement automatique en cas d’installation d’un agent préexistant](security-center-enable-data-collection.md#preexisting).
+Pour plus d’informations, voir [Approvisionnement automatique en cas d’installation d’un agent préexistant](security-center-enable-data-collection.md#preexisting).
 
 
 ### Que se passe-t-il si Microsoft Monitoring Agent est installé directement sur la machine, mais pas en tant qu’extension (Direct Agent) ?<a name="directagentinstalled"></a>
@@ -130,12 +130,12 @@ Si l’espace de travail configuré est un espace de travail utilisateur (pas un
 
 Pour les machines Linux, le multihébergement d’agent n’est pas encore pris en charge, par conséquent, si une installation existante de l’agent est détectée, l’approvisionnement automatique n’a pas lieu et la configuration de la machine n’est pas modifiée.
 
-Pour les machines existantes sur les abonnements intégrés à Security Center avant le 17/03/2019, lorsqu’un agent existant est détecté, l’extension Microsoft Monitoring Agent n’est pas installée et la machine n’est pas affectée. Pour ces machines, consultez la recommandation « Résoudre les problèmes d’intégrité de l’agent d’analyse sur vos machines » pour résoudre les problèmes d’installation de l’agent sur ces machines.
+Pour des machines existantes sur des abonnements intégrés à Security Center avant le 17 mars 2019, lors de la détection d’un agent existant, l’extension Microsoft Monitoring Agent n’est pas installée et la machine n’est pas affectée. Pour ces machines, consultez la recommandation « Résoudre les problèmes d’intégrité de l’agent d’analyse sur vos machines » pour résoudre les problèmes d’installation de l’agent sur ces machines.
 
  Pour plus d’informations, consultez la prochaine section, [Que se passe-t-il si l’agent direct System Center Operations Manager ou OMS est déjà installé sur ma machine virtuelle ?](#scomomsinstalled)
 
 ### Que se passe-t-il si un agent System Center Operations Manager est déjà installé sur ma machine virtuelle ?<a name="scomomsinstalled"></a>
-Security Center installe l’extension Microsoft Monitoring Agent parallèlement à l’agent System Center Operations Manager existant. L’agent existant continue de rendre compte normalement au serveur System Center Operations Manager. Veuillez noter que l’agent Operations Manager et Microsoft Monitoring Agent partagent des bibliothèques runtime communes, qui sont mises à jour vers la dernière version lors de ce processus. Remarque : si la version 2012 de l’agent Operations Manager est installée, n’activez pas l’approvisionnement automatique (les fonctionnalités de facilité de gestion peuvent être perdues si la version du serveur Operations Manager date également de 2012).
+Security Center installe l’extension Microsoft Monitoring Agent parallèlement à l’agent System Center Operations Manager existant. L’agent existant continue de rendre compte normalement au serveur System Center Operations Manager. Notez que l’agent Operations Manager et Microsoft Monitoring Agent partagent des bibliothèques runtime communes, qui sont mises à jour vers la dernière version lors de ce processus. Remarque : si la version 2012 de l’agent Operations Manager est installée, n’activez pas l’approvisionnement automatique (les fonctionnalités de facilité de gestion peuvent être perdues si la version du serveur Operations Manager date également de 2012).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Quel est l’impact de la suppression de ces extensions ?
 Si vous supprimez l’extension Microsoft Monitoring, Security Center n’est pas en mesure de collecter des données de sécurité sur la machine virtuelle et certaines recommandations de sécurité et les alertes ne sont pas disponibles. Sous 24 heures, Security Center détermine que l’extension est absente de la machine virtuelle et la réinstalle.
@@ -147,34 +147,34 @@ Vous pouvez désactiver l’approvisionnement automatique pour vos abonnements d
 
    ![Niveau tarifaire][1]
 
-2. Ensuite, désactivez l’approvisionnement automatique en sélectionnant **Non** sur le panneau **Stratégie de sécurité : collecte de données**.
+2. Ensuite, désactivez l’approvisionnement automatique en sélectionnant **Non** sur le page **Stratégie de sécurité : collecte de données**.
    ![Collecte de données][2]
 
 ### <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Dois-je refuser l’installation automatique de l’agent et la création de l’espace de travail ?
 
 > [!NOTE]
-> Veillez à consulter les sections [Quelles sont les implications d’un refus ?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) et [Étapes recommandées en cas de refus](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) si vous choisissez de refuser le provisionnement automatique.
+> Veillez à consulter les sections [Quelles sont les implications d’un refus ?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) et [Étapes recommandées en cas de refus](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) si vous choisissez de refuser l’approvisionnement automatique.
 >
 >
 
-Vous pouvez souhaiter refuser le provisionnement automatique si les points suivants s’appliquent à vous :
+Vous pouvez souhaiter refuser l’approvisionnement automatique si les points suivants s’appliquent à vous :
 
-- L’installation automatique de l’agent par Security Center s’applique à l’ensemble de l’abonnement. Vous ne pouvez pas appliquer l’installation automatique à un sous-ensemble de machines virtuelles. Si des machines virtuelles critiques ne peuvent pas être installées avec Microsoft Monitoring Agent, vous devez refuser le provisionnement automatique.
-- L’installation de l’extension Microsoft Monitoring Agent (MMA) met à jour la version de l’agent. Cela s’applique à un agent direct et un agent System Center Operations Manager (dans le dernier cas, les bibliothèques Operations Manager et MMA partagent des bibliothèques runtime communes, qui sont mises à jour dans le processus). Si l’agent Operations Manager installé est en version 2012 et qu’il est mis à niveau, les fonctionnalités de facilité de gestion peuvent être perdues quand le serveur Operations Manager est également en version 2012. Vous pouvez refuser le provisionnement automatique si l’agent Operations Manager installé est en version 2012.
-- Si vous disposez d’un espace de travail personnalisé externe à l’abonnement (un espace de travail centralisé), vous devez refuser le provisionnement automatique. Vous pouvez installer manuellement l’extension Microsoft Monitoring Agent et la connecter à votre espace de travail sans que Security Center ne remplace la connexion.
+- L’installation automatique de l’agent par Security Center s’applique à l’ensemble de l’abonnement. Vous ne pouvez pas appliquer l’installation automatique à un sous-ensemble de machines virtuelles. Si des machines virtuelles critiques ne peuvent pas être installées avec Microsoft Monitoring Agent, vous devez refuser l’approvisionnement automatique.
+- L’installation de l’extension Microsoft Monitoring Agent (MMA) met à jour la version de l’agent. Cela s’applique à un agent direct et un agent System Center Operations Manager (dans le dernier cas, les bibliothèques Operations Manager et MMA partagent des bibliothèques runtime communes, qui sont mises à jour dans le processus). Si l’agent Operations Manager installé est en version 2012 et qu’il est mis à niveau, les fonctionnalités de facilité de gestion peuvent être perdues quand le serveur Operations Manager est également en version 2012. Vous pouvez refuser l’approvisionnement automatique si l’agent Operations Manager installé est en version 2012.
+- Si vous disposez d’un espace de travail personnalisé externe à l’abonnement (un espace de travail centralisé), vous devez refuser l’approvisionnement automatique. Vous pouvez installer manuellement l’extension Microsoft Monitoring Agent et la connecter à votre espace de travail sans que Security Center ne remplace la connexion.
 - Si vous souhaitez éviter de créer plusieurs espaces de travail par abonnement et que vous disposez de votre propre espace de travail personnalisé dans l’abonnement, deux options s’offrent à vous :
 
-   1. Vous pouvez refuser le provisionnement automatique. Après la migration, définissez les paramètres d’espace de travail par défaut comme décrit dans [Comment puis-je utiliser mon espace de travail Log Analytics existant ?](#how-can-i-use-my-existing-log-analytics-workspace)
+   1. Vous pouvez refuser l’approvisionnement automatique. Après la migration, définissez les paramètres d’espace de travail par défaut comme décrit dans [Comment puis-je utiliser mon espace de travail Log Analytics existant ?](#how-can-i-use-my-existing-log-analytics-workspace)
    2. Vous pouvez aussi autoriser l’exécution de la migration, l’installation de l’agent Microsoft Monitoring Agent sur les machines virtuelles et la connexion des machines virtuelles à l’espace de travail créé. Sélectionnez ensuite votre propre espace de travail personnalisé en définissant le paramètre d’espace de travail par défaut avec l’activation de la reconfiguration des agents déjà installés. Pour plus d’informations, consultez [Comment puis-je utiliser mon espace de travail Log Analytics existant ?](#how-can-i-use-my-existing-log-analytics-workspace)
 
-### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Quelles sont les implications d’un refus du provisionnement automatique ?
-Une fois la migration terminée, Security Center n’est pas en mesure de collecter des données de sécurité sur la machine virtuelle, et certaines recommandations de sécurité et alertes ne sont pas disponibles. En cas de refus, vous devez installer Microsoft Monitoring Agent manuellement. Consultez les [étapes recommandées en cas de refus](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Quelles sont les implications d’un refus de l’approvisionnement automatique ?
+Une fois la migration terminée, Security Center n’est pas en mesure de collecter des données de sécurité sur la machine virtuelle, et certaines recommandations de sécurité et alertes ne sont pas disponibles. En cas de refus, installez Microsoft Monitoring Agent manuellement. Consultez les [étapes recommandées en cas de refus](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
 
-### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Quelles sont les étapes recommandées en cas de refus du provisionnement automatique ?
+### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Quelles sont les étapes recommandées en cas de refus de l’approvisionnement automatique ?
 
-Vous devez installer manuellement l’extension Microsoft Monitoring Agent pour que Security Center puisse collecter des données de sécurité sur vos machines virtuelles et fournir des suggestions et des alertes. Consultez [Installation de l’agent pour les machines virtuelles Windows](../virtual-machines/extensions/oms-windows.md) ou [Installation de l’agent pour les machines virtuelles Linux](../virtual-machines/extensions/oms-linux.md) pour obtenir des instructions sur l’installation.
+Installez manuellement l’extension Microsoft Monitoring Agent pour que Security Center puisse collecter des données de sécurité sur vos machines virtuelles et fournir des suggestions et des alertes. Consultez [Installation de l’agent pour les machines virtuelles Windows](../virtual-machines/extensions/oms-windows.md) ou [Installation de l’agent pour les machines virtuelles Linux](../virtual-machines/extensions/oms-linux.md) pour obtenir des instructions sur l’installation.
 
-Vous pouvez connecter l’agent à n’importe quel espace de travail personnalisé existant ou à l’espace de travail créé par Security Center. Si les solutions « Security » ou « SecurityCenterFree » ne sont pas activées pour un espace de travail personnalisé, vous devez appliquer une solution. Pour ce faire, sélectionnez l’abonnement ou l’espace de travail personnalisé, puis appliquez un niveau tarifaire à l’aide du panneau **Stratégie de sécurité - Niveau tarifaire**.
+Vous pouvez connecter l’agent à n’importe quel espace de travail personnalisé existant ou à l’espace de travail créé par Security Center. Si les solutions « Security » ou « SecurityCenterFree » ne sont pas activées pour un espace de travail personnalisé, vous devez appliquer une solution. Pour ce faire, sélectionnez l’abonnement ou l’espace de travail personnalisé, puis appliquez un niveau tarifaire via la page **Stratégie de sécurité – Niveau tarifaire**.
 
    ![Niveau tarifaire][1]
 
@@ -191,8 +191,8 @@ Vous pouvez supprimer manuellement l’agent Microsoft Monitoring Agent. Ce n’
 Pour supprimer manuellement l’agent :
 
 1.  Dans le portail, ouvrez **Log Analytics**.
-2.  Dans le panneau Log Analytics, sélectionnez un espace de travail :
-3.  Sélectionnez chaque machine virtuelle que vous ne souhaitez pas surveiller et sélectionnez **Déconnecter**.
+2.  Sur la page Log Analytics, sélectionnez un espace de travail :
+3.  Sélectionnez les machines virtuelles que vous ne souhaitez pas surveiller, puis choisissez **Déconnecter**.
 
    ![Supprimer l’agent][3]
 
@@ -209,11 +209,11 @@ Pour désactiver la collecte des données, [connectez-vous au Portail Azure](htt
 Vous pouvez activer la collecte des données pour votre abonnement Azure dans la stratégie de sécurité. Pour activer la collecte de données. [Connectez-vous au portail Azure](https://portal.azure.com), sélectionnez **Parcourir**, **Centre de sécurité**, puis **Stratégie de sécurité**. Sélectionnez l’abonnement pour lequel vous souhaitez activer l’approvisionnement automatique. Lorsque vous sélectionnez un abonnement, **Stratégie de sécurité - Collecte de données** s’ouvre. Sous **Auto provisioning** (Approvisionnement automatique), sélectionnez **On** (Activé).
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>Que se passe-t-il quand la collecte des données est activée ?
-Lorsque l’approvisionnement automatique est activé, Security Center approvisionne Microsoft Monitoring Agent pour toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées. Le provisionnement automatique est fortement recommandé. Toutefois, l’installation manuelle des agents est également disponible. [Découvrez comment installer l’extension Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) 
+Lorsque l’approvisionnement automatique est activé, Security Center approvisionne Microsoft Monitoring Agent pour toutes les machines virtuelles Azure prises en charge et toutes celles nouvellement créées. L’approvisionnement automatique est recommandé. Toutefois, l’installation manuelle de l’agent est également disponible. [Découvrez comment installer l’extension Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) 
 
-L’agent active l’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Les nouveaux processus créés sur la machine virtuelle sont enregistrés par le journal des événements et analysés par les services de détection Security Center. Pour plus d’informations sur les détails enregistrés pour chaque nouveau processus, consultez [Description des champs 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). L’agent collecte également les événements 4688 créés sur la machine virtuelle et les stocke dans la recherche.
+L’agent active l’événement de création de processus 4688 et le champ *CommandLine* à l’intérieur de l’événement 4688. Les nouveaux processus créés sur la machine virtuelle sont enregistrés par le journal des événements et analysés par les services de détection Security Center. Pour plus d’informations sur les détails enregistrés pour chaque nouveau processus, voir [Description des champs 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). L’agent collecte également les événements 4688 créés sur la machine virtuelle et les stocke dans la recherche.
 
-L’agent permet également d’activer la collecte de données pour les [Contrôles d’application adaptatifs](security-center-adaptive-application.md), Security Center configure une stratégie AppLocker locale en mode Audit pour autoriser toutes les applications. Cela amène AppLocker à générer des événements qui sont ensuite recueillis et exploités par Security Center. Il est important de noter que cette stratégie ne sera configurée sur aucun ordinateur sur lequel une stratégie AppLocker est déjà configurée. 
+L’agent permet également d’activer la collecte de données pour les [Contrôles d’application adaptatifs](security-center-adaptive-application.md), Security Center configure une stratégie AppLocker locale en mode Audit pour autoriser toutes les applications. Cette stratégie amène AppLocker à générer des événements qui sont ensuite recueillis et exploités par Security Center. Il est important de noter que cette stratégie ne sera configurée sur aucun ordinateur sur lequel une stratégie AppLocker est déjà configurée. 
 
 Lorsque Security Center détecte une activité suspecte sur la machine virtuelle, le client est averti par e-mail si [des informations de contact de sécurité](security-center-provide-security-contact-details.md) ont été fournies. Une alerte est également visible dans le tableau de bord d’alertes de sécurité de Security Center.
 
@@ -230,7 +230,7 @@ Les données collectées à partir de cet agent sont stockées dans un espace de
 ## Clients Journaux Azure Monitor existants<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Est-ce que Security Center peut écraser les connexions existantes entre les machines virtuelles et les espaces de travail ?
-Si l’agent Microsoft Monitoring Agent est déjà installé sur une machine virtuelle comme une extension Azure, Security Center n’écrase pas la connexion à l’espace de travail existante. En revanche, Security Center utilise l’espace de travail existant. La machine virtuelle est protégée si la solution «Security » ou « SecurityCenterFree » est installée sur l’espace de travail auquel elle rend compte. 
+Si l’agent Microsoft Monitoring Agent est déjà installé sur une machine virtuelle comme une extension Azure, Security Center n’écrase pas la connexion à l’espace de travail existante. En revanche, Security Center utilise l’espace de travail existant. La machine virtuelle est protégée si la solution « Security » ou « SecurityCenterFree » est installée sur l’espace de travail auquel elle rend compte. 
 
 Une solution de Security Center est installée sur l’espace de travail sélectionné dans l’écran Collection de données, si elle ne l’était pas déjà. La solution est appliquée uniquement aux machines virtuelles appropriées. Lorsque vous ajoutez une solution, elle est déployée automatiquement par défaut sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics. Le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) permet d’appliquer une étendue à vos solutions.
 
@@ -239,7 +239,7 @@ Si Microsoft Monitoring Agent est installé directement sur la machine virtuelle
 ### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Est-ce que Security Center installe des solutions sur mes espaces de travail Log Analytics existants ? Quelles sont les conséquences sur la facturation ?
 Lorsque Security Center détecte qu’une machine virtuelle est déjà connectée à un espace de travail que vous avez créé, il active des solutions sur cet espace de travail en fonction de votre niveau tarifaire. Les solutions sont appliquées uniquement aux machines virtuelles Azure pertinentes, via le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md), de sorte que la facturation reste la même.
 
-- **Niveau Gratuit** : Security Center installe la solution « SecurityCenterFree » sur l’espace de travail. Vous n’êtes pas facturé pour le niveau gratuit.
+- **Niveau Gratuit** : Security Center installe la solution « SecurityCenterFree » sur l’espace de travail. Vous n’êtes pas facturé pour le niveau Gratuit.
 - **Niveau Standard** : Security Center installe la solution « Security » sur l’espace de travail.
 
    ![Solutions sur l’espace de travail par défaut][4]
@@ -275,7 +275,7 @@ Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources 
 Seules les recommandations qui sont activées dans les stratégies de sécurité sont affichées ici.
 
 ### <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>Comment connaître l’état de sécurité actuel de mes ressources Azure ?
-Le panneau **Vue d’ensemble de Security Center** affiche les mesures de sécurité globales de votre environnement pour les ressources suivantes : Compute, Mise en réseau, Stockage et données, et Applications. Chaque type de ressource possède un indicateur montrant la présence éventuelle de failles de sécurité. Cliquez sur chaque vignette pour afficher une liste des problèmes de sécurité identifiés par Security Center, ainsi qu’un inventaire des ressources dans votre abonnement.
+La page **Vue d’ensemble de Security Center** affiche les mesures de sécurité globales de votre environnement pour les ressources suivantes : Compute, Mise en réseau, Stockage et données, et Applications. Chaque type de ressource possède un indicateur montrant la présence éventuelle de failles de sécurité. Cliquez sur chaque vignette pour afficher une liste des problèmes de sécurité identifiés par Security Center, ainsi qu’un inventaire des ressources dans votre abonnement.
 
 ### <a name="what-triggers-a-security-alert"></a>Qu’est-ce qui déclenche une alerte de sécurité ?
 Azure Security Center collecte, analyse et fusionne automatiquement les données du journal à partir de vos ressources Azure, du réseau et des solutions partenaires telles que les logiciels anti-programme malveillant et les pare-feu. Quand des menaces sont détectées, une alerte de sécurité est créée. Voici quelques exemples de détections :
@@ -319,7 +319,7 @@ Azure Security Center bénéficie d’une visibilité sur les logiciels anti-pro
 Ce message s’affiche lorsqu’il n’existe aucune donnée d’analyse pour une machine virtuelle. Le remplissage des données d’analyse peut prendre un certain temps (inférieur à une heure) une fois la collecte de données activée dans Azure Security Center. Après le remplissage initial des données d’analyse, vous pouvez recevoir ce message s’il n’existe aucune donnée d’analyse ou s’il n’existe pas de données d’analyse récentes. Le remplissage des analyses n’est pas effectué pour une machine virtuelle à l’état Arrêté. Ce message peut également s’afficher si les données d’analyse n’ont pas été renseignées récemment (conformément à la stratégie de rétention de l’agent Windows, dont la valeur par défaut est 30 jours).
 
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>À quelle fréquence Security Center recherche-t-il les vulnérabilités du système d’exploitation, les mises à jour du système et les problèmes de protection du point de terminaison ?
-La latence dans les analyses de Security Center à la recherche de vulnérabilités, de mises à jour et de problèmes est la suivante :
+Les temps de latence des analyses de Security Center en lien avec les vulnérabilités, les mises à jour et les problèmes figurent ci-dessous :
 
 - Configuration de la sécurité du système d’exploitation ; les données sont mises à jour dans les 48 heures
 - Mises à jour du système ; les données sont mises à jour dans les 24 heures

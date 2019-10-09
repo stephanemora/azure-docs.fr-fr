@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1f02e01fef95bdd06930aa30479dd16d40675ce
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764946"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812565"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Collecter des données à partir de CollectD sur les agents Linux dans Azure Monitor
 [CollectD](https://collectd.org/) est un démon Linux open source qui collecte périodiquement des mesures de performances à partir d’applications et d’informations de niveau système. Les applications peuvent être, par exemple, la machine virtuelle Java (JVM), le serveur MySQL et Nginx. Cet article fournit des informations sur la collecte des données de performances à partir de CollectD dans Azure Monitor.
@@ -69,6 +69,8 @@ L’agent Log Analytics pour Linux écoute également les métriques CollectD su
       type filter_collectd
     </filter>
 
+> [!NOTE]
+> CollectD est configuré par défaut pour lire les valeurs à [intervalle](https://collectd.org/wiki/index.php/Interval) de 10 secondes. Étant donné que cela affecte directement le volume des données envoyées aux journaux Azure Monitor, il se peut que vous deviez ajuster cet intervalle dans la configuration de CollectD afin de trouver un bon équilibre entre les besoin de supervision et les coûts et l’utilisation associés pour les journaux Azure Monitor.
 
 ## <a name="versions-supported"></a>Versions prises en charge
 - Azure Monitor prend actuellement en charge CollectD  version 4.8 et ultérieure.
@@ -112,7 +114,7 @@ Pour conserver un modèle cohérent entre les mesures d’infrastructure déjà 
 
 | Champ Mesure CollectD | Champ Azure Monitor |
 |:--|:--|
-| `host` | Ordinateur |
+| `host` | Computer |
 | `plugin` | Aucun |
 | `plugin_instance` | Nom de l’instance<br>If **plugin_instance** is *null* then InstanceName=" *_Total*" |
 | `type` | ObjectName |

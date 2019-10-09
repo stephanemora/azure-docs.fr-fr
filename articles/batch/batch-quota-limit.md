@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1e7d64aabba19f04fb98bd208389dc0b2077bfe4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b089a1b32ee70479072522372c060713108957c
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094694"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350099"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -52,7 +52,7 @@ Des limites de taille de pool sont définies par le service Batch. Contrairement
 | **Nœuds de calcul dans un [pool prenant en charge la communication entre nœuds](batch-mpi.md)**  ||
 | Mode d’allocation de pool du service Batch | 100 |
 | Mode d’allocation de pool de l'abonnement Batch | 80 |
-| **Nœuds de calcul dédiés dans un [pool créé avec une image de machine virtuelle personnalisée](batch-custom-images.md)** <sup>1</sup> ||
+| **Nœuds de calcul dans un [pool créé avec une ressource d’image managée](batch-custom-images.md)** <sup>1</sup> ||
 | Nœuds dédiés | 2000 |
 | Nœuds de faible priorité | 1 000 |
 

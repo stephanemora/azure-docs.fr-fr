@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172790"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338916"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées 
 Les vues matérialisées dans Azure SQL Data Warehouse fournissent une méthode de maintenance modérée pour les requêtes analytiques complexes en vue d’obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.
@@ -49,7 +49,7 @@ Une vue matérialisée correctement conçue peut offrir les avantages suivants 
 
 - L’optimiseur inclus dans Azure SQL Data Warehouse peut automatiquement utiliser des vues matérialisées déployées pour améliorer les plans d’exécution des requêtes.  Ce processus est transparent pour les utilisateurs, offrant des performances plus rapides aux requêtes. De plus, il ne nécessite pas que les requêtes fassent référence directement aux vues matérialisées. 
 
-- Peu de maintenance nécessaire sur les vues.  Une vue matérialisée stocke les données à deux emplacements : un index columnstore cluster pour les données initiales au moment de la création de la vue et un deltastore pour les modifications de données incrémentielles.  Toutes les modifications apportées aux données à partir des tables de base sont automatiquement ajoutées au deltastore de manière synchrone.  Un processus en arrière-plan (moteur de tuple) déplace régulièrement les données du deltastore vers l’index columnstore de la vue.  Cette conception permet l’interrogation des vues matérialisées pour retourner les mêmes données qu’avec une interrogation directe des tables de base. 
+- Peu de maintenance nécessaire sur les vues.  Toutes les modifications incrémentielles apportées aux données à partir des tables de base sont automatiquement ajoutées aux affichages matérialisés de manière synchrone.  Cette conception permet l’interrogation des vues matérialisées pour retourner les mêmes données qu’avec une interrogation directe des tables de base. 
 - Les données comprises dans une vue matérialisée peuvent être distribuées différemment dans les tables de base.  
 - Dans les vues matérialisées, les données présentent les mêmes avantages en matière de haute disponibilité et de résilience que les données comprises dans des tables normales.  
  
@@ -90,7 +90,7 @@ Les utilisateurs peuvent exécuter EXPLAIN WITH_RECOMMENDATIONS <Instruction_SQL
 
 **Compromis entre des requêtes plus rapides et le coût** 
 
-Pour chaque vue matérialisée, il existe un coût de stockage des données et un coût de maintenance de la vue.  À mesure que les données sont modifiées dans les tables de base, la taille de la vue matérialisée augmente et sa structure physique change également.  Pour éviter la dégradation des performances des requêtes, chaque vue matérialisée est tenue à jour séparément par le moteur de l’entrepôt de données, y compris le déplacement de lignes à partir du magasin Delta vers les segments d’index columnstore et la consolidation des modifications de données.  La charge de travail de maintenance est plus élevée quand le nombre de vues matérialisées et de modifications des tables de base augmente.   Les utilisateurs doivent vérifier si les coûts engendrés par toutes les vues matérialisées peuvent être compensés par le gain de performance des requêtes.  
+Pour chaque vue matérialisée, il existe un coût de stockage des données et un coût de maintenance de la vue.  À mesure que les données sont modifiées dans les tables de base, la taille de la vue matérialisée augmente et sa structure physique change également.  Pour éviter toute détérioration des performances de requête, le moteur de l’entrepôt de données gère séparément chaque vue matérialisée.  La charge de travail de maintenance est plus élevée quand le nombre de vues matérialisées et de modifications des tables de base augmente.   Les utilisateurs doivent vérifier si les coûts engendrés par toutes les vues matérialisées peuvent être compensés par le gain de performance des requêtes.  
 
 Vous pouvez exécuter cette requête pour obtenir la liste des vues matérialisées dans une base de données : 
 
@@ -136,7 +136,7 @@ L’optimiseur de l’entrepôt de données peut utiliser automatiquement des vu
 
 **Superviser les vues matérialisées** 
 
-Une vue matérialisée est stockée dans l’entrepôt de données de la même manière qu’une table avec un index columnstore cluster.  La lecture de données à partir d’une vue matérialisée comprend l’analyse de l’index et l’application des modifications à partir du deltastore.  Quand le nombre de lignes dans le deltastore est trop élevé, la résolution d’une requête à partir d’une vue matérialisée peut prendre plus de temps que l’interrogation directe des tables de base.  Pour éviter cette dégradation des performances des requêtes, il est recommandé d’exécuter [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) pour superviser la valeur overhead_ratio de la vue (total_rows/base_view_row).  Si la valeur overhead_ratio est trop élevée, envisagez de regénérer la vue matérialisée afin que toutes les lignes du deltastore soient déplacées vers l’index columnstore.  
+Une vue matérialisée est stockée dans l’entrepôt de données de la même manière qu’une table avec un index columnstore cluster.  La lecture de données à partir d’une vue matérialisée inclut une analyse des segments de l’index columnstore cluster et l’application des modifications incrémentielles des tables de base. Quand le nombre de modifications incrémentielles est trop élevé, la résolution d’une requête à partir d’une vue matérialisée peut prendre plus de temps que l’interrogation directe des tables de base.  Pour éviter tout détérioration des performances de requête, il est recommandé d’exécuter [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) pour superviser la valeur overhead_ratio (total_rows / max(1, base_view_row)) de la vue.  Les utilisateurs doivent RÉGÉNÉRER la vue matérialisée si sa valeur overhead_ratio est trop élevée. 
 
 **Vue matérialisée et mise en cache du jeu de résultats**
 

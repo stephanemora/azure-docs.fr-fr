@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: cfa8e8c570b47eb6437ed6ca6a53f6c8188e18a2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268669"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314973"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -50,7 +50,7 @@ Une fois que la fonctionnalité a été exécutée en mode audit pendant une pé
    > Le déploiement du service proxy est une condition obligatoire pour le déploiement de la protection de mot de passe Azure AD même si le contrôleur de domaine peut avoir une connectivité internet directe sortante. 
    >
 * Toutes les machines sur lesquelles le service proxy de protection par mot de passe Azure AD sera installé doivent disposer de .NET 4.7.
-  .NET 4.7 doit déjà être installé sur les instances de Windows Server entièrement mises à jour. Si ce n'est pas le cas, téléchargez et exécutez le programme d'installation disponible sur la page [Programme d'installation hors connexion de .NET Framework 4.7 pour Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  .NET 4.7 doit déjà être installé sur les instances de Windows Server entièrement mises à jour. Si nécessaire, téléchargez et exécutez le programme d’installation disponible sur la page [Programme d’installation hors connexion de .NET Framework 4.7 pour Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Le runtime C universel doit être installé sur toutes les machines, y compris les contrôleurs de domaine, sur lesquelles les composants de protection par mot de passe Azure AD sont installés. Vous pouvez obtenir le runtime en vous assurant que vous disposez de toutes les mises à jour à partir de Windows Update. Ou vous pouvez l’obtenir dans un package de mise à jour spécifique au système d’exploitation. Pour plus d’informations, consultez [Mise à jour du runtime C universel sous Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Une connectivité réseau doit exister entre au moins un contrôleur de domaine dans chaque domaine et au moins un serveur hébergeant le service proxy de protection par mot de passe. Cette connectivité doit autoriser le contrôleur de domaine à accéder au port 135 du mappeur de point de terminaison RPC et au port du serveur RPC sur le service proxy. Par défaut, le port du serveur RPC est un port RPC dynamique, mais il peut être configuré pour [utiliser un port statique](#static).
 * Tous les ordinateurs sur lesquels le service proxy de protection par mot de passe Azure AD sera installé doivent disposer d’un accès réseau aux points de terminaison suivants :
@@ -59,9 +59,19 @@ Une fois que la fonctionnalité a été exécutée en mode audit pendant une pé
     | --- | --- |
     |`https://login.microsoftonline.com`|Demandes d’authentification|
     |`https://enterpriseregistration.windows.net`|Fonctionnalité de protection par mot de passe Azure AD|
+ 
+* Conditions préalables à l’utilisation du programme de mise à jour de l’agent Microsoft Azure AD Connect
 
-  Vous devez également activer l’accès réseau pour l’ensemble des ports et des URL spécifiés dans les [procédures de configuration de l’environnement Proxy d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). Ces étapes de configuration sont nécessaires pour que le service de mise à jour de l’agent Microsoft Azure AD Connect puisse fonctionner (ce service est installé côte à côte avec le service proxy). Il est déconseillé d’installer le proxy de protection par mot de passe et le proxy d’application Azure AD côte à côte sur le même ordinateur en raison d’incompatibilités entre les versions du logiciel de mise à jour de l’agent Microsoft Azure AD Connect.
-* Toutes les machines qui hébergent le service proxy de protection par mot de passe doivent être configurés pour autoriser les contrôleurs de domaine à ouvrir une session sur le service proxy. Ceci est contrôlé par le biais de l’affectation du privilège « Accéder à cet ordinateur à partir du réseau ».
+  Le service du programme de mise à jour de l’agent Microsoft Azure AD Connect est installé parallèlement au service proxy de protection par mot de passe Azure AD. Une configuration supplémentaire est requise pour que le service du programme de mise à jour de l’agent Microsoft Azure AD Connect puisse fonctionner :
+
+  Si votre environnement utilise un serveur proxy HTTP, vous devez suivre les instructions spécifiées dans [Travailler avec des serveurs proxy locaux existants](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
+
+  L’accès réseau doit être activé pour l’ensemble des ports et des URL spécifiés dans les [procédures de configuration de l’environnement proxy d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+
+  > [!WARNING]
+  > Le proxy de protection par mot de passe et le proxy d’application Azure AD installent différentes versions du service du programme de mise à jour de l’agent Microsoft Azure AD Connect. Cela explique pourquoi les instructions font référence au contenu du proxy d’application. Ces différentes versions étant incompatibles lorsqu’elles sont installées côte à côte. Il n’est donc pas recommandé d’installer le proxy de protection par mot de passe et le proxy d’application Azure AD côte à côte sur le même ordinateur.
+
+* Toutes les machines qui hébergent le service proxy de protection par mot de passe doivent être configurés pour autoriser les contrôleurs de domaine à ouvrir une session sur le service proxy. Cette capacité est contrôlée par le biais de l’affectation du privilège « Accéder à cet ordinateur à partir du réseau ».
 * Toutes les machines qui hébergent le service proxy de protection par mot de passe doivent être configurées de manière à autoriser le trafic HTTP TLS 1.2 sortant.
 * Un compte d’administrateur général pour inscrire la forêt et le service proxy de protection par mot de passe auprès d’Azure AD.
 * Un compte disposant des privilèges d’administrateur de domaine Active Directory dans le domaine racine de la forêt pour inscrire la forêt Windows Server Active Directory auprès d’Azure AD.
@@ -211,7 +221,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 
    L’inscription de la forêt Active Directory est requise une seule fois au cours de la durée de vie de la forêt. Après cela, les agents du contrôleur de domaine dans la forêt effectuent automatiquement toutes les autres tâches de maintenance nécessaires. Après l’exécution réussie de `Register-AzureADPasswordProtectionForest` pour une forêt, les appels supplémentaires de l’applet de commande réussissent mais sont inutiles.
 
-   Pour que `Register-AzureADPasswordProtectionForest` réussisse, il faut qu’au moins un contrôleur de domaine exécutant Windows Server 2012 ou version ultérieure soit disponible dans le domaine du serveur proxy. Toutefois, le logiciel de l’agent DC n’est pas tenu d’être installé sur des contrôleurs de domaine avant cette étape.
+   Pour que `Register-AzureADPasswordProtectionForest` réussisse, il faut qu’au moins un contrôleur de domaine exécutant Windows Server 2012 ou version ultérieure soit disponible dans le domaine du serveur proxy. Le logiciel de l’agent DC ne doit pas nécessairement être installé sur des contrôleurs de domaine avant cette étape.
 
 1. Configurez le service proxy de protection par mot de passe pour communiquer via un proxy HTTP.
 
@@ -286,7 +296,7 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 
    Installez le service d’agent DC de protection par mot de passe à l’aide du package `AzureADPasswordProtectionDCAgentSetup.msi`.
 
-   L’installation du logiciel, ou sa désinstallation, nécessite un redémarrage. Cela est dû au fait que les DLL de filtrage de mots de passe sont uniquement chargées ou déchargées par un redémarrage.
+   L’installation ou la désinstallation du logiciel nécessitent un redémarrage. Cette exigence découle du fait que les DLL de filtrage de mots de passe ne sont chargées ou déchargées que par un redémarrage.
 
    Vous pouvez installer le service d’agent DC sur une machine qui n’est pas encore un contrôleur de domaine. Dans ce cas, le service démarre et s’exécute, mais reste inactif jusqu’à ce que la machine soit promue comme contrôleur de domaine.
 
@@ -304,7 +314,7 @@ Lorsqu’une version plus récente du logiciel proxy de protection par mot de pa
 
 Il n’est pas nécessaire de désinstaller la version actuelle du logiciel proxy : le programme d’installation effectuera une mise à niveau sur place. Aucun redémarrage n’est nécessaire lors de la mise à niveau du logiciel proxy. La mise à niveau du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `AzureADPasswordProtectionProxySetup.exe /quiet`.
 
-L’agent proxy prend en charge la mise à niveau automatique. La mise à niveau automatique utilise le service de mise à jour de l'agent Microsoft Azure AD Connect qui est installé parallèlement au service proxy. La mise à niveau automatique est activée par défaut et peut être activée ou désactivée à l’aide de l’applet de commande `Set-AzureADPasswordProtectionProxyConfiguration`. Pour connaître le paramétrage actuel, vous pouvez utiliser l’applet de commande `Get-AzureADPasswordProtectionProxyConfiguration`. Microsoft recommande de laisser la mise à niveau automatique activée.
+L’agent proxy prend en charge la mise à niveau automatique. La mise à niveau automatique utilise le service du programme de mise à jour de l’agent Microsoft Azure AD Connect, installé à côté du service proxy. La mise à niveau automatique est activée par défaut et peut être activée ou désactivée à l’aide de l’applet de commande `Set-AzureADPasswordProtectionProxyConfiguration`. Pour connaître le paramétrage actuel, vous pouvez utiliser l’applet de commande `Get-AzureADPasswordProtectionProxyConfiguration`. Microsoft recommande de laisser la mise à niveau automatique activée en permanence.
 
 L'applet de commande `Get-AzureADPasswordProtectionProxy` peut être utilisée pour interroger la version logicielle de tous les agents proxy actuellement installés dans une forêt.
 
@@ -312,7 +322,7 @@ L'applet de commande `Get-AzureADPasswordProtectionProxy` peut être utilisée p
 
 Lorsqu’une version plus récente du logiciel de l’agent DC de protection par mot de passe Azure AD est disponible, la mise à niveau s'effectue en exécutant la dernière version du package logiciel `AzureADPasswordProtectionDCAgentSetup.msi`. La dernière version du logiciel est disponible dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
-Il n’est pas nécessaire de désinstaller la version actuelle du logiciel de l’agent DC : le programme d’installation effectuera une mise à niveau sur place. Un redémarrage est toujours nécessaire lors de la mise à niveau du logiciel de l’agent DC. Cela est dû au comportement de base de Windows. 
+Il n’est pas nécessaire de désinstaller la version actuelle du logiciel de l’agent DC : le programme d’installation effectuera une mise à niveau sur place. Un redémarrage est toujours nécessaire lors de la mise à niveau du logiciel de l’agent DC. Cette exigence découle du comportement de base de Windows. 
 
 La mise à niveau du logiciel peut être automatisée à l’aide de procédures MSI standard, par exemple : `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
 

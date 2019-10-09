@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012470"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350066"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Rechercher les erreurs des pools et des nœuds
 
@@ -42,7 +42,7 @@ Les causes courantes des erreurs de redimensionnement sont notamment les suivant
 - Ressources insuffisantes quand un [pool est dans un réseau virtuel](https://docs.microsoft.com/azure/batch/batch-virtual-network)
   - Vous pouvez créer des ressources comme des équilibreurs de charge, des adresses IP publiques et des groupes de sécurité réseau dans le même abonnement que le compte Batch. Vérifiez que les quotas de l’abonnement sont suffisants pour ces ressources.
 - Vastes pools avec images de machines virtuelles personnalisées
-  - L’allocation de vastes pools utilisant des images de machine virtuelle personnalisées peut prendre plus de temps et des dépassements du délai d’expiration peuvent se produire.  Consultez [Utiliser une image personnalisée pour créer un pool de machines virtuelles](https://docs.microsoft.com/azure/batch/batch-custom-images) pour connaître les suggestions sur les limites et la configuration.
+  - L’allocation de vastes pools utilisant des images de machine virtuelle personnalisées peut prendre plus de temps et des dépassements du délai d’expiration peuvent se produire.  Pour obtenir des recommandations sur les limites et la configuration, voir [Créer un pool avec Shared Image Gallery](batch-sig-images.md).
 
 ### <a name="automatic-scaling-failures"></a>Échecs de mise à l’échelle automatique
 

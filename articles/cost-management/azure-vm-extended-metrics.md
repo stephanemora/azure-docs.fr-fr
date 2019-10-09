@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 ms.custom: seodec18
-ms.openlocfilehash: 6a4f7f5671562679a245d97ad8491764657cbb34
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: e1d0beb6ced0d582166d556c1ae2fc17b375dddf
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "66242464"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695366"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Ajouter des métriques étendues pour les machines virtuelles Azure
 
@@ -31,7 +31,7 @@ Une fois que vous avez activé la collecte de métriques, vous pouvez :
 Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation de l’UC et de la mémoire de vos machines virtuelles Azure. Les métriques des machines virtuelles Azure correspondent à _Pourcentage d’UC_ et _\Mémoire\% octets validés en cours d’utilisation_.
 
 > [!NOTE]
-> La collecte de données de métriques étendue est prise en charge uniquement avec la supervision d’invités Azure. Cloudyn n’est pas compatible avec l’extension de machine virtuelle de journaux Azure Monitor.
+> La collecte de données de métriques étendue est prise en charge uniquement avec la supervision d’invités Azure. Cloudyn n’est pas compatible avec [Log Analytics Agent](../azure-monitor/platform/agents-overview.md). 
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>Déterminer si les métriques étendues sont activées
 

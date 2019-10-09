@@ -1,17 +1,17 @@
 ---
 title: Approvisionner le débit d’un conteneur dans Azure Cosmos DB
 description: Découvrez comment provisionner le débit au niveau du conteneur dans Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
-ms.openlocfilehash: 0975fe5135bbe9f5e1dc65ee0444cc3aab986a2e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 09/28/2019
+ms.author: mjbrown
+ms.openlocfilehash: 8da27773cc74324c1dde5a95de1abef3256c1f1c
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093055"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811674"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionner du débit sur un conteneur Azure Cosmos
 
@@ -31,48 +31,17 @@ Cet article explique comment provisionner le débit sur un conteneur (collection
    * Entrez un débit que vous voulez provisionner (par exemple, 1 000 unités de requête).
    * Sélectionnez **OK**.
 
-![Capture d’écran de l’Explorateur de données, avec l’option Nouvelle collection mise en surbrillance](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    ![Capture d’écran de l’Explorateur de données, avec l’option Nouvelle collection mise en surbrillance](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-using-azure-cli"></a>Approvisionner le débit à l’aide d’Azure CLI
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Configurer le débit à l’aide d’Azure CLI ou de PowerShell
 
-```azurecli-interactive
-# Create a container with a partition key and provision throughput of 400 RU/s
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $containerName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 400
-```
+Pour créer un conteneur avec un débit dédié, voir
 
-## <a name="provision-throughput-using-powershell"></a>Provisionner le débit à l’aide de PowerShell
+* [Créer un conteneur à l’aide d’Azure CLI](manage-with-cli.md#create-a-container)
+* [Créer un conteneur à l’aide de PowerShell](manage-with-powershell.md#create-container)
 
-```azurepowershell-interactive
-# Create a container with a partition key and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$containerName = "container1"
-$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
-
-$ContainerProperties = @{
-    "resource"=@{
-        "id"=$containerName;
-        "partitionKey"=@{
-            "paths"=@("/myPartitionKey");
-            "kind"="Hash"
-        }
-    };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $resourceName -PropertyObject $ContainerProperties
-```
-
-Si vous provisionnez le débit sur un conteneur dans un compte Azure Cosmos configuré avec l’API Azure Cosmos DB pour MongoDB, utilisez `/myShardKey` pour le chemin de clé de partition. Si vous provisionnez le débit sur un conteneur dans un compte Azure Cosmos configuré avec l’API Cassandra, utilisez `/myPrimaryKey` pour le chemin de clé de partition.
+> [!Note]
+> Si vous provisionnez le débit sur un conteneur dans un compte Azure Cosmos configuré avec l’API Azure Cosmos DB pour MongoDB, utilisez `/myShardKey` pour le chemin de clé de partition. Si vous provisionnez le débit sur un conteneur dans un compte Azure Cosmos configuré avec l’API Cassandra, utilisez `/myPrimaryKey` pour le chemin de clé de partition.
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>Provisionner le débit à l’aide du kit SDK .NET
 

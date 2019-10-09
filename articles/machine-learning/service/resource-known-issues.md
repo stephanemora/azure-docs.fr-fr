@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275cf20329be04e86c2e7c2a613f657733e652df
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213452"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338750"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
@@ -214,3 +214,24 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes stocke les secrets dans un format encodé en base 64. Vous devez décoder en base 64 les composants `cert.pem` et `key.pem` des secrets avant de les fournir à `attach_config.enable_ssl`. 
+
+## <a name="recommendations-for-error-fix"></a>Suggestions pour la correction d’erreurs
+Suite à une observation générale, voici les suggestions d’Azure ML pour résoudre certaines erreurs courantes dans Azure ML.
+
+### <a name="moduleerrors-no-module-named"></a>ModuleErrors (aucun module nommé)
+Si vous rencontrez des erreurs de module (ModuleErrors) lors de la soumission d’expériences dans Azure ML, cela signifie que le script d’apprentissage attend qu’un package soit installé, mais qu’il n’est pas ajouté. Une fois que vous avez fourni le nom du package, Azure ML installe le package dans l’environnement utilisé pour l’apprentissage. 
+
+Si vous utilisez des [Estimateurs](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) pour soumettre des expériences, vous pouvez spécifier un nom de package à l’aide du paramètre `pip_packages` ou `conda_packages` dans l’estimateur en fonction de la source à partir de laquelle vous souhaitez installer le package. Vous pouvez également spécifier un fichier yml avec toutes vos dépendances à l’aide de `conda_dependencies_file` ou répertorier toutes vos exigences PIP dans un fichier txt à l’aide du paramètre `pip_requirements_file`.
+
+Azure ML fournit également des estimateurs spécifiques de l’infrastructure pour Tensorflow, PyTorch, Chainer et SKLearn. À l’aide de ces estimateurs, assurez-vous que les dépendances d’infrastructure sont installées pour vous dans l’environnement utilisé pour l’apprentissage. Vous avez la possibilité de spécifier des dépendances supplémentaires comme décrit ci-dessus. 
+ 
+ Azure ML a géré les images Docker dont le contenu est visible dans [AzureML Containers](https://github.com/Azure/AzureML-Containers).
+Les dépendances spécifiques de l’infrastructure sont répertoriées dans la documentation de celle-ci, [Chainer](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+
+>[Remarque] Si vous pensez qu’un package est suffisamment courant pour être ajouté dans des environnements et images gérés Azure ML, soulevez un problème GitHub dans [AzureML Containers](https://github.com/Azure/AzureML-Containers). 
+ 
+ ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (nom non défini), AttributeError (objet sans attribut)
+Cette exception doit provenir de vos scripts d’apprentissage. Vous pouvez consulter les fichiers journaux du portail Azure pour obtenir des informations supplémentaire sur l’erreur de nom non défini ou d’attribut. À partir du Kit de développement logiciel (SDK), vous pouvez utiliser `run.get_details()` pour examiner le message d’erreur. Cette opération répertorie également tous les fichiers journaux générés pour votre exécution. Veillez à examiner votre script d’apprentissage et à corriger l’erreur avant de réessayer. 
+
+### <a name="horovod-is-shutdown"></a>Horovod est arrêté
+Dans la plupart des cas, cette exception signifie qu’une exception sous-jacente dans l’un des processus à entraîné l’arrêt de horovod. Chaque rang dans le travail MPI obtient son propre fichier journal dédié dans Azure ML. Ces journaux sont nommés `70_driver_logs`. Dans le cas d’un apprentissage distribué, les noms de journaux sont suivis du suffixe `_rank` pour faciliter leur différenciation. Pour trouver l’erreur exacte qui a provoqué l’arrêt de horovod, parcourez tous les fichiers journaux et recherchez `Traceback` à la fin des fichiers driver_log. L’un de ces fichiers indiquera l’exception sous-jacente réelle. 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e8a186fbcb04dc29fcf57a2353adcf89ce46b119
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844572"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677929"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connecter IoT DevKit AZ3166 à Azure IoT Hub
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser le kit [MXChip IoT DevKit](https://microsoft.github.io/azur
 
 Vous n’avez pas encore de DevKit ? Essayez le [simulateur DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) ou [achetez un DevKit](https://aka.ms/iot-devkit-purchase).
 
-Vous trouverez le code source de tous les tutoriels de DevKit dans le référentiel [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples).
+Le code source de tous les didacticiels de DevKit figure dans la [galerie d’exemples de code](https://docs.microsoft.com/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 

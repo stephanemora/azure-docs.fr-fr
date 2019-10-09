@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981241"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703269"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Data Warehouse
 
@@ -72,7 +72,9 @@ Le pare-feu basé sur IP est une fonctionnalité Azure SQL Server qui empêche t
 ## <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
 
 En plus des règles IP, le pare-feu Azure SQL Server vous permet de définir des *règles de réseau virtuel*.  
-Pour plus d’informations, voir [Points de terminaison de service de réseau virtuel et règles dans Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+Pour en savoir plus, consultez [Points de terminaison de service de réseau virtuel et règles dans Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) ou regardez cette vidéo :
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
  ### <a name="azure-networking-terminology"></a>Terminologie des réseaux Azure  
 Apprenez à connaître les termes de réseau Azure suivants quand vous explorez les règles de pare-feu de réseau virtuel

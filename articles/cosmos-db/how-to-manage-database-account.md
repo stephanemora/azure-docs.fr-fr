@@ -4,14 +4,14 @@ description: Découvrez comment gérer les comptes de base de données dans Azur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 95e3ee31ea6a700253e372d183944c17c85e327c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178325"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812523"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
 
@@ -25,50 +25,11 @@ Cet article décrit comment gérer différentes tâches sur un compte Azure Cosm
 
 ### <a id="create-database-account-via-cli"></a>Interface CLI Azure
 
-```azurecli-interactive
-# Create an account
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname' # must be lower case and < 31 characters
-
-az cosmosdb create \
-   --name $accountName \
-   --resource-group $resourceGroupName \
-   --kind GlobalDocumentDB \
-   --default-consistency-level Session \
-   --locations regionName=WestUS failoverPriority=0 isZoneRedundant=False \
-   --locations regionName=EastUS failoverPriority=1 isZoneRedundant=False \
-   --enable-multiple-write-locations true
-```
+Voir [Créer un compte Azure Cosmos DB avec Azure CLI](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
-```azurepowershell-interactive
-# Create an Azure Cosmos account for Core (SQL) API
-$resourceGroupName = "myResourceGroup"
-$location = "West US"
-$accountName = "mycosmosaccount" # must be lower case and < 31 characters
 
-$locations = @(
-    @{ "locationName"="West US"; "failoverPriority"=0 },
-    @{ "locationName"="East US"; "failoverPriority"=1 }
-)
-
-$consistencyPolicy = @{
-    "defaultConsistencyLevel"="BoundedStaleness";
-    "maxIntervalInSeconds"=300;
-    "maxStalenessPrefix"=100000
-}
-
-$CosmosDBProperties = @{
-    "databaseAccountOfferType"="Standard";
-    "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Voir [Créer un compte Azure Cosmos DB avec PowerShell](manage-with-powershell.md#create-account)
 
 ### <a id="create-database-account-via-arm-template"></a>Modèle Azure Resource Manager
 
@@ -96,107 +57,27 @@ Dans un mode d’écriture dans plusieurs régions, vous pouvez ajouter ou suppr
 
 ### <a id="add-remove-regions-via-cli"></a>Interface CLI Azure
 
-```azurecli-interactive
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname' # must be lower case and <31 characters
-
-# Create an account with 1 region
-az cosmosdb create --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False
-
-# Add a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False --locations regionName=EastUS failoverPriority=1 isZoneRedundant=False
-
-# Remove a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False
-```
+Voir [Ajouter ou supprimer des régions avec Azure CLI](manage-with-cli.md#add-or-remove-regions)
 
 ### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-# Create an account with 1 region
-$resourceGroupName = "myResourceGroup"
-$location = "West US"
-$accountName = "mycosmosaccount" # must be lower case and <31 characters
-
-$locations = @( @{ "locationName"="West US"; "failoverPriority"=0 } )
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
-$CosmosDBProperties = @{
-    "databaseAccountOfferType"="Standard";
-    "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy
-}
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-
-# Add a region
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
-
-$locations = @( 
-    @{ "locationName"="West US"; "failoverPriority"=0 },
-    @{ "locationName"="East Us"; "failoverPriority"=1 } 
-)
-
-$account.Properties.locations = $locations
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-
-# Azure Resource Manager does not wait on the resource update
-Write-Host "Confirm region added before continuing..."
-
-# Remove a region
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
-
-$locations = @( @{ "locationName"="West US"; "failoverPriority"=0 } )
-
-$account.Properties.locations = $locations
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Voir [Ajouter ou supprimer des régions avec PowerShell](manage-with-powershell.md#update-account)
 
 ## <a id="configure-multiple-write-regions"></a>Configurer plusieurs régions d’écriture
 
 ### <a id="configure-multiple-write-regions-portal"></a>Portail Azure
 
-Ouvrez l’onglet **Répliquer les données globalement** et sélectionnez **Activer** pour activer l’écriture dans plusieurs régions. Une fois que vous avez activé l’écriture dans plusieurs régions, toutes les régions de lecture indiquées sur votre compte deviennent des régions de lecture et d’écriture. Vous pouvez également désactiver les écritures dans plusieurs régions si nécessaire.
+Ouvrez l’onglet **Répliquer les données globalement** et sélectionnez **Activer** pour activer l’écriture dans plusieurs régions. Une fois que vous avez activé l’écriture dans plusieurs régions, toutes les régions de lecture indiquées sur votre compte deviennent des régions de lecture et d’écriture.
 
 ![Capture d’écran de la configuration de la fonction multimaître dans un compte Azure Cosmos](./media/how-to-manage-database-account/single-to-multi-master.png)
 
-Si vous avez des questions sur cette fonctionnalité, utilisez l’adresse askcosmosdb@microsoft.com. 
-
 ### <a id="configure-multiple-write-regions-cli"></a>Interface CLI Azure
 
-```azurecli-interactive
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-multiple-write-locations true
-```
-
-Pour créer un compte Azure Cosmos sans écritures dans plusieurs régions, vous pouvez définir le paramètre `--enable-multiple-write-locations` sur false.
+Voir [Activer plusieurs régions d’écriture avec Azure CLI](manage-with-cli.md#enable-multiple-write-regions)
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-# Update an Azure Cosmos account from single to multi-master
-
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
-
-$account.Properties.enableMultipleWriteLocations = "true"
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Voir [Activer plusieurs régions d’écriture avec PowerShell](manage-with-powershell.md#multi-master)
 
 ### <a id="configure-multiple-write-regions-arm"></a>modèle Azure Resource Manager
 
@@ -276,31 +157,11 @@ L’option de basculement automatique permet à Azure Cosmos DB de basculer vers
 
 ### <a id="enable-automatic-failover-via-cli"></a>Interface CLI Azure
 
-```azurecli-interactive
-# Enable automatic failover on an existing account
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
-
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-automatic-failover true
-```
+Voir [Activer le basculement automatique avec Azure CLI](manage-with-cli.md#enable-automatic-failover)
 
 ### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
-
-$account.Properties.enableAutomaticFailover="true";
-$CosmosDBProperties = $account.Properties;
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Voir [Activer le basculement automatique avec PowerShell](manage-with-powershell.md#enable-automatic-failover)
 
 ## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Définir les priorités de basculement pour votre compte Azure Cosmos
 
@@ -327,31 +188,11 @@ Une fois qu’un compte Cosmos est configuré pour le basculement automatique, l
 
 ### <a id="set-failover-priorities-via-cli"></a>Interface CLI Azure
 
-```azurecli-interactive
-# Assume region order is initially eastus=0 westus=1 southeastasia=2 on account creation
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
-
-az cosmosdb failover-priority-change --name $accountName --resource-group $resourceGroupName --failover-policies eastus=0 southeastasia=1 westus=2
-```
+Voir [Définir la priorité de basculement avec Azure CLI](manage-with-cli.md#set-failover-priority)
 
 ### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-# Assume account currently has regions with priority: West US = 0, East US = 1, Southeast Asia = 2
-$resourceGroupName = "myResourceGroup"
-$accountName = "myaccountname"
-
-$failoverPolicies = @(
-    @{ "locationName"="West US"; "failoverPriority"=0 },
-    @{ "locationName"="Southeast Asia"; "failoverPriority"=1 },
-    @{ "locationName"="East US"; "failoverPriority"=2 }
-)
-
-Invoke-AzResourceAction -Action failoverPriorityChange `
-    -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
-    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
-```
+Voir [Définir la priorité de basculement avec PowerShell](manage-with-powershell.md#modify-failover-priority)
 
 ## <a id="manual-failover"></a>Effectuer un basculement manuel sur un compte Azure Cosmos
 
@@ -379,39 +220,11 @@ Le processus de basculement manuel implique de changer la région d’écriture 
 
 ### <a id="enable-manual-failover-via-cli"></a>Interface CLI Azure
 
-```azurecli-interactive
-# Assume account currently has regions with priority: eastus=0 westus=1
-# Change the priority order to trigger a failover of the write region
-$resourceGroupName = 'myResourceGroup'
-$accountName = 'myaccountname'
-
-az cosmosdb update --name $accountName --resource-group $resourceGroupName --locations regionName=westus failoverPriority=0 isZoneRedundant=False --locations regionName=eastus failoverPriority=1 isZoneRedundant=False
-```
+Voir [Déclencher un basculement manuel avec Azure CLI](manage-with-cli.md#trigger-manual-failover)
 
 ### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-# Assume account currently has regions with priority: West US = 0, East US = 1
-# Change the priority order to trigger a failover of the write region
-$resourceGroupName = "myResourceGroup"
-$accountName = "myaccountname"
-
-$account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
-
-$locations = @(
-    @{ "locationName"="East US"; "failoverPriority"=0 },
-    @{ "locationName"="West US"; "failoverPriority"=1 }
-)
-
-$account.Properties.locations=$locations;
-$CosmosDBProperties = $account.Properties;
-
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Voir [Déclencher un basculement manuel avec PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

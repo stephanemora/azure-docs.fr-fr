@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dc01f8556fb1c88899cae1a8767cb23d6b6041eb
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 9796a4efdacef04390705607defb7b5cdd462886
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128883"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828743"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec une instance managée
 
@@ -167,7 +167,7 @@ Une instance managée ne pouvant pas accéder aux fichiers, vous ne pouvez pas c
       - La création de scripts de connexions Azure AD qui utilisent une connexion authentifiée n’est pas prise en charge.
       - IntelliSense ne reconnaît pas l’instruction CREATE LOGIN FROM EXTERNAL PROVIDER et affiche un trait de soulignement rouge.
 
-- Seule la connexion du principal au niveau du serveur, qui est créée par le processus de provisionnement de Managed Instance, les membres des rôles de serveur, tels que `securityadmin` ou `sysadmin`, ou d’autres connexions disposant de l’autorisation ALTER ANY LOGIN au niveau du serveur peuvent créer les principaux de serveur (connexions) Azure AD dans la base de données master pour Managed Instance.
+- Seule la connexion du principal au niveau du serveur, qui est créée par le processus de l’approvisionnement de Managed Instance, les membres des rôles de serveur, tels que `securityadmin` ou `sysadmin`, ou d’autres connexions disposant de l’autorisation ALTER ANY LOGIN au niveau du serveur peuvent créer les principaux de serveur (connexions) Azure AD dans la base de données master pour Managed Instance.
 - Si la connexion est un principal SQL, seules les connexions faisant partie du rôle `sysadmin` peuvent utiliser la commande create pour créer les connexions d’un compte Azure AD.
 - La connexion Azure AD doit être membre d’un compte Azure AD dans le même annuaire que celui utilisé pour Azure SQL Database Managed Instance.
 - Les principaux de serveur (connexions) Azure AD sont visibles dans l’Explorateur d’objets à compter de SQL Server Management Studio 18.0 préversion 5.
@@ -334,7 +334,7 @@ Une instance managée ne pouvant pas accéder à des partages de fichiers et à 
 
 Une instance managée ne pouvant pas accéder à des partages de fichiers et à des dossiers Windows, les contraintes suivantes s’appliquent :
 
-- Seul `CREATE ASSEMBLY FROM BINARY` est pris en charge. Consultez [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql). 
+- Seul `CREATE ASSEMBLY FROM BINARY` est pris en charge. Voir [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql). 
 - `CREATE ASSEMBLY FROM FILE` n’est pas pris en charge. Consultez [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` ne peut pas référencer des fichiers. Consultez [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
@@ -408,7 +408,7 @@ Les tables externes qui référencent les fichiers dans HDFS ou le stockage Blob
 
 - Les types de réplication d’instantané et bidirectionnelle sont pris en charge. La réplication de fusion, la réplication d’égal à égal et les abonnements modifiables ne sont pas pris en charge.
 - La [réplication transactionnelle](sql-database-managed-instance-transactional-replication.md) est disponible en préversion publique dans Managed Instance sous certaines contraintes :
-    - Tous les types de participants de réplication (serveur de publication, serveur de distribution, abonné d’extraction et abonné de type push) peuvent être placés sur Managed Instance, mais le serveur de publication et le serveur de distribution ne peuvent pas être placés sur des instances différentes.
+    - Tous les types de participants à la réplication (serveur de publication, serveur de distribution, abonné d’extraction et abonné de type push) peuvent être placés sur des instances gérées, mais le serveur de publication et le serveur de distribution doivent être tous deux dans le cloud ou locaux.
     - Managed Instance peut communiquer avec les versions récentes de SQL Server. Consultez les versions prises en charge [ici](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
     - La réplication transactionnelle présente des [exigences de mise en réseau supplémentaires](sql-database-managed-instance-transactional-replication.md#requirements).
 
@@ -538,13 +538,21 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur les niveaux usage général et critique pour l’entreprise. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
 
-### <a name="error-logs"></a>Journaux d’erreurs
+### <a name="error-logs"></a>Des journaux d’activité d’erreurs
 
 Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont journalisés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a> Problèmes connus
 
-### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongioing-database-restore"></a>Les opérations de changement de niveau de service et de création d’instance sont bloquées par la restauration de base de données en cours
+### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erreur retournée lors de la tentative de suppression d’un fichier qui n’est pas vide
+
+**Date :** Octobre 2019
+
+SQL Server/Managed Instance [ne permettent pas à l’utilisateur de supprimer un fichier qui n’est pas vide](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Si vous tentez de supprimer un fichier de données non vide à l’aide d’une instruction `ALTER DATABASE REMOVE FILE`, l’erreur `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` n’est pas retournée immédiatement. Managed Instance continue à essayer de supprimer le fichier et l’opération échoue après 30 minutes avec `Internal server error`.
+
+**Solution de contournement** : Supprimez le contenu du fichier à l’aide de la commande `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. S’il s’agit du seul fichier dans le groupe de fichiers, vous devez supprimer les données de la table ou de la partition associées à ce groupe de fichiers avant de réduire le fichier, et éventuellement charger ces données dans une autre table ou partition.
+
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Les opérations de changement de niveau de service et de création d’instance sont bloquées par la restauration de base de données en cours
 
 **Date :** Septembre 2019
 

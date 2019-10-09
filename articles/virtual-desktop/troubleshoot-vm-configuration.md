@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/20/2019
 ms.author: helohr
-ms.openlocfilehash: f919ff1efcb094dec4c810f51a1810f2383ea09d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d163bbf50193743b6602bc9ec3d330df4c14ebcc
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174133"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676421"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -20,7 +20,7 @@ Utilisez cet article pour résoudre les problèmes rencontrés lors de la config
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 
-Nous n’acceptons actuellement aucun cas de support pendant que Windows Virtual Desktop est en préversion. Rendez-vous sur le site [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour discuter du service Windows Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
+Rendez-vous sur le site [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) pour discuter du service Windows Virtual Desktop avec l’équipe de produit et les membres actifs de la communauté.
 
 ## <a name="vms-are-not-joined-to-the-domain"></a>Les machines virtuelles ne sont pas jointes au domaine
 
@@ -374,7 +374,7 @@ Si vous utilisez la version « 1903 », suivez ces instructions :
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d’informations sur le service en préversion, consultez [Environnement Windows Virtual Desktop en préversion](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Pour plus d’informations sur le service, voir [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

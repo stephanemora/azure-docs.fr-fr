@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123431"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686989"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -47,7 +47,7 @@ Oui. La configuration des circuits ExpressRoute vous permet d’augmenter jusqu�
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Puis-je utiliser la même connexion réseau privée avec un réseau virtuel et d’autres services Azure simultanément ?
 
-Oui. Un circuit ExpressRoute, une fois configuré, vous permet d’accéder simultanément aux services au sein d’un réseau virtuel et aux autres services Azure. Vous vous connectez aux réseaux virtuels via le chemin d’accès d’homologation privée, et aux autres services via le chemin d’accès d’homologation Microsoft.
+Oui. Un circuit ExpressRoute, une fois configuré, vous permet d’accéder simultanément aux services au sein d’un réseau virtuel et aux autres services Azure. Vous vous connectez aux réseaux virtuels via le chemin d’accès de peering privé, et aux autres services via le chemin d’accès de peering Microsoft.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute offre-t-il un contrat de niveau de service (SLA) ?
 
@@ -57,11 +57,11 @@ Pour plus d’informations, consultez la page [SLA ExpressRoute](https://azure.m
 
 ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-peerings.md) pour différents types de services : l’appairage privé, l’appairage Microsoft et l’appairage public.
 
-### <a name="private-peering"></a>Homologation privée
+### <a name="private-peering"></a>Peering privé
 
 * Réseaux virtuels, comprenant l’ensemble des machines virtuelles et des services cloud
 
-### <a name="microsoft-peering"></a>Homologation Microsoft
+### <a name="microsoft-peering"></a>Peering Microsoft
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI : disponible via une communauté régionale Azure, voir [ici](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) pour savoir comment déterminer la région de votre locataire Power BI.
@@ -70,13 +70,13 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br><br>**Les services suivants ne sont pas pris en charge** :
     * CDN
     * Azure Front Door
-    * Multi-Factor Authentication
+    * Serveur Multi-Factor Authentication (hérité)
     * Traffic Manager
 
-### <a name="public-peering"></a>Homologation publique
+### <a name="public-peering"></a>Peering public
 
 >[!NOTE]
->L’homologation publique a été désactivée sur les nouveaux circuits ExpressRoute. Les services Azure sont disponibles sur l’homologation Microsoft.
+>Le peering public a été désactivé sur les nouveaux circuits ExpressRoute. Les services Azure sont disponibles sur le peering Microsoft.
 >
 
 * Power BI
@@ -84,13 +84,15 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
   **Les services suivants ne sont pas pris en charge** :
     * CDN
     * Azure Front Door
-    * Multi-Factor Authentication
+    * Serveur Multi-Factor Authentication (hérité)
     * Traffic Manager
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Dynamics 365 est-il pris en charge dans ExpressRoute ?
 
 Les environnements Dynamics 365 et Common Data Service (CDS) sont hébergés dans Azure. Par conséquent, les clients bénéficient de la prise en charge ExpressRoute sous-jacente des ressources Azure. Vous pouvez vous connecter à ses points de terminaison de service si votre filtre de routeur contient les régions Azure où sont hébergés les environnements Dynamics 365/CDS.
 
+> [!NOTE]
+> [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) n’est **pas** requis pour la connectivité de Dynamics 365 via Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Données et connexions
 
@@ -120,7 +122,7 @@ Oui. Chaque circuit ExpressRoute dispose d’une paire redondante de connexions 
 
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>Vais-je perdre ma connectivité en cas d’échec de l’un de mes liens ExpressRoute ?
 
-Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour gérer la charge de votre réseau et fournir une haute disponibilité de votre circuit ExpressRoute. Vous pouvez également créer un circuit dans un autre emplacement d’homologation pour bénéficier de la résilience au niveau du circuit.
+Vous ne perdez pas votre connectivité si une des connexions croisées échoue. Une connexion redondante est disponible pour gérer la charge de votre réseau et fournir une haute disponibilité de votre circuit ExpressRoute. Vous pouvez également créer un circuit dans un autre emplacement de peering pour bénéficier de la résilience au niveau du circuit.
 
 ### <a name="how-do-i-implement-redundancy-on-private-peering"></a>Comment implémenter la redondance sur le peering privé ?
 
@@ -136,7 +138,7 @@ Cliquez [ici](https://docs.microsoft.com/azure/expressroute/designing-for-high-a
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
 
-Vous pouvez obtenir une haute disponibilité en connectant à votre réseau virtuel des circuits ExpressRoute à différents emplacements d’homologation (par exemple, Singapore, Singapore2). Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Pour plus d’informations, voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md).
+Vous pouvez obtenir une haute disponibilité en connectant à votre réseau virtuel des circuits ExpressRoute à différents emplacements de peering (par exemple, Singapore, Singapore2). Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Pour plus d’informations, voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="how-do-i-ensure-that-my-traffic-destined-for-azure-public-services-like-azure-storage-and-azure-sql-on-microsoft-or-public-peering-is-preferred-on-the-expressroute-path"></a>Comment puis-je m'assurer que mon trafic destiné aux services publics Azure comme Azure Storage et Azure SQL sur Microsoft ou Public Peering est préféré sur le chemin ExpressRoute ?
 
@@ -162,19 +164,19 @@ Oui. Vous pouvez avoir plusieurs circuits ExpressRoute dans votre abonnement. La
 
 Oui. Vous pouvez avoir des circuits ExpressRoute de nombreux fournisseurs de services. Chaque circuit ExpressRoute est associé uniquement à un fournisseur de services. 
 
-### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Je vois deux emplacements d’homologation ExpressRoute dans le même métro, par exemple, Singapore et Singapore2. Quel emplacement d’homologation dois-je choisir pour créer mon circuit ExpressRoute ?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Je vois deux emplacements de peering ExpressRoute dans le même métro, par exemple, Singapore et Singapore2. Quel emplacement de peering dois-je choisir pour créer mon circuit ExpressRoute ?
 Si votre fournisseur de services propose ExpressRoute sur les deux sites, vous pouvez collaborer avec lui et choisir l’un ou l’autre site pour configurer ExpressRoute. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Puis-je avoir plusieurs circuits ExpressRoute dans le même métro ? Puis-je les lier au même réseau virtuel ?
 
-Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement de peering, vous pouvez lier jusqu’à 4 circuits sur le même réseau virtuel.
+Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements de peering ExpressRoute et que les circuits sont créés à différents emplacements de peering, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement de peering, vous pouvez lier jusqu’à 4 circuits sur le même réseau virtuel.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
 
 Étapes élémentaires :
 
 * Établissez un circuit ExpressRoute et faites-le activer par le fournisseur de services.
-* Vous, ou le fournisseur, devez configurer les homologations BGP.
+* Vous, ou le fournisseur, devez configurer les peerings BGP.
 * Liez le réseau virtuel au circuit ExpressRoute.
 
 Pour plus d’informations, consultez [flux de travail ExpressRoute pour la configuration de circuits et les états des circuits](expressroute-workflows.md).
@@ -215,7 +217,7 @@ Oui. Si vous n’avez pas publié les itinéraires par défaut (0.0.0.0/0) ou le
 
 Oui. Vous pouvez publier des itinéraires par défaut (0.0.0.0/0) pour bloquer la connectivité Internet de toutes les machines virtuelles qui sont déployées au sein d’un réseau virtuel et qui acheminent tout le trafic sortant via le circuit ExpressRoute.
 
-Si vous publiez des itinéraires par défaut, nous forçons le réacheminement du trafic en direction des services offerts via l’homologation Microsoft (tels que le Stockage Azure et SQL DB) vers votre environnement local. Vous devez configurer vos routeurs de façon à ce qu’ils retournent le trafic vers Azure via le chemin d’accès d’homologation Microsoft ou via Internet. Si vous avez activé un point de terminaison de service pour le service, le trafic vers le service n’est pas réacheminé vers votre site. Le trafic reste dans le réseau principal Azure. Découvrez plus d’informations sur les points de terminaison de service dans [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
+Si vous publiez des itinéraires par défaut, nous forçons le réacheminement du trafic en direction des services offerts via le peering Microsoft (tels que le Stockage Azure et SQL DB) vers votre environnement local. Vous devez configurer vos routeurs de façon à ce qu’ils retournent le trafic vers Azure via le chemin d’accès de peering Microsoft ou via Internet. Si vous avez activé un point de terminaison de service pour le service, le trafic vers le service n’est pas réacheminé vers votre site. Le trafic reste dans le réseau principal Azure. Découvrez plus d’informations sur les points de terminaison de service dans [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Les réseaux virtuels liés à un même circuit ExpressRoute peuvent-ils communiquer entre eux ?
 
@@ -231,11 +233,11 @@ L’adresse IP publique est utilisée uniquement pour la gestion interne, et ne 
 
 ### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>Existe-t-il des limites sur le nombre d’itinéraires que je peux publier ?
 
-Oui. Nous acceptons jusqu’à 4 000 préfixes d’itinéraires pour une homologation privée, et 200 pour une homologation Microsoft. Vous pouvez augmenter ce nombre jusqu’à 10 000 itinéraires par homologation privée si vous activez la fonctionnalité Premium d’ExpressRoute.
+Oui. Nous acceptons jusqu’à 4 000 préfixes d’itinéraires pour un peering privé, et 200 pour un peering Microsoft. Vous pouvez augmenter ce nombre jusqu’à 10 000 itinéraires par peering privé si vous activez la fonctionnalité Premium d’ExpressRoute.
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Existe-t-il des restrictions de plages d’adresses IP que je peux publier sur la session BGP ?
 
-Nous n’acceptons pas les préfixes privés (RFC1918) pour la session BGP d’homologation Microsoft. Nous acceptons n’importe quelle taille de préfixe (jusqu'à /32) sur Microsoft et sur le peering privé.
+Nous n’acceptons pas les préfixes privés (RFC1918) pour la session BGP de peering Microsoft. Nous acceptons n’importe quelle taille de préfixe (jusqu'à /32) sur Microsoft et sur le peering privé.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Que se passe-t-il si je dépasse les limites du protocole BGP ?
 
@@ -263,14 +265,14 @@ Vous pouvez mettre à jour de la bande passante du circuit ExpressRoute à l’a
 
 ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-dessous.
 
-* Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour l’homologation privée.
+* Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour le peering privé.
 * Augmentation du nombre de réseaux virtuels et de connexions ExpressRoute Global Reach activables sur un circuit ExpressRoute (la valeur par défaut est 10). Pour plus d’informations, consultez le tableau [Limites d’ExpressRoute](#limits).
 * Connexion à Office 365
 * Connectivité globale sur le réseau principal Microsoft. Vous pouvez désormais lier un réseau virtuel dans une région géopolitique à un circuit ExpressRoute d’une autre région.<br>
     **Exemples :**
 
     *  Vous pouvez lier un réseau virtuel créé en Europe de l’ouest à un circuit créé dans la Silicon Valley. 
-    *  Sur l’homologation Microsoft, les préfixes d’autres régions géopolitiques sont publiés de sorte que vous pouvez vous connecter, par exemple, à SQL Azure en Europe de l’Ouest à partir d’un circuit situé dans la Silicon Valley.
+    *  Sur le peering Microsoft, les préfixes d’autres régions géopolitiques sont publiés de sorte que vous pouvez vous connecter, par exemple, à SQL Azure en Europe de l’Ouest à partir d’un circuit situé dans la Silicon Valley.
 
 
 ### <a name="limits"></a>Combien de réseaux virtuels et de connexions ExpressRoute Global Reach puis-je activer sur un circuit ExpressRoute si j’ai activé ExpressRoute Premium ?
@@ -362,25 +364,25 @@ Consultez la recommandation en matière de [Haute disponibilité et basculement 
 
 Oui. Les points de terminaison du service Office 365 GCC sont accessibles via Azure US Government ExpressRoute. Toutefois, vous devez d’abord ouvrir un ticket de support sur le portail Azure pour fournir à Microsoft les préfixes que vous avez l’intention de publier. La connectivité aux services Office 365 GCC sera établie une fois le ticket de support résolu. 
 
-## <a name="route-filters-for-microsoft-peering"></a>Filtres de routage pour l’homologation Microsoft
+## <a name="route-filters-for-microsoft-peering"></a>Filtres de routage pour le peering Microsoft
 
-### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>J’active l’homologation Microsoft pour la première fois, quels itinéraires s’afficheront ?
+### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>J’active le peering Microsoft pour la première fois, quels itinéraires s’afficheront ?
 
-Aucun itinéraire ne s’affichera. Vous devez joindre un filtre de routage à votre circuit pour démarrer des publications de préfixe. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-powershell.md)pour obtenir des instructions.
+Aucun itinéraire ne s’affichera. Vous devez joindre un filtre de routage à votre circuit pour démarrer des publications de préfixe. Consultez [Configurer des filtres de routage pour le peering Microsoft](how-to-routefilter-powershell.md) pour obtenir des instructions.
 
-### <a name="i-turned-on-microsoft-peering-and-now-i-am-trying-to-select-exchange-online-but-it-is-giving-me-an-error-that-i-am-not-authorized-to-do-it"></a>J’ai activé l’homologation Microsoft et maintenant j’essaie de sélectionner Exchange Online, mais il affiche une erreur m’indiquant que je ne suis pas autorisé à le faire.
+### <a name="i-turned-on-microsoft-peering-and-now-i-am-trying-to-select-exchange-online-but-it-is-giving-me-an-error-that-i-am-not-authorized-to-do-it"></a>J’ai activé le peering Microsoft et maintenant j’essaie de sélectionner Exchange Online, mais il affiche une erreur m’indiquant que je ne suis pas autorisé à le faire.
 
-Lorsque vous utilisez des filtres de routage, n’importe quel client peut activer homologation Microsoft. Toutefois, pour utiliser les services Office 365, vous devez toujours obtenir l’autorisation de la part de Office 365.
+Lorsque vous utilisez des filtres de routage, n’importe quel client peut activer le peering Microsoft. Toutefois, pour utiliser les services Office 365, vous devez toujours obtenir l’autorisation de la part de Office 365.
 
-### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>J’ai activé l’homologation Microsoft avant le 1er août 2017. Comment puis-je tirer parti des filtres de routage ?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>J’ai activé le peering Microsoft avant le 1er août 2017. Comment puis-je tirer parti des filtres de routage ?
 
-Votre circuit existant continuera à publier des préfixes pour Office 365. Si vous souhaitez ajouter des publications de préfixes publics Azure sur le même appairage Microsoft, vous pouvez créer un filtre de routage, sélectionner les services que vous souhaitez publier (y compris les services Office 365 dont vous avez besoin) et joindre le filtre à votre appairage Microsoft. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-powershell.md)pour obtenir des instructions.
+Votre circuit existant continuera à publier des préfixes pour Office 365. Si vous souhaitez ajouter des publications de préfixes publics Azure sur le même appairage Microsoft, vous pouvez créer un filtre de routage, sélectionner les services que vous souhaitez publier (y compris les services Office 365 dont vous avez besoin) et joindre le filtre à votre appairage Microsoft. Consultez [Configurer des filtres de routage pour le peering Microsoft](how-to-routefilter-powershell.md) pour obtenir des instructions.
 
-### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Je dispose de l’homologation Microsoft à un emplacement, maintenant j’essaie de l’activer à un autre emplacement et aucun préfixe ne s’affiche.
+### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>Je dispose du peering Microsoft à un emplacement, maintenant j’essaie de l’activer à un autre emplacement et aucun préfixe ne s’affiche.
 
-* L’homologation Microsoft des circuits ExpressRoute ayant été configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via l’homologation Microsoft, même si les filtres d’itinéraire ne sont pas définis.
+* Le peering Microsoft des circuits ExpressRoute configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via le peering Microsoft, même si les filtres de routage ne sont pas définis.
 
-* L’homologation Microsoft des circuits ExpressRoute configurés à partir du 1er août 2017 n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage sera joint au circuit. Aucun préfixe par défaut ne s’affichera.
+* Le peering Microsoft des circuits ExpressRoute qui sont configurés le 1er août 2017 ou après n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage n’aura pas été attaché au circuit. Aucun préfixe par défaut ne s’affichera.
 
 ## <a name="expressRouteDirect"></a>ExpressRoute Direct
 

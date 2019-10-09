@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: cithomas
-ms.openlocfilehash: 653710d2f57385fa6d608a501f72b0dde2f3bb46
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 2b92b58b75389f84f1ea18c6d48538c343a13212
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258486"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337954"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Application Insights pour les applications Service Worker (applications non HTTP)
 
-Application Insights publie un nouveau kit de développement logiciel (SDK), appelé `Microsoft.ApplicationInsights.WorkerService`, qui est le mieux adapté aux charges de travail non HTTP, telles que la messagerie, les tâches en arrière-plan, les applications console, etc. À la différence d’une application web ASP.NET/ASP.NET Core traditionnelle, de telles applications ne peuvent pas gérer les requêtes HTTP entrantes ; par conséquent, l’utilisation de packages Application Insights pour les applications ASP.NET ou ASP.NET Core n’est pas prise en charge.
+Application Insights publie un nouveau kit de développement logiciel (SDK), appelé `Microsoft.ApplicationInsights.WorkerService`, qui est le mieux adapté aux charges de travail non HTTP, telles que la messagerie, les tâches en arrière-plan, les applications console, etc. À la différence d’une application web ASP.NET/ASP.NET Core traditionnelle, ces types d’applications ne peuvent pas gérer les requêtes HTTP entrantes. Par conséquent, l’utilisation de packages Application Insights pour les applications [ASP.NET](asp-net.md) ou [ASP.NET Core](asp-net-core.md) n’est pas prise en charge.
 
 Le nouveau kit de développement logiciel (SDK) n’effectue pas de collecte de données de télémétrie par lui-même. Au lieu de cela, il intègre d’autres collecteurs automatiques Application Insights réputés, comme [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights), etc. Ce kit de développement logiciel (SDK) expose des méthodes d’extension sur `IServiceCollection` pour activer et configurer la collecte de données de télémétrie.
 
@@ -239,47 +239,58 @@ Un exemple complet est disponible [ici](https://github.com/microsoft/Application
 ```csharp
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
 
-    class Program
+    namespace WorkerSDKOnConsole
     {
-        static async Task Main(string[] args)
+        class Program
         {
-            // Create the DI container.
-            IServiceCollection services = new ServiceCollection();
-
-            // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-            // Hence instrumentation key must be specified here.
-            services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
-
-            // Build ServiceProvider.
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
-
-            // Obtain logger instance from DI.
-            ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
-
-            // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
-            var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
-
-            while (true) // This app runs indefinitely. replace with actual application termination logic.
+            static async Task Main(string[] args)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                // Create the DI container.
+                IServiceCollection services = new ServiceCollection();
 
-                using (telemetryClient.StartOperation<RequestTelemetry>("operation"))
+                // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
+                // Hence instrumentation key must be specified here.
+                services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
+
+                // Build ServiceProvider.
+                IServiceProvider serviceProvider = services.BuildServiceProvider();
+
+                // Obtain logger instance from DI.
+                ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+                // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
+                var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
+
+                var httpClient = new HttpClient();
+
+                while (true) // This app runs indefinitely. replace with actual application termination logic.
                 {
-                    _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
-                    _logger.LogInformation("Calling bing.com");
-                    var res = await httpClient.GetAsync("https://bing.com");
-                    _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
-                    telemetryClient.TrackEvent("Bing call event completed");
+                    logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+                    // Replace with a name which makes sense for this operation.
+                    using (telemetryClient.StartOperation<RequestTelemetry>("operation"))
+                    {
+                        logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
+                        logger.LogInformation("Calling bing.com");                    
+                        var res = await httpClient.GetAsync("https://bing.com");
+                        logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
+                        telemetryClient.TrackEvent("Bing call event completed");
+                    }
+
+                    await Task.Delay(1000);
                 }
 
-                await Task.Delay(1000, stoppingToken);
+                // Explicitly call Flush() followed by sleep is required in Console Apps.
+                // This is to ensure that even if application terminates, telemetry is sent to the back-end.
+                telemetryClient.Flush();
+                Task.Delay(5000).Wait();
             }
-
-            // Explicitly call Flush() followed by sleep is required in Console Apps.
-            // This is to ensure that even if application terminates, telemetry is sent to the back-end.
-            telemetryClient.Flush();
-            Task.Delay(5000).Wait();
         }
     }
 ```
@@ -290,7 +301,7 @@ Cette application console utilise également la même valeur par défaut `Teleme
 
 Exécutez votre application. Les exemples de Worker ci-avant appellent tous « bing.com » via une requête HTTP chaque seconde, et ils émettent également peu de journaux en utilisant ILogger. Ces lignes sont encapsulées à l’intérieur de l’appel `StartOperation` de `TelemetryClient`, qui est utilisé pour créer une opération (dans cet exemple `RequestTelemetry`, elle est nommée « operation »). Application Insights recueillera ces journaux ILogger (avertissement ou niveau d’alerte supérieur par défaut) et les dépendances, et ils seront corrélés à `RequestTelemetry` avec une relation parent-enfant. La corrélation fonctionne également entre les limites réseau et inter-processus. Par exemple, si l’appel a été effectué vers un autre composant surveillé, il est également corrélé à ce parent.
 
-Cette opération personnalisée de `RequestTelemetry` peut être considérée comme l’équivalent d’une requête web entrante dans une application web classique. Bien qu’elle ne soit pas nécessaire pour utiliser une opération, elle est parfaitement bien adaptée à un modèle de données Application Insights. Elle agit en tant qu’opération parente, et les données de télémétrie produites à l’intérieur de l’itération du Worker sont considérées comme appartenant logiquement à la même opération. Cette approche garantit également que toutes les données de télémétrie produites (automatiques et manuelles) posséderont le même `operation_id`. Comme l’échantillonnage est basé sur `operation_id`, l’algorithme d’échantillonnage conserve ou supprime toutes les données de télémétrie d’une même itération.
+Cette opération personnalisée de `RequestTelemetry` peut être considérée comme l’équivalent d’une requête web entrante dans une application web classique. S’il n’est pas nécessaire d’utiliser une opération, celle-ci est parfaitement bien adaptée au [modèle de données de corrélation Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/correlation). `RequestTelemetry` agit en tant qu’opération parente, et les données de télémétrie générées à l’intérieur de l’itération du worker sont considérées comme appartenant logiquement à la même opération. Cette approche garantit également que toutes les données de télémétrie produites (automatiques et manuelles) posséderont le même `operation_id`. Comme l’échantillonnage est basé sur `operation_id`, l’algorithme d’échantillonnage conserve ou supprime toutes les données de télémétrie d’une même itération.
 
 La liste suivante répertorie les données de télémétrie complètes collectées automatiquement par Application Insights.
 
@@ -312,7 +323,7 @@ La collecte des dépendances est activée par défaut. [Cet article](asp-net-dep
 
 ### <a name="manually-tracking-additional-telemetry"></a>Suivi manuel des données de télémétrie supplémentaires
 
-Le kit de développement logiciel (SDK) collecte automatiquement les données de télémétrie comme expliqué ci-dessus ; dans la plupart des cas, l’utilisateur doit envoyer des données de télémétrie supplémentaires à Application Insights service. La méthode recommandée pour suivre des données de télémétrie supplémentaires consiste à obtenir une instance auprès de Dependency Injection, puis à appeler l’une des méthodes d’API prises en charge sur cette instance. Le [suivi personnalisé des opérations](custom-operations-tracking.md) est un autre cas d’utilisation classique de cette approche. Celle-ci est illustrée dans les exemples Worker ci-dessus.
+Le kit de développement logiciel (SDK) collecte automatiquement les données de télémétrie comme expliqué ci-dessus ; dans la plupart des cas, l’utilisateur doit envoyer des données de télémétrie supplémentaires à Application Insights service. La méthode recommandée pour suivre des données de télémétrie supplémentaires consiste à obtenir une instance de `TelemetryClient` de l’injection de dépendance, puis à appeler l’une des méthodes de l’[API](api-custom-events-metrics.md) `TrackXXX()` prises en charge sur cette instance. Le [suivi personnalisé des opérations](custom-operations-tracking.md) est un autre cas d’utilisation classique de cette approche. Celle-ci est illustrée dans les exemples Worker ci-dessus.
 
 ## <a name="configure-the-application-insights-sdk"></a>Configurer le SDK Application Insights
 
@@ -358,7 +369,7 @@ Consultez les [paramètres configurables dans `ApplicationInsightsServiceOptions
 
 ### <a name="sampling"></a>échantillonnage
 
-Le SDK Application Insights pour Service Worker prend en charge l’échantillonnage à taux fixe et adaptatif. L’échantillonnage adaptatif est activé par défaut. La configuration de l’échantillonnage pour Worker Service s’effectue de la même façon que pour les applications ASP.NET Core.
+Le SDK Application Insights pour Service Worker prend en charge l’échantillonnage à taux fixe et adaptatif. L’échantillonnage adaptatif est activé par défaut. La configuration de l’échantillonnage pour le service Worker s’effectue de la même façon que pour des [applications ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### <a name="adding-telemetryinitializers"></a>Ajout de TelemetryInitializers
 

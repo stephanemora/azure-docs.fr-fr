@@ -11,24 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566958"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812383"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Utiliser des réplicas en lecture seule pour équilibrer des charges de travail de requêtes en lecture seule
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Dans le cadre d’une [architecture  à haute disponibilité](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), chaque base de données des niveaux de service Premium, Critique pour l’entreprise ou Hyperscale est automatiquement approvisionnée avec un réplica principal et plusieurs réplicas secondaires. Les réplicas secondaires sont approvisionnés avec la même taille de calcul que le réplica principal. La fonctionnalité **Échelle horizontale en lecture** vous permet d’équilibrer les charges de travail en lecture seule SQL Database à l’aide de la capacité de l’un des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette façon, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. Cette fonctionnalité est destinée aux applications qui incluent des charges de travail en lecture seule séparées logiquement, telles que des analyses. Cette capacité supplémentaire n’occasionnant aucun frais supplémentaire pourrait apporter à ces applications des gains en termes de performances.
+Dans le cadre d’une [architecture à haute disponibilité](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), chaque base de données aux niveaux de service Premium et Critique pour l’entreprise est automatiquement approvisionnée avec un réplica principal et plusieurs réplicas secondaires. Les réplicas secondaires sont approvisionnés avec la même taille de calcul que le réplica principal. La fonctionnalité **Échelle horizontale en lecture** vous permet d’équilibrer les charges de travail en lecture seule SQL Database à l’aide de la capacité de l’un des réplicas en lecture seule au lieu de partager le réplica en lecture-écriture. De cette façon, la charge de travail en lecture seule sera isolée à partir de la charge de travail principale en lecture-écriture et n’affectera pas ses performances. Cette fonctionnalité est destinée aux applications qui incluent des charges de travail en lecture seule séparées logiquement, telles que des analyses. Aux niveaux de service Premium et Critique pour l’entreprise, les applications peuvent bénéficier d’avantages en matière de performances en exploitant cette capacité supplémentaire sans coût supplémentaire.
+
+La fonctionnalité **Échelle horizontale en lecture** est également disponible au niveau de service Hyperscale quand au moins un réplica secondaire est créé. Plusieurs réplicas secondaires peuvent être utilisés si des charges de travail en lecture seule requièrent plus de ressources qu’il n’en existe sur un réplica secondaire. L’architecture à haute disponibilité des niveaux de service De base, Standard et Usage général n’inclut pas de réplica. La fonctionnalité **Échelle horizontale en lecture** n’est pas disponible à ces niveaux de service.
 
 Le diagramme suivant illustre cela à l’aide d’une base de données Critique pour l’entreprise.
 
 ![Réplicas en lecture seule](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-La fonctionnalité Échelle horizontale en lecture est activée par défaut sur les nouvelles bases de données Premium, Critiques pour l’entreprise et Hyperscale. Si votre chaîne de connexion SQL est configurée avec `ApplicationIntent=ReadOnly`, l’application est redirigée par la passerelle vers un réplica en lecture seule de cette base de données. Pour plus d’informations sur la manière d’utiliser la propriété `ApplicationIntent`, voir [Spécification de l’intention de l’application](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+La fonctionnalité Échelle horizontale en lecture est activée par défaut sur les nouvelles bases de données Premium, Critiques pour l’entreprise et Hyperscale. Pour Hyperscale, un réplica secondaire est créé par défaut pour les nouvelles bases de données. Si votre chaîne de connexion SQL est configurée avec `ApplicationIntent=ReadOnly`, l’application est redirigée par la passerelle vers un réplica en lecture seule de cette base de données. Pour plus d’informations sur la manière d’utiliser la propriété `ApplicationIntent`, voir [Spécification de l’intention de l’application](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Si vous souhaitez vous assurer que l’application se connecte au réplica principal quel que soit le paramètre `ApplicationIntent` de la chaîne de connexion SQL, vous devez désactiver explicitement l’échelle horizontale en lecture lors de la création de la base de données ou de la modification de sa configuration. Par exemple, si vous mettez à niveau votre base de données de type Standard ou Usage général vers une base de données de type Premium, Critique pour l’entreprise ou Hyperscale, et souhaitez vous assurer que toutes vos connexions continuent d’aller vers le réplica principal, désactivez la fonctionnalité Échelle horizontale en lecture. Pour plus d’informations sur la façon de désactiver cette fonctionnalité, voir [Activer et désactiver l’échelle horizontale en lecture](#enable-and-disable-read-scale-out).
 

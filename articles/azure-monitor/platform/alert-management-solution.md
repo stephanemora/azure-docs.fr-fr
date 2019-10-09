@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: e2f195f648f08c31fbfe44543ee763aeed7459f0
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741280"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702965"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
 
 ![Icône de gestion des alertes](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor prend maintenant en charge des fonctionnalités améliorées pour la [gestion de vos alertes à l’échelle](https://aka.ms/azure-alerts-overview), notamment celles générées par des [outils de supervision comme SCOM, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  Azure Monitor prend désormais en charge des fonctionnalités améliorées pour la [gestion de vos alertes à grande échelle](https://aka.ms/azure-alerts-overview), dont celles générées par des [outils de supervision tels que System Center Operations Manager, Zabbix ou Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
 >  
 
 
@@ -74,7 +74,7 @@ Cliquez sur la vignette **Gestion des alertes** pour ouvrir le tableau de bord *
 |:--- |:--- |
 | Alertes critiques |Toutes les alertes ayant le niveau de gravité Critique, regroupées selon le nom de l’alerte.  Cliquez sur un nom d’alerte pour exécuter une recherche dans les journaux retournant tous les enregistrements pour cette alerte. |
 | Alertes d'avertissement |Toutes les alertes ayant le niveau de gravité Avertissement, regroupées selon le nom de l’alerte.  Cliquez sur un nom d’alerte pour exécuter une recherche dans les journaux retournant tous les enregistrements pour cette alerte. |
-| Alertes SCOM actives |Toutes les alertes recueillies depuis Operations Manager n’ayant pas l’état *Fermé* , regroupées selon la source ayant généré l’alerte. |
+| Alertes actives de System Center Operations Manager |Toutes les alertes recueillies depuis Operations Manager n’ayant pas l’état *Fermé* , regroupées selon la source ayant généré l’alerte. |
 | Toutes les alertes actives |Toutes les alertes, quel que soit leur niveau de gravité, regroupées selon le nom de l’alerte. Seules les alertes Operations Manager n’ayant pas l’état *Fermé*. |
 
 Si vous faites défiler l’écran vers la droite, le tableau de bord répertorie plusieurs requêtes courantes sur lesquelles vous pouvez cliquer pour effectuer une [recherche dans les journaux](../../azure-monitor/log-query/log-query-overview.md) afin d’obtenir les données des alertes.

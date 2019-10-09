@@ -1,30 +1,30 @@
 ---
 title: Configurer l’accès à votre compte Azure Cosmos DB à partir d’un réseau virtuel et d’un sous-réseau
 description: Ce document décrit les étapes nécessaires pour configurer un point de terminaison de service de réseau virtuel pour Azure Cosmos DB.
-author: kanshiG
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: govindk
-ms.openlocfilehash: 375e79d2fe70e0988d8c58997a746f77b21d7f50
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/28/2019
+ms.author: mjbrown
+ms.openlocfilehash: 1c81045408a948820c8b9fef56e2c7d69cd39e08
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241999"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811915"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurer l’accès à partir de réseaux virtuels (VNet)
 
 Vous pouvez configurer les comptes Azure Cosmos DB pour autoriser l’accès uniquement à partir d’un sous-réseau spécifique de réseau virtuel Azure. Pour limiter l’accès à un compte Azure Cosmos DB avec des connexions issues d’un sous-réseau dans un réseau virtuel :
- 
+
 1. Autorisez le sous-réseau à envoyer l’identité du sous-réseau et du réseau virtuel à Azure Cosmos DB. Pour cela, activez un point de terminaison de service pour Azure Cosmos DB sur le sous-réseau concerné.
 
 1. Ajoutez au compte Azure Cosmos DB une règle spécifiant le sous-réseau comme source permettant d’accéder au compte.
 
 > [!NOTE]
-> Une fois qu’un point de terminaison de service pour votre compte Azure Cosmos DB est activé sur un sous-réseau, la source du trafic qui atteint Azure Cosmos DB bascule d’une adresse IP publique vers un réseau virtuel et un sous-réseau. Le basculement du trafic s’applique à tous les comptes Azure Cosmos DB accessibles à partir de ce sous-réseau. Si vos comptes Azure Cosmos DB utilisent un pare-feu basé sur l’adresse IP pour autoriser ce sous-réseau, les requêtes issues du sous-réseau avec service ne correspondent plus aux règles de pare-feu IP et sont rejetées. 
+> Une fois qu’un point de terminaison de service pour votre compte Azure Cosmos DB est activé sur un sous-réseau, la source du trafic qui atteint Azure Cosmos DB bascule d’une adresse IP publique vers un réseau virtuel et un sous-réseau. Le basculement du trafic s’applique à tous les comptes Azure Cosmos DB accessibles à partir de ce sous-réseau. Si vos comptes Azure Cosmos DB utilisent un pare-feu basé sur l’adresse IP pour autoriser ce sous-réseau, les requêtes issues du sous-réseau avec service ne correspondent plus aux règles de pare-feu IP et sont rejetées.
 >
-> Pour plus d’informations, voir les étapes décrites dans la section [Migrer à partir d’une règle de pare-feu IP à une liste de contrôle d’accès de réseau virtuel](#migrate-from-firewall-to-vnet) de cet article. 
+> Pour plus d’informations, voir les étapes décrites dans la section [Migrer à partir d’une règle de pare-feu IP à une liste de contrôle d’accès de réseau virtuel](#migrate-from-firewall-to-vnet) de cet article.
 
 Les sections suivantes expliquent comment configurer un point de terminaison de service de réseau virtuel pour un compte Azure Cosmos DB.
 
@@ -40,10 +40,9 @@ Les sections suivantes expliquent comment configurer un point de terminaison de 
 
 1. Pour accorder l’accès au sous-réseau d’un réseau virtuel existant, sélectionnez **Ajouter un réseau virtuel Azure existant** sous **Réseaux virtuels**.
 
-1. Sélectionnez **l’abonnement** à partir duquel vous souhaitez ajouter un réseau virtuel Azure. Sélectionnez les **Réseaux virtuels** et **Sous-réseaux** Azure auxquels vous voulez fournir l’accès à votre compte Azure Cosmos DB. Ensuite, sélectionnez **Activer** pour activer les réseaux sélectionnés avec les points de terminaison de service pour « Microsoft.AzureCosmosDB ». Une fois terminé, sélectionnez **Ajouter**. 
+1. Sélectionnez **l’abonnement** à partir duquel vous souhaitez ajouter un réseau virtuel Azure. Sélectionnez les **Réseaux virtuels** et **Sous-réseaux** Azure auxquels vous voulez fournir l’accès à votre compte Azure Cosmos DB. Ensuite, sélectionnez **Activer** pour activer les réseaux sélectionnés avec les points de terminaison de service pour « Microsoft.AzureCosmosDB ». Une fois terminé, sélectionnez **Ajouter**.
 
    ![Sélectionner un réseau virtuel et un sous-réseau](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
-
 
 1. Lorsque le compte Azure Cosmos DB se voit autoriser l’accès à partir d’un réseau virtuel, il autorise uniquement le trafic provenant de ce sous-réseau. Le réseau virtuel et le sous-réseau que vous avez ajoutés devraient se présenter comme dans la capture d’écran suivante :
 
@@ -53,7 +52,7 @@ Les sections suivantes expliquent comment configurer un point de terminaison de 
 > Les autorisations d’abonnement suivantes sont nécessaires pour activer les points de terminaison de service de réseau virtuel :
 >   * Abonnement avec un réseau virtuel : Contributeur de réseau
 >   * Abonnement avec un compte Azure Cosmos DB : Contributeur de compte DocumentDB
->   * Si votre réseau virtuel et votre compte Azure Cosmos DB se trouvent dans des abonnements différents, assurez-vous que l’abonnement contenant le réseau virtuel possède également le fournisseur de ressources `Microsoft.DocumentDB` inscrit. Pour inscrire un fournisseur de ressources, consultez l’article [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md). 
+>   * Si votre réseau virtuel et votre compte Azure Cosmos DB se trouvent dans des abonnements différents, assurez-vous que l’abonnement contenant le réseau virtuel possède également le fournisseur de ressources `Microsoft.DocumentDB` inscrit. Pour inscrire un fournisseur de ressources, consultez l’article [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md).
 
 Voici les instructions pour inscrire un abonnement avec le fournisseur de ressources.
 
@@ -69,11 +68,11 @@ Voici les instructions pour inscrire un abonnement avec le fournisseur de ressou
 
    ![Sélectionner un réseau virtuel et un sous-réseau pour un nouveau réseau virtuel](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
 
-Si votre compte Azure Cosmos DB est utilisé par d’autres services Azure tels que Recherche Azure, ou s’il est accessible à partir de Stream Analytics ou de Power BI, vous autorisez l’accès en sélectionnant **Accepter les connexions provenant des centres de données Azure publics**.
+Si votre compte Azure Cosmos DB est utilisé par d’autres services Azure tels que Recherche Azure, ou s’il est accessible à partir de Stream Analytics ou de Power BI, vous autorisez l’accès en sélectionnant **Accepter les connexions provenant des centres de données Azure globaux**.
 
 Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du portail, vous devez activer l’option **Autoriser l’accès à partir du portail Azure**. Pour en savoir plus sur ces options, consultez l’article [Configurer un pare-feu IP](how-to-configure-firewall.md). Après avoir activé l’accès, sélectionnez **Enregistrer** pour enregistrer les paramètres.
 
-## <a id="remove-vnet-or-subnet"></a>Supprimer un réseau virtuel ou un sous-réseau 
+## <a id="remove-vnet-or-subnet"></a>Supprimer un réseau virtuel ou un sous-réseau
 
 1. À partir du panneau **Toutes les ressources**, recherchez le compte Azure Cosmos DB pour lequel vous avez affecté des points de terminaison de service.  
 
@@ -83,7 +82,7 @@ Pour être sûr d’avoir accès aux métriques Azure Cosmos DB à partir du por
 
    ![Supprimer un réseau virtuel](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
 
-4.  Sélectionnez **Enregistrer** pour enregistrer vos modifications.
+4. Sélectionnez **Enregistrer** pour enregistrer vos modifications.
 
 ## <a id="configure-using-powershell"></a>Configurer un point de terminaison de service avec Azure PowerShell
 
@@ -184,38 +183,115 @@ Effectuez les étapes suivantes afin de configurer un point de terminaison de se
    $UpdatedcosmosDBConfiguration.Properties
    ```
 
-## <a id="configure-using-cli"></a>Configurer un point de terminaison de service avec Azure CLI 
+## <a id="configure-using-cli"></a>Configurer un point de terminaison de service avec Azure CLI
 
-1. Activez le point de terminaison de service pour un sous-réseau dans un réseau virtuel.
+Des comptes Azure Cosmos peuvent être configurés pour des points de terminaison de service créés ou mis à jour ultérieurement si le sous-réseau est déjà configuré pour ceux-ci. Des points de terminaison de service peuvent également être activés sur le compte Cosmos où le sous-réseau n’est pas encore configuré pour ceux-ci. Ils commenceront à fonctionner lorsque le sous-réseau sera configuré. Cette flexibilité permet aux administrateurs qui n’ont pas accès aux ressources du compte Cosmos et du réseau virtuel de rendre leurs configurations indépendantes les unes des autres.
 
-1. Mettez à jour le compte Azure Cosmos DB existant avec les listes de contrôle d’accès (ACL) au sous-réseau.
+### <a name="create-a-new-cosmos-account-and-connect-it-to-a-back-end-subnet-for-a-new-virtual-network"></a>Créer un compte Cosmos et le connecter à un sous-réseau backend pour un nouveau réseau virtuel
 
-   ```azurecli-interactive
+Dans cet exemple, le réseau virtuel et le sous-réseau sont créés avec des points de terminaison de service activés pour les deux lors de leur création.
 
-   name="<Azure Cosmos DB account name>"
-   resourceGroupName="<Resource group name>"
+```azurecli-interactive
+# Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
 
-   az cosmosdb update \
-    --name $name \
-    --resource-group $resourceGroupName \
-    --enable-virtual-network true \
-    --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/frontend"
-   ```
+# Resource group and Cosmos account variables
+resourceGroupName='MyResourceGroup'
+location='West US 2'
+accountName='mycosmosaccount'
 
-1. Créez un compte Azure Cosmos DB avec des listes ACL du sous-réseau.
+# Variables for a new Virtual Network with two subnets
+vnetName='myVnet'
+frontEnd='FrontEnd'
+backEnd='BackEnd'
 
-   ```azurecli-interactive
-   az cosmosdb create \
-    --name $name \
-    --kind GlobalDocumentDB \
-    --resource-group $resourceGroupName \
-    --max-interval 10 \
-    --max-staleness-prefix 200 \
-    --enable-virtual-network true \
-    --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default"
-   ```
+# Create a resource group
+az group create -n $resourceGroupName -l $location
 
-## <a id="migrate-from-firewall-to-vnet"></a>Migrer à partir d’une règle de pare-feu IP à une liste de contrôle d’accès de réseau virtuel 
+# Create a virtual network with a front-end subnet
+az network vnet create \
+   -n $vnetName \
+   -g $resourceGroupName \
+   --address-prefix 10.0.0.0/16 \
+   --subnet-name $frontEnd \
+   --subnet-prefix 10.0.1.0/24
+
+# Create a back-end subnet with service endpoints enabled for Cosmos DB
+az network vnet subnet create \
+   -n $backEnd \
+   -g $resourceGroupName \
+   --address-prefix 10.0.2.0/24 \
+   --vnet-name $vnetName \
+   --service-endpoints Microsoft.AzureCosmosDB
+
+svcEndpoint=$(az network vnet subnet show -g $resourceGroupName -n $backEnd --vnet-name $vnetName --query 'id' -o tsv)
+
+# Create a Cosmos DB account with default values and service endpoints
+az cosmosdb create \
+   -n $accountName \
+   -g $resourceGroupName \
+   --enable-virtual-network true \
+   --virtual-network-rules $svcEndpoint
+```
+
+### <a name="connect-and-configure-a-cosmos-account-to-a-back-end-subnet-independently"></a>Connecter et configurer un compte Cosmos sur un sous-réseau backend de manière indépendante
+
+Cet exemple vise à montrer comment connecter un compte Azure Cosmos à un nouveau réseau virtuel dont le sous-réseau n’est pas encore configuré pour des points de terminaison de service. Pour ce faire, utilisez le paramètre `--ignore-missing-vnet-service-endpoint`. Cela permet de configurer le compte Cosmos sans erreur avant que la configuration du sous-réseau du réseau virtuel soit complète. Une fois le sous-réseau configuré, le compte Cosmos est alors accessible via le sous-réseau configuré.
+
+```azurecli-interactive
+# Create an Azure Cosmos Account with a service endpoint connected to a backend subnet
+# that is not yet enabled for service endpoints.
+
+# Resource group and Cosmos account variables
+resourceGroupName='MyResourceGroup'
+location='West US 2'
+accountName='mycosmosaccount'
+
+# Variables for a new Virtual Network with two subnets
+vnetName='myVnet'
+frontEnd='FrontEnd'
+backEnd='BackEnd'
+
+# Create a resource group
+az group create -n $resourceGroupName -l $location
+
+# Create a virtual network with a front-end subnet
+az network vnet create \
+   -n $vnetName \
+   -g $resourceGroupName \
+   --address-prefix 10.0.0.0/16 \
+   --subnet-name $frontEnd \
+   --subnet-prefix 10.0.1.0/24
+
+# Create a back-end subnet but without configuring service endpoints (--service-endpoints Microsoft.AzureCosmosDB)
+az network vnet subnet create \
+   -n $backEnd \
+   -g $resourceGroupName \
+   --address-prefix 10.0.2.0/24 \
+   --vnet-name $vnetName
+
+svcEndpoint=$(az network vnet subnet show -g $resourceGroupName -n $backEnd --vnet-name $vnetName --query 'id' -o tsv)
+
+# Create a Cosmos DB account with default values
+az cosmosdb create -n $accountName -g $resourceGroupName
+
+# Add the virtual network rule but ignore the missing service endpoint on the subnet
+az cosmosdb network-rule add \
+   -n $accountName \
+   -g $resourceGroupName \
+   --virtual-network $vnetName \
+   --subnet svcEndpoint \
+   --ignore-missing-vnet-service-endpoint true
+
+read -p'Press any key to now configure the subnet for service endpoints'
+
+az network vnet subnet update \
+   -n $backEnd \
+   -g $resourceGroupName \
+   --vnet-name $vnetName \
+   --service-endpoints Microsoft.AzureCosmosDB
+```
+
+## <a id="migrate-from-firewall-to-vnet"></a>Migrer à partir d’une règle de pare-feu IP à une liste de contrôle d’accès de réseau virtuel
 
 Utilisez les étapes suivantes uniquement pour les comptes Azure Cosmos DB qui comportent déjà des règles de pare-feu IP autorisant un sous-réseau, si vous souhaitez utiliser des listes ACL de réseau virtuel et de sous-réseau plutôt qu’une règle de pare-feu IP.
 
