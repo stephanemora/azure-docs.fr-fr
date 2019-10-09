@@ -1,21 +1,20 @@
 ---
-title: Approvisionner automatiquement des appareils avec le service Device Provisioning à l’aide de l’attestation de clé symétrique – Azure IoT Edge | Microsoft Docs
+title: Approvisionner automatiquement des appareils avec le service Device Provisioning en utilisant une attestation de clé symétrique – Azure IoT Edge | Microsoft Docs
 description: Utiliser l’attestation de clé symétrique pour tester l’approvisionnement automatique des appareils pour Azure IoT Edge avec le service Device Provisioning
 author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 53b1abca25119f4168aaf12a66c4347c53ed0a62
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299848"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828075"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Créer et approvisionner un appareil IoT Edge à l’aide de l’attestation de clé symétrique
 
@@ -27,7 +26,7 @@ Cet article vous montre comment créer une inscription individuelle au service D
 * Création d’une inscription individuelle pour l’appareil.
 * Installation du runtime IoT Edge et de la connexion à IoT Hub.
 
-L’attestation de clé symétrique est une approche simple pour authentifier un appareil avec une instance du service Device Provisioning. Cette méthode d’attestation représente une expérience « Hello world » pour les développeurs qui découvrent le provisionnement d’appareils ou n’ont pas d’exigences de sécurité strictes. L’attestation d’appareil avec un [Module de plateforme sécurisée (TPM)](../iot-dps/concepts-tpm-attestation.md) est plus sécurisée, et elle doit être utilisée là où les exigences de sécurité sont plus strictes.
+L’attestation de clé symétrique est une approche simple pour authentifier un appareil avec une instance du service Device Provisioning. Cette méthode d’attestation représente une expérience « Hello world » pour les développeurs qui découvrent le provisionnement d’appareils ou n’ont pas d’exigences de sécurité strictes. L’attestation d’appareil avec un [Module de plateforme sécurisée (TPM)](../iot-dps/concepts-tpm-attestation.md) ou un [certificat X.509](../iot-dps/concepts-security.md#x509-certificates) est plus sécurisée, et doit être utilisée lorsque les exigences de sécurité sont plus strictes.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -191,9 +190,29 @@ Remplacez les valeurs d’espace réservé pour `{scope_id}`, `{registration_id}
 
 ### <a name="windows-device"></a>Appareil Windows
 
-Suivez les instructions pour installer le runtime IoT Edge sur l’appareil pour lequel vous avez généré une clé d’appareil dérivée. Veillez à configurer le runtime IoT Edge pour le provisionnement automatique, et non manuel.
+Installez le runtime IoT Edge sur l’appareil pour lequel vous avez généré une clé d’appareil dérivée. Vous allez configurer le runtime IoT Edge pour un approvisionnement automatique plutôt que manuel.
 
-[Installer et approvisionner automatiquement IoT Edge sur Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+Pour plus d’informations sur l’installation d’IoT Edge sous Windows, y compris les conditions préalables et instructions pour des tâches telles que la gestion de conteneurs et la mise à jour d’IoT Edge, voir [Installer le runtime Azure IoT Edge sous Windows](how-to-install-iot-edge-windows.md).
+
+1. Ouvrez une fenêtre PowerShell en mode administrateur. Veillez à utiliser une session AMD64 de PowerShell lors de l’installation d’IoT Edge, plutôt que PowerShell (x86).
+
+1. La commande **Deploy-IoTEdge** vérifie que votre ordinateur Windows a une version prise en charge, active la fonctionnalité des conteneurs, avant de télécharger le runtime moby et le runtime IoT Edge. Par défaut, la commande utilise des conteneurs de Windows.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. À ce stade, les appareils IoT Core peuvent redémarrer automatiquement. D’autres appareils Windows 10 ou Windows Server peuvent vous inviter à redémarrer. Si c’est le cas, redémarrez votre appareil maintenant. Une fois votre appareil prêt, exécutez à nouveau PowerShell en tant qu’administrateur.
+
+1. La commande **Initialize-IoTEdge** configure le runtime IoT Edge sur votre ordinateur. La commande opère par défaut un approvisionnement manuel avec des conteneurs Windows, sauf si vous utilisez l’indicateur `-Dps` pour utiliser un approvisionnement automatique.
+
+   Remplacez les valeurs d’espace réservé pour `{scope_id}`, `{registration_id}` et `{symmetric_key}` par les données que vous avez collectées précédemment.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   ```
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 
