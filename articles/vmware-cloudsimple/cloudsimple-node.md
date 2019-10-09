@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 58af69b401400c7b2f663a91de8bf38bc9a296a3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 8778a8bc27995cc9d0969762b6897f6cac0283a2
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877697"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828896"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Vue d'ensemble des nœuds CloudSimple
 
@@ -36,13 +36,14 @@ Les nœuds achetés peuvent faire l'objet d'un paiement à l'utilisation. L'acha
 
 Les types de nœuds suivants sont disponibles à l'achat ou à la réservation.
 
-| SKU | CS28 - Nœud | CS36 - Nœud |
-|-----|-------------|-------------|
-| UC | 2 x 2,2 GHz, 28 cœurs (56 HT) | 2 x 2,3 GHz, 36 cœurs (72 HT) |
-| RAM | 256 Go | 512 Go |
-| Disque de cache |  NVMe de 1,6 To | NVMe de 3,2 To |
-| Capacité de disque | 5,625 To de données brutes | 11,25 To de données brutes |
-| Type de stockage | Flash | Flash |
+| SKU           | CS28 - Nœud                 | CS36 - Nœud                 | CS36m - Nœud                |
+|---------------|-----------------------------|-----------------------------|-----------------------------|
+| Région        | USA Est, USA Ouest            | USA Est, USA Ouest            | Europe Ouest                 |
+| UC           | 2 x 2,2 GHz, 28 cœurs (56 HT) | 2 x 2,3 GHz, 36 cœurs (72 HT) | 2 x 2,3 GHz, 36 cœurs (72 HT) |
+| RAM           | 256 Go                      | 512 Go                      | 576 Go                      |
+| Disque de cache    | NVMe de 1,6 To                 | NVMe de 3,2 To                 | NVMe de 3,2 To                 |
+| Capacité de disque | 5,625 To de données brutes                | 11,25 To de données brutes                | 13,36 To de données brutes                |
+| Type de stockage  | Flash                   | Flash                   | Flash                   |
 
 ## <a name="limits"></a>limites
 

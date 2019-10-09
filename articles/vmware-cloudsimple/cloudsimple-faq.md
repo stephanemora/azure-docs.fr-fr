@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d1cbca20b9f1ee1d5f7eefb760ed60fa4d019050
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972852"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828918"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Questions fréquentes sur la solution VMware de CloudSimple
 
@@ -29,7 +29,7 @@ Un cloud privé CloudSimple est un cloud privé et dédié qui se compose d’un
 
 **Où le service CloudSimple est-il disponible ?**
 
-CloudSimple est disponible dans les régions USA Est et USA Ouest. D’autres régions seront bientôt disponibles.
+CloudSimple est disponible dans les régions USA Est, USA Ouest et Europe Ouest. D’autres régions seront bientôt disponibles.
 
 **Comment activer mon abonnement à CloudSimple ?**
 
@@ -106,8 +106,9 @@ CloudSimple fournit les fonctionnalités de sécurité suivantes pour sécuriser
 
 CloudSimple propose ces types d’hôtes :
 
-* **Nœud CS28** : Processeur : 2 x 2,2 GHz, 28 cœurs en tout, 48 HT.  RAM : 256 Go.  Stockage : 1 600 Go de cache NVMe, 5 760 Go de données (100 % Flash). Réseau : 2 cartes d’interface réseau 25 GbE
-* **Nœud CS36** : Processeur : 2 x 2,3 GHz, 36 cœurs en tout, 72 HT.  RAM : 512 Go.  Stockage : 3 200 Go de cache NVMe, 11 520 Go de données (100 % Flash).  Réseau : 2 cartes d’interface réseau 25 GbE
+* **Nœud CS28** : Processeur : 2 x 2,2 GHz, 28 cœurs en tout, 48 HT.  RAM : 256 Go.  Stockage : 1 600 Go de cache NVMe, 5 760 Go de données (100 % Flash). Réseau : Carte réseau 4x25Gbe
+* **Nœud CS36** : Processeur : 2 x 2,3 GHz, 36 cœurs en tout, 72 HT.  RAM : 512 Go.  Stockage : 3 200 Go de cache NVMe, 11 520 Go de données (100 % Flash).  Réseau : Carte réseau 4x25Gbe
+* **Nœud CS36m :** Processeur : 2 x 2,3 GHz, 36 cœurs en tout, 72 HT.  RAM : 576 Go.  Stockage : 3200 Go de cache NVMe, 13360 Go de données (100 % Flash).  Réseau : Carte réseau 4x25Gbe
 
 **Comment sont gérées les pannes matérielles ?**
 

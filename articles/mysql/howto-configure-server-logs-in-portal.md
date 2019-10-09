@@ -1,17 +1,17 @@
 ---
 title: Configurer et consulter les journaux des requêtes lentes pour Azure Database pour MySQL dans le portail Azure
 description: Cet article décrit comment configurer et consulter les journaux des requêtes lentes dans Azure Database pour MySQL à partir du portail Azure.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/30/2019
+ms.openlocfilehash: b3986c19ec008437f3230b3674ce60d1dfba2024
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052717"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703436"
 ---
 # <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Configurer et consulter les journaux des requêtes lentes sur le portail Azure
 
@@ -60,6 +60,24 @@ Une fois que la journalisation commence, vous pouvez voir la liste des journaux 
 5. Téléchargez des fichiers journaux à l’aide du bouton **Télécharger** (icône de flèche bas) en regard de chaque fichier journal figurant dans la ligne de table, comme illustré :
 
    ![Cliquez sur l’icône Télécharger](./media/howto-configure-server-logs-in-portal/5-download.png)
+
+## <a name="set-up-diagnostic-logs"></a>Configurer les journaux de diagnostic
+
+1. Dans la section **Supervision** dans la barre latérale, sélectionnez **Paramètres de diagnostic**.
+
+1. Cliquez sur « + Ajouter un paramètre de diagnostic » ![Ajouter un paramètre de diagnostic](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
+
+1. Entrez un nom de paramètre de diagnostic.
+
+1. Spécifiez les récepteurs de données auxquels envoyer les journaux des requêtes lentes (compte de stockage, hub d'événements et/ou espace de travail Log Analytics).
+
+1. Sélectionnez « MySqlSlowLogs » comme type de journal.
+![Configurer un paramètre de diagnostic](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
+
+1. Une fois que vous avez configuré les récepteurs de données auxquels envoyer les journaux des requêtes lentes, vous pouvez cliquer sur **Enregistrer**.
+![Enregistrer un paramètre de diagnostic](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
+
+1. Accédez aux journaux des requêtes lentes en les explorant dans les récepteurs de données que vous avez configurés. L’affichage des journaux peut prendre jusqu’à 10 minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour découvrir comment télécharger des journaux des requêtes lentes par programmation, consultez [Accéder aux journaux des requêtes lentes dans l’interface CLI](howto-configure-server-logs-in-cli.md).

@@ -17,12 +17,12 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290967"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812592"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
@@ -57,6 +57,9 @@ En plus de ces trois comptes utilisés pour exécuter Azure AD Connect, vous ave
 > Les forêts administratives dédiées permettent aux organisations d’héberger des comptes, stations de travail et groupes administratifs dans un environnement dont les contrôles de sécurité sont renforcés par rapport à ceux de l’environnement de production.
 > Pour en savoir plus sur les forêts administratives dédiées, consultez [Approche de la conception de forêt administrative ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
 >>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+
+> [!NOTE]
+> Le rôle d'administrateur général n'est pas nécessaire après la configuration initiale, et le seul compte requis est celui qui dispose du rôle **Comptes de synchronisation d'annuaires**. Cela ne signifie pas nécessairement que vous vous contenterez de vouloir supprimer le compte doté du rôle d'administrateur général. Il est préférable de remplacer le rôle par un rôle moins puissant, car la suppression totale du compte peut entraîner des problèmes si vous avez besoin de réexécuter l'Assistant. En réduisant les privilèges du rôle, vous aurez toujours la possibilité de les revoir à la hausse si vous êtes amené à réutiliser l'Assistant Azure AD Connect. 
 
 ## <a name="installing-azure-ad-connect"></a>Installation d’Azure AD Connect
 L’Assistant d’installation d’Azure AD Connect offre deux chemins d’accès différents :

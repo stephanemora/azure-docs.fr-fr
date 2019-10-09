@@ -1,22 +1,22 @@
 ---
-title: Créer un pool d’hôtes Windows Virtual Desktop en préversion avec un modèle Azure Resource Manager - Azure
-description: Comment créer un pool d’hôtes dans la préversion de Windows Virtual Desktop avec un modèle Azure Resource Manager.
+title: Créer un pool d'hôtes Windows Virtual Desktop à l'aide d'un modèle Azure Resource Manager - Azure
+description: Apprenez à créer un pool d'hôtes dans Windows Virtual Desktop à l'aide d'un modèle Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 27fe19c2b1f92b67e02b4e09d5fcd607759d8abd
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b96ecad93c481a762b81a7888940850ed3a73e5f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163743"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679611"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Créer un pool d’hôtes avec le modèle Azure Resource Manager
 
-Les pools d’hôtes sont une collection d’une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Windows Virtual Desktop Preview. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
+Les pools d'hôtes sont des ensembles d'une ou de plusieurs machines virtuelles identiques dans des environnements de locataires Windows Virtual Desktop. Chaque pool d’hôtes peut contenir un groupe d’applications avec lequel les utilisateurs peuvent interagir comme ils le feraient sur un ordinateur de bureau physique.
 
 Suivez les instructions de cette section afin de créer un pool d’hôtes pour un locataire Windows Virtual Desktop avec un modèle Azure Resource Manager fourni par Microsoft. Cet article explique comment créer un pool d’hôtes dans Windows Virtual Desktop, créer un groupe de ressources avec des machines virtuelles dans un abonnement Azure, joindre ces machines virtuelles au domaine AD et inscrire les machines virtuelles auprès de Windows Virtual Desktop.
 

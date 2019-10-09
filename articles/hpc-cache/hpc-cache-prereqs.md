@@ -4,14 +4,14 @@ description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: fab85785ea183736b4012c349af143ef3a8c784a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299912"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709974"
 ---
 # <a name="prerequisites-for-azure-hpc-cache-preview"></a>Prérequis pour Azure HPC Cache (préversion)
 
@@ -57,15 +57,14 @@ Pour plus d’informations sur les réseaux virtuels Azure et les configurations
 Consultez les prérequis liés aux autorisations avant de créer votre cache.
 
 * L’instance de cache doit pouvoir créer des interfaces réseau virtuelles (NIC). L’utilisateur qui crée le cache doit disposer de privilèges suffisants dans l’abonnement pour créer des cartes réseau.
-<!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
 * Si vous utilisez le stockage Blob, Azure HPC Cache a besoin d’une autorisation pour accéder à votre compte de stockage. Vous pouvez utiliser le contrôle d’accès en fonction du rôle (RBAC) pour permettre au cache d’accéder à votre stockage Blob. Deux rôles sont nécessaires : Contributeur de comptes de stockage et Contributeur aux données Blob du stockage. Suivez les instructions fournies dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account).
 
 ## <a name="storage-infrastructure"></a>Infrastructure du stockage
 
-Le cache prend en charge les conteneurs d’objets blob Azure et les exportations de stockage matériel NFS. Vous pouvez définir des cibles de stockage lors de la création du cache mais aussi ajouter l’espace de stockage ultérieurement.
+Le cache prend en charge les conteneurs d’objets blob Azure et les exportations de stockage matériel NFS. Ajoutez des cibles de stockage après avoir créé le cache.
 
-Chaque type de stockage possède des conditions préalables spécifiques. 
+Chaque type de stockage possède des conditions préalables spécifiques.
 
 ### <a name="nfs-storage-requirements"></a>Conditions requises pour le stockage NFS
 

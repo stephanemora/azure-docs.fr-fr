@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5806198968d98fea4c5cbf8731358ca4041f0935
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972884"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828175"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Provisionner des nœuds pour la solution Azure VMware de CloudSimple
 
@@ -40,7 +40,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 7. Entrez le préfixe pour identifier les nœuds.
 8. Sélectionnez l’emplacement des ressources de nœud.
 9. Sélectionnez l’emplacement dédié où héberger les ressources de nœud.
-10. Sélectionnez le type de nœud. Vous pouvez choisir l’[option CS28 ou CS36](cloudsimple-node.md). Cette dernière option inclut la capacité de calcul et de mémoire maximale.
+10. Sélectionnez le [type de nœud](cloudsimple-node.md).
 11. Sélectionnez le nombre de nœuds à approvisionner.
 12. Sélectionnez **Vérifier + créer**.
 13. Passez en revue les paramètres. Pour modifier les paramètres, cliquez sur **Précédent**.

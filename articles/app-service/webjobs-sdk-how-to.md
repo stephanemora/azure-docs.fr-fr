@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 88664238fa7cf21381ad6f95e77e02ad89103556
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 67cd7f82597d306c8bf3c463d11457199aec7277
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850844"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815743"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -816,7 +816,7 @@ Pour plus d’informations sur la gestion des jetons d’annulation, consultez l
 
 Si votre application web s’exécute sur plusieurs instances, une tâche web continue se lance sur chaque instance, écoutant les déclencheurs et appelant les fonctions. Les différentes liaisons de déclencheur sont conçues pour partager efficacement le travail de façon collaborative entre les instances afin que l’extension à d’autres instances vous permette de gérer une charge plus importante.
 
-Les déclencheurs queue et blob empêchent automatiquement une fonction de traiter un message de file d’attente ou un objet blob à plusieurs reprises. Les fonctions ne doivent pas obligatoirement être idempotentes.
+Contrairement à certains déclencheurs qui peuvent entraîner un double traitement, les déclencheurs de stockage File d'attente et Blob empêchent automatiquement une fonction de traiter plusieurs fois un objet blob ou un message en file d'attente. Pour plus d'informations, consultez [Conception pour une entrée identique](../azure-functions/functions-idempotent.md) dans la documentation Azure Functions.
 
 Le déclencheur timer garantit automatiquement l’exécution d’une seule instance du minuteur de sorte qu’une instance unique de la fonction soit exécutée à une heure planifiée donnée.
 

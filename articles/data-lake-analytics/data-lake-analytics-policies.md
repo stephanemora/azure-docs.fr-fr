@@ -1,6 +1,6 @@
 ---
 title: Gérer les stratégies Azure Data Lake Analytics
-description: Découvrez comment utiliser des stratégies pour contrôler l’utilisation d’un compte Data Lake Analytics.
+description: Découvrez comment utiliser des stratégies pour contrôler l’utilisation d’un compte Data Lake Analytics, par exemple, un nombre maximal d’unités Analytics ou de travaux.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97b736d854661600a847b1d698af8f15ae58d237
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813431"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672859"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Gérer Azure Data Lake Analytics à l’aide de stratégies
 
@@ -68,7 +68,7 @@ Avec les stratégies au niveau du travail, vous pouvez contrôler les unités An
 
 Data Lake Analytics inclut deux stratégies que vous pouvez définir au niveau du travail :
 
-* **Limite d’unités Analytique par travail** : les utilisateurs peuvent uniquement soumettre des travaux dont le nombre maximal d’unités Analytique est inférieur ou égal à cette valeur. Par défaut, cette limite est identique à la limite maximale d’unités Analytique du compte.
+* **Limite d’unités Analytique par travail** : les utilisateurs peuvent uniquement soumettre des travaux dont le nombre maximal d’unités Analytique est inférieur ou égal à cette valeur. Par défaut, cette limite est identique à la limite maximale d’unités Analytics du compte.
 * **Priorité** : les utilisateurs peuvent uniquement soumettre les travaux dont la priorité est inférieure ou égale à cette valeur. Un nombre plus élevé indique une priorité plus faible. Par défaut, cette limite est définie sur 1, qui est la priorité la plus élevée.
 
 Chaque compte contient une stratégie par défaut. La stratégie par défaut s’applique à tous les utilisateurs du compte. Vous pouvez définir des stratégies supplémentaires pour des utilisateurs et des groupes spécifiques. 

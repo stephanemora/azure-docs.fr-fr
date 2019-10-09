@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102234"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828776"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Guide pratique pour provisionner une machine virtuelle Windows SQL Server dans le portail Azure
 
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Lorsque vous créez une machine virtuelle SQL Server, vous pouvez sélectionner une des images préconfigurées à partir de la galerie des machines virtuelles. Les étapes suivantes montrent comment sélectionner une des images SQL Server 2017.
 
-1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis entrez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
+1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
 1. Sélectionnez **+ Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires en sélectionnant **Afficher les détails**. 
 1. Entrez `2017` dans la zone de recherche d’image SQL Server sur la vignette **machines virtuelles SQL**, puis sélectionnez **Licence SQL Server gratuite : SQL Server 2017 Developer sur Windows Server 2016** dans la liste déroulante. 
 
@@ -54,17 +54,6 @@ Lorsque vous créez une machine virtuelle SQL Server, vous pouvez sélectionner 
 
 1. Sélectionnez **Create** (Créer).
 
-
-## <a id="configure"></a> Options de configuration
-
-Il existe plusieurs onglets pour la configuration d’une machine virtuelle SQL Server. Pour les besoins de ce guide, nous allons nous concentrer sur les éléments suivants : 
-
-| Étape | Description |
-| --- | --- |
-| **Concepts de base** |[Configurer les paramètres de base](#1-configure-basic-settings) |
-| **Fonctionnalités facultatives** |[Configurer des fonctionnalités facultatives](#2-configure-optional-features) |
-| **Paramètres de SQL Server** |[Configurer les paramètres du serveur SQL](#3-configure-sql-server-settings) |
-| **Vérifier + créer** | [Passer en revue le résumé](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1. Configurer les paramètres de base
 
@@ -142,8 +131,6 @@ Sous l’onglet **Supervision**, configurez la supervision et l’arrêt automat
 
 Sous l’onglet **Paramètres SQL Server**, configurez des paramètres spécifiques et des optimisations pour SQL Server. Les paramètres que vous pouvez configurer pour SQL Server sont les suivants :
 
-
-
 | Paramètre |
 | --- |
 | [Connectivité](#connectivity) |
@@ -208,24 +195,19 @@ Pour plus d’informations, consultez [Configurer l’intégration d’Azure Key
 
 ### <a name="storage-configuration"></a>Configuration du stockage
 
-Sous l’onglet **Paramètres SQL Server**, sous **Configuration du stockage**, sélectionnez **Modifier la configuration** pour spécifier les exigences de stockage.
+Dans l’onglet **Paramètres SQL Server**, sous **Configuration du stockage**, sélectionnez **Modifier la configuration** pour ouvrir la page Configuration du stockage à performances optimisées et spécifier les exigences de stockage.
 
-
-> [!NOTE]
-> Si vous avez configuré votre machine virtuelle manuellement pour qu’elle utilise un stockage standard, cette option n’est pas disponible. L’optimisation du stockage automatique est disponible uniquement pour Premium Storage.
-
-> [!TIP]
-> Le nombre d’arrêts et les limites maximales de chaque curseur dépendent de la taille de machine virtuelle que vous avez sélectionnée. Plus une machine virtuelle est volumineuse et puissante, plus sa capacité de montée en puissance est importante.
-
-Vous pouvez spécifier des exigences comme les opérations d’entrée/sortie par seconde (E/S par seconde), le débit en Mbit/s et la taille totale de stockage. Configurez ces valeurs en utilisant les échelles mobiles. Vous pouvez modifier ces paramètres de stockage en fonction de la charge de travail. Le portail calcule automatiquement le nombre de disques à attacher et configurer en fonction de ces exigences.
+![Configuration du stockage des machines virtuelles SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Sous **Stockage optimisé pour**, sélectionnez l’une des options suivantes :
 
 * **Général** est le paramètre par défaut ; il prend en charge la plupart des charges de travail.
-* **transactionnel** optimise le stockage pour les charges de travail OLTP de base de données traditionnelles.
+* **Traitement transactionnel** optimise le stockage pour les charges de travail OLTP de base de données traditionnelles.
 * **entreposage de données** optimise le stockage pour les charges de travail d’analyse et de création de rapports.
 
-![Configuration du stockage des machines virtuelles SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![Configuration du stockage des machines virtuelles SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+Vous pouvez conserver les valeurs par défaut ou modifier manuellement la topologie du stockage en fonction de vos besoins en E/S par seconde. Pour plus d'informations, consultez [Configuration du stockage](virtual-machines-windows-sql-server-storage-configuration.md). 
 
 ### <a name="sql-server-license"></a>Licence SQL Server
 Si vous êtes un client Software Assurance, vous pouvez utiliser [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) pour amener votre propre licence SQL Server et économiser sur les ressources. 

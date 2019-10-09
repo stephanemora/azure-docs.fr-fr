@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c4e97a96687e5fa1d934ab8c0317b52cb753f72c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d2823158192ae9fc9182f3f60f82d5bd9c050b09
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088171"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811624"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Configurer l’authentification mutuelle TLS pour Azure App Service
 
@@ -36,6 +36,15 @@ Pour configurer votre application afin qu’elle impose des certificats clients,
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
+
+## <a name="exclude-paths-from-requiring-authentication"></a>Exclure les chemins d’accès nécessitant une authentification
+
+Lorsque vous activez l’authentification mutuelle pour votre application, tous les chemins d’accès situés sous la racine de votre application requièrent un certificat client pour y accéder. Pour autoriser certains champs à rester ouvert à des fins d'accès anonyme, vous pouvez définir des chemins d’exclusion dans la configuration de votre application.
+
+Pour ce faire, sélectionnez **Configuration** > **Paramètres généraux** et définissez un chemin d'exclusion. Dans cet exemple, tout ce qui se trouve sous le chemin d’accès `/public` de votre application ne requiert pas de certificat client.
+
+![Chemins d'exclusion de certificat][exclusion-paths]
+
 
 ## <a name="access-client-certificate"></a>Accéder au certificat client
 
@@ -213,3 +222,5 @@ export class AuthorizationHandler {
     }
 }
 ```
+
+[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png

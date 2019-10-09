@@ -1,18 +1,18 @@
 ---
 title: Installer Office sur une image VHD principale – Azure
-description: Guide pratique pour installer et personnaliser Office sur une image principale Windows Virtual Desktop en préversion dans Azure.
+description: Guide pratique pour installer et personnaliser Office sur une image principale Windows Virtual Desktop dans Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378be7ebc1cc04433d42b6a05d7eafc73a515568
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816430"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679517"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installer Office sur une image VHD principale
 
@@ -23,7 +23,7 @@ Cet article suppose d’avoir déjà créé une machine virtuelle. Sinon, voir [
 Cet article suppose également d’avoir élevé l’accès à la machine virtuelle, qu’elle soit approvisionnée dans Azure ou avec Hyper-V Manager. Sinon, voir [Élever l’accès pour gérer tous les groupes d’abonnements et d’administration Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Ces instructions concernent une configuration propre à la préversion de Windows Virtual Desktop, que vous pouvez utiliser avec les processus actuels de votre organisation.
+>Ces instructions concernent une configuration spécifique à Windows Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Installer Office en mode activation d’ordinateurs partagés
 
@@ -45,7 +45,7 @@ L’exemple de fichier XML de configuration fourni effectue les opérations suiv
 - activer l’activation d’ordinateurs partagés.
 
 >[!NOTE]
->La fonctionnalité de recherche de gabarit de Visio ne fonctionne pas dans Windows Virtual Desktop lors de la configuration en préversion.
+>La fonctionnalité de recherche de gabarit de Visio peut ne pas fonctionner comme prévu dans Windows Virtual Desktop.
 
 Cet exemple de fichier XML de configuration n’effectue pas les opérations suivantes :
 

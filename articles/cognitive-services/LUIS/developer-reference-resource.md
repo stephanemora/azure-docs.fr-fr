@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 97684a4668c1d495fa690674f7bd94e064737bd4
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 0707ed3dfee9af27b7cab66c7952d1e7c1d57cb8
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273952"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703200"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Ressources du développeur pour implémenter Language Understanding
 
@@ -34,6 +34,8 @@ Recherchez de la documentation de référence basée sur l’outil :
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Demandes de création et de prédiction Language Understanding
 
 Le service Language Understanding est accessible à partir d’une ressource Azure que vous devez créer. Il existe deux ressources : les ressources de création et les ressources du point de terminaison de prédiction. Ces deux ressources vous permettent de contrôler vos ressources LUIS. 
+
+Apprenez-en davantage sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
 ### <a name="rest-apis"></a>API REST
 

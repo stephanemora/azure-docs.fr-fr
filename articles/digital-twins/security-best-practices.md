@@ -1,19 +1,19 @@
 ---
-title: Comprendre les meilleures pratiques de sécurité Azure Digital Twins | Microsoft Docs
-description: Meilleures pratiques de sécurité Azure Digital Twins.
+title: Comprendre les meilleures pratiques de sécurité - Azure Digital Twins | Microsoft Docs
+description: Découvrez les meilleures pratiques de sécurité pour Azure Digital Twins et l'Internet des objets.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 09/30/2019
 ms.author: v-adgera
-ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: e98f8a4becad41d27d89de16f598b6fa531ad5e3
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656520"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827671"
 ---
 # <a name="security-best-practices"></a>Meilleures pratiques en matière de sécurité
 
@@ -46,7 +46,7 @@ Voici certaines des pratiques les plus importantes pour sécuriser un espace IoT
 > [!div class="checklist"]
 > * Chiffrer les données enregistrées, stockées ou persistantes.
 > * Changer ou actualiser régulièrement les mots de passe ou les clés.
-> * Limiter soigneusement l’accès et les autorisations en fonction du rôle. Consultez la section [Bonnes pratiques relatives au contrôle d'accès en fonction du rôle](#rbac) ci-dessous.
+> * Limiter soigneusement l’accès et les autorisations en fonction du rôle. Consultez la section [Bonnes pratiques relatives au contrôle d'accès en fonction du rôle](#role-based-access-control-best-practices) ci-dessous.
 > * Songez par exemple à une topologie de réseau divisée afin que les périphériques de chaque réseau soient isolés.
 > * Utiliser un chiffrement puissant. Cela implique d’utiliser des mots de passe longs, des protocoles sécurisés et l’authentification à deux facteurs.
 
@@ -66,8 +66,6 @@ Azure Digital Twins utilise Azure Active Directory pour authentifier les utilisa
 > * Vérifier la durée de validité d’un jeton, ainsi que de sa capacité à rester valide.
 > * Définir des durées de validité appropriées pour les jetons.
 > * Actualiser des jetons expirés.
-
-<div id="rbac"></div>
 
 ## <a name="role-based-access-control-best-practices"></a>Bonnes pratiques relatives au contrôle d’accès en fonction du rôle
 

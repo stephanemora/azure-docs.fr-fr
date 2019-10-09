@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: d24481c1364b41f38e4ca7b8f7d726ebc22a1117
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 447f52a08c9e833808508852c4619f6ce1d947e1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624640"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703366"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc .NET : Télécharger des informations 
 
@@ -61,6 +61,12 @@ ms.locfileid: "69624640"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
 
 * Ajout de .NET Standard 2.0 comme l’un des frameworks cibles pris en charge pour que la bibliothèque d’exécuteurs en bloc fonctionne avec les applications .NET Core.
+
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Correction d'une consommation élevée du processeur dans certains scénarios.
+* Le suivi utilise désormais TraceSource. Les utilisateurs peuvent définir des écouteurs pour la source `BulkExecutorTrace`.
+* Correction d’un scénario rare susceptible d'entraîner un verrouillage lors de l’envoi de documents d'environ 2 Mo.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 

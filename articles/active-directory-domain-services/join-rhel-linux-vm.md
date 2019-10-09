@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 9c9b4cdfb77f1605a6730d0735541eeb78dcd323
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: b90650fa2cd343c81b7bbb2fcea24c3a95f537b6
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075524"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702051"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle Red Hat Enterprise Linux à un domaine managé Azure AD Domain Services
 
@@ -78,14 +78,24 @@ Quand vous avez terminé, enregistrez et quittez le fichier *hosts* à l’aide 
 
 La machine virtuelle a besoin de packages supplémentaires pour joindre la machine virtuelle au domaine managé Azure AD DS. Pour installer et configurer ces packages, mettez à jour et installez les outils de jonction de domaine à l’aide de `yum` :
 
+ **RHEL 7** 
+
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
+
+ **RHEL 6** 
+
+```console
+sudo yum install adcli sssd authconfig krb5-workstation
 ```
 
 ## <a name="join-vm-to-the-managed-domain"></a>Joindre la machine virtuelle au domaine managé
 
 Maintenant que les packages nécessaires sont installés sur la machine virtuelle, joignez celle-ci au domaine managé Azure AD DS.
-
+ 
+  **RHEL 7**
+     
 1. Utilisez la commande `realm discover` pour découvrir le domaine managé Azure AD DS. L’exemple suivant découvre le domaine *CONTOSO.COM*. Spécifiez votre propre nom de domaine managé Azure AD DS TOUT EN MAJUSCULES :
 
     ```console
@@ -93,20 +103,20 @@ Maintenant que les packages nécessaires sont installés sur la machine virtuell
     ```
 
    Si la commande `realm discover` ne trouve pas votre domaine managé Azure AD DS, examinez les étapes de dépannage suivantes :
-
+   
     * Vérifiez que le domaine est accessible à partir de la machine virtuelle. Essayez `ping contoso.com` pour voir si une réponse positive est retournée.
     * Vérifiez que la machine virtuelle est déployée dans le réseau virtuel où le domaine managé Azure AD DS est disponible ou dans un réseau virtuel appairé.
     * Vérifiez que les paramètres de serveur DNS du réseau virtuel ont été mis à jour pour pointer vers les contrôleurs de domaine du domaine managé Azure AD DS.
 
-1. À présent, initialisez Kerberos à l’aide de la commande `kinit`. Spécifiez un utilisateur qui appartient au groupe *AAD DC Administrators*. Si nécessaire, [ajoutez un compte d’utilisateur à un groupe dans Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. À présent, initialisez Kerberos à l’aide de la commande `kinit`. Spécifiez un utilisateur qui appartient au groupe *Administrateurs AAD DC*. Si nécessaire, [ajoutez un compte d’utilisateur à un groupe dans Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Là encore, le nom de domaine managé Azure AD DS doit être entré TOUT EN MAJUSCULES. Dans l’exemple suivant, le compte nommé `contosoadmin@contoso.com` est utilisé pour initialiser Kerberos. Entrez votre propre compte d’utilisateur qui est membre du groupe *AAD DC Administrators* :
-
+    Là encore, le nom de domaine managé Azure AD DS doit être entré TOUT EN MAJUSCULES. Dans l’exemple suivant, le compte nommé `contosoadmin@contoso.com` est utilisé pour initialiser Kerberos. Entrez votre propre compte d’utilisateur qui est membre du groupe *Administrateurs AAD DC* :
+    
     ```console
     kinit contosoadmin@CONTOSO.COM
-    ```
+    ``` 
 
-1. Enfin, joignez la machine au domaine managé Azure AD DS à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur membre du groupe *AAD DC Administrators* que vous avez spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@CONTOSO.COM` :
+1. Enfin, joignez la machine au domaine managé Azure AD DS à l’aide de la commande `realm join`. Utilisez le même compte d’utilisateur membre du groupe *Administrateurs AAD DC* que vous avez spécifié dans la commande précédente `kinit`, à savoir `contosoadmin@CONTOSO.COM` :
 
     ```console
     sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM'
@@ -118,7 +128,108 @@ La jonction de la machine virtuelle au domaine managé Azure AD DS prend quelque
 Successfully enrolled machine in realm
 ```
 
+  **RHEL 6** 
+
+1. Utilisez la commande `adcli info` pour découvrir le domaine managé Azure AD DS. L’exemple suivant découvre le domaine *CONTOSO.COM*. Spécifiez votre propre nom de domaine managé Azure AD DS TOUT EN MAJUSCULES :
+
+    ```console
+    sudo adcli info contoso.com
+    ```
+    
+   Si la commande `adcli info` ne trouve pas votre domaine managé Azure AD DS, examinez les étapes de dépannage suivantes :
+   
+    * Vérifiez que le domaine est accessible à partir de la machine virtuelle. Essayez `ping contoso.com` pour voir si une réponse positive est retournée.
+    * Vérifiez que la machine virtuelle est déployée dans le réseau virtuel où le domaine managé Azure AD DS est disponible ou dans un réseau virtuel appairé.
+    * Vérifiez que les paramètres de serveur DNS du réseau virtuel ont été mis à jour pour pointer vers les contrôleurs de domaine du domaine managé Azure AD DS.
+
+1. Commencez par joindre le domaine à l'aide de la commande `adcli join`. Cette commande créera également le fichier Keytab pour l'authentification de la machine. Utilisez un compte d'utilisateur qui est membre du groupe *Administrateurs AAD DC*. 
+
+    ```console
+    sudo adcli join contoso.com -U contosoadmin
+    ```
+
+1. Configurez maintenant le fichier `/ect/krb5.conf`, et créez les fichiers `/etc/sssd/sssd.conf` pour utiliser le domaine Active Directory `contoso.com`. 
+   Veillez à ce que `CONTOSO.COM` soit remplacé par votre nom de domaine :
+
+    Ouvrez le fichier `/ect/krb5.conf` dans un éditeur :
+
+    ```console
+    sudo vi /etc/krb5.conf
+    ```
+
+    Mettez à jour le fichier `krb5.conf` conformément à l'exemple suivant :
+
+    ```console
+    [logging]
+     default = FILE:/var/log/krb5libs.log
+     kdc = FILE:/var/log/krb5kdc.log
+     admin_server = FILE:/var/log/kadmind.log
+    
+    [libdefaults]
+     default_realm = CONTOSO.COM
+     dns_lookup_realm = true
+     dns_lookup_kdc = true
+     ticket_lifetime = 24h
+     renew_lifetime = 7d
+     forwardable = true
+    
+    [realms]
+     CONTOSO.COM = {
+     kdc = CONTOSO.COM
+     admin_server = CONTOSO.COM
+     }
+    
+    [domain_realm]
+     .CONTOSO.COM = CONTOSO.COM
+     CONTOSO.COM = CONTOSO.COM
+    ```
+    
+   Créez le fichier `/etc/sssd/sssd.conf` :
+    
+    ```console
+    sudo vi /etc/sssd/sssd.conf
+    ```
+
+    Mettez à jour le fichier `sssd.conf` conformément à l'exemple suivant :
+
+    ```console
+    [sssd]
+     services = nss, pam, ssh, autofs
+     config_file_version = 2
+     domains = CONTOSO.COM
+    
+    [domain/CONTOSO.COM]
+    
+     id_provider = ad
+    ```
+
+1. Assurez-vous que les autorisations `/etc/sssd/sssd.conf` correspondent à 600 et qu'elles appartiennent à l'utilisateur racine :
+
+    ```console
+    sudo chmod 600 /etc/sssd/sssd.conf
+    sudo chown root:root /etc/sssd/sssd.conf
+    ```
+
+1. Utilisez `authconfig` pour informer la machine virtuelle de l'intégration AD Linux :
+
+    ```console
+    sudo authconfig --enablesssd --enablesssdauth --update
+    ```
+    
+1. Démarrez et activez le service sssd :
+
+    ```console
+    sudo service sssd start
+    sudo chkconfig sssd on
+    ```
+
 Si votre machine virtuelle ne peut pas venir à bout du processus de jonction de domaine, vérifiez que le groupe de sécurité réseau de la machine virtuelle autorise le trafic Kerberos sortant sur le port TCP + UDP 464 vers le sous-réseau du réseau virtuel de votre domaine managé Azure AD DS.
+
+Vérifiez maintenant que vous pouvez interroger les informations AD de l'utilisateur via `getent`.
+
+```console
+sudo getent passwd contosoadmin
+```
 
 ## <a name="allow-password-authentication-for-ssh"></a>Autoriser l’authentification par mot de passe pour SSH
 
@@ -140,8 +251,16 @@ Par défaut, les utilisateurs ne peuvent se connecter à une machine virtuelle q
 
 1. Pour appliquer les modifications et permettre aux utilisateurs de se connecter à l’aide d’un mot de passe, redémarrez le service SSH :
 
+   **RHEL 7** 
+    
     ```console
     sudo systemctl restart sshd
+    ```
+
+   **RHEL 6** 
+    
+    ```console
+    sudo service sshd restart
     ```
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Accorder les privilèges sudo au groupe « Administrateurs du contrôleur de domaine AAD »
@@ -154,7 +273,7 @@ Pour accorder des privilèges d’administration aux membres du groupe *AAD DC A
     sudo visudo
     ```
 
-1. Ajoutez l’entrée suivante à la fin du fichier */etc/sudoers*. Étant donné que le nom de groupe *AAD DC Administrators* contient un espace blanc, incluez-y une barre oblique inverse en guise de caractère d’échappement. Ajoutez votre propre nom de domaine, par exemple *contoso.com* :
+1. Ajoutez l’entrée suivante à la fin du fichier */etc/sudoers*. Étant donné que le nom de groupe *Administrateurs du contrôleur de domaine AAD* contient un espace, incluez-y une barre oblique inverse en guise de caractère d’échappement. Ajoutez votre propre nom de domaine, par exemple *contoso.com* :
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
@@ -189,7 +308,7 @@ Pour vérifier que la machine virtuelle a bien été jointe au domaine managé A
 
     Vos appartenances aux groupes du domaine managé Azure AD DS doivent s’afficher.
 
-1. Si vous vous êtes connecté à la machine virtuelle en tant que membre du groupe *AAD DC Administrators*, vérifiez que vous pouvez bien utiliser la commande `sudo` :
+1. Si vous vous êtes connecté à la machine virtuelle en tant que membre du groupe *Administrateurs AAD DC*, vérifiez que vous pouvez bien utiliser la commande `sudo` :
 
     ```console
     sudo yum update

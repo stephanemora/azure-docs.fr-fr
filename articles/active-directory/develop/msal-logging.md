@@ -1,5 +1,5 @@
 ---
-title: Journalisation dans les applications MSAL | Plateforme d’identité Microsoft
+title: Journalisation dans les applications Microsoft Authentication Library (MSAL) | Azure
 description: En savoir plus sur la journalisation dans les applications Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dad8a276cd40b1ff04bbced833b5d70cec4fc87
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268581"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678034"
 ---
 # <a name="logging-in-msal-applications"></a>Journalisation dans les applications MSAL
 
@@ -44,14 +44,14 @@ Par défaut, l’enregistreur d’événements MSAL ne capture pas de données p
 ## <a name="logging-in-msalnet"></a>Journalisation dans MSAL.NET
 
  > [!NOTE]
- > Pour plus d’informations sur MSAL.NET, consultez le [wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Obtenez des exemples de journalisation MSAL.NET et bien plus encore.
- 
+ > Pour des exemples de journalisation MSAL.NET et bien plus, consultez le [wiki MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki).
+
 Dans la MSAL 3.x, la journalisation est définie par l’application sur l’application lors de la création du modificateur de générateur `.WithLogging`. Cette méthode accepte des paramètres optionnels :
 
-- *Niveau* vous permet de définir le niveau de journalisation souhaité. Si vous le définissez sur Erreurs, vous obtiendrez seulement les erreurs.
-- *PiiLoggingEnabled* vous permet de journaliser des données personnelles et d’organisation s’il est défini sur true. Par défaut, il est défini sur false. Votre application n’enregistre donc pas de données personnelles.
-- *LogCallback* est défini sur un délégué qui effectue la journalisation. Si *PiiLoggingEnabled* a la valeur true, cette méthode reçoit les messages à deux reprises : une fois avec le paramètre *containsPii* égal à «false» et le message sans données personnelles, et une deuxième fois avec le paramètre *containsPii* égal à la valeur true et le message pouvant contenir des données personnelles. Dans certains cas (lorsque le message ne contient pas de données personnelles), le message doit être le même.
-- *DefaultLoggingEnabled* active la journalisation par défaut pour la plateforme. La valeur par défaut est false. Si vous la définissez sur true elle utilise le suivi d’événements dans les applications de bureau/plateforme Windows universelle, NSLog sur iOS et logcat sur Android.
+- `Level` vous permet de définir le niveau de journalisation souhaité. Si vous le définissez sur Erreurs, vous obtiendrez seulement les erreurs.
+- `PiiLoggingEnabled` vous permet de journaliser des données personnelles et d’organisation s’il est défini sur true. Par défaut, il est défini sur false. Votre application n’enregistre donc pas de données personnelles.
+- `LogCallback` est défini sur un délégué qui effectue la journalisation. Si `PiiLoggingEnabled` a la valeur true, cette méthode reçoit les messages à deux reprises : une fois avec le paramètre `containsPii` égal à «false» et le message sans données personnelles, et une deuxième fois avec le paramètre `containsPii` égal à la valeur true et le message pouvant contenir des données personnelles. Dans certains cas (lorsque le message ne contient pas de données personnelles), le message doit être le même.
+- `DefaultLoggingEnabled` active la journalisation par défaut pour la plateforme. La valeur par défaut est false. Si vous la définissez sur true elle utilise le suivi d’événements dans les applications de bureau/plateforme Windows universelle, NSLog sur iOS et logcat sur Android.
 
 ```csharp
 class Program
@@ -80,16 +80,54 @@ class Program
  }
  ```
 
- ## <a name="logging-in-msaljs"></a>Journalisation dans MSAL.js
+## <a name="logging-in-msal-for-android-using-java"></a>Journalisation dans MSAL pour Android à l’aide de Java
 
- Vous pouvez activer la journalisation dans MSAL.js en passant un objet enregistreur d’événements lors de la configuration pour la création d’une instance `UserAgentApplication`. Cet objet enregistreur d'événements a les propriétés suivantes :
+Activez la journalisation lors de la création de l’application en créant un rappel de journalisation. Le rappel utilise les paramètres suivants :
+
+- `tag` est une chaîne transmise au rappel par la bibliothèque. Il est associé à l’entrée de journal et peut être utilisé pour trier les messages de journalisation.
+- `logLevel` vous permet de définir le niveau de journalisation souhaité. Les niveaux de journalisation pris en charge sont les suivants : `Error`, `Warning`, `Info` et `Verbose`.
+- `message` correspond au contenu de l’entrée de journal.
+- `containsPII` indique si les messages contenant des données personnelles ou organisationnelles sont journalisés. Par défaut, il est défini sur false. Votre application n’enregistre donc pas de données personnelles. Si `containsPII` a la valeur `true`, cette méthode reçoit les messages à deux reprises : une fois avec le paramètre `containsPII` défini sur `false` et le `message` sans données personnelles, et une deuxième fois avec le paramètre `containsPii` défini sur `true` et le message pouvant contenir des données personnelles. Dans certains cas (lorsque le message ne contient pas de données personnelles), le message doit être le même.
+
+```java
+private StringBuilder mLogs;
+
+mLogs = new StringBuilder();
+Logger.getInstance().setExternalLogger(new ILoggerCallback()
+{
+   @Override
+   public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII)
+   {
+      mLogs.append(message).append('\n');
+   }
+});
+```
+
+Par défaut, l’enregistreur d’événements MSAL ne capture pas les informations d’identification personnelles ou informations d’identification organisationnelles.
+Pour activer la journalisation des informations d’identification personnelles et des informations d’identification organisationnelles :
+
+```java
+Logger.getInstance().setEnablePII(true);
+```
+
+Pour désactiver la journalisation des données personnelles et organisationnelles :
+
+```java
+Logger.getInstance().setEnablePII(false);
+```
+
+Par défaut, la journalisation dans logcat est désactivée. Pour activer : 
+```java
+Logger.getInstance().setEnableLogcatLog(true);
+```
+
+## <a name="logging-in-msaljs"></a>Journalisation dans MSAL.js
+
+ Activez la journalisation dans MSAL.js en passant un objet enregistreur d’événements lors de la configuration pour la création d’une instance `UserAgentApplication`. Cet objet enregistreur d'événements a les propriétés suivantes :
 
 - `localCallback` : une instance de rappel qui peut être fournie par le développeur pour consommer et publier des journaux de manière personnalisée. Implémentez la méthode localCallback en fonction de la façon dont vous souhaitez rediriger les journaux.
-
-- `level` (facultatif) : le niveau de journalisation configurable. Les niveaux de journalisation pris en charge sont les suivants : Erreur, Avertissement, Info, Verbose. La valeur par défaut est Info.
-
-- `piiLoggingEnabled` (facultatif) : vous permet de journaliser des données personnelles et d’organisation s’il est défini sur true. Par défaut, il est défini sur false. Votre application n’enregistre donc pas de données personnelles. Les journaux de données personnelles ne sont jamais écrits dans les sorties par défaut telles que Console, Logcat ou NSLog. La valeur par défaut est false.
-
+- `level` (facultatif) : le niveau de journalisation configurable. Les niveaux de journalisation pris en charge sont les suivants : `Error`, `Warning`, `Info` et `Verbose`. Par défaut, il s’agit de `Info`.
+- `piiLoggingEnabled` (facultatif) : s'il est défini sur true, vous permet de journaliser des données personnelles et organisationnelles. Par défaut, il est défini sur false. Votre application n’enregistre donc pas de données personnelles. Les journaux de données personnelles ne sont jamais écrits dans les sorties par défaut telles que Console, Logcat ou NSLog.
 - `correlationId` (facultatif) : un identificateur unique utilisé pour mapper la requête avec la réponse à des fins de débogage. Guide des valeurs par défaut de RFC4122, version 4 (128 bits).
 
 ```javascript
@@ -99,7 +137,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
+        clientId: “<Enter your client id>”,
     },
      system: {
              logger: new Msal.Logger(

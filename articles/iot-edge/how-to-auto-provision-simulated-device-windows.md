@@ -1,5 +1,5 @@
 ---
-title: Provisionner automatiquement des appareils Windows le service Device Provisioning - Azure IoT Edge | Microsoft Docs
+title: Provisionner automatiquement des appareils Windows avec DPS - Azure IoT Edge | Microsoft Docs
 description: Utiliser un appareil simulé sur votre machine Windows pour tester le provisionnement automatique d’appareils pour Azure IoT Edge avec le service Device Provisioning
 author: kgremban
 manager: philmea
@@ -9,23 +9,29 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0236491f9ebc8e3ecf7df8b74db4fd5ff441c7f8
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 16ac8ef9e0fb876103b57b1cc463bdae5b2362b7
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677441"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828106"
 ---
-# <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Créer et provisionner un appareil Edge avec TPM simulé sur Windows
+# <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Créer et provisionner un appareil IoT Edge simulé avec un TPM virtuel sous Windows
 
 Les appareils Azure IoT Edge peuvent être provisionnés automatiquement à l’aide du [service Device Provisioning](../iot-dps/index.yml) tout comme les appareils qui ne sont pas compatibles avec Edge. Si vous ne connaissez pas le processus de provisionnement automatique, révisez les [concepts du provisionnement automatique](../iot-dps/concepts-auto-provisioning.md) avant de poursuivre.
 
-Cet article montre comment tester le provisionnement automatique sur un appareil Edge simulé à l’aide des étapes suivantes :
+Cet article explique comment tester le provisionnement automatique sur un appareil IoT Edge simulé en procédant comme suit :
 
 * Création d’une instance du service IoT Hub Device Provisioning.
 * Création d’un appareil simulé sur votre machine Windows avec un module de plateforme sécurisée (TPM) simulé pour la sécurité du matériel.
 * Création d’une inscription individuelle pour l’appareil.
 * Installation du runtime IoT Edge et connexion de l’appareil à IoT Hub.
+
+> [!NOTE]
+> TPM 2.0 est requis lors de l'utilisation de l'attestation TPM avec DPS, et il ne peut être utilisé que pour créer des inscriptions individuelles, et non groupées.
+
+> [!TIP]
+> Cet article explique comment tester le provisionnement automatique à l'aide de l'attestation TPM sur des appareils virtuels, mais il s'applique principalement à l'utilisation de matériel TPM physique.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -38,11 +44,16 @@ Créez une nouvelle instance du service IoT Hub Device Provisioning dans Azure e
 
 Après avoir lancé l’exécution du service Device Provisioning, copiez la valeur de **Étendue de l’ID** à partir de la page de présentation. Vous utilisez cette valeur lorsque vous configurez le runtime IoT Edge.
 
+> [!TIP]
+> Si vous utilisez un appareil TPM physique, vous devez déterminer la **Paire de clés de type EK (Endorsement Key)** , propre à chaque puce TPM et fournie par le fabricant de la puce TPM associée. Vous pouvez dériver un **ID d'inscription** unique pour votre appareil TPM, en créant par exemple un code de hachage SHA-256 pour la paire de clés de type EK.
+>
+> Suivez les instructions de l'article [Gérer les inscriptions d'appareils à l'aide du portail Azure](../iot-dps/how-to-manage-enrollments.md) pour créer votre inscription dans DPS, puis poursuivez avec la section [Installer le runtime IoT Edge](#install-the-iot-edge-runtime) de cet article.
+
 ## <a name="simulate-a-tpm-device"></a>Simuler un appareil TPM
 
-Créez un appareil TPM simulé sur votre machine de développement Windows. Récupérez l’**ID d’inscription** et la **Paire de clés de type EK** pour votre appareil, et utilisez-les pour créer une entrée d’inscription individuelle dans le service Device Provisioning.
+Créez un appareil TPM simulé sur votre machine de développement Windows. Récupérez l'**ID d'inscription** et la **Paire de clés de type EK (Endorsement Key)** de votre appareil, et utilisez-les pour créer une entrée d'inscription individuelle dans DPS.
 
-Lorsque vous créez une inscription dans le service Device Provisioning, vous avez la possibilité de déclarer un **État initial du jumeau d’appareil**. Dans le jumeau d’appareil, vous pouvez définir des balises pour regrouper les appareils en fonction des métriques dont vous avez besoin dans votre solution, comme la région, l’environnement, l’emplacement ou le type d’appareil. Ces balises sont utilisées pour créer [des déploiements automatiques](how-to-deploy-monitor.md).
+Lorsque vous créez une inscription auprès du service Device Provisioning, vous avez la possibilité de déclarer un **État initial du jumeau d’appareil**. Dans le jumeau d’appareil, vous pouvez définir des balises pour regrouper les appareils en fonction des métriques dont vous avez besoin dans votre solution, comme la région, l’environnement, l’emplacement ou le type d’appareil. Ces balises sont utilisées pour créer [des déploiements automatiques](how-to-deploy-monitor.md).
 
 Choisissez le langage du kit SDK que vous souhaitez utiliser pour créer l’appareil simulé et suivez les étapes jusqu’à la création de l’inscription individuelle.
 
@@ -60,15 +71,39 @@ Après avoir créé l’inscription individuelle, enregistrez la valeur de l’*
 
 ## <a name="install-the-iot-edge-runtime"></a>Installer le runtime IoT Edge
 
-À l’issue de la section précédente, vous devez voir votre nouvel appareil répertorié en tant qu’appareil IoT Edge dans votre IoT Hub. À présent, vous devez installer le runtime IoT Edge sur votre appareil.
+Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Ses composants s’exécutent dans des conteneurs et vous permettent de déployer des conteneurs supplémentaires sur l’appareil, pour que vous puissiez exécuter du code en périphérie.
 
-Le runtime IoT Edge est déployé sur tous les appareils IoT Edge. Ses composants s’exécutent dans des conteneurs et vous permettent de déployer des conteneurs supplémentaires sur l’appareil, pour que vous puissiez exécuter du code en périphérie.  
+Vous aurez besoin des informations suivantes lors de l’approvisionnement de votre appareil :
 
-Suivez les instructions pour installer le runtime IoT Edge sur l’appareil qui exécute le TPM simulé de la section précédente. Veillez à configurer le runtime IoT Edge pour le provisionnement automatique, et non manuel.
+* Valeur **Étendue de l’ID** du service Device Provisioning
+* L’**ID d’inscription** de l’appareil que vous avez créé
 
-Procurez-vous l’**Étendue de l’ID** de votre DPS et l’**ID d’inscription** de votre appareil avant d’installer IoT Edge sur votre appareil.
+Installez le runtime IoT Edge sur l'appareil qui exécute le TPM simulé. Vous allez configurer le runtime IoT Edge pour un provisionnement automatique et non manuel.
 
-[Installer et approvisionner automatiquement IoT Edge](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+> [!TIP]
+> Gardez ouverte la fenêtre dans laquelle s’exécute le simulateur TPM durant l’installation et les tests.
+
+Pour plus d'informations sur l'installation d'IoT Edge sous Windows, notamment sur les conditions préalables et les instructions relatives aux tâches telles que la gestion des conteneurs et la mise à jour d'IoT Edge, consultez [Installer le runtime Azure IoT Edge sous Windows](how-to-install-iot-edge-windows.md).
+
+1. Ouvrez une fenêtre PowerShell en mode administrateur. Veillez à utiliser une session AMD64 de PowerShell lors de l'installation d'IoT Edge, plutôt que PowerShell (x86).
+
+1. La commande **Deploy-IoTEdge** vérifie que votre ordinateur Windows a une version prise en charge, active la fonctionnalité des conteneurs, avant de télécharger le runtime moby et le runtime IoT Edge. Par défaut, la commande utilise des conteneurs de Windows.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. À ce stade, les appareils IoT Core peuvent redémarrer automatiquement. D’autres appareils Windows 10 ou Windows Server peuvent vous inviter à redémarrer. Si c’est le cas, redémarrez votre appareil maintenant. Une fois votre appareil prêt, exécutez à nouveau PowerShell en tant qu’administrateur.
+
+1. La commande **Initialize-IoTEdge** configure le runtime IoT Edge sur votre ordinateur. Par défaut, la commande est une commande d’approvisionnement manuel avec des conteneurs Windows. Utilisez la balise `-Dps` pour utiliser le service de provisionnement des appareils à la place du provisionnement manuel.
+
+   Remplacez les valeurs d'espace réservé de `{scope_id}` et `{registration_id}` par les données que vous avez collectées précédemment.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
+   ```
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 
@@ -81,7 +116,6 @@ Get-Service iotedge
 ```
 
 Examinez les journaux d’activité du service des 5 dernières minutes.
-
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog

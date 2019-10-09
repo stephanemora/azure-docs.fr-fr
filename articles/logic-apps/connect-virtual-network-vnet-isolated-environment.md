@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 15e1f1c4c8757ca55ec27659a4ca11b1729aebc2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099471"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701948"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -44,36 +44,42 @@ Cet article vous explique comment effectuer ces tâches :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Si vous n’avez pas de réseau virtuel, découvrez comment [créer un réseau virtuel Azure](../virtual-network/quick-create-portal.md).
+* Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Si vous n’avez pas de réseau virtuel, découvrez comment [créer un réseau virtuel Azure](../virtual-network/quick-create-portal.md). 
 
-  * Votre réseau virtuel doit avoir quatre sous-réseaux *vides* pour la création et le déploiement de ressources dans votre ISE. Vous pouvez créer ces sous-réseaux à l’avance, ou attendre de créer votre ISE où vous pouvez créer vos sous-réseaux simultanément. En savoir plus sur [exigences des sous-réseaux](#create-subnet).
-  
-    > [!NOTE]
-    > Si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md), qui fournit une connexion privée aux services cloud Microsoft, vous devez [créer une table de routage](../virtual-network/manage-route-table.md) qui dispose de la route suivante, et lier cette table à chaque sous-réseau utilisé par votre ISE :
-    > 
-    > **Nom** : <*nom d’itinéraire*><br>
-    > **Préfixe de l’adresse** : 0.0.0.0/0<br>
-    > **Tronçon suivant** : Internet
+  * Votre réseau virtuel doit comporter quatre sous-réseaux *vides* pour la création et le déploiement de ressources dans votre ISE. Vous pouvez créer ces sous-réseaux à l’avance, ou attendre de créer votre ISE où vous pouvez créer vos sous-réseaux simultanément. En savoir plus sur [exigences des sous-réseaux](#create-subnet).
+
+  * Les noms des sous-réseaux doivent commencer par un caractère alphabétique ou un trait de soulignement, et les caractères suivants sont interdits : `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
 
   * Assurez-vous que votre réseau virtuel [mette à disposition ces ports](#ports) pour permettre le bon fonctionnement et l'accessibilité de votre ISE.
 
-* Si vous souhaitez utiliser des serveurs DNS personnalisés pour votre réseau virtuel Azure, [configurez ces serveurs en suivant ces étapes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) avant de déployer votre ISE sur votre réseau virtuel. Sinon, chaque fois que vous modifiez votre serveur DNS, vous devez également redémarrer votre ISE, une fonctionnalité disponible avec la préversion publique de l'environnement.
+  * Si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md), qui fournit une connexion privée aux services de cloud computing Microsoft, vous devez [créer une table de route](../virtual-network/manage-route-table.md) comportant l'itinéraire suivant, et lier cette table à chaque sous-réseau utilisé par votre ISE :
+
+    **Nom** : <*nom d’itinéraire*><br>
+    **Préfixe de l’adresse** : 0.0.0.0/0<br>
+    **Tronçon suivant** : Internet
+
+* Si vous souhaitez utiliser des serveurs DNS personnalisés pour votre réseau virtuel Azure, [configurez ces serveurs en suivant ces étapes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) avant de déployer votre ISE sur votre réseau virtuel. Sinon, chaque fois que vous changez de serveur DNS, vous devez également redémarrer votre ISE.
+
+  > [!IMPORTANT]
+  > Si vous modifiez les paramètres de votre serveur DNS après avoir créé un ISE, veillez à redémarrer ce dernier. Pour plus d'informations sur la gestion des paramètres d'un serveur DNS, consultez [Créer, modifier ou supprimer un réseau virtuel](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 <a name="ports"></a>
 
 ## <a name="check-network-ports"></a>Vérifier les ports réseau
 
-Lorsque vous utilisez un ISE avec un réseau virtuel existant, il arrive souvent qu'un ou plusieurs ports soient bloqués. Les connecteurs que vous utilisez pour créer les connexions entre votre ISE et le système de destination peuvent également avoir leurs propres exigences en matière de port. Par exemple, si vous communiquez avec un système FTP en utilisant le connecteur FTP, assurez-vous que le port que vous utilisez sur ce système FTP, comme le port 21 pour l’envoi de commandes, est disponible.
-
-Si vous avez créé un réseau virtuel et des sous-réseaux sans contraintes, vous n’avez pas besoin de configurer des [groupes de sécurité réseau (NSG)](../virtual-network/security-overview.md) dans votre réseau virtuel pour pouvoir contrôler le trafic entre les sous-réseaux. Pour un réseau virtuel existant, vous pouvez *éventuellement* configurer des groupes de sécurité réseau en [filtrant le trafic réseau entre sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Si vous choisissez cette méthode, assurez-vous que votre ISE ouvre des ports spécifiques, comme décrit dans le tableau suivant, sur le réseau virtuel qui dispose des groupes de sécurité réseau. Pour des groupes de sécurité réseau ou pare-feu existants dans votre réseau virtuel, assurez-vous qu’ils ouvrent ces ports. De cette façon, votre ISE reste accessible et peut fonctionner correctement, et vous ne perdez pas l’accès à votre ISE. Sinon, si certains des ports requis ne sont pas disponibles, votre ISE cesse de fonctionner.
+Lorsque vous utilisez un ISE avec un réseau virtuel Azure, il arrive souvent qu'un ou plusieurs ports soient bloqués. Les connecteurs que vous utilisez pour créer les connexions entre votre ISE et le système de destination peuvent également avoir leurs propres exigences en matière de port. Par exemple, si vous communiquez avec un système FTP en utilisant le connecteur FTP, assurez-vous que le port que vous utilisez sur votre système FTP, comme le port 21 pour l'envoi de commandes, est disponible. Pour veiller à ce que votre ISE reste accessible et opérationnel, ouvrez les ports spécifiés dans le tableau ci-dessous. Sinon, si certains des ports requis ne sont pas disponibles, votre ISE cesse de fonctionner.
 
 > [!IMPORTANT]
-> Pour la communication à l’intérieur de vos sous-réseaux, l’ISE nécessite que vous ouvriez tous les ports au sein de ces sous-réseaux.
-
-Ce tableau décrit les ports du réseau virtuel que votre ISE utilise et l’endroit où ces ports sont utilisés. Les [balises de service de Resource Manager](../virtual-network/security-overview.md#service-tags) représentent un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
-
-> [!NOTE]
 > Les ports source étant éphémères, affectez-leur la valeur `*` pour toutes les règles.
+> Pour la communication au sein de vos sous-réseaux, votre ISE exige que vous ouvriez tous les ports de ces sous-réseaux.
+
+* Si vous avez créé un réseau virtuel et des sous-réseaux sans contraintes, vous n'avez pas besoin de configurer des [groupes de sécurité réseau (NSG)](../virtual-network/security-overview.md#network-security-groups) dans votre réseau virtuel pour contrôler le trafic sur les sous-réseaux.
+
+* Sur un réseau virtuel existant, vous pouvez *facultativement* configurer des groupes de sécurité réseau en [filtrant le trafic réseau sur les sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Si vous choisissez cet itinéraire, veillez à ouvrir les ports spécifiés dans le tableau ci-dessous sur le réseau virtuel sur lequel vous souhaitez configurer les groupes de sécurité réseau. Si vous utilisez des [règles de sécurité NSG](../virtual-network/security-overview.md#security-rules), les protocoles TCP et UDP sont tous deux nécessaires.
+
+* Si votre réseau virtuel comporte déjà des groupes de sécurité réseau ou des pare-feu, veillez à ouvrir les ports spécifiés dans le tableau ci-dessous. Si vous utilisez des [règles de sécurité NSG](../virtual-network/security-overview.md#security-rules), les protocoles TCP et UDP sont tous deux nécessaires.
+
+Le tableau suivant désigne les ports de votre réseau virtuel utilisés par votre ISE et les emplacements où ces ports sont utilisés. Les [balises de service de Resource Manager](../virtual-network/security-overview.md#service-tags) représentent un groupe de préfixes d’adresses IP qui permet de simplifier la création de règles de sécurité.
 
 | Objectif | Direction | Ports de destination | Balise du service source | Identification de destination | Notes |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
@@ -134,9 +140,13 @@ Dans la zone de recherche, entrez « environnement de service d’intégration �
 
    **Créer un sous-réseau**
 
-   Pour créer et déployer des ressources dans votre environnement, votre ISE a besoin de quatre sous-réseaux *vides* qui ne sont délégués à aucun service. Vous *ne pouvez pas changer* ces adresses de sous-réseaux après avoir créé votre environnement. Chaque sous-réseau doit répondre aux critères suivants :
-
-   * A un nom qui commence par un caractère alphabétique ou un trait de soulignement et ne comprend pas ces caractères : `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+   Pour créer et déployer des ressources dans votre environnement, votre ISE a besoin de quatre sous-réseaux *vides* qui ne sont délégués à aucun service. Vous *ne pouvez pas changer* ces adresses de sous-réseaux après avoir créé votre environnement.
+   
+   > [!IMPORTANT]
+   > 
+   > Les noms des sous-réseaux doivent commencer par un caractère alphabétique ou un trait de soulignement (pas de chiffres), et les caractères suivants sont interdits : `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
+   
+   En outre, chaque sous-réseau doit être conforme aux exigences suivantes :
 
    * Il utilise le format [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) et un espace d’adressage de Classe B.
 
@@ -150,7 +160,7 @@ Dans la zone de recherche, entrez « environnement de service d’intégration �
 
      Pour en savoir plus sur le calcul des adresses, consultez [Blocs CIDR IPv4](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md), n’oubliez pas de [créer une table de routage](../virtual-network/manage-route-table.md) qui possède l’itinéraire suivant et de lier cette table à chaque sous-réseau utilisé par votre ISE :
+   * Si vous utilisez [ExpressRoute](../expressroute/expressroute-introduction.md), vous devez [créer une table de route](../virtual-network/manage-route-table.md) comportant l'itinéraire suivant, et lier cette table à chaque sous-réseau utilisé par votre ISE :
 
      **Nom** : <*nom d’itinéraire*><br>
      **Préfixe de l’adresse** : 0.0.0.0/0<br>

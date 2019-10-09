@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142673"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827405"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -260,6 +260,7 @@ Le contrôle des images est une fonctionnalité d’évaluation d’ACR. Vous po
 - [Les nouvelles autorisations utilisateur peuvent ne pas entrer en vigueur dès la mise à jour](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Les informations d’authentification ne sont pas fournies dans le format correct sur les appels directs de l’API REST](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Pourquoi le portail Azure ne liste-t-il pas tous mes dépôts ou étiquettes ?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Pourquoi le portail Azure ne parvient-il pas à récupérer les dépôts ou les étiquettes ?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Comment collecter les traces http sur Windows ?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Contrôler l’intégrité avec `az acr check-health`
@@ -409,6 +410,17 @@ curl $redirect_url
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Pourquoi le portail Azure ne liste-t-il pas tous mes dépôts ou étiquettes ? 
 
 Si vous utilisez le navigateur Microsoft Edge/Internet Explorer, vous pouvez voir au maximum 100 dépôts ou étiquettes. Si votre registre a plus de 100 dépôts ou étiquettes, nous vous recommandons d’utiliser le navigateur Firefox ou Chrome pour les lister tous.
+
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>Pourquoi le portail Azure ne parvient-il pas à récupérer les dépôts ou les étiquettes ?
+
+Le navigateur n'est peut-être pas en mesure d'envoyer la demande de récupération de dépôts ou d'étiquettes au serveur. Les raisons peuvent être diverses :
+
+* Absence de connectivité réseau
+* Pare-feu
+* Bloqueurs de publicités
+* Erreurs DNS
+
+Contactez votre administrateur réseau ou vérifiez la configuration et la connectivité de votre réseau. En outre, vous pouvez également essayer une session incognito ou privée dans votre navigateur pour éviter tout cache ou cookie périmé.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Comment collecter les traces http sur Windows ?
 

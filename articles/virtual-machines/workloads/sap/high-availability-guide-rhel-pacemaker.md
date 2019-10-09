@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 4e12ad64ef277396a101aab6d1bb8f3cc6079cf9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 954ff23997e56249859dd8d35f124324432f2b22
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099596"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672996"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuration de Pacemaker sur Red Hat Entreprise Linux dans Azure
 
@@ -62,6 +62,7 @@ Commencez par lire les notes et publications SAP suivantes :
   * [Vue d’ensemble des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administration des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Référence des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Stratégies de prise en charge pour les clusters haute disponibilité RHEL – sbd et fence_sbd](https://access.redhat.com/articles/2800691)
 * Documentation RHEL spécifique à Azure :
   * [Stratégies de prise en charge des clusters à haute disponibilité RHEL - Machines virtuelles Microsoft Azure en tant que membres du cluster](https://access.redhat.com/articles/3131341)
   * [Installation et configuration d’un cluster à haute disponibilité Red Hat Enterprise Linux 7.4 (et versions ultérieures) sur Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -70,6 +71,10 @@ Commencez par lire les notes et publications SAP suivantes :
 ## <a name="cluster-installation"></a>Installation du cluster
 
 ![Présentation de Pacemaker sur RHEL](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+
+> [!NOTE]
+> Red Hat ne prend pas en charge la surveillance émulée par logiciel. Red Hat ne prend pas en charge SBD sur des plateformes cloud. Pour plus d’informations, voir [Stratégies de prise en charge pour les clusters haute disponibilité RHEL – sbd et fence_sbd](https://access.redhat.com/articles/2800691).
+> Le seul mécanisme de délimitation pris en charge pour des clusters Pacemaker Red Hat Enterprise Linux sur Azure est l’agent de délimitation Azure.  
 
 Les éléments suivants sont précédés de **[A]** (applicable à tous les nœuds), de **[1]** (applicable uniquement au nœud 1) ou de **[2]** (applicable uniquement au nœud 2).
 

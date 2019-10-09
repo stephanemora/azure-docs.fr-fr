@@ -1,6 +1,6 @@
 ---
 title: Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell
-description: Apprenez à charger un disque dur virtuel sur un disque managé Azure à l'aide d'Azure PowerShell.
+description: Apprenez à charger un disque dur virtuel sur un disque managé Azure et à copier un disque managé d'une région vers une autre à l'aide d'Azure PowerShell.
 author: roygara
 ms.author: rogarana
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 98c0316a3fa513f98031b79eefcedea5a1111539
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266494"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828654"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell
 
@@ -27,18 +27,21 @@ Actuellement, le chargement direct est pris en charge pour les disques managés 
 
 - Téléchargez la dernière [version d'AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installez le module Azure PowerShell](/powershell/azure/install-Az-ps).
-- Fichier de disque dur virtuel, stocké localement.
+- Si vous envisagez de charger un disque dur virtuel à partir de on-pem : Un disque dur virtuel [préparé pour Azure](prepare-for-upload-vhd-image.md) et stocké localement.
+- Ou un disque managé dans Azure, si vous envisagez d'effectuer une action de copie.
 
 ## <a name="create-an-empty-managed-disk"></a>Créer un disque managé vierge
 
-Pour charger votre disque dur virtuel dans Azure, vous devez créer un disque managé vierge spécifiquement configuré pour ce processus de chargement. Avant de créer ce disque, vous devez prendre connaissance des informations ci-dessous.
+Pour charger votre disque dur virtuel dans Azure, vous devez créer un disque managé vierge configuré pour ce processus de chargement. Avant de créer ce disque, vous devez prendre connaissance des informations ci-dessous.
 
 Ce type de disque managé présente deux états uniques :
 
 - ReadToUpload, qui signifie que le disque est prêt à recevoir un chargement, mais qu'aucune [signature d'accès partagé](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) (SAS) n'a été générée.
 - ActiveUpload, qui signifie que le disque est prêt à recevoir un chargement et que la SAS a été générée.
 
-Dans l'un ou l'autre de ces états, le disque managé est facturé au [tarif HDD Standard](https://azure.microsoft.com/pricing/details/managed-disks/), quel que soit le type de disque. Par exemple, un P10 est facturé comme un S10. Ceci s'applique jusqu'à ce que `revoke-access` soit appelé sur le disque managé, ce qui est nécessaire pour joindre le disque à une machine virtuelle.
+Dans l'un ou l'autre de ces états, le disque managé est facturé au [tarif HDD Standard](https://azure.microsoft.com/pricing/details/managed-disks/), quel que soit le type de disque. Par exemple, un P10 est facturé comme un S10. Ceci s’applique jusqu’à ce que `revoke-access` soit appelé sur le disque managé, ce qui est nécessaire pour joindre le disque à une machine virtuelle.
+
+Avant de créer un disque HDD standard vierge pour le chargement, vous devez vous procurer la taille de fichier en octets du disque dur virtuel que vous souhaitez charger. L'exemple de code vous la fournira, mais si vous souhaitez effectuer cette opération vous-même, vous pouvez utiliser : `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Cette valeur est utilisée lors de la spécification du paramètre **-UploadSizeInBytes**.
 
 Ensuite, à partir de votre interpréteur de commandes local, créez un disque HDD Standard vierge pour le chargement en spécifiant le paramètre **Upload** dans **-CreateOption** ainsi que le paramètre **-UploadSizeInBytes** dans la cmdlet [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0). Puis appelez [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) pour créer le disque :
 
@@ -50,7 +53,7 @@ $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -Upload
 New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName' -Disk $diskconfig
 ```
 
-Si vous souhaitez charger un disque SSD Premium ou Standard, remplacez **Standard_LRS** par **Premium_LRS** ou par **StandardSSD_LRS**. Le type SSD Ultra n'est pas encore pris en charge.
+Si vous souhaitez charger un disque SSD Premium ou Standard, remplacez **Standard_LRS** par **Premium_LRS** ou par **StandardSSD_LRS**. Le type SSD Ultra n’est pas encore pris en charge.
 
 Vous venez de créer un disque managé vierge configuré pour le processus de chargement. Pour charger un disque dur virtuel sur le disque, il vous faut une SAS accessible en écriture afin de pouvoir la référencer en tant que destination pour votre chargement.
 
@@ -71,7 +74,7 @@ Utilisez AzCopy v10 pour charger votre fichier de disque dur virtuel local sur 
 Ce chargement présente le même débit que le disque [HDD Standard](disks-types.md#standard-hdd) correspondant. Par exemple, pour une taille correspondant à S4, vous aurez un débit allant jusqu'à 60 Mio/s. Mais pour une taille correspondant à S70, le débit ira jusqu'à 500 Mio/s.
 
 ```
-AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas --blob-type PageBlob
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
 Si votre SAS expire pendant le chargement et que vous n'avez pas encore appelé `revoke-access`, vous pouvez obtenir une nouvelle SAS pour poursuivre le chargement en utilisant de nouveau `grant-access`.
@@ -80,6 +83,45 @@ Lorsque vous avez terminé le chargement et que vous n'avez plus rien à écrire
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
+```
+
+## <a name="copy-a-managed-disk"></a>Copier un disque managé
+
+Le chargement direct simplifie également le processus de copie d'un disque managé. Vous pouvez effectuer une copie au sein d'une même région ou entre des régions différentes (vers une autre région).
+
+Le script suivant effectuera cette opération pour vous. Le processus est similaire aux étapes décrites précédemment, à quelques différences près puisque vous utilisez un disque existant.
+
+> [!IMPORTANT]
+> Vous devez ajouter un décalage de 512 lorsque vous fournissez la taille en octets d'un disque managé à partir d'Azure. En effet, Azure omet le pied de page lors du renvoi de la taille du disque. Si vous ne le faites pas, la copie échouera. Le script suivant s'en charge pour vous.
+
+Remplacez `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` et `<yourTargetLocationHere>` (la valeur d'emplacement pourrait par exemple être uswest2) par vos valeurs, puis exécutez le script suivant afin de copier un disque managé.
+
+```powershell
+
+$sourceRG = <sourceResourceGroupHere>
+$sourceDiskName = <sourceDiskNameHere>
+$targetDiskName = <targetDiskNameHere>
+$targetRG = <targetResourceGroupHere>
+$targetLocate = <yourTargetLocationHere>
+#Expected value for OS is either "Windows" or "Linux"
+$targetOS = <yourOSTypeHere>
+
+$sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
+
+# Adding the sizeInBytes with the 512 offset, and the -Upload flag
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload'
+
+$targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
+
+$sourceDiskSas = Grant-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName -DurationInSecond 86400 -Access 'Read'
+
+$targetDiskSas = Grant-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName -DurationInSecond 86400 -Access 'Write'
+
+azcopy copy $sourceDiskSas.AccessSAS $targetDiskSas.AccessSAS --blob-type PageBlob
+
+Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
+
+Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

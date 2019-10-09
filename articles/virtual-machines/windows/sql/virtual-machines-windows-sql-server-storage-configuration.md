@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309243"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828614"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuration du stockage pour les machines virtuelles SQL Server
 
@@ -42,9 +42,28 @@ Les sections suivantes décrivent comment configurer le stockage pour les nouvel
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Lorsque vous configurez une machine virtuelle Azure à l’aide d’une image de galerie SQL Server, vous pouvez choisir de configurer automatiquement le stockage pour votre nouvelle machine virtuelle. Vous indiquez la taille du stockage, ses limites de performances et le type de charge de travail. La capture d’écran suivante montre le panneau de configuration du stockage utilisé lors de la configuration de la machine virtuelle SQL.
+Lors de l’approvisionnement d’une machine virtuelle Azure à l’aide d’une image de galerie SQL Server, sélectionnez **Modifier la configuration** dans l'onglet **Paramètres de SQL Server** pour ouvrir la page Configuration du stockage à performances optimisées. Vous pouvez conserver les valeurs par défaut ou modifier le type de configuration de disque selon vos besoins en matière de charge de travail. 
 
 ![Configuration du stockage des machines virtuelles SQL Server lors de la configuration](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+
+Sélectionnez le type de charge de travail pour lequel vous déployez SQL Server sous **Optimisation du stockage**. Avec l’option d’optimisation **Général**, par défaut, vous disposez d’un disque de données avec 5000 E/S par seconde max, et utilisez ce même disque pour vos données, journal des transactions et stockage TempDB. Si vous sélectionnez **Traitement transactionnel** (OLTP) or **Entreposage de données**, vous créez un disque distinct pour les données, le journal des transactions et utilisez le disque SSD local pour TempDB. En matière de stockage, il n’existe aucune différence entre **Traitement transactionnel** et **Entreposage de données**, mais cela modifie votre [configuration de bandes et les indicateurs de trace](#workload-optimization-settings). Opter pour le stockage Premium définit la mise en cache sur *Readonly* pour le lecteur de données, et *Aucune* pour le lecteur de journal conformément aux [meilleures pratiques en matière de performances de machine virtuelle SQL Server](virtual-machines-windows-sql-performance.md). 
+
+![Configuration du stockage des machines virtuelles SQL Server lors de la configuration](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+La configuration du disque est entièrement personnalisable pour vous permettre de configurer la topologie de stockage, le type de disque et les E/S par seconde dont vous avez besoin pour votre charge de travail de machine virtuelle SQL Server. Vous avez également la possibilité d’utiliser UltraSSD (préversion) comme option pour le **type de disque** si votre machine virtuelle SQL Server se trouve dans l’une des régions prises en charge (USA Est 2, Asie Sud-Est et Europe Nord) et si vous avez activé les [disques Ultra pour votre abonnement](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+
+En outre, il vous est possible de définir la mise en cache pour les disques. Les machines virtuelles Azure disposent d’une technologie de mise en cache à plusieurs niveaux appelée [Cache Blob](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) lorsqu'elle est utilisée avec des [disques Premium](/azure/virtual-machines/windows/disks-types#premium-ssd). Cache Blob combine la RAM de la machine virtuelle et le SSD local pour la mise en cache. 
+
+La mise en cache du disque pour SSD Premium peut être *ReadOnly*, *ReadWrite* ou *Aucune*. 
+
+- La mise en cache *ReadOnly* s'avère particulièrement intéressante pour les fichiers de données SQL Server stockés sur le stockage Premium. La mise en cache *ReadOnly* offre une faible latence de lecture, de très hautes performances d'E/S et de débit en cas de lectures à partir du cache, dans la mémoire de la machine virtuelle ou du SSD local. Ces lectures sont nettement plus rapides que les lectures à partir du disque de données, provenant du stockage blob Azure. Le stockage Premium ne tient pas compte des lectures traitées à partir du cache pour le calcul du nombre d’E/S par seconde et du débit du disque. Dès lors, votre application peut offrir de meilleures performances totales en termes d’E/S par seconde et de débit. 
+- La configuration de cache *Aucune* doit être utilisée pour les disques hébergeant le fichier journal SQL Server, car ce fichier journal est écrit de manière séquentielle et ne tire pas parti de la mise en cache *ReadOnly*. 
+- La mise en cache *ReadWrite* ne doit pas être utilisée pour héberger des fichiers SQL Server, car SQL Server ne prend pas en charge la cohérence des données avec le cache *ReadWrite*. Les écritures gaspillent la capacité du cache blob *ReadOnly* et les latences augmentent légèrement si les écritures interviennent dans les couches du cache blob *ReadOnly*. 
+
+
+   > [!TIP]
+   > Vérifiez que votre configuration de stockage correspond aux limitations imposées par la taille de machine virtuelle sélectionnée. Opter pour des paramètres de stockage dépassant le seuil des performances de taille de la machine virtuelle génère une erreur : `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Diminuez le nombre d’E/S par seconde en modifiant le type de disque ou augmentez le seuil de performances en augmentant la taille de la machine virtuelle. 
+
 
 En fonction de votre choix, Azure exécute les tâches de configuration du stockage suivantes après avoir créé la machine virtuelle :
 
@@ -64,6 +83,13 @@ Si vous utilisez les modèles Resource Manager suivants, deux disques de donnée
 * [Créer des machines virtuelles avec mise à jour corrective automatisée](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [Créer des machines virtuelles avec AKV Integration](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
+### <a name="quickstart-template"></a>Modèle de démarrage rapide
+
+Vous pouvez utiliser le modèle de démarrage rapide suivant pour déployer une machine virtuelle SQL Server à l’aide de l’optimisation du stockage. 
+
+* [Créer une machine virtuelle avec optimisation du stockage](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [Créer une machine virtuelle à l’aide de UltraSSD](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
+
 ## <a name="existing-vms"></a>Machines virtuelles existantes
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
@@ -79,32 +105,11 @@ Pour modifier les paramètres de stockage, sélectionnez **Configurer** sous **P
 
 ![Configurer le stockage pour les machines virtuelles SQL Server existantes](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-Les options de configuration que vous voyez varient selon que vous avez déjà utilisé cette fonctionnalité ou non. Lorsque vous l’utilisez pour la première fois, vous pouvez spécifier vos besoins en stockage pour votre nouveau lecteur. Si vous avez déjà utilisé cette fonctionnalité pour créer un lecteur, vous pouvez choisir d’étendre le stockage correspondant.
+Vous pouvez modifier les paramètres de disque des lecteurs configurés lors du processus de création de la machine virtuelle SQL Server. Sélectionnez **Étendre le lecteur** pour ouvrir la page de modification du lecteur afin de modifier le type de disque et d'ajouter des disques supplémentaires. 
 
-### <a name="use-for-the-first-time"></a>Première utilisation
+![Configurer le stockage pour les machines virtuelles SQL Server existantes](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
-Si c’est la première fois que vous utilisez cette fonctionnalité, vous pouvez spécifier les limites de taille et de performances du stockage du nouveau lecteur. Le fonctionnement est le même que lors de la configuration. La principale différence est que vous n’êtes pas autorisé à indiquer le type de charge de travail. Cette restriction évite l’interruption des configurations SQL Server existantes sur la machine virtuelle.
 
-Azure crée un nouveau lecteur, en fonction de vos spécifications. Dans ce scénario, Azure exécute les tâches de configuration du stockage suivantes :
-
-* Crée et attache les disques de données Premium Storage à la machine virtuelle.
-* Configure les disques de données pour que SQL Server puisse y accéder.
-* Configure les disques de données dans un pool de stockage basé sur les critères indiqués pour la taille et les performances (E/S par seconde et débit).
-* Associe le pool de stockage à un nouveau lecteur sur la machine virtuelle.
-
-Pour plus d’informations sur la manière dont Azure configure les paramètres de stockage, consultez la section [Configuration du stockage](#storage-configuration).
-
-### <a name="add-a-new-drive"></a>Ajout d’un nouveau lecteur
-
-Si vous avez déjà configuré le stockage sur votre machine virtuelle SQL Server, l’extension du stockage donne accès à deux nouvelles options. La première option consiste à ajouter un nouveau lecteur, ce qui peut augmenter le niveau de performances de votre machine virtuelle.
-
-Toutefois, après avoir ajouté le lecteur, vous devez effectuer quelques configurations manuelles supplémentaires pour obtenir l’augmentation des performances.
-
-### <a name="extend-the-drive"></a>Extension du lecteur
-
-L’autre option pour augmenter le stockage est d’étendre le lecteur existant. Cette option augmente la capacité de stockage de votre lecteur, mais n’augmente pas les performances. Avec les pools de stockage, vous ne pouvez pas modifier le nombre de colonnes une fois le pool de stockage créé. Le nombre de colonnes détermine le nombre d’écritures parallèles, qui peuvent être réparties sur les disques de données. Par conséquent, les disques de données ajoutés ne peuvent pas augmenter les performances. Ils peuvent uniquement fournir davantage d’espace de stockage pour les données en cours d’écriture. Cette limitation signifie également que, lorsque vous étendez le lecteur, le nombre de colonnes détermine le nombre minimal de disques de données que vous pouvez ajouter. Par conséquent, si vous créez un pool de stockage comprenant quatre disques de données, le nombre de colonnes est également égal à quatre. Chaque fois que vous étendez le stockage, vous devez ajouter au moins quatre disques de données.
-
-![Étendre un lecteur d’une machine virtuelle SQL](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## <a name="storage-configuration"></a>Configuration du stockage
 

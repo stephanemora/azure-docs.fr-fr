@@ -1,19 +1,19 @@
 ---
-title: Présentation du contrôle d’accès en fonction du rôle dans Azure Digital Twins | Microsoft Docs
-description: Découvrez l’authentification dans Digital Twins avec le contrôle d’accès en fonction du rôle.
+title: Présentation du contrôle d’accès en fonction du rôle - Azure Digital Twins | Microsoft Docs
+description: Découvrez le contrôle d’accès en fonction du rôle et la gestion des autorisations dans Azure Digital Twins.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/30/2019
 ms.author: lyhughes
-ms.openlocfilehash: 6602a4df2c6e313156010102780240ba19fbac95
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: a5953aab179a62d4a8e37b7f5c7659318628918e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815571"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827030"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Contrôle d’accès en fonction du rôle dans Azure Digital Twins
 
@@ -49,20 +49,20 @@ Un développeur peut utiliser RBAC pour effectuer les opérations suivantes :
 
 ### <a name="role-definitions"></a>Définitions de rôles
 
-Une définition de rôle est une collection d’autorisations et d’autres attributs qui constituent un rôle. Une définition de rôle répertorie les opérations autorisées, notamment *CRÉER*, *LIRE*, *METTRE À JOUR*, et *SUPPRIMER* que tous les objets avec ce rôle peuvent effectuer. Elle spécifie également les types d’objets auxquels ces autorisations s’appliquent.
+Une définition de rôle est une collection d’autorisations et d’autres attributs qui constituent un rôle. Une définition de rôle répertorie les opérations autorisées, notamment *CRÉER*, *LIRE*, *METTRE À JOUR*, et *SUPPRIMER* que tous les objets avec ce rôle peuvent effectuer. Elle spécifie également les types d’objets auxquels les autorisations s’appliquent.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
 > Pour récupérer les définitions complètes des rôles précédents, interrogez l’API système/rôles.
-> Pour en savoir plus, consultez la section [Créer et gérer des attributions de rôle](./security-create-manage-role-assignments.md#all).
+> Pour en savoir plus, consultez la section [Créer et gérer des attributions de rôle](./security-create-manage-role-assignments.md#retrieve-all-roles).
 
 ### <a name="object-identifier-types"></a>Types d’identificateur d’objet
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Découvrez comment accorder des autorisations au principal de service en consultant [Créer et gérer des attributions de rôle](./security-create-manage-role-assignments.md#grant).
+> Découvrez comment accorder des autorisations au principal de service en consultant [Créer et gérer des attributions de rôle](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal).
 
 Les articles de documentation de référence suivants décrivent :
 

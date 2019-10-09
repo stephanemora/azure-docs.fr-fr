@@ -153,7 +153,7 @@ Les ordinateurs clients doivent approuver l’émetteur du certificat LDAP sécu
 1. Revenez à la console MMC pour le magasin *Certificats (ordinateur local) > Personnel > Certificats*. Le certificat auto-signé créé à une étape précédente est affiché, par exemple *contoso.com*. Cliquez avec le bouton droit sur ce certificat, puis choisissez **Toutes les tâches > Exporter...**
 1. Dans l’**Assistant Exportation de certificat**, sélectionnez **Suivant**.
 1. Comme vous n’avez pas besoin de la clé privée pour les clients, dans la page **Exporter la clé privée**, sélectionnez **Non, ne pas exporter la clé privée**, puis sélectionnez **Suivant**.
-1. Dans la page **Format de fichier d’exportation**, sélectionnez le format de fichier **X.509 encodé en base 64 (*.cer)** pour le certificat exporté :
+1. Dans la page **Format de fichier d’exportation**, sélectionnez le format de fichier **X.509 encodé en base 64 (.cer)** pour le certificat exporté :
 
     ![Choisir l’option d’exporter le certificat dans le format de fichier « X.509 encodé en base 64 (*.cer) »](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
 
