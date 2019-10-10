@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676487"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842767"
 ---
-# <a name="automatically-scale-session-hosts"></a>Mettre automatiquement à l’échelle vos hôtes de session
+# <a name="scale-session-hosts-dynamically"></a>Mettre à l’échelle dynamiquement des hôtes de session
 
 Pour de nombreux déploiements de Windows Virtual Desktop dans Azure, les coûts liés aux machines virtuelles représentent une part significative du coût total de déploiement de Windows Virtual Desktop. Pour réduire les coûts, il est préférable d’arrêter et de libérer les machines virtuelles hôtes de la session pendant les heures d’utilisation creuses, puis de les redémarrer pendant les heures de pointe.
 

@@ -727,7 +727,7 @@
         - name: Intégration de machine learning tiers
           href: /azure/databricks/applications/machine-learning/third-party/index
           maintainContext: true
-    - name: Deep learning
+    - name: Apprentissage approfondi
       items:
         - name: Vue d’ensemble du deep learning
           href: /azure/databricks/applications/deep-learning/index
@@ -1342,8 +1342,8 @@
             - name: Utiliser des métriques Apache Spark
               href: /azure/databricks/kb/metrics/spark-metrics
               maintainContext: true
-            - name: Notebooks
-              items: null
+        - name: Notebooks
+          items:
             - name: Vérifier si une propriété Spark peut être modifiée
               href: /azure/databricks/kb/notebooks/check-spark-property-modifiable
               maintainContext: true
