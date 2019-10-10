@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
-ms.author: chackdan
-ms.openlocfilehash: 4e9aa2bbb99cac2ffc2b57ccb9299bf4ee7a729e
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: pepogors
+ms.openlocfilehash: a7c5ec023eb03d7d68a43ffecdc74aa4e505a0ce
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876257"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170477"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnostics et surveillance des performances pour Reliable Service Remoting
 Le runtime Reliable Service Remoting émet des [compteur de performances](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Ils fournissent des informations sur le fonctionnement du runtime Service Remoting et permettent de résoudre les problèmes et de surveiller les performances.
@@ -28,7 +28,7 @@ Le runtime Reliable Service Remoting émet des [compteur de performances](https:
 ## <a name="performance-counters"></a>Compteurs de performances
 Le runtime Reliable Service Remoting définit les catégories suivantes de compteur de performances :
 
-| Catégorie | Description |
+| Category | Description |
 | --- | --- |
 | Service Fabric Service |Compteurs spécifiques à Azure Service Fabric Service Remoting, par exemple, temps moyen nécessaire pour traiter la demande |
 | Méthode de service Service Fabric |Compteurs spécifiques des méthodes implémentées par Service Fabric Remoting Service. Par exemple, la fréquence à laquelle une méthode de service est appelée |

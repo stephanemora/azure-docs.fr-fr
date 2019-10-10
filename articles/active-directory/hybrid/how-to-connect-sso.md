@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86895ab315784c49c2b240badb249dce57ae958a
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622575"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025699"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Authentification unique transparente Azure Active Directory
 
@@ -63,7 +63,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 
 | Système d’exploitation\Navigateur |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Oui\*|Non|OUI|Oui\*\*\*|N/A
+|Windows 10|Oui\*|OUI|OUI|Oui\*\*\*|N/A
 |Windows 8.1|Oui\*|N/A|OUI|Oui\*\*\*|N/A
 |Windows 8|Oui\*|N/A|OUI|Oui\*\*\*|N/A
 |Windows 7|Oui\*|N/A|OUI|Oui\*\*\*|N/A
@@ -85,7 +85,7 @@ L’authentification unique transparente peut être combinée avec la [synchroni
 - [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
 - [**Plan de déploiement**](https://aka.ms/deploymentplans/sso) : plan de déploiement étape par étape.
 - [**Immersion technique**](how-to-connect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
-- [**Questions fréquentes (FAQ)** ](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
+- [**Questions fréquentes (FAQ)**](how-to-connect-sso-faq.md) : réponses aux questions fréquentes.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants susceptibles de survenir avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.
 

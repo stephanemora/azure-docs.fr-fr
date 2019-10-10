@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063457"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936809"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -29,8 +29,8 @@ Compare deux revendications et lève une exception si elles ne sont pas égales 
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Type de la première revendication qui doit être comparée. |
-| inputClaim | inputClaim2 | string | Type de la deuxième revendication qui doit être comparée. |
+| InputClaim | inputClaim1 | string | Type de la première revendication qui doit être comparée. |
+| InputClaim | inputClaim2 | string | Type de la deuxième revendication qui doit être comparée. |
 | InputParameter | stringComparison | string | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 
 La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationStringsAreNotEqual** contrôlent le message d’erreur présenté à l’utilisateur.
@@ -154,8 +154,8 @@ Détermine si une revendication de chaîne est égale à une autre. Le résultat
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Premier type de revendication à comparer. |
-| inputClaim | inputClaim2 | string | Deuxième type de revendication à comparer. |
+| InputClaim | inputClaim1 | string | Premier type de revendication à comparer. |
+| InputClaim | inputClaim2 | string | Deuxième type de revendication à comparer. |
 | InputParameter | operator | string | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
 | OutputClaim | outputClaim | boolean | ClaimType généré après que cette transformation de revendication a été appelée. |
@@ -195,7 +195,7 @@ Détermine si une valeur de revendication est égale à la valeur du paramètre 
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | string | Type de la revendication à comparer. |
+| InputClaim | inputClaim1 | string | Type de la revendication à comparer. |
 | InputParameter | operator | string | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
 | InputParameter | compareTo | string | comparaison de chaînes, une des valeurs suivantes : Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Spécifie si cette comparaison doit ignorer la casse des chaînes comparées. |
@@ -504,7 +504,7 @@ Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | string | Type de revendication à comparer. |
+| InputClaim | inputClaim | string | Type de revendication à comparer. |
 | InputParameter | matchTo | string | Chaîne à comparer à `inputClaim`. |
 | InputParameter | stringComparison | string | Valeurs possibles : `Ordinal` ou `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | string | Première valeur à définir si les chaînes sont égales. |
@@ -553,7 +553,7 @@ Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | string | Type de revendication à comparer. |
+| InputClaim | claimToMatch | string | Type de revendication à comparer. |
 | InputParameter | matchTo | string | Chaîne à comparer à inputClaim. |
 | InputParameter | stringComparison | string | Valeurs possibles : `Ordinal` ou `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | string | Valeur à définir si les chaînes sont égales. |
