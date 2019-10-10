@@ -198,22 +198,20 @@
                   href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: 'Sauvegarde, restauration, haute disponibilité (BCDR)'
       items:
-        - name: Récupération à l’aide de sauvegardes
-          href: sql-database-recovery-using-backups.md
-        - name: Récupération de la base de données accélérée
-          href: sql-database-accelerated-database-recovery.md
-        - name: Conseils sur la récupération après panne
-          href: sql-database-disaster-recovery.md
-        - name: Marche à suivre en cas de récupération
-          href: sql-database-disaster-recovery-drills.md
         - name: Continuité de l’activité
           href: sql-database-business-continuity.md
         - name: Haute disponibilité
           href: sql-database-high-availability.md
-        - name: Sauvegardes automatisées
-          href: sql-database-automated-backups.md
-        - name: Rétention des sauvegardes à long terme
-          href: sql-database-long-term-retention.md
+        - name: Sauvegardes
+          items:
+            - name: Sauvegardes automatisées
+              href: sql-database-automated-backups.md
+            - name: Récupération à l’aide de sauvegardes
+              href: sql-database-recovery-using-backups.md
+            - name: Récupération de la base de données accélérée
+              href: sql-database-accelerated-database-recovery.md
+            - name: Rétention des sauvegardes à long terme
+              href: sql-database-long-term-retention.md
         - name: Groupes de basculement et géoréplication
           items:
             - name: Géoréplication active
@@ -222,6 +220,10 @@
               href: sql-database-auto-failover-group.md
             - name: Configurer la sécurité pour les réplicas
               href: sql-database-geo-replication-security-config.md
+            - name: Conseils sur la récupération après panne
+              href: sql-database-disaster-recovery.md
+            - name: Marche à suivre en cas de récupération
+              href: sql-database-disaster-recovery-drills.md
     - name: Surveiller et régler
       items:
         - name: Documentation sur la surveillance et le réglage

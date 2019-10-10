@@ -1,5 +1,5 @@
 - name: Documentation SQL Data Warehouse
-  href: index.md
+  href: index.yml
 - name: Vue d'ensemble
   items:
     - name: "En quoi consiste la solution\_SQL\_Data\_Warehouse\_?"
