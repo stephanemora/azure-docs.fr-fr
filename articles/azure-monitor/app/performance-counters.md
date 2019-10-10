@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: c681b58b01979b95e35ae57cefde38c56a787543
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: fa4e45416e83d933cd21fe482bcead14bfbcae22
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68360256"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349929"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 
@@ -148,11 +148,12 @@ Les applications ASP.NET et ASP.NET Core déployées sur les applications web d�
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>Compteurs de performances dans les applications ASP.NET Core
 
-* Le [Kit de développement logiciel (SDK) ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.4.1 et ultérieure collecte les compteurs de performance si l’application fonctionne dans Azure Web App (Windows)
+La prise en charge des compteurs de performances dans ASP.Net Core est limitée :
 
-* Le Kit de développement logiciel (SDK) version 2.7.0-beta3 et ultérieure collecte les compteurs de performance si l’application s’exécute sous Windows, et vise `NETSTANDARD2.0` ou plus.
-* Pour les applications ciblant le.NET Framework, les compteurs de performance sont supportés dans toutes les versions du Kit de développement logiciel (SDK).
-* Cet article sera mis à jour lors de l’ajout de la prise en charge des compteurs de performance non-Windows.
+* Les versions 2.4.1 et ultérieures du [kit SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) collectent les compteurs de performances si l’application s’exécute dans Azure Web Apps (Windows).
+* Les versions 2.7.1 et ultérieures du kit SDK collectent les compteurs de performances si l’application s’exécute dans Windows et cible `NETSTANDARD2.0` ou version ultérieure.
+* Pour les applications ciblant .NET Framework, toutes les versions du SDK prennent en charge les compteurs de performances.
+* Les versions 2.8.0 et ultérieures du kit de développement logiciel (SDK) prennent en charge le compteur processeur/mémoire dans Linux. Aucun autre compteur n’est pris en charge dans Linux. La méthode recommandée pour obtenir les compteurs système dans Linux (et dans d’autres environnements non-Windows) consiste à utiliser [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alertes
 Comme d’autres mesures, vous pouvez [définir une alerte](../../azure-monitor/app/alerts.md) pour vous avertir si un compteur de performances dépasse une limite que vous spécifiez. Ouvrez le volet Alertes et cliquez sur Ajouter une alerte.

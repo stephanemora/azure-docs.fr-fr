@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: d72af0c2126ef74f95697755a7ead354214f695c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1b2ff6b64661010136d43b8d1f10abb58a88102a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932551"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677727"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie age pour une application LUIS
 L’entité prédéfinie age capture la valeur d’âge à la fois sous forme numérique et en termes de jours, semaines, mois et années. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un âge aux intentions de l’application. L’entité age est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
@@ -26,7 +26,7 @@ L’entité age est gérée à partir du dépôt GitHub [Recognizers-text](https
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Résolution pour une entité prédéfinie age
 
-### <a name="api-version-2x"></a>API version 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 L’exemple suivant montre la résolution de l’entité **builtin.age**.
 
@@ -52,7 +52,7 @@ L’exemple suivant montre la résolution de l’entité **builtin.age**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>API 3.x en préversion
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
@@ -116,6 +116,10 @@ Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
 En savoir plus sur les entités [currency](luis-reference-prebuilt-currency.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md) et [dimension](luis-reference-prebuilt-dimension.md). 

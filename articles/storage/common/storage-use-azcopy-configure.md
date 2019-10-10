@@ -8,12 +8,12 @@ ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a96c5b2d39967c8ee82f48e880bac9270a58c36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3843eb2e906e3fb8d390e509e17117b7849ac220
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844815"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244700"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurer, optimiser et dépanner AzCopy
 
@@ -58,7 +58,7 @@ Utilisez `azcopy env` pour vérifier la valeur actuelle de cette variable.  Si l
 
 ## <a name="change-the-location-of-the-log-files"></a>Changer l'emplacement des fichiers journaux
 
-Par défaut, les fichiers journaux sont situés dans le répertoire `%USERPROFILE\\.azcopy` sur Windows ou dans le répertoire `$HOME\\.azcopy` sur Mac et Linux. Si nécessaire, vous pouvez modifier cet emplacement à l’aide de ces commandes.
+Par défaut, les fichiers journaux sont situés dans le répertoire `%USERPROFILE%\.azcopy` sur Windows ou dans le répertoire `$HOME\\.azcopy` sur Mac et Linux. Si nécessaire, vous pouvez modifier cet emplacement à l’aide de ces commandes.
 
 | Système d’exploitation | Commande  |
 |--------|-----------|

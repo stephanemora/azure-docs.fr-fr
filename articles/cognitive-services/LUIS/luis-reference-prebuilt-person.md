@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a9da5089c9309ec06f29fd3e0868102cfa538049
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b5f4855c03c1c003df8f58b135cb809f1757e58f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933458"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677481"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie PersonName pour une application LUIS
 L’entité prédéfinie personName détecte le nom des personnes. Étant donné que cette entité est déjà entraînée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant personName aux intentions de l’application. L’entité personName est prise en charge pour les [cultures](luis-reference-prebuilt-entities.md) Anglais et Chinois.
 
 ## <a name="resolution-for-personname-entity"></a>Résolution de l’entité personName
 
-### <a name="api-version-2x"></a>API version 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 L’exemple suivant montre la résolution de l’entité **builtin.personName**.
 
@@ -44,8 +44,8 @@ L’exemple suivant montre la résolution de l’entité **builtin.personName**.
   ]
 }
 ```
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
-### <a name="preview-api-version-3x"></a>API 3.x en préversion
 
 Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
@@ -103,6 +103,10 @@ Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
 En savoir plus sur les entités [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md) et [ordinal](luis-reference-prebuilt-ordinal.md). 

@@ -1,194 +1,29 @@
 ---
-title: Outils pour l’utilisation du stockage Azure
-description: Liste des outils qui vous permettent d’afficher et d’interagir avec vos données Azure Storage.
+title: Outils clients Microsoft pour l’utilisation de Stockage Azure
+description: Liste d’outils clients fournis par Microsoft vous permettant de voir vos données dans Stockage Azure et d’interagir avec elles.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 08/26/2019
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 11838a50d70d1b9a0216505e9ef0958d3b18bdac
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: b02a08b7e8d8b867df820868b72a0ce14b6afa40
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035263"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670944"
 ---
-# <a name="azure-storage-client-tools"></a>Outils clients d’Azure Storage
-Souvent, les utilisateurs d’Azure Storage veulent être en mesure d’afficher/d’interagir avec leurs données à l’aide d’un outil client d’Azure Storage. Dans les tableaux ci-dessous, nous répertorions un certain nombre d’outils qui vous permettent de le faire. Nous avons placé un « X » dans chaque bloc si l’outil offre la possibilité d’énumérer et/ou d’accéder à l’abstraction des données. Le tableau indique également si l’outil est gratuit ou non. La mention « Version d’évaluation » indique qu’il existe une version d’évaluation gratuite, mais que le produit complet n’est pas gratuit. La mention « O/N » indique qu’il existe une version disponible gratuitement, ainsi qu’une version différente disponible à l’achat.
+# <a name="microsoft-client-tools-for-working-with-azure-storage"></a>Outils clients Microsoft pour l’utilisation de Stockage Azure
 
-Ceci n’est qu’un aperçu des outils clients Azure Storage disponibles. Ces outils peuvent continuer à évoluer, ainsi que leurs fonctionnalités. S’il existe des corrections ou des mises à jour, veuillez laisser un commentaire pour nous le faire savoir. Il en va de même si vous connaissez des outils qui devraient apparaître dans cette liste : nous serions heureux de les ajouter.
+Microsoft fournit plusieurs outils dotés d’une interface graphique utilisateur (GUI) à l’aide desquels vous pouvez utiliser les données de votre compte Stockage Azure. Tous les outils décrits dans le tableau suivant sont gratuits.
 
-**Outils clients de Microsoft Azure Storage**
+| Outil client Stockage Azure                 | Plateformes prises en charge | Objet blob de blocs | Objet blob de pages | Append Blob | Tables | Files d’attente | Fichiers |
+|-------------------------------------------|---------------------|------------|-----------|-------------|--------|--------|-------|
+| [Portail Azure](https://portal.azure.com)                    | Web                 | OUI          | OUI         | OUI           | OUI      | OUI      | OUI     |
+| [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)          | Windows, OSX        | OUI          | OUI         | OUI           | OUI      | OUI      | OUI     |
+| [Microsoft Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | Windows             | OUI          | OUI         | OUI           | OUI      | OUI      | Non      |
 
-<table>
-  <tr>
-    <th rowspan="2">Outil client d’Azure Storage</th>
-    <th rowspan="2">Objet blob de blocs</th>
-    <th rowspan="2">Objet blob de pages</th>
-    <th rowspan="2">Append Blob</th>
-    <th rowspan="2">Tables</th>
-    <th rowspan="2">Files d’attente</th>
-    <th rowspan="2">Fichiers</th>
-    <th rowspan="2">Gratuit</th>
-    <th colspan="4">Plateforme</th>
-  </tr>
-  <tr>
-    <td>Web</td>
-    <td>Windows</td>
-    <td>OSX</td>
-    <td>Linux</td>
-  </tr>
-  <tr>
-    <td><a href="https://azure.microsoft.com/features/azure-portal/">Portail Microsoft Azure</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>O</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://storageexplorer.com/">Explorateur Stockage Microsoft Azure</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>O</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-  </tr>
-  <tr>
-    <td><a href="https://www.visualstudio.com/features/azure-tools-vs.aspx">Explorateur de serveurs Microsoft Visual Studio</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>O</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
-
-**Outils clients tiers d’Azure Storage**
-
-Nous n’avons pas vérifié les fonctionnalités ni la qualité des outils tiers suivants et leur inclusion dans la liste n’implique aucune garantie de la part de Microsoft.
-
-<table>
-  <tr>
-    <th rowspan="2">Outil client d’Azure Storage</th>
-    <th rowspan="2">Objet blob de blocs</th>
-    <th rowspan="2">Objet blob de pages</th>
-    <th rowspan="2">Append Blob</th>
-    <th rowspan="2">Tables</th>
-    <th rowspan="2">Files d’attente</th>
-    <th rowspan="2">Fichiers</th>
-    <th rowspan="2">Gratuit</th>
-    <th colspan="4">Plateforme</th>
-  </tr>
-  <tr>
-    <td>Web</td>
-    <td>Windows</td>
-    <td>OSX</td>
-    <td>Linux</td>
-  </tr>
-  <tr>
-    <td><a href="https://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata : Azure Management Studio</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>Version d’évaluation</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Explorateur de stockage web Azure</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>O</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>X</td>
-    <td>O/N</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>Version d’évaluation</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://clumsyleaf.com">ClumsyLeaf : AzureXplorer, CloudXplorer, TableXplorer</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>O</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td>Version d’évaluation</td>
-    <td></td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-</table>
+Il existe également un certain nombre d’outils tiers qui vous permettent d’utiliser les données de Stockage Azure.

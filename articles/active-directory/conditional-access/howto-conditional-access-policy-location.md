@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b31fc3aed0d412646d9924e87170dffcd5145409
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: c782c8bb2807017053375b45560685acf78161e7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575988"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169967"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Accès conditionnel : Bloquer l’accès par emplacement
 
@@ -24,7 +24,7 @@ Avec la condition d’emplacement dans l’accès conditionnel, vous pouvez cont
 
 ## <a name="define-locations"></a>Définir des emplacements
 
-1. Connectez-vous au  **Portail Microsoft Azure**  en tant qu’administrateur général, administrateur de la sécurité ou administrateur de l’accès conditionnel.
+1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
 1. Choisissez **Nouvel emplacement**.
 1. Donnez un nom à votre emplacement.
@@ -37,7 +37,7 @@ Pour plus d’informations sur la condition d’emplacement dans l’accès cond
 
 ## <a name="create-a-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
-1. Connectez-vous au  **Portail Microsoft Azure**  en tant qu’administrateur général, administrateur de la sécurité ou administrateur de l’accès conditionnel.
+1. Connectez-vous au **portail Microsoft Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
 1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
 1. Sélectionnez **Nouvelle stratégie**.
 1. Donnez un nom à votre stratégie. Nous recommandons aux organisations de créer une norme explicite pour les noms de leurs stratégies.

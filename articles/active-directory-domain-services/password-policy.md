@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 45fb2daaeaf9ee788207d43d805e070320372ca0
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 19a618bd576687fcb0d92f8e35613e4cdc749e70
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617210"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320440"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 
@@ -33,7 +33,7 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
   * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-  * Si nécessaire, suivez le tutoriel [Créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+  * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
   * Si nécessaire, suivez le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
@@ -90,6 +90,9 @@ Pour créer une stratégie de mot de passe affinée, utilisez les outils d’adm
 1. Dans l’écran d’accueil, sélectionnez **Outils d’administration**. La liste des outils de gestion disponibles qui ont été installés dans le tutoriel [Créer une machine virtuelle de gestion][tutorial-create-management-vm] s’affiche à l’écran.
 1. Pour créer et gérer des unités d’organisation, sélectionnez **Centre d’administration Active Directory** dans la liste des outils d’administration.
 1. Dans le volet gauche, choisissez votre domaine managé Azure AD DS, comme *contoso.com*.
+1. Ouvrez le conteneur **Système**, puis la classe d’objets PSC **Password Settings Container**.
+
+    Une SMPA prédéfinie pour le domaine managé Azure AD DS s’affiche. Vous ne pouvez pas modifier cette SMPA prédéfinie. Créez plutôt une SMPA personnalisée qui remplace la SMPA par défaut.
 1. Dans le volet **Tâches** à droite, sélectionnez **Nouveau > Paramètres de mot de passe**.
 1. Dans la boîte de dialogue **Créer des paramètres de mot de passe**, entrez un nom pour la stratégie, par exemple *MyCustomFGPP*. Définissez la priorité de manière appropriée pour remplacer la SMPA par défaut (en l’occurrence, *200*), par exemple *1*.
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: c644d230846d9c644c3845348431eef36c8279c8
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 85d68beb27ab27a2ada9acbf9482d35dec438c06
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276562"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980288"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Conseils pour les requêtes limitées dans Azure Resource Graph
 
@@ -239,6 +238,6 @@ Fournissez les détails suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Examiner le langage utilisé dans les [requêtes de démarrage](../samples/starter.md).
-- Examiner des utilisations avancées dans les [Requêtes avancées](../samples/advanced.md).
-- Apprendre à [explorer les ressources](explore-resources.md).
+- Examinez le langage utilisé dans les [requêtes de démarrage](../samples/starter.md).
+- Examinez les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md).
+- Apprenez à [explorer les ressources](explore-resources.md).

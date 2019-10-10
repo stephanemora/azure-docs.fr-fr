@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c357cba8ce2fbe2ad902d5c215f8adbfc99a9f0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 63176c325fd42c46e988ab3798f46089a43e70bf
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813030"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326788"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -97,7 +97,8 @@ Cette section traite des aspects suivants de la planification :
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-* Un abonnement Azure AD Premium P1 (ou version ultérieure) valide avec accès administrateur général
+* Licence d’abonnement Azure AD Premium P1 ou version ultérieure valide pour chaque utilisateur provenant de Workday et provisionné dans Active Directory local ou Azure Active Directory.
+* Accès administrateur général Azure AD pour configurer l’agent de provisionnement
 * Un client de mise en œuvre de Workday à des fins de test et d’intégration
 * Autorisations d’administrateur dans Workday pour créer un utilisateur de l’intégration système et apporter des modifications afin de tester les informations de l’employé
 * Pour l'approvisionnement d'utilisateurs vers Active Directory, un serveur exécutant Windows Server 2012 ou version ultérieure et doté d'un runtime .NET 4.7.1+ est nécessaire afin d'héberger l'[agent d'approvisionnement local](https://go.microsoft.com/fwlink/?linkid=847801)

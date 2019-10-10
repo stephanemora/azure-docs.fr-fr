@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: c4e83ed15c2b15ccb3339ff775b08c8d2dab4c32
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 4f46efaeddb0bfe789ef752abdd133c14da514da
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932518"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677691"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie datetimeV2 pour une application LUIS
 
@@ -185,6 +185,8 @@ Le tableau des valeurs contient deux éléments si l’heure ou la plage d’heu
 
 L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l’énoncé contenant une plage d’heures.
 
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+
 ```json
   "entities": [
     {
@@ -206,7 +208,7 @@ L’exemple suivant montre comment LUIS utilise **datetimev2** pour résoudre l�
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>API 3.x en préversion
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 La réponse JSON DatetimeV2 a changé dans l’API v3. 
 
@@ -289,6 +291,9 @@ Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 }
 ```
 
+
+* * * 
+
 ## <a name="deprecated-prebuilt-datetime"></a>Désapprobation de l’entité prédéfinie datetime
 
 L’entité prédéfinie `datetime` est désapprouvée et remplacée par **datetimeV2**. 
@@ -301,6 +306,8 @@ Pour remplacer `datetime` par `datetimeV2` dans votre application LUIS, procéde
 4. Sélectionnez **datetimev2**, puis cliquez sur **Save** (Enregistrer).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
 En savoir plus sur les entités [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) et [number](luis-reference-prebuilt-number.md). 
 

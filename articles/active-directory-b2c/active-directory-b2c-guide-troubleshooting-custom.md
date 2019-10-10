@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dee0ef768180057452a232436fc295b36fd756c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4893025b7d54dad1f1da6c5967d3c1dec99b499b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963736"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826888"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Résoudre les problèmes liés aux stratégies personnalisées Azure AD B2C et à l’Infrastructure d’expérience d’identité.
 
@@ -56,13 +56,11 @@ Voici quelques-unes des erreurs de validation courantes :
 
 ## <a name="troubleshoot-the-runtime"></a>Résoudre les problèmes au moment de l’exécution
 
-* Utilisez **Exécuter maintenant** et `https://jwt.ms` pour tester vos stratégies indépendamment de votre application web ou mobile. Ce site web agit comme une application par partie de confiance. Il affiche le contenu du JSON Web Token (JWT) généré par votre stratégie Azure AD B2C. Pour créer une application de test, accédez à **Azure AD B2C** et \>**Applications** dans le portail Azure et ajoutez une application avec les valeurs suivantes :
+* Utilisez **Exécuter maintenant** et `https://jwt.ms` pour tester vos stratégies indépendamment de votre application web ou mobile. Ce site web agit comme une application par partie de confiance. Il affiche le contenu du jeton JWT (JSON Web Token) généré par votre stratégie Azure AD B2C.
 
-  * **Nom** : TestApp
-  * **Application web/API web** : Non
-  * **Client natif** : Non
+    Pour créer une application de test pouvant rediriger vers `https://jwt.ms` pour l’inspection des jetons :
 
-  Puis ajoutez `https://jwt.ms` comme **URL de réponse**.
+    [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * Pour suivre l’échange de messages entre votre navigateur client et Azure AD B2C, utilisez [Fiddler](https://www.telerik.com/fiddler). Il peut vous aider à obtenir une indication de l’endroit où vos étapes d’orchestration échouent dans le parcours utilisateur.
 

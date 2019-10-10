@@ -1,5 +1,5 @@
 ---
-title: Configurer la méthode d’équilibrage de charge de la préversion de Windows Virtual Desktop - Azure
+title: Configurer la méthode d’équilibrage de charge Windows Virtual Desktop - Azure
 description: Comment configurer la méthode d’équilibrage de charge pour un environnement Windows Virtual Desktop ?
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3a940dbf592087878cb9dd19f856f1a3d94291c5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163770"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676776"
 ---
-# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge de la préversion de Windows Virtual Desktop
+# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop
 
-Configurer la méthode d’équilibrage de charge d'un pool d’hôtes vous permet d’ajuster l’environnement de la préversion de Windows Virtual Desktop pour mieux répondre à vos besoins.
+La configuration de la méthode d’équilibrage de charge pour un pool d’hôtes vous permet d’ajuster l’environnement Windows Virtual Desktop afin de mieux répondre à vos besoins.
 
 >[!NOTE]
 > Cela ne s’applique pas à un pool d'hôtes de bureau persistant, car les utilisateurs disposent toujours d'un mappage 1:1 vers un hôte de session au sein du pool d’hôtes.

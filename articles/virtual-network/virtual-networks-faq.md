@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 642b99e3eaaf73844d30d1cd464ae0b777b0b3fa
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389703"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71957808"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -116,7 +116,7 @@ Non. Un réseau virtuel est limité à une seule région. Un réseau virtuel peu
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Puis-je connecter un réseau virtuel à un autre réseau virtuel dans Azure ?
 Oui. Vous pouvez connecter un réseau virtuel à un autre réseau virtuel à l’aide des éléments suivants :
-- **Homologation de réseaux virtuels** : Pour plus d’informations, consultez [Présentation du peering de réseaux virtuels](virtual-network-peering-overview.md)
+- **Peering de réseaux virtuels** : Pour plus d’informations, consultez [Présentation du peering de réseaux virtuels](virtual-network-peering-overview.md)
 - **Une passerelle VPN Azure** : Pour en savoir plus, consultez [Configurer une connexion de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Résolution de noms pour les machines virtuelles et les instances de rôle
@@ -200,9 +200,9 @@ Oui. Vous devez connecter un groupe de machines virtuelles identiques à un rés
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Existe-t-il une liste complète des services Azure à partir desquels je peux déployer des ressources dans un réseau virtuel ?
 Oui. Pour plus d’informations, consultez [Intégration d’un réseau virtuel pour les services Azure](virtual-network-for-azure-services.md).
 
-### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>Pour quelles ressources PaaS Azure puis-je restreindre l’accès à partir d’un réseau virtuel ?
+### <a name="how-can-i-restrict-access-to-azure-paas-resources-from-a-vnet"></a>Comment puis-je restreindre l’accès à des ressources PaaS Azure depuis un réseau virtuel ?
 
-Les ressources déployées par le biais de certains services PaaS Azure (par exemple, Stockage Azure et Azure SQL Database) peuvent restreindre l’accès réseau aux ressources d’un réseau virtuel uniquement via l’utilisation de points de terminaison de service de réseau virtuel. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md).
+Les ressources déployées via certains services PaaS Azure (comme Stockage Azure et Azure SQL Database) peuvent restreindre l’accès réseau à un réseau virtuel via l’utilisation de points de terminaison de service de réseau virtuel ou de Liaison privée Azure. Pour plus d’informations, consultez [Vue d’ensemble des points de terminaison de service de réseau virtuel](virtual-network-service-endpoints-overview.md), [Vue d’ensemble de Liaison privée Azure](../private-link/private-link-overview.md).
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Puis-je faire entrer ou sortir mes services dans les réseaux virtuels ?
 Non. Impossible de faire entrer ou de faire sortir des services dans les réseaux virtuels. Pour déplacer une ressource vers un autre réseau virtuel, vous devez supprimer et redéployer la ressource.
@@ -254,7 +254,6 @@ Les ressources suivantes utilisent des équilibreurs de charge de base, ce qui s
 - Logic Apps
 - HDInsight
 -   Azure Batch
-- AKS
 - Environnement App Service
 
 Vous pouvez vous connecter à ces ressources via ExpressRoute ou une connexion entre deux réseaux virtuels, par l’intermédiaire de passerelles de réseau virtuel.
@@ -395,7 +394,7 @@ Les stratégies de points de terminaison de service de réseau virtuel permetten
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Le logiciel Azure Active Directory (Azure AD) prend-il en charge les points de terminaison de service du réseau virtuel ?
 
-Azure Active Directory (Azure AD) ne prend pas en charge les points de terminaison de service en mode natif. La liste complète des services Azure prenant en charge les points de terminaison de service du réseau virtuel est accessible [ici](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Notez que la balise « Microsoft.AzureActiveDirectory » indiquée sous les services prenant en charge les points de terminaison de service est utilisée pour gérer ces derniers dans ADLS génération 1. Pour ADLS génération 1, l’intégration au réseau virtuel dans Azure Data Lake Storage Gen1 fait appel à la sécurité des points de terminaison de service de réseau virtuel entre votre réseau virtuel et Azure Active Directory (Azure AD) afin de générer des revendications de sécurité supplémentaires dans le jeton d’accès. Ces revendications permettent ensuite d’authentifier votre réseau virtuel à votre compte Data Lake Storage Gen1 et d’y accéder. Accédez à des informations sur [l’intégration au réseau virtuel Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
+Azure Active Directory (Azure AD) ne prend pas en charge les points de terminaison de service en mode natif. La liste complète des services Azure prenant en charge les points de terminaison de service du réseau virtuel est accessible [ici](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Notez que la balise « Microsoft.AzureActiveDirectory » indiquée sous les services prenant en charge les points de terminaison de service est utilisée pour gérer ces derniers dans ADLS génération 1. Pour ADLS génération 1, l’intégration au réseau virtuel dans Azure Data Lake Storage Gen1 fait appel à la sécurité des points de terminaison de service de réseau virtuel entre votre réseau virtuel et Azure Active Directory (Azure AD) afin de générer des revendications de sécurité supplémentaires dans le jeton d’accès. Ces revendications permettent ensuite d’authentifier votre réseau virtuel à votre compte Data Lake Storage Gen1 et d’y accéder. Découvrir plus d’informations sur [l’intégration de réseau virtuel dans Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Le nombre de points de terminaison de service de réseau virtuel que je peux configurer à partir de mon réseau virtuel est-il limité ?
 Il n’existe aucune limite sur le nombre total de points de terminaison de service de réseau virtuel dans un réseau virtuel. Pour une ressource de service Azure (par exemple, un compte de stockage Azure), les services peuvent appliquer des limites sur le nombre de sous-réseaux utilisés pour la sécurisation de la ressource. Le tableau suivant présente des exemples des limites qui s’appliquent : 

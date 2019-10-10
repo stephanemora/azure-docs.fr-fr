@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: c18c062d5537603284acb37081ac0a4eb8d2fd20
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f111169558118a80602bcb2136bc63ce54c9e0d9
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797817"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242495"
 ---
 # <a name="translator-text-api-v20"></a>API de traduction de texte Translator Text v2.0
 
@@ -332,7 +332,7 @@ Type de contenu de réponse : application/xml
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ `appid` vide. Sinon, incluez une chaîne qui contient `"Bearer" + " " + "access_token"`.|query|string|
 |text|(empty)   |Requis. Chaîne qui contient une ou plusieurs phrases à prononcer pour le flux, dans la langue spécifiée. Le texte ne doit pas dépasser 2 000 caractères.|query|string|
-|Langage|(empty)   |Requis. Chaîne qui représente le code de langue pris en charge de la langue dans laquelle prononcer le texte. Le code doit être l’un des codes retournés par la méthode `GetLanguagesForSpeak`.|query|string|
+|langage|(empty)   |Requis. Chaîne qui représente le code de langue pris en charge de la langue dans laquelle prononcer le texte. Le code doit être l’un des codes retournés par la méthode `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|facultatif. Chaîne qui spécifie l’ID de type de contenu. Actuellement, `audio/wav` et `audio/mp3` sont disponibles. La valeur par défaut est `audio/wav`.|query|string|
 |options|(empty)    |facultatif. Chaîne qui spécifie les propriétés de la voix synthétisée :<ul><li>`MaxQuality` et `MinSize` indiquent la qualité du signal audio. `MaxQuality` offre la meilleure qualité. `MinSize` offre la plus petite taille de fichier. La valeur par défaut est `MinSize`.</li><li>`female` et `male` indiquent le genre souhaité de la voix. Par défaut, il s’agit de `female`. Utilisez la barre verticale (<code>\|</code>) pour inclure plusieurs options. Par exemple : `MaxQuality|Male`.</li></li></ul>  |query|string|
 |Authorization|(empty)|Obligatoire si le champ `appid` et l’en-tête `Ocp-Apim-Subscription-Key` sont tous deux laissés vides. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
@@ -570,7 +570,7 @@ Type de contenu de réponse : application/xml
 |:--|:--|:--|:--|:--|
 |appid|(empty)  |Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ `appid` vide. Sinon, incluez une chaîne qui contient `"Bearer" + " " + "access_token"`.|query| string|
 |text|(empty)   |Requis. Chaîne qui représente le texte à fractionner en phrases. La taille maximale du texte est de 10 000 caractères.|query|string|
-|Langage   |(empty)    |Requis. Chaîne qui représente le code de langue du texte d’entrée.|query|string|
+|langage   |(empty)    |Requis. Chaîne qui représente le code de langue du texte d’entrée.|query|string|
 |Authorization|(empty)|Obligatoire si le champ `appid` et l’en-tête `Ocp-Apim-Subscription-Key` sont tous deux laissés vides. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.   |en-tête|string|
 |Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ `appid` et l’en-tête `Authorization` sont tous deux laissés vides.|en-tête|string|
 

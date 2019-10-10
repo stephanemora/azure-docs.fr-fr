@@ -1,31 +1,39 @@
 ---
-title: Se connecter à Windows Virtual Desktop (préversion) à partir de Windows 10 ou Windows 7 - Azure
-description: Comment se connecter à la préversion de Windows Virtual Desktop à partir de Windows 10 ou Windows 7.
+title: Se connecter à Windows Virtual Desktop (préversion) à partir de Windows 10 ou Windows 7 - Azure
+description: Guide pratique pour se connecter à Windows Virtual Desktop à l’aide du client Windows Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 66b423ea27cc0f9112349964fcfd0d75f08c12bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620118"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676739"
 ---
-# <a name="connect-from-windows-10-or-windows-7"></a>Se connecter à partir de Windows 10 ou Windows 7
+# <a name="connect-with-the-windows-desktop-client"></a>Se connecter avec le client Windows Desktop
 
-> S’applique à : Windows 7 et Windows 10.
+> S’applique à : Windows 7 et Windows 10
 
-Un client téléchargeable, qui permet d’accéder aux ressources de la préversion de Windows Virtual Desktop à partir d’appareils exécutant Windows 7 et Windows 10, est disponible.
+Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Windows 7 ou Windows 10 à l’aide du client Windows Desktop.
 
 > [!IMPORTANT]
-> N’utilisez pas **Connexions aux programmes RemoteApp et aux services Bureau à distance (RADC)** ou **Connexion Bureau à distance (MSTSC)** pour accéder aux ressources Windows Virtual Desktop car Windows Virtual Desktop ne prend pas en charge ces clients.
+> Windows Virtual Desktop ne prend pas en charge le client RADC (Connexions RemoteApp et Bureau à distance) ni le client MSTSC (Connexion Bureau à distance).
 
-## <a name="install-the-client"></a>Installation du client
+## <a name="install-the-windows-desktop-client"></a>Installer le client Windows Desktop
 
-[Téléchargez](https://go.microsoft.com/fwlink/?linkid=2068602) et installez le client sur votre ordinateur local. L’installation nécessite des droits d’administrateur.
+Voici les clients que vous pouvez télécharger :
+
+- [Windows 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
+
+Nous mettrons à jour cette liste au fur et à mesure que le client sera disponible pour d’autres versions de Windows.
+
+Vous pouvez installer le client pour l’utilisateur actuel, ce qui ne nécessite pas de droits d’administrateur, ou votre administrateur peut installer et configurer le client afin que tous les utilisateurs de l’appareil puissent y accéder.
+
+Une fois installé, le client peut être lancé à partir du menu Démarrer quand vous recherchez **Bureau à distance**.
 
 ## <a name="subscribe-to-a-feed"></a>S’abonner à un flux
 
@@ -33,11 +41,11 @@ Obtenez la liste des ressources managées disponibles pour vous en vous abonnant
 
 Pour s’abonner à un flux :
 
-1. Démarrez le client à partir de la liste de toutes les applications, puis recherchez **Bureau à distance**.
-1. Sélectionnez **S’abonner** dans la page principale pour vous connecter au service et récupérer vos ressources.
-1. **Connectez-vous** avec votre compte d’utilisateur lorsque vous y êtes invité.
+1. Ouvrez le client Windows Desktop.
+2. Sélectionnez **S’abonner** dans la page principale pour vous connecter au service et récupérer vos ressources.
+3. Connectez-vous avec votre compte d’utilisateur quand vous y êtes invité.
 
-Lorsque vous êtes authentifié, vous devez voir une liste de ressources disponibles pour vous.
+Une fois la connexion réussie, vous devez voir la liste des ressources auxquelles vous pouvez accéder.
 
 Vous pouvez lancer des ressources selon l’une de deux méthodes suivantes.
 
@@ -47,31 +55,6 @@ Vous pouvez lancer des ressources selon l’une de deux méthodes suivantes.
 
 Une fois abonné à un flux, le contenu du flux de données est automatiquement mis à jour régulièrement. Des ressources peuvent être ajoutées, modifiées ou supprimées en fonction des modifications apportées par votre administrateur.
 
-## <a name="view-the-details-of-a-feed"></a>Afficher les détails d’un flux
+## <a name="next-steps"></a>Étapes suivantes
 
-Une fois abonné, vous pouvez afficher des informations supplémentaires sur le flux en accédant au panneau de détails.
-
-1. Dans la page principale du client, sélectionnez les points de suspension ( **...** ) à droite du nom du flux.
-1. Dans le menu déroulant, sélectionnez **Détails**.
-1. Le panneau de détails s’affiche sur le côté droit du client.
-
-Le panneau de détails contient des informations utiles sur le flux :
-
-- L’URL et le nom d’utilisateur utilisé pour l’abonnement
-- Le nombre d’applications et de bureaux
-- La date/heure de la dernière mise à jour
-- L’état de la dernière mise à jour
-
-Si nécessaire, vous pouvez démarrer une mise à jour manuelle en sélectionnant **Mettre à jour maintenant**.
-
-## <a name="unsubscribe-from-a-feed"></a>Se désabonner d’un flux
-
-Cette section va vous apprendre à vous désabonner d’un flux. Vous pouvez vous désabonner pour vous inscrire à nouveau avec un autre compte ou supprimer vos ressources du système.
-
-1. Dans la page principale du client, sélectionnez les points de suspension ( **...** ) à droite du nom du flux.
-1. Dans le menu déroulant, sélectionnez **Se désabonner**.
-1. Passez en revue et sélectionnez **Continuer** dans la boîte de dialogue.
-
-## <a name="update-the-client"></a>Mettre à jour le client
-
-Lorsqu’une nouvelle version du client est disponible, vous êtes informé par le client et le Centre de notifications Windows. Sélectionnez la notification pour démarrer le processus de mise à jour.
+Pour en savoir plus sur l’utilisation du client Windows Desktop, consultez [Bien démarrer avec le client Windows Desktop](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).

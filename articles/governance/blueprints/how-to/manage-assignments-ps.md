@@ -3,16 +3,15 @@ title: Guide pratique pour gérer les affectations avec PowerShell
 description: Découvrez comment gérer les affectations de blueprints avec le module PowerShell Azure Blueprint, Az.Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/14/2019
+ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: beaa3f4c5ab272592e7fae5a95b40a9b586aaf65
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 297c6a51c1f902cf7b5843b2dd47b658ebc705fd
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232891"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981004"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
@@ -43,7 +42,7 @@ Le module Blueprints pour PowerShell est **Az.Blueprint**.
    > [!NOTE]
    > Si **Az.Accounts** est déjà installé, il peut être nécessaire d’utiliser `-AllowClobber` pour forcer l’installation.
 
-1. Vérifiez que le module a été importé et que sa version est correcte (0.1.0) :
+1. Vérifiez que le module a été importé et que sa version est correcte (0.2.5) :
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module
@@ -164,8 +163,13 @@ Si l’affectation de blueprint n’existe pas encore, vous pouvez la créer ave
 
 - **ResourceGroupParameter** (facultatif)
   - Une [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) d’artefacts de groupe de ressources
-  - Chaque espace réservé d’artefact de groupe de ressources aura une paires clé/valeur pour définir dynamiquement **Name** et/ou **Location** sur cet artefact de groupe de ressources
+  - Chaque espace réservé d’artefact de groupe de ressources dispose d’une paire clé/valeur pour définir dynamiquement **Name** et **Location** sur cet artefact de groupe de ressources
   - Si un paramètre de groupe de ressources n’est pas spécifié et n’a pas de **defaultValue**, le paramètre de groupe de ressources n’est pas facultatif
+- **AssignmentFile** (facultatif)
+  - Chemin de la représentation de fichier JSON d’une affectation de blueprint
+  - Ce paramètre fait partie d’un jeu de paramètres PowerShell qui comprend uniquement **Name**, **Blueprint** et **SubscriptionId**, ainsi que les paramètres communs.
+
+### <a name="example-1-provide-parameters"></a>Exemple 1 : Fournir des paramètres
 
 L’exemple suivant crée une nouvelle affectation de la version « 1.1 » de la définition de blueprint « my-blueprint » extraite avec `Get-AzBlueprint`, définit l’identité managée et l’emplacement de l’objet d’affectation sur « westus2 », verrouille les ressources avec  _AllResourcesReadOnly_, et définit les tables de hachage pour **Parameter** et **ResourceGroupParameter** sur un abonnement spécifique représenté par `{subId}` :
 
@@ -184,7 +188,7 @@ $bpRGParameters = @{ResourceGroup=@{name='storage_rg';location='westus2'}}
 
 # Create the new blueprint assignment
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Blueprint $bpDefinition `
-    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadyOnly `
+    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadOnly `
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 ```
 
@@ -196,15 +200,59 @@ Id                : /subscriptions/{subId}/providers/Microsoft.Blueprint/bluepri
                     gnments/my-blueprint-assignment
 Scope             : /subscriptions/{subId}
 LastModified      : 2019-03-13
-LockMode          : AllResourcesReadyOnly
+LockMode          : AllResourcesReadOnly
 ProvisioningState : Creating
 Parameters        : {storageAccount_storageAccountType}
 ResourceGroups    : ResourceGroup
 ```
 
+### <a name="example-2-use-a-json-assignment-definition-file"></a>Exemple 2 : Utiliser un fichier de définition d’attribution JSON
+
+L’exemple suivant crée presque la même attribution que l’[Exemple 1](#example-1-provide-parameters).
+Au lieu de passer des paramètres à l’applet de commande, l’exemple illustre l’utilisation d’un fichier de définition d’attribution JSON et le paramètre **AssignmentFile**. De plus, la propriété **excludedPrincipals** est configurée dans le cadre de **locks**. Il n’existe pas de paramètre PowerShell pour **excludedPrincipals** et la propriété ne peut être configurée qu’en le définissant par le biais du fichier de définition d’attribution JSON.
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "westus2",
+  "properties": {
+    "description": "Assignment of the 101-blueprint-definition-subscription",
+    "blueprintId": "/subscriptions/{subId}/providers/Microsoft.Blueprint/blueprints/101-blueprints-definition-subscription",
+    "locks": {
+      "mode": "AllResourcesReadOnly",
+      "excludedPrincipals": [
+          "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+          "38833b56-194d-420b-90ce-cff578296714"
+      ]
+    },
+    "parameters": {
+      "storageAccount_storageAccountType": {
+        "value": "Standard_GRS"
+      }
+    },
+    "resourceGroups": {
+      "ResourceGroup": {
+        "name": "storage_rg",
+        "location": "westus2"
+      }
+    }
+  }
+}
+```
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create the new blueprint assignment
+$bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -SubscriptionId '{subId}' `
+    -AssignmentFile '.\assignment.json'
+```
+
 ## <a name="update-blueprint-assignments"></a>Mettre à jour des affectations de blueprint
 
-Il est parfois nécessaire de mettre à jour d’une affectation de blueprint qui a déjà été créée. L’applet de commande `Set-AzBlueprintAssignment` gère cette action. L’applet de commande prend en grande partie les mêmes paramètres que `New-AzBlueprintAssignment`, ce qui permet la mise à jour de tout ce qui a été défini sur l’affectation. Les exceptions à ceci sont _Name_, _Blueprint_ et _SubscriptionId_. Seules les valeurs fournies sont mises à jour.
+Il est parfois nécessaire de mettre à jour d’une affectation de blueprint qui a déjà été créée. L’applet de commande `Set-AzBlueprintAssignment` gère cette action. L’applet de commande prend en grande partie les mêmes paramètres que `New-AzBlueprintAssignment`, ce qui permet la mise à jour de tout ce qui a été défini sur l’affectation. Les exceptions sont les paramètres _Name_, _Blueprint_ et _SubscriptionId_. Seules les valeurs fournies sont mises à jour.
 
 Pour comprendre ce qui se passe lors de la mise à jour d’une affectation de blueprint, consultez [Règles de mise à jour des affectations](./update-existing-assignments.md#rules-for-updating-assignments).
 
@@ -242,7 +290,7 @@ Pour comprendre ce qui se passe lors de la mise à jour d’une affectation de b
 
 - **ResourceGroupParameter** (facultatif)
   - Une [table de hachage](/powershell/module/microsoft.powershell.core/about/about_hash_tables) d’artefacts de groupe de ressources
-  - Chaque espace réservé d’artefact de groupe de ressources aura une paires clé/valeur pour définir dynamiquement **Name** et/ou **Location** sur cet artefact de groupe de ressources
+  - Chaque espace réservé d’artefact de groupe de ressources dispose d’une paire clé/valeur pour définir dynamiquement **Name** et **Location** sur cet artefact de groupe de ressources
   - Si un paramètre de groupe de ressources n’est pas spécifié et n’a pas de **defaultValue**, le paramètre de groupe de ressources n’est pas facultatif
 
 L’exemple suivant met à jour l’affectation de la version « 1.1 » de la définition de blueprint « my-blueprint » extraite avec `Get-AzBlueprint` en changeant le mode de verrouillage :
@@ -310,7 +358,7 @@ $bpRGParameters = @{ResourceGroup=@{name='storage_rg';location='westus2'}}
 
 # Create the new blueprint assignment
 $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Blueprint $bpDefinition `
-    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadyOnly `
+    -SubscriptionId '{subId}' -Location 'westus2' -Lock AllResourcesReadOnly `
     -Parameter $bpParameters -ResourceGroupParameter $bpRGParameters
 #endregion CreateAssignment
 

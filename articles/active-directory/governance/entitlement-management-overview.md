@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241707"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827159"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Présentation de la gestion des droits d’utilisation Azure AD (Préversion)
 
@@ -122,8 +122,8 @@ Pour mieux comprendre la gestion des droits d'utilisation et sa documentation, v
 | Terme ou concept | Description |
 | --- | --- |
 | gestion des droits d’utilisation | Service permettant d'attribuer, de révoquer et d'administrer les packages d'accès. |
-| package d'accès | Ensemble d'autorisations et de stratégies liées à des ressources que les utilisateurs peuvent demander. Un package d’accès est toujours contenu dans un catalogue. |
-| demande d’accès | Demande d'accès à un package d’accès. Cette demande transite généralement par un flux de travail. |
+| package d'accès | Bundle de ressources dont une équipe ou un projet a besoin et qui est régi par des stratégies. Un package d’accès est toujours contenu dans un catalogue. |
+| demande d’accès | Demande d’accès aux ressources dans un package d’accès. Cette demande transite généralement par un flux de travail. |
 | policy | Ensemble de règles définissant le cycle de vie d'un accès, telles que le mode d'accès des utilisateurs, les approbateurs et la durée des accès. À titre d'exemple, il peut s'agir de l'accès des employés et de l’accès externe. |
 | catalog | Conteneur de ressources connexes et de packages d’accès. |
 | catalogue Général | Catalogue intégré toujours disponible. L'ajout de ressources au catalogue Général implique certaines autorisations. |

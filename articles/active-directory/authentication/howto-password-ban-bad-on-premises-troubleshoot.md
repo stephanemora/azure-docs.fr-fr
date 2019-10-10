@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952800"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314931"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Résolution de problèmes de protection par mot de passe Azure AD
 
@@ -56,17 +56,23 @@ Ce problème se traduit principalement par la présence d’événements 30018 d
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>L’agent du contrôleur de domaine ne peut pas chiffrer ou déchiffrer des fichiers de stratégie de mot de passe
 
-Ce problème peut se manifester au travers de divers symptômes, mais a généralement toujours la même cause racine.
+La protection par mot de passe Azure AD dépend fortement des fonctionnalités de chiffrement et de déchiffrement fournies par le service de distribution de clés Microsoft. Des défaillances de chiffrement ou de déchiffrement peuvent se manifester avec différents symptômes et avoir plusieurs causes potentielles.
 
-La protection par mot de passe Azure AD dépend de manière critique des fonctionnalités de chiffrement et de déchiffrement fournies par le service de distribution de clés Microsoft, disponible sur les contrôleurs de domaine exécutant Windows Server 2012 et versions ultérieures. Le service de distribution de clés doit être activé et opérationnel sur tous les contrôleurs de domaine Windows Server 2012 et versions ultérieures au sein d’un domaine.
+1. Vérifiez que le service de distribution de clés est activé et opérationnel sur tous les contrôleurs de domaine Windows Server 2012 et ultérieur au sein d’un domaine.
 
-Par défaut, le mode de démarrage du service de distribution de clés est Manuel (Déclencher le démarrage). Cette configuration a pour effet que, la première fois qu’un client essaie d’utiliser le service, celui-ci est démarré à la demande. Ce mode de démarrage par défaut du service permet que la protection par mot de passe Azure AD fonctionne.
+   Par défaut, le mode de démarrage du service de distribution de clés est Manuel (Déclencher le démarrage). Cette configuration a pour effet que, la première fois qu’un client essaie d’utiliser le service, celui-ci est démarré à la demande. Ce mode de démarrage par défaut du service permet que la protection par mot de passe Azure AD fonctionne.
 
-Si le mode de démarrage du service de distribution de clés est désactivé, cette configuration doit être corrigée pour que la protection par mot de passe Azure AD fonctionne correctement.
+   Si le mode de démarrage du service de distribution de clés est désactivé, cette configuration doit être corrigée pour que la protection par mot de passe Azure AD fonctionne correctement.
 
-Un test simple en lien avec ce problème consiste à démarrer manuellement le service de distribution de clés, soit via la console MMC de management des services, ou à l’aide d’autres outils de gestion (par exemple, en tapant la commande « net start kdssvc » dans une console d’invite de commande). Le service de distribution de clés est censé démarrer correctement et continuer à s’exécuter.
+   Un test simple en lien avec ce problème consiste à démarrer manuellement le service de distribution de clés, soit via la console MMC de management des services, ou à l’aide d’autres outils de gestion (par exemple, en tapant la commande « net start kdssvc » dans une console d’invite de commande). Le service de distribution de clés est censé démarrer correctement et continuer à s’exécuter.
 
-La cause racine la plus courante de l’incapacité du service de distribution de clés à démarrer est que l’objet contrôleur de domaine Active Directory se trouve en dehors de l’unité d’organisation Contrôleurs de domaine par défaut. Cette configuration n’est pas pris en charge par le service de distribution de clés et ne constitue pas une limitation imposée par la protection par mot de passe Azure AD. La solution pour corriger cette situation consiste à déplacer l’objet contrôleur de domaine vers un emplacement situé sous l’unité d’organisation Contrôleurs de domaine par défaut.
+   La cause racine la plus courante de l’incapacité du service de distribution de clés à démarrer est que l’objet contrôleur de domaine Active Directory se trouve en dehors de l’unité d’organisation Contrôleurs de domaine par défaut. Cette configuration n’est pas pris en charge par le service de distribution de clés et ne constitue pas une limitation imposée par la protection par mot de passe Azure AD. La solution pour corriger cette situation consiste à déplacer l’objet contrôleur de domaine vers un emplacement situé sous l’unité d’organisation Contrôleurs de domaine par défaut.
+
+1. Incompatibilité du format des tampons chiffrés par le service de distribution de clés de Windows Server 2012 R2 vers Windows Server 2016
+
+   Un correctif de sécurité du service de distribution de clés a été introduit dans Windows Server 2016. Il modifie le format des tampons chiffrés par le service de distribution de clés. Il est parfois impossible de déchiffrer ces tampons sur Windows Server 2012 et Windows Server 2012 R2. En revanche, cela fonctionne dans le sens inverse : les tampons chiffrés par le service de distribution de clés sur Windows Server 2012 et Windows Server 2012 R2 sont toujours déchiffrés correctement sur Windows Server 2016 et versions ultérieures. Si les contrôleurs de domaine de vos domaines Active Directory exécutent une combinaison de ces systèmes d’exploitation, des échecs du déchiffrement de la protection par mot de passe Azure AD risquent d’être signalés de temps en temps. Il n’est pas possible de prédire avec précision le moment ou les symptômes de ces échecs au vu de la nature du correctif de sécurité, et de ce fait, il n’est pas possible de déterminer quel agent de contrôleur de domaine de la protection par mot de passe Azure AD va chiffrer les données à un moment donné sur quel contrôleur de domaine.
+
+   Microsoft cherche actuellement un correctif afin de résoudre ce problème, mais aucune date n’est encore avancée quant à sa disponibilité. En attendant, il n’existe pas de solution de contournement pour ce problème si ce n’est d’éviter d’exécuter une combinaison de ces systèmes d’exploitation incompatibles dans vos domaines Active Directory. En d’autres termes, vous devez exécuter uniquement des contrôleurs de domaine Windows Server 2012 et Windows Server 2012 R2 OU uniquement des contrôleurs de domaine Windows Server 2016 et ultérieur.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Les mots de passe faibles sont acceptés alors qu’ils ne devraient pas l’être
 
@@ -183,7 +189,7 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 Le logiciel proxy de protection par mot de passe Azure AD n’est limité dans le temps dans aucune version. Microsoft recommande toujours de mettre à niveau les agents de contrôleur de domaine et de proxy vers les dernières versions à mesure que celles-ci sont publiées. La cmdlet `Get-AzureADPasswordProtectionProxy` permet de rechercher des agents proxy qui nécessitent des mises à niveau, comme dans l’exemple ci-dessus pour les agents du contrôleur de domaine.
 
-Pour plus d’informations sur les procédures de mise à niveau spécifiques, voir [Mise à niveau de l’agent du contrôleur de domaine](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) et [Mise à niveau de l’agent proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent).
+Pour plus d’informations sur les procédures de mise à niveau spécifiques, consultez [Mise à niveau de l’agent du contrôleur de domaine](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) et [Mise à niveau de l’agent proxy](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent).
 
 ## <a name="emergency-remediation"></a>Correction d’urgence
 

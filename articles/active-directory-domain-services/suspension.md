@@ -1,120 +1,126 @@
 ---
-title: 'Azure Active Directory Domain Services : domaines suspendus | Microsoft Docs'
-description: Suspension et suppression des domaines managés
+title: Domaines suspendus dans Azure AD Domain Services | Microsoft Docs
+description: Découvrez les différents états d’intégrité d’un domaine managé Azure AD DS et comment restaurer un domaine suspendu.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 781a81589032c290cef7342e7210ee36f388b22a
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 31a1c7cd72d57b9c680452d5e84f8fe78f47cebb
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233983"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693312"
 ---
-# <a name="understand-the-suspended-states-for-an-azure-active-directory-domain-services-managed-domain"></a>Comprendre l’état suspendu pour un domaine géré par Azure Active Directory Domain Services
+# <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Comprendre les états d’intégrité et résoudre les domaines suspendus dans Azure Active Directory Domain Services
 
-Quand Azure AD Domain Services (Azure AD DS) ne parvient pas à mettre en service un domaine managé pendant une longue période, ça met ce domaine en état de suspension. Cet article explique pourquoi les domaines managés sont suspendus et comment remédier à la suspension d’un domaine.
+Quand Azure AD Domain Services (Azure AD DS) ne parvient pas à mettre en service un domaine managé pendant une longue période, ça met ce domaine en état de suspension. Si un domaine managé reste ensuite dans un état suspendu, il est automatiquement supprimé. Pour assurer l’intégrité de votre domaine managé Azure AD DS et éviter la suspension, résolvez toutes les alertes aussi rapidement que possible.
 
+Cet article explique pourquoi les domaines managés sont suspendus et comment récupérer un domaine suspendu.
 
-## <a name="states-your-managed-domain-can-be-in"></a>Différents états des domaines managés
+## <a name="overview-of-managed-domain-states"></a>Vue d’ensemble des états des domaines managés
 
-![Chronologie de la suspension des domaines](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
+Tout au long du cycle de vie d’un domaine managé Azure AD DS, différents états indiquent son intégrité. Si le domaine managé signale un problème, résolvez rapidement la cause sous-jacente pour empêcher l’état de continuer de se dégrader.
 
-Le graphique ci-dessus décrit les états possibles d’un domaine managé Azure AD DS.
+![Progression des états affichés par un domaine managé Azure AD DS vers la suspension](media/active-directory-domain-services-suspension/suspension-timeline.PNG)
 
-### <a name="running-state"></a>État « En cours d’exécution »
-Un domaine managé qui est configuré correctement et qui fonctionne régulièrement a l’état **En cours d’exécution**.
+Un domaine managé Azure AD DS peut afficher l’un des états suivants :
 
-**À quoi s’attendre ?**
-* Microsoft peut surveiller régulièrement l’intégrité de votre domaine managé.
-* Les contrôleurs de domaine de votre domaine managé sont corrigés et mis à jour régulièrement.
-* Les modifications effectuées dans Azure Active Directory sont régulièrement synchronisées avec votre domaine managé.
-* Des sauvegardes de votre domaine managé sont effectuées régulièrement.
+* [Exécution](#running-state)
+* [Doit être surveillé](#needs-attention-state)
+* [Suspendu](#suspended-state)
+* [Supprimé](#deleted-state)
 
+## <a name="running-state"></a>État En cours d’exécution
 
-### <a name="needs-attention-state"></a>État « Doit être surveillé »
-Un domaine managé passe à l’état **Doit être surveillé** si un ou plusieurs problèmes doivent être résolus par l’administrateur. La page d’intégrité de votre domaine managé répertorie les alertes liées à cet état.
+Un domaine managé Azure AD DS qui est correctement configuré et en cours d’exécution sans problème se trouve dans l’état *En cours d’exécution*. Il s’agit de l’état souhaité pour un domaine managé.
 
-Par exemple, si vous avez configuré un groupe de sécurité réseau restrictif pour votre réseau virtuel, Microsoft peut être incapable de mettre à jour et de surveiller votre domaine managé. Cette configuration non valide déclenche une alerte qui met votre domaine géré dans l’état « Doit être surveillé ».
+### <a name="what-to-expect"></a>À quoi s’attendre
 
-Chaque alerte est associée à une procédure de résolution. Certaines alertes sont temporaires et sont résolues automatiquement par le service. Vous pouvez résoudre d’autres alertes en suivant les instructions fournies dans la procédure de résolution associée à l’alerte. Pour résoudre certaines alertes critiques, vous devez contacter le support Microsoft afin d’obtenir une résolution.
+* La plateforme Azure peut superviser régulièrement l’intégrité du domaine managé.
+* Les contrôleurs du domaine managé sont corrigés et mis à jour régulièrement.
+* Les modifications effectuées dans Azure Active Directory sont régulièrement synchronisées avec le domaine managé.
+* Des sauvegardes du domaine managé sont effectuées régulièrement.
 
-Pour plus d’informations, consultez [Résolution des alertes liées aux domaines managés](troubleshoot-alerts.md).
+## <a name="needs-attention-state"></a>État Doit être surveillé
 
-**À quoi s’attendre ?**
+Un domaine managé Azure AD DS présentant un ou plusieurs problèmes qui doivent être résolus se trouve dans l’état *Doit être surveillé*. La page d’intégrité du domaine managé liste les alertes et indique où un problème se pose. Certaines alertes sont temporaires et résolues automatiquement par la plateforme Azure. Pour d’autres alertes, vous pouvez résoudre le problème en suivant les étapes de résolution indiquées. En cas d’alerte critique, [formulez une demande de support Azure][azure-support] pour bénéficier d’une aide supplémentaire.
 
-Dans certains cas (par exemple, si vous avez une configuration réseau non valide), les contrôleurs de domaine de votre domaine managé peuvent être inaccessibles. Lorsque votre domaine managé est dans l’état « Doit être surveillé », Microsoft ne peut pas garantir qu’il sera surveillé, corrigé, mis à jour et sauvegardé régulièrement.
+Un groupe de sécurité réseau restrictif représente un exemple d’alerte. Dans cette configuration, la plateforme Azure peut ne pas être en mesure de mettre à jour et de superviser le domaine managé. Une alerte est générée et l’état passe à *Doit être surveillé*.
 
-* L’état de votre domaine managé n’est pas sain et la surveillance continue de l’intégrité peut s’arrêter jusqu’à la résolution de l’alerte.
-* Les contrôleurs de domaine de votre domaine managé peuvent ne pas être corrigés et mis à jour.
-* Les modifications effectuées dans Azure Active Directory peuvent ne pas être synchronisées avec votre domaine managé.
-* Des sauvegardes de votre domaine managé peuvent être effectuées, si cela est possible.
-* Si vous résolvez les alertes qui impactent votre domaine managé, vous pourrez peut-être le restaurer dans l’état « En cours d’exécution ».
-* Les alertes critiques sont déclenchées en cas de problèmes de configuration où Microsoft est incapable d’atteindre vos contrôleurs de domaine. Si ces alertes ne sont pas résolues dans les quinze jours, votre domaine managé est placé à l’état « Suspendu ».
+Pour plus d’informations, consultez [Guide pratique pour résoudre les problèmes liés aux alertes dans un domaine managé Azure AD DS][resolve-alerts].
 
+### <a name="what-to-expect"></a>À quoi s’attendre
 
-### <a name="the-suspended-state"></a>État « Suspendu »
-Un domaine managé est placé à l’état **Suspendu** dans les cas suivants :
+Quand un domaine managé Azure AD DS affiche l’état *Doit être surveillé*, la plateforme Azure peut ne pas être en mesure de superviser, corriger, mettre à jour ou sauvegarder des données régulièrement. Dans certains cas, comme avec une configuration réseau non valide, les contrôleurs du domaine managé peuvent être inaccessibles.
 
-* Une ou plusieurs alertes critiques n’ont pas été résolues au bout de 15 jours. Les alertes critiques peuvent être dues à une configuration incorrecte qui bloque l’accès aux ressources dont a besoin Azure AD DS.
-    * Par exemple, l’alerte [AADDS104 : erreur réseau](alert-nsg.md) n’a pas été résolue pendant plus de 15 jours dans le domaine managé.
-* Il y a un problème de facturation avec votre abonnement Azure ou votre abonnement Azure a expiré.
+* L’état du domaine managé n’est pas sain et la supervision continue de l’intégrité peut s’arrêter jusqu’à la résolution de l’alerte.
+* Les contrôleurs du domaine managé ne peuvent pas être corrigés ou mis à jour.
+* Les modifications effectuées dans Azure Active Directory peuvent ne pas être synchronisées avec le domaine managé.
+* Des sauvegardes du domaine managé ne sont peut-être pas effectuées.
+* Si vous résolvez des alertes non critiques qui ont un impact sur le domaine managé, l’intégrité doit revenir à l’état *En cours d’exécution*.
+* Les alertes critiques sont déclenchées en cas de problèmes de configuration où la plateforme Azure est incapable d’accéder aux contrôleurs de domaine. Si ces alertes critiques ne sont pas résolues dans les 15 jours, le domaine managé passe à l’état *Suspendu*.
 
-Les domaines managés sont suspendus quand Microsoft ne parvient pas à gérer, surveiller, corriger ou sauvegarder le domaine en continu.
+## <a name="suspended-state"></a>État Suspendu
 
-**À quoi s’attendre ?**
-* Les contrôleurs de domaine de votre domaine managé sont déprovisionnés et ne sont plus accessibles dans le réseau virtuel.
-* L’accès LDAP sécurisé à votre domaine managé via Internet (s’il est activé) cesse de fonctionner.
-* Vous remarquez des échecs lors de l’authentification au domaine managé, lors de la connexion aux machines virtuelles jointes à un domaine ou lors des connexions via LDAP/LDAPS.
-* Les sauvegardes de votre domaine managé ne sont plus effectuées.
+Un domaine managé Azure AD DS passe à l’état **Suspendu** pour l’une des raisons suivantes :
+
+* Une ou plusieurs alertes critiques n’ont pas été résolues au bout de 15 jours.
+    * Les alertes critiques peuvent être dues à une configuration incorrecte qui bloque l’accès aux ressources dont a besoin Azure AD DS. Par exemple, l’alerte [AADDS104 : erreur réseau][alert-nsg] n’a pas été résolue pendant plus de 15 jours dans le domaine managé.
+* Il y a un problème de facturation avec l’abonnement Azure ou l’abonnement Azure a expiré.
+
+Les domaines managés sont suspendus quand la plateforme Azure ne parvient pas à gérer, superviser, corriger ou sauvegarder le domaine. Un domaine managé reste à l’état *Suspendu* pendant 15 jours. Pour conserver l’accès au domaine managé, résolvez immédiatement les alertes critiques.
+
+### <a name="what-to-expect"></a>À quoi s’attendre
+
+Le comportement suivant se produit quand un domaine managé Azure AD DS se trouve dans l’état *Suspendu* :
+
+* Les contrôleurs du domaine managé sont déprovisionnés et ne sont pas accessibles dans le réseau virtuel.
+* L’accès LDAP sécurisé au domaine managé via Internet, s’il est activé, cesse de fonctionner.
+* Des échecs se produisent lors de l’authentification auprès du domaine managé, de la connexion aux machines virtuelles jointes à un domaine ou des connexions via LDAP/LDAPS.
+* Les sauvegardes du domaine managé ne sont plus effectuées.
 * La synchronisation avec Azure AD cesse.
 
-Après avoir résolu l’alerte, votre domaine managé va à l’état « Suspendu ». Puis vous devrez contacter le support technique.
-L’équipe du support ne pourra restaurer votre domaine managé uniquement s’il existe une sauvegarde datant de moins de 30 jours.
+### <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Comment savoir si votre domaine managé a été suspendu ?
 
-Le domaine managé reste à l’état Suspendu pendant 15 jours seulement. Pour récupérer votre domaine managé, Microsoft vous recommande de résoudre les alertes critiques immédiatement.
+Vous voyez une [alerte][resolve-alerts] dans la page d’intégrité Azure AD DS du portail Azure qui indique que le domaine est suspendu. L’état du domaine indique également *Suspendu*.
 
+### <a name="restore-a-suspended-domain"></a>Restaurer un domaine suspendu
 
-### <a name="deleted-state"></a>État « Supprimé »
-Un domaine managé qui reste à l’état « Suspendu » pendant plus de 15 jours passe à l’état **Supprimé**.
+Pour restaurer l’intégrité d’un domaine managé Azure AD DS qui est dans l’état *Suspendu*, procédez comme suit :
 
-**À quoi s’attendre ?**
+1. Dans le portail Azure, recherchez et sélectionnez **Services de domaine**.
+1. Choisissez votre domaine managé Azure AD DS dans la liste, par exemple *contoso.com*, puis sélectionnez **Intégrité**.
+1. Sélectionnez l’alerte, par exemple *AADDS503* ou *AADDS504*, selon la cause de la suspension.
+1. Choisissez le lien de résolution fourni dans l’alerte et suivez les étapes indiquées.
+
+Un domaine managé peut uniquement être restauré à la date de la dernière sauvegarde. La date de la dernière sauvegarde est affichée dans la page **Intégrité** du domaine managé. Toutes les modifications apportées après la dernière sauvegarde ne pourront pas être restaurées. Les sauvegardes de domaine managé sont stockées pendant 30 jours. Les sauvegardes datant de plus de 30 jours sont supprimées.
+
+Une fois que vous avez résolu les alertes quand le domaine managé est dans l’état *Suspendu*, [formulez une demande de support Azure][azure-support] pour revenir à un état sain. Si la sauvegarde date de moins de 30 jours, le support Azure peut restaurer le domaine managé.
+
+## <a name="deleted-state"></a>État Supprimé
+
+Si un domaine managé Azure AD DS reste à l’état *Suspendu* pendant 15 jours, il est supprimé. Ce processus est irrécupérable.
+
+### <a name="what-to-expect"></a>À quoi s’attendre
+
+Quand un domaine managé Azure AD DS passe à l’état *Supprimé*, le comportement suivant se produit :
+
 * Toutes les ressources et sauvegardes du domaine managé sont supprimées.
-* Dans ce cas, vous ne pouvez pas restaurer le domaine managé et devez créer un domaine managé afin de pouvoir utiliser Azure AD DS.
+* Vous ne pouvez pas restaurer le domaine managé et devez créer un domaine managé de remplacement afin de pouvoir réutiliser Azure AD DS.
 * Lorsque le domaine managé est supprimé, vous n’êtes plus facturé pour celui-ci.
 
-
-## <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Comment savoir si votre domaine managé a été suspendu ?
-Vous voyez une [alerte](troubleshoot-alerts.md) dans la page d’intégrité Azure AD DS du portail Azure, qui indique que le domaine est suspendu. L’état du domaine indique également « Suspendu ».
-
-
-## <a name="restore-a-suspended-domain"></a>Restaurer un domaine suspendu
-Pour restaurer un domaine à l’état « Suspendu », effectuez les étapes suivantes :
-
-1. Allez sur la [page Azure Active Directory Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) dans le portail Azure.
-2. Sélectionnez le domaine managé.
-3. Dans le volet gauche, sélectionnez **Intégrité**.
-4. Sélectionner l’alerte. L’ID de l’alerte sera AADDS503 ou AADDS504, selon la cause de la suspension.
-5. Sélectionnez le lien de résolution qui est fourni dans l’alerte. Pour résoudre l’alerte, procédez comme suit.
-
-Votre domaine managé peut uniquement être restauré à la date de la dernière sauvegarde. La date de la dernière sauvegarde est affichée dans la page Intégrité de votre domaine managé. Toutes les modifications apportées après la dernière sauvegarde ne pourront pas être restaurées. Les sauvegardes de domaine managé sont stockées pendant 30 jours. Les sauvegardes datant de plus de 30 jours sont supprimées.
-
-
 ## <a name="next-steps"></a>Étapes suivantes
-- [Résoudre les alertes sur votre domaine managé](troubleshoot-alerts.md)
-- [En savoir plus sur Azure Active Directory Domain Services](overview.md)
-- [Contacter l’équipe produit](contact-us.md)
 
-## <a name="contact-us"></a>Nous contacter
-Contactez l’équipe produit des Services de domaine Azure Active Directory pour [partager vos commentaires ou pour obtenir de l’aide](contact-us.md).
+Pour assurer l’intégrité de votre domaine managé Azure AD DS et réduire le risque de suspension, découvrez comment [résoudre les alertes sur votre domaine managé][resolve-alerts].
+
+<!-- INTERNAL LINKS -->
+[alert-nsg]: alert-nsg.md
+[azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+[resolve-alerts]: troubleshoot-alerts.md

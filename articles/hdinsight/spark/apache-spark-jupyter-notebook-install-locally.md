@@ -1,19 +1,19 @@
 ---
 title: Installer Jupyter localement et le connecter à Spark dans Azure HDInsight
 description: Découvrez comment installer un bloc-notes Jupyter localement sur votre ordinateur et le connecter à un cluster Apache Spark.
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 6ce3ff8e00bc92911a7405de1bb0bb7286fb5c15
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993752"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337653"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installer un bloc-notes Jupyter sur votre ordinateur et le connecter à Apache Spark sur HDInsight
 
@@ -146,7 +146,7 @@ Dans cette section, vous configurez Spark magic, que vous avez installé précé
 
     a. Créer un nouveau bloc-notes. En haut à droite, sélectionnez **New**. Vous devez voir le noyau par défaut **Python 2** ou **Python 3** et les noyaux que vous avez installés. Les valeurs réelles peuvent varier en fonction de vos choix d’installation.  Sélectionnez **PySpark**.
 
-    ![Noyaux de bloc-notes Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Noyaux de bloc-notes Jupyter")
+    ![Noyaux disponibles dans un classeur Jupyter](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Noyaux dans un classeur Jupyter")
 
     > [!IMPORTANT]  
     > Après avoir sélectionné **New**, passez en revue le code dans votre interpréteur de commandes pour rechercher les erreurs éventuelles.  Si vous voyez l’erreur `TypeError: __init__() got an unexpected keyword argument 'io_loop'`, cela est probablement dû à un problème connu avec certaines versions de Tornado.  Dans ce cas, arrêtez le noyau, puis passez à une version antérieure de Tornado en utilisant la commande suivante : `pip install tornado==4.5.3`.

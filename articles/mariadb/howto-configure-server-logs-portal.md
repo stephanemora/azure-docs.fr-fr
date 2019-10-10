@@ -1,17 +1,17 @@
 ---
 title: Configurer et consulter les journaux des serveurs pour Azure Database for MariaDB dans le portail Azure
 description: Cet article décrit comment configurer et consulter les journaux des serveurs dans Azure Database for MariaDB à partir du portail Azure.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 3dbf7064e409230916668e62ef861c0ce149fdbb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/30/2019
+ms.openlocfilehash: c8be9519d3393330b3022fadd2de6a49e58ecdcf
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065637"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703511"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’activité du serveur dans le portail Azure
 
@@ -42,7 +42,7 @@ Configurer l’accès au journal des requêtes lentes.
 6. Revenez à la liste des journaux d’activité en cliquant sur le **bouton Fermer** (icône de X) dans la page **Paramètres serveur**.
 
 ## <a name="view-list-and-download-logs"></a>Afficher la liste et télécharger les journaux d’activité
-Une fois que la journalisation commence, vous pouvez afficher la liste des journaux des requêtes lentes disponibles et télécharger des fichiers journaux individuels dans le volet Journaux du serveur. 
+Une fois que la journalisation commence, vous pouvez voir la liste des journaux des requêtes lentes disponibles et télécharger des fichiers journaux individuels dans le volet Journaux du serveur. 
 
 1. Ouvrez le portail Azure.
 
@@ -61,8 +61,25 @@ Une fois que la journalisation commence, vous pouvez afficher la liste des journ
 
    ![Cliquez sur l’icône Télécharger](./media/howto-configure-server-logs-portal/5-download.png)
 
+## <a name="set-up-diagnostic-logs"></a>Configurer les journaux de diagnostic
+
+1. Dans la section **Supervision** dans la barre latérale, sélectionnez **Paramètres de diagnostic**.
+
+1. Cliquez sur « + Ajouter un paramètre de diagnostic » ![Ajouter un paramètre de diagnostic](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
+
+1. Entrez un nom de paramètre de diagnostic.
+
+1. Spécifiez les récepteurs de données auxquels envoyer les journaux des requêtes lentes (compte de stockage, hub d’événements et/ou espace de travail Log Analytics).
+
+1. Sélectionnez « MySqlSlowLogs » comme type de journal.
+![Configurer un paramètre de diagnostic](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
+
+1. Une fois que vous avez configuré les récepteurs de données auxquels envoyer les journaux des requêtes lentes, vous pouvez cliquer sur **Enregistrer**.
+![Enregistrer un paramètre de diagnostic](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
+
+1. Accédez aux journaux des requêtes lentes en les explorant dans les récepteurs de données que vous avez configurés. L’affichage des journaux peut prendre jusqu’à 10 minutes.
+
 ## <a name="next-steps"></a>Étapes suivantes
+- Pour découvrir comment télécharger des journaux des requêtes lentes par programmation, consultez [Accéder aux journaux des requêtes lentes dans l’interface CLI](howto-configure-server-logs-cli.md).
 - Découvrez les [journaux des requêtes lentes](concepts-server-logs.md) dans Azure Database for MariaDB.
 - Pour plus d’informations sur les définitions de paramètres et la journalisation, consultez la documentation MariaDB relative aux [journaux d’activité](https://mariadb.com/kb/en/library/slow-query-log-overview/).
-
-<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

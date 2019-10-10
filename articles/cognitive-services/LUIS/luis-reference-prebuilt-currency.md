@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 867e8f830542aab712b2bfe32f05dd9469c0da49
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 61be3225f22aca821f8c26522ab37eab0c82bc26
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932534"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677717"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie currency pour une application LUIS
 L’entité prédéfinie currency détecte la devise dans de nombreuses dénominations et de nombreux pays/régions, indépendamment de la culture de l’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des devises aux intentions de l’application. L’entité currency est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
@@ -26,7 +26,7 @@ L’entité currency est gérée à partir du dépôt GitHub [Recognizers-text](
 
 ## <a name="resolution-for-currency-entity"></a>Résolution pour l’entité currency
 
-### <a name="api-version-2x"></a>API version 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 L’exemple suivant montre la résolution de l’entité **builtin.currency**.
 
@@ -64,7 +64,7 @@ L’exemple suivant montre la résolution de l’entité **builtin.currency**.
 
 
 
-### <a name="preview-api-version-3x"></a>API 3.x en préversion
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
@@ -128,6 +128,11 @@ Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 }
 ```
 
+
+* * * 
+
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
 En savoir plus sur les entités [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md) [email](luis-reference-prebuilt-email.md). 

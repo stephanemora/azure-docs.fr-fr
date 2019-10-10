@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: c81c2de180a2c5734f3896d4b6843f2ccccdf45f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 196565e84ec493352ca9765d5502c9ad8ac7edd3
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231199"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703488"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 
@@ -35,7 +35,7 @@ Les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevent
 
 Un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : pass-through et Live Encoding. Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype) :
 
-* **LiveEventEncodingType.None** - Un encodeur live local envoie un flux à débits multiples. Les flux reçus transitent par l’Événement en temps réel sans traitement supplémentaire. 
+* **LiveEventEncodingType.None** - Un encodeur live local envoie un flux à débits multiples. Le flux reçu transite par l’événement en direct sans traitement supplémentaire. 
 * **LiveEventEncodingType.Standard** - Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. Si la résolution du flux de contribution est de 720p ou plus, la présélection **Default720p** encode un jeu de 6 paires résolution/débits.
 * **LiveEventEncodingType.Premium1080p** - Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. La présélection Default1080p spécifie le jeu de sortie des paires résolution/débits. 
 
@@ -66,15 +66,29 @@ La présélection détermine les résolutions et débits de la sortie émanant d
 > [!NOTE]
 > Si vous avez besoin de personnaliser la présélection d’encodage live, ouvrez un ticket de support sur le Portail Azure. Vous devez spécifier la table de résolution et de débits binaires souhaitée. Vérifiez qu’il n’existe qu’un calque à 720p (si vous demandez un préréglage pour un encodeur live Standard) ou à 1080p (si vous demandez un préréglage pour un encodeur live Premium1080p). Le nombre maximal de calques est de 6.
 
-## <a name="live-event-creation-options"></a>Options de création d’événements en direct
+## <a name="creating-live-events"></a>Création d’événements en direct 
+
+### <a name="options"></a>Options
 
 Quand vous créez un événement en direct, vous pouvez spécifier les options suivantes :
 
 * Protocole de streaming de l’événement en direct (les protocoles RTMP et Smooth Streaming sont actuellement pris en charge).<br/>Vous ne pouvez pas changer l’option de protocole pendant l’exécution de l’événement en direct ou des sorties en direct qui lui sont associées. Si vous avez besoin d’autres protocoles, vous devez créer des événements en direct distincts pour chaque protocole de streaming.  
-* Restictions IP sur l’ingestion et la préversion. Vous pouvez définir les adresses IP autorisées à recevoir du contenu vidéo sur cet événement en direct. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).<br/>Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP ne sera autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.<br/>Les adresses IP doivent utiliser un des formats suivants : adresses IpV4 avec 4 nombres, plage d’adresses CIDR.
 * Lors de la création de l’événement, vous pouvez préciser que vous voulez que le démarrage soit automatique. <br/>Lorsque le démarrage automatique est défini sur true, l’événement en direct démarre après sa création. La facturation commence donc dès que son exécution démarre. Vous devez appeler explicitement la commande Stop sur la ressource de l’événement en direct pour arrêter toute facturation supplémentaire. Sinon, lancez-le dès que vous souhaitez commencer le streaming. 
 
     Pour plus d’informations, consultez [États et facturation des événements en direct](live-event-states-billing.md).
+* Restictions IP sur l’ingestion et la préversion. Vous pouvez définir les adresses IP autorisées à recevoir du contenu vidéo sur cet événement en direct. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).<br/>Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP ne sera autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.<br/>Les adresses IP doivent utiliser un des formats suivants : adresses IPv4 à quatre chiffres, plage d’adresses CIDR.
+
+    Si vous souhaitez activer certaines adresses IP sur vos propres pare-feu ou si vous souhaitez limiter les entrées à vos événements en direct à des adresses IP Azure, téléchargez un fichier JSON à partir de [Plages d’adresses IP du centre de données Azure ](https://www.microsoft.com/download/details.aspx?id=41653). Pour plus d’informations sur ce fichier, cliquez sur la section **Détails** de la page.
+        
+### <a name="naming-rules"></a>Règles d’affectation des noms
+
+* Le nom de l’événement en direct peut contenir au maximum 32 caractères.
+* Le nom doit suivre ce modèle [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+
+Reportez-vous également aux [conventions de nommage des points de terminaison de streaming](streaming-endpoint-concept.md#naming-convention).
+
+> [!TIP]
+> Pour garantir l’unicité du nom de votre événement en direct, vous pouvez générer un GUID, puis supprimer tous les traits d’union et les accolades (le cas échéant). La chaîne sera unique pour tous les événements en direct et sa longueur sera de 32 caractères.
 
 ## <a name="live-event-ingest-urls"></a>URL de réception des événements en direct
 

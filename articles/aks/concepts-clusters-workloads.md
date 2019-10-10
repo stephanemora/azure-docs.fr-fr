@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: e606b4fee2c46f66f13c45586bcc25577bd90a1f
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147198"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672809"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -76,23 +76,34 @@ Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou run
 
 ### <a name="resource-reservations"></a>Réservations de ressources
 
-Vous n’avez pas besoin de gérer les principaux composants de Kubernetes sur chaque nœud, tels que *kubelet*, *kube-proxy* et *kube-dns*, mais ils consomment une part des ressources de calcul disponibles. Pour conserver les fonctionnalités et les performances des nœuds, les ressources de calcul suivantes sont réservées sur chaque nœud :
+Les ressources de nœud sont utilisées par AKS pour faire fonctionner le nœud dans le cadre de votre cluster. Cela peut créer un écart entre les ressources totales de votre nœud et les ressources allouables quand elles sont utilisées dans AKS. Il est important de le noter lors de la définition de demandes et de limites pour les pods déployés par l’utilisateur.
 
-- **UC** - 60 ms
-- **Mémoire** -20 % jusqu'à 4 Gio
+Pour rechercher les ressources allouables d’un nœud, exécutez :
+```kubectl
+kubectl describe node [NODE_NAME]
+
+```
+
+Pour conserver les fonctionnalités et les performances des nœuds, les ressources sont réservées sur chaque nœud par AKS. Dans la mesure où un nœud gagne en taille dans les ressources, la réservation de ressources augmente en raison d’une plus grande quantité de pods déployés par l’utilisateur nécessitant une gestion.
+
+>[!NOTE]
+> L’utilisation de modules complémentaires comme OMS nécessite des ressources de nœud supplémentaires.
+
+- **Processeur** : le processeur réservé dépend du type de nœud et de la configuration du cluster, ce qui peut aboutir à un processeur moins allouable en raison de l’exécution de fonctionnalités supplémentaires
+
+| Cœurs de processeur sur l’hôte | 1 | 2 | 4 | 8 | 16 | 32|64|
+|---|---|---|---|---|---|---|---|
+|Réservés par Kube (millicores)|60|100|140|180|260|420|740|
+
+- **Mémoire** : la réservation de mémoire suit un taux progressif
+  - 25 % des 4 premiers Go de mémoire
+  - 20 % des 4 Go suivants de mémoire (jusqu’à 8 Go)
+  - 10 % des 8 Go suivants de mémoire (jusqu’à 16 Go)
+  - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
+  - 2 % de la mémoire au-dessus de 128 Go
 
 Ces réservations signifient que la quantité disponible d’UC et de mémoire pour vos applications peut apparaître inférieure à ce que le nœud lui-même contient. S’il existe des contraintes de ressources en raison du nombre d’applications que vous exécutez, ces réservations garantissent que l’UC et la mémoire restent disponibles pour les principaux composants de Kubernetes. Vous ne pouvez pas changer les réservations de ressources.
 
-Par exemple :
-
-- La taille de nœud **Standard DS2 v2** contient 2 processeurs virtuels et 7 Gio de mémoire
-    - 20 % de 7 Gio de mémoire = 1,4 Gio
-    - Un total de *(7 - 1,4) = 5,6 Gio* de mémoire est disponible pour le nœud
-    
-- La taille de nœud **Standard E4s v3** contient 4 processeurs virtuels et 32 Gio de mémoire
-    - 20 % de 32 Gio de mémoire = 6,4 Gio, mais AKS réserve uniquement un maximum de 4 Gio
-    - Un total de *(32 - 4) = 28 Gio* de mémoire est disponible pour le nœud
-    
 Le système d’exploitation du nœud sous-jacent nécessite également une certaine quantité de ressources d’UC et de mémoire pour effectuer ses propres fonctions principales.
 
 Pour connaître les meilleures pratiques associées, consultez la section [Meilleures pratiques relatives aux fonctionnalités de base du planificateur dans AKS][operator-best-practices-scheduler].

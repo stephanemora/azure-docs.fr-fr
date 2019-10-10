@@ -1,6 +1,6 @@
 ---
 title: Gérer les espaces de travail Log Analytics dans Azure Monitor | Microsoft Docs
-description: 'Vous pouvez gérer l’accès aux données stockées dans des espaces de travail Log Analytics dans Azure Monitor à l’aide d’autorisations au niveau de la ressource, de l’espace de travail ou de la table. Cet article explique comment :'
+description: Vous pouvez gérer l’accès aux données stockées dans un espace de travail Log Analytics dans Azure Monitor à l’aide d’autorisations au niveau de la ressource, de l’espace de travail ou de la table. Cet article explique comment procéder.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 9bf278b76846b98f58126957c589df87524bb8a4
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034710"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695005"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -216,11 +216,19 @@ Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez 
 
     * Configurez le mode de contrôle d’accès pour **utiliser les autorisations de ressource ou d’espace de travail**.
 
-    * Accordez aux utilisateurs les autorisations suivantes sur l’espace de travail : `Microsoft.OperationalInsights/workspaces/read` et `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. Avec ces autorisations, les utilisateurs ne peuvent pas exécuter des requêtes au niveau de l’espace de travail.
+    * Accordez aux utilisateurs les autorisations suivantes sur l’espace de travail : `Microsoft.OperationalInsights/workspaces/read` et `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. Avec ces autorisations, les utilisateurs ne peuvent pas exécuter des requêtes au niveau de l’espace de travail. Ils peuvent uniquement énumérer l’espace de travail et l’utiliser comme destination pour les paramètres de diagnostic ou la configuration de l’agent.
 
-    * Accordez aux utilisateurs les autorisations d’accès suivantes à leurs ressources : `Microsoft.Insights/logs/*/read` et `Microsoft.Insights/diagnosticSettings/write`. S’ils ont déjà le rôle [Contributeur Log Analytics](../../role-based-access-control/built-in-roles.md#contributor) sur cette ressource, cela suffit.
+    * Accordez aux utilisateurs les autorisations d’accès suivantes à leurs ressources : `Microsoft.Insights/logs/*/read` et `Microsoft.Insights/diagnosticSettings/write`. Si le rôle Lecteur ou [Contributeur Log Analytics](../../role-based-access-control/built-in-roles.md#contributor) leur est déjà attribué ou s’ils disposent déjà des autorisations `*/read` sur cette ressource, cela suffit.
 
-3. Pour accorder à un utilisateur l’accès aux données de journal à partir de ses ressources, l’accès en lecture aux infos d’identification Azure AD et l’accès en lecture aux données de journal de la solution Update Management, effectuez les étapes suivantes :
+3. Pour accorder à un utilisateur l’accès aux données de journal à partir de ses ressources sans qu’il puisse lire les événements de sécurité et envoyer des données, effectuez les étapes suivantes :
+
+    * Configurez le mode de contrôle d’accès pour **utiliser les autorisations de ressource ou d’espace de travail**.
+
+    * Accordez aux utilisateurs les autorisations d’accès suivantes à leurs ressources : `Microsoft.Insights/logs/*/read`.
+
+    * Ajoutez la non-action suivante pour empêcher les utilisateurs de lire le type SecurityEvent : `Microsoft.Insights/logs/SecurityEvent/read`. La non-action doit avoir le même rôle personnalisé que l’action qui fournit l’autorisation de lecture (`Microsoft.Insights/logs/*/read`). Si l’utilisateur hérite de l’action de lecture d’un autre rôle attribué à cette ressource, à l’abonnement ou au groupe de ressources, il pourra lire tous les types de journaux. C’est également le cas s’il hérite de l’action `*/read` associée au rôle Lecteur ou Contributeur, par exemple.
+
+4. Pour accorder à un utilisateur l’accès aux données de journal à partir de ses ressources et l’accès en lecture à l’ensemble des infos d’identification Azure AD et des données de journal de la solution Update Management à partir de l’espace de travail, effectuez les étapes suivantes :
 
     * Configurez le mode de contrôle d’accès pour **utiliser les autorisations de ressource ou d’espace de travail**.
 
@@ -235,7 +243,7 @@ Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez 
         * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` : obligatoire pour pouvoir utiliser la solution Update Management.
         * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` : obligatoire pour pouvoir utiliser la solution Update Management.
 
-    * Accordez aux utilisateurs les autorisations d’accès suivantes à leurs ressources : `*/read` ou `Microsoft.Insights/logs/*/read`. S’ils ont le rôle de [Lecteur Log Analytics](../../role-based-access-control/built-in-roles.md#reader) sur l’espace de travail, cela suffit.
+    * Accordez aux utilisateurs les autorisations d’accès suivantes à leurs ressources : `*/read`, attribué au rôle Lecteur, ou `Microsoft.Insights/logs/*/read`. 
 
 ## <a name="table-level-rbac"></a>RBAC au niveau table
 

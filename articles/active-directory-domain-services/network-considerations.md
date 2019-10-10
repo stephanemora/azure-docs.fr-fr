@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086583"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315006"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Considérations relatives à la conception du réseau virtuel et options de configuration pour Azure AD Domain Services
 
@@ -46,7 +46,7 @@ Un domaine managé Azure AD DS se connecte à un sous-réseau dans un réseau 
 * Azure AD DS doit être déployé dans son propre sous-réseau. N’utilisez pas un sous-réseau existant ou un sous-réseau de passerelle.
 * Un groupe de sécurité réseau est créé pendant le déploiement d’un domaine managé Azure AD DS. Ce groupe de sécurité réseau contient les règles requises pour permettre une communication de service appropriée.
     * Ne créez et n’utilisez pas un groupe de sécurité réseau existant avec vos propres règles personnalisées.
-* Azure AD DS nécessite entre cinq et sept adresses IP. Assurez-vous que la plage d’adresses IP de votre sous-réseau peut fournir ce nombre d’adresses.
+* Azure AD DS nécessite 3 à 5 adresses IP. Assurez-vous que la plage d’adresses IP de votre sous-réseau peut fournir ce nombre d’adresses.
     * La restriction des adresses IP disponibles peut empêcher Azure AD Domain Services de gérer deux contrôleurs de domaine.
 
 L’exemple de diagramme suivant présente une conception valide dans laquelle Azure AD DS possède son propre sous-réseau. Le sous-réseau de passerelle pour la connectivité externe et les charges de travail d’application sont dans un sous-réseau connecté du réseau virtuel :
@@ -157,7 +157,7 @@ Vous devez également acheminer le trafic entrant à partir des adresses IP incl
 
 Pour plus d’informations sur certaines ressources réseau et options de connexion utilisées par Azure AD DS, consultez les articles suivants :
 
-* [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
+* [Peering de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 * [Passerelles VPN Azure](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
 * [Groupes de sécurité réseau Azure](../virtual-network/security-overview.md)
 

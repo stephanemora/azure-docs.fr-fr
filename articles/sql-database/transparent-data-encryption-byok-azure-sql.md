@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 07/18/2019
-ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596701"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348921"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL Transparent Data Encryption avec des clés managées dans Azure Key Vault : support Bring Your Own Key
 
@@ -149,7 +149,7 @@ La section suivante aborde plus en détails les étapes d’installation et de c
 - Créez deux Azure Key Vault dans deux régions différentes en utilisant [PowerShell pour activer la propriété « soft-delete »](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) sur le coffre de clés (cette option n’est pas encore disponible à partir du portail AKV, mais elle est exigée par SQL).
 - Les deux coffres Azure Key Vault doivent se trouver dans les deux régions disponibles au sein de la même zone géographique Azure pour que la sauvegarde et restauration des clés fonctionnent.  Si vous avez besoin que les deux coffres de clés soient situés dans des zones géographiques différentes pour répondre aux exigences de géo-récupération d’urgence de SQL, suivez le [processus BYOK](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) qui permet l’importation des clés à partir d’un module HSM local.
 - Créer une nouvelle clé dans le premier coffre de clés :  
-  - Clé RSA/RSA-HSA de 2048 bits
+  - Clé RSA/RSA-HSM de 2048
   - Aucune date d'expiration
   - La clé est activée et elle dispose des autorisations pour effectuer les opérations get, wrap key, et unwrap key
 - Sauvegardez la clé primaire et restaurez la clé dans le deuxième coffre de clés.  Consultez [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) et [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).

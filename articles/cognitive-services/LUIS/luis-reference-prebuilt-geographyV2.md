@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: e28b541c1b5aa8f733c9f4ed44fd2ea5296b34d8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 04bc3019a55920351b0e91c87e63b8309d94e34c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933538"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677607"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie geographyV2 pour une application LUIS
 L’entité prédéfinie geographyV2 détecte les emplacements géographiques. Étant donné que cette entité est déjà entraînée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant geographyV2 aux intentions de l’application. L’entité geographyV2 est prise en charge pour la [culture](luis-reference-prebuilt-entities.md) Anglais.
@@ -35,7 +35,7 @@ Les emplacements géographiques ont des sous-types :
 
 ## <a name="resolution-for-geographyv2-entity"></a>Résolution de l’entité geographyV2
 
-### <a name="api-version-2x"></a>API version 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 L’exemple suivant montre la résolution de l’entité **builtin.geographyV2**.
 
@@ -93,7 +93,7 @@ L’exemple suivant montre la résolution de l’entité **builtin.geographyV2**
 } 
 ```
 
-### <a name="preview-api-version-3x"></a>API 3.x en préversion
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
@@ -191,6 +191,10 @@ Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
 En savoir plus sur les entités [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md) et [ordinal](luis-reference-prebuilt-ordinal.md). 

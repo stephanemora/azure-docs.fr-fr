@@ -1,5 +1,5 @@
 ---
-title: Exécuter et tester des travaux U-SQL localement à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
+title: Exécuter des travaux U-SQL localement - SDK Azure Data Lake U-SQL
 description: Découvrez comment exécuter et tester localement des travaux U-SQL avec les interfaces de ligne de commande et de programmation sur votre station de travail locale.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51d9060eaf4b30c696ef2a3b5f798a31e2f2a98a
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813467"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309695"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Exécuter et tester U-SQL à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
 
@@ -332,7 +332,7 @@ LocalRunHelper.exe fournit les interfaces de programmation pour la compilation, 
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Paramètre|Type|Description|
+|Paramètre|type|Description|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|pour les messages de sortie, donner la valeur null pour utiliser la Console|
 
@@ -340,26 +340,26 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Propriété|Type|Description|
 |--------|----|-----------|
-|AlgebraPath|chaîne|Chemin d’accès du fichier d’algèbre (le fichier d’algèbre est un des résultats de la compilation)|
-|CodeBehindReferences|chaîne|Si le script a des références code-behind supplémentaires, spécifiez les chemins d’accès séparés par « ; »|
-|CppSdkDir|chaîne|Répertoire CppSDK|
-|CurrentDir|chaîne|Répertoire actif|
-|DataRoot|chaîne|Chemin d’accès de la racine de données|
-|DebuggerMailPath|chaîne|Chemin d’accès du port d’insertion/éjection du débogueur|
+|AlgebraPath|string|Chemin d’accès du fichier d’algèbre (le fichier d’algèbre est un des résultats de la compilation)|
+|CodeBehindReferences|string|Si le script a des références code-behind supplémentaires, spécifiez les chemins d’accès séparés par « ; »|
+|CppSdkDir|string|Répertoire CppSDK|
+|CurrentDir|string|Répertoire actif|
+|DataRoot|string|Chemin d’accès de la racine de données|
+|DebuggerMailPath|string|Chemin d’accès du port d’insertion/éjection du débogueur|
 |GenerateUdoRedirect|bool|Si vous souhaitez générer une configuration de remplacement de redirection de chargement d’assembly|
 |HasCodeBehind|bool|Si le script a du code-behind|
-|InputDir|chaîne|Répertoire des données d’entrée|
-|MessagePath|chaîne|Chemin d’accès du fichier de vidage des messages|
-|OutputDir|chaîne|Répertoire des données de sortie|
+|InputDir|string|Répertoire des données d’entrée|
+|MessagePath|string|Chemin d’accès du fichier de vidage des messages|
+|OutputDir|string|Répertoire des données de sortie|
 |Parallélisme|int|Parallélisme pour exécuter l’algèbre|
 |ParentPid|int|PID du parent que le service surveille pour quitter, donner la valeur 0 ou une valeur négative pour ignorer|
-|ResultPath|chaîne|Chemin d’accès du fichier de vidage des résultats|
-|RuntimeDir|chaîne|Répertoire du runtime|
-|ScriptPath|chaîne|Emplacement du script|
+|ResultPath|string|Chemin d’accès du fichier de vidage des résultats|
+|RuntimeDir|string|Répertoire du runtime|
+|ScriptPath|string|Emplacement du script|
 |Shallow|bool|Compilation superficielle ou non|
-|TempDir|chaîne|Répertoire Temp|
-|UseDataBase|chaîne|Spécifiez la base de données à utiliser pour l’inscription des assemblys temporaires du code-behind, MASTER par défaut|
-|WorkDir|chaîne|Répertoire de travail favori|
+|TempDir|string|Répertoire Temp|
+|UseDataBase|string|Spécifiez la base de données à utiliser pour l’inscription des assemblys temporaires du code-behind, MASTER par défaut|
+|WorkDir|string|Répertoire de travail favori|
 
 
 **Méthode**

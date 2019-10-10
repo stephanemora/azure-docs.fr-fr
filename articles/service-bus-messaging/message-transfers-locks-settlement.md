@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aschhab
-ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60403939"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676262"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferts, verrouillages et règlement des messages
 
@@ -98,9 +98,13 @@ Avec un client AMQP de bas niveau, Service Bus accepte également les transferts
 
 Pour les opérations de réception, les clients d’API Service Bus utilisent deux modes explicites : *Receive-and-Delete* et *Peek-Lock*.
 
+### <a name="receiveanddelete"></a>ReceiveAndDelete
+
 Le mode [Receive-and-Delete](/dotnet/api/microsoft.servicebus.messaging.receivemode) indique au répartiteur qu’il doit considérer tous les messages qu’il envoie au client destinataire comme réglés au moment de l’envoi. Cela signifie qu’un message est considéré comme consommé dès que le répartiteur l’a mis sur le réseau. Si le transfert du message échoue, le message est perdu.
 
 L’avantage de ce mode est que le destinataire n’a aucune autre action à effectuer sur le message et qu’il ne perd pas de temps à attendre le résultat du règlement. Si les données contenues dans les messages ont une faible valeur et/ou restent pertinentes pendant une durée très courte, ce mode est un bon choix.
+
+### <a name="peeklock"></a>PeekLock
 
 Le mode [Peek-Lock](/dotnet/api/microsoft.servicebus.messaging.receivemode) indique au répartiteur que le client destinataire souhaite régler explicitement les messages reçus. Le message est mis à la disposition du destinataire en vue de son traitement, mais il est verrouillé en mode exclusif dans le service pour qu’il ne soit pas visible par d’autres destinataires concurrents. La durée du verrou est initialement définie au niveau de la file d’attente ou de l’abonnement, mais elle peut être étendue par le client propriétaire du verrou à l’aide d’une opération [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
 
@@ -121,6 +125,14 @@ Les opérations **Complete** ou **Deadletter** et les opérations **RenewLock** 
 Si une opération **Complete** échoue, ce qui arrive généralement à la fin du traitement d’un message et, dans certains cas, quelques minutes après le début du travail, l’application destinataire peut choisir de garder l’état du travail et d’ignorer le même message qui est remis une deuxième fois, ou de ne pas conserver le résultat du travail et de recommencer l’opération après une nouvelle remise du message.
 
 Le mécanisme standard permettant d’identifier les remises de messages dupliqués consiste à vérifier l’ID du message (message-id). Cet identificateur doit être défini par l’expéditeur à une valeur unique, éventuellement en lien avec un identificateur du processus initial. Un planificateur de travaux préfère généralement définir l’ID du message sur l’identificateur du travail qu’il essaie d’assigner à un processus Worker avec le processus Worker donné. De cette façon, le processus Worker ignore la deuxième occurrence de l’assignation du travail si ce travail est déjà fait.
+
+> [!IMPORTANT]
+> Il est important de noter que le verrou acquis par PeekLock sur le message est volatil et peut être perdu dans les conditions suivantes :
+>   * Mise à jour du service
+>   * Mise à jour du système d’exploitation
+>   * Changement des propriétés de l’entité (file d’attente, rubrique, abonnement) pendant le maintien du verrou
+>
+> Quand le verrou est perdu, Azure Service Bus génère une LockLostException qui est exposée sur le code de l’application cliente. Dans ce cas, la logique de nouvelle tentative par défaut du client doit automatiquement démarrer et recommencer l’opération.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

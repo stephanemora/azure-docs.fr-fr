@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d4aae2f2ef9ccbc645647125682d999c11c99ab6
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 600c619134cae18e69b5a200cb03fbebd82dee0f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649828"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719885"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Recherche Azure - Questions fréquentes (FAQ)
 
@@ -30,7 +30,7 @@ La Recherche Azure comprend les fonctionnalités suivantes : prise en charge de 
 
 Lorsqu’ils comparent les technologies de recherche, les clients demandent souvent des précisions sur les différences entre la Recherche Azure et Elasticsearch. Lorsque les clients choisissent la Recherche Azure plutôt qu’Elasticsearch pour leurs projets d’applications de recherche, c’est généralement parce qu’elle facilite l’une de leurs tâches principales ou parce qu’ils ont besoin de l’intégrer à d’autres technologies Microsoft :
 
-+ La Recherche Azure est un service cloud entièrement géré, avec 99,9 % de contrats de niveau de service (SLA) lorsqu’elle reçoit suffisamment de redondance (2 réplicas pour l’accès en lecture, 3 réplicas pour l’accès en lecture-écriture).
++ Recherche Azure est un service cloud complètement managé qui présente des contrats de niveau de service (SLA) à 99,9 % quand il est provisionné avec suffisamment de redondance (2 réplicas pour l’accès en lecture, trois réplicas pour l’accès en lecture-écriture).
 + Les [processeurs de langage naturel](https://docs.microsoft.com/rest/api/searchservice/language-support) Microsoft offrent une analyse linguistique à la pointe de la technologie.  
 + Les [indexeurs de la Recherche Azure](search-indexer-overview.md) peuvent analyser diverses sources de données Azure en vue d’une indexation initiale et incrémentielle.
 + Si vous avez besoin d’une réponse rapide aux fluctuations de volume des requêtes ou de l’indexation, vous pouvez utiliser les [curseurs](search-manage.md#scale-up-or-down) du portail Azure, ou exécuter un [script PowerShell](search-manage-powershell.md), en ignorant la gestion des partitions.  
@@ -42,17 +42,27 @@ Vous ne pouvez pas suspendre le service. Lorsque le service est créé, les ress
 
 ## <a name="indexing-operations"></a>Opérations d’indexation
 
-### <a name="backup-and-restore-or-download-and-move-indexes-or-index-snapshots"></a>Est-il préférable d’utiliser des index de sauvegarde et de restauration (ou téléchargement et déplacement) ou des instantanés d’index ?
+### <a name="move-backup-and-restore-indexes-or-index-snapshots"></a>Déplacer, sauvegarder et restaurer des index ou des instantanés d’index ?
 
-Même si vous pouvez [obtenir une définition d’index](https://docs.microsoft.com/rest/api/searchservice/get-index) à tout moment, il n’existe pas de fonctionnalité d’extraction d’index, de création de capture instantanée ou de sauvegarde-restauration qui permettent de télécharger un index cloud *rempli* sur un système local, ou de le déplacer vers un autre service Recherche Azure.
+Pendant la phase de développement, vous souhaiterez peut-être déplacer votre index entre les services de recherche. Par exemple, vous pouvez utiliser un niveau tarifaire De base ou Gratuit pour développer votre index, puis le déplacer vers le niveau Standard ou vers un niveau supérieur pour une utilisation en production. 
 
-Les index sont générés et remplis à partir du code que vous écrivez, et s’exécutent uniquement dans le cloud, dans la Recherche Azure. En règle générale, les clients qui souhaitent déplacer un index vers un autre service modifient leur code de manière à utiliser un nouveau point de terminaison, puis réexécutent l’indexation. Si vous voulez qu’une fonctionnalité vous permette de créer une capture instantanée ou une sauvegarde d’index, votez sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+Vous pouvez aussi sauvegarder un instantané d’index dans des fichiers qui peuvent être utilisés pour le restaurer ultérieurement. 
+
+Vous pouvez effectuer toutes ces opérations avec l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+
+Vous pouvez également [obtenir une définition d’index](https://docs.microsoft.com/rest/api/searchservice/get-index) à tout moment à l’aide de l’API REST Recherche Azure.
+
+Il n’existe aucune fonctionnalité intégrée d’extraction d’index, de capture instantanée ou de restauration de sauvegarde dans le portail Azure. Toutefois, nous envisageons d’ajouter les fonctionnalités de sauvegarde et de restauration dans une version future. Si vous souhaitez soutenir cette fonctionnalité, votez sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
 ### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>Puis-je restaurer mon index ou mon service une fois qu’il est supprimé ?
 
-Non, vous ne pouvez pas restaurer un index ou un service. Si vous supprimez un index Recherche Azure, l’opération est définitive et l’index ne peut pas être récupéré. Quand vous supprimez un service Recherche Azure, tous les index dans le service sont supprimés définitivement. En outre, si vous supprimez un groupe de ressources Azure qui contient un ou plusieurs services Recherche Azure, tous les services sont supprimés définitivement.  
+Non, si vous supprimez un index ou un service Recherche Azure, il ne peut pas être récupéré. Quand vous supprimez un service Recherche Azure, tous les index dans le service sont supprimés définitivement. Si vous supprimez un groupe de ressources Azure qui contient un ou plusieurs services Recherche Azure, tous les services sont supprimés définitivement.  
 
-La restauration des ressources telles que les index, les indexeurs, les sources de données et les compétences nécessite leur recréation à partir du code. Dans le cas des index, vous devez réindexer les données provenant de sources externes. Pour cette raison, nous vous recommandons vivement de conserver une copie principale ou une sauvegarde des données d’origine dans un autre magasin de données, tel qu’Azure SQL Database ou Cosmos DB.
+La recréation des ressources telles que les index, les indexeurs, les sources de données et les compétences, nécessite de les recréer à partir du code. 
+
+Pour recréer un index, vous devez réindexer les données à partir de sources externes. Pour cette raison, nous vous recommandons de conserver une copie principale ou une sauvegarde des données d’origine dans un autre magasin de données comme Azure SQL Database ou Cosmos DB.
+
+Vous pouvez également utiliser l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples) pour sauvegarder la définition et l’instantané d’un index dans une série de fichiers JSON. Plus tard, vous pourrez utiliser l’outil et les fichiers pour restaurer l’index, si nécessaire.  
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>Puis-je effectuer une indexation à partir de réplicas de base de données SQL ? (s’applique aux [indexeurs Azure SQL Database](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 

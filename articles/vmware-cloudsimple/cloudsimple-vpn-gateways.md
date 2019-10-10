@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8b7b02c164021ac084dccf5663122620b2af1b15
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972885"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244765"
 ---
 # <a name="vpn-gateways-overview"></a>Vue d’ensemble des passerelles VPN
 
@@ -63,6 +63,10 @@ Une connexion VPN de site à site utilise les paramètres de chiffrement par dé
 | Groupe PFS (Perfect Forward Secrecy) | Aucun | Aucun | Aucun |
 | Durée de vie | 1 800 secondes | 1 800 secondes | 1 800 secondes |
 | Taille des données | 4 Go | 4 Go | 4 Go |
+
+
+> [!IMPORTANT]
+> Définissez le clamping du MSS TCP sur 1200 sur votre périphérique VPN. Dans le cas où vos périphériques VPN ne prendraient pas en charge le réglage de la taille maximale de segment, vous pouvez à la place définir l’unité de transmission maximale dans l’interface de tunnel sur 1240 octets.
 
 ## <a name="point-to-site-vpn-gateway"></a>Passerelle VPN de point à site
 

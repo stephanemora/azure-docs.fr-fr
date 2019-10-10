@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 2376c77ecc328788c842e045aafb618cbad39b0e
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 0a5059382c26afd6120dc14a1ab2c7e5d281e7a1
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421433"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695269"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture du réseau de transit global Virtual WAN
 
@@ -44,7 +44,7 @@ Dans ce modèle, un rayon peut être :
 
 **Figure 2 : Réseau en étoile**
 
-La Figure 2 montre la vue logique du réseau global où les utilisateurs géographiquement répartis, les sites physiques et les VNets sont interconnectés via un hub réseau hébergé dans le cloud. Cette architecture permet une connectivité de transit à un seul tronçon logique entre les points de terminaison du réseau. Les rayons sont connectés au hub par différents services réseau Azure comme ExpressRoute ou un VPN de site à site pour les branches physiques, le VNet Peering pour les réseaux virtuels et les VPN de point à site pour les utilisateurs distants.
+La Figure 2 montre la vue logique du réseau global où les utilisateurs géographiquement répartis, les sites physiques et les VNets sont interconnectés via un hub réseau hébergé dans le cloud. Cette architecture permet une connectivité de transit à un seul tronçon logique entre les points de terminaison du réseau. Les rayons sont connectés au hub par différents services réseau Azure, comme ExpressRoute ou un VPN de site à site pour les filiales physiques, des connexions de réseau virtuel pour les réseaux virtuels et un VPN de point à site pour les utilisateurs distants.
 
 ## <a name="crossregion"></a>Connectivité inter-régions
 
@@ -71,7 +71,7 @@ Azure Virtual WAN prend en charge les chemins d’accès de connectivité de tra
 
 ### <a name="branchvnet"></a>Branche à réseau virtuel
 
-Branche à réseau virtuel est le principal chemin d’accès pris en charge par Azure Virtual WAN. Ce chemin d’accès vous permet de connecter des branches aux charges de travail d’entreprise Azure IAAS déployées dans Azure VNets. Les branches peuvent être connectées au WAN virtuel via ExpressRoute ou un VPN site à site. Le trafic transite vers des réseaux virtuels connectés aux hubs Virtual WAN via des connexions de réseau virtuel.
+Branche à réseau virtuel est le principal chemin d’accès pris en charge par Azure Virtual WAN. Ce chemin d’accès vous permet de connecter des branches aux charges de travail d’entreprise Azure IAAS déployées dans Azure VNets. Les branches peuvent être connectées au WAN virtuel via ExpressRoute ou un VPN site à site. Le trafic transite vers les réseaux virtuels connectés aux hubs WAN virtuels via des connexions de réseau virtuel. Le [transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) n’est pas nécessaire pour le WAN virtuel, car celui-ci active automatiquement le transit par passerelle vers les sites de filiales.
 
 ### <a name="branchbranch"></a>Branche à branche
 
@@ -89,7 +89,7 @@ Le chemin d’accès utilisateur distant à branche permet aux utilisateurs dist
 
 ### <a name="vnetvnet"></a>Transit de réseau virtuel à réseau virtuel à l’aide du VNet Peering
 
-Pour connecter des réseaux virtuels les uns aux autres afin de prendre en charge les applications multiniveau implémentées sur plusieurs réseaux virtuels, utilisez le VNet Peering. Un scénario de transit de réseau virtuel à réseau virtuel via Azure Virtual WAN n’est actuellement pas pris en charge, mais est intégré à la feuille de route Azure. Si vous devez connecter vos réseaux virtuels les uns aux autres, nous vous recommandons d’opter pour une connexion par VNet Peering. Le [transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (dans le contexte du VNet Peering) n’est pas requis pour Virtual WAN, car ce dernier active automatiquement le transit par passerelle.
+Pour connecter des réseaux virtuels les uns aux autres afin de prendre en charge les applications multiniveau implémentées sur plusieurs réseaux virtuels, utilisez le VNet Peering. Un scénario de transit de réseau virtuel à réseau virtuel via Azure Virtual WAN n’est actuellement pas pris en charge, mais est intégré à la feuille de route Azure. Si vous devez connecter vos réseaux virtuels les uns aux autres, nous vous recommandons d’opter pour une connexion par VNet Peering. 
 
 ### <a name="globalreach"></a>ExpressRoute Global Reach
 

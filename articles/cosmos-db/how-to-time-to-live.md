@@ -4,14 +4,14 @@ description: Découvrir comment configurer et gérer la durée de vie dans Azure
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ddda7b96147892efb38cb0405120db3613e98cf8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104867"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815913"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurer la durée de vie dans Azure Cosmos DB
 
@@ -36,10 +36,16 @@ Utilisez les étapes suivantes pour activer la durée de vie sur un conteneur sa
 
    ![Configuration de la durée de vie dans le portail Azure](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* Quand DefaultTimeToLive est null, votre Durée de vie est Désactivée
+* Lorsque DefaultTimeToLive est -1, votre Durée de vie est Activée (pas par défaut)
+* Quand DefaultTimeToLive a une autre valeur Int (à l’exception de 0), votre Durée de vie est Activée
 
-- Quand DefaultTimeToLive est null, votre Durée de vie est Désactivée
-- Lorsque DefaultTimeToLive est -1, votre Durée de vie est Activée (pas par défaut)
-- Quand DefaultTimeToLive a une autre valeur Int (à l’exception de 0), votre Durée de vie est Activée
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Activer la durée de vie sur un conteneur avec l’interface Azure CLI ou PowerShell
+
+Pour créer ou activer la TTL sur un conteneur, consultez :
+
+* [Créer un conteneur avec TTL à l’aide d’Azure CLI](manage-with-cli.md#create-a-container-with-ttl)
+* [Créer un conteneur avec TTL à l’aide de PowerShell](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Activer la durée de vie sur un conteneur à l’aide du kit SDK
 
@@ -185,11 +191,10 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## <a name="reset-time-to-live"></a>Réinitialiser la durée de vie
 

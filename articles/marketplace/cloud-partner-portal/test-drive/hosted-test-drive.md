@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67d8421b2e545c951dcbc3280a306514e4b14897
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939995"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030058"
 ---
 # <a name="hosted-test-drive"></a>Version d’évaluation hébergée
 
@@ -52,4 +52,4 @@ Fournissez les champs suivants dans la section \'Technical Configuration\' (Conf
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque vous êtes prêt à  **publier**  votre offre, une fois que votre application aura passé la certification, vous aurez une  **préversion**  de votre offre. Lancez une version d’évaluation dans l’interface utilisateur et vérifiez que vos versions d’évaluation s’exécutent correctement. Une fois que vous vous sentez à l’aise avec votre offre en préversion, il est temps de la  **mettre en service**.
+Lorsque vous êtes prêt à **publier** votre offre, une fois votre application aura passé la certification, vous aurez une **préversion** de votre offre. Lancez une version d’évaluation dans l’interface utilisateur et vérifiez que vos versions d’évaluation s’exécutent correctement. Une fois que vous vous sentez à l’aise avec votre offre en préversion, il est temps de la faire **entrer en service** !

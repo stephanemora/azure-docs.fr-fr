@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: ad5e78638f920401a83dd431c33a68b6d80144d7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: e08999798c72545f9fa1d1b5d362e23450ce16f5
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988630"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695327"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installer le runtime Azure IoT Edge sur des systèmes Linux Debian
 
@@ -192,6 +192,7 @@ Recherchez les configurations de provisionnement du fichier et supprimez les com
    #     method: "tpm"
    #     registration_id: "{registration_id}"
 ```
+Pour coller le contenu du Presse-papiers dans Nano, appuyez sur `Shift+Right Click` ou sur `Shift+Insert`.
 
 Enregistrez et fermez le fichier.
 
@@ -230,6 +231,8 @@ Veuillez rechercher les configurations de provisionnement du fichier, puis suppr
        method: "tpm"
        registration_id: "{registration_id}"
    ```
+
+Pour coller le contenu du Presse-papiers dans Nano, appuyez sur `Shift+Right Click` ou sur `Shift+Insert`.
 
 Enregistrez et fermez le fichier.
 

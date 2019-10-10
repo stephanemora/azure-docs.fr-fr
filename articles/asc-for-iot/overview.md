@@ -13,22 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: fdccf486cacabda4f363f4629a4d6daa4a00c8e4
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: adb1b840fd733353e449224c9ac752e94329bde6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597159"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326731"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Présentation d’Azure Security Center pour IoT
 
 Unifiez les fonctionnalités de gestion de la sécurité et activez l’analyse et la détection contre les menaces de bout en bout dans l’ensemble des charges de travail cloud hybrides et votre solution Azure IoT. 
 
-## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>Protéger les charges de travail IoT et cloud hybrides contre les cyber-attaques en constante évolution
+## <a name="secure-your-entire-iot-solution-from-iot-devices-to-azure-cloud"></a>Sécurisez l’ensemble de votre solution IoT, des appareils IoT jusqu’au cloud Azure.
 
-L'Internet des Objets (IoT) transforme rapidement notre monde. Avec la possibilité de découvrir les informations de vos appareils connectés et de vos systèmes principaux, vous pouvez désormais transformer ces informations en applications et services efficaces qui aideront votre entreprise à atteindre des niveaux sans précédent de performances opérationnelles et commerciales. Cependant, à mesure que des milliards de nouveaux appareils se connectent à Internet et s’intègrent à notre vie quotidienne et à nos activités, vos équipes chargées des opérations de sécurité doivent veiller à ce que leurs stratégies de sécurité évoluent assez rapidement pour parer ces nouvelles menaces. Comme tout autre système, la sécurisation de votre solution IoT nécessite une protection à chaque étape de votre implémentation. 
+Optez pour notre solution fluide sans agent, ou tirez parti d’une sécurité complète basée sur un agent : Azure Security Center pour IoT assure la prévention et l’analyse des menaces pour chaque appareil (IoT Edge et IoT Hub) sur l’ensemble de vos ressources IoT.
+
+Des milliards de nouveaux appareils se connectent à Internet et s’intègrent à notre vie quotidienne et à nos activités. Ainsi, vos équipes chargées des opérations de sécurité doivent veiller à ce que leurs stratégies de sécurité évoluent assez rapidement pour contrer toutes les nouvelles menaces. Comme tout autre système, votre solution IoT doit être protégée à chaque étape de son implémentation pour bénéficier d’une sécurité complète. 
 
 Azure Security Center pour IoT simplifie la protection des charges de travail hybrides en offrant une visibilité et un contrôle unifiés, une prévention adaptative des menaces, ainsi qu’une détection et une réponse intelligentes des menaces sur l'ensemble des charges de travail exécutées dans le périmètre, sur site, dans Azure et dans d’autres clouds. 
 
@@ -36,7 +38,7 @@ Azure Security Center pour IoT simplifie la protection des charges de travail hy
 
 ### <a name="unified-visibility-and-control"></a>Visibilité et contrôle unifiés
 
-Obtenez une vue unifiée de la sécurité de l’ensemble de vos charges de travail cloud et locales, y compris de votre solution IoT Azure. Intégrez les nouveaux appareils, et appliquez des stratégies de sécurité à l’ensemble de vos charges de travail (appareils de nœud, appareils Microsoft Edge, IoT Hub) pour garantir la conformité avec les standards de sécurité et une posture de sécurité améliorée.
+Obtenez une vue unifiée de la sécurité de l’ensemble de vos charges de travail cloud et locales, y compris de votre solution IoT Azure. Intégrez les nouveaux appareils, et appliquez des stratégies de sécurité à l’ensemble de vos charges de travail (appareils de nœud, appareils Microsoft Edge, IoT Hub) pour garantir la conformité avec les standards de sécurité et une posture de sécurité améliorée. 
 
 ### <a name="adaptive-threat-prevention"></a>Prévention adaptative des menaces
 

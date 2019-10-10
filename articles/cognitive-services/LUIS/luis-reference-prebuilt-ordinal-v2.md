@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 1579c50f2dcf78e350ce014ffb1516cec4ac85b3
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 48dcbd51190e747859f0172473c94b0caa296071
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933486"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677564"
 ---
 # <a name="ordinal-v2-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie V2 ordinal pour une application LUIS
 Le numéro V2 ordinal développe [Ordinal](luis-reference-prebuilt-ordinal.md) pour fournir des références relatives telles que `next`, `last`, et `previous`. Ces informations ne sont pas extraites à l’aide de l’entité prédéfinie ordinale.
 
 ## <a name="resolution-for-prebuilt-ordinal-v2-entity"></a>Résolution pour une entité prédéfinie V2 ordinal
 
-### <a name="api-version-2x"></a>API version 2.x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 
 L’exemple suivant montre la résolution de l’entité **builtin.ordinalV2**.
 
@@ -55,7 +55,7 @@ L’exemple suivant montre la résolution de l’entité **builtin.ordinalV2**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>API 3.x en préversion
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
 Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
@@ -122,6 +122,10 @@ Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
 En savoir plus sur les entités [percentage](luis-reference-prebuilt-percentage.md), [phone number](luis-reference-prebuilt-phonenumber.md) et [temperature](luis-reference-prebuilt-temperature.md). 

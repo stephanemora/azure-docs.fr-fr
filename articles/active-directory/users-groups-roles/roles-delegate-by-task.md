@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3799496d13259c943847625a2cf6a39a8edb1d35
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 5933fdd9932bd8c13ab0f231d677ce06112662ed
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207249"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169770"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Rôles d'administrateur par tâche administrateur dans Azure Active Directory
 
@@ -146,7 +146,7 @@ Mettre à jour les propriétés de l’authentification unique | Propriétaire d
 ## <a name="entitlement-management"></a>Gestion des droits d’utilisation
 Tâche | Rôle moins privilégié | Autres rôles
 ---- | --------------------- | ----------------
-Ajouter des ressources à un catalogue | Administrateur d’utilisateurs | Avec la gestion des droits d’utilisation, vous pouvez déléguer cette tâche au propriétaire du catalogue ([voir la documentation](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Ajouter des ressources à un catalogue | Administrateur d’utilisateurs | Avec la gestion des droits d’utilisation, vous pouvez déléguer cette tâche au propriétaire du catalogue ([voir la documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners))
 Ajouter des sites SharePoint Online au catalogue | Administrateur général
 
 

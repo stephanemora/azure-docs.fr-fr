@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/30/2019
 ms.author: cherylmc
-ms.openlocfilehash: f286c02e0eb6e801f62d4f2e16f1197a1e9d44ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72493f084b89d41c1e0d6ff60c35afa3491b0eda
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304545"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703460"
 ---
 # <a name="virtual-wan-partners"></a>Partenaires Virtual WAN
 
@@ -36,9 +36,10 @@ Un appareil de branche (un périphérique VPN client local ou SDWAN CPE) utilise
   1. En règle générale, un utilisateur Virtual WAN démarrera le processus en créant une ressource Virtual WAN.
   2. L’utilisateur configurera un accès au groupe de ressources basé sur un principal de service pour le système local (votre contrôleur de branche ou votre logiciel de provisionnement des appareils VPN) pour écrire les informations sur la branche dans Azure Virtual WAN.
   3. À ce stade, l’utilisateur peut décider de se connecter à votre interface utilisateur et de définir les informations d’identification du principal de service. Une fois cette opération terminée, votre contrôleur doit être en mesure de charger les informations de branche avec l’automatisation que vous fournirez. L’équivalent manuel côté Azure est « Créer un site ».
-  4. Une fois que les informations sur le site (appareil de branche) sont disponibles dans Azure, l’utilisateur associera le site à un hub. Un hub virtuel est un réseau virtuel géré par Microsoft. Le hub contient différents points de terminaison de service pour activer la connectivité à partir de votre réseau local (vpnsite). Le hub est le cœur de votre réseau au sein d’une région spécifique. Il ne peut exister qu’un seul hub par région Azure et le point de terminaison vpn (vpngateway) qu’il contient est créé au cours de ce processus. La passerelle VPN est une passerelle évolutive dimensionnée en fonction des besoins en bande passante et de connexion. Vous pouvez choisir d’automatiser la création du hub virtuel et de vpngateway à partir du tableau de bord de votre contrôleur d’appareil de branche.
+  4. Une fois que les informations sur le site (appareil de filiale) sont disponibles dans Azure, l’utilisateur va connecter le site à un hub. Un hub virtuel est un réseau virtuel géré par Microsoft. Le hub contient différents points de terminaison de service pour activer la connectivité à partir de votre réseau local (vpnsite). Le hub est le cœur de votre réseau au sein d’une région spécifique. Il ne peut exister qu’un seul hub par région Azure et le point de terminaison vpn (vpngateway) qu’il contient est créé au cours de ce processus. La passerelle VPN est une passerelle évolutive dimensionnée en fonction des besoins en bande passante et de connexion. Vous pouvez choisir d’automatiser la création du hub virtuel et de vpngateway à partir du tableau de bord de votre contrôleur d’appareil de branche.
   5. Une fois le hub virtuel associé au site, un fichier de configuration est généré. L’utilisateur doit le télécharger manuellement. C’est à ce moment que votre automatisation entre en jeu, pour simplifier l’expérience utilisateur. Au lieu que l’utilisateur ait à télécharger et à configurer l’appareil de branche manuellement, vous pouvez définir l’automatisation et offrir une expérience nécessitant un minimum d’actions de la part de l’utilisateur sur votre interface utilisateur, limitant ainsi les problèmes de connectivité classiques tels que la non-correspondance de la clé partagée, la non-correspondance des paramètres IPSec, la lisibilité du fichier de configuration, etc.
   6. À la fin de cette étape dans votre solution, l’utilisateur profitera d’une connexion de site à site transparente entre l’appareil de branche et le hub virtuel. Vous pouvez également configurer des connexions supplémentaires entre d’autres hubs. Chaque connexion est un tunnel actif/actif. Votre client peut choisir d’utiliser un fournisseur d’accès différent pour chacun des liens du tunnel.
+  7. Envisagez de fournir des fonctionnalités de dépannage et de supervision dans l’interface de gestion CPE. Les scénarios classiques sont par exemple « le client ne peut pas accéder aux ressources Azure en raison d’un problème de CPE », « afficher les paramètres IPsec côté CPE », etc.
 
 ## <a name ="understand"></a>Comprendre les détails de l’automatisation
 
@@ -64,7 +65,7 @@ Cette étape inclut le téléchargement de la configuration Azure et la configur
 **Notes sur la configuration**
 
   * Si les réseaux virtuels Azure sont attachés au hub virtuel, ils apparaîtront en tant que ConnectedSubnets (sous-réseaux connectés).
-  * La connectivité VPN utilise une configuration basée sur les itinéraires et IKEv2/IKEv1.
+  * La connectivité VPN utilise une configuration basée sur des routes et prend en charge les protocoles IKEv1 et IKEv2.
 
 #### <a name="understanding-the-device-configuration-file"></a>Comprendre le fichier de configuration de périphérique
 

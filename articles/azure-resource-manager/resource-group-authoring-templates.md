@@ -4,14 +4,14 @@ description: Décrit la structure et les propriétés des modèles Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984093"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694972"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
@@ -75,7 +75,7 @@ Les propriétés disponibles pour un paramètre sont :
 | Nom de l'élément | Obligatoire | Description |
 |:--- |:--- |:--- |
 | parameter-name |OUI |Nom du paramètre. Doit être un identificateur JavaScript valide. |
-| Type |OUI |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. |
+| Type |OUI |Type de la valeur du paramètre. Les types et valeurs autorisés sont : **string**, **secureString**, **int**, **bool**, **object**, **secureObject** et **array**. Consultez [Types de données](#data-types). |
 | defaultValue |Non |Valeur par défaut du paramètre, si aucune valeur n'est fournie pour le paramètre. |
 | allowedValues |Non |Tableau des valeurs autorisées pour le paramètre afin de vous assurer que la bonne valeur a bien été fournie. |
 | minValue |Non |Valeur minimale pour les paramètres de type int, cette valeur est inclusive. |
@@ -85,6 +85,18 @@ Les propriétés disponibles pour un paramètre sont :
 | description |Non |Description du paramètre qui apparaît aux utilisateurs dans le portail. Pour plus d’informations, consultez [Commentaires dans les modèles](#comments). |
 
 Pour obtenir des exemples d’utilisation des paramètres, consultez [Paramètres dans les modèles Azure Resource Manager](template-parameters.md).
+
+### <a name="data-types"></a>Types de données
+
+Pour les entiers passés comme paramètres inclus, la plage de valeurs peut être limitée par le SDK ou l’outil en ligne de commande que vous utilisez pour le déploiement. Par exemple, si vous utilisez PowerShell pour déployer un modèle, les types d’entiers peuvent être compris entre -2147483648 et 2147483647. Pour éviter cette limite, spécifiez des valeurs entières élevées dans un [fichier de paramètres](resource-manager-parameter-files.md). Les types de ressources appliquent leurs propres limites aux propriétés d’entiers.
+
+Quand vous spécifiez des valeurs booléennes et des valeurs entières dans votre modèle, ne les placez pas entre guillemets. Placez les valeurs de chaîne entre guillemets doubles.
+
+Les objets commencent par une accolade ouvrante et se terminent par une accolade fermante. Les tableaux commencent par un crochet ouvrant et se terminent par un crochet fermant.
+
+Les chaînes et objets sécurisés ne peuvent pas être lus après le déploiement des ressources.
+
+Pour obtenir des exemples de mise en forme de types de données, consultez [Formats de types de paramètres](resource-manager-parameter-files.md#parameter-type-formats).
 
 ## <a name="variables"></a>variables
 
@@ -123,7 +135,7 @@ Pour obtenir des exemples d’utilisation des variables, consultez [Variables da
 
 ## <a name="functions"></a>Fonctions
 
-Dans votre modèle, vous pouvez créer vos propres fonctions. Ces fonctions peuvent être utilisées dans votre modèle. En règle générale, vous définissez une expression complexe que vous ne voulez pas répéter tout au long de votre modèle. Vous créez les fonctions définies par l’utilisateur à partir d’expressions et de [fonctions](resource-group-template-functions.md) prises en charge dans les modèles.
+Dans votre modèle, vous pouvez créer vos propres fonctions. Ces fonctions peuvent être utilisées dans votre modèle. En règle générale, vous définissez des expressions complexes que vous ne voulez pas répéter tout au long de votre modèle. Vous créez les fonctions définies par l’utilisateur à partir d’expressions et de [fonctions](resource-group-template-functions.md) prises en charge dans les modèles.
 
 La définition d’une fonction utilisateur est soumise à certaines restrictions :
 

@@ -1,22 +1,22 @@
 ---
 title: Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d’un partage de fichiers basé sur machine virtuelle – Azure
-description: Configuration d’un conteneur de profils FSLogix pour un pool d’hôte Windows Virtual Desktop Preview à l'aide d’un partage de fichiers basé sur machine virtuelle.
+description: Guide pratique pour configurer un conteneur de profils FSLogix pour un pool d’hôtes Windows Virtual Desktop à l’aide d’un partage de fichiers basé sur une machine virtuelle.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: cf3d682e4d0c68822267a4e63846d80b632cbdcc
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876790"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676698"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers
 
-Le service Windows Virtual Desktop Preview offre des conteneurs de profils FSLogix comme solution de profil utilisateur recommandée. Nous recommandons de ne pas utiliser la solution Disque de profil utilisateur (UPD), qui sera déconseillée dans les futures versions de Windows Virtual Desktop.
+Le service Windows Virtual Desktop offre des conteneurs de profils FSLogix en tant que solution de profil utilisateur recommandée. Nous recommandons de ne pas utiliser la solution Disque de profil utilisateur (UPD), qui sera déconseillée dans les futures versions de Windows Virtual Desktop.
 
 Cet article vous indique comment configurer un partage de conteneur de profils FSLogix pour un pool d’hôtes à l’aide d’un partage de fichiers basé sur machine virtuelle. Pour plus d’informations sur FSLogix, consultez le [site FSLogix](https://docs.fslogix.com/).
 

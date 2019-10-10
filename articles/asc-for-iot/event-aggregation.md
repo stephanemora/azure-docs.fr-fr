@@ -1,6 +1,6 @@
 ---
-title: Comprendre l’agrégation d’événements de la solution Azure Security Center pour IoT | Microsoft Docs
-description: En savoir plus sur la façon dont les événements sont regroupés dans le service Azure Security Center pour IoT.
+title: Comprendre l’agrégation d’événements Azure Security Center pour IoT | Microsoft Docs
+description: Apprenez-en davantage sur l’agrégation d’événements Azure Security Center pour IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933897"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327314"
 ---
-# <a name="security-agent-event-aggregation"></a>Agrégation des événements de l’agent de sécurité
+# <a name="azure-security-center-for-iot-event-aggregation"></a>Agrégation d’événements Azure Security Center pour IoT
 
-Les agents de sécurité Azure Security Center pour IoT recueillent des données et des événements système à partir de votre appareil local et envoient ces données au cloud Azure pour traitement et analyse. L’agent de sécurité collecte de nombreux types d’événements d’appareil, notamment des événements relatifs aux nouveaux processus et aux nouvelles connexions. Les événements relatifs aux nouveaux processus et aux nouvelles connexions peuvent légitimement se produire fréquemment sur un appareil en une seconde. Et, bien qu’importants pour une sécurité robuste et complète, le nombre de messages que les agents de sécurité sont obligés d’envoyer peut rapidement atteindre ou dépasser vos limites de quota et de coût IoT Hub. Toutefois, ces événements contiennent des informations de sécurité très précieuses qui sont essentielles à la protection de votre appareil.
+Les agents de sécurité Azure Security Center pour IoT recueillent des données et des événements système à partir de votre appareil local et envoient ces données au cloud Azure à des fins de traitement et d’analytique. L’agent de sécurité collecte de nombreux types d’événements d’appareil, notamment des événements relatifs aux nouveaux processus et aux nouvelles connexions. Des événements relatifs aux nouveaux processus et aux nouvelles connexions peuvent se produire fréquemment sur un appareil en une seconde, et ce, de façon légitime. Même si cette collecte d’événements est essentielle pour une sécurité robuste et complète, le nombre de messages que les agents de sécurité sont obligés d’envoyer peut rapidement atteindre ou dépasser vos limites de coût et votre quota IoT Hub. Toutefois, ces événements contiennent des informations de sécurité très précieuses qui sont essentielles à la protection de votre appareil.
 
 Pour réduire le quota et les coûts supplémentaires tout en conservant la protection de vos appareils, les agents Azure Security Center pour IoT agrègent ces types d’événements.
 
@@ -44,8 +44,8 @@ Pour réduire l’empreinte mémoire de l’agent, chaque fois que l’agent col
 
 Les événements sont considérés comme identiques uniquement lorsque les conditions suivantes sont remplies : 
 
-* Événements ProcessCreate : quand **commandLine**, **executable**, **username** et **userid** sont identiques
-* Événements ConnectionCreate : quand **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol** et **destination port** sont identiques
+* Événements ProcessCreate : quand **commandLine**, **executable**, **username et **userid** sont identiques
+* Événements ConnectionCreate : quand **commandLine**, **userId**, **direction**, **local address**, **remote address**, **protocol et **destination port** sont identiques
 * Événements ProcessTerminate : quand **executable** et **exit status** sont identiques
 
 ### <a name="working-with-aggregated-events"></a>Utilisation des événements agrégés

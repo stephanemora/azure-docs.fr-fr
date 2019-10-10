@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c0ceea5c86af8d733c838e19f77eaeadc8a12dbb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300234"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802167"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
 La liste organisée des questions fréquentes concernant le service QnA Maker vous aidera à adopter le service plus rapidement et avec de meilleurs résultats.
 
+<a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## <a name="how-to-get-the-qnamaker-service-hostname"></a>Comment obtenir le nom d’hôte du service QnAMaker
+## <a name="how-to-get-the-qnamaker-service-endpoint"></a>Comment obtenir le point de terminaison du service QnAMaker
 
-Le nom d’hôte du service QnAMaker est utile pour le débogage quand vous contactez le support technique de QnAMaker ou UserVoice. Le nom d’hôte est une URL de cette forme : https:// *{hostname}* .azurewebsites.net.
+Le point de terminaison du service QnAMaker est utile pour le débogage quand vous contactez le support technique de QnAMaker ou UserVoice. Le point de terminaison est une URL qui se présente sous la forme suivante : https://your-resource-name.azurewebsites.net.
     
 1. Accédez à votre service QnAMaker (groupe de ressources) dans le [portail Azure](https://portal.azure.com).
 
@@ -35,9 +36,9 @@ Le nom d’hôte du service QnAMaker est utile pour le débogage quand vous cont
 
      ![Sélectionner l’App Service QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-1. L’URL de nom d’hôte est indiquée dans la section Vue d’ensemble.
+1. L’URL du point de terminaison est disponible dans la section Vue d’ensemble.
 
-    ![Nom d’hôte QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![Point de terminaison QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Utiliser le bot d’aide dans le portail QnA Maker
@@ -173,7 +174,7 @@ Suivez les instructions de [cette](./Tutorials/create-qna-bot.md) documentation 
 Vous devez disposer des informations suivantes concernant votre base de connaissances :
 
 * ID de la base de connaissances.
-* Nom d’hôte de point de terminaison publié de la base de connaissances : affiché sur la page **Paramètres** après la publication.
+* Nom de sous-domaine personnalisé du point de terminaison publié de la base de connaissances, appelé `host` et présent dans la page **Paramètres** après la publication.
 * Clé de point de terminaison publié de la base de connaissances : affiché sur la page **Paramètres** après la publication. 
 
 Avec ces informations, accédez au service d’application de votre bot sur le portail Azure. Sous **Paramètres -> Configuration -> paramètre d’application**, modifiez les valeurs suivantes.  

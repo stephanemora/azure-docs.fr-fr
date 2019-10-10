@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a03472b72ea7c2dc69d79400e33d5ec65cc6126
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647687"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719846"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Comment régénérer un index Recherche Azure
 
@@ -33,7 +33,7 @@ Contrairement aux regénérations, qui placent un index hors connexion, *l’act
 | Mettre à jour ou supprimer une définition d’analyseur dans un index | Il n’est pas possible de supprimer ou de modifier une configuration d’analyseur existante (analyseur, générateur de jetons, filtre de jetons ou filtre de caractères) dans l’index, à moins de régénérer la totalité de l’index. |
 | Ajouter un champ à un suggesteur | Pour pouvoir ajouter un champ existant à une construction [Suggesteurs](index-add-suggesters.md), il faut régénérer l’index. |
 | Supprimer un champ | Pour supprimer physiquement toutes les traces d’un champ, vous devez regénerer l’index. Quand une régénération immédiate n’est pas réalisable, il est possible de modifier le code de l’application en désactivant l’accès au champ « supprimé ». Physiquement, le contenu et la définition du champ restent dans l’index jusqu’à la régénération suivante, lors de laquelle est appliqué un schéma omettant le champ en question. |
-| Changer de niveau | Si vous avez besoin de davantage de capacité, il n’y a pas de mise à niveau sur place. Un nouveau service est créé sur le nouveau point de capacité et les index doivent être créés à partir de zéro sur le nouveau service. |
+| Changer de niveau | Si vous avez besoin de davantage de capacité, il n’y a pas de mise à niveau sur place dans le portail Azure. Vous devez créer un service et regénérer entièrement les index sur le nouveau service. Pour faciliter l’automatisation de ce processus, vous pouvez utiliser l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). Cette application va sauvegarder votre index dans une série de fichiers JSON, puis recréer l’index dans un service de recherche que vous spécifiez.|
 
 Toutes les autres modifications peuvent être effectuées sans impact sur les structures physiques existantes. Plus précisément, les modifications suivantes n’exigent *pas* de régénération d’index :
 

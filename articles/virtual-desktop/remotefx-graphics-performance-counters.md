@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816410"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676544"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostic des problèmes de performances graphiques dans le Bureau à distance
 
@@ -101,6 +101,6 @@ Si les ressources client sont à l’origine du goulot d’étranglement, essaye
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour créer une machine virtuelle Azure optimisée pour le GPU, consultez [Configurer l’accélération du GPU pour l’environnement Windows Virtual Desktop en préversion](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
+- Pour créer une machine virtuelle Azure optimisée pour le GPU, consultez [Configurer l’accélération du GPU pour l’environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
 - Pour découvrir une vue d’ensemble de la résolution des problèmes et des procédures d’escalade, consultez l’article [Vue d’ensemble du dépannage, commentaires et support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Pour plus d’informations sur le service en préversion, voir [Environnement de bureau Windows en préversion](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).

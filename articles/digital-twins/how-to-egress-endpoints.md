@@ -1,19 +1,19 @@
 ---
 title: Sortie et points de terminaison dans Azure Digital Twins | Microsoft Docs
 description: Instructions pour la création de points de terminaison avec Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
-ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.date: 10/02/2019
+ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013939"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959112"
 ---
 # <a name="egress-and-endpoints"></a>Sortie et points de terminaison
 
@@ -51,7 +51,7 @@ Les événements sont envoyés par des objets IoT (tels que les appareils et cap
 | --- | --- | --- |
 | id | string | Identificateur unique de l’événement. |
 | subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| données | object | Données d’événement spécifiques au fournisseur de ressources. |
+| data | object | Données d’événement spécifiques au fournisseur de ressources. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |

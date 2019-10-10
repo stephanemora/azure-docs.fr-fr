@@ -10,12 +10,12 @@ ms.reviewer: divswa, klam, LADocs
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 7479be6a14c7d1ace5d60defad0eda51d2aa814b
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 33c6007ebc429bb0d95d702ae9b90f9ac411a88c
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296566"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695188"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -33,7 +33,7 @@ Pour connaître les différences entre le connecteur SFTP-SSH et le connecteur S
 
 ## <a name="limits"></a>limites
 
-* Par défaut, les actions SFTP-SSH peuvent lire ou écrire des fichiers allant jusqu’à *1 Go* mais uniquement en *éléments de 15 Mo* à la fois. Pour gérer les fichiers dont la taille est supérieure à 15 Mo, les actions SFTP-SSH prennent en charge la [segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md), hormis l’action Copier le fichier qui accepte les fichiers jusqu’à 15 Mo uniquement. L’action **Obtenir le contenu du fichier** utilise implicitement la segmentation des messages. 
+* Par défaut, les actions SFTP-SSH peuvent lire ou écrire des fichiers allant jusqu’à *1 Go* mais uniquement en *éléments de 15 Mo* à la fois. Pour gérer les fichiers dont la taille est supérieure à 15 Mo, les actions SFTP-SSH prennent en charge la [segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md), hormis l’action Copier le fichier qui accepte les fichiers jusqu’à 15 Mo uniquement. L’action **Obtenir le contenu du fichier** utilise implicitement la segmentation des messages.
 
 * Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation. Quand ils demandent le contenu des fichiers, les déclencheurs sélectionnent uniquement les fichiers dont la taille est inférieure ou égale à 15 Mo. Pour obtenir des fichiers supérieurs à 15 Mo, suivez plutôt ce modèle :
 
@@ -48,14 +48,6 @@ Pour connaître les différences entre le connecteur SFTP-SSH et le connecteur S
 Voici les autres principales différences entre le connecteur SFTP-SSH et le connecteur SFTP où le connecteur SFTP-SSH offre les fonctionnalités suivantes :
 
 * Il utilise la [bibliothèque SSH.NET](https://github.com/sshnet/SSH.NET), qui est une bibliothèque Secure Shell (SSH) open source prenant en charge .NET.
-
-  > [!NOTE]
-  >
-  > Le connecteur SFTP-SSH prend en charge *uniquement* ces clés privées, formats, algorithmes et empreintes digitales :
-  >
-  > * **Formats de clé privée** : les clés RSA (Rivest Shamir Adleman) et DSA (Digital Signature Algorithm) aux formats OpenSSH et ssh.com
-  > * **Algorithmes de chiffrement** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
-  > * **Empreinte digitale** : MD5
 
 * Par défaut, les actions SFTP-SSH peuvent lire ou écrire des fichiers allant jusqu’à *1 Go* mais uniquement en *éléments de 15 Mo* à la fois. Pour gérer les fichiers supérieurs à 15 Mo, les actions SFTP-SSH peuvent utiliser la [segmentation des messages](../logic-apps/logic-apps-handle-large-messages.md). Cependant, l’action Copier le fichier n’accepte que les fichiers de 15 Mo car elle ne prend pas en charge la segmentation des messages. Les déclencheurs SFTP-SSH ne prennent pas en charge la segmentation.
 
@@ -75,13 +67,14 @@ Voici les autres principales différences entre le connecteur SFTP-SSH et le con
   >
   > Le connecteur SFTP-SSH prend en charge *uniquement* ces clés privées, formats, algorithmes et empreintes digitales :
   >
-  > * **Formats de clé privée** : les clés RSA (Rivest Shamir Adleman) et DSA (Digital Signature Algorithm) aux formats OpenSSH et ssh.com
+  > * **Formats de clé privée** : les clés RSA (Rivest Shamir Adleman) et DSA (Digital Signature Algorithm) aux formats OpenSSH et ssh.com. Si votre clé privée est au format de fichier PuTTY (.ppk), commencez par [convertir la clé au format de fichier OpenSSH (.pem)](#convert-to-openssh).
+  >
   > * **Algorithmes de chiffrement** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  >
   > * **Empreinte digitale** : MD5
   >
-  > Lorsque vous créez votre application logique, après avoir ajouté le déclencheur SFTP-SSH ou une action , vous devrez fournir les informations de connexion pour votre serveur SFTP. 
-  > Si vous utilisez une clé privée SSH, assurez-vous de ***copier*** la clé à partir de votre fichier de clé privée SSH, puis ***collez*** cette clé dans les détails de connexion. ***N’entrez pas manuellement ou ne modifiez pas la clé*** car cela peut entraîner l’échec de la connexion. 
-  > Pour plus d’informations, consultez les étapes détaillées plus loin dans cet article.
+  > Après avoir ajouté le déclencheur SFTP-SSH ou l’action souhaitée pour votre application logique, vous devez fournir les informations de connexion pour votre serveur SFTP. Quand vous fournissez votre clé privée SSH pour cette connexion, ***vous ne devez pas entrer ou modifier manuellement la clé***, car ceci pourrait entraîner l’échec de la connexion. Veillez plutôt à ***copier la clé*** à partir de votre fichier de clé privée SSH, puis à la ***coller*** dans les informations de connexion. 
+  > Pour plus d’informations, consultez la section [Se connecter à SFTP avec SSH](#connect) plus loin dans cet article.
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -98,6 +91,44 @@ Les déclencheurs SFTP/SSH fonctionnent en interrogeant le système de fichiers 
 |||
 
 Quand un déclencheur détecte un nouveau fichier, il vérifie que le nouveau fichier est complet et non partiellement écrit. Par exemple, un fichier peut être en cours de modification lorsque le déclencheur vérifie le serveur de fichiers. Pour éviter de retourner un fichier partiellement écrit, le déclencheur note l’horodatage du fichier qui comporte des modifications récentes, mais ne retourne pas immédiatement ce fichier. Le déclencheur retourne le fichier uniquement lors d’une nouvelle interrogation du serveur. Parfois, ce comportement peut entraîner un retard correspondant à jusqu’à deux fois l’intervalle d’interrogation du déclencheur.
+
+<a name="convert-to-openssh"></a>
+
+## <a name="convert-putty-based-key-to-openssh"></a>Convertir une clé PuTTY au format OpenSSH
+
+Si votre clé privée est au format PuTTY (qui utilise l’extension de nom de fichier .ppk pour PuTTY Private Key), convertissez d’abord la clé au format OpenSSH, qui utilise l’extension .pem (Privacy Enhanced Mail).
+
+### <a name="unix-based-os"></a>Système d’exploitation UNIX
+
+1. Si ce n’est déjà fait, installez les outils PuTTY sur votre système. Vous pouvez utiliser la commande suivante, par exemple :
+
+   `sudo apt-get install -y putty`
+
+1. Exécutez cette commande, qui crée un fichier que vous pouvez utiliser avec le connecteur SFTP-SSH :
+
+   `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
+
+   Par exemple :
+
+   `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
+
+### <a name="windows-os"></a>Système d’exploitation Windows
+
+1. Si ce n’est déjà fait, [téléchargez la dernière version du générateur de clé PuTTY (puttygen.exe)](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), puis lancez le générateur.
+
+1. Sur l’écran suivant, sélectionnez **Load**.
+
+   ![Sélectionner « Load »](./media/connectors-sftp-ssh/puttygen-load.png)
+
+1. Accédez à votre fichier de clé privée au format PuTTY, puis sélectionnez **Open**.
+
+1. Dans le menu **Conversions**, sélectionnez **Export OpenSSH key**.
+
+   ![Sélectionner « Export OpenSSH key »](./media/connectors-sftp-ssh/export-openssh-key.png)
+
+1. Enregistrez le fichier de clé privée avec l’extension `.pem`.
+
+<a name="connect"></a>
 
 ## <a name="connect-to-sftp-with-ssh"></a>Se connecter à SFTP avec SSH
 
@@ -117,8 +148,7 @@ Quand un déclencheur détecte un nouveau fichier, il vérifie que le nouveau fi
 
    > [!IMPORTANT]
    >
-   > Lorsque vous entrez votre clé privée SSH dans la propriété **Clé privée SSH**, suivez ces étapes supplémentaires pour vous assurer que vous fournissez la valeur complète et correcte pour cette propriété. 
-   > Une clé non valide entraîne l’échec de la connexion.
+   > Lorsque vous entrez votre clé privée SSH dans la propriété **Clé privée SSH**, suivez ces étapes supplémentaires pour vous assurer que vous fournissez la valeur complète et correcte pour cette propriété. Une clé non valide entraîne l’échec de la connexion.
 
    Bien qu’il est possible d’utiliser n’importe quel éditeur de texte, vous trouverez ici des exemples d’étapes montrant comment copier et coller correctement votre clé à l’aide de Notepad.exe.
 

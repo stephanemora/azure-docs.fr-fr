@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d6d7b4cda4bd3b3246b9bc5573246546d8020b38
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597365"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348944"
 ---
 # <a name="application-gateway-components"></a>Composants de passerelle d’application
 
@@ -28,17 +28,17 @@ Une adresse IP front-end est l’adresse IP associée à une passerelle d’ap
 
 La référence (SKU) Azure Application Gateway V2 peut être configurée pour prendre en charge à la fois les adresses IP internes statiques et publiques statiques, ou uniquement les adresses IP publiques statiques. Elle ne peut pas être configurée pour prendre en charge uniquement les adresses IP internes statiques.
 
-La référence (SKU) V1 peut être configurée pour prendre en charge les adresses IP internes statiques et publiques dynamiques, uniquement les adresses IP internes statiques ou uniquement les adresses IP publiques dynamiques ou uniquement les adresses IP privées dynamiques ou les adresses IP publiques et privées dynamiques. L’adresse IP dynamique d’Application Gateway ne change pas sur une passerelle en cours d’exécution. Elle peut être modifiée uniquement lorsque vous arrêtez ou démarrez la passerelle. Elle ne change pas lors des défaillances du système, des mises à jour, des changements d’hôte Azure, etc. 
+La référence SKU V1 peut être configurée pour prendre en charge une adresse IP interne statique ou dynamique et une adresse IP publique dynamique. L’adresse IP dynamique d’Application Gateway ne change pas sur une passerelle en cours d’exécution. Elle peut être modifiée uniquement lorsque vous arrêtez ou démarrez la passerelle. Elle ne change pas lors des défaillances du système, des mises à jour, des changements d’hôte Azure, etc. 
 
 Le nom DNS associé à une passerelle d’application ne change pas au cours du cycle de vie de la passerelle. Vous devez donc utiliser un alias CNAME et le faire pointer vers l’adresse DNS de la passerelle d’application.
 
 ## <a name="listeners"></a>Écouteurs
 
-Un écouteur est une entité logique qui vérifie les requêtes de connexion entrantes. Un écouteur accepte une requête si le protocole, le port, l’hôte et l’adresse IP associés à la requête correspondent aux mêmes éléments associés à la configuration de l’écouteur.
+Un écouteur est une entité logique qui vérifie les requêtes de connexion entrantes. Un écouteur accepte une requête si le protocole, le port, le nom d’hôte et l’adresse IP associés à la requête correspondent à ceux associés à la configuration de l’écouteur.
 
 Avant d’utiliser une passerelle d’application, vous devez ajouter au moins un écouteur. Vous pouvez connecter plusieurs écouteurs à une passerelle d’application, et les utiliser pour le même protocole.
 
-Une fois qu’un écouteur a détecté les requêtes entrantes des clients, la passerelle d’application les route vers les membres du pool de back-ends. La passerelle d’application utilise les règles de routage des requêtes définies pour l’écouteur qui a reçu la requête entrante.
+Une fois qu’un écouteur a détecté les requêtes entrantes des clients, la passerelle d’application les route vers les membres du pool de back-ends configuré dans la règle.
 
 Les écouteurs prennent en charge les ports et les protocoles suivants.
 
@@ -49,12 +49,13 @@ Un port est le point d’écoute de la requête du client. Vous pouvez configure
 ### <a name="protocols"></a>Protocoles
 
 Application Gateway prend en charge quatre protocoles : HTTP, HTTPS, HTTP/2 et WebSocket :
+>[!NOTE]
+>La prise en charge du protocole HTTP/2 est disponible pour les clients se connectant aux écouteurs Application Gateway uniquement. La communication avec les pools de serveurs back-end s’effectue toujours sur HTTP/1.1. Par défaut, la prise en charge du protocole HTTP/2 est désactivée. Vous pouvez choisir de l’activer.
 
 - Spécifiez les protocoles HTTP ou HTTPS dans la configuration de l’écouteur.
 - La prise en charge des [protocoles WebSockets et HTTP/2](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) est effectuée de manière native. La [prise en charge de WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) est activée par défaut. Il n’existe aucun paramètre configurable par l’utilisateur permettant d’activer ou de désactiver de manière sélective la prise en charge de WebSocket. Utilisez WebSockets avec les écouteurs HTTP et HTTPS.
-- La prise en charge du protocole HTTP/2 est disponible pour les clients se connectant aux écouteurs Application Gateway uniquement. La communication avec les pools du serveur principal est sur HTTP/1.1. Par défaut, la prise en charge du protocole HTTP/2 est désactivée. Vous pouvez choisir de l’activer.
 
-Utilisez un écouteur HTTPS pour l’arrêt SSL. Un écouteur HTTPS décharge le travail de chiffrement et de déchiffrement sur votre passerelle d’application pour que vos serveurs web ne soient pas saturés par la surcharge. Cela permet ensuite à vos applications de se concentrer sur la logique métier.
+Utilisez un écouteur HTTPS pour l’arrêt SSL. Un écouteur HTTPS déplace les tâches de chiffrement et de déchiffrement vers votre passerelle d’application pour que vos serveurs web ne soient pas saturés par la surcharge.
 
 ### <a name="custom-error-pages"></a>Pages d’erreur personnalisées
 
@@ -80,7 +81,7 @@ Application Gateway traite les écouteurs dans l’ordre indiqué. Si l’écout
 
 Une règle de routage de requête est un composant clé pour une passerelle d’application, car elle détermine le mode de routage du trafic sur l’écouteur. La règle lie l’écouteur, le pool de back-ends et les paramètres HTTP back-end.
 
-Quand un écouteur accepte une requête, la règle de routage de requête transfère la requête au back-end ou la redirige ailleurs. Si la requête est transférée au back-end, la règle de routage de requête définit le pool de back-ends à cibler. De plus, la règle de routage de requête détermine également si les en-têtes de la requête doivent être réécrits. Vous pouvez attacher un écouteur à une règle.
+Quand un écouteur accepte une requête, la règle de routage de requête transfère la requête au back-end ou la redirige ailleurs. Si la requête est transférée au back-end, la règle de routage de requête définit le pool de back-ends à cibler. La règle de routage de requête détermine également si les en-têtes de la requête doivent être réécrits. Vous pouvez attacher un écouteur à une règle.
 
 Il existe deux types de règle de routage des requêtes :
 

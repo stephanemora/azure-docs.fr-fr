@@ -1,6 +1,6 @@
 ---
 title: Ajouter des utilisateurs à un compte Azure Data Lake Analytics
-description: Découvrez comment ajouter correctement des utilisateurs à votre compte Data Lake Analytics
+description: Découvrez comment ajouter correctement des utilisateurs à votre compte Data Lake Analytics à l’aide de l’Assistant Ajout d’un utilisateur et d’Azure PowerShell.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16c503fe2d584d5f8256c65bfc49825b300f6a36
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629320"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672730"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Ajout d’un utilisateur dans le portail Azure
 

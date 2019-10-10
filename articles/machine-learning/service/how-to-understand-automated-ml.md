@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b0024bc12f29a76da02c9f7e62af7727b9af7249
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999447"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350647"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Comprendre les résultats des Machine Learning automatisés
 
@@ -30,7 +30,7 @@ Pour en savoir plus :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-* Créez une expérience de Machine Learning automatisé à l’aide du kit SDK, du portail Azure ou de la page d’accueil de votre espace de travail (préversion).
+* Créez une expérience pour votre exécution de machine learning automatisé, que ce soit avec le kit SDK, sur le portail Azure ou dans la page de destination de votre espace de travail (préversion).
 
     * Utilisez le Kit de développement logiciel (SDK) pour développer un [modèle de classification](how-to-auto-train-remote.md) ou un [modèle de régression](tutorial-auto-train-models.md)
     * Utilisez [le portail Azure ou la page d’accueil de votre espace de travail (préversion)](how-to-create-portal-experiments.md) pour créer un modèle de classification ou de régression en chargeant les données appropriées.

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/30/2019
 ms.author: bwren
-ms.openlocfilehash: 5839fd40a128097e400f13acbe4fb6ef90c656b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: affefa96d6e38a88c994938115ddf44bcf8bd36d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248128"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695068"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor
 Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. Cet article explique comment collecter le journal d’activité dans un espace de travail Log Analytics et utiliser la [solution de supervision](../insights/solutions.md) Activity Log Analytics, qui fournit des requêtes et des vues pour analyser ces données. 
@@ -32,6 +32,9 @@ Connecter le journal d’activité à un espace de travail Log Analytics offre l
 
 ## <a name="connect-to-log-analytics-workspace"></a>Se connecter à l’espace de travail Log Analytics
 Un journal d’activité peut être connecté à un seul espace de travail, mais un seul espace de travail peut être connecté au journal d’activité de plusieurs abonnements dans le même locataire Azure. Pour une collecte dans plusieurs locataires, consultez [Collecter les journaux d’activité Azure de différents abonnements dans un espace de travail Log Analytics dans différents locataires Azure Active Directory](activity-log-collect-tenants.md).
+
+> [!IMPORTANT]
+> Une erreur peut se produire lors de la procédure suivante si les fournisseurs de ressources Microsoft.OperationalInsights et Microsoft.OperationsManagement ne sont pas inscrits pour votre abonnement. Consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md) pour inscrire ces fournisseurs.
 
 Suivez la procédure ci-dessous pour connecter le journal d’activité à votre espace de travail Log Analytics :
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4c42959d46aa522042275456a87e590f9e009348
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: c5fb79fc3aa3297068f93b631d11e967c9345f4c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183064"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71717165"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Sécuriser une API Gestion des API Azure avec Azure AD B2C
 
@@ -203,17 +203,17 @@ Si vous voyez le code d’état `401`, vous avez vérifié que seuls les appelan
 
 ## <a name="support-multiple-applications-and-issuers"></a>Prendre en charge plusieurs applications et émetteurs
 
-Plusieurs applications interagissent généralement avec une seule API REST. Pour permettre à plusieurs applications d’appeler votre API, ajoutez leurs ID d’application à l’élément `<audiences>` dans la stratégie de trafic entrant APIM.
+Plusieurs applications interagissent généralement avec une seule API REST. Pour permettre à votre API d’accepter des jetons destinés à plusieurs applications, ajoutez leurs ID d’application à l’élément `<audiences>` dans la stratégie de trafic entrant APIM.
 
 ```XML
-<!-- Accept requests from multiple applications -->
+<!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
     <audience>66666666-0000-0000-0000-666666666666</audience>
 </audiences>
 ```
 
-De même, pour prendre en charge plusieurs émetteurs de jetons, ajoutez leurs URI de point de terminaison à l’élément `<audiences>` dans la stratégie de trafic entrant APIM.
+De même, pour prendre en charge plusieurs émetteurs de jetons, ajoutez leurs URI de point de terminaison à l’élément `<issuers>` dans la stratégie de trafic entrant APIM.
 
 ```XML
 <!-- Accept tokens from multiple issuers -->

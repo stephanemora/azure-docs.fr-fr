@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 663cea72eb620217ad5fa8925d3bb00eedbf890c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3036f8cb72f2a07673743a77e8be37614002563f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074559"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720195"
 ---
 # <a name="web-app-that-calls-web-apis---sign-in"></a>Application web qui appelle des API web - Connexion
 
@@ -28,31 +28,55 @@ Vous savez déjà comment ajouter des informations d’identification à votre a
 
 Ce qui est différent ici, c’est que, lorsque l’utilisateur se déconnecte, à partir de cette application ou de n’importe quelle application, il vous faudra supprimer du cache de jetons les jetons associés à l’utilisateur.
 
-## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Intercepter le rappel après la déconnexion - Déconnexion unique
+## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Interception du rappel après la déconnexion - Déconnexion unique
 
-Votre application peut intercepter l’événement après `logout`, par exemple pour effacer l’entrée du cache de jeton associé au compte déconnecté. Nous verrons dans la deuxième partie de ce didacticiel (sur l’application web appelant une API web), que l’application web stocke les jetons d’accès de l’utilisateur dans un cache. Intercepter le rappel après `logout` permet à votre application web de supprimer l’utilisateur à partir du cache de jeton. Ce mécanisme est illustré dans la méthode `AddMsal()` du [StartupHelper.cs L137-143](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L137-L143)
+Votre application peut intercepter l’événement après `logout`, par exemple pour effacer l’entrée du cache de jeton associé au compte déconnecté. L’application web stocke les jetons d’accès de l’utilisateur dans un cache. Intercepter le rappel après `logout` permet à votre application web de supprimer l’utilisateur à partir du cache de jeton.
 
-L’**URL de déconnexion** que vous avez inscrite pour votre application vous permet d’implémenter la déconnexion unique. Le point de terminaison `logout` de la plateforme Microsoft Identity appellera l’**URL de déconnexion** inscrite avec votre application. Cet appel se produit si la déconnexion a été initialisée à partir de votre application web, ou d’une autre application web ou du navigateur. Pour plus d’informations, consultez [Déconnexion unique](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#single-sign-out) dans la documentation conceptuelle.
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
+Ce mécanisme est illustré dans la méthode `AddMsal()` de [WebAppServiceCollectionExtensions.cs#L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157).
+
+L’**URL de déconnexion** que vous avez inscrite pour votre application vous permet d’implémenter la déconnexion unique. Le point de terminaison `logout` de la plateforme Microsoft Identity appellera l’**URL de déconnexion** inscrite avec votre application. Cet appel se produit si la déconnexion a été initialisée à partir de votre application web, ou d’une autre application web ou du navigateur. Pour plus d’informations, consultez [Déconnexion unique](v2-protocols-oidc.md#single-sign-out).
 
 ```CSharp
-public static IServiceCollection AddMsal(this IServiceCollection services, IEnumerable<string> initialScopes)
+public static class WebAppServiceCollectionExtensions
 {
-    services.AddTokenAcquisition();
+ public static IServiceCollection AddMsal(this IServiceCollection services, IConfiguration configuration, IEnumerable<string> initialScopes, string configSectionName = "AzureAd")
+ {
+  // Code omitted here
 
-    services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-    {
-     ...
-        // Handling the sign-out: removing the account from MSAL.NET cache
-        options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-        {
-            // Remove the account from MSAL.NET token cache
-            var _tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
-            await _tokenAcquisition.RemoveAccount(context);
-        };
-    });
-    return services;
+  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
+  {
+   // Code omitted here
+
+   // Handling the sign-out: removing the account from MSAL.NET cache
+   options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
+   {
+    // Remove the account from MSAL.NET token cache
+    var tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
+    await tokenAcquisition.RemoveAccountAsync(context).ConfigureAwait(false);
+   };
+  });
+  return services;
+ }
 }
 ```
+
+Le code pour RemoveAccountAsync est disponible à partir de [Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288).
+
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+L’exemple ASP.NET ne supprime pas les comptes du cache lors de la déconnexion globale.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L’exemple Java ne supprime pas les comptes du cache lors de la déconnexion globale.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+L’exemple Python ne supprime pas les comptes du cache lors de la déconnexion globale.
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

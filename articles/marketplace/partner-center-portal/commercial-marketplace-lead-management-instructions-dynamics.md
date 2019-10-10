@@ -7,16 +7,16 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 03d67249ef1d74844a7e9019e90f6331ecfdf0c3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102973"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177802"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>Configurer la gestion des prospects pour Dynamics 365 for Customer Engagement
 
-Cet article explique comment configurer Dynamics 365 for Customer Engagement (précédemment Dynamics CRM Online ; plus d’informations sur le changement [ici](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365)) pour traiter des prospects à partir de votre offre de la Place de marché. 
+Cet article explique comment configurer Dynamics 365 for Customer Engagement (précédemment Dynamics CRM Online ; plus d’informations sur le changement [ici](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online)) pour traiter des prospects à partir de votre offre de la Place de marché. 
 
 >[!Note]
 >Ces instructions sont spécifiques de l’environnement Dynamics 365 for Customer Engagement dans le cloud hébergé par Microsoft. La connexion directe à un environnement Dynamics local n’est pas prise en charge actuellement. D’autres options permettent de recevoir des prospects, telles que la configuration d’un [point de terminaison HTTPS](./commercial-marketplace-lead-management-instructions-https.md) ou d’une [table Azure](./commercial-marketplace-lead-management-instructions-azure-table.md).

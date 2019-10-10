@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 3b76dc546b46718378d9b22ad80e17849eaf532d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884076"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338731"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurer la réplication dans une base de données d’instances managées Azure SQL Database
 
@@ -41,7 +41,7 @@ La configuration d’une instance gérée pour fonctionner en tant que base de d
 - L’instance gérée de la base de données du serveur de publication se trouve sur le même réseau virtuel que la base de données du serveur de distribution et la base de données de l’abonné, ou le [VNET Peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) a été établi entre les réseaux virtuels des trois entités. 
 - La connectivité doit utiliser l’authentification SQL entre les participants de la réplication.
 - Un partage de compte de stockage Azure pour le répertoire de travail de réplication.
-- Le port 445 (TCP sortant) est ouvert dans les règles de sécurité du NSG pour que les instances gérées puissent accéder au partage de fichiers Azure. 
+- Le port 445 (TCP sortant) est ouvert dans les règles de sécurité du NSG pour que les instances gérées puissent accéder au partage de fichiers Azure.  Si vous rencontrez l’erreur « Échec de connexion à Stockage Azure \<nom de compte de stockage> avec l’erreur de système d’exploitation 53 », vous devez ajouter une règle de trafic sortant au groupe de sécurité réseau du sous-réseau SQL Managed Instance approprié.
 
 
  > [!NOTE]

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cb7473b309e1aefe6237671fac73c042b33f2cf
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702406"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326868"
 ---
 # <a name="how-an-application-gateway-works"></a>Fonctionnement d’une passerelle d’application
 
@@ -28,19 +28,19 @@ Cet article explique comment une passerelle d’application accepte les requête
 
 3. La passerelle d’application accepte le trafic entrant sur un ou plusieurs écouteurs. Un écouteur est une entité logique qui vérifie les requêtes de connexion. Il est configuré avec un numéro de port, un protocole et une adresse IP front-end pour les connexions des clients à la passerelle d’application.
 
-4. Si un WAF (pare-feu d’applications web) est utilisé, la passerelle d’application vérifie les en-têtes de requête et le corps, le cas échéant, par rapport aux règles WAF. Cette action détermine si la requête est valide ou si elle représente une menace pour la sécurité. Si la requête est valide, elle est routée vers le back-end. Si la requête est non valide, elle est bloquée en tant que menace pour la sécurité.
+4. Si un WAF (pare-feu d’applications web) est utilisé, la passerelle d’application vérifie les en-têtes de requête et le corps, le cas échéant, par rapport aux règles WAF. Cette action détermine si la requête est valide ou si elle représente une menace pour la sécurité. Si la requête est valide, elle est routée vers le back-end. Si la requête est non valide et que le pare-feu d’applications web est en mode Prévention, elle est bloquée en tant que menace pour la sécurité. S’il est en mode Détection, la requête est évaluée et journalisée, mais toujours transférée au serveur back-end.
 
 Azure Application Gateway peut être utilisé en tant qu’équilibreur de charge d’application interne ou en tant qu’équilibreur de charge d’application accessible sur Internet. Une passerelle d’application accessible sur Internet utilise des adresses IP publiques. Le nom DNS d’une passerelle d’application accessible sur Internet peut être résolu publiquement en son adresse IP publique. Ainsi, les passerelles d’application accessibles sur Internet peuvent router les requêtes des clients vers Internet.
 
-Les passerelles d’application internes utilisent uniquement des adresses IP privées. Le nom DNS d’une passerelle d’application interne peut être résolu publiquement en son adresse IP privée. Les équilibreurs de charge internes peuvent donc router uniquement les requêtes des clients ayant accès à un réseau virtuel pour la passerelle d’application.
-
-Les passerelles d’application internes ou accessibles sur Internet routent les requêtes vers les serveurs back-end à l’aide d’adresses IP privées. Les serveurs back-end n’ont pas besoin d’adresses IP publiques pour recevoir les requêtes d’une passerelle d’application interne ou accessible sur Internet.
+Les passerelles d’application internes utilisent uniquement des adresses IP privées. Si vous utilisez une [zone DNS privée](https://docs.microsoft.com/azure/dns/private-dns-overview) ou personnalisée, le nom de domaine doit pouvoir être résolu en l’adresse IP privée d’Application Gateway en interne. Les équilibreurs de charge internes peuvent donc router uniquement les requêtes des clients ayant accès à un réseau virtuel pour la passerelle d’application.
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>Comment une passerelle d’application route une requête
 
-Si une requête est valide ou si un WAF n’est pas utilisé, la passerelle d’application évalue la règle de routage de requête associée à l’écouteur. Cette action permet de déterminer le pool de back-ends vers lequel router la requête.
+Si une requête est valide et qu’elle n’est pas bloquée par le pare-feu d’applications web, la passerelle d’application évalue la règle de routage de requête associée à l’écouteur. Cette action permet de déterminer le pool de back-ends vers lequel router la requête.
 
-Les règles sont traitées dans l’ordre où elles sont listées dans le portail. Selon la règle de routage de requête, la passerelle d’application détermine si toutes les requêtes de l’écouteur doivent être routées vers un pool de back-ends spécifique, si elles doivent être routées vers des pools de back-ends distincts en fonction du chemin de l’URL, ou si elles doivent être redirigées vers un autre port ou un site externe.
+Selon la règle de routage de requête, la passerelle d’application détermine si toutes les requêtes de l’écouteur doivent être routées vers un pool de back-ends spécifique, si elles doivent être routées vers des pools de back-ends distincts en fonction du chemin de l’URL, ou si elles doivent être redirigées vers un autre port ou un site externe.
+>[!NOTE]
+>Les règles sont traitées dans l’ordre où elles sont listées dans le portail pour la référence SKU v1. 
 
 Quand la passerelle d’application sélectionne le pool de back-ends, elle envoie la requête à l’un des back-ends sains du pool (y.y.y.y). L’intégrité du serveur est déterminée par une sonde. Si le pool de back-ends contient plusieurs serveurs, la passerelle d’application utilise un algorithme de tourniquet (round robin) pour router les requêtes entre les serveurs sains. Cela permet d’équilibrer la charge des requêtes sur les serveurs.
 
@@ -50,10 +50,8 @@ Le port et le protocole utilisés dans les paramètres HTTP permettent de déter
 
 Quand une passerelle d’application envoie la requête d’origine au back-end, elle respecte la configuration personnalisée définie dans les paramètres HTTP associés au remplacement du nom d’hôte, du chemin et du protocole. Cette action permet de conserver l’affinité de session basée sur les cookies, le drainage de connexion, la sélection du nom d’hôte à partir du back-end, etc.
 
-Une passerelle d’application interne utilise uniquement des adresses IP privées. Le nom DNS d’une passerelle d’application interne peut être résolu en son adresse IP privée. Les équilibreurs de charge internes peuvent donc router uniquement les requêtes des clients ayant accès au réseau virtuel pour la passerelle d’application.
-
  >[!NOTE]
- >Les passerelles d’application internes ou accessibles sur Internet routent les requêtes vers les back-ends à l’aide d’adresses IP privées. Cette action se produit quand votre ressource de pool de back-ends contient une adresse IP privée, une configuration de carte d’interface réseau de machine virtuelle ou une adresse pouvant être résolue de façon interne. Si le pool de back-ends :
+>Si le pool de back-ends :
 > - **Est un point de terminaison public**, la passerelle d’application utilise son adresse IP publique front-end pour joindre le serveur. En l’absence d’adresse IP publique front-end, une adresse est affectée pour la connectivité externe sortante.
 > - **Contient un FQDN pouvant être résolu de façon interne ou une adresse IP privée**, la passerelle d’application route la requête vers le back-end à l’aide de ses adresses IP privées d’instance.
 > - **Contient un point de terminaison externe ou un FQDN pouvant être résolu de manière externe**, la passerelle d’application route la requête vers le back-end à l’aide de son adresse IP publique front-end. La résolution DNS est basée sur une zone DNS privée ou un serveur DNS personnalisé, si ce type de configuration existe, ou utilise le DNS par défaut fourni par Azure. En l’absence d’adresse IP publique front-end, une adresse est affectée pour la connectivité externe sortante.

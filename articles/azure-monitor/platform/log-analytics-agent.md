@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/17/2019
+ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 576a44663518343a9132af468a0f1c1fb8e4de50
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 66f3a9ae1f29d863170dcb4bc43e38b648602eed
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575397"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695027"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Collecter des données de journal avec l’agent Log Analytics
 
@@ -38,6 +38,7 @@ Quand vous utilisez les agents Log Analytics pour collecter des données, vous d
 
 * Pour collecter des données à partir d’agents Windows, vous pouvez [configurer chaque agent pour qu’il rend compte à un ou plusieurs espaces de travail](agent-windows.md), même s’il rend compte à un groupe d’administration System Center Operations Manager. L’agent Windows peut rendre compte à quatre espaces de travail au maximum.
 * L’agent Linux ne prend pas en charge l’hébergement multiple et peut uniquement rendre compte à un seul espace de travail.
+* L’agent Windows prend en charge la [norme FIPS 140](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation), ce qui n’est pas le cas de l’agent Linux.  
 
 Si vous utilisez System Center Operations Manager 2012 R2 ou une version ultérieure :
 
@@ -131,7 +132,7 @@ Pour l’agent Linux, le serveur proxy est indiqué pendant ou [après l’insta
 
 |Propriété| Description |
 |--------|-------------|
-|Protocole | https |
+|Protocol | https |
 |user | Nom d’utilisateur facultatif pour l’authentification du proxy |
 |password | Mot de passe facultatif pour l’authentification du proxy |
 |proxyhost | Adresse ou nom de domaine complet du serveur proxy/de la passerelle Log Analytics |

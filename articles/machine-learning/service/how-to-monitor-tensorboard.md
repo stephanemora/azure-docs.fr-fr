@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: b96b80a735c0caee8a3aabaf19b04fd0e153ba6b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 0908ca232ee38e2b0d461aa9f597558adc4461ef
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034329"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350520"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualiser des exécutions d’expériences et des métriques avec TensorBoard et le service Azure Machine Learning
 
@@ -264,7 +264,8 @@ root_run.complete()
 >[!Note]
  Vous pouvez également exporter une exécution spécifique vers TensorBoard en spécifiant le nom de l’exécution `export_to_tensorboard(run_name, logdir)`
 
-Démarrez et arrêtez TensorBoard. Une fois notre historique des exécutions pour cette expérience exporté, nous pouvons lancer TensorBoard avec la méthode [start()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-). 
+### <a name="start-and-stop-tensorboard"></a>Démarrer et arrêter TensorBoard
+Une fois l’historique des exécutions exporté pour cette expérience, nous pouvons lancer TensorBoard avec la méthode [start()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-). 
 
 ```Python
 from azureml.tensorboard import Tensorboard

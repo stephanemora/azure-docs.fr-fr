@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033828"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802104"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -94,30 +94,25 @@ Pour autoriser l’accès basé sur un script ou une application à l’API de c
 
 Vous pouvez activer ces autorisations sur une inscription d’application Azure Active Directory existante au sein de votre locataire B2C, ou en créer une autre spécifiquement pour une utilisation avec l’automatisation des journaux d’audit.
 
-Pour créer une nouvelle application, attribuer les autorisations d’API requises et créer une clé secrète client, procédez comme suit :
+Procédez comme suit pour inscrire une application, lui accorder les autorisations d’API Microsoft Graph requises, puis créer un secret client.
 
-1. Inscrire une application dans Azure Active Directory
-    1. Connectez-vous au [portail Azure](https://portal.azure.com) et basculez vers le répertoire qui contient votre locataire Azure AD B2C.
-    1. Dans le menu de gauche, sélectionnez **Azure Active Directory** (et *non* Azure AD B2C). Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure Active Directory**.
-    1. Sous **Gérer** dans le menu de gauche, sélectionnez **Inscriptions d’applications (hérité)** .
-    1. Sélectionnez **Nouvelle inscription d’application**
-    1. Entrez un nom pour l’application. Par exemple, *Application de journal d’audit*.
-    1. Entrez une URL valide dans **URL de connexion**. Par exemple : *https://localhost* . Ce point de terminaison n’a pas besoin d’être accessible, mais il doit être une URL valide.
-    1. Sélectionnez **Create** (Créer).
-    1. Notez **l’ID de l’application** qui s’affiche sur la page **Application inscrite**. Vous avez besoin de cette valeur pour l’authentification dans les scripts d’automatisation, comme dans le cas de l’exemple de script PowerShell présenté dans une section ultérieure.
-1. Affecter des autorisations d’accès à l’API
-    1. Dans la page de vue d’ensemble **Application inscrite**, sélectionnez **Paramètres**.
-    1. Sous **ACCÈS D’API**, sélectionnez **Autorisations requises**.
-    1. Sélectionnez **Ajouter**, puis **Sélectionner une API**.
-    1. Sélectionnez **Microsoft Graph**, puis **Sélectionner**.
-    1. Sous **AUTORISATIONS DE L’APPLICATION**, sélectionnez **Lire toutes les données du journal d’audit**.
-    1. Sélectionnez le bouton **Sélectionner**, puis sélectionnez **Terminé**.
-    1. Sélectionnez **Accorder des autorisations**, puis **Oui**.
-1. Créer un secret client
-    1. Sous **ACCÈS D’API**, sélectionnez **Clés**.
-    1. Entrez une description pour la clé dans la zone **Description de la clé**. Par exemple, *Clé de journal d’audit*.
-    1. Sélectionnez une **Durée** de validité, puis sélectionnez **Enregistrer**.
-    1. Enregistrez la **VALEUR** de la clé. Vous avez besoin de cette valeur pour l’authentification dans les scripts d’automatisation, comme dans le cas de l’exemple de script PowerShell présenté dans une section ultérieure.
+### <a name="register-application-in-azure-active-directory"></a>Inscrire une application dans Azure Active Directory
+
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+
+### <a name="assign-api-access-permissions"></a>Affecter des autorisations d’accès à l’API
+
+1. Dans la page de vue d’ensemble **Application inscrite**, sélectionnez **Paramètres**.
+1. Sous **ACCÈS D’API**, sélectionnez **Autorisations requises**.
+1. Sélectionnez **Ajouter**, puis **Sélectionner une API**.
+1. Sélectionnez **Microsoft Graph**, puis **Sélectionner**.
+1. Sous **AUTORISATIONS DE L’APPLICATION**, sélectionnez **Lire toutes les données du journal d’audit**.
+1. Sélectionnez le bouton **Sélectionner**, puis sélectionnez **Terminé**.
+1. Sélectionnez **Accorder des autorisations**, puis **Oui**.
+
+### <a name="create-client-secret"></a>Créer un secret client
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Vous disposez maintenant d’une application avec l’accès API requis, un ID d’application et une clé que vous pouvez utiliser dans vos scripts d’automatisation. Consultez la section Script PowerShell plus loin dans cet article pour obtenir un exemple de la façon dont vous pouvez obtenir des événements d’activité à l’aide d’un script.
 

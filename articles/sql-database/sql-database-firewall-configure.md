@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: cebf5e80ea59a29efed984097a4157f5238fad5c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744976"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686471"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse
 
@@ -38,7 +38,7 @@ Les tentatives de connexion à partir d’Internet et d’Azure doivent franchir
 
 ### <a name="server-level-ip-firewall-rules"></a>Règles de pare-feu IP au niveau du serveur
 
-  Ces règles permettent aux clients d’accéder à la totalité de votre serveur Azure SQL, c’est-à-dire à toutes les bases de données du même serveur SQL Database. Les règles sont stockées dans la base de données *MASTER*.
+  Ces règles permettent aux clients d’accéder à la totalité de votre serveur Azure SQL, c’est-à-dire à toutes les bases de données du même serveur SQL Database. Les règles sont stockées dans la base de données *MASTER*. Vous pouvez avoir un maximum de 128 règles de pare-feu IP au niveau du serveur par serveur Azure SQL.
   
   Vous pouvez configurer des règles de pare-feu IP au niveau du serveur à l’aide du portail Azure, de PowerShell ou d’instructions Transact-SQL.
   - Pour utiliser le portail ou PowerShell, vous devez être le propriétaire ou un contributeur de l’abonnement.

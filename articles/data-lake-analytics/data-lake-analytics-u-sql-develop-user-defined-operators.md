@@ -1,5 +1,5 @@
 ---
-title: Développer des opérateurs définis par l’utilisateur U-SQL dans Azure Data Lake Analytics
+title: Développer des opérateurs U-SQL définis par l’utilisateur - Azure Data Lake Analytics
 description: Découvrez comment développer des opérateurs définis par l’utilisateur pour les utiliser et les réutiliser dans des travaux Azure Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2d1293b06b4d8791138ed666bc3cb4abe3adf40
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813800"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316535"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Développer des opérateurs U-SQL définis par l’utilisateur
 Cet article explique comment développer des opérateurs définis par l’utilisateur pour traiter les données d’un travail U-SQL.

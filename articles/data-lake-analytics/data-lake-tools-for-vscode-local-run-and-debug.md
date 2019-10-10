@@ -1,5 +1,5 @@
 ---
-title: Exécuter U-SQL et déboguer localement dans Azure Data Lake Tools pour Visual Studio Code
+title: Déboguer des travaux U-SQL - Azure Data Lake Tools pour Visual Studio Code
 description: Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code pour exécuter et déboguer des travaux U-SQL localement.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: 765bcaab0f91e097be827bfa6e8f505ef5330d57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c425ee8c9fd99420bbcbba31c7a74c360938aef
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60814247"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338245"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Exécuter U-SQL et déboguer localement dans Visual Studio Code
 Cet article montre comment exécuter des travaux U-SQL sur un ordinateur de développement local pour accélérer les premières phases de codage ou pour déboguer le code localement dans Visual Studio Code. Pour obtenir des instructions concernant Azure Data Lake Tools pour Visual Studio Code, consultez [Utilisation d’Azure Data Lake Tools pour Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -51,7 +51,7 @@ S’il s’agit de votre première utilisation, entrez  **ADL: Download Local R
 2. Sélectionnez **Accepter** pour accepter les termes du contrat de licence du logiciel Microsoft pour la première fois. 
 
    ![Accepter les termes du contrat de licence du logiciel Microsoft](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. La console cmd s’ouvre. Les nouveaux utilisateurs doivent entrer **3**, puis rechercher le chemin de dossier local pour l’entrée et la sortie des données. Pour les autres options, vous pouvez utiliser les valeurs par défaut. 
+3. La console cmd s’ouvre. Les nouveaux utilisateurs doivent entrer **3**, puis rechercher le chemin de dossier local pour l’entrée et la sortie des données. Si vous ne parvenez pas à définir le chemin avec des barres obliques inverses, essayez les barres obliques. Pour les autres options, vous pouvez utiliser les valeurs par défaut.
 
    ![Data Lake Tools pour Visual Studio Code - cmd exécution locale](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Sélectionnez Ctrl+Maj+P pour ouvrir la palette de commandes, entrez **ADL: Submit Job**, puis sélectionnez **Local** pour envoyer le travail à votre compte local.

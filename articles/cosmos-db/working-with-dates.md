@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: ea7880d051303afad01ad8ba4a2d68d7331c6a89
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9676642e96d437965fef041930b8223241cadeaa
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291144"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349027"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Utilisation des dates dans Azure Cosmos DB
 Azure Cosmos DB offre une flexibilité des schémas et une indexation riche par le biais d’un modèle de données [JSON](https://www.json.org) natif. Toutes les ressources Azure Cosmos DB, y compris les bases de données, les conteneurs, les documents et les procédures stockées, sont modélisées et stockées en tant que documents JSON. Pour être portable, JSON (et Azure Cosmos DB) ne prend en charge qu’un petit ensemble de types de base : chaîne, nombre, booléen, tableau, objet et null. Toutefois, JSON est flexible et permet aux développeurs et aux infrastructures de représenter des types plus complexes en utilisant ces primitives et en les composant en tant qu’objets ou tableaux. 
@@ -20,7 +20,9 @@ Outre les types de base, de nombreuses applications ont besoin du type DateTime 
 
 ## <a name="storing-datetimes"></a>Stockage de valeurs DateTime
 
-Azure Cosmos DB est limité aux types JSON qui n’incluent pas de type DateTime. Ainsi, dans Azure Cosmos DB, les dates doivent être stockées sous la forme de chaînes. Actuellement, Azure Cosmos DB ne prend pas en charge la localisation des dates. Le format recommandé pour les chaînes DateTime dans Azure Cosmos DB est le format `YYYY-MM-DDThh:mm:ss.sssZ` conforme à la norme ISO 8601 UTC. La conversion des chaînes dans ce format permet de trier les dates de manière lexicographique. La logique de gestion des dates non-UTC doit être définie par le client. La plupart des applications peuvent utiliser la représentation sous forme de chaîne par défaut pour DateTime pour les raisons suivantes :
+Azure Cosmos DB prend en charge les types JSON tels que les chaînes, nombres, booléens, valeurs Null, tableaux et objets. Il ne prend pas directement en charge le type DateTime. Actuellement, Azure Cosmos DB ne prend pas en charge la localisation des dates. Vous devez donc stocker les valeurs DateTime en tant que chaînes. Le format recommandé pour les chaînes DateTime dans Azure Cosmos DB est le format `YYYY-MM-DDThh:mm:ss.sssZ` conforme à la norme ISO 8601 UTC. Il est recommandé de stocker toutes les dates dans Azure Cosmos DB au format UTC. La conversion des chaînes de dates dans ce format permet de trier les dates de manière lexicographique. Si des dates non-UTC sont stockées, la logique doit être gérée côté client. La conversion d’une valeur DateTime locale au format UTC implique que le décalage soit connu/stocké comme propriété dans le code JSON. Le client peut alors utiliser ce décalage pour calculer la valeur DateTime au format UTC.
+
+La plupart des applications peuvent utiliser la représentation sous forme de chaîne par défaut pour DateTime pour les raisons suivantes :
 
 * Les chaînes peuvent être comparées et l’ordre relatif des valeurs DateTime est conservé lorsque celles-ci sont transformées en chaînes. 
 * Cette approche ne nécessite pas de code personnalisé ou d’attributs pour la conversion JSON.

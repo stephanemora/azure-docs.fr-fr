@@ -1,22 +1,22 @@
 ---
-title: Méthodes d’équilibrage de charge des pools d’hôtes de la préversion de Windows Virtual Desktop - Azure
-description: Méthodes d’équilibrage de charge des pools d’hôtes pour un environnement de la préversion de Windows Virtual Desktop.
+title: Méthodes d’équilibrage de charge de pool d’hôtes Windows Virtual Desktop - Azure
+description: Méthodes d’équilibrage de charge de pool d’hôtes pour un environnement Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2e50593c31951b63601e75c51648a95e54c6959
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60870521"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676570"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Méthodes d’équilibrage de charge des pools d’hôtes
 
-La préversion de Windows Virtual Desktop prend en charge deux méthodes d’équilibrage de charge. Chaque méthode détermine quel hôte de session hébergera une session utilisateur lors de la connexion à une ressource d’un pool d’hôtes.
+Windows Virtual Desktop prend en charge deux méthodes d’équilibrage de charge. Chaque méthode détermine quel hôte de session hébergera une session utilisateur lors de la connexion à une ressource d’un pool d’hôtes.
 
 Les méthodes d’équilibrage de charge suivantes sont disponibles dans Windows Virtual Desktop :
 

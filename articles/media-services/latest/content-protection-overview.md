@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561473"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338787"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
 
@@ -147,7 +147,7 @@ Le protocole MPEG-DASH prend en charge les formats de conteneur et schémas de c
 
 Le protocole Smooth Streaming prend en charge les formats de conteneur et schémas de chiffrement ci-après.
 
-|Protocole|Format de conteneur|Schéma de chiffrement|
+|Protocol|Format de conteneur|Schéma de chiffrement|
 |---|---|---|
 |fMP4|AES|`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cbc)`|
 |fMP4 | CENC (PlayReady) |`https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=cenc)`|
@@ -172,7 +172,7 @@ Vous pouvez utiliser une stratégie de clé de contenu limitée à l’ouverture
 
 Avec une stratégie de clé de contenu limitée au jeton, la clé de contenu n’est envoyée qu’à un client qui présente un JSON Web Token ou un simple jeton web (SWT) valides dans la demande de clé ou de licence. Ce jeton doit être émis par un service d’émission de jeton de sécurité (STS). 
 
-Vous pouvez utiliser Azure AD en tant que STS ou déployer un STS personnalisé. Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé ou de licence Media Services retourne la licence ou la clé demandées au client si les deux conditions suivantes sont réunies :
+Vous pouvez utiliser Azure AD en tant que STS ou déployer un [STS personnalisé](#using-a-custom-sts). Le STS doit être configuré pour créer un jeton signé avec la clé spécifiée et émettre les revendications spécifiées dans la configuration de restriction de jeton. Le service de remise de clé ou de licence Media Services retourne la licence ou la clé demandées au client si les deux conditions suivantes sont réunies :
 
 * Le jeton est valide. 
 * Les revendications dans le jeton correspondent à celles configurées pour la licence ou la clé.
@@ -259,4 +259,4 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 * [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](design-multi-drm-system-with-access-control.md)
 * [Chiffrement côté stockage](storage-account-concept.md#storage-side-encryption)
 * [Forum Aux Questions](frequently-asked-questions.md)
-
+* [JSON Web Token Handler](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

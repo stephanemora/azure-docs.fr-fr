@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 7716c477cea2200e6fee901f7b5f63cd4b833bd7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 31260be6c65f5948eba6b9c6228b5ead695278d1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232683"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350706"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Créer et exécuter des tâches et des workflows récurrents avec Azure Logic Apps
 
@@ -129,15 +129,14 @@ Voici divers exemples de périodicité que vous pouvez configurer pour les décl
 | Périodicité, <br>Fenêtre glissante | Exécution 15 minutes après l’heure, toutes les heures (avec date et heure de début) | 1 | Hour | *startDate*T00:15:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les prochaines périodicités se produisent à la marque des « 15 » minutes, valeur calculée à partir de l'heure de début, soit à 00:15, 1:15, 2:15, et ainsi de suite. |
 | Périodicité | Exécution 15 minutes après l’heure, toutes les heures (sans date ni heure de début) | 1 | jour | {aucune} | {non disponible} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | Cette planification s’exécute à 00h15, 1h15, 2h15, etc. Cette planification est en outre l’équivalent d’une fréquence de type « Heure » et d’une heure de début avec « 15 » minutes. |
 | Périodicité | Exécution toutes les 15 minutes à la marque de minutes spécifiée (sans date ni heure de début). | 1 | jour | {aucune} | {non disponible} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Cette planification ne démarre pas avant la marque de 15 minutes spécifiée suivante. |
-| Périodicité | Exécution à 8h00 tous les jours (sans date ni heure de début) | 1 | jour | {aucune} | {non disponible} | 8 | {aucune} | Cette planification s’exécute tous les jours à 8h00, selon la planification spécifiée. |
-| Périodicité | Exécution à 8h00 tous les jours (avec date et heure de début) | 1 | jour | *startDate*T08:00:00Z | {non disponible} | {aucune} | {aucune} | Cette planification s’exécute à 8h00 tous les jours, selon l’heure de début spécifiée. | 
-| Périodicité | Exécution à 8h30 tous les jours (sans date ni heure de début) | 1 | jour | {aucune} | {non disponible} | 8 | 30 | Cette planification s’exécute tous les jours à 8h30, selon la planification spécifiée. |
-| Périodicité | Exécution à 8h30 tous les jours (avec date et heure de début) | 1 | jour | *startDate*T08:30:00Z | {non disponible} | {aucune} | {aucune} | Cette planification démarre à la date de début spécifiée, à 8h30. |
-| Périodicité | Exécution à 8h30 et 16h30 tous les jours | 1 | jour | {aucune} | {non disponible} | 8, 16 | 30 | |
-| Périodicité | Exécution à 8h30, 8h45, 16h30 et 16h45 tous les jours | 1 | jour | {aucune} | {non disponible} | 8, 16 | 30, 45 | |
+| Périodicité | Exécution quotidienne à 8h00 *plus* la marque de minutes à partir du moment où vous enregistrez votre application logique | 1 | jour | {aucune} | {non disponible} | 8 | {aucune} | Sans date et heure de début, cette planification s’exécute en fonction de l’heure à laquelle vous enregistrez l’application logique (opération PUT). |
+| Périodicité | Exécution quotidienne à 8h00 (avec date et heure de début) | 1 | jour | *startDate*T08:00:00Z | {non disponible} | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées. Les occurrences ultérieures s’exécutent quotidiennement à 8h00. | 
+| Périodicité | Exécution quotidienne à 8h30 (sans date et heure de début) | 1 | jour | {aucune} | {non disponible} | 8 | 30 | Cette planification s’exécute à 8h30 tous les jours. |
+| Périodicité | Exécution quotidienne à 8h30 et à 16h30 | 1 | jour | {aucune} | {non disponible} | 8, 16 | 30 | |
+| Périodicité | Exécution quotidienne à 8h30, 8h45, 16h30 et 16h45 | 1 | jour | {aucune} | {non disponible} | 8, 16 | 30, 45 | |
 | Périodicité | Exécution le samedi à 17h00 (sans date ni heure de début) | 1 | Semaine | {aucune} | Samedi | 17 | 00 | Cette planification s’exécute tous les samedis à 17h00. |
 | Périodicité | Exécution le samedi à 17h00 (avec date et heure de début) | 1 | Semaine | *startDate*T17:00:00Z | Samedi | {aucune} | {aucune} | Cette planification ne démarre *pas avant* la date et l’heure de début spécifiées, à savoir le 9 septembre 2017 à 17h00 dans cet exemple. Les exécutions périodiques suivantes ont lieu tous les samedis à 17h00. |
-| Périodicité | Exécution les mardi et jeudi à 17h00 | 1 | Semaine | {aucune} | Mardi, Jeudi | 17 | {aucune} | Cette planification s’exécute tous les mardis et jeudis à 17h00. |
+| Périodicité | Exécution les mardi et jeudi à 17h00 *plus* la marque de minutes à partir du moment où vous enregistrez votre application logique| 1 | Semaine | {aucune} | Mardi, Jeudi | 17 | {aucune} | |
 | Périodicité | Exécution toutes les heures pendant les heures de travail | 1 | Semaine | {aucune} | Sélectionnez tous les jours, sauf le samedi et le dimanche. | Sélectionnez les heures de la journée souhaitées. | Sélectionnez les minutes de l’heure souhaitées. | Par exemple, si vos heures de travail sont de 8h00 à 17h00, sélectionnez « 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 » comme heures de la journée. <p>Si vos heures de travail sont de 8h30 à 17h30, sélectionnez les heures précédentes de la journée, plus « 30 » minutes de l’heure. |
 | Périodicité | Exécution une fois par jour le week-end | 1 | Semaine | {aucune} | Samedi, Dimanche | Sélectionnez les heures de la journée souhaitées. | Sélectionnez les minutes de l’heure souhaitées. | Cette planification s’exécute tous les samedis et dimanches aux heures spécifiées. |
 | Périodicité | Exécution toutes les 15 minutes toutes les deux semaines le lundi uniquement | 2 | Semaine | {aucune} | Lundi | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Cette planification s’exécute un lundi sur deux à chaque marque de 15 minutes. |

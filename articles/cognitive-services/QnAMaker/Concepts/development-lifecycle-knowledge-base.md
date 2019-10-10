@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 97a4673be2a611149806855e792c5bf1f7a0942a
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 530869928f7a25e779cb01f0fe392efdbb54c5ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955172"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695116"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Cycle de vie d’une base de connaissances dans QnA Maker
 QnA Maker apprend mieux dans un cycle itératif de modifications du modèle, d’énoncés d’exemples, de publication et de collecte des données à partir de requêtes du point de terminaison. 
@@ -61,6 +61,14 @@ Pour pouvoir enregistrer les journaux d’activité de conversations du service,
 Cela vous permet d’obtenir diverses analytiques sur l’utilisation de votre service. Découvrez comment utiliser les insights de l’application pour obtenir des [analytiques sur votre service QnA Maker](../How-To/get-analytics-knowledge-base.md).
 
 Selon ce que vous apprenez des analytiques, effectuez les [mises à jour appropriées pour votre base de connaissances](../How-To/edit-knowledge-base.md).
+
+## <a name="version-control-of-a-knowledge-base"></a>Gestion de versions d’une base de connaissances
+
+La gestion de versions n’est pas fournie par QnA Maker. Vous devez exporter votre base de connaissances à partir de la page **Settings** (Paramètres) et utiliser votre propre méthodologie et vos propres outils.
+
+Exportez la base de connaissances au format TSV ou XLS à partir de la page **Settings**. 
+
+Si vous avez besoin de revenir à une version spécifique, vous devez importer ce fichier à partir de votre système local. Dans la page **Settings**, importez le fichier TSV ou XLS. Les questions et réponses qui se trouvent actuellement dans la base de connaissances sont remplacées par le contenu du fichier importé.   
 
 ## <a name="next-steps"></a>Étapes suivantes
 

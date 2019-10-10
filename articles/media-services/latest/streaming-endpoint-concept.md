@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cd1dc7b55060e8262b300022f5ffd1b4da5f7922
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848905"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350349"
 ---
 # <a name="streaming-endpoints"></a>Points de terminaison de diffusion en continu 
 
@@ -31,9 +31,14 @@ Quand vous créez un compte Media Services, un point de terminaison de streaming
 
 ## <a name="naming-convention"></a>Conventions d’affectation de noms
 
-Pour le point de terminaison par défaut : `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Le format du nom d’hôte de l’URL de streaming est le suivant : `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, où `servicename` est le nom du point de terminaison de streaming ou le nom de l’événement en direct. 
 
-Pour les points de terminaison supplémentaires : `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Quand vous utilisez le point de terminaison de streaming par défaut, `servicename` est omis ; l’URL est alors : `{accountname}-{regionname}.streaming.azure.net`. 
+
+### <a name="limitations"></a>Limites
+
+* Le nom du point de terminaison de streaming peut contenir 24 caractères au maximum.
+* Le nom doit suivre ce modèle [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) : `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## <a name="types"></a>Types  
 
@@ -128,7 +133,7 @@ Dans la plupart des cas, un CDN doit être activé. Cependant, si vous prévoyez
 
 ### <a name="considerations"></a>Considérations
 
-* Le point de terminaison de diffusion en continu `hostname` et l’URL de diffusion en continu restent identiques que vous activiez le CDN ou non.
+* Le point de terminaison de streaming `hostname` et l’URL de streaming restent identiques, que vous activiez le CDN ou non.
 * Si vous avez besoin de tester votre contenu avec ou sans CDN, vous pouvez créer un autre point de terminaison de streaming qui n’est pas activé pour le CDN.
 
 ### <a name="detailed-explanation-of-how-caching-works"></a>Explication détaillée du fonctionnement de la mise en cache

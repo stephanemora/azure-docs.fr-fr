@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c122a68e9f28772be4e3a17a21e5457aa187ce6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736109"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718359"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight : raisons et avantages
 
@@ -137,10 +137,10 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Destination des données|HDFS, SGBDR, Kafka, MPP ||
 |**Rubrique** : **Métadonnées**|||
 |Type de base de données Hive|MySQL, Postgres||
-|Non. de metastores Hive|2||
-|Non. de tables Hive|100||
-|Non. de stratégies Ranger|20||
-|Non. de flux de travail Oozie|100||
+|Nombre de metastores Hive|2||
+|Nombre de tables Hive|100||
+|Nombre de stratégies Ranger|20||
+|Nombre de workflows Oozie|100||
 |**Rubrique** : **Mettre à l'échelle**|||
 |Volume de données (réplication comprise)|100 To||
 |Volume d’ingestion quotidien|50 Go||
@@ -152,11 +152,11 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Espace disque utilisé|75 %||
 |Pourcentage moyen d’utilisation du réseau|25%
 |**Rubrique** : **Personnel**|||
-|Non. d’administrateurs|2||
-|Non. de développeurs|10||
-|Non. d’utilisateurs finaux|100||
+|Nombre d’administrateurs|2||
+|Nombre de développeurs|10||
+|Nombre d’utilisateurs finaux|100||
 |Compétences|Hadoop, Spark||
-|Non. de ressources disponibles pour les efforts de migration|2||
+|Nombre de ressources disponibles pour les efforts de migration|2||
 |**Rubrique** : **Limitations**|||
 |Limitations actuelles|Latence élevée||
 |Défis actuels|Problèmes liés à la concurrence||
@@ -180,7 +180,7 @@ Cette section fournit des modèles de questionnaires, afin de vous aider à coll
 |Pipeline de données privé et protégé ?|OUI||
 |Cluster joint au domaine (ESP) ?|     OUI||
 |Synchronisation Active Directory locale vers le cloud ?|     OUI||
-|Non. d’utilisateurs Active Directory à synchroniser|          100||
+|Nombre d’utilisateurs AD à synchroniser ?|          100||
 |Synchroniser les mots de passe sur le cloud ?|    OUI||
 |Utilisateurs du cloud uniquement ?|                 OUI||
 |MFA requise ?|                       Non|| 

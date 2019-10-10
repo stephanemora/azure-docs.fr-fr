@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: ce8aa0229d9a9b873a489209065ada588adbffff
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0a3bc6bcae2f06173cbc334ffe80e2dfa001e407
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257741"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309264"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -29,14 +29,14 @@ Ce document vous aide à gérer les solutions de sécurité déjà connectées �
 ## <a name="integrated-azure-security-solutions"></a>Solutions de sécurité Azure intégrées
 Security Center simplifie l’activation des solutions de sécurité intégrées dans Azure. Voici les avantages :
 
-- **Déploiement simplifié** : Security Center permet un provisionnement simplifié des solutions de partenaire intégrées. Pour des solutions comme les logiciels anti-programme malveillant et l’évaluation des vulnérabilités, Security Center peut approvisionner l’agent nécessaire sur vos machines virtuelles. En outre, pour les appliances de pare-feu, Security Center peut se charger d’une grande partie de la configuration réseau nécessaire.
+- **Déploiement simplifié** : Security Center permet un provisionnement simplifié des solutions de partenaire intégrées. Pour les solutions telles que les logiciels anti-programme malveillant et l’évaluation des vulnérabilités, Security Center peut provisionner l’agent sur vos machines virtuelles. Pour les appliances de pare-feu, Security Center peut prendre en charge une grande partie de la configuration réseau requise.
 - **Détections intégrées** : les événements de sécurité des solutions de partenaire sont automatiquement collectés, agrégés et affichés dans le cadre des alertes et des incidents de Security Center. Ces événements sont également fusionnés avec les détections d’autres sources pour fournir des fonctions de détection de menaces avancées.
 - **Gestion et surveillance unifiées de l’intégrité** : Les clients peuvent utiliser des événements d’intégrité intégrés pour surveiller facilement les solutions des partenaires. La gestion de base offre un accès facile à la configuration avancée avec la solution de partenaire.
 
-Actuellement, les solutions de sécurité intégrées incluent l’évaluation des vulnérabilités par [Qualys](https://www.qualys.com/public-cloud/#azure) et [Rapid7](https://www.rapid7.com/products/insightvm/), et le pare-feu d’applications web Application Gateway de Microsoft.
+Les solutions de sécurité intégrées incluent l’évaluation des vulnérabilités par [Qualys](https://www.qualys.com/public-cloud/#azure) et [Rapid7](https://www.rapid7.com/products/insightvm/), et le pare-feu d’applications web Application Gateway de Microsoft.
 
 > [!NOTE]
-> Security Center n’installe pas Microsoft Monitoring Agent sur les appliances virtuelles de partenaire, car la plupart des fournisseurs de sécurité n’autorisent pas l’exécution d’agents externes sur leur appliance.
+> Security Center n’installe pas Microsoft Monitoring Agent sur les appliances virtuelles de partenaire, car la plupart des fournisseurs de sécurité n’autorisent pas l’exécution d’agents externes sur leurs appliances.
 >
 >
 
@@ -55,30 +55,30 @@ Les solutions de sécurité Azure déployées à partir de Security Center sont 
 
    ![Vue d’ensemble de Security Center](./media/security-center-partner-integration/overview.png)
 
-Sous **Solutions de sécurité**, vous pouvez consulter des informations sur le fonctionnement des solutions de sécurité Azure intégrées et effectuer des tâches de gestion de base.
+Dans **Solutions de sécurité**, vous pouvez voir le fonctionnement des solutions de sécurité Azure intégrées et exécuter des tâches de gestion de base.
 
 ### <a name="connected-solutions"></a>Solutions connectées
 
-La section **Solutions connectées** inclut des solutions de sécurité qui sont actuellement connectées à Security Center et des informations sur l’état de fonctionnement de chaque solution.  
+La section **Solutions connectées** inclut les solutions de sécurité qui sont connectées à Security Center. Elle indique également l’état d’intégrité de chaque solution.  
 
 ![Solutions connectées](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
 
 L’état d’une solution de partenaire peut être :
 
 * Sain (vert) : aucun problème d’intégrité.
-* Défectueux (rouge) : problème d’intégrité nécessitant une action immédiate.
+* Non sain (rouge) : problème d’intégrité nécessitant une action immédiate.
 * Problèmes d’intégrité (orange) : état d’intégrité non signalé par la solution.
-* Non signalé (gris) : état non encore signalé par la solution (ce qui peut être le cas si celle-ci a été récemment connectée et est en cours de déploiement), ou aucune donnée d’intégrité n’est disponible.
+* Non signalé (gris) : la solution n’a encore rien signalé et aucune donnée d’intégrité n’est disponible. L’état d’une solution peut être non signalé si celle-ci a été récemment connectée et qu’elle est toujours en cours de déploiement.
 
 > [!NOTE]
-> Si les données sur l’état d’intégrité ne sont pas disponibles, Security Center affiche la date et l’heure du dernier événement reçu pour indiquer si la solution signale ou non des données. Si aucune donnée d’intégrité n’est disponible et qu’aucune alerte n’a été reçue au cours des 14 derniers jours, Security Center indique que la solution est défectueuse ou qu’elle ne signale pas de données.
+> Si les données sur l’état d’intégrité ne sont pas disponibles, Security Center affiche la date et l’heure du dernier événement reçu pour indiquer si la solution signale ou non des données. Si aucune donnée d’intégrité n’est disponible et qu’aucune alerte n’a été reçue au cours des 14 derniers jours, Security Center indique que la solution est non saine ou qu’elle ne signale pas de données.
 >
 >
 
-1. Sélectionnez **AFFICHAGE** pour obtenir des informations et des options supplémentaires, notamment :
+1. Sélectionnez **AFFICHAGE** pour obtenir des informations et des options supplémentaires, par exemple :
 
    - **Console de solution**. Ouvre l’expérience de gestion pour cette solution.
-   - **Associer la machine virtuelle**. Ouvre le panneau Associer les applications. Il vous permet de connecter des ressources à la solution de partenaire.
+   - **Associer la machine virtuelle**. Ouvre la page Associer les applications. Il vous permet de connecter des ressources à la solution de partenaire.
    - **Supprimer la solution**.
    - **Configurer**.
 
@@ -86,14 +86,14 @@ L’état d’une solution de partenaire peut être :
 
 ### <a name="discovered-solutions"></a>Solutions découvertes
 
-Security Center découvre automatiquement les solutions exécutées dans Azure mais qui ne sont pas connectées à Security Center. Elles sont ensuite affichées dans la section **Solutions découvertes**. Cela inclut les solutions Azure, telles que [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), ainsi que les solutions partenaires.
+Security Center découvre automatiquement les solutions exécutées dans Azure mais qui ne sont pas connectées à Security Center. Elles sont ensuite affichées dans la section **Solutions découvertes**. Ces solutions incluent les solutions Azure, telles qu’[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection), et les solutions partenaires.
 
 > [!NOTE]
-> Le niveau Standard de Security Center est requis au niveau de l’abonnement pour la fonctionnalité de découverte des solutions. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security.
+> Le niveau Standard de Security Center est requis au niveau de l’abonnement pour la fonctionnalité de découverte des solutions. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires.
 >
 >
 
-Sélectionne **CONNECTER** sous une solution pour l’intégrer à Security Center et être notifié sur les alertes de sécurité.
+Sélectionnez **CONNECTER** sous une solution pour l’intégrer à Security Center et être notifié des alertes de sécurité.
 
 ![Solutions découvertes](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
@@ -105,13 +105,13 @@ La section **Ajouter des sources de données** comprend d’autres sources de do
 
 ## <a name="exporting-data-to-a-siem"></a>Exportation de données vers un serveur SIEM
 
-Les événements traités produits par Azure Security Center sont publiés dans le [journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) Azure, l’un des types de journaux disponibles avec Azure Monitor. Azure Monitor offre un pipeline centralisé pour router les données de monitoring dans un outil SIEM. Ces données sont acheminées vers un hub d’événements, d’où elles peuvent ensuite être extraites dans un outil partenaire.
+Vous pouvez configurer vos serveurs SIEM ou d’autres outils de supervision pour recevoir des événements d’Azure Security Center.
 
-Pour ce faire, est utilisé le [seul pipeline de monitoring Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) permettant d’accéder aux données de monitoring à partir de votre environnement Azure. Cela vous permet de configurer facilement des systèmes SIEM et des outils de monitoring pour consommer les données.
+Tous les événements d’Azure Security Center sont publiés dans le [journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) Azure d’Azure Monitor. Azure Monitor utilise un [pipeline centralisé](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) pour acheminer en streaming les données vers un hub d’événements où elles peuvent ensuite être extraites dans votre outil de supervision.
 
 Les sections suivantes expliquent comment configurer les données à diffuser vers un hub d’événements. Les étapes partent du principe qu’Azure Security Center est déjà configuré dans votre abonnement Azure.
 
-Vue d’ensemble globale
+### <a name="high-level-overview"></a>Vue d’ensemble globale
 
 ![Vue d’ensemble globale](media/security-center-export-data-to-siem/overview.png)
 
@@ -119,11 +119,11 @@ Vue d’ensemble globale
 
 Dans cette version, nous exposons les [alertes de sécurité](../security-center/security-center-managing-and-responding-alerts.md). Dans les versions à venir, nous enrichirons le jeu de données avec des recommandations de sécurité.
 
-### <a name="how-to-setup-the-pipeline"></a>Comment configurer le pipeline
+### <a name="how-to-set-up-the-pipeline"></a>Comment configurer le pipeline
 
 #### <a name="create-an-event-hub"></a>Création d’un concentrateur d’événements
 
-Avant de commencer, vous devez [créer un espace de noms Event Hubs](../event-hubs/event-hubs-create.md). Cet espace de noms et cet hub d’événements sont la destination de toutes vos données de monitoring.
+Avant de commencer, [créez un espace de noms Event Hubs](../event-hubs/event-hubs-create.md), la destination de toutes vos données de supervision.
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
 
@@ -133,11 +133,11 @@ Consultez l’article [Acheminer le journal des activités Azure vers Event Hubs
 
 Le routage de vos données de monitoring vers un hub d’événement avec Azure Monitor vous permet d’intégrer facilement des systèmes SIEM et des outils de monitoring partenaires.
 
-Consultez le lien suivant pour afficher la liste des [systèmes SIEM pris en charge](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub).
+Pour connaître la liste des systèmes SIEM pris en charge, consultez [cet article](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub).
 
 ### <a name="example-for-querying-data"></a>Exemple d’interrogation de données 
 
-Voici quelques exemples de requêtes Splunk que vous pouvez utiliser pour extraire des données d’alerte :
+Voici quelques requêtes Splunk que vous pouvez utiliser pour extraire des données d’alerte :
 
 | **Description de la requête** | **Requête** |
 |----|----|

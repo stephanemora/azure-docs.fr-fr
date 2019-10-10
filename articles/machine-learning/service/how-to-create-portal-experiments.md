@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034824"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350556"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Créer, explorer et déployer des expériences de Machine Learning automatisé avec la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion)
 
@@ -32,12 +32,11 @@ ms.locfileid: "71034824"
 
 ## <a name="get-started"></a>Prise en main
 
-
 1. Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com/workspaceportal/). 
 
 1. Sélectionnez votre abonnement et votre espace de travail. 
 
-1. Accédez au volet gauche. Sélectionnez **Automated ML** (ML automatisé) sous la section **Authoring** (Création).
+1. Accédez au volet gauche. Sélectionnez **Automated ML** (ML automatisé) sous la section **Author** (Auteur).
 
 [![Volet de navigation du portail Azure](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -59,7 +58,7 @@ Sinon, votre tableau de bord **Machine Learning automatisé** s’affiche, offra
     ---|---
     Nom du calcul| Entrez un nom unique qui identifie votre contexte de calcul.
     Taille de la machine virtuelle| Sélectionnez la taille de la machine virtuelle pour votre calcul.
-    Paramètres supplémentaires| *Nœuds min* : Entrez le nombre minimal de nœuds pour votre calcul. Le nombre minimal de nœuds pour un calcul AML est 0. Pour activer le profilage des données, vous devez disposer d'un nœud minimum. <br> *Nœuds max* : Entrez le nombre maximal de nœuds pour votre calcul. La valeur par défaut est de 6 nœuds pour un calcul AML.
+    Nœuds min./max. (dans les paramètres avancés)| Pour profiler des données, vous devez spécifier un ou plusieurs nœuds. Entrez le nombre maximal de nœuds pour votre calcul. La valeur par défaut est de 6 nœuds pour un calcul AML.
     
     Sélectionnez **Create** (Créer). La création d’un calcul peut prendre quelques minutes.
 
@@ -109,7 +108,7 @@ Sinon, votre tableau de bord **Machine Learning automatisé** s’affiche, offra
     Paramètres avancés|Description
     ------|------
     Métrique principale| Métrique principale utilisée pour évaluer votre modèle. [En savoir plus sur les métriques du modèle](how-to-configure-auto-train.md#explore-model-metrics).
-    Critères de sortie| Lorsqu’un de ces critères est satisfait, le travail de formation se termine avant la fin. <br> *Délai du travail de formation (minutes)*  : Délai d'exécution du travail de formation.  <br> *Nombre maximal d’itérations* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié. <br> *Seuil de score de métrique* :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
+    Critères de sortie| Quand l’un de ces critères est satisfait, le travail d’entraînement s’arrête. <br> *Délai du travail de formation (minutes)*  : Délai d'exécution du travail de formation.  <br> *Nombre maximal d’itérations* : Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne s'exécutera pas au-delà du nombre d’itérations spécifié. <br> *Seuil de score de métrique* :  Score de métrique minimal pour tous les pipelines. Ainsi, si vous avez défini une métrique cible que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
     Prétraitement| Activez ou désactivez le prétraitement effectué par Machine Learning automatisé. Le prétraitement comprend le nettoyage automatique des données, la préparation et la transformation pour générer des fonctionnalités synthétiques. [En savoir plus le prétraitement](#preprocess).
     Validation| Sélectionnez une des options de validation croisée à utiliser dans le travail de formation. [En savoir plus sur la validation croisée](how-to-configure-auto-train.md).
     Accès concurrentiel| Sélectionnez les limites de cœurs multiples à utiliser lors d'un calcul multicœur.

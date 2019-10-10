@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: atsenthi
-ms.openlocfilehash: 8cb35d6265bafe2b259774a55119d33f8ae94fe9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599257"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350281"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Présentation de ReliableConcurrentQueue dans Azure Service Fabric
 Une file d’attente simultanée fiable est une file d’attente asynchrone, transactionnelle et répliquée, qui permet d’effectuer des opérations de mise en file d’attente et de retrait de file d’attente avec un niveau élevé de simultanéité. Elle est conçue pour offrir un débit élevé et une latence faible en assouplissant la séquence stricte de premier entré, premier sorti fournie par une [file d’attente fiable](https://msdn.microsoft.com/library/azure/dn971527.aspx), et fournit à la place un classement selon le principe de l’effort optimal.
@@ -45,12 +45,19 @@ Un exemple de cas d’utilisation de ReliableConcurrentQueue est le scénario de
 * La file d’attente ne garantit pas le respect strict de la séquence de premier entré, premier sorti.
 * La file d’attente ne lit pas ses propres écritures. Si un élément est mis en file d’attente dans le cadre d’une transaction, il n’est pas visible pour un retrait de file d’attente dans le cadre de la même transaction.
 * Les retraits de file d’attente ne sont pas isolés les uns des autres. Si un élément *A* est retiré d’une file d’attente dans le cadre d’une transaction *txnA*, même si la transaction *txnA* n’est pas validée, l’élément *A* n’est pas visible pour une transaction simultanée *txnB*.  Si la transaction *txnA* est abandonnée, l’élément *A* devient immédiatement visible pour la transaction *txnB*.
-* Le comportement *TryPeekAsync* peut être implémenté à l’aide de *TryDequeueAsync* puis abandonner la transaction. Cela est illustré dans la section Modèles de programmation.
+* Le comportement *TryPeekAsync* peut être implémenté à l’aide de *TryDequeueAsync* puis abandonner la transaction. Ce comportement est illustré dans la section Modèles de programmation.
 * Count est non transactionnel. Il peut être utilisé pour obtenir une idée du nombre d’éléments présents dans la file d’attente, mais représente un point dans le temps non fiable.
 * Un traitement coûteux sur les éléments retirés de la file d’attente ne doit pas être effectué pendant que la transaction est active, afin d’éviter des transactions à long terme qui peuvent avoir une incidence sur les performances du système.
 
 ## <a name="code-snippets"></a>Extraits de code
 Examinons quelques extraits de code et leurs sorties attendues. La gestion des exceptions est ignorée dans cette section.
+
+### <a name="instantiation"></a>Instanciation
+La création d’une instance d’une file d’attente simultanée fiable est similaire à toute autre collection fiable.
+
+```csharp
+IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
+```
 
 ### <a name="enqueueasync"></a>EnqueueAsync
 Voici quelques extraits de code pour l’utilisation d’EnqueueAsync, suivis de leurs sorties attendues.
@@ -174,7 +181,7 @@ Il en va de même dans tous les cas où la transaction n’a pas été *validée
 Dans cette section, nous examinons quelques modèles de programmation qui peuvent s’avérer utiles lors de l’utilisation de ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Retraits de file d’attente par lot
-Un modèle de programmation recommandé est que la tâche cliente traite en lots les retraits de file d’attente au lieu d’effectuer un retrait à la fois. L’utilisateur peut choisir de limiter les délais entre chaque lot ou la taille des lots. L’extrait de code suivant illustre ce modèle de programmation.  Notez que, dans cet exemple, le traitement est effectué une fois la transaction validée. Dès lors, si une erreur se produit lors du traitement, les éléments non traités sont perdus sans avoir été traités.  Le traitement peut également être effectué dans l’étendue de la transaction, mais cela peut avoir une incidence négative sur les performances et nécessiter de gérer les éléments déjà traités.
+Un modèle de programmation recommandé est que la tâche cliente traite en lots les retraits de file d’attente au lieu d’effectuer un retrait à la fois. L’utilisateur peut choisir de limiter les délais entre chaque lot ou la taille des lots. L’extrait de code suivant illustre ce modèle de programmation. Notez que, dans cet exemple, le traitement est effectué une fois la transaction validée. Dès lors, si une erreur se produit lors du traitement, les éléments non traités sont perdus sans avoir été traités.  Le traitement peut également être effectué dans l’étendue de la transaction, mais il peut avoir une incidence négative sur les performances et nécessiter de gérer les éléments déjà traités.
 
 ```
 int batchSize = 5;

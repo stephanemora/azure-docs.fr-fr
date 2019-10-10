@@ -1,22 +1,22 @@
 ---
-title: Environnement Windows Virtual Desktop en préversion – Azure
-description: Éléments de base d’un environnement Windows Virtual Desktop en préversion.
+title: Environnement Windows Virtual Desktop - Azure
+description: Éléments de base d’un environnement Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 6aa6c7326759e480235df5fe9d4b0878cd11024d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23bf9be8e3e5f1c52546faa9ed5171c140eba59a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142382"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676619"
 ---
-# <a name="windows-virtual-desktop-preview-environment"></a>Environnement Windows Virtual Desktop en préversion
+# <a name="windows-virtual-desktop-environment"></a>Environnement Windows Virtual Desktop
 
-Windows Virtual Desktop en préversion est un service qui offre aux utilisateurs un accès facile et sécurisé à leurs postes de travail virtualisés et aux applications distantes. Cette rubrique fournit des informations supplémentaires sur la structure générale de l’environnement Windows Virtual Desktop.
+Windows Virtual Desktop est un service qui offre aux utilisateurs un accès facile et sécurisé à leurs postes de travail virtualisés et à leurs applications distantes. Cette rubrique fournit des informations supplémentaires sur la structure générale de l’environnement Windows Virtual Desktop.
 
 ## <a name="tenants"></a>Locataires
 
@@ -57,9 +57,9 @@ Une fois que vous avez affecté des utilisateurs à leurs groupes d’applicatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en davantage sur l’accès délégué et la manière d’attribuer des rôles aux utilisateurs en lisant [Préversion de l’accès délégué dans Windows Virtual Desktop](delegated-access-virtual-desktop.md).
+Apprenez-en davantage sur l’accès délégué et sur la manière d’attribuer des rôles aux utilisateurs en consultant [Accès délégué dans Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Pour savoir comment configurer votre locataire Windows Virtual Desktop, voir [Créer un locataire dans Windows Virtual Desktop en préversion](tenant-setup-azure-active-directory.md).
+Pour apprendre à configurer votre locataire Windows Virtual Desktop, consultez [Créer un locataire dans Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 
 Pour savoir comment vous connecter à un Windows Virtual Desktop, voir les articles suivants :
 

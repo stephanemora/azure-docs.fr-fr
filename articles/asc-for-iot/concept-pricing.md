@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
+ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933806"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348510"
 ---
 # <a name="pricing-and-associated-costs"></a>Tarifs et coûts associés
 
@@ -34,20 +34,17 @@ Le modèle de tarification Azure Security Center pour IoT se compose de deux par
 
 - Coût par message : fonctionnalités de sécurité améliorées basées sur les messages de sécurité à partir d’appareils IoT Edge ou leaf.
 
-  >[!Note]
-  > Les messages de sécurité entraînent également une consommation du quota sur IoT Hub.
 
 Pour plus d’informations, consultez la [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Coûts associés
 
-Deux types de coûts, qui ne font pas partie de la tarification directe, sont associés à Azure Security Center pour IoT :
+Certains coûts, qui ne font pas partie du tarif direct, sont associés à Azure Security Center pour IoT :
 
-- Consommation de quota IoT Hub
 
 - Coûts de stockage Log Analytics
 
-Vous pouvez réduire les coûts associés en désactivant certaines fonctionnalités, en modifiant vos paramètres.
+Vous pouvez réduire les coûts associés en refusant certaines fonctionnalités de la solution. Vous devez, pour cela, changer vos paramètres.
 
 Pour changer vos paramètres :
 
@@ -61,8 +58,6 @@ Le tableau suivant fournit un récapitulatif des coûts associés et des implica
 
 |     | Usage | Commentaire |
 | --- | --- | --- |
-| **Consommation de quota IoT Hub** |  |
-| Travail [Exporter l’appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) (exportation de représentation) | 1 par jour | Désactiver la _collection de métadonnées de représentations_ |
 | **Stockage Log Analytics** |  |
 | Alertes et recommandations de l’appareil| Alertes et recommandations de sécurité générées par le service | Obligatoire |
 | Données de sécurité brutes| Données de sécurité brutes des appareils IoT, collectées par des agents de sécurité | Désactiver le _stockage d’événements bruts de sécurité d’appareil_ |

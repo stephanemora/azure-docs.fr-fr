@@ -3,17 +3,17 @@ title: Générer des applications de stockage Azure hautement disponibles sur le
 description: Le stockage géoredondant interzone (GZRS) allie la haute disponibilité du stockage redondant interzone (ZRS) et une protection contre les pannes régionales, comme le prévoit le stockage géoredondant (GRS). Les données d’un compte de stockage GZRS sont répliquées entre les zones de disponibilité Azure dans la région principale et également répliquées vers une région géographique secondaire pour la protection contre les catastrophes régionales.
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300643"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720358"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Générer des applications de stockage Azure hautement disponibles sur le stockage géoredondant interzone (GZRS) (préversion)
 
@@ -21,7 +21,7 @@ Le stockage géoredondant interzone (GZRS) (préversion) allie la haute disponib
 
 Avec un compte de stockage GZRS, vous pouvez continuer à lire et écrire des données si une zone de disponibilité devient indisponible ou n’est pas récupérable. De plus, vos données sont également durables en cas de panne régionale totale ou d’incident empêchant la récupération de la région primaire. Le stockage géoredondant interzone (GZRS) est conçu pour fournir une durabilité des objets d’au moins 99,99999999999999 % (16 chiffres neuf) sur une année donnée. GZRS offre également les mêmes [objectifs d’extensibilité](storage-scalability-targets.md) que LRS, ZRS, GRS ou RA-GRS. Vous pouvez éventuellement activer l’accès en lecture aux données dans la région secondaire avec un stockage géoredondant interzone avec accès en lecture (RA-GZRS) si vos applications doivent être en mesure de lire les données en cas de sinistre dans la région principale.
 
-Microsoft recommande l’utilisation de GZRS pour les applications ayant des besoins élevés en cohérence, durabilité, disponibilité, performances et résilience pour la récupération d’urgence. Pour renforcer la sécurité de l’accès en lecture à la région secondaire en cas de sinistre régional, activez RA-GZRS pour votre compte de stockage.
+Microsoft recommande l’utilisation de GZRS pour les applications ayant des besoins élevés en cohérence, durabilité, disponibilité, performances et résilience pour la reprise d’activité après sinistre. Pour renforcer la sécurité de l’accès en lecture à la région secondaire en cas de sinistre régional, activez RA-GZRS pour votre compte de stockage.
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 
@@ -55,7 +55,7 @@ Lorsque vous créez un compte de stockage, vous spécifiez la façon dont les do
 
 Lorsque vous activez RA-GZRS pour votre compte de stockage, vos données peuvent être lues à partir du point de terminaison secondaire, ainsi que depuis le point de terminaison principal de votre compte de stockage. Le point de terminaison secondaire ajoute le suffixe *– secondary* au nom du compte. Par exemple, si votre point de terminaison principal pour le service d’objets blob est `myaccount.blob.core.windows.net`, votre point de terminaison secondaire est `myaccount-secondary.blob.core.windows.net`. Les clés d’accès pour votre compte de stockage sont les mêmes pour le point de terminaison primaire et secondaire.
 
-Pour tirer parti de RA-GZRS en cas de panne régionale, vous devez concevoir votre application à l’avance pour gérer ce scénario. Votre application doit lire et écrire sur le point de terminaison principal, mais passer à l’utilisation du point de terminaison secondaire dans le cas où la région prinicpale deviendrait indisponible. Pour obtenir des conseils de conception pour la haute disponibilité à l’aide du stockage géographiquement redondant avec accès en lecture, voir  [Concevoir des applications hautement disponibles avec RA-GZRS ou RA-GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs).
+Pour tirer parti de RA-GZRS en cas de panne régionale, vous devez concevoir votre application à l’avance pour gérer ce scénario. Votre application doit lire et écrire sur le point de terminaison principal, mais passer à l’utilisation du point de terminaison secondaire dans le cas où la région prinicpale deviendrait indisponible. Pour obtenir des conseils de conception pour la haute disponibilité à l’aide du stockage géographiquement redondant avec accès en lecture, voir  [Concevoir des applications hautement disponibles avec RA-GZRS ou RA-GRS](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
 Étant donné que les données sont répliquées de façon asynchrone dans la région secondaire, la région secondaire est souvent en retard sur la région principale. Pour déterminer les opérations d’écriture qui ont été répliquées dans la région secondaire, votre application vérifie l’heure de la dernière synchronisation pour votre compte de stockage. Toutes les opérations d’écriture dans la région principale avant l’heure de la dernière synchronisation ont été répliquées avec succès dans la région secondaire, ce qui signifie qu’elles peuvent être lues à partir de la base de données secondaire. Toutes les opérations d’écriture dans la région principale après l’heure de la dernière synchronisation peuvent avoir été répliquées ou non dans la région secondaire, ce qui signifie qu’elles peuvent ne pas être disponibles pour les opérations de lecture.
 

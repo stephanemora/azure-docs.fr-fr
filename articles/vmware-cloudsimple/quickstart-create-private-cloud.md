@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845498"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828943"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Démarrage rapide - Configurer un environnement de cloud privé
 
 Dans cet article, découvrez comment créer un cloud privé CloudSimple et comment configurer votre environnement de cloud privé.
+
+## <a name="before-you-begin"></a>Avant de commencer
+
+Passez en revue les [Prérequis réseau](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -38,7 +42,7 @@ Les clouds privés sont managés via le portail CloudSimple. Ils ont leur serveu
 
 5. Dans le portail CloudSimple, attribuez un nom à votre cloud privé.
 6. Sélectionnez l’**Emplacement** de votre cloud privé.
-7. Sélectionnez le **Type de nœud** conformément à ce que vous avez acheté sur Azure. Vous pouvez choisir l’[option CS28 ou CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Cette dernière option inclut la capacité de calcul et de mémoire maximale.
+7. Sélectionnez le **Type de nœud** conformément à ce que vous avez acheté sur Azure.
 8. Spécifiez le **Nombre de nœuds**.  Au moins trois nœuds sont nécessaires pour créer un cloud privé.
 
     ![Créer un cloud privé - Informations de base](media/create-private-cloud-basic-info.png)

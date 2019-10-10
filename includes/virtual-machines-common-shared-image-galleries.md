@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d86976ad191ffffa343ad7a94b8171759ad102c3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012112"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338355"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
 
@@ -83,10 +83,10 @@ Les régions sources sont répertoriées dans la table ci-dessous. Tout les rég
 | Australie Est      | USA Est         | Centre-Nord des États-Unis | Inde Ouest      |
 | Sud-Australie Est | USA Est 2       | Europe Nord     | USA Ouest         |
 | Brésil Sud        | USA Est 2 (EUAP)  | États-Unis - partie centrale méridionale | USA Ouest 2       |
-| Centre du Canada      | France Centre  | Inde Sud      |                 |
-| Est du Canada         | France Sud    | Asie Sud-Est   |                 |
-| Inde centrale       | Japon Est      | Sud du Royaume-Uni         |                 |
-| USA Centre          | OuJapon Est      | Ouest du Royaume-Uni          |                 |
+| Centre du Canada      | France Centre  | Inde Sud      | Chine orientale      |
+| Est du Canada         | France Sud    | Asie Sud-Est   | Chine orientale 2    |
+| Inde centrale       | Japon Est      | Sud du Royaume-Uni         | Chine du Nord     |
+| USA Centre          | OuJapon Est      | Ouest du Royaume-Uni          | Chine Nord 2   |
 
 
 
@@ -106,8 +106,8 @@ La galerie d’images partagées vous permet de spécifier le nombre de réplica
 
 Avec la galerie d’images partagées, vous pouvez désormais déployer jusqu’à 1 000 instances de machines virtuelles dans un groupe de machines virtuelles identiques (à partir de 600 avec des images managées). Le réplicas d’images permettent d’optimiser les performances d’un déploiement, sa fiabilité et sa cohérence.  Vous pouvez définir un nombre de réplicas différents dans chaque région cible, selon les besoins de mise à l’échelle de la région. Comme chaque réplica est une copie complète de votre image, cela vous permet de mettre à l’échelle vos déploiements de façon linéaire, en fonction de chaque réplica supplémentaire. Nous le savons bien, les images ou régions ne sont jamais les mêmes, mais nous vous invitons à suivre les règles suivantes sur la création de réplicas dans une région :
 
-- Pour chaque lot de 20 machines virtuelles que vous créez simultanément, nous vous recommandons de ne conserver qu’un réplica. Par exemple, si vous créez 120 machines virtuelles simultanément à l’aide de la même image dans une région, nous vous conseillons de conserver au moins 6 réplicas de votre image. 
-- Pour chaque déploiement de groupe identique avec un maximum de 600 instances, nous vous recommandons de garder au moins un réplica. Ainsi, si vous créez 5 groupes identiques simultanément, chacun doté de 600 instances de VM utilisant la même image dans une seule région, nous vous suggérons de conserver au moins 5 réplicas de votre image. 
+- Pour les déploiements non-VMSS (Virtual Machine Scale Sets) : pour chaque lot de 20 machines virtuelles que vous créez simultanément, nous vous recommandons de ne garder qu’un réplica. Par exemple, si vous créez 120 machines virtuelles simultanément à l’aide de la même image dans une région, nous vous conseillons de conserver au moins 6 réplicas de votre image. 
+- Pour les déploiements VMSS (Virtual Machine Scale Sets) - Pour chaque déploiement de groupe identique avec un maximum de 600 instances, nous vous recommandons de garder au moins un réplica. Ainsi, si vous créez 5 groupes identiques simultanément, chacun doté de 600 instances de VM utilisant la même image dans une seule région, nous vous suggérons de conserver au moins 5 réplicas de votre image. 
 
 De plus, nous recommandons toujours de surapprovisionner le nombre de réplicas, à cause de facteurs tels que la taille des images, le contenu et le type de système d’exploitation.
 

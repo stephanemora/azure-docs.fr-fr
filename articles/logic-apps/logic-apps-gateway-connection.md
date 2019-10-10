@@ -9,16 +9,18 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 09/01/2019
-ms.openlocfilehash: dcb0fe4da968408a261e387c636cc548fa757a09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: d397adfb6ed2d3aef93bd40d14eb0ad199cdb90c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036656"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309351"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
-Pour accéder à des sources de données locales à partir de vos applications logiques, créez une ressource de passerelle de données locales dans le portail Azure. Vos applications logiques peuvent ensuite utiliser les [connecteurs locaux](../connectors/apis-list.md#on-premises-connectors). Cet article explique comment créer votre ressource de passerelle Azure *après* avoir [téléchargé et installé la passerelle sur un ordinateur local](../logic-apps/logic-apps-gateway-install.md). Pour obtenir des informations détaillées sur la passerelle, consultez [Fonctionnement de la passerelle](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+Pour accéder à des sources de données locales à partir de vos applications logiques, créez une ressource de passerelle de données locales dans le portail Azure. Vos applications logiques peuvent ensuite utiliser les [connecteurs locaux](../connectors/apis-list.md#on-premises-connectors). Azure Logic Apps prend en charge les opérations d’écriture, y compris les insertions et les mises à jour, par le biais de la passerelle. Toutefois, ces opérations ont des [limites quant à la taille de leur charge utile](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+
+Cet article explique comment créer votre ressource de passerelle Azure *après* avoir [téléchargé et installé la passerelle sur un ordinateur local](../logic-apps/logic-apps-gateway-install.md). Pour obtenir des informations détaillées sur la passerelle, consultez [Fonctionnement de la passerelle](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service). 
 
 > [!TIP]
 > Pour vous connecter à des réseaux virtuels Azure, envisagez de créer un [*environnement de service d’intégration*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) à la place. 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: bb28171ceca9861fb5cc0b7be1db9ab58ef72a1b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124116"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338183"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -62,24 +62,35 @@ Quand l’appel `GET /api/stock/value` est établi vers un service externe, vous
 
 ## <a name="correlation-headers"></a>En-têtes de corrélation
 
-Nous travaillons sur une proposition RFC pour le [protocole HTTP de corrélation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Cette proposition définit deux en-têtes :
-
-- `Request-Id`: représente le GUID de l’appel.
-- `Correlation-Context`: représente la collection de paires nom-valeur des propriétés de trace distribuée.
-
-La norme définit également deux schémas pour la génération de `Request-Id` : plat et hiérarchique. Avec le schéma plat, une clé `Id` connue est définie pour la collection `Correlation-Context`.
-
-Application Insights définit [l’extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) pour le protocole HTTP de corrélation. Il utilise des paires nom-valeur `Request-Context` pour propager la collection de propriétés utilisée par l’appelant ou l’appelé. Le SDK Application Insights utilise cet en-tête pour définir les champs `dependency.target` et `request.source`.
-
-### <a name="w3c-distributed-tracing"></a>Traçage distribué W3C
-
-Nous migrons vers le [format de traçage distribué W3C](https://w3c.github.io/trace-context/). Il définit :
+Nous effectuons une transition vers la norme [W3C Trace-Context](https://w3c.github.io/trace-context/), qui définit :
 
 - `traceparent`: représente l’ID d’opération globalement unique et l’identificateur unique de l’appel.
 - `tracestate`: représente le contexte de traçage propre au système.
 
-#### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications ASP.NET classiques
+Les dernières versions des SDK Application Insights prennent en charge le protocole Trace-Context. Cependant, vous devrez peut-être le choisir spécifiquement. (Il assurera une compatibilité descendante avec l’ancien protocole de corrélation pris en charge par les SDK ApplicationInsights).
 
+Le [protocole HTTP de corrélation (Request-Id)](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) sera prochainement déprécié. Ce protocole définit deux en-têtes :
+
+- `Request-Id`: représente le GUID de l’appel.
+- `Correlation-Context`: représente la collection de paires nom-valeur des propriétés de trace distribuée.
+
+Application Insights définit également l’[extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) pour le protocole HTTP de corrélation. Il utilise des paires nom-valeur `Request-Context` pour propager la collection de propriétés utilisée par l’appelant ou l’appelé. Le SDK Application Insights utilise cet en-tête pour définir les champs `dependency.target` et `request.source`.
+
+### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications ASP.NET classiques
+ 
+  > [!NOTE]
+  > Aucune configuration n’est nécessaire à partir de `Microsoft.ApplicationInsights.Web` et `Microsoft.ApplicationInsights.DependencyCollector`. 
+
+La prise en charge du protocole W3C Trace-Context repose sur une compatibilité descendante. La corrélation devrait fonctionner avec les applications instrumentées avec les versions précédentes du SKD (sans prise en charge du protocole W3C). 
+
+Si, pour une raison quelconque, vous souhaitez continuer à utiliser le protocole `Request-Id` hérité, vous pouvez *désactiver* le protocole Trace-Context avec la configuration suivante.
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+Si vous exécutez une version antérieure du SDK, nous vous recommandons de la mettre à jour ou d’appliquer la configuration suivante pour activer Trace-Context.
 Cette fonctionnalité est disponible dans les packages `Microsoft.ApplicationInsights.Web` et `Microsoft.ApplicationInsights.DependencyCollector` à compter de la version 2.8.0-beta1.
 Elle est désactivée par défaut. Pour l’activer, modifiez `ApplicationInsights.config` :
 
@@ -94,7 +105,21 @@ Elle est désactivée par défaut. Pour l’activer, modifiez `ApplicationInsigh
 </TelemetryInitializers> 
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications ASP.NET Core
+### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications ASP.NET Core
+
+ > [!NOTE]
+  > Aucune configuration n’est nécessaire à partir de la version 2.8.0 de `Microsoft.ApplicationInsights.AspNetCore`.
+ 
+La prise en charge du protocole W3C Trace-Context repose sur une compatibilité descendante. La corrélation devrait fonctionner avec les applications instrumentées avec les versions précédentes du SKD (sans prise en charge du protocole W3C). 
+
+Si, pour une raison quelconque, vous souhaitez continuer à utiliser le protocole `Request-Id` hérité, vous pouvez *désactiver* le protocole Trace-Context avec la configuration suivante.
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+Si vous exécutez une version antérieure du SDK, nous vous recommandons de la mettre à jour ou d’appliquer la configuration suivante pour activer Trace-Context.
 
 Cette fonctionnalité est dans `Microsoft.ApplicationInsights.AspNetCore` version 2.5.0-beta1 et dans `Microsoft.ApplicationInsights.DependencyCollector` version 2.8.0-beta1.
 Elle est désactivée par défaut. Pour l’activer, affectez la valeur `true` à `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` :
@@ -108,7 +133,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-#### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications Java
+### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications Java
 
 - **Configuration d’entrée**
 
@@ -145,7 +170,7 @@ public void ConfigureServices(IServiceCollection services)
 > [!IMPORTANT]
 > Assurez-vous que les configurations entrante et sortante sont rigoureusement identiques.
 
-#### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Activer la prise en charge du suivi distribué W3C pour les applications web
+### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>Activer la prise en charge du suivi distribué W3C pour les applications web
 
 Cette fonctionnalité se trouve dans `Microsoft.ApplicationInsights.JavaScript`. Elle est désactivée par défaut. Pour l’activer, utilisez la configuration `distributedTracingMode`. AI_AND_W3C est fourni pour la compatibilité descendante avec tous les services instrumentés Application Insights hérités :
 
@@ -209,7 +234,7 @@ Le [guide des activités](https://github.com/dotnet/corefx/blob/master/src/Syste
 
 ASP.NET Core 2.0 prend en charge l’extraction des en-têtes HTTP et le démarrage d’une nouvelle activité.
 
-`System.Net.HttpClient`, à partir de la version 4.1.0, prend en charge l’injection automatique des en-têtes HTTP de corrélation et le suivi de l’appel HTTP en tant qu’activité.
+`System.Net.Http.HttpClient`, à partir de la version 4.1.0, prend en charge l’injection automatique des en-têtes HTTP de corrélation et le suivi de l’appel HTTP en tant qu’activité.
 
 Il existe un nouveau module HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/), pour ASP.NET Classic. Ce module implémente la corrélation de télémétrie à l’aide de `DiagnosticSource`. Il démarre une activité en fonction des en-têtes de requête entrante. Il met également en corrélation les données de télémétrie des différentes phases de traitement de requêtes, même pour les cas où chaque phase du traitement IIS (Internet Information Services) s’exécute sur un thread managé différent.
 

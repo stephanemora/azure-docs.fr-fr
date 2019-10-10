@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035704"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350616"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
-Le Machine Learning automatisé, également appelé autoML, est le processus d’automatisation des tâches fastidieuses et itératives de développement de modèle Machine Learning. Il permet aux chercheurs de données, analystes et développeurs de créer des modèles ML à grande échelle, efficaces et productifs, tout en maintenant la qualité du modèle. L’apprentissage automatique automatisé se base sur une innovation de notre [division Microsoft Research](https://arxiv.org/abs/1705.05355).
+Le machine learning automatisé, également appelé ML automatisé, est le processus d’automatisation des tâches fastidieuses et itératives de développement de modèle Machine Learning. Il permet aux chercheurs de données, analystes et développeurs de créer des modèles ML à grande échelle, efficaces et productifs, tout en maintenant la qualité du modèle. L’apprentissage automatique automatisé se base sur une innovation de notre [division Microsoft Research](https://arxiv.org/abs/1705.05355).
 
 Le développement de modèle Machine Learning traditionnel consomme beaucoup de ressources, nécessitant une connaissance significative du domaine et du temps pour produire et comparer des dizaines de modèles. Appliquez le Machine Learning automatisé lorsque vous souhaitez qu’Azure Machine Learning effectue l’apprentissage d’un modèle et le règle à votre place à l’aide de la métrique cible que vous spécifiez. Le service effectue ensuite des itérations dans les algorithmes de Machine Learning associés aux sélections de fonctionnalités, où chaque itération produit un modèle avec un score d’apprentissage. Plus le score est élevé, plus le modèle est considéré comme « adapté » à vos données.
 
@@ -115,6 +115,36 @@ Le Machine Learning automatisé prend en charge les modèles ensemblistes, qui s
 L’[algorithme de sélection d’ensemble Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf), avec initialisation des ensembles triés, est utilisé pour déterminer les modèles qui doivent être utilisés au sein de l’ensemble. Pour résumer, cet algorithme initialise l’ensemble avec un maximum de 5 modèles ayant obtenu les meilleurs scores, puis vérifie que ces scores se situent dans une marge de plus ou moins 5 % par rapport au meilleur score, afin d’éviter un ensemble de niveau médiocre. Ensuite, pour chaque itération d’ensemble, un nouveau modèle est ajouté à l’ensemble existant et le score est calculé. Si un nouveau modèle a amélioré le score existant de l’ensemble, l’ensemble est mis à jour pour inclure le nouveau modèle.
 
 Pour savoir comment modifier les paramètres par défaut de l’ensemble au niveau du Machine Learning automatisé, consultez [cette procédure](how-to-configure-auto-train.md#ensemble).
+
+## <a name="imbalance"></a> Données déséquilibrées
+
+Les données déséquilibrées se trouvent généralement dans les scénarios de classification de machine learning. Il s’agit des données dont le taux d’observations dans chaque classe est disproportionné. Ce déséquilibre peut donner une idée faussement positive de la justesse d’un modèle parce que les données d’entrée présentent un biais vers une classe, ce qui influence le modèle entraîné. 
+
+Dans l’optique de simplifier le workflow du machine learning, le ML automatisé intègre des fonctionnalités qui permettent de gérer les données déséquilibrées, à savoir : 
+
+- Une **colonne de pondération** : le ML automatisé peut utiliser une colonne pondérée en guise d’entrée. Les lignes de données sont alors pondérées, ce qui peut accentuer ou réduire l’importance d’une classe. Consultez cet [exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/sample-weight/auto-ml-sample-weight.ipynb). 
+
+- Les algorithmes utilisés par le ML automatisé peuvent traiter un déséquilibre jusqu’à un rapport de 20 à 1, ce qui signifie que la classe la plus commune peut avoir 20 fois plus de lignes dans les données que la classe la moins commune.
+
+### <a name="identify-models-with-imbalanced-data"></a>Identifier les modèles présentant des données déséquilibrées
+
+Sachant que les algorithmes de classification sont généralement évalués selon des critères de justesse, il est judicieux de vérifier la justesse d’un modèle pour déterminer s’il a été impacté par des données déséquilibrées. Sa justesse pour certaines classes s’est-elle avérée élevée ou très faible ?
+
+Par ailleurs, les exécutions du ML automatisé génèrent automatiquement les graphiques suivants, qui peuvent vous aider à comprendre la cohérence des classifications de votre modèle et à identifier les modèles potentiellement impactés par des données déséquilibrées.
+
+Graphique| Description
+---|---
+[Matrice de confusion](how-to-understand-automated-ml.md#confusion-matrix)| Évalue les étiquettes correctement classifiées par rapport aux étiquettes réelles des données. 
+[Rappel de précision](how-to-understand-automated-ml.md#precision-recall-chart)| Évalue le ratio d’étiquettes correctes par rapport au ratio d’instances d’étiquettes trouvées dans les données. 
+[Courbe ROC](how-to-understand-automated-ml.md#roc)| Évalue le ratio d’étiquettes correctes par rapport au ratio d’étiquettes considérées comme étant des faux positifs.
+
+### <a name="handle-imbalanced-data"></a>Traiter les données déséquilibrées 
+
+Les techniques suivantes sont des options supplémentaires pour traiter les données déséquilibrées en dehors du ML automatisé. 
+
+- Rééchantillonnage destiné à niveler le déséquilibre des classes, soit en suréchantillonnant les classes les plus petites soit en sous-échantillonnant les classes les plus grandes. Ces méthodes demandent des compétences techniques pour le traitement et l’analyse.
+
+- Utilisation d’une métrique de performances qui gère mieux les données déséquilibrées. Par exemple, le score F1 est une moyenne pondérée de la précision et du rappel. La précision mesure l’exactitude d’un classifieur -- une faible précision indique un grand nombre de faux positifs-- ; le rappel mesure l’exhaustivité d’un classifieur -- un faible rappel indique un grand nombre de faux négatifs. 
 
 ## <a name="use-with-onnx-in-c-apps"></a>Utilisation avec ONNX dans des applications C#
 

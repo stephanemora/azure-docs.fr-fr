@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bdf04014d7b0382913c0a4094f7474686658441
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7ab7c3699abdd5c094b1b14cd53f76023fa8c1ac
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086697"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309595"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>Application web qui connecte des utilisateurs - Inscription d’application
 
@@ -39,25 +39,66 @@ Si vous accédez à ce lien, vous pouvez lancer la création de votre applicatio
 - [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
 - [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
 
-### <a name="register-an-app-using-azure-portal"></a>Inscrire une application à l’aide du portail Azure
+## <a name="register-an-app-using-azure-portal"></a>Inscrire une application à l’aide du portail Azure
 
 > [!NOTE]
 > Le portail à utiliser est différent selon que votre application s’exécute dans le cloud public Microsoft Azure ou dans un cloud national ou souverain. Pour plus d’informations, voir [Clouds nationaux](./authentication-national-cloud.md#app-registration-endpoints)
 
+
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft. Vous pouvez également vous connecter au portail Azure du cloud national de votre choix.
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
 1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications** > **Nouvelle inscription**.
-1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
+
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
+
+4. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
    1. Choisissez les types de comptes pris en charge par votre application (voir [Types de comptes pris en charge](./v2-supported-account-types.md)).
    1. Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `AspNetCore-WebApp`.
    1. Dans **URI de redirection**, ajoutez le type d’application et la destination d’URI qui acceptera les réponses de jeton retournées après une authentification réussie. Par exemple : `https://localhost:44321/`.  Sélectionnez **Inscription**.
 1. Sélectionnez le menu **Authentification** et ajoutez les informations suivantes :
-   1. Dans **URL de réponse**, ajoutez `https://localhost:44321/signin-oidc`.
+   1. Dans **URL de réponse**, ajoutez `https://localhost:44321/signin-oidc` de type « Web ».
    1. Dans la section **Paramètres avancés**, définissez **URL de déconnexion** sur `https://localhost:44321/signout-oidc`.
    1. Sous **Octroi implicite**, cochez **Jetons d’ID**.
    1. Sélectionnez **Enregistrer**.
 
-### <a name="register-an-app-using-powershell"></a>Inscrire une application avec PowerShell
+# <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
+
+4. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
+   1. Choisissez les types de comptes pris en charge par votre application (voir [Types de comptes pris en charge](./v2-supported-account-types.md)).
+   - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `MailApp-openidconnect-v2`.
+   - Dans la section URI de redirection (facultatif), sélectionnez **Web** dans la zone de liste modifiable et entrez les URI de redirection suivants : `https://localhost:44326/`.
+1. Sélectionnez **Inscrire** pour créer l’application.
+1. Sélectionnez le menu **Authentification** et ajoutez les informations suivantes :
+   - Dans la section **Paramètres avancés** | **Octroi implicite**, cochez **Jetons d’ID**, car cet exemple exige l’activation du [flux d’octroi implicite](v2-oauth2-implicit-grant-flow.md) pour permettre la connexion de l’utilisateur.
+1. Sélectionnez **Enregistrer**.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+4. Quand la page **Inscrire une application** apparaît, entrez un nom convivial pour l’application, par exemple « Java-webapp », sélectionnez « Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com) » et sélectionnez « Application web/API » dans *Type d’application*.
+1. Cliquez sur **Inscrire** pour inscrire l’application.
+1. Dans le menu de gauche, cliquez sur **Authentification**, puis sous *URI de redirection*, sélectionnez « Web ». Vous devrez entrer deux URI de redirection différents : un pour la page de connexion et un pour la page des utilisateurs du graphique. Pour les deux, vous devez utiliser le même hôte et le même numéro de port, suivis de « /msal4jsample/secure/aad » pour la page de connexion et de « msal4jsample/graph/users » pour la page des utilisateurs.
+ Par défaut, l’exemple utilise : 
+
+    - `http://localhost:8080/msal4jsample/secure/aad`. 
+    - `http://localhost:8080/msal4jsample/graph/users`
+
+Cliquez sur **Enregistrer**.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+4. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
+   - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `python-webapp`.
+   - Affectez à **Types de comptes pris en charge** la valeur **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** .
+   - Dans la section URI de redirection (facultatif), sélectionnez **Web** dans la zone de liste déroulante et entrez les URI de redirection suivants : `http://localhost:5000/getAToken`.
+1. Sélectionnez **Inscrire** pour créer l’application.
+1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur **ID d’application (client)** et notez-la. Vous en aurez besoin pour configurer le fichier de configuration Visual Studio pour ce projet.
+1. Sélectionnez la section **Authentification** dans la page de vue d’ensemble de l’application.
+   - Dans la section **Paramètres avancés**, affectez à **URL de déconnexion** la valeur `http://localhost:5000/logout`.
+1. Sélectionnez **Enregistrer**.
+
+---
+
+## <a name="register-an-app-using-powershell"></a>Inscrire une application avec PowerShell
 
 > [!NOTE]
 > Actuellement, Azure AD PowerShell crée uniquement des applications avec les types de compte pris en charge suivants :

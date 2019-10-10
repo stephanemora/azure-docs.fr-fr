@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3636b88b14cf7e76e4fb023434316e7ee31ded04
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571376"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336821"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect : Quand vous avez un locataire existant
 La plupart des rubriques sur l’utilisation d’Azure AD Connect suppose que vous démarrez avec un nouveau client Azure AD qui ne contient aucun utilisateur ni autres objets. Mais si vous avez démarré avec un client Azure AD, auquel vous avez ajouté des utilisateurs et d’autres objets, et que vous souhaitez désormais utiliser Connect, alors cette rubrique est faite pour vous.
@@ -62,9 +62,10 @@ Pour les groupes et les contacts activés pour le courrier, vous pouvez établir
 ### <a name="admin-role-considerations"></a>Considérations relatives au rôle d’administrateur
 Pour empêcher les utilisateurs locaux non approuvés d’établir une correspondance avec un utilisateur cloud qui a un rôle d’administrateur, Azure AD Connect ne met pas en correspondance des objets utilisateur locaux avec des objets qui ont un rôle d’administrateur. Il s’agit du comportement par défaut. Pour contourner ce comportement, vous pouvez procéder comme suit :
 
-1.  Supprimez les rôles d’annuaire de l’objet utilisateur cloud uniquement
-2.  Déclenchez une synchronisation
-3.  Rétablissez éventuellement les rôles d’annuaire dans l’objet utilisateur cloud une fois que la mise en correspondance s’est produite.
+1.  Supprimez les rôles d’annuaire de l’objet utilisateur cloud uniquement.
+2.  En cas d’échec d’une tentative de synchronisation des utilisateurs, supprimez définitivement l’objet mis en quarantaine dans le cloud.
+3.  Déclenchez une synchronisation.
+4.  Rétablissez éventuellement les rôles d’annuaire dans l’objet utilisateur cloud une fois que la mise en correspondance s’est produite.
 
 
 

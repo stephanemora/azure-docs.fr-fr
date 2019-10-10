@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: df1b03d5fbb5b8ef8cda9407e4a595bc2de8ce54
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 3311ca3665083ec8c71f48b28e7195aa8c14f13d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918953"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350677"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition du flux de travail dans Azure Logic Apps
 
@@ -2402,12 +2402,38 @@ Vous pouvez changer le comportement par défaut pour les déclencheurs et les ac
 
 ### <a name="change-trigger-concurrency"></a>Changer la concurrence du déclencheur
 
-Par défaut, les instances d’applications logiques s’exécutent en même temps, de manière concurrentielle, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ainsi, chaque instance de déclencheur s’active avant la fin de l’exécution de l’instance de flux de travail précédente. Cette limite aide à contrôler le nombre de requêtes reçues par les systèmes backend. 
+Par défaut, les instances d’applications logiques s’exécutent en même temps (de manière concurrentielle ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ainsi, chaque instance de déclencheur s’active avant la fin de l’exécution de l’instance de flux de travail précédente. Cette limite aide à contrôler le nombre de requêtes reçues par les systèmes backend. 
 
-Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. Cette propriété contrôle le nombre maximal d’instances de flux de travail qui peuvent s’exécuter en parallèle. 
+Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. Cette propriété contrôle le nombre maximal d’instances de flux de travail qui peuvent s’exécuter en parallèle. Voici quelques considérations liées à l’utilisation du contrôle d’accès concurrentiel :
 
-> [!NOTE] 
-> Si vous configurez le déclencheur pour une exécution séquentielle à l’aide du concepteur ou de l’éditeur en mode code, n’affectez pas la valeur `SingleInstance` à la propriété `operationOptions` du déclencheur dans l’éditeur en mode code, car vous obtiendriez une erreur de validation. Pour plus d’informations, consultez [Déclencher des instances séquentiellement](#sequential-trigger).
+* Quand la concurrence est activée, une instance d’application logique de longue durée peut amener de nouvelles instances d’application logique à entrer dans un état d’attente. Cet état empêche Azure Logic Apps de créer des instances et se produit même quand le nombre d’exécutions simultanées est inférieur au nombre maximal spécifié d’exécutions simultanées.
+
+  * Pour interrompre cet état, annulez les instances les plus anciennes qui sont *toujours en cours d’exécution*.
+
+    1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**.
+
+    1. Dans la section **Historique des exécutions**, sélectionnez l’instance la plus ancienne qui est toujours en cours d’exécution, par exemple :
+
+       ![Sélectionner l’instance en cours d’exécution la plus ancienne](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > Pour voir uniquement les instances qui sont toujours en cours d’exécution, ouvrez la liste **Tous**, puis sélectionnez **En cours d’exécution**.    
+
+    1. Sous **Exécution d’application logique**, sélectionnez **Annuler l’exécution**.
+
+       ![Rechercher l’instance en cours d’exécution la plus ancienne](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * Pour contourner cette éventualité, ajoutez un délai d’expiration aux actions susceptibles de retenir ces exécutions. Si vous travaillez dans l’éditeur de code, consultez [Changer la durée asynchrone](#asynchronous-limits). Dans le cas contraire, si vous utilisez le concepteur, procédez comme suit :
+
+    1. Dans votre application logique, sur l’action à laquelle vous souhaitez ajouter un délai d’attente, en haut à droite, sélectionnez le bouton des points de suspension ( **...** ), puis sélectionnez **Paramètres**.
+
+       ![Ouvrir les paramètres de l’action](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. Sous **Expiration**, spécifiez la durée du délai d’expiration au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
+
+       ![Spécifier la durée du délai d’expiration](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* Si vous souhaitez exécuter votre application logique séquentiellement, vous pouvez définir la concurrence du déclencheur sur `1` à l’aide de l’éditeur en mode code ou du concepteur. Toutefois, ne définissez pas également la propriété `operationOptions` du déclencheur sur `SingleInstance` dans l’éditeur en mode code. car vous obtiendriez une erreur de validation. Pour plus d’informations, consultez [Déclencher des instances séquentiellement](#sequential-trigger).
 
 #### <a name="edit-in-code-view"></a>Modifier en mode code 
 

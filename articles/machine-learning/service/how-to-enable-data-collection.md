@@ -11,14 +11,17 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: d836b600a39b73f60c0847c5a9642f396fb70d17
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002857"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350575"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
+
+>[!IMPORTANT]
+> Ce kit SDK sera bientôt mis hors service et sera remplacé par une [supervision des données simplifiée avec Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
 
 Dans cet article, vous allez découvrir comment collecter des données de modèle d’entrée à partir d’Azure Machine Learning déployé dans un cluster Azure Kubernetes dans un stockage d’objets blob Azure. 
 
@@ -54,7 +57,7 @@ Le chemin des données de sortie dans l’objet blob respecte cette syntaxe :
 
 - Un espace de travail Azure Machine Learning, un répertoire local contenant vos scripts, et le SDK Azure Machine Learning pour Python. Découvrez comment obtenir ces prérequis à l’aide du document [Guide pratique pour configurer un environnement de développement](how-to-configure-environment.md).
 
-- Un modèle Machine Learning entraîné à déployer sur Azure Kubernetes Service (AKS). Si vous n’en avez pas, consultez le didacticiel [Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).
+- Un modèle Machine Learning entraîné à déployer sur Azure Kubernetes Service (AKS). Si vous n’en avez pas, consultez le tutoriel [Entraîner un modèle de classification d’images](tutorial-train-models-with-aml.md).
 
 - Cluster Azure Kubernetes Service. Pour plus d’informations sur la création et le déploiement, consultez le document [Où et comment effectuer un déploiement](how-to-deploy-and-where.md).
 

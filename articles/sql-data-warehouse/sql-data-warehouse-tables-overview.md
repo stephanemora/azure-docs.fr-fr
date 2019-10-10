@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476746"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310102"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Conception de tables dans Azure SQL Data Warehouse
 
@@ -109,6 +109,9 @@ Pour obtenir la liste des fonctionnalités columnstore, consultez [Nouveautés p
 ## <a name="statistics"></a>Statistiques
 L’optimiseur de requête utilise des statistiques au niveau des colonnes quand il crée le plan d’exécution d’une requête. Pour améliorer les performances des requêtes, il est important d’avoir des statistiques sur des colonnes individuelles, en particulier les colonnes utilisées dans les jointures de requête. La [création de statistiques](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) se fait automatiquement.  En revanche, la mise à jour des statistiques ne se fait pas automatiquement. Mettez à jour les statistiques après l’ajout ou la modification d’un nombre significatif de lignes. Par exemple, effectuez une mise à jour des statistiques après un chargement. Pour plus d’informations, consultez [Gestion des statistiques](sql-data-warehouse-tables-statistics.md).
 
+## <a name="primary-key-and-unique-key"></a>Clé primaire et clé unique
+La contrainte PRIMARY KEY est prise en charge seulement si NONCLUSTERED et NOT ENFORCED sont tous les deux utilisés.  La contrainte UNIQUE est prise en charge seulement si NOT ENFORCED est utilisé.  Vérifiez les [contraintes de table SQL Data Warehouse](sql-data-warehouse-table-constraints.md).
+
 ## <a name="commands-for-creating-tables"></a>Commandes pour la création de tables
 Vous pouvez créer une table à partir d’une nouvelle table vide. Vous pouvez aussi créer une table et la remplir avec les résultats d’une instruction select. Le tableau suivant répertorie les instructions T-SQL disponibles pour la création d’une table.
 
@@ -128,8 +131,7 @@ Si les données proviennent de plusieurs magasins de données, vous pouvez impor
 ## <a name="unsupported-table-features"></a>Fonctionnalités de table non prises en charge
 SQL Data Warehouse prend en charge beaucoup des fonctionnalités de table proposées par d’autres bases de données, mais pas toutes.  La liste suivante répertorie certaines fonctionnalités de table qui ne sont pas prises en charge dans SQL Data Warehouse.
 
-- [Contraintes de table](/sql/t-sql/statements/alter-table-table-constraint-transact-sql) Primary Key, Foreign Key, Unique et Check
-
+- Clé étrangère, consultez [Contraintes de table](/sql/t-sql/statements/alter-table-table-constraint-transact-sql).
 - [Colonnes calculées](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
 - [Vues indexées](/sql/relational-databases/views/create-indexed-views)
 - [Séquence](/sql/t-sql/statements/create-sequence-transact-sql)

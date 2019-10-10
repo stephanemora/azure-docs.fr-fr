@@ -1,6 +1,6 @@
 ---
-title: Article sur les problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure Database pour MySQL | Microsoft Docs
-description: Apprenez-en plus sur les problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure Database pour MySQL.
+title: Article sur les problèmes connus/limitations de migration dans les migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL - Serveur unique | Microsoft Docs
+description: Apprenez-en davantage sur les problèmes connus/limitations de migration dans les migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,21 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/03/2019
+ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743550"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802587"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problèmes connus/limitations de migration dans le cadre des migrations en ligne vers Azure DB pour PostgreSQL
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Problèmes connus/limitations de migration dans les migrations en ligne de PostgreSQL vers Azure DB pour PostgreSQL - Serveur unique
 
-Les sections suivantes décrivent les problèmes connus et limitations associés aux migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL.
+Les sections suivantes décrivent les problèmes connus et limitations associés aux migrations en ligne de PostgreSQL vers Azure Database pour PostgreSQL - Serveur unique.
 
 ## <a name="online-migration-configuration"></a>Configuration d’une migration en ligne
 
-- Le serveur PostgreSQL source doit exécuter la version 9.5.11, 9.6.7 ou 10.3, ou une version ultérieure. Pour plus d’informations, consultez l’article [Versions de bases de données PostgreSQL prises en charge](../postgresql/concepts-supported-versions.md).
+- Le serveur PostgreSQL source doit exécuter la version 9.5.11, 9.6.7 ou 10.3, ou ultérieure. Pour plus d’informations, consultez l’article [Versions de bases de données PostgreSQL prises en charge](../postgresql/concepts-supported-versions.md).
 - Seules les migrations dans la même région sont prises en charge. Par exemple, une migration PostgreSQL 9.5.11 à Azure Database pour PostgreSQL 9.6.7 n’est pas prise en charge.
 
     > [!NOTE]
@@ -32,7 +32,7 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 
 - Pour activer la réplication logique dans le fichier **postgresql.config PostgreSQL source**, définissez les paramètres suivants :
   - **wal_level** = logique
-  - **max_replication_slots** = [nombre maximum de bases de données pour la migration] ; si vous souhaitez migrer 4 bases de données, définissez la valeur sur 4
+  - **max_replication_slots** = [max number of databases for migration] ; si vous voulez migrer quatre bases de données, définissez la valeur sur 4
   - **max_wal_senders** = [nombre de bases de données exécutées simultanément] ; la valeur recommandée est 10
 - Ajouter une adresse IP d’agent DMS au fichier pg_hba.conf PostgreSQL source
   1. Notez l’adresse IP DMS après avoir terminé l’approvisionnement d’une instance de DMS.
@@ -42,7 +42,7 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 
 - L’utilisateur doit disposer de l’autorisation de super utilisateur sur le serveur hébergeant la base de données source
 - Hormis ENUM dans le schéma de base de données source, les schémas de bases de données source et cible doivent correspondre.
-- Le schéma de la base de données cible dans Azure Database pour PostgreSQL ne doit pas inclure de clés étrangères. Pour supprimer les clés étrangères, utilisez la requête suivante :
+- Le schéma de la base de données cible dans Azure Database pour PostgreSQL - Serveur unique ne doit pas inclure de clés étrangères. Pour supprimer les clés étrangères, utilisez la requête suivante :
 
     ```
                                 SELECT Queries.tablename
@@ -73,7 +73,7 @@ Les sections suivantes décrivent les problèmes connus et limitations associés
 
     Exécutez la clé étrangère Drop (deuxième colonne) dans le résultat de la requête.
 
-- Le schéma de la base de données cible dans Azure Database pour PostgreSQL ne doit pas inclure de déclencheurs. Utilisez la commande suivante pour désactiver les déclencheurs dans la base de données cible :
+- Le schéma de la base de données cible dans Azure Database pour PostgreSQL - Serveur unique ne doit pas inclure de déclencheurs. Utilisez la commande suivante pour désactiver les déclencheurs dans la base de données cible :
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

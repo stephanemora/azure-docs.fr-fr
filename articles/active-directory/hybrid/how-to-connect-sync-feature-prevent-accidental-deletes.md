@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135795"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827140"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Synchronisation d’Azure AD Connect : prévention des suppressions accidentelles
 Cette rubrique décrit la fonctionnalité Prévention des suppressions accidentelles dans Azure AD Connect.
@@ -60,6 +60,7 @@ Si l'événement n'était pas prévu, examinez la situation et corrigez-la si n�
 
 [!NOTE] Si vous ne savez pas si toutes les suppressions sont souhaitées et que vous voulez jouer la sécurité, vous pouvez utiliser l’applet de commande PowerShell `Enable-ADSyncExportDeletionThreshold` pour définir un nouveau seuil au lieu de désactiver le seuil qui pourrait permettre des suppressions indésirables. 
 
+## <a name="if-all-deletes-are-desired"></a>Si toutes les suppressions sont souhaitées
 Si vous souhaitez que tous les éléments soient supprimés, procédez comme suit :
 
 1. Pour récupérer le seuil de suppression actuel, exécutez l’applet de commande PowerShell `Get-ADSyncExportDeletionThreshold`. Indiquez un compte et un mot de passe d’administrateur général Azure AD. La valeur par défaut est 500.

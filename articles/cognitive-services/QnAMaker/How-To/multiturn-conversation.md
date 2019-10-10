@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 585dc03503a61ff6666d3da3374586287e24283f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: dc99626e2341e180ba0ab191003cf3a6ba9b72e9
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966695"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695141"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -55,23 +55,37 @@ Quand vous créez une base de connaissances, la section **Populate your KB** pr�
 
 ![Case à cocher permettant d’activer l’extraction multitour](../media/conversational-context/enable-multi-turn.png)
 
-Quand vous sélectionnez cette option pour un document importé, la conversation multitour peut être suggérée par la structure du document. Si cette structure existe, QnA Maker crée l’invite de suivi qui regroupe les questions et les réponses par paires dans le cadre du processus d’importation. 
+Quand vous sélectionnez cette option, la conversation multitour peut être suggérée par la structure du document. Si cette structure existe, QnA Maker crée l’invite de suivi qui regroupe les questions et les réponses par paires dans le cadre du processus d’importation. 
 
 La structure multitour ne peut être déduite qu’à partir d’URL, de fichiers PDF ou de fichiers DOCX. Pour obtenir un exemple de structure, examinez une image du [fichier PDF du manuel utilisateur Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Compte tenu de la taille de ce fichier PDF, la ressource QnA Maker a besoin d’un **niveau tarifaire de recherche** **B** (15 index) ou supérieur. 
 
 ![![Exemple de structure dans un manuel utilisateur](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-Quand vous importez le document PDF, QnA Maker détermine des invites de suivi à partir de la structure pour créer un flux de conversation. 
+### <a name="determine-multi-turn-structure-from-format"></a>Déterminer la structure multitour à partir de la mise en forme
 
-1. Dans QnA Maker, sélectionnez **Create a knowledge base**.
-1. Créez ou utilisez un service QnA Maker existant. Dans l’exemple Microsoft Surface précédent, le fichier PDF est trop volumineux pour un niveau inférieur. Vous devez donc utiliser un service QnA Maker avec un **service de recherche** **B** (15 index) ou supérieur.
-1. Entrez un nom pour votre base de connaissances, par exemple **Manuel Surface**.
-1. Cochez la case **Enable multi-turn extraction from URLs, .pdf or .docx files**. 
-1. Sélectionnez l’URL du manuel Surface : **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
+QnA Maker détermine la structure multitour à partir des éléments suivants :
 
-1. Sélectionnez le bouton **Create your KB**. 
+* Taille de la police de titre : si vous utilisez un style, une couleur ou un autre mécanisme pour suggérer la structure dans votre document, QnA Maker n’extrait pas les invites multitours. 
 
-    Une fois la base de connaissances créée, une vue des paires de questions/réponses s’affiche.
+Exemple de règle de titre :
+
+* Ne pas terminer un titre par un point d’interrogation (`?`). 
+
+### <a name="add-file-with-multi-turn-prompts"></a>Ajouter un fichier avec des invites multitours
+
+Quand vous ajoutez un document multitour, QnA Maker détermine des invites de suivi à partir de la structure pour créer un flux de conversation. 
+
+1. Dans QnA Maker, sélectionnez une base de connaissances existante créée avec la case **Enable multi-turn extraction from URLs, .pdf or .docx files** cochée. 
+1. Accédez à la page **Settings** (Paramètres), puis sélectionnez le fichier ou l’URL à ajouter. 
+1. Sélectionnez **Save and train** pour enregistrer et entraîner la base de connaissances.
+
+> [!Caution]
+> L’utilisation d’un fichier de base de connaissances multitour TSV ou XLS exporté comme source de données pour une base de connaissances, nouvelle ou vide, n’est pas prise en charge. Vous devez importer (**Import**) ce type de fichier à partir de la page **Settings** du portail QnA Maker pour ajouter des invites multitours exportées à une base de connaissances.
+
+
+## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Créer la base de connaissances avec des invites multitours à l’aide de l’API Create
+
+Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `prompts` de la propriété `context`. 
 
 ## <a name="show-questions-and-answers-with-context"></a>Présenter les questions et les réponses avec du contexte
 
@@ -126,29 +140,6 @@ Quand une invite de suivi est créée et qu’une paire de questions/réponses e
 1. Une fois le texte d’affichage modifié, sélectionnez **Save**. 
 1. Dans la barre de navigation du haut, choisissez **Save and train**.
 
-
-<!--
-
-## To find the best prompt answer, add metadata to follow-up prompts 
-
-If you have several follow-up prompts for a specific question-and-answer pair but you know, as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base. You can then send the metadata from the client application as part of the GenerateAnswer request.
-
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, and then the follow-ups are returned.
-
-1. Add metadata to each of the two follow-up question-and-answer pairs:
-
-    |Question|Add metadata|
-    |--|--|
-    |*Feedback on a QnA Maker service*|"Feature":"all"|
-    |*Feedback on an existing feature*|"Feature":"one"|
-    
-    ![The "Metadata tags" column for adding metadata to a follow-up prompt](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
-
-1. Select **Save and train**. 
-
-    When you send the question **Give feedback** with the metadata filter **Feature** with a value of **all**, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
-
--->
 
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Ajouter une nouvelle paire de questions/réponses comme invite de suivi
 
@@ -374,21 +365,13 @@ Vous avez ajouté des invites dans votre base de connaissances et testé le flux
 
 Le [texte d’affichage et l’ordre d’affichage](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), retournés dans la réponse JSON, sont pris en charge par l’[API Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) et peuvent être modifiés. 
 
-<!--
-
-FIX - Need to go to parent, then answer column, then edit answer. 
-
--->
-
-## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Créer la base de connaissances avec des invites multitours à l’aide de l’API Create
-
-Vous pouvez créer une base de connaissances avec des invites multitours à l’aide de l’[API Create de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Les invites sont ajoutées dans le tableau `prompts` de la propriété `context`. 
-
-
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Ajouter ou supprimer des invites multitours à l’aide de l’API Update
 
 Vous pouvez ajouter ou supprimer des invites multitours à l’aide de l’[API Update de QnA Maker](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Les invites sont ajoutées dans le tableau `promptsToAdd` et le tableau `promptsToDelete` de la propriété `context`. 
 
+## <a name="export-knowledge-base-for-version-control"></a>Exporter la base de connaissances pour la gestion de versions
+
+QnA Maker [prend en charge la gestion de versions](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) dans le portail QnA Maker en incluant des étapes de conversation multitour dans le fichier exporté.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

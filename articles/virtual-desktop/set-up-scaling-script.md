@@ -1,22 +1,22 @@
 ---
-title: Mettre automatiquement à l’échelle des hôtes de session Windows Virtual Desktop Preview - Azure
-description: Décrit comment configurer le script de mise à l’échelle automatique pour les hôtes de session Windows Virtual Desktop Preview.
+title: Mettre à l’échelle automatiquement des hôtes de session Windows Virtual Desktop - Azure
+description: Explique comment configurer le script de mise à l’échelle automatique pour les hôtes de session Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 7babfca617ab42da615518726d1b1d4cafe112b5
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163230"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676487"
 ---
 # <a name="automatically-scale-session-hosts"></a>Mettre automatiquement à l’échelle vos hôtes de session
 
-Pour de nombreux déploiements Windows Virtual Desktop Preview dans Azure, les coûts des machines virtuelles représentent une partie significative du total des coûts de déploiement Windows Virtual Desktop. Pour réduire les coûts, il est préférable d’arrêter et de libérer les machines virtuelles hôtes de la session pendant les heures d’utilisation creuses, puis de les redémarrer pendant les heures de pointe.
+Pour de nombreux déploiements de Windows Virtual Desktop dans Azure, les coûts liés aux machines virtuelles représentent une part significative du coût total de déploiement de Windows Virtual Desktop. Pour réduire les coûts, il est préférable d’arrêter et de libérer les machines virtuelles hôtes de la session pendant les heures d’utilisation creuses, puis de les redémarrer pendant les heures de pointe.
 
 Cet article utilise un script de mise à l’échelle simple pour mettre automatiquement à l’échelle les machines virtuelles de l’hôte de la session dans votre environnement Windows Virtual Desktop. Pour en savoir plus sur le fonctionnement du script de mise à l’échelle, consultez la section [How the scaling script works](#how-the-scaling-script-works) (Fonctionnement du script de mise à l’échelle).
 

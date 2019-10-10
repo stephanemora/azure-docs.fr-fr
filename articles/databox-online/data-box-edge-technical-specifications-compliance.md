@@ -6,18 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910138"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326896"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Spécifications techniques d’Azure Data Box Edge
 
 Les composants matériels de votre appareil Microsoft Azure Data Box Edge sont conformes aux spécifications techniques et normes réglementaires présentées dans cet article. Les spécifications techniques décrivent les blocs d’alimentation (PSU), la capacité de stockage, les boîtiers et les normes environnementales. 
+
+## <a name="compute-memory-specifications"></a>Spécifications de calcul et de mémoire
+
+L’appareil Data Box Edge présente les spécifications suivantes en termes de calcul et de mémoire :
+
+| Caractéristique           | Valeur                  |
+|-------------------------|----------------------------|
+| UC    | 2 processeurs 10 cœurs                     |
+| Mémoire              | 128 Go de RAM                  |
+
+
+## <a name="fpga-specifications"></a>Spécifications FPGA
+
+Pour les scénarios de machine learning, chaque appareil Data Box Edge dispose d’un FPGA (field programmable gate array). 
+
+| Caractéristique           | Valeur                  |
+|-------------------------|----------------------------|
+| FPGA   | Intel Arria 10 <br> Les modèles à réseau neuronal profond disponibles sont les mêmes que ceux [pris en charge par les instances cloud FPGA](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+
 
 ## <a name="power-supply-unit-specifications"></a>Spécifications des blocs d’alimentation
 

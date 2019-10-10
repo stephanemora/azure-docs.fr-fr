@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510097"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326600"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C : Se connecter à l’aide d’une application iOS
 
@@ -32,13 +32,14 @@ Si vous découvrez OAuth2 ou OpenID Connect, cet exemple de configuration n’es
 Avant de pouvoir utiliser Azure AD B2C, vous devez créer un répertoire ou un client. Un répertoire est un conteneur destiné à recevoir tous vos utilisateurs, applications, groupes et autres. Si vous n’en possédez pas déjà un, [créez un répertoire B2C](tutorial-create-tenant.md) avant de continuer.
 
 ## <a name="create-an-application"></a>Création d'une application
-Vous devez maintenant créer dans votre répertoire B2C une application L’inscription des applications fournit à Azure AD les informations nécessaires pour communiquer avec votre application en toute sécurité. Pour créer une application mobile, suivez [ces instructions](active-directory-b2c-app-registration.md). Veillez à effectuer les opérations suivantes :
 
-* Incluez un **Client natif** dans l’application.
-* Copiez l’ **ID d’application** affecté à votre application. Vous aurez besoin de ce GUID ultérieurement.
-* Configurez un **URI de redirection** avec un schéma personnalisé (par exemple, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Vous aurez besoin de cet URI ultérieurement.
+Inscrivez ensuite une application dans votre locataire Azure AD B2C. Vous fournissez ainsi à Azure AD les informations nécessaires pour communiquer avec votre application en toute sécurité.
 
-## <a name="create-your-user-flows"></a>Créer vos flux d’utilisateurs
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+
+Enregistrez l’**ID D’APPLICATION** pour l’utiliser lors d’une étape ultérieure. Sélectionnez ensuite l’application dans la liste et enregistrez l’**URI de redirection personnalisé** pour l’utiliser également lors d’une étape ultérieure. Par exemple : `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+
+## <a name="create-your-user-flows"></a>Créer vos flux utilisateur
 Dans Azure AD B2C, chaque expérience utilisateur est définie par un [flux utilisateur](active-directory-b2c-reference-policies.md). Cette application offre une expérience unique en matière d'identité en combinant connexion et inscription. Lorsque vous créez le flux utilisateur, veillez à effectuer les actions suivantes :
 
 * Sous **Sign-up attributes** (Attributs d’abonnement), sélectionnez l’attribut **Nom complet**.  Vous pouvez sélectionner d’autres attributs également.
@@ -79,21 +80,22 @@ static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.
 Exécutez le code suivant pour créer votre objet AuthorizationServiceConfiguration :
 
 ```objc
-OIDServiceConfiguration *configuration = 
+OIDServiceConfiguration *configuration =
     [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:authorizationEndpoint tokenEndpoint:tokenEndpoint];
 // now we are ready to perform the auth request...
 ```
 
 ### <a name="authorizing"></a>Autorisation
 
-Après la configuration ou la récupération d’une configuration de service d’autorisation, une demande d’autorisation peut être créée. Pour créer la demande, vous avez besoin des informations suivantes :  
-* ID client (par exemple, 00000000-0000-0000-0000-000000000000)
-* URI de redirection avec un schéma personnalisé (par exemple, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)
+Après la configuration ou la récupération d’une configuration de service d’autorisation, une demande d’autorisation peut être créée. Pour créer la demande, vous avez besoin des informations suivantes :
+
+* ID client (ID d’APPLICATION) que vous avez enregistré précédemment. Par exemple : `00000000-0000-0000-0000-000000000000`.
+* URI de redirection personnalisé que vous avez enregistré précédemment. Par exemple : `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Les deux éléments doivent avoir été enregistrés là où vous avez [inscrit votre application](#create-an-application).
 
 ```objc
-OIDAuthorizationRequest *request = 
+OIDAuthorizationRequest *request =
     [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
                                                   clientId:kClientId
                                                     scopes:@[OIDScopeOpenID, OIDScopeProfile]
@@ -102,7 +104,7 @@ OIDAuthorizationRequest *request =
                                       additionalParameters:nil];
 
 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-appDelegate.currentAuthorizationFlow = 
+appDelegate.currentAuthorizationFlow =
     [OIDAuthState authStateByPresentingAuthorizationRequest:request
                                    presentingViewController:self
                                                    callback:^(OIDAuthState *_Nullable authState, NSError *_Nullable error) {

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: b86c0d0de95581f7a47de428ffbf0b161353df83
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 84567b68c85a48d0fc02f6f6a4986d8092215a92
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260743"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326496"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
 
@@ -183,15 +183,16 @@ Microsoft fournit plusieurs images Docker dans un dépôt accessible publiquemen
 | Image | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Image de base pour Azure Machine Learning |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | Contient le runtime ONNX. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | Contient le runtime ONNX et les composants CUDA. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | Contient le runtime ONNX et TensorRT. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contient ONNX Runtime pour l’inférence du processeur |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contient ONNX Runtime et CUDA pour le GPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contient ONNX Runtime et TensorRT pour le GPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contient ONNX Runtime et OpenVINO pour la technologie Intel<sup></sup> Vision Accelerator Design basée sur les VPU Movidius<sup>TM</sup> MyriadX |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Contient ONNX Runtime et OpenVINO pour les clés USB Intel<sup></sup> Movidius<sup>TM</sup> |
+
+Pour plus d’informations sur les images de base ONNX Runtime, consultez la [section ONNX Runtime dockerfiles](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) dans le dépôt GitHub.
 
 > [!TIP]
 > Dans la mesure où ces images sont disponibles publiquement, vous n’avez pas besoin de fournir une adresse, un nom d’utilisateur ni un mot de passe lors de leur utilisation.
-
-> [!IMPORTANT]
-> Les images Microsoft qui utilisent CUDA ou TensorRT sont exclusivement réservées à une utilisation sur les services Microsoft Azure.
 
 Pour plus d’informations, consultez [Conteneurs Azure Machine Learning](https://github.com/Azure/AzureML-Containers).
 

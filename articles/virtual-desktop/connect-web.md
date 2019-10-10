@@ -1,22 +1,22 @@
 ---
-title: Se connecter à Windows Virtual Desktop (préversion) à partir d’un navigateur web - Azure
-description: Comment se connecter à la préversion de Windows Virtual Desktop à partir d’un navigateur web.
+title: Se connecter à Windows Virtual Desktop à partir d’un navigateur web - Azure
+description: Guide pratique pour se connecter à Windows Virtual Desktop à l’aide du client web.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 4f6bb7c414c38eaa605d259195218c461ddb0ca7
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e7fa1d2b21bfde6495a63676bc2aa1faa07e6bc5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620159"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676757"
 ---
-# <a name="connect-from-a-web-browser"></a>Se connecter à partir d’un navigateur web
+# <a name="connect-with-the-web-client"></a>Se connecter avec le client web
 
-Le client web vous permet d’accéder aux ressources de la préversion de Windows Virtual Desktop à partir d’un navigateur web sans processus fastidieux d’installation.
+Le client web vous permet d’accéder à vos ressources Windows Virtual Desktop à partir d’un navigateur web sans processus d’installation fastidieux.
 
 >[!NOTE]
 >Le client web ne prend pas en charge les systèmes d’exploitation mobiles.

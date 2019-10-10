@@ -7,27 +7,23 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: cfe7d5fa82197a05ddadd08a8811dc86067a05d7
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: a2ec179321c5d9cb6e9627e397fcb6ae09dc82ed
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806484"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349140"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualiser des données à l’aide du connecteur Azure Data Explorer pour Power BI
 
-L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Power BI est une solution d’analytique métier qui vous permet de visualiser vos données et de partager les résultats dans votre organisation.
-
-Azure Data Explorer offre trois options pour se connecter à des données dans Power BI : utiliser le connecteur intégré, importer une requête depuis Azure Data Explorer ou utiliser une requête SQL. Cet article vous montre comment utiliser le connecteur intégré pour obtenir des données et les visualiser dans un rapport Power BI.
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
+L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Power BI est une solution d’analytique métier qui vous permet de visualiser vos données et de partager les résultats dans votre organisation. Azure Data Explorer offre trois options pour se connecter à des données dans Power BI : utiliser le connecteur intégré, importer une requête depuis Azure Data Explorer ou utiliser une requête SQL. Cet article vous montre comment utiliser le connecteur intégré pour obtenir des données et les visualiser dans un rapport Power BI. L’utilisation du connecteur natif Azure Data Explorer pour la création de tableaux de bord Power BI est simple. Le connecteur Power BI prend en charge les [modes de connectivité Import et DirectQuery](https://docs.microsoft.com/power-bi/desktop-directquery-about). Vous pouvez générer des tableaux de bord à l’aide du mode **Importer** ou **DirectQuery** en fonction des spécifications du scénario, de mise à l’échelle et de performances. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 Vous avez besoin des éléments suivants dans le cadre de cet article :
 
+* Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Un compte e-mail professionnel qui est membre d’Azure Active Directory pour pouvoir vous connecter au [cluster help d’Azure Data Explorer](https://dataexplorer.azure.com/clusters/help/databases/samples).
-
 * [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (sélectionnez **TÉLÉCHARGER GRATUITEMENT**)
 
 ## <a name="get-data-from-azure-data-explorer"></a>Obtenir des données auprès d’Azure Data Explorer
@@ -54,6 +50,18 @@ Connectez-vous d’abord au cluster help d’Azure Data Explorer : vous récup�
     | Options avancées | Laisser vide | Options pour vos requêtes, comme la taille du jeu de résultats. |
     | Mode de connectivité des données | *DirectQuery* | Détermine si Power BI importe les données ou s’il se connecte directement à la source de données. Vous pouvez utiliser l’une ou l’autre des options avec ce connecteur. |
     | | | |
+    
+    > [!NOTE]
+    > En mode **Import**, les données sont déplacées vers Power BI. En mode **DirectQuery**, les données sont interrogées directement à partir de votre cluster Azure Data Explorer.
+    >
+    > Utilisez le mode **Import** dans les cas suivants :
+    > * Votre jeu de données est petit.
+    > * Vous n’avez pas besoin de données en quasi temps réel. 
+    > * Vos données sont déjà agrégées ou vous effectuez l’[agrégation dans Kusto](/azure/kusto/query/summarizeoperator#list-of-aggregation-functions)    
+    >
+    > Utilisez le mode **DirectQuery** dans les cas suivants :
+    > * Votre jeu de données est très volumineux. 
+    > * Vous avez besoin de données en quasi temps réel.   
 
 1. Si vous n’avez pas déjà une connexion au cluster help, connectez-vous. Connectez-vous avec un compte professionnel, puis sélectionnez **Se connecter**.
 
@@ -87,4 +95,4 @@ Si vous n’avez plus besoin du rapport que vous avez créé pour cet article, s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Visualiser des données avec une requête importée dans Power BI](power-bi-imported-query.md)
+[Conseils d’interrogation de données à l’aide du connecteur Azure Data Explorer pour Power BI](power-bi-best-practices.md#tips-for-using-the-azure-data-explorer-connector-for-power-bi-to-query-data)

@@ -1,5 +1,5 @@
 ---
-title: Utiliser une identité managée attribuée par le système d’une application App Service pour accéder à Azure Key Vault
+title: Utiliser une identité managée attribuée par le système pour accéder à Azure Key Vault
 description: Découvrez comment créer une identité managée pour les applications App Service et comment l’utiliser pour accéder à Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -9,18 +9,19 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8ac6f9be80d31804089ae2589998079dc7df66b3
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004178"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720248"
 ---
-# <a name="use-an-app-service-managed-identity-to-access-azure-key-vault"></a>Utiliser une identité managée App Service pour accéder à Azure Key Vault 
+# <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Fournir une authentification Key Vault avec une identité managée
 
-Cet article montre comment créer une identité managée pour les applications App Service et comment l’utiliser pour accéder à Azure Key Vault. Pour les applications hébergées sur des machines virtuelles Azure, consultez [Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). 
+Une identité managée issue d’Azure Active Directory permet à votre application d’accéder facilement aux autres ressources protégées par Azure AD. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations, voir [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
-Une identité managée issue d’Azure Active Directory permet à votre application d’accéder facilement aux autres ressources protégées par Azure AD. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans Azure AD, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md). 
+Cet article montre comment créer une identité managée pour une application App Service et comment l’utiliser pour accéder à Azure Key Vault. Pour les applications hébergées sur des machines virtuelles Azure, consultez [Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +33,8 @@ Pour suivre ce guide, vous avez besoin des ressources suivantes.
    - [Créer un coffre de clés avec Azure CLI](quick-create-cli.md)
    - [Créer un coffre de clés avec Azure PowerShell](quick-create-powershell.md)
    - [Créer un coffre de clés avec le portail Azure](quick-create-portal.md).
-- Une application App Service existante à laquelle accorder l’accès au coffre de clés. Vous pouvez en créer une rapidement en suivant les étapes décrites dans la [documentation App Service](../app-service/overview.md)/
+- Une application App Service existante à laquelle accorder l’accès au coffre de clés. Vous pouvez en créer une rapidement en suivant les étapes décrites dans la [documentation App Service](../app-service/overview.md).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview). Vous pouvez également utiliser le [portail Azure](http://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Ajout d’une identité attribuée par le système 
@@ -101,7 +103,7 @@ Prenez note de `PrincipalId`, qui sera nécessaire dans la section suivante.
 
 ### <a name="azure-cli"></a>D’Azure CLI
 
-Pour autoriser votre application à accéder à votre coffre de clés, utilisez la commande Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy), en fournissant le paramètre **ObjectID** avec le **principalId* noté ci-dessus.
+Pour autoriser votre application à accéder à votre coffre de clés, utilisez la commande Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy), en fournissant le paramètre **ObjectId** avec le **principalId** noté ci-dessus.
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-permissions get list 
@@ -109,7 +111,9 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Lire la [vue d’ensemble Azure Key Vault](key-vault-overview.md)
-- Consulter le [Guide du développeur Azure Key Vault](key-vault-developers-guide.md)
-- Découvrir les [clés, secrets et certificats](about-keys-secrets-and-certificates.md)
+- [Sécurité d’Azure Key Vault : Gestion des identités et des accès](overview-security.md#identity-and-access-management)
+- [Fournir une authentification Key Vault avec une stratégie de contrôle d’accès](key-vault-group-permissions-for-apps.md)
+- [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)
+- [Sécuriser votre coffre de clés](key-vault-secure-your-key-vault.md)
+- [Guide du développeur Azure Key Vault](key-vault-developers-guide.md)
 - Passer en revue les [bonnes pratiques relatives à Azure Key Vault](key-vault-best-practices.md)

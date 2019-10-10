@@ -36,3 +36,5 @@
   items:
     - name: Ouverture d’un ticket de support
       href: hpc-cache-support-ticket.md
+    - name: Récupérer après une panne régionale
+      href: hpc-region-recovery.md

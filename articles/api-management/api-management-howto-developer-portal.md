@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: da75ca43a2576e3214d4b67f9eb61c7bad3bd5cc
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c015b1afbc61e1501e656aaa480ee2a4e19ba094
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073511"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672786"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Accès et personnalisation du nouveau portail des développeurs pour la gestion des API Azure
 
@@ -86,6 +86,14 @@ Parfait ! Vous pouvez nous faire part de vos commentaires, soumettre une demand
 Vous pouvez le faire dans les deux versions du portail, managée et auto-hébergée. Le nouveau portail des développeurs prend en charge l’extraction de contenu via l’API de gestion de votre service Gestion des API. Les API sont documentées [dans la section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki/). Nous avons également écrit [un script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), qui peut vous aider à démarrer.
 
 Nous travaillons toujours sur l’alignement de ce processus avec le kit de ressources DevOps de Gestion des API.
+
+### <a name="what-do-i-need-to-configure-for-the-new-portal-to-work-in-my-api-management-service-in-vnet"></a>Que dois-je configurer pour que le nouveau portail fonctionne dans mon service Gestion des API dans le réseau virtuel ?
+
+Pendant que le nouveau portail des développeurs est en préversion, vous devez autoriser la connectivité aux services de stockage Azure dans la région USA Ouest afin que le portail géré fonctionne dans un service Gestion des API dans le réseau virtuel. Vous trouverez plus d’informations dans la [documentation sur le stockage](../storage/common/storage-network-security.md#available-virtual-network-regions).
+
+La configuration ci-dessus ne sera plus nécessaire une fois que le nouveau portail sera en disponibilité générale.
+
+La version auto-hébergée du portail peut nécessiter une définition de connectivité supplémentaire, en fonction de votre configuration.
 
 ### <a name="how-can-i-select-a-layout-when-creating-a-new-page"></a>Comment puis-je sélectionner une *disposition* lors de la création d’une *page* ?
 

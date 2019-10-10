@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: dalek
-ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 448469d4c1ff15ed2ba814dfaa653c4d3c7e3452
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067011"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677812"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -30,7 +30,7 @@ Si vous avez des questions sur les tarifs d’Application Insights, vous pouvez 
 
 ## <a name="pricing-model"></a>Modèle de tarification
 
-Les tarifs pour [Azure Application Insights][start] sont basés sur le volume de données ingérées. Chaque ressource d’Application Insights est facturée comme un service distinct et s’ajoute à votre facture d’abonnement Azure.
+Les tarifs d’[Azure Application Insights][start] sont basés sur le volume de données ingérées et peuvent varier si la période de conservation des données est plus longue. Chaque ressource d’Application Insights est facturée comme un service distinct et s’ajoute à votre facture d’abonnement Azure.
 
 ### <a name="data-volume-details"></a>Détails du volume de données
 
@@ -47,7 +47,7 @@ Les [tests web à plusieurs étapes](../../azure-monitor/app/availability-multis
 
 Aucun frais supplémentaire n’est facturé pour les *tests Ping* sur une seule page. Les données de télémétrie des tests Ping et des tests à plusieurs étapes sont facturées comme les autres données de télémétrie de votre application.
 
-## <a name="review-usage-and-estimate-costs"></a>Réviser l’utilisation et estimer les coûts
+## <a name="understand-your-usage-and-estimate-costs"></a>Comprendre votre utilisation et estimer les coûts
 
 Application Insights vous permet de comprendre facilement à combien vont s’élever vos coûts en fonction des modèles d’utilisation récente. Pour commencer, dans le portail Azure, pour la ressource Application Insights, accédez à la page **Utilisation et estimation des coûts** :
 
@@ -110,11 +110,17 @@ Voici quelques opérations possibles pour réduire le volume de données :
 * Répartissez vos données de télémétrie entre les clés d’instrumentation. 
 * Procédez à la pré-agrégation des métriques. Si vous placez des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
-## <a name="manage-the-maximum-daily-data-volume"></a>Gérer le volume de données maximal quotidien
+## <a name="manage-your-maximum-daily-data-volume"></a>Gérer le volume de données maximal quotidien
 
 Vous pouvez utiliser la limite quotidienne de volume pour limiter les données collectées. Toutefois, si la limite est atteinte, toutes les données de télémétrie envoyées à partir de votre application sont perdues pour le reste de la journée. Il est *déconseillé* que votre application atteigne la limite quotidienne. Vous ne pouvez pas suivre l’intégrité et les performances de votre application une fois qu’elle a atteint la limite quotidienne.
 
 Au lieu d’utiliser la limite quotidienne de volume, utilisez [l’échantillonnage](../../azure-monitor/app/sampling.md) pour régler le volume de données sur le niveau souhaité. Ensuite, n’utilisez la limite quotidienne qu’en « dernier recours », au cas où votre application commencerait soudainement à envoyer des volumes de données de télémétrie beaucoup plus élevés.
+
+### <a name="identify-what-daily-data-limit-to-define"></a>Identifier la limite de données quotidienne à définir
+
+Consultez les informations sur l’utilisation et les coûts estimés d’Application Insights pour comprendre les tendances d’ingestion des données et la limite quotidienne de volume à définir. Effectuez cette opération avec précaution, car vous ne pourrez plus surveiller vos ressources, une fois que la limite sera atteinte. 
+
+### <a name="set-the-daily-cap"></a>Définir la limite quotidienne
 
 Pour changer la limite quotidienne, accédez à la section **Configurer** de votre ressource Application Insights, dans la page **Utilisation et estimation des coûts**, puis sélectionnez **Limite quotidienne**.
 
@@ -160,6 +166,10 @@ Pour changer le délai de conservation, dans votre ressource Application Insight
 ![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-005.png)
 
 Quand la facturation est activée pour une rétention plus longue, les données conservées pendant plus de 90 jours sont facturées selon le même tarif que celles actuellement facturées pour la conservation des données Azure Log Analytics. Apprenez-en davantage dans la [page des tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Tenez-vous informé de la progression de la rétention variable en [votant pour cette suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+
+## <a name="data-transfer-charges-using-application-insights"></a>Frais de transfert de données avec Application Insights
+
+L’envoi de données à Application Insights peut entraîner des frais de bande passante. Comme décrit dans la [page sur les tarifs de bande passante Azure](https://azure.microsoft.com/pricing/details/bandwidth/), le transfert de données entre des services Azure situés dans deux régions différentes est facturé en tant que transfert de données sortant au tarif normal. Le transfert de données entrant est gratuit. Toutefois, ces frais sont très limités (et ne représentent qu’un faible pourcentage) par rapport aux coûts liés à l’ingestion de données de journal d’Application Insights. Ainsi, la maîtrise des coûts pour Log Analytics doit s’appuyer sur le volume de données ingérées. Vous trouverez des explications à ce sujet [ici](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume).   
 
 ## <a name="limits-summary"></a>Synthèse des limites
 

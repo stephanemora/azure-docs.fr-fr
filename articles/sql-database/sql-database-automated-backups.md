@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, carlrab, danil
 manager: craigg
-ms.date: 08/22/2019
-ms.openlocfilehash: 551c2c02af7b996a34a138586fd91a77a0455d92
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/26/2019
+ms.openlocfilehash: cc6041a228545ffef158e3d627de983a154513a5
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904321"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350932"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -46,10 +46,10 @@ Vous pouvez essayer certaines de ces opérations en utilisant les exemples suiva
 
 | | Le portail Azure | Azure PowerShell |
 |---|---|---|
-| Modifier la rétention des sauvegardes | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Modifier la rétention des sauvegardes | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [Managed Instance](sql-database-automated-backups.md#managed-instance-database) | [Base de données unique](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | Modifier la rétention des sauvegardes à long terme | [Base de données unique](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Managed Instance - N/A  | [Base de données unique](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Managed Instance - N/A  |
 | Restaurer la base de données dans le temps | [Base de données unique](sql-database-recovery-using-backups.md#point-in-time-restore) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Restauration d’une base de données supprimée | [Base de données unique](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Restauration d’une base de données supprimée | [Base de données unique](sql-database-recovery-using-backups.md#deleted-database-restore-using-azure-portal) | [Base de données unique](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Managed Instance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Restauration d’une base de données à partir du Stockage Blob Azure | Base de données unique - N/A <br/>Managed Instance - N/A  | Base de données unique - N/A <br/>[Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
@@ -114,15 +114,19 @@ Vous pouvez modifier la période de rétention des sauvegardes PITR par défaut 
 > [!NOTE]
 > Ces API impactent uniquement la période de conservation PITR. Si vous avez configuré la conservation à long terme pour votre base de données, elle ne sera pas affectée. Consultez [Conservation à long terme](sql-database-long-term-retention.md) pour en savoir plus sur la modification des périodes de conservation à long terme.
 
-### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Modifier la période de conservation des sauvegardes PITR à l’aide du Portail Azure
+### <a name="change-pitr-backup-retention-period-using-azure-portal"></a>Changer la période de conservation des sauvegardes PITR à l’aide du portail Azure
 
 Pour changer la période de rétention des sauvegardes PITR dans le portail Microsoft Azure, accédez à l’objet serveur dont vous souhaitez changer la période de rétention dans le portail, puis sélectionnez l’option appropriée, selon l’objet serveur que vous modifiez.
 
-#### <a name="change-pitr-for-a-sql-database-server"></a>Modification de la récupération jusqu’à une date et heure d’un serveur SQL Database
+#### <a name="single-azure-sql-database"></a>Base de données Azure SQL unique
+
+Le changement de la conservation des sauvegardes PITR pour les bases de données Azure SQL uniques est effectué au niveau du serveur. Les changements effectués au niveau du serveur s’appliquent aux bases de données sur le serveur concerné. Pour changer le processus PITR pour un serveur Azure SQL Database à partir du portail Azure, accédez au panneau de vue d’ensemble du serveur, cliquez sur Gérer les sauvegardes dans le menu de navigation, puis cliquez sur Configurer la rétention dans la barre de navigation.
 
 ![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="change-pitr-for-a-managed-instance"></a>Changer la valeur PITR d’une instance gérée
+#### <a name="managed-instance-database"></a>Base de données d’instance managée
+
+La modification de la conservation des sauvegardes PITR pour une instance managée SQL Database est effectuée au niveau d’une base de données individuelle. Pour changer la conservation des sauvegardes PITR pour une base de données d’instance à partir du portail Azure, accédez au panneau de vue d’ensemble de la base de données concernée, puis cliquez sur Configurer la conservation de sauvegarde dans la barre de navigation.
 
 ![Modification PITR sur le Portail Azure](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 

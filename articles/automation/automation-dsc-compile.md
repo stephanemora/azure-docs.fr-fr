@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10ddb7272de164e6f92022a6f512df31753f7e31
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 3d9c6c9b73f8887d4fdb85da277b2e27d8f5221c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265124"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243563"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilation de configurations DSC dans Azure Automation State Configuration
 
@@ -56,7 +56,7 @@ pour afficher ses flux (sortie). L’exemple de code suivant démarre la compila
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 
-while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)
+while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception)
 {
     $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     Start-Sleep -Seconds 3
@@ -124,7 +124,7 @@ Pour plus d’informations sur la transmission d’informations d’identificati
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>Compilation de configurations dans Azure Automation qui contiennent des ressources composites
 
-Les **ressources composites** vous permettent d’utiliser des configurations DSC en tant que ressources imbriquées à l’intérieur d’une configuration. Cela vous permet d’appliquer plusieurs configurations à une seule ressource. Consultez [Ressources composites : Utilisation d’une configuration DSC en tant que ressource](/powershell/dsc/authoringresourcecomposite) pour en savoir plus sur les **ressources composites**.
+Les **ressources composites** vous permettent d’utiliser des configurations DSC en tant que ressources imbriquées à l’intérieur d’une configuration. Cela vous permet d’appliquer plusieurs configurations à une seule ressource. Consultez [Ressources composites : Utilisation d’une configuration DSC en tant que ressource](/powershell/scripting/dsc/resources/authoringresourcecomposite) pour en savoir plus sur les **ressources composites**.
 
 > [!NOTE]
 > Pour que les configurations contenant des **ressources composites** se compilent correctement, vous devez en premier lieu vous assurer que toutes les ressources DSC sur lesquelles le composite s’appuie sont d’abord importées dans Azure Automation.

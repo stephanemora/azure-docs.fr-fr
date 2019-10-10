@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 0f036462eb9b37b4ec783bcf8957d307cc55f7ac
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71018509"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345557"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir plus de services.
@@ -94,6 +94,7 @@ Dans la liste des limites ci-dessous, une nouvelle table reflète les différenc
   * [Liaison privée](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Réseau virtuel](#networking-limits)
+  * [Virtual WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [Groupe de ressources](#resource-group-limits)
 * [Contrôle d’accès en fonction du rôle](#role-based-access-control-limits)
@@ -161,6 +162,9 @@ Les valeurs les plus récentes des quotas de calcul Azure Machine Learning sont 
 
 #### <a name="expressroute-limits"></a>Limites d’ExpressRoute
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
+#### <a name="virtual-wan-limits"></a>Limites de Virtual WAN
+[!INCLUDE [virtual-wan-limits](../includes/virtual-wan-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Limites d’Application Gateway
 

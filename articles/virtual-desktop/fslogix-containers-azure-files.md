@@ -7,18 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: fe45adc3eb65631c0b127872240f8d76400f9102
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5e52275cc7215f6c54c2ff6a11faf82114c414b4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899660"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676597"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 
-Le service Windows Virtual Desktop Preview recommande les conteneurs de profils FSLogix comme solution de profil utilisateur. FSLogix est conçu pour l’itinérance des profils dans des environnements informatiques à distance, comme Windows Virtual Desktop. Il stocke un profil utilisateur complet dans un seul conteneur. Lors de la connexion, ce conteneur est dynamiquement attaché à l’environnement informatique en utilisant le disque dur virtuel et le disque dur virtuel Hyper-V pris en charge en mode natif. Le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur natif.
-
-Dans cet article, nous décrivons les conteneurs de profil FSLogix utilisés avec Azure Files. Les informations sont données dans le contexte de Windows Virtual Desktop, qui a été [annoncé le /321](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
+Le service Windows Virtual Desktop recommande les conteneurs de profils FSLogix en tant que solution de profil utilisateur. FSLogix est conçu pour l’itinérance des profils dans des environnements informatiques à distance, comme Windows Virtual Desktop. Il stocke un profil utilisateur complet dans un seul conteneur. Lors de la connexion, ce conteneur est dynamiquement attaché à l’environnement informatique en utilisant le disque dur virtuel et le disque dur virtuel Hyper-V pris en charge en mode natif. Le profil utilisateur est immédiatement disponible et apparaît dans le système exactement comme un profil utilisateur natif. Cet article décrit le fonctionnement des conteneurs de profils FSLogix utilisés avec Azure Files dans Windows Virtual Desktop.
 
 ## <a name="user-profiles"></a>Profils utilisateur
 
@@ -55,7 +53,7 @@ Le tableau suivant présente les avantages et les limitations des technologies d
 
 #### <a name="performance"></a>Performances
 
-UPD nécessite des [espaces de stockage direct (S2D, Storage Spaces Direct)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) pour répondre aux exigences de performances. UPD utilise le protocole SMB (Server Message Block) Il copie le profil sur la machine virtuelle à laquelle l’utilisateur se connecte. UPD avec S2D était la solution recommandée par l’équipe RDS pour Windows Virtual Desktop pendant la période de préversion du service.  
+UPD nécessite des [espaces de stockage direct (S2D, Storage Spaces Direct)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) pour répondre aux exigences de performances. UPD utilise le protocole SMB (Server Message Block) Il copie le profil sur la machine virtuelle à laquelle l’utilisateur se connecte. UPD avec S2D est la solution que nous recommandons pour Windows Virtual Desktop.  
 
 #### <a name="cost"></a>Coût
 
@@ -81,7 +79,7 @@ Les fonctionnalités et les performances des conteneurs de profil FSLogix tirent
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Bonnes pratiques pour Windows Virtual Desktop | Microsoft Docs
 
-Windows Virtual Desktop offre un contrôle total sur la taille, le type et le nombre de machines virtuelles qui sont utilisés par les clients. Pour plus d’informations, consultez [Qu’est-ce que Windows Virtual Desktop Preview ?](overview.md)
+Windows Virtual Desktop offre un contrôle total sur la taille, le type et le nombre de machines virtuelles qui sont utilisés par les clients. Pour plus d’informations, consultez [Qu’est-ce que Windows Virtual Desktop ?](overview.md).
 
 Pour garantir que votre environnement Windows Virtual Desktop suit les bonnes pratiques :
 

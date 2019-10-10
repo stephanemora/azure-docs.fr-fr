@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 280ef8550177a514a6704a8bfab226745222f91e
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 0e5c1974ecb1b3efb8df602c76700b7db04a88d7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029777"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310524"
 ---
 Le stockage Azure offre plusieurs types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les types de comptes de stockage proposés sont les suivants :
 
@@ -27,7 +27,7 @@ Le tableau suivant répertorie les types de comptes de stockage disponibles et l
 
 | Type de compte de stockage | Services pris en charge                       | Niveaux de performances pris en charge      | Niveaux d’accès pris en charge         | Options de réplication               | Modèle de déploiement<div role="complementary" aria-labelledby="deployment-model"><sup>1</sup></div> | Chiffrement<div role="complementary" aria-labelledby="encryption"><sup>2</sup></div> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Universel v2   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Chaud, froid, archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, ZGRS (préversion), RA-ZGRS (préversion)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Gestionnaire de ressources             | Chiffré              |
+| Universel v2   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Chaud, froid, archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS, GZRS (préversion), RA-GZRS (préversion)<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Gestionnaire de ressources             | Chiffré              |
 | Universel v1   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, Classic    | Chiffré              |
 | Stockage d’objets blob de blocs   | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | Premium                       | N/A                            | LRS                               | Gestionnaire de ressources             | Chiffré              |
 | FileStorage   | Fichiers uniquement | Premium                       | N/A                            | LRS                               | Gestionnaire de ressources             | Chiffré              |

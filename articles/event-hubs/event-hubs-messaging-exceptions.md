@@ -1,5 +1,5 @@
 ---
-title: Exceptions de messagerie - Azure Event Hubs | Microsoft Docs
+title: Exceptions de messagerie pour .NET - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit la liste des exceptions de messagerie Azure Event Hubs et les actions suggérées.
 services: event-hubs
 documentationcenter: na
@@ -11,22 +11,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 09/25/2019
 ms.author: shvija
-ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6680902180a1d4a3c75080e232569cf760ba078
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66001760"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309837"
 ---
-# <a name="event-hubs-messaging-exceptions"></a>Exceptions de la messagerie Event Hubs
+# <a name="event-hubs-messaging-exceptions---net"></a>Exceptions de messagerie Event Hubs - .NET
 
-Cet article répertorie certaines exceptions générées par la bibliothèque d’API de la messagerie Azure Service Bus, notamment les API Event Hubs .NET Framework. Cette référence est susceptible de changer, donc consultez-la régulièrement.
+Cet article répertorie certaines des exceptions .NET générées par la bibliothèque d’API .NET de la messagerie Azure Service Bus, notamment les API Event Hubs .NET Framework. Cette référence est susceptible de changer, donc consultez-la régulièrement.
 
 ## <a name="exception-categories"></a>Catégories d'exceptions
 
-Les API Event Hubs génèrent des exceptions qui peuvent être classées dans les catégories suivantes, accompagnées de l’action associée que vous pouvez mettre en place pour les résoudre.
+Les API .NET Event Hubs génèrent des exceptions qui peuvent être classées dans les catégories suivantes, accompagnées de l’action associée que vous pouvez mettre en place pour les résoudre.
 
 1. Erreur de codage utilisateur : [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Action générale : essayez de corriger le code avant de poursuivre.
 2. Erreur d’installation ou de configuration : [Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagingentitynotfoundexception), [Microsoft.Azure.EventHubs.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.eventhubs.messagingentitynotfoundexception), [System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx). Action générale : révisez la configuration et modifiez-la si besoin.

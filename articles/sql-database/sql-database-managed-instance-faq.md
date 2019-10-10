@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032953"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710145"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
@@ -38,12 +38,19 @@ Pour les niveaux de service disponibles et leurs caractéristiques, consultez [D
 
 Pour les bogues et les problèmes connus, consultez [problèmes connus](sql-database-managed-instance-transact-sql-information.md#Issues).
 
+## <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>Où puis-je trouver les fonctionnalités les plus récentes et les fonctionnalités disponibles en préversion publique ?
+
+Pour les fonctionnalités nouvelles et d’évaluation, consultez les [notes de publication](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+
+## <a name="how-much-time-takes-to-create-or-update-instance-or-to-restore-a-database"></a>Combien de temps faut-il pour créer ou mettre à jour une instance ou pour restaurer une base de données ?
+
+Le temps prévu pour créer une instance managée ou changer le niveau de service (vCores, stockage) dépend de plusieurs facteurs. Jetez un coup d’œil aux [opérations de gestion](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations). 
+
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Est-ce qu’une instance gérée peut avoir le même nom que SQL Server local ?
 
 L’instance gérée doit avoir un nom qui se termine par *database.windows.net*. Pour utiliser une autre zone DNS au lieu de la valeur par défaut, par exemple, **mi-another-name**.contoso.com : 
 - Utilisez CliConfig pour définir un alias. L’outil étant simplement un wrapper de paramètres du registre, cela peut aussi se faire à l'aide d'une stratégie de groupe ou d'un script.
 - Utilisez *CNAME* avec l’option *TrustServerCertificate = true*.
-
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>Comment puis-je déplacer la base de données d’une instance gérée vers SQL Server ou Azure SQL Database ?
 
@@ -55,7 +62,7 @@ Les sauvegardes natives `COPY_ONLY` prises à partir d’une instance gérée ne
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Comment puis-je migrer ma base de données d’instance à une base de données Azure SQL Database unique ?
 
-Une option consiste à [exporter la base de données vers un fichier BACPAC](sql-database-export.md), puis à [importer le fichier BACPAC]( sql-database-import.md). 
+Une option consiste à [exporter la base de données vers un fichier BACPAC](sql-database-export.md), puis à [importer le fichier BACPAC](sql-database-import.md). 
 
 Cette approche est recommandée si votre base de données est inférieure à 100 Go. La réplication transactionnelle peut être utilisée si toutes les tables dans la base de données ont des clés primaires.
 
@@ -69,7 +76,7 @@ Il est vivement conseillé de tester le niveau de performance des charges de tra
 
 ## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>Puis-je basculer ma génération de matériel d’instance gérée entre Gen 4 et Gen 5 en ligne ? 
 
-La commutation en ligne automatisée entre les générations de matériel est possible si les deux générations de matériel sont disponibles dans la même région où votre instance gérée est approvisionnée. Dans ce cas, vous avez une option dans la section de niveau tarifaire du portail Azure pour basculer entre les générations de matériel.
+La commutation en ligne automatisée entre les générations de matériel est possible si les deux générations de matériel sont disponibles dans la même région où votre instance gérée est approvisionnée. Dans ce cas, vous pouvez utiliser le script de ce [billet de blog](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824) qui explique comment basculer entre les générations de matériel.
 
 Il s’agit d’une opération de longue durée car la nouvelle instance gérée sera approvisionnée en arrière-plan et les bases de données seront automatiquement transférées entre l’ancienne et la nouvelle instance, avec un rapide basculement au terme du processus. 
 
@@ -125,7 +132,8 @@ Afin d’atténuer les risques liés à la mise en réseau, il est recommandé a
 Études de cas d’instance gérée :
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
 Pour mieux comprendre les avantages, les coûts et les risques associés au déploiement d’une instance gérée d’Azure SQL Database, une étude de Forrester est également disponible : [Répercussions économiques totales MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 

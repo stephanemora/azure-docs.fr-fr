@@ -1,6 +1,6 @@
 ---
-title: Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP | Microsoft Docs
-description: Décrit des scénarios de déploiement SAP avec des groupes de placements de proximité Azure
+title: Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP | Microsoft Docs
+description: Décrit des scénarios de déploiement SAP avec des groupes de placement de proximité Azure
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -12,70 +12,73 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02dcb7174dd9cb2926ef2fafda4b521b939ae68a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: deffcb81a4f66783fedc89c3e21ea46b15ad1c64
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077986"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719997"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP
-Les applications SAP basées sur l’architecture SAP NetWeaver ou SAP S/4HANA sont sensibles à la latence réseau entre la couche Application SAP et la couche Base de données SAP. La raison de cette sensibilité de la part de ces architectures tient du fait que la majeure partie de la logique métier est exécutée dans la couche Application. Suite à l’exécution de la logique métier, la couche Application SAP émet des requêtes à la couche Base de données à des fréquences élevées de milliers et de dizaines de milliers par seconde. Dans la plupart des cas, la nature de ces requêtes est simple. Et elles peuvent souvent être exécutées sur la couche Base de données en moins de 500 microsecondes, voire moins. Le temps passé sur le réseau à envoyer une telle requête de la couche Application à la couche Base de données et à recevoir le jeu de résultats de la couche Base de données a un impact majeur sur le temps nécessaire à l’exécution des processus métier. Cette sensibilité à la latence réseau est la raison pour laquelle du temps est nécessaire dans les projets de déploiement SAP pour atteindre une latence réseau optimale. Dans [Note SAP n° 1100926 - FAQ : Performances réseau](https://launchpad.support.sap.com/#/notes/1100926/E), SAP a publié des instructions sur la façon de classer la latence réseau.
+Les applications SAP basées sur l’architecture SAP NetWeaver ou SAP S/4HANA sont sensibles à la latence réseau entre la couche Application SAP et la couche Base de données SAP. Cette sensibilité est due au fait que la plupart de la logique métier s’exécute dans la couche Application. Étant donné que la couche Application SAP exécute la logique métier, elle émet des requêtes à la base de données à une fréquence élevée (plusieurs milliers ou dizaines de milliers par seconde). Dans la plupart des cas, la nature de ces requêtes est simple. Elles peuvent souvent être exécutées sur la couche Base de données en 500 microsecondes ou moins.
 
-D’une part, dans de nombreuses régions Azure, le nombre de centres de données a augmenté, ce qui a également été déclenché par l’introduction de zones de disponibilité. D’autre part, les clients, en particulier pour les systèmes SAP haut de gamme, ont utilisé des références SKU de machines virtuelles plus spéciales hors de la série M ou de grandes instances HANA. Les types de machines virtuelles Azure ne sont pas présents dans tous les centres de données d’une région Azure spécifique. En conséquence de ces deux tendances, les clients ont rencontré des cas où la latence réseau ne se trouvait pas dans la plage optimale, ce qui se traduisait, dans certains cas, par des performances non optimales de leurs systèmes SAP.
+Le temps passé sur le réseau à envoyer une telle requête de la couche Application à la couche Base de données et à recevoir le jeu de résultats a un impact majeur sur le temps nécessaire à l’exécution des processus métier. Cette sensibilité à la latence réseau est la raison pour laquelle vous devez atteindre une latence réseau optimale dans les projets de déploiement SAP. Voir la [Note de support SAP 1100926 - FAQ : Performances réseau](https://launchpad.support.sap.com/#/notes/1100926/E) pour obtenir des instructions sur la façon de classifier la latence réseau.
 
-Pour éviter ce type de problème, Azure propose une construction appelée [groupe de placements de proximité Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Cette nouvelle fonctionnalité a déjà été utilisée pour déployer plusieurs systèmes SAP différents. Consultez l’article référencé pour connaître les restrictions des groupes de placements de proximité. Il aborde les différents scénarios SAP dans lesquels les groupes de placements de proximité Azure peuvent ou doivent être utilisés.
+Dans de nombreuses régions Azure, le nombre de centres de données a augmenté. Cette croissance a également été déclenchée par l’introduction de Zones de disponibilité. En même temps, les clients, en particulier pour les systèmes SAP haut de gamme, utilisent des références SKU de machines virtuelles plus spéciales de la série M ou de grandes instances HANA. Ces types de machines virtuelles Azure ne sont pas disponibles dans tous les centres de données d’une région Azure spécifique. En raison de ces deux tendances, les clients ont observé une latence réseau non comprise dans la plage optimale. Dans certains cas, cette latence fait que leurs systèmes SAP présentent des performances non optimales.
 
-## <a name="what-are-proximity-placement-groups"></a>Définition des groupes de placements de proximité 
-Un groupe de placements de proximité Azure est une construction logique qui, lors de la phase de définition, est liée à une région Azure et à un groupe de ressources Azure. Lors du déploiement de machines virtuelles, un groupe de placements de proximité est référencé par les éléments suivants :
+Pour éviter ces problèmes, Azure propose des [groupes de placement de proximité](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Cette nouvelle fonctionnalité a déjà été utilisée pour déployer différents systèmes SAP. Pour connaître les restrictions sur les groupes de placement de proximité, consultez l’article mentionné au début de ce paragraphe. Cet article aborde les scénarios SAP dans lesquels les groupes de placement de proximité Azure peuvent ou doivent être utilisés.
 
-- La première machine virtuelle Azure déployée à installer sur le centre de données. La première machine virtuelle peut être considérée comme une machine virtuelle d’ancrage qui est déployée dans un centre de données en fonction d’algorithmes d’allocation Azure, éventuellement associés à des définitions d’utilisateurs pour une zone de disponibilité Azure spécifique.
-- Toutes les machines virtuelles suivantes déployées référençant le groupe de placements de proximité afin de placer toutes les machines virtuelles Azure déployées suivantes dans le même centre de données que celui dans lequel la première machine virtuelle a été placée.
+## <a name="what-are-proximity-placement-groups"></a>Définition des groupes de placement de proximité 
+Un groupe de placement de proximité Azure est une construction logique. Quand l’un de ces groupes est défini, il est lié à une région Azure et à un groupe de ressources Azure. Quand des machines virtuelles sont déployées, un groupe de placement de proximité est référencé par :
+
+- La première machine virtuelle Azure déployée dans le centre de données. La première machine virtuelle peut être considérée comme une « machine virtuelle d’étendue » qui est déployée dans un centre de données en fonction d’algorithmes d’allocation Azure associés à des définitions d’utilisateurs pour une zone de disponibilité spécifique.
+- Toutes les machines virtuelles suivantes déployées qui référencent le groupe de placement de proximité, afin de placer toutes les machines virtuelles Azure déployées ultérieurement dans le même centre de données que celui de la première machine virtuelle.
 
 > [!NOTE]
-> Si aucun matériel hôte pouvant exécuter un type de machine virtuelle spécifique dans le même centre de données que celui dans lequel la première machine virtuelle a été placée n’est déployé, le déploiement du type de machine virtuelle demandé échoue et se termine par un message d’échec. Il peut s’agir de cas où d’autres machines virtuelles non standard, comme des machines virtuelles avec des GPU ou des types de machines virtuelles HPC, doivent être centrées sur, par exemple, une machine virtuelle de série M qui a été déployée comme premier type de machine virtuelle
+> Si aucun matériel hôte pouvant exécuter un type de machine virtuelle spécifique dans le même centre de données que celui où la première machine virtuelle a été placée n’est déployé, le déploiement du type de machine virtuelle demandé échoue. Vous recevez alors un message d’échec.
 
-Plusieurs groupes de placements de proximité peuvent être affectés à un seul et même [groupe de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal). Toutefois, un groupe de placements de proximité ne peut être affecté qu’à un seul groupe de ressources Azure.
+Plusieurs groupes de placement de proximité peuvent être affectés à un seul et même [groupe de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal). En revanche, un groupe de placement de proximité ne peut être affecté qu’à un seul groupe de ressources Azure.
 
-Si vous utilisez des groupes de placements de proximité, vous devez avoir connaissance des points suivants :
+Quand vous utilisez des groupes de placement de proximité, gardez les points suivants à l’esprit :
 
-- Si vous souhaitez obtenir des performances optimales pour votre système SAP et que vous vous limitez à un seul centre de données Azure pour ce système en utilisant des groupes de placements de proximité, vous pouvez ne pas être en mesure de combiner tous les types de familles de machines virtuelles dans ce groupe de placements de proximité. La raison en est que certains matériels hôtes nécessaires à l’exécution exclusive d’un certain type de machine virtuelle peuvent ne pas être présents dans le centre de données où votre « machine virtuelle d’ancrage » du groupe de placements a été déployée.
-- Dans le cycle de vie d’un tel système SAP, vous pouvez être contraint de déplacer le système vers un autre centre de données. Ce type de déplacement peut être contraint dans les cas où vous avez décidé que votre couche SGBD HANA avec scale-out doit, par exemple, passer de quatre nœuds à 16 nœuds. Mais la capacité restante est insuffisante pour obtenir 12 machines virtuelles supplémentaires du type que vous avez déjà utilisé dans le même centre de données.
-- En raison de la désaffectation du matériel, Microsoft peut générer des capacités pour le ou les types de machines virtuelles que vous avez utilisés dans un autre centre de données, plutôt que dans le même centre de données. Une telle situation peut signifier que vous devez déplacer toutes les machines virtuelles du groupe de placements de proximité vers un autre centre de données.
+- Quand vous souhaitez obtenir des performances optimales pour votre système SAP et que vous vous limitez à un seul centre de données Azure pour le système en utilisant des groupes de placement de proximité, vous risquez de ne pas pouvoir combiner tous les types de familles de machines virtuelles dans le groupe de placement. Ces limitations sont dues au fait que le matériel hôte nécessaire pour exécuter un certain type de machine virtuelle peut ne pas être présent dans le centre de donnés où la « machine virtuelle d’étendue » du groupe de placement a été déployée.
+- Durant le cycle de vie d’un tel système SAP, vous pouvez être contraint de déplacer le système vers un autre centre de données. Ce déplacement peut être nécessaire si vous décidez que votre couche SGBD HANA de scale-out doit, par exemple, passer de quatre nœuds à 16 nœuds, et qu’il n’y a pas assez de capacité pour obtenir 12 machines virtuelles supplémentaires du type que vous avez utilisé dans le centre de données.
+- En raison de la désaffectation du matériel, Microsoft peut créer des capacités pour un type de machine virtuelle que vous avez utilisé dans un autre centre de ressources, plutôt que celui que vous avez utilisé initialement. Dans ce scénario, vous devrez peut-être déplacer toutes les machines virtuelles du groupe de placement de proximité dans un autre centre de données.
 
+## <a name="proximity-placement-groups-with-sap-systems-that-use-only-azure-vms"></a>Groupes de placement de proximité avec des systèmes SAP qui utilisent uniquement des machines virtuelles Azure
+La plupart des déploiements de systèmes SAP NetWeaver et S/4HANA sur Azure n’utilisent pas de [grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). Pour les déploiements qui n’utilisent pas de grandes instances HANA, il est important de fournir des performances optimales entre la couche Application SAP et la couche SGBD. Pour ce faire, définissez un groupe de placement de proximité Azure uniquement pour le système.
 
-## <a name="azure-proximity-placement-groups-with-sap-systems-using-azure-vms-exclusively"></a>Groupes de placements de proximité Azure avec des systèmes SAP utilisant exclusivement des machines virtuelles Azure
-La majorité des déploiements de systèmes SAP NetWeaver et S/4HANA sur Azure n’utilisent pas de [grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). Pour les déploiements de ces systèmes, il est important de fournir les performances optimales entre la couche Application SAP et la couche SGBD. Pour ce faire, vous devez définir un groupe de placements de proximité Azure uniquement pour ce système. Dans la plupart des déploiements clients, les clients ont choisi de créer un seul [groupe de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) pour les systèmes SAP. Dans ce cas, il existe une relation 1:1 entre, par exemple, les groupes de ressources du système ERP de production et le groupe de placements de proximité. Dans certains autres cas de déploiement, les clients organisaient leurs groupes de ressources horizontalement et collectaient tous les systèmes de production dans un seul groupe de ressources. Vous avez alors une relation 1 à plusieurs entre votre groupe de ressources pour les systèmes SAP de production et plusieurs groupes de placements de proximité de votre système ERP SAP de production, SAP BW, etc. Le regroupement de plusieurs, voire même de tous les systèmes de non-production ou de production SAP dans un seul groupe de placements de proximité doit être évité. Dans les exceptions, où un petit nombre de systèmes SAP ou bien un système SAP et certaines applications environnantes sont nécessaires pour une communication réseau à faible latence, vous pouvez envisager de déplacer ces systèmes vers un seul groupe de placements de proximité. La raison d’une recommandation telle que celle-ci est que plus vous regroupez de systèmes dans un groupe de placements de proximité, plus la probabilité est élevée :
+Dans la plupart des déploiements clients, les clients créent un seul [groupe de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) pour les systèmes SAP. Dans ce cas, il existe une relation un-à-un entre, par exemple, les groupes de ressources du système ERP de production et son groupe de placement de proximité. Dans d’autres cas, les clients organisent leurs groupes de ressources horizontalement et collectent tous les systèmes de production dans un seul groupe de ressources. Dans ce cas, vous avez une relation un-à-plusieurs entre votre groupe de ressources pour les systèmes SAP de production et plusieurs groupes de placement de proximité pour votre système ERP SAP de production, SAP BW, et ainsi de suite.
 
-- Que vous ayez besoin d’un type de machine virtuelle qui ne peut pas être exécuté dans le centre de données spécifique dans lequel le groupe de placements de proximité a été ancré.
-- Que les ressources de certaines machines virtuelles non standard, comme la série M, ne puissent plus être traitées quand vous en demandez davantage lors de l’ajout de logiciels supplémentaires à un groupe de placements de proximité existant au fil du temps.
+Évitez de regrouper plusieurs systèmes de non-production ou de production SAP dans un même groupe de placement de proximité. Quand un petit nombre de systèmes SAP ou un système SAP et certaines applications environnantes ont besoin d’une communication réseau à faible latence, vous pouvez envisager de déplacer ces systèmes vers un groupe de placement de proximité unique. Vous devez éviter les regroupements de systèmes, car plus vous regroupez de systèmes dans un groupe de placement de proximité, plus la probabilité est élevée :
 
-L’utilisation idéale telle que décrite ressemble à ceci :
+- Que vous ayez besoin d’un type de machine virtuelle qui ne peut pas être exécuté dans le centre de données spécifique constituant l’étendue du groupe de placement de proximité.
+- Que les ressources des machines virtuelles non courantes, telles que les machines virtuelles de la série M, soient finalement non satisfaites si vous avez besoin de davantage, car vous ajoutez des logiciels à un groupe de placement de proximité au fil du temps.
 
-![Groupes de placements de proximité pour toutes les machines virtuelles Azure](./media/sap-proximity-placement-scenarios/ppg-for-all-azure-vms.png)
+La configuration idéale, telle qu’elle est décrite ici, ressemble à ceci :
 
-Dans ce cas, les systèmes SAP uniques sont regroupés dans un groupe de ressources, chacun avec un groupe de placements de proximité. Il n’existe aucune dépendance quant à l’utilisation de configurations de scale-out HANA ou de scale-up SGBD.
+![Groupes de placement de proximité avec uniquement des machines virtuelles Azure](./media/sap-proximity-placement-scenarios/ppg-for-all-azure-vms.png)
 
+Dans ce cas, les systèmes SAP uniques sont regroupés dans un groupe de ressources, chacun avec un groupe de placement de proximité. Il n’existe aucune dépendance quant à l’utilisation de configurations de scale-out HANA ou de scale-up SGBD.
 
-## <a name="azure-proximity-placement-groups-and-hana-large-instances"></a>Groupes de placements de proximité Azure et grandes instances HANA
-Pour les cas où certains de vos systèmes SAP s’appuient sur de [grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) comme couche Application, des améliorations importantes de la latence réseau entre l’unité de grande instance HANA et les machines virtuelles Azure peuvent être obtenues lors de l’utilisation d’unités de grandes instances HANA déployées dans les [tampons ou lignes de la révision 4](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). L’une des améliorations est que les unités de grandes instances HANA, une fois déployées, obtiennent un groupe de placements de proximité déjà déployé. Vous pouvez utiliser ce groupe de placements de proximité pour déployer vos machines virtuelles de couche Application. Par conséquent, ces machines virtuelles vont être déployées dans le même centre de données que celui qui héberge votre unité de grande instance HANA.
+## <a name="proximity-placement-groups-and-hana-large-instances"></a>Groupes de placement de proximité et grandes instances HANA
+Si certains de vos systèmes SAP s’appuient sur de [grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour la couche Application, vous pouvez bénéficier d’améliorations importantes de la latence réseau entre l’unité de grandes instances HANA et les machines virtuelles Azure quand vous utilisez des unités de grandes instances HANA déployées dans des [tampons ou lignes de la révision 4](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance). L’une des améliorations est que les unités de grandes instances HANA, une fois déployées, sont déployées avec un groupe de placement de proximité. Vous pouvez utiliser ce groupe de placement de proximité pour déployer vos machines virtuelles de couche Application. Ainsi, ces machines virtuelles seront déployées dans le même centre de données que celui qui héberge votre unité de grandes instances HANA.
 
-Pour déterminer si votre unité de grande instance HANA est déployée dans un tampon ou une ligne de la révision 4, consultez l’article [Contrôle des grandes instances Azure HANA à l’aide du portail Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). Dans la vue d’ensemble des attributs de votre unité de grande instance HANA, vous pouvez également déterminer le nom du groupe de placements de proximité tel qu’il a été créé au moment du déploiement pour votre unité de grande instance HANA. Le nom affiché dans la vue d’ensemble des attributs est le nom du groupe de placements de proximité que vous devez utiliser pour y déployer vos machines virtuelles de couche Application.
+Pour déterminer si votre unité de grandes instances HANA est déployée dans un tampon ou une ligne de la révision 4, consultez l’article [Contrôle des grandes instances Azure HANA à l’aide du portail Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). Dans la vue d’ensemble des attributs de votre unité de grandes instances HANA, vous pouvez également déterminer le nom du groupe de placement de proximité car il a été créé au moment du déploiement de votre unité de grandes instances HANA. Le nom affiché dans la vue d’ensemble des attributs est le nom du groupe de placement de proximité dans lequel vous devez déployer vos machines virtuelles de couche Application.
 
-Contrairement aux systèmes SAP qui utilisent uniquement des machines virtuelles Azure, le choix du nombre de [groupes de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) à utiliser est, dans une certaine mesure, ne vous incombe plus quand vous utilisez des grandes instances HANA. Toutes les unités de grande instance HANA d’un [locataire de grande instance HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) sont regroupées dans un seul groupe de ressources Azure, comme décrit [ici](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). À moins que vous souhaitiez un déploiement dans plusieurs locataires pour séparer, par exemple, les systèmes de production et de non-production ou certains systèmes, toutes vos unités de grandes instances HANA sont déployées dans un locataire de grande instance HANA, qui a aussi une relation 1:1 avec un groupe de ressources Azure. En revanche, toutes les unités uniques auront un groupe de placements de proximité distinct défini. 
+Par rapport aux systèmes SAP qui utilisent uniquement des machines virtuelles Azure, quand vous utilisez de grandes instances HANA, vous disposez de moins de souplesse quant au nombre de [groupes de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) à utiliser. Toutes les unités de grandes instances HANA d’un [locataire de grandes instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) sont regroupées dans un seul groupe de ressources, comme décrit dans [cet article](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). À moins d’effectuer un déploiement dans plusieurs locataires, par exemple pour séparer les systèmes de production et de non-production ou d’autres systèmes, toutes vos unités de grandes instances HANA seront déployées dans un locataire de grandes instances HANA. Ce locataire a une relation un-à-un avec un groupe de ressources. Toutefois, un groupe de placement de proximité distinct sera défini pour chacune des unités.
 
-Par conséquent, le regroupement entre les groupes de ressources Azure et les groupes de placements de proximité pour un locataire unique ressemble à ce qui suit :
+Ainsi, les relations entre les groupes de ressources Azure et les groupes de placement de proximité pour un même locataire seront les suivantes :
 
-![Groupes de placements de proximité pour toutes les machines virtuelles Azure](./media/sap-proximity-placement-scenarios/ppg-for-hana-large-instance-units.png)
+![Groupes de placement de proximité et grandes instances HANA](./media/sap-proximity-placement-scenarios/ppg-for-hana-large-instance-units.png)
 
+## <a name="example-of-deployment-with-proximity-placement-groups"></a>Exemple de déploiement avec des groupes de placement de proximité
+Voici quelques commandes PowerShell que vous pouvez utiliser pour déployer vos machines virtuelles avec des groupes de placement de proximité Azure.
 
-## <a name="short-example-of-deploying-with-azure-proximity-placement-groups"></a>Petit exemple de déploiement avec des groupes de placements de proximité Azure
-Pour illustrer la façon dont vous pouvez utiliser des groupes de placements de proximité Azure pour déployer votre machine virtuelle, voici une liste de commandes PowerShell dans un premier petit exercice avec les groupes de placements de proximité Azure
-
-La première étape après vous être connecté avec votre instance [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) consiste à vérifier si vous êtes dans l’abonnement Azure que vous voulez utiliser pour le déploiement, avec la commande :
+La première étape, une fois connecté à [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), consiste à vérifier si vous êtes dans l’abonnement Azure que vous souhaitez utiliser pour le déploiement :
 
 <pre><code>
 Get-AzureRmContext
@@ -87,74 +90,77 @@ Si vous devez changer d’abonnement, vous pouvez le faire en exécutant la comm
 Set-AzureRmContext -Subscription "my PPG test subscription"
 </code></pre>
 
-Dans une troisième étape, vous voulez créer un groupe de ressources Azure à l’aide de cette commande :
+Créez un groupe de ressources Azure en exécutant la commande suivante :
 
 <pre><code>
 New-AzResourceGroup -Name "myfirstppgexercise" -Location "westus2"
 </code></pre>
 
-Vous pouvez à présent créer le groupe de placements de proximité avec :
+Créez le groupe de placement de proximité en exécutant la commande suivante :
 
 <pre><code>
 New-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose" -Location "westus2"
 </code></pre>
 
-Vous pouvez maintenant commencer à déployer votre première machine virtuelle dans ce groupe de placements de proximité à l’aide d’une commande telle que :
+Déployez votre première machine virtuelle dans le groupe de placement de proximité à l’aide d’une commande telle que celle-ci :
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-La commande ci-dessus déploie une machine virtuelle Windows. Une fois le déploiement de la machine virtuelle effectué, l’étendue du centre de données du groupe de placements de proximité est défini dans la région Azure. Tous les déploiements de machines virtuelles suivants qui référencent le groupe de placements de proximité comme dans la dernière commande seront effectués dans le même centre de ressources Azure tant que le type de machine virtuelle peut être hébergé sur le matériel placé dans ce centre de ressources et/ou que de la capacité est disponible pour ce type de machine virtuelle.
+La commande précédente déploie une machine virtuelle Windows. Une fois le déploiement de la machine virtuelle effectué, l’étendue du centre de données du groupe de placement de proximité est définie dans la région Azure. Tous les déploiements de machines virtuelles ultérieurs qui référencent le groupe de placement de proximité, comme indiqué dans la commande précédente, seront effectués dans le même centre de données Azure tant que le type de machine virtuelle peut être hébergé sur le matériel placé dans ce centre de données et que de la capacité est disponible pour ce type de machine virtuelle.
 
-## <a name="combine-availability-sets-and-availability-zones-with-proximity-placement-groups"></a>Combiner des groupes à haute disponibilité et des zones de disponibilité avec des groupes de placements de proximité 
-L’un des inconvénients que présente l’utilisation de zones de disponibilité pour des déploiements de systèmes SAP est que la couche Application SAP ne peut pas être contrôlée une fois déployée à l’aide de groupes à haute disponibilité dans la zone spécifique. Étant donné que vous voulez que la couche Application SAP soit déployée dans les mêmes zones que la couche SGBD, et que le référencement d’une zone de disponibilité et d’un groupe à haute disponibilité lors du déploiement d’une machine virtuelle unique n’est pas pris en charge, vous avez été contraint de déployer la couche Application en référençant une zone. Par conséquent, vous avez perdu la possibilité de vérifier que les machines virtuelles de la couche Application ont été réparties sur différents domaines de mise à jour et de défaillance. Avec l’aide des groupes de placements de proximité, vous pouvez déroger à cette restriction. La séquence de déploiements peut ressembler à ce qui suit :
+## <a name="combine-availability-sets-and-availability-zones-with-proximity-placement-groups"></a>Combiner des groupes à haute disponibilité et des zones de disponibilité avec des groupes de placement de proximité
+L’un des inconvénients que présente l’utilisation de zones de disponibilité pour des déploiements de systèmes SAP est que vous ne pouvez pas déployer la couche Application SAP au moyen de groupes à haute disponibilité dans la zone spécifique. Vous souhaitez que la couche Application SAP soit déployée dans les mêmes zones que la couche SGBD. Le référencement d’une zone de disponibilité et d’un groupe à haute disponibilité lors du déploiement d’une machine virtuelle unique n’est pas pris en charge. Ainsi, avant vous deviez déployer votre couche Application en référençant une zone. Vous perdiez la possibilité de vous assurer que les machines virtuelles de la couche Application étaient réparties dans différents domaines de mise à jour et d’échec.
 
-- Créer un groupe de placements de proximité
-- Déployer votre « machine virtuelle d’ancrage », généralement le serveur SGBD, en référençant une certaine zone de disponibilité Azure
-- Créer un groupe à haute disponibilité qui référence le groupe de placements de proximité Azure (voir ci-dessous)
-- Déployer les machines virtuelles de la couche Application en référençant le groupe à haute disponibilité et le groupe de placements de proximité
+En utilisant des groupes de placement de proximité, vous pouvez contourner cette restriction. Voici la séquence de déploiement :
 
-Au lieu de déployer la première machine virtuelle comme illustré ci-dessus, vous référencez une zone de disponibilité Azure et le groupe de placements de proximité lors du déploiement de la machine virtuelle, comme ceci :
+- Créez un groupe de placement de proximité.
+- Déployez votre machine virtuelle d’ancrage, généralement le serveur SGBD, en référençant une zone de disponibilité.
+- Créez un groupe à haute disponibilité qui référence le groupe de proximité Azure. (Voir la commande plus loin dans cet article.)
+- Déployez les machines virtuelles de la couche Application en référençant le groupe à haute disponibilité et le groupe de placement de proximité.
+
+Au lieu de déployer la première machine virtuelle comme illustré dans la section précédente, vous référencez une zone de disponibilité et le groupe de placement de proximité lors du déploiement de la machine virtuelle :
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -Zone "1" -ProximityPlacementGroup "letsgetclose" -Size "Standard_E16_v3"
 </code></pre>
 
-Un déploiement réussi de cette machine virtuelle hébergerait l’instance de base de données de mon système SAP dans une zone de disponibilité Azure. L’étendue du groupe de placements de proximité est fixée sur l’un des centres de données représentant la zone de disponibilité que vous avez définie.
+Un déploiement réussi de cette machine virtuelle hébergerait l’instance de base de données du système SAP dans une zone de disponibilité. L’étendue du groupe de placement de proximité est fixée à l’un des centres de données représentant la zone de disponibilité que vous avez définie.
 
-Nous supposons que vous déployez les machines virtuelles des services centraux de la même façon que les machines virtuelles SGBD en référençant la ou les mêmes zones que pour les machines virtuelles SGBD et les mêmes groupes de placements de proximité. À l’étape suivante, vous devez créer le ou les groupes à haute disponibilité que vous voulez utiliser pour la couche Application de votre système SAP.
-Le groupe de placements de proximité doit être défini et créé. La commande permettant de créer le groupe à haute disponibilité nécessite une référence supplémentaire à l’ID de groupe de placements de proximité (et non pas à son nom). Vous pouvez obtenir l’ID du groupe de placements de proximité avec :
+Supposez que vous déployez les machines virtuelles des services centraux de la même façon que les machines virtuelles SGBD, en référençant la ou les mêmes zones et les mêmes groupes de placement de proximité. À l’étape suivante, vous devez créer les groupes à haute disponibilité que vous voulez utiliser pour la couche Application de votre système SAP.
 
-
+Vous devez définir et créer le groupe de placement de proximité. La commande permettant de créer le groupe à haute disponibilité nécessite une référence supplémentaire à l’ID de groupe de placement de proximité (et non pas à son nom). Vous pouvez obtenir l’ID du groupe de placement de proximité à l’aide de cette commande :
 
 <pre><code>
 Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose"
 </code></pre>
 
-Quand vous créez le groupe à haute disponibilité, vous devez prendre en compte d’autres paramètres lors de l’utilisation de disques managés (par défaut, sauf indication contraire) et des groupes de placements de proximité :
+Quand vous créez le groupe à haute disponibilité, vous devez prendre en compte des paramètres supplémentaires lors de l’utilisation de disques managés (par défaut, sauf indication contraire) et des groupes de placement de proximité :
 
 <pre><code>
 New-AzAvailabilitySet -ResourceGroupName "myfirstppgexercise" -Name "myppgavset" -Location "westus2" -ProximityPlacementGroupId "/subscriptions/my very long ppg id string" -sku "aligned" -PlatformUpdateDomainCount 3 -PlatformFaultDomainCount 2 
 </code></pre>
 
-Dans l’idéal, vous devez utiliser trois domaines d’erreur. Toutefois, le nombre de domaines d’erreur pris en charge peut varier d’une région à l’autre. Dans le cas présent, le nombre maximal de domaines d’erreur possibles pour les régions spécifiques était de deux. Pour déployer vos machines virtuelles de couche Application, vous devez ajouter une référence au nom de votre groupe à haute disponibilité et au nom du groupe de placements de proximité, comme illustré ici :
+Dans l’idéal, vous devez utiliser trois domaines d’erreur. Toutefois, le nombre de domaines d’erreur pris en charge peut varier d’une région à l’autre. Dans ce cas, le nombre maximal de domaines d’erreur possibles pour les régions spécifiques est de deux. Pour déployer vos machines virtuelles de couche Application, vous devez ajouter une référence au nom de votre groupe à haute disponibilité et au nom du groupe de placement de proximité, comme indiqué ici :
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppgavsetappvm" -Location "westus2" -OpenPorts 80,3389 -AvailabilitySetName "myppgavset" -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-Le résultat final de cette séquence sera une couche SGBD et les services centraux de votre système SAP qui se trouve dans une zone de disponibilité spécifique et une couche Application SAP qui se trouve dans les groupes à haute disponibilité des mêmes centres de données Azure que ceux où la ou les machines virtuelles SGBD ont été déployées.
+Le résultat de ce déploiement est le suivant :
+- Une couche SGBD et des services centraux pour votre système SAP situé dans une ou plusieurs zones de disponibilité spécifiques.
+- Une couche Application SAP qui se trouve dans des groupes à haute disponibilité dans les mêmes centres de données Azure que les machines virtuelles SGBD.
 
 > [!NOTE]
-> Quand vous déployez une machine virtuelle SGBD dans une zone et la seconde dans une autre zone pour créer une configuration de haute disponibilité, vous devez exiger des groupes de placements de proximité différents pour chacune des zones. Il en va de même pour le groupe à haute disponibilité que vous utilisez éventuellement
+> Étant donné que vous déployez une machine virtuelle SGBD dans une zone et la seconde dans une autre zone pour créer une configuration de haute disponibilité, vous aurez besoin d’un groupe de placement de proximité différent pour chacune des zones. Il en va de même pour tout groupe à haute disponibilité que vous utilisez.
 
-## <a name="get-an-existing-system-into-azure-proximity-placement-groups"></a>Obtenir un système existant dans des groupes de placements de proximité Azure
-Comme vous avez déjà des systèmes SAP déployés, vous pouvez souhaiter optimiser la latence réseau de certains de vos systèmes critiques et localiser la couche Application et la couche SGBD dans le même centre de données. Dans l’étape de la préversion publique de la fonctionnalité de groupe de placements de proximité, il est nécessaire de supprimer les machines virtuelles et de les recréer pour effectuer un tel déplacement vers des groupes de placements de proximité. À ce stade de la fonctionnalité, il n’est pas suffisant d’arrêter les machines virtuelles pour pouvoir les attribuer à des groupes de placements de proximité.
+## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Déplacer un système existant dans des groupes de placement de proximité
+Si vous avez déjà des systèmes SAP déployés, vous souhaiterez peut-être optimiser la latence réseau de certains de vos systèmes critiques et localiser la couche Application et la couche SGBD dans le même centre de données. Pendant la préversion publique des groupes de placement de proximité, vous devez supprimer les machines virtuelles et en créer de nouvelles pour déplacer le système dans des groupes de placement de proximité. Pour le moment, vous ne pouvez pas simplement arrêter les machines virtuelles et les affecter à des groupes de placement de proximité.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez la documentation suivante :
+Consultez la documentation :
 
 - [Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - [Préversion : Déployer des machines virtuelles dans des groupes de placements de proximité avec Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)

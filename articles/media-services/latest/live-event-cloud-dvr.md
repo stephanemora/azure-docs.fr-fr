@@ -1,5 +1,5 @@
 ---
-title: Événement en direct Azure Media Services et magnétoscope numérique cloud | Microsoft Docs
+title: Utilisation du décalage temporel et de la conversion du direct en VOD (vidéo à la demande) Azure Media Services | Microsoft Docs
 description: Cet article explique en quoi consiste une sortie en direct et comment utiliser un magnétoscope numérique cloud.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
-ms.openlocfilehash: a10c76dd7fb4ef1e9a45666ff3a3ca0d937d2c94
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ffcd279830cb49b64ddbb58a888ad7d653918b1b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231228"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338840"
 ---
-# <a name="using-a-cloud-digital-video-recorder-dvr"></a>Utilisation d’un magnétoscope numérique cloud
+# <a name="using-time-shifting-and-live-to-vod-video-on-demand"></a>Utilisation du décalage temporel et de la conversion du direct en VOD (vidéo à la demande)
 
 Dans Azure Media Services, un objet [Sortie en direct](https://docs.microsoft.com/rest/api/media/liveoutputs) fonctionne comme un magnétoscope numérique qui capture et enregistre votre stream en direct dans un élément multimédia dans votre compte Media Services. Le contenu enregistré est conservé dans le conteneur défini par la ressource [Élément multimédia](https://docs.microsoft.com/rest/api/media/assets) (le conteneur est dans le compte de stockage Azure associé à votre compte). La sortie en direct vous permet également de contrôler certaines propriétés du stream en direct sortant, notamment la quantité du flux conservée dans l’enregistrement archive (par exemple, la capacité du magnétoscope numérique cloud) et le fait que les destinataires sont autorisés ou non à démarrer la lecture du stream en direct. L’archive sur le disque est une archive circulaire de type « fenêtre » qui stocke uniquement la quantité de contenu spécifiée dans la propriété **archiveWindowLength** de la sortie en direct. Le contenu qui dépasse cette fenêtre d’archive est automatiquement supprimé du conteneur de stockage et n’est pas récupérable. La valeur archiveWindowLength représente un intervalle de temps ISO-8601 (par exemple, PTHH:MM:SS), qui spécifie la capacité du magnétoscope numérique. Sa valeur est comprise entre 3 minutes et 25 heures.
 
@@ -34,7 +34,7 @@ La valeur ArchiveWindowLength détermine dans quelle mesure l’utilisateur peut
 
 Prenons l’exemple d’un match de football en streaming, dont la valeur ArchiveWindowLength n’est que de 30 minutes. Un utilisateur qui commencerait à regarder l’événement 45 minutes après le début de la rencontre pourrait revenir au maximum à la marque de 15 minutes. Les sorties en direct du match se poursuivent jusqu’à l’arrêt de l’événement en direct, mais le contenu situé en dehors de la propriété ArchiveWindowLength est systématiquement ignoré par le stockage et n’est pas récupérable. Dans cet exemple, la vidéo qui se trouve entre le début de l’événement et la marque de 15 minutes aurait été éliminée de votre magnétoscope numérique et du conteneur dans le Stockage Blob de l’élément multimédia. L’archive, non récupérable, est supprimée du conteneur dans le Stockage Blob Azure.
 
-Un événement en direct prend en charge jusqu’à trois sorties en direct simultanées, ce qui rend possible la création de trois enregistrements/archives au maximum à partir d’un même flux en direct simultanément. Cela vous permet de publier et d’archiver différentes parties d’un événement en fonction des besoins. Supposons que vous vouliez diffuser un flux linéaire temps réel 24 h/24, 7 j/7 et créer tout au long de la journée des « enregistrements » des différents programmes, qui seront proposés à la demande aux utilisateurs dans le cadre d’un service de replay. Dans ce scénario, vous commencez par créer une sortie en direct principale, avec une fenêtre d’archive courte d’une heure ou moins : ce sera le stream en direct principal que visionneront les utilisateurs. Vous créez ensuite un localisateur de streaming pour cette sortie en direct et le publiez sur votre application ou votre site web comme flux « temps réel ». Pendant que l’événement en direct est en cours d’exécution, vous pouvez créer par programmation une deuxième sortie en direct simultanée au début d’un programme (ou 5 minutes avant pour fournir des descripteurs à supprimer ultérieurement). Cette deuxième sortie en direct peut être supprimée 5 minutes après la fin du programme. Avec ce second élément multimédia, vous pouvez créer un localisateur de streaming pour publier ce programme sous forme d’élément multimédia à la demande dans le catalogue de votre application. Vous pouvez répéter plusieurs fois ce processus pour les autres limites ou points forts du programme que vous souhaitez partager sous forme de vidéos à la demande, tandis que le flux « temps réel » de la première sortie en direct continue de diffuser le flux linéaire. 
+Un événement en direct prend en charge jusqu’à trois sorties en direct simultanées, ce qui rend possible la création de trois enregistrements/archives au maximum à partir d’un même flux en direct simultanément. Cela vous permet de publier et d’archiver différentes parties d’un événement en fonction des besoins. Supposons que vous vouliez diffuser un flux linéaire temps réel 24 h/24, 7 j/7 et créer tout au long de la journée des « enregistrements » des différents programmes, qui seront proposés à la demande aux utilisateurs dans le cadre d’un service de replay. Dans ce scénario, vous commencez par créer une sortie en direct principale, avec une fenêtre d’archive courte d’une heure ou moins : ce sera le flux temps réel principal que visionneront les utilisateurs. Vous créez ensuite un localisateur de streaming pour cette sortie en direct et le publiez sur votre application ou votre site web comme flux « temps réel ». Pendant que l’événement en direct est en cours d’exécution, vous pouvez créer par programmation une deuxième sortie en direct simultanée au début d’un programme (ou 5 minutes avant pour fournir des descripteurs à supprimer ultérieurement). Cette deuxième sortie en direct peut être supprimée 5 minutes après la fin du programme. Avec ce second élément multimédia, vous pouvez créer un localisateur de streaming pour publier ce programme sous forme d’élément multimédia à la demande dans le catalogue de votre application. Vous pouvez répéter plusieurs fois ce processus pour les autres limites ou points forts du programme que vous souhaitez partager sous forme de vidéos à la demande, tandis que le flux « temps réel » de la première sortie en direct continue de diffuser le flux linéaire. 
 
 ## <a name="creating-an-archive-for-on-demand-playback"></a>Création d’une archive pour une lecture à la demande
 

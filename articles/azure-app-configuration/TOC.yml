@@ -39,6 +39,8 @@
       href: use-feature-flags-spring-boot.md
     - name: Gérer les indicateurs de fonctionnalité
       href: manage-feature-flags.md
+    - name: Utiliser des références Key Vault dans ASP.NET Core
+      href: use-key-vault-references-dotnet-core.md
     - name: Intégrer avec un pipeline CI/CD
       href: integrate-ci-cd-pipeline.md
 - name: Exemples

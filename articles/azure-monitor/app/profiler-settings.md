@@ -12,42 +12,75 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12cb8e31617ee6b1e0c8515e66e265f4eccdf3df
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922987"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338049"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
 
-## <a name="profiler-settings-pane"></a>Volet des paramètres de Profiler
+## <a name="updated-profiler-agent"></a>Agent du profileur mis à jour
+Les fonctionnalités de déclenchement fonctionnent uniquement à partir de la version 2.6 de l’agent du profileur. Si vous exécutez un service Azure App Service, votre agent est mis à jour automatiquement. Vous pouvez voir la version de l’agent en cours d’exécution en accédant à l’URL Kudu de votre web et en ajoutant \DiagnosticServices à la fin de l’URL comme ceci : https://yourwebsite.scm.azurewebsites.net/diagnosticservices. La tâche web Application Insights Profiler doit être en version 2.6 ou ultérieure. Vous pouvez forcer une mise à niveau en redémarrant votre application web. 
 
-Pour ouvrir le volet des paramètres d’Azure Application Insights Profiler, accédez au volet Performances Application Insights, puis sélectionnez le bouton **Profiler**.
+Si vous exécutez le profileur sur une machine virtuelle ou un service cloud, la version 16.0.4 de l’extension Diagnostics Azure pour Windows (WAD) ou une version plus récente doit être installée. Vous pouvez vérifier la version de WAD en vous connectant à votre machine virtuelle et en recherchant ce répertoire : C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. Le nom du répertoire correspond à la version de WAD installée. L’agent de machine virtuelle Azure met à jour WAD automatiquement quand de nouvelles versions sont disponibles.
 
-![Configurer le volet Profiler][configure-profiler-entry]
+## <a name="profiler-settings-page"></a>Page des paramètres de Profiler
 
-Le volet **Configurer Application Insights Profiler** contient quatre fonctionnalités : 
-* **Profiler maintenant** : Démarre des sessions de profilage pour toutes les applications qui sont liées à cette instance d’Application Insights.
-* **Applications liées** : Liste les applications qui envoient des données de profilage à cette ressource Application Insights.
-* **Sessions en cours** : Affiche l’état de la session quand vous sélectionnez **Profiler maintenant**. 
-* **Sessions de profilage récentes** : Affiche des informations sur les sessions de profilage effectuées.
+Pour ouvrir le volet des paramètres d’Azure Application Insights Profiler, accédez au volet Performances Application Insights, puis sélectionnez le bouton **Configurer Profiler**.
 
-![Profiler à la demande][profiler-on-demand]
+![Lien pour ouvrir la page des paramètres de Profiler][configure-profiler-entry]
 
-## <a name="app-service-environment"></a>Environnement App Service
-En fonction de la configuration de votre environnement Azure App Service, l’appel permettant de vérifier l’état de l’agent peut être bloqué. Le volet peut afficher un message indiquant que l’agent n’est pas exécuté même s’il est en cours d’exécution. Pour vérifier qu’il est exécuté, consultez la tâche web sur votre application. Si toutes les valeurs de paramètres d’application sont correctes et que l’extension de site Application Insights est installée sur votre application, Profiler est en cours d’exécution. Si votre application ne reçoit pas suffisamment de trafic, les sessions de profilage récentes doivent s’afficher dans une liste.
+Une page se présentant comme suit s’affiche :
 
-## <a id="profileondemand"></a> Déclencher manuellement Profiler
+![Page des paramètres de Profiler][configure-profiler-page]
 
-### <a name="minimum-requirements"></a>Configuration minimale requise 
-Pour déclencher manuellement une session du profileur, l'utilisateur doit au moins disposer d'un accès en « écriture » au composant Application Insights. Dans la plupart des cas, vous bénéficiez automatiquement de cet accès et vous n'avez rien d'autre à faire. En cas de problèmes, le rôle d'étendue d'abonnement à ajouter est « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d'accès par rôle avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+La page **Configurer Application Insights Profiler** offre les fonctionnalités suivantes :
 
-Vous pouvez déclencher manuellement Profiler en un clic. Supposons que vous exécutez un test de performances web. Vous avez besoin des traces pour comprendre comment votre application web fonctionne avec une certaine charge. Pour savoir quand le test de charge est exécuté, vous avez besoin de contrôler le moment de capture des traces. Toutefois, l’intervalle d’échantillonnage aléatoire ne permet pas de le faire.
+| | |
+|-|-|
+Profiler maintenant | Démarre des sessions de profilage pour toutes les applications qui sont liées à cette instance d’Application Insights.
+Déclencheurs | Vous permet de configurer les déclencheurs entraînant l’exécution du profileur. 
+Sessions de profilage récentes | Affiche des informations sur les sessions de profilage effectuées.
+
+## <a name="profile-now"></a>Profiler maintenant
+Cette option vous permet de démarrer une session de profilage à la demande. Quand vous cliquez sur ce lien, tous les agents du profileur qui envoient des données à cette instance d’Application Insights commencent à capturer un profil. Après 5 à 10 minutes, la session de profilage s’affiche dans la liste ci-dessous.
+
+Pour déclencher manuellement une session du profileur, l’utilisateur doit au moins disposer d’un accès en « écriture » au composant Application Insights. Dans la plupart des cas, vous bénéficiez automatiquement de cet accès et vous n’avez rien d’autre à faire. En cas de problème, le rôle d’étendue d’abonnement à ajouter est « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d'accès par rôle avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+
+## <a name="trigger-settings"></a>Paramètres de déclencheur
+![Boîte de dialogue Paramètres de déclencheur][trigger-settings-flyout]
+
+Cliquez sur le bouton Déclencheurs dans la barre de menus pour ouvrir la boîte de dialogue Paramètres de déclencheur. Vous pouvez configurer le déclencheur pour démarrer le profilage quand le pourcentage d’utilisation du processeur ou de la mémoire atteint le niveau que vous avez défini.
+
+| | |
+|-|-|
+Bouton Activé/Désactivé | Activé : le profileur peut être démarré avec ce déclencheur ; Désactivé : le profileur ne sera pas démarré avec ce déclencheur.
+Seuil de mémoire | Quand l’utilisation de la mémoire atteint ce pourcentage, le profileur est démarré.
+Duration | Définit la durée d’exécution du profileur quand il est déclenché.
+Temps de recharge | Définit le temps d’attente du profileur avant de vérifier à nouveau l’utilisation de la mémoire ou du processeur après son déclenchement.
+
+## <a name="recent-profiling-sessions"></a>Sessions de profilage récentes
+Cette section de la page affiche des informations sur les sessions de profilage récentes. Une session de profilage représente la période pendant laquelle l’agent du profileur a effectué un profil sur l’une des machines hébergeant votre application. Vous pouvez ouvrir les profils à partir d’une session en cliquant sur l’une des lignes. Pour chaque session, les informations suivantes sont présentées :
+
+| | |
+|-|-|
+Déclenché par | Mode de démarrage de la session : par un déclencheur, avec le bouton Profiler maintenant ou avec l’échantillonnage par défaut. 
+Nom de l'application | Nom de l’application profilée.
+Instance de machine | Nom de la machine sur laquelle l’agent du profileur a été exécuté.
+Timestamp | Heure à laquelle le profil a été capturé.
+Traces | Nombre de traces associées à des requêtes individuelles.
+% d’UC | Pourcentage d’utilisation du processeur pendant l’exécution du profileur.
+Mémoire (%) | Pourcentage d’utilisation de la mémoire pendant l’exécution du profileur.
+
+## <a id="profileondemand"></a> Utiliser les tests de performances web pour générer du trafic vers votre application
+
+Vous pouvez déclencher manuellement Profiler en un clic. Supposons que vous exécutez un test de performances web. Vous avez besoin des traces pour comprendre comment votre application web s’exécute avec une certaine charge. Pour savoir quand le test de charge est exécuté, vous avez besoin de contrôler le moment de capture des traces. Toutefois, l’intervalle d’échantillonnage aléatoire ne permet pas de le faire.
 
 Les sections suivantes montrent comment ce scénario fonctionne :
 
-### <a name="step-1-optional-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Étape 1 : (Facultatif) Générer du trafic vers votre application web en démarrant un test de performances web
+### <a name="step-1-generate-traffic-to-your-web-app-by-starting-a-web-performance-test"></a>Étape 1 : Générer du trafic vers votre application web en démarrant un test de performances web
 
 Si votre application web a déjà du trafic entrant ou si vous voulez simplement générer du trafic manuellement, ignorez cette section et continuez à l’étape 2.
 
@@ -78,57 +111,13 @@ Si votre application web a déjà du trafic entrant ou si vous voulez simplement
 
 Une fois que l’exécution de Profiler est terminée, suivez les instructions de la notification pour accéder au volet Performances et voir les traces.
 
-## <a name="troubleshoot-the-profiler-on-demand-session"></a>Résoudre les problèmes de la session de Profiler à la demande
-
-Après une session à la demande, vous pouvez recevoir un message d’erreur d’expiration du délai d’attente de Profiler :
-
-![Erreur de délai d’expiration de Profiler][profiler-timeout]
-
-Vous pouvez recevoir cette erreur pour une des raisons suivantes :
-
-* La session de Profiler à la demande a réussi, mais Application Insights a pris plus de temps que prévu pour traiter les données collectées.  
-
-  Si les données ne sont pas traitées dans les 15 minutes, le portail affiche un message d’expiration du délai d’attente. Après un certain temps, les traces de Profiler sont affichées. Si vous recevez un message d’erreur, ignorez-le pour le moment. Nous travaillons activement sur un correctif.
-
-* Votre application web a une version plus ancienne de l’agent Profiler, qui n’a pas la fonctionnalité « à la demande ».  
-
-  Si vous aviez déjà activé Application Insights Profiler, vous devez peut-être mettre à jour votre agent Profiler pour commencer à utiliser la fonctionnalité « à la demande ».
-  
-Accédez au volet **Paramètres d’application** d’App Services et vérifiez les paramètres suivants :
-* **APPINSIGHTS_INSTRUMENTATIONKEY** : remplacez ceci par la clé d’instrumentation correcte pour Application Insights.
-* **APPINSIGHTS_PORTALINFO** : ASP.NET
-* **APPINSIGHTS_PROFILERFEATURE_VERSION** : 1.0.0
-
-Si une des valeurs précédentes n’est pas définie, installez la dernière extension de site en effectuant les étapes suivantes :
-
-1. Accédez au volet **Application Insights** dans le portail App Services.
-
-    ![Activer Application Insights dans le portail App Services][enable-app-insights]
-
-1. Si le volet **Application Insights** affiche un bouton **Mettre à jour**, sélectionnez-le pour mettre à jour l’extension de site Application Insights qui va installer le dernier agent Profiler.
-
-    ![Mettre à jour l’extension de site][update-site-extension]
-
-1. Pour vérifier que Profiler est activé, sélectionnez **Changer**, puis **OK** pour enregistrer les changements.
-
-    ![Modifier et enregistrer Application Insights][change-and-save-appinsights]
-
-1. Revenez au volet **Paramètres d’application** du service d’application pour vérifier que les valeurs suivantes sont définies :
-   * **APPINSIGHTS_INSTRUMENTATIONKEY** : remplacez ceci par la clé d’instrumentation correcte pour Application Insights.
-   * **APPINSIGHTS_PORTALINFO** : ASP.NET 
-   * **APPINSIGHTS_PROFILERFEATURE_VERSION** : 1.0.0
-
-     ![Paramètres d’application pour Profiler][app-settings-for-profiler]
-
-1. Vous pouvez aussi sélectionner **Extensions**, puis vérifier la version de l’extension et déterminer si une mise à jour est disponible.
-
-    ![Rechercher une mise à jour de l’extension][check-for-extension-update]
-
 ## <a name="next-steps"></a>Étapes suivantes
 [Activer Profiler et voir les traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png
+[configure-profiler-page]: ./media/profiler-settings/configureBlade.png
+[trigger-settings-flyout]: ./media/profiler-settings/CPUTrigger.png
 [create-performance-test]: ./media/profiler-settings/new-performance-test.png
 [configure-performance-test]: ./media/profiler-settings/configure-performance-test.png
 [load-test-queued]: ./media/profiler-settings/load-test-queued.png

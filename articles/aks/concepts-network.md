@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69969648"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950363"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -29,7 +29,7 @@ Cet article présente les concepts fondamentaux qui fournissent la mise en rése
 
 Pour autoriser l’accès à vos applications ou pour que les composants d’application communiquent entre eux, Kubernetes fournit une couche d’abstraction à la mise en réseau virtuelle. Les nœuds Kubernetes sont connectés à un réseau virtuel et peuvent fournir la connectivité entrante et sortante pour les pods. Le composant *kube-proxy* s’exécute sur chaque nœud afin de fournir ces fonctionnalités de réseau.
 
-Dans Kubernetes, les *services* regroupent logiquement les pods pour permettre un accès direct via une adresse IP ou un nom DNS et sur un port spécifique. Vous pouvez également distribuer le trafic à l’aide d’un *équilibreur de charge*. En outre, vous pouvez affiner le routage du trafic des applications avec des *contrôleurs d’entrée*. La sécurité et le filtrage du trafic réseau pour les pods sont possibles avec des *stratégies réseau* Kubernetes (en préversion dans AKS).
+Dans Kubernetes, les *services* regroupent logiquement les pods pour permettre un accès direct via une adresse IP ou un nom DNS et sur un port spécifique. Vous pouvez également distribuer le trafic à l’aide d’un *équilibreur de charge*. En outre, vous pouvez affiner le routage du trafic des applications avec des *contrôleurs d’entrée*. La sécurité et le filtrage du trafic réseau pour les pods sont possibles avec des *stratégies réseau* Kubernetes.
 
 La plateforme Azure permet également de simplifier la mise en réseau virtuelle pour les clusters AKS. Quand vous créez un équilibreur de charge Kubernetes, la ressource d’équilibreur de charge Azure sous-jacente est créée et configurée. Quand vous ouvrez des ports réseau sur les pods, les règles de groupe de sécurité réseau Azure correspondantes sont configurées. Pour le routage d’application HTTP, Azure peut également configurer un *DNS externe* quand de nouvelles routes d’entrée sont configurées.
 

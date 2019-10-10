@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662788"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720241"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Instructions pour une implémentation responsable de Personalizer
 
@@ -63,7 +63,8 @@ Lors du choix de cas d’usage pour Personalizer :
 
 * Commencez le processus de conception en réfléchissant à la façon dont la personnalisation aide vos utilisateurs.
 * Considérez les conséquences négatives dans le monde réel si certains éléments ne sont pas classés pour les utilisateurs en raison de l’exploration ou des modèles de personnalisation.
-* Prenez en compte les boucles de prophétie à réalisation automatique. Cela peut se produire si une récompense de personnalisation effectue l’entraînement d’un modèle de telle sorte que celui-ci puisse par la suite exclure un groupe démographique de l’accès au contenu pertinent. Par exemple, la plupart des gens habitant dans un quartier à faibles revenus ne reçoivent pas d’offre d’assurance premium, et petit à petit plus personne dans le quartier n’aura tendance à voir l’offre.
+* Déterminez si votre cas d’usage constitue un traitement automatisé affectant de manière significative les personnes concernées et régi par l’article 22 du [RGPD](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) ou d’autres lois.
+* Prenez en compte les boucles de prophétie à réalisation automatique. Cela peut se produire si une récompense de personnalisation effectue l’entraînement d’un modèle de telle sorte que celui-ci puisse par la suite exclure un groupe démographique de l’accès au contenu pertinent. Par exemple, la plupart des gens habitant dans un quartier à faibles revenus ne reçoivent pas d’offre d’assurance premium, et petit à petit plus personne dans le quartier n’aura tendance à voir l’offre si l’exploration est insuffisante.
 * Enregistrez des copies des modèles et des stratégies d’apprentissage pour le cas où il serait nécessaire de reproduire Personalizer par la suite. Vous pouvez le faire régulièrement ou lors de chaque période d’actualisation du modèle.
 * Réfléchissez au niveau d’exploration adéquat pour l’espace, et à la façon de l’utiliser en tant qu’outil pour atténuer les effets de « chambre d’écho ».
 

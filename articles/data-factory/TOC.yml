@@ -80,6 +80,8 @@
           items:
             - name: Outil Copier des données
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+    - name: Transformer des données à l’aide de flux de données de mappage
+      href: tutorial-data-flow.md
     - name: Transformer des données dans le Cloud
       items:
         - name: HDInsight Spark
@@ -143,7 +145,7 @@
       href: concepts-integration-runtime.md
     - name: Mappage de flux de données
       items:
-        - name: Concepts du mappage de flux de données
+        - name: Vue d’ensemble des flux de données de mappage
           href: concepts-data-flow-overview.md
         - name: Mode débogage
           href: concepts-data-flow-debug-mode.md
@@ -151,8 +153,6 @@
           href: concepts-data-flow-json.md
         - name: Dérive de schéma
           href: concepts-data-flow-schema-drift.md
-        - name: Volet Inspecter
-          href: concepts-data-flow-inspect-pane.md
         - name: Modèles de colonne
           href: concepts-data-flow-column-pattern.md
         - name: Supervision du flux de données
@@ -161,12 +161,8 @@
           href: concepts-data-flow-performance.md
         - name: Déplacer des nœuds
           href: concepts-data-flow-move-nodes.md
-        - name: Onglet Optimiser
-          href: concepts-data-flow-optimize-tab.md
         - name: Générateur d’expressions
           href: concepts-data-flow-expression-builder.md
-        - name: Référencer des nœuds
-          href: concepts-data-flow-reference-node.md
         - name: Langage d’expression
           href: data-flow-expression-functions.md
     - name: Rôles et autorisations
@@ -390,6 +386,8 @@
     - name: Transformer les données
       href: transform-data.md
       items:
+        - name: Exécuter une activité de flux de données
+          href: control-flow-execute-data-flow-activity.md
         - name: Activité de fonction Azure
           href: control-flow-azure-function-activity.md
         - name: Activité personnalisée
@@ -424,8 +422,6 @@
       items:
         - name: Ajouter une activité variable
           href: control-flow-append-variable-activity.md
-        - name: Exécuter une activité de flux de données
-          href: control-flow-execute-data-flow-activity.md
         - name: Activité d’exécution du pipeline
           href: control-flow-execute-pipeline-activity.md
         - name: Activité de filtre
