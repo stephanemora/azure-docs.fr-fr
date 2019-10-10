@@ -2,17 +2,16 @@
 title: Exemple - Emplacements autorisés
 description: Cet exemple de définition de stratégie exige que toutes les ressources soient déployées sur les emplacements approuvés.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5c4a23b355a4d7841c42d03042399635a55bac03
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264724"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980633"
 ---
 # <a name="sample---allowed-region-locations"></a>Exemple - Emplacements régionaux autorisés
 
@@ -54,7 +53,7 @@ Code JSON définissant les paramètres de la stratégie, utilisé par l’interf
 
 |Nom |Type |Champ |Description |
 |---|---|---|---|
-|listOfAllowedLocations |Tableau |Emplacements |Liste des emplacements autorisés|
+|listOfAllowedLocations |Array |locations |Liste des emplacements autorisés|
 
 Lors de la création d’une affectation via PowerShell ou l’interface de ligne de commande Azure (Azure CLI), les valeurs de paramètres peuvent être passées au format JSON dans une chaîne ou via un fichier à l’aide de `-PolicyParameter` (PowerShell) ou de `--params` (Azure CLI).
 PowerShell prend également en charge `-PolicyParameterObject` qui nécessite de passer une table de hachage Nom/Valeur à l’applet de commande, où **Nom** est le nom du paramètre et **Valeur** est la valeur unique ou le tableau des valeurs transmises pendant l’affectation.
@@ -121,7 +120,7 @@ Les scripts de déploiement et de suppression utilisent les commandes suivantes.
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | Supprime une affectation Azure Policy existante. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | Supprime une définition Azure Policy existante. |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 

@@ -2,17 +2,16 @@
 title: Exemple - Références SKU de passerelle d’application autorisées
 description: Pour cet exemple de définition de stratégie, les passerelles d’application doivent utiliser une référence SKU approuvée.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3b6d8fdb58327c8683391f8ae53d440090fe83f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 217666ac89a6a27a0f18d0d620338fbb31fb48ec
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59265591"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977770"
 ---
 # <a name="sample---allowed-application-gateway-skus"></a>Exemple - Références SKU de passerelle d’application autorisées
 

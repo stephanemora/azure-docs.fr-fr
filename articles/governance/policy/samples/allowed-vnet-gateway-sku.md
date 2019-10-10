@@ -2,17 +2,16 @@
 title: Exemple - Références SKU de passerelles de réseau virtuel autorisées
 description: Cet exemple de définition de stratégie exige que les passerelles de réseau virtuel utilisent un type de passerelle et une référence SKU approuvés.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3338117f44639fd8342c4275016461db16a76686
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0ec66dff07d6c0a39517768e7a856d87e346bd90
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280602"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977639"
 ---
 # <a name="sample---allowed-virtual-network-gateway-skus"></a>Exemple - Références SKU de passerelles de réseau virtuel autorisées
 

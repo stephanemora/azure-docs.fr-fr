@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3faa76c1506664a075648edc7d57fbba542b011
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099604"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960547"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : Définir un nouveau type d’appareil dans votre application Azure IoT Central
 
@@ -365,7 +365,7 @@ Vous utilisez les _commandes_ pour permettre à un opérateur d’exécuter des 
     | Nom d’affichage         | Commande echo    |
     | Nom du champ           | echo            |
     | Délai d’expiration par défaut      | 30              |
-    | Type d’affichage         | text            |
+    | Type de données         | text            |
     | Description          | Commande d’appareil  |  
 
     Vous pouvez ajouter des entrées supplémentaires à la commande en sélectionnant **+** pour **Champs d’entrée**.

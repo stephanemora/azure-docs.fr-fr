@@ -2,17 +2,16 @@
 title: Exemple - Auditer des coffres de clés pour détecter ceux qui n’ont pas de points de terminaison de réseau virtuel
 description: Cet exemple de définition de stratégie audite les coffres de clés pour détecter les instances qui n’ont pas de points de terminaison de service de réseau virtuel.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ccfba0eae8d3c51cf153f58d554dc09b574d3873
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276369"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976963"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exemple - Coffres de clés sans points de terminaison de réseau virtuel
 
@@ -94,7 +93,7 @@ Les scripts de déploiement et de suppression utilisent les commandes suivantes.
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-Azpolicyassignment) | Supprime une affectation Azure Policy existante. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-Azpolicydefinition) | Supprime une définition Azure Policy existante. |
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 

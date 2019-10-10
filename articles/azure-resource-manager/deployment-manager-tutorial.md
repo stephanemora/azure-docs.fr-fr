@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205719"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170359"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion publique)
 
@@ -80,7 +80,7 @@ Il existe deux services alloués dans l’ouest et dans l’est des États-Unis.
 
 ## <a name="download-the-tutorial-files"></a>Télécharger les fichiers du didacticiel
 
-1. Téléchargez [les modèles et artefacts](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) utilisés dans ce didacticiel.
+1. Téléchargez [les modèles et artefacts](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) utilisés dans ce didacticiel.
 2. Décompressez les fichiers à l’emplacement désiré sur votre ordinateur.
 
 Dans le dossier racine, vous verrez deux dossiers :
@@ -143,7 +143,7 @@ Les artefacts du modèle sont utilisés par le modèle de topologie de service, 
     1. À partir de l’Explorateur Stockage Azure, accédez au conteneur d’objets blob.
     2. Cliquez avec le bouton droit sur le conteneur d’objets blob du volet de gauche puis sélectionnez **Get Shared Access Signature** (Obtenir une signature d’accès partagé).
     3. Configurez l’**heure de démarrage** et l’**heure d’expiration**.
-    4. Sélectionnez **Créer**.
+    4. Sélectionnez **Create** (Créer).
     5. Copiez l’URL. Cette URL est nécessaire pour remplir un champ dans les deux fichiers de paramètres, le [fichier de paramètres de topologie](#topology-parameters-file) et le [fichier de paramètres de lancement](#rollout-parameters-file).
 
 ## <a name="create-the-user-assigned-managed-identity"></a>Créer l’identité managée affectée par l'utilisateur

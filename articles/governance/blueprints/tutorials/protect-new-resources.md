@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 274c437acd8df50d631727fc352c4b9ebecead18
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: a82b24f89cea580a1c79a1dec60996629b7b14f3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479976"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978140"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Didacticiel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
 
@@ -157,8 +156,8 @@ Une fois que la définition de blueprint est publiée, vous pouvez l’affecter 
 
      |Nom de l’artefact|Type d’artefact|Nom du paramètre|Valeur|Description|
      |-|-|-|-|-|
-     |Groupe de ressources RGtoLock|Groupe de ressources|Nom|TestingBPLocks|Définit le nom du premier groupe de ressources auquel appliquer les verrous de blueprint.|
-     |Groupe de ressources RGtoLock|Groupe de ressources|Lieu|USA Ouest 2|Définit l’emplacement du nouveau groupe de ressources auquel appliquer les verrous de blueprint.|
+     |Groupe de ressources RGtoLock|Resource group|Nom|TestingBPLocks|Définit le nom du premier groupe de ressources auquel appliquer les verrous de blueprint.|
+     |Groupe de ressources RGtoLock|Resource group|Location|USA Ouest 2|Définit l’emplacement du nouveau groupe de ressources auquel appliquer les verrous de blueprint.|
      |StorageAccount|Modèle Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|Référence SKU du stockage. La valeur par défaut est _Standard_LRS_.|
 
 1. Une fois tous les paramètres entrés, sélectionnez **Affecter** au bas de la page.

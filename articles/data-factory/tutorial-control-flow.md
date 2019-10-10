@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 5b9be86b0a3d17c9c325b565979fccbec92f5733
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815879"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176002"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activités de création de branches et chaînage dans un pipeline Azure Data Factory
 
@@ -38,14 +38,14 @@ Ce tutoriel explique comment effectuer les tâches suivantes :
 > * Démarrer une exécution de pipeline
 > * Surveiller les exécutions de pipeline et d’activité
 
-Ce didacticiel utilise le kit .NET SDK. Vous pouvez utiliser d’autres mécanismes pour interagir avec Azure Data Factory. Pour obtenir des guides de démarrage rapide Data Factory, consultez [Démarrages en 5 minutes](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts).
+Ce didacticiel utilise le kit .NET SDK. Vous pouvez utiliser d’autres mécanismes pour interagir avec Azure Data Factory. Pour obtenir des guides de démarrage rapide Data Factory, consultez [Démarrages en 5 minutes](/azure/data-factory/quickstart-create-data-factory-portal).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
 * Compte Stockage Azure. Vous utilisez le stockage d’objets blob comme magasin de données source. Si vous ne possédez pas de compte de stockage Azure, voir [Création d’un compte de stockage](../storage/common/storage-quickstart-create-account.md).
-* Explorateur Stockage Azure. Pour installer cet outil, consultez [Explorateur Stockage Azure](https://storageexplorer.com/).
+* Azure Storage Explorer. Pour installer cet outil, consultez [Explorateur Stockage Azure](https://storageexplorer.com/).
 * Azure SQL Database. Vous utilisez la base de données comme magasin de données réceptrice. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md).
 * Visual Studio. Cet article utilise Visual Studio 2019.
 * Kit de développement logiciel Microsoft Azure SDK pour .NET. Téléchargez et installez [Azure SDK pour .NET](https://azure.microsoft.com/downloads/).
@@ -268,9 +268,9 @@ Notez l’utilisation de paramètres pour *FolderPath*. `sourceBlobContainer` es
 
 ## <a name="create-a-c-class-emailrequest"></a>Créez une classe C# : EmailRequest
 
-Dans votre projet C#, créez une classe nommée `EmailRequest`. Cette classe définit les propriétés que le pipeline envoie dans le corps de la requête lors de l’envoi d’un e-mail. Dans ce tutoriel, le pipeline envoie quatre propriétés à l’adresse e-mail :
+Dans votre projet C#, créez une classe nommée `EmailRequest`. Cette classe définit les propriétés que le pipeline envoie dans le corps de la requête lors de l’envoi d’un e-mail. Dans ce didacticiel, le pipeline envoie quatre propriétés à l’adresse e-mail :
 
-* message. Corps de l’e-mail. Pour une copie réussie, cette propriété contient la quantité de données écrites. Pour une copie ayant échoué, cette propriété contient les détails de l’erreur.
+* Message. Corps de l’e-mail. Pour une copie réussie, cette propriété contient la quantité de données écrites. Pour une copie ayant échoué, cette propriété contient les détails de l’erreur.
 * dataFactoryName. Nom de la fabrique de données.
 * pipelineName. Nom du pipeline.
 * receiver. Paramètre transmis. Cette propriété spécifie le destinataire de l’e-mail.
@@ -300,11 +300,11 @@ Dans votre projet C#, créez une classe nommée `EmailRequest`. Cette classe dé
     }
 ```
 
-## <a name="create-email-workflow-endpoints"></a>Créer des points de terminaison de workflows d’e-mail
+## <a name="create-email-workflow-endpoints"></a>Créer des points de terminaison de flux de travail d’e-mail
 
-Pour déclencher l’envoi d’un e-mail, vous utilisez [Logic Apps](../logic-apps/logic-apps-overview.md) pour définir le workflow. Pour plus d’informations sur la création d’un workflow Logic Apps, consultez [Guide pratique pour créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Pour déclencher l’envoi d’un e-mail, vous utilisez [Logic Apps](../logic-apps/logic-apps-overview.md) pour définir le flux de travail. Pour plus d’informations sur la création d’un workflow Logic Apps, consultez [Guide pratique pour créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-### <a name="success-email-workflow"></a>Workflow d’un e-mail d’avis de réussite
+### <a name="success-email-workflow"></a>Flux de travail d’un e-mail d’avis de réussite
 
 Dans le [portail Azure](https://portal.azure.com), créez un workflow Logic Apps nommé *CopySuccessEmail*. Définissez `When an HTTP request is received` comme déclencheur de workflow. Pour le déclencheur de votre requête, renseignez `Request Body JSON Schema` avec le texte JSON suivant :
 
@@ -330,7 +330,7 @@ Dans le [portail Azure](https://portal.azure.com), créez un workflow Logic Apps
 
 Votre workflow ressemble à l’exemple suivant :
 
-![Workflow d’un e-mail d’avis de réussite](media/tutorial-control-flow/success-email-workflow-trigger.png)
+![Flux de travail d’un e-mail d’avis de réussite](media/tutorial-control-flow/success-email-workflow-trigger.png)
 
 Ce contenu JSON correspond à la classe `EmailRequest` que vous avez créée dans la section précédente.
 
@@ -340,7 +340,7 @@ Ajoutez une action `Office 365 Outlook – Send an email`. Pour l’action **Env
 
 Une fois que vous avez enregistré le workflow, copiez et enregistrez la valeur de l’**URL HTTP POST** à partir du déclencheur.
 
-## <a name="fail-email-workflow"></a>Workflow d’un e-mail d’avis d’échec
+## <a name="fail-email-workflow"></a>Flux de travail d’un e-mail d’avis d’échec
 
 Clonez **CopySuccessEmail** en tant qu’autre workflow Logic Apps nommé *CopyFailEmail*. Dans le déclencheur de la requête, `Request Body JSON schema` est identique. Modifiez la mise en forme de votre e-mail, notamment `Subject`, pour l’adapter à un avis d’échec. Voici un exemple :
 
@@ -364,7 +364,7 @@ Revenez à votre projet dans Visual Studio. Nous allons maintenant ajouter le co
 
 Dans ce pipeline, vous utilisez les fonctionnalités suivantes :
 
-* Paramètres
+* parameters
 * Activité web
 * Dépendance des activités
 * Utilisation de la sortie d’une activité en tant qu’entrée d’une autre activité
@@ -449,7 +449,7 @@ Dans ce pipeline, vous utilisez les fonctionnalités suivantes :
    client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
    ```
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 La première section de notre code de pipeline définit les paramètres.
 
@@ -490,7 +490,7 @@ L’activité web permet d’appeler n’importe quel point de terminaison REST.
 
 Dans la propriété `Url`, collez les points de terminaison d’**URL HTTP POST** à partir de vos workflows Logic Apps. Dans la propriété `Body`, transmettez une instance de la classe `EmailRequest`. La requête d’e-mail contient les propriétés suivantes :
 
-* message. Transmet la valeur de `@{activity('CopyBlobtoBlob').output.dataWritten`. Accède à une propriété de l’activité de copie précédente et transmet la valeur de `dataWritten`. Pour un échec, passez la sortie de l’erreur au lieu de `@{activity('CopyBlobtoBlob').error.message`.
+* Message. Transmet la valeur de `@{activity('CopyBlobtoBlob').output.dataWritten`. Accède à une propriété de l’activité de copie précédente et transmet la valeur de `dataWritten`. Pour un échec, passez la sortie de l’erreur au lieu de `@{activity('CopyBlobtoBlob').error.message`.
 * dataFactoryName. Transmet la valeur de `@{pipeline().DataFactory}`. Cette variable système vous permet d’accéder au nom de la fabrique de données correspondant. Pour obtenir la liste des variables système, consultez [Variables système](control-flow-system-variables.md).
 * pipelineName. Transmet la valeur de `@{pipeline().Pipeline}`. Cette variable système vous permet d’accéder au nom du pipeline correspondant.
 * receiver. Transmet la valeur de `"@pipeline().parameters.receiver"`. Accède aux paramètres de pipeline.

@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 30751bebd397b378924453987462c9e2b3b55ebf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4b46bc952782fc7c9b56d6f0c049fe17b63d0f2
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803893"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836340"
 ---
 # <a name="electric-vehicle-routing-using-azure-notebooks-python"></a>Routage de véhicule électrique à l’aide d’Azure Notebooks (Python)
 
 Azure Maps est un portefeuille d’API de services géospatiaux intégrées en mode natif dans Azure, et qui permettent aux développeurs, aux entreprises et aux 
-éditeurs de logiciels indépendants de créer des applications utilisant la géolocalisation ainsi que des solutions d’IoT, de mobilité, de logistique et de suivi des ressources. Les API REST Azure Maps peuvent être appelées à partir de langages tels que Python et R pour permettre l’analyse de données géospatiales et les scénarios de Machine Learning. Azure Maps offre un ensemble robuste d’[API de routage]([https://docs.microsoft.com/rest/api/maps/route) qui permet aux utilisateurs de calculer des itinéraires entre plusieurs points de données en fonction de différentes conditions, telles que le type de véhicule ou la zone accessible. Dans ce tutoriel, nous allons examiner un scénario pour aider le conducteur d’un véhicule électrique n’ayant plus beaucoup d’autonomie à trouver la borne de recharge la plus proche en temps de conduite.
+éditeurs de logiciels indépendants de créer des applications utilisant la géolocalisation ainsi que des solutions d’IoT, de mobilité, de logistique et de suivi des ressources. Les API REST Azure Maps peuvent être appelées à partir de langages tels que Python et R pour permettre l’analyse de données géospatiales et les scénarios de Machine Learning. Azure Maps offre un ensemble robuste d’[API de routage](https://docs.microsoft.com/rest/api/maps/route) qui permet aux utilisateurs de calculer des itinéraires entre plusieurs points de données en fonction de différentes conditions, telles que le type de véhicule ou la zone accessible. Dans ce tutoriel, nous allons examiner un scénario pour aider le conducteur d’un véhicule électrique n’ayant plus beaucoup d’autonomie à trouver la borne de recharge la plus proche en temps de conduite.
 
-Ce tutoriel vous apprendra à effectuer les opérations suivantes :
+Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer et exécuter un notebook Jupyter sur [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) dans le cloud

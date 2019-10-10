@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6eaa1be81d3ac0733c0829bc45e1b62f8aae5755
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67092919"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Didacticiel : Intégration d’Azure Active Directory à Riskware
 
@@ -170,7 +170,7 @@ Pour configurer l’authentification unique Azure AD avec Riskware, effectuez l
 
     g. Dans la zone de texte **XML Identity Tag Name**, tapez l’attribut qui contient l’identificateur unique dans la réponse SAML, comme NameID.
 
-    h. Dans le Bloc-notes, ouvrez le  **XML de métadonnées**  téléchargé du portail Azure, copiez le certificat à partir du fichier de métadonnées, puis collez-le dans la zone de texte **Certificate**.
+    h. Dans le Bloc-notes, ouvrez le **XML de métadonnées** téléchargé du portail Azure, copiez le certificat à partir du fichier de métadonnées, puis collez-le dans la zone de texte **Certificate**.
 
     i. Dans la zone de texte **Consumer URL**, collez la valeur de **Reply URL**, que vous obtenez à partir de l’équipe de support.
 
