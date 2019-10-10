@@ -1,19 +1,19 @@
 ---
 title: Utiliser l’inscription d’applications AAD existantes pour Azure Digital Twins | Microsoft Docs
 description: Cet article explique comment utiliser l’ancienne méthode de création de l’inscription d’applications avec Azure Active Directory pour la configuration d’Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
-manager: philmea
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.author: alinast
-ms.openlocfilehash: e9689c71c881c7f5f29ac05fea53bb2c27f75591
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.date: 10/03/2019
+ms.openlocfilehash: c7cf8b042c079aa67ff62a00955d60c27f0e72d4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624759"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978587"
 ---
 # <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>Inscrire votre application Azure Digital Twins avec l’ancien Azure Active Directory
 

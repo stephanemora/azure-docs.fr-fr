@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839234"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028509"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -96,7 +96,7 @@ S'il vous faut augmenter l’échelle de votre modèle, contactez le [support Sp
 
 **R** : La limite de taille actuelle d’un jeu de données est de 2 Go. Cette limite découle de la restriction de taille de fichier pour le chargement HTTP. 
 
-**Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?** 
+**Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?** 
 
 **R** :  Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
 
@@ -140,7 +140,7 @@ S'il vous faut augmenter l’échelle de votre modèle, contactez le [support Sp
 
 **R** : Les résultats sont le fruit d’une comparaison entre le modèle de référence et le modèle personnalisé. Pour que la personnalisation soit pertinente, l’objectif doit être de surpasser le modèle de référence.
 
-**Q : Comment faire pour déterminer le taux d’erreur de mots d’un modèle de référence afin de voir s’il y a une amélioration ?** 
+**Q : Comment faire pour déterminer le taux d’erreur de mots d’un modèle de référence afin de voir s’il y a une amélioration ?** 
 
 **R** : Les résultats de test hors connexion indiquent la précision de référence du modèle personnalisé, et l’amélioration obtenue par rapport à cette référence.
 

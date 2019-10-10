@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a33c6f6621e7fc7944bc116b27e5f26de88f77d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc7c4ae370a894c46eda38df41d64a6ef2cd91
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389575"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027706"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Guide pratique pour déclencher des actions complexes avec des alertes Azure Monitor
 
@@ -38,7 +38,7 @@ Le processus est similaire si vous souhaitez que l’application logique effectu
 
 1.  Sur le Portail Azure, sélectionnez **Créer une ressource** en haut à gauche.
 
-2.  Recherchez et sélectionnez  **Application logique**, puis  **Créer**.
+2.  Recherchez et sélectionnez **Application logique**, puis **Créer**.
 
 3.  Donnez un **Nom** à votre application logique, choisissez un **Groupe de ressources** et ainsi de suite.
 

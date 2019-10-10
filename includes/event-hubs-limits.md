@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a20481ea42a0772ab42322e912cfce67877734d6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830080"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996891"
 ---
 Le tableau suivant répertorie les quotas et les limites propres à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Pour plus d’informations sur la tarification des hubs d’événements, consultez la rubrique [Tarification des hubs d’événements](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -55,5 +55,5 @@ L’offre Event Hubs Dedicated est facturée à un tarif mensuel fixe, avec un m
 | Partitions | 2 000 par unité de capacité |
 | Groupes de consommateurs | Aucune limite par unité de capacité, 1 000 par hub d’événements |
 | Connexions réparties | 100 K inclus |
-| Rétention des messages | Jusqu'à 7 jours, 10 To inclus par unité de capacité |
+| Rétention des messages | 90 jours, 10 To inclus per unité de capacité |
 | Capture | Inclus |

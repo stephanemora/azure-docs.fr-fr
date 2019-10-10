@@ -6,22 +6,22 @@ keywords: outils de science des données, machine virtuelle science des données
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 09/11/2017
-ms.openlocfilehash: 6ff4d92cb3730716c532332bf426132fcbb8e122
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 10/3/2019
+ms.openlocfilehash: 62eb5f72d4b4395602b2665c0d1b3da4f6bb459b
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191949"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950200"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Outils de développement sur Azure Data Science Virtual Machine
 
 Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un environnement de développement intégré (IDE) très productif. Voici quelques-uns des outils disponibles sur la machine virtuelle DSVM.
 
-## <a name="visual-studio-2019"></a>Visual Studio 2019  
+## <a name="visual-studio-2017"></a>Visual Studio 2017
 
 |    |           |
 | ------------- | ------------- |
@@ -29,7 +29,7 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 | Versions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Développement de logiciels    |
 | Comment est-il configuré et installé sur la machine virtuelle DSVM ?      | Charge de travail Science des données (outils Python et R), charge de travail Azure (Hadoop, Data Lake), Node.js, outils SQL Server, [Azure Machine Learning pour Visual Studio Code](https://github.com/Microsoft/vs-tools-for-ai)    |
-| Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe`)    |
+| Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | Outils associés sur la machine virtuelle DSVM      |     Visual Studio Code, RStudio, Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
@@ -40,7 +40,7 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 | Versions DSVM prises en charge      | Windows, Linux     |
 | Utilisations classiques      | Éditeur de code et Intégration de Git   |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files (x86)\Microsoft VS Code\Code.exe`) dans Windows, raccourci sur le Bureau ou terminal (`code`) dans Linux    |
-| Outils associés sur la machine virtuelle DSVM      |     Visual Studio 2019, RStudio, Juno  |
+| Outils connexes sur la machine virtuelle DSVM      |     Visual Studio 2017, RStudio, Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
 
@@ -50,7 +50,7 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 | Versions DSVM prises en charge      | Windows, Linux      |
 | Utilisations classiques      |  Développement R     |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\RStudio\bin\rstudio.exe`) sur Windows, raccourci sur le Bureau (`/usr/bin/rstudio`) sur Linux      |
-| Outils associés sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 
 ## <a name="rstudio--server"></a>RStudio Server 
 
@@ -61,7 +61,7 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 | Versions DSVM prises en charge      | Linux      |
 | Utilisations classiques      |  Développement R     |
 | Comment l’utiliser et l’exécuter ?      | Activez le service avec _systemctl enable rstudio-server_, puis démarrez-le avec _systemctl start rstudio-server_. Connectez-vous ensuite à RStudio Server sur http:\//adresse_IP_de_votre_machine_virtuelle:8787.       |
-| Outils associés sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio Desktop      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
 
@@ -71,7 +71,7 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 | Versions DSVM prises en charge      | Windows, Linux      |
 | Utilisations classiques      |  Développement Julia     |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\JuliaPro-0.5.1.1\Juno.bat`) sur Windows, raccourci sur le Bureau (`/opt/JuliaPro-VERSION/Juno`) sur Linux      |
-| Outils associés sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
 
@@ -81,7 +81,7 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 | Versions DSVM prises en charge      | Linux      |
 | Utilisations classiques      |  Développement Python     |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`/usr/bin/pycharm`) sur Linux      |
-| Outils associés sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 
 
 
@@ -93,5 +93,5 @@ Data Science Virtual Machine (DSVM) regroupe plusieurs outils populaires dans un
 | Versions DSVM prises en charge      | Windows  |
 | Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Outils associés sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |
 

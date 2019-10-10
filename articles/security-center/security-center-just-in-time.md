@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202016"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996377"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès juste-à-temps à la machine virtuelle
 
@@ -118,7 +118,7 @@ Dans ASC, vous pouvez configurer un accès juste-à-temps et demander l’accès
 
 Pour demander l’accès à une machine virtuelle via ASC :
 
-1. Sous **Accès Juste à temps à la machine virtuelle**, sélectionnez l’onglet **Configuré**.
+1. Sous **Accès juste-à-temps à la machine virtuelle**, sélectionnez l’onglet **Configuré**.
 
 2. Sous **Machine virtuelle**, cliquez sur les machines virtuelles pour lesquelles vous souhaitez demander l’accès. Une coche est alors placée en regard de la machine virtuelle concernée.
 

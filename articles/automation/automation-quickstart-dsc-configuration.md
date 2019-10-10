@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d5eca6ffce8390b2f8b4deae589d43f40897756d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850569"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243456"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurer une machine virtuelle avec le service Desired State Configuration
 
@@ -42,7 +42,7 @@ Il existe plusieurs méthodes pour intégrer une machine et activer le service d
 2. Cliquez sur **Ajouter** pour ouvrir la page Sélection de machine virtuelle.
 3. Trouvez la machine virtuelle pour laquelle vous souhaitez activer DSC. Vous pouvez utiliser le champ de recherche et les options de filtre pour rechercher une machine virtuelle en particulier.
 4. Cliquez sur la machine virtuelle, puis sélectionnez **Connexion**.
-5. Sélectionnez les paramètres DSC adaptés à la machine virtuelle. Si vous avez déjà préparé une configuration, vous pouvez la spécifier en tant que *Node Configuration Name* (Nom de configuration du nœud). Vous pouvez définir le [mode de configuration](https://docs.microsoft.com/powershell/dsc/metaconfig) pour contrôler le comportement de la configuration de la machine.
+5. Sélectionnez les paramètres DSC adaptés à la machine virtuelle. Si vous avez déjà préparé une configuration, vous pouvez la spécifier en tant que *Node Configuration Name* (Nom de configuration du nœud). Vous pouvez définir le [mode de configuration](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) pour contrôler le comportement de la configuration de la machine.
 6. Cliquez sur **OK**
 
 ![Intégrer une machine virtuelle Azure à DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -64,7 +64,7 @@ Ces modules contiennent des ressources DSC et nombreux se trouvent dans [PowerSh
 
 Ce démarrage rapide utilise une configuration DSC qui configure Apache HTTP Server, MySQL et PHP sur l’ordinateur.
 
-Pour obtenir des informations sur les configurations DSC, consultez [Configurations DSC](https://docs.microsoft.com/powershell/dsc/configurations).
+Pour obtenir des informations sur les configurations DSC, consultez [Configurations DSC](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations).
 
 Dans un éditeur de texte, tapez la commande suivante et enregistrez-la localement sous `LAMPServer.ps1`.
 
@@ -142,7 +142,7 @@ Dans ce démarrage rapide, vous avez intégré une machine virtuelle Linux à DS
 > [!div class="nextstepaction"]
 > [Déploiement continu à une machine virtuelle à l’aide de DSC et Chocolatey](./automation-dsc-cd-chocolatey.md)
 
-* Pour en savoir plus sur le service de configuration d’état souhaité PowerShell, consultez [Vue d’ensemble de la configuration d’état souhaité PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
+* Pour en savoir plus sur le service de configuration d’état souhaité PowerShell, consultez [Vue d’ensemble de la configuration d’état souhaité PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
 * Pour en savoir plus sur la gestion d’Automation DSC à partir de PowerShell, consultez [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
 * Pour apprendre à transférer des rapports DSC à des journaux d’activité Azure Monitor à des fins de création de rapports et d’alertes, consultez [Transfert de rapports DSC à des journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics). 
 

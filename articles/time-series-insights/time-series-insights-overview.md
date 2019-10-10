@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706960f18080b4883735195b21ed05c3763e8617
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 0c832e272029dc110e156ef89deb908fec02f1b2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264496"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981196"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Qu’est-ce que Azure Time Series Insights ?
 
@@ -31,7 +31,7 @@ Time Series Insights a quatre tâches principales :
 - Time Series Insights offre une visualisation prête à l'emploi par le biais de l'explorateur Time Series Insights. 
 - Time Series Insights propose un service de requête, à la fois dans l’explorateur Time Series Insights et par le biais d’API faciles à intégrer, pour intégrer les données de série chronologique dans des applications personnalisées.
 
-Si vous générez une application en vue d’une utilisation en interne ou pour des clients externes, vous pouvez utiliser Time Series Insights comme back-end. Vous pouvez l’utiliser pour indexer, stocker et agréger des données de série chronologique. Pour créer une visualisation et une expérience utilisateur personnalisées, utilisez le [SDK client](tutorial-explore-js-client-lib.md). Time Series Insights intègre également plusieurs [API de requête](how-to-shape-query-json.md) pour permettre ces scénarios personnalisés.
+Si vous générez une application en vue d’une utilisation en interne ou pour des clients externes, vous pouvez utiliser Time Series Insights comme back-end. Vous pouvez l’utiliser pour indexer, stocker et agréger des données de série chronologique. Pour créer une visualisation et une expérience utilisateur personnalisées, utilisez le [SDK client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Time Series Insights intègre également plusieurs [API de requête](how-to-shape-query-json.md) pour permettre ces scénarios personnalisés.
 
 Les données de série chronologique représentent la façon dont un élément multimédia ou un processus changent au fil du temps. Les données de série chronologique sont indexées par horodatages, et l’heure représente l’axe le plus explicite le long duquel ces données sont organisées. Les données de série chronologique arrivant généralement dans un ordre séquentiel, elles sont considérées comme une instruction insert, plutôt qu’une mise à jour pour votre base de données.
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 98d8c2f6870be16f3eb92219fc3d02f988390a41
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: bc2ec2b952b4f0c6e61fc4953559fa882edfff09
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295466"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841141"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Configurer un tunnel de périphérique VPN Always On
 
@@ -32,12 +32,7 @@ Le tunnel d’appareil et le tunnel d’utilisateur fonctionnent tous deux de fa
 
 Configurez la passerelle VPN pour utiliser IKEv2 et l’authentification basée sur les certificats à l’aide de cet [article sur la connexion point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## <a name="2-configure-the-user-tunnel"></a>2. Configurer le tunnel d’utilisateur
-
-1. Installez des certificats clients sur le client Windows 10 comme indiqué dans cet [article sur un client VPN point à site](point-to-site-how-to-vpn-client-install-azure-cert.md). Le certificat doit se trouver dans le magasin de l’utilisateur actuel
-2. Configurez le client VPN Always On via PowerShell, SCCM ou Intune en suivant [ces instructions](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
-
-## <a name="3-configure-the-device-tunnel"></a>3. Configurer le tunnel d’appareil
+## <a name="2-configure-the-device-tunnel"></a>2. Configurer le tunnel d’appareil
 
 Les conditions suivantes doivent être remplies afin d’établir un tunnel d’appareil :
 

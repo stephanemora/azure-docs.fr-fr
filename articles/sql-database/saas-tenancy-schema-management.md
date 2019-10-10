@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570123"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029743"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
  
@@ -86,7 +86,7 @@ Pour créer un travail, vous utilisez un ensemble de procédures stockées syst�
 1. Dans SSMS, connectez-vous au serveur de catalogue : *catalog-dpt-&lt;user&gt;.database.windows.net* 
 1. Dans SSMS, ouvrez le fichier ...\\Learning Modules\\Schema Management\\DeployReferenceData.sql
 1. Modifiez l’instruction : SET @wtpUser = &lt;utilisateur&gt; et remplacer la valeur de l’utilisateur utilisée lors du déploiement de l’application Wingtip Tickets SaaS Database Per Tenant
-1. Assurez-vous que vous êtes connecté à la base de données _jobagent_, puis appuyez sur  **pressF5to**  pour exécuter le script
+1. Assurez-vous que vous êtes connecté à la base de données _jobagent_, puis appuyez sur **F5** pour exécuter le script
 
 Observez les éléments suivants dans le script *DeployReferenceData.sql* :
 * **sp\_add\_target\_group** crée le nom de groupe cible DemoServerGroup.

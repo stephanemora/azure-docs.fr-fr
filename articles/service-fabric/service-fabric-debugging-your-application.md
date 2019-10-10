@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ee5354845efba0cce92ccf4f11eb3480684e7509
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300682"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947898"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Débogage de votre application Service Fabric à l’aide de Visual Studio
 > [!div class="op_single_selector"]
@@ -76,14 +76,10 @@ Si vos applications Service Fabric sont exécutées sur un cluster Service Fabri
 
 > [!NOTE]
 > La fonctionnalité nécessite le [Kit de développement logiciel (SDK) Service Fabric 2.0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) et le [Kit de développement logiciel (SDK) Azure pour .NET 2.9](https://azure.microsoft.com/downloads/).    
-> 
-> 
 
 <!-- -->
 > [!WARNING]
 > Le débogage à distance est destiné aux scénarios de développement/test et ne doit pas être utilisé dans des environnements de production, en raison de l’impact sur les applications exécutées.
-> 
-> 
 
 1. Accédez à votre cluster dans **Cloud Explorer**. Cliquez avec le bouton droit, puis choisissez **Activer le débogage**
    
@@ -128,8 +124,6 @@ Vous pouvez également diffuser des traces directement à partir d’un nœud de
 > [!WARNING]
 > Les traces de diffusion en continu sont destinées aux scénarios de développement/test et ne doivent pas être utilisées dans des environnements de production, en raison de l’impact sur les applications exécutées.
 > Dans un scénario de production, vous devez utiliser le transfert d’événements à l’aide de Diagnostics Azure.
-> 
-> 
 
 1. Accédez à votre cluster dans **Cloud Explorer**. Cliquez avec le bouton droit, puis choisissez **Activer les traces de streaming**
    

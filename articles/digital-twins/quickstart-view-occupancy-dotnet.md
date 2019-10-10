@@ -1,6 +1,7 @@
 ---
 title: Rechercher des salles disponibles - Azure Digital Twins | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous exécutez deux exemples d’applications .NET Core afin d’envoyer des données de télémétrie simulées sur les mouvements et le dioxyde de carbone d’un espace dans Azure Digital Twins. L’objectif est de trouver des salles disponibles avec de l’air frais à l’aide des API de gestion après des calculs de traitement dans le cloud.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -8,14 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 08/16/2019
-ms.author: alinast
-ms.openlocfilehash: 40a98f915bc11ad17eae27596519cc78539fb2bb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 10/03/2019
+ms.openlocfilehash: 3c9a806b936b9f167d1700c95b1e769926abb17b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640299"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958909"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Démarrage rapide : Rechercher des salles disponibles avec Azure Digital Twins
 

@@ -15,24 +15,18 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be5d6eb443d90d3413510576a9609fe43df7caa
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: e51ad8faecd935ea999b1287e542e4b14d55290a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499627"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948239"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Réviser l’accès à des groupes ou des applications dans les révisions d’accès Azure AD
 
 Azure Active Directory (Azure AD) simplifie la manière dont les entreprises gèrent l’accès aux applications et aux groupes dans Azure AD, ainsi que d’autres services en ligne Microsoft, avec une fonctionnalité appelée révision d’accès Azure AD.
 
 Cet article décrit comment un réviseur désigné effectue une révision d’accès pour les membres d’un groupe ou les utilisateurs ayant accès à une application.
-
-## <a name="prerequisites"></a>Prérequis
-
-- Azure AD Premium P2
-
-Pour en savoir plus, consultez la section relative à [l’identification des utilisateurs qui doivent disposer de licences](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Ouvrir la révision d’accès
 

@@ -6,16 +6,16 @@ keywords: outils de science des données, machine virtuelle science des données
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 09/11/2017
-ms.openlocfilehash: 2d3d37bcb6ee4bae82d82cf676211e9e1546cfad
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 10/3/2019
+ms.openlocfilehash: 47a701cce348e86359947376b3d6a9915dfb2264
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191984"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950169"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Outils d’ingestion de données de la machine virtuelle DSVM
 
@@ -91,15 +91,3 @@ Voici quelques outils de déplacement de données qui sont disponibles sur la ma
 |  Comment l’utiliser et l’exécuter ?    |   Exécutez _blobfuse_ sur un terminal.    |
 | Liens vers des exemples      | [blobfuse sur GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Outils connexes sur la machine virtuelle DSVM      | D’Azure CLI      |
-
-
-## <a name="microsoft-data-management-gateway"></a>Passerelle de gestion des données de Microsoft
-
-|    |           |
-| ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Outil permettant de connecter des sources de données locales à des services cloud en vue de leur consommation.      |
-| Versions DSVM prises en charge      | Windows      |
-| Utilisations classiques      | Connexion d’une machine virtuelle à une source de données locale      |
-|  Comment l’utiliser/l’exécuter ?    |   Ouvrez la passerelle de gestion des données Microsoft à partir du menu Démarrer.    |
-| Liens vers des exemples      | [Passerelle de gestion de données](https://msdn.microsoft.com/library/dn879362.aspx)      |
-| Outils connexes sur la machine virtuelle DSVM      | AzCopy, AdlCopy, bcp    |

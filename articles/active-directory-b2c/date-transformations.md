@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 077915705c242805d3709b5d52d445288fa5336a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064347"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936784"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
 
@@ -29,8 +29,8 @@ Vérifie qu’une revendication de date et d’heure (type de données string) e
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | string | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
-| inputClaim | rightOperand | string | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
+| InputClaim | leftOperand | string | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
+| InputClaim | rightOperand | string | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
 | InputParameter | AssertIfEqualTo | boolean | Spécifie si cette assertion doit passer si l’opérande gauche est égal à l’opérande droit. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Spécifie si cette assertion doit passer si l’opérande droit est manquante. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Spécifie le nombre de millisecondes autorisées entre les deux dates pour considérer les heures comme égales (par exemple, pour tenir compte du décalage d’horloge). |

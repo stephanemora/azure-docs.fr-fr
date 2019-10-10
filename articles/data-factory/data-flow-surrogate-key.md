@@ -1,5 +1,5 @@
 ---
-title: Transformation de clé de substitution du mappage de flux de données Azure Data Factory
+title: Transformation de clé de substitution de Data Flow de mappage pour Azure Data Factory
 description: Comment utiliser une transformation de clé de substitution du mappage de flux de données Azure Data Factory pour générer des valeurs de clés séquentielles
 author: kromerm
 ms.author: makromer
@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: eaa1c577f7e208400d3430222b006e0dbbd7956a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e2d35a3b0a3f3c89913bbe70d7c43c17cbcee0
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61350430"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029177"
 ---
 # <a name="mapping-data-flow-surrogate-key-transformation"></a>Transformation de clé de substitution du mappage de flux de données
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Utilisez la transformation de clé de substitution pour ajouter une valeur de clé arbitraire non professionnelle à incrémentation à l’ensemble de lignes de votre flux de données. Cela est utile lors de la conception de tables de dimension dans un modèle de données analytique de schéma en étoile où chaque membre de vos tables de dimension doit avoir une clé unique qui est une clé non professionnelle, faisant partie de la méthodologie Kimball DW.
 

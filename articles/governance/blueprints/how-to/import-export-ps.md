@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/03/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: f7bc3610841bcc3c40435f077073ffa0d55acd93
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 30e734c99a87364acfba9a58d83fe9a377958607
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242878"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978444"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>Importer et exporter des définitions de blueprint avec PowerShell
 
@@ -27,7 +26,7 @@ Vous pouvez gérer Azure Blueprints entièrement via le portail Azure. À mesure
 
 Quelles que soient vos raisons, la gestion de vos définitions de blueprint en tant que code présente des avantages. Cet article explique comment utiliser les commandes `Import-AzBlueprintWithArtifact` et `Export-AzBlueprintWithArtifact` dans le module [AZ.blueprint](https://powershellgallery.com/packages/Az.Blueprint/).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article part tu principe que vous disposez d’une connaissance pratique modérée d’Azure Blueprints. Si vous ne l’avez pas encore fait, consultez les articles suivants :
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: pabutler
-ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 54369e0f2c943c146d186605833198253b960022
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874670"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949538"
 ---
 # <a name="iot-edge-modules"></a>Modules IoT Edge
 
@@ -82,9 +82,7 @@ Les principales exigences techniques pour qu’un module IoT Edge soit certifié
 
 Si ce n’est déjà fait,
 
-- S’inscrire au [Microsoft Partner Network](https://partner.microsoft.com/membership).
-- Créer un [compte Microsoft](https://account.microsoft.com/account/) (requis pour les offres de transaction de la Place de marché Microsoft Azure ; recommandé pour les autres).
-- Envoyer le [formulaire d’inscription sur la Place de marché](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
 
 Si vous êtes inscrit et créez une nouvelle offre ou travaillez sur une offre existante,
 

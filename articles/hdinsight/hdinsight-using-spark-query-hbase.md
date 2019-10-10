@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: e6b3fc4f9badeedbed55f89702933b41a952977b
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/02/2019
+ms.openlocfilehash: fdfd026be1a10410cd7c875dbdf0de9660c8412c
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180803"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937630"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utiliser Apache Spark pour lire et écrire des données Apache HBase
 
@@ -144,7 +144,7 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
     |}""".stripMargin
     ```
 
-    Le code effectue les étapes suivantes :  
+    Le code effectue les actions suivantes :  
 
      a. Définissez un schéma de catalogue pour la table HBase nommée `Contacts`.  
      b. Identifiez `key` comme RowKey et mappez les noms de colonnes utilisés dans Spark à la famille de colonne, au nom de colonne et au type de colonne utilisés dans HBase.  
@@ -192,8 +192,7 @@ Dans cette étape, vous définissez un objet de catalogue qui mappe le schéma d
 8. Émettez une requête SQL par rapport à la table `contacts` :
 
     ```scala
-    val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
-    query.show()
+    spark.sqlContext.sql("select personalName, officeAddress from contacts").show
     ```
 
 9. Les résultats doivent ressembler à ceci :

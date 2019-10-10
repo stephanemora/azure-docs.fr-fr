@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 9508ce927ef03c83f1c4ef7bf28d2fc02b831a99
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879926"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937310"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers une instance managée Azure SQL Database
 
@@ -169,7 +169,7 @@ Ainsi, vous devez comparer les paramètres des performances avec le référentie
 Le résultat de la comparaison des performances peut se résumer ainsi :
 - Les performances de charge de travail sur Managed Instance s’alignent sur celles enregistrées sur SQL Server, ou leur sont supérieures. En l’occurrence, vous confirmez de façon satisfaisante que la migration a réussi.
 - La majorité des paramètres de performance et les requêtes dans la charge de travail fonctionnent bien, avec quelques exceptions de performances détériorées. Dans ce cas, vous devez identifier les écarts et leur degré d’importance. S’il existe quelques requêtes importantes accusant une détérioration des performances, vous devez chercher à savoir si les plans SQL sous-jacents ont été modifiés, ou si les requêtes ont atteint certaines limites de ressources. Dans ce cas, l’atténuation peut consister à appliquer certains indicateurs sur les requêtes critiques (par exemple, modification du niveau de compatibilité, utilisation de l’estimateur de cardinalité hérité) directement ou à l’aide de repères de plan, à reconstruire ou à créer des statistiques et des index pouvant avoir une incidence sur les plans. 
-- La plupart des requêtes sont plus lentes sur Managed Instance, comparé à votre instance SQL Server source. Dans ce cas, essayez d’identifier les principales causes de cette différence, comme l’[atteinte de certaines limites de ressources]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) : limites des E/S, limite de mémoire, limite du débit du journal d’instance, etc. Si aucune limite de ressources ne peut être la cause de cette différence, essayez de changer le niveau de compatibilité de la base de données ou de changer des paramètres de base de données, comme l’estimation de la cardinalité existante, puis redémarrez le test. Examinez les recommandations fournies par les vues de Managed Instance ou du Magasin des requêtes pour identifier les requêtes dont les performances ont diminué.
+- La plupart des requêtes sont plus lentes sur Managed Instance, comparé à votre instance SQL Server source. Dans ce cas, essayez d’identifier les principales causes de cette différence, comme l’[atteinte de certaines limites de ressources]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) : limites des E/S, limite de mémoire, limite du débit du journal d’instance, etc. Si aucune limite de ressources ne peut être la cause de cette différence, essayez de changer le niveau de compatibilité de la base de données ou de changer des paramètres de base de données, comme l’estimation de la cardinalité existante, puis redémarrez le test. Examinez les recommandations fournies par les vues de Managed Instance ou du Magasin des requêtes pour identifier les requêtes dont les performances ont diminué.
 
 > [!IMPORTANT]
 > Managed Instance dispose de la fonction intégrée de correction automatique du plan, qui est activée par défaut. Cette fonction garantit que les requêtes s’étant déroulées correctement par le passé ne seront pas détériorées à l’avenir. Assurez-vous que cette fonction est activée et que vous avez exécuté la charge de travail suffisamment longtemps avec les anciens paramètres avant de passer aux nouveaux, pour permettre à Managed Instance de découvrir les plans et les performances de référence.

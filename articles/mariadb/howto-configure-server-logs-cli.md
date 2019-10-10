@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 9fff9f13e5ce6bf8a7805f7794d3e71eb4030104
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065682"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023618"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux d’activité du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux d’activité du serveur Azure Database for MariaDB à l’aide d’Azure CLI, l’utilitaire de ligne de commande Azure.
@@ -25,7 +25,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 ## <a name="configure-logging-for-azure-database-for-mariadb"></a>Configuration de la journalisation pour Azure Database for MariaDB
 Vous pouvez configurer le serveur afin d’accéder au journal des requêtes lentes MariaDB, comme suit :
 1. Activez la journalisation en définissant le paramètre **journal\_des requêtes\_lentes** sur ON.
-2. Réglez les autres paramètres tels que **durée\_longue\_d’une requête**  et  **instructions\_admin\_lentes\_du journal**.
+2. Réglez les autres paramètres tels que **durée\_longue\_d’une requête** et **instructions\_admin\_lentes\_du journal**.
 
 Pour savoir comment définir la valeur de ces paramètres via Azure CLI, consultez [Comment configurer les paramètres du serveur](howto-configure-server-parameters-cli.md).
 
