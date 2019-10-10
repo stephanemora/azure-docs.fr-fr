@@ -105,6 +105,8 @@
               href: map-add-line-layer.md
             - name: Ajouter une couche de polygones
               href: map-add-shape.md
+            - name: Ajouter une couche de polygones d’extrusion
+              href: map-extruded-polygon.md
             - name: Ajouter un calque de carte thermique
               href: map-add-heat-map-layer.md
             - name: Ajouter une fenêtre contextuelle

@@ -19,6 +19,8 @@
   items:
     - name: Gestion des droits d’utilisation
       items:
+        - name: Délégation et rôles
+          href: entitlement-management-delegate.md
         - name: Processus de demande et e-mails
           href: entitlement-management-process.md
     - name: Révisions d’accès
@@ -36,17 +38,21 @@
       items:
         - name: Scénarios courants
           href: entitlement-management-scenarios.md
-        - name: Administrateurs et responsables de département
+        - name: Administrateurs
           items:
-            - name: Déléguer des tâches
-              href: entitlement-management-delegate.md
-            - name: Créer un catalogue de ressources
-              href: entitlement-management-catalog-create.md
+            - name: Déléguer aux créateurs de catalogues
+              href: entitlement-management-delegate-catalog.md
             - name: Afficher les rapports et les journaux
               href: entitlement-management-reports.md
             - name: Résolution des problèmes
               href: entitlement-management-troubleshoot.md
-        - name: Chefs de projet
+        - name: Propriétaires de catalogue
+          items:
+            - name: Créer un catalogue de ressources
+              href: entitlement-management-catalog-create.md
+            - name: Déléguer pour accéder aux gestionnaires de packages
+              href: entitlement-management-delegate-managers.md
+        - name: Accéder aux gestionnaires de packages
           items:
             - name: Créer un package d’accès
               href: entitlement-management-access-package-create.md

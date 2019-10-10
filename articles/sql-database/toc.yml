@@ -1,288 +1,120 @@
 - name: Documentation SQL Database
   href: index.yml
-- name: Service SQL Database
+- name: Vue d'ensemble
   items:
     - name: Définition de la base de données SQL
       href: sql-database-technical-overview.md
     - name: "Quelle option SQL dois-je choisir\_?"
       href: sql-database-paas-vs-sql-server-iaas.md
-    - name: Comparaison des fonctionnalités
-      href: sql-database-features.md
     - name: Notes de publication
-      href: sql-database-release-notes.md
-    - name: Mises à jour de la migration IP de passerelle
-      href: sql-database-gateway-migration.md
+      items:
+        - name: Notes de publication
+          href: sql-database-release-notes.md
+        - name: Mises à jour des adresses IP de la passerelle
+          href: sql-database-gateway-migration.md
+        - name: Événements de maintenance périodiques
+          href: sql-database-planned-maintenance.md
+    - name: Options sur les prix et les performances
+      items:
+        - name: Modèles d’achat
+          items:
+            - name: Vue d'ensemble
+              href: sql-database-purchase-models.md
+            - name: Modèle vCore
+              href: sql-database-service-tiers-vcore.md
+            - name: Niveaux de service DTU
+              href: sql-database-service-tiers-dtu.md
+            - name: Niveau de calcul serverless
+              href: sql-database-serverless.md
+            - name: Prépayer pour une capacité de réserve
+              href: sql-database-reserved-capacity.md
+            - name: Migrer à partir du niveau de service Premium RS
+              href: sql-database-service-tiers-prs.md
+        - name: Capacité de calcul et stockage
+          items:
+            - name: Vue d'ensemble
+              href: sql-database-service-tiers-general-purpose-business-critical.md
+              displayName: provisioned compute tier
+            - name: Niveaux de service Usage général / Standard
+              href: sql-database-service-tier-general-purpose.md
+            - name: Niveaux de service Critique pour l’entreprise / Premium
+              href: sql-database-service-tier-business-critical.md
+            - name: Niveau de service Hyperscale
+              href: sql-database-service-tier-hyperscale.md
+            - name: FAQ relatif à Hyperscale
+              href: sql-database-service-tier-hyperscale-faq.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Guide de démarrage rapide sur les bases de données uniques
+    - name: Bases de données SQL
       href: sql-database-single-database-quickstart-guide.md
-    - name: Guide de démarrage rapide sur les instances managées
+    - name: Instances managées SQL
       href: sql-database-managed-instance-quickstart-guide.md
-    - name: Créer
-      items:
-        - name: Base de données unique
-          href: sql-database-single-database-get-started.md
-        - name: Base de données unique - modèle
-          displayName: 'Azure Resource Manager template, ARM'
-          href: sql-database-single-database-get-started-template.md
-        - name: Instance gérée
-          href: sql-database-managed-instance-get-started.md
-    - name: Configuration
-      items:
-        - name: Règles de pare-feu IP au niveau du serveur
-          href: sql-database-server-level-firewall-rule.md
-        - name: Configurer un point de terminaison public sur une instance managée
-          href: sql-database-managed-instance-public-endpoint-configure.md
-        - name: Configurer les types de connexion sur une instance managée
-          href: sql-database-managed-instance-connection-type.md
-        - name: Connexion de machine virtuelle cliente à une instance managée
-          href: sql-database-managed-instance-configure-vm.md
-        - name: Connexion point à site à une instance managée
-          href: sql-database-managed-instance-configure-p2s.md
-    - name: Charger des données
-      items:
-        - name: Importer le fichier BACPAC dans une nouvelle base de données
-          href: sql-database-import.md
-        - name: Restaurer la sauvegarde de base de données sur une instance managée
-          href: sql-database-managed-instance-get-started-restore.md
-    - name: Requête
-      href: sql-database-connect-query.md
-      items:
-        - name: SSMS
-          href: sql-database-connect-query-ssms.md
-        - name: Studio de données Azure
-          href: 'https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
-        - name: Portail Azure
-          href: sql-database-connect-query-portal.md
-        - name: Visual Studio Code
-          href: sql-database-connect-query-vscode.md
-        - name: .NET avec Visual Studio
-          href: sql-database-connect-query-dotnet-visual-studio.md
-        - name: .NET Core
-          href: sql-database-connect-query-dotnet-core.md
-        - name: .NET avec Active Directory MFA
-          href: active-directory-interactive-connect-azure-sql-db.md
-        - name: Go
-          href: sql-database-connect-query-go.md
-        - name: Java
-          href: sql-database-connect-query-java.md
-        - name: Node.js
-          href: sql-database-connect-query-nodejs.md
-        - name: PHP
-          href: sql-database-connect-query-php.md
-        - name: Python
-          href: sql-database-connect-query-python.md
-        - name: Ruby
-          href: sql-database-connect-query-ruby.md
-        - name: R
-          href: sql-database-connect-query-r.md
-    - name: Machine Learning Services
-      items:
-        - name: Créer des scripts R
-          href: sql-database-quickstart-r-create-script.md
-        - name: Entraîner et évaluer un modèle
-          href: sql-database-quickstart-r-train-score-model.md
-- name: Tutoriels
-  items:
-    - name: Concevoir une base de données dans SQL Database
-      items:
-        - name: Concevoir une base de données avec SSMS
-          href: sql-database-design-first-database.md
-        - name: "Concevoir une base de données avec\_.NET"
-          href: sql-database-design-first-database-csharp.md
-    - name: Base de données unique
-      items:
-        - name: Migrer vers une base de données unique/mise en pool avec DMS
-          href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
-        - name: Ajouter à un groupe de basculement
-          href: sql-database-single-database-failover-group-tutorial.md
-        - name: Implémenter une base de données géo-distribuée
-          href: sql-database-implement-geo-distributed-database.md
-        - name: Configurer la géoréplication active
-          href: sql-database-active-geo-replication-portal.md
-        - name: Configurer Azure SQL Data Sync
-          href: sql-database-get-started-sql-data-sync.md
-    - name: Pool élastique
-      items:
-        - name: Ajouter à un groupe de basculement
-          href: sql-database-elastic-pool-failover-group-tutorial.md
-    - name: Instance gérée
-      items:
-        - name: Effectuer une migration en ligne avec DMS
-          href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
-        - name: Ajouter à un groupe de basculement
-          href: sql-database-managed-instance-failover-group-tutorial.md
-        - name: Configurer la réplication transactionnelle
-          href: replication-with-sql-database-managed-instance.md
-    - name: Sécurité dans SQL Database
-      items:
-        - name: Sécurité des bases de données uniques et mises en pool
-          href: sql-database-security-tutorial.md
-        - name: Sécurité de l’instance gérée
-          href: sql-database-managed-instance-aad-security-tutorial.md
-    - name: Machine Learning Services
-      items:
-        - name: Créer un modèle prédictif en R
-          items:
-            - name: 1 - Préparer les données
-              href: sql-database-tutorial-predictive-model-prepare-data.md
-            - name: 2 - Créer le modèle
-              href: sql-database-tutorial-predictive-model-build-compare.md
-            - name: 3 - Déployer le modèle
-              href: sql-database-tutorial-predictive-model-deploy.md
-        - name: Créer un modèle de clustering en R
-          items:
-            - name: 1 - Préparer les données
-              href: sql-database-tutorial-clustering-model-prepare-data.md
-            - name: 2 - Créer le modèle
-              href: sql-database-tutorial-clustering-model-build.md
-            - name: 3 - Déployer le modèle
-              href: sql-database-tutorial-clustering-model-deploy.md
-- name: Exemples
-  items:
-    - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-    - name: D’Azure CLI
-      href: sql-database-cli-samples.md
-    - name: Azure PowerShell
-      href: sql-database-powershell-samples.md
-    - name: Azure Resource Manager
-      displayName: Resource Manager template
-      href: sql-database-resource-manager-samples.md
 - name: Concepts
   items:
-    - name: Modèles d’achat
-      items:
-        - name: Vue d'ensemble
-          href: sql-database-purchase-models.md
-        - name: Modèle vCore
-          href: sql-database-service-tiers-vcore.md
-        - name: Niveaux de service DTU
-          href: sql-database-service-tiers-dtu.md
-        - name: Niveau de calcul serverless
-          href: sql-database-serverless.md
-        - name: Prépayer pour une capacité de réserve
-          href: sql-database-reserved-capacity.md
-        - name: Migrer à partir du niveau de service Premium RS
-          href: sql-database-service-tiers-prs.md
-    - name: Niveaux de service
-      items:
-        - name: Vue d'ensemble
-          href: sql-database-service-tiers-general-purpose-business-critical.md
-          displayName: provisioned compute tier
-        - name: Niveaux de service Usage général / Standard
-          href: sql-database-service-tier-general-purpose.md
-        - name: Niveaux de service Critique pour l’entreprise / Premium
-          href: sql-database-service-tier-business-critical.md
-        - name: Niveau de service Hyperscale
-          href: sql-database-service-tier-hyperscale.md
-        - name: FAQ relatif à Hyperscale
-          href: sql-database-service-tier-hyperscale-faq.md
-    - name: Bases de données uniques
-      items:
-        - name: Documentation sur les bases de données uniques
-          href: sql-database-single-index.yml
-        - name: Fonctionnalités d’une base de données unique
-          href: sql-database-single-database.md
-        - name: Informations de référence sur l’API de gestion
-          href: sql-database-single-databases-manage.md
-        - name: Différences de T-SQL
-          href: sql-database-transact-sql-information.md
-        - name: Ressources et serveurs de base de données
-          items:
-            - name: Vue d’ensemble du serveur de base de données
-              href: sql-database-servers.md
-            - name: Limites de ressources du serveur de base de données
-              href: sql-database-resource-limits-database-server.md
-            - name: Architecture de connectivité
-              href: sql-database-connectivity-architecture.md
-        - name: Ressources d’une base de données unique
-          items:
-            - name: Limites de ressources basées sur des vCore
-              href: sql-database-vcore-resource-limits-single-databases.md
-            - name: Limites de ressources basées sur des unités DTU
-              href: sql-database-dtu-resource-limits-single-databases.md
-            - name: Mettre les ressources à l’échelle
-              href: sql-database-single-database-scale.md
-    - name: Pools élastiques
-      items:
-        - name: Pools élastiques
-          href: sql-database-elastic-pool.md
-        - name: Ressources de pool élastique
-          items:
-            - name: Limites de ressources basées sur des vCore
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Limites de ressources basées sur des unités DTU
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-            - name: Mettre les ressources à l’échelle
-              href: sql-database-elastic-pool-scale.md
-        - name: Gérer les ressources de pool
-          href: sql-database-elastic-pool-manage.md
-    - name: Instances managées
-      items:
-        - name: Documentation sur les instances managées
-          href: sql-database-managed-instance-index.yml
-        - name: Vue d’ensemble des instances gérées
-          href: sql-database-managed-instance.md
-        - name: Questions fréquentes (FAQ) sur les instances managées
-          href: sql-database-managed-instance-faq.md
-        - name: Pools d’instances
-          items:
-            - name: Vue d’ensemble des pools d’instances
-              href: sql-database-instance-pools.md
-            - name: Guide de procédures des pools d’instances
-              href: sql-database-instance-pools-how-to.md
-        - name: Informations de référence sur l’API de gestion
-          href: sql-database-managed-instance-create-manage.md
-        - name: Limites des ressources
-          href: sql-database-managed-instance-resource-limits.md
-        - name: Architecture de connectivité
-          href: sql-database-managed-instance-connectivity-architecture.md
-        - name: Différences de T-SQL
-          href: sql-database-managed-instance-transact-sql-information.md
-        - name: Fuseau horaire dans Managed Instance
-          href: sql-database-managed-instance-timezone.md
-        - name: Sécuriser des points de terminaison publics dans une instance managée
-          href: sql-database-managed-instance-public-endpoint-securely.md
-    - name: Platform as a service
-      items:
-        - name: Documentation sur Platform as a service
-          href: sql-database-paas-index.yml
-        - name: Continuité de l’activité
-          href: sql-database-business-continuity.md
-        - name: Haute disponibilité
-          href: sql-database-high-availability.md
-        - name: Sauvegardes automatisées
-          href: sql-database-automated-backups.md
-        - name: Rétention des sauvegardes à long terme
-          href: sql-database-long-term-retention.md
-        - name: Événements de maintenance planifiée
-          href: sql-database-planned-maintenance.md
-        - name: Groupes de basculement et géoréplication
-          items:
-            - name: Géoréplication active
-              href: sql-database-active-geo-replication.md
-            - name: Groupes de basculement automatique
-              href: sql-database-auto-failover-group.md
-            - name: Configurer la sécurité pour les réplicas
-              href: sql-database-geo-replication-security-config.md
-        - name: Options de récupération de la base de données
-          items:
-            - name: Récupération à l’aide de sauvegardes
-              href: sql-database-recovery-using-backups.md
-            - name: Récupération de la base de données accélérée
-              href: sql-database-accelerated-database-recovery.md
-            - name: Conseils sur la récupération après panne
-              href: sql-database-disaster-recovery.md
-            - name: Marche à suivre en cas de récupération
-              href: sql-database-disaster-recovery-drills.md
+    - name: Documentation sur les fonctionnalités courantes
+      href: sql-database-paas-index.yml
+    - name: Comparaison des fonctionnalités
+      href: sql-database-features.md
+    - name: Guide pratique
+      href: sql-database-howto.md
     - name: Sécurité
       items:
         - name: Présentation de la sécurité
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
-        - name: Advanced Data Security
+        - name: gestion de l’accès
+          items:
+            - name: Contrôle d’accès
+              href: sql-database-control-access.md
+            - name: Connexions et utilisateurs
+              href: sql-database-manage-logins.md
+        - name: Authentication
+          href: sql-database-aad-authentication.md
+          items:
+            - name: "Configurer l’authentification Azure\_AD"
+              href: sql-database-aad-authentication-configure.md
+            - name: Authentification AAD multifacteur
+              href: sql-database-ssms-mfa-authentication.md
+            - name: Configuration de l’authentification multifacteur
+              href: sql-database-ssms-mfa-authentication-configure.md
+            - name: Configurer TDE avec BYOK
+              href: transparent-data-encryption-byok-azure-sql-configure.md
+            - name: Effectuer une rotation des clés TDE BYOK
+              href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+            - name: Supprimer le protecteur TDE
+              href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
+        - name: Protection des données
+          items:
+            - name: Chiffrement transparent des données (TDE)
+              items:
+                - name: TDE avec Azure SQL
+                  href: transparent-data-encryption-azure-sql.md
+                - name: TDE avec Service Bring Your Own Key (BYOK)
+                  href: transparent-data-encryption-byok-azure-sql.md
+            - name: Masquage des données dynamiques
+              href: sql-database-dynamic-data-masking-get-started.md
+            - name: Always Encrypted
+              items:
+                - name: Utiliser le magasin de certificats
+                  href: sql-database-always-encrypted.md
+                - name: Utiliser le coffre de clés Azure
+                  href: sql-database-always-encrypted-azure-key-vault.md
+        - name: 'Supervision, journalisation et audit'
+          items:
+            - name: Audit
+              items:
+                - name: Bien démarrer avec l’audit de SQL Database
+                  href: sql-database-auditing.md
+        - name: Sécurité du réseau
+          items:
+            - name: Points de terminaison du service Réseau virtuel
+              href: sql-database-vnet-service-endpoint-rule-overview.md
+            - name: Points de terminaison du service Réseau virtuel - PowerShell
+              href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Private Link
+              href: sql-database-private-endpoint-overview.md
+        - name: Gestion de la sécurité
           items:
             - name: Advanced Data Security
               href: sql-database-advanced-data-security.md
@@ -292,54 +124,148 @@
               href: sql-vulnerability-assessment.md
             - name: Protection avancée contre les menaces
               href: sql-database-threat-detection-overview.md
-        - name: Sécurité du réseau
+            - name: Attributs de sécurité
+              href: sql-database-security-attributes.md
+            - name: Restrictions des fonctionnalités
+              href: sql-database-feature-restrictions.md
+        - name: Sécurité d’une base de données unique
           items:
-            - name: Vue d’ensemble des contrôles d’accès réseau
-              href: sql-database-networkaccess-overview.md
-            - name: Pare-feu basé sur IP
-              href: sql-database-firewall-configure.md
-            - name: Règles de pare-feu de réseau virtuel
-              items:
-                - name: Points de terminaison du service Réseau virtuel
-                  href: sql-database-vnet-service-endpoint-rule-overview.md
-                - name: Points de terminaison du service Réseau virtuel - PowerShell
-                  href: sql-database-vnet-service-endpoint-rule-powershell.md
-            - name: Liaison privée
-              href: sql-database-private-endpoint-overview.md
-        - name: Contrôle d’accès
-          items:
-            - name: Contrôle d’accès
-              href: sql-database-control-access.md
-            - name: Connexions et utilisateurs
-              href: sql-database-manage-logins.md
-        - name: Authentification Azure AD
-          href: sql-database-aad-authentication.md
-        - name: Audit
-          items:
-            - name: Bien démarrer avec l’audit de SQL Database
-              href: sql-database-auditing.md
-            - name: Audit - Instance managée
-              href: sql-database-managed-instance-auditing.md
             - name: Format de journal d’audit
               href: sql-database-audit-log-format.md
-        - name: Masquage des données dynamiques
-          href: sql-database-dynamic-data-masking-get-started.md
-        - name: Always Encrypted
+            - name: Accès conditionnel
+              href: sql-database-conditional-access.md
+            - name: Règles de pare-feu IP au niveau du serveur
+              items:
+                - name: Créer et gérer
+                  href: sql-database-firewall-configure.md
+        - name: Sécurité de l’instance gérée
           items:
-            - name: Utiliser le magasin de certificats
-              href: sql-database-always-encrypted.md
-            - name: Utiliser le coffre de clés Azure
-              href: sql-database-always-encrypted-azure-key-vault.md
-        - name: Chiffrement transparent des données (TDE)
+            - name: Sécuriser les points de terminaison publics
+              href: sql-database-managed-instance-public-endpoint-securely.md
+            - name: Audit d’une instance managée
+              href: sql-database-managed-instance-auditing.md
+    - name: Connexion et requête
+      href: sql-database-connect-query.md
+      items:
+        - name: Connecter et exécuter des requêtes ad hoc
           items:
-            - name: TDE avec Azure SQL
-              href: transparent-data-encryption-azure-sql.md
-            - name: TDE avec Service Bring Your Own Key (BYOK)
-              href: transparent-data-encryption-byok-azure-sql.md
-        - name: Attributs de sécurité
-          href: sql-database-security-controls.md
-        - name: Restrictions des fonctionnalités
-          href: sql-database-feature-restrictions.md
+            - name: Studio de données Azure
+              href: 'https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
+            - name: SSMS
+              href: sql-database-connect-query-ssms.md
+            - name: Portail Azure
+              href: sql-database-connect-query-portal.md
+            - name: Visual Studio Code
+              href: sql-database-connect-query-vscode.md
+        - name: Se connecter et interroger à partir des applications
+          items:
+            - name: .NET avec Visual Studio
+              href: sql-database-connect-query-dotnet-visual-studio.md
+            - name: .NET Core
+              href: sql-database-connect-query-dotnet-core.md
+            - name: .NET avec Active Directory MFA
+              href: active-directory-interactive-connect-azure-sql-db.md
+            - name: Go
+              href: sql-database-connect-query-go.md
+            - name: Java
+              href: sql-database-connect-query-java.md
+            - name: Node.js
+              href: sql-database-connect-query-nodejs.md
+            - name: PHP
+              href: sql-database-connect-query-php.md
+            - name: Python
+              href: sql-database-connect-query-python.md
+            - name: Ruby
+              href: sql-database-connect-query-ruby.md
+            - name: R
+              href: sql-database-connect-query-r.md
+            - name: Pilotes SQL Server
+              href: /sql/connect/sql-server-drivers
+              items:
+                - name: ADO.NET
+                  href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+                - name: JDBC
+                  href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+                - name: Node.js
+                  href: /sql/connect/node-js/node-js-driver-for-sql-server
+                - name: ODBC
+                  href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+                - name: PHP
+                  href: /sql/connect/php/microsoft-php-driver-for-sql-server
+                - name: Python
+                  href: /sql/connect/python/python-driver-for-sql-server
+                - name: Ruby
+                  href: /sql/connect/ruby/ruby-driver-for-sql-server
+    - name: 'Sauvegarde, restauration, haute disponibilité (BCDR)'
+      items:
+        - name: Récupération à l’aide de sauvegardes
+          href: sql-database-recovery-using-backups.md
+        - name: Récupération de la base de données accélérée
+          href: sql-database-accelerated-database-recovery.md
+        - name: Conseils sur la récupération après panne
+          href: sql-database-disaster-recovery.md
+        - name: Marche à suivre en cas de récupération
+          href: sql-database-disaster-recovery-drills.md
+        - name: Continuité de l’activité
+          href: sql-database-business-continuity.md
+        - name: Haute disponibilité
+          href: sql-database-high-availability.md
+        - name: Sauvegardes automatisées
+          href: sql-database-automated-backups.md
+        - name: Rétention des sauvegardes à long terme
+          href: sql-database-long-term-retention.md
+        - name: Groupes de basculement et géoréplication
+          items:
+            - name: Géoréplication active
+              href: sql-database-active-geo-replication.md
+            - name: Groupes de basculement automatique
+              href: sql-database-auto-failover-group.md
+            - name: Configurer la sécurité pour les réplicas
+              href: sql-database-geo-replication-security-config.md
+    - name: Surveiller et régler
+      items:
+        - name: Documentation sur la surveillance et le réglage
+          href: sql-database-monitoring-tuning-index.yml
+        - name: Vue d’ensemble sur la surveillance et les performances
+          href: sql-database-monitor-tune-overview.md
+        - name: Analyse des performances
+          items:
+            - name: Surveillance d’Azure SQL Analytics
+              href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql'
+            - name: Journalisation de télémétrie de diagnostic
+              href: sql-database-metrics-diag-logging.md
+        - name: Performances intelligentes
+          items:
+            - name: Réglage automatique
+              href: sql-database-automatic-tuning.md
+            - name: Informations Intelligent Insights relatives aux performances
+              href: sql-database-intelligent-insights.md
+            - name: Recommandations et actions en matière de réglage
+              href: sql-database-performance.md
+            - name: Recommandations relatives aux performances de Database Advisor
+              href: sql-database-advisor.md
+        - name: Superviser et régler des bases de données
+          items:
+            - name: Réglage manuel
+              href: sql-database-performance-guidance.md
+            - name: Utiliser des DMV pour surveiller les performances
+              href: sql-database-monitoring-with-dmvs.md
+            - name: Utiliser le Magasin des requêtes pour superviser les performances
+              href: sql-database-operate-query-store.md
+            - name: Résoudre les problèmes de performances avec Intelligence Insights
+              href: sql-database-intelligent-insights-troubleshoot-performance.md
+            - name: Utiliser le journal de diagnostic Intelligent Insights
+              href: sql-database-intelligent-insights-use-diagnostics-log.md
+            - name: Superviser l’espace OLTP en mémoire
+              href: sql-database-in-memory-oltp-monitoring.md
+            - name: Événements étendus
+              items:
+                - name: Événements étendus
+                  href: sql-database-xevent-db-diff-from-svr.md
+                - name: Événements étendus - Fichier d’événements
+                  href: sql-database-xevent-code-event-file.md
+                - name: Événements étendus - Mémoire tampon en anneau
+                  href: sql-database-xevent-code-ring-buffer.md
     - name: Extensibilité
       items:
         - name: Documentation sur la scalabilité
@@ -370,65 +296,291 @@
           href: sql-database-elastic-query-overview.md
         - name: Transactions élastiques
           href: sql-database-elastic-transactions-overview.md
-    - name: Analyse et réglage
+    - name: Fonctionnalités de base de données
       items:
-        - name: Documentation sur la supervision et l’optimisation
-          href: sql-database-monitoring-tuning-index.yml
-        - name: Surveillance et optimisation des performances
-          href: sql-database-monitor-tune-overview.md
-        - name: Analyse des performances
-          items:
-            - name: Query Performance Insight
-              href: sql-database-query-performance.md
-            - name: Surveillance d’Azure SQL Analytics
-              href: 'https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql'
-            - name: Journalisation de télémétrie de diagnostic
-              href: sql-database-metrics-diag-logging.md
-        - name: Performances intelligentes
-          items:
-            - name: Réglage automatique
-              href: sql-database-automatic-tuning.md
-            - name: Informations Intelligent Insights relatives aux performances
-              href: sql-database-intelligent-insights.md
-            - name: Recommandations et actions en matière de réglage
-              href: sql-database-performance.md
-            - name: Recommandations relatives aux performances de Database Advisor
-              href: sql-database-advisor.md
-    - name: Fonctionnalités de bases de données
-      items:
-        - name: Vue d'ensemble
+        - name: Documentation sur les fonctionnalités de base de données
           href: sql-database-features-index.yml
         - name: Fonctionnalités multimodèles
           href: sql-database-multi-model-features.md
         - name: En mémoire
           href: sql-database-in-memory.md
+          items:
+            - name: Configurer OLTP en mémoire
+              href: sql-database-in-memory-oltp-migration.md
         - name: Réplication transactionnelle
           href: sql-database-managed-instance-transactional-replication.md
-        - name: SQL Data Sync
-          href: sql-database-sync-data.md
         - name: Tables temporelles
           href: sql-database-temporal-tables.md
         - name: Automatisation de travaux
           href: sql-database-job-automation-overview.md
-        - name: Services liés
-          href: 'https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json'
-        - name: Service Broker
-          href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json'
-        - name: Messagerie de base de données
-          href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json'
+    - name: Procédures
+      items:
+        - name: Concevoir une base de données
+          items:
+            - name: Concevoir une base de données avec SSMS
+              href: sql-database-design-first-database.md
+            - name: "Concevoir une base de données avec\_.NET"
+              href: sql-database-design-first-database-csharp.md
+        - name: Charger et déplacer des données
+          items:
+            - name: Importer une base de données à partir d’un fichier BACPAC
+              href: sql-database-import.md
+            - name: Exporter une base de données vers un fichier BACPAC
+              href: sql-database-export.md
+            - name: Copier une base de données dans Azure
+              href: sql-database-copy.md
+            - name: Déplacer les ressources vers une nouvelle région
+              href: sql-database-move-resources-across-regions.md
+            - name: Chargement des données avec BCP
+              href: sql-database-load-from-csv-with-bcp.md
+            - name: Chargement des données avec ADF
+              href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+        - name: Développer des applications de données
+          items:
+            - name: Vue d'ensemble
+              href: sql-database-develop-overview.md
+            - name: Utilisation de données JSON
+              href: sql-database-json-features.md
+            - name: Utiliser ASP.NET App Service
+              href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
+            - name: Utiliser Azure Functions
+              href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
+            - name: Utiliser Azure Logic Apps
+              href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
+            - name: Utiliser Spark Connector
+              href: sql-database-spark-connector.md
+            - name: Indexer avec Recherche Azure
+              href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
+            - name: Configurer une stratégie de rétention temporelle
+              href: sql-database-temporal-tables-retention-policy.md
+            - name: Authentifier l’application
+              href: sql-database-client-id-keys.md
+            - name: messages d'erreur
+              href: sql-database-develop-error-messages.md
+            - name: Traitement par lot pour de meilleures performances
+              href: sql-database-use-batching-to-improve-performance.md
+            - name: Conseils sur la connectivité
+              href: sql-database-connectivity-issues.md
+            - name: Alias DNS
+              href: dns-alias-overview.md
+            - name: PowerShell d’alias DNS
+              href: dns-alias-powershell.md
+            - name: Ports - ADO.NET
+              href: sql-database-develop-direct-route-ports-adonet-v12.md
+            - name: C et C ++
+              href: sql-database-develop-cplusplus-simple.md
+            - name: Excel
+              href: sql-database-connect-excel.md
+            - name: Intégration de CLR/.NET côté serveur
+              href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/sql-database/toc.json'
+            - name: Java
+              items:
+                - name: Utiliser Spring Data JDBC
+                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
+                - name: Utiliser Spring Data JPA
+                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
+        - name: Concevoir des applications de données
+          items:
+            - name: Conception de systèmes de récupération d’urgence
+              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+            - name: Conception de pools élastiques
+              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+            - name: Conception de mises à niveau d’applications
+              href: sql-database-manage-application-rolling-upgrade.md
+            - name: SaaS mutualisé
+              items:
+                - name: Modèles de conception SaaS
+                  href: saas-tenancy-app-design-patterns.md
+                - name: Video Indexer SaaS
+                  href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
+                - name: Sécurité des applications SaaS
+                  href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
+                - name: Exemple d’application SaaS mutualisée
+                  items:
+                    - name: Exemple de tickets Wingtip
+                      href: saas-tenancy-welcome-wingtip-tickets-app.md
+                    - name: Règle générale
+                      href: saas-tenancy-wingtip-app-guidance-tips.md
+                    - name: Application unique
+                      items:
+                        - name: Déployer l’application fournie en exemple
+                          href: saas-standaloneapp-get-started-deploy.md
+                        - name: Clients d’approvisionnement
+                          href: saas-standaloneapp-provision-and-catalog.md
+                    - name: Base de données par client
+                      items:
+                        - name: Introduction du didacticiel
+                          href: saas-dbpertenant-wingtip-app-overview.md
+                        - name: Déployer l’application fournie en exemple
+                          href: saas-dbpertenant-get-started-deploy.md
+                        - name: Clients d’approvisionnement
+                          href: saas-dbpertenant-provision-and-catalog.md
+                        - name: Surveiller les performances de la base de données
+                          href: saas-dbpertenant-performance-monitoring.md
+                        - name: Superviser avec les journaux d’activité Azure Monitor
+                          href: saas-dbpertenant-log-analytics.md
+                        - name: Restaurer un client
+                          href: saas-dbpertenant-restore-single-tenant.md
+                        - name: Gérer les schémas de client
+                          href: saas-tenancy-schema-management.md
+                        - name: Création de rapports inter-clients
+                          href: saas-tenancy-cross-tenant-reporting.md
+                        - name: Analyse des clients
+                          items:
+                            - name: Avec SQL Database
+                              href: saas-tenancy-tenant-analytics.md
+                            - name: Avec SQL Data Warehouse
+                              href: saas-tenancy-tenant-analytics-adf.md
+                    - name: Récupération d’urgence à l’aide de la géo-restauration
+                      href: saas-dbpertenant-dr-geo-restore.md
+                    - name: Récupération d’urgence à l’aide de la géo-réplication de base de données
+                      href: saas-dbpertenant-dr-geo-replication.md
+                - name: Base de données mutualisée
+                  items:
+                    - name: Déployer l’application fournie en exemple
+                      href: saas-multitenantdb-get-started-deploy.md
+                    - name: Clients d’approvisionnement
+                      href: saas-multitenantdb-provision-and-catalog.md
+                    - name: Surveiller les performances de la base de données
+                      href: saas-multitenantdb-performance-monitoring.md
+                    - name: Exécuter des requêtes ad hoc
+                      href: saas-multitenantdb-adhoc-reporting.md
+                    - name: Gérer les schémas de client
+                      href: saas-multitenantdb-schema-management.md
+                    - name: 'Extraction, transformation et chargement (ETL) pour analyse'
+                      href: saas-multitenantdb-tenant-analytics.md
+- name: Bases de données SQL
+  items:
+    - name: Documentation sur les bases de données SQL
+      href: sql-database-single-index.yml
+    - name: Vue d'ensemble
+      items:
+        - name: Bases de données uniques
+          href: sql-database-single-database.md
+        - name: Pools élastiques
+          href: sql-database-elastic-pool.md
+        - name: Serveurs de base de données
+          href: sql-database-servers.md
+    - name: Démarrages rapides
+      items:
+        - name: Créer
+          items:
+            - name: En passant par le portail Azure
+              href: sql-database-single-database-get-started.md
+            - name: Utilisation d’un modèle
+              displayName: 'Azure Resource Manager template, ARM'
+              href: sql-database-single-database-get-started-template.md
+        - name: Configuration
+          items:
+            - name: Règles de pare-feu IP au niveau du serveur
+              href: sql-database-server-level-firewall-rule.md
+    - name: Tutoriels
+      items:
+        - name: Migrer vers une base de données unique/mise en pool avec DMS
+          href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+        - name: Ajouter à un groupe de basculement
+          href: sql-database-single-database-failover-group-tutorial.md
+        - name: Implémenter une base de données géo-distribuée
+          href: sql-database-implement-geo-distributed-database.md
+        - name: Configurer la géoréplication active
+          href: sql-database-active-geo-replication-portal.md
+        - name: Configurer Azure SQL Data Sync
+          href: sql-database-get-started-sql-data-sync.md
+        - name: Ajouter un groupe de basculement à un pool élastique
+          href: sql-database-elastic-pool-failover-group-tutorial.md
+        - name: Configurer la sécurité
+          href: sql-database-security-tutorial.md
+    - name: Concepts
+      items:
+        - name: Ressources d’une base de données unique
+          items:
+            - name: Limites de ressources basées sur des vCore
+              href: sql-database-vcore-resource-limits-single-databases.md
+            - name: Limites de ressources basées sur des unités DTU
+              href: sql-database-dtu-resource-limits-single-databases.md
+            - name: Mettre les ressources à l’échelle
+              href: sql-database-single-database-scale.md
+        - name: Ressources de pool élastique
+          items:
+            - name: Limites de ressources basées sur des vCore
+              href: sql-database-vcore-resource-limits-elastic-pools.md
+            - name: Limites de ressources basées sur des unités DTU
+              href: sql-database-dtu-resource-limits-elastic-pools.md
+            - name: Mettre les ressources à l’échelle
+              href: sql-database-elastic-pool-scale.md
+            - name: Gérer les ressources de pool
+              href: sql-database-elastic-pool-manage.md
+        - name: Ressources de serveur de base de données
+          items:
+            - name: Limites de ressources du serveur de base de données
+              href: sql-database-resource-limits-database-server.md
+            - name: Architecture de connectivité
+              href: sql-database-connectivity-architecture.md
+        - name: Synchronisation des données
+          items:
+            - name: Agent Data Sync
+              href: sql-database-data-sync-agent.md
+            - name: Répliquer les modifications de schéma
+              href: sql-database-update-sync-schema.md
+            - name: Surveiller avec OMS
+              href: sql-database-sync-monitor-oms.md
+            - name: Bonnes pratiques pour Data Sync
+              href: sql-database-best-practices-data-sync.md
+            - name: Dépannage de Data Sync
+              href: sql-database-troubleshoot-data-sync.md
+        - name: Analyse des performances
+          items:
+            - name: Query Performance Insight
+              href: sql-database-query-performance.md
+        - name: Différences de T-SQL
+          href: sql-database-transact-sql-information.md
+        - name: Caractéristiques
+          items:
+            - name: SQL Data Sync
+              href: sql-database-sync-data.md
+            - name: Azure Automation
+              href: sql-database-manage-automation.md
+        - name: Informations de référence sur l’API de gestion
+          href: sql-database-single-databases-manage.md
         - name: Machine Learning Services
           items:
             - name: Vue d'ensemble
               href: sql-database-machine-learning-services-overview.md
             - name: Différences clés
               href: sql-database-machine-learning-services-differences.md
-        - name: Intégration de CLR/.NET côté serveur
-          href: 'https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/sql-database/toc.json'
-- name: Guides pratiques
-  items:
-    - name: Vue d'ensemble
-      href: sql-database-howto.md
-    - name: Bases de données uniques et pools élastiques
+            - name: Démarrages rapides
+              items:
+                - name: Créer des scripts R
+                  href: sql-database-quickstart-r-create-script.md
+                - name: Entraîner et évaluer un modèle
+                  href: sql-database-quickstart-r-train-score-model.md
+            - name: Tutoriels
+              items:
+                - name: Créer un modèle prédictif en R
+                  items:
+                    - name: 1 - Préparer les données
+                      href: sql-database-tutorial-predictive-model-prepare-data.md
+                    - name: 2 - Créer le modèle
+                      href: sql-database-tutorial-predictive-model-build-compare.md
+                    - name: 3 - Déployer le modèle
+                      href: sql-database-tutorial-predictive-model-deploy.md
+                - name: Créer un modèle de clustering en R
+                  items:
+                    - name: 1 - Préparer les données
+                      href: sql-database-tutorial-clustering-model-prepare-data.md
+                    - name: 2 - Créer le modèle
+                      href: sql-database-tutorial-clustering-model-build.md
+                    - name: 3 - Déployer le modèle
+                      href: sql-database-tutorial-clustering-model-deploy.md
+            - name: Procédures
+              items:
+                - name: Écrire des fonctions R avancées
+                  href: sql-database-machine-learning-services-functions.md
+                - name: Utiliser des données R et SQL
+                  href: sql-database-machine-learning-services-data-issues.md
+                - name: Ajouter des packages R
+                  href: sql-database-machine-learning-services-add-r-packages.md
+    - name: Procédures
       items:
         - name: Vue d'ensemble
           href: sql-database-howto-single-database.md
@@ -450,6 +602,8 @@
           href: sql-database-geo-replication-portal.md
         - name: Configurer la sécurité pour les géo-réplicas
           href: sql-database-geo-replication-security-config.md
+        - name: Configurer le groupe de basculement
+          href: sql-database-configure-failover-group.md
         - name: Essayer les fonctionnalités en mémoire
           href: sql-database-in-memory-sample.md
         - name: Activer le réglage automatique
@@ -508,15 +662,87 @@
               href: elastic-jobs-tsql.md
             - name: Migrer (à partir d’anciens travaux élastiques)
               href: elastic-jobs-migrate.md
-    - name: Instances managées
+    - name: Exemples
+      items:
+        - name: D’Azure CLI
+          href: sql-database-cli-samples.md?tabs=single-database
+        - name: Azure PowerShell
+          href: sql-database-powershell-samples.md?tabs=single-database
+        - name: Azure Resource Manager
+          href: sql-database-resource-manager-samples.md?tabs=single-database
+        - name: Exemples de code
+          href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
+- name: Instance managée SQL
+  items:
+    - name: Documentation sur les instances managées
+      href: sql-database-managed-instance-index.yml
+    - name: Vue d'ensemble
+      href: sql-database-managed-instance.md
+    - name: Pools d’instances
+      href: sql-database-instance-pools.md
+    - name: Forum Aux Questions
+      href: sql-database-managed-instance-faq.md
+    - name: Démarrages rapides
+      items:
+        - name: Créer
+          items:
+            - name: En passant par le portail Azure
+              href: sql-database-managed-instance-get-started.md
+            - name: Utiliser PowerShell
+              href: scripts/sql-database-create-configure-managed-instance-powershell.md
+            - name: Créer des pools d’instances
+              href: sql-database-instance-pools-how-to.md
+        - name: Configuration
+          items:
+            - name: Point de terminaison public
+              href: sql-database-managed-instance-public-endpoint-configure.md
+            - name: Connexion de machine virtuelle cliente
+              href: sql-database-managed-instance-configure-vm.md
+            - name: Connexion de point à site
+              href: sql-database-managed-instance-configure-p2s.md
+        - name: Charger des données
+          items:
+            - name: Restaurer une sauvegarde de base de données
+              href: sql-database-managed-instance-get-started-restore.md
+    - name: Tutoriels
+      items:
+        - name: Migrer en utilisant DMS
+          href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+        - name: Configurer la réplication transactionnelle
+          href: replication-with-sql-database-managed-instance.md
+        - name: Configurer la sécurité
+          href: sql-database-managed-instance-aad-security-tutorial.md
+    - name: Concepts
+      items:
+        - name: Informations de référence sur l’API de gestion
+          href: sql-database-managed-instance-create-manage.md
+        - name: Limites des ressources
+          href: sql-database-managed-instance-resource-limits.md
+        - name: Architecture de connectivité
+          href: sql-database-managed-instance-connectivity-architecture.md
+        - name: Différences de T-SQL
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: Caractéristiques
+          items:
+            - name: Services liés
+              href: 'https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json'
+            - name: Service Broker
+              href: 'https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json'
+            - name: Messagerie de base de données
+              href: 'https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json'
+    - name: Procédures
       items:
         - name: Vue d'ensemble
           href: sql-database-howto-managed-instance.md
         - name: Migrer vers une instance gérée
           href: sql-database-managed-instance-migrate.md
+        - name: Personnaliser le fuseau horaire
+          href: sql-database-managed-instance-timezone.md
+        - name: Configurer les types de connexion
+          href: sql-database-managed-instance-connection-type.md
         - name: Migrer un certificat TDE vers une instance gérée
           href: sql-database-managed-instance-migrate-tde-certificate.md
-        - name: Restaurer un point dans le temps
+        - name: Restaurer à un point dans le temps
           href: sql-database-managed-instance-point-in-time-restore.md
         - name: Déterminer la taille du sous-réseau d’instances managées
           href: sql-database-managed-instance-determine-size-vnet-subnet.md
@@ -538,215 +764,27 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Connecter des applications
           href: sql-database-managed-instance-connect-app.md
-    - name: Charger et déplacer des données
+    - name: Exemples
       items:
-        - name: Déplacer la ressource vers une nouvelle région
-          href: sql-database-move-resources-across-regions.md
-        - name: Copier une base de données dans Azure
-          href: sql-database-copy.md
-        - name: Importer une base de données à partir d’un fichier BACPAC
-          href: sql-database-import.md
-        - name: Exporter une base de données vers un fichier BACPAC
-          href: sql-database-export.md
-        - name: Synchronisation des données
-          items:
-            - name: Agent Data Sync
-              href: sql-database-data-sync-agent.md
-            - name: Répliquer les modifications de schéma
-              href: sql-database-update-sync-schema.md
-            - name: Surveiller avec OMS
-              href: sql-database-sync-monitor-oms.md
-            - name: Bonnes pratiques pour Data Sync
-              href: sql-database-best-practices-data-sync.md
-            - name: Dépannage de Data Sync
-              href: sql-database-troubleshoot-data-sync.md
-        - name: Chargement des données avec BCP
-          href: sql-database-load-from-csv-with-bcp.md
-        - name: Chargement des données avec ADF
-          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-    - name: Superviser et régler des bases de données
-      items:
-        - name: Réglage manuel
-          href: sql-database-performance-guidance.md
-        - name: Utiliser des DMV pour surveiller les performances
-          href: sql-database-monitoring-with-dmvs.md
-        - name: Utiliser le Magasin des requêtes pour superviser les performances
-          href: sql-database-operate-query-store.md
-        - name: Résoudre les problèmes de performances avec Intelligence Insights
-          href: sql-database-intelligent-insights-troubleshoot-performance.md
-        - name: Utiliser le journal de diagnostic Intelligent Insights
-          href: sql-database-intelligent-insights-use-diagnostics-log.md
-        - name: Superviser l’espace OLTP en mémoire
-          href: sql-database-in-memory-oltp-monitoring.md
-        - name: Événements étendus
-          items:
-            - name: Événements étendus
-              href: sql-database-xevent-db-diff-from-svr.md
-            - name: Événements étendus - Fichier d’événements
-              href: sql-database-xevent-code-event-file.md
-            - name: Événements étendus - Mémoire tampon en anneau
-              href: sql-database-xevent-code-ring-buffer.md
-    - name: Configurer des fonctionnalités
-      items:
-        - name: Configurer le groupe de basculement
-          href: sql-database-configure-failover-group.md
-        - name: "Configurer l’authentification Azure\_AD"
-          href: sql-database-aad-authentication-configure.md
-        - name: Accès conditionnel
-          href: sql-database-conditional-access.md
-        - name: Authentification AAD multifacteur
-          href: sql-database-ssms-mfa-authentication.md
-        - name: Configuration de l’authentification multifacteur
-          href: sql-database-ssms-mfa-authentication-configure.md
-        - name: Configurer une stratégie de rétention temporelle
-          href: sql-database-temporal-tables-retention-policy.md
-        - name: Configurer TDE avec BYOK
-          href: transparent-data-encryption-byok-azure-sql-configure.md
-        - name: Effectuer une rotation des clés TDE BYOK
-          href: transparent-data-encryption-byok-azure-sql-key-rotation.md
-        - name: Supprimer le protecteur TDE
-          href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
-        - name: Configurer OLTP en mémoire
-          href: sql-database-in-memory-oltp-migration.md
-        - name: Azure Automation
-          href: sql-database-manage-automation.md
-    - name: Développement d’applications
-      items:
-        - name: Vue d'ensemble
-          href: sql-database-develop-overview.md
-        - name: Utilisation de données JSON
-          href: sql-database-json-features.md
-        - name: Utiliser ASP.NET App Service
-          href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
-        - name: Utiliser Azure Functions
-          href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
-        - name: Utiliser Azure Logic Apps
-          href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
-        - name: Utiliser Spark Connector
-          href: sql-database-spark-connector.md
-        - name: Indexer avec Recherche Azure
-          href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
-        - name: Authentifier l’application
-          href: sql-database-client-id-keys.md
-        - name: messages d'erreur
-          href: sql-database-develop-error-messages.md
-        - name: Traitement par lot pour de meilleures performances
-          href: sql-database-use-batching-to-improve-performance.md
-        - name: Conseils sur la connectivité
-          href: sql-database-connectivity-issues.md
-        - name: Alias DNS
-          href: dns-alias-overview.md
-        - name: PowerShell d’alias DNS
-          href: dns-alias-powershell.md
-        - name: Ports - ADO.NET
-          href: sql-database-develop-direct-route-ports-adonet-v12.md
-        - name: C et C ++
-          href: sql-database-develop-cplusplus-simple.md
-        - name: Excel
-          href: sql-database-connect-excel.md
-        - name: Java
-          items:
-            - name: Utiliser Spring Data JDBC
-              href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server
-            - name: Utiliser Spring Data JPA
-              href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server
-    - name: Concevoir des applications
-      items:
-        - name: Conception de systèmes de récupération d’urgence
-          href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-        - name: Conception de pools élastiques
-          href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-        - name: Conception de mises à niveau d’applications
-          href: sql-database-manage-application-rolling-upgrade.md
-        - name: SaaS mutualisé
-          items:
-            - name: Modèles de conception SaaS
-              href: saas-tenancy-app-design-patterns.md
-            - name: Video Indexer SaaS
-              href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
-            - name: Sécurité des applications SaaS
-              href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
-            - name: Exemple d’application SaaS mutualisée
-              items:
-                - name: Exemple de tickets Wingtip
-                  href: saas-tenancy-welcome-wingtip-tickets-app.md
-                - name: Règle générale
-                  href: saas-tenancy-wingtip-app-guidance-tips.md
-                - name: Application unique
-                  items:
-                    - name: Déployer l’application fournie en exemple
-                      href: saas-standaloneapp-get-started-deploy.md
-                    - name: Clients d’approvisionnement
-                      href: saas-standaloneapp-provision-and-catalog.md
-                - name: Base de données par client
-                  items:
-                    - name: Introduction du didacticiel
-                      href: saas-dbpertenant-wingtip-app-overview.md
-                    - name: Déployer l’application fournie en exemple
-                      href: saas-dbpertenant-get-started-deploy.md
-                    - name: Clients d’approvisionnement
-                      href: saas-dbpertenant-provision-and-catalog.md
-                    - name: Surveiller les performances de la base de données
-                      href: saas-dbpertenant-performance-monitoring.md
-                    - name: Superviser avec les journaux d’activité Azure Monitor
-                      href: saas-dbpertenant-log-analytics.md
-                    - name: Restaurer un client
-                      href: saas-dbpertenant-restore-single-tenant.md
-                    - name: Gérer les schémas de client
-                      href: saas-tenancy-schema-management.md
-                    - name: Création de rapports inter-clients
-                      href: saas-tenancy-cross-tenant-reporting.md
-                    - name: Analyse des clients
-                      items:
-                        - name: Avec SQL Database
-                          href: saas-tenancy-tenant-analytics.md
-                        - name: Avec SQL Data Warehouse
-                          href: saas-tenancy-tenant-analytics-adf.md
-                - name: Récupération d’urgence à l’aide de la géo-restauration
-                  href: saas-dbpertenant-dr-geo-restore.md
-                - name: Récupération d’urgence à l’aide de la géo-réplication de base de données
-                  href: saas-dbpertenant-dr-geo-replication.md
-            - name: Base de données mutualisée
-              items:
-                - name: Déployer l’application fournie en exemple
-                  href: saas-multitenantdb-get-started-deploy.md
-                - name: Clients d’approvisionnement
-                  href: saas-multitenantdb-provision-and-catalog.md
-                - name: Surveiller les performances de la base de données
-                  href: saas-multitenantdb-performance-monitoring.md
-                - name: Exécuter des requêtes ad hoc
-                  href: saas-multitenantdb-adhoc-reporting.md
-                - name: Gérer les schémas de client
-                  href: saas-multitenantdb-schema-management.md
-                - name: 'Extraction, transformation et chargement (ETL) pour analyse'
-                  href: saas-multitenantdb-tenant-analytics.md
-    - name: Machine Learning Services
-      items:
-        - name: Écrire des fonctions R avancées
-          href: sql-database-machine-learning-services-functions.md
-        - name: Utiliser des données R et SQL
-          href: sql-database-machine-learning-services-data-issues.md
-        - name: Ajouter des packages R
-          href: sql-database-machine-learning-services-add-r-packages.md
+        - name: D’Azure CLI
+          href: sql-database-cli-samples.md?tabs=managed-instance
+        - name: Azure PowerShell
+          href: sql-database-powershell-samples.md?tabs=managed-instance
+        - name: Azure Resource Manager
+          href: sql-database-resource-manager-samples.md?tabs=managed-instance
+        - name: Exemples de code
+          href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
 - name: Informations de référence
   items:
+    - name: D’Azure CLI
+      href: /cli/azure/sql
     - name: Azure PowerShell
       href: /powershell/module/az.sql
-    - name: Azure CLI
-      href: /cli/azure/sql
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.sql.models
     - name: Java
       href: /java/api/com.microsoft.azure.management.sql
-    - name: Node.js
-      href: /sql/connect/node-js/node-js-driver-for-sql-server
-    - name: Python
-      href: /sql/connect/python/python-driver-for-sql-server
-    - name: Ruby
-      href: /sql/connect/ruby/ruby-driver-for-sql-server
-    - name: PHP
-      href: /sql/connect/php/microsoft-php-driver-for-sql-server
-    - name: T-SQL
+    - name: Informations de référence sur le langage T-SQL
       href: /sql/t-sql/language-reference
     - name: REST
       href: /rest/api/sql/
@@ -767,39 +805,26 @@
       href: 'https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json'
     - name: Package de bibliothèque de gestion SQL Database
       href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
-    - name: Pilotes SQL Server
-      href: /sql/connect/sql-server-drivers
-      items:
-        - name: ADO.NET
-          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
-        - name: JDBC
-          href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
-        - name: ODBC
-          href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Ressources
   items:
     - name: Glossaire
       href: sql-database-glossary-terms.md
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Centre des architectures
-      href: /azure/architecture/
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-sql-database
-    - name: Témoignages client
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
-    - name: Blog Microsoft Azure
-      href: 'https://azure.microsoft.com/blog/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
-    - name: Jeux de données publics
-      href: sql-database-public-data-sets.md
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
-    - name: Mises à jour de service
-      href: 'https://azure.microsoft.com/updates/?service=sql-database'
     - name: "Blog SQL\_Server"
       href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Blog Microsoft Azure
+      href: 'https://azure.microsoft.com/blog/'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Jeux de données publics
+      href: sql-database-public-data-sets.md
+    - name: Résoudre les problèmes de connectivité
+      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/sql-azure'
     - name: Résolution des problèmes
@@ -812,3 +837,9 @@
               href: azure-sql-database-hangs-importing-exporting.md
     - name: Videos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?service=sql-database'
+    - name: Centre des architectures
+      href: /azure/architecture/
+    - name: Témoignages client
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
