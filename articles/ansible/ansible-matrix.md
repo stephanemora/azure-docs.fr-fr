@@ -1,5 +1,5 @@
 ---
-title: Matrice de version et module Ansible pour Azure | Microsoft Docs
+title: Matrice de version et module Ansible pour Azure
 description: Matrice de version et module Ansible pour Azure
 keywords: ansible, rôles, matrice, version, azure, devops
 ms.topic: reference
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18654500a78178c46e72f9f6cd01e8507fa179f0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230978"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241540"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matrice de version et module Ansible
 
@@ -92,7 +92,7 @@ Ces modules sont disponibles à partir de la version officielle d’Ansible et d
 | azure_rm_storageaccount                     | OUI          | OUI                         | OUI          | OUI          | OUI          | OUI          |
 | azure_rm_storageaccount_facts               | OUI          | OUI                         | OUI          | OUI          | OUI          | OUI          |
 | azure_rm_storageblob                        | OUI          | OUI                         | OUI          | OUI          | OUI          | OUI          |
-| **web**                    |           |                          |                          |                             |           |           |
+| **Web**                    |           |                          |                          |                             |           |           |
 | azure_rm_appserviceplan                     | -            | -                         | -          | OUI          | OUI          | OUI          |
 | azure_rm_appserviceplan_facts               | -            | -                         | -          | OUI          | OUI          | OUI          |
 | azure_rm_webapp                             | -            | -                         | -          | OUI          | OUI          | OUI          |

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.author: pepogors
+ms.openlocfilehash: cec134f9e71f86cd0ed17912f1a3c76adc9a4164
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200457"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167319"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Types de nœuds Azure Service Fabric et groupes de machines virtuelles identiques
 Les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets) représentent une ressource de calcul Azure. Vous pouvez utiliser des groupes identiques pour déployer et gérer une collection de machines virtuelles comme un groupe. Chaque type de nœud que vous définissez dans un cluster Azure Service Fabric configure une mise à l’échelle différente.  Le runtime Service Fabric installé sur chaque machine virtuelle dans le groupe identique par l’extension de machine virtuelle Microsoft.Azure.ServiceFabric. Vous pouvez faire monter ou descendre en puissance chaque type de nœud de manière indépendante, modifier la référence SKU du système d’exploitation s’exécutant sur chaque nœud de cluster, avoir différents ensembles de ports ouverts et utiliser différentes métriques de capacité.

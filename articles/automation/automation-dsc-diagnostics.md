@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b7feb1b980054ba224173d5054907879a88cdd5
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5905afdb9832f32e837dc4496e4a951fca41b8b0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952871"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243549"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Transférer des données de rapport Azure Automation State Configuration vers des journaux Azure Monitor
 
@@ -78,7 +78,7 @@ Après avoir configuré l’intégration avec les journaux Azure Monitor pour vo
 
 ![Bouton Recherche dans les journaux](media/automation-dsc-diagnostics/log-search-button.png)
 
-Le panneau **Recherche dans les journaux** s’ouvre et vous voyez une opération **DscNodeStatusData** pour chaque nœud State Configuration et une opération **DscResourceStatusData** pour chaque [ressource DSC](/powershell/dsc/resources) appelée dans la configuration Nœud appliquée à ce nœud.
+Le panneau **Recherche dans les journaux** s’ouvre et vous voyez une opération **DscNodeStatusData** pour chaque nœud State Configuration et une opération **DscResourceStatusData** pour chaque [ressource DSC](/powershell/scripting/dsc/resources/resources) appelée dans la configuration Nœud appliquée à ce nœud.
 
 L’opération **DscResourceStatusData** contient des informations d’erreur pour les ressources DSC ayant échoué.
 

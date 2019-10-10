@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a4c28f5892e8e885004c7fcc721b873a96c52ac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 635d04e049b66452fa000048082aced9aa62c20a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104496"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241379"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cs-stars"></a>Tutoriel : Intégration d’Azure Active Directory à CS Stars
 
@@ -110,7 +110,7 @@ Pour configurer l’authentification unique Azure AD avec CS Stars, effectuez l
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL au format suivant : `https://<subdomain>.csstars.com/enterprise/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client CS Stars](https://www.marshclearsight.com/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support client CS Stars](http://www.riskonnectclearsight.com/support/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 4. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -128,7 +128,7 @@ Pour configurer l’authentification unique Azure AD avec CS Stars, effectuez l
 
 ### <a name="configure-cs-stars-single-sign-on"></a>Configurer l’authentification unique CS Stars
 
-Pour configurer l’authentification unique côté **CS Stars**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique CS Stars](https://www.marshclearsight.com/support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **CS Stars**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique CS Stars](http://www.riskonnectclearsight.com/support/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -183,7 +183,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-cs-stars-test-user"></a>Créer un utilisateur de test CS Stars
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans CS Stars. Collaborez avec l’ [équipe du support technique CS Stars](https://www.marshclearsight.com/support/) pour ajouter des utilisateurs dans la plateforme CS Stars. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans CS Stars. Collaborez avec l’ [équipe du support technique CS Stars](http://www.riskonnectclearsight.com/support/) pour ajouter des utilisateurs dans la plateforme CS Stars. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

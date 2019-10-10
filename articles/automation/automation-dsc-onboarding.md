@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: c05ac7a1894fc3e159ef8fc2b3dd2654714faccf
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965187"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243433"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Intégration des machines pour la gestion avec Azure Automation State Configuration
 
@@ -56,7 +56,7 @@ Sélectionnez une machine virtuelle Azure à intégrer.
 
 Si l’extension d’état PowerShell souhaitée n’est pas installée sur la machine virtuelle et que l’état d’alimentation est en cours d’exécution, cliquez sur **Se connecter**.
 
-Sous **Inscription**, entrez les [valeurs du gestionnaire de configuration locale de PowerShell DSC](/powershell/dsc/managing-nodes/metaconfig) requises pour votre cas d’utilisation et, éventuellement, une configuration de nœud à attribuer à la machine virtuelle.
+Sous **Inscription**, entrez les [valeurs du gestionnaire de configuration locale de PowerShell DSC](/powershell/scripting/dsc/managing-nodes/metaConfig) requises pour votre cas d’utilisation et, éventuellement, une configuration de nœud à attribuer à la machine virtuelle.
 
 ![intégration](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
@@ -100,7 +100,7 @@ Les serveurs Windows en cours d’exécution en local ou dans d’autres environ
 Les serveurs Linux en cours d’exécution en local ou dans d’autres environnements de cloud peuvent également être intégrés dans Azure Automation State Configuration, tant qu’ils ont [un accès sortant à Azure](automation-dsc-overview.md#network-planning) :
 
 1. Vérifiez que la dernière version du service [Desired State Configuration de PowerShel pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) est installée sur les machines que vous souhaitez intégrer à Azure Automation State Configuration.
-1. Si les [valeurs par défaut du gestionnaire de configuration locale DSC PowerShell](/powershell/dsc/metaconfig4) correspondent à votre cas d’utilisation et que vous voulez intégrer des machines de sorte qu’elles procèdent **à la fois** à une extraction auprès d’Azure Automation State Configuration et qu’elles lui adressent des rapports :
+1. Si les [valeurs par défaut du gestionnaire de configuration locale DSC PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) correspondent à votre cas d’utilisation et que vous voulez intégrer des machines de sorte qu’elles procèdent **à la fois** à une extraction auprès d’Azure Automation State Configuration et qu’elles lui adressent des rapports :
 
    - Sur chaque machine Linux à intégrer à Azure Automation State Configuration, utilisez `Register.py` pour effectuer l’intégration en utilisant les valeurs par défaut du gestionnaire de configuration locale DSC PowerShell :
 
@@ -134,7 +134,7 @@ La machine à partir de laquelle cette commande est exécutée doit disposer de 
 
 ## <a name="generating-dsc-metaconfigurations"></a>Génération de métaconfigurations DSC
 
-Pour intégrer de manière générique n’importe quelle machine à Azure Automation State Configuration, une [métaconfiguration DSC](/powershell/dsc/metaconfig) peut être générée, qui demande à l’agent DSC d’effectuer une extraction auprès d’Azure Automation State Configuration et/ou de lui adresser un rapport. Les métaconfigurations DSC pour Azure Automation State Configuration peuvent être générées à l’aide d’une configuration PowerShell DSC ou des applets de commande PowerShell Azure Automation.
+Pour intégrer de manière générique n’importe quelle machine à Azure Automation State Configuration, une [métaconfiguration DSC](/powershell/scripting/dsc/managing-nodes/metaConfig) peut être générée, qui demande à l’agent DSC d’effectuer une extraction auprès d’Azure Automation State Configuration et/ou de lui adresser un rapport. Les métaconfigurations DSC pour Azure Automation State Configuration peuvent être générées à l’aide d’une configuration PowerShell DSC ou des applets de commande PowerShell Azure Automation.
 
 > [!NOTE]
 > Les métaconfigurations DSC contiennent les clés secrètes nécessaires à l’intégration d’une machine à un compte Automation à des fins de gestion. Veillez à protéger convenablement les métaconfigurations DSC que vous créez ou supprimez-les après utilisation.
@@ -319,7 +319,7 @@ Pour résoudre les problèmes ou afficher l’état de l’extension Azure VM De
 Après avoir inscrit une machine en tant que nœud DSC dans Azure Automation State Configuration, il se peut que vous ayez besoin de revenir en arrière pour de multiples raisons :
 
 - Pour les versions de Windows Server antérieures à Windows Server 2019, chaque nœud négocie automatiquement un certificat unique d’authentification qui expire après un an. À ce stade, le protocole d’inscription PowerShell DSC ne peut pas renouveler automatiquement les certificats lorsqu’ils sont sur le point d’expirer. Vous devez donc renouveler l’inscription des nœuds après un an. Avant la réinscription, assurez-vous que chaque nœud exécute Windows Management Framework 5.0 RTM. Si le certificat d’authentification d’un nœud expire et que ce dernier n’est pas réinscrit, le nœud ne peut pas communiquer avec Azure Automation et indique « Aucune réponse ». La réinscription effectuée dans un délai de 90 jours ou moins à partir de l'heure d'expiration du certificat, ou à tout moment après le délai d'expiration du certificat, entraîne la génération et l'utilisation d'un nouveau certificat.  Une solution à ce problème est incluse dans Windows Server 2019 et ultérieur.
-- Pour modifier des [valeurs du gestionnaire de configuration local PowerShell DSC](/powershell/dsc/metaconfig4) qui ont été définies lors de l’inscription initiale du nœud, telles que ConfigurationMode. Actuellement, ces valeurs de l’agent DSC peuvent être modifiées uniquement via une désinscription. La seule exception concerne la configuration du nœud assignée au nœud, qui peut être modifiée directement dans Azure Automation DSC.
+- Pour modifier des [valeurs du gestionnaire de configuration local PowerShell DSC](/powershell/scripting/dsc/managing-nodes/metaConfig4) qui ont été définies lors de l’inscription initiale du nœud, telles que ConfigurationMode. Actuellement, ces valeurs de l’agent DSC peuvent être modifiées uniquement via une désinscription. La seule exception concerne la configuration du nœud assignée au nœud, qui peut être modifiée directement dans Azure Automation DSC.
 
 L’inscription peut être renouvelée selon la procédure initiale, en utilisant l’une des méthodes d’intégration décrites dans ce document. Il est inutile d’annuler l’inscription d’un nœud dans Azure Automation State Configuration avant de le réinscrire.
 

@@ -17,12 +17,12 @@ ms.date: 04/19/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e4f0f81c5f135e885fe06d4fb4fa67514e8781b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 8d202cb0cc2d073326a5bcc8fb0d540c232afa98
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988155"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240893"
 ---
 # <a name="integrate-azure-active-directory-logs-with-arcsight-using-azure-monitor"></a>Intégrer des journaux d’activité Azure Active Directory à ArcSight à l’aide d’Azure Monitor
 
@@ -36,7 +36,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 * Un hub d’événements Azure contenant les journaux d’activité d’Azure AD. Découvrez comment [diffuser en continu vos journaux d’activité sur un hub d’événements](quickstart-azure-monitor-stream-logs-to-event-hub.md). 
 * Une instance configurée d’ArcSight Syslog NG Daemon SmartConnector (SmartConnector) ou ArcSight Load Balancer. Si les événements sont envoyés à ArcSight Load Balancer, ils sont ensuite envoyés SmartConnector par l’équilibreur de charge.
 
-Téléchargez et ouvrez le [guide de configuration d’ArcSight SmartConnector pour l’Event Hub Azure Monitor](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Ce guide décrit les étapes à suivre pour installer et configurer ArcSight SmartConnector pour Azure Monitor. 
+Téléchargez et ouvrez le [guide de configuration d’ArcSight SmartConnector pour l’Event Hub Azure Monitor](https://community.microfocus.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/8/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf). Ce guide décrit les étapes à suivre pour installer et configurer ArcSight SmartConnector pour Azure Monitor. 
 
 ## <a name="integrate-azure-ad-logs-with-arcsight"></a>Intégrer les journaux d’activité Azure AD à ArcSight
 

@@ -12,12 +12,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
-ms.openlocfilehash: 3b9022dd2b5998f95179ee3dfabe6706b55036bc
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: edbc9eef6b5f0af2e70152b66228cdf09ef31110
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636017"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242184"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Guide pratique pour utiliser Twilio avec les fonctionnalités vocales et SMS dans Python
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -111,7 +111,7 @@ Une fois que vous avez installé la bibliothèque Twilio pour Python, vous pouve
 
         import twilio
 
-Pour plus d’informations, consultez [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.rst).
+Pour plus d’informations, consultez [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.md).
 
 ## <a id="howto_make_call"></a>Procédure : passer un appel sortant
 Le code suivant permet d'exécuter un appel sortant. Il utilise également un site Twilio afin de renvoyer la réponse TwiML (Twilio Markup Language). Remplacez les numéros de téléphone **numéro_origine** et **numéro_destination** par vos valeurs, puis vérifiez le numéro de téléphone **numéro_origine** de votre compte Twilio avant d’exécuter le code.

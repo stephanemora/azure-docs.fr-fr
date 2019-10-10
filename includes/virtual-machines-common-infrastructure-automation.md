@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 90ccc89f80da7c2abce324c077f0fb1a436b8d44
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671432"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72171001"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utiliser les outils d’automatisation d’infrastructure avec les machines virtuelles dans Azure
 Pour créer et gérer des machines virtuelles de façon cohérente à grande échelle, une forme d’automatisation est généralement souhaitée. De nombreux outils et solutions permettent d’automatiser le déploiement et la gestion du cycle de vie de toute l’infrastructure Azure. Cet article présente certains des outils d’automatisation d’infrastructure utilisables dans Azure. Ces outils s’intègrent généralement dans l’une des approches suivantes :
@@ -64,15 +64,15 @@ Nous travaillons activement avec nos partenaires de distribution Linux afin de m
 
 
 ## <a name="powershell-dsc"></a>DSC PowerShell
-La [Configuration d’état souhaité (DSC) PowerShell](https://msdn.microsoft.com/powershell/dsc/overview) est une plateforme de gestion qui définit la configuration des machines cibles. Elle peut également être utilisée sur Linux via le [serveur Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
+La [Configuration d’état souhaité (DSC) PowerShell](/powershell/scripting/dsc/overview/overview) est une plateforme de gestion qui définit la configuration des machines cibles. Elle peut également être utilisée sur Linux via le [serveur Open Management Infrastructure (OMI)](https://collaboration.opengroup.org/omi/).
 
 Les configurations d’état souhaité définissent les éléments à installer sur une machine et la procédure à suivre pour configurer l’hôte. Un moteur du Gestionnaire de configuration local (LCM) s’exécute sur chaque nœud cible qui traite les actions demandées en fonction des configurations envoyées. Un serveur collecteur est un service web qui s’exécute sur un hôte central pour stocker les configurations d’état souhaité et les ressources associées. Le serveur collecteur communique avec le moteur du Gestionnaire de configuration local sur chaque hôte cible pour fournir les configurations requises et signaler la conformité.
 
 Découvrez comment :
 
 - [Créer une configuration d’état souhaité de base](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
-- [Configurer un serveur collecteur de configuration d’état souhaité](https://msdn.microsoft.com/powershell/dsc/pullserver).
-- [Utiliser une configuration d’état souhaité pour Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
+- [Configurer un serveur collecteur de configuration d’état souhaité](/powershell/scripting/dsc/pull-server/pullserver).
+- [Utiliser une configuration d’état souhaité pour Linux](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
 
 
 ## <a name="azure-custom-script-extension"></a>Extension de Script personnalisé Azure

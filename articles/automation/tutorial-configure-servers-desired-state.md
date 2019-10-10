@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 0d877dafc4ab4f8ec4edb0a94450fa9c5dfcd0bb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 09ba4bc9e5ac496a7d1d65ff145d56818e53116e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850246"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243352"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurer les serveurs à l’état souhaité et gérer la dérive
 
@@ -34,7 +34,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Un compte Azure Automation. Pour obtenir des instructions sur la création d’un compte d’identification Azure Automation, consultez [Authentifier des Runbooks avec un compte d’identification Azure](automation-sec-configure-azure-runas-account.md).
 - Une machine virtuelle Azure Resource Manager (non classique) exécutant Windows Server 2008 R2 ou version ultérieure. Pour obtenir des instructions sur la création d’une machine virtuelle, consultez [Créer votre première machine virtuelle Windows dans le portail Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 - Module Azure PowerShell, version 3.6 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
-- Des notions de base de la configuration de l’état souhaité. Pour en savoir plus sur DSC, consultez [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](https://docs.microsoft.com/powershell/dsc/overview).
+- Des notions de base de la configuration de l’état souhaité. Pour en savoir plus sur DSC, consultez [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](/powershell/scripting/dsc/overview/overviews).
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -48,7 +48,7 @@ Connect-AzureRmAccount
 
 Pour ce didacticiel, nous allons utiliser une configuration DSC simple qui permet de s’assurer qu’IIS est installé sur la machine virtuelle.
 
-Pour obtenir des informations sur les configurations DSC, consultez [Configurations DSC](/powershell/dsc/configurations).
+Pour obtenir des informations sur les configurations DSC, consultez [Configurations DSC](/powershell/scripting/dsc/configurations/configurations).
 
 Dans un éditeur de texte, tapez la commande suivante et enregistrez-la localement sous `TestConfig.ps1`.
 
@@ -77,7 +77,7 @@ Appelez l’applet de commande `Import-AzureRmAutomationDscConfiguration` pour c
 
 Une configuration DSC doit être compilée dans une configuration de nœud avant de pouvoir être affectée à un nœud.
 
-Pour obtenir des informations sur la compilation des configurations, consultez [Configurations DSC](/powershell/dsc/configurations).
+Pour obtenir des informations sur la compilation des configurations, consultez [Configurations DSC](/powershell/scripting/dsc/configurations/configurations).
 
 Appelez l’applet de commande `Start-AzureRmAutomationDscCompilationJob` pour compiler la configuration `TestConfig` dans une configuration de nœud :
 
@@ -116,7 +116,7 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 
 Pour plus d’informations sur la définition des propriétés de configuration d’un nœud géré, consultez [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode).
 
-Pour plus d’informations sur les paramètres de configuration DSC, consultez [Configuration du Gestionnaire de configuration local](/powershell/dsc/metaconfig).
+Pour plus d’informations sur les paramètres de configuration DSC, consultez [Configuration du Gestionnaire de configuration local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## <a name="assign-a-node-configuration-to-a-managed-node"></a>Attribuer une configuration de nœud à un nœud géré
 
@@ -132,7 +132,7 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 
 Cette opération attribue la configuration de nœud nommée `TestConfig.WebServer` au nœud DSC inscrit nommé `DscVm`.
 Par défaut, le nœud DSC est vérifié pour la conformité avec la configuration de nœud toutes les 30 minutes.
-Pour obtenir des informations sur la modification de l’intervalle de vérification de conformité, consultez [Configuration du Gestionnaire de configuration local](/PowerShell/DSC/metaConfig).
+Pour obtenir des informations sur la modification de l’intervalle de vérification de conformité, consultez [Configuration du Gestionnaire de configuration local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 ## <a name="working-with-partial-configurations"></a>Utilisation de configurations partielles
 

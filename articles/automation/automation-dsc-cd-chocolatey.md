@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4512b79873d7f770b32a452a02c53bc5575bdac
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61073895"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243600"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
 
@@ -36,7 +36,7 @@ Une fois ces deux processus en place, vous pouvez mettre automatiquement à jour
 S’ils sont communément employés dans l’univers Linux, les gestionnaires de packages tels que [apt-get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) demeurent assez méconnus dans le monde de Windows.
 [Chocolatey](https://chocolatey.org/) fait partie de ces packages. Pour mieux le découvrir, je vous invite à consulter le [blog](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx) de Scott Hanselman qui lui est dédié. En résumé, Chocolatey vous permet, à l’aide de la ligne de commande, d’installer des packages à partir d’un référentiel de packages central dans un système Windows. Vous pouvez créer et gérer votre propre référentiel et Chocolatey peut installer des packages à partir de tous les référentiels que vous désignez, quel qu’en soit le nombre.
 
-Desired State Configuration (DSC) ([vue d’ensemble](/powershell/dsc/overview)) est un outil PowerShell qui vous permet de déclarer la configuration que vous souhaitez affecter à une machine. Par exemple, vous pouvez vouloir installer Chocolatey et IIS, ouvrir le port 80 et installer la version 1.0.0 de votre site web. Le gestionnaire de configuration locale (LCM, Local Configuration Manager) de DSC implémente alors cette configuration. Un serveur Pull DSC contient un référentiel des configurations de vos machines. Le LCM résidant sur chaque ordinateur vérifie régulièrement si sa configuration correspond à la configuration enregistrée. Il peut signaler l’état ou tenter de réaligner la configuration de la machine sur la configuration enregistrée. Vous pouvez modifier la configuration enregistrée sur le serveur Pull de manière à aligner la configuration d’une machine ou d’un ensemble de machines sur la configuration modifiée.
+Desired State Configuration (DSC) ([vue d’ensemble](/powershell/scripting/dsc/overview/overview)) est un outil PowerShell qui vous permet de déclarer la configuration que vous souhaitez affecter à une machine. Par exemple, vous pouvez vouloir installer Chocolatey et IIS, ouvrir le port 80 et installer la version 1.0.0 de votre site web. Le gestionnaire de configuration locale (LCM, Local Configuration Manager) de DSC implémente alors cette configuration. Un serveur Pull DSC contient un référentiel des configurations de vos machines. Le LCM résidant sur chaque ordinateur vérifie régulièrement si sa configuration correspond à la configuration enregistrée. Il peut signaler l’état ou tenter de réaligner la configuration de la machine sur la configuration enregistrée. Vous pouvez modifier la configuration enregistrée sur le serveur Pull de manière à aligner la configuration d’une machine ou d’un ensemble de machines sur la configuration modifiée.
 
 Azure Automation est un service géré dans Microsoft Azure qui vous permet d’automatiser différentes tâches à l’aide de runbooks, de nœuds, d’informations d’identification et de ressources comme des planifications et des variables globales.
 Azure Automation State Configuration étend cette fonctionnalité d’automatisation pour intégrer les outils PowerShell DSC. En voici une excellente [présentation](automation-dsc-overview.md).

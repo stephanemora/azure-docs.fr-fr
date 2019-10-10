@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: ce1cdadcdc69fb5539394aa9bf402aa9463311e9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: fc0964508f3031efd91db827524042bf0577ab5e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057658"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242510"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Form Recognizer pour .NET
 
@@ -22,8 +22,8 @@ Prise en main de la bibliothèque de client Form Recognizer pour .NET. Form Reco
 
 Utilisez la bibliothèque de client Form Recognizer pour .NET. pour :
 
-* [Entraîner un modèle Form Recognizer personnalisé](#train-a-custom-model)
-* [Obtenir une liste des clés extraites](#get-a-list-of-extracted-keys)
+* [Effectuer l’apprentissage d’un modèle Form Recognizer personnalisé](#train-a-custom-model)
+* [Obtenir la liste des clés extraites](#get-a-list-of-extracted-keys)
 * [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
 * [Obtenir une liste de modèles personnalisés](#get-a-list-of-custom-models)
 * [Supprimer un modèle personnalisé](#delete-a-custom-model)
@@ -33,8 +33,9 @@ Utilisez la bibliothèque de client Form Recognizer pour .NET. pour :
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/).
+* Accès à la préversion à accès limité de Form Recognizer. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
+* Un blob Stockage Azure qui contient un jeu de données d’apprentissage. Consultez [Créer un jeu de données d’apprentissage pour un modèle personnalisé](../build-training-data-set.md) pour obtenir des conseils et des options pour constituer vos données d’apprentissage. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide.
 * Version actuelle de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
-* Un blob Stockage Azure qui contient un jeu de données d’entraînement. Consultez [Créer un jeu de données d’entraînement pour un modèle personnalisé](../build-training-data-set.md) pour obtenir des conseils et des options pour constituer vos données d’entraînement. 
 
 ## <a name="setting-up"></a>Configuration
 
@@ -93,8 +94,8 @@ Les classes suivantes gèrent les fonctionnalités principales du kit de dévelo
 |Nom|Description|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Cette classe est nécessaire pour toutes les fonctionnalités Form Recognizer. Vous pouvez l’instancier avec vos informations d’abonnement et l’utiliser pour produire des instances d’autres classes.|
-|[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Vous utilisez cette classe pour entraîner un modèle Form Recognizer avec vos propres données d’entraînement. |
-|[TrainResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainresult?view=azure-dotnet-preview)| Cette classe fournit les résultats d’une opération d’entraînement de modèle personnalisée, y compris l’ID de modèle, que vous pouvez ensuite utiliser pour analyser des formulaires. |
+|[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Vous utilisez cette classe pour effectuer l’apprentissage d’un modèle Form Recognizer avec vos propres données d’apprentissage. |
+|[TrainResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainresult?view=azure-dotnet-preview)| Cette classe fournit les résultats d’une opération d’apprentissage de modèle personnalisée, y compris l’ID de modèle, que vous pouvez ensuite utiliser pour analyser des formulaires. |
 |[AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview)| Cette classe fournit les résultats d’une opération d’analyse de modèle personnalisée. Elle comprend une liste d’instances **ExtractedPage**. |
 |[ExtractedPage](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.extractedpage?view=azure-dotnet-preview)| Cette classe représente toutes les données extraites d’un document de formulaire unique.|
 
@@ -109,7 +110,7 @@ Les classes suivantes gèrent les fonctionnalités principales du kit de dévelo
 Ces extraits de code montrent comment effectuer les tâches suivantes avec la bibliothèque de client Form Recognizer pour .NET :
 
 * [Authentifier le client](#authenticate-the-client)
-* [Entraîner un modèle Form Recognizer personnalisé](#train-a-custom-model)
+* [Effectuer l’apprentissage d’un modèle Form Recognizer personnalisé](#train-a-custom-model)
 * [Obtenir la liste des clés extraites](#get-a-list-of-extracted-keys)
 * [Analyser les formulaires avec un modèle personnalisé](#analyze-forms-with-a-custom-model)
 * [Obtenir une liste de modèles personnalisés](#get-a-list-of-custom-models)
@@ -120,7 +121,7 @@ Ces extraits de code montrent comment effectuer les tâches suivantes avec la bi
 Avant de définir les méthodes, ajoutez les définitions de variables suivantes au début de votre classe **Program**. Vous devez remplir certaines des variables vous-même. 
 
 * Vous pouvez retrouver la valeur du point de terminaison de votre service dans la section **Vue d’ensemble** du portail Azure. 
-* Pour récupérer l’URL SAS de vos données d’entraînement, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Pour récupérer l’URL SAS de vos données d’apprentissage, ouvrez l’Explorateur Stockage Microsoft Azure, cliquez avec le bouton droit sur votre conteneur, puis sélectionnez **Obtenir une signature d’accès partagé**. Assurez-vous que les autorisations de **Lecture** et **Écriture** sont cochées, puis cliquez sur **Créer**. Copiez alors la valeur dans la section **URL**. Il doit avoir le format : `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
@@ -132,7 +133,7 @@ Sous la méthode `Main`, définissez la tâche référencée dans `Main`. Ici, v
 
 ## <a name="train-a-custom-model"></a>Entraîner un modèle personnalisé
 
-La méthode suivante utilise votre objet client Form Recognizer pour entraîner un nouveau modèle de reconnaissance sur les documents stockés dans votre conteneur d’objets blob Azure. Elle utilise une méthode d’assistance pour afficher des informations sur le modèle nouvellement formé (représenté par un objet [ModelResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelresult?view=azure-dotnet-preview)) et retourne l’ID du modèle.
+La méthode suivante utilise votre objet client Form Recognizer pour effectuer l’apprentissage d’un nouveau modèle de reconnaissance sur les documents stockés dans votre conteneur d’objets blob Azure. Elle utilise une méthode d’assistance pour afficher des informations sur le modèle nouvellement formé (représenté par un objet [ModelResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelresult?view=azure-dotnet-preview)) et retourne l’ID du modèle.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_train)]
 
@@ -190,10 +191,10 @@ De plus, si vous avez entraîné un modèle personnalisé que vous voulez suppri
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé la bibliothèque de cliente Form Recognizer pour entraîner un modèle personnalisé et analyser des formulaires. Découvrez ensuite les astuces pour créer un jeu de données d’entraînement plus performant et produire des modèles plus précis.
+Dans ce guide de démarrage rapide, vous avez utilisé la bibliothèque de cliente Form Recognizer pour effectuer l’apprentissage d’un modèle personnalisé et analyser des formulaires. Découvrez ensuite les astuces pour créer un jeu de données d’apprentissage plus performant et produire des modèles plus précis.
 
 > [!div class="nextstepaction"]
->[Créer un jeu de données d’entraînement](../build-training-data-set.md)
+>[Créer un jeu de données d’apprentissage](../build-training-data-set.md)
 
 * [Qu’est-ce que Form Recognizer ?](../overview.md)
 * Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).

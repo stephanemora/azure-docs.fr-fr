@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: b98b7afb21f2f50d44ba93ed793b6efb20f75164
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b488a079b2da1bcf0dd064025ed251a1dc25213
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235961"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029393"
 ---
 # <a name="mapping-data-flow-exists-transformation"></a>Mappage d’une transformation Exists de flux de données
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 La transformation Exists est une transformation de filtrage de lignes qui stoppe ou autorise l'acheminement des lignes de vos données. La transformation Exists est similaire à ```SQL WHERE EXISTS``` et ```SQL WHERE NOT EXISTS```. Après une transformation Exists, les lignes obtenues à partir de votre flux de données incluent toutes les lignes où les valeurs de colonne de la source 1 existent ou non dans la source 2.
 

@@ -6,15 +6,15 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178665"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029299"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformation d’ajout de tableau croisé dynamique Azure Data Factory
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Utilisez l’ajout d’un tableau croisé dynamique dans ADF Data Flow comme une agrégation où une ou plusieurs colonnes de regroupement voient leurs valeurs de lignes distinctes transformées en colonnes individuelles. En fait, vous pouvez faire ajouter un tableau croisé dynamique de valeurs de lignes à de nouvelles colonnes (transformer des données en métadonnées).
 

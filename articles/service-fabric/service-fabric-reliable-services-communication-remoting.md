@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: a9ef2cd695f9591f299bb85b95d14d60b987c38d
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1654a7be8c3aba4efa6fcf96024ea987e2957e73
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258689"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173458"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Communication à distance des services en C# avec Reliable Services
 
@@ -36,7 +36,7 @@ Pour les services qui ne sont pas liés à une pile ou à un protocole de commun
 Vous pouvez configurer une communication à distance pour un service en deux étapes simples :
 
 1. Créez une interface pour implémenter votre service. Cette interface définit les méthodes disponibles pour un appel de procédure distante sur votre service. Ces méthodes doivent être des méthodes asynchrones retournant des tâches. L'interface doit implémenter `Microsoft.ServiceFabric.Services.Remoting.IService` pour signaler que le service dispose d'une interface de communication à distance.
-2. Utilisez un écouteur de communication à distance dans votre service. Un écouteur de communication à distance est une implémentation de `ICommunicationListener` qui fournit des fonctionnalités de communication à distance. L’espace de noms `Microsoft.ServiceFabric.Services.Remoting.Runtime` contient la méthode d’extension `CreateServiceRemotingListener` pour les services avec et sans état qui peuvent être utilisés pour créer un écouteur de communication à distance à l’aide du protocole de transport de communication à distance par défaut.
+2. Utilisez un écouteur de communication à distance dans votre service. Un écouteur de communication à distance est une implémentation de `ICommunicationListener` qui fournit des fonctionnalités de communication à distance. L’espace de noms `Microsoft.ServiceFabric.Services.Remoting.Runtime` contient la méthode d’extension `CreateServiceRemotingInstanceListeners` pour les services avec et sans état qui peuvent être utilisés pour créer un écouteur de communication à distance à l’aide du protocole de transport de communication à distance par défaut.
 
 >[!NOTE]
 >L’espace de noms `Remoting` est disponible sous la forme d’un package NuGet distinct appelé `Microsoft.ServiceFabric.Services.Remoting`.

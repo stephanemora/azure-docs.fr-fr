@@ -13,20 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cc8fd4e063896bbd8843a54f0a01058462c618
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c59a0b40065be1554e79186227cd2e90d68e7222
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901297"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174206"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Télécharger une liste d’utilisateurs (préversion) dans le portail Azure Active Directory
 
 Azure Active Directory (Azure AD) prend en charge les opérations d’importation (création) d’utilisateurs en bloc.
-
-## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
-
-Chaque opération en bloc de création de liste d’utilisateurs peut prendre jusqu’à une heure. Cela permet la création et le téléchargement d’une liste d’au moins 500 000 utilisateurs.
 
 ## <a name="required-permissions"></a>Autorisations requises
 
@@ -45,6 +41,10 @@ Pour télécharger la liste des utilisateurs à partir du centre d’administrat
 Vous pouvez voir l’état de vos demandes d’opération en bloc en attente dans la page **Résultats de l’opération en bloc (préversion)** .
 
    ![Vérifier l’état du chargement dans la page Résultats de l’opération en bloc](./media/users-bulk-download/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>Limites du service de téléchargement en bloc
+
+Chaque opération en bloc de création de liste d’utilisateurs peut prendre jusqu’à une heure. Cela permet la création et le téléchargement d’une liste d’au moins 500 000 utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

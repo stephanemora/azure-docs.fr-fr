@@ -7,20 +7,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: e0b41850c149ff7095333cf77b780dec1f03b882
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd29753ff14d16081a46eebbc2ea02d94e5985f1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234411"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029360"
 ---
 # <a name="azure-data-factory-filter-transformation"></a>Transformation de filtre Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Les transformations de filtre fournissent un filtrage des lignes. Créez une expression qui définit la condition de filtre. Cliquez sur la zone de texte pour lancer le Générateur d'expressions. Dans le Générateur d'expressions, créez une expression de filtre pour déterminer quelles lignes du flux de données actuel sont autorisées à passer (filtre) à la transformation suivante. Considérez la transformation de filtre en tant que clause WHERE d’une instruction SQL.
 
-## <a name="filter-on-loanstatus-column"></a>Filtrer sur la colonne loan_status :
+## <a name="filter-on-loan_status-column"></a>Filtrer sur la colonne loan_status :
 
 ```
 in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).

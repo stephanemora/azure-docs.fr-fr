@@ -1,18 +1,17 @@
 ---
-title: Guide pratique pour auditer le contenu d’une machine virtuelle
+title: Comprendre Azure Policy pour Azure Kubernetes Service
 description: Découvrez comment Azure Policy utilise Rego et Open Policy Agent pour gérer les clusters sur Azure Kubernetes Service.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e16c40c6a4f3539aa286c4c2d0859459ca18a91c
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 81dfb0d82502607cce761ce66c8e60563d1be157
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338365"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243766"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Comprendre Azure Policy pour Azure Kubernetes Service
 
@@ -64,9 +63,22 @@ Avant d’installer le module Azure Policy ou d’activer toute fonctionnalité 
 
   # Feature register: enables installing the add-on
   az feature register --namespace Microsoft.ContainerService --name AKS-AzurePolicyAutoApprove
-
+  
+  # Use the following to confirm the feature has registered
+  az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzurePolicyAutoApprove')].{Name:name,State:properties.state}"
+  
+  # Once the above shows 'Registered' run the following to propagate the update
+  az provider register -n Microsoft.ContainerService
+  
   # Feature register: enables the add-on to call the Azure Policy resource provider
   az feature register --namespace Microsoft.PolicyInsights --name AKS-DataplaneAutoApprove
+  
+  # Use the following to confirm the feature has registered
+  az feature list -o table --query "[?contains(name, 'Microsoft.PolicyInsights/AKS-DataPlaneAutoApprove')].{Name:name,State:properties.state}"
+  
+  # Once the above shows 'Registered' run the following to propagate the update
+  az provider register -n Microsoft.PolicyInsights
+  
   ```
 
 ## <a name="azure-policy-add-on"></a>Module complémentaire Azure Policy

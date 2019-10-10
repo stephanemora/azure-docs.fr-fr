@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: e2b407733bcab7bc854e8e3703e53eb474f3425b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 3c50ee149f5bcdda6cbb697830945cdc7f7a15f4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615068"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167287"
 ---
 # <a name="service-fabric-application-upgrade"></a>Mise à niveau des applications Service Fabric
 Une application Azure Service Fabric est une collection de services. Pendant une mise à niveau, Service Fabric compare le nouveau [manifeste d'application](service-fabric-application-and-service-manifests.md) à la version précédente et détermine les services qui, dans l'application, nécessitent des mises à jour. Service Fabric compare les numéros des versions dans les manifestes de service avec les numéros des versions dans la version précédente. Si un service n'a pas changé, ce service n'est pas mis à niveau.

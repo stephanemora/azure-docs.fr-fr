@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61074444"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243626"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Prise en main d’Azure Automation State Configuration
 
-Cette rubrique explique comment effectuer les tâches les plus courantes avec Azure Automation State Configuration, comme la création, l’importation et la compilation de configurations, l’intégration des ordinateurs à gérer et l’affichage des rapports. Pour obtenir une vue d’ensemble d’Azure Automation State Configuration, consultez [Vue d’ensemble d’Azure Automation State Configuration](automation-dsc-overview.md). Pour accéder à une documentation de Desired State Configuration (DSC), consultez l’article [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](/powershell/dsc/overview).
+Cette rubrique explique comment effectuer les tâches les plus courantes avec Azure Automation State Configuration, comme la création, l’importation et la compilation de configurations, l’intégration des ordinateurs à gérer et l’affichage des rapports. Pour obtenir une vue d’ensemble d’Azure Automation State Configuration, consultez [Vue d’ensemble d’Azure Automation State Configuration](automation-dsc-overview.md). Pour accéder à une documentation de Desired State Configuration (DSC), consultez l’article [Vue d’ensemble de la fonctionnalité Desired State Configuration de Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
 Cet article fournit des instructions détaillées sur l’utilisation d’Azure Automation State Configuration. Si vous souhaitez obtenir un exemple d’environnement préconfiguré sans suivre les étapes décrites dans cet article, vous pouvez utiliser le modèle Resource Manager suivant : [Azure Automation Managed Node](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Ce modèle configure un environnement Azure Automation State Configuration complet, comprenant une machine virtuelle Azure gérée par Azure Automation State Configuration.
 
@@ -31,7 +31,7 @@ Pour exécuter les exemples de cet article, vous devez disposer des éléments s
 
 ## <a name="creating-a-dsc-configuration"></a>Création d’une configuration DSC
 
-Vous créez une [configuration DSC](/powershell/dsc/configurations) simple qui garantit la présence ou l’absence de la fonctionnalité Windows **Serveur web** (IIS), selon le mode d’attribution des nœuds.
+Vous créez une [configuration DSC](/powershell/scripting/dsc/configurations/configurations) simple qui garantit la présence ou l’absence de la fonctionnalité Windows **Serveur web** (IIS), selon le mode d’attribution des nœuds.
 
 1. Démarrez [VSCode](https://code.visualstudio.com/docs) (ou n’importe quel éditeur de texte).
 1. Saisissez le texte suivant :
@@ -61,7 +61,7 @@ Vous créez une [configuration DSC](/powershell/dsc/configurations) simple qui g
     ```
 1. Enregistrez le fichier sous le nom `TestConfig.ps1`.
 
-Cette configuration appelle une ressource dans chaque bloc de nœuds, la [ressource WindowsFeature](/powershell/dsc/windowsfeatureresource), qui garantit la présence ou l’absence de la fonctionnalité **Serveur web** .
+Cette configuration appelle une ressource dans chaque bloc de nœuds, la [ressource WindowsFeature](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource), qui garantit la présence ou l’absence de la fonctionnalité **Serveur web** .
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Importation d’une configuration dans Azure Automation
 
@@ -94,7 +94,7 @@ Après avoir importé une configuration, vous pouvez l’afficher dans le portai
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Compilation d’une configuration dans Azure Automation
 
 Avant de pouvoir appliquer un état souhaité à un nœud, vous devez compiler une configuration DSC définissant cet état dans une ou plusieurs configurations de nœuds (documents MOF) et la placer sur le serveur Pull Automation DSC. Pour obtenir une description plus détaillée de la compilation des configurations dans Azure Automation State Configuration, consultez [Compilation de configurations dans Azure Automation State Configuration](automation-dsc-compile.md).
-Pour plus d’informations sur la compilation des configurations, consultez [Configurations DSC](/powershell/dsc/configurations).
+Pour plus d’informations sur la compilation des configurations, consultez [Configurations DSC](/powershell/scripting/dsc/configurations/configurations).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Sur la gauche, cliquez sur **Toutes les ressources**, puis sur le nom de votre compte Automation.
@@ -156,7 +156,7 @@ Azure Automation State Configuration vous permet de gérer vos machines virtuell
 
    ![Capture d’écran du panneau Inscription](./media/automation-dsc-getting-started/RegisterVM.png)
 
-   La configuration de nœud spécifiée s’applique à la machine virtuelle selon les intervalles spécifiés par la **Fréquence du mode de configuration**. La machine virtuelle recherche les mises à jour de la configuration du nœud selon les intervalles spécifiés par la **Fréquence d’actualisation**. Pour plus d’informations sur la façon dont ces valeurs sont utilisées, consultez [Configuration du Gestionnaire de configuration local](https://msdn.microsoft.com/PowerShell/DSC/metaConfig).
+   La configuration de nœud spécifiée s’applique à la machine virtuelle selon les intervalles spécifiés par la **Fréquence du mode de configuration**. La machine virtuelle recherche les mises à jour de la configuration du nœud selon les intervalles spécifiés par la **Fréquence d’actualisation**. Pour plus d’informations sur la façon dont ces valeurs sont utilisées, consultez [Configuration du Gestionnaire de configuration local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 Azure lance le processus d’intégration de la machine virtuelle. Une fois ce processus terminé, la machine virtuelle s’affiche sous l’onglet **Nœuds** de la page **Configuration d’état (DSC)** dans le compte Automation.
 
@@ -195,7 +195,7 @@ Le panneau d’un rapport vous permet d’accéder aux informations d’état su
 - Le nom, l’adresse IP et le mode de configuration du nœud.
 
 Vous pouvez également cliquer sur **Afficher le rapport brut** pour afficher les données que le nœud envoie effectivement au serveur.
-Pour plus d’informations sur l’utilisation de ces données, consultez la page [Utilisation d’un serveur de rapports DSC](/powershell/dsc/reportserver).
+Pour plus d’informations sur l’utilisation de ces données, consultez la page [Utilisation d’un serveur de rapports DSC](/powershell/scripting/dsc/pull-server/reportserver).
 
 Vous risquez de devoir attendre un certain temps après l’intégration d’un nœud pour pouvoir accéder au premier rapport. Vous devrez peut-être attendre jusqu’à 30 minutes pour obtenir le premier rapport après avoir effectué l’intégration.
 
@@ -233,6 +233,6 @@ Si vous ne souhaitez plus qu’un nœud soit géré par Azure Automation DSC, vo
 
 - [Vue d’ensemble d’Azure Automation State Configuration](automation-dsc-overview.md)
 - [Intégration des machines pour la gestion avec Azure Automation State Configuration](automation-dsc-onboarding.md)
-- [Vue d’ensemble d’Azure Automation DSC](/powershell/dsc/overview)
+- [Vue d’ensemble d’Azure Automation DSC](/powershell/scripting/dsc/overview/overview)
 - [Applets de commande d’Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
 - [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)

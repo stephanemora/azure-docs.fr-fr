@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: true
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: 253e2e5015c2cb7a71386b88b4d86ac6bff6a0fe
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070976"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242457"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Créer une application Python dans Azure App Service sur Linux
 
@@ -50,13 +52,14 @@ Le référentiel contient un fichier *application.py*, qui indique à App Servic
 Exécutez l’application localement pour voir à quoi elle devrait ressembler lorsque vous la déploierez sur Azure. Ouvrez une fenêtre de terminal et utilisez les commandes ci-dessous pour installer les dépendances requises et lancer le serveur de développement intégré. 
 
 ```bash
-# In Bash
+# In Bash (for Linux or Mac)
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
-
-# In PowerShell
+```
+```powershell
+# In Powershell (for Windows)
 py -3 -m venv env
 env\scripts\activate
 pip install -r requirements.txt

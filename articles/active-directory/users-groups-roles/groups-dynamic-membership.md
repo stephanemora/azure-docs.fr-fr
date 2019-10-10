@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673423"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241171"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -342,7 +342,7 @@ Les attributs d’extension et les propriétés d’extension personnalisées so
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-Les propriétés d’extension personnalisée sont synchronisées à partir de l’Active Directory Windows Server AD ou à partir d’une application SaaS connectée, et leur format est `user.extension_[GUID]__[Attribute]`, où :
+Les propriétés d’extension personnalisée sont synchronisées à partir de l’Active Directory Windows Server AD ou à partir d’une application SaaS connectée, et leur format est `user.extension_[GUID]_[Attribute]`, où :
 
 * [GUID] est l’identificateur unique dans Azure AD pour l’application qui a créé la propriété dans Azure AD
 * [Attribute] est le nom attribué à la propriété lors de sa création
@@ -350,7 +350,7 @@ Les propriétés d’extension personnalisée sont synchronisées à partir de l
 Voici un exemple de règle utilisant une propriété d’extension personnalisée :
 
 ```
-user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
+user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 ```
 
 Vous pouvez accéder au nom de la propriété personnalisée dans le répertoire en lançant une requête sur une propriété d’utilisateur à l’aide d’Afficheur Graph, et en recherchant le nom de propriété. De plus, vous pouvez désormais sélectionner le lien **Obtenir des propriétés d’extension personnalisées** dans le générateur de règles de groupe d’utilisateurs dynamiques pour entrer un ID d’application unique et recevoir la liste complète des propriétés d’extension personnalisées à utiliser lors de la création d’une règle d’appartenance dynamique. Vous pouvez également actualiser cette liste afin d’obtenir les nouvelles propriétés d’extension personnalisées pour cette application.

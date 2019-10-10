@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212871"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173497"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 
@@ -112,7 +112,7 @@ Le blog d'Aman Sharma, [Harvesting Clouds](http://harvestingclouds.com) (Exploit
 ## <a name="customize-the-recovery-plan"></a>Personnaliser un plan de récupération
 
 1. Dans le coffre, sélectionnez **Plans de récupération (Site Recovery)** .
-2. Pour créer un plan de récupération, cliquez sur **+ Plan de récupération**. [Plus d’informations](/site-recovery-create-recovery-plans.md) Si vous disposez déjà d'un plan de récupération, choisissez de l'ouvrir.
+2. Pour créer un plan de récupération, cliquez sur **+ Plan de récupération**. [Plus d’informations](site-recovery-create-recovery-plans.md) Si vous disposez déjà d'un plan de récupération, choisissez de l'ouvrir.
 3. Sur la page du plan de récupération, cliquez sur **Personnaliser**.
 
     ![Cliquer sur le bouton Personnaliser](media/site-recovery-runbook-automation-new/custom-rp.png)

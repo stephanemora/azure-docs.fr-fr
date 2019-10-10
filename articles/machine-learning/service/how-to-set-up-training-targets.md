@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7c3bae2fff9e20ed9427c72b5f5f632d975f9f94
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: bce04a14a13d5b3615963f298f35af0d2fc480bb
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034413"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244433"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurer et utiliser des cibles de calcul pour effectuer l’apprentissage du modèle 
 
@@ -206,7 +206,7 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
 
    try:
     # if you want to connect using SSH key instead of username/password you can provide parameters private_key_file and private_key_passphrase
-    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azureinsight.net', 
+    attach_config = HDInsightCompute.attach_configuration(address='<clustername>-ssh.azurehdinsight.net', 
                                                           ssh_port=22, 
                                                           username='<ssh-username>', 
                                                           password='<ssh-pwd>')
@@ -511,7 +511,7 @@ Pour des exemples d’apprentissage avec différentes cibles de calcul, voir les
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Didacticiel : Former un modèle](tutorial-train-models-with-aml.md) utilise une cible de calcul gérée pour former un modèle.
+* [Tutoriel : Former un modèle](tutorial-train-models-with-aml.md) utilise une cible de calcul gérée pour former un modèle.
 * Découvrez comment [optimiser efficacement les hyperparamètres](how-to-tune-hyperparameters.md) afin de générer des modèles plus efficaces.
 * Une fois le modèle formé, découvrez [comment et où déployer les modèles](how-to-deploy-and-where.md).
 * Consultez la documentation de référence du Kit de développement logiciel (SDK) de la [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
