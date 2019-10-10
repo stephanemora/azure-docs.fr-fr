@@ -1,20 +1,20 @@
 ---
-title: 'Tutoriel : Déployer des applications ASP.NET sur Azure Functions avec Azure DevOps Projects'
+title: 'Didacticiel : Déployer des applications ASP.NET sur Azure Functions avec Azure DevOps Projects'
 description: Azure DevOps Projects facilite la prise en main d’Azure. Avec DevOps Projects, vous pouvez déployer votre application ASP.NET sur Azure Functions en quelques étapes rapides.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 06/20/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 6894f9bc6c803e2692afb54d7459adf6b0e6dbd6
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 4e7e9428af86f131632650f18d45e7dd48f4b5cb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828154"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971571"
 ---
 # <a name="continuously-deploy-to-azure-functions-with-devops-projects"></a>Déployer en continu sur Azure Functions avec DevOps Projects
 
@@ -26,12 +26,12 @@ De plus, DevOps Projects :
 
 * Crée et configure un pipeline de mise en production dans Azure DevOps pour CI/CD.
 
-Ce tutoriel présente les procédures suivantes :
+Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
 >* Utiliser DevOps Projects pour déployer une application ASP.NET sur Azure Functions
 >* Configurer Azure DevOps et un abonnement Azure
->* Créer la fonction Azure
+>* Examiner la fonction Azure
 >* Examiner le pipeline CI
 >* Examiner le pipeline CD
 >* Valider les modifications dans Git et les déployer automatiquement dans Azure
@@ -158,7 +158,7 @@ Quand vous n’en avez plus besoin, vous pouvez supprimer les ressources associ�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en production afin qu’ils répondent aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce tutoriel, vous avez découvert comment effectuer les tâches suivantes :
+Si vous le souhaitez, vous pouvez modifier ces pipelines de build et de mise en production afin qu’ils répondent aux besoins de votre équipe. Vous pouvez également utiliser ce modèle CI/CD comme modèle pour vos autres pipelines. Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Utiliser DevOps Projects pour déployer une application ASP.NET Core sur Azure Functions

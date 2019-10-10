@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 10/01/2019
 ms.author: aahi
-ms.openlocfilehash: 8d3f5d0e10fadd31fd8bde77339b872c1b90451f
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 75c2c8bf8b3baee1f9f89282840622e1e29d2a18
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67721478"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837770"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Didacticiel : Détection d’anomalie sur les données de streaming avec Azure Databricks
 
@@ -78,7 +78,7 @@ Dans cette section, vous allez créer un espace de travail Azure Databricks à l
     |**Lieu**     | Sélectionnez **USA Est 2** ou l’une des autres régions disponibles. Pour plus d’informations sur les régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
     |**Niveau tarifaire**     |  Choisissez entre **Standard** ou **Premium**. Ne choisissez pas **Essai**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Sélectionnez **Créer**.
+    Sélectionnez **Create** (Créer).
 
 4. La création de l’espace de travail dure quelques minutes. 
 
@@ -136,7 +136,7 @@ Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets
 
      ![Renseigner des coordonnées Maven](../media/tutorials/databricks-eventhub-specify-maven-coordinate.png "Renseigner des coordonnées Maven")
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 
 4. Sélectionnez le dossier dans lequel vous avez ajouté la bibliothèque, puis sélectionnez le nom de la bibliothèque.
 
@@ -172,7 +172,7 @@ Dans ce tutoriel, vous utilisez les [API Détecteur d’anomalies d’Azure Cogn
     |Resource group     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou sélectionner un groupe existant.        |
 
 
-     Sélectionnez **Créer**.
+     Sélectionnez **Create** (Créer).
 
 5. Une fois la ressource créée, sous l’onglet **Vue d’ensemble**, copiez et enregistrez l’URL **Point de terminaison**, comme indiqué dans la capture d’écran. Ensuite, sélectionnez **Afficher les clés d’accès**.
 
@@ -197,7 +197,7 @@ Dans cette section, vous allez créer deux notebooks dans l’espace de travail 
 
     ![Créer un notebook dans Databricks](../media/tutorials/databricks-notebook-details.png "Créer un notebook dans Databricks")
 
-    Sélectionnez **Créer**.
+    Sélectionnez **Create** (Créer).
 
 3. Répétez les étapes pour créer le notebook **AnalyzeTweetsFromEventHub**.
 

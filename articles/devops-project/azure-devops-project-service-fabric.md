@@ -1,22 +1,22 @@
 ---
-title: 'Tutoriel : Déployer votre application ASP.NET Core dans Azure Service Fabric avec Azure DevOps Projects'
+title: 'Didacticiel : Déployer votre application ASP.NET Core dans Azure Service Fabric avec Azure DevOps Projects'
 description: Azure DevOps Projects facilite la prise en main d’Azure. Avec Azure DevOps Projects, vous pouvez déployer une application ASP.NET Core dans Azure Service Fabric en quelques étapes rapides.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453753"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969478"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Tutoriel : Déployer votre application ASP.NET Core dans Azure Service Fabric avec Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Didacticiel : Déployer votre application ASP.NET Core dans Azure Service Fabric avec Azure DevOps Projects
 
 Azure DevOps Projects offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure. 
 
@@ -95,10 +95,10 @@ DevOps Projects configure automatiquement un pipeline CI/CD dans Azure Pipelines
 1. En haut du pipeline de build, sélectionnez le nom du pipeline de build. 
 
 1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.  
-    Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps suit les modifications apportées au pipeline de build et permet de comparer les versions.
+    Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps fait le suivi des modifications apportées au pipeline de build et vous permet de comparer des versions.
 
 1. Sélectionnez **Déclencheurs**.  
-    DevOps Projects crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
+    DevOps Projects crée automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
 
 1. Sélectionnez **Rétention**.  
     En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.

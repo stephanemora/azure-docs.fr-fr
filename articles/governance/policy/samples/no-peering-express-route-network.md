@@ -2,17 +2,16 @@
 title: Exemple - Aucun peering de réseau au réseau Express Route
 description: Cet exemple de définition de stratégie empêche l’association d’un peering réseau à un réseau d’un groupe de ressources spécifique.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: d9376a3f241cfd43d8e9a8d4ed3d18de31f997b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 21149cb1dce03b358d4fc36e0038ea8c5267b3d1
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264486"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980447"
 ---
 # <a name="sample---no-network-peering-to-express-route-network"></a>Exemple - Aucun peering de réseau au réseau Express Route
 

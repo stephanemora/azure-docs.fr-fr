@@ -2,18 +2,19 @@
 title: Fichier Include
 description: Fichier Include
 services: digital-twins
-author: dsk-2015
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 09/30/2019
-ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 6e808fb64d004f117a3c25946ad97e26ddfadaa3
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 880c2a811df7b4d41760676d4d6e0153e9384f38
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802388"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949751"
 ---
 >[!NOTE]
 >Cette section fournit les instructions sur [l’inscription de la nouvelle application Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Si vous disposez encore de la fonctionnalité d’inscription d’application native existante, vous pouvez l’utiliser tant qu’elle est prise en charge. De plus, si pour une raison quelconque, la nouvelle méthode d’inscription d’application ne fonctionne pas dans votre configuration, vous pouvez essayer de créer une application AAD native existante. Pour plus d’instructions, reportez-vous à [Inscrire votre application Azure Digital Twins avec l’ancien Azure Active Directory](../articles/digital-twins/how-to-use-legacy-aad.md). 

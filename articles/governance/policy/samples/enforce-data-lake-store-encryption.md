@@ -2,17 +2,16 @@
 title: Exemple - Exiger le chiffrement pour Data Lake Store
 description: Cet exemple de définition de stratégie nécessite l’activation du chiffrement Data Lake Store.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: f9e38b737cad255ef2d9802490b5d114950d01e6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9cee9f2d94f822679acee0813471e271a38a38e3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785911"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977189"
 ---
 # <a name="sample---require-data-lake-store-encryption"></a>Exemple - Exiger le chiffrement Data Lake Store
 

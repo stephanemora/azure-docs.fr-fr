@@ -2,17 +2,16 @@
 title: Exemple - Effectuer un audit pour vérifier si les applications n’ont pas été installées sur les machines virtuelles Linux
 description: Dans cet exemple, l’initiative de configuration de stratégie d’invité et ses définitions vérifient si les applications spécifiées sont installées sur les machines virtuelles Linux.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ef2ab4bebf2247b08cdc80ed74bbe17a67c5baae
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204017"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977036"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exemple - Effectuer un audit pour vérifier si les applications spécifiées n’ont pas été installées sur les machines virtuelles Linux
 

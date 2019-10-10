@@ -2,17 +2,16 @@
 title: Exemple - Bande passante ExpressRoute autorisée
 description: Cet exemple de définition de stratégie exige qu’ExpressRoute utilise un ensemble spécifié de bandes passantes.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 169f6d41df8ca01d82e41bd27ca37e80f26c4055
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 27e09169ef076bad174eaebccdabc3b0cc531dbf
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260644"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980832"
 ---
 # <a name="sample---allowed-expressroute-bandwidth"></a>Exemple - Bande passante ExpressRoute autorisée
 
