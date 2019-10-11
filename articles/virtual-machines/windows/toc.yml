@@ -234,6 +234,10 @@
       items:
         - name: Sécurité et stratégie
           href: security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Contrôles de sécurité intégrés
+          href: virtual-machines-windows-security-controls.md
     - name: États et cycle de vie
       href: states-lifecycle.md
     - name: Surveillance
@@ -242,8 +246,6 @@
       href: backup-recovery.md
     - name: Exemple d’infrastructure
       href: infrastructure-example.md
-    - name: Contrôles de sécurité intégrés
-      href: virtual-machines-windows-security-controls.md
 - name: Guides pratiques
   items:
     - name: Créer des machines virtuelles
@@ -286,8 +288,31 @@
         - name: Accès juste-à-temps
           href: ../../security-center/security-center-just-in-time.md
         - name: Encrypt (Chiffrer)
-          href: encrypt-disks.md
-          displayName: encryption
+          items:
+            - name: Scénarios de chiffrement de disque pour Windows
+              href: disk-encryption-windows.md
+            - name: Chiffrement de machine virtuelle avec Azure CLI
+              href: disk-encryption-cli-quickstart.md
+            - name: Chiffrement de machine virtuelle avec Azure PowerShell
+              href: disk-encryption-powershell-quickstart.md
+            - name: Chiffrement de machines virtuelles avec le portail Azure
+              href: disk-encryption-portal-quickstart.md
+            - name: Coffre de clés pour Azure Disk Encryption
+              href: disk-encryption-key-vault.md
+            - name: Exemples de scripts de chiffrement de disque
+              href: disk-encryption-sample-scripts.md
+            - name: Résolution des problèmes de chiffrement de disque
+              href: disk-encryption-troubleshooting.md
+            - name: FAQ relative au chiffrement de disque
+              href: disk-encryption-faq.md
+            - name: Chiffrement de disque - version précédente (AAD)
+              items:
+                - name: Vue d'ensemble
+                  href: disk-encryption-overview-aad.md
+                - name: Coffre de clés pour Azure Disk Encryption
+                  href: disk-encryption-key-vault-aad.md
+                - name: Scénarios de chiffrement de disque pour Windows
+                  href: disk-encryption-windows-aad.md
         - name: Utiliser WinRM
           href: winrm.md
         - name: Utiliser des contrôles d’accès

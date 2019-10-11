@@ -1,17 +1,17 @@
 ---
 title: Exemple - Blueprint Canada Federal PBMM - Vue d’ensemble
-description: Vue d’ensemble de l’exemple de blueprint Canada Federal PBMM.
+description: Vue d’ensemble de l’exemple de blueprint Canada Federal PBMM. Cet exemple de blueprint aide les clients à évaluer des contrôles Canada Federal PBMM spécifiques.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 16d4f618aadd1e2157cdf06ca292f069f415d1b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 3c2e579d546cbbf3f0e6ca4183d0d150a31a3ed4
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981624"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248481"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Canada Federal PBMM
 

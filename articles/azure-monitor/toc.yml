@@ -119,6 +119,10 @@
           href: app/troubleshoot-faq.md
 - name: Guides pratiques
   items:
+    - name: Scénarios de monitoring
+      items:
+        - name: Superviser un service Azure
+          href: insights/monitor-azure-resource.md
     - name: Gérer Azure Monitor
       items:
         - name: Concevoir un déploiement d’espace de travail
