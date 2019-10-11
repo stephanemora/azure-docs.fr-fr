@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Dans cette section, vous allez mettre à jour le code pour spécifier que les deux points de terminaison de l’émetteur du jeton sont valides.
 
 1. Ouvrez la solution **B2C-WebAPI-DotNet.sln** dans Visual Studio
-1. Dans le projet **TaskService**, ouvrez le fichier *TaskService\\App_Start\\ **Startup.Auth.cs*** dans votre éditeur
+1. Dans le projet **TaskService**, ouvrez le fichier *TaskService\\App_Start\\ **Startup.Auth.cs**.* dans votre éditeur
 1. Ajoutez la directive `using` suivante en haut du fichier :
 
     `using System.Collections.Generic;`
@@ -122,7 +122,7 @@ Comme mentionné précédemment, d’autres bibliothèques OWIN fournissent gén
 
 Maintenant que les deux URI sont pris en charge par votre API Web, vous devez mettre à jour votre application Web afin qu’elle récupère les jetons à partir du point de terminaison b2clogin.com.
 
-Par exemple, vous pouvez configurer l’exemple d’application Web pour utiliser le nouveau point de terminaison en modifiant la valeur `ida:AadInstance` dans le fichier *TaskWebApp\\**Web.config*** du projet **TaskWebApp**.
+Par exemple, vous pouvez configurer l’exemple d’application Web pour utiliser le nouveau point de terminaison en modifiant la valeur `ida:AadInstance` dans le fichier *TaskWebApp\\**Web.config**.* du projet **TaskWebApp**.
 
 Modifiez la valeur `ida:AadInstance` dans le fichier *Web.config* de TaskWebApp afin qu’elle fasse référence à `{your-b2c-tenant-name}.b2clogin.com` à la place de `login.microsoftonline.com`.
 
