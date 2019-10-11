@@ -215,8 +215,6 @@
               href: azure-ad-integration.md
         - name: Utiliser le contrôle d’accès en fonction du rôle (RBAC) Kubernetes avec l’intégration d’Azure AD
           href: azure-ad-rbac.md
-        - name: S’authentifier avec ACR
-          href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true
     - name: Surveillance et journalisation
       items:

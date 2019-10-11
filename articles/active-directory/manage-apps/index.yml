@@ -5,19 +5,19 @@ metadata:
   title: Documentation Gestion des applications
   description: Azure Active Directory fournit un accès sécurisé et fluide aux applications cloud et locales. De plus, vous n’avez pas besoin de gérer les mots de passe. Vos utilisateurs peuvent se connecter une fois pour accéder à Office 365 et à des milliers d’autres applications. Découvrez comment gérer et déployer des applications avec nos guides de démarrage rapide, tutoriels et conseils.
   ms.service: active-directory
-  ms.subservice: manage-apps
+  ms.subservice: app-mgmt
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/16/2019
+  ms.date: 10/10/2019
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: acb99eab233836f46c1e1dfe4c857fb2e80ed3de
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 0d7081a35a143abf1ae068ce7344e0e50e240eaa
+  ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70127548"
+  ms.lasthandoff: 10/11/2019
+  ms.locfileid: "72264131"
 landingContent:
 - title: À propos de la gestion des applications
   linkLists:
