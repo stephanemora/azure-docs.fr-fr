@@ -91,6 +91,8 @@
       href: service-bus-async-messaging.md
     - name: Gestion des urgences et des pannes
       href: service-bus-outages-disasters.md
+    - name: Limitation
+      href: service-bus-throttling.md
     - name: Sécurité
       items:
         - name: Authentification et autorisation

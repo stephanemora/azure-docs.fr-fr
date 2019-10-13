@@ -228,8 +228,6 @@
           href: resource-group-delete.md
         - name: Verrouiller des ressources
           href: resource-group-lock-resources.md
-        - name: API d’authentification pour l’accès aux abonnements
-          href: resource-manager-api-authentication.md
         - name: Créer des abonnements EA
           href: programmatically-create-subscription.md
         - name: Accorder l’accès pour créer des abonnements EA
