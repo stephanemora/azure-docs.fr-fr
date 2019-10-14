@@ -177,6 +177,8 @@
       href: how-to-configure-proxy-support.md
     - name: Stocker des données en périphérie
       items:
+        - name: Fournir à des modules l’accès au stockage local d’un appareil
+          href: how-to-access-host-storage-from-module.md
         - name: Stockage d’objets Blob Azure sur IoT Edge
           href: how-to-store-data-blob.md
         - name: Déployer des modules de stockage d’objets blob

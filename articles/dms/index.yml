@@ -5,15 +5,15 @@ metadata:
   description: " Découvrez comment utiliser Azure Database Migration Service pour permettre des migrations fluides de plusieurs sources de base de données vers des plateformes de données Azure, avec un temps d’arrêt minimal."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/04/2019
+  ms.date: 10/12/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 41b2733152a93705c81134ccbb75866bf6f0af1b
-  ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+  ms.openlocfilehash: bb2eec4e07eb444549c5b8491799d491a1960250
+  ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/03/2019
-  ms.locfileid: "71842990"
+  ms.lasthandoff: 10/13/2019
+  ms.locfileid: "72293767"
 landingContent:
 - title: Présentation d’Azure Database Migration Service
   linkLists:
@@ -31,14 +31,6 @@ landingContent:
     links:
     - text: Créer un service – Portail
       url: quickstart-create-data-migration-service-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Surveiller l’activité de migration
-      url: how-to-monitor-migration-activity.md
-    - text: Résoudre les erreurs et les problèmes courants
-      url: known-issues-troubleshooting-dms.md
-    - text: Résoudre les problèmes de connectivité de base de données source
-      url: known-issues-troubleshooting-dms-source-connectivity.md
   - linkListType: video
     links:
     - text: Présentation d’Azure Data Migration Service
@@ -47,10 +39,8 @@ landingContent:
       url: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
     - text: Processus de migration et outils/services recommandés
       url: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
-    - text: Répondre aux prérequis et créer une instance DMS
+    - text: Répondre aux prérequis et créer une instance Azure Data Migration Service
       url: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
-    - text: Superviser une migration en ligne et effectuer le basculement
-      url: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
   - linkListType: whats-new
     links:
     - text: Consultez notre blog
@@ -59,95 +49,59 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrer SQL Server vers une base de données unique Azure SQL DB en ligne
+    - text: Migrer vers une base de données unique SQL Database - en ligne
       url: tutorial-sql-server-azure-sql-online.md
-    - text: Migrer SQL Server vers une base de données unique Azure SQL DB hors connexion
+    - text: Migrer vers une base de données unique SQL Database - hors connexion
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Migrer SQL Server vers une instance managée Azure SQL DB en ligne
+    - text: Migrer vers une instance managée SQL Database - en ligne
       url: tutorial-sql-server-managed-instance-online.md
-    - text: Migrer SQL Server vers une instance managée Azure SQL DB hors connexion
+    - text: Migrer vers une instance managée SQL Database - hors connexion
       url: tutorial-sql-server-to-managed-instance.md
-    - text: Migrer les services Bureau à distance SQL Server vers une base de données unique Azure SQL DB ou une instance managée Azure SQL DB en ligne
+    - text: Migrer les services Bureau à distance SQL Server vers une base de données unique / instance managée SQL Database - en ligne
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - linkListType: how-to-guide
+  - linkListType: reference
     links:
-    - text: Utiliser PowerShell pour migrer SQL Server vers une base de données unique Azure SQL DB
-      url: howto-sql-server-to-azure-sql-powershell.md
-    - text: Utiliser PowerShell pour migrer SQL Server vers une instance managée Azure SQL DB
-      url: howto-sql-server-to-azure-sql-mi-powershell.md
-    - text: Redéployer des packages SSIS sur une base de données unique Azure SQL Database
-      url: how-to-migrate-ssis-packages.md
-    - text: Redéployer des packages SSIS vers Azure SQL Database Managed Instance
-      url: how-to-migrate-ssis-packages-managed-instance.md
-  - linkListType: concept
-    links:
-    - text: Problèmes connus - Migration en ligne vers une base de données unique Azure SQL DB
+    - text: Problèmes connus - Migration en ligne vers une base de données unique SQL Database
       url: known-issues-azure-sql-online.md
-    - text: Topologies réseau pour les migrations d’instances managées Azure SQL DB
+    - text: Topologies réseau pour les migrations d’instances managées SQL Database
       url: resource-network-topologies.md
   - linkListType: video
     links:
-    - text: Migrer SQL Server 2008 vers Azure SQL Database Managed Instance
+    - text: Migrer SQL Server 2008 vers une instance managée SQL Database
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
-- title: Migrer PostgreSQL vers Azure Database pour PostgreSQL
+- title: Migrer des bases de données open source vers Azure
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrer PostgreSQL vers Azure DB pour PostgreSQL–Serveur unique en ligne
+    - text: Migrer vers Azure Database pour PostgreSQL - Serveur unique - en ligne
       url: tutorial-postgresql-azure-postgresql-online.md
-    - text: Migrer les services Bureau à distance PostgreSQL vers Azure Database pour PostgreSQL–Serveur unique
+    - text: Migrer les services Bureau à distance PostgreSQL vers Azure Database pour PostgreSQL - Serveur unique - en ligne
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-  - linkListType: concept
-    links:
-    - text: Problèmes connus - Migration en ligne de PostgreSQL vers Azure DB pour PostgreSQL–Serveur unique
-      url: known-issues-azure-postgresql-online.md
-  - linkListType: video
-    links:
-    - text: Migrer PostgreSQL vers Azure Database pour PostgreSQL
-      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
-- title: Migrer MySQL vers Azure Database pour MySQL
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrer MySQL vers Azure DB pour MySQL en ligne
+    - text: Migrer vers Azure Database pour MySQL - en ligne
       url: tutorial-mysql-azure-mysql-online.md
-    - text: Migrer RDS MySQL vers Azure DB pour MySQL en ligne
+    - text: Migrer les services Bureau à distance MySQL vers Azure Database pour MySQL - en ligne
       url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-  - linkListType: concept
-    links:
-    - text: Problèmes connus - Migration en ligne vers Azure DB pour MySQL
-      url: known-issues-azure-mysql-online.md
-- title: Migrer MongoDB vers Azure Cosmos DB
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrer MongoDB vers Azure Cosmos DB en ligne
+    - text: Migrer vers l’API Mongo Azure Cosmos DB - en ligne
       url: tutorial-mongodb-cosmos-db-online.md
-    - text: Migrer MongoDB vers Azure Cosmos DB hors connexion
+    - text: Migrer vers l’API Mongo Azure Cosmos DB - hors connexion
       url: tutorial-mongodb-cosmos-db.md
+  - linkListType: reference
+    links:
+    - text: Problèmes connus - Migration en ligne vers Azure Database pour PostgreSQL - Serveur unique
+      url: known-issues-azure-postgresql-online.md
+    - text: Problèmes connus - Migration en ligne vers Azure Database pour MySQL
+      url: known-issues-azure-mysql-online.md
   - linkListType: video
     links:
-    - text: Migrer MongoDB vers Azure Cosmos DB
+    - text: Migrer PostgreSQL vers Azure Database pour PostgreSQL - Serveur unique
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
+    - text: Migrer vers l’API Mongo Azure Cosmos DB
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
-- title: Migrer Oracle vers Azure
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrer Oracle vers Azure DB pour PostgreSQL–Serveur unique en ligne
-      url: tutorial-oracle-azure-postgresql-online.md
-  - linkListType: concept
-    links:
-    - text: Problèmes connus - Migration en ligne d’Oracle vers Azure DB pour PostgreSQL–Serveur unique
-      url: known-issues-oracle-azure-postgresql-online.md
-  - linkListType: video
-    links:
-    - text: Migrer Oracle vers une base de données unique Azure SQL Database
-      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
 - title: Outils et conseils
   linkLists:
   - linkListType: reference
     links:
-    - text: Service et outils disponibles pour les scénarios de migration de données
+    - text: Service et outils pour le scénario de migration de données
       url: dms-tools-matrix.md
     - text: Guide pour la migration de base de données
       url: https://datamigration.microsoft.com/
@@ -159,3 +113,17 @@ landingContent:
       url: https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
     - text: Boîte à outils de migration de l’accès aux données
       url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
+- title: Migrer Oracle vers Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Migrer vers Azure Database pour PostgreSQL - Serveur unique - en ligne
+      url: tutorial-oracle-azure-postgresql-online.md
+  - linkListType: reference
+    links:
+    - text: Problèmes connus - Migration en ligne vers Azure Database pour PostgreSQL - Serveur unique
+      url: known-issues-oracle-azure-postgresql-online.md
+  - linkListType: video
+    links:
+    - text: Migrer vers une base de données unique SQL Database
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
