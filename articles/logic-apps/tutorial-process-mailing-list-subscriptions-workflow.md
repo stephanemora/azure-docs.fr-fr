@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 734a6be81a8052b2894f4c27b165bb8dc4f14caf
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: fb92e882607575e99ae800bd9c6d7c36b5d89d8e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171523"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034563"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Didacticiel : Créer des workflows automatisés basés sur l’approbation à l’aide d’Azure Logic Apps
 
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Lorsque vous avez terminé, votre application logique ressemble au flux de travail suivant à un niveau élevé :
 
-![Application logique terminée de niveau élevé](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
+![Vue d’ensemble globale de l’application logique terminée](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-overview.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,11 +53,11 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec les information
 
 1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration** > **Application logique**.
 
-   ![Créer une application logique](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app.png)
+   ![Créer votre ressource d’application logique](./media/tutorial-process-mailing-list-subscriptions-workflow/create-new-logic-app-resource.png)
 
 1. Sous **Créer une application logique**, indiquez les informations suivantes sur votre application logique comme illustré et décrit. Sélectionnez **Créer** lorsque vous avez terminé.
 
-   ![Spécifier les informations de l’application logique](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
+   ![Fournir des informations sur votre application logique](./media/tutorial-process-mailing-list-subscriptions-workflow/create-logic-app-settings.png)
 
    | Propriété | Valeur | Description |
    |----------|-------|-------------|
@@ -70,7 +70,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec les information
 
 1. Une fois qu’Azure a déployé votre application, dans la barre d’outils Azure, sélectionnez **Notifications** > **Accéder à la ressource** pour votre application logique déployée.
 
-   ![Accéder à la ressource](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app.png)
+   ![Accéder à votre nouvelle ressource d’application logique](./media/tutorial-process-mailing-list-subscriptions-workflow/go-to-logic-app-resource.png)
 
    Ou bien, vous pouvez rechercher et sélectionner votre application logique en tapant son nom dans la zone de recherche.
 
@@ -108,13 +108,13 @@ Ajoutez ensuite un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app
 
    1. Ajoutez une autre propriété au déclencheur afin de filtrer selon l’objet de l’e-mail. Ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez la propriété **Filtre d’objet**.
 
-      ![Ajouter un nouveau paramètre](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
+      ![Ajouter la propriété « Subject Filter » (Filtre d’objet) au déclencheur](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
       Pour plus d’informations sur les propriétés du déclencheur, consultez les [informations de référence sur le connecteur Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) ou les [informations de référence sur le connecteur Outlook.com](https://docs.microsoft.com/connectors/outlook/).
 
    1. Une fois que la propriété s’affiche dans le déclencheur, entrez le texte suivant : `subscribe-test-members-ML`
 
-      ![Filtre d’objet - Ajout du paramètre textAdd](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
+      ![Entrer le texte de la propriété « Subject Filter » (Filtre d’objet)](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-subject-filter-property.png)
 
 1. Pour masquer les informations du déclencheur pour le moment, cliquez sur sa barre de titre.
 
@@ -161,13 +161,13 @@ Ensuite, ajoutez une condition pour vérifier la réponse de l’approbateur.
 
 1. Sous **Choisir une action**, sélectionnez **Intégré**. Dans la zone de recherche, entrez `condition` en guise de filtre. Dans la liste des actions, sélectionnez l’action **Condition**.
 
-   ![Sélectionnez « Condition »](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition.png)
+   ![Rechercher et sélectionner l’action « Condition »](./media/tutorial-process-mailing-list-subscriptions-workflow/select-condition-action.png)
 
 1. Renommez la condition en utilisant une meilleure description.
 
    1. Dans la barre de titre de la condition, sélectionnez le bouton représentant des **points de suspension** ( **...** ) > **Renommer**.
 
-      ![Renommer la condition](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition.png)
+      ![Renommer la description de la condition](./media/tutorial-process-mailing-list-subscriptions-workflow/rename-condition-description.png)
 
    1. Renommez votre condition à l’aide de cette description : `If request approved`
 
@@ -177,7 +177,7 @@ Ensuite, ajoutez une condition pour vérifier la réponse de l’approbateur.
 
    1. Dans la liste de contenu dynamique qui s’affiche, sous **Envoyer un e-mail d’approbation**, sélectionnez la propriété **SelectedOption**.
 
-      ![Sous « Envoyer un e-mail approbation », sélectionner « SelectedOption »](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
+      ![Dans la liste de contenu dynamique, sélectionner « SelectedOption »](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response.png)
 
    1. Dans la zone de comparaison du milieu, sélectionnez l’opérateur **est égal à**.
 
@@ -185,7 +185,7 @@ Ensuite, ajoutez une condition pour vérifier la réponse de l’approbateur.
 
       Quand vous avez terminé, votre condition ressemble à cet exemple :
 
-      ![Condition terminée](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
+      ![Condition terminée pour l’exemple Approved](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-approval-response-2.png)
 
 1. Enregistrez votre application logique.
 
@@ -242,7 +242,7 @@ Ensuite, ajoutez une condition afin que vous puissiez vérifier si le nouveau me
 
       Quand vous avez terminé, votre condition ressemble à cet exemple :
 
-      ![Condition terminée](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
+      ![Condition terminée pour l’exemple Subscribed](./media/tutorial-process-mailing-list-subscriptions-workflow/build-condition-check-added-member-2.png)
 
 Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient ou non à rejoindre votre liste de diffusion.
 
@@ -250,7 +250,7 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
 
 1. Sous la condition **Si l’ajout du membre a réussi**, dans la branche **Si true**, sélectionnez **Ajouter une action**.
 
-   ![Dans la branche « Si true » de la condition, sélectionnez « Ajouter une action »](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
+   ![Dans la branche « Si true », sélectionner « Ajouter une action »](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-success.png)
 
 1. Sous **Choisir une action**, dans la zone de recherche, entrez `outlook send email` en guise de filtre, puis sélectionnez l’action **Envoyer un message électronique**.
 
@@ -275,7 +275,7 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
 
 1. Sous la condition **Si l’ajout du membre a réussi**, dans la branche **Si false**, sélectionnez **Ajouter une action**.
 
-   ![Dans la branche « Si false » de la condition, sélectionnez « Ajouter une action »](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
+   ![Dans la branche « Si false », sélectionner « Ajouter une action »](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
 1. Sous **Choisir une action**, dans la zone de recherche, entrez `outlook send email` en guise de filtre, puis sélectionnez l’action **Envoyer un message électronique**.
 
@@ -298,7 +298,7 @@ Ensuite, configurez les e-mails à envoyer lorsque le membre approuvé parvient 
 
 Ensuite, testez votre application logique, qui ressemble désormais à l’exemple suivant :
 
-![Application logique terminée](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-complete.png)
+![Exemple de workflow d’application logique terminée](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-high-level-completed.png)
 
 ## <a name="run-your-logic-app"></a>Exécuter votre application logique
 
@@ -312,11 +312,11 @@ Ensuite, testez votre application logique, qui ressemble désormais à l’exemp
 
 1. Si l’adresse e-mail de l’abonné n’existe pas dans votre liste de diffusion, votre application logique ajoute l’adresse e-mail de cette personne et vous envoie un e-mail similaire à l’exemple suivant :
 
-   ![E-mail de réussite](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-success.png)
+   ![Exemple d’e-mail - abonnement réussi](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-success.png)
 
    Si votre application logique ne peut pas ajouter l’abonné, vous obtenez un e-mail semblable à l’exemple suivant :
 
-   ![E-mail d’échec](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-failed.png)
+   ![Exemple d’e-mail - abonnement ayant échoué](./media/tutorial-process-mailing-list-subscriptions-workflow/add-member-mailing-list-failed.png)
 
    Si vous ne recevez pas d’e-mail, vérifiez le dossier Courrier indésirable de votre messagerie. Il se peut que le filtre de courrier indésirable redirige ces types d’e-mails. Sinon, si vous ne savez pas si votre application logique s’est correctement exécutée, consultez [Dépanner votre application logique](../logic-apps/logic-apps-diagnosing-failures.md).
 

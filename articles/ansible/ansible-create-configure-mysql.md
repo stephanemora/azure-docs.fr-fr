@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer des bases de données dans Azure Database pour MySQL avec Ansible | Microsoft Docs'
+title: 'Tutoriel : Configurer des bases de données dans Azure Database pour MySQL avec Ansible'
 description: Découvrez comment utiliser Ansible pour créer et configurer un serveur Azure Database pour MySQL
 keywords: ansible, azure, devops, bash, playbook, mysql, base de données
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 1170ae9d609a07dbdaebf50e145de65faefa60ec
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1b6c9a9aa3abbda7ffd72db0ecb137b3c9da1a6c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230916"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241836"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Didacticiel : Configurer des bases de données dans Azure Database pour MySQL avec Ansible
 
@@ -247,7 +247,7 @@ Enregistrez le playbook suivant en tant que `mysql_query.yml` :
         var: mysqldatabasefacts
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook mysql_query.yml
@@ -330,7 +330,7 @@ Enregistrez le playbook suivant en tant que `cleanup.yml` :
         state: absent
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook cleanup.yml

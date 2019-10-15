@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible | Microsoft Docs'
+title: 'Tutoriel : Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible'
 description: Découvrez comment utiliser Ansible pour créer et configurer une passerelle Azure Application Gateway pour gérer le trafic Web
 keywords: ansible, azure, devops, bash, playbook, application gateway, load balancer, trafic web
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 9f8ed3e1da72db3e1b13d5d2aef1cce8fc3922a2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1dd547fb59a41a90de18d595a392b64ef518023a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231259"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241882"
 ---
 # <a name="tutorial-manage-web-traffic-with-azure-application-gateway-using-ansible"></a>Didacticiel : Gérer le trafic web avec Azure Application Gateway à l’aide d’Ansible
 

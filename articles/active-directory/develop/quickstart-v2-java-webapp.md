@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/18/2019
+ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: 82a5054a98a5b77cf996be1fddd6502b8f3146bc
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8bb9073ccb4aef81b46b3b2b87730ddede5c0ff7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120514"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240203"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Java
 
@@ -50,18 +50,7 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option 2 : Inscrire et configurer manuellement vos application et exemple de code
 > 
 >
-> #### <a name="step-1-download-the-code-sample"></a>Étape 1 : Télécharger l’exemple de code
-> 
-> - [Télécharger l'exemple de code](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
->
-> #### <a name="step-2-open-applicationproperties"></a>Étape 2 : Ouvrir application.properties
->
-> 1. Extrayez le fichier zip dans un dossier local.
-> 1. (Facultatif) Si vous utilisez un environnement de développement intégré, ouvrez l’exemple dans votre IDE habituel.
-> 1. Ouvrez le fichier *application.properties*. Vous ajouterez des valeurs pour `aad.clientId`, `aad.authority` et `aad.secretKey` quand vous inscrirez votre application à l’étape suivante.
-
-
-> #### <a name="step-3-register-your-application"></a>Étape 3 : Inscrivez votre application
+> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
 >
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
@@ -71,8 +60,8 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 > 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
 >    - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `java-webapp`.
 >    - Laissez l’**URI de redirection** vide pour l’instant et sélectionnez **Inscrire**.
-> 1. Recherchez la valeur **ID d’application (client)** correspondant à l’application. Mettez à jour la valeur pour `Enter_the_Application_Id_here` dans le fichier *application.properties*.
-> 1. Recherchez la valeur **ID de l’annuaire (locataire)** correspondant à l’application. Mettez à jour la valeur pour `Enter_the_Tenant_Info_Here` dans le fichier *application.properties*. 
+> 1. Recherchez la valeur **ID d’application (client)** correspondant à l’application. Copiez cette valeur. Vous en aurez besoin ultérieurement.
+> 1. Recherchez la valeur **ID de l’annuaire (locataire)** correspondant à l’application. Copiez cette valeur. Vous en aurez besoin ultérieurement.
 > 1. Sélectionnez le menu **Authentification** et ajoutez les informations suivantes :
 >    - Dans **URI de redirection**, ajoutez `http://localhost:8080/msal4jsamples/secure/aad` et `https://localhost:8080/msal4jsamples/graph/users`.
 >    - Sélectionnez **Enregistrer**.
@@ -81,7 +70,7 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 >    - Tapez une description de la clé (pour le secret d’application de l’instance).
 >    - Sélectionnez la durée de clé **Dans 1 an**.
 >    - Quand vous cliquez sur **Ajouter**, la valeur de la clé s’affiche. 
->    - Copiez la valeur de la clé. Ouvrez le fichier *application.properties* que vous avez téléchargé précédemment et mettez à jour la valeur `Enter_the_Client_Secret_Here` avec la valeur de la clé. 
+>    - Copiez la valeur de la clé. Vous en aurez besoin ultérieurement.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
@@ -93,20 +82,26 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-aspnet-webapp/green-check.png) Votre application est configurée avec ces attributs.
-> 
-> #### <a name="step-2-download-the-code-sample"></a>Étape 2 : Télécharger l’exemple de code
-> 
-> - [Télécharger l'exemple de code](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
-> 
-> #### <a name="step-3-configure-the-code-sample"></a>Étape 3 : Configurer l’exemple de code 
-> 
-> 1. Extrayez le fichier zip dans un dossier local.
-> 1. Si vous utilisez un environnement de développement intégré, ouvrez l’exemple dans votre IDE habituel (facultatif).
-> 1. Ouvrez le fichier **application.properties**, qui se trouve dans *src/main/resources/* .
-> 1. Mettez à jour les propriétés de l’application.
->   1. Recherchez `aad.clientId` et mettez à jour la valeur de `Enter_the_Application_Id_here` avec la valeur de l’**ID d’application (client)** de l’application que vous avez inscrite. 
->   1. Recherchez `aad.authority` et mettez à jour la valeur `Enter_the_Tenant_Name_Here` avec la valeur **ID de l’annuaire (locataire)** pour l’application que vous avez inscrite.
->   1. Recherchez `aad.secretKey` et mettez à jour la valeur `Enter_the_Client_Secret_Here` avec le **Secret client** que vous avez créé dans **Certificats et secrets** pour l’application que vous avez inscrite.
+
+#### <a name="step-2-download-the-code-sample"></a>Étape 2 : Télécharger l’exemple de code
+ 
+ [Télécharger l'exemple de code](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+ 
+ #### <a name="step-3-configure-the-code-sample"></a>Étape 3 : Configurer l’exemple de code 
+ 
+ 1. Extrayez le fichier zip dans un dossier local.
+ 1. Si vous utilisez un environnement de développement intégré, ouvrez l’exemple dans votre IDE habituel (facultatif).
+ 1. Ouvrez le fichier **application.properties**, qui se trouve dans *src/main/resources/* .
+ 1. Mettez à jour les propriétés de l’application.
+   1. Recherchez `aad.clientId` et mettez à jour la valeur de `Enter_the_Application_Id_here` avec la valeur de l’**ID d’application (client)** de l’application que vous avez inscrite. 
+   1. Recherchez `aad.authority` et mettez à jour la valeur `Enter_the_Tenant_Name_Here` avec la valeur **ID de l’annuaire (locataire)** pour l’application que vous avez inscrite.
+   1. Recherchez `aad.secretKey` et mettez à jour la valeur `Enter_the_Client_Secret_Here` avec le **Secret client** que vous avez créé dans **Certificats et secrets** pour l’application que vous avez inscrite.
+
+> [!div renderon="docs"]
+> Où :
+>
+> - `Enter_the_Application_Id_here` - est l’ID de l’application pour l’application que vous avez inscrite.
+> - `Enter_the_Client_Secret_Here` - correspond au **secret du client** que vous avez créé dans **Certificats et secrets** pour l’application que vous avez inscrite.
 
 #### <a name="step-4-run-the-code-sample"></a>Étape 4 : Exécuter l’exemple de code
 1. Exécutez l’exemple de code, puis ouvrez un navigateur et accédez à *http://localhost:8080* .
@@ -114,7 +109,6 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 1. Une fois authentifié sur Azure Active Directory, il est redirigé vers *http://localhost:8080/msal4jsamples/secure/aad* . L’utilisateur est officiellement connecté à l’application, et la page affiche des informations sur le compte connecté. Cette page contient également des boutons pour : 
     - *Se déconnecter* : déconnecte l’utilisateur actuel de l’application et le redirige vers la page d’accueil.
     - *Afficher les utilisateurs* : acquiert un jeton pour Microsoft Graph, puis appelle Microsoft Graph avec le jeton joint à la requête pour obtenir tous les utilisateurs du locataire.
-
 
 ## <a name="more-information"></a>Plus d’informations
 
@@ -134,7 +128,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ```
 
 
-### <a name="msal-initialization"></a>Initialisation de MSAL
+### <a name="msal-initialization"></a>Initialisation MSAL
 Vous pouvez ajouter la référence à MSAL4J en ajoutant le code suivant au début du fichier où vous allez utiliser MSAL4J : 
 
 ```Java

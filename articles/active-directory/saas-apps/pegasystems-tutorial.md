@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 013e477b66d2772698ce5c9cc61a59f8a5a04a5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd54466e054055ff84cd5bb2b28c5cc074ac0017
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67094894"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>Didacticiel : Intégration d’Azure Active Directory à Pega Systems
 
@@ -124,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec Pega Systems, procéde
     > [!NOTE]
     > Les valeurs fournies ici sont des espaces réservés. Vous devez utiliser l’identificateur, l’URL de réponse, l’URL de connexion et l’URL d’état de relais exacts. Vous pouvez obtenir les valeurs de l’identificateur et de l’URL de réponse dans une application Pega, comme expliqué plus loin dans ce tutoriel. Pour obtenir la valeur d’état de relais, contactez le [équipe du support technique Pega Systems](https://www.pega.com/contact-us). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. L’application Pega Systems requiert les assertions SAML dans un format spécifique. Pour les obtenir au format qui convient, vous devez ajouter des mappages d’attributs personnalisés à la configuration d’attributs de jeton SAML. La capture d’écran suivante montre les attributs par défaut. Sélectionnez l'icône **Modifier**  pour ouvrir la boîte de dialogue **Attributs utilisateur**  :
+6. L’application Pega Systems requiert les assertions SAML dans un format spécifique. Pour les obtenir au format qui convient, vous devez ajouter des mappages d’attributs personnalisés à la configuration d’attributs de jeton SAML. La capture d’écran suivante montre les attributs par défaut. Sélectionnez l’icône **Modifier** pour ouvrir la boîte de dialogue **Attributs d’utilisateur** :
 
     ![Attributs utilisateur](common/edit-attribute.png)
 
@@ -238,7 +238,7 @@ Dans cette section, vous allez créer un utilisateur de test appelé Britta Simo
 
     c. Sélectionnez **Afficher le mot de passe**, puis notez la valeur affichée dans la zone **Mot de passe**.
 
-    d. Sélectionnez **Créer**.
+    d. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 

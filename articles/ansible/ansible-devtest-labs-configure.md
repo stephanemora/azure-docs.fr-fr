@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Configurer des laboratoires dans Azure DevTest Labs à l’aide d’Ansible | Microsoft Docs
+title: 'Tutoriel : Configurer des laboratoires dans Azure DevTest Labs à l’aide d’Ansible'
 description: Guide pratique pour configurer un laboratoire dans Azure DevTest Labs à l’aide d’Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, devtest labs
@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: c6bc4d50e4db52f772a137495658492018ee5360
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d035c76a811df45af5ed8183b86e14a2ee6218b7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230960"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241656"
 ---
 # <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Didacticiel : Configurer des laboratoires dans Azure DevTest Labs à l’aide d’Ansible
 
@@ -448,7 +448,7 @@ Il existe deux façons d’obtenir l’exemple de playbook complet :
 
 Dans cette section, exécutez le playbook pour tester les différentes fonctionnalités présentées dans cet article.
 
-Avant d’exécuter le playbook, apportez les modifications suivantes :
+Avant d’exécuter le playbook, effectuez les modifications suivantes :
 - Dans la section `vars`, remplacez l’espace réservé `{{ resource_group_name }}` par le nom de votre groupe de ressources.
 - Stockez le jeton GitHub comme une variable d’environnement nommée `GITHUB_ACCESS_TOKEN`.
 
@@ -460,9 +460,9 @@ ansible-playbook devtestlab-create.yml
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
-Enregistrez le code suivant sous le nom `cleanup.yml` :
+Enregistrez le code suivant en tant que `cleanup.yml` :
 
 ```yml
 - hosts: localhost
@@ -476,7 +476,7 @@ Enregistrez le code suivant sous le nom `cleanup.yml` :
         state: absent
 ```
 
-Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook cleanup.yml

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 09/4/2019
+ms.date: 10/08/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: c685b2314d15e431ccac3470fd337ca92697e1a5
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 5be1a673ac456b0896ce83afcb469e4ac6b8b40a
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241177"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001323"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -78,10 +78,6 @@ Toutes les adresses IP du trafic réseau virtuel sortant sont traduites en adres
 Le trafic réseau entrant vers votre adresse IP publique de pare-feu est traduit (Destination Network Address Translation ou DNAT) et filtré selon les adresses IP privées sur vos réseaux virtuels.
 
 ## <a name="multiple-public-ip-addresses"></a>Adresses IP publiques multiples
-
-> [!IMPORTANT]
-> Le Pare-feu Azure avec plusieurs adresses IP publiques est disponible par le biais du portail Azure, d’Azure PowerShell, d’Azure CLI, de REST et des modèles.
-
 
 Vous pouvez associer plusieurs adresses IP publiques (jusqu’à 100) à votre pare-feu.
 

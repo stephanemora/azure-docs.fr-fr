@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: e7ebbf35cd572601f02a69930b58811686a92c86
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276317"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960548"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migration des zones privées Azure DNS héritées vers le nouveau modèle de ressource
 
-Nous avons fourni un nouveau modèle de ressource/d’API pour les zones privées Azure DNS dans le cadre de l’actualisation de la préversion. L’actualisation de la préversion propose de nouvelles fonctionnalités et supprime plusieurs limitations et restrictions de la préversion publique initiale. Toutefois, ces avantages ne sont pas disponibles sur les zones DNS privées créées à l’aide de l’API héritée. Pour obtenir les avantages de la nouvelle version, vous devez migrer vos ressources de zones DNS privées héritées vers le nouveau modèle de ressource. Le processus de migration est simple et nous vous fournissons un script PowerShell pour automatiser ce processus. Ce guide fournit des instructions pas à pas pour migrer vos zones privées Azure DNS vers le nouveau modèle de ressource.
+La version Azure DNS Private Zones actuelle propose de nouvelles fonctionnalités et supprime plusieurs limitations et restrictions de la préversion publique initiale. Toutefois, ces avantages ne sont pas disponibles sur les zones DNS privées créées à l’aide de l’API en préversion. Pour obtenir les avantages de la nouvelle version, vous devez migrer vos ressources de zones DNS privées héritées vers le nouveau modèle de ressource. Le processus de migration est simple et nous vous fournissons un script PowerShell pour automatiser ce processus. Ce guide fournit des instructions pas à pas pour migrer Azure DNS Private Zones vers le nouveau modèle de ressource.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -29,7 +29,7 @@ Install-Module -Name Az.PrivateDns -AllowPrerelease
 ```
 
 >[!IMPORTANT]
->Le processus de migration est entièrement automatisé et ne devrait pas entraîner de temps d’arrêt. Toutefois, si vous utilisez des zones privées Azure DNS (préversion) dans un environnement de production critique, vous devez exécuter le processus de migration ci-dessous pendant une fenêtre de maintenance planifiée. Vérifiez que vous ne modifiez pas la configuration ou les jeux d’enregistrements d’une zone DNS privée quand vous exécutez le script de migration.
+>Le processus de migration est entièrement automatisé et ne devrait pas entraîner de temps d’arrêt. Toutefois, si vous utilisez Azure DNS Private Zones (préversion) dans un environnement de production critique, vous devez exécuter le processus de migration suivant pendant une fenêtre de maintenance planifiée. Vérifiez que vous ne modifiez pas la configuration ou les jeux d’enregistrements d’une zone DNS privée quand vous exécutez le script de migration.
 
 ## <a name="installing-the-script"></a>Installation du script
 
@@ -112,7 +112,7 @@ Créez un ticket de support si vous avez besoin d’aide avec le processus de mi
 
 * Passez en revue certains [scénarios de zones privées](./private-dns-scenarios.md) courants qui peuvent être réalisés avec des zones privées dans Azure DNS.
 
-* Consultez la [FAQ sur les zones DNS privées](./dns-faq-private.md) pour étudier certaines des questions et réponses courantes relatives aux zones privées dans Azure DNS, notamment le comportement spécifique auquel vous pouvez vous attendre pour certains types d’opérations.
+* Pour trouver des réponses aux questions fréquemment posées concernant les zones privées dans Azure DNS, notamment le comportement spécifique auquel vous attendre pour certains types d’opérations, voir le [FAQ sur les DNS privés](./dns-faq-private.md).
 
 * Pour plus d’informations sur les zones et enregistrements DNS, consultez [Vue d’ensemble des enregistrements et zones DNS](dns-zones-records.md).
 

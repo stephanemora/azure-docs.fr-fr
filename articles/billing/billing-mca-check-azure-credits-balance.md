@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b8faf3801a2217e6ef7040a7c2b67c7e6fad8e60
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ea3fc21891f1e4d4e744449032a4b2cfcdfbb2f0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709599"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177528"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Suivre le solde de crédit Azure d’un Contrat client Microsoft
 
 Vous pouvez vérifier le solde de crédit Azure d'un Contrat client Microsoft dans le portail Azure. Vous utilisez des crédits pour payer les frais couverts par les crédits.
 
-Vous êtes facturé lorsque vous utilisez les produits non couverts par les crédits ou lorsque votre utilisation dépasse votre solde de crédit. Pour plus d’informations, consultez [Produits non couverts par les crédits Azure.(#products-that-arent-covered-by-azure-credits).
+Vous êtes facturé lorsque vous utilisez les produits non couverts par les crédits ou lorsque votre utilisation dépasse votre solde de crédit. Pour plus d’informations, consultez [Produits non couverts par les crédits Azure](#products-that-arent-covered-by-azure-credits).
 
 Cet article s'applique à un compte de facturation associé à un contrat client Microsoft. [Vérifiez que vous avez accès à un contrat client Microsoft](#check-access-to-a-microsoft-customer-agreement).
 

@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884562"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936979"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Démarrage rapide : Créer un index Azure Search à l’aide du portail Azure
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70884562"
 > * [Python](search-get-started-python.md)
 > * [C#](search-get-started-dotnet.md)
 
-Pour vous familiariser rapidement avec les concepts de Recherche Azure, essayez les outils intégrés dans le Portail Azure. Les assistants et éditeurs n’offrent pas de parité complète avec l’environnement .NET et les API REST, mais vous pouvez suivre cette présentation sans code pour écrire des requêtes intéressantes sur des exemples de données en seulement quelques minutes.
+Pour vous familiariser rapidement avec les concepts de Recherche Azure, essayez les outils intégrés dans le Portail Azure. Les assistants et les éditeurs n’offrent pas une totale parité avec l’environnement .NET et les API REST, mais vous pouvez démarrer rapidement en suivant une présentation sans code qui vous permet d’écrire des requêtes intéressantes sur un index en seulement quelques minutes.
 
 > [!div class="checklist"]
 > * Commencez par un exemple de jeu de données public gratuit hébergé sur Azure
@@ -53,7 +53,7 @@ Les sections figurant sur le tableau de bord des services indiquent le nombre d�
 
 Les requêtes de recherche se répètent sur un [*index*](search-what-is-an-index.md) contenant les données de recherche, les métadonnées et les constructions supplémentaires utilisées pour l’optimisation de certains comportements de recherche.
 
-Pour les besoins de ce didacticiel, nous utilisons un exemple de jeu de données intégré qu’il est possible d’analyser à l’aide d’un [*indexeur*](search-indexer-overview.md) par le biais de l’Assistant **Importer des données**. Un indexeur est un robot d’indexation spécifique à la source qui peut lire les métadonnées et le contenu des sources de données prises en charge Azure. Normalement, les indexeurs sont utilisés par programmation, mais dans le portail, vous pouvez y accéder via l’Assistant **Importation de données**. 
+Pour les besoins de ce tutoriel, nous utilisons un exemple de jeu de données intégré qu’il est possible d’analyser à l’aide d’un [*indexeur*](search-indexer-overview.md) par le biais de l’[Assistant **Importer des données**](search-import-data-portal.md). Un indexeur est un robot d’indexation spécifique à la source qui peut lire les métadonnées et le contenu des sources de données prises en charge Azure. Normalement, les indexeurs sont utilisés par programmation, mais dans le portail, vous pouvez y accéder via l’Assistant **Importation de données**. 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Étape 1 : démarrer l’Assistant Importation de données et créer une source de données
 

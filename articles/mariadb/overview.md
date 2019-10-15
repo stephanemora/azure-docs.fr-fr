@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble du service de base de données relationnelle Azure Database for MariaDB
-description: Vue d’ensemble du service de base de données relationnelle Azure Database for MariaDB.
+description: Découvrez le service Azure Database for MariaDB, service de base de données relationnelle dans le cloud Microsoft qui repose sur MySQL Community Edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 08/13/2019
-ms.openlocfilehash: 20f6ff518daae71856446415099ae4cb095ff728
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 46ba972c489326157cbdea19a1363a30e18f72b8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013609"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177979"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Qu’est-ce qu’Azure Database for MariaDB ?
 
@@ -55,7 +55,7 @@ Avec un temps de disponibilité de 99,99 %, le SLA (contrat de niveau de servic
 
 Azure Database for MariaDB respecte la tradition de sécurité des données qu’offrent les services de base de données Azure. Azure Database for MariaDB offre des fonctionnalités qui limitent l’accès, protègent les données au repos et en mouvement et vous aident à surveiller l’activité. Visitez le [Centre de confidentialité Azure](https://www.microsoft.com/en-us/trustcenter/security) pour plus d’informations sur la sécurité de la plateforme Azure.
 
-Le service Azure Database for MariaDB utilise le chiffrement de stockage pour les données au repos et est conforme à la norme FIPS 140-2. Toutes les données, y compris les sauvegardes, sont chiffrées sur le disque. (Les fichiers temporaires créés par le moteur lors de l’exécution des requêtes ne sont pas chiffrés sur le disque.) Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure. Les clés sont managées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
+Le service Azure Database for MariaDB utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. À l’exception des fichiers temporaires créés durant l’exécution des requêtes, toutes les données, notamment les sauvegardes, sont chiffrées sur le disque. Le service utilise le chiffrement AES 256 bits qui est inclus dans le chiffrement de stockage Azure. Les clés sont managées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
 
 Par défaut, le service Azure Database for MariaDB est configuré de manière à exiger la [sécurité de la connexion SSL](./concepts-ssl-connection-security.md) pour les données en mouvement sur le réseau. L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application. Vous avez la possibilité de désactiver les exigences SSL pour la connexion à votre service de base de données si votre application cliente ne prend pas en charge la connectivité SSL.
 

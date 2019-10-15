@@ -10,18 +10,18 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 08/01/2019
 ms.author: diberry
-ms.openlocfilehash: f56798359cdc8739a363bed3bfddadd584617adf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815484"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973796"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Qu’est-ce que le service QnA Maker ?
 
 QnA Maker est un service cloud de traitement en langage naturel (NLP, Natural Language Processing) qui permet de créer facilement une couche conversationnelle naturelle sur vos données. Il peut être utilisé pour trouver la réponse la plus appropriée à une entrée donnée en langage naturel à partir de votre base de connaissances personnalisée (base d’informations).
 
-Toute application de conversation qui communique avec un utilisateur en langage naturel pour répondre à une question peut être une application cliente pour QnA Maker. Les applications clientes comprennent notamment les applications de réseaux sociaux, les chatbots et les applications de bureau à reconnaissance vocale.
+Toute application de conversation qui communique avec un utilisateur en langage naturel pour répondre à une question peut être une application cliente pour QnA Maker. Les applications clientes comprennent notamment les applications de réseaux sociaux, les bots conversationnels et les applications de bureau à reconnaissance vocale.
 
 ## <a name="when-to-use-qna-maker"></a>Quand utiliser QnA Maker ?
 
@@ -85,21 +85,8 @@ QnA Maker offre des fonctionnalités de création, d’entraînement et de publi
 
 **Étape 4** : À partir de votre application cliente, appelez programmatiquement le point de terminaison de votre base de connaissances et lisez la réponse JSON qui présente la meilleure réponse à l’utilisateur.  
 
-## <a name="news-and-updates"></a>Nouveautés et mises à jour
-
-Découvrez les nouveautés de QnA Maker.
-
-* Juin 2019
-    * Amélioration du modèle d’outil de classement pour le français, l’italien, l’allemand, l’espagnol et le portugais
-* Avril 2019
-    * Prise en charge de l’extraction de contenu de site web
-    * Prise en charge des documents SharePoint
-* Mars 2019
-    * Apprentissage actif 
-    * Amélioration du modèle d’outil de classement NLP pour l’anglais 
-
 ## <a name="next-steps"></a>Étapes suivantes
 QnA Maker fournit tout ce dont vous avez besoin pour créer, gérer et déployer une base de connaissances personnalisée. 
 
 > [!div class="nextstepaction"]
-> [Créer un service QnA Maker](../how-to/set-up-qnamaker-service-azure.md)
+> [Passer en revue les derniers changements](../whats-new.md)

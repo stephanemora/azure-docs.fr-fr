@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer des rubriques dans Azure Service Bus avec Ansible | Microsoft Docs'
+title: 'Tutoriel : Configurer des rubriques dans Azure Service Bus avec Ansible'
 description: Découvrez comment utiliser Ansible pour créer une rubrique Azure Service Bus.
 keywords: Ansible, Azure, DevOps, Bash, playbook, Service Bus, rubriques, abonnements
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ca8d849796520ac260d888d772c064316db68a30
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 952779db582f9437f10608bf86b0b80560ded2c0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230863"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241211"
 ---
 # <a name="tutorial-configure-topics-in-azure-service-bus-using-ansible"></a>Didacticiel : Configurer des rubriques dans Azure Service Bus avec Ansible
 
@@ -260,9 +260,9 @@ ansible-playbook servicebus_topic_policy_delete.yml
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Dès que vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
-Enregistrez le code suivant sous le nom `cleanup.yml` :
+Enregistrez le code suivant en tant que `cleanup.yml` :
 
 ```yml
 ---
@@ -298,7 +298,7 @@ Enregistrez le code suivant sous le nom `cleanup.yml` :
           force_delete_nonempty: yes
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook cleanup.yml

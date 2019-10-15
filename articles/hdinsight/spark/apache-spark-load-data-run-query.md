@@ -2,18 +2,18 @@
 title: 'Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight'
 description: Didacticiel - Découvrez comment charger des données et exécuter des requêtes interactives sur des clusters Spark dans Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: hrasheed
-ms.date: 05/16/2019
-ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/03/2019
+ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735269"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027794"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
 
@@ -30,11 +30,11 @@ Un cluster Apache Spark sur HDInsight. Consultez [Créer un cluster Apache Spar
 
 ## <a name="create-a-jupyter-notebook"></a>Créer un bloc-notes Jupyter
 
-Jupyter Notebook est un environnement de Notebook interactif qui prend en charge plusieurs langages de programmation. Le Notebook vous permet d’interagir avec vos données, de combiner du code avec le texte Markdown et d’effectuer des visualisations simples. 
+Jupyter Notebook est un environnement de Notebook interactif qui prend en charge plusieurs langages de programmation. Le Notebook vous permet d’interagir avec vos données, de combiner du code avec le texte Markdown et d’effectuer des visualisations simples.
 
 1. Modifiez l'URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` en remplaçant `SPARKCLUSTER` par le nom de votre cluster Spark. Entrez ensuite l'URL modifiée dans un navigateur web. À l’invite (le cas échéant), entrez les informations d’identification du cluster.
 
-2. Sur la page web de Jupyter, sélectionnez **Nouveau** > **PySpark** pour créer un notebook. 
+2. Sur la page web de Jupyter, sélectionnez **Nouveau** > **PySpark** pour créer un notebook.
 
    ![Créer un bloc-notes Jupyter Notebook pour exécuter une requête interactive Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Créer un bloc-notes Jupyter Notebook pour exécuter une requête interactive Spark SQL")
 
@@ -45,8 +45,8 @@ Jupyter Notebook est un environnement de Notebook interactif qui prend en charge
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Créer une trame de données à partir d’un fichier CSV
 
-Les applications peuvent créer des tableaux de données directement à partir de fichiers ou de dossiers dans le stockage à distance, tels que Stockage Azure ou Azure Data Lake Storage; à partir d’une table Hive, ou d’autres sources de données prises en charge par Spark, telles que Cosmos DB, la base de données SQL Azure, DW, etc. La capture d’écran suivante montre un instantané du fichier HVAC.csv utilisé dans ce didacticiel. Le fichier CSV est fourni avec tous les clusters HDInsight Spark. Les données capturent les variations de température de certains bâtiments.
-    
+Les applications peuvent créer des dataframes directement à partir de fichiers ou de dossiers dans le stockage distant, par exemple le stockage Azure ou Azure Data Lake Storage, à partir d’une table Hive ou d’autres sources de données prises en charge par Spark, telles que Cosmos DB, Azure SQL DB, DW, etc. La capture d’écran suivante montre un instantané du fichier HVAC.csv utilisé dans ce didacticiel. Le fichier CSV est fourni avec tous les clusters HDInsight Spark. Les données capturent les variations de température de certains bâtiments.
+
 ![Instantané des données pour les requêtes Spark SQL interactives](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "instantané des données pour les requêtes Spark SQL interactives")
 
 1. Collez l'exemple de code suivant dans une cellule vide du notebook Jupyter, puis appuyez sur **MAJ + ENTRÉE** pour exécuter le code. Le code importe les types requis pour ce scénario :
@@ -60,7 +60,7 @@ Les applications peuvent créer des tableaux de données directement à partir d
 
     ![État de la requête interactive Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "État de la requête interactive Spark SQL")
 
-2. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**). 
+2. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**).
 
     ```python
     # Create a dataframe and table from sample data
@@ -93,7 +93,7 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Avec HDInsight, vos données et blocs-notes Jupyter sont stockés dans Stockage Azure ou Azure Data Lake Storage. Vous pouvez ainsi supprimer un cluster de manière sécurisée s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
+Avec HDInsight, vos données et notebooks Jupyter sont stockés dans le stockage Azure ou Azure Data Lake Storage. Vous pouvez ainsi supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même quand vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, mieux vaut supprimer les clusters quand ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
 
 Ouvrez le cluster dans le portail Azure, puis sélectionnez **Supprimer**.
 

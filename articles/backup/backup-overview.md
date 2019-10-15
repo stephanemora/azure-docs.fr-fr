@@ -8,17 +8,16 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 526c60916854d4918607a1fd1b887ac9d27cd1c7
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 29e0b05ee9cb8f7dc67f90b54081bca4db0691b6
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950027"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035225"
 ---
 # <a name="what-is-the-azure-backup-service"></a>Qu’est-ce que le service Sauvegarde Azure ?
 
 Le service Sauvegarde Azure sauvegarde des données dans le cloud Microsoft Azure. Vous pouvez sauvegarder des machines et charges de travail locales, ainsi que des machines virtuelles Azure.
-
 
 ## <a name="why-use-azure-backup"></a>Pourquoi utiliser Azure Backup ?
 
@@ -28,16 +27,15 @@ Le service Sauvegarde Azure offre les principaux avantages suivants :
 - **Sauvegarder des machines virtuelles Azure IaaS** : Le service Sauvegarde Azure fournit des sauvegardes indépendantes et isolées pour éviter une destruction accidentelle des données d’origine. Les sauvegardes sont stockées dans un coffre Recovery Services avec la gestion intégrée des points de récupération. La configuration et la scalabilité sont simples : les sauvegardes sont optimisées, et vous pouvez facilement effectuer des restaurations en fonction des besoins.
 - **Mettre à l’échelle facilement** : Sauvegarde Azure utilise la puissance sous-jacente et la mise à l’échelle illimitée du cloud Azure pour offrir une haute disponibilité, sans tâche supplémentaire de maintenance ou de supervision.
 - **Obtenir un transfert de données illimitées** : La Sauvegarde Azure ne limite pas la quantité de données entrantes ou sortantes transférées, et ne génère pas de frais pour les données transférées.
-    - Les données sortantes sont les données transférées à partir d’un coffre Recovery Services pendant une opération de restauration.
-    - Si vous effectuez une sauvegarde initiale hors connexion avec le service Azure Import/Export pour importer de grandes quantités de données, des frais associés aux données entrantes sont facturés.  [Plus d’informations](backup-azure-backup-import-export.md)
+  - Les données sortantes sont les données transférées à partir d’un coffre Recovery Services pendant une opération de restauration.
+  - Si vous effectuez une sauvegarde initiale hors connexion avec le service Azure Import/Export pour importer de grandes quantités de données, des frais associés aux données entrantes sont facturés.  [Plus d’informations](backup-azure-backup-import-export.md)
 - **Sécuriser les données** : Sauvegarde Azure fournit des solutions pour sécuriser les données en transit et au repos.
 - **Obtenir des sauvegardes cohérentes au niveau application** : une sauvegarde cohérente au niveau application signifie qu’un point de récupération dispose de toutes les données nécessaires pour restaurer la copie de sauvegarde. Sauvegarde Microsoft Azure fournit des sauvegardes cohérentes avec les applications, qui garantissent qu’aucun correctif supplémentaire n’est requis pour restaurer les données. La restauration de données cohérentes avec les applications réduit le délai de restauration, ce qui permet de rétablir rapidement le fonctionnement normal.
-- **Conserver des données à court et à long terme** : Vous pouvez utiliser des coffres Recovery Services pour la conservation de données à court et à long terme. Azure ne limite pas la durée de conservation des données dans un coffre Recovery Services. Vous pouvez les conserver dans un coffre aussi longtemps que vous le souhaitez. Azure Backup est limité à 9 999 points de récupération par instance protégée. 
+- **Conserver des données à court et à long terme** : Vous pouvez utiliser des coffres Recovery Services pour la conservation de données à court et à long terme. Azure ne limite pas la durée de conservation des données dans un coffre Recovery Services. Vous pouvez les conserver dans un coffre aussi longtemps que vous le souhaitez. Azure Backup est limité à 9 999 points de récupération par instance protégée.
 - **Gestion automatique du stockage** : les environnements hybrides impliquent souvent un stockage hétérogène (une partie en local et une autre dans le cloud). Avec Azure Backup, l’utilisation d’appareils de stockage locaux ne génère aucun coût. Sauvegarde Azure alloue et gère automatiquement le stockage des sauvegardes sur la base d’un modèle de paiement à l’utilisation : vous ne payez donc que le stockage que vous consommez. [Apprenez-en davantage sur la](https://azure.microsoft.com/pricing/details/backup) tarification.
 - **Plusieurs options de stockage** : Sauvegarde Azure offre deux types de réplication pour conserver votre stockage/vos données hautement disponibles.
-    - Le [stockage localement redondant (LRS)](../storage/common/storage-redundancy-lrs.md) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage d’un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
-    - Le [stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md) est l’option de réplication par défaut : c’est l’option recommandée. Le stockage géo-redondant réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
-
+  - Le [stockage localement redondant (LRS)](../storage/common/storage-redundancy-lrs.md) réplique vos données trois fois (il crée trois copies de vos données) dans une unité d’échelle de stockage d’un centre de données. Toutes les copies des données existent dans la même région. Le stockage LRS est une option à faible coût qui protège vos données contre les défaillances matérielles locales.
+  - Le [stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md) est l’option de réplication par défaut : c’est l’option recommandée. Le stockage géo-redondant réplique vos données vers une région secondaire, distante de plusieurs centaines de kilomètres de l’emplacement principal des données sources. Le stockage GRS est plus onéreux que le stockage LRS, mais il offre une durabilité des données supérieure, même en cas de panne au niveau régional.
 
 ## <a name="whats-the-difference-between-azure-backup-and-azure-site-recovery"></a>Quelle est la différence entre Sauvegarde Azure et Azure Site Recovery ?
 
@@ -66,16 +64,16 @@ La Sauvegarde Azure peut sauvegarder aussi bien les machines locales que les mac
 **Machine** | **Scénario de sauvegarde**
 --- | ---
 **Sauvegarde locale** |  1) Exécutez l’agent Microsoft Azure Recovery Services (MARS) de Sauvegarde Azure sur des machines Windows locales pour sauvegarder des fichiers individuels et l’état du système. <br/><br/>2) Sauvegardez les machines locales sur un serveur de sauvegarde, comme DPM (System Center Data Protection Manager) ou MABS (Microsoft Azure Backup Server), puis configurez le serveur de sauvegarde pour la sauvegarde dans un coffre Recovery Services du service Sauvegarde Azure dans Azure.
-**Machines virtuelles Azure** | 1) Activez la sauvegarde pour les machines virtuelles Azure individuelles. Quand vous activez la sauvegarde, Sauvegarde Azure installe une extension de l’agent de machine virtuelle Azure qui s’exécute sur la machine virtuelle. L’agent sauvegarde la totalité de la machine virtuelle.<br/><br/> 2) Exécutez l’agent MARS sur une machine virtuelle Azure. C’est pratique si vous voulez sauvegarder des fichiers et des dossiers individuels sur la machine virtuelle.<br/><br/> 
-
+**Machines virtuelles Azure** | 1) Activez la sauvegarde pour les machines virtuelles Azure individuelles. Quand vous activez la sauvegarde, Sauvegarde Azure installe une extension de l’agent de machine virtuelle Azure qui s’exécute sur la machine virtuelle. L’agent sauvegarde la totalité de la machine virtuelle.<br/><br/> 2) Exécutez l’agent MARS sur une machine virtuelle Azure. C’est pratique si vous voulez sauvegarder des fichiers et des dossiers individuels sur la machine virtuelle.<br/><br/>
 
 ## <a name="why-use-a-backup-server"></a>Pourquoi utiliser un serveur de sauvegarde ?
+
 Les avantages de la sauvegarde des machines et applications dans le stockage MABS/DPM, puis de la sauvegarde de ce stockage dans un coffre sont les suivants :
 
 - La sauvegarde dans MABS/DPM fournit des sauvegardes tenant compte des applications et optimisées pour les applications courantes comme SQL Server, Exchange et SharePoint, en plus des sauvegardes de fichiers/dossiers/volumes et des sauvegardes de l’état de la machine (sauvegarde complète, état du système).
 - Pour les machines locales, vous n’avez pas besoin d’installer l’agent MARS sur chaque machine que vous voulez sauvegarder. Chaque machine exécute l’agent de protection DPM/MABS, et l’agent MARS s’exécute seulement sur MABS/DPM.
 - Vous disposez de davantage de flexibilité et d’options de planification plus précises pour l’exécution de sauvegardes.
-- Vous pouvez gérer les sauvegardes de plusieurs machines que vous rassemblez en groupes de protection dans une console unique. C’est particulièrement utile quand les applications sont hiérarchisées entre plusieurs machines et que vous voulez les sauvegarder ensemble.
+- Vous pouvez gérer les sauvegardes de plusieurs machines que vous rassemblez en groupes de protection dans une console unique. C’est utile quand les applications sont hiérarchisées entre plusieurs machines et que vous voulez les sauvegarder ensemble.
 
 Découvrez plus d’informations sur le [fonctionnement de la sauvegarde](backup-architecture.md#architecture-back-up-to-dpmmabs) lors de l’utilisation d’un serveur de sauvegarde et les [exigences de prise en charge](backup-support-matrix-mabs-dpm.md) pour les serveurs de sauvegarde.
 
@@ -106,7 +104,7 @@ Découvrez plus d’informations sur le [fonctionnement de la sauvegarde](backup
 **Je veux sauvegarder des fichiers/dossiers spécifiques sur la machine virtuelle Azure** | Déployez l’agent MARS sur la machine virtuelle.
 **Je veux sauvegarder directement des machines Windows locales** | Installez l’agent MARS sur la machine. | Vous pouvez sauvegarder des fichiers, des dossiers et l’état du système dans Azure. Les sauvegardes ne tiennent pas compte des applications.
 **Je veux sauvegarder directement des machines Linux locales** | Vous devez déployer DPM ou MABS pour effectuer une sauvegarde dans Azure. | La sauvegarde de l’hôte Linux n’est pas prise en charge. Vous pouvez uniquement sauvegarder les machines invitées Linux qui sont hébergées dans Hyper-V ou VMWare.
-**Je veux sauvegarder des applications s’exécutant en local** | Pour les sauvegardes tenant compte des applications, les machines doivent être protégées par DPM ou MABS.
+**Je veux sauvegarder des applications s’exécutant en local** | Pour les sauvegardes prenant en compte les applications, les machines doivent être protégées par DPM ou MABS.
 **Je veux des paramètres de sauvegarde et de récupération précis et flexibles pour les machines virtuelles Azure** | Protégez les machines virtuelles Azure avec MABS/DPM s’exécutant dans Azure afin de bénéficier d’une flexibilité supplémentaire pour la planification des sauvegardes et d’une flexibilité totale pour la protection et la restauration de fichiers, de dossiers, de volumes, d’applications et de l’état du système.
 
 ## <a name="backup-and-retention"></a>Sauvegarde et rétention
@@ -118,7 +116,7 @@ La solution Sauvegarde Azure présente une limite de 9 999 points de récupérat
 
 Le tableau ci-après indique la fréquence de sauvegarde maximale pour chaque composant. Votre configuration de votre stratégie de sauvegarde détermine la rapidité avec laquelle vous consommez les points de récupération. Par exemple, si vous créez un point de récupération chaque jour, vous pouvez conserver les points de récupération pendant 27 ans avant d’en manquer. Si vous optez pour un point de récupération par mois, vous pouvez conserver les points de récupération pendant 833 ans avant d’en manquer. Le service de sauvegarde ne définit pas de délai d’expiration pour un point de récupération.
 
-|  | Agent Azure Backup | System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
+|  | Agent Azure Backup (MARS)| System Center DPM | Azure Backup Server | Sauvegarde des machines virtuelles IaaS Azure |
 | --- | --- | --- | --- | --- |
 | Fréquence de sauvegarde<br/> (vers un coffre Recovery Services) |Trois sauvegardes par jour |Deux sauvegardes par jour |Deux sauvegardes par jour |Une sauvegarde par jour |
 | Fréquence de sauvegarde<br/> (vers le disque) |Non applicable |Toutes les 15 minutes pour SQL Server<br/><br/> Toutes les heures pour les autres charges de travail |Toutes les 15 minutes pour SQL Server<br/><br/> Toutes les heures pour les autres charges de travail |Non applicable |

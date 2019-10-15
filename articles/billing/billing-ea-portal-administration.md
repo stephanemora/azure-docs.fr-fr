@@ -4,16 +4,16 @@ description: Cet article présente les tâches courantes à la charge d’un adm
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308101"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035208"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -87,10 +87,11 @@ Autres points à garder à l’esprit avant un transfert de compte :
 - L’approbation d’un administrateur EA est requise pour les inscriptions source et cible.
   - Dans certains cas, Microsoft peut demander une approbation supplémentaire de la part d’un administrateur EA de l’inscription source.
 - Si un transfert de compte ne répond pas à vos exigences, envisagez un transfert d’inscription.
-- Le transfert de compte transfère tous les services, les abonnements, les comptes et la structure d’inscription complète, y compris tous les administrateurs de service EA.
-- Le transfert de compte définit l’état d’inscription source sur _Transféré_. Le compte transféré est disponible uniquement à des fins de création de rapports d’utilisation.
-- Vous ne pouvez pas ajouter de rôles ni d’abonnements à une inscription avec état transféré. Cet état empêche une utilisation supplémentaire en relation avec l’inscription.
-- Tout solde restant de l’engagement monétaire dans le contrat source est perdu, y compris les termes futurs.
+- Le transfert de compte transfère tous les services et abonnements associés aux comptes spécifiques.
+- Au terme du transfert, le compte transféré est indiqué comme inactif sous l’inscription source.
+- Un transfert de compte peut être antidaté à n’importe quelle date avant la date de début de l’inscription cible.
+- Le compte affiche la date de fin correspondant à la date de transfert effectif sur l’inscription source, et comme date de début sur l’inscription cible.
+- Toute utilisation du compte effectuée avant la date de transfert effectif reste sous l’inscription source.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Transférer l’inscription d’entreprise vers une nouvelle inscription
@@ -156,7 +157,7 @@ Si l’abonnement est transféré vers un compte figurant dans un autre locatair
 - Touches d’accès rapide pour les services tels que Storage. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
 - Informations d’identification d’accès à distance pour les services tels que les machines virtuelles Azure.
 
-Le destinataire doit envisager la mise à jour des secrets associés au service s’il doit restreindre l’accès à ses ressources Azure. La plupart des ressources doivent être mises à jour en procédant comme suit :
+Le destinataire doit envisager la mise à jour des secrets associés au service s’il doit restreindre l’accès à ses ressources Azure. La plupart des ressources peuvent être mises à jour en procédant comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Dans le menu Hub, sélectionnez **Toutes les ressources**.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69d5ffcae77e7144f97cb423d5bee93cb88fb27
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121591"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960069"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à JIRA SAML SSO by Microsoft
 
@@ -60,8 +60,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 ## <a name="supported-versions-of-jira"></a>Versions de JIRA prises en charge
 
-* JIRA Core et Software : 6.4 à 8.0
-* JIRA Service Desk : 3.0.0 à 3.5.0
+* JIRA Core et Software : 6.4 à 8.2.4
+* JIRA Service Desk 3.0.0 à 4.2.1
 * JIRA prend également en charge la version 5.2. Pour plus d’informations, cliquez sur [Authentification unique Microsoft Azure Active Directory pour JIRA 5.2](jira52microsoft-tutorial.md).
 
 > [!NOTE]
@@ -181,11 +181,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 5. Une fois que le plug-in est installé, il s’affiche sous **User Installed** (Installé par l’utilisateur), dans la section **Manage add-ons** (Gérer les modules complémentaires). Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon13.png)
+    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Effectuez les opérations suivantes dans la page de configuration :
 
-    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon53.png)
+    ![Configurer l'authentification unique](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Vérifiez qu’un seul certificat est associé à l’application pour éviter toute erreur liée à la résolution des métadonnées. Si plusieurs certificats sont associés, l’administrateur verra un message d’erreur s’afficher lors de la résolution des métadonnées.
@@ -195,6 +195,8 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     1. Copiez les valeurs des champs **Identifier, Reply URL et Sign on URL**, puis collez-les dans les zones de texte **Identificateur, URL de réponse et URL de connexion** correspondantes dans la section **Domaine et URL JIRA SAML SSO by Microsoft** du portail Azure.
 
     1. Dans **Login Button Name** (Nom du bouton de connexion), tapez le nom du bouton que les utilisateurs doivent voir sur l’écran de connexion.
+    
+    1. Dans **Login Button Description** (Description du bouton de connexion), tapez la description du bouton que les utilisateurs doivent voir sur l’écran de connexion.
 
     1. Dans **SAML User ID Locations** (Emplacements de l’identificateur d’utilisateur SAML), sélectionnez **User ID is in the NameIdentifier element of the Subject statement** (L’ID utilisateur se trouve dans l’élément NameIdentifier de l’instruction Subject ) ou **User ID is in an Attribute element** (L’identificateur d’utilisateur se trouve dans l’élément Attribute).  Cet ID doit être l’ID d’utilisateur JIRA. Si aucun ID d’utilisateur correspondant n’est trouvé, le système n’autorise pas l’utilisateur à se connecter.
 
@@ -212,7 +214,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
     1. Cochez l’option **Force Azure Login** (Forcer la connexion Azure) pour vous connecter avec les informations d’identification Azure AD uniquement.
     
        > [!Note]
-       > Si vous souhaitez activer le formulaire de connexion par défaut pour la connexion d’administrateur dans la page de connexion quand l’option Force Azure Login est activée, ajoutez le paramètre de requête dans l’URL du navigateur.
+       >Si vous souhaitez activer le formulaire de connexion par défaut pour la connexion d’administrateur dans la page de connexion quand l’option Force Azure Login est activée, ajoutez le paramètre de requête dans l’URL du navigateur.
        > `https://<domain:port>/login.action?force_azure_login=false`
 
     1. Cliquez sur **Enregistrer** pour enregistrer les paramètres.

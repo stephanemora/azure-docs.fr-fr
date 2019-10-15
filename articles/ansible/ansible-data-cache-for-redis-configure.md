@@ -1,5 +1,5 @@
 ---
-title: Tutoriel - Configurer des mises en cache dans Azure Cache pour Redis à l’aide d’Ansible | Microsoft Docs
+title: 'Tutoriel : Configurer des mises en cache dans Azure Cache pour Redis à l’aide d’Ansible'
 description: Guide pratique pour utiliser Ansible afin de créer, mettre à l’échelle et redémarrer Azure Cache pour Redis
 keywords: ansible, azure, devops, bash, playbook, cache, redis
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 693b042f631044352eaae708905fefca02f38415
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 92592dffb3a9094ae74328e8819cafc9469c2ac7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231017"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241795"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Didacticiel : Configurer des mises en cache dans Azure Cache pour Redis à l’aide d’Ansible
 
@@ -326,9 +326,9 @@ Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
-Enregistrez le code suivant sous le nom `cleanup.yml` :
+Enregistrez le code suivant en tant que `cleanup.yml` :
 
 ```yml
 - hosts: localhost
@@ -343,7 +343,7 @@ Enregistrez le code suivant sous le nom `cleanup.yml` :
 
 Dans la section `vars`, remplacez l’espace réservé `{{ resource_group_name }}` par le nom de votre groupe de ressources.
 
-Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook cleanup.yml

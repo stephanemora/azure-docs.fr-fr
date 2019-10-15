@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acedc081166c84935e3abfde8401b55c64156a7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 34ef0497b5cacb66ccf92079e740acd98a05021a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174375"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026429"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à CakeHR
 
@@ -137,11 +137,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Ouvrez une nouvelle fenêtre de navigateur web et connectez-vous à votre site d’entreprise CakeHR en tant qu’administrateur.
 
-2. Dans le coin supérieur droit de la page, cliquez sur  **Profile** (Profil), puis accédez à  **Settings** (Paramètres).
+2. Dans le coin supérieur droit de la page, cliquez sur **Profil**, puis accédez à **Paramètres**.
 
     ![Configuration de CakeHR](./media/cakehr-tutorial/config01.png)
 
-3. Sur le côté gauche de la barre de menus, cliquez sur  **INTEGRATIONS** (Intégrations) > **SAML SSO** (Authentification unique SAML), puis effectuez les étapes suivantes :
+3. Sur le côté gauche de la barre de menus, cliquez sur **INTEGRATIONS** > **SAML SSO** (Intégrations > Authentification unique SAML), puis effectuez les étapes suivantes :
 
      ![Configuration de CakeHR](./media/cakehr-tutorial/config02.png)
 
@@ -163,7 +163,7 @@ Pour se connecter à CakeHR, les utilisateurs Azure AD doivent être provisionn�
 
 1. Connectez-vous à CakeHR en tant qu’administrateur de la sécurité.
 
-2. Dans la partie gauche de la barre de menus, cliquez sur **COMPANY** (Entreprise) > **ADD** (Ajouter).
+2. Sur le côté gauche de la barre de menus, cliquez sur **COMPANY** > **ADD** (Entreprise > Ajouter).
 
     ![Configuration de CakeHR](./media/cakehr-tutorial/config03.png)
 

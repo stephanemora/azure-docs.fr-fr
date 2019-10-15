@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 9356379262cc078cd6a62f3280bcb8cc3d315844
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 645d34961fb735542729091719dd55c42436db95
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067364"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244478"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>Azure Database pour PostgreSQL (serveur unique) : Utiliser la langage Go pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant du code écrit dans le langage [Go](https://golang.org/) (golang). Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement à l’aide de Go, mais que vous ne connaissez pas la base de données Azure pour PostgreSQL.
@@ -26,7 +26,7 @@ Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’u
 ## <a name="install-go-and-pq-connector"></a>Installer le connecteur pour Go et pq
 Installez [Go](https://golang.org/doc/install) et le [pilote Pure Go Postgres (pq)](https://github.com/lib/pq) sur votre propre ordinateur. Suivez les étapes correspondant à votre plateforme :
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. [Téléchargez](https://golang.org/doc/install) et installez Go pour Microsoft Windows en fonction des [instructions d’installation](https://golang.org/dl/).
 2. Lancez l’invite de commandes à partir du menu Démarrer.
 3. Créez un dossier pour votre projet, tel que `mkdir  %USERPROFILE%\go\src\postgresqlgo`.
@@ -85,7 +85,7 @@ Obtenez les informations de connexion requises pour vous connecter à la base de
  ![Nom du serveur Azure Database pour PostgreSQL](./media/connect-go/1-connection-string.png)
 
 ## <a name="build-and-run-go-code"></a>Générer et exécuter du code Go 
-1. Pour écrire du code Golang, vous pouvez utiliser un éditeur de texte brut, tel que NotePad dans Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou [Nano](https://www.nano-editor.org/) dans Ubuntu, et TextEdit dans macOS. Si vous préférez un environnement de développement interactif (EDI) plus complet, essayez [Gogland](https://www.jetbrains.com/go/) de Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft, ou [Atom](https://atom.io/).
+1. Pour écrire du code Golang, vous pouvez utiliser un éditeur de texte brut, tel que NotePad dans Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou [Nano](https://www.nano-editor.org/) dans Ubuntu, et TextEdit dans macOS. Si vous préférez travailler dans un environnement de développement intégré (IDE) plus complet, essayez [GoLand](https://www.jetbrains.com/go/) de JetBrains, [Visual Studio Code](https://code.visualstudio.com/) de Microsoft ou [Atom](https://atom.io/).
 2. Collez le code Golang des sections suivantes dans des fichiers texte, et enregistrez ces fichiers dans un dossier de projet avec l’extension de fichier \*.go, par exemple le chemin Windows `%USERPROFILE%\go\src\postgresqlgo\createtable.go` ou le chemin Linux `~/go/src/postgresqlgo/createtable.go`.
 3. Recherchez les constantes `HOST`, `DATABASE`, `USER`, et `PASSWORD` dans le code et remplacez les valeurs test par les valeurs que vous souhaitez.  
 4. Lancez l’invite de commandes ou l’interpréteur de commandes Bash. Basculez dans votre dossier de projet. Par exemple, sur Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. Sur Linux `cd ~/go/src/postgresqlgo/`. Certains environnements EDI mentionnés offrent des fonctionnalités de débogage et de prise en charge du CLR sans nécessiter l’utilisation de l’interpréteur de commandes.

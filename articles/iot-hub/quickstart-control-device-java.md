@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 9fb110eff1d498b2b20952048759c76a2dac39f2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f59a3409d508c63f232294d8d66ade5669815b3c
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306481"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843333"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>Démarrage rapide : Contrôler un appareil connecté à un hub IoT Azure avec Java
 
@@ -119,7 +119,7 @@ Vous utiliserez cette valeur plus loin dans ce démarrage rapide. La chaîne de 
 
 ## <a name="listen-for-direct-method-calls"></a>Écouter les appels de méthode directe
 
-L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre concentrateur. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre concentrateur après l’exécution de la méthode directe.
+L’application d’appareil simulé se connecte à un point de terminaison spécifique de l’appareil sur votre IoT Hub, envoie les données de télémétrie simulée et écoute les appels de méthode directe provenant de votre concentrateur. Dans ce démarrage rapide, l’appel de méthode directe à partir du concentrateur indique à l’appareil de modifier la fréquence à laquelle il envoie des données de télémétrie. L’appareil simulé renvoie un accusé de réception à votre hub après l’exécution de la méthode directe.
 
 1. Dans une fenêtre de terminal local, accédez au dossier racine de l’exemple de projet Java. Ensuite, accédez au dossier **iot-hub\Quickstarts\simulated-device-2**.
 
@@ -141,7 +141,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
     La capture d’écran suivante présente la sortie lorsque l’application d’appareil simulé envoie des données de télémétrie à votre IoT Hub :
 
-    ![Exécuter l’appareil simulé](./media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![Sortie des données de télémétrie envoyées par l’appareil à votre hub IoT](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
 
 ## <a name="call-the-direct-method"></a>Appeler la méthode directe
 
@@ -167,11 +167,11 @@ L’application back-end se connecte au point de terminaison côté service sur 
 
     La capture d’écran suivante montre la sortie lorsque l’application effectue un appel de méthode directe sur l’appareil et reçoit un accusé de réception :
 
-    ![Exécuter l’application back-end](./media/quickstart-control-device-java/BackEndApplication.png)
+    ![Sortie quand l’application effectue un appel de méthode directe par le biais de votre hub IoT](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
 
     Après avoir exécuté l’application back-end, un message s’affiche dans la fenêtre de la console exécutant l’appareil simulé, et la fréquence à laquelle il envoie les messages change :
 
-    ![Changement dans le client simulé](./media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![Le message de la console reçu de l’appareil affiche la fréquence à laquelle il change](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer des comptes Azure Cosmos DB avec Ansible | Microsoft Docs'
+title: 'Tutoriel : Configurer des comptes Azure Cosmos DB avec Ansible'
 description: Découvrez comment utiliser Ansible pour créer et configurer une base de données Azure Cosmos DB.
 keywords: Ansible, Azure, DevOps, Bash, playbook, Cosmos DB, base de données
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 06d416358c1886f09b0b2336cc1ea53ce89947ae
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 82cb29cfe3aeb7b6ca43fceca4c900b2eeb148c2
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230814"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242068"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Didacticiel : Configurer des comptes Azure Cosmos DB avec Ansible
 
@@ -143,9 +143,9 @@ Enfin, le dernier extrait de code montre comment supprimer un compte Azure Cosmo
 
 ## <a name="get-the-sample-playbook"></a>Obtenir l’exemple de playbook
 
-Il existe deux moyens d’obtenir l’exemple de playbook complet :
-- [Téléchargez le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml) et enregistrez-le dans `cosmosdb.yml`.
-- Créez un fichier nommé `cosmosdb.yml` et copiez-y le contenu suivant :
+Il existe deux façons d’obtenir l’exemple de playbook complet :
+- [Télécharger le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml) et l’enregistrer dans `cosmosdb.yml`.
+- Créer un fichier nommé `cosmosdb.yml` et y copier le contenu suivant :
 
 ```yml
 ---
@@ -245,9 +245,9 @@ ansible-playbook cosmosdb.yml
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Dès que vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
-Enregistrez le code suivant sous le nom `cleanup.yml` :
+Enregistrez le code suivant en tant que `cleanup.yml` :
 
 ```yml
 - hosts: localhost
@@ -261,7 +261,7 @@ Enregistrez le code suivant sous le nom `cleanup.yml` :
         state: absent
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook cleanup.yml

@@ -1,22 +1,22 @@
 ---
-title: 'Tutoriel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Projects'
+title: 'Didacticiel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Projects'
 description: DevOps Projects facilite la prise en main d’Azure et le déploiement de votre application ASP.NET sur des machines virtuelles Azure en quelques étapes rapides.
 ms.author: mlearned
-ms.manager: douge
+manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 05643f342d51d99645d3c9204d6e63adcf2a0a73
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165694"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969558"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Tutoriel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Projects
+# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Didacticiel : Déployer votre application ASP.NET sur des machines virtuelles Azure avec Azure DevOps Projects
 
 Azure DevOps Projects offre une expérience simplifiée dans laquelle vous pouvez apporter vos code et dépôt Git existants ou choisir un exemple d’application pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) dans Azure. 
 
@@ -26,7 +26,7 @@ De plus, DevOps Projects :
 * Configurer un pipeline de mise en production pour CD 
 * Crée une ressource Azure Application Insights pour la supervision
 
-Dans ce tutoriel, vous allez :
+Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
 > * Utiliser DevOps Projects pour déployer votre application ASP.NET
@@ -47,7 +47,7 @@ DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Dans le volet gauche, sélectionnez **Nouveau...**.
+1. Dans le volet gauche, sélectionnez **Nouveau...** .
 
 1. Dans la zone de recherche, tapez **DevOps Projects**, puis sélectionnez **Créer**.
 
@@ -100,10 +100,10 @@ DevOps Projects a configuré automatiquement un pipeline CI/CD dans Azure Pipeli
 1. Remplacez le nom de votre pipeline de build par un nom plus descriptif, sélectionnez **Enregistrer et mettre en file d’attente**, puis sélectionnez **Enregistrer**.
 
 1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.  
-    Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps suit les modifications apportées au pipeline de build et permet de comparer les versions.
+    Ce volet montre une piste d’audit des modifications que vous avez apportées récemment à la build. Azure DevOps fait le suivi des modifications apportées au pipeline de build et vous permet de comparer des versions.
 
 1. Sélectionnez **Déclencheurs**.  
-    DevOps Projects crée automatiquement un déclencheur CI tandis que chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
+    DevOps Projects crée automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build. Si vous le souhaitez, vous pouvez choisir d’inclure ou d’exclure des branches dans le processus CI.
 
 1. Sélectionnez **Rétention**.  
     En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305940"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026961"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Harness
 
@@ -141,11 +141,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 3. Si vous souhaitez configurer manuellement BetterWorks, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise BetterWorks en tant qu’administrateur, puis effectuez les étapes suivantes :
 
-4. En haut à droite de la page, cliquez sur **Sécurité continue** > **Gestion de l’accès** > **Paramètres d’authentification**.
+4. En haut à droite de la page, cliquez sur **Sécurité continue** > **Gestion de l’accès** > **Paramètres d’authentification**.
 
     ![Configuration de Harness](./media/harness-tutorial/configure01.png)
 
-5. Dans la section **Fournisseurs SSO**, cliquez sur  **+ Ajouter des fournisseurs SSO** > **SAML**.
+5. Dans la section **Fournisseurs SSO**, cliquez sur **+ Ajouter des fournisseurs SSO** > **SAML**.
 
     ![Configuration de Harness](./media/harness-tutorial/configure03.png)
 
@@ -169,11 +169,11 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Harness, vous devez
 
 1. Connectez-vous à Harness en tant qu’administrateur.
 
-1. En haut à droite de la page, cliquez sur **Sécurité continue** > **Gestion de l’accès** > **Utilisateurs**.
+1. En haut à droite de la page, cliquez sur **Sécurité continue** > **Gestion de l’accès** > **Utilisateurs**.
 
     ![Configuration de Harness](./media/harness-tutorial/configure04.png)
 
-1. À droite de la page, cliquez sur  **+ Ajouter un utilisateur**.
+1. À droite de la page, cliquez sur **+ Ajouter un utilisateur**.
 
     ![Configuration de Harness](./media/harness-tutorial/configure05.png)
 

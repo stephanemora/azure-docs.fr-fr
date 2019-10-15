@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b9e28f986f28bde6e46319ddb404d424c100726
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 571d8849fd7cae5c872a56182858848dbb43ef42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174465"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026690"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Sonarqube
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Installez le plug-in SAML à partir de la place de marché Sonarqube.
 
-3. En haut à gauche de la page, cliquez sur  **ADMIN** , puis accédez à  **SAML**.
+3. En haut à gauche de la page, cliquez sur **ADMIN**, puis accédez à **SAML**.
 
 4. Sur la page **SAML** , procédez comme suit :
 

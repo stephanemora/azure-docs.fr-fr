@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 338054aadbf04c6c6e2b496677476c2c5634b6ba
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774875"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169299"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Didacticiel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager
 
@@ -48,7 +48,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="prepare-a-powershell-script"></a>Préparer un script PowerShell
 
-Un script PowerShell avec le contenu suivant est partagé à partir d’un [compte de stockage Azure muni de l’accès public](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1) :
+Un script PowerShell avec le contenu suivant est partagé à partir de [Github](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1) :
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -63,7 +63,7 @@ Le référentiel Modèles de démarrage rapide Azure contient les modèles Resou
 1. Dans Visual Studio Code, sélectionnez **Fichier** > **Ouvrir un fichier**.
 1. Dans la zone **Nom de fichier**, collez l’URL suivante : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-1. Pour ouvrir le fichier, sélectionnez **Ouvrir**.  
+1. Pour ouvrir le fichier, sélectionnez **Ouvrir**.
     Le modèle définit cinq ressources :
 
    * **Microsoft.Storage/storageAccounts**. Consultez la [référence de modèle](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
@@ -96,7 +96,7 @@ Ajoutez une ressource d’extension de machine virtuelle au modèle existant ave
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1"
+                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
             ],
             "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
         }
@@ -109,7 +109,7 @@ Pour plus d’informations sur la définition de cette ressource, consultez les 
 * **nom** : étant donné que la ressource d’extension est une ressource enfant de l’objet de machine virtuelle, le nom doit être composé du préfixe du nom de la machine virtuelle. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md).
 * **dependsOn** : créez la ressource d’extension après avoir créé la machine virtuelle.
 * **fileUris** : il s’agit des emplacements où sont stockés les fichiers de script. Si vous choisissez de ne pas utiliser l’emplacement fourni, vous devez mettre à jour les valeurs.
-* **commandToExecute** : cette commande appelle le script.  
+* **commandToExecute** : cette commande appelle le script.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -118,8 +118,7 @@ Pour connaître la procédure de déploiement, consultez la section « Déploye
 ## <a name="verify-the-deployment"></a>Vérifier le déploiement
 
 1. Dans le portail Azure, sélectionnez la machine virtuelle.
-1. Dans la vue d’ensemble de la machine virtuelle, copiez l’adresse IP en sélectionnant **Cliquez pour copier**, puis collez-la dans un onglet de navigateur.  
-   La page d’accueil Internet Information Services (IIS) par défaut s’ouvre :
+1. Dans la vue d’ensemble de la machine virtuelle, copiez l’adresse IP en sélectionnant **Cliquez pour copier**, puis collez-la dans un onglet de navigateur. La page d’accueil Internet Information Services (IIS) par défaut s’ouvre :
 
 ![Page d’accueil Internet Information Services (IIS)](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
@@ -129,7 +128,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 1. Dans le menu de gauche du portail Azure, sélectionnez **Groupe de ressources**.
 2. Dans la zone **Filtrer par nom**, entrez le nom du groupe de ressources.
-3. Sélectionnez le nom du groupe de ressources.  
+3. Sélectionnez le nom du groupe de ressources.
     Six ressources sont affichées dans le groupe de ressources.
 4. Dans le menu supérieur, sélectionnez **Supprimer le groupe de ressources**.
 

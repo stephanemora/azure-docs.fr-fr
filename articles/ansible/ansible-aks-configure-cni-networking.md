@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer la mise en réseau Azure CNI dans Azure Kubernetes Service (AKS) à l’aide d’Ansible | Microsoft Docs'
+title: 'Tutoriel : Configurer la mise en réseau Azure CNI dans Azure Kubernetes Service (AKS) à l’aide d’Ansible'
 description: Découvrez comment utiliser Ansible pour configurer la mise en réseau kubenet dans un cluster Azure Kubernetes Service (AKS)
 keywords: ansible, azure, devops, bash, cloudshell, manuel, aks, conteneur, aks, kubernetes
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 2d43b1ffbb7910b16c81df2ff5b21e67dbcb0193
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 04da0e8fb06d0a32c8e8bdc39d7722fc1c3fcdba
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231364"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242029"
 ---
 # <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Didacticiel : Configurer la mise en réseau Azure CNI dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f68bc211be3cffb61b3381390ae2eeacaffa4213
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875487"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960423"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Didacticiel : Utiliser Azure IoT Central pour surveiller vos appareils
 
@@ -41,7 +41,7 @@ Avant de commencer, le générateur doit effectuer les trois didacticiels du gé
 
 Azure IoT Central envoie des notifications sur les appareils sous forme de courriers électroniques. Le générateur a ajouté une règle pour envoyer une notification lorsque la température dans un climatiseur raccordé dépasse un seuil. Consultez les courriers électroniques envoyés au compte choisi par le générateur pour recevoir des notifications.
 
-Ouvrez le courrier électronique que vous avez reçu à la fin du didacticiel [Configurer des règles et des actions pour votre appareil](tutorial-configure-rules.md). Dans le courrier électronique, choisissez **Cliquez ici pour ouvrir votre appareil** :
+Ouvrez le courrier électronique que vous avez reçu à la fin du didacticiel [Configurer des règles et des actions pour votre appareil](tutorial-configure-rules.md). Dans l’e-mail, sélectionnez le lien vers l’appareil à côté de **Nom de l’appareil** dans la section **Détails** :
 
 ![E-mail de notification d’alerte](media/tutorial-monitor-devices/email.png)
 

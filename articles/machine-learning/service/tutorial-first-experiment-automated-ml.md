@@ -1,5 +1,5 @@
 ---
-title: Créer votre première expérience de Machine learning automatisé
+title: Créer votre première expérience de classification de ML automatisé
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner et déployer un modèle de classification avec le Machine Learning automatisé dans la page d’accueil de l’espace de travail d’Azure Machine Learning (préversion).
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dcd6f2ea6f5c79664af0c2431da07549e71c26bc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350501"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035670"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Didacticiel : Créer votre premier modèle de classification avec Machine Learning automatisé
 

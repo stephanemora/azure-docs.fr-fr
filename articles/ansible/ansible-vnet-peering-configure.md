@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer le peering de réseaux virtuels Azure avec Ansible | Microsoft Docs'
+title: 'Tutoriel : Configurer le peering de réseaux virtuels Azure avec Ansible'
 description: Découvrez comment utiliser Ansible pour connecter des réseaux virtuels par peering.
 keywords: Ansible, Azure, DevOps, Bash, playbook, réseaux, peering
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f51e7c857a22a362a3d295fbe087c54b25f85780
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 180bdff48a2ace4dfee1d1cb10eb75a33d360f4c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230759"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241231"
 ---
 # <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Didacticiel : Configurer le peering de réseaux virtuels Azure avec Ansible
 
@@ -145,10 +145,10 @@ Le code de l’exemple de playbook de cette section permet de :
 
 ## <a name="get-the-sample-playbook"></a>Obtenir l’exemple de playbook
 
-Il existe deux moyens d’obtenir l’exemple de playbook complet :
+Il existe deux façons d’obtenir l’exemple de playbook complet :
 
-- [Téléchargez le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) et enregistrez-le dans `vnet_peering.yml`.
-- Créez un fichier nommé `vnet_peering.yml` et copiez-y le contenu suivant :
+- [Télécharger le playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) et l’enregistrer dans `vnet_peering.yml`.
+- Créer un fichier nommé `vnet_peering.yml` et y copier le contenu suivant :
 
 ```yml
 - hosts: localhost
@@ -243,7 +243,7 @@ Exécutez le playbook avec la commande ansible-playbook :
 ansible-playbook vnet_peering.yml
 ```
 
-Le playbook devrait alors donner une sortie de ce type :
+Après avoir exécuté le playbook, vous voyez une sortie similaire aux résultats suivants :
 
 ```Output
 PLAY [localhost] 
@@ -292,7 +292,7 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Dès que vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
 Le code de l’exemple de playbook de cette section permet de :
 

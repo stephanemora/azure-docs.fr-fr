@@ -443,7 +443,7 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 1.  Revenez au portail Azure. Dans le volet de navigation de gauche, sélectionnez le service Azure Active Directory, puis Inscriptions d’applications.
 2.  Dans l’écran qui s’affiche, sélectionnez l’application WebApp-OpenIDConnect-DotNet-code-v2.
 3.  Sous l’onglet Authentification o   Dans la section URI de redirection, sélectionnez Web dans la zone de liste déroulante, puis ajoutez les URI de redirection suivants.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o   Dans la section Paramètres avancés, définissez URL de déconnexion sur https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o   Dans la section Paramètres avancés, définissez URL de déconnexion sur https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  Sous l’onglet Personnalisation o   Mettez à jour l’URL de la page d’accueil avec l’adresse de votre service d’application ; par exemple, https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o   Enregistrez la configuration.
 5.  Si votre application appelle une API web, veillez à appliquer les changements nécessaires sur le projet appsettings.json, afin qu’il appelle l’URL d’API publiée au lieu de localhost.

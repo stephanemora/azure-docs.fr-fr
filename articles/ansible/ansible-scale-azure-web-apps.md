@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Mettre des applications à l’échelle dans Azure App Service avec Ansible | Microsoft Docs'
+title: 'Tutoriel : Mettre des applications à l’échelle dans Azure App Service avec Ansible'
 description: Découvrez comment monter en puissance une application dans Azure App Service.
 keywords: ansible, azur, devops, bash, playbook, Azure App Service, Web App, scale, Java
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 0adcddb8afa4f0e3d0b9288f351dae7d77922612
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230953"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241485"
 ---
 # <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Didacticiel : Mettre des applications à l’échelle dans Azure App Service avec Ansible
 
@@ -84,13 +84,13 @@ Enregistrez le playbook suivant en tant que `webapp_scaleup.yml` :
       var: facts.appserviceplans[0].sku
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-Le playbook devrait alors donner une sortie de ce type :
+Après avoir exécuté le playbook, vous voyez une sortie similaire aux résultats suivants :
 
 ```Output
 PLAY [localhost] 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088476"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Public
 
@@ -120,8 +120,10 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Public, eff
 
     d. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.topdesk.net`.
 
-    e. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.topdesk.net/tas/public/login/verify`
-
+    e. Dans la zone de texte **URL d’identificateur**, renseignez l’URL des métadonnées TOPdesk que vous pouvez récupérer à partir de la configuration TOPdesk. Elle doit utiliser le modèle suivant : `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    
+    f. Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<companyname>.topdesk.net/tas/public/login/verify`
+    
     > [!NOTE] 
     > Si les valeurs **Identificateur** et **URL de réponse** ne sont pas renseignées automatiquement, vous devez les entrer manuellement. Pour Identificateur, suivez le modèle comme indiqué ci-dessus, et vous obtenez la valeur URL de réponse à partir de la section **Configurer l’authentification unique TOPdesk - Public** plus loin dans le tutoriel. La valeur **URL de connexion** n’est pas réelle. Vous devez donc la mettre à jour avec l’URL de connexion réelle. Contactez l’[équipe de support technique TOPdesk - Public](https://help.topdesk.com/saas/enterprise/user/) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 

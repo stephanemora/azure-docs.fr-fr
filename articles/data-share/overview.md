@@ -1,17 +1,17 @@
 ---
 title: Présentation d’Azure Data Share (préversion)
-description: Présentation de la préversion d’Azure Data Share
+description: Découvrez comment partager de façon simple et sécurisée des données avec plusieurs clients et partenaires à l’aide de la préversion d’Azure Data Share.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 6ba6e9df7b3fd2992891f4b085581c51fe900744
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421386"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169072"
 ---
 # <a name="what-is-azure-data-share-preview"></a>En quoi consiste Azure Data Share (préversion) ?
 

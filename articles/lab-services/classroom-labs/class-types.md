@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: c6a424ed6036016839f03f50f90ad5d911b05fad
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 0e8b203240b4b2d6b67534ab52a7cd4ccf5df571
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709997"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976595"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Vue d’ensemble des types de classes - Azure Lab Services
 Azure Lab Services vous permet de configurer rapidement un environnement lab de salle de classe dans le cloud. Les articles de cette section fournissent des conseils sur la configuration de plusieurs types de laboratoires de classe à l’aide d’Azure Lab Services.
@@ -34,6 +34,13 @@ Vous pouvez configurer un laboratoire pour enseigner la création de scripts she
 Les étudiants qui suivent ces classes d’écriture de script entraînent une machine virtuelle Linux à apprendre les bases de Linux, et se familiarisent avec les scripts d’interpréteur de commandes bash. La machine virtuelle Linux est fournie avec un accès au Bureau à distance. En outre, les éditeurs de texte [gedit](https://help.gnome.org/users/gedit/stable/) et [Visual Studio Code](https://code.visualstudio.com/) y sont installés.
 
 Pour plus d’informations sur la configuration de ce type de laboratoire, consultez [Scripts shell sur Linux](class-type-shell-scripting-linux.md).
+
+## <a name="ethical-hacking"></a>Piratage éthique 
+Vous pouvez configurer un labo de classe qui se concentre sur l’analyse forensique du piratage éthique. Des tests d’intrusion, une pratique utilisée par la communauté de piratage éthique, sont effectués quand quelqu’un tente d’accéder au système ou au réseau pour détecter les vulnérabilités qu’un attaquant malveillant pourrait exploiter. 
+
+Dans une classe sur le piratage éthique, les étudiants apprennent les techniques modernes de défense face aux vulnérabilités. Chaque étudiant a accès à une machine virtuelle hôte Windows Server qui a deux machines virtuelles imbriquées : une machine virtuelle avec une image **Metaspoiltable** et une autre machine avec une image [Kali Linux](https://www.kali.org/). La machine virtuelle Metasploitable est utilisée pour les besoins de fonctionnement, et la machine virtuelle Kali sert à accéder aux outils nécessaires pour exécuter les tâches forensiques.
+
+Pour plus d’informations sur la configuration de ce type de labo, consultez [Configurer un labo de classe sur le piratage éthique](class-type-ethical-hacking.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants : 

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Déployer le modèle de solution Ansible pour Azure sur CentOS | Microsoft Docs'
+title: Démarrage rapide - Déployer le modèle de solution Ansible pour Azure sur CentOS
 description: Dans ce guide de démarrage rapide, découvrez comment déployer le modèle de solution Ansible sur une machine virtuelle CentOS hébergée dans Azure, ainsi que les outils configurés pour fonctionner avec Azure.
 keywords: ansible, azure, devops, modèle de solution, machine virtuelle, identités managées pour ressources azure, centos, red hat
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 58f28d5cf7d31a3fbddc8e1ca18be4dbcf617f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231002"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241714"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Démarrage rapide : Déployer le modèle de solution Ansible pour Azure sur CentOS
 
@@ -35,7 +35,7 @@ Le modèle de solution Ansible pour Azure est conçu pour la configuration d’u
 
 1. Une fenêtre s’affiche avec les conditions d’utilisation, la politique de confidentialité ainsi que les conditions d’utilisation de la Place de marché Azure. Sélectionnez **Continuer**.
 
-1. Le portail Azure s’ouvre et affiche la page Ansible qui décrit le modèle de solution. Sélectionnez **Créer**.
+1. Le portail Azure s’ouvre et affiche la page Ansible qui décrit le modèle de solution. Sélectionnez **Create** (Créer).
 
 1. Dans la page **Créer**, vous voyez plusieurs onglets. Sous l’onglet **De base**, entrez les informations nécessaires :
 

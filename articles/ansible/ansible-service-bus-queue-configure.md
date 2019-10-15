@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer des files d’attente dans Azure Service Bus à l’aide d’Ansible | Microsoft Docs'
+title: 'Tutoriel : Configurer des files d’attente dans Azure Service Bus à l’aide d’Ansible'
 description: Découvrez comment créer une file d’attente Azure Service Bus à l’aide d’Ansible.
 keywords: ansible, azure, devops, bash, playbook, service bus, file d’attente
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 6efc11106fae18beac43ab1896733ab6bfc64dad
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a48796c2177a8b5b818553bf8aa0ff36f712d4e0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230774"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241391"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Didacticiel : Configurer des files d’attente dans Azure Service Bus à l’aide d’Ansible
 
@@ -72,17 +72,17 @@ Enregistrez le playbook suivant en tant que `servicebus_queue.yml` :
           var: queue
 ```
 
-Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_queue.yml
 ```
 
-## <a name="create-the-sas-policy"></a>Créer la stratégie SAS
+## <a name="create-the-sas-policy"></a>Créer la stratégie SAP
 
-Une [signature d’accès partagé (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) est un mécanisme d’autorisation reposant sur des revendications et utilisant des jetons. 
+Une [signature d’accès partagé (SAP)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) est un mécanisme d’autorisation basée sur les revendications qui utilise des jetons. 
 
-L’exemple de code de playbook crée deux stratégies SAS pour une file d’attente Service Bus avec des privilèges différents.
+Le code de l’exemple de playbook crée deux stratégies SAP pour une file d’attente Service Bus avec différents privilèges.
 
 Enregistrez le playbook suivant en tant que `servicebus_queue_policy.yml` :
 
@@ -115,9 +115,9 @@ Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 ansible-playbook servicebus_queue_policy.yml
 ```
 
-## <a name="retrieve-namespace-information"></a>Récupérer des informations d’espace de noms
+## <a name="retrieve-namespace-information"></a>Récupérer les informations de l’espace de noms
 
-L’exemple de code de playbook interroge les informations d’espace de noms.
+Le code de l’exemple de playbook demande les informations de l’espace de noms.
 
 Enregistrez le playbook suivant en tant que `servicebus_namespace_info.yml` :
 
@@ -139,8 +139,8 @@ Enregistrez le playbook suivant en tant que `servicebus_namespace_info.yml` :
           var: ns
 ```
 
-Avant d’exécuter le playbook, reportez-vous aux notes suivantes :
-- La valeur `show_sas_policies` indique s’il faut afficher les stratégies de signature d’accès partagé sous l’espace de noms spécifié. Par défaut, la valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
+Avant d’exécuter le playbook, consultez les notes suivantes :
+- La valeur `show_sas_policies` indique s’il faut afficher les stratégies SAP sous l’espace de noms spécifié. Par défaut, la valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
 
 Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
@@ -174,18 +174,18 @@ Enregistrez le playbook suivant en tant que `servicebus_queue_info.yml` :
           var: queue
 ```
 
-Avant d’exécuter le playbook, reportez-vous aux notes suivantes :
-- La valeur `show_sas_policies` indique s’il faut afficher les stratégies de signature d’accès partagé sous la file d’attente spécifiée. Par défaut, cette valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
+Avant d’exécuter le playbook, consultez les notes suivantes :
+- La valeur `show_sas_policies` indique s’il faut afficher les stratégies SAP sous la file d’attente spécifiée. Par défaut, cette valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
 
-Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_queue_info.yml
 ```
 
-## <a name="revoke-the-queue-sas-policy"></a>Révoquer la stratégie SAS de file d’attente
+## <a name="revoke-the-queue-sas-policy"></a>Révoquer la stratégie SAP de file d’attente
 
-L’exemple de code de playbook supprime une stratégie SAS de file d’attente.
+Le code de l’exemple de playbook supprime une stratégie SAP de file d’attente.
 
 Enregistrez le playbook suivant en tant que `servicebus_queue_policy_delete.yml` :
 
@@ -206,7 +206,7 @@ Enregistrez le playbook suivant en tant que `servicebus_queue_policy_delete.yml`
           state: absent
 ```
 
-Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_queue_policy_delete.yml
@@ -214,9 +214,9 @@ ansible-playbook servicebus_queue_policy_delete.yml
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
-Enregistrez le code suivant sous le nom `cleanup.yml` :
+Enregistrez le code suivant en tant que `cleanup.yml` :
 
 ```yml
 ---

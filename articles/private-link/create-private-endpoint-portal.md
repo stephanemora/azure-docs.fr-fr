@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687050"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030310"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Créer un point de terminaison privé au moyen du portail Azure
 
@@ -135,7 +135,7 @@ Dans cette section, vous allez créer un serveur de base de données SQL dans Az
 Dans cette section, vous allez créer un serveur SQL Server et lui ajouter un point de terminaison privé. 
 
 1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Centre de liaisons privées (préversion)** .
-2. Dans  **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de  **générer une connexion privée à un service**, sélectionnez  **Démarrer**.
+2. Dans **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de **générer une connexion privée à un service**, sélectionnez **Démarrer**.
 1. Dans **Créer un point de terminaison privé (préversion) - Concepts de base**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |

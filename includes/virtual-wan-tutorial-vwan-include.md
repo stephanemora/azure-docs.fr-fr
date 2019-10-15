@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/27/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c1f83303c3f186b37c1c5c06e61c2263420c0cfa
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176966"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028053"
 ---
-1. Accédez à la page WAN Virtuel. Un moyen d’accéder à cette page est d’aller dans **Tous les services**, puis de rechercher WAN virtuel.
-1. Cliquez sur **+Ajouter** pour ouvrir la page **Créer un WAN**.
+1. Accédez à la page WAN Virtuel. Dans le portail, cliquez sur **+Créer une ressource**. Tapez **WAN virtuel** dans la zone de recherche et sélectionnez Entrée.
+1. Sélectionnez **WAN virtuel** dans les résultats. Dans la page WAN virtuel, cliquez sur **Créer**.
 1. Dans la page **Créer un WAN**, renseignez les champs suivants :
 
-   * **Nom** : sélectionnez le nom que vous souhaitez donner à votre réseau étendu.
+   * **Nom** : tapez le nom que vous souhaitez donner à votre réseau étendu.
    * **Abonnement** : sélectionnez l’abonnement que vous voulez utiliser.
    * **Groupe de ressources** : Créer en un nouveau ou utiliser un qui existe déjà.
    * **Emplacement de la ressource** : choisissez un emplacement de la ressource dans la liste déroulante. Un réseau étendu est une ressource globale et ne réside pas dans une région particulière. Toutefois, vous devez sélectionner une région afin de gérer et de localiser plus facilement la ressource de réseau étendu que vous créez.

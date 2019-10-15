@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Mise à l’échelle automatique de groupes de machines virtuelles identiques dans Azure à l’aide d’Ansible | Microsoft Docs'
+title: 'Tutoriel : Mettre à l’échelle automatiquement des groupes identiques de machines virtuelles dans Azure à l’aide d’Ansible'
 description: Découvrez comment utiliser Ansible pour mettre automatiquement à l’échelle des groupes de machines virtuelles identiques dans Azure
 keywords: ansible, azure, devops, bash, playbook, mise à l’échelle, mise à l’échelle automatique, machine virtuelle, groupe de machines virtuelles identiques, vmss
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 4f2cd66b7460fc6fe48cb55f45bf4bc309ae054c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 784cb532c11b16c820336ceeaf8d38f0225c832f
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231266"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242106"
 ---
 # <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Didacticiel : Mise à l’échelle automatique de groupes de machines virtuelles identiques dans Azure à l’aide d’Ansible
 

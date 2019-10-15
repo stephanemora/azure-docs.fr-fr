@@ -6,16 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8677d906375853bdde5c192c86dacc7479f2e31e
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67311203"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170227"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio
 
-Avec Visual Studio, vous pouvez créer un projet qui déploie votre infrastructure et votre code sur Azure. Par exemple, vous pouvez déployer l’hôte web, le site web et le code pour le site web. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants. Dans cet article, vous déployez une application web.  
+Avec Visual Studio, vous pouvez créer un projet qui déploie votre infrastructure et votre code sur Azure. Par exemple, vous pouvez déployer l’hôte web, le site web et le code pour le site web. Visual Studio fournit de nombreux modèles de démarrage différents pour déployer des scénarios courants. Dans cet article, vous déployez une application web.
 
 Cet article explique comment utiliser [Visual Studio 2019 ou ultérieur avec les charges de travail Développement Azure et ASP.NET installées](/visualstudio/install/install-visual-studio?view=vs-2019). Si vous utilisez Visual Studio 2017, votre expérience sera en grande partie la même.
 
@@ -205,13 +205,13 @@ Vérifions les résultats.
 
     ![Ajouter une ressource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 
-1. Cette fois-ci, sélectionnez **Web Deploy pour les applications Web**. 
+1. Cette fois-ci, sélectionnez **Web Deploy pour les applications Web**.
 
     ![Ajouter un déploiement web](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 
    Enregistrez votre modèle.
 
-1. Il y a de nouveaux paramètres dans votre modèle. Ils ont été ajoutés à l’étape précédente. Vous n’avez pas besoin de fournir des valeurs pour **_artifactsLocation** ou **_artifactsLocationSasToken**, car ces valeurs sont générées automatiquement. Cependant, vous devez définir le dossier et le nom du fichier sur le chemin qui contient le package de déploiement. Les noms de ces paramètres se terminent par **PackageFolder** et **PackageFileName**. La première partie du nom est le nom de la ressource Web Deploy que vous avez ajoutée. Dans cet article, ils sont nommés **ExampleAppPackageFolder** et **ExampleAppPackageFileName**. 
+1. Il y a de nouveaux paramètres dans votre modèle. Ils ont été ajoutés à l’étape précédente. Vous n’avez pas besoin de fournir des valeurs pour **_artifactsLocation** ou **_artifactsLocationSasToken**, car ces valeurs sont générées automatiquement. Cependant, vous devez définir le dossier et le nom du fichier sur le chemin qui contient le package de déploiement. Les noms de ces paramètres se terminent par **PackageFolder** et **PackageFileName**. La première partie du nom est le nom de la ressource Web Deploy que vous avez ajoutée. Dans cet article, ils sont nommés **ExampleAppPackageFolder** et **ExampleAppPackageFileName**.
 
    Ouvrez **Website.parameters.json** et définissez ces paramètres sur les valeurs que vous avez vues dans les propriétés de référence. Définissez **ExampleAppPackageFolder** sur le nom du dossier. Définissez **ExampleAppPackageFileName** sur le nom du fichier zip.
 
@@ -386,7 +386,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez découvert comment créer et déployer des modèles avec Visual Studio. Le didacticiel suivant vous montre comment rechercher les informations à partir des références de modèle pour pouvoir créer un compte de stockage Azure chiffré.
+Dans ce guide de démarrage rapide, vous avez découvert comment créer et déployer des modèles avec Visual Studio. Pour en savoir plus sur le développement de modèles, consultez notre nouvelle série de tutoriels pour les débutants :
 
 > [!div class="nextstepaction"]
-> [Créer un compte de stockage chiffré](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Tutoriels pour les débutants](./template-tutorial-create-first-template.md)
