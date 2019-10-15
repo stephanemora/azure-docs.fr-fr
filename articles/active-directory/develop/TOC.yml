@@ -553,7 +553,7 @@
         - name: Authentication
           items:
             - name: Principes fondamentaux de l’authentification
-              href: authentication-scenarios.md
+              href: v1-authentication-scenarios.md
             - name: "Protocoles OAuth\_2.0 et OpenID\_Connect"
               items:
                 - name: OpenID Connect
