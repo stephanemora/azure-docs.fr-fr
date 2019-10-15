@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 192374971e92bae282c5092dd8c5e7261fce0c5f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 2673d0d2c1cb174316e99a79a10a67347e2bc031
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066368"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001353"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Didacticiel : Ajouter un appareil réel à votre application Azure IoT Central
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-Ce didacticiel vous indique comment ajouter et configurer un appareil réel dans votre application Microsoft Azure IoT Central.
+Ce tutoriel vous indique comment ajouter et configurer un *appareil réel* dans votre application Microsoft Azure IoT Central. Dans ce tutoriel, vous codez l’appareil réel à l’aide de Node.js, puis exécutez le code sur un ordinateur de bureau. Vous n’avez pas besoin d’un appareil IoT distinct, tel qu’un appareil Raspberry Pi ou MXChip IoT DevKit pour suivre ce tutoriel.
 
 Le didacticiel se déroule en deux parties :
 
@@ -52,11 +52,11 @@ Pour ajouter un appareil réel à votre application, vous utilisez le modèle d�
 
    L’outil **Device Explorer** affiche le modèle d’appareil **Climatiseur connecté** et un appareil simulé. Quand vous créez un modèle d’appareil, IoT Central crée automatiquement un appareil simulé.
 
-2. Pour démarrer la connexion d’un climatiseur connecté réel, sélectionnez **+Nouveau**, puis **Réel** :
+2. Notez que le modèle d’appareil **Climatiseur connecté** est celui qui est sélectionné dans l’**Explorateur d’appareils**. Pour démarrer la connexion d’un climatiseur réel qui utilise ce modèle, sélectionnez **+** , puis **Réel** :
 
    ![Début de l’ajout d’un nouveau climatiseur connecté réel](media/tutorial-add-device/newreal.png)
 
-3. Entrez l’ID d’appareil (doit être en minuscules) ou utilisez l’ID d’appareil suggéré. Vous pouvez également entrer le nom de votre nouvel appareil et choisir **Créer**.
+3. Entrez votre propre **ID d’appareil** (doit être en minuscules) ou utilisez la valeur suggérée. Vous pouvez également renseigner **Nom de l’appareil** pour votre nouvel appareil et choisir **Créer**.
 
    ![Changement du nom de l’appareil](media/tutorial-add-device/rename.png)
 
@@ -76,9 +76,9 @@ L’appareil réel est créé à partir du modèle d’appareil **Climatiseur co
 
 ## <a name="prepare-the-client-code"></a>Préparer le code client
 
-L’exemple de code fourni dans cet article est écrit en [Node.js](https://nodejs.org/) et présente assez de code pour :
+L’exemple de code fourni dans cet article est écrit en [Node.js](https://nodejs.org/) et présente assez de code pour un appareil pour :
 
-* se connecter en tant qu’appareil à votre application Azure IoT Central ;
+* vous connecter à votre application Azure IoT Central ;
 * envoyer les données de télémétrie de température en tant que climatiseur connecté ;
 * envoyer des propriétés d’appareil à votre application Azure IoT Central ;
 * répondre à un opérateur qui utilise le paramètre **Température réglée**.
@@ -96,7 +96,7 @@ La procédure ci-après vous indique comment préparer l’exemple [Node.js](htt
 
    ![Page Appareil affichant le lien d’accès aux informations de connexion](media/tutorial-add-device/connectionlink.png)
 
-1. Dans la page Connexion de l’appareil, notez les valeurs des champs **ID de l’étendue**, **ID de l’appareil** et **Clé primaire**. Vous utiliserez ces valeurs plus tard dans ce tutoriel.
+1. Dans la page **Connexion de l’appareil**, notez les valeurs des champs **ID de l’étendue**, **ID de l’appareil** et **Clé primaire**. Vous utiliserez ces valeurs plus tard dans ce tutoriel.
 
    ![Informations de connexion](media/tutorial-add-device/device-connect.png)
 
@@ -139,7 +139,7 @@ La procédure ci-après vous indique comment préparer l’exemple [Node.js](htt
     var provisioningHost = 'global.azure-devices-provisioning.net';
     var idScope = '{your Scope ID}';
     var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key};
+    var symmetricKey = '{your Primary Key}';
     var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
     var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
     var hubClient;
@@ -150,7 +150,7 @@ La procédure ci-après vous indique comment préparer l’exemple [Node.js](htt
 
 ## <a name="review-client-code"></a>Passer en revue le code client
 
-À la section précédente, vous avez créé un projet Node.js squelette pour une application qui se connecte à votre application Azure IoT Central. L’étape suivante consiste à ajouter du code pour :
+À la section précédente, vous avez créé un projet Node.js squelette pour une application d’appareil qui se connecte à votre application Azure IoT Central. L’étape suivante consiste à ajouter du code pour :
 
 * vous connecter à votre application Azure IoT Central ;
 * envoyer des données de télémétrie à votre application Azure IoT Central ;

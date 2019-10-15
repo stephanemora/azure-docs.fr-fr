@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le service Vision personnalisée d’Azure ?
+title: Qu’est-ce que Custom Vision ?
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser le service Vision personnalisée pour créer des classifieurs d’images personnalisés dans le cloud Azure.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e455a42945ba4d6ce334d557b7390c3c50e7ff9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560962"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177830"
 ---
-# <a name="what-is-azure-custom-vision"></a>Qu’est-ce que le service Vision personnalisée d’Azure ?
+# <a name="what-is-custom-vision"></a>Qu’est-ce que Custom Vision ?
 
-Azure Custom Vision est un service cognitif qui vous permet de créer, de déployer et d’améliorer vos propres classifieurs d’images. Un classifieur d’images est un service d’intelligence artificielle qui applique des étiquettes (représentant des _classes_) à des images en fonction de leurs caractéristiques visuelles. Contrairement au service [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), le service Custom Vision vous permet de déterminer les étiquettes à appliquer.
+Custom Vision est un service cognitif qui vous permet de créer, de déployer et d’améliorer vos propres classifieurs d’images. Un classifieur d’images est un service d’intelligence artificielle qui applique des étiquettes (représentant des _classes_) à des images en fonction de leurs caractéristiques visuelles. Contrairement au service [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), le service Custom Vision vous permet de déterminer les étiquettes à appliquer.
 
 ## <a name="what-it-does"></a>Résultat
 

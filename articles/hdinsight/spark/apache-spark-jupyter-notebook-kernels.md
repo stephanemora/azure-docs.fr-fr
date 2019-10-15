@@ -34,7 +34,7 @@ Un cluster Apache Spark dans HDInsight. Pour obtenir des instructions, consulte
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre projet Spark.  Pour obtenir des instructions, consultez la page [Énumération et affichage des clusters](../hdinsight-administer-use-portal-linux.md#showClusters). La page **Vue d’ensemble** s’ouvre.
 
-2. Dans la zone **Tableaux de bord du cluster** de la page **Vue d’ensemble**, sélectionnez **	Jupyter Notebook**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
+2. Dans la zone **Tableaux de bord du cluster** de la page **Vue d’ensemble**, sélectionnez **Jupyter Notebook**. Si vous y êtes invité, entrez les informations d’identification d’administrateur pour le cluster.
 
     ![Notebook Jupyter sur Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Notebook Jupyter sur Spark")
   

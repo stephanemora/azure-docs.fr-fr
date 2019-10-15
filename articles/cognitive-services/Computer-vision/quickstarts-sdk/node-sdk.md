@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: fdf2b132b5d07b2b12c679cb436968c6fb19887e
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: a51a8e02ec08b9a4ee353c2c45345c4d01246894
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719506"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981828"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Démarrage rapide : Bibliothèque de client Vision par ordinateur pour Node.js
 
@@ -228,7 +228,7 @@ Vision par ordinateur peut lire du texte visible dans une image et le convertir 
 
 ### <a name="set-up-test-images"></a>Configurer des images de test
 
-Enregistrez une référence à l’URL des images dont vous souhaitez extraire du texte.
+Enregistrez une référence à l’URL des images à partir desquelles vous souhaitez extraire du texte.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 

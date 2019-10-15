@@ -1,6 +1,6 @@
 ---
 title: Didacticiel sur Azure Security Center - Protéger vos ressources avec Azure Security Center | Microsoft Docs
-description: Ce didacticiel décrit comment configurer une stratégie d’accès juste-à-temps aux machines virtuelles et une stratégie de contrôle d’applications.
+description: Ce tutoriel montre comment configurer une stratégie d’accès juste-à-temps aux machines virtuelles et une stratégie de contrôle d’applications.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 28da3933cf1f1970758fcaec1358c9c16558af03
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200665"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996328"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Didacticiel : Protéger vos ressources avec Azure Security Center
 Security Center limite votre exposition aux menaces en utilisant des contrôles d’accès et d’applications pour bloquer les activités malveillantes. L’accès juste-à-temps (JIT) aux machines virtuelles réduit votre exposition aux attaques en vous permettant de refuser l’accès persistant aux machines virtuelles. À la place, vous fournissez un accès contrôlé et audité aux machines virtuelles uniquement en cas de besoin. Les contrôles d’applications adaptatifs permettent de renforcer la protection contre les logiciels malveillants en contrôlant les applications qui peuvent s’exécuter sur les machines virtuelles. Security Center utilise le machine learning pour analyser les processus en cours d’exécution sur la machine virtuelle et exploite ces informations pour vous aider à appliquer les règles de mise en liste verte.
@@ -38,25 +38,25 @@ Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez av
 ## <a name="manage-vm-access"></a>Gérer l’accès aux machines virtuelles
 L’accès JIT aux machines virtuelles peut être utilisé pour verrouiller le trafic entrant vers vos machines virtuelles Azure, réduire l’exposition aux attaques et faciliter la connexion aux machines virtuelles si nécessaire.
 
-Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent uniquement être ouverts lorsque vous êtes connecté à la machine virtuelle, par exemple pour effectuer des tâches de maintenance ou de gestion. Quand la fonctionnalité juste-à-temps est activée, Security Center utilise des règles de groupe de sécurité réseau qui limitent l’accès aux ports de gestion pour qu’ils ne soient pas la cible d’attaquants.
+Les ports de gestion n’ont pas besoin d’être toujours ouverts. Ils doivent uniquement être ouverts lorsque vous êtes connecté à la machine virtuelle, par exemple pour effectuer des tâches de maintenance ou de gestion. Quand la fonctionnalité juste-à-temps est activée, Security Center utilise des règles de groupe de sécurité réseau (NSG) qui limitent l’accès aux ports de gestion pour qu’ils ne soient pas la cible d’attaquants.
 
-1. Dans le menu principal de Security Center, sélectionnez **Accès juste-à-temps aux machines virtuelles** sous **DÉFENSE DE CLOUD AVANCÉE**.
+1. Dans le menu principal de Security Center, sélectionnez **Accès juste-à-temps à la machine virtuelle** sous **DÉFENSE DE CLOUD AVANCÉE**.
 
    ![Accès juste-à-temps aux machines virtuelles][1]
 
-   La section **Accès juste-à-temps aux machines virtuelles** fournit des informations sur l’état de vos machines virtuelles :
+   La section **Accès juste-à-temps à la machine virtuelle** fournit des informations sur l’état de vos machines virtuelles :
 
-   - **Configuré** : machines virtuelles configurées pour prendre en charge l’accès Juste à temps à la machine virtuelle.
-   - **Recommandé** : machines virtuelles qui peuvent prendre en charge l’accès Juste à temps à la machine virtuelle, mais n’ont pas été configurées dans cette optique.
+   - **Configuré** : machines virtuelles configurées pour prendre en charge l’accès juste-à-temps à la machine virtuelle.
+   - **Recommandé** : machines virtuelles qui peuvent prendre en charge l’accès juste-à-temps à la machine virtuelle, mais qui n’ont pas été configurées dans cette optique.
    - **Aucune recommandation** : voici les raisons pour lesquelles une machine virtuelle peut ne pas être recommandée :
 
-     - Groupe de sécurité réseau manquant : la solution Juste à temps nécessite la présence d’un groupe de sécurité réseau.
-     - Machine virtuelle classique : l’accès Juste à temps à la machine virtuelle Security Center prend en charge uniquement les machines virtuelles déployées par le biais d’Azure Resource Manager.
-     - Autre : catégorie d’une machine virtuelle si la solution Juste à temps est désactivée dans la stratégie de sécurité de l’abonnement ou du groupe de ressources, ou si la machine virtuelle ne dispose pas d’une adresse IP publique ni d’un groupe de sécurité réseau.
+     - Groupe de sécurité réseau manquant : la solution juste-à-temps nécessite la présence d’un groupe de sécurité réseau.
+     - Machine virtuelle classique : l’accès juste-à-temps à la machine virtuelle Security Center prend en charge uniquement les machines virtuelles déployées par le biais d’Azure Resource Manager.
+     - Autre : catégorie d’une machine virtuelle si la solution juste-à-temps est désactivée dans la stratégie de sécurité de l’abonnement ou du groupe de ressources, ou si la machine virtuelle ne dispose pas d’une adresse IP publique ni d’un groupe de sécurité réseau.
 
-2. Sélectionnez une machine virtuelle recommandée et cliquez sur **Activer juste-à-temps sur 1 machine virtuelle** pour configurer une stratégie juste-à-temps pour cette machine virtuelle :
+2. Sélectionnez une machine virtuelle recommandée et cliquez sur **Activer juste-à-temps sur 1 machine virtuelle** pour configurer une stratégie juste-à-temps pour cette machine virtuelle :
 
-   Vous pouvez enregistrer les ports par défaut que vous recommande Security Center, ou vous pouvez ajouter et configurer un nouveau port sur lequel activer la solution juste-à-temps. Dans ce didacticiel, nous ajoutons un port en sélectionnant **Ajouter**.
+   Vous pouvez enregistrer les ports par défaut que vous recommande Security Center ou ajouter et configurer un nouveau port sur lequel activer la solution juste-à-temps. Dans ce didacticiel, nous ajoutons un port en sélectionnant **Ajouter**.
 
    ![Ajouter la configuration du port][2]
 

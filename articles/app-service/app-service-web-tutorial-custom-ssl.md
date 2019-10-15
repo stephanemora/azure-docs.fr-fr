@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 32e6311a8796e708119f3e1df813b6ebb2ed0673
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: c5095bc8c274ef0985b00459b0d088371ab24d88
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743005"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177048"
 ---
 # <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Didacticiel : Charger et lier un certificat SSL dans Azure App Service
 
@@ -214,7 +214,7 @@ Une fois l’opération terminée, votre application rejette toutes les connexio
 
 Vous pouvez automatiser les liaisons SSL de votre application à l’aide de scripts, en utilisant [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/overview).
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 La commande suivante charge un fichier PFX exporté et obtient l’empreinte.
 
@@ -233,9 +233,18 @@ La commande suivante ajoute une liaison SSL basée sur SNI à l’aide de l’em
 ```azurecli-interactive
 az webapp config ssl bind \
     --name <app-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
     --certificate-thumbprint $thumbprint \
     --ssl-type SNI \
+```
+
+La commande suivante force l’application à utiliser le protocole HTTPS.
+
+```azurecli-interactive
+az webapp update \
+    --name <app-name> \
+    --resource-group <resource-group-name> \
+    --https-only true
 ```
 
 La commande suivante met en œuvre la version minimale de TLS 1.2.
@@ -243,7 +252,7 @@ La commande suivante met en œuvre la version minimale de TLS 1.2.
 ```azurecli-interactive
 az webapp config set \
     --name <app-name> \
-    --resource-group <resource-group-name>
+    --resource-group <resource-group-name> \
     --min-tls-version 1.2
 ```
 
