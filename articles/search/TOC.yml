@@ -169,7 +169,7 @@
           href: search-howto-complex-data-types.md
         - name: Modèle de données relationnelles
           href: index-sql-relational-data.md
-    - name: Charger des données
+    - name: Indexation des données
       items:
         - name: Vue d’ensemble de l’importation des données
           href: search-what-is-data-import.md
@@ -181,7 +181,21 @@
           href: search-howto-large-index.md
         - name: Gérer des mises à jour simultanées
           href: search-howto-concurrency.md
-    - name: Charger des données avec des indexeurs
+    - name: Indexation des données Blob Azure
+      items:
+        - name: Utiliser l’IA avec les données blob
+          href: search-blob-ai-integration.md
+        - name: Ajouter la recherche en texte intégral
+          href: search-blob-storage-integration.md
+        - name: Configurer un indexeur d’objets blob
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: Indexer des objets blob de type un-à-plusieurs
+          href: search-howto-index-one-to-many-blobs.md
+        - name: Indexer des objets blob CSV
+          href: search-howto-index-csv-blobs.md
+        - name: Indexer des objets blob JSON
+          href: search-howto-index-json-blobs.md
+    - name: "Indexation avec des «\_indexeurs\_»"
       items:
         - name: Présentation des indexeurs
           href: search-indexer-overview.md
@@ -191,16 +205,6 @@
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
         - name: "Indexeur Azure Cosmos\_DB"
           href: search-howto-index-cosmosdb.md
-        - name: Indexeur Stockage Blob Azure
-          items:
-            - name: Configurer un indexeur d’objets blob
-              href: search-howto-indexing-azure-blob-storage.md
-            - name: Indexer des objets blob de type un-à-plusieurs
-              href: search-howto-index-one-to-many-blobs.md
-            - name: Indexer des objets blob CSV
-              href: search-howto-index-csv-blobs.md
-            - name: Indexer des objets blob JSON
-              href: search-howto-index-json-blobs.md
         - name: Planifier des indexeurs
           href: search-howto-schedule-indexers.md
         - name: Mapper des champs

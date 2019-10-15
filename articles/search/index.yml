@@ -11,12 +11,12 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 09/20/2019
-  ms.openlocfilehash: 9c89fa143ad5e7fb2c4ba9c227682d14aa511bd9
-  ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+  ms.openlocfilehash: ece327a4155e0336de97b95ffa0a58a1d48097da
+  ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/25/2019
-  ms.locfileid: "71265641"
+  ms.lasthandoff: 10/14/2019
+  ms.locfileid: "72302723"
 landingContent:
 - title: En savoir plus sur Recherche Azure
   linkLists:
@@ -46,6 +46,20 @@ landingContent:
     links:
     - text: Présentation de la Recherche Azure
       url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
+- title: Utiliser avec le stockage Blob
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Utiliser l’IA pour comprendre les données blob
+      url: search-blob-ai-integration.md
+    - text: Ajouter la recherche en texte intégral aux données blob
+      url: search-blob-storage-integration.md
+    - text: Stocker les enrichissements de l’IA
+      url: knowledge-store-create-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Indexer les données blob semi-structurées
+      url: search-semi-structured-data.md
 - title: Indexer vos données
   linkLists:
   - linkListType: concept
