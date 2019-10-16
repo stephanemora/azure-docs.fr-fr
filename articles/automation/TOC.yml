@@ -148,6 +148,8 @@
           href: automation-onboard-solutions-from-automation-account.md
     - name: Guides pratiques
       items:
+        - name: Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
+          href: automation-tutorial-update-management.md
         - name: Gérer les mises à jour pour plusieurs machines virtuelles
           href: manage-update-multi.md
         - name: Pré et post-scripts
@@ -157,6 +159,14 @@
         - name: Intégrer SCCM avec Update Management
           href: oms-solution-updatemgmt-sccmintegration.md
           displayName: Configuration Manager
+        - name: Configurer Windows Update pour Update Management
+          href: automation-configure-windows-update.md
+        - name: Utiliser des groupes dynamiques avec Update Management
+          href: automation-update-management-groups.md
+        - name: Interroger les journaux Update Management
+          href: automation-update-management-query-logs.md
+        - name: Voir les évaluations des mises à jour
+          href: automation-view-update-assessments.md
     - name: Résolution des problèmes
       items:
         - name: Mise en route
@@ -300,14 +310,18 @@
       href: automation-connections.md
     - name: Informations d'identification
       href: automation-credentials.md
-    - name: Modules
-      href: automation-integration-modules.md
+    - name: Modules PowerShell
+      items:
+        - name: Modules
+          href: automation-integration-modules.md
+        - name: Utilisation de modules Az dans Azure Automation
+          href: az-modules.md
+        - name: Mettre à jour les modules Azure PowerShell
+          href: automation-update-azure-modules.md
     - name: Planifications
       href: automation-schedules.md
     - name: variables
       href: automation-variables.md
-    - name: Mettre à jour les modules Azure PowerShell
-      href: automation-update-azure-modules.md
     - name: Gérer les packages Python 2
       href: python-packages.md
     - name: Résoudre les problèmes liés aux ressources partagées

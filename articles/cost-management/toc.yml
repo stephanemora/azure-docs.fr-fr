@@ -38,6 +38,10 @@
           href: aws-integration-set-up-configure.md
         - name: Gérer le coût et l’utilisation d’AWS
           href: aws-integration-manage.md
+        - name: Cost Management pour les partenaires
+          href: get-started-partners.md
+        - name: Se connecter avec Power BI Desktop
+          href: /power-bi/desktop-connect-azure-cost-management
     - name: Informations de référence
       items:
         - name: API REST d’Azure Cost Management

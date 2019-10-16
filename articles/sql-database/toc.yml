@@ -22,14 +22,13 @@
               href: sql-database-purchase-models.md
             - name: Modèle vCore
               href: sql-database-service-tiers-vcore.md
+              items:
+                - name: Niveau de calcul serverless
+                  href: sql-database-serverless.md
+                - name: Prépayer pour une capacité de réserve
+                  href: sql-database-reserved-capacity.md
             - name: Niveaux de service DTU
               href: sql-database-service-tiers-dtu.md
-            - name: Niveau de calcul serverless
-              href: sql-database-serverless.md
-            - name: Prépayer pour une capacité de réserve
-              href: sql-database-reserved-capacity.md
-            - name: Migrer à partir du niveau de service Premium RS
-              href: sql-database-service-tiers-prs.md
         - name: Capacité de calcul et stockage
           items:
             - name: Vue d'ensemble
@@ -43,6 +42,8 @@
               href: sql-database-service-tier-hyperscale.md
             - name: FAQ relatif à Hyperscale
               href: sql-database-service-tier-hyperscale-faq.md
+            - name: Migrer à partir du niveau de service Premium RS
+              href: sql-database-service-tiers-prs.md
 - name: Démarrages rapides
   expanded: true
   items:
@@ -224,6 +225,8 @@
               href: sql-database-disaster-recovery.md
             - name: Marche à suivre en cas de récupération
               href: sql-database-disaster-recovery-drills.md
+            - name: Configurer le groupe de basculement
+              href: sql-database-configure-failover-group.md
     - name: Surveiller et régler
       items:
         - name: Documentation sur la surveillance et le réglage
@@ -488,7 +491,7 @@
           href: sql-database-active-geo-replication-portal.md
         - name: Configurer Azure SQL Data Sync
           href: sql-database-get-started-sql-data-sync.md
-        - name: Ajouter un groupe de basculement à un pool élastique
+        - name: Ajouter un pool élastique à un groupe de basculement
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: Configurer la sécurité
           href: sql-database-security-tutorial.md
@@ -604,8 +607,6 @@
           href: sql-database-geo-replication-portal.md
         - name: Configurer la sécurité pour les géo-réplicas
           href: sql-database-geo-replication-security-config.md
-        - name: Configurer le groupe de basculement
-          href: sql-database-configure-failover-group.md
         - name: Essayer les fonctionnalités en mémoire
           href: sql-database-in-memory-sample.md
         - name: Activer le réglage automatique
@@ -714,6 +715,8 @@
           href: replication-with-sql-database-managed-instance.md
         - name: Configurer la sécurité
           href: sql-database-managed-instance-aad-security-tutorial.md
+        - name: Ajouter une instance managée à un groupe de basculement
+          href: sql-database-managed-instance-failover-group-tutorial.md
     - name: Concepts
       items:
         - name: Informations de référence sur l’API de gestion

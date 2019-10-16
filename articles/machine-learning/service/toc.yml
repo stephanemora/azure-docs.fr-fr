@@ -96,6 +96,9 @@
     - name: Apprentissage approfondi
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
+    - name: Intégration Git
+      displayName: git github gitlab
+      href: concept-train-model-git-integration.md
 - name: Guides pratiques
   items:
     - name: Créer et gérer des espaces de travail

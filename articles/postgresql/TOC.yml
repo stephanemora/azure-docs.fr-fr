@@ -1,4 +1,4 @@
-- name: Base de données Azure pour les documents PostgreSQL
+- name: Documentation Azure DB pour PostgreSQL
   href: index.yml
 - name: Vue d'ensemble
   items:
@@ -103,7 +103,7 @@
           items:
             - name: Surveiller et régler
               href: concepts-monitoring.md
-            - name: Journaux d’activité du serveur
+            - name: Journaux d’activité
               href: concepts-server-logs.md
             - name: Journaux d’audit
               href: concepts-audit.md
@@ -207,7 +207,7 @@
               href: howto-auto-grow-storage-portal.md
             - name: D’Azure CLI
               href: howto-auto-grow-storage-cli.md
-        - name: Accéder aux journaux d’activité du serveur
+        - name: Accéder aux journaux
           items:
             - name: Portail Azure
               href: howto-configure-server-logs-in-portal.md

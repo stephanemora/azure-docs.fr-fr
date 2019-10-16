@@ -111,7 +111,9 @@
   items:
     - name: Time Series Insights
       items:
-        - name: Azure Time Series Insights en disponibilité générale
+        - name: Azure Time Series Insights
+          href: /rest/api/time-series-insights/index
+        - name: Accès aux données - Disponibilité générale
           href: /rest/api/time-series-insights/ga
           items:
             - name: Requête
@@ -123,17 +125,8 @@
                   href: /rest/api/time-series-insights/ga-query-syntax
             - name: API Données de référence
               href: /rest/api/time-series-insights/ga-reference-data-api
-        - name: Préversion d’Azure Time Series Insights
+        - name: Concepts d’accès aux données - Préversion
           href: /rest/api/time-series-insights/preview
-          items:
-            - name: Requête de série chronologique
-              href: /rest/api/time-series-insights/preview-query
-            - name: Modèle de série chronologique
-              href: /rest/api/time-series-insights/preview-model
-            - name: API Environnement Time Series
-              href: /rest/api/time-series-insights/preview-env
-            - name: Expression et syntaxe Time Series
-              href: /rest/api/time-series-insights/preview-tsx
     - name: Kit de développement logiciel (SDK) client
       items:
         - name: SDK client JavaScript
