@@ -211,12 +211,13 @@ Les appareils pris en charge par la gestion multivoie peuvent être automatiquem
         }
 
 ### <a name="step-2-configure-multipathing-for-storsimple-volumes"></a>Étape 2 : Configurer le multipathing pour les volumes StorSimple
-Par défaut, tous les appareils sont sur liste rouge dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste noire pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
+Par défaut, tous les appareils sont sur liste rouge dans le fichier multipath.conf et seront contournés. Vous devrez créer des exceptions de la liste rouge pour autoriser la gestion multivoie pour les volumes à partir des appareils StorSimple.
 
 1. Modifiez le fichier `/etc/mulitpath.conf` . Tapez :
    
     `vi /etc/multipath.conf`
-1. Recherchez la section blacklist_exceptions dans le fichier multipath.conf. Votre appareil StorSimple doit être répertorié comme une exception de la liste noire dans cette section. Vous pouvez supprimer les marques de commentaire des lignes appropriées dans ce fichier pour le modifier comme indiqué ci-dessous (utilisez uniquement le modèle spécifique de l’appareil que vous utilisez) :
+1. Recherchez la section blacklist_exceptions dans le fichier multipath.conf. Votre appareil StorSimple doit être répertorié comme une exception de la liste rouge
+dans cette section. Vous pouvez supprimer les marques de commentaire des lignes appropriées dans ce fichier pour le modifier comme indiqué ci-dessous (utilisez uniquement le modèle spécifique de l’appareil que vous utilisez) :
    
         blacklist_exceptions {
             device {

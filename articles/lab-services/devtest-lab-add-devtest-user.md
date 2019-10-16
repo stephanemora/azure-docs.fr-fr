@@ -45,7 +45,7 @@ Le tableau suivant décrit les actions pouvant être effectuées par les utilisa
 | **Tâches de base de machine virtuelle** | | | |
 | Ajouter et supprimer des images personnalisées |Non |OUI |OUI |
 | Ajouter, mettre à jour et supprimer des formules |OUI |OUI |OUI |
-| Images Place de marché Azure de liste blanche |Non |OUI |OUI |
+| Images Place de marché Azure de liste verte |Non |OUI |OUI |
 | **Tâches de machine virtuelle** | | | |
 | Créer des machines virtuelles |OUI |OUI |OUI |
 | Démarrer, arrêter et supprimer des machines virtuelles |Seules les machines virtuelles créées par l’utilisateur |OUI |OUI |

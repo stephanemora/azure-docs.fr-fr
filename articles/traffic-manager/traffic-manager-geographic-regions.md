@@ -41,7 +41,8 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - BG(Bulgarie)
 
-        - BY(Biélorussie)
+        - BY(Bélarus
+)
 
         - CH(Suisse)
 
@@ -95,7 +96,8 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - MC(Monaco)
 
-        - MD(Moldavie)
+        - MD(Moldova
+)
 
         - ME(Monténégro)
 
@@ -432,7 +434,8 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - LK(Sri Lanka)
 
-        - MM(Birmanie)
+        - MM(Burma
+)
 
         - MN(Mongolie)
 
@@ -486,7 +489,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - CM(Cameroun)
 
-        - CV(Cap-Vert)
+        - CV(Cabo Verde)
 
         - DJ(Djibouti)
 
@@ -600,7 +603,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - EC(Équateur)
 
-        - FK(Îles Falkland)
+        - FK(Îles Malouines)
 
         - GF(Guyane française)
 

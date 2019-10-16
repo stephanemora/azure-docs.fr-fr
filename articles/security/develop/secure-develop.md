@@ -48,15 +48,15 @@ Traitez toutes les entrées comme si elles n’étaient pas fiables pour protég
 
 Validez les entrées au début du flux de données pour vous assurer que seules des données correctement formatées pénètre le flux de travail. Vous ne voulez pas que des données incorrectes demeurent dans votre base de données ou déclenchent une défaillance dans un composant en aval.
 
-Établir une liste noire et une liste verte sont deux approches générales en matière de validation de la syntaxe des entrées :
+Établir une liste noire et une liste rouge sont deux approches générales en matière de validation de la syntaxe des entrées :
 
-  - La mise en liste noire tente de vérifier qu’une entrée utilisateur donnée ne contient pas de contenu « réputé malveillant ».
+  - La mise en liste rouge tente de vérifier qu’une entrée utilisateur donnée ne contient pas de contenu « réputé malveillant ».
 
   - La mise en liste verte tente de vérifier qu’une entrée utilisateur donnée correspond à un ensemble d’entrées « vérifiées ». La mise en liste verte basée sur les caractères est une forme de mise en liste verte où une application vérifie que la saisie de l’utilisateur ne contient que des caractères « vérifiés » ou que cette dernière correspond à un format connu.
     Par exemple, cela peut impliquer la vérification qu’un nom d’utilisateur contient uniquement des caractères alphanumériques ou qu’il contient exactement deux chiffres.
 
 La mise en liste verte est la meilleure approche en matière de création de logiciels sécurisés.
-La mise en liste noire est source d’erreur, car il est impossible d’établir une liste exhaustive des entrées potentiellement incorrectes.
+La mise en liste rouge est source d’erreur, car il est impossible d’établir une liste exhaustive des entrées potentiellement incorrectes.
 
 Faites ce travail sur le serveur, et non côté client (ou sur le serveur et côté client).
 

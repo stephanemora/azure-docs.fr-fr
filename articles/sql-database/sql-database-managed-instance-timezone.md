@@ -145,7 +145,7 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 | UTC-02 | (UTC-02:00) Temps universel coordonné-02 |
 | Heure standard de Centre-Atlantique | (UTC-02:00) Centre-Atlantique - Ancien |
 | Heure standard des Açores | (UTC-01:00) Açores |
-| Heure standard des Îles du Cap-Vert | (UTC-01:00) Îles du Cap-Vert |
+| Heure standard des Îles du Cabo Verde | (UTC-01:00) Îles du Cabo Verde |
 | UTC | (UTC) Temps universel coordonné |
 | Heure standard GMT | (UTC+00:00) Dublin, Édimbourg, Lisbonne, Londres |
 | Heure standard de Greenwich | (UTC+00:00) Monrovia, Reykjavik |

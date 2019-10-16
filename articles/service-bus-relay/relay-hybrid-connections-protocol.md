@@ -66,7 +66,8 @@ Les informations encodées sont valides uniquement pendant une courte durée, co
 
 Outre les connexions WebSocket, l’écouteur peut recevoir des trames de requêtes HTTP de la part d’un expéditeur, si cette fonctionnalité est explicitement activée sur la connexion hybride.
 
-Les écouteurs qui se joignent aux connexions hybrides prenant en charge HTTP DOIVENT gérer l’opération `request`. Un écouteur ne prenant pas en charge l’opération `request` et occasionnant par conséquent des erreurs répétées de dépassement de délai de connexion RISQUE par la suite d’être placé en liste noire par le service.
+Les écouteurs qui se joignent aux connexions hybrides prenant en charge HTTP DOIVENT gérer l’opération `request`. Un écouteur ne prenant pas en charge l’opération `request` et occasionnant par conséquent des erreurs répétées de dépassement de délai de connexion RISQUE par la suite d’être placé en liste rouge
+ par le service.
 
 Les métadonnées d’en-tête de trame HTTP sont converties au format JSON pour en faciliter le traitement par l’infrastructure d’écouteur, et également parce que les bibliothèques d’analyse d’en-tête HTTP sont plus rares que les analyseurs JSON. Les métadonnées HTTP qui s’appliquent uniquement à la relation entre l’expéditeur et la passerelle HTTP de relais, y compris les informations d’autorisation, ne sont pas transférées. Le corps des requêtes HTTP est transféré de manière transparente sous la forme d’une trame WebSocket binaire.
 
@@ -337,7 +338,7 @@ Le contenu JSON pour `request` est le suivant :
 
 ##### <a name="responding-to-requests"></a>Réponse aux requêtes
 
-Le destinataire DOIT répondre. Des échecs répétés des réponses aux requêtes pendant que la connexion est maintenue peuvent entraîner la mise en liste noire de l’écouteur.
+Le destinataire DOIT répondre. Des échecs répétés des réponses aux requêtes pendant que la connexion est maintenue peuvent entraîner la mise en liste rouge de l’écouteur.
 
 Les réponses peuvent être envoyées dans n’importe quel ordre, mais chaque requête doit obtenir une réponse dans les 60 secondes, sans quoi la remise sera considérée comme ayant échoué. Le délai de 60 secondes est pris en compte jusqu’à ce que la trame `response` ait été reçue par le service. Une réponse en cours avec plusieurs trames binaires ne peut pas rester inactive pendant plus de 60 secondes ; dans le cas contraire, elle est interrompue.
 

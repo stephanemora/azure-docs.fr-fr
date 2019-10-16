@@ -56,8 +56,8 @@ Le tableau suivant fournit des informations sur la couverture du service Mobilit
 |--------|---------|
 | Australie      | <p>Adélaïde, Alice Springs, Bowen, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, Mackay, Magnetic Island, Maryborough-Hervey Bay, Melbourne, Nouvelle-Galles du Sud, Perth, Rockhampton, Queensland du Sud-Est, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Chine | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Pékin, Guangzhou, Shenzhen, Zhengzhou</P>| 
-| Hong Kong (R.A.S.) | Hong Kong*|
-| Macao (R.A.S.) | Macao*|
+| Hong Kong (R.A.S.) | Hong Kong (R.A.S.)|
+| Macao (R.A.S.) | Macao (R.A.S.)|
 | Inde | Ahmedabad, Bangalore, Delhi, Bombay, Mysore|
 | Indonésie | Bandung, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | Japon | Préfecture de Shizuoka, Tokyo, Wakkanai, préfecture de Yamanashi |

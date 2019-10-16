@@ -96,9 +96,10 @@ Une fois les jetons créés, chaque client est configuré avec son propre jeton 
 
 Lorsque le client envoie des données dans un hub d’événements, il balise sa requête d’envoi avec le jeton. Pour empêcher un intrus de procéder à des écoutes clandestines et de voler le jeton, la communication entre le client et le hub d’événements doit avoir lieu sur un canal chiffré.
 
-### <a name="blacklisting-clients"></a>Inscription des clients sur liste noire
+### <a name="blacklisting-clients"></a>Inscription des clients sur liste rouge
 
-Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du client à qui le jeton a été volé. L’inscription d’un client sur liste noire le rend inutilisable, jusqu’à ce qu’il reçoive un nouveau jeton qui utilise un éditeur différent.
+Si un jeton est volé par un intrus, celui-ci peut emprunter l’identité du client à qui le jeton a été volé. L’inscription d’un client sur liste rouge
+ le rend inutilisable, jusqu’à ce qu’il reçoive un nouveau jeton qui utilise un éditeur différent.
 
 ## <a name="authentication-of-back-end-applications"></a>Authentification des applications principales
 

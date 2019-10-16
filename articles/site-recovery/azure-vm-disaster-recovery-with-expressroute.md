@@ -96,7 +96,7 @@ Les déploiements d’entreprise classiques ont des charges de travail répartie
     - **Sous-réseaux du réseau virtuel hub**. Le réseau virtuel hub a deux sous-réseaux :
     - **Sous-réseau de l’appliance virtuelle réseau** : 10.10.10.0/25. Ce sous-réseau contient une appliance virtuelle réseau (10.10.10.10).
     - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage de peering privé.
-- Le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong.
+- Le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong (R.A.S.).
 - Tout le routage est contrôlé via des tables de routage Azure.
 - Tout le trafic sortant entre les réseaux virtuels ou en direction du centre de données local est routé via l’appliance virtuelle réseau.
 
