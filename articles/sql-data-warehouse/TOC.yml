@@ -73,6 +73,8 @@
           items:
             - name: Règles de pare-feu
               href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+            - name: Private Link
+              href: ../sql-database/sql-database-private-endpoint-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Points de terminaison de service de réseau virtuel
               href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Authentication
@@ -95,6 +97,8 @@
               href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Protection des données
           items:
+            - name: Masquage des données dynamiques
+              href: ../sql-database/sql-database-dynamic-data-masking-get-started.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Vue d’ensemble de Transparent Data Encryption (TDE)
               href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: TDE avec Service Bring Your Own Key (BYOK)
@@ -116,49 +120,49 @@
         - name: JSON
           items:
             - name: JSON
-              href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/json-functions-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: ISJSON
-              href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/isjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: JSON_VALUE
-              href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/json-value-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: JSON_QUERY
-              href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/json-query-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: JSON_MODIFY
-              href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/json-modify-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: OPENJSON
-              href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
+              href: /sql/t-sql/functions/openjson-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
         - name: Vue matérialisée
           items:
             - name: Conseils de réglage des performances
               href: performance-tuning-materialized-views.md
             - name: Créer
-              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: Modifier
-              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: Vérifier la surcharge des vues
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest'
+              href: /sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
         - name: Index columnstore en cluster ordonné
           items:
             - name: Conseils de réglage des performances
               href: performance-tuning-ordered-CCI.md
             - name: Créer une table
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7'
+              href: /sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: CTAS
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7'
+              href: /sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: Créer et changer des index
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and-'
+              href: '/sql/t-sql/statements/create-index-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-'
         - name: Mise en cache du jeu de résultats
           items:
-            - name: Vue d'ensemble
-              href: sql-data-warehouse-result-set-caching-overview.md
+            - name: Conseils de réglage des performances
+              href: performance-tuning-result-set-caching.md
             - name: Définir une base de données
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
+              href: /sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: Définir une session
-              href: /sql/t-sql/statements/set-result-set-caching-transact-sql
+              href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: Vérifier la taille du cache
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest'
+              href: /sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
             - name: Nettoyer le cache
-              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest'
+              href: /sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
         - name: Tables
           items:
             - name: Vue d'ensemble
@@ -232,13 +236,7 @@
         - name: Résolution des problèmes
           href: sql-data-warehouse-troubleshoot.md
     - name: Calendriers de maintenance
-      items:
-        - name: Vue d'ensemble
-          href: maintenance-scheduling.md
-        - name: Afficher le calendrier de maintenance
-          href: viewing-maintenance-schedule.md
-        - name: Modifier le calendrier de maintenance
-          href: changing-maintenance-schedule.md
+      href: maintenance-scheduling.md
     - name: Intégration
       items:
         - name: Vue d'ensemble
@@ -352,7 +350,7 @@
     - name: T-SQL
       items:
         - name: Référence complète
-          href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
         - name: Éléments de langage SQL DW
           href: sql-data-warehouse-reference-tsql-language-elements.md
         - name: Instructions SQL DW

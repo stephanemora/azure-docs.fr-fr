@@ -7,17 +7,17 @@ metadata:
   manager: daveba
   ms.author: ajburnle
   ms.collection: na
-  ms.date: 08/15/2019
+  ms.date: 09/14/2019
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: cb3a19a372e81f7efe816d9f08831045b5f3332b
-  ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+  ms.openlocfilehash: 0abe0599bcaf88c2a925cb580bea601b827daba2
+  ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/16/2019
-  ms.locfileid: "69542413"
+  ms.lasthandoff: 10/16/2019
+  ms.locfileid: "72430246"
 landingContent:
 - title: À propos d’Identity Governance
   linkLists:
@@ -25,7 +25,7 @@ landingContent:
     links:
     - text: Qu’est-ce qu’Azure AD Identity Governance ?
       url: identity-governance-overview.md
-  - linkListType: learn
+  - linkListType: video
     links:
     - text: Gouverner l’accès à vos ressources
       url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
@@ -39,10 +39,10 @@ landingContent:
     links:
     - text: Créer votre premier package d’accès qui aide les utilisateurs à demander l’accès dont ils ont besoin
       url: entitlement-management-access-package-first.md
-  - linkListType: how-to-guide
+  - linkListType: concept
     links:
-    - text: Modifier et gérer un package d’accès existant
-      url: entitlement-management-access-package-edit.md
+    - text: Délégation et rôles
+      url: entitlement-management-delegate.md
 - title: Recertifier l’accès à des groupes, des applications et des rôles privilégiés
   linkLists:
   - linkListType: overview
