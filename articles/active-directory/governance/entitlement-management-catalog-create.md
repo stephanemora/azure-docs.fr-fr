@@ -1,5 +1,5 @@
 ---
-title: Créer et gérer un catalogue dans la gestion des droits d’utilisation Azure AD (préversion) - Azure Active Directory
+title: Créer et gérer un catalogue de ressources dans la gestion des droits d’utilisation Azure AD (préversion) - Azure Active Directory
 description: Découvrez comment créer un nouveau conteneur de ressources et de packages d’accès dans la gestion des droits d’utilisation Azure Active Directory (préversion).
 services: active-directory
 documentationCenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1654e0a8cd11ac1c7a2f4ef0667d0e99187c2374
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618320"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169942"
 ---
-# <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Créer et gérer un catalogue dans la gestion des droits d’utilisation Azure AD (préversion)
+# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>Créer et gérer un catalogue de ressources dans la gestion des droits d’utilisation Azure AD (préversion)
 
 > [!IMPORTANT]
 > La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
@@ -36,9 +36,7 @@ Un catalogue est un conteneur de ressources et de packages d’accès. Vous cré
 
 **Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou créateur de catalogue
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-
-1. Cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
+1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
 
 1. Dans le menu de gauche, cliquez sur **Catalogues**.
 
@@ -72,11 +70,13 @@ Pour inclure des ressources dans un package d’accès, les ressources doivent e
 
 1. Cliquez sur **Ajouter des ressources**.
 
-1. Cliquez sur un type de ressources : **Groupes**, **Applications** ou **Sites SharePoint**.
+1. Cliquez sur un type de ressources : **Groupes et équipes**, **Applications** ou **Sites SharePoint**.
 
     Si vous ne voyez aucune ressource que vous souhaitez ajouter ou si vous ne pouvez pas ajouter de ressource, vérifiez que vous possédez le rôle d’annuaire Azure AD et le rôle de gestion des droits d’utilisation requis. Vous devrez peut-être demander à quelqu’un avec les rôles requis d’ajouter la ressource à votre catalogue. Pour plus d’informations, consultez [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Sélectionnez une ou plusieurs ressources du type que vous souhaitez ajouter au catalogue.
+
+    ![Ajouter des ressources à un catalogue](./media/entitlement-management-catalog-create/catalog-add-resources.png)
 
 1. Lorsque vous avez terminé, cliquez sur **Ajouter**.
 
@@ -97,6 +97,26 @@ Vous pouvez supprimer des ressources d’un catalogue. Une ressource ne peut êt
 1. Sélectionnez les ressources que vous souhaitez supprimer.
 
 1. Cliquez sur **Supprimer** (ou cliquez sur le bouton de sélection ( **...** ), puis sur **Supprimer la ressource**).
+
+## <a name="add-additional-catalog-owners"></a>Ajouter d’autres propriétaires de catalogue
+
+L’utilisateur qui a créé un catalogue devient le premier propriétaire de catalogue. Pour déléguer la gestion d’un catalogue, vous ajoutez des utilisateurs au rôle de propriétaire de catalogue. Ainsi, les responsabilités de la gestion du catalogue sont mieux partagées. 
+
+Suivez ces étapes pour affecter un utilisateur au rôle de propriétaire de catalogue :
+
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
+
+1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
+
+1. Dans le menu de gauche, cliquez sur **Catalogues**, puis ouvrez le catalogue auquel vous souhaitez ajouter des administrateurs.
+
+1. Dans le menu de gauche, cliquez sur **Rôles et administrateurs**.
+
+    ![Rôles et administrateurs de catalogues](./media/entitlement-management-shared/catalog-roles-administrators.png)
+
+1. Cliquez sur **Ajouter des propriétaires** pour sélectionner les membres de ces rôles.
+
+1. Cliquez sur **Sélectionner** pour ajouter ces membres.
 
 ## <a name="edit-a-catalog"></a>Modifier un catalogue
 
@@ -130,5 +150,4 @@ Vous pouvez supprimer un catalogue, mais seulement s’il ne contient pas de pac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter un créateur de catalogue](entitlement-management-delegate.md#add-a-catalog-creator)
-- [Créer et gérer un package d’accès](entitlement-management-access-package-create.md)
+- [Déléguer la gouvernance des accès aux gestionnaires de package d’accès](entitlement-management-delegate-managers.md)

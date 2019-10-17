@@ -6,14 +6,14 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: heidist
-ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327160"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947777"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [approvisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
@@ -147,6 +147,18 @@ Pour les niveaux Stockage optimisé, attendez-vous à un plus faible débit des 
 ## <a name="data-limits-cognitive-search"></a>Limites de données (recherche cognitive)
 
 Un [pipeline de recherche cognitive](cognitive-search-concept-intro.md) qui effectue des appels à une ressource Analyse de texte pour la [reconnaissance d’entité](cognitive-search-skill-entity-recognition.md), l’[extraction d’expressions clés](cognitive-search-skill-keyphrases.md), l’[analyse des sentiments](cognitive-search-skill-sentiment.md) et la [détection de la langue](cognitive-search-skill-language-detection.md) est soumis à des limites de données. La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
+
+## <a name="throttling-limits"></a>Limites de la limitation
+
+Les requêtes de recherche et les demandes d’indexation sont limitées dès que le système s’approche de la capacité maximale. Le comportement de la limitation varie en fonction des API. Les API de requête (recherche/suggestion/saisie semi-automatique) et les API d’indexation se limitent dynamiquement en fonction de la charge du service. Les API d’indexation sont soumises à des limites de taux de requêtes statiques. 
+
+Limites de taux de requêtes statiques pour les opérations liées à un index :
+
++ Lister les index (GET /indexes) : 5 par seconde par unité de recherche
++ Obtenir un index (GET /indexes/myindex) : 10 par seconde par unité de recherche
++ Créer un index (POST /indexes) : 12 par minute par unité de recherche
++ Créer ou mettre à jour un index (PUT /indexes/myindex) : 6 par seconde par unité de recherche
++ Supprimer un index (DELETE /indexes/myindex) : 12 par minute par unité de recherche 
 
 ## <a name="api-request-limits"></a>Limites de requête d’API
 * 16 Mo maximum par requête <sup>1</sup>

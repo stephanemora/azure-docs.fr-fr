@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 62387fe7ddbde75e79724c77dd7eeedd5cae64c3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: abcd6dc8c50b819dd02347b938602af7f2152d04
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201876"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996620"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud qui prévoient d’utiliser Azure Security Center.
@@ -203,7 +203,7 @@ Vous devez également superviser régulièrement les ressources existantes pour 
 
 ### <a name="hardening-access-and-applications"></a>Renforcement des applications et de l’accès
 
-Dans le cadre de vos opérations de sécurité, vous devez entreprendre des mesures préventives pour restreindre l’accès aux machines virtuelles, et contrôler les applications exécutées sur ces dernières. En verrouillant le trafic entrant de vos machines virtuelles, vous réduisez l’exposition aux attaques et fournissez en même temps un accès simple pour se connecter aux machines virtuelles si nécessaire. Utilisez la fonctionnalité d’accès [Juste à temps à la machine virtuelle](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) pour renforcer l’accès à vos machines virtuelles.
+Dans le cadre de vos opérations de sécurité, vous devez entreprendre des mesures préventives pour restreindre l’accès aux machines virtuelles, et contrôler les applications exécutées sur ces dernières. En verrouillant le trafic entrant de vos machines virtuelles, vous réduisez l’exposition aux attaques et fournissez en même temps un accès simple pour se connecter aux machines virtuelles si nécessaire. Utilisez la fonctionnalité d’accès [juste-à-temps à la machine virtuelle](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) pour durcir l’accès à vos machines virtuelles.
 
 Vous pouvez utiliser les [contrôles d’application adaptatifs](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) pour limiter le nombre d’applications qui peuvent s’exécuter sur vos machines virtuelles hébergées dans Azure. Parmi d’autres avantages, cela permet de renforcer la protection de vos machines virtuelles contre les logiciels malveillants. À l’aide de l’apprentissage automatique, Security Center analyse les processus en cours d’exécution dans la machine virtuelle pour vous aider à créer des règles de mise en liste verte.
 

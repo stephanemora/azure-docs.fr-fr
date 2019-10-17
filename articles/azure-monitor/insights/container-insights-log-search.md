@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67989831"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948045"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Guide pratique pour interroger des journaux à partir d’Azure Monitor pour conteneurs
 
@@ -69,6 +69,7 @@ Il est souvent utile de créer des requêtes en commençant par un exemple ou de
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Inventaire des images | 
 | Sélectionnez l’option d’affichage de graphique **Courbes** :<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Processeur du conteneur | 
 | Sélectionnez l’option d’affichage de graphique **Courbes** :<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Mémoire du conteneur |
+| InsightsMetrics<br> &#124; where Name == "requests_count"<br> &#124; summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)<br> &#124; sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated <br> &#124; render barchart  | Demandes par minute avec des métriques personnalisées |
 
 L’exemple suivant est une requête de métriques Prometheus. Les métriques collectées sont des décomptes et afin de déterminer le nombre d’erreurs qui se sont produites au cours d’une période spécifique, nous devons effectuer une soustraction à partir de ce décompte. Le jeu de données est partitionné par *partitionKey*, ce qui signifie que pour chaque ensemble unique *Name*, *Hostname* et *OperationType*, nous exécutons une sous-requête sur cet ensemble qui classe les journaux sur *TimeGenerated*, un processus qui permet de trouver le *TimeGenerated* précédent et le décompte enregistré pour cette heure, afin de déterminer un taux.
 

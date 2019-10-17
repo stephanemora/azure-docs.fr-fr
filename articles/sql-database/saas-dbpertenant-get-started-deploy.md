@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570439"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023829"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -114,7 +114,7 @@ Une page **Events Hub** centrale fournit une liste de liens vers les locataires 
 
     ![Concentrateur d’événements](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Sélectionnez  **Fabrikam Jazz Club** dans l’Events Hub.
+2. Sélectionnez **Fabrikam Jazz Club** dans le hub d’événements.
 
     ![Événements](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -220,14 +220,14 @@ Actualisez l’Events Hub pour faire apparaître le nouveau locataire dans la li
 
 Maintenant que vous avez démarré une charge dans le regroupement de locataires, examinons quelques-unes des ressources qui ont été déployées.
 
-1. Dans le  [portail Azure](https://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur  **catalog-dpt-&lt;UTILISATEUR&gt;**  .
+1. Dans le  [portail Azure](https://portal.azure.com), accédez à votre liste de serveurs SQL. Ouvrez ensuite le serveur **catalog-dpt-&lt;UTILISATEUR&gt;** .
     - Le serveur de catalogue contient deux bases de données : **tenantcatalog** et **basetenantdb** (un modèle de base de données copié pour créer des locataires).
 
    ![Bases de données](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Revenez à votre liste de serveurs SQL.
 
-3. Ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;**   qui contient les bases de données locataires.
+3. Ouvrez le serveur **tenants1-dpt-&lt;UTILISATEUR&gt;** qui contient les bases de données locataires.
 
 4. Observez les points suivants :
 
@@ -240,7 +240,7 @@ Maintenant que vous avez démarré une charge dans le regroupement de locataires
 
 Au bout de quelques minutes d’exécution de *LoadGenerator.ps1*, une quantité suffisante de données est disponible pour vous permettre de découvrir certaines fonctionnalités de surveillance. Ces fonctionnalités sont intégrées dans les pools et les bases de données.
 
-Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;** , puis sélectionnez  **Pool1**  pour afficher l’utilisation des ressources du pool. Dans les graphiques suivants, le générateur de charge s’est exécuté pendant une heure.
+Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;** , puis sélectionnez **Pool1** pour afficher l’utilisation des ressources du pool. Dans les graphiques suivants, le générateur de charge s’est exécuté pendant une heure.
 
    ![Surveiller un pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

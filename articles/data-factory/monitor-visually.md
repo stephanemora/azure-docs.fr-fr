@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 99ae0139d7b12c0bfb87030d2b749b12834a4f96
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141094"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029144"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Surveiller visuellement des fabriques de données Azure
 Azure Data Factory est un service d’intégration de données basé sur le cloud. Vous pouvez l’utiliser pour créer des workflows basés sur les données dans le cloud en vue d’orchestrer et automatiser le déplacement et la transformation des données. À l’aide d’Azure Data Factory, vous pouvez :
@@ -161,7 +161,7 @@ Cliquez sur l’icône **Commentaires** pour nous envoyer vos commentaires sur l
 
 ## <a name="alerts"></a>Alertes
 
-Vous pouvez déclencher des alertes sur les métriques prises en charge dans Data Factory. Sélectionnez **Superviser** > **Alertes et métriques**  dans la page de supervision de Data Factory pour commencer.
+Vous pouvez déclencher des alertes sur les métriques prises en charge dans Data Factory. Sélectionnez **Superviser** > **Alertes et métriques** dans la page de supervision de Data Factory pour commencer.
 
 ![Page de supervision de Data Factory](media/monitor-visually/alerts01.png)
 
@@ -171,7 +171,7 @@ Pour voir une présentation de sept minutes et la démonstration de cette foncti
 
 ### <a name="create-alerts"></a>Créez des alertes
 
-1.  Cliquez sur **Nouvelle règle d’alerte**  pour créer une alerte.
+1.  Sélectionnez **Nouvelle règle d’alerte** pour créer une alerte.
 
     ![Bouton Nouvelle règle d’alerte](media/monitor-visually/alerts02.png)
 

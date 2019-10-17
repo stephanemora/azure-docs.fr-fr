@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130170"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029259"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
@@ -49,7 +49,7 @@ Pour afficher les machines virtuelles sur le tableau de bord du coffre :
 
     ![Ouvrir la vignette Éléments de sauvegarde](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. Dans le panneau  **Éléments de sauvegarde**, vous pouvez voir la liste des machines virtuelles protégées. Dans cet exemple, le coffre protège une machine virtuelle : demobackup.  
+6. Dans le panneau **Éléments de sauvegarde**, vous pouvez voir la liste des machines virtuelles protégées. Dans cet exemple, le coffre protège une machine virtuelle : demobackup.  
 
     ![Afficher le panneau Éléments de sauvegarde](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -66,7 +66,7 @@ Pour gérer une stratégie de sauvegarde :
 
     ![Ouvrir la vignette Éléments de sauvegarde](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. Dans le panneau   **Éléments de sauvegarde**, vous pouvez voir la liste des machines virtuelles protégées et l’état de la dernière sauvegarde ainsi que l’heure des derniers points de restauration.
+3. Dans le panneau **Éléments de sauvegarde**, vous pouvez voir la liste des machines virtuelles protégées et l’état de la dernière sauvegarde avec l’heure des derniers points de restauration.
 
     ![Afficher le panneau Éléments de sauvegarde](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 

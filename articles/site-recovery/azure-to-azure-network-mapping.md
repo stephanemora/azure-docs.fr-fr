@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 8c24352fdbc6b81e7d263ac8c511b7c61792e6ae
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907869"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178093"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels
 
@@ -33,7 +33,7 @@ Mappez les réseaux comme suit :
 3. Dans **Ajouter un mappage réseau**, sélectionnez les emplacements source et cible. Dans notre exemple, la machine virtuelle source est en cours d’exécution dans la région Asie Est et elle est répliquée dans la région Asie Sud-Est.
 
     ![Sélectionner la source et la cible](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. Maintenant, créez un mappage réseau dans le répertoire opposé. Dans notre exemple, la source sera désormais la région Asie Sud-Est, et la cible dans la région Asie Est.
+3. Maintenant, créez un mappage réseau dans la direction opposée. Dans notre exemple, la source sera désormais la région Asie Sud-Est, et la cible dans la région Asie Est.
 
     ![Volet Ajouter mappage réseau - Sélectionner les emplacements source et cible pour le réseau cible](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 

@@ -1,37 +1,22 @@
 ---
 title: Entités de données
-description: Une vue d’ensemble des entités de données.
+description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Vue d’ensemble des entités de données. »'
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a382f9b3ce08bba266311c2cc1d5f868f1bc3143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 072e06527c7744891db163c637734f4878fe312c
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934929"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034906"
 ---
 # <a name="data-entities"></a>Entités de données
 
-Cet article définit et fournit une vue d’ensemble des entités de données. Il fournit des informations sur les fonctionnalités des entités de données, les scénarios qu’ils prennent en charge, les catégories utilisées, ainsi que les méthodes permettant de les créer.
+Le [Portail Cloud Partner](https://cloudpartner.azure.com/) ne prend plus en charge la création et la gestion des offres Dynamics 365 for Finance and Operations. Cette fonctionnalité a été déplacée vers le [portail de l’Espace partenaires](https://partner.microsoft.com/) Microsoft. Pour plus d’informations, consultez [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-## <a name="overview"></a>Vue d'ensemble
-
-Une entité de données est une abstraction de l’implémentation physique des tables de base de données. Par exemple, dans des tables normalisées, une grande partie des données de chaque client peut être stockée dans une table client, et le reste peut-être réparti sur un petit ensemble de tables associées. Dans ce cas, l’entité de données pour le concept de client apparaît sous la forme d’une vue dénormalisée, dans laquelle chaque ligne contient toutes les données de la table client et de ses tables associées. Une entité de données encapsule un concept métier dans un format qui facilite le développement et l’intégration. La nature abstraite d’une entité de données peut simplifier le développement et la personnalisation d’applications. Par la suite, l’abstraction isole également code d’application de l’activité inévitable des tables physiques entre les versions.
-
-Pour résumer : l’entité de données fournit l’abstraction et l’encapsulation (vue dénormalisée) conceptuelles des schémas de table sous-jacents afin de représenter les concepts et fonctionnalités de données clés.
-
-## <a name="capabilities"></a>Fonctionnalités
-
-Une entité de données intègre les fonctionnalités suivantes :
-
-- Elle remplace les concepts divergents et fragmentés d’entités AXD, DIXF (Data Import/Export Framework) et de requêtes agrégées par un concept unique.
-- Elle fournit une pile unique pour capturer la logique métier et pour permettre des scénarios tels que l’importation/exportation, l’intégration et la programmabilité.
-- Elle devient le mécanisme principal d’exportation et d’importation de packages de données pour les scénarios de données Application Lifecycle Management (ALM) et de démonstration.
-- Elle peut être exposée en tant que services OData, puis utilisée dans des scénarios d’intégration synchrone de style tabulaire et des intégrations Microsoft Office.
-
-Consultez [Entités de données](https://docs.microsoft.com/dynamics365/operations/dev-itpro/data-entities/data-entities) pour plus d’informations.
+Avant de créer une offre Dynamics 365 for Operations, lisez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), puis ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/directory) et sélectionnez la page **Vue d’ensemble**. Suivez les instructions fournies dans [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) pour créer votre offre.

@@ -1,17 +1,17 @@
 ---
-title: Protection avancée contre les menaces – Azure Database pour MySQL | Microsoft Docs
-description: Azure ATP détecte les activités de base de données anormales qui indiquent la présence potentielle de menaces de sécurité pour la base de données.
+title: Concepts Advanced Threat Protection – Azure Database pour MySQL
+description: Découvrez les concepts sur Advanced Threat Protection, qui détecte les activités de base de données anormales qui peuvent indiquer des menaces sur la sécurité de la base de données.
 author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 23f8679a2ae7d9dc299db42e45b5b06d42f94536
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525979"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970468"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure ATP pour Azure Database pour MySQL
 

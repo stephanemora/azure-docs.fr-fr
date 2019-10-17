@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e7dc1e6c1bb1ca81ada59cb3dae8fecbc6452b7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240024"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029784"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Connecter des données de pare-feu d’application web Microsoft
 
@@ -41,9 +41,9 @@ Lorsque votre pare-feu d’applications web Microsoft est déployé et obtient d
 1. Dans le portail Azure Sentinel, sélectionnez **Connecteurs de données**.
 1. Dans la page des connecteurs de données, sélectionnez la vignette **WAF**.
 1. Accédez à la [ressource Application Gateway](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways)  et choisissez votre WAF.
-    1. Sélectionnez  **Paramètres de diagnostic**.
-    1. Sélectionnez  **+ Ajouter un paramètre de diagnostic** sous la table.
-    1. Dans la page  **Paramètres de diagnostic**, saisissez un  **nom** et sélectionnez  **Envoyer à Log Analytics**.
+    1. Sélectionnez **Paramètres de diagnostic**.
+    1. Sélectionnez **+ Ajouter un paramètre de diagnostic** en dessous de la table.
+    1. Dans la page **Paramètres de diagnostic**, tapez un **Nom** et sélectionnez **Envoyer à Log Analytics**.
     1. Sous **Espace de travail Log Analytics**, sélectionnez l’espace de travail Azure Sentinel.
     1. Sélectionnez les types de journaux que vous souhaitez analyser. Recommandé : ApplicationGatewayAccessLog and ApplicationGatewayFirewallLog.
 1. Pour utiliser le schéma pertinent dans Log Analytics pour les alertes de pare-feu d’applications web Microsoft, recherchez **AzureDiagnostics**.

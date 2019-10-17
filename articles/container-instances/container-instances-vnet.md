@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: danlep
-ms.openlocfilehash: ad7f93bb3934ca01b7f45c0bd4b5cc8be81ea54b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325521"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034977"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -29,6 +29,7 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 
 > [!IMPORTANT]
 > Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+
 
 ## <a name="virtual-network-deployment-limitations"></a>Limitations concernant le déploiement de réseau virtuel
 
@@ -263,6 +264,10 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Supprimer des ressources réseau
+
+
+> [!NOTE]
+> Si vous recevez une erreur lors de la tentative de suppression du profil réseau, comptez 2-3 jours pour que la plateforme résolve automatiquement le problème et tente à nouveau la suppression. Si vous avez toujours des problèmes à supprimer le profil réseau, [ouvrez une demande de support.](https://azure.microsoft.com/support/create-ticket/)
 
 La préversion initiale de cette fonctionnalité nécessite plusieurs commandes supplémentaires pour supprimer les ressources réseau que vous avez créées. Si vous avez utilisé les exemples de commande dans les sections précédentes de cet article pour créer votre réseau virtuel et votre sous-réseau, vous pouvez utiliser le script suivant pour supprimer ces ressources réseau.
 

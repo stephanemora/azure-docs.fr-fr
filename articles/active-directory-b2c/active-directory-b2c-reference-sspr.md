@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e8137bc0e75595b5f548584bb2d1644de2e0fecd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7903ec669772c3a3858a9c1d514ab3e6de6a2bd4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508925"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936829"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configurer la réinitialisation de mot de passe en libre-service pour vos clients
 
@@ -30,6 +30,7 @@ Par défaut, la réinitialisation de mot de passe en libre-service n’est pas a
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur d’abonnements. Il s’agit du compte professionnel ou scolaire, ou du compte Microsoft que vous avez utilisé pour créer votre annuaire.
 2. Ouvrez **Azure Active Directory** (dans la barre de navigation sur le côté gauche).
+3. Faites défiler le panneau des options pour sélectionner **Réinitialisation de mot de passe**.
 4. Définissez l’option **Réinitialisation du mot de passe en libre-service activée** sur **Tout**. 
 5. Cliquez sur **Enregistrer** dans la partie supérieure de la page. Vous avez terminé !
 

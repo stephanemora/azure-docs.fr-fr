@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 19852fe3a6925ada3dea141a1472683ee264f6d5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932827"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973297"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Effectuer une migration vers une clé de ressource de création Azure
 
@@ -99,6 +99,10 @@ Vous pouvez choisir d’exporter une application à laquelle vous contribuez, pu
 Le propriétaire de l’application doit [ajouter votre e-mail à la ressource de création Azure en tant que collaborateur](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource). 
 
 Après le processus de migration, toutes les applications que vous possédez sont disponibles sur la page **Mes applications** du portail LUIS.  
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+Les clés de création LUIS ne sont visibles dans le portail LUIS qu’à l’issue du processus de migration. Si vous créez les clés de création, par exemple à l’aide de l’interface CLI LUIS, l’utilisateur doit toujours effectuer le processus de migration. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

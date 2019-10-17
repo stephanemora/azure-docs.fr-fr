@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac78029ba2d1f45ef67ef0d858fdd2917bd4a97a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033339"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001698"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 
@@ -67,7 +67,7 @@ Le **service d’approvisionnement Azure AD** approvisionne des utilisateurs po
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quels applications et systèmes puis-je utiliser avec l’approvisionnement d’utilisateurs automatique d’Azure AD ?
 
-Azure AD offre une prise en charge préintégrée de plusieurs applications SaaS et systèmes de gestion des ressources humaines populaires, ainsi qu’une prise en charge générique des applications qui implémentent des parties spécifiques du standard SCIM 2.0.
+Azure AD offre une prise en charge préintégrée de plusieurs applications SaaS et systèmes de gestion des ressources humaines connus, ainsi qu’une prise en charge générique des applications qui implémentent des parties spécifiques du [standard SCIM 2.0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
 ### <a name="pre-integrated-applications"></a>Applications pré-intégrées
 
@@ -111,7 +111,7 @@ Utilisez le portail Azure Active Directory pour configurer le service d’approv
 
    - Les **paramètres** contrôlent le fonctionnement du service d’approvisionnement pour une application, qu’elle soit ou non en cours d’exécution. Le menu **Étendue** vous permet de spécifier si seuls les utilisateurs et les groupes affectés ou tous les utilisateurs du répertoire Azure AD seront concernés par l’approvisionnement. Pour plus d’informations sur l’affectation d’utilisateurs et de groupes, consultez [Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory](assign-user-or-group-access-portal.md).
 
-Dans l’écran de gestion des applications, sélectionnez Journaux de provisionnement (préversion) pour afficher les enregistrements de chaque opération exécutée par le service de provisionnement Azure AD. Pour plus d’informations, consultez le [guide de création de rapports d’approvisionnement](check-status-user-account-provisioning.md).
+Dans l’écran de gestion des applications, sélectionnez **Journaux de provisionnement (préversion)** pour voir les enregistrements de chaque opération exécutée par le service de provisionnement Azure AD. Pour plus d’informations, consultez le [guide de création de rapports d’approvisionnement](check-status-user-account-provisioning.md).
 
 ![Exemple - Écran des journaux de provisionnement d’une application](./media/user-provisioning/audit_logs.PNG)
 

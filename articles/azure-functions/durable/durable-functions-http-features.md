@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 953558e34d41184f75d72baf5982e84eb51b1781
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694869"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177356"
 ---
 # <a name="http-features"></a>Fonctionnalités HTTP
 
@@ -210,6 +210,38 @@ Si l’une de ces limitations risque d’avoir un impact sur votre cas d’utili
 > Si vous êtes un développeur .NET, vous vous demandez peut-être pourquoi cette fonctionnalité utilise les types **DurableHttpRequest** et **DurableHttpResponse** au lieu des types **HttpRequestMessage** et **HttpResponseMessage**.
 >
 > Ce choix de conception est intentionnel. La principale raison est que les types personnalisés permettent de s’assurer que les utilisateurs ne font pas de suppositions incorrectes concernant les comportements pris en charge du client HTTP interne. Les types spécifiques de Durable Functions permettent également de simplifier la conception des API. Ils peuvent également rendre plus facilement disponibles des fonctionnalités spéciales telles que l’[intégration d’identité managée](#managed-identities) et le [modèle d’interrogation de consommateur](#http-202-handling). 
+
+### <a name="extensibility-net-only"></a>Extensibilité (.NET uniquement)
+
+La personnalisation du comportement du client HTTP interne de l’orchestration est possible par [injection de dépendances .NET Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Cette possibilité peut s’avérer utile pour effectuer des changements de comportement minimes. Elle peut également s’avérer utile pour le test unitaire du client HTTP en injectant des objets fictifs.
+
+L’exemple suivant illustre l’utilisation de l’injection de dépendances pour désactiver la validation de certificat SSL pour des fonctions d’orchestrateur qui appellent des points de terminaison HTTP externes.
+
+```csharp
+public class Startup : FunctionsStartup
+{
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        // Register own factory
+        builder.Services.AddSingleton<
+            IDurableHttpMessageHandlerFactory,
+            MyDurableHttpMessageHandlerFactory>();
+    }
+}
+
+public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFactory
+{
+    public HttpMessageHandler CreateHttpMessageHandler()
+    {
+        // Disable SSL certificate validation (not recommended in production!)
+        return new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback =
+                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+        };
+    }
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

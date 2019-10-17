@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218264"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982840"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Fonctionnalités prises en charge disponibles dans Azure Security Center
 
@@ -39,20 +39,21 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Microsoft Azure**||**Non-Azure**|**Microsoft Azure**||**Non-Azure**||
 ||**Machine virtuelle**|**Groupe de machines virtuelles identiques**||**Machine virtuelle**|**Groupe de machines virtuelles identiques**|
-|Alertes de détection des menaces VMBA|✔|✔|✔|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
+|Alertes de détection des menaces – Analytique comportementale des machines virtuelles|✔|✔|✔|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
 |Alertes de détection des menaces réseau|✔|✔|X|✔|✔|X|standard|
 |Intégration de Microsoft Defender ATP|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|X|X|X|standard|
 |Correctifs manquants|✔|✔|✔|✔|✔|✔|Gratuit|
 |Configurations de sécurité|✔|✔|✔|✔|✔|✔|Gratuit|
 |Évaluation de la protection des points de terminaison|✔|✔|✔|X|X|X|Gratuit|
-|Accès JIT à la machine virtuelle|✔|X|X|✔|X|X|standard|
+|Accès juste-à-temps aux machines virtuelles|✔|X|X|✔|X|X|standard|
 |Contrôles d’application adaptative|✔|X|✔|✔|X|✔|standard|
-|FIM|✔|✔|✔|✔|✔|✔|standard|
+|Supervision de l’intégrité des fichiers|✔|✔|✔|✔|✔|✔|standard|
 |Évaluation du chiffrement des disques|✔|✔|X|✔|✔|X|Gratuit|
 |Déploiement tiers|✔|X|X|✔|X|X|Gratuit|
 |Évaluation du groupe de sécurité réseau|✔|✔|X|✔|✔|X|Gratuit|
 |Détection des menaces sans fichier|✔|✔|✔|X|X|X|standard|
 |Mappage réseau|✔|✔|X|✔|✔|X|standard|
+|Sécurisation adaptative du réseau|✔|X|X|✔|X|X|standard|
 |Contrôles réseau adaptatifs|✔|✔|X|✔|✔|X|standard|
 |Tableau de bord et rapports de conformité à la réglementation|✔|✔|✔|✔|✔|✔|standard|
 |Recommandations et détection des menaces sur les conteneurs IaaS hébergés dans Docker|X|X|X|✔|✔|✔|standard|

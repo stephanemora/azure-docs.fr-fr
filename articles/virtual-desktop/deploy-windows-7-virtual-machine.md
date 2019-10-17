@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: e7f565a995e4c2a5338f08437b0dd336846ba154
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679549"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947580"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Déployer une machine virtuelle Windows 7 sur Windows Virtual Desktop
 
@@ -43,9 +43,15 @@ Pour configurer une machine virtuelle Windows 7 sur Windows Virtual Desktop :
      shutdown /r /t 0
      ```
     
+11. Suivez les instructions [ici](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) pour obtenir un jeton d’inscription.
+12. [Téléchargez l’agent Windows Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+13. [Téléchargez le gestionnaire d’agent Windows Virtual Desktop pour Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
+14. Ouvrez le programme d’installation de l’agent Windows Virtual Desktop et suivez les instructions. Quand vous y êtes invité, indiquez la clé d’inscription que vous avez créée à l’étape 11.
+15. Ouvrez le programme d’installation de Windows Virtual Desktop et suivez les instructions.
+16. Si vous le souhaitez, bloquez le port TCP/3389 pour supprimer l’accès direct à la machine virtuelle via le protocole RDP (Remote Desktop Protocol).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Votre machine virtuelle Windows 7 peut maintenant être déployée sur Windows Virtual Desktop. Suivez les instructions de l'article [Préparer les machines virtuelles pour l'installation des agents Windows Virtual Desktop](create-host-pools-powershell.md#prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations) afin de terminer le déploiement.
+Votre déploiement Windows Virtual Desktop est maintenant prêt à l’emploi. [Téléchargez la dernière version du client Windows Virtual Desktop](https://aka.ms/wvd/clients/windows) pour commencer.
 
 Pour obtenir la liste des problèmes connus et les instructions de dépannage pour Windows 7 sur Windows Virtual Desktop, consultez l'article [Résoudre les problèmes de machines virtuelles Windows 7 dans Windows Virtual Desktop](troubleshoot-windows-7-vm.md).
-

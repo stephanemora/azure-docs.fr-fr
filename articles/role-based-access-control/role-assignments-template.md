@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b7f701cd3ce07099d80bca40e506108bcc9a9da9
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178101"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950061"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gérer l’accès aux ressources Azure avec RBAC et les modèles Azure Resource Manager
 
@@ -159,6 +159,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
 ```
 
+> [!NOTE]
+> Ce modèle n’est pas idempotent, à moins que la même valeur de `roleNameGuid` soit fournie comme paramètre pour chaque déploiement du modèle. Si aucune valeur de `roleNameGuid` n’est fournie, par défaut, un nouveau GUID est généré à chaque déploiement et les déploiements suivants échouent avec une erreur `Conflict: RoleAssignmentExists`.
+
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>Créer une attribution de rôle dans une étendue de ressource
 
 Si vous avez besoin de créer une attribution de rôle au niveau d’une ressource, le format de l’attribution de rôle est différent. Vous fournissez l’espace de noms du fournisseur de ressources et le type de ressource de la ressource à laquelle attribuer le rôle. Vous devez également inclure le nom de la ressource dans le nom de l’attribution de rôle.
@@ -180,8 +183,6 @@ Pour utiliser le modèle, vous devez spécifier les entrées suivantes :
 
 - Identificateur unique d’un utilisateur, d’un groupe ou d’une application auquel ou à laquelle attribuer le rôle
 - Rôle à attribuer
-- Un identificateur unique qui sera utilisé pour l’attribution de rôle, ou vous pouvez utiliser l’identificateur par défaut
-
 
 ```json
 {
@@ -203,13 +204,6 @@ Pour utiliser le modèle, vous devez spécifier les entrées suivantes :
             ],
             "metadata": {
                 "description": "Built-in role to assign"
-            }
-        },
-        "roleNameGuid": {
-            "type": "string",
-            "defaultValue": "[newGuid()]",
-            "metadata": {
-                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -238,7 +232,7 @@ Pour utiliser le modèle, vous devez spécifier les entrées suivantes :
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],

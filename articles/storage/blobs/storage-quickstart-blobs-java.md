@@ -1,33 +1,37 @@
 ---
-title: Guide pratique pour créer un objet blob dans Stockage Azure à l'aide de la bibliothèque de client pour Java v7 | Microsoft Docs
-description: Créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, utilisez la bibliothèque de client Stockage Azure pour Java v7 afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de lister les objets blob dans un conteneur.
+title: 'Démarrage rapide : Bibliothèque de client Stockage Blob Azure pour le kit SDK Java v8'
+description: Créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, utilisez la bibliothèque de client Stockage Azure pour le SDK Java v8 afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de lister les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/04/2019
+ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: c88202c41a7ee6b6d215bd185aeca580bcc88eef
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390330"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030467"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Guide pratique pour charger, télécharger et lister des objets blob à l'aide de la bibliothèque de client pour Java v7
+# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure pour le kit SDK Java v8
 
-Dans ce guide pratique, vous allez apprendre à utiliser la bibliothèque de client pour Java v7 afin de charger, télécharger et lister des objets blob de blocs dans un conteneur de Stockage Blob Azure.
+Bien démarrer avec la bibliothèque de client Stockage Blob Azure pour Java. Le Stockage Blob Azure est la solution de stockage d’objets de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
+
+Utilisez la bibliothèque de client Stockage Blob Azure pour Java afin de :
+
+* Créer un conteneur.
+* Définir des autorisations sur un conteneur.
+* Créer un objet blob dans le stockage Azure.
+* Télécharger l’objet blob sur votre ordinateur local.
+* Lister tous les objets blob d’un conteneur.
+* Supprimer un conteneur.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-Créez également un compte de stockage Azure dans le [portail Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Si vous avez besoin d’aide pour créer un compte de stockage, consultez [Créez un compte de stockage](../common/storage-quickstart-create-account.md).
-
-Assurez-vous que vous disposez des prérequis suivants :
-
-* Installez un IDE avec une intégration Maven.
-
+* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
+* Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Un IDE avec intégration Maven.
 * Vous pouvez aussi installer et configurer Maven pour qu’il fonctionne à partir de la ligne de commande.
 
 Ce guide utilise [Eclipse](https://www.eclipse.org/downloads/) avec la configuration « IDE Eclipse pour les développeurs Java ».
@@ -205,6 +209,5 @@ sourceFile.deleteOnExit();
 Dans cet article, vous avez appris à transférer des fichiers entre un disque local et le Stockage Blob Azure avec Java. Pour en savoir plus sur l’utilisation de Java, accédez à notre dépôt de code source GitHub.
 
 > [!div class="nextstepaction"]
-> [Kit de développement logiciel (SDK) Stockage Microsoft Azure v10 pour Java](https://github.com/azure/azure-storage-java) 
-> [Référence API Java](https://docs.microsoft.com/java/azure/)
+> [Informations de référence sur les API Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy)
 > [Exemples de code pour Java](../common/storage-samples-java.md)

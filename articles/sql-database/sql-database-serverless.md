@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828234"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173396"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
 
@@ -326,7 +326,7 @@ Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde.  Le calcul
 
 ## <a name="available-regions"></a>Régions disponibles
 
-Le niveau de calcul serverless est disponible partout dans le monde, sauf dans les régions suivantes : Australie Centre, Chine Est, Chine Nord, France Sud, Allemagne Centre, Allemagne Nord-Est, Inde Ouest, Corée Sud, Afrique du Sud Ouest, Royaume-Uni Nord, Royaume-Uni Sud, Royaume-Uni Ouest et USA Centre-Ouest.
+Le niveau de calcul serverless est disponible partout dans le monde, sauf dans les régions suivantes : Chine Est, Chine Nord, Allemagne Centre, Allemagne Nord-Est, Royaume-Uni Nord, Royaume-Uni Sud 2, USA Centre-Ouest et USA Centre-Ouest, US DoD et US Gov Centre (Iowa).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,42 +1,21 @@
 ---
 title: Offre Dynamics 365 for Finance and Operations sur la Place de marché Azure
-description: Explique comment créer une offre Dynamics 365 for Finance and Operations sur le Portail Cloud Partner.
+description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Explique comment créer une offre Dynamics 365 for Finance and Operations sur le Portail Cloud Partner. »'
 services: Azure Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: pabutler
-ms.openlocfilehash: bd19723b80fdf4e4fc7e4581a9b8dcb80ca42045
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 6d5777bedd35a25963aec9055a6072222b922e29
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962908"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034923"
 ---
 # <a name="dynamics-365-for-finance-and-operations-offer"></a>Offre Dynamics 365 for Finance and Operations
 
-<table> <tr> <td>Cette section explique comment publier une solution Dynamics 365 for Finance and Operations sur la <a href="https://appsource.microsoft.com">Place de marché Microsoft AppSource</a>. Microsoft <a href="https://dynamics.microsoft.com/finance-and-operations">Dynamics 365 for Finance and Operations</a> est un service de type progiciel de gestion intégré (ERP) qui gère les aspects avancés de la finance, des opérations, de la fabrication et de la gestion de la chaîne logistique. </td> <td><img src="./media/publish_d365_new_offer/dynfinance-icon1.png"  alt="Dynamics 365 for Finance and Operations icon" /></td> </tr> </table>
+Le [Portail Cloud Partner](https://cloudpartner.azure.com/) ne prend plus en charge la création et la gestion des offres Dynamics 365 for Finance and Operations. Cette fonctionnalité a été déplacée vers le [portail de l’Espace partenaires](https://partner.microsoft.com/) Microsoft. Pour plus d’informations, consultez [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-
-## <a name="publishing-process"></a>Processus de publication
-
-Suivez les étapes ci-dessous pour développer votre application Dynamics 365 for Finance and Operations et la publier sur AppSource :
-
-1. Vous devez disposer d’une [certification Centre de développement](https://dev.windows.com/registration?accountProgram=Azure).
-2. Mettez à niveau votre code.
-3. Générez, packagez et déployez vos données avec [Lifecycle Services](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lifecycle-services/lcs) (LCS).
-4. Créez une méthodologie d’implémentation dans LCS.
-5. Définissez vos processus d’entreprise dans LCS.
-6. Créez votre contenu marketing sur le Portail Cloud Partner.
-7.  Faites valider votre application par notre équipe. Pour obtenir de l’aide, voir [Valider des applications pour la finance et les opérations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).
-8. Testez et certifiez votre offre sur le Portail Cloud Partner.
-9.  Publiez-la sur AppSource et mettez-la en ligne.
-
-Les articles suivants de cette section décrivent ces étapes plus en détail.
-
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Vérifiez que vous avez rempli les [exigences](./pre-requisites.md) commerciales et techniques de ce type d’offre.
-
+Avant de créer une offre Dynamics 365 for Operations, lisez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), puis ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/directory) et sélectionnez la page **Vue d’ensemble**. Suivez les instructions fournies dans [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) pour créer votre offre.

@@ -4,14 +4,14 @@ description: Montre comment les types de ressources gèrent la suppression du mo
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8238dddee041573d9b122e62cec66118c681ef6
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: cdc00ccc61e20865e993a18c72b930d9570896f2
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995258"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937046"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Suppression de ressources Azure pour les déploiements en mode complet
 
@@ -43,7 +43,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -126,6 +125,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -396,6 +396,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | billingAccounts/customers | Non |
 > | billingAccounts/customers/billingSubscriptions | Non |
 > | billingAccounts/customers/initiateTransfer | Non |
+> | billingAccounts/customers/policies | Non |
 > | billingAccounts/customers/products | Non |
 > | billingAccounts/customers/transactions | Non |
 > | billingAccounts/customers/transfers | Non |
@@ -443,13 +444,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | mapApis | OUI |
 > | updateCommunicationPreference | Non |
-
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Effectuer la suppression du mode |
-> | ------------- | ----------- |
-> | BizTalk | OUI |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -637,10 +631,10 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | diskEncryptionSets | OUI |
 > | disks | OUI |
 > | galleries | OUI |
-> | galeries/applications | OUI |
-> | galleries/applications/versions | OUI |
-> | galleries/images | OUI |
-> | galleries/images/versions | OUI |
+> | galeries/applications | Non |
+> | galleries/applications/versions | Non |
+> | galleries/images | Non |
+> | galleries/images/versions | Non |
 > | hostGroups | OUI |
 > | hostGroups/hosts | OUI |
 > | images | OUI |
@@ -648,13 +642,11 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | restorePointCollections | OUI |
 > | restorePointCollections/restorePoints | Non |
 > | sharedVMImages | OUI |
-> | sharedVMImages/versions | OUI |
+> | sharedVMImages/versions | Non |
 > | snapshots | OUI |
 > | virtualMachines | OUI |
 > | virtualMachines/extensions | OUI |
 > | virtualMachines/metricDefinitions | Non |
-> | virtualMachines/scriptJobs | Non |
-> | virtualMachines/softwareUpdateDeployments | Non |
 > | virtualMachineScaleSets | OUI |
 > | virtualMachineScaleSets/extensions | Non |
 > | virtualMachineScaleSets/networkInterfaces | Non |
@@ -779,7 +771,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Rapports | Non |
 > | Paramètres | Non |
 > | showbackRules | Non |
-> | Views | Non |
+> | Les vues | Non |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
@@ -871,7 +863,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | services | OUI |
 > | services/projects | OUI |
-> | slots | OUI |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
@@ -923,6 +914,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | serverGroups | OUI |
 > | servers | OUI |
 > | servers/advisors | Non |
+> | servers/privateEndpointConnectionProxies | Non |
+> | servers/privateEndpointConnections | Non |
+> | servers/privateLinkResources | Non |
 > | servers/queryTexts | Non |
 > | servers/recoverableServers | Non |
 > | servers/topQueryStatistics | Non |
@@ -1203,6 +1197,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | clusters/databases | Non |
 > | clusters/databases/dataconnections | Non |
 > | clusters/databases/eventhubconnections | Non |
+> | clusters/sharedidentities | Non |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1367,11 +1362,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Effectuer la suppression du mode |
 > | ------------- | ----------- |
 > | netAppAccounts | OUI |
+> | netAppAccounts/backupPolicies | OUI |
 > | netAppAccounts/capacityPools | OUI |
 > | netAppAccounts/capacityPools/volumes | OUI |
+> | netAppAccounts/capacityPools/volumes/backups | Non |
 > | netAppAccounts/capacityPools/volumes/mountTargets | OUI |
 > | netAppAccounts/capacityPools/volumes/snapshots | OUI |
-
+> | netAppAccounts/vaults | Non |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1464,6 +1461,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- |
 > | namespaces | OUI |
 > | namespaces/notificationHubs | OUI |
+
+## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Effectuer la suppression du mode |
+> | ------------- | ----------- |
+> | osNamespaces | OUI |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1618,7 +1622,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | subscriptions/resources | Non |
 > | subscriptions/tagnames | Non |
 > | subscriptions/tagNames/tagValues | Non |
-> | tags | Non |
 > | tenants | Non |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1682,6 +1685,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | securityStatusesSummaries | Non |
 > | serverVulnerabilityAssessments | Non |
 > | paramètres | Non |
+> | subAssessments | Non |
 > | tâches | Non |
 > | topologies | Non |
 > | workspaceSettings | Non |

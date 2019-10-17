@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 30f4358bea2670cfa8d825bf1ef75feeba7ea851
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3c63283a1a13e2deb178a53dfc5045d371d6a28a
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202342"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996924"
 ---
 # <a name="azure-security-center-data-security"></a>Sécurité des données du Centre de sécurité Azure
 Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Security Center collecte et traite des données de sécurité, notamment des informations de configuration, des métadonnées, des journaux d’événements et des fichiers de vidage sur incident. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
@@ -80,7 +80,7 @@ Si vous utilisez Azure Security Center gratuitement, vous pouvez également dés
 
 Les clients peuvent consommer des données liées au Centre de sécurité à partir de différents flux de données, comme indiqué ci-dessous :
 
-* **Azure Activity** : toutes les alertes de sécurité, les requêtes approuvées [juste à temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) du Centre de sécurité, et toutes les alertes générées par les [contrôles d’application adaptative](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Azure Activity** : toutes les alertes de sécurité, les requêtes approuvées [juste-à-temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) du Centre de sécurité, et toutes les alertes générées par les [contrôles d’application adaptative](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
 * **journaux Azure Monitor** : toutes les alertes de sécurité.
 
 

@@ -1,17 +1,17 @@
 ---
 title: Réplicas en lecture dans Azure Database pour MySQL.
-description: Cet article décrit les réplicas en lecture pour Azure Database pour MySQL.
+description: 'Découvrez en quoi consistent les réplicas en lecture dans Azure Database pour MySQL : choix des régions, création de réplicas, connexion à des réplicas, supervision de la réplication et arrêt de la réplication.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: cdcb4832408b9e26e692a055e06bfb55e2fdfe96
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 6ad71cecfd088a92bdd41ae13cb530c286ebea4c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993100"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970400"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -19,7 +19,7 @@ La fonctionnalité de réplica en lecture vous permet de répliquer les données
 
 Les réplicas sont de nouveaux serveurs que vous gérez de manière similaire aux serveurs Azure Database pour MySQL classiques. Pour chaque réplica en lecture, vous êtes facturé en fonction de la capacité de calcul provisionnée dans les vCores et du stockage provisionné en Go/mois.
 
-Pour découvrir plus en détail les fonctionnalités et les problèmes de la réplication MySQL, consultez la [documentation de la réplication MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
+Pour découvrir plus en détail les fonctionnalités de réplication MySQL et les problèmes associés, consultez la [documentation sur la réplication MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
 ## <a name="when-to-use-a-read-replica"></a>Quand utiliser un réplica en lecture
 
@@ -39,7 +39,7 @@ Vous pouvez disposer d’un serveur maître dans toute [région Azure Database p
 [ ![Régions des réplicas en lecture](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Régions de réplica universelles
-Vous pouvez toujours créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur maître. Les régions de réplica universelles sont les suivantes :
+Vous pouvez créer un réplica en lecture dans les régions suivantes, quel que soit l’emplacement de votre serveur maître. Les régions de réplica universelles prises en charge sont les suivantes :
 
 Australie Est, Australie Sud-Est, USA Centre, Asie Est, USA Est, USA Est 2, Japon Est, Japon Ouest, Corée Centre, Corée Sud, USA Centre Nord, Europe Nord, USA Centre Sud, Asie Sud-Est, Royaume-Uni Sud, Royaume-Uni Ouest, Europe Ouest, USA Ouest, USA Ouest 2.
 
@@ -63,7 +63,7 @@ Si un serveur maître ne dispose d’aucun serveur réplica, le serveur maître 
 
 Quand vous démarrez le workflow de création de réplica, un serveur Azure Database pour MySQL vide est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur maître. Le temps de création dépend de la quantité de données présentes sur le serveur maître et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Le temps nécessaire peut aller de quelques minutes à plusieurs heures.
 
-Chaque réplica est activé pour la [croissance automatique](concepts-pricing-tiers.md#storage-auto-grow) du stockage. La fonctionnalité de croissance automatique permet au réplica de suivre les données qui sont répliquées sur lui et d’empêcher toute interruption à cause d’une erreur de saturation du stockage.
+Chaque réplica est activé pour la [croissance automatique](concepts-pricing-tiers.md#storage-auto-grow) du stockage. La fonctionnalité de croissance automatique permet au réplica de s’adapter aux données qui sont répliquées sur celui-ci et d’empêcher une interruption de la réplication à cause d’erreurs liées à la saturation de l’espace de stockage.
 
 Découvrez comment [créer un réplica en lecture dans le portail Azure](howto-read-replicas-portal.md).
 
@@ -109,7 +109,7 @@ Les réplicas en lecture ne sont actuellement disponibles que dans les niveaux t
 
 ### <a name="master-server-restart"></a>Redémarrage du serveur maître
 
-Lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le serveur maître commence par redémarrer pour se préparer pour la réplication. Veuillez prendre cela en compte et effectuer ces opérations pendant une période creuse.
+Lorsque vous créez un réplica pour un serveur maître qui ne dispose d’aucun réplica existant, le serveur maître commence par redémarrer pour se préparer pour la réplication. Tenez-en compte et effectuez ces opérations en période creuse.
 
 ### <a name="new-replicas"></a>Nouveaux réplicas
 

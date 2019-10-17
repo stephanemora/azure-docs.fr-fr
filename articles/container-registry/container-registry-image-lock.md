@@ -6,20 +6,23 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 09/30/2019
 ms.author: danlep
-ms.openlocfilehash: 7a313353ee1c7afae10fd7af84570565037e40ab
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 1ef6d5366e5db07a7f03bac251c24b1ff76a13e9
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310644"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949518"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Verrouiller une image dans un registre de conteneurs Azure
 
 Dans un registre de conteneurs Azure, vous pouvez verrouiller une version d’image ou un référentiel afin qu’il ne puisse pas être supprimé ou mis à jour. Pour verrouiller une image ou un référentiel, mettez à jour ses attributs à l’aide de la commande Azure CLI [az acr repository update][az-acr-repository-update]. 
 
 Cet article nécessite que vous exécutiez Azure CLI dans Azure Cloud Shell ou localement (version 2.0.55 ou ultérieure recommandée). Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
+
+> [!IMPORTANT]
+> Cet article ne s’applique pas au verrouillage d’un registre entier, par exemple à l’aide de **Paramètres > Verrous** dans le Portail Azure, ou des commandes `az lock` dans l’interface de ligne de commande Azure. Le verrouillage d’une ressource du registre ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans des référentiels. Le verrouillage d’un registre affecte uniquement les opérations de gestion telles que l’ajout ou la suppression de réplications, ou la suppression du registre lui-même. Vous trouverez plus d’informations dans [Verrouiller les ressources pour empêcher les modifications inattendues](../azure-resource-manager/resource-group-lock-resources.md).
 
 ## <a name="scenarios"></a>Scénarios
 

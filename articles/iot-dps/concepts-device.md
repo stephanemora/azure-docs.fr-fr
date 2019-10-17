@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2904da863707c5f653d774b0a480cc48c95c8d1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60745976"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173382"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concepts d’appareil du service IoT Hub Device Provisioning
 
@@ -44,7 +44,7 @@ Les secrets de l’appareil peuvent également être stockés sous forme logicie
 
 ## <a name="registration-id"></a>ID d’enregistrement
 
-L’ID d’enregistrement est utilisé pour identifier de manière unique un appareil dans le service Device Provisioning. L’ID d’appareil doit être unique dans l’[étendue de l’ID](#id-scope) du service d’approvisionnement. Chaque appareil doit avoir un ID d’enregistrement. L’ID d’enregistrement est alphanumérique, en minuscules et peut contenir des traits d’union.
+L’ID d’enregistrement est utilisé pour identifier de manière unique un appareil dans le service Device Provisioning. L’ID d’inscription doit être unique dans l’[étendue d’ID](#id-scope) du service de provisionnement. Chaque appareil doit avoir un ID d’enregistrement. L’ID d’enregistrement est alphanumérique, en minuscules et peut contenir des traits d’union.
 
 * Dans le cas d’un module TPM, l’ID d’enregistrement est fourni par le TPM lui-même.
 * Dans le cas d’une attestation X.509, l’ID d’enregistrement est le nom de sujet du certificat.

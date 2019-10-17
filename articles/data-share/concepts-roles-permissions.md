@@ -1,17 +1,17 @@
 ---
 title: Rôles et exigences pour Azure Data Share en préversion
-description: Rôles et exigences pour Azure Data Share en préversion
+description: Découvrez les rôles et exigences du contrôle d’accès requis pour les fournisseurs de données et les consommateurs de données qui souhaitent partager des données dans Azure Data Share (préversion).
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 7bf98f8774551292574d4f1951eba44657fa7de0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c0841f6386440776c6ea719f9932a53cada9d9c4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307355"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166374"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Rôles et exigences pour Azure Data Share en préversion
 

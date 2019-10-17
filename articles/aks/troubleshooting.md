@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 6ff273236f9f8465de9ec0cda89ed3ff8996ecec
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d2561b1882ea612f29c0ff0eeb4bd6614403c9ff
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932658"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025484"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -105,9 +105,9 @@ Vous pouvez recevoir des erreurs qui indiquent que votre cluster AKS n’apparti
 
 **AgentPool 'agentpool' has set auto scaling as enabled but is not on Virtual Machine Scale Sets**
 
-Pour utiliser des fonctionnalités telles que le composant Cluster Autoscaler ou plusieurs pools de nœuds, il est nécessaire de créer des clusters AKS qui utilisent des groupes de machines virtuelles identiques. Des erreurs sont retournées si vous tentez d’utiliser des fonctionnalités qui dépendent de groupes de machines virtuelles identiques et que vous ciblez un cluster AKS normal composé d’un groupe de machines identiques non virtuelles. La prise en charge des groupes de machines virtuelles identiques est actuellement en préversion dans AKS.
+Pour utiliser des fonctionnalités telles que le composant Cluster Autoscaler ou plusieurs pools de nœuds, il est nécessaire de créer des clusters AKS qui utilisent des groupes de machines virtuelles identiques. Des erreurs sont retournées si vous tentez d’utiliser des fonctionnalités qui dépendent de groupes de machines virtuelles identiques et que vous ciblez un cluster AKS normal composé d’un groupe de machines identiques non virtuelles.
 
-Suivez les étapes *Avant de commencer* décrites dans la documentation appropriée pour inscrire correctement la préversion de la fonctionnalité de groupe de machines virtuelles identiques et créer un cluster AKS :
+Suivez les étapes *Avant de commencer* dans le document approprié pour créer correctement un cluster AKS :
 
 * [Utiliser le composant Cluster Autoscaler](cluster-autoscaler.md)
 * [Créer et utiliser plusieurs pools de nœuds](use-multiple-node-pools.md)

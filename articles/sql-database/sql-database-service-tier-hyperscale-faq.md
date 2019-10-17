@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/06/2019
-ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/02/2019
+ms.openlocfilehash: 6f2ef181e7f61696245a4413d7a28d84801f2838
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162255"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032890"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -37,7 +37,7 @@ Le niveau de service Hyperscale est disponible seulement pour les bases de donn�
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>En quoi le niveau de service Hyperscale diffère-t-il des niveaux de service Usage général et Critique pour l’entreprise ?
 
-Les niveaux de service basés sur des vCore diffèrent principalement en disponibilité, type de stockage et IOPS.
+Les niveaux de service basés sur les vCores diffèrent principalement en termes de disponibilité, de type de stockage et d’IOPS.
 
 - Le niveau de service Usage général est approprié pour la plupart des charges de travail métier, offrant un ensemble équilibré d’options de calcul et de stockage, où les temps de latence des E/S et de basculement ne sont pas la priorité.
 - Le niveau de service Hyperscale est optimisé pour les charges de travail des bases de données très volumineuses.
@@ -45,14 +45,14 @@ Les niveaux de service basés sur des vCore diffèrent principalement en disponi
 
 | | Type de ressource | Usage général |  Hyperscale | Critique pour l’entreprise |
 |:---:|:---:|:---:|:---:|:---:|
-| **Idéal pour** |Tous|  La plupart des charges de travail d’entreprise. Offre des options de calcul et de stockage équilibrées et économiques. | Applications de données avec des besoins en capacité pour des données volumineuses, et la possibilité de mettre à l’échelle automatiquement le stockage et de mettre à l’échelle la capacité de calcul de façon fluide. | Applications OLTP avec des débits de transactions élevés et la latence des E/S la plus faible. Offre la meilleure résilience aux défaillances grâce à l’utilisation de plusieurs réplicas isolés.|
+| **Idéal pour** |Tous|Offre des options de calcul et de stockage équilibrées et économiques.|La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale du calcul, restauration rapide de la base de données.|Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|
 |  **Type de ressource** ||Base de données unique / pool élastique / instance managée | Base de données unique | Base de données unique / pool élastique / instance managée |
 | **Taille de calcul**|Base de données unique / pool élastique * | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
 | |Instance gérée | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
 | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
 | **Taille de stockage** | Base de données unique / pool élastique | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
 | | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
-| **Débit d’E/S** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
+| **D’OPÉRATIONS D’E/S PAR SECONDE** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
 | | Instance gérée | Dépend de la taille de fichier | N/A | instance managée : Dépend de la taille de fichier|
 |**Disponibilité**|Tous|1 réplica, pas d’échelle lecture, pas de cache local | Plusieurs réplicas, jusqu’à 4 échelles lecture, cache local partiel | 3 réplicas, 1 échelle lecture, haute disponibilité redondante interzone, cache local complet |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
@@ -61,7 +61,7 @@ Les niveaux de service basés sur des vCore diffèrent principalement en disponi
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>À qui est destiné le niveau de service Hyperscale ?
 
-Le niveau de service Hyperscale est principalement destiné aux clients qui ont de grandes bases de données SQL Server locales et qui veulent moderniser leurs applications en les déplaçant dans le cloud, ou aux clients qui utilisent déjà Azure SQL Database et qui veulent étendre considérablement le potentiel de croissance de leurs bases de données. Hyperscale est également destiné aux clients qui recherchent à la fois des hautes performances et une scalabilité élevée. Avec Hyperscale, vous bénéficiez des avantages suivants :
+Le niveau de service Hyperscale est destiné aux clients qui ont de grandes bases de données SQL Server locales et qui veulent moderniser leurs applications en les déplaçant dans le cloud, ou aux clients qui utilisent déjà Azure SQL Database et qui veulent étendre considérablement le potentiel de croissance de leurs bases de données. Hyperscale est également destiné aux clients qui recherchent à la fois des hautes performances et une scalabilité élevée. Avec Hyperscale, vous bénéficiez des avantages suivants :
 
 - Prise en charge d’une taille de base de données pouvant atteindre 100 To
 - Sauvegardes de base de données rapides, quelle que soit la taille des bases de données (les sauvegardes sont basées sur des captures instantanées des fichiers)
@@ -173,7 +173,7 @@ La taille de votre base de données croît automatiquement au fil de l’inserti
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>De quel incrément la taille de ma base de données augmente-t-elle ?
 
-1 Go
+Chaque fichier de données croît de 10 Go. Plusieurs fichiers de données peuvent croître en même temps.
 
 ### <a name="is-the-storage-in-sql-database-hyperscale-local-or-remote"></a>Le stockage dans SQL Database Hyperscale est-il local ou distant ?
 
@@ -217,9 +217,9 @@ Non. Actuellement, vous ne pouvez pas déplacer une base de données Hyperscale 
 
 Oui. Certaines des fonctionnalités Azure SQL Database ne sont pas encore prises en charge dans Hyperscale, notamment, sans limitation, la conservation à long terme des sauvegardes. Après la migration de vos bases de données vers Hyperscale, ces fonctionnalités cessent de fonctionner.  Nous espérons que ces limites ne seront pas définitives.
 
-### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Puis-je déplacer ma base de données SQL Server locale ou ma base de données sur machine virtuelle SQL Server vers Hyperscale ?
+### <a name="can-i-move-my-on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Puis-je déplacer ma base de données SQL Server locale ou ma base de données sur machine virtuelle SQL Server vers Hyperscale ?
 
-Oui. Vous pouvez utiliser toutes les technologies de migration existantes pour migrer vers Hyperscale, notamment BACPAC, la réplication transactionnelle et le chargement de données logique. Voir aussi [Azure Database Migration Service](../dms/dms-overview.md).
+Oui. Vous pouvez utiliser toutes les technologies de migration existantes pour migrer vers Hyperscale, notamment la réplication transactionnelle, et toute autre technologie de déplacement de données (copie en bloc, Azure Data Factory, Azure Databricks, SSIS). Voir aussi [Azure Database Migration Service](../dms/dms-overview.md).
 
 ### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Quelle est la durée du temps d’arrêt pendant la migration depuis un environnement local ou de machines virtuelles vers Hyperscale, et comment puis-je le minimiser ?
 
@@ -228,11 +228,13 @@ Le temps d’arrêt est le même que quand vous migrez vos bases de données ver
 
 ### <a name="how-much-time-would-it-take-to-bring-in-x-amount-of-data-to-sql-database-hyperscale"></a>Combien de temps cela prend-t-il de charger une quantité X de données dans SQL Database Hyperscale ?
 
-Hyperscale peut consommer 100 Mo/s de données nouvelles ou modifiées.
+Hyperscale peut consommer 100 Mo/s de données nouvelles ou modifiées, mais le temps nécessaire pour déplacer des données dans des bases de données SQL Azure est également affecté par le débit du réseau disponible, la vitesse de lecture de la source et l’objectif de niveau de service de la base de données Hyperscale cible.
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Puis-je lire des données dans un stockage d’objets blob (comme PolyBase et SQL Data Warehouse) et faire un chargement rapide ?
 
 Vous pouvez lire des données depuis Stockage Azure et charger des données dans une base de données Hyperscale (exactement comme vous pouvez le faire avec une base de données unique normale). Actuellement, PolyBase n’est pas pris en charge sur Azure SQL Database. Vous pouvez faire comme si vous aviez PolyBase en utilisant [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) ou en exécutant un travail Spark dans [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) avec le [connecteur Spark pour SQL](sql-database-spark-connector.md). Le connecteur Spark pour SQL prend en charge l’insertion en bloc.
+
+Il est également possible de lire en bloc des données à partir du magasin d’objets blob Azure à l’aide de BULK INSERT ou OPENROWSET : [Exemples d’accès en bloc à des données dans Stockage Blob Azure](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Le modèle de récupération simple ou de journalisation en bloc n’est pas pris en charge dans Hyperscale. Le modèle de récupération complète est nécessaire pour fournir la haute disponibilité. Cependant, Hyperscale fournit un meilleur débit d’ingestion en comparaison d’une base de données Azure SQL unique, en raison de la nouvelle architecture de la journalisation.
 

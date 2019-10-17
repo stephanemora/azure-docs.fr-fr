@@ -1,21 +1,21 @@
 ---
 title: Magasin de données des requêtes dans Azure Database pour MySQL
-description: Cet article décrit la fonctionnalité Magasin de données des requêtes dans Azure Database pour MySQL
+description: Découvrez la fonctionnalité Magasin des requêtes dans Azure Database pour MySQL qui vous permet de suivre les performances dans le temps.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 884824b6f6fd8bf5b4c7730813c4363fae018375
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: bac270dc0d49c0eaa8c01b030256aa9bb597db80
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950578"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029869"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Surveiller les performances d’Azure Database pour MySQL avec Magasin de données des requêtes
 
-**S’applique à :**  Azure Database pour MySQL 5.7
+**S’applique à :** Azure Database pour MySQL 5.7
 
 > [!IMPORTANT]
 > Magasin de données des requêtes est disponible en préversion.
@@ -37,14 +37,14 @@ Le Magasin des requêtes étant une fonctionnalité avec option d’adhésion, e
 ### <a name="enable-query-store-using-the-azure-portal"></a>Activer le Magasin des requêtes à l’aide du portail Azure
 
 1. Connectez-vous au Portail Azure, puis sélectionnez votre serveur Azure Database pour MySQL.
-1. Sélectionnez  **Paramètres du serveur** dans la section  **Paramètres**  du menu.
+1. Sélectionnez **Paramètres du serveur** dans la section **Paramètres** du menu.
 1. Recherchez le paramètre  query_store_capture_mode .
-1. Définissez la valeur sur  ALL et cliquez sur  **Enregistrer**.
+1. Définissez la valeur sur ALL  et cliquez sur **Enregistrer**.
 
 Pour activer les statistiques d’attente dans votre magasin des requêtes, procédez comme suit :
 
 1. Recherchez le paramètre  query_store_wait_sampling_capture_mode.
-1. Définissez la valeur sur  ALL  et cliquez sur  **Enregistrer**.
+1. Définissez la valeur sur ALL  et cliquez sur **Enregistrer**.
 
 Autoriser jusqu’à 20 minutes de conservation pour le premier lot de données dans la base de données mysql.
 
@@ -78,8 +78,8 @@ Voici quelques exemples illustrant la façon d’obtenir plus d’insights dans 
 | **Observation** | **Action** |
 |---|---|
 |Attentes de verrous élevés | Vérifiez les textes de requêtes pour les requêtes affectées et identifiez les entités cibles. Recherchez dans le Magasin des requêtes d’autres requêtes modifiant la même entité, qui est fréquemment exécutée et/ou dont la durée d’exécution est longue. Après avoir identifié ces requêtes, envisagez de changer la logique d’application pour améliorer l’accès concurrentiel, ou utilisez un niveau d’isolation moins restrictif. |
-|Attentes d’E/S de mémoire tampon élevées | Recherchez les requêtes comportant un grand nombre de lectures physiques dans le Magasin des requêtes. Si elles correspondent aux requêtes ayant des attentes d’E/S élevées, envisagez d’introduire un index sur l’entité sous-jacente, afin de faire des recherches plutôt que des analyses. Cela réduit la surcharge d’E/S des requêtes. Consultez les  **Recommandations en matière de performances**  pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index adaptées à ce serveur qui optimiseraient les requêtes. |
-|Attentes de mémoire élevées | Recherchez les principales requêtes consommatrices de mémoire dans le Magasin des requêtes. Ces requêtes retardent probablement davantage la progression des requêtes affectées. Consultez les  **Recommandations en matière de performances**  pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index qui optimiseraient ces requêtes.|
+|Attentes d’E/S de mémoire tampon élevées | Recherchez les requêtes comportant un grand nombre de lectures physiques dans le Magasin des requêtes. Si elles correspondent aux requêtes ayant des attentes d’E/S élevées, envisagez d’introduire un index sur l’entité sous-jacente, afin de faire des recherches plutôt que des analyses. Cela réduit la surcharge d’E/S des requêtes. Consultez les **Recommandations en matière de performances** pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index adaptées à ce serveur qui optimiseraient les requêtes. |
+|Attentes de mémoire élevées | Recherchez les principales requêtes consommatrices de mémoire dans le Magasin des requêtes. Ces requêtes retardent probablement davantage la progression des requêtes affectées. Consultez les **Recommandations en matière de performances** pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index qui optimiseraient ces requêtes.|
 
 ## <a name="configuration-options"></a>Options de configuration
 
@@ -108,7 +108,7 @@ Utilisez le  [Portail Azure](howto-server-parameters.md) ou l’ [interface d
 
 ## <a name="views-and-functions"></a>Vues et fonctions
 
-Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues suivantes. Toute personne du [select privilege public role](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) peut utiliser ces vues pour afficher les données du magasin de données des requêtes. Ces vues sont disponibles uniquement dans la base de données **mysql** .
+Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues suivantes. Toute personne du [select privilege public role](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) peut utiliser ces vues pour afficher les données du magasin de données des requêtes. Ces vues sont disponibles uniquement dans la base de données **mysql**.
 
 Les requêtes sont normalisées en examinant leur structure après la suppression des littéraux et des constantes. Si deux requêtes sont identiques à l’exception des valeurs littérales, elle ont le même hachage.
 

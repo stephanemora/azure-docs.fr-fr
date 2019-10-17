@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773203"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000430"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 
@@ -35,7 +35,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 | :-- | --: |--:| --:|
 |Charge de travail cible|Développement et production|Développement et production|Développement et production|
 |Contrat SLA de durée de fonctionnement|99,99 %|99,99 %|99,99 %|
-|Rétention des sauvegardes|7 jours|35 jours|35 jours|
+|Conservation de sauvegarde maximale|7 jours|35 jours|35 jours|
 |UC|Faible|Faible, moyen, élevé|Faible, élevé|
 |Débit d’E/S (approximatif) |1-5 IOPS par DTU| 1-5 IOPS par DTU | 25 IOPS par DTU|
 |Latence d’E/S (approximative)|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|

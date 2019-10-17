@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: memildin
-ms.openlocfilehash: 0663e97dabe8b5f50ee9605f0bc9319c7a2aa13c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 356bfc28984ecc1bc6990c10378a3df155593e94
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201246"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996711"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Passer au niveau tarifaire Standard de Security Center pour une sécurité renforcée
 Azure Security Center fournit une gestion unifiée de la sécurité et une protection avancée contre les menaces pour les charges de travail s’exécutant dans Azure, en local et dans d’autres clouds. Il fournit une visibilité et un contrôle sur les charges de travail cloud hybrides, des défenses actives qui réduisent votre exposition aux menaces et une détection intelligente pour vous aider à suivre le rythme des cyberattaques en constante évolution.
@@ -48,7 +48,7 @@ Pour obtenir le niveau Standard :
 (Les prix dans l’image sont uniquement fournis à titre d’exemple.) ![Tarification de Security Center](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
-> Pour activer toutes les fonctionnalités de Security Center, vous devez appliquer le niveau tarifaire Standard à l'abonnement contenant les machines virtuelles concernées. La configuration de la tarification d’un espace de travail n’active pas l’accès juste à temps à la machine virtuelle, les contrôles d’application adaptatifs, ni les détections réseau pour les ressources Azure.
+> Pour activer toutes les fonctionnalités de Security Center, vous devez appliquer le niveau tarifaire Standard à l'abonnement contenant les machines virtuelles concernées. La configuration du tarif pour un espace de travail n’active pas l’accès juste-à-temps à la machine virtuelle, les contrôles d’application adaptatifs et les détections réseau pour les ressources Azure.
 >
 >
 
@@ -64,7 +64,7 @@ Security Center offre une sécurité renforcée et une meilleure protection cont
 Cet article vous a présenté la tarification de Security Center. Pour en savoir plus sur la sécurité renforcée et la protection avancée contre les menaces du niveau Standard, consultez :
 
 - [Détection avancée des menaces](security-center-threat-report.md)
-- [Gérer l’accès Juste à temps à la machine virtuelle](security-center-just-in-time.md)
+- [Contrôle d’accès juste-à-temps à la machine virtuelle](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

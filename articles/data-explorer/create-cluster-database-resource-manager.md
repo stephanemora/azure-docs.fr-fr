@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: dfc0cd6686ac4ea1af2beb34edeadd17e4c952e1
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: e2e051db00c9b8de5268e64be70ab99752bf7a55
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71328731"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001417"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Créer un cluster et une base de données Azure Data Explorer avec un modèle Azure Resource Manager
 
@@ -67,11 +67,11 @@ Dans cet article, vous utilisez un [modèle de démarrage rapide existant](https
           "name": "[parameters('clusters_kustocluster_name')]",
           "type": "Microsoft.Kusto/clusters",
           "sku": {
-              "name": "D13_v2",
+              "name": "Standard_D13_v2",
               "tier": "Standard",
               "capacity": 2
           },
-          "apiVersion": "2019-09-07-preview",
+          "apiVersion": "2019-05-15",
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
@@ -80,7 +80,7 @@ Dans cet article, vous utilisez un [modèle de démarrage rapide existant](https
       {
           "name": "[concat(parameters('clusters_kustocluster_name'), '/', parameters('databases_kustodb_name'))]",
           "type": "Microsoft.Kusto/clusters/databases",
-          "apiVersion": "2019-09-07-preview",
+          "apiVersion": "2019-05-15",
           "location": "[parameters('location')]",
           "dependsOn": [
               "[resourceId('Microsoft.Kusto/clusters', parameters('clusters_kustocluster_name'))]"
@@ -110,7 +110,7 @@ Vous pouvez déployer le modèle Azure Resource Manager [à l’aide du portail 
 
     ![Déployer dans Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-Vous pouvez [modifier et déployer le modèle dans le portail Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) en utilisant le formulaire.
+    Vous pouvez [modifier et déployer le modèle dans le portail Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) en utilisant le formulaire.
 
 1. Complétez les sections **INFORMATIONS DE BASE** et **PARAMÈTRES**. Sélectionnez des noms de cluster et de base de données uniques.
 La création d’un cluster et d’une base de données Azure Data Explorer prend quelques minutes.
@@ -142,7 +142,7 @@ La création d’un cluster et d’une base de données Azure Data Explorer pren
 
 #### <a name="verify-the-deployment-using-powershell"></a>Vérifier le déploiement à l’aide de PowerShell
 
-Pour vérifier le déploiement, utilisez le script Azure PowerShell suivant.  Si Cloud Shell est toujours ouvert, vous n’avez pas besoin de copier/exécuter la première ligne (Read-Host). Pour plus d’informations sur la gestion des ressources Azure Data Explorer dans PowerShell, consultez [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). Apporter les changements appropriés
+Pour vérifier le déploiement, utilisez le script Azure PowerShell suivant.  Si Cloud Shell est toujours ouvert, vous n’avez pas besoin de copier/exécuter la première ligne (Read-Host). Pour plus d’informations sur la gestion des ressources Azure Data Explorer dans PowerShell, consultez [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -163,7 +163,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 Supprimez les ressources dans le portail Azure en suivant les étapes décrites dans [Nettoyer les ressources](create-cluster-database-portal.md#clean-up-resources).
 
-### <a name="clean-up-resources-using-powershell"></a>Nettoyer des ressources à l’aide de PowerShell
+### <a name="clean-up-resources-using-powershell"></a>Supprimer des ressources à l’aide de PowerShell
 
 Si Cloud Shell est toujours ouvert, vous n’avez pas besoin de copier/exécuter la première ligne (Read-Host).
 

@@ -1,52 +1,53 @@
 ---
-title: Suivi de la progression des projets de science des données - Team Data Science Process
-description: Méthode de suivi de la progression d’un projet de science des données pour les responsables de groupe, les responsables d’équipe et les coordinateurs de projet spécialisés dans la science des données.
+title: Suivre la progression des projets TDSP
+description: Méthode de suivi de la progression d’un projet de science des données pour les responsables de groupe, chefs d’équipe et coordinateurs de projet spécialisés dans la science des données.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 09/26/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7745a53084f4477f7b736ea9d130ffd3eed771f4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60252575"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244051"
 ---
-# <a name="tracking-the-progress-of-data-science-projects"></a>Suivi de la progression des projets de science des données
+# <a name="track-the-progress-of-data-science-projects"></a>Suivre la progression de projets de science des données
 
-Les responsables de groupe, d’équipe et de projet de science des données doivent suivre l’avancement de leurs projets, les tâches qui ont été effectuées et par qui, et les tâches qu’il reste à accomplir. 
+Les responsables de groupe, chefs d’équipe et coordinateurs de projet spécialisés dans la science des données peuvent suivre la progression de leurs projets, notamment le travail qui a été fait et par qui ainsi que le travail restant. 
 
 ## <a name="azure-devops-dashboards"></a>Tableaux de bord DevOps Azure
-Si vous utilisez Azure DevOps, vous pouvez générer des tableaux de bord pour suivre les activités et les éléments de travail associés à un projet Agile donné. 
 
-Pour plus d’informations sur la création et la personnalisation des tableaux de bord et des widgets sur Azure DevOps, consultez les ensembles d’instructions suivants :
+Si vous utilisez Azure DevOps, vous pouvez générer des tableaux de bord pour suivre les activités et éléments de travail associés à un projet Agile donné. Pour plus d’informations sur les tableaux de bord, consultez [Tableaux de bord, rapports et widgets](/azure/devops/report/dashboards/).
 
-- [Ajouter et gérer des tableaux de bord](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
-- [Ajouter des widgets à un tableau de bord](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard)
+Pour obtenir des instructions sur la création et la personnalisation de tableaux de bord et de widgets dans Azure DevOps, consultez les guides de démarrage rapide suivants :
+
+- [Ajouter et gérer des tableaux de bord](/azure/devops/report/dashboards/dashboards)
+- [Ajouter des widgets à un tableau de bord](/azure/devops/report/dashboards/add-widget-to-dashboard)
 
 ## <a name="example-dashboard"></a>Exemple de tableau de bord
 
-Voici un exemple simple de tableau de bord, conçu pour effectuer le suivi des activités des sprints d’un projet de science des données Agile, ainsi que du nombre de validations pour les dépôts associés. Le panneau **supérieur gauche** affiche les informations suivantes :
+Voici un exemple simple de tableau de bord qui effectue le suivi des activités des sprints d’un projet de science des données Agile, notamment le nombre de validations dans des dépôts associés. 
 
-- Le compte à rebours du sprint actuel 
-- Le nombre de validations pour chaque dépôt au cours des 7 derniers jours
-- L’élément de travail assigné à un utilisateur spécifique 
+- La vignette **countdown** montre le nombre de jours restants dans le sprint actuel. 
 
-Les autres panneaux affichent le diagramme de flux cumulé, le burndown et le burnup d’un projet :
+- Les deux **vignettes de code** montrent le nombre de validations dans les deux dépôts de projet au cours des sept derniers jours. 
 
-- **En bas à gauche** :  diagramme de flux cumulé indiquant la quantité de travail dans un état donné : approuvé (gris), validé (bleu) et effectué (vert).
-- **En haut à droite** : burndown chart indiquant le travail restant à effectuer par rapport au temps restant.
-- **En bas à droite**: burnup chart indiquant le travail qui a été effectué par rapport à la quantité de travail totale.
+- **Work items for TDSP Customer Project** montre les résultats d’une requête pour tous les éléments de travail et leur état. 
 
-![dashboard](./media/track-progress/dashboard.png)
+- Un **diagramme de flux cumulatif** montre le nombre d’éléments de travail fermés et actifs.
 
-Pour obtenir une description de la génération de ces graphiques, consultez les guides de démarrage rapide et les didacticiels présentés dans [Tableaux de bord](https://docs.microsoft.com/azure/devops/report/dashboards/).
- 
+- Le **graphique Burndown** montre le travail qu’il reste à faire par rapport au temps restant dans le sprint.
+
+- Le **graphique Burnup** montre le travail accompli par rapport à la quantité totale de travail dans le sprint.
+
+![tableau de bord](./media/track-progress/dashboard.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Des procédures pas à pas illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. L’article [Exemples de procédures pas à pas](walkthroughs.md) les liste et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente. 
+[Guides d’application du processus TDSP (Team Data Science Process)](walkthroughs.md) liste les procédures pas à pas illustrant les étapes du processus pour des scénarios spécifiques avec des liens et des descriptions sous forme de miniatures. Les scénarios liés montrent également comment combiner des outils et des services cloud et locaux dans des workflows ou des pipelines pour créer des applications intelligentes. 

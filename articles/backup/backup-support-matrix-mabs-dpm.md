@@ -7,12 +7,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 7f890ddf7aff63189a720f3d604b00610af7a933
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d14cd996fe0e5a67cc3b554fe1e12146cd6b8e1c
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949846"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981079"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Tableau de prise en charge pour la sauvegarde avec un serveur de sauvegarde Microsoft Azure ou System Center DPM
 
@@ -25,8 +25,10 @@ Vous pouvez utiliser le [service Sauvegarde Azure](backup-overview.md) pour sauv
 MABS est un produit serveur qui permet de sauvegarder des serveurs physiques locaux, des machines virtuelles et les applications qu'elles exécutent.
 
 MABS est basé sur System Center DPM et fournit des fonctionnalités similaires, à quelques différences près :
+
 - Aucune licence System Center n’est nécessaire pour exécuter MABS.
 - Azure fournit un stockage de sauvegarde à long terme pour MABS et DPM. DPM vous permet aussi de sauvegarder des données sur bande pour le stockage à long terme. MABS n’offre pas cette fonctionnalité.
+- Vous pouvez sauvegarder un serveur DPM principal à l’aide d’un serveur DPM secondaire. Le serveur secondaire protège la base de données du serveur principal et les réplicas de la source de données stockés sur le serveur principal. En cas d’échec du serveur principal, le serveur secondaire peut continuer à protéger les charges de travail qui sont protégées par le serveur principal, jusqu’à ce que le serveur principal soit de nouveau disponible.  MABS n’offre pas cette fonctionnalité.
 
 Vous pouvez télécharger MABS à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=57520). Il peut être exécuté localement ou sur une machine virtuelle Azure.
 
@@ -56,7 +58,6 @@ Pour plus d'informations :
 --- | --- | ---
 **Sauvegarde de machines/charges de travail locales** | L'agent de protection DPM/MABS s'exécute sur les machines que vous souhaitez sauvegarder.<br/><br/> Agent MARS sur le serveur DPM/MABS.<br/> La version minimale de l’agent Microsoft Azure Recovery Services ou un agent Azure Backup, requise pour activer cette fonctionnalité est 2.0.8719.0.  | DPM/MABS doit s'exécuter localement.
 
-
 ## <a name="supported-deployments"></a>Déploiements pris en charge
 
 DPM/MABS peut être déployé comme décrit dans le tableau suivant.
@@ -66,7 +67,6 @@ DPM/MABS peut être déployé comme décrit dans le tableau suivant.
 **Déploiement local** | Serveur physique<br/><br/>Machine virtuelle Hyper-V<br/><br/> Machine virtuelle VMware | Si DPM/MABS est installé comme machine virtuelle VMware, seules les machines virtuelles VMware et les charges de travail qui s'exécutent sur celles-ci sont sauvegardées.
 **Déployé comme machine virtuelle Azure Stack** | MABS uniquement | Vous ne pouvez pas utiliser DPM pour sauvegarder des machines virtuelles Azure Stack.
 **Déployé comme machine virtuelle Azure** | Protège les machines virtuelles Azure et les charges de travail qui s'exécutent sur celles-ci. | DPM/MABS exécuté dans Azure ne peut pas sauvegarder les machines locales.
-
 
 ## <a name="supported-mabs-and-dpm-operating-systems"></a>Systèmes d’exploitation pris en charge pour MABS et DPM
 
@@ -79,8 +79,6 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 **MABS localement** | Systèmes d’exploitation 64 bits pris en charge :<br/><br/> MABS v3 et versions ultérieures : Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 et versions ultérieures : Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> Toutes les versions de MABS :  Windows Server 2012 R2.<br/><br/>Toutes les versions de MABS : Windows Storage Server 2012 R2.
 **DPM localement** | Serveur physique/machine virtuelle Hyper-V : System Center 2012 SP1 ou ultérieur.<br/><br/> Machine virtuelle VMware : System Center 2012 R2 avec Update 5 ou ultérieur.
 
-
-
 ## <a name="management-support"></a>Prise en charge de la gestion
 
 **Problème** | **Détails**
@@ -90,7 +88,6 @@ Sauvegarde Azure peut sauvegarder les instances de DPM/MABS qui exécutent l'un 
 **Stockage** | Le stockage de sauvegarde moderne (MBS) est pris en charge pour DPM 2016/MABS v2 et versions ultérieures. Il n’est pas disponible pour MABS v1.
 **Mise à niveau de MABS** | Vous pouvez installer directement MABS v3 ou effectuer la mise à niveau vers MABS v3 à partir de MABS v2. [Plus d’informations](backup-azure-microsoft-azure-backup.md#upgrade-mabs)
 **Déplacement de MABS** | Il est possible de déplacer MABS sur un nouveau serveur tout en conservant le stockage si vous utilisez MBS.<br/><br/> Le serveur doit avoir le même nom que l’original. Vous ne pouvez pas changer le nom si vous souhaitez conserver le même pool de stockage et utiliser la même base de données MABS pour stocker les points de récupération de données.<br/><br/> Vous devez effectuer une sauvegarde de la base de données MABS, car vous devrez la restaurer.
-
 
 ## <a name="mabs-support-on-azure-stack"></a>Prise en charge de MABS sur Azure Stack
 
@@ -144,8 +141,8 @@ Les données sauvegardées sur DPM/MABS sont stockées sur le stockage de disque
 **Stockage MABS sur une machine virtuelle Azure** | Les données sont stockées sur des disques Azure joints à la machine virtuelle DPM/MABS et gérés dans DPM/MABS. Le nombre de disques utilisables pour le pool de stockage DPM/MABS est limité par la taille de la machine virtuelle.<br/><br/> Machine virtuelle A2 : 4 disques ; machine virtuelle A3 : 8 disques ; machine virtuelle A4 : 16 disques, avec une taille maximale de 1 To pour chaque disque. Ce paramètre détermine le pool de stockage de sauvegarde total disponible.<br/><br/> La quantité de données que vous pouvez sauvegarder varie selon le nombre et la taille des disques attachés.
 **Conservation des données MABS sur une machine virtuelle Azure** | Nous vous recommandons de conserver les données une journée sur un disque Azure DPM/MABS et de sauvegarder les données DPM/MABS dans le coffre pour les conserver plus longtemps. Vous pouvez ainsi protéger une plus grande quantité de données en les déchargeant sur Sauvegarde Azure.
 
-
 ### <a name="modern-backup-storage-mbs"></a>Stockage de sauvegarde moderne (MBS)
+
 À partir de la version DPM 2016/MABS v2 (exécuté sur Windows Server 2016), vous pouvez tirer parti du stockage de sauvegarde moderne (MBS).
 
 - Les sauvegardes MBS sont stockées sur un disque ReFS (Resilient File System).
@@ -153,11 +150,9 @@ Les données sauvegardées sur DPM/MABS sont stockées sur le stockage de disque
 - Lorsque vous ajoutez des volumes au pool de stockage DPM/MABS local, vous les configurez avec des lettres de lecteur. Vous pouvez ensuite configurer le stockage de charge de travail sur des volumes différents.
 - Quand vous créez des groupes de protection pour sauvegarder des données sur DPM/MABS, vous sélectionnez le lecteur que vous souhaitez utiliser. Par exemple, vous pouvez stocker des sauvegardes pour SQL ou d’autres charges de travail ayant des IOPS élevées sur un lecteur hautes performances, et stocker les charges de travail sauvegardées moins fréquemment sur un lecteur moins performant.
 
-
 ## <a name="supported-backups-to-mabs"></a>Sauvegardes prises en charge sur MABS
 
 Le tableau suivant récapitule ce que vous pouvez sauvegarder sur MABS à partir de machines locales et de machines virtuelles Azure.
-
 
 **Sauvegarde** | **Versions** | **MABS** | **Détails** |
 --- | --- | --- | --- |
@@ -177,13 +172,9 @@ Le tableau suivant récapitule ce que vous pouvez sauvegarder sur MABS à partir
 **Hyper-V sur Windows Server 2016**<br/><br/> **Windows Server 2008 R2 (avec SP1)** | MABS v3, v2 | Local. | **Agent MABS sur un hôte Hyper-V** : sauvegarder des machines virtuelles entières et des fichiers de données hôtes. Sauvegarder des machines virtuelles avec un stockage local, des machines virtuelles dans un cluster avec un stockage CSV et des machines virtuelles avec un stockage sur serveur de fichiers SMB.<br/><br/> **Agent MABS sur une machine virtuelle invitée** : sauvegarder des charges de travail exécutées sur la machine virtuelle. Volumes partagés de cluster (CSV).<br/><br/> **Récupération** : machine virtuelle, récupération au niveau de l’élément de disques durs virtuels/volumes/dossiers/fichiers.<br/><br/> **Machines virtuelles Linux** : sauvegarder lorsque Hyper-V est exécuté sous Windows Server 2012 R2 et versions ultérieures. Pour les machines virtuelles Linux, la récupération porte sur toute la machine. |
 **Machines virtuelles VMware : vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 | Local. | Sauvegarder des machines virtuelles VMware dans des volumes CSV, le système de fichiers NFS et le stockage SAN.<br/><br/> Récupérer la machine virtuelle entière.<br/><br/> Sauvegarde Windows/Linux.<br/><br/> Récupération au niveau élément des dossiers/fichiers pour les machines virtuelles Windows uniquement.<br/><br/> Les applications virtuelles VMware ne sont pas prises en charge.<br/><br/> Pour les machines virtuelles Linux, la récupération porte sur toute la machine. |
 
-
-
 ## <a name="supported-backups-to-dpm"></a>Sauvegardes prises en charge sur DPM
 
 Le tableau suivant récapitule ce que vous pouvez sauvegarder sur DPM à partir de machines locales et de machines virtuelles Azure.
-
-
 
 **Sauvegarde** | **DPM** | **Détails**
 --- | --- | ---
@@ -204,11 +195,8 @@ Le tableau suivant récapitule ce que vous pouvez sauvegarder sur DPM à partir 
 **Hyper-V sur Windows Server 2016**<br/><br/> **Windows Server 2012 R2/2012** (Datacenter/Standard)<br/><br/> **Windows Server 2008 R2 (avec SP1)** | Hyper-V sur 2016 pris en charge pour DPM 2016 et versions ultérieures.<br/><br/> Local. | **Agent MABS sur un hôte Hyper-V** : sauvegarder des machines virtuelles entières et des fichiers de données hôtes. Sauvegarder des machines virtuelles avec un stockage local, des machines virtuelles dans un cluster avec un stockage CSV et des machines virtuelles avec un stockage sur serveur de fichiers SMB.<br/><br/> **Agent MABS sur une machine virtuelle invitée** : sauvegarder des charges de travail exécutées sur la machine virtuelle. Volumes partagés de cluster (CSV).<br/><br/> **Récupération** : machine virtuelle, récupération au niveau de l’élément de disques durs virtuels/volumes/dossiers/fichiers.<br/><br/> **Machines virtuelles Linux** : sauvegarder lorsque Hyper-V est exécuté sous Windows Server 2012 R2 et versions ultérieures. Pour les machines virtuelles Linux, la récupération porte sur toute la machine.
 **Machines virtuelles VMware : vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3, v2 <br/><br/> DPM 2012 R2 nécessite System Center avec le correctif cumulatif 1) <br/><br/>Local. | Sauvegarder des machines virtuelles VMware dans des volumes CSV, le système de fichiers NFS et le stockage SAN.<br/><br/> Récupérer la machine virtuelle entière.<br/><br/> Sauvegarde Windows/Linux.<br/><br/> Récupération au niveau élément des dossiers/fichiers pour les machines virtuelles Windows uniquement.<br/><br/> Les applications virtuelles VMware ne sont pas prises en charge.<br/><br/> Pour les machines virtuelles Linux, la récupération porte sur toute la machine.
 
-
 - Les charges de travail en cluster sauvegardées par DPM/MABS doivent se trouver dans le même domaine que DPM/MABS ou dans un domaine enfant/approuvé.
 - Vous pouvez utiliser l’authentification NTLM/par certificat pour sauvegarder les données dans des groupes de travail ou des domaines non approuvés.
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

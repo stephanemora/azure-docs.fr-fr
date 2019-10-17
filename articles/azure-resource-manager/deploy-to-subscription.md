@@ -1,35 +1,52 @@
 ---
-title: Créer un groupe de ressources et des ressources au niveau abonnement - Modèle Azure Resource Manager
+title: Créer des groupes de ressources et des ressources au niveau abonnement – Modèle Azure Resource Manager
 description: Décrit comment créer un groupe de ressources dans un modèle Azure Resource Manager. Est également expliqué le déploiement des ressources sur l’étendue de l’abonnement Azure.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 10/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 37f2b04a62d94cce42b095540380460c38bc5b79
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 913014a9b7e24345cd21979ba20ea1a1a938d022
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772951"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001604"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Créer des groupes de ressources et des ressources au niveau de l’abonnement
 
-En règle générale, vous déployez des ressources Azure sur un groupe de ressources dans votre abonnement Azure. Toutefois, vous pouvez également créer des groupes de ressources Azure et créer des ressources Azure au niveau de l’abonnement. Pour déployer des modèles au niveau de l’abonnement, vous utilisez Azure CLI et Azure PowerShell. Le portail Azure ne prend pas en charge le déploiement dans le niveau de l’abonnement.
+En règle générale, vous déployez des ressources Azure sur un groupe de ressources dans votre abonnement Azure. Toutefois, vous pouvez également créer des ressources au niveau de l’abonnement. Vous utilisez les déploiements au niveau de l’abonnement pour effectuer des actions qui ont un sens à ce niveau, telles que la création de groupes de ressources ou l’affectation d’un [contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
 
-Pour créer un groupe de ressources dans un modèle Azure Resource Manager, définissez une ressource [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) avec un nom et un emplacement pour le groupe de ressources. Vous pouvez créer un groupe de ressources et déployer des ressources sur ce groupe de ressources dans le même modèle. Les ressources que vous pouvez déployer au niveau de l’abonnement sont les suivantes : [Stratégies](../governance/policy/overview.md) et [Contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md).
+Pour déployer des modèles au niveau de l’abonnement, utilisez l’interface de ligne de commande Azure, PowerShell ou l’API REST. Le portail Azure ne prend pas en charge le déploiement dans le niveau de l’abonnement.
 
-## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
+## <a name="supported-resources"></a>Ressources prises en charge
 
-Les aspects suivants sont différents entre le déploiement au niveau de l’abonnement et le déploiement de groupe de ressources :
+Vous pouvez déployer les types de ressources suivants au niveau de l’abonnement :
 
-### <a name="schema-and-commands"></a>Schéma et commandes
+* [deployments](/azure/templates/microsoft.resources/deployments) 
+* [peerAsns](/azure/templates/microsoft.peering/peerasns)
+* [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
+* [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
+* [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+* [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
 
-Le schéma et les commandes que vous utilisez pour les déploiements au niveau abonnement sont différents de ceux utilisés pour les déploiements de groupes de ressources. 
+### <a name="schema"></a>Schéma
 
-Pour le schéma, utilisez `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`.
+Le schéma que vous utilisez pour les déploiements au niveau de l’abonnement est différent de celui utilisé pour les déploiements de groupes de ressources.
 
-Pour la commande de déploiement Azure CLI, utilisez [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). Par exemple, la commande CLI suivante déploie un modèle pour créer un groupe de ressources :
+Pour le schéma, utilisez :
+
+```json
+https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+```
+
+## <a name="deployment-commands"></a>Commandes de déploiement
+
+Les commandes utilisées pour les déploiements au niveau de l’abonnement sont différentes de celles utilisées pour les déploiements de groupes de ressources.
+
+Pour l’interface de ligne de commande Azure, utilisez [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
 
 ```azurecli-interactive
 az deployment create \
@@ -39,7 +56,8 @@ az deployment create \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
 
-Pour la commande de déploiement PowerShell, utilisez [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). Par exemple, la commande PowerShell suivante déploie un modèle pour créer un groupe de ressources :
+
+Pour la commande de déploiement PowerShell, utilisez [New-AzDeployment](/powershell/module/az.resources/new-azdeployment). L’exemple suivant déploie un modèle pour créer un groupe de ressources :
 
 ```azurepowershell-interactive
 New-AzDeployment `
@@ -50,13 +68,17 @@ New-AzDeployment `
   -rgLocation centralus
 ```
 
-### <a name="deployment-name-and-location"></a>Nom et emplacement du déploiement
+Pour l’API REST, utilisez [Déploiements - Créer au niveau de l’abonnement](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
 
-Quand vous effectuez un déploiement sur votre abonnement, vous devez fournir un emplacement pour ce déploiement. Vous pouvez également fournir un nom pour le déploiement. Si vous ne spécifiez pas de nom pour le déploiement, le nom du modèle est utilisé comme nom de déploiement. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
+## <a name="deployment-location-and-name"></a>Emplacement et nom du déploiement
 
-L’emplacement des déploiements au niveau de l’abonnement est immuable. Vous ne pouvez pas créer un déploiement dans un emplacement alors qu’il existe un déploiement portant le même nom, mais à un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
+Pour les déploiements au niveau de l’abonnement, vous devez fournir un emplacement de déploiement. L’emplacement du déploiement est distinct de l’emplacement des ressources que vous déployez. L’emplacement de déploiement indique où stocker les données de déploiement.
 
-### <a name="use-template-functions"></a>Utiliser des fonctions de modèle
+Vous pouvez fournir un nom de déploiement ou utiliser le nom de déploiement par défaut. Le nom par défaut est le nom du fichier de modèle. Par exemple, le déploiement d’un modèle nommé **azuredeploy.json** crée le nom de déploiement par défaut **azuredeploy**.
+
+Pour chaque nom de déploiement, l’emplacement est immuable. Vous ne pouvez pas créer un déploiement dans un emplacement alors qu’il existe un déploiement portant le même nom, mais à un autre emplacement. Si vous obtenez le code d’erreur `InvalidDeploymentLocation`, utilisez un autre nom ou le même emplacement que le déploiement précédent pour ce nom.
+
+## <a name="use-template-functions"></a>Utiliser des fonctions de modèle
 
 Pour les déploiements au niveau de l’abonnement, il existe quelques considérations importantes liées à l’utilisation des fonctions de modèle :
 
@@ -65,6 +87,8 @@ Pour les déploiements au niveau de l’abonnement, il existe quelques considér
 * Les fonctions [reference()](resource-group-template-functions-resource.md#reference) et [list()](resource-group-template-functions-resource.md#list) sont prises en charge.
 
 ## <a name="create-resource-groups"></a>Créer des groupes de ressources
+
+Pour créer un groupe de ressources dans un modèle Azure Resource Manager, définissez une ressource [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) avec un nom et un emplacement pour le groupe de ressources. Vous pouvez créer un groupe de ressources et déployer des ressources sur ce groupe de ressources dans le même modèle.
 
 Le modèle suivant crée un groupe de ressources vide.
 
@@ -93,10 +117,6 @@ Le modèle suivant crée un groupe de ressources vide.
     "outputs": {}
 }
 ```
-
-Vous trouverez le schéma de modèle [ici](/azure/templates/microsoft.resources/allversions). Vous trouverez des modèles similaires dans [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
-
-## <a name="create-multiple-resource-groups"></a>Créer plusieurs groupes de ressources
 
 Pour créer plus d’un groupe de ressources, utilisez l’[élément copy](resource-group-create-multiple.md) avec des groupes de ressources. 
 
@@ -135,7 +155,7 @@ Pour créer plus d’un groupe de ressources, utilisez l’[élément copy](reso
 
 Pour plus d’informations sur l’itération de ressource, consultez [Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager](./resource-group-create-multiple.md) et [Didacticiel : Créer plusieurs instances de ressources grâce à des modèles Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
-## <a name="create-resource-group-and-deploy-resources"></a>Créer un groupe de ressources et déployer des ressources
+## <a name="resource-group-and-resources"></a>Groupe de ressources et ressources
 
 Pour créer le groupe de ressources et déployer des ressources sur celui-ci, utilisez un modèle imbriqué. Le modèle imbriqué définit les ressources à déployer sur le groupe de ressources. Définissez le modèle imbriqué comme dépendant du groupe de ressources pour vous assurer que le groupe de ressources existe avant de déployer les ressources.
 
@@ -339,5 +359,6 @@ New-AzDeployment `
 
 * Pour en savoir plus sur l’attribution de rôles, voir [Gérer l’accès aux ressources Azure avec RBAC et les modèles Azure Resource Manager](../role-based-access-control/role-assignments-template.md).
 * Pour obtenir un exemple de déploiement des paramètres d’espace de travail pour Azure Security Center, consultez [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* Vous trouverez des exemples de modèles dans [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments).
 * Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](resource-group-authoring-templates.md). 
 * Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](resource-group-template-functions.md).

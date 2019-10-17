@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.author: mlearned
-ms.openlocfilehash: b42cdae634a6c2d8d994225d4cb6b440a99918e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8e5f394987de06feaeb9a635face643eecc97cb9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67614589"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174224"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives au stockage et aux sauvegardes dans Azure Kubernetes Service (AKS)
 
@@ -92,7 +92,7 @@ Pour plus d’informations sur les options de classe de stockage, consultez les 
 
 **Conseils sur les meilleures pratiques** : sauvegardez vos données à l’aide d’un outil adapté à votre type de stockage, tel que Velero ou Azure Site Recovery. Vérifiez l’intégrité et la sécurité de ces sauvegardes.
 
-Lorsque vos applications stockent et exploitent des données conservées sur des disques ou dans des fichiers, vous devez effectuer des sauvegardes ou des captures instantanées régulières de ces données. Les disques Azure peuvent utiliser des technologies de capture instantanée intégrées. Vous aurez peut-être besoin d’avoir recours à un hook pour que vos applications vident les écritures sur le disque avant d’effectuer l’opération de capture instantanée. [Velero][velero] peut sauvegarder des volumes persistants avec des ressources de cluster et des configurations supplémentaires. Si vous ne pouvez pas [supprimer l’état de vos applications][remove-state], sauvegardez les données à partir de volumes persistants et testez régulièrement les opérations de restauration pour vérifier l’intégrité des données et les processus nécessaires.
+Lorsque vos applications stockent et exploitent des données conservées sur des disques ou dans des fichiers, vous devez effectuer des sauvegardes ou des captures instantanées régulières de ces données. Les disques Azure peuvent utiliser des technologies de capture instantanée intégrées. Vous aurez peut-être besoin de rechercher vos applications pour vider les écritures sur le disque avant d’effectuer l’opération de capture instantanée. [Velero][velero] peut sauvegarder des volumes persistants avec des ressources de cluster et des configurations supplémentaires. Si vous ne pouvez pas [supprimer l’état de vos applications][remove-state], sauvegardez les données à partir de volumes persistants et testez régulièrement les opérations de restauration pour vérifier l’intégrité des données et les processus nécessaires.
 
 Identifiez les limitations des différentes approches en matière de sauvegarde de données et déterminez si vous devez suspendre vos données avant la capture instantanée. Les sauvegardes de données ne vous permettent pas nécessairement de restaurer votre environnement d’application de déploiement de cluster. Pour plus d’informations sur ces scénarios, consultez [Best practices for business continuity and disaster recovery in AKS][best-practices-multi-region] (Meilleures pratiques pour la continuité d’activité et la récupération d’urgence dans AKS).
 

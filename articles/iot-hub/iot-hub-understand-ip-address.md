@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9c9d02eeead4ccbed372e9a55d9b551da83caa39
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7af40404550fb78af891563d8256f23620781b24
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641590"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841527"
 ---
 # <a name="understanding-the-ip-address-of-your-iot-hub"></a>Comprendre l’adresse IP de votre hub IoT
 
@@ -34,3 +34,6 @@ Cette adresse IP peut être modifiée sans préavis. Dans un scénario de bascul
 
 Essayez de créer des règles de pare-feu et un filtrage basés sur le domaine ou le nom d’hôte du hub IoT. Si vous pouvez uniquement autoriser le trafic sortant vers des adresses spécifiques, interrogez régulièrement l’adresse IP de votre hub IoT et mettez à jour vos règles de pare-feu.
 
+## <a name="support-for-ipv6"></a>Prise en charge d’IPv6 
+
+IPv6 n’est pas pris en charge sur IoT Hub.

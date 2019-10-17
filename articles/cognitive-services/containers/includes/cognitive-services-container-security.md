@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/13/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: d8d069dddbce6ab6ddb541db460634ad3f6fa067
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 7322d356d972635b81bc1bdd4b329bd3d5ac02df
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994943"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842562"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Sécurité des conteneurs Azure Cognitive Services
 
@@ -30,6 +30,23 @@ Le diagramme ci-dessous illustre l’approche **non sécurisée** par défaut :
 Une autre approche *sécurisée* pour les consommateurs de conteneurs Cognitive Services consiste à ajouter un composant frontal à un conteneur afin de maintenir le point de terminaison de conteneur privé. Prenons l’exemple d’un scénario dans lequel nous utilisons [Istio][istio] comme passerelle d’entrée. Istio prend en charge HTTPS/SSL et l’authentification par certificat client. Dans ce scénario, le composant frontal Istio expose l’accès au conteneur et présente le certificat client qui est préalablement inclus sur liste verte avec Istio.
 
 [Nginx][nginx] est un autre choix populaire dans la même catégorie. Istio et Nginx jouent le rôle de maillage de service et offrent des fonctionnalités supplémentaires, notamment l’équilibrage de charge, le routage et le contrôle du débit.
+
+### <a name="container-networking"></a>Mise en réseau de conteneurs
+
+Les conteneurs Cognitive Services sont requis pour envoyer des informations relatives aux compteurs à des fins de facturation. Les *conteneurs hors connexion*  constituent la seule exception, car ils suivent une autre méthodologie de facturation. Si vous n’ajoutez pas à la liste verte les différents canaux réseau sur lesquels s’appuient les conteneurs Cognitive Services, le conteneur ne fonctionnera pas.
+
+#### <a name="allow-list-cognitive-services-domains-and-ports"></a>Ajouter à la liste verte les domaines et ports Cognitive Services
+
+L’hôte doit ajouter à la liste verte le **port 443** et les domaines suivants :
+
+* `*.cognitive.microsoft.com`
+* `*.cognitiveservices.azure.com`
+
+#### <a name="disable-deep-packet-inspection"></a>Désactiver l’inspection approfondie des paquets
+
+> L’[inspection approfondie des paquets](https://en.wikipedia.org/wiki/Deep_packet_inspection) est un type de traitement des données qui inspecte en détail les données envoyées sur un réseau informatique et prend généralement une mesure en bloquant, en reroutant ou en enregistrant ces données en conséquence.
+
+Désactivez l’inspection approfondie des paquets sur les canaux sécurisés que les conteneurs Cognitive Services créent sur des serveurs Microsoft. Dans le cas contraire, le conteneur ne fonctionnera pas correctement.
 
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com

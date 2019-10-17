@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: d0fd26da81c4f59f16b5f0364cf165ec36a6ea39
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516327"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176851"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
@@ -288,7 +288,7 @@ Vous pouvez créer un service lié Azure HDInsight pour inscrire votre propre cl
 | ----------------- | ------------------------------------------------------------ | -------- |
 | Type              | La propriété de type doit être définie sur **HDInsight**.            | OUI      |
 | clusterUri        | L'URI du cluster HDInsight.                            | OUI      |
-| userName          | Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. | OUI      |
+| username          | Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. | OUI      |
 | password          | Spécifiez le mot de passe du compte d'utilisateur.                       | OUI      |
 | linkedServiceName | Nom du service lié de stockage Azure faisant référence au stockage Blob Azure utilisé par le cluster HDInsight. <p>Actuellement, vous ne pouvez pas spécifier un service lié Azure Data Lake Store pour cette propriété. Vous pouvez accéder aux données d’Azure Data Lake Store à partir de scripts Hive/Pig si le cluster HDInsight a accès à Data Lake Store. </p> | OUI      |
 | isEspEnabled      | Spécifiez « *true* » si le cluster HDInsight est activé avec le [Pack Sécurité Entreprise](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-architecture). La valeur par défaut est « *false* ». | Non       |
@@ -388,7 +388,7 @@ Vous créez un service lié Azure Machine Learning pour inscrire un point de ter
 | updateResourceEndpoint | URL des ressources de mise à jour pour un point de terminaison du service web Azure Machine Learning utilisé pour mettre à jour le service web prédictif avec le fichier de modèle formé | Non                                       |
 | servicePrincipalId     | Spécifiez l’ID client de l’application.     | Obligatoire si updateResourceEndpoint est spécifié |
 | servicePrincipalKey    | Spécifiez la clé de l’application.           | Obligatoire si updateResourceEndpoint est spécifié |
-| locataire                 | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Obligatoire si updateResourceEndpoint est spécifié |
+| tenant                 | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Obligatoire si updateResourceEndpoint est spécifié |
 | connectVia             | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Service lié Azure Data Lake Analytics
@@ -438,7 +438,9 @@ Vous créez un service lié **Analytique Azure Data Lake** pour lier un service 
 
 
 ## <a name="azure-databricks-linked-service"></a>Service Azure Databricks lié
-Vous pouvez créer un **service Azure Databricks lié** pour inscrire l’espace de travail Databricks que vous utiliserez pour exécuter les charges de travail Databricks (notebooks).
+Vous pouvez créer un **service Azure Databricks lié** pour inscrire l’espace de travail Databricks que vous utiliserez pour exécuter les charges de travail Databricks (notebook, Jar, Python). 
+> [!IMPORTANT]
+> Le service Databricks lié prend en charge les [pools d’instances](https://aka.ms/instance-pools). 
 
 ### <a name="example---using-new-job-cluster-in-databricks"></a>Exemple : utilisation d’un nouveau cluster de travail dans Databricks
 
@@ -490,6 +492,7 @@ Vous pouvez créer un **service Azure Databricks lié** pour inscrire l’espace
 | domaine               | Spécifiez la région Azure en fonction de la région de l’espace de travail Databricks. Exemple : https://eastus.azuredatabricks.net | OUI                                 |
 | accessToken          | Un jeton d’accès est requis pour que la fabrique de données s’authentifie auprès d’Azure Databricks. Un jeton d’accès doit être généré à partir de l’espace de travail Databricks. Des étapes plus détaillées pour rechercher le jeton d’accès sont disponibles [ici](https://docs.azuredatabricks.net/api/latest/authentication.html#generate-token)  | OUI                                       |
 | existingClusterId    | ID de cluster d’un cluster existant pour exécuter tous les travaux dessus. Il doit s’agit d’un cluster interactif déjà créé. Vous devrez peut-être redémarrer manuellement le cluster s’il ne répond pas. Databricks suggère d’exécuter des travaux sur les nouveaux clusters pour une plus grande fiabilité. Vous pouvez trouver l’ID de cluster d’un cluster interactif sur l’espace de travail Databricks -> Clusters -> Nom du cluster interactif -> Configuration -> Balises. [En savoir plus](https://docs.databricks.com/user-guide/clusters/tags.html) | Non 
+| instancePoolId    | ID d’un pool d’instances existant dans l’espace de travail Databricks.  | Non  |
 | newClusterVersion    | La version Spark du cluster. Cela créera un cluster de travail dans Databricks. | Non  |
 | newClusterNumOfWorker| Nombre de nœuds de travail que ce cluster doit avoir. Un cluster dispose d’un pilote de Spark et num_workers exécuteurs pour un total de num_workers + 1 nœuds Spark. Une chaîne au format Int32, telle que « 1 » signifie que numOfWorker est égal à 1 ou « 1:10 » signifie que la mise à l’échelle automatique à partir de 1 comme minimum et 10 comme maximum.  | Non                |
 | newClusterNodeType   | Ce champ code, via une seule valeur, les ressources disponibles pour chacun des nœuds Spark de ce cluster. Par exemple, les nœuds Spark peuvent être configurés et optimisés pour des charges de travail gourmandes en mémoire ou en calcul. Ce champ est obligatoire pour les nouveaux clusters                | Non               |

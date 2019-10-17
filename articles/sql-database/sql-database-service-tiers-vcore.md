@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.date: 10/01/2019
+ms.openlocfilehash: af2e8826c40fb0d16844b6c67f151b0affbf3efd
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164344"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034989"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Choisissez parmi les niveaux de service vCore et effectuez la migration depuis les niveaux de service DTU
 
@@ -42,7 +42,7 @@ Le tableau suivant explique les différences entre les trois niveaux :
 
 ||**Usage général**|**Critique pour l’entreprise**|**Hyperscale**|
 |---|---|---|---|
-|Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux défaillances grâce à l’utilisation de plusieurs réplicas isolés.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité.|
+|Idéal pour|Offre des options de calcul et de stockage équilibrées et économiques.|Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale du calcul, restauration rapide de la base de données.|
 |Calcul|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels<br/>**Calcul serverless** :<br/>Gen5 : De 0,5 à 16 vCores|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels|
 |Mémoire|**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore<br/>**Calcul serverless** :<br/>Gen5 : Jusqu’à 24 Go par vCore|**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore |**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore|
 |Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**Instance managée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Instance managée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 42f6ce96cf339e90ed0a0dcdbdb3f1b6924430e9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 5b3170d640257774339697ee7915169c2f5e451f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206393"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973347"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager
 
@@ -72,7 +72,9 @@ Les exemples de cet article illustrent des déploiements dans des groupes de res
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
    ```
 
-   Dans le corps de la requête, fournissez un lien vers votre modèle et le fichier de paramètres. Notez que le **Mode** est défini sur **Incremental (Incrémentiel)** . Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete (Terminé)** . Soyez prudent lorsque vous utilisez le mode complet, car vous pouvez supprimer par inadvertance des ressources qui ne sont pas dans votre modèle.
+   Dans le corps de la requête, fournissez un lien vers votre modèle et le fichier de paramètres. Pour plus d’informations sur le fichier de paramètres, consultez [Créer un fichier de paramètres Resource Manager](resource-manager-parameter-files.md).
+
+   Notez que le **Mode** est défini sur **Incremental (Incrémentiel)** . Pour exécuter un déploiement complet, définissez le paramètre **Mode** sur la valeur **Complete (Terminé)** . Soyez prudent lorsque vous utilisez le mode complet, car vous pouvez supprimer par inadvertance des ressources qui ne sont pas dans votre modèle.
 
    ```json
    {
@@ -112,6 +114,8 @@ Les exemples de cet article illustrent des déploiements dans des groupes de res
    ```
 
     Vous pouvez configurer votre compte de stockage pour qu’il utilise un jeton de signature d’accès partagé (SAP). Pour plus d’informations, consultez [Délégation de l’accès avec une signature d’accès partagé](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+
+    Pour fournir une valeur sensible pour un paramètre (par exemple, un mot de passe), ajoutez cette valeur à un coffre de clés. Récupérez le coffre de clés pendant le déploiement comme indiqué dans l’exemple précédent. Pour plus d’informations, consultez [Passage de valeurs sécurisés pendant le déploiement](resource-manager-keyvault-parameter.md). 
 
 1. Au lieu d’effectuer la liaison vers des fichiers pour le modèle et les paramètres, vous pouvez les inclure dans le corps de la requête. L’exemple suivant montre le corps de la requête où sont spécifiés le modèle et ses paramètres :
 
@@ -182,98 +186,9 @@ Les exemples de cet article illustrent des déploiements dans des groupes de res
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
    ```
 
-## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
-
-Cette fonctionnalité est également appelée *Annulation en cas d'erreur*. En cas d'échec du déploiement, vous pouvez automatiquement relancer un déploiement antérieur réussi à partir de votre historique de déploiement. Pour spécifier le redéploiement, utilisez la propriété `onErrorDeployment` dans le corps de la requête. Cette fonctionnalité est utile si le déploiement de votre infrastructure était dans un état correct connu et que vous souhaitez le restaurer à cet état. Il existe toutefois un certain nombre de restrictions et mises en garde :
-
-- Le redéploiement est exécuté exactement comme le déploiement précédent, avec les mêmes paramètres. Vous ne pouvez pas changer les paramètres.
-- Le déploiement précédent avait été exécuté en [mode complet](./deployment-modes.md#complete-mode). Les ressources qui n’étaient pas incluses dans le déploiement précédent sont supprimées, et les configurations de ressources sont définies à leur état précédent. Assurez-vous de bien comprendre les différents [modes de déploiement](./deployment-modes.md).
-- Le redéploiement concerne uniquement les ressources ; il n’inclut pas les modifications de données.
-- Cette fonctionnalité est prise en charge sur les déploiements dans des groupes de ressources, mais pas sur les déploiements au niveau de l’abonnement. Pour plus d’informations sur le déploiement au niveau de l’abonnement, consultez [Créer des groupes de ressources et des ressources au niveau de l’abonnement](./deploy-to-subscription.md).
-
-Pour utiliser cette option, vos déploiements doivent avoir des noms uniques afin de pouvoir être identifiés dans l’historique. Si les noms ne sont pas uniques, le déploiement actuellement en échec peut remplacer le déploiement réussi précédemment dans l’historique. Vous pouvez uniquement utiliser cette option avec les déploiements de niveau racine. Les déploiements à partir d’un modèle imbriqué ne sont pas disponibles pour le redéploiement.
-
-Pour redéployer le dernier déploiement réussi en cas d’échec du déploiement actuel, utilisez :
-
-```json
-{
-  "properties": {
-    "templateLink": {
-      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-      "contentVersion": "1.0.0.0"
-    },
-    "mode": "Incremental",
-    "parametersLink": {
-      "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-      "contentVersion": "1.0.0.0"
-    },
-    "onErrorDeployment": {
-      "type": "LastSuccessful",
-    }
-  }
-}
-```
-
-Pour redéployer un déploiement spécifique en cas d’échec du déploiement actuel, utilisez :
-
-```json
-{
-  "properties": {
-    "templateLink": {
-      "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
-      "contentVersion": "1.0.0.0"
-    },
-    "mode": "Incremental",
-    "parametersLink": {
-      "uri": "http://mystorageaccount.blob.core.windows.net/templates/parameters.json",
-      "contentVersion": "1.0.0.0"
-    },
-    "onErrorDeployment": {
-      "type": "SpecificDeployment",
-      "deploymentName": "<deploymentname>"
-    }
-  }
-}
-```
-
-Le déploiement spécifié doit avoir réussi.
-
-## <a name="parameter-file"></a>Fichier de paramètres
-
-Si vous utilisez un fichier de paramètres pour transmettre des valeurs lors du déploiement, vous devez créer un fichier JSON avec un format similaire à l’exemple suivant :
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "webSiteName": {
-            "value": "ExampleSite"
-        },
-        "webSiteHostingPlanName": {
-            "value": "DefaultPlan"
-        },
-        "webSiteLocation": {
-            "value": "West US"
-        },
-        "adminPassword": {
-            "reference": {
-               "keyVault": {
-                  "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-               },
-               "secretName": "sqlAdminPassword"
-            }
-        }
-   }
-}
-```
-
-La taille du fichier de paramètres ne peut pas être supérieure à 64 Ko.
-
-Pour fournir une valeur sensible pour un paramètre (par exemple, un mot de passe), ajoutez cette valeur à un coffre de clés. Récupérez le coffre de clés pendant le déploiement comme indiqué dans l’exemple précédent. Pour plus d’informations, consultez [Passage de valeurs sécurisés pendant le déploiement](resource-manager-keyvault-parameter.md). 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Pour restaurer un déploiement réussi lorsque vous obtenez une erreur, consultez [Restaurer en cas d’erreur vers un déploiement réussi](rollback-on-error.md).
 - Pour spécifier comment gérer les ressources présentes dans le groupe de ressources, mais non définies dans le modèle, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
 - Pour plus d’informations sur la gestion des opérations REST asynchrones, consultez [Track asynchronous Azure operations (Suivi des opérations asynchrones Azure)](resource-manager-async-operations.md).
 - Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).

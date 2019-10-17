@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/2/2019
+ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5132581c3d79db88dabc3c20ac3b962226d8a12d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827097"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025836"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -45,6 +45,8 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 
 ## <a name="14250"></a>1.4.25.0
 
+
+
 ### <a name="release-status"></a>État de la version
 28/09/2019 : Mise en production pour la mise à niveau automatique afin de sélectionner des locataires. Non disponible pour téléchargement.
 
@@ -56,12 +58,15 @@ Dans certaines circonstances, les serveurs mis à niveau automatiquement vers la
 
 ## <a name="14180"></a>1.4.18.0
 
+>[!WARNING]
+>Nous sommes en train de faire des recherches sur un incident rencontrés par certains clients avec des appareils joints à Azure AD Hybride existants après avoir effectué la mise à niveau vers cette version d’Azure AD Connect. Nous conseillons aux clients qui ont déployé Azure AD Hybride de différer la mise à niveau vers cette version jusqu’à ce que la cause racine de ce problème soit entièrement comprise et atténuée. Des informations supplémentaires seront fournies dès que possible.
+
 >[!IMPORTANT]
 >Avec cette version d’Azure AD Connect, certains clients peuvent voir une partie ou l’ensemble de leurs appareils Windows disparaître d’Azure AD. Cela n’est pas préoccupant car Azure AD n’utilise pas ces identités d’appareil durant l’autorisation d’accès conditionnel. Pour plus d’informations, voir [Comprendre la disparition des appareils Azure AD Connect 1.4.xx.x](reference-connect-device-disappearance.md)
 
 
 ### <a name="release-status"></a>État de la version
-25/9/2019 : Mise en production pour la mise à niveau automatique et le téléchargement
+25/9/2019 : Suppression du téléchargement manuel jusqu’à la fin des recherches sur l’incident.
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 - De nouveaux outils de résolution des problèmes permettent de corriger les scénarios « utilisateur non synchronisé », « groupe non synchronisé » ou « membre de groupe non synchronisé ».

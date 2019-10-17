@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e1fe6252f396a4585b5d7d7190728b79229d5c7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073970"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033954"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Connecter des ordinateurs Windows à Azure Monitor
 
@@ -51,7 +51,11 @@ Avant d’installer l’agent Log Analytics pour Windows, vous devez disposer de
 5. Copiez l’**ID de l’espace de travail** et la **Clé primaire** et collez-les dans votre éditeur préféré.    
    
 ## <a name="configure-agent-to-use-tls-12"></a>Configurer l’Agent de façon à utiliser TLS 1.2
-Pour configurer l’utilisation du protocole [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) dans les communications entre l’agent Windows et le service Log Analytics, vous pouvez suivre les étapes ci-dessous afin de l’activer avant ou après l’installation de l’agent sur la machine virtuelle.   
+Pour configurer l’utilisation du protocole [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) dans les communications entre l’agent Windows et le service Log Analytics, vous pouvez suivre les étapes ci-dessous afin de l’activer avant ou après l’installation de l’agent sur la machine virtuelle.
+
+>[!NOTE]
+>Si vous configurez une machine virtuelle exécutant Windows Server 2008 SP2 x64 pour utiliser TLS 1.2, vous devez d’abord installer la [mise à jour de la prise en charge de la signature de code SHA-2](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) suivante avant d’effectuer les étapes ci-dessous. 
+>
 
 1. Localisez les sous-clés de registre suivantes : **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Créez une sous-clé sous **Protocoles** pour TLS 1.2 : **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**.

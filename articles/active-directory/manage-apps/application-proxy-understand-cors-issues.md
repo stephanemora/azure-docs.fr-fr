@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 265458066a528246cbfa7876bf61b02a0382581b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: c49535ad11139ac5145d4f283374bf9cc6d71f52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499602"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025787"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Comprendre et résoudre les problèmes CORS dans le proxy d’application Azure Active Directory
 
@@ -52,7 +52,7 @@ Dans la capture d’écran suivante, la sélection du bouton **Try It** a entra�
 
 ## <a name="cors-challenges-with-application-proxy"></a>Défis CORS avec le proxy d’application
 
-L’exemple suivant montre un scénario CORS de proxy d’application Azure AD standard. Le serveur interne héberge un contrôleur d’API web **CORSWebService** et un **CORSWebClient** qui appelle **CORSWebService**. Il existe une demande AJAX de **CORSWebClient** à **CORSWebService**.
+L’exemple suivant montre un scénario CORS de proxy d’application Azure AD standard. Le serveur interne héberge un contrôleur d’API web **CORSWebService** et un **CORSWebClient** qui appelle **CORSWebService**. Il existe une demande AJAX de **CORSWebClient** à **CORSWebService**.
 
 ![Demande de même origine en local](./media/application-proxy-understand-cors-issues/image1.png)
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 2056970a91a90fc14528b13650472722a235c354
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4d4d83e12d284ce760b8a7e87fd42e6c8ebb4850
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350483"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001215"
 ---
 # <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Créez et gérez des environnements réutilisables pour l’entraînement et le déploiement avec Azure Machine Learning.
 
@@ -207,7 +207,7 @@ Quand il est utilisé pour la première fois, lors de l’entraînement ou du d�
 
 ### <a name="get-existing-environments"></a>Obtenir des environnements existants
 
-La classe Environment offre des méthodes qui vous permettent de récupérer des environnements existants dans votre espace de travail par nom, comme une liste, ou par une exécution d’entraînement spécifique. À des fins de résolution des problèmes ou d’audit, la reproductibilité
+La classe Environment offre des méthodes qui vous permettent de récupérer des environnements existants dans votre espace de travail par nom, comme une liste, ou par une exécution d’entraînement spécifique à des fins de dépannage, d’audit ou de reproductibilité.
 
 #### <a name="view-list-of-environments"></a>Afficher la liste des environnements
 
@@ -233,7 +233,7 @@ Run.get_environment()
 
 ### <a name="update-an-existing-environment"></a>Mettre à jour un environnement existant
 
-Si vous apportez des changements à un environnement existant, comme l’ajout d’un package Python, une nouvelle version de l’environnement est créée lors de la soumission d’exécution, du déploiement de modèle ou de l’inscription manuelle de l’environnement. La gestion des versions vous permet d’afficher les changements apportés à l’environnement dans le temps.
+Si vous apportez des changements à un environnement existant, comme l’ajout d’un package Python, une nouvelle version de l’environnement est créée lors de la soumission d’exécution, du déploiement du modèle ou de l’inscription manuelle de l’environnement. La gestion des versions vous permet d’afficher les changements apportés à l’environnement dans le temps.
 
 Pour mettre à jour une version de package Python d’un environnement existant, spécifiez le numéro de version exact de ce package. Sinon, Azure Machine Learning réutilise l’environnement existant avec les versions de package en cours lors de la création de l’environnement.
 
@@ -243,7 +243,7 @@ Cet exemple utilise la méthode [build()](https://docs.microsoft.com/python/api/
 
 ```python
 from azureml.core import Image
-build = env.build()
+build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
@@ -258,7 +258,7 @@ Quand vous activez (`enable`) Docker, le service génère une image Docker et cr
 myenv.docker.enabled = True
 ```
 
-Une fois générée, l’image Docker s’affiche par défaut dans le service Azure Container Registry qui est associé à l’espace de travail.  Le nom du référentiel se présente sous la forme *azureml/azureml_\<uuid\>* . La partie identificateur unique (*uuuid*) correspond à un hachage calculé à partir de la configuration de l’environnement. Cela permet au service de déterminer si une image correspondant à l’environnement donné existe déjà pour être réutilisée.
+Une fois générée, l’image Docker s’affiche par défaut dans le service Azure Container Registry qui est associé à l’espace de travail.  Le nom du référentiel se présente sous la forme *azureml/azureml_\<uuid\>* . La partie identificateur unique (*uuid*) correspond à un hachage calculé à partir de la configuration de l’environnement. Cela permet au service de déterminer si une image correspondant à l’environnement donné existe déjà pour être réutilisée.
 
 En outre, le service utilise automatiquement l’une des [images de base](https://github.com/Azure/AzureML-Containers) basées sur Ubuntu Linux et installe les packages Python spécifiés. L’image de base comprend des versions UC et GPU. Azure Machine Learning Service détecte automatiquement la version à utiliser.
 
@@ -334,7 +334,7 @@ Vous pouvez utiliser des environnements lors du déploiement de votre modèle en
 
 Pour déployer un service web, combinez l’environnement, le calcul d’inférence, le script de scoring et le modèle inscrit dans votre objet de déploiement, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Apprenez-en davantage sur le [déploiement de services web](how-to-deploy-and-where.md).
 
-Dans cet exemple, supposons que vous avez effectué une exécution d’entraînement et que vous voulez déployer ce modèle sur une instance de conteneur Azure (ACI, Azure Container Instance). Lors de la génération du service web, les fichiers de modèle et de scoring sont montés sur l’image, à laquelle la pile d’inférence Azure Machine Learning est ajoutée.
+Dans cet exemple, supposons que vous avez effectué une exécution d’entraînement et que vous voulez déployer ce modèle sur une instance de conteneur Azure. Lors de la génération du service web, les fichiers de modèle et de scoring sont montés sur l’image, à laquelle la pile d’inférence Azure Machine Learning est ajoutée.
 
 ```python
 from azureml.core.model import InferenceConfig, Model

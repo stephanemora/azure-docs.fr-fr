@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200980"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996694"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Feuille de route de préparation de Azure Security Center
 Ce document fournit une feuille de route de préparation qui vous aidera à prendre en main Azure Security Center.
@@ -89,16 +89,16 @@ Articles
 
 ## <a name="advanced-cloud-defense"></a>Défense de cloud avancée
 
-Les machines virtuelles Azure peuvent profiter des fonctionnalités de défense de cloud avancée dans Security Center. Ces fonctionnalités incluent l’accès Juste à temps à la machine virtuelle ainsi que des contrôles d’application adaptatifs.
+Les machines virtuelles Azure peuvent profiter des fonctionnalités de défense de cloud avancée dans Security Center. Ces fonctionnalités incluent l’accès juste-à-temps à la machine virtuelle ainsi que des contrôles d’application adaptatifs.
 
 Utilisez les ressources suivantes pour savoir comment utiliser ces fonctionnalités dans Security Center.
 
 Videos  
-* [Azure Security Center – Accès Juste à temps à la machine virtuelle](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center – Accès juste-à-temps à la machine virtuelle](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - Contrôles d’application adaptative](https://youtu.be/wWWekI1Y9ck)
 
 Articles    
-* [Gérer l’accès Juste à temps à la machine virtuelle](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Gérer l’accès juste-à-temps aux machines virtuelles](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Contrôles d’application adaptative dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Travaux pratiques

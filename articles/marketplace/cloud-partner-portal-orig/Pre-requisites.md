@@ -1,40 +1,22 @@
 ---
 title: Conditions préalables pour la collecte de l’application
-description: Liste des conditions préalables pour la collecte de l’application.
+description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Liste des conditions préalables pour la collecte de l’application. »'
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 0219d7e8a94dd6710c553f2133442867e39f6870
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: a92d32084dd36433fdc872db66f0f375a770bfda
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935541"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034434"
 ---
 # <a name="prerequisites-for-application-curation"></a>Conditions préalables pour la collecte de l’application
 
-Microsoft exige des révisions spécifiques afin de valider que les conditions suivantes sont remplies :
+Le [Portail Cloud Partner](https://cloudpartner.azure.com/) ne prend plus en charge la création et la gestion des offres Dynamics 365 for Finance and Operations. Cette fonctionnalité a été déplacée vers le [portail de l’Espace partenaires](https://partner.microsoft.com/) Microsoft. Pour plus d’informations, consultez [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- Un code partenaire personnalisé respecte les instructions de Microsoft.
-- Un package de solution Microsoft Dynamics LCS (Lifecycle Services) peut être déployé avec succès.
-- Les transactions peuvent être effectuées.
-
-Actuellement, les partenaires doivent démontrer que ces exigences sont remplies en effectuant des déploiements de test et en partageant les résultats avec Microsoft. Aucun code ne sera déployé dans un environnement de client non validé par Microsoft. Les partenaires doivent terminer les artefacts et tests de collecte suivants :
-
-- Rapport d’analyse du code (CAR)
-- Concepteur de processus d’entreprise (BPM) /scripts de test
-- Nom du projet et description
-- Sauvegarde de base de données d’entreprise
-- Packages de données et packages de données de processus (PDP)
-- Méthodologie
-- Fichiers binaires (facultatifs)
-- Packages pouvant être déployés
-- Modèles (code et tests)
-- Contenu marketing
-
-Pour plus d’informations sur les exigences techniques et de processus, consultez [Validate applications for Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions) (Valider des applications pour Finance and Operations).  De plus, si vous ne l’avez pas déjà fait, passez en revue le [Guide de publication des offres Office 365, Dynamics 365, PowerApps et Power BI](../appsource-offer-publishing-guide.md).
-
+Avant de créer une offre Dynamics 365 for Operations, lisez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), puis ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/directory) et sélectionnez la page **Vue d’ensemble**. Suivez les instructions fournies dans [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) pour créer votre offre.

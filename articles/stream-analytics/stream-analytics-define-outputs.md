@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/31/2019
-ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/8/2019
+ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173584"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244553"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -52,21 +52,20 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 
 Vous pouvez utiliser [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) comme sortie pour les données relationnelles ou pour les applications qui dépendent de contenus hébergés dans une base de données relationnelle. Les travaux Stream Analytics écrivent les données dans une table existante dans SQL Database. Le schéma de table doit correspondre exactement aux champs et aux types dans la sortie de votre travail. Vous pouvez également spécifier [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) en tant que sortie via l’option de sortie SQL Database. Pour découvrir les moyens d’améliorer le débit d’écriture, consultez l’article [Sortie d’Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).
 
+Vous pouvez aussi utiliser [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) comme sortie. Vous devez [configurer un point de terminaison public dans Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure), puis configurer manuellement les paramètres suivants dans Azure Stream Analytics. Une machine virtuelle Azure exécutant SQL Server auquel une base de données est attachée est également prise en charge en configurant manuellement les paramètres ci-dessous.
+
 Le tableau suivant répertorie les noms de propriétés et leur description pour la création d’une sortie SQL Database.
 
 | Nom de la propriété | Description |
 | --- | --- |
 | Alias de sortie |Nom convivial utilisé dans les requêtes pour diriger la sortie de requête vers cette base de données. |
 | Base de données | Nom de la base de données où vous envoyez votre sortie. |
-| Nom du serveur | Nom du serveur SQL Database. |
+| Nom du serveur | Nom du serveur SQL Database. Pour Azure SQL Database Managed Instance, il est nécessaire de spécifier le port 3342. Par exemple, *sampleserver.public.database.windows.net,3342* |
 | Nom d’utilisateur | Nom de l’utilisateur qui a accès en écriture à la base de données. Stream Analytics prend uniquement en charge l’authentification SQL. |
 | Mot de passe | Mot de passe de connexion à la base de données. |
 | Table | Nom de la table dans laquelle la sortie sera écrite. Le nom de la table respecte la casse. Le schéma de cette table doit correspondre exactement au nombre de champs et aux types que votre sortie de travail génère. |
 |Hériter du schéma de partition| Option qui permet d’hériter du schéma de partition de l’étape de requête précédente afin d’obtenir une topologie entièrement parallèle avec plusieurs rédacteurs dans la table. Pour plus d'informations, consultez [Sortie d'Azure Stream Analytics dans Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Nombre maximal de lots| Limite supérieure recommandée pour le nombre d’enregistrements envoyés avec chaque transaction d’insertion en bloc.|
-
-> [!NOTE]
-> L’offre Azure SQL Database est prise en charge pour une sortie de travail dans Stream Analytics, mais une machine virtuelle Azure exécutant SQL Server avec une base de données jointe ou dans SQL Database Managed Instance n’est pas encore prise en charge. Cela est susceptible de changer dans des futures versions.
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Stockage d’objets BLOB et Azure Data Lake Gen2
 
@@ -105,7 +104,7 @@ Lorsque vous utilisez le stockage d’objets blob en tant que sortie, un fichier
 
 ## <a name="event-hubs"></a>Event Hubs
 
-Le service [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un ingesteur d’événements de publication/abonnement hautement évolutif. Il peut collecter des millions d’événements par seconde. Un hub d’événements peut être utilisé en tant que sortie lorsque la sortie d’un travail Stream Analytics correspond à l’entrée d’un autre travail de diffusion en continu.
+Le service [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) est un ingesteur d’événements de publication/abonnement hautement évolutif. Il peut collecter des millions d’événements par seconde. Un hub d’événements peut être utilisé en tant que sortie lorsque la sortie d’un travail Stream Analytics correspond à l’entrée d’un autre travail de diffusion en continu. Pour obtenir des informations sur la taille de message maximale et sur l’optimisation de la taille de lot, consultez la section [taille de lot de sortie](#output-batch-size).
 
 Vous avez besoin de quelques paramètres pour configurer des flux de données à partir d’Event Hubs en tant que sortie.
 
@@ -120,7 +119,7 @@ Vous avez besoin de quelques paramètres pour configurer des flux de données à
 | Format de sérialisation de l’événement | Format de sérialisation pour les données de sortie. JSON, CSV et Avro sont pris en charge. |
 | Encodage | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge. |
 | Délimiteur | Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
-| Format | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. Ce tableau se ferme uniquement lorsque le travail s’arrête ou que Stream Analytics est passé à la période suivante. En règle générale, il est préférable d’utiliser du code JSON séparé par des lignes, car il ne requiert aucun traitement spécial pendant que le fichier de sortie est écrit. |
+| Format | Applicable uniquement pour la sérialisation JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON.  |
 | Colonnes de propriété | facultatif. Colonnes séparées par des virgules qui doivent être jointes en tant que propriétés de l’utilisateur du message sortant au lieu de la charge utile. Vous trouverez plus d’informations sur cette fonctionnalité dans la section [Propriétés de métadonnées personnalisées pour la sortie](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI
@@ -210,7 +209,7 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 | Délimiteur |Applicable uniquement pour la sérialisation CSV. Stream Analytics prend en charge un certain nombre de délimiteurs communs pour sérialiser des données dans un format CSV. Valeurs prises en charge : virgule, point-virgule, espace, tabulation et barre verticale. |
 | Format |Applicable uniquement pour le type JSON. L’expression **Séparé par une ligne** indique que la sortie est mise en forme de sorte que tous les objets JSON soient séparés par une nouvelle ligne. Le terme **Tableau** indique que la sortie est mise en forme en tant que tableau d’objets JSON. |
 | Colonnes de propriété | facultatif. Colonnes séparées par des virgules qui doivent être jointes en tant que propriétés de l’utilisateur du message sortant au lieu de la charge utile. Vous trouverez plus d’informations sur cette fonctionnalité dans la section [Propriétés de métadonnées personnalisées pour la sortie](#custom-metadata-properties-for-output). |
-| Colonnes de propriétés système | Facultatif. Paires clé/valeur de propriétés système et noms de colonnes correspondants qui doivent être attachés au message sortant au lieu de la charge utile. Pour plus d’informations sur cette fonctionnalité, consultez la section [Propriétés système pour les sorties de rubrique et de file d’attente Service Bus](#system-properties-for-service-bus-queue-and-topic-outputs).  |
+| Colonnes de propriétés système | facultatif. Paires clé/valeur de propriétés système et noms de colonnes correspondants qui doivent être attachés au message sortant au lieu de la charge utile. Pour plus d’informations sur cette fonctionnalité, consultez la section [Propriétés système pour les sorties de rubrique et de file d’attente Service Bus](#system-properties-for-service-bus-queue-and-topic-outputs).  |
 
 Le nombre de partitions est [basé sur la référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.
 

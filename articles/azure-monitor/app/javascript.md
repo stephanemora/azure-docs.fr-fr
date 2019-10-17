@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: 21a68c1daa3c7a2ab6689a72e23100be7582de1e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 9b2cb9b16a91220db6fcc193fe64ea674b7103ab
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162183"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937086"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -50,7 +50,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>Configuration basée sur un extrait
 
-Si votre application n’utilise pas NPM, vous pouvez directement instrumenter vos pages web avec Application Insights en collant cet extrait de code en haut de chacune de vos pages. De préférence, il doit s’agir du premier script dans votre section `<head>` pour qu’il puisse surveiller tous les problèmes potentiels liés à l’ensemble de vos dépendances.
+Si votre application n’utilise pas NPM, vous pouvez directement instrumenter vos pages web avec Application Insights en collant cet extrait de code en haut de chacune de vos pages. De préférence, il doit s’agir du premier script dans votre section `<head>` pour qu’il puisse surveiller tous les problèmes potentiels liés à l’ensemble de vos dépendances. Si vous utilisez l’application Blazor Server App, ajoutez l’extrait de code en haut du fichier `_Host.cshtml`, dans la section `<head>`.
 
 ```html
 <script type="text/javascript">

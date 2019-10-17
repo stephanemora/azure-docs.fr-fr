@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9a1366b24e4e46a93af777753debb1cce7c0f0ce
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cc7e7b334791194cd4f8ebbd2038e9c1877eb297
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826967"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240217"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Google à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Cet article explique comment activer la connexion d’utilisateurs à partir d’un compte Google à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory B2C (Azure AD B2C).
+Cet article explique comment activer la connexion d’utilisateurs avec un compte Google à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory B2C (Azure AD B2C).
 
 ## <a name="prerequisites"></a>Prérequis
 

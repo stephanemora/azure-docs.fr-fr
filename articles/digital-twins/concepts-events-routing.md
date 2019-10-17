@@ -1,19 +1,19 @@
 ---
-title: Routage des événements et des messages avec Azure Digital Twins | Microsoft Docs
+title: Routage des événements et des messages - Azure Digital Twins | Microsoft Docs
 description: Vue d’ensemble du routage des événements et des messages vers des points de terminaison de service avec Azure Digital Twins
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177088"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949263"
 ---
 # <a name="routing-events-and-messages"></a>Routage des événements et des messages
 

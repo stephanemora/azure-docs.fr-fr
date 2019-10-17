@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: cf985f08f13198a9041b1d50f2c6c7f0fec70911
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 16ce90d3db1091fa759d940f4bbf91a3ef924e42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945038"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025525"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 
@@ -822,73 +822,73 @@ Cette section couvre toutes les failles et menaces courantes (CVE, Common Vulner
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **Résumé :**   l’évaluation de la stratégie Apache Ranger ignore les caractères après le caractère générique '\*' |
+| **Résumé :** L’évaluation de la stratégie Apache Ranger ignore les caractères après le caractère générique \* |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravité :**  critique                                                                           |
-| **Fournisseur :**  Hortonworks                                                                          |
-| **Versions affectées :**   versions HDInsight 3.6 notamment Apache Ranger versions 0.5.x/0.6.x/0.7.0     |
-| **Utilisateurs affectés :**   environnements qui utilisent des stratégies Ranger avec des caractères après le caractère générique '\*', comme my\*test, test\*.txt |
-| **Impact :**   Le détecteur de ressource de stratégie ignore les caractères après le caractère générique '\*', ce qui peut entraîner un comportement inattendu.      |
-| **Détail de la correction :**  le détecteur de ressource de stratégie Ranger a été mis à jour pour gérer correctement les correspondances avec un caractère générique.           |
-| **Action recommandée :**   mise à niveau vers HDI 3.6 (avec Apache Ranger 0.7.1+).                                |
+| **Gravité :** Critique                                                                           |
+| **Fournisseur :** Hortonworks                                                                          |
+| **Versions affectées :** versions HDInsight 3.6 notamment Apache Ranger versions 0.5.x/0.6.x/0.7.0     |
+| **Utilisateurs affectés :** environnements qui utilisent des stratégies Ranger avec des caractères après le caractère générique \*, comme my\*test, test\*.txt |
+| **Impact :** le détecteur de ressource de stratégie ignore les caractères après le caractère générique \*, ce qui peut entraîner un comportement inattendu.      |
+| **Détail de la correction :** le détecteur de ressource de stratégie Ranger a été mis à jour pour gérer correctement les correspondances avec un caractère générique.           |
+| **Action recommandée :** mise à niveau vers HDI 3.6 (avec Apache Ranger 0.7.1+).                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **Résumé :**  lL’agent d’autorisation Apache Ranger Hive doit rechercher l’autorisation RWX quand un emplacement externe est spécifié |
+| **Résumé :** l’agent d’autorisation Apache Ranger Hive doit rechercher l’autorisation RWX quand un emplacement externe est spécifié |
 |--------------------------------------------------------------------------------------------------|
-| **Gravité :**  critique                                                                           |
-| **Fournisseur :**  Hortonworks                                                                          |
-| **Versions affectées :**   versions HDInsight 3.6 notamment Apache Ranger versions 0.5.x/0.6.x/0.7.0 |
-| **Utilisateurs affectés :**   environnements qui utilisent un emplacement externe pour des tables hive |
-| **Impact :**  In environments that use external location for hive tables, Apache Ranger Hive Authorizer should check for RWX permission for the external location specified for create table. |
-| **Détail de la correction :**   l’agent d’autorisation Ranger Hive a été mis à jour pour gérer correctement la vérification d’autorisation avec un emplacement externe. |
-| **Action recommandée :**   les utilisateurs doivent effectuer la mise à niveau vers HDI 3.6 (avec Apache Ranger 0.7.1+). |
+| **Gravité :** Critique                                                                           |
+| **Fournisseur :** Hortonworks                                                                          |
+| **Versions affectées :** versions HDInsight 3.6 notamment Apache Ranger versions 0.5.x/0.6.x/0.7.0 |
+| **Utilisateurs affectés :** environnements qui utilisent un emplacement externe pour des tables Hive |
+| **Impact :** dans les environnements qui utilisent l’emplacement externe pour les tables Hive, l’agent d’autorisation Apache Ranger Hive doit rechercher l’autorisation RWX pour l’emplacement externe spécifié pour create table. |
+| **Détail de la correction :** l’agent d’autorisation Ranger Hive a été mis à jour pour gérer correctement la vérification d’autorisation avec un emplacement externe. |
+| **Action recommandée :** les utilisateurs doivent effectuer la mise à niveau vers HDI 3.6 (avec Apache Ranger 0.7.1+). |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **Résumé :**   exécution potentielle de code en tant qu’utilisateur incorrect dans Apache Storm |
+| **Résumé :** exécution potentielle de code en tant qu’utilisateur incorrect dans Apache Storm |
 |--------------------------------------------------------------------------------------------------|
-|**Gravité :**  important |
-| **Fournisseur :**  Hortonworks |
-| **Versions affectées :**   HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
-| **Utilisateurs affectés :**   utilisateurs qui emploient Storm en mode sécurisé et utilisent le magasin d’objets blob pour distribuer les artefacts basés sur la topologie ou des ressources de la topologie. |
-| **Impact :**   dans certains cas et certaines configurations de storm, il est théoriquement possible pour le propriétaire d’une topologie de tromper le superviseur afin de lancer un processus de travail comme utilisateur différent et non-racine. Dans le pire des cas, les informations d’identification sécurisées de l’autre utilisateur pourraient être compromises. Cette vulnérabilité s’applique uniquement aux installations Apache Storm avec la sécurité activée. |
-| **Prévention :**   mise à niveau vers HDP-2.6.2.1, car il n’existe pour l’instant aucune solution de contournement.  |
+|**Gravité :** Important |
+| **Fournisseur :** Hortonworks |
+| **Versions affectées :** HDP 2.4.0, HDP-2.5.0, HDP-2.6.0 |
+| **Utilisateurs affectés :** utilisateurs qui emploient Storm en mode sécurisé et utilisent le magasin d’objets blob pour distribuer les artefacts basés sur la topologie ou des ressources de la topologie. |
+| **Impact :** dans certains cas et certaines configurations de Storm, il est théoriquement possible pour le propriétaire d’une topologie de tromper le superviseur afin de lancer un processus de travail comme un utilisateur différent et non racine. Dans le pire des cas, les informations d’identification sécurisées de l’autre utilisateur pourraient être compromises. Cette vulnérabilité s’applique uniquement aux installations Apache Storm avec la sécurité activée. |
+| **Atténuation :** mise à niveau vers HDP-2.6.2.1, car il n’existe pour l’instant aucune solution de contournement.  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **Résumé :**   handler/ssl/OpenSslEngine.java dans Netty 4.0.x avant 4.0.37.Final et 4.1.x avant 4.1.1.Final permet à des attaquants distants de provoquer un déni de service (boucle infinie) |
+| **Résumé :** handler/ssl/OpenSslEngine.java dans Netty 4.0.x avant 4.0.37.Final et 4.1.x avant 4.1.1.Final permet à des attaquants distants de provoquer un déni de service (boucle infinie) |
 |--------------------------------------------------------------------------------------------------|
 | **Gravité :** Modéré  |
-| **Fournisseur :**  Hortonworks  |
-| **Versions affectées :**   HDP 2.x.x depuis 2.3.x  |
-| **Utilisateurs affectés :**   tous les utilisateurs qui emploient HDFS. |
-| **Impact :**   l’impact est faible, car Hortonworks n’utilise pas OpenSslEngine.java directement dans le codebase Hadoop.     |
-| **Action recommandée :**   Mise à niveau vers HDP 2.6.3.   |
+| **Fournisseur :** Hortonworks  |
+| **Versions affectées :** HDP 2.x.x à partir de 2.3.x  |
+| **Utilisateurs affectés :** tous les utilisateurs qui utilisent HDFS. |
+| **Impact :** l’impact est faible, car Hortonworks n’utilise pas OpenSslEngine.java directement dans le codebase Hadoop.     |
+| **Action recommandée :** Effectuez une mise à niveau vers HDP 2.6.3.   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **Résumé :**   problème de mise en correspondance des chemins Apache Ranger dans l’évaluation de la stratégie                                                                    |
+| **Résumé :** problème de mise en correspondance des chemins Apache Ranger dans l’évaluation de la stratégie                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **Gravité :**  normal                                                                                                                   |
+| **Gravité :** Normal                                                                                                                   |
 | **Fournisseur :** Hortonworks                                                                                                                |
-| **Versions affectées :**   toutes les versions HDP 2.5 notamment Apache Ranger versions 0.6.0/0.6.1/0.6.2                                         |
-| **Utilisateurs affectés :**   tous les utilisateurs de l’outil d’administration de stratégie ranger.                                                                         |
-| **Impact :**   le moteur de stratégie Ranger met incorrectement en correspondance des chemins dans certaines conditions quand une stratégie contient des caractères génériques et des indicateurs récursifs. |
+| **Versions affectées :** toutes les versions HDP 2.5, notamment Apache Ranger versions 0.6.0/0.6.1/0.6.2                                         |
+| **Utilisateurs affectés :** tous les utilisateurs de l’outil d’administration de stratégie Ranger.                                                                         |
+| **Impact :** le moteur de stratégie Ranger met incorrectement en correspondance des chemins dans certaines conditions quand une stratégie contient des caractères génériques et des indicateurs récursifs. |
 | **Détail de la correction :** Logique d’évaluation de la stratégie corrigée                                                                                          |
-| **Action recommandée :**   les utilisateurs doivent effectuer la mise à niveau vers HDP 2.5.4+ (avec Apache Ranger 0.6.3+) ou HDP 2.6+ (avec Apache Ranger 0.7.0+)         |
+| **Action recommandée :** les utilisateurs doivent effectuer la mise à niveau vers HDP 2.5.4+ (avec Apache Ranger 0.6.3+) ou HDP 2.6+ (avec Apache Ranger 0.7.0+)         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **Résumé :**   problème de scripts intersites stockés dans Apache Ranger  |
+| **Résumé :** problème de scripts intersites stockés dans Apache Ranger  |
 |--------------------------------------------------------------------------------------------------|
-| **Gravité :**  normal |
-| **Fournisseur :**  Hortonworks |
-| **Versions affectées :**   toutes les versions HDP 2.3/2.4/2.5 notamment Apache Ranger versions 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **Utilisateurs affectés :**   tous les utilisateurs de l’outil d’administration de stratégie ranger. |
-| **Impact :**   Apache Ranger est vulnérable aux scripts intersites stockés lors de la saisie des conditions de stratégie personnalisée. Les utilisateurs administrateurs peuvent stocker du code javascript arbitraire à exécuter quand des utilisateurs réguliers se connectent et accèdent aux stratégies. |
-| **Détail de la correction :**   logique ajoutée pour nettoyer l’entrée utilisateur.  |
-| **Action recommandée :**   les utilisateurs doivent effectuer la mise à niveau vers HDP 2.5.4+ (avec Apache Ranger 0.6.3+) ou HDP 2.6+ (avec Apache Ranger 0.7.0+)  |
+| **Gravité :** Normal |
+| **Fournisseur :** Hortonworks |
+| **Versions affectées :** toutes les versions HDP 2.3/2.4/2.5, notamment Apache Ranger versions 0.5.x/0.6.0/0.6.1/0.6.2  |
+| **Utilisateurs affectés :** tous les utilisateurs de l’outil d’administration de stratégie Ranger. |
+| **Impact :** Apache Ranger est vulnérable aux scripts intersites stockés lors de la saisie des conditions de stratégie personnalisée. Les utilisateurs administrateurs peuvent stocker du code javascript arbitraire à exécuter quand des utilisateurs réguliers se connectent et accèdent aux stratégies. |
+| **Détail de la correction :** logique ajoutée pour nettoyer l’entrée utilisateur.  |
+| **Action recommandée :** les utilisateurs doivent effectuer la mise à niveau vers HDP 2.5.4+ (avec Apache Ranger 0.6.3+) ou HDP 2.6+ (avec Apache Ranger 0.7.0+)  |
 
 ## <a name="fixed-issues-for-support"></a>Problèmes résolus pour le support
 

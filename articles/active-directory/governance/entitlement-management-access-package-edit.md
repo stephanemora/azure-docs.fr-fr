@@ -16,12 +16,12 @@ ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 864a6476ad894952a2ef877d534ffe8a86e07819
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326373"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170023"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Modifier et gérer l’accès à un package d’accès existant dans la gestion des droits d’utilisation d’Azure Active Directory (préversion)
 
@@ -309,7 +309,7 @@ La plupart des utilisateurs de votre répertoire peuvent se connecter au portail
 
 Il est important de copier l'intégralité du lien du portail Mon Accès lors de son envoi à un partenaire interne. Cela garantit que le partenaire aura accès au portail de votre répertoire pour effectuer sa demande. 
 
-Le lien commencera par « myaccess », inclura un indicateur de répertoire et se terminera par un identifiant de package d'accès. Assurez-vous que le lien comprend l'ensemble des éléments suivants :
+Le lien commencera par « myaccess », inclura un indicateur de répertoire et se terminera par un ID de package d’accès. Assurez-vous que le lien comprend l'ensemble des éléments suivants :
 
  `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -367,5 +367,4 @@ Dans le cadre de la gestion des droits d'utilisation, Azure AD traitera plusieur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter un propriétaire de catalogue ou un gestionnaire de package d’accès](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Processus de requête et notifications par e-mail](entitlement-management-process.md)

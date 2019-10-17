@@ -6,20 +6,20 @@ author: tfitzmac
 keywords: erreur de déploiement, déploiement Azure, déployer dans azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 08/30/2019
+ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718936"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001645"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
 Cet article décrit certaines erreurs courantes liées au déploiement Azure et fournit des informations pour les résoudre. Si vous ne trouvez pas le code d’erreur correspondant à l’erreur de votre déploiement, consultez [Rechercher un code d’erreur](#find-error-code).
 
-Si vous recherchez des informations sur un code d’erreur et que ces informations ne sont pas fournies dans cet article, faites-le nous savoir. En bas de cette page, vous pouvez laisser des commentaires. Ces commentaires sont suivis avec les problèmes GitHub. 
+Si vous recherchez des informations sur un code d’erreur et que ces informations ne sont pas fournies dans cet article, faites-le nous savoir. En bas de cette page, vous pouvez laisser des commentaires. Ces commentaires sont suivis avec les problèmes GitHub.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -34,7 +34,9 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | AuthorizationFailed | Votre compte ou principal du service ne dispose pas de droits d’accès suffisants pour terminer le déploiement. Vérifiez le rôle auquel votre compte appartient et son accès dans le cadre du déploiement.<br><br>Cette erreur peut s’afficher quand un fournisseur de ressources requis n’est pas inscrit. | [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Résoudre les erreurs d’inscription](resource-manager-register-provider-errors.md) |
 | BadRequest | Vous avez envoyé des valeurs de déploiement qui ne correspondent pas aux valeurs attendues par Resource Manager. Vérifiez le message d’état interne pour résoudre plus facilement le problème. | [Référence de modèle](/azure/templates/) et [Emplacements pris en charge](resource-location.md) |
 | Conflit | Vous demandez une opération qui n’est pas autorisée dans l’état actuel de la ressource. Par exemple, un redimensionnement de disque est autorisé uniquement durant la création ou la libération d’une machine virtuelle. | |
-| DeploymentActive | Attendez le déploiement simultané sur ce groupe de ressources soit terminé. | |
+| DeploymentActiveAndUneditable | Attendez le déploiement simultané sur ce groupe de ressources soit terminé. | |
+| DeploymentNameInvalidCharacters | Le nom du déploiement ne peut contenir que des lettres, des chiffres, « - », « . » et « _ ». | |
+| DeploymentNameLengthLimitExceeded | Les noms de déploiement sont limités à 64 caractères.  | |
 | DeploymentFailed | L’erreur DeploymentFailed est une erreur générale qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Pour en savoir plus, recherchez un code d’erreur dans les détails de l’erreur. | [Rechercher un code d’erreur](#find-error-code) |
 | DeploymentQuotaExceeded | Si vous atteignez la limite des 800 déploiements par groupe de ressources, supprimez les déploiements inutiles dans l’historique. | [Résoudre l’erreur de nombre de déploiements supérieur à 800](deployment-quota-exceeded.md) |
 | DnsRecordInUse | Le nom de l’enregistrement DNS doit être unique. Entrez un autre nom. | |
@@ -42,6 +44,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | InUseSubnetCannotBeDeleted | Vous pouvez rencontrer cette erreur quand vous tentez de mettre à jour une ressource, et que cette requête est traitée en supprimant et en créant la ressource. Veillez à spécifier toutes les valeurs non modifiées. | [Mettre à jour une ressource](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Procurez-vous le jeton d’accès pour le client approprié. Vous pouvez uniquement obtenir le jeton auprès du client auquel appartient votre compte. | |
 | InvalidContentLink | Vous avez probablement tenté d’établir une liaison avec un modèle imbriqué qui n’est pas disponible. Vérifiez l’URI que vous avez indiqué pour le modèle imbriqué. Si le modèle existe dans un compte de stockage, assurez-vous que l’URI est accessible. Vous devrez peut-être valider un jeton SAS. Vous ne pouvez pas établir un lien vers un modèle qui se trouve dans un compte de stockage derrière un [pare-feu Stockage Azure](../storage/common/storage-network-security.md). Envisagez de déplacer votre modèle vers un autre dépôt, par exemple GitHub. | [Modèles liés](resource-group-linked-templates.md) |
+| InvalidDeploymentLocation | Lors du déploiement au niveau de l’abonnement, vous avez fourni un emplacement différent pour un nom de déploiement précédemment utilisé. | [Déploiements de niveau abonnement](deploy-to-subscription.md) |
 | InvalidParameter | L’une des valeurs que vous avez fournies pour une ressource ne correspond pas à la valeur attendue. Cette erreur peut être due à de nombreuses conditions différentes. Par exemple, il se peut qu’un mot de passe soit insuffisant ou un nom d’objet blob incorrect. Le message d’erreur doit indiquer la valeur à corriger. | |
 | InvalidRequestContent | Les valeurs de déploiement contiennent des valeurs inattendues ou n’incluent pas les valeurs requises. Vérifiez les valeurs pour votre type de ressource. | [Référence de modèle](/azure/templates/) |
 | InvalidRequestFormat | Activez l’enregistrement du débogage durant l’exécution du déploiement et vérifiez le contenu de la demande. | [Activer l’enregistrement du débogage](#enable-debug-logging) |
@@ -124,13 +127,13 @@ Vous voyez plus d’informations sur le déploiement. Sélectionnez l’option p
 
 ![échec du déploiement](./media/resource-manager-common-deployment-errors/deployment-failed.png)
 
-Vous voyez le message et les codes d’erreur. Notez qu’il y a deux codes d’erreur. Le premier code d’erreur (**DeploymentFailed**) est un code d’erreur général qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Le deuxième code d’erreur (**StorageAccountNotFound**) fournit les détails dont vous avez besoin. 
+Vous voyez le message et les codes d’erreur. Notez qu’il y a deux codes d’erreur. Le premier code d’erreur (**DeploymentFailed**) est un code d’erreur général qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Le deuxième code d’erreur (**StorageAccountNotFound**) fournit les détails dont vous avez besoin.
 
 ![détails de l’erreur](./media/resource-manager-common-deployment-errors/error-details.png)
 
 ## <a name="enable-debug-logging"></a>Activer l’enregistrement du débogage
 
-Vous avez parfois besoin de plus d’informations sur la demande et la réponse pour connaître la cause du problème. Vous pouvez demander la journalisation d’informations supplémentaires lors d’un déploiement. 
+Vous avez parfois besoin de plus d’informations sur la demande et la réponse pour connaître la cause du problème. Vous pouvez demander la journalisation d’informations supplémentaires lors d’un déploiement.
 
 ### <a name="powershell"></a>PowerShell
 

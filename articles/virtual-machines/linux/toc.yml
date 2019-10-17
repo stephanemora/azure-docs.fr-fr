@@ -445,18 +445,20 @@
           items:
             - name: Vue d’ensemble de OpenShift
               href: openshift-get-started.md
-            - name: Conditions préalables de OpenShift
-              href: openshift-prerequisites.md
-            - name: OpenShift Container Platform
-              href: openshift-container-platform.md
-            - name: OpenShift Marketplace Self-Managed
-              href: openshift-marketplace-self-managed.md
+            - name: "OpenShift Container Platform\_4.x"
+              href: openshift-container-platform-4x.md
+            - name: "OpenShift Container Platform\_3.11 - Prérequis"
+              href: openshift-container-platform-3x-prerequisites.md
+            - name: "OpenShift Container Platform\_3.11"
+              href: openshift-container-platform-3x.md
+            - name: "OpenShift Container Platform\_3.11 - Place de marché autogérée"
+              href: openshift-container-platform-3x-marketplace-self-managed.md
             - name: Azure Stack
               href: openshift-azure-stack.md
-            - name: Tâches de post-déploiement OpenShift
-              href: openshift-post-deployment.md
-            - name: Résolution des problèmes liés aux déploiements
-              href: openshift-troubleshooting.md
+            - name: "OpenShift Container Platform\_3.11 - Tâches post-déploiement"
+              href: openshift-container-platform-3x-post-deployment.md
+            - name: "Résolution des problèmes de déploiement OpenShift Container Platform\_3.11"
+              href: openshift-container-platform-3x-troubleshooting.md
         - name: SAP sur Azure
           href: ../workloads/sap/get-started.md
         - name: Oracle

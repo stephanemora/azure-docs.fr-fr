@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ec5a3ab0a2498e7d9bb24bed1bc0a37194e38e9e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104921"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936970"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Résoudre les problèmes d’exécution de package dans le runtime d’intégration SSIS
 
@@ -121,12 +121,17 @@ Cette erreur se produit quand le runtime d’intégration SSIS ne peut pas accé
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Message d’erreur : « Fournisseur Microsoft OLE DB pour Analysis Services. 'Hresult : 0x80004005 Description :' Erreur COM : Erreur COM : mscorlib ; Une exception a été levée par la cible d’un appel »
 
 Le fait que le nom d’utilisateur ou le mot de passe avec Azure Multi-Factor Authentication activé est configuré pour l’authentification Azure Analysis Services constitue une cause possible. Cette authentification n’est pas prise en charge dans le runtime d’intégration SSIS. Essayez d’utiliser un principal de service pour l’authentification Azure Analysis Services :
+
 1. Préparez un principal de service comme décrit dans [Automatisation à l’aide de principaux de service](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal).
 2. Dans le Gestionnaire de connexions, configurez **Utiliser un nom d'utilisateur et un mot de passe spécifiques** : définissez **AppID** comme nom d’utilisateur et **clientSecret** comme mot de passe.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Message d’erreur : « La source ADO NET Source n’a pas pu acquérir la connexion la connexion {GUID}. Message d’erreur : Échec de la connexion pour l’utilisateur 'NT AUTHORITY\ANONYMOUS LOGON' » lors de l’utilisation d’une identité managée
 
 Vérifiez que vous ne configurez pas **Authentification par mot de passe Active Directory** comme méthode d’authentification du Gestionnaire de connexions quand le paramètre *ConnectUsingManagedIdentity* a la valeur **True** . Vous pouvez le configurer plutôt sur **Authentification SQL**, qui est ignoré si *ConnectUsingManagedIdentity* est défini.
+
+### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Message d’erreur : « 0xC020801F at ..., OData Source [...] : Impossible d’acquérir une connexion gérée depuis le gestionnaire de connexions en cours d’exécution »
+
+Le fait que le protocole TLS (Transport Layer Security) ne soit pas activé dans le runtime d’intégration SSIS qui est exigé par votre source OData constitue une cause possible. Vous pouvez activer TLS dans le runtime d’intégration SSIS à l’aide de la configuration personnalisée. Vous trouverez des informations supplémentaires dans [Vous ne pouvez pas vous connecter à Project Online OData à partir d’SSIS](https://docs.microsoft.com/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) et [Personnaliser la configuration du runtime d’intégration Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Message d’erreur : « Échec de la tâche de mise en lots des requêtes avec le GUID d’opération ... en raison de l’erreur : Échec de la distribution de l’opération de mise en lots avec le message d’erreur : Microsoft.SqlServer.IntegrationServices.AisAgentCore.AisAgentException : Échec du chargement du proxy de données. »
 

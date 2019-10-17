@@ -2,20 +2,16 @@
 title: Créer des groupes d'administration pour organiser les ressources Azure - Azure Governance
 description: Apprenez à créer des groupes d'administration Azure pour gérer différentes ressources à l'aide du portail, d'Azure PowerShell et d'Azure CLI.
 author: rthorn17
-manager: rithorn
 ms.service: governance
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 7b5ee5bfe4b7498bc13ff0c8582b49fed8478e0a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 92ab550aa76adc39863a6557d3959b4538bc9a63
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337782"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980791"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Créer des groupes d’administration pour la gestion et l’organisation des ressources
 
@@ -31,9 +27,13 @@ Vous pouvez créer un groupe d’administration en utilisant le portail, PowerSh
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-1. Sélectionnez **Tous les services** > **Groupes d’administration**.
+1. Sélectionnez **Tous les services** > **Gestion + gouvernance**.
 
-1. Dans la page principale, sélectionnez **Nouveau groupe d’administration**.
+1. Sélectionnez **Gestion des coûts + facturation**.
+
+1. Dans la page Gestion des coûts + facturation - Groupes d’administration, sélectionnez **Groupes d’administration**.
+
+1. Sélectionnez **+ Ajouter un groupe d’administration**.
 
    ![Page dédiée à l’utilisation des groupes d’administration](./media/main.png)
 

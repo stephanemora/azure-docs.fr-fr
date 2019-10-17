@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 73ef5cc00b5154dbdbc92911d17740c7d13038ec
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341981"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243219"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Résolution des problèmes liés aux graphiques de métriques
 
@@ -95,19 +95,21 @@ Dans de nombreux cas, la baisse des valeurs de métrique perçue est due à une 
 
 ## <a name="cannot-pick-guest-os-namespace-and-metrics"></a>Impossible de choisir l’espace de noms et les métriques de SE invité
 
-Deux catégories de métriques sont disponibles pour les machines virtuelles et groupes de machines virtuelles identiques : Les métriques **Ordinateur hôte de l’ordinateur virtuel** qui sont collectées par l’environnement d’hébergement Azure et les métriques de **SE invité** qui sont collectées par [l’agent de surveillance](agents-overview.md) exécuté sur vos machines virtuelles. Vous installez l’agent de surveillance en activant [l’extension Azure Diagnostics](diagnostics-extension-overview.md).
+Deux catégories de métriques sont disponibles pour les machines virtuelles et groupes de machines virtuelles identiques : Les métriques **Ordinateur hôte de l’ordinateur virtuel** qui sont collectées par l’environnement d’hébergement Azure et les métriques de **SE invité (classique)** qui sont collectées par l’[agent de surveillance](agents-overview.md) exécuté sur vos machines virtuelles. Vous installez l’agent de surveillance en activant [l’extension Azure Diagnostics](diagnostics-extension-overview.md).
 
 Par défaut, les métriques de SE invité sont stockées dans le compte de Stockage Azure, que vous sélectionnez dans l’onglet **Paramètres de diagnostic** de votre ressource. Si les métriques de SE invité ne sont pas collectées ou si Metrics Explorer ne peut pas y accéder, vous verrez seulement l’espace de noms de la métrique **Ordinateur hôte de l’ordinateur virtuel** :
 
 ![image de métrique](./media/metrics-troubleshoot/cannot-pick-guest-os-namespace.png)
 
-**Solution :** Si vous ne voyez pas l’espace de noms du **SE invité** et les métriques dans Metrics Explorer :
+**Solution :** Si vous ne voyez pas l’espace de noms et les métriques **SE invité (classique)** dans Metrics Explorer :
 
 1. Vérifiez que [l’extension Azure Diagnostics](diagnostics-extension-overview.md) est activée et configurée pour collecter les métriques.
     > [!WARNING]
     > Vous ne pouvez pas utiliser [l’agent Log Analytics](agents-overview.md#log-analytics-agent) (également appelé Microsoft Monitoring Agent ou « MMA ») pour envoyer le **SE invité** dans un compte de stockage.
 
-1. Vérifiez que le compte de stockage n’est pas protégé par le pare-feu.
+1. Assurez-vous que le fournisseur de ressources **Microsoft.Insights** est [inscrit pour votre abonnement](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+
+1. Vérifiez que le compte de stockage n’est pas protégé par le pare-feu. Le Portail Azure a besoin d’accéder au compte de stockage afin de récupérer les données de métriques et de tracer les graphiques.
 
 1. Utilisez [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour vérifier que les métriques sont transmises dans le compte de stockage. Si les métriques ne sont pas collectées, reportez-vous au [guide de résolution des problèmes liés à l’extension Diagnostics Azure ](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 

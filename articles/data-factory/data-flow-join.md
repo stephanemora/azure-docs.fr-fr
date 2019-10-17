@@ -7,16 +7,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348553"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029326"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Mappage de la transformation de jointure (Join) de Data Flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Utilisez la transformation de jointure (Join) pour combiner les données de deux tables dans votre Data Flow. Cliquez sur la transformation qui sera la relation de gauche et ajoutez une transformation de jointure (Join) à partir de la boîte à outils. Dans la transformation de jointure (Join), vous allez sélectionner un autre flux de données à partir de votre flux de données pour qu’il devienne la relation de droite.
 
@@ -54,11 +54,11 @@ Vous devez entrer au moins 1 (1..n) conditions de jointure. Ils peut s’agit de
 
 ## <a name="join-performance-optimizations"></a>Optimisation des performances de jointure
 
-Contrairement à la jointure de fusion (Merge) dans les outils tels que SSIS, la jointure dans ADF Data Flow n’est pas une opération de jointure de fusion obligatoire. Par conséquent, les clés de jointure n’ont pas besoin d’être triées en premier lieu. L’opération de jointure se produira dans Spark à l’aide de Databricks en fonction de l’opération de jointure optimale dans Spark : Jointure de diffusion / côté mappage :
+Contrairement à la jointure de fusion (Merge) dans les outils tels que SSIS, la jointure dans ADF Data Flow n’est pas une opération de jointure de fusion obligatoire. Par conséquent, les clés de jointure n’ont pas besoin d’être triées en premier lieu. L’opération de jointure se produira en fonction de l’opération de jointure optimale dans Spark : Jointure de diffusion / côté mappage :
 
 ![Optimisation de la transformation de jointure](media/data-flow/joinoptimize.png "Optimisation de la jointure")
 
-Si votre jeu de données peut tenir dans la mémoire de nœud worker Databricks, nous pouvons optimiser vos performances de jointure. Vous pouvez également spécifier le partitionnement de vos données dans l’opération de jointure (Join) pour créer des jeux de données qui s’adaptent mieux à la mémoire par worker.
+Si votre jeu de données peut tenir dans la mémoire de nœud Worker, nous pouvons optimiser vos performances de jointure. Vous pouvez également spécifier le partitionnement de vos données dans l’opération de jointure (Join) pour créer des jeux de données qui s’adaptent mieux à la mémoire par worker.
 
 ## <a name="self-join"></a>Jointure réflexive
 

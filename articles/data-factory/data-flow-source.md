@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 16bc4c2651d5571bce823aa9c69f823d7fede8af
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c3c24e9dc674ac29c8ca4d0d445cc3f572cda71e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801625"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029212"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Une transformation de la source configure votre source de données pour le flux de données. Lors de la conception de flux de données, la première étape consiste toujours à configurer une transformation de source. Pour ajouter une source, cliquez sur **Ajouter une source** dans le canevas de flux de données.
 
@@ -167,7 +167,7 @@ Dans la table source, sélectionnez une colonne sur laquelle effectuer le partit
 
 Vous pouvez choisir de partitionner les connexions en fonction d’une requête. Entrez le contenu d’un prédicat WHERE. Par exemple, entrez year > 1980.
 
-Pour plus d’informations sur l’optimisation dans le flux de données de mappage, consultez [Onglet Optimiser](concepts-data-flow-optimize-tab.md).
+Pour plus d’informations sur l’optimisation dans le mappage de flux de données, consultez la section [Onglet Optimiser](concepts-data-flow-overview.md#optimize).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

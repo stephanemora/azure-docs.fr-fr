@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6820daf34e63fd48e83c645e7509a3256bc8435b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c8c270681794621b2a12671d4bcf350cd6cc4d8
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066988"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981112"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Utiliser un certificat SSL dans votre code d’application dans Azure App Service
 
@@ -71,7 +71,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 Pour rendre tous vos certificats accessibles, définissez la valeur sur `*`.
 
 > [!NOTE]
-> Ce paramètre place les certificats spécifiés dans le magasin [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) pour la plupart des niveaux de tarification. Cependant, pour le niveau **Isolé** (où l’application s’exécute dans un [App Service Environment](environment/intro.md)), il place les certificats dans le magasin[Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
+> Ce paramètre place les certificats spécifiés dans le magasin [Current User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) pour la plupart des niveaux tarifaires. Mais si votre application s’exécute sur le niveau **Isolé** (où l’application s’exécute dans un [App Service Environment](environment/intro.md)), n’hésitez pas à les rechercher plutôt dans le magasin[Local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 >
 
 ![Configurer les paramètres de l’application](./media/app-service-web-ssl-cert-load/configure-app-setting.png)

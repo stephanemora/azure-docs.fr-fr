@@ -14,14 +14,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: ab8fb4a567e4c4a7bf1e884999a4e403a98547a0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 7f5b24915ddb9fd12085583844770dd7587f2394
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205083"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025203"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Synchronisation des données hors connexion dans Azure Mobile Apps
+
+> [!NOTE]
+> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
+> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
+
 ## <a name="what-is-offline-data-sync"></a>Qu’est-ce que la synchronisation des données hors connexion ?
 La synchronisation des données hors connexion est une fonctionnalité du Kit de développement logiciel (SDK) client et serveur d’Azure Mobile Apps qui permet aux développeurs de créer des applications fonctionnant sans connexion réseau.
 

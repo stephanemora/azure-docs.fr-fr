@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: a14926dea576e0331cb8c0f8010f060f47faa3e7
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 11e3a9931d424433f2e3fd1f64e2e95a5835b65c
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991157"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960465"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurer et gérer l’authentification Azure Active Directory avec SQL
 
@@ -303,6 +303,9 @@ Pour créer un utilisateur de base de données autonome représentant une applic
 ```sql
 CREATE USER [appName] FROM EXTERNAL PROVIDER;
 ```
+
+> [!NOTE]
+> Cette commande impose que SQL accède à Azure AD (le « fournisseur externe ») pour le compte de l’utilisateur connecté. Parfois, les circonstances font qu’Azure AD retourne une exception à SQL. Dans ce cas, l’utilisateur verra l’erreur SQL 33134, qui doit contenir le message d’erreur propre à AAD. La plupart du temps, l’erreur indique que l’accès est refusé, ou que l’utilisateur doit s’inscrire pour l’authentification multifacteur afin d’accéder à la ressource, ou que l’accès entre les applications internes doit être géré par le biais de l’autorisation préalable. Dans les deux premiers cas, le problème est généralement dû à des stratégies d’accès conditionnel définies dans le locataire AAD de l’utilisateur : elles l’empêchent d’accéder au fournisseur externe. La mise à jour des stratégies d’accès conditionnel de façon à autoriser l’accès à l’application « 00000002-0000-0000-c000-000000000000 » (ID d’application de l’API Graph AAD) doit résoudre le problème. Si l’erreur indique que l’accès entre les applications internes doit être géré par le biais de l’autorisation préalable, le problème vient du fait que l’utilisateur est connecté en tant que principal du service. La commande doit aboutir si au lieu de cela elle est exécutée par un utilisateur.
 
 > [!TIP]
 > Vous ne pouvez pas créer directement un utilisateur à partir d’un annuaire Azure Active Directory autre que l’annuaire Azure Active Directory associé à votre abonnement Azure. Toutefois, les membres d’autres annuaires Active Directory qui sont des utilisateurs importés dans l’annuaire Active Directory associé (appelés utilisateurs externes) peuvent être ajoutés à un groupe Active Directory dans le client Active Directory. En créant un utilisateur de base de données autonome pour ce groupe AD, les utilisateurs de l’annuaire Active Directory externe peuvent accéder SQL Database.

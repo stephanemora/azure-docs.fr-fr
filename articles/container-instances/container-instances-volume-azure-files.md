@@ -9,19 +9,22 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 686c20aeb22c16298967aa6f73ee829472f4ea0c
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68325498"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175932"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Monter un partage de fichiers Azure dans Azure Container Instances
 
-Par défaut, les conteneurs Azure Container Instances sont sans état. Si le conteneur se bloque ou s’arrête, son état est entièrement perdu. Pour conserver l’état au-delà de la durée de vie du conteneur, vous devez monter un volume à partir d’un stockage externe. Cet article explique comment monter un partage de fichiers Azure créé avec [Azure Files](../storage/files/storage-files-introduction.md) pour une utilisation avec Azure Container Instances. Azure Files offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole SMB (Server Message Block) standard. L'utilisation d'un partage de fichiers Azure avec Azure Container Instances offre des fonctionnalités de partage de fichiers similaires à l’utilisation d’un partage de fichiers Azure avec machines virtuelles Azure.
+Par défaut, les conteneurs Azure Container Instances sont sans état. Si le conteneur se bloque ou s’arrête, son état est entièrement perdu. Pour conserver l’état au-delà de la durée de vie du conteneur, vous devez monter un volume à partir d’un stockage externe. Comme indiqué dans cet article, Azure Container Instances peut monter un partage de fichiers Azure créé avec [Azure Files](../storage/files/storage-files-introduction.md). Azure Files offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole SMB (Server Message Block) standard. L'utilisation d'un partage de fichiers Azure avec Azure Container Instances offre des fonctionnalités de partage de fichiers similaires à l’utilisation d’un partage de fichiers Azure avec machines virtuelles Azure.
 
 > [!NOTE]
-> Le montage d’un partage de fichiers Azure est actuellement limité aux conteneurs Linux. Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences actuelles de la plateforme dans la [Vue d’ensemble](container-instances-overview.md#linux-and-windows-containers).
+> Le montage d’un partage de fichiers Azure est actuellement limité aux conteneurs Linux. Recherchez les différences de plateforme actuelles dans la [vue d’ensemble](container-instances-overview.md#linux-and-windows-containers).
+>
+> Le montage d’un partage Azure Files vers une instance de conteneur est similaire à un [montage de liaison](https://docs.docker.com/storage/bind-mounts/) Docker. Sachez que si vous montez un partage dans un répertoire de conteneur dans lequel des fichiers ou des répertoires existent, ces fichiers ou répertoires sont masqués par le montage et ne sont pas accessibles pendant l’exécution du conteneur.
+>
 
 ## <a name="create-an-azure-file-share"></a>Crée un partage de fichiers Azure
 

@@ -6,14 +6,14 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296302"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959696"
 ---
-# <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure
+# <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure
 
 Pour aider à créer des modèles Azure Resource Manager, vous pouvez exporter un modèle à partir de ressources existantes. Le modèle exporté vous aide à comprendre la syntaxe JSON et les propriétés qui déploient vos ressources. Pour automatiser les déploiements futurs, commencez par le modèle exporté et modifiez-le en fonction de votre scénario.
 

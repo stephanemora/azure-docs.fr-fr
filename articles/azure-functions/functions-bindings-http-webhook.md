@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 983cf250f3a7188741c41386aac256bfdb28749b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 512da03e6b473055e3a14d64a9ac0e25b8efca56
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097339"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838916"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -727,7 +727,7 @@ Les clés sont stockées dans votre Function App dans Azure, et chiffrées au re
 
 ![Gérez les clés de fonction dans le portail.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-Vous pouvez obtenir des clés de fonction par programmation à l’aide de l’[API de gestion de clés](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
+Vous pouvez obtenir des clés de fonction programmatiquement en utilisant des [API Gestion des clés](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>Autorisation de clé API
 
@@ -740,8 +740,7 @@ La clé peut être incluse dans une variable de chaîne de requête nommée `cod
 Vous pouvez autoriser les requêtes anonymes, qui ne nécessitent pas de clés. Vous pouvez également exiger que la clé principale soit utilisée. Pour modifier le niveau d’autorisation par défaut, utilisez la propriété `authLevel` dans le JSON de liaison. Pour plus d’informations, consultez [Déclencheur - configuration](#trigger---configuration).
 
 > [!NOTE]
-> Lors de l’exécution de fonctions localement, l’autorisation est désactivée, quel que soit le paramètre de niveau d’authentification spécifié. Après la publication sur Azure, le paramètre `authLevel` de votre déclencheur est appliqué.
-
+> Lors de l’exécution de fonctions localement, l’autorisation est désactivée, quel que soit le paramètre de niveau d’authentification spécifié. Après la publication sur Azure, le paramètre `authLevel` de votre déclencheur est appliqué. Les clés sont quand même exigées lors d’une exécution [locale dans un conteneur](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Sécuriser un point de terminaison HTTP en production

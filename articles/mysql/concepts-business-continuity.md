@@ -1,21 +1,21 @@
 ---
-title: Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
-description: Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL.
+title: Comprendre la continuité d’activité dans Azure Database pour MySQL
+description: Découvrez en quoi consiste la continuité d’activité (limite de restauration dans le temps, interruption de centre de données, géo-restauration) quand vous utilisez le service Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: a09c1934ecb34518b191a8e730a72efecc85aa2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28cd46077e67aa48169421607cd977103da735c5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525438"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972890"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
+# <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Comprendre la continuité d’activité dans Azure Database pour MySQL
 
-Cette vue d’ensemble décrit les fonctionnalités d’Azure Database pour MySQL en matière de continuité d’activité et de récupération d’urgence. Découvrez les options de reprise à la suite d’événements d’interruption susceptibles d’entraîner une perte de données ou une indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
+Cet article décrit les fonctionnalités d’Azure Database pour MySQL en matière de continuité d’activité et de récupération d’urgence. Découvrez les options de reprise à la suite d’événements d’interruption susceptibles d’entraîner une perte de données ou une indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Fonctionnalités que vous pouvez utiliser pour garantir la continuité d’activité
 

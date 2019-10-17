@@ -1,21 +1,21 @@
 ---
-title: Vue d’ensemble de la continuité d’activité avec Azure Database for MariaDB
-description: Vue d’ensemble de la continuité d’activité avec Azure Database for MariaDB.
+title: Comprendre la continuité d’activité dans Azure Database for MariaDB
+description: Découvrez en quoi consiste la continuité d’activité (limite de restauration dans le temps, interruption de centre de données, géorestauration) quand vous utilisez le service Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 4c64f920bf56195ad53ac8acbf3f9199090f0a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d364c3a5fafaca514baade25cd3f5b4c0f10dc26
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043008"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973613"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>Vue d’ensemble de la continuité d’activité avec Azure Database for MariaDB
+# <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Comprendre la continuité d’activité dans Azure Database for MariaDB
 
-Cette vue d’ensemble décrit les fonctionnalités d’Azure Database for MariaDB en matière de continuité d’activité et de reprise d’activité après sinistre. Découvrez les options de reprise à la suite d’événements d’interruption susceptibles d’entraîner une perte de données ou une indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
+Cet article décrit les fonctionnalités d’Azure Database for MariaDB en matière de continuité d’activité et de reprise d’activité après sinistre. Découvrez les options de reprise à la suite d’événements d’interruption susceptibles d’entraîner une perte de données ou une indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Fonctionnalités que vous pouvez utiliser pour garantir la continuité d’activité
 

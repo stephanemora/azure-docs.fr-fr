@@ -1,19 +1,19 @@
 ---
-title: Traitement des données et fonctions définies par l’utilisateur avec Azure Digital Twins | Microsoft Docs
+title: Traitement des données et fonctions définies par l’utilisateur - Azure Digital Twins | Microsoft Docs
 description: Présentation du traitement des données, des détecteurs et des fonctions définies par l’utilisateur avec Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178252"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949970"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Traitement des données et fonctions définies par l’utilisateur
 

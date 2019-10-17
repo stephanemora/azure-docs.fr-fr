@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b233c5dd639bb6652f201727748a081f6a8a4c64
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615761"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950334"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Cet article vous montre comment utiliser la mise en réseau *kubenet* pour crée
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Azure CLI 2.0.65 (ou version ultérieure) doit être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre votre version à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
+Azure CLI version 2.0.65 ou ultérieure doit être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre votre version à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Vue d’ensemble de la mise en réseau kubenet avec votre propre sous-réseau
 
@@ -38,9 +38,9 @@ Avec *kubenet*, seuls les nœuds reçoivent une adresse IP dans le sous-réseau
 
 ![Modèle de réseau kubenet avec un cluster AKS](media/use-kubenet/kubenet-overview.png)
 
-Azure prend en charge un maximum de 400 routes dans une route UDR. Vous ne pouvez donc pas avoir un cluster AKS comportant plus de 400 nœuds. Les fonctionnalités AKS telles que les [nœuds virtuels][virtual-nodes] ou les stratégies réseau ne sont pas prises en charge avec *kubenet*.
+Azure prend en charge un maximum de 400 routes dans une route UDR. Vous ne pouvez donc pas avoir un cluster AKS comportant plus de 400 nœuds. Les [nœuds virtuels][virtual-nodes] AKS et les stratégies réseau Azure ne sont pas pris en charge avec *kubenet*.  Vous pouvez utiliser des [stratégies réseau Calico][calico-network-policies], car elles sont prises en charge avec kubenet.
 
-Avec *Azure CNI*, chaque pod reçoit une adresse IP dans le sous-réseau IP et peut communiquer directement avec d’autres pods et services. La taille de vos clusters peut être identique à la plage d’adresses IP que vous spécifiez. Toutefois, la plage d’adresses IP doit être planifiée à l’avance, et toutes les adresses IP sont consommées par les nœuds AKS en fonction du nombre maximal de pods qu’ils peuvent prendre en charge. Les scénarios et fonctionnalités réseau avancé comme les [nœuds virtuels][virtual-nodes] ou les stratégies réseau sont pris en charge avec *Azure CNI*.
+Avec *Azure CNI*, chaque pod reçoit une adresse IP dans le sous-réseau IP et peut communiquer directement avec d’autres pods et services. La taille de vos clusters peut être identique à la plage d’adresses IP que vous spécifiez. Toutefois, la plage d’adresses IP doit être planifiée à l’avance, et toutes les adresses IP sont consommées par les nœuds AKS en fonction du nombre maximal de pods qu’ils peuvent prendre en charge. Les scénarios et fonctionnalités réseau avancé comme les [nœuds virtuels][virtual-nodes] ou les stratégies réseau (Azure ou Calico) sont pris en charge avec *Azure CNI*.
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilité et épuisement des adresses IP
 
@@ -72,19 +72,16 @@ Utilisez *kubenet* quand :
 
 - Vous avez un espace d’adressage IP limité.
 - La majeure partie de la communication des pods s’effectue dans le cluster.
-- Vous n’avez pas besoin de fonctionnalités avancées comme des nœuds virtuels ou une stratégie réseau.
+- Vous n’avez pas besoin de fonctionnalités AKS avancées comme des nœuds virtuels ou une stratégie réseau Azure.  Utilisez des [stratégies réseau Calico][calico-network-policies].
 
 Utilisez *Azure CNI* quand :
 
 - Vous disposez d’espace d’adressage IP disponible.
 - La majeure partie de la communication des pods s’effectue avec des ressources hors du cluster.
 - Vous ne voulez pas gérer les routes UDR.
-- Vous avez besoin de fonctionnalités avancées comme des nœuds virtuels ou une stratégie réseau.
+- Vous avez besoin de fonctionnalités avancées AKS comme des nœuds virtuels ou une stratégie réseau Azure.  Utilisez des [stratégies réseau Calico][calico-network-policies].
 
 Pour vous aider à déterminer quel modèle de réseau utiliser, consultez les sections [Comparer des modèles de réseau et Étendue du support][network-comparisons].
-
-> [!NOTE]
-> Kuberouter permet d’activer la stratégie de réseau lors de l’utilisation de kubenet et peut être installé en tant que daemonset dans un cluster AKS. Sachez que kube-routeur est toujours en version bêta et qu’aucune prise en charge n’est proposée par Microsoft pour le projet.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Créer un réseau virtuel et un sous-réseau
 
@@ -172,6 +169,24 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!Note]
+> Si vous souhaitez permettre à un cluster AKS d’inclure une [stratégie réseau Calico][calico-network-policies], vous pouvez utiliser la commande suivante.
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet --network-policy calico \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
 Quand vous créez un cluster AKS, un groupe de sécurité réseau et une table de routage sont créés. Ces ressources réseau sont gérées par le plan de contrôle AKS. Le groupe de sécurité réseau est automatiquement associé aux cartes réseau virtuelles sur vos nœuds. La table de routage est automatiquement associée au sous-réseau de réseau virtuel. Les règles de groupe de sécurité réseau et les tables de routage sont automatiquement mises à jour quand vous créez et exposez des services.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -182,6 +197,7 @@ Maintenant qu’un cluster AKS est déployé dans votre sous-réseau de réseau 
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8adc052e732fdc54bd3b51873fdcf13a55f1f490
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382335"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971965"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -219,6 +219,10 @@ Pour en savoir plus, voir Corriger les codes d’état HTTP [403](#i-received-a
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>J'ai besoin de gérer davantage de requêtes de point de terminaison. Que dois-je faire ? 
 
 Pour en savoir plus, voir Corriger les codes d’état HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) et [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it).
+
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>J’ai créé une clé de création, mais elle n’apparaît pas dans le portail LUIS. Que s’est-il passé ?
+
+Les clés de création sont disponibles dans le portail LUIS après la [migration vers l’expérience de clé de création](luis-migration-authoring.md).  
 
 ## <a name="app-management"></a>Gestion des applications
 

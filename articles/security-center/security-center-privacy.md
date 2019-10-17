@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 40299b2ff9a20792cf25828051d2f937f3f1e9da
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: aab2535eb44ca5007859c71bf1f8142b26de7d14
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201273"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996744"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gérer les données utilisateur dans Azure Security Center
 Cet article fournit des informations sur la façon dont vous pouvez gérer les données utilisateur dans Azure Security Center. La gestion des données utilisateur inclut la possibilité d’accéder à des données, d’en supprimer ou d’en exporter.
@@ -30,35 +30,35 @@ Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Con
 ## <a name="searching-for-and-identifying-personal-data"></a>Recherche et identification des données personnelles
 Un utilisateur de Security Center peut afficher ses données personnelles via le Portail Azure. Security Center ne stocke que les informations de contact de sécurité telles que les adresses e-mail et les numéros de téléphone. Consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md) pour plus d’informations.
 
-Dans le Portail Azure, un utilisateur peut afficher des configurations IP autorisées à l’aide de la fonctionnalité d’accès à la machine virtuelle juste à temps de Security Center. Pour plus d’informations, consultez [Gérer l’accès Juste à temps à la machine virtuelle](security-center-just-in-time.md).
+Sur le portail Azure, un utilisateur peut consulter les configurations IP autorisées en utilisant la fonctionnalité d’accès juste-à-temps à la machine virtuelle de Security Center. Pour plus d’informations, consultez [Gérer l’accès juste-à-temps à la machine virtuelle](security-center-just-in-time.md).
 
 Dans le Portail Azure, un utilisateur peut afficher des alertes de sécurité fournies par Security Center, notamment des informations sur l’attaquant et les adresses IP. Pour en savoir plus, consultez [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 ## <a name="classifying-personal-data"></a>Classification des données personnelles
 Vous n’avez pas besoin de classer les données personnelles trouvées dans la fonctionnalité de contact de sécurité de Security Center. Les données enregistrées sont une adresse e-mail (ou plusieurs) et un numéro de téléphone. Les [données de contact](security-center-provide-security-contact-details.md) sont validées par Security Center.
 
-Vous n’avez pas besoin de classer les adresses IP et les numéros de port enregistrés par la fonctionnalité [juste à temps](security-center-just-in-time.md) de Security Center.
+Vous n’avez pas besoin de classifier les adresses IP et les numéros de port enregistrés par la fonctionnalité [juste-à-temps](security-center-just-in-time.md) de Security Center.
 
 Seul un utilisateur possédant le rôle Administrateur peut classer les données personnelles par [alertes d’affichage](security-center-managing-and-responding-alerts.md) dans Security Center.
 
 ## <a name="securing-and-controlling-access-to-personal-data"></a>Sécurisation et contrôle de l’accès aux données personnelles
 Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut accéder aux [données de contact de sécurité](security-center-provide-security-contact-details.md).
 
-Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut accéder à ses stratégies [juste à temps](security-center-just-in-time.md).
+Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut accéder à ses stratégies [juste-à-temps](security-center-just-in-time.md).
 
 Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut afficher ses [alertes](security-center-managing-and-responding-alerts.md).
 
 ## <a name="updating-personal-data"></a>Mise à jour des données personnelles
 Un utilisateur de Security Center disposant du rôle Propriétaire, Contributeur ou Administrateur de compte peut mettre à jour des [données de contact de sécurité](security-center-provide-security-contact-details.md) via le Portail Azure.
 
-Un utilisateur de Security Center disposant du rôle Propriétaire, Contributeur ou Administrateur de compte peut mettre à jour ses [stratégies juste à temps](security-center-just-in-time.md).
+Un utilisateur de Security Center disposant du rôle Propriétaire, Contributeur ou Administrateur de compte peut mettre à jour ses [stratégies juste-à-temps](security-center-just-in-time.md).
 
 Un administrateur de compte ne peut pas modifier des incidents d’alerte. Un [incident d’alerte](security-center-managing-and-responding-alerts.md) fait partie des données de sécurité et est en lecture seule.
 
 ## <a name="deleting-personal-data"></a>Suppression des données personnelles
 Un utilisateur de Security Center disposant du rôle Propriétaire, Contributeur ou Administrateur de compte peut supprimer des [données de contact de sécurité](security-center-provide-security-contact-details.md) via le Portail Azure.
 
-Un utilisateur de Security Center disposant du rôle Propriétaire, Contributeur ou Administrateur de compte peut supprimer des [stratégies juste à temps](security-center-just-in-time.md) via le Portail Azure.
+Un utilisateur de Security Center disposant du rôle Propriétaire, Contributeur ou Administrateur de compte peut supprimer les [stratégies juste-à-temps](security-center-just-in-time.md) via le portail Azure.
 
 Un utilisateur de Security Center ne peut pas supprimer d’incidents d’alerte. Pour des raisons de sécurité, un [incident d’alerte](security-center-managing-and-responding-alerts.md) fait partie des données en lecture seule.
 
@@ -71,7 +71,7 @@ Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Con
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
   ```
 
-Un utilisateur de Security Center disposant du rôle Administrateur de compte peut exporter les [stratégies juste à temps](security-center-just-in-time.md) contenant les adresses IP via les méthodes suivantes :
+Un utilisateur de Security Center disposant du rôle Administrateur de compte peut exporter les [stratégies juste-à-temps](security-center-just-in-time.md) contenant les adresses IP via les méthodes suivantes :
 
 - En effectuant une copie à partir du Portail Azure
 - En exécutant l’appel d’API REST Azure, GET HTTP :
@@ -92,12 +92,12 @@ Consultez [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/libr
 ## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Restriction de l’utilisation des données personnelles pour le profilage ou le marketing sans consentement
 Un utilisateur de Security Center peut choisir de refuser en supprimant ses [données de contact de sécurité](security-center-provide-security-contact-details.md).
 
-Les [données juste à temps](security-center-just-in-time.md) sont considérées comme des données non identifiables et sont conservées pendant 30 jours.
+Les [données juste-à-temps](security-center-just-in-time.md) sont considérées comme des données non identifiables et sont conservées pendant 30 jours.
 
 Les [données d’alerte](security-center-managing-and-responding-alerts.md) sont considérées comme des données de sécurité et sont conservées pendant deux ans.
 
 ## <a name="auditing-and-reporting"></a>Audit et création de rapports
-Les journaux d’audit des contacts de sécurité, des données juste à temps et des mises à jour d’alertes sont conservés dans les [journaux d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
+Les journaux d’audit des contacts de sécurité, des données juste-à-temps et des mises à jour d’alertes sont conservés dans les [journaux d’activité Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la gestion des données utilisateur, consultez [Gérer les données utilisateur trouvées dans une enquête Azure Security Center](security-center-investigation-user-data.md).

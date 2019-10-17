@@ -1,6 +1,6 @@
 ---
-title: Automatiser l’approvisionnement des applications avec SCIM dans Azure Active Directory | Microsoft Docs
-description: Azure Active Directory peut configurer automatiquement les utilisateurs et les groupes sur une application ou un magasin d’identités avec en façade un service web avec l’interface définie dans Spécification du protocole SCIM.
+title: Provisionnement d’utilisateurs SCIM avec Azure Active Directory | Microsoft Docs
+description: Apprenez à créer un point de terminaison SCIM, à intégrer votre API SCIM à Azure Active Directory et à automatiser le provisionnement d’utilisateurs et de groupes dans vos applications.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 922e5a2d5c639d7df380f686ddf7843ab59fca59
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b5c24a2340775712f1105448b2aacfdc9a75f1a6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802362"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001728"
 ---
-# <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
+# <a name="scim-user-provisioning-with-azure-active-directory"></a>Provisionnement d’utilisateurs SCIM avec Azure Active Directory
 
-SCIM est le protocole normalisé et le schéma qui vise à offrir une meilleure cohérence dans la gestion des identités sur les systèmes. Lorsqu’une application prend en charge un point de terminaison SCIM pour la gestion de l’utilisateur, le service d’approvisionnement utilisateur d’Azure AD peut envoyer des demandes pour créer, modifier ou supprimer des utilisateurs et groupes dans ce point de terminaison.
+[SCIM](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards) (System for Cross-Domain Identity Management) est le protocole normalisé et le schéma qui vise à offrir une meilleure cohérence dans la gestion des identités sur les systèmes. Lorsqu’une application prend en charge un point de terminaison SCIM pour la gestion de l’utilisateur, le service d’approvisionnement utilisateur d’Azure AD peut envoyer des demandes pour créer, modifier ou supprimer des utilisateurs et groupes dans ce point de terminaison.
 
 Un grand nombre d’applications pour lesquelles Azure AD prend en charge l’[approvisionnement d’utilisateur automatique préintégré](../saas-apps/tutorial-list.md) intègrent SCIM en tant que moyens de recevoir des notifications de modification.  En plus de ces applications, les clients peuvent connecter des applications qui prennent en charge un profil spécifique de [spécification de protocole SCIM 2.0](https://tools.ietf.org/html/rfc7644) à l’aide de l’option d’intégration générique « ne figurant pas dans la galerie » dans le portail Azure.
 

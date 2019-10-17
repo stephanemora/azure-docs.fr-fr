@@ -1,17 +1,17 @@
 ---
 title: Terminologie d’Azure Data Share en préversion
-description: Terminologie d’Azure Data Share en préversion
+description: Découvrez les termes couramment employés pour décrire les ressources utilisées dans la préversion d’Azure Data Share (fournisseur de données, consommateur de données, partage de données, abonnement de partage, instantané, invitation, destinataire).
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844701"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166270"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Concepts d’Azure Data Share en préversion 
 
@@ -47,7 +47,7 @@ Un fournisseur de données peut activer un paramètre d’instantané pour un pa
 
 Si un fournisseur de données active ce paramètre, un intervalle de récurrence peut être sélectionné. L’intervalle de récurrence peut être horaire ou quotidien. 
 
-Un consommateur de données a la possibilité de participer à cette planification de capture instantanée pour recevoir des mises à jour incrémentielles, qui incluent toutes les données qui ont changé depuis le premier instantané généré. 
+Un consommateur de données a la possibilité d’accepter cette planification d’instantanés pour recevoir des mises à jour incrémentielles, qui incluent toutes les données qui ont changé depuis le premier instantané généré. 
 
 ## <a name="invitation"></a>Invitation
 
@@ -55,7 +55,7 @@ Un fournisseur de données peut inviter plusieurs destinataires à son partage d
 
 Un fournisseur de données peut supprimer une invitation après son envoi si elle n’a pas été acceptée. Si le fournisseur de données supprime une invitation qui n’a pas encore été acceptée, le consommateur de données ne sera pas en mesure de l’accepter. 
 
-Les invitations peuvent être renvoyées jusqu’à 5 fois par jour. 
+Les invitations peuvent être renvoyées jusqu’à cinq fois par jour. 
 
 ## <a name="recipient"></a>Recipient
 

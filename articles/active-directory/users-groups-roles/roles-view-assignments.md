@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772386"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025555"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Afficher les attributions de rôles personnalisées dans Azure Active Directory
 
@@ -32,7 +32,7 @@ Cet article explique comment afficher les rôles personnalisés que vous avez af
 Cette procédure décrit l’affichage des attributions d’un rôle avec une étendue à l’échelle de l’organisation.
 
 1. Connectez-vous au  [Centre d’administration Azure AD](https://aad.portal.azure.com)  à l’aide des autorisations administrateur de rôle privilégié ou administrateur d’entreprise dans l’organisation Azure AD.
-1. Sélectionnez **Azure Active Directory**, sélectionnez  **Rôles et administrateurs**, puis sélectionnez un rôle pour l’ouvrir et afficher ses propriétés.
+1. Sélectionnez **Azure Active Directory**, sélectionnez **Rôles et administrateurs**, puis sélectionnez un rôle pour l’ouvrir et voir ses propriétés.
 1. Sélectionnez **Affectations** pour afficher les affectations du rôle.
 
     ![Affichez les affectations de rôle et les autorisations lorsque vous ouvrez un rôle dans la liste](./media/roles-view-assignments/role-assignments.png)
@@ -109,7 +109,7 @@ Cette section décrit l’affichage des attributions d’un rôle avec une éten
 
     ![Créer ou modifier des inscriptions d’applications à partir de la page Inscriptions d’applications](./media/roles-create-custom/appreg-all-apps.png)
 
-1. Lors de l’inscription de l’application, sélectionnez  **Rôles et administrateurs**, puis sélectionnez un rôle pour afficher ses propriétés.
+1. Lors de l’inscription de l’application, sélectionnez **Rôles et administrateurs**, puis sélectionnez un rôle pour voir ses propriétés.
 
     ![Afficher les attributions de rôle d’inscription d’application à partir de la page Inscriptions d’applications](./media/roles-view-assignments/appreg-assignments.png)
 

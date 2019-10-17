@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 94fd415909e86a43916ee2f510732a6a6d9c5ed3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: af5bb7126af65a755cb1d58788d39cb8bdcbbb3b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552957"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959023"
 ---
 # <a name="scenario-availability"></a>Disponibilité de scénario
 
@@ -26,6 +26,10 @@ Le SDK du service Speech comprend de nombreux scénarios dans une vaste gamme de
 - **Synthèse vocale (TTS)**
   - C++/Windows & Linux
   - C#/Windows & UWP & Unity
+  - Java (JRE et Android)
+  - Python
+  - Swift
+  - Objective-C
   - L’API REST TTS peut être utilisée dans tous les autres cas.
 - **Mot déclencheur (Détecteur de mots clés/KWS)**
   - C++/Windows & Linux
@@ -46,4 +50,4 @@ Le SDK du service Speech comprend de nombreux scénarios dans une vaste gamme de
 - **Entrée audio compressée par codec**
   - C++/Linux
   - C#/Linux
-  - Java/Linux & Android
+  - Java/Linux, Android et iOS

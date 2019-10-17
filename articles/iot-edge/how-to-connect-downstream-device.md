@@ -4,17 +4,17 @@ description: Guide pratique pour configurer des appareils en aval ou de nœud te
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/07/2019
+ms.date: 10/08/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 822e58d1d35cfb9b62565ca78ea2277b8d194bc0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: c37c3ed2031746d7c476850749bb3dc613252654
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266122"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176783"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Connecter un appareil en aval à une passerelle Azure IoT Edge
 
@@ -183,17 +183,23 @@ Cette section présente un exemple d’application permettant de connecter un cl
 Cette section présente un exemple d’application permettant de connecter un client d’appareil Azure IoT Python à une passerelle IoT Edge. 
 
 1. Récupérez l’exemple pour **send_message** à partir des [exemples Azure IoT device SDK pour Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
-2. Vérifiez que l’exécution a lieu dans un conteneur de périphérie ou dans un scénario de débogage, et que les variables d’environnement `EdgeHubConnectionString` et `EdgeModuleCACertificateFile` sont définies.
+2. Vérifiez que l’exécution a lieu dans un conteneur IoT Edge ou dans un scénario de débogage, et que les variables d’environnement `EdgeHubConnectionString` et `EdgeModuleCACertificateFile` sont définies.
 3. Consultez la documentation du Kit de développement logiciel pour obtenir des instructions sur la façon d’exécuter l’exemple sur votre appareil. 
 
 
 ## <a name="test-the-gateway-connection"></a>Test de connexion à la passerelle
 
-Voici un exemple de commande qui vérifie que tout a été configuré correctement. Vous devez voir un message indiquant « verified OK » (vérifié, OK).
+Utilisez cet exemple de commande pour vérifier que votre appareil en aval peut se connecter à l’appareil de passerelle : 
 
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+Cette commande teste les connexions via MQTTS (port 8883). Si vous utilisez un autre protocole, ajustez la commande selon les besoins pour AMQPS (5671) ou HTTPS (433).
+
+La sortie de cette commande peut être longue, car elle comprend des informations sur tous les certificats de la chaîne. Si votre connexion réussit, vous verrez une ligne telle que celle-ci `Verification: OK` ou celle-ci `Verify return code: 0 (ok)`.
+
+![Vérifier la connexion à la passerelle](./media/how-to-connect-downstream-device/verification-ok.png)
 
 ## <a name="troubleshoot-the-gateway-connection"></a>Résoudre les problèmes de connexion à la passerelle
 

@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710036"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024565"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -37,13 +37,16 @@ Pour définir un conteneur d’objets blob Azure, entrez les informations ci-des
 
 ![capture d’écran de la page Ajouter une cible de stockage, où ont été renseignées les informations relatives à la nouvelle cible de stockage d’objets blob Azure](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
+<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **Nom de la cible de stockage** : définissez un nom permettant d’identifier cette cible de stockage dans Azure HPC Cache.
 * **Type de cible** : choisissez **Objet blob**.
 * **Compte de stockage** : sélectionnez le compte qui comprend le conteneur à référencer.
 
   Vous devez autoriser l’instance de cache à accéder au compte de stockage, en suivant la procédure décrite dans [Ajouter les rôles d’accès](#add-the-access-control-roles-to-your-account).
+
+  Pour plus d’informations sur le type de compte de stockage que vous pouvez utiliser, lisez [Exigences relatives au stockage Blob](hpc-cache-prereqs.md#blob-storage-requirements).
+
 * **Conteneur de stockage** : sélectionnez le conteneur d’objets blob pour cette cible.
 
 * **Chemin de l’espace de noms virtuels** - Définissez le chemin côté client de cette cible de stockage. Pour plus d’informations sur la fonctionnalité Espace de noms virtuels, consultez [Configurer un espace de noms agrégé](hpc-cache-namespace.md).
@@ -54,7 +57,7 @@ Lorsque vous avez terminé, cliquez sur **OK** pour ajouter la cible de stockage
 
 Azure HPC Cache utilise le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) pour autoriser l’application de cache à accéder aux cibles de stockage Blob Azure de votre compte de stockage.
 
-Le propriétaire du compte de stockage doit ajouter explicitement les rôles [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) et [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) pour l’utilisateur « StorageCache Resource Provider ».
+Le propriétaire du compte de stockage doit ajouter explicitement les rôles [Contributeur de comptes de stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) et [Contributeur aux données Blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) pour l’utilisateur « HPC Cache Resource Provider ».
 
 Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à partir de laquelle vous ajoutez une cible de stockage Blob.
 
@@ -68,7 +71,10 @@ Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à par
 
 1. Dans le champ **Attribuer l’accès à**, conservez la valeur par défaut (Utilisateur, groupe ou principal de service Azure AD).  
 
-1. Dans le champ **Sélectionner**, recherchez « storagecache ».  Cette chaîne doit correspondre au principal de sécurité nommé « HPC Cache Resource Provider ». Cliquez sur ce principal pour le sélectionner.
+1. Dans le champ **Sélectionner**, recherchez « hpc ».  Cette chaîne doit correspondre au principal de service nommé « HPC Cache Resource Provider ». Cliquez sur ce principal pour le sélectionner.
+
+   > [!NOTE]
+   > Si la recherche de « hpc » ne retourne aucun résultat, essayez la chaîne « storagecache » à la place. Les utilisateurs qui se sont inscrits à la préversion dans les tout débuts devront peut-être utiliser l’ancien nom du principal de service.
 
 1. Cliquez sur le bouton **Enregistrer** pour ajouter l’attribution de rôle au compte de stockage.
 

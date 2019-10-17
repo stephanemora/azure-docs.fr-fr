@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c6d7b3403209710c9086b90abcb0e2ce61a0e8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612733"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958549"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrez les objets de stratégie de groupe sur un domaine managé Azure AD Domain Services
 
@@ -34,10 +34,13 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, suivez le tutoriel [Créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
     * Si nécessaire, suivez les étapes du tutoriel pour [créer et joindre une machine virtuelle Windows Server à un domaine managé][create-join-windows-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
+
+> [!NOTE]
+> Comme il n’y a [pas d’accès aux contrôleurs de domaine dans Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), vous ne pouvez pas créer et utiliser un magasin central pour les modèles administratifs de stratégie de groupe dans un domaine managé. [Sysvol n’est pas inclus dans la synchronisation Azure AD Connect locale](synchronization.md#what-isnt-synchronized-to-azure-ad-ds). Donc, vous ne pouvez pas non plus créer un magasin central local et le synchroniser à Azure AD DS par le biais d’Azure AD.
 
 ## <a name="install-group-policy-management-tools"></a>Installez les outils de gestion de stratégie de groupe
 
@@ -54,7 +57,7 @@ Pour créer et configurer les objets de stratégie de groupe (GPO), vous devez i
 
     ![Installez la « gestion des stratégies de groupe » à partir de la page Fonctionnalités](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
 
-1. Dans la page **Confirmation**, sélectionnez **Installer**. L’installation des outils d’administration des stratégies de groupe peut prendre une ou deux minutes.
+1. Dans la page **Confirmation**, sélectionnez **Installer**. L’installation des outils de gestion des stratégies de groupe peut prendre une ou deux minutes.
 1. Une fois l’installation de la fonctionnalité terminée, sélectionnez **Fermer** pour quitter l’Assistant **Ajout de rôles et de fonctionnalités**.
 
 ## <a name="open-the-group-policy-management-console-and-edit-an-object"></a>Ouvrez la Console de gestion des stratégies de groupe et modifiez un objet

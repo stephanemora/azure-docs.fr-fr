@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c416d7279dd558b8a793064e295b7654925b1c8
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561772"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034896"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory
 Ajoutez des informations à un profil utilisateur, dont une image de profil, des informations sur l’emploi, et quelques réglages avec Azure Active Directory (Azure AD). Pour en savoir plus sur l’ajout de nouveaux utilisateurs, consultez [Comment ajouter ou supprimer des utilisateurs dans Azure Active Directory](add-users-azure-active-directory.md).
@@ -46,7 +46,7 @@ Vous trouverez bien plus d’informations disponibles dans un profil utilisateur
 
     - **Réglages**. Décidez si l’utilisateur peut se connecter au locataire Azure Active Directory. Vous pouvez aussi spécifier l’emplacement global de l’utilisateur.
 
-    - **Informations de contact**. Ajoutez les informations de contact importantes de l’utilisateur. Par exemple, une adresse ou un numéro de téléphone.
+    - **Informations de contact**. Ajoutez toutes les informations de contact pertinentes pour l’utilisateur, à l’exception des coordonnées de téléphone ou de contact mobile de l’utilisateur (seul un administrateur général peut effectuer la mise à jour pour des utilisateurs dotés d’un rôle d’administrateur).
 
     - **Informations de contact d’authentification**. Vérifiez ces informations pour vous assurer que le numéro de téléphone et l’adresse e-mail de l’utilisateur sont valides. Azure Active Directory utilise ces informations pour s’assurer que l’utilisateur est véritablement un utilisateur lors de la connexion. Les informations de contact d’authentification ne peuvent être mises à jour que par l’administrateur général.
 

@@ -1,17 +1,17 @@
 ---
 title: Ajouter des destinataires dans Azure Data Share (préversion)
-description: Ajouter des destinataires à votre partage de données
+description: Découvrez comment ajouter des destinataires à un partage de données existant dans Azure Data Share en préversion.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e496f67616f7ebcf4c086c8d01680b95f9cafcf8
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 1deda63f7f440116eaf47c41fa00c8b5f7566dcf
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320319"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169166"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share-preview"></a>Comment ajouter un destinataire à un partage de données existant dans Azure Data Share en préversion
 

@@ -285,6 +285,8 @@
       items:
         - name: Publier un actif multimédia - CLI
           href: cli-publish-asset.md
+        - name: Signal audio descriptif
+          href: signal-descriptive-audio-howto.md
 - name: Informations de référence
   items:
     - name: Spécification OpenAPI (Swagger)

@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9796a4efdacef04390705607defb7b5cdd462886
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 9a043d07004870c00c656b655d56a1526f8993d8
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828743"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000499"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec une instance managée
 
@@ -110,7 +110,7 @@ Une instance managée ne pouvant pas accéder à des partages de fichiers et à 
 
 Consultez [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) et [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solution de contournement** : ajoutez le certificat ou la clé privée dans un script, stockez-le dans un fichier .sql et créez-le à partir du fichier binaire :
+**Solution de contournement** : Au lieu de créer une sauvegarde du certificat et de restaurer la sauvegarde, [obtenez le contenu binaire du certificat et la clé privée, stockez-les en tant que fichier .sql et créez à partir du binaire](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database) :
 
 ```sql
 CREATE CERTIFICATE  
@@ -167,7 +167,7 @@ Une instance managée ne pouvant pas accéder aux fichiers, vous ne pouvez pas c
       - La création de scripts de connexions Azure AD qui utilisent une connexion authentifiée n’est pas prise en charge.
       - IntelliSense ne reconnaît pas l’instruction CREATE LOGIN FROM EXTERNAL PROVIDER et affiche un trait de soulignement rouge.
 
-- Seule la connexion du principal au niveau du serveur, qui est créée par le processus de l’approvisionnement de Managed Instance, les membres des rôles de serveur, tels que `securityadmin` ou `sysadmin`, ou d’autres connexions disposant de l’autorisation ALTER ANY LOGIN au niveau du serveur peuvent créer les principaux de serveur (connexions) Azure AD dans la base de données master pour Managed Instance.
+- Seule la connexion du principal au niveau du serveur, qui est créée par le processus de provisionnement de Managed Instance, les membres des rôles de serveur, tels que `securityadmin` ou `sysadmin`, ou d’autres connexions disposant de l’autorisation ALTER ANY LOGIN au niveau du serveur peuvent créer les principaux de serveur (connexions) Azure AD dans la base de données master pour Managed Instance.
 - Si la connexion est un principal SQL, seules les connexions faisant partie du rôle `sysadmin` peuvent utiliser la commande create pour créer les connexions d’un compte Azure AD.
 - La connexion Azure AD doit être membre d’un compte Azure AD dans le même annuaire que celui utilisé pour Azure SQL Database Managed Instance.
 - Les principaux de serveur (connexions) Azure AD sont visibles dans l’Explorateur d’objets à compter de SQL Server Management Studio 18.0 préversion 5.
@@ -329,6 +329,7 @@ Une instance managée ne pouvant pas accéder à des partages de fichiers et à 
 
 - `DATASOURCE` est requis dans la commande `BULK INSERT` lors de l’importation des fichiers depuis le Stockage Blob Azure. Consultez [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` est nécessaire dans la fonction `OPENROWSET` lorsque vous lisez le contenu d’un fichier à partir du stockage Blob Azure. Consultez [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `OPENROWSET` peut être utilisé pour lire des données à partir d’autres bases de données Azure SQL, instances managées ou instances de SQL Server. Les autres sources, telles que les bases de données Oracle ou les fichiers Excel, ne sont pas prises en charge.
 
 ### <a name="clr"></a>CLR
 

@@ -42,6 +42,8 @@
           items:
             - name: Déléguer aux créateurs de catalogues
               href: entitlement-management-delegate-catalog.md
+            - name: Gouverner l’accès pour les utilisateurs externes
+              href: entitlement-management-external-users.md
             - name: Afficher les rapports et les journaux
               href: entitlement-management-reports.md
             - name: Résolution des problèmes
@@ -56,7 +58,19 @@
           items:
             - name: Créer un package d’accès
               href: entitlement-management-access-package-create.md
-            - name: Modifier un package d’accès
+            - name: Partager un lien d’accès au package
+              href: entitlement-management-access-package-settings.md
+            - name: Changer les rôles de ressources
+              href: entitlement-management-access-package-resources.md
+            - name: Changer les paramètres de demande et d’approbation
+              href: entitlement-management-access-package-request-policy.md
+            - name: Changer les paramètres de cycle de vie
+              href: entitlement-management-access-package-lifecycle-policy.md
+            - name: Voir et gérer les demandes
+              href: entitlement-management-access-package-requests.md
+            - name: 'Voir, ajouter et supprimer des affectations'
+              href: entitlement-management-access-package-assignments.md
+            - name: Masquer ou supprimer
               href: entitlement-management-access-package-edit.md
         - name: Approbateurs
           items:

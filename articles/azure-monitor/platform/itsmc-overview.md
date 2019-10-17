@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051837"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177645"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -83,7 +83,7 @@ Une fois que vous avez installé la solution, vous pouvez créer une connexion.
 
 Pour créer une connexion, vous devez préparer votre outil ITSM afin d’autoriser la connexion à partir de la solution Connecteur ITSM.  
 
-Effectuez les étapes suivantes, en fonction du produit ITSM auquel vous vous connectez :
+Selon le produit ITSM auquel vous vous connectez, utilisez les étapes suivantes :
 
 - [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -188,7 +188,7 @@ ServiceDeskWorkItemType_s="Incident"
 - State
 - Urgence
 - Impact
-- Priorité
+- Priority
 - Escalade
 - Créé par
 - Résolu par
@@ -223,7 +223,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Escalade
 - État conflictuel
 - Urgence
-- Priorité
+- Priority
 - Risque
 - Impact
 - Affecté à
@@ -246,7 +246,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | IncidentState_s | State |
 | Urgency_s |Urgence |
 | Impact_s |Impact|
-| Priority_s | Priorité |
+| Priority_s | Priority |
 | CreatedBy_s | Ouvert par |
 | ResolvedBy_s | Résolu par|
 | ClosedBy_s  | Fermé par |
@@ -273,7 +273,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s|  Category |
 | CRState_s|  State|
 | Urgency_s|  Urgence |
-| Priority_s| Priorité|
+| Priority_s| Priority|
 | Risk_s| Risque|
 | Impact_s| Impact|
 | RequestedDate_t  | Date demandée |

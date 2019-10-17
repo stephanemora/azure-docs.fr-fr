@@ -1,26 +1,26 @@
 ---
-title: Gestion des contraintes de contexte de sécurité dans Azure Red Hat OpenShift | Microsoft Docs
-description: Administrateur de cluster Azure Red Hat OpenShift gérant les contraintes de contexte de sécurité
+title: Gérer les contraintes de contexte de sécurité dans Azure Red Hat OpenShift | Microsoft Docs
+description: Contraintes de contexte de sécurité pour les administrateurs de cluster Azure Red Hat OpenShift
 services: container-service
 author: troy0820
 ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 8e85ac98683487c6b18be7f502f28cad9a0c2251
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: f98f55dca8b3dbbfbe03cb8c79691cedb63335a0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71712840"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168994"
 ---
-# <a name="overview"></a>Vue d'ensemble 
+# <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gérer les contraintes de contexte de sécurité dans Azure Red Hat OpenShift 
 
-Les contraintes de contexte de sécurité permettent aux administrateurs de contrôler les autorisations pour les pods. Pour en savoir plus sur ce type d’API, voir la documentation sur l’architecture des [contraintes de contexte de sécurité](https://https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Vous pouvez gérer les contraintes de contexte de sécurité dans votre instance en tant qu’objets API normaux à l’aide de l’interface de ligne de commande.
+Les contraintes de contexte de sécurité permettent aux administrateurs de cluster de contrôler les autorisations pour les pods. Pour en savoir plus sur ce type d’API, consultez la [documentation sur l’architecture des contraintes de contexte de sécurité](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Vous pouvez gérer les contraintes de contexte de sécurité dans votre instance comme des objets d’API normaux en utilisant l’interface de ligne de commande.
 
-## <a name="listing-security-context-constraints"></a>Affichage des contraintes de contexte de sécurité
+## <a name="list-security-context-constraints"></a>Lister les contraintes de contexte de sécurité
 
-Pour obtenir la liste actuelle des contraintes de contexte de sécurité 
+Pour obtenir la liste actuelle des contraintes de contexte de sécurité, utilisez cette commande : 
 
 ```bash
 $ oc get scc
@@ -35,9 +35,9 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-## <a name="examining-a-security-context-constraints-object"></a>Examen d’un objet contrainte de contexte de sécurité
+## <a name="examine-an-object-for-security-context-constraints"></a>Examiner les contraintes de contexte de sécurité dans un objet
 
-Pour examiner une contrainte de contexte de sécurité particulière, utilisez `oc get`, `oc describe` ou `oc edit`.  Par exemple, pour examiner la contrainte de contexte de sécurité **restreint** :
+Pour examiner une contrainte de contexte de sécurité particulière, utilisez `oc get`, `oc describe` ou `oc edit`.  Par exemple, pour examiner la contrainte de contexte de sécurité **restricted**, utilisez cette commande :
 ```bash
 $ oc describe scc restricted
 Name:                   restricted
@@ -72,6 +72,5 @@ Settings:
     Ranges:             <none>
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-Comment configurer le rôle osa-customer-admin :
 > [!div class="nextstepaction"]
-> [Intégration d’Azure Active Directory pour Azure Red Hat OpenShift](howto-aad-app-configuration.md) 
+> [Créer un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md) 

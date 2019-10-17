@@ -8,16 +8,16 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ece85feff3c6eff9fc2348de70842204986952d5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6e74830a3a62ea54c5d8e7f9815fe2ba6eed6d58
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855623"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166493"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Pilote Azure Blob FileSystem (ABFS) : un pilote Stockage Azure dédié pour Hadoop
 
-[Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html) constitue l’une des principales méthodes d’accès aux données dans Azure Data Lake Storage Gen2. Data Lake Storage Gen2 permet aux utilisateurs du stockage Blob Azure d'accéder à un nouveau pilote, le pilote Azure Blob File System ou `ABFS`. ABFS fait partie d’Apache Hadoop et est inclus dans la plupart des distributions commerciales de Hadoop. Grâce à ce pilote, de nombreuses applications et infrastructures peuvent accéder aux données du stockage Blob Azure, sans nécessiter de code faisant explicitement référence à Data Lake Storage Gen2.
+[Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html) constitue l’une des principales méthodes d’accès aux données dans Azure Data Lake Storage Gen2. Data Lake Storage Gen2 permet aux utilisateurs du stockage Blob Azure d'accéder à un nouveau pilote, le pilote Azure Blob File System ou `ABFS`. ABFS fait partie d’Apache Hadoop et est inclus dans la plupart des distributions commerciales de Hadoop. Grâce à ce pilote, de nombreuses applications et infrastructures peuvent accéder aux données du stockage Blob Azure, sans nécessiter de code faisant explicitement référence à Data Lake Storage Gen2. 
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Fonctionnalité préalable : pilote Windows Azure Storage Blob
 

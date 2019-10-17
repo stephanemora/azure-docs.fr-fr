@@ -1,19 +1,19 @@
 ---
-title: Procédures stockées Azure Database for MariaDB
-description: Cet article présente les procédures stockées propres à Azure Database for MariaDB.
+title: Procédures stockées de gestion Azure Database for MariaDB
+description: Découvrez les procédures stockées d’Azure Database pour MySQL qui vous aideront à configurer la réplication des donnée entrantes, à définir le fuseau horaire et à supprimer des requêtes.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: d9daaf619a19c0f4e4a591d4bbb4925679fd1fcb
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0a33edeac735502964427ddc3b05076fb9fac969
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174564"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973466"
 ---
-# <a name="azure-database-for-mariadb-stored-procedures"></a>Procédures stockées Azure Database for MariaDB
+# <a name="azure-database-for-mariadb-management-stored-procedures"></a>Procédures stockées de gestion Azure Database for MariaDB
 
 Des procédures stockées sont disponibles sur les serveurs Azure Database for MariaDB pour faciliter la gestion de votre serveur MariaDB. Cela comprend la gestion des connexions de votre serveur, des requêtes et de la configuration de la réplication des données entrantes.  
 

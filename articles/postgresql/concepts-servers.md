@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067157"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029965"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Azure Database pour PostgreSQL - Serveur unique
 Cet article présente des considérations et des instructions relatives à l’utilisation d’Azure Database pour PostgreSQL - Serveur unique.
@@ -64,6 +64,6 @@ Azure Database pour PostgreSQL étant un service géré pour Postgres, ses param
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Vous trouverez une vue d’ensemble du service à la page  [Vue d’ensemble d'Azure Database pour PostgreSQL](overview.md).
-- Pour plus d’informations sur des quotas de ressources spécifiques et les limitations associées à votre  **niveau de service**, consultez  [Niveaux de service](concepts-pricing-tiers.md).
+- Pour obtenir des informations sur des quotas de ressources spécifiques et les limitations associées à votre **niveau de service**, consultez  [Niveaux de service](concepts-pricing-tiers.md).
 - Pour plus d’informations sur la connexion au service, consultez la page  [Bibliothèques de connexions d'Azure Database pour PostgreSQL](concepts-connection-libraries.md).
 - Affichez et modifiez les paramètres de serveur par le biais du [portail Azure](howto-configure-server-parameters-using-portal.md) ou [d’Azure CLI](howto-configure-server-parameters-using-cli.md).

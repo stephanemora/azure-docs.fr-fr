@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: bf60ba7d940ab3ea3f4d30fc9fb1d76f9304ec1b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1db929e3ec4b400113d04cb7dd1cd4b8d2e86a9a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086591"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176590"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
@@ -1087,11 +1087,11 @@ module.exports = function (context) {
 
 ### <a name="webhook-trigger---attributes"></a>Déclencheur de webhook - attributs
 
-Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebHookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookTriggerAttribute.cs).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebhookTrigger](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookTriggerAttribute.cs).
 
 ### <a name="webhook-trigger---configuration"></a>Déclencheur de webhook - configuration
 
-Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookTrigger`.
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebhookTrigger`.
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
@@ -1239,11 +1239,11 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-input---attributes"></a>Entrée de webhook - attributs
 
-Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs).
 
 ### <a name="webhook-input---configuration"></a>Entrée de webhook - configuration
 
-Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookSubscription`.
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebhookSubscription`.
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
@@ -1380,11 +1380,11 @@ module.exports = function (context, req) {
 
 ### <a name="webhook-output---attributes"></a>Sortie de webhook - attributs
 
-Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebHookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebHookSubscriptionAttribute.cs).
+Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [GraphWebhookSubscription](https://github.com/Azure/azure-functions-microsoftgraph-extension/blob/master/src/MicrosoftGraphBinding/Bindings/GraphWebhookSubscriptionAttribute.cs).
 
 ### <a name="webhook-output---configuration"></a>Sortie de webhook - configuration
 
-Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebHookSubscription`.
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `GraphWebhookSubscription`.
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|

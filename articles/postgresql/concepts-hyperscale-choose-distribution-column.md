@@ -1,18 +1,18 @@
 ---
 title: Choisir les colonnes de distribution dans Azure Database pour PostgreSQL – Hyperscale (Citus)
-description: Choix judicieux pour les colonnes de distribution dans les scénarios Hyperscale courants
+description: Découvrez comment choisir les colonnes de distribution dans les scénarios Hyperscale courants dans Azure Database pour PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: b0d1f343aa9b125ab0a5a9ab559d0788253037aa
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 0b29567dcd22c79c30e70594066f7ff87c18fdb0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998186"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947596"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Choisir les colonnes de distribution dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 

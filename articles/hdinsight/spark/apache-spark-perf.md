@@ -1,23 +1,23 @@
 ---
 title: Optimiser les performances des travaux Spark - Azure HDInsight
 description: Présente des stratégies courantes permettant d’optimiser les performances des clusters Apache Spark dans Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/01/2019
+ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181082"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936844"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimiser les travaux Apache Spark dans Azure HDInsight
 
-Découvrez comment optimiser la configuration de cluster [Apache Spark](https://spark.apache.org/) pour votre charge de travail.  Le défi le plus courant est la sollicitation de la mémoire due à aux configurations incorrectes (en particulier les exécuteurs de taille incorrecte), aux longues opérations et aux tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources.
+Découvrez comment optimiser la configuration de cluster [Apache Spark](https://spark.apache.org/) pour votre charge de travail.  La principale difficulté est une sollicitation trop importante de la mémoire, causée par une configuration incorrecte (en particulier, par des exécuteurs de taille non adaptée), des opérations longues et des tâches qui entraînent des opérations cartésiennes. Vous pouvez accélérer les travaux avec une mise en cache appropriée et en autorisant [l’asymétrie des données](#optimize-joins-and-shuffles). Pour des performances optimales, surveillez les exécutions de travaux Spark de longue durée et consommatrices de ressources.
 
 Les sections suivantes décrivent des recommandations et des optimisations courantes de travaux Spark.
 
@@ -41,7 +41,7 @@ Les versions antérieures de Spark utilisent des RDD pour abstraire des données
     * Surcharge de garbage collection élevée
     * Interrompt la génération de code à l’échelle globale
 * **RDD**
-    * Vous n’avez pas besoin d’utiliser de RDD, sauf si vous devez générer un nouvel RDD personnalisé.
+    * Vous n’avez pas besoin d’utiliser des RDD, sauf si vous devez générer un nouvel RDD personnalisé.
     * Aucune optimisation de requête par le biais de Catalyst
     * Aucune génération de code à l’échelle globale
     * Surcharge de garbage collection élevée
@@ -60,17 +60,18 @@ Quand vous créez un cluster Spark, vous pouvez sélectionner Stockage Blob Azur
 | Type de magasin | Système de fichiers | Vitesse | Temporaire | Cas d'utilisation |
 | --- | --- | --- | --- | --- |
 | un stockage Azure Blob | **wasb:** //url/ | **Standard** | OUI | Cluster temporaire |
+| Stockage Blob Azure (sécurisé) | **wasbs:** //url/ | **Standard** | OUI | Cluster temporaire |
 | Azure Data Lake Storage Gen 2| **abfs:** //url/ | **Plus rapide** | OUI | Cluster temporaire |
 | Azure Data Lake Storage Gen 1| **adl:** //url/ | **Plus rapide** | OUI | Cluster temporaire |
 | HDFS local | **hdfs:** //url/ | **Le plus rapide** | Non | Cluster 24/7 interactif |
 
 ## <a name="use-the-cache"></a>Utiliser le cache
 
-Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez utiliser par le biais de différentes méthodes telles que `.persist()`, `.cache()` et `CACHE TABLE`. Cette mise en cache native est efficace avec les petits jeux de données, ainsi que dans les pipelines ETL où vous devez mettre en cache des résultats intermédiaires. Toutefois, à l’heure actuelle la mise en cache native de Spark ne fonctionne pas correctement avec le partitionnement, car une table mise en cache ne conserve pas les données de partitionnement. Une technique de mise en cache plus générique et plus fiable est *la mise en cache de la couche de stockage*.
+Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez utiliser par le biais de différentes méthodes telles que `.persist()`, `.cache()` et `CACHE TABLE`. Cette mise en cache native est efficace avec les petits jeux de données, ainsi que dans les pipelines ETL où vous devez mettre en cache des résultats intermédiaires. Toutefois, la mise en cache native de Spark ne fonctionne pas correctement avec le partitionnement, car une table mise en cache ne conserve pas les données de partitionnement. Une technique de mise en cache plus générique et plus fiable est *la mise en cache de la couche de stockage*.
 
 * Mise en cache native de Spark (non recommandée)
     * Convient aux petits jeux de données
-    * Ne fonctionne pas avec le partitionnement, mais ceci peut changer dans les versions ultérieures de Spark
+    * Ne fonctionne pas avec le partitionnement, mais ceci pourra changer dans les versions ultérieures de Spark
 
 * Mise en cache au niveau du stockage (recommandée)
     * Peut être implémentée à l’aide de [Alluxio](https://www.alluxio.org/)
@@ -127,7 +128,7 @@ Vous pouvez utiliser le partitionnement et la création de compartiments en mêm
 
 ## <a name="optimize-joins-and-shuffles"></a>Optimiser les jointures et les lectures aléatoires
 
-Si vous avez des travaux lents sur une jointure ou une lecture aléatoire, la cause est probablement *l’asymétrie des données* des travaux. Par exemple, un travail de mappage peut prendre 20 secondes, mais l’exécution d’un travail où les données sont jointes ou assignées de manière aléatoire prend des heures.   Pour corriger l’asymétrie des données, vous devez convertir l’intégralité de la clé en valeur salt, ou utiliser une *valeur salt isolée* pour uniquement un sous-ensemble de clés.  Si vous utilisez une valeur salt isolée, vous devez effectuer un filtrage supplémentaire afin d’isoler votre sous-ensemble de clés salt dans les jointures de mappage. Une autre option consiste à introduire une colonne de compartiment et à pré-agréger d’abord dans les compartiments.
+Si vous avez des travaux lents sur une jointure ou une lecture aléatoire, la cause est probablement *l’asymétrie des données* des travaux. Par exemple, un travail de mappage peut prendre 20 secondes, mais l’exécution d’un travail où les données sont jointes ou assignées de manière aléatoire prend des heures. Pour corriger l’asymétrie des données, vous devez convertir l’intégralité de la clé en valeur salt, ou utiliser une *valeur salt isolée* pour uniquement un sous-ensemble de clés. Si vous utilisez une valeur salt isolée, vous devez effectuer un filtrage supplémentaire afin d’isoler votre sous-ensemble de clés salt dans les jointures de mappage. Une autre option consiste à introduire une colonne de compartiment et à pré-agréger d’abord dans les compartiments.
 
 Un autre facteur pouvant ralentir les jointures est le type de jointure. Par défaut, Spark utilise le type de jointure `SortMerge`. Ce type de jointure convient parfaitement aux grands jeux de données, mais il est coûteux en terme de calcul car il doit d’abord trier les côtés gauche et droit des données avant de les fusionner.
 
@@ -144,14 +145,15 @@ val df1 = spark.table("FactTableA")
 val df2 = spark.table("dimMP")
 df1.join(broadcast(df2), Seq("PK")).
     createOrReplaceTempView("V_JOIN")
+
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Si vous utilisez des tables compartimentées, vous disposez d’un troisième type de jointure : `Merge`. Un jeu de données correctement prépartitionné et prétrié ignore la phase de tri coûteuse d’une jointure `SortMerge`.
+Si vous utilisez des tables compartimentées, vous disposez d’un troisième type de jointure : `Merge`. Un jeu de données correctement prépartitionné et prétrié ignore la phase de tri coûteuse d’une jointure `SortMerge`.
 
 L’ordre des jointures est important, en particulier dans les requêtes plus complexes. Commencez par les jointures les plus sélectives. Dans la mesure du possible, déplacez également les jointures qui augmentent le nombre de lignes après les agrégations.
 
-Pour gérer le parallélisme, spécifiquement dans le cas des jointures cartésiennes, vous pouvez ajouter des structures imbriquées, le fenêtrage, et éventuellement ignorer une ou plusieurs étapes dans votre travail Spark.
+Pour gérer le parallélisme en cas de jointures cartésiennes, vous pouvez ajouter des structures imbriquées, le fenêtrage, et éventuellement ignorer une ou plusieurs étapes dans votre travail Spark.
 
 ## <a name="customize-cluster-configuration"></a>Personnaliser la configuration du cluster
 
@@ -179,17 +181,17 @@ Lors du choix de votre configuration d’exécuteur, n’oubliez pas de prendre 
     5. Facultatif : augmentez l’utilisation et la concurrence en surabonnant le processeur.
 
 En règle générale, lors de la sélection de la taille d’exécuteur :
-    
+
 1. Commencez avec 30 Go par exécuteur et distribuez les cœurs disponibles.
 2. Augmentez le nombre de cœurs d’exécuteur pour les clusters de grande taille (> 100 exécuteurs).
-3. Augmentez ou diminuez les tailles en fonction des tests d’évaluation et de facteurs tels que la surcharge de garbage collection.
+3. Modifiez la taille en fonction des tests d’évaluation et de facteurs tels que la surcharge de garbage collection.
 
 Lors de l’exécution de requêtes simultanées, considérez les points suivants :
 
 1. Commencez avec 30 Go par exécuteur et tous les cœurs.
 2. Créez plusieurs applications Spark parallèles en surabonnant les UC (amélioration de la latence d’environ 30 %).
 3. Distribuez les requêtes parmi les applications parallèles.
-4. Augmentez ou diminuez les tailles en fonction des tests d’évaluation et de facteurs tels que la surcharge de garbage collection.
+4. Modifiez la taille en fonction des tests d’évaluation et de facteurs tels que la surcharge de garbage collection.
 
 Surveillez les performances de vos requêtes afin de détecter les valeurs hors norme ou autres problèmes de performances, en examinant l’affichage de la chronologie, le graphique SQL, les statistiques des travaux, et ainsi de suite. Parfois, un ou plusieurs exécuteurs sont plus lents que les autres, et l’exécution des tâches prend beaucoup plus de temps. Cela se produit fréquemment sur les clusters de grande taille (> 30 nœuds). Dans ce cas, répartissez le travail parmi un plus grand nombre de tâches afin que le planificateur puisse compenser cette lenteur. Par exemple, faites en sorte d’avoir au moins deux fois plus de tâches que le nombre de cœurs d’exécuteur dans l’application. Vous pouvez également activer l’exécution spéculative des tâches avec `conf: spark.speculation = true`.
 

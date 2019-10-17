@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679315"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023741"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C
 
@@ -25,7 +25,7 @@ Le flux des informations d’identification par mot de passe du propriétaire de
 
 Les options suivantes sont prises en charge dans Azure Active Directory B2C (Azure AD B2C) :
 
-- **Client natif** : une interaction de l’utilisateur lors de l’authentification se produit quand le code s’exécute sur un appareil côté utilisateur. L’appareil peut être une application mobile qui s’exécute dans un système d’exploitation natif, comme Android, ou dans un navigateur, tel que JavaScript.
+- **Client natif** : une interaction de l’utilisateur lors de l’authentification se produit quand le code s’exécute sur un appareil côté utilisateur. L’appareil peut être une application mobile qui s’exécute dans un système d’exploitation natif, comme Android et iOS.
 - **Flux client public** : seules les informations d’identification de l’utilisateur, collectées par une application, sont envoyées dans l’appel d’API. Les informations d’identification de l’application ne sont pas envoyées.
 - **Ajouter de nouvelles revendications** : il est possible de changer le contenu du jeton de l’ID pour ajouter de nouvelles revendications.
 

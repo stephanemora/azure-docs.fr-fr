@@ -11,24 +11,24 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 07/17/2019
-ms.openlocfilehash: 588fac1fc48396584188eec44f21a7005dc8ed96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b15ebc40e99c1cd454396ccde5cca6b1a46abbc
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567560"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244763"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurer un DNS personnalisé pour Azure SQL Database Managed Instance
 
 Une instance managée Azure SQL Database doit être déployée au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Quelques scénarios (comme le courrier de base de données,des serveurs liés à d’autres instances SQL dans votre cloud ou environnement hybride) nécessitent des noms d’hôte privés pour être résolus depuis Managed Instance. Si tel est le cas, vous devez configurer un DNS personnalisé dans Azure. 
 
-Comme Managed Instance utilise le même DNS pour ses opérations internes, vous devez configurer le serveur DNS personnalisé pour qu’il puisse résoudre les noms de domaine public.
+Comme Managed Instance utilise le même DNS pour ses opérations internes, configurez le serveur DNS personnalisé pour qu’il puisse résoudre les noms de domaine public.
 
-   > [!IMPORTANT]
-   > Utilisez toujours des noms de domaine complets (FQDN) pour les serveurs de messagerie, les serveurs SQL et les autres services même s’ils se trouvent dans votre zone DNS privée. Par exemple, utilisez `smtp.contoso.com` pour le serveur de messagerie, car le simple nom `smtp` ne sera pas correctement résolu.
+> [!IMPORTANT]
+> Utilisez toujours un nom de domaine complet (FQDN) pour les serveurs de messagerie, l’instance SQL Server et les autres services, même s’ils se trouvent dans votre zone DNS privée. Par exemple, utilisez `smtp.contoso.com` comme serveur de messagerie, car `smtp` ne sera pas résolu correctement. La création d’un serveur lié ou d’une réplication qui référence des machines virtuelles SQL sur le même réseau virtuel nécessite également un nom de domaine complet et un suffixe DNS par défaut. Par exemple : `SQLVM.internal.cloudapp.net`. Pour plus d’informations, consultez [Résolution de noms utilisant votre propre serveur DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
 
-   > [!IMPORTANT]
-   > La mise à jour des serveurs DNS du réseau virtuel n’affecte pas Managed Instance immédiatement. La configuration DNS de Managed Instance est mise à jour après l’expiration du bail DHCP ou après la mise à niveau de la plateforme, selon l’événement qui se produit en premier. **Les utilisateurs sont invités à définir la configuration DNS de leur réseau virtuel avant de créer leur première instance Managed Instance.**
+> [!IMPORTANT]
+> La mise à jour des serveurs DNS du réseau virtuel n’affectera pas Managed Instance immédiatement. La configuration DNS de Managed Instance est mise à jour après l’expiration du bail DHCP ou après la mise à niveau de la plateforme, selon l’événement qui se produit en premier. **Les utilisateurs sont invités à définir la configuration DNS de leur réseau virtuel avant de créer leur première instance Managed Instance.**
 
 ## <a name="next-steps"></a>Étapes suivantes
 

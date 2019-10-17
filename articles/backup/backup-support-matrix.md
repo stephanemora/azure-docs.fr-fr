@@ -1,5 +1,5 @@
 ---
-title: Matrice de prise en charge de Sauvegarde Azure
+title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735419"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981096"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -59,7 +59,7 @@ Voici ce qui est pris en charge si vous voulez sauvegarder des machines locales�
 **Limite** | **Détails**
 --- | ---
 **Disques de données de machine virtuelle Azure** | Nombre limité à 16
-**Taille de disque de données de machine virtuelle Azure** | La taille maximale d’un disque individuel est de 4,095 Go
+**Taille de disque de données de machine virtuelle Azure** | Prend en charge la sauvegarde de machines virtuelles avec chaque taille de disque allant jusqu’à 30 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle.
 
 ### <a name="azure-vm-backup-options"></a>Options de sauvegarde d’une machine virtuelle Azure
 

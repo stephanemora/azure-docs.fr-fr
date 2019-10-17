@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a19b6bd8da82498aae45657d30883db14efd9343
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174080"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244604"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -35,7 +35,7 @@ Cet article offre une vue d’ensemble des extensions de machine virtuelle et de
 Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliquant un cas d’utilisation spécifique. Voici quelques exemples :
 
 - Appliquer des configurations DSC (Desired State Configuration) PowerShell à une machine virtuelle avec l’extension DSC pour Windows. Pour plus d’informations sur l’extension DSC Azure, consultez [cette page](dsc-overview.md) (en anglais).
-- Configurer l’analyse d’une machine virtuelle avec l’extension de machine virtuelle Microsoft Monitoring Agent. Pour plus d’informations, consultez l’article [Connecter des machines virtuelles Azure aux journaux d’acvtivité Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configurez la supervision d’une machine virtuelle avec l’extension de machine virtuelle Log Analytics Agent. Pour plus d’informations, consultez l’article [Connecter des machines virtuelles Azure aux journaux d’acvtivité Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configurer une machine virtuelle Azure à l’aide de Chef. Pour plus d’informations, consultez l’article [Automatisation du déploiement de machine virtuelle Azure avec Chef](../windows/chef-automation.md).
 - Configurer l’analyse de votre infrastructure Azure à l’aide de l’extension Datadog. Pour plus d’informations, consultez le [blog Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -65,14 +65,14 @@ Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exp
 
 #### <a name="network-access"></a>Accès réseau
 
-Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de machine virtuelle, car vous pouvez utiliser l’agent pour rediriger la communication vers le contrôleur de structure Azure pour les communications d’agent. Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
+Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de la machine virtuelle, car vous pouvez utiliser l’agent pour rediriger les communications vers le contrôleur de structure Azure pour les communications d’agent (fonctionnalité HostGAPlugin via le canal privilégié à l’adresse IP privée 168.63.129.16). Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
 
 > [!IMPORTANT]
-> Si vous avez bloqué l’accès à l’adresse *168.63.129.16* à l’aide du pare-feu invité, les extensions échouent, que vous utilisiez, ou non, une version prise en charge.
+> Si vous avez bloqué l’accès à l’adresse *168.63.129.16* à l’aide du pare-feu invité ou avec un proxy, les extensions échouent, que vous utilisiez ou non une version prise en charge. Les ports 80, 443 et 32526 sont nécessaires.
 
-Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui requièrent un accès à Stockage Azure, vous pouvez autoriser cet accès à l’aide de balises de service NSG Azure pour [Stockage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui nécessitent un accès au service Stockage Azure ou Azure Active Directory, vous pouvez autoriser l’accès à l’aide d’[étiquettes de service NSG Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) pour le Stockage ou AzureActiveDirectory.
 
-L’agent invité Windows ne prend pas en charge un serveur proxy vous permettant de rediriger les requêtes de trafic d’agent.
+L’agent invité Windows ne prend pas en charge le serveur proxy qui vous permettrait de rediriger les demandes de trafic de l’agent, ce qui signifie que l’agent invité Windows passe par votre proxy personnalisé (si vous en avez un) pour accéder aux ressources sur Internet ou sur l’hôte via l’adresse IP 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Détecter les extensions de machine virtuelle
 

@@ -1,17 +1,17 @@
 ---
-title: Créer et gérer des réplicas en lecture dans Azure Database pour MySQL
-description: Cet article décrit comment configurer et gérer des réplicas en lecture dans Azure Database pour MySQL à l’aide du portail.
+title: Créer et gérer des réplicas en lecture (portail Azure) – Azure Database pour MySQL
+description: Découvrez comment configurer et gérer des réplicas en lecture dans Azure Database pour MySQL à partir du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309504"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972871"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Guide pratique pour créer et gérer des réplicas en lecture dans Azure Database pour MySQL avec le portail Azure
 

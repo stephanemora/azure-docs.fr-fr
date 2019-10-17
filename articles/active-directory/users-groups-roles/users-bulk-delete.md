@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb01b46d61b6ba99c3ec9c537dccc350074f5e05
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d7c47887c12c8bf9be7a0c5b11dfb3f099965cb7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146427"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174373"
 ---
 # <a name="bulk-delete-users-preview-in-azure-active-directory"></a>Supprimer des utilisateurs en bloc (préversion) dans Azure Active Directory
 
@@ -26,18 +26,22 @@ En utilisant le portail Azure Active Directory (Azure AD), vous pouvez supprimer
 
 ## <a name="to-bulk-delete-users"></a>Pour supprimer des utilisateurs en bloc
 
-1. Connectez-vous à votre organisation Azure AD avec un compte Administrateur d’utilisateurs de celle-ci.
+1. [Connectez-vous à votre organisation Azure AD](https://aad.portal.azure.com) avec un compte Administrateur d’utilisateurs de celle-ci.
 1. Dans Azure AD, sélectionnez **Utilisateurs** > **Supprimer en bloc**.
-1. Dans la page **Supprimer des utilisateurs en bloc**, sélectionnez **Télécharger** pour recevoir un fichier de valeurs séparées par des virgules (CSV) valide contenant des propriétés utilisateur, puis ajoutez-y les utilisateurs à supprimer.
-
-   ![Le fichier CSV contient les noms et les ID des utilisateurs à supprimer.](./media/users-bulk-delete/delete-csv-file.png)
-
-1. Quand vous avez fini de modifier le fichier CSV, sélectionnez-le sous **Charger votre fichier CSV** afin de le valider.
+1. Dans la page **Supprimer des utilisateurs en bloc**, sélectionnez **Télécharger** pour recevoir un fichier CSV de propriétés utilisateur valide.
 
    ![Sélectionner un fichier CSV local dans lequel vous répertoriez les utilisateurs à supprimer](./media/users-bulk-delete/bulk-delete.png)
 
-1. Une fois le contenu du fichier validé, vous devez corriger les erreurs éventuelles avant d’envoyer le travail.
-1. Lorsque votre fichier réussit la validation, sélectionnez **Envoyer** pour démarrer le programme de traitement par lots Azure qui supprime les utilisateurs. Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats sur la page Résultats de l’opération en bloc. Le fichier contient la raison de chaque erreur.
+1. Ouvrez le fichier CSV et ajoutez une ligne pour chaque utilisateur à supprimer. La seule valeur obligatoire est **Nom d’utilisateur principal**. Puis enregistrez le fichier.
+
+   ![Le fichier CSV contient les noms et les ID des utilisateurs à supprimer.](./media/users-bulk-delete/delete-csv-file.png)
+
+1. Dans la page **Supprimer des utilisateurs en bloc (préversion)** , sous **Charger votre fichier csv**, accédez au fichier. Quand vous sélectionnez le fichier et cliquez sur Envoyer, la validation du fichier CSV démarre.
+1. Quand le contenu du fichier est validé, un message indique **Fichier chargé**. Si des erreurs sont présentes, vous devez les corriger avant de pouvoir envoyer le travail.
+1. Lorsque votre fichier réussit la validation, sélectionnez **Envoyer** pour démarrer l’opération en bloc Azure qui supprime les utilisateurs.
+1. Une fois l’opération de suppression terminée, vous recevez une notification indiquant que l’opération en bloc a réussi.
+
+Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats dans la page **Résultats de l’opération en bloc**. Le fichier contient la raison de chaque erreur.
 
 ## <a name="check-status"></a>Vérification du statut
 

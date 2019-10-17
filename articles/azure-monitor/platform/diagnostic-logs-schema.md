@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: fdcfcbaf99d48a345d2be4da297be1c9139da15c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 70dd4af16746ecf54310dffcb854c3c0857283ba
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308108"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033871"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -55,6 +55,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | Azure Batch |[Journalisation des diagnostics Azure Batch](../../batch/batch-diagnostics.md) |
 | Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Database pour PostgreSQL | [Journaux de diagnostic Azure Database pour PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
+| Explorateur de données Azure | [Journaux de diagnostic Azure Data Explorer](../../data-explorer/using-diagnostic-logs.md) |
 | Cognitive Services | [Journalisation des diagnostics pour Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
 | Réseau de distribution de contenu | [Journaux de diagnostic Azure pour CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Journalisation Azure Cosmos DB](../../cosmos-db/logging.md) |

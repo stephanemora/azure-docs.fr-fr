@@ -4,14 +4,14 @@ description: Découvrez comment utiliser le pilote ODBC Azure Cosmos DB pour cr�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: b859d01a39f906f518a82d468c3c9267545b9a07
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616898"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035606"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -61,16 +61,26 @@ Familiarisons-nous avec le pilote ODBC.
     - **Description** : courte description de la source de données.
     - **Hôte** : URI de votre compte Azure Cosmos DB. Vous pouvez récupérer cette information sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. 
     - **Clé d’accès** : clé primaire ou secondaire, en lecture-écriture ou en lecture seule, affichée sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. Nous vous recommandons d'utiliser la clé en lecture seule si le DSN sert au traitement des données en lecture seule et à la création de rapports.
-    ![Page des clés Azure Cosmos DB](./media/odbc-driver/odbc-driver-keys.png)
+    ![Page des clés Azure Cosmos DB](./media/odbc-driver/odbc-cosmos-account-keys.png)
     - **Chiffrer la clé d’accès pour** : sélectionnez l’option optimale en fonction des utilisateurs de cet ordinateur. 
     
 1. Cliquez sur le bouton **Test** pour vérifier que vous pouvez vous connecter à votre compte Azure Cosmos DB. 
 
-1. Cliquez sur **Options avancées** et définissez les valeurs suivantes :
+1.  Cliquez sur **Options avancées** et définissez les valeurs suivantes :
+    *  **Version de l’API REST** : Sélectionnez la [version de l’API REST](https://docs.microsoft.com/rest/api/cosmos-db/) pour vos opérations. La valeur par défaut est 2015-12-16. Si vous avez des conteneurs avec de [grandes clés de partition](large-partition-keys.md) et que vous avez besoin de l’API REST version 2018-12-31 :
+        - Tapez **2018-12-31** comme version de l’API REST
+        - Dans le menu **Démarrer**, tapez « regedit » pour rechercher et ouvrir l’application **Éditeur du Registre**.
+        - Dans l’Éditeur du Registre, accédez au chemin suivant : **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
+        - Créez une nouvelle sous-clé avec le même nom que votre DSN, p. ex. « Contoso Account ODBC DSN ».
+        - Accédez à la sous-clé « Contoso Account ODBC DSN ».
+        - Cliquez avec le bouton droit pour ajouter une nouvelle valeur **String** :
+            - Nom de la valeur : **IgnoreSessionToken**
+            - Données de la valeur : **1**
+            ![Paramètres de l’Éditeur du Registre](./media/odbc-driver/cosmos-odbc-edit-registry.png)
     - **Cohérence des requêtes** : sélectionnez le [niveau de cohérence](consistency-levels.md) de vos opérations. La valeur par défaut est Session.
     - **Nombre de tentatives** : entrez le nombre de tentatives d’une opération si la demande initiale n’aboutit pas en raison d’une limitation du débit service.
     - **Fichier de schéma** : Vous avez plusieurs possibilités.
-        - Par défaut, si vous ne modifiez pas cette entrée (vide), le pilote analyse la première page des données de toutes les collections afin de déterminer le schéma de chaque collection. Cette opération est appelée Mappage de la collection. Si aucun fichier de schéma n’est défini, le pilote doit effectuer l’analyse pour chaque session de pilote, ce qui peut allonger le délai de démarrage d’une application avec le DSN. Nous vous recommandons de toujours associer un fichier de schéma à un DSN.
+        - Par défaut, si vous ne modifiez pas cette entrée (vide), le pilote analyse la première page des données de tous les conteneurs afin de déterminer le schéma de chaque conteneur. Cette opération est appelée Mappage de conteneur. Si aucun fichier de schéma n’est défini, le pilote doit effectuer l’analyse pour chaque session de pilote, ce qui peut allonger le délai de démarrage d’une application avec le DSN. Nous vous recommandons de toujours associer un fichier de schéma à un DSN.
         - Si vous disposez déjà d’un fichier de schéma (peut-être un fichier que vous avez créé à l’aide de l’Éditeur de schéma), cliquez sur **Parcourir**, recherchez votre fichier, cliquez sur **Enregistrer**, puis sur **OK**.
         - Si vous souhaitez créer un nouveau schéma, cliquez sur **OK**, puis sur **Éditeur de schéma** dans la fenêtre principale. Accédez ensuite à l’Éditeur de schéma pour plus d’informations. Après la création du nouveau fichier de schéma, pensez à revenir à la fenêtre **Options avancées** pour l’inclure.
 
@@ -78,17 +88,17 @@ Familiarisons-nous avec le pilote ODBC.
 
     ![Nouveau DSN ODBC Azure Cosmos DB dans l’onglet DSN utilisateur](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#collection-mapping"></a> Étape 3 : Créer une définition de schéma à l’aide de la méthode de mappage de la collection
+## <a id="#container-mapping"></a>Étape 3 : Créer une définition de schéma à l’aide de la méthode de mappage de conteneur
 
-Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : **mappage de la collection** ou **délimiteurs de la table**. Une session d’échantillonnage peut utiliser les deux méthodes d’échantillonnage, mais chaque collection peut uniquement utiliser une méthode d’échantillonnage spécifique. Les étapes ci-dessous créent un schéma pour les données d’une ou plusieurs collections à l’aide de la méthode de mappage de la collection. Cette méthode d’échantillonnage récupère les données dans la page d’une collection pour déterminer la structure des données. Elle transpose une collection dans une table du côté ODBC. Cette méthode d’échantillonnage est rapide et efficace lorsque les données d’une collection sont homogènes. Si une collection contient des données hétérogènes, nous vous recommandons d’utiliser la [méthode de mappage par délimiteurs de table](#table-mapping) car elle fournit une méthode d’échantillonnage plus robuste pour déterminer les structures des données de la collection. 
+Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : le **mappage de conteneur** et les **délimiteurs de table**. Une session d’échantillonnage peut utiliser ces deux méthodes d’échantillonnage, mais chaque conteneur peut uniquement utiliser une méthode d’échantillonnage spécifique. Les étapes ci-dessous créent un schéma pour les données d’un ou plusieurs conteneurs à l’aide de la méthode de mappage de conteneur. Cette méthode d’échantillonnage récupère les données dans la page d’un conteneur pour déterminer la structure de ces données. Elle transpose un conteneur en table côté ODBC. Cette méthode d’échantillonnage est rapide et efficace lorsque les données d’un conteneur sont homogènes. Si un conteneur contient des données hétérogènes, nous vous recommandons d’utiliser la [méthode de mappage par délimiteurs de table](#table-mapping), car elle fournit une méthode d’échantillonnage plus robuste pour déterminer les structures des données du conteneur. 
 
 1. Après avoir terminé les étapes 1 à 4 de la rubrique [Vous connecter à votre base de données Azure Cosmos](#connect), cliquez sur **Éditeur de schéma** dans la fenêtre **Configuration DSN du pilote ODBC Azure Cosmos DB**.
 
     ![Bouton Éditeur de schéma dans la fenêtre de configuration du DSN du pilote ODBC Azure Cosmos DB](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. Dans la fenêtre **Éditeur de schéma**, cliquez sur **Créer**.
-    La fenêtre **Générer le schéma** affiche toutes les collections du compte Azure Cosmos DB. 
+    La fenêtre **Générer le schéma** affiche tous les conteneurs du compte Azure Cosmos DB. 
 
-1. Sélectionnez une ou plusieurs collections à échantillonner, puis cliquez sur **Échantillonner**. 
+1. Sélectionnez un ou plusieurs conteneurs à échantillonner, puis cliquez sur **Échantillonner**. 
 
 1. Dans l’onglet **Mode Création**, la base de données, le schéma et la table sont représentés. Dans la vue de la table, l’analyse affiche l’ensemble des propriétés associées aux noms de colonne (Nom SQL, Nom de la Source, etc.).
     Pour chaque colonne, vous pouvez modifier le nom de la colonne SQL, le type SQL, la longueur SQL (le cas échéant), l’échelle (le cas échéant), la précision (le cas échéant) et la valeur Nullable.
@@ -101,16 +111,16 @@ Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser�
 
 ## <a id="table-mapping"></a>Étape 4 : Créer une définition de schéma à l’aide de la méthode de mappage des délimiteurs de table
 
-Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : **mappage de la collection** ou **délimiteurs de la table**. Une session d’échantillonnage peut utiliser les deux méthodes d’échantillonnage, mais chaque collection peut uniquement utiliser une méthode d’échantillonnage spécifique. 
+Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : le **mappage de conteneur** et les **délimiteurs de table**. Une session d’échantillonnage peut utiliser ces deux méthodes d’échantillonnage, mais chaque conteneur ne peut utiliser qu’une méthode d’échantillonnage spécifique. 
 
-Les étapes suivantes créent un schéma pour les données d’une ou plusieurs collections à l’aide de la méthode des **délimiteurs de table**. Nous vous recommandons d’utiliser cette méthode d’échantillonnage lorsque vos collections contiennent des données hétérogènes. Vous pouvez utiliser cette méthode pour définir l’étendue de l’échantillonnage sur un ensemble d’attributs et ses valeurs correspondantes. Par exemple, si un document contient une propriété « Type », vous pouvez étendre l’échantillonnage aux valeurs de cette propriété. Le résultat final de l’échantillonnage serait un ensemble de tables pour chacune des valeurs du type que vous avez spécifié. Par exemple, Type = Voiture produira une table Voiture tandis que Type = Avion produira une table Avion.
+Les étapes suivantes créent un schéma pour les données d’un ou plusieurs conteneurs à l’aide de la méthode de mappage par **délimiteurs de table**. Nous vous recommandons d’utiliser cette méthode d’échantillonnage lorsque vos conteneurs contiennent des données hétérogènes. Vous pouvez utiliser cette méthode pour définir l’étendue de l’échantillonnage sur un ensemble d’attributs et ses valeurs correspondantes. Par exemple, si un document contient une propriété « Type », vous pouvez étendre l’échantillonnage aux valeurs de cette propriété. Le résultat final de l’échantillonnage serait un ensemble de tables pour chacune des valeurs du type que vous avez spécifié. Par exemple, Type = Voiture produira une table Voiture tandis que Type = Avion produira une table Avion.
 
 1. Après avoir terminé les étapes 1 à 4 de la rubrique [Vous connecter à votre base de données Azure Cosmos](#connect), cliquez sur **Éditeur de schéma** dans la fenêtre Configuration DSN du pilote ODBC Azure Cosmos DB.
 
 1. Dans la fenêtre **Éditeur de schéma**, cliquez sur **Créer**.
-    La fenêtre **Générer le schéma** affiche toutes les collections du compte Azure Cosmos DB. 
+    La fenêtre **Générer le schéma** affiche tous les conteneurs du compte Azure Cosmos DB. 
 
-1. Sélectionnez une collection dans l’onglet **Exemple de vue**, dans la colonne **Définition de mappage** de la collection, puis cliquez sur **Modifier**. Puis, dans la fenêtre **Définition de mappage**, sélectionnez la méthode **Délimiteurs de table**. Faites ensuite ce qui suit :
+1. Sélectionnez un conteneur sous l’onglet **Exemple de vue**, dans la colonne **Définition de mappage** du conteneur, puis cliquez sur **Modifier**. Puis, dans la fenêtre **Définition de mappage**, sélectionnez la méthode **Délimiteurs de table**. Faites ensuite ce qui suit :
 
     a. Dans le champ **Attributs**, tapez le nom d’une propriété de délimiteur. Il s’agit d’une propriété de votre document que vous souhaitez étendre à l’échantillonnage, par exemple Ville. Appuyez ensuite sur Entrée. 
 
@@ -120,7 +130,7 @@ Les étapes suivantes créent un schéma pour les données d’une ou plusieurs 
 
 1. Cliquez sur **OK**. 
 
-1. Après avoir mappé les définitions des collections que vous souhaitez échantillonner, dans la fenêtre **Éditeur de schéma**, cliquez sur **Échantillonner**.
+1. Après avoir mappé les définitions des conteneurs à échantillonner, dans la fenêtre **Éditeur de schéma**, cliquez sur **Échantillonner**.
      Pour chaque colonne, vous pouvez modifier le nom de la colonne SQL, le type SQL, la longueur SQL (le cas échéant), l’échelle (le cas échéant), la précision (le cas échéant) et la valeur Nullable.
     - Vous pouvez définir **Masquer la colonne** sur **true** si vous souhaitez exclure cette colonne des résultats de la requête. Les colonnes marquées Masquer la colonne = true ne sont pas retournées pour la sélection et la projection, bien qu’elles fassent toujours partie du schéma. Par exemple, vous pouvez masquer toutes les propriétés système Azure Cosmos DB requises commençant par `_`.
     - La colonne **id** est le seul champ qui ne peut pas être masqué car elle sert de clé primaire dans le schéma normalisé. 
@@ -156,7 +166,7 @@ Pour voir le nom du nouveau serveur lié, actualisez la liste Serveurs liés.
 
 ### <a name="query-linked-database"></a>Interroger une base de données liée
 
-Pour interroger la base de données liée, entrez une requête SSMS. Dans cet exemple, il s’agit d’une requête SELECT dans la table de la collection nommée `customers` :
+Pour interroger la base de données liée, entrez une requête SSMS. Dans cet exemple, la requête effectue une sélection dans la table du conteneur nommé `customers`:
 
 ```sql
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
@@ -184,11 +194,11 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 ## <a name="optional-creating-views"></a>(Facultatif) Création de vues
 Vous pouvez définir et créer des vues dans le cadre du processus d’échantillonnage. Ces vues sont équivalentes aux vues SQL. Elles sont en lecture seule et affichent les sélections et les projections de la requête SQL Azure Cosmos DB définie. 
 
-Pour créer une vue de vos données, dans la fenêtre **Éditeur de schéma**, dans la colonne **View Definitions** (Définitions de la vue), cliquez sur **Add** (Ajouter) sur la ligne de la collection à échantillonner. 
+Pour créer une vue de vos données, dans la fenêtre **Éditeur de schéma**, dans la colonne **View Definitions** (Définitions de vue), cliquez sur **Add** (Ajouter) sur la ligne du conteneur à échantillonner. 
     ![Création d’une vue des données](./media/odbc-driver/odbc-driver-create-view.png)
 
 
-Puis, dans la fenêtre **View Definitions** (Définitions de la vue), procédez comme suit :
+Puis, dans la fenêtre **View Definitions** (Définitions de vue), procédez comme suit :
 
 1. Cliquez sur **New** (Nouveau), entrez un nom pour la vue, par exemple, EmployeesfromSeattleView, puis cliquez **OK**.
 

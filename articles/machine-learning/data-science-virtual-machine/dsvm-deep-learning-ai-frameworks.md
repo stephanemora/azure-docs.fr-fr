@@ -10,12 +10,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
 ms.date: 10/1/2019
-ms.openlocfilehash: fd38bf1f7741c4d610ef43a12d90533d4ac7b703
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: db95788b0f2c041157bdc16000d0328c042e86d5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802410"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973687"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Infrastructures de Deep learning et d’intelligence artificielle pour Azure Data Science Virtual Machine
 Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) sont répertoriées ci-dessous.
@@ -83,6 +83,33 @@ Les Infrastructures de Deep learning sur Data Science Virtual Machine (DSVM) son
 | Éditions DSVM prises en charge      | Windows et Linux   |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | CNTK est installé dans Python 3.6 sous [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) et dans l’environnement Python 3.5 sous [Linux](./dsvm-languages.md#python-linux-edition). |
 | Comment l’exécuter      | Terminal : Activez l’environnement approprié, puis exécutez Python. <br/>Jupyter : Connectez-vous à [Jupyter](provision-vm.md) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), puis ouvrez le répertoire CNTK pour obtenir des exemples. |
+
+## <a name="mxnethttpsmxnetapacheorg"></a>[MXNet](https://mxnet.apache.org/)
+|    |           |
+| ------------- | ------------- |
+| Version(s) prise(s) en charge | 1.3.0 |
+| Éditions DSVM prises en charge      | Windows et Linux   |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | MXNet est installé dans `C:\dsvm\tools\mxnet` sur Windows et `/dsvm/tools/mxnet` sur Ubuntu. Les liaisons Python sont installées en Python 3.6 sur [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) et en Python 3.5 sur [Linux](./dsvm-languages.md#python-linux-edition)). Les liaisons R sont également installées sur la machine DSVM Ubuntu. |
+| Comment l’exécuter      | Terminal : Activez l’environnement conda approprié, puis exécutez `import mxnet`. <br/>Jupyter : Connectez-vous à [Jupyter](provision-vm.md#access-the-dsvm) ou à [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), puis ouvrez le répertoire `mxnet` pour obtenir des exemples. |
+
+## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) prise(s) en charge | 1.0.1 |
+| Éditions DSVM prises en charge      | Windows et Linux   |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | MXNet Model Server est installé en Python 3.6 sur [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) et en Python 3.5 sur [Linux](./dsvm-languages.md#python-linux-edition). |
+| Comment l’exécuter      | Terminal : Exécutez `sudo systemctl stop jupyterhub` pour arrêter le service JupyterHub en premier, car les deux écoutent le même port. Ensuite, activez l’environnement conda approprié et exécutez `mxnet-model-server --start --models squeezenet=https://s3.amazonaws.com/model-server/model_archive_1.0/squeezenet_v1.1.mar`. |
+
+## <a name="nvidia-system-management-interface-nvidia-smihttpsdevelopernvidiacomnvidia-system-management-interface"></a>[NVidia System Management Interface (nvidia-smi)](https://developer.nvidia.com/nvidia-system-management-interface)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) prise(s) en charge |  |
+| Éditions DSVM prises en charge      | Windows et Linux   |
+| Pour quoi faire ? | Outil NVIDIA pour interroger l’activité du GPU |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | `nvidia-smi` se trouve sur le chemin système. |
+| Comment l’exécuter      | Sur une machine virtuelle **comprenant des GPU**, ouvrez une invite de commandes (sur Windows) ou un terminal (sur Linux), puis exécutez `nvidia-smi`. |
 
 ## <a name="pytorchhttpspytorchorg"></a>[PyTorch](https://pytorch.org/)
 

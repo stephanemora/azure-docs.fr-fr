@@ -6,13 +6,13 @@ manager: evansma
 ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e711e94a4ac8098137456c2ae5bf018107687354
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 10/04/2019
+ms.openlocfilehash: bcde469ba4a376b278295d9c14c9ae12e434e3d5
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033216"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244239"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Créer une nouvelle offre Dynamics 365 for Operations
 
@@ -21,6 +21,10 @@ Cette rubrique explique comment créer une nouvelle offre Dynamics 365 for Oper
 Pour commencer à créer des offres Dynamics 365 for Operations, veillez à d’abord [Créer un compte Partner Center](./create-account.md) et ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), et sélectionnez la page **Présentation**.
 
 ![Tableau de bord de la Place de marché commerciale sur Partner Center](./media/new-offer-overview.png)
+
+>[!Note]
+> Dès lors qu’une offre est publiée, les modifications dont elle fait l’objet dans l’Espace partenaires sont uniquement mises à jour dans le système. Elles le sont dans le store après republication. Veillez à soumettre l’offre pour publication après y avoir apporté des modifications.
+
 
 ## <a name="create-a-new-offer"></a>Créer une offre
 
@@ -82,7 +86,7 @@ Choisissez parmi les options suivantes :
 
 ## <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 Pour plus d'informations, consultez [Vue d'ensemble de la gestion des prospects](./commercial-marketplace-get-customer-leads.md).
 

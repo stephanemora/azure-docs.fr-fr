@@ -5,19 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 409595febded7b242eae876ebb2cb35ae4999e5e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 747fe891bf4d6bd042e689107cd87680795eb82b
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686840"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959328"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Scénarios Azure DNS Private Zones
-Azure DNS Private Zones fournit la résolution de noms au sein d’un réseau virtuel, ainsi qu’entre des réseaux virtuels. Dans cet article, nous étudions certains des scénarios courants pouvant être mis en œuvre à l’aide de cette fonctionnalité. 
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+Azure DNS Private Zones fournit la résolution de noms au sein d’un réseau virtuel, ainsi qu’entre des réseaux virtuels. Dans cet article, nous étudions certains des scénarios courants pouvant être mis en œuvre à l’aide de cette fonctionnalité.
 
 ## <a name="scenario-name-resolution-scoped-to-a-single-virtual-network"></a>Scénario : Résolution de noms pour un seul réseau virtuel
 Dans ce scénario, vous disposez d’un réseau virtuel dans Azure qui possède un certain nombre de ressources Azure, y compris des machines virtuelles. Vous souhaitez résoudre les ressources à partir du réseau virtuel via un nom de domaine spécifique (zone DNS), et vous avez besoin que la résolution de noms soit privée et non accessible depuis Internet. En outre, pour les machines virtuelles dans le réseau virtuel, vous avez besoin d’Azure pour les enregistrer automatiquement dans la zone DNS. 

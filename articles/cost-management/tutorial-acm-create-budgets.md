@@ -1,36 +1,36 @@
 ---
-title: Didacticiel - Créer et gérer des budgets Azure | Microsoft Docs
-description: Ce didacticiel vous aide à planifier et à prendre en compte les coûts de services Azure que vous consommez.
+title: Tutoriel - Créer et gérer des budgets Azure | Microsoft Docs
+description: Ce tutoriel vous aide à planifier et à prendre en compte les coûts de services Azure que vous consommez.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 0cae5166fbbba650b270829b9c8e3711b12a574e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 8d8f796fa7db9cab5bcac88a293dd1b98707a571
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073950"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025772"
 ---
-# <a name="tutorial-create-and-manage-azure-budgets"></a>Didacticiel : Créer et gérer des budgets Azure
+# <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
 Les budgets dans Cost Management vous aident à planifier et à suivre la comptabilité de l’organisation. Avec les budgets, vous pouvez prendre en compte les services Azure que vous consommez ou auxquels vous vous abonnez pendant une période spécifique. Ils vous permettent d’informer les autres utilisateurs de leurs dépenses pour gérer les coûts de manière proactive, ainsi que pour superviser la progression des dépenses. En cas de dépassement des seuils budgétaires que vous avez créés, seules des notifications sont déclenchées. Aucune de vos ressources n’est affectée et votre consommation n’est pas arrêtée. Vous pouvez utiliser des budgets pour comparer et suivre les dépenses lors de l’analyse des coûts.
 
-Les données de coûts et d’utilisation sont généralement disponibles dans un délai de 8 à 12 heures, et les budgets sont évalués par rapport à ces coûts toutes les quatre heures. Les notifications par e-mail sont normalement reçues dans un délai de 12 à 16 heures.
+Les données de coûts et d’utilisation sont généralement disponibles dans un délai de 12 à 16 heures, et les budgets sont évalués par rapport à ces coûts toutes les quatre heures. Les notifications par e-mail sont normalement reçues dans un délai de 12 à 16 heures.
 
 Les budgets sont automatiquement réinitialisés à la fin d’une période (mensuelle, trimestrielle ou annuelle) pour le même montant lorsque vous sélectionnez une date d’expiration ultérieure. Étant donné qu’ils sont réinitialisés avec le même montant de budget, vous devez créer des budgets distincts quand les montants budgétisés diffèrent pour des périodes ultérieures.
 
-Les exemples de ce didacticiel expliquent comment créer et modifier un budget pour un abonnement Azure Contrat Entreprise (EA).
+Les exemples de ce tutoriel expliquent comment créer et modifier un budget pour un abonnement Azure Contrat Entreprise (EA).
 
 Regardez la vidéo de [création d’un budget pour surveiller vos dépenses avec Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) pour voir comment vous pouvez créer des budgets dans Azure pour surveiller les dépenses.
 
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créez un budget dans le portail Azure
@@ -78,7 +78,7 @@ Selon les champs choisis dans le budget jusqu’à présent, un graphique s’af
 
 ![Exemple de création de budget avec des données de coût mensuel ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-Après avoir configuré le montant du budget, cliquez sur **Suivant** pour configurer des alertes budgétaires. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md). Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints.
+Après avoir configuré le montant du budget, cliquez sur **Suivant** pour configurer des alertes budgétaires. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Quand un seuil budgétaire est atteint, des notifications par e-mail sont normalement reçues en moins de 20 heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md). Dans l’exemple ci-dessous, une alerte par e-mail est générée quand 90 % du budget sont atteints.
 
 ![Exemple de conditions d’alerte](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -114,13 +114,13 @@ L’exemple suivant montre des seuils budgétaires définis sur 50 %, 75 % et 10
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créez un budget dans le portail Azure
 > * Modifier un budget
 
-Passez au didacticiel suivant pour créer une exportation récurrente de vos données de gestion des coûts.
+Passez au tutoriel suivant pour créer une exportation récurrente de vos données de gestion des coûts.
 
 > [!div class="nextstepaction"]
 > [Créer et gérer des données exportées](tutorial-export-acm-data.md)

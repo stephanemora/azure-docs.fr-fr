@@ -10,21 +10,21 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 02/23/2019
-ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 10/01/2019
+ms.openlocfilehash: 7b5fd9800fdd2ee3b46087308f81f506e3e09e03
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995429"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034955"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Niveaux de service Azure SQL Database
 
 Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server qui est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 pour cent même en cas de panne d’infrastructure. Trois niveaux de service sont utilisés dans Azure SQL Database, chacun doté d’un modèle architectural distinct. Ces niveaux de service sont les suivants :
 
-- [Usage général](sql-database-service-tier-general-purpose.md), qui conçu pour la plupart des charges de travail génériques.
-- [Critique pour l’entreprise](sql-database-service-tier-business-critical.md), qui est conçu pour les charges de travail à faible latence avec un seul réplica lisible.
-- [Hyperscale](sql-database-service-tier-hyperscale.md), qui est conçu pour les bases de données très volumineuses (jusqu’à 100 To) avec plusieurs réplicas lisibles.
+- [Usage général](sql-database-service-tier-general-purpose.md), conçu pour les charges de travail axées sur le budget.
+- [Hyperscale](sql-database-service-tier-hyperscale.md), conçu pour la plupart des charges de travail métier, offrant un stockage hautement scalable, un scale-out en lecture et des fonctionnalités de restauration rapide de base de données.
+- [Critique pour l’entreprise](sql-database-service-tier-business-critical.md), conçu pour les charges de travail à faible latence avec une haute résilience aux défaillances et des basculements rapides.
 
 Cet article présente les différences entre les niveaux de service, les considérations relatives au stockage et à la sauvegarde pour les niveaux de service Usage général et Critique pour l’entreprise dans le modèle d’achat vCore.
 
@@ -34,7 +34,7 @@ Le tableau suivant décrit les principales différences entre les niveaux de ser
 
 | | Type de ressource | Usage général |  Hyperscale | Critique pour l’entreprise |
 |:---:|:---:|:---:|:---:|:---:|
-| **Idéal pour** | |  La plupart des charges de travail d’entreprise. Offre des options de calcul et de stockage équilibrées et économiques. | Applications de données avec des besoins en capacité de données volumineuses, une capacité de mise à l’échelle automatique du stockage jusqu’à 100 To et une capacité de mise à l’échelle des ressources de calcul de façon fluide. | Applications OLTP avec des débits de transactions élevés et la latence des E/S la plus faible. Offre la meilleure résilience aux défaillances grâce à l’utilisation de plusieurs réplicas isolés.|
+| **Idéal pour** | |  Offre des options de calcul et de stockage équilibrées et économiques. | La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale du calcul, restauration rapide de la base de données. | Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|
 |  **Disponible dans le type de ressource :** ||Base de données unique / pool élastique / instance managée | Base de données unique | Base de données unique / pool élastique / instance managée |
 | **Taille de calcul**|Base de données unique / pool élastique | 1 à 80 cœurs virtuels | 1 à 80 vCores | 1 à 80 cœurs virtuels |
 | | Instance gérée | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
@@ -52,7 +52,7 @@ Le tableau suivant décrit les principales différences entre les niveaux de ser
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
 |**OLTP en mémoire** | | N/A | N/A | Disponible |
 |**Réplicas en lecture seule**| | 0  | 0 - 4 | 1 (intégré et inclus dans le prix) |
-|**Tarification/facturation** | Base de données unique | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. | [vCore pour chaque réplica et le stockage utilisé](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées.<br/>Le stockage de sauvegarde n’est pas encore facturé. | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. |
+|**Tarification/facturation** | Base de données unique | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. | [vCore pour chaque réplica et le stockage utilisé](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>IOPS non encore facturées. | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. |
 || Instance gérée | [Le vCore et le stockage réservé](https://azure.microsoft.com/pricing/details/sql-database/managed/) sont facturés. <br/>Les IOPS ne sont pas facturées.<br/>Le stockage de sauvegarde n’est pas encore facturé. | N/A | [Le vCore et le stockage réservé](https://azure.microsoft.com/pricing/details/sql-database/managed/) sont facturés. <br/>Les IOPS ne sont pas facturées.<br/>Le stockage de sauvegarde n’est pas encore facturé. | 
 |**Modèles de remise**| | [Instances réservées](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instances réservées](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
@@ -63,7 +63,7 @@ Pour plus d’informations, consultez les détails des différences entre les ni
 
 ## <a name="data-and-log-storage"></a>Stockage des données et des journaux
 
-Les facteurs suivants affectent la quantité de stockage utilisé pour les données et les fichiers journaux :
+Les facteurs suivants affectent la quantité de stockage utilisée pour les fichiers de données et les fichiers journaux, et s’appliquent aux niveaux Usage général et Critique pour l’entreprise. Pour plus d’informations sur le stockage des données et des journaux dans Hyperscale, consultez [Niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).
 
 - Le stockage alloué est utilisé par les fichiers de données (MDF) et les fichiers journaux (LDF).
 - Chaque taille de calcul d’une base de données unique accepte une taille de base de données maximale, qui correspond, par défaut, à 32 Go.

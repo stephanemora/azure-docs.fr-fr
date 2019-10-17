@@ -6,21 +6,18 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a01cee2ba803a048e426507b57b96d0833743636
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181240"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981417"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
 Les attributions de stratégie sont utilisées par Azure Policy pour définir quelles stratégies ou initiatives sont attribuées aux ressources. L’attribution de stratégie peut déterminer les valeurs des paramètres de ce groupe de ressources au moment de l’attribution, ce qui permet de réutiliser les définitions de stratégie pour des mêmes propriétés de ressource qui auraient des exigences de conformité différentes.
 
-Le schéma utilisé par Azure Policy se trouve ici : [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policyassignments](/azure/templates/microsoft.authorization/2019-01-01/policyassignments)
-
-Vous devez utiliser du code JSON pour créer une attribution de stratégie. La définition de stratégie contient des éléments pour :
+Vous devez utiliser du code JSON pour créer une attribution de stratégie. L’attribution de stratégie contient des éléments pour :
 
 - le nom d’affichage
 - description

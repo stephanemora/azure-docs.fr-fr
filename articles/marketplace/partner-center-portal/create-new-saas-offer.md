@@ -6,19 +6,22 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 10/04/2019
+ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013085"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244160"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
 Pour commencer à créer des offres Software as a service (SaaS), veillez à d’abord [Créer un compte Partner Center](./create-account.md) et ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), et sélectionnez l’onglet **Présentation**.
 
 ![Tableau de bord de la Place de marché commerciale sur Partner Center](./media/new-offer-overview.png)
+
+>[!Note]
+> Dès lors qu’une offre est publiée, les modifications dont elle fait l’objet dans l’Espace partenaires sont uniquement mises à jour dans le système. Elles le sont dans le store après republication. Veillez à soumettre l’offre pour publication après y avoir apporté des modifications.
 
 Sélectionnez le + **Nouvelle offre...** , puis sélectionnez l’élément de menu **Software as a service**. 
 
@@ -157,18 +160,7 @@ En activant une version d’évaluation, vous devrez configurer un environnement
 
 ## <a name="connect-lead-management"></a>Connecter la gestion des prospects
 
-Connectez-vous avec les clients directement en répertoriant votre offre dans les Places de marché et en introduisant votre système CRM afin de recevoir les informations de contact des clients immédiatement après qu’un client ait exprimé son intérêt ou déployé votre produit.
-
-- **Choisir une destination de prospect** (menu déroulant) : Renseignez les informations de connexion au système CRM sur lequel vous souhaitez que nous envoyions des prospects de client. 
-
-Partner Center prend en charge les systèmes CRM suivant pour la gestion des prospects. Sélectionnez le lien pour obtenir des instructions de configuration.
-
-- Blob Azure : renseignez l’adresse e-mail, le nom du conteneur et la chaîne de connexion du compte de stockage. 
-- [Table Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) : renseignez l’adresse e-mail et la chaîne de connexion du compte de stockage. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) : renseignez l’adresse e-mail, l’URL et le mode d’authentification (Office 365 ou Azure Active Directory).
-- [Point de terminaison HTTPS](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) : renseignez l’adresse e-mail et l’URL du point de terminaison HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) : renseignez l’adresse e-mail, l’ID du formulaire, l’ID du compte Munchkin et l’ID du serveur.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) : renseignez l’adresse e-mail et l’ID de l’organisation. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Ressources de gestion des prospects supplémentaires
 - [Questions fréquentes sur la gestion des prospects](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -220,7 +212,7 @@ L’onglet Annonce de l’offre affiche les langues (et les marchés) disponible
 
 Renseignez les informations à afficher dans la place de marché, dont les descriptions des composants marketing et de votre offre.
 
-- **Name** [obligatoire] : Le nom défini ici s’affiche comme titre de l’annonce de votre offre sur le(s) place(s) de marché choisie(s). Le nom est prérempli selon votre précédente entrée **Nouvelle offre**.  Ce nom peut être une marque.  Il ne doit pas contenir d’espace blanc, d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères.
+- **Name** [obligatoire] : Le nom défini ici s’affiche comme titre de l’annonce de votre offre sur le(s) place(s) de marché choisie(s). Le nom est prérempli selon votre précédente entrée **Nouvelle offre**.  Ce nom peut être une marque.  Il ne doit pas contenir d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères.
 - **Summary** (obligatoire) : Renseignez une courte description de votre offre à utiliser dans les résultats de la recherche d’annonces dans une place de marché. Jusqu’à 100 caractères peuvent être entrés dans ce champ.
 - **Description** (obligatoire) : Renseignez une description de votre offre à afficher dans la présentation des annonces sur une place de marché. Vous pouvez inclure une proposition de valeur, des avantages principaux, des associations de catégorie ou de secteur, des opportunités d’achats dans une application, des publications requises et un lien pour en savoir plus.
 Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. Pour obtenir plus d’astuces, consultez l’article [Rédiger une bonne description d’application](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
@@ -409,6 +401,9 @@ Les offres SaaS via la place de marché commercial vous permettent de fournir un
 La possibilité de configurer un essai gratuit est disponible pour chaque plan de votre offre. Accédez simplement à la tarification et à la disponibilité de chaque offre et cochez la case pour autoriser un essai d’un mois.
 
 ![Case à cocher d’essai gratuit d’un mois](./media/free-trial-enable.png)
+
+>[!Note]
+>Une fois que votre offre négociable a été publiée avec un essai gratuit, elle ne peut plus être désactivée pour ce plan. Vérifiez que ce paramètre est correct pour la première publication afin d’éviter d’avoir à recréer le plan.
 
 Pour obtenir des informations sur les abonnements clients qui participent actuellement à un essai gratuit `isFreeTrial`, utilisez la nouvelle propriété API, qui sera marquée comme true ou false. Pour plus d’informations, consultez [SaaS Obtenir l’API d’abonnement](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 

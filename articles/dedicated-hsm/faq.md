@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/8/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b79ed7ea3113f097f767ad7ff8bdc47b4e4916eb
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 338977c236ebb8f1b800eb6c28747a010e708300
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883568"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244203"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -58,7 +58,7 @@ Pour le moment, le service HSM dédié Azure fournit uniquement des HSM avec une
 
 Microsoft propose uniquement le HSM de Gemalto SafeNet Luna Network par le biais du service HSM dédié, et ne peut pas héberger les appareils fournis par les clients.
 
-### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>Q : Le service HSM dédié Azure prend-il en charge les fonctionnalités de paiement (code PIN/ETF) ?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pineft-features"></a>Q : Le service Azure Dedicated HSM prend-il en charge les fonctionnalités de paiement (code PIN/EFT) ?
 
 Le service HSM dédié Azure utilise des appareils SafeNet Luna Network HSM 7 (modèle A790). Ces appareils ne prennent pas en charge les fonctionnalités de paiement propres à HSM (par exemple, code PIN ou EFT) ni les certifications. Si vous voulez que le service HSM dédié Azure prenne en charge les HSM de paiement à l’avenir, indiquez-le en commentaire à votre chargé de compte Microsoft.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e30f8264870272fc12dcb7e15b37e5fd30688bcb
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8d36b513b6835088b5120072906667cd30af505d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70126521"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025730"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>FAQ Azure Active Directory Identity Protection
 
@@ -41,6 +41,6 @@ Cet article répond aux questions fréquemment posées sur Azure Active Director
 
 ## <a name="how-can-i-sort-users-in-users-flagged-for-risk"></a>Comment faire pour trier les utilisateurs répertoriés dans « Utilisateurs avec indicateur de risque » ?
 
-**R :** Téléchargez le rapport des utilisateurs avec indicateur de risque en cliquant sur **Télécharger** en haut de la page **Utilisateurs avec indicateur de risque**. Vous pouvez ensuite trier les données téléchargées en fonction des champs disponibles, notamment Dernière mise à jour (UTC).
+**R :** Téléchargez le rapport des utilisateurs avec indicateur de risque en cliquant sur **Télécharger** en haut de la page **Utilisateurs avec indicateur de risque**. Vous pouvez ensuite trier les données téléchargées en fonction des champs disponibles, notamment Dernière mise à jour (UTC).
 
 ---

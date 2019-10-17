@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/01/2019
-ms.openlocfilehash: 50593741e185a146c5a376c34da959063198e7d0
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/03/2019
+ms.openlocfilehash: 3df95f88c057fa564078dbf05d5dfa4b26150f6a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71817356"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959654"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Déboguer et résoudre les problèmes de pipelines de machine learning
 
@@ -27,7 +27,7 @@ Les sections suivantes offrent une vue d’ensemble des écueils habituels de la
 
 Parmi les échecs les plus communément observés dans un pipeline figurent l’exécution incongrue d’un script attaché (script de suppression de données, script de scoring, etc.) ou la présence d’erreurs d’exécution dans le contexte de calcul distant qu’il est difficile de déboguer dans votre espace de travail du portail Azure. 
 
-Les pipelines à proprement parler ne peuvent pas être exécutés localement, mais effectuer des tests unitaires sur vos scripts sous-jacents est un moyen simple de vérifier qu’ils fonctionnent comme prévu de manière isolée, sans avoir à attendre la fin de l’exécution du pipeline entier. Cela demande un peu de travail de développement :
+Les pipelines eux-mêmes ne peuvent pas être exécutés localement, mais l’exécution de scripts en isolation sur votre ordinateur local vous permet de déboguer plus rapidement dans la mesure où vous n’avez pas besoin d’attendre le processus de génération de calcul et d’environnement. Cela demande un peu de travail de développement :
 
 * Si vos données se trouvent dans un magasin de données cloud, vous devez les télécharger et les rendre accessibles à votre script. Utiliser un petit échantillon de données est un bon moyen de réduire la durée d’exécution et d’être rapidement renseigné sur le comportement du script.
 * Si vous tentez de simuler une étape de pipeline intermédiaire, vous devrez peut-être créer manuellement les types d’objet que le script attend de l’étape précédente.
@@ -38,6 +38,9 @@ Une fois que vous avez configuré un script pour qu’il s’exécute dans un en
 * Attacher une configuration de débogage personnalisée
 * Suspendre l’exécution et inspecter l’état des objets
 * Intercepter les erreurs de type ou les erreurs logiques qui n’apparaîtront pas avant l’exécution
+
+> [!TIP] 
+> Une fois que vous pouvez vérifier que votre script s’exécute comme prévu, nous vous recommandons d’exécuter le script dans un pipeline à une seule étape avant de tenter de l’exécuter dans un pipeline à plusieurs étapes.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Déboguer les scripts à partir du contexte distant
 

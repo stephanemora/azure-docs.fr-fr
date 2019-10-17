@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: fc30a2efb21d5b7f3168d9229ec5baf9a7f05eb1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 5b396ef6b00d53a313ed4fb426685c12e2c1549d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706423"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981845"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Déboguer localement des fonctions PowerShell Azure
 
@@ -134,6 +134,9 @@ L’opération Démarrer le débogage effectue les tâches suivantes :
 * Exécute `func extensions install` dans le terminal pour installer les extensions Azure Functions requises par votre application de fonction.
 * Exécute `func host start` dans le terminal pour démarrer l’application de fonction dans l’hôte Functions.
 * Attache le débogueur PowerShell à l’instance d’exécution de PowerShell dans le runtime Functions.
+
+>[!NOTE]
+> Vous devez vous assurer que PSWorkerInProcConcurrencyUpperBound a la valeur 1 pour garantir une expérience de débogage correcte dans Visual Studio Code. Il s’agit de la valeur par défaut.
 
 Lorsque votre application de fonction est en cours d’exécution, vous avez besoin d’une console PowerShell distincte pour appeler la fonction déclenchée via HTTP.
 

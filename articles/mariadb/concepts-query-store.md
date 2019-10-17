@@ -1,21 +1,21 @@
 ---
 title: Magasin de données des requêtes dans Azure Database for MariaDB
-description: Cet article décrit la fonctionnalité Magasin de données des requêtes dans Azure Database for MariaDB.
+description: La fonctionnalité Magasin des requêtes dans Azure Database for MariaDB vous aide à suivre les performances dans le temps.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 5d4d01f9f85c78d0e864ec9d11c1d8cd43542e57
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950637"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166232"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Surveiller les performances de Azure Database for MariaDB avec Magasin de données des requêtes
 
-**S’applique à :**  Azure Database for MariaDB 10.2
+**S’applique à :** Azure Database for MariaDB 10.2
 
 > [!IMPORTANT]
 > Magasin de données des requêtes est disponible en préversion.
@@ -37,14 +37,14 @@ Le Magasin des requêtes étant une fonctionnalité avec option d’adhésion, e
 ### <a name="enable-query-store-using-the-azure-portal"></a>Activer le Magasin des requêtes à l’aide du portail Azure
 
 1. Connectez-vous au portail Azure, puis sélectionnez votre serveur Azure Database for MariaDB.
-1. Sélectionnez  **Paramètres du serveur** dans la section  **Paramètres**  du menu.
-1. Recherchez le paramètre  query_store_capture_mode .
-1. Définissez la valeur sur  ALL et cliquez sur  **Enregistrer**.
+1. Sélectionnez **Paramètres du serveur** dans la section **Paramètres** du menu.
+1. Recherchez le paramètre query_store_capture_mode.
+1. Affectez ALL à la valeur et cliquez sur **Enregistrer**.
 
 Pour activer les statistiques d’attente dans votre magasin des requêtes, procédez comme suit :
 
-1. Recherchez le paramètre  query_store_wait_sampling_capture_mode.
-1. Définissez la valeur sur  ALL  et cliquez sur  **Enregistrer**.
+1. Recherchez le paramètre query_store_wait_sampling_capture.
+1. Affectez ALL à la valeur et cliquez sur **Enregistrer**.
 
 Autoriser jusqu’à 20 minutes de conservation pour le premier lot de données dans la base de données mysql.
 
@@ -52,8 +52,8 @@ Autoriser jusqu’à 20 minutes de conservation pour le premier lot de données 
 
 Le Magasin des requêtes comprend deux magasins :
 
-- Un  magasin des statistiques d’exécution  pour conserver les informations sur les statistiques d’exécution des requêtes.
-- Un  magasin des statistiques d’attente  pour conserver les informations sur les statistiques d’attente.
+- Le magasin des statistiques d’exécution pour conserver les informations sur les statistiques d’exécution des requêtes.
+- Le magasin des statistiques d’attente pour conserver les informations sur les statistiques d’attente.
 
 Pour réduire l’utilisation de l’espace, les statistiques d’exécution du runtime dans le magasin des statistiques d’exécution sont agrégées pendant une fenêtre de temps configurable fixe. Les informations contenues dans ces magasins sont visibles en interrogeant les vues des magasins de requêtes.
 
@@ -78,8 +78,8 @@ Voici quelques exemples illustrant la façon d’obtenir plus d’insights dans 
 | **Observation** | **Action** |
 |---|---|
 |Attentes de verrous élevés | Vérifiez les textes de requêtes pour les requêtes affectées et identifiez les entités cibles. Recherchez dans le Magasin des requêtes d’autres requêtes modifiant la même entité, qui est fréquemment exécutée et/ou dont la durée d’exécution est longue. Après avoir identifié ces requêtes, envisagez de changer la logique d’application pour améliorer l’accès concurrentiel, ou utilisez un niveau d’isolation moins restrictif. |
-|Attentes d’E/S de mémoire tampon élevées | Recherchez les requêtes comportant un grand nombre de lectures physiques dans le Magasin des requêtes. Si elles correspondent aux requêtes ayant des attentes d’E/S élevées, envisagez d’introduire un index sur l’entité sous-jacente, afin de faire des recherches plutôt que des analyses. Cela réduit la surcharge d’E/S des requêtes. Consultez les  **Recommandations en matière de performances**  pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index adaptées à ce serveur qui optimiseraient les requêtes. |
-|Attentes de mémoire élevées | Recherchez les principales requêtes consommatrices de mémoire dans le Magasin des requêtes. Ces requêtes retardent probablement davantage la progression des requêtes affectées. Consultez les  **Recommandations en matière de performances**  pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index qui optimiseraient ces requêtes.|
+|Attentes d’E/S de mémoire tampon élevées | Recherchez les requêtes comportant un grand nombre de lectures physiques dans le Magasin des requêtes. Si elles correspondent aux requêtes ayant des attentes d’E/S élevées, envisagez d’introduire un index sur l’entité sous-jacente, afin de faire des recherches plutôt que des analyses. Cela réduit la surcharge d’E/S des requêtes. Consultez les **Recommandations en matière de performances** pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index adaptées à ce serveur qui optimiseraient les requêtes. |
+|Attentes de mémoire élevées | Recherchez les principales requêtes consommatrices de mémoire dans le Magasin des requêtes. Ces requêtes retardent probablement davantage la progression des requêtes affectées. Consultez les **Recommandations en matière de performances** pour votre serveur dans le portail afin de voir s’il existe des recommandations relatives aux index qui optimiseraient ces requêtes.|
 
 ## <a name="configuration-options"></a>Options de configuration
 
@@ -104,11 +104,11 @@ Les options suivantes s’appliquent spécifiquement aux statistiques d’attent
 > [!NOTE]
 > Actuellement **query_store_capture_mode** remplace cette configuration, ce qui signifie que **query_store_capture_mode** et **query_store_wait_sampling_capture_mode** doivent être activés pour TOUS afin que les statistiques d’attente fonctionnent. Si **query_store_capture_mode** est désactivé, les statistiques d’attente sont également désactivées dans la mesure où les statistiques d’attente utilisent le performance_schema activé et le query_text capturé par le magasin de données des requêtes.
 
-Utilisez le  [portail Azure](howto-server-parameters.md) pour obtenir ou définir une valeur différente pour un paramètre.
+Utilisez le [portail Azure](howto-server-parameters.md) pour obtenir ou définir une valeur différente pour un paramètre.
 
 ## <a name="views-and-functions"></a>Vues et fonctions
 
-Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues suivantes. Toute personne du [select privilege public role](howto-create-users.md#create-additional-admin-users) peut utiliser ces vues pour afficher les données du magasin de données des requêtes. Ces vues sont disponibles uniquement dans la base de données **mysql** .
+Affichez et gérez le Magasin des requêtes à l’aide des fonctions et vues suivantes. Toute personne du [select privilege public role](howto-create-users.md#create-additional-admin-users) peut utiliser ces vues pour afficher les données du magasin de données des requêtes. Ces vues sont disponibles uniquement dans la base de données **mysql**.
 
 Les requêtes sont normalisées en examinant leur structure après la suppression des littéraux et des constantes. Si deux requêtes sont identiques à l’exception des valeurs littérales, elle ont le même hachage.
 

@@ -14,19 +14,19 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: d5aa2e326739a97ff3d518ec383f4cf14311ca74
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 410571320e5ffae9cf94c5035079e5b202190863
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446332"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027370"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Utilisation de la bibliothèque cliente JavaScript pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent surveiller l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics** et interagir avec des utilisateurs à l’aide du service **Push**. Les développeurs peuvent également utiliser **Auth** pour authentifier leurs utilisateurs, ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-html-how-to-use-client-library) dès aujourd’hui.
->
+> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
+> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
 
 ## <a name="overview"></a>Vue d'ensemble
 Ce guide indique le déroulement de scénarios courants dans le cadre de l’utilisation du dernier [Kit de développement logiciel (SDK) JavaScript pour Azure Mobile Apps]. Si vous ne connaissez pas Azure Mobile Apps, consultez d’abord la section [Démarrage rapide d’Azure Mobile Apps] pour créer un backend et créer une table. Dans ce guide, nous nous concentrons sur l’utilisation du backend mobile dans les applications web HTML/JavaScript.
@@ -94,7 +94,7 @@ L’exécution locale peut entraîner des problèmes car, par défaut, l’authe
     Remplacez les URL dans le tableau par les URL de votre service ; dans cet exemple, `http://localhost:3000` pour l’exemple de service Node.js local. Vous pouvez également utiliser `http://localhost:4400` pour le service Ripple ou d’autres URL, selon la configuration de votre application.
 8. En haut de la page, cliquez sur **Lecture/Écriture**, puis sur **PUT** pour enregistrer vos mises à jour.
 
-Vous devez aussi ajouter les mêmes URL de bouclage aux paramètres de la liste blanche CORS :
+Vous devez aussi ajouter les mêmes URL de bouclage aux paramètres de la liste verte CORS :
 
 1. Revenez au [portail Azure].
 2. Accédez à votre backend d’application mobile.

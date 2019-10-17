@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/29/2019
-ms.openlocfilehash: cb7d55db978cb8eb7944ffe3f3f51d025d5fb891
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: ae7baf09df42a5824e5f59e7ebb372f4d9f6350c
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164302"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032871"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 
@@ -291,27 +291,32 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est en préversion
 |Génération de calcul|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|8|16|24|32|40|80|
 |Mémoire (Go)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
+|Taille [RBPEX](sql-database-service-tier-hyperscale.md#compute)|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|3X mémoire|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (To)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Taille maximale des données TempDB (Go)|64|128|256|384|384|384|384|384|
-|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Nombre maximal d’IOPS de données (64 Ko)| [Remarque 1](#note-1) |[Remarque 1](#note-1)|[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) |[Remarque 1](#note-1) | [Remarque 1](#note-1) |
-|Latence d’E/S (approximative)|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|
+|Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) | [Remarque 1](#notes) |
+|Nombre maximal d’IOPS de données (64 Ko)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
+|Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|4000|8000|
 |Nombre maximal de sessions simultanées|30000|30000|30000|30000|30000|30000|30000|30000|
 |Réplicas secondaires|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage de sauvegarde inclus |7|7|7|7|7|7|7|7|
+|Conservation du stockage de sauvegarde|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|7 jours|
 |||
 
-### <a name="note-1"></a>Remarque 1
+#### <a name="notes"></a>Notes
 
-L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.
+**Remarque 1** : Hyperscale est une architecture à plusieurs niveaux avec des composants de calcul et de stockage distincts : [Architecture de niveau de service Hyperscale](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-### <a name="next-steps"></a>Étapes suivantes
+**Remarque 2** : L’architecture Hyperscale à plusieurs niveaux offre une mise en cache à plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.
+
+**Remarque 3** : La latence est de 1-2 ms pour les données du cache SSD RBPEX sur les réplicas de calcul, qui met en cache les pages de données les plus utilisées. Elle est plus élevée pour les données récupérées à partir des serveurs de pages.
+
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour connaître les limites de ressources DTU des bases de données uniques, consultez l’article sur les [limites de ressources pour les bases de données uniques suivant le modèle d’achat DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Pour connaître les limites de ressources vCore des pools élastiques, consultez l'article consacré aux [limites de ressources pour les pools élastiques suivant le modèle d'achat vCore](sql-database-vcore-resource-limits-elastic-pools.md)

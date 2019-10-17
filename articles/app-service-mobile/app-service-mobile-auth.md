@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 1d40f1992a5c68872de6e0fa2fc04a1a25abe674
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3c7329638bd8a5d9e466864d780b7784304fa874
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098591"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027491"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Authentification et autorisation dans Azure App Service pour les applications mobiles
+
+> [!NOTE]
+> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
+> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
 
 Cet article décrit comment l’authentification et autorisation fonctionne lorsque vous développez des applications mobiles natives avec un serveur principal App Service. App Service fournit l’authentification intégrée et l’autorisation, pour que vos applications mobiles puissent se connecter aux utilisateurs sans modifier le code dans App Service. Elle propose un moyen simple de protéger votre application et fonctionne avec des données par utilisateur. 
 

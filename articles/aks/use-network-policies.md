@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 1339fe66a4925104d459c0491caccdd7db5998a7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114460"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169752"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
@@ -50,17 +50,12 @@ Azure vous permet d’implémenter une stratégie réseau de deux manières. Vou
 
 Ces deux implémentations appliquent les stratégies spécifiées à l’aide du logiciel Linux *IPTables*. Les stratégies sont converties en ensembles de paires d’adresses IP autorisées et interdites. Ces paires sont ensuite programmées sous la forme de règles de filtre IPTable.
 
-Une stratégie réseau ne fonctionne qu’avec l’option Azure CNI (avancée). L’implémentation de cette dernière diffère pour les deux options :
-
-* *Stratégies réseau Azure* : Azure CNI configure un pont dans l’hôte de machine virtuelle pour la mise en réseau intra-nœud. Les règles de filtrage s’appliquent lorsque les paquets transitent par le pont.
-* *Stratégies réseau Calico* : Azure CNI configure des itinéraires de noyau locaux pour le trafic intra-nœud. Les stratégies s’appliquent sur l’interface réseau du pod.
-
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Différences entre les stratégies Azure et Calico et leurs fonctionnalités
 
 | Fonctionnalité                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plateformes prises en charge                      | Linux                      | Linux                       |
-| Options de mise en réseau prises en charge             | Azure CNI                  | Azure CNI                   |
+| Options de mise en réseau prises en charge             | Azure CNI                  | Azure CNI et kubenet       |
 | Conformité à la spécification Kubernetes | Prise en charge de tous les types de stratégies |  Prise en charge de tous les types de stratégies |
 | Fonctionnalités supplémentaires                      | Aucun                       | Modèle de stratégie étendu composé d’une stratégie réseau globale, d’un ensemble réseau global et d’un point de terminaison d’hôte. Pour plus d’informations sur l’utilisation de la CLI `calicoctl` pour gérer ces fonctionnalités étendues, consultez les [informations de référence utilisateur concernant calicoctl][calicoctl]. |
 | Support                                  | Pris en charge par l’équipe d’ingénierie et de support Azure | Support de la communauté Calico Pour plus d’informations sur les offres de support payantes supplémentaires, consultez l’article présentant les [options de support de Project Calico][calico-support]. |
@@ -76,7 +71,7 @@ Pour voir les stratégies réseau en action, nous allons créer, puis développe
 
 Commençons par créer un cluster AKS qui prend en charge les stratégies réseau. La fonctionnalité de stratégie réseau n’est activable qu’une fois le cluster créé. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant.
 
-Pour utiliser une stratégie réseau avec un cluster AKS, vous devez utiliser le [plug-in Azure CNI][azure-cni] et définir vos propre réseau et sous-réseaux virtuels. Pour de plus amples informations sur la façon de planifier les plages de sous-réseau nécessaires, consultez [Configurer le réseau avancé][use-advanced-networking].
+Pour utiliser une stratégie réseau Azure, vous devez utiliser le [plug-in Azure CNI][azure-cni] et définir vos propre réseau et sous-réseaux virtuels. Pour de plus amples informations sur la façon de planifier les plages de sous-réseau nécessaires, consultez [Configurer le réseau avancé][use-advanced-networking]. La stratégie réseau Calico peut être utilisée avec ce même plug-in Azure CNI ou avec le plug-in Kubenet CNI.
 
 L’exemple de script suivant :
 
@@ -84,7 +79,7 @@ L’exemple de script suivant :
 * Crée un principal de service Azure Active Directory (Azure AD) pour une utilisation avec le cluster AKS.
 * Assigne des autorisations *Contributeur* pour le principal du service du cluster AKS sur le réseau virtuel.
 * Crée un cluster AKS dans le réseau virtuel défini et active la stratégie réseau.
-    * L’option de stratégie réseau *azure* est utilisée. Pour utiliser Calico en tant qu’option de stratégie réseau à la place, utilisez le paramètre `--network-policy calico`.
+    * L’option de stratégie réseau *azure* est utilisée. Pour utiliser Calico en tant qu’option de stratégie réseau à la place, utilisez le paramètre `--network-policy calico`. Remarque : Calico peut être utilisé avec `--network-plugin azure` ou `--network-plugin kubenet`.
 
 Fournissez votre propre *SP_PASSWORD* sécurisé. Vous pouvez remplacer les variables *RESOURCE_GROUP_NAME* et *CLUSTER_NAME* :
 
@@ -468,9 +463,9 @@ Pour plus d’informations sur les stratégies, consultez l’article [Kubernete
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
-[calico-support]: https://www.projectcalico.org/support
-[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
+[calico-support]: https://www.tigera.io/tigera-products/calico/
+[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

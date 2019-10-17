@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96d0253e1e656f4bdb5180af0d57824aceb4f0dd
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176665"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025680"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Authentification unique transparente Azure Active Directory : Questions fréquentes (FAQ)
 
@@ -83,70 +83,73 @@ Il est important de fréquemment substituer la clé de déchiffrement Kerberos d
 
 Procédez comme suit sur le serveur local où vous exécutez Azure AD Connect :
 
-    **Step 1. Get list of AD forests where Seamless SSO has been enabled**
+   **Étape 1. Obtenir la liste des forêts AD dans lesquelles l’authentification unique transparente a été activée**
 
-    1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-    2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
-    3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
-    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
-    5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
+   1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
+   3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
+   4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
+   5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
 
-    **Étape 2. Mettez à jour la clé de déchiffrement Kerberos sur chaque forêt AD à laquelle elle a été attribuée.**
+   **Étape 2. Mettez à jour la clé de déchiffrement Kerberos sur chaque forêt AD à laquelle elle a été attribuée.**
 
-    1. Appelez `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt AD souhaitée.
+   1. Appelez `$creds = Get-Credential`. Quand vous y êtes invité, entrez les informations d’identification d’administrateur de domaine pour la forêt AD souhaitée.
 
-    > [!NOTE]
-    > Nous utilisons le nom d’utilisateur de l’administrateur de domaine, fourni dans le format des noms d’utilisateurs principaux (UPN) (johndoe@contoso.com), ou dans celui du nom de compte SAM de domaine complet (contoso\johndoe ou contoso.com\johndoe), pour rechercher la forêt AD souhaitée. Si vous utilisez le nom de compte SAM de domaine complet, nous utilisons la partie domaine du nom d’utilisateur pour [localiser le contrôleur de domaine de l’administrateur de domaine à l’aide de DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Si vous utilisez un UPN à la place, nous [le convertissons en nom de compte SAM de domaine complet](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) avant de trouver le contrôleur de domaine approprié.
+   > [!NOTE]
+   >Le nom d’utilisateur des informations d’identification de l’administrateur de domaine doit être entré au format de nom de compte SAM (contoso\johndoe ou contoso.com\johndoe). Nous utilisons la partie domaine du nom d’utilisateur pour localiser le contrôleur de domaine de l’administrateur de domaine à l’aide de DNS.
 
-    2. Appelez `Update-AzureADSSOForest -OnPremCredentials $creds`. Cette commande met à jour la clé de déchiffrement de Kerberos pour le `AZUREADSSOACC` compte de l’ordinateur et la forêt AD spécifique et dans Azure AD.
-    3. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous avez configuré la fonctionnalité.
+   >[!NOTE]
+   >Le compte administrateur de domaine utilisé ne doit pas être membre du groupe Utilisateurs protégés. Sinon, l’opération échoue.
 
-    >[!IMPORTANT]
-    >Assurez-vous de _ne pas_ exécuter la `Update-AzureADSSOForest` commande plusieurs fois. Dans le cas contraire, la fonctionnalité cesse de fonctionner jusqu’à ce que les tickets Kerberos de vos utilisateurs expirent et soient régénérés par votre annuaire Active Directory local.
+   2. Appelez `Update-AzureADSSOForest -OnPremCredentials $creds`. Cette commande met à jour la clé de déchiffrement de Kerberos pour le `AZUREADSSOACC` compte de l’ordinateur et la forêt AD spécifique et dans Azure AD.
+   3. Répétez les étapes précédentes pour chaque forêt AD dans laquelle vous avez configuré la fonctionnalité.
+
+   >[!IMPORTANT]
+   >Assurez-vous de _ne pas_ exécuter la `Update-AzureADSSOForest` commande plusieurs fois. Dans le cas contraire, la fonctionnalité cesse de fonctionner jusqu’à ce que les tickets Kerberos de vos utilisateurs expirent et soient régénérés par votre annuaire Active Directory local.
 
 **Q : Comment désactiver l'authentification unique transparente ?**
 
-    **Step 1. Disable the feature on your tenant**
+   **Étape 1. Désactiver la fonctionnalité pour votre locataire**
 
-        **Option A: Disable using Azure AD Connect**
+   **Option A : Désactiver à l’aide d’Azure AD Connect**
+    
+   1. Exécutez Azure AD Connect, cliquez sur la **page Modifier la connexion utilisateur** puis sur **Suivant**.
+   2. Désactivez l’option **Activer l’authentification unique**. Suivez les instructions de l’Assistant.
 
-        1. Run Azure AD Connect, choose **Change user sign-in page** and click **Next**.
-        2. Uncheck the **Enable single sign on** option. Continue through the wizard.
+   À la fin de l’Assistant, l’authentification unique fluide sera désactivée pour votre locataire. Toutefois, le message suivant s’affichera :
 
-        After completing the wizard, Seamless SSO will be disabled on your tenant. However, you will see a message on screen that reads as follows:
+   "L’authentification unique est désormais désactivée, mais des étapes manuelles supplémentaires restent à effectuer pour terminer le nettoyage. En savoir plus."
 
-        "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
+   Pour terminer le processus de nettoyage, suivez les étapes 2 et 3 sur le serveur local où vous exécutez Azure AD Connect.
 
-        To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you are running Azure AD Connect.
+   **Option B : Désactiver à l’aide de PowerShell**
 
-        **Option B: Disable using PowerShell**
+   Exécutez les étapes suivantes sur le serveur local où vous exécutez Azure AD Connect :
 
-        Run the following steps on the on-premises server where you are running Azure AD Connect:
+   1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
+   3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
+   4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
+   5. Appelez `Enable-AzureADSSO -Enable $false`.
 
-        1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-        2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-        3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-        4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
-        5. Call `Enable-AzureADSSO -Enable $false`.
+   >[!IMPORTANT]
+   >La désactivation de l’authentification unique fluide à l’aide de PowerShell ne modifiera pas l’état dans Azure AD Connect. L’authentification unique fluide apparaîtra comme étant activée dans la page **Modifier la connexion utilisateur**.
 
-        >[!IMPORTANT]
-        >Disabling Seamless SSO using PowerShell will not change the state in Azure AD Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.
+   **Étape 2. Obtenir la liste des forêts AD dans lesquelles l’authentification unique transparente a été activée**
 
-    **Step 2. Get list of AD forests where Seamless SSO has been enabled**
+   Suivez les tâches 1 à 4 ci-dessous si vous avez désactivé l’authentification unique fluide à l’aide d’Azure AD Connect. Si vous avez désactivé l’authentification unique fluide à l’aide de PowerShell, passez directement à la tâche 5 ci-dessous.
 
-    Follow tasks 1 through 4 below if you have disabled Seamless SSO using Azure AD Connect. If you have disabled Seamless SSO using PowerShell instead, jump ahead to task 5 below.
+   1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
+   3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
+   4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
+   5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
 
-    1. Commencez par télécharger et installer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-    2. Accédez au dossier `%programfiles%\Microsoft Azure Active Directory Connect`.
-    3. Importez le module PowerShell Authentification unique (SSO) transparente à l’aide de la commande suivante : `Import-Module .\AzureADSSO.psd1`.
-    4. Exécutez PowerShell ISE en tant qu’administrateur. Dans PowerShell, appelez `New-AzureADSSOAuthenticationContext`. Cette commande doit afficher une fenêtre contextuelle dans laquelle vous devez entrer vos informations d’identification d’administrateur général de locataire.
-    5. Appelez `Get-AzureADSSOStatus | ConvertFrom-Json`. Cette commande vous fournit la liste des forêts AD (examinez la liste « Domaines ») dans lesquelles cette fonctionnalité a été activée.
-
-    **Étape 3. Supprimez manuellement le compte d'ordinateur `AZUREADSSOACCT` de chaque forêt AD répertoriée.**
+   **Étape 3. Supprimez manuellement le compte d'ordinateur `AZUREADSSOACCT` de chaque forêt AD répertoriée.**
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : découvrez l’authentification unique transparente Azure AD.
+- [**Démarrage rapide**](how-to-connect-sso-quick-start.md) : Découvrez l’authentification unique transparente Azure AD.
 - [**Immersion technique**](how-to-connect-sso-how-it-works.md) : découvrez comment fonctionne cette fonctionnalité.
 - [**Résolution des problèmes**](tshoot-connect-sso.md) : découvrez comment résoudre les problèmes courants rencontrés avec cette fonctionnalité.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : pour le dépôt de nouvelles demandes de fonctionnalités.

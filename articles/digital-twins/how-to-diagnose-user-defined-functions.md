@@ -1,20 +1,20 @@
 ---
 title: Guide pratique pour déboguer les fonctions définies par l’utilisateur dans Azure Digital Twins | Microsoft Docs
 description: Informations pratiques sur le débogage des fonctions définies par l’utilisateur dans Azure Digital Twins
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: v-adgera
+ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260856"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949888"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour utiliser des fonctions de débogage définies par l’utilisateur dans Azure Digital Twins
 
@@ -55,6 +55,13 @@ AzureDiagnostics
 | Valeur de la requête | Remplacer par |
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | ID de corrélation qui a été spécifié dans les données d’événement |
+
+Pour voir toutes les requêtes de journaux de télémétrie récentes :
+
+```Kusto
+AzureDiagnostics
+| order by CorrelationId desc
+```
 
 Si vous activez la journalisation pour votre fonction définie par l’utilisateur, les journaux d’activité correspondants apparaissent dans votre instance Log Analytics avec la catégorie `UserDefinedFunction`. Pour les récupérer, entrez la condition de requête suivante dans Log Analytics :
 

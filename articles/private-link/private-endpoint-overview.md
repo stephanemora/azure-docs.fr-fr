@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266367"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937376"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -124,8 +124,9 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 |Les règles de groupe de sécurité réseau ne s’appliquent pas à Private Endpoint    |Le groupe de sécurité réseau n’est pas pris en charge sur Private Endpoint. Si les sous-réseaux contenant Private Endpoint peuvent être associés à un groupe de sécurité réseau, les règles ne sont pas effectives sur le trafic traité par Private Endpoint. Vous devez [désactiver l’application des stratégies réseau](disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau.   | Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source.        |
 |Vous ne pouvez pas créer Private Endpoint dans des sous-réseaux activés pour un point de terminaison de service ou des charges de travail spécialisées    |Vous ne pouvez pas déployer Private Endpoint dans des sous-réseaux activés pour des points de terminaison de service ou des sous-réseaux délégués à des charges de travail spécialisées|  Créez un sous-réseau distinct pour déployer Private Endpoint.        |
 |Private Endpoint ne peut être mappé qu’à un service Private Link (appartenant à un client) se trouvant dans la même région    |   La connexion à un service Private Link (votre propre service) à partir d’une autre région n’est pas prise en charge       |  Pour la version préliminaire, vous devez déployer votre service Private Link dans la même région.        |
+|  Un réseau virtuel appairé avec uniquement des points de terminaison privés n’est pas pris en charge   |   Quand la connexion à des points de terminaison privés sur un réseau virtuel appairé sans aucune autre charge de travail n’est pas prise en charge       | Déployez une machine virtuelle unique sur le réseau virtuel appairé pour activer la connectivité. |
 |Les charges de travail spécialisées ne peuvent pas accéder à Private Endpoint    |   Les services suivants déployés dans votre réseau virtuel ne peuvent pas accéder à une ressource Private Link à l’aide de Private Endpoint :<br>Plan App Service</br>Azure Container Instance</br>Azure NetApp Files</br>Module de sécurité matériel (HSM) dédié Azure<br>       |   Aucune atténuation pendant la préversion.       |
-|  Le portail ne prend pas en charge la création de Private Endpoint à l’aide de l’alias  |   Le portail permet uniquement de créer Private Endpoint à l’aide de l’URI de ressource      | Utiliser l’URI de ressource pour demander des connexions Private Endpoint        |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Créer un point de terminaison privé pour un serveur SQL Database à l’aide du portail](create-private-endpoint-portal.md)

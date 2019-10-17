@@ -14,51 +14,60 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: f7154da76b41198c208d02b8c563ba26ff8101a1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 02008b7dc1609a5f28ac6ba2a582933a96428198
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983596"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176955"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-twitter-login"></a>Comment configurer votre application App Service de manière à utiliser la connexion via Twitter
+# <a name="configure-your-app-service-app-to-use-twitter-login"></a>Configurer votre application App Service pour utiliser une connexion Twitter
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Cette rubrique montre comment configurer Azure App Service pour utiliser Twitter comme fournisseur d’authentification.
+Cet article vous montre comment configurer Azure App Service pour utiliser Twitter comme fournisseur d’authentification.
 
-Pour effectuer la procédure décrite dans cette rubrique, vous devez disposer d’un compte Twitter avec une adresse électronique et un numéro de téléphone vérifiés. Pour créer un compte Twitter, consultez la page <a href="https://go.microsoft.com/fwlink/p/?LinkID=268287" target="_blank">twitter.com</a>.
+Pour effectuer la procédure décrite dans cet article, vous avez besoin d’un compte Twitter avec une adresse e-mail vérifiée et un numéro de téléphone. Pour créer un compte Twitter, consultez la page [twitter.com].
 
 ## <a name="register"></a>Inscription de votre application avec Twitter
-1. Connectez-vous au [portail Azure]et accédez à votre application. Copiez votre **URL**. Vous l’utiliserez pour configurer votre application Twitter.
-2. Accédez au site web [Twitter Developers] , connectez-vous avec vos identifiants Twitter, puis cliquez sur **Create New App**.
-3. Entrez le **Nom** et une **Description** pour votre nouvelle application. Collez l’**URL** de votre application en guise de **Site web**. Ensuite, pour l'**URL de rappel**, entrez l’URL de votre application App Service et ajoutez le chemin d'accès `/.auth/login/twitter/callback`. Par exemple : `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Assurez-vous d'utiliser le schéma HTTPS.
-4. Au bas de la page, lisez et acceptez les termes du contrat. Ensuite, cliquez sur **Create your Twitter application**. Les détails de l’application s’affichent.
-5. Cliquez sur l’onglet **Paramètres**, activez l’option **Autoriser la connexion à Twitter via cette application**, puis cliquez sur **Mettre à jour les paramètres**.
-6. Sélectionnez l’onglet **Keys and Access Tokens** . Prenez note des valeurs de **Clé de consommateur (clé API)** et de **Secret de consommateur (clé secrète API)** .
-   
+
+1. Connectez-vous au [portail Azure] et accédez à votre application. Copiez votre **URL**. Vous allez l’utiliser pour configurer votre application Twitter.
+1. Accédez au site web [Twitter Developers], connectez-vous avec vos identifiants Twitter, puis sélectionnez **Create New App** (Créer une application).
+1. Entrez le **nom** et la **description** de votre nouvelle application. Collez l’**URL** de votre application dans le champ **Site web**. Dans le champ **URL de rappel**, entrez l’URL de votre application App Service et ajoutez le chemin `/.auth/login/aad/callback`. Par exemple : `https://contoso.azurewebsites.net/.auth/login/twitter/callback`. Veillez à utiliser le schéma HTTPS.
+1. Au bas de la page, lisez et acceptez les termes du contrat. Sélectionnez **Create your Twitter application** (Créer votre application Twitter). Les détails de l’application s’affichent.
+1. Sélectionnez l’onglet **Paramètres**, cochez **Autoriser la connexion à Twitter via cette application**, puis sélectionnez **Mettre à jour les paramètres**.
+1. Sélectionnez l’onglet **Keys and Access Tokens** .
+
+   Prenez note de ces valeurs :
+   - Consumer Key (API Key)
+   - Consumer Secret (API Secret)
+
    > [!NOTE]
    > La clé secrète consommateur est une information d'identification de sécurité importante. Ne partagez pas cette clé secrète avec quiconque et ne la distribuez pas avec votre application.
-   > 
-   > 
 
 ## <a name="secrets"></a>Ajout des informations Twitter à votre application
-1. Revenez au [portail Azure]et accédez à votre application. Cliquez sur **Paramètres**, puis sur **Authentification/Autorisation**.
-2. Si la fonctionnalité Authentification / Autorisation n’est pas activée, positionnez le commutateur sur **On**.
-3. Cliquez sur **Twitter**. Collez-y les valeurs d'ID d'application et de clé secrète d'application que vous avez obtenues précédemment. Cliquez ensuite sur **OK**.
-   
-   ![][1]
-   
-   Par défaut, App Service fournit une authentification, mais ne restreint pas l'accès autorisé à votre contenu et aux API de votre site. Vous devez autoriser les utilisateurs dans votre code d'application.
-4. (Facultatif) Pour restreindre l’accès à votre site aux seuls utilisateurs authentifiés par Twitter, définissez **Action à exécuter quand une demande n’est pas authentifiée** sur **Twitter**. Cela implique que toutes les demandes soient authentifiées. Toutes les demandes non authentifiées sont redirigées vers Twitter pour être authentifiées.
 
-> [!NOTE]
-> Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique. Pour de telles applications **Autoriser les demandes anonymes (aucune action)** peut être préféré. L’application démarre alors elle-même manuellement la connexion, comme décrit [ici](overview-authentication-authorization.md#authentication-flow).
+1. Accédez à votre application dans le [portail Azure].
+1. Sélectionnez **Paramètres** > **Authentification/Autorisation**, puis vérifiez que **l’authentification App Service** est activée, sur **On**.
+1. Sélectionnez **Twitter**.
+1. Collez les valeurs `API Key` et `API Secret` que vous avez obtenues précédemment.
+1. Sélectionnez **OK**.
 
-5. Cliquez sur **Enregistrer**.
+   ![Capture d’écran des paramètres Twitter de l’application mobile][1]
+
+   Par défaut, App Service fournit une authentification, mais ne restreint pas l’accès autorisé au contenu et aux API de votre site. Vous devez autoriser les utilisateurs dans votre code d'application.
+
+1. (Facultatif) Pour restreindre l’accès à votre site aux seuls utilisateurs authentifiés par Twitter, définissez **Action à exécuter quand une demande n’est pas authentifiée** sur **Twitter**. Quand vous définissez cette fonctionnalité, votre application exige que toutes les demandes soient authentifiées. Elle redirige également toutes les demandes non authentifiées vers Twitter à des fins d’authentification.
+
+   > [!CAUTION]
+   > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications qui ont une page d’accès publique disponible, comme dans de nombreuses applications monopages. Pour de telles applications, préférez **Autoriser les requêtes anonymes (aucune action)** . L’application démarre alors elle-même manuellement l’authentification. Pour plus d’informations, consultez [Flux d’authentification](overview-authentication-authorization.md#authentication-flow).
+
+1. Sélectionnez **Enregistrer**.
 
 Vous êtes maintenant prêt à utiliser Twitter pour l'authentification dans votre application.
 
-## <a name="related-content"></a>Contenu connexe
+## <a name="related-content"> </a>Étapes suivantes
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->
@@ -69,5 +78,6 @@ Vous êtes maintenant prêt à utiliser Twitter pour l'authentification dans vot
 <!-- URLs. -->
 
 [Twitter Developers]: https://go.microsoft.com/fwlink/p/?LinkId=268300
+[twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
 [Portail Azure]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

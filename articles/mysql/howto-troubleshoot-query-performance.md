@@ -1,17 +1,17 @@
 ---
 title: Guide pratique pour résoudre les problèmes de performances des requêtes dans Azure Database pour MySQL
-description: Cet article explique comment utiliser l’instruction EXPLAIN pour résoudre les problèmes de performances des requêtes dans Azure Database pour MySQL.
+description: Découvrez comment utiliser l’instruction EXPLAIN pour résoudre les problèmes de performances des requêtes dans Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/28/2018
-ms.openlocfilehash: 819e2393619766d46385cdd6fe550fff1e1a7631
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d58721f1fedd234b3c400a82035048d8e70f8c32
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720210"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972850"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Guide pratique pour utiliser l’instruction EXPLAIN visant à profiler les performances des requêtes dans Azure Database pour MySQL
 **EXPLAIN** est un outil pratique pour optimiser les requêtes. L’instruction EXPLAIN permet d’obtenir des informations sur la façon dont les instructions SQL sont exécutées. La sortie suivante présente un exemple d’exécution d’une instruction EXPLAIN.
@@ -163,7 +163,7 @@ L’instruction EXPLAIN montre à présent que MySQL peut utiliser l’index com
  
 ## <a name="conclusion"></a>Conclusion
  
-L’utilisation de l’instruction EXPLAIN et de différents types d’index peut améliorer considérablement les performances. Le simple fait de disposer d’un index dans la table ne signifie pas nécessairement que MySQL pourra l’utiliser pour vos requêtes. Validez toujours vos hypothèses en utilisant EXPLAIN et optimisez vos requêtes en utilisant des index.
+L’utilisation de l’instruction EXPLAIN et de différents types d’index peut améliorer considérablement les performances. Le fait de disposer d’un index dans la table ne signifie pas nécessairement que MySQL pourra l’utiliser pour vos requêtes. Validez toujours vos hypothèses en utilisant EXPLAIN et optimisez vos requêtes en utilisant des index.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

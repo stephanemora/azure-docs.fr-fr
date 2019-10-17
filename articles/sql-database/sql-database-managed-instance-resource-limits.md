@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: c3f8189cf1b09b38b641b92b9234fde618839987
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 74fd8abbe78395a75d9c0a49eb717fb8ceecd11e
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828802"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982786"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -25,13 +25,9 @@ Cet article fournit une vue d’ensemble des caractéristiques techniques et des
 > [!NOTE]
 > Pour connaître les différences entre les fonctionnalités prises en charge et les instructions T-SQL, consultez [Différences de fonctionnalités](sql-database-features.md) et [Prise en charge des instructions T-SQL](sql-database-managed-instance-transact-sql-information.md). Pour connaître les différences générales entre les niveaux de service dans une base de données unique et dans une instance gérée, consultez [Comparaison des niveaux de service](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
-## <a name="instance-level-resource-limits"></a>Limites de ressources au niveau de l’instance
+## <a name="hardware-generation-characteristics"></a>Caractéristiques de la génération du matériel
 
-L’instance gérée a des caractéristiques et des limites de ressources qui dépendent de l’infrastructure et de l’architecture sous-jacentes. Les limites dépendent de la génération du matériel et du niveau de service.
-
-### <a name="hardware-generation-characteristics"></a>Caractéristiques de la génération du matériel
-
-L’instance gérée d’Azure SQL Database peut être déployée sur deux générations du matériel : Gen4 et Gen5. Les générations du matériel ont différentes caractéristiques, qui sont décrites dans le tableau suivant :
+L’instance gérée a des caractéristiques et des limites de ressources qui dépendent de l’infrastructure et de l’architecture sous-jacentes. L’instance gérée d’Azure SQL Database peut être déployée sur deux générations du matériel : Gen4 et Gen5. Les générations du matériel ont différentes caractéristiques, qui sont décrites dans le tableau suivant :
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -45,7 +41,7 @@ L’instance gérée d’Azure SQL Database peut être déployée sur deux gén�
 > - Le matériel Gen4 est graduellement abandonné. Il est recommandé de déployer de nouvelles instances gérées sur du matériel Gen5.
 > - Pour le moment, le matériel Gen4 n’est encore disponible que dans les régions suivantes : Europe Nord, Europe Ouest, USA Est, USA Centre Sud, USA Centre Nord, USA Ouest 2, USA Centre, Canada Centre, Inde Sud, Asie Sud-Est et Corée Centre.
 
-#### <a name="in-memory-oltp-available-space"></a>Espace disponible OLTP en mémoire 
+### <a name="in-memory-oltp-available-space"></a>Espace disponible OLTP en mémoire 
 
 La quantité d’espace OLTP en mémoire au niveau de service [Critique pour l’entreprise](sql-database-service-tier-business-critical.md) dépend du nombre de vCores et de la génération du matériel. Le tableau suivant répertorie les limites de mémoire utilisables pour des objets OLTP en mémoire.
 
@@ -60,14 +56,17 @@ La quantité d’espace OLTP en mémoire au niveau de service [Critique pour l�
 | 64 vCores | 99,9 Go    | |
 | 80 vCores | 131,68 Go| |
 
-### <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
+## <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 
-L’instance gérée a deux niveaux de service : [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Ces niveaux offrent des [fonctionnalités différentes](sql-database-service-tiers-general-purpose-business-critical.md), comme décrit dans le tableau ci-dessous :
+L’instance gérée a deux niveaux de service : [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Ces niveaux offrent des [fonctionnalités différentes](sql-database-service-tiers-general-purpose-business-critical.md), comme décrit dans le tableau ci-dessous.
+
+> [!Important]
+> Le niveau de service Critique pour l’entreprise fournit une copie intégrée supplémentaire de l’instance (réplica secondaire) qui peut être utilisée pour les charges de travail en lecture seule. Si vous pouvez séparer les requêtes de lecture-écriture des requêtes en lecture seule/analytique/de création de rapports, vous obtenez deux fois plus de vCores et de mémoire pour le même prix. Le réplica secondaire peut présenter un décalage de quelques secondes par rapport à l’instance principale. Il est donc conçu pour décharger les charges de travail de création de rapports/analytiques qui n’ont pas besoin de l’état actuel des données. Dans le tableau ci-dessous, les **requêtes en lecture seule** sont les requêtes exécutées sur le réplica secondaire.
 
 | **Fonctionnalité** | **Usage général** | **Critique pour l’entreprise** |
 | --- | --- | --- |
-| Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24 <br/> Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 |
-| Mémoire maximale | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
+| Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24 <br/> Gen5 : 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Le même nombre de vCores est dédié pour les requêtes en lecture seule. |
+| Mémoire maximale | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4 Go-408 Go (5,1 Go/vCore) pour les requêtes en lecture-écriture<br/>+ 20,4 Go-408 Go (5,1 Go/vCore) supplémentaires pour les requêtes en lecture seule.<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
 | Taille de stockage maximale d’instance (réservée) | - 2 To pour les 4 vCores (Gen5 uniquement)<br/>- 8 To pour les autres tailles | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 4, 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
 | Taille de base de données maximale | Jusqu’à la taille d’instance actuellement disponible (maximum 2-8 To en fonction du nombre de vCores). | Jusqu’à la taille d’instance actuellement disponible (maximum 1-4 To en fonction du nombre de vCores). |
 | Taille maximale de tempDB | Limitée à 24 Go/vCore (96-1920 Go) et à la taille de stockage d’instance actuellement disponible.<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB. | Jusqu’à la taille de stockage d’instance actuellement disponible. La taille du fichier journal TempDB est actuellement limitée à 24 Go/vCore. |
@@ -75,11 +74,11 @@ L’instance gérée a deux niveaux de service : [Usage général](sql-database
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280, sauf si la limite de taille de stockage d’instance ou d’[espace d’allocation de stockage sur disque Premium Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) a été atteinte. | 32 767 fichiers par base de données, sauf si la limite de taille de stockage d’instance a été atteinte. |
 | Taille maximale du fichier de données | Limitée à la taille de stockage d’instance actuellement disponible (maximum 2-8 To) et à l’[espace d’allocation de stockage sur disque Premium Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitée à la taille de stockage d’instances actuellement disponible (jusqu’à 1-4 To). |
 | Taille maximale du fichier journal | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. |
-| IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5 500 - 110 000 (1 375/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
+| IOPS de données/journal (approximatives) | Jusqu’à 30-40 K IOPS par instance*, 500-7500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 K-110 K (1375 IOPS/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
 | Limite du débit d’écriture du journal (par instance) | 3 Mo/s par vCore<br/>22 Mo/s max. | 4 Mo/s par vCore<br/>48 Mo/s max. |
 | Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Non limité. |
 | Latence d’E/S de stockage (approximative) | 5 - 10 ms | 1 - 2 ms |
-| OLTP en mémoire | Non pris en charge | Disponible |
+| OLTP en mémoire | Non pris en charge | Disponible, [la taille dépend du nombre de vCores](#in-memory-oltp-available-space) |
 | Nombre maximal de sessions | 30000 | 30000 |
 | [Réplicas en lecture seule](sql-database-read-scale-out.md) | 0 | 1 (inclus dans le prix) |
 
@@ -88,9 +87,23 @@ L’instance gérée a deux niveaux de service : [Usage général](sql-database
 > - Les tailles des données et des fichiers journaux dans les bases de données utilisateur et système sont comprises dans la taille de stockage d’instance qui est comparée à la limite de taille de stockage maximale. Utilisez la vue système <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> pour déterminer l’espace total utilisé par les bases de données. Les journaux d’activité d’erreurs ne sont ni conservés ni compris dans la taille. Les sauvegardes ne sont pas comprises dans la taille de stockage.
 > - Le débit et les IOPS dépendent également de la taille de page qui n’est pas explicitement limitée par instance gérée.
 > Vous pouvez créer un autre réplica lisible dans une région Azure différente à l’aide de groupes de basculement automatique.
+> - Le nombre maximal d’IOPS d’instance dépend de la disposition des fichiers et de la distribution de la charge de travail. Par exemple, si vous créez sept fichiers de 1 Go avec un maximum de 5 000 IOPS et sept fichiers de petite taille (moins de 128 Go) avec 500 IOPS chacun, vous pouvez vous obtenir 38 500 IOPS par instance (7x5000+7x500) si votre charge de travail peut utiliser tous les fichiers. Notez qu’un certain nombre d’IOPS sont également utilisés pour les sauvegardes automatiques.
 
 > [!NOTE]
 > Vous trouverez plus d’informations sur les [limites des ressources dans les pools d’instances managées dans cet article](sql-database-instance-pools.md#instance-pools-resource-limitations).
+
+### <a name="file-io-characteristics-in-general-purpose-tier"></a>Caractéristiques d’E/S de fichier avec le niveau Usage général
+
+Avec le niveau de service Usage général, chaque fichier de base de données reçoit des IOPS et un débit dédiés qui dépendent de la taille du fichier. Les fichiers plus volumineux reçoivent plus d’IOPS et de débit. Les caractéristiques d’E/S des fichiers de base de données sont indiquées dans le tableau suivant :
+
+| Taille du fichier           | 0 - 128 Gio | 128 - 256 Gio | 256 - 512 Gio | 0,5 - 1 Tio    | 1 - 2 Tio    | 2 - 4 Tio | 4 - 8 Tio |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| IOPS par fichier       | 500   | 1100 | 2 300              | 5 000              | 7500              | 7500              | 12 500   |
+| Débit par fichier | 100 Mio/s | 125 Mio/s | 150 Mio/s | 200 Mio/s | 250 Mio/s | 250 Mio/s | 480 Mio/s | 
+
+Si vous constatez une latence élevée des E/S sur un fichier de base de données, ou si vous constatez que les IOPS ou le débit atteignent la limite, vous pouvez améliorer les performances en [augmentant la taille de fichier](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
+
+Il existe également des limites au niveau de l’instance, telles que le débit max d’écriture dans le journal (22 Mo/s) ; ainsi, vous ne pourrez peut-être pas atteindre le débit de fichier dans le fichier journal car vous atteignez la limite du débit d’instance.
 
 ## <a name="supported-regions"></a>Régions prises en charge
 

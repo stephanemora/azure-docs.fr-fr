@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1a9f3eb0ea79a0cd79850e721d081b00dc582a31
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4bd1386c68f3173c19b282c1e01ecff545c4bcd7
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695274"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972062"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
 
@@ -34,9 +34,9 @@ Le tableau ci-dessous récapitule les types de contenu et formats de fichiers pr
 |*Excel|Fichier QnA structuré<br> (y compris la prise en charge de RTF et HTML)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |*TXT/TSV|Fichier QnA structuré|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
-L’utilisation de **fichiers TSV et XLS** provenant de bases de connaissances exportées n’est possible qu’en les important à partir de la page **Paramètres** du portail QnA Maker. Il est impossible de les utiliser en tant que sources de données lors de la création de la base de connaissances ou à partir de la fonctionnalité d’ajout de fichier ou d’URL sur la page **Paramètres**. 
+### <a name="import-and-export-knowledge-base"></a>Importer et exporter une base de connaissances
 
-Apprenez-en davantage sur l’utilisation de [documents multitours](). 
+L’utilisation de **fichiers TSV et XLS** provenant de bases de connaissances exportées n’est possible qu’en les important à partir de la page **Paramètres** du portail QnA Maker. Il est impossible de les utiliser en tant que sources de données lors de la création de la base de connaissances ou à partir de la fonctionnalité **+ Ajouter un fichier** ou **+ Ajouter une URL** dans la page **Paramètres**. 
 
 ## <a name="data-source-locations"></a>Emplacements des sources de données
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 09/23/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2129405dfdc2585d29c35a0982c9823a4cd57f71
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5dfe5b886ff389cf2d0f01d402990929c0ef5628
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360001"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033979"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -30,25 +30,25 @@ Lorsque vous affectez directement des licences à des utilisateurs individuels, 
 
 Lorsque vous utilisez une licence basée sur le groupe, les mêmes erreurs peuvent se produire, mais elles apparaissent en arrière-plan lorsque le service Azure AD affecte les licences. C’est pourquoi les erreurs ne peuvent pas vous être communiquées immédiatement. Au lieu de cela, elles sont enregistrées sur l’objet utilisateur et signalées par le biais du portail d’administration. L’intention initiale, qui consiste à attribuer une licence à l’utilisateur, est toujours conservée, mais est enregistrée dans un état d’erreur. Elle fera l’objet d’un examen et d’une résolution ultérieurs.
 
-## <a name="how-to-find-license-assignment-errors"></a>Comment rechercher des erreurs d’affectation de licence
-**Rechercher des erreurs d’affectation de licence**
+## <a name="find-license-assignment-errors"></a>Rechercher des erreurs d’affectation de licence
 
-1. Pour rechercher des données utilisateur à l’état d’erreur dans un groupe spécifique, ouvrez le volet du groupe. Sous **Licences**, une notification s’affiche si des données utilisateur se trouvent à l’état d’erreur.
+### <a name="to-find-users-in-an-error-state-in-a-group"></a>Pour rechercher des utilisateurs en état d’erreur dans un groupe
+
+1. Ouvrez la page de vue d’ensemble du groupe et sélectionnez **Licenses**. Une notification s’affiche si des utilisateurs sont en état d’erreur.
 
    ![Message de notifications d’erreur et de groupe](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-2. Sélectionnez la notification pour ouvrir la liste de tous les utilisateurs concernés. Vous pouvez sélectionner chaque utilisateur individuellement pour afficher plus de détails.
+1. Sélectionnez la notification pour ouvrir la liste de tous les utilisateurs concernés. Vous pouvez sélectionner chaque utilisateur individuellement pour afficher plus de détails.
 
    ![liste des utilisateurs en état d’erreur de licences de groupe](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-3. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory**, sélectionnez **Licences**, puis **Vue d’ensemble**. Une fenêtre d’informations s’affiche lorsque des groupes nécessitent votre attention.
+1. Pour rechercher tous les groupes contenant au moins une erreur, dans le panneau **Azure Active Directory**, sélectionnez **Licences**, puis **Vue d’ensemble**. Une fenêtre d’informations s’affiche lorsque des groupes nécessitent votre attention.
 
    ![Vue d’ensemble et informations sur les groupes en état d’erreur](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-4. Cliquez sur la zone pour afficher la liste de tous les groupes contenant des erreurs. Vous pouvez sélectionner chaque groupe pour afficher des détails supplémentaires.
+1. Cliquez sur la zone pour afficher la liste de tous les groupes contenant des erreurs. Vous pouvez sélectionner chaque groupe pour afficher des détails supplémentaires.
 
    ![Vue d’ensemble et liste des groupes contenant des erreurs](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
-
 
 Les sections suivantes décrivent chaque problème potentiel et la manière de le résoudre.
 
@@ -68,8 +68,8 @@ Pour voir quels utilisateurs et quels groupes utilisent des licences, sélection
 
 Considérez l'exemple suivant. Un utilisateur possède une licence Office 365 Entreprise *E1* qui lui a été attribuée directement, avec tous les plans activés. L’utilisateur a été ajouté à un groupe auquel le produit Office 365 Entreprise *E3* est attribué. Ce produit contient des plans de service incompatibles avec les plans contenus dans E1. Par conséquent, l’attribution de la licence de groupe échoue et l’erreur « Plans de service en conflit » s’affiche. Dans cet exemple, les plans de service en conflit sont les suivants :
 
--   SharePoint Online (Plan 2) est en conflit avec SharePoint Online (Plan 1).
--   Exchange Online (Plan 2) est en conflit avec Exchange Online (Plan 1).
+- SharePoint Online (Plan 2) est en conflit avec SharePoint Online (Plan 1).
+- Exchange Online (Plan 2) est en conflit avec Exchange Online (Plan 1).
 
 Pour résoudre ce conflit, vous devez désactiver deux des plans. Vous pouvez désactiver la licence E1 directement attribuée à l’utilisateur. Sinon, vous devez modifier l’attribution de licence de l’ensemble du groupe et désactiver les plans dans la licence E3. Vous pouvez également supprimer la licence E1 à partir de l’utilisateur si elle est redondante dans le cadre de la licence E3.
 
@@ -117,7 +117,7 @@ Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs conc
 
 La mise à jour d’attribution de licence sur un utilisateur entraîne le déclenchement du calcul de l’adresse proxy, ce qui peut modifier les attributs de l’utilisateur. Pour comprendre la raison exacte de la modification et résoudre le problème, consultez cet article [Comment l’attribut proxyAddresses est renseigné dans Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
-## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Que se passe-t-il lorsqu’un groupe est concerné par plusieurs licences produit ?
+## <a name="more-than-one-product-license-assigned-to-a-group"></a>Plusieurs licences de produit affectées à un groupe
 
 Vous pouvez attribuer plusieurs licences produit à un même groupe. Par exemple, vous pouvez attribuer Office 365 Entreprise E3 et Enterprise Mobility + Security à un groupe afin de faciliter l’activation de tous les services inclus pour les utilisateurs.
 
@@ -125,48 +125,44 @@ Azure AD tente d’attribuer toutes les licences spécifiées dans le groupe à 
 
 Vous pouvez voir les utilisateurs pour lesquels l’attribution a échoué et vérifier les produits concernés.
 
-## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Que se passe-t-il quand un groupe avec des licences attribuées est supprimé ?
+## <a name="when-a-licensed-group-is-deleted"></a>Quand un groupe sous licence est supprimé
 
 Vous devez supprimer toutes les licences attribuées à un groupe pour pouvoir le supprimer. Toutefois, la suppression des licences de tous les utilisateurs dans le groupe peut prendre du temps. La suppression d’attributions de licence d’un groupe peut échouer si l’utilisateur a une licence dépendante attribuée ou en cas de conflit d’adresse proxy qui interdit la suppression de la licence. Si un utilisateur a une licence qui dépend d’une licence en cours de suppression dans le cadre d’une suppression de groupe, l’attribution de licence héritée de l’utilisateur est convertie en attribution directe.
 
 Par exemple, prenons un groupe avec une licence Office 365 E3/E5 attribuée avec un plan de service Skype Entreprise activé. Imaginez que certains membres du groupe ont des licences d’audioconférence attribuées directement. Quand le groupe est supprimé, la gestion des licences attribuées au groupe tente de supprimer Office 365 E3/E5 pour tous les utilisateurs. Comme l’audioconférence dépend de Skype Entreprise, pour tous les utilisateurs bénéficiant de l’audioconférence, la gestion des licences attribuées au groupe convertit les licences Office 365 E3/E5 en attributions de licence directes.
 
-## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Comment gérer les licences pour les produits associés à une configuration requise ?
+## <a name="manage-licenses-for-products-with-prerequisites"></a>Gérer les licences des produits avec des prérequis
 
 Certains produits Microsoft Online que vous possédez peut-être sont des *modules complémentaires*. Ils nécessitent l’activation d’un plan de service requis pour un utilisateur ou un groupe pour qu’une licence puisse leur être attribuée. Avec les licences basées sur le groupe, le système impose que les plans de service requis et du module complémentaire soient présents pour le même groupe. Cela permet de veiller à ce que tous les utilisateurs ajoutés au groupe puissent recevoir le produit de travail complet. Considérez l’exemple suivant :
 
 Microsoft Workplace Analytics est un produit additionnel. Il contient un plan de service unique portant le même nom. Ce plan de service peut uniquement être affecté à un utilisateur ou à un groupe, lorsque l’une des conditions requises suivantes est également assignée :
-- Exchange Online (plan 1) 
+
+- Exchange Online (plan 1)
 - Exchange Online (plan 2)
 
-Si nous essayons d’affecter ce produit seul à un groupe, le portail renvoie une erreur. En sélectionnant la notification d’erreur, vous faites apparaître les informations suivantes :
+Si nous essayons d’affecter ce produit seul à un groupe, le portail renvoie un message de notification. Si nous sélectionnons les détails, le message d’erreur suivant s’affiche :
 
-![Groupe, prérequis manquant](./media/licensing-groups-resolve-problems/group-prerequisite-required.png)
-
-Lorsque nous sélectionnons les détails, le message d’erreur suivant s’affiche :
-
->Échec de l’opération de licence. Assurez-vous que le groupe possède les services nécessaires avant d’ajouter ou de retirer un service dépendant. **Le service Microsoft Workplace Analytics nécessite Exchange Online (plan 2) pour être activé également.**
+  « Échec de l’opération de licence. Assurez-vous que le groupe possède les services nécessaires avant d’ajouter ou de retirer un service dépendant. **Le service Microsoft Workplace Analytics nécessite Exchange Online (plan 2) pour être activé également.**  »
 
 Pour attribuer cette licence de module complémentaire à un groupe, nous devons nous assurer que le groupe contient également le plan de service requis. Par exemple, nous pouvons mettre à jour un groupe existant qui contient déjà le produit Office 365 E3 complet, et lui ajouter le produit additionnel.
 
-Il est également possible de créer un groupe autonome contenant uniquement les produits requis pour que le module additionnel fonctionne. Il peut être utilisé pour fournir une licence uniquement aux utilisateurs sélectionnés pour le produit additionnel. Dans cet exemple, nous avons assigné les produits suivants au même groupe :
+Il est également possible de créer un groupe autonome contenant uniquement les produits requis pour que le module additionnel fonctionne. Il peut être utilisé pour fournir une licence uniquement aux utilisateurs sélectionnés pour le produit additionnel. Selon l’exemple précédent, vous devez attribuer les produits suivants au même groupe :
+
 - Office 365 Enterprise E3, avec uniquement le plan de service Exchange Online (plan 2) activé
 - Microsoft Workplace Analytics
-
-![Groupe, prérequis inclus](./media/licensing-groups-resolve-problems/group-addon-with-prerequisite.png)
 
 Dorénavant, tout utilisateur ajouté à ce groupe utilise une licence de produit E3 et une licence de produit Workplace Analytics. Dans le même temps, ces utilisateurs peuvent être membres d’un autre groupe leur fournissant le produit E3 complet ; ils ne consommeront alors qu’une seule licence de ce produit.
 
 > [!TIP]
 > Vous pouvez créer plusieurs groupes pour chaque plan de service requis. Par exemple, si vous utilisez Office 365 Enterprise E1 et Office 365 Enterprise E3 pour vos utilisateurs, vous pouvez créer deux groupes pour accorder une licence Microsoft Workplace Analytics : un groupe demandant E1 comme condition préalable et un autre demandant E3. Cela vous permettra de distribuer le module complémentaire aux utilisateurs de E1 et de E3 sans consommer de licences supplémentaires.
 
-## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Comment faire pour forcer le traitement des licences dans un groupe afin de résoudre les erreurs ?
+## <a name="force-group-license-processing-to-resolve-errors"></a>Forcer le traitement des licences de groupe pour résoudre des erreurs
 
 Selon les actions entreprises pour résoudre les erreurs, il peut être nécessaire de déclencher manuellement le traitement d’un groupe pour mettre à jour l’état de l’utilisateur.
 
 Par exemple, si vous avez libéré des licences en supprimant leurs affectations directes à des utilisateurs, vous devez déclencher le traitement des groupes ayant échoué précédemment afin d’attribuer des licences complètes à tous les utilisateurs membres. Pour traiter à nouveau un groupe, accédez au volet correspondant, ouvrez **Licences**, puis sélectionnez le bouton **Retraiter** dans la barre d’outils.
 
-## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Comment forcer le traitement des licences sur un utilisateur afin de résoudre les erreurs ?
+## <a name="force-user-license-processing-to-resolve-errors"></a>Forcer le traitement des licences utilisateur pour résoudre des erreurs
 
 Selon les mesures que vous avez prises pour résoudre les erreurs, il peut être nécessaire de déclencher manuellement le traitement d’un utilisateur pour mettre à jour l’état de l’utilisateur.
 

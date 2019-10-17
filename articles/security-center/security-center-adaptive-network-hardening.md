@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7de0d7bacdf2194b3e1a303842c56a6a017d8d62
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202769"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255243"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Renforcement du réseau adaptatif dans Azure Security Center
 Découvrez comment configurer le renforcement du réseau adaptatif dans Azure Security Center.
@@ -49,7 +49,7 @@ Par exemple, supposons que la règle NSG existante consiste à autoriser le traf
 
 2. Dans l’onglet **Unhealthy resources** (Ressources non saines), sélectionnez une machine virtuelle pour afficher ses alertes et les règles de renforcement recommandées à appliquer.
 
-    ![alertes de renforcement](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![alertes de renforcement](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Passer en revue et appliquer des règles recommandées de renforcement du réseau adaptatif
@@ -131,9 +131,9 @@ Vous pouvez ajouter une règle « allow » qui n’a pas été recommandée par 
 
 ### Supprimer une règle <a name ="delete-rule"> </a>
 
-Lorsque cela est nécessaire, vous pouvez supprimer une règle recommandée. Par exemple, vous pouvez déterminer que l’application d’une règle suggérée est susceptible de bloquer du trafic légitime.
+Si nécessaire, vous pouvez supprimer une règle recommandée pour la session active. Par exemple, vous pouvez déterminer que l’application d’une règle suggérée est susceptible de bloquer du trafic légitime.
 
-*Pour supprimer une règle de renforcement du réseau adaptatif :*
+*Pour supprimer une règle de renforcement du réseau adaptatif pour votre session active :*
 
 1. Dans l’onglet **Règles**, cliquez sur les trois points (...) à la fin de la ligne de la règle, puis cliquez sur **Supprimer**.  
 

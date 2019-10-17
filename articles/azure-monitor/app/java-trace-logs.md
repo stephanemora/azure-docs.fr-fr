@@ -12,15 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 99a18125fa5ce07a46fcc1af554fd03746ebf110
+ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299245"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72038156"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploration du suivi des journaux d’activité Java dans Application Insights
 Si vous utilisez Logback ou Log4J (v1.2 ou v2.0) pour le suivi, vous pouvez faire en sorte que vos journaux d’activité de suivi soient envoyés automatiquement à Application Insights, où vous pouvez les explorer et effectuer des recherches.
+
+> [!TIP]
+> Vous ne devez définir votre clé d’instrumentation Application Insights qu’une seule fois pour votre application. Si vous utilisez une infrastructure comme Java Spring, vous avez peut-être déjà inscrit la clé ailleurs dans la configuration de votre application.
 
 ## <a name="using-the-application-insights-java-agent"></a>Utilisation de l’agent Java Application Insights
 

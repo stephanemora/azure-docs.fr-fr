@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: fdb34173e0ca52f57a004e3a5b4a076e423ff5bd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 6d61b94a50716966ac0b3c75551ddd9d8e291965
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241197"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024461"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Didacticiel : Détection des menaces prête à l’emploi
 
@@ -39,7 +39,7 @@ Ce tutoriel vous aide à détecter les menaces avec Azure Sentinel :
 
 ## <a name="about-out-of-the-box-detections"></a>À propos des détections prêtes à l’emploi
 
-Pour afficher toutes les détections prêtes à l’emploi, accédez à **Analytique**, puis à  **Modèles de règle**. Cet onglet contient toutes les règles intégrées Azure Sentinel.
+Pour voir toutes les détections prêtes à l’emploi, accédez à **Analytique**, puis à **Modèles de règle**. Cet onglet contient toutes les règles intégrées Azure Sentinel.
 
    ![Utiliser des détections intégrées pour identifier les menaces avec Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 59e64b7c84e589da57ea28d6655c9305f4fdc101
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5819a6c6d73b2ee51fc72d2b56d99b0efb3ea0be
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058341"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241125"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Préversion - Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -228,7 +228,7 @@ Pour activer des plages d’adresses IP autorisées pour le serveur d’API, vou
 
 Utilisez la commande [az aks update][az-aks-update] et spécifiez les plages d’adresses IP *--api-server-authorized-ip-ranges* à autoriser. Ces plages d’adresses IP sont généralement des plages d’adresses utilisées par vos réseaux locaux. Ajoutez l’adresse IP publique de votre propre pare-feu Azure obtenue à l’étape précédente, par exemple *20.42.25.196/32*.
 
-L’exemple suivant active les plages d’adresses IP autorisées pour le serveur d’API sur le cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Les plages d’adresses IP à autoriser sont *20.42.25.196/32* (adresse IP publique du pare-feu Azure), puis *172.0.0.0/16* et *168.10.0.0/18* :
+L’exemple suivant active les plages d’adresses IP autorisées pour le serveur d’API sur le cluster nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Les plages d’adresses IP à autoriser sont *20.42.25.196/32* (adresse IP publique du pare-feu Azure), puis *172.0.0.0/16* (plage d’adresses des pods/nœuds) et *168.10.0.0/18* (ServiceCidr) :
 
 ```azurecli-interactive
 az aks update \
@@ -236,6 +236,13 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
+
+> [!NOTE]
+> Vous devez ajouter ces plages à une liste verte :
+> - Adresse IP publique du pare-feu
+> - CIDR du service
+> - Plage d’adresses des sous-réseaux, avec les nœuds et les pods
+> - Toute plage qui représente les réseaux à partir desquels vous allez administrer le cluster
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Mettre à jour ou désactiver des plages d’adresses IP autorisées
 

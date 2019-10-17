@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: 6615b5c277577ee2238434591c61362885f2fec6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 7ebbc7575ad52bbf7a399babb048113bc505a7f8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002743"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174538"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, analyser et annuler des exécutions de d’entraînement dans Python
 
@@ -189,7 +189,7 @@ print(local_script_run.get_status())
 Pour annuler une exécution à l’aide de l’interface de ligne de commande, utilisez la commande suivante : Remplacez `runid` par l’ID d’exécution.
 
 ```azurecli-interactive
-az ml run cancel -r runid
+az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 Pour plus d’informations, consultez [az ml run cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).
@@ -220,13 +220,13 @@ with exp.start_logging() as parent_run:
 > [!NOTE]
 > Dès qu’elles sont hors de portée, les exécutions enfants sont automatiquement marquées comme étant terminées.
 
-Pour créer efficacement de nombreuses exécutions enfants, utilisez la méthode [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-). Chaque création se traduisant par un appel réseau, la création d'un lot d'exécutions est plus efficace que la création d'exécutions une à une.
+Pour créer efficacement de nombreuses exécutions enfants, utilisez la méthode [`create_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#create-children-count-none--tag-key-none--tag-values-none-). Chaque création se traduisant par un appel réseau, la création d’un lot d’exécutions est plus efficace que la création d’exécutions une à une.
 
 ### <a name="submit-child-runs"></a>Envoyer des exécutions enfants
 
 Les exécutions enfants peuvent également être envoyées à partir d’une exécution parente. Ainsi, vous pouvez créer des hiérarchies d’exécutions parentes et enfants, chacune s’exécutant sur différentes cibles de calcul, connectées par un ID d’exécution parente commun.
 
-Utilisez la méthode [« submit_child() »](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) pour envoyer une exécution enfant à partir d’une exécution parente. Pour ce faire, dans le script d’exécution parent, récupérez le contexte d’exécution et envoyez l’exécution enfant à l’aide de la méthode « submit_child » de l'instance de contexte.
+Utilisez la méthode [« submit_child() »](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#submit-child-config--tags-none----kwargs-) pour envoyer une exécution enfant à partir d’une exécution parente. Pour ce faire, dans le script d’exécution parent, récupérez le contexte d’exécution et envoyez l’exécution enfant à l’aide de la méthode ``submit_child`` de l’instance de contexte.
 
 ```python
 ## In parent run script
@@ -245,7 +245,7 @@ child_run.parent.id
 
 ### <a name="query-child-runs"></a>Interroger les exécutions enfants
 
-Pour interroger les exécutions enfants d’un parent spécifique, utilisez la méthode [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-). L’argument « recursive = True » vous permet d’interroger une arborescence imbriquée d’enfants et de petits-enfants.
+Pour interroger les exécutions enfants d’un parent spécifique, utilisez la méthode [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-). L’argument ``recursive = True`` vous permet d’interroger une arborescence imbriquée d’enfants et de petits-enfants.
 
 ```python
 print(parent_run.get_children())
@@ -335,9 +335,9 @@ Pour plus d’informations sur l’interrogation des résultats de l’interface
 
 Les notebooks suivants illustrent les concepts de cet article :
 
-* Pour en savoir plus sur les API de journalisation, consultez [Notebook de l’API de journalisation](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb).
+* Pour en savoir plus sur les API de journalisation, consultez [Notebook de l’API de journalisation](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api/logging-api.ipynb).
 
-* Pour plus d’informations sur la gestion des exécutions avec le Kit de développement logiciel (SDK) Azure Machine Learning, consultez le [notebook sur la gestion des exécutions](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs).
+* Pour plus d’informations sur la gestion des exécutions avec le Kit de développement logiciel (SDK) Azure Machine Learning, consultez le [notebook sur la gestion des exécutions](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

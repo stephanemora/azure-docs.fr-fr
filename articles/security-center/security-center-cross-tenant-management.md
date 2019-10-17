@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 178911390a4cb694171adf6c807369cab0c0499a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f7aa75601639bc0c5652010fb44b01dec0d2622b
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202355"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996944"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Gestion multilocataire dans Security Center
 
@@ -50,10 +50,11 @@ Les vues et les actions sont plus ou moins identiques. Voici quelques exemples 
 - **Appliquer les recommandations** : Vous pouvez surveiller et appliquer une [recommandation](security-center-recommendations.md) à toutes les ressources des différents locataires en même temps. Ensuite, vous pouvez immédiatement vous attaquer aux vulnérabilités qui présentent le risque le plus élevé parmi tous les locataires.
 - **Gérer les alertes** : Détectez les [alertes](security-center-alerts-overview.md) sur les différents locataires. Appliquez les recommandations concernant les ressources non conformes à l’aide des [étapes de correction](security-center-managing-and-responding-alerts.md).
 
-- **Gérer les fonctionnalités avancées de défense cloud et bien plus encore** : Gérez les divers services de détection des menaces et de protection contre les menaces, comme l’[accès juste-à-temps (JIT) aux machines virtuelles](security-center-just-in-time.md), le [renforcement du réseau adaptatif](security-center-adaptive-network-hardening.md), les [contrôles d’application adaptatifs ](security-center-adaptive-application.md), etc.
+- **Gérer les fonctionnalités avancées de défense cloud et bien plus encore** : Gérez les divers services de détection des menaces et de protection, comme l’[accès juste-à-temps (JIT) aux machines virtuelles](security-center-just-in-time.md), le [renforcement du réseau adaptatif](security-center-adaptive-network-hardening.md), les [contrôles d’application adaptatifs ](security-center-adaptive-application.md), etc.
  
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article explique le fonctionnement de la gestion multilocataire dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
-* [Renforcer votre posture de sécurité avec Azure Security Center](security-center-monitoring.md) : découvrez comment superviser l’intégrité de vos ressources Azure.
-* [FAQ de Azure Security Center](security-center-faq.md): forum aux questions concernant l’utilisation de ce service.
+* [Renforcer votre posture de sécurité avec Azure Security Center](security-center-monitoring.md) – Découvrez comment superviser l’intégrité de vos ressources Azure.
+* [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+* [Découvrez Azure Lighthouse dans les scénarios de grandes entreprises](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) – Découvrez en quoi Azure Lighthouse peut simplifier la gestion inter-locataire au sein d’une grande entreprise qui utilise plusieurs locataires Azure AD.

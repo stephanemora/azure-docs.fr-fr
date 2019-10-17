@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f78f7c37fafd7f0b29f76220206b9adfb62f52c9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: d0314e94e627a42ab55f9e91017acac0cdc8b541
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677746"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001625"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 
@@ -127,16 +127,25 @@ L'alerte étant configurée pour se déclencher au-delà de deux violations, nou
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Règle d’alerte Recherche dans les journaux - déclenchement et état
 
-La règle d’alerte Recherche dans les journaux s’applique sur la logique indiquée par l’utilisateur, conformément à la configuration et à la requête d’analyse personnalisée utilisée. La logique de surveillance incluant la condition exacte ou le motif de déclenchement de la règle d’alerte est intégrée dans une requête Analytics, qui peut varier pour chaque règle d’alerte de journal. Les alertes Azure contiennent peu d’informations sur la cause première sous-jacente spécifique du scénario en cours d’évaluation lorsque la condition de seuil de la règle d’alerte de la recherche dans les journaux est atteinte ou dépassée. Par conséquent, les alertes de journal sont appelées sans état. De plus, les règles d’alerte de journal continuent à se déclencher, tant que la condition d’alerte est remplie par le résultat de la requête Analytics personnalisée indiquée. Sans que l’alerte n’ait jamais été résolue, car la logique de la cause exacte de l’échec de surveillance est masquée à l’intérieur de la requête Analytics fournie par l’utilisateur. Il existe actuellement aucun mécanisme permettant aux alertes Azure Monitor de déduire de façon concluante la cause racine du problème à résoudre.
+Les règles d’alerte de recherche dans les journaux fonctionnent uniquement sur la logique que vous intégrez à la requête. Le système d’alerte n’a pas d’autre contexte sur l’état du système, votre intention ou la cause première impliquée par la requête. Par conséquent, les alertes de journal sont désignées comme sans état. Les conditions sont évaluées comme « TRUE » ou « FALSE » chaque fois qu’elles sont exécutées.  Une alerte est déclenchée chaque fois que l’évaluation de la condition d’alerte est « TRUE », qu’elle ait ou non été déclenchée précédemment.    
 
-Voyons la même chose avec un exemple pratique. Supposons que nous avons une règle d’alerte de journal appelée *Contoso-Log-Alert*, conformément à la configuration utilisée dans l’[exemple fourni pour l’alerte de journal de type Nombre de résultats](#example-of-number-of-records-type-log-alert) - où la requête d’alerte personnalisée est conçue pour rechercher le code de résultat 500 dans les journaux.
+Examinons ce comportement en action avec un exemple pratique. Supposons que nous disposons d’une règle d’alerte de journal appelée *Contoso-Log-Alert*, configurée comme indiqué dans l’[exemple d’alerte de journal de type Nombre de résultats](#example-of-number-of-records-type-log-alert). La condition est une requête d’alerte personnalisée conçue pour rechercher le code de résultat 500 dans les journaux. Si un plus grand nombre de codes de résultats 500 sont trouvés dans les journaux, la condition de l’alerte est vraie. 
 
-- À 13 h 05, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a généré zéro enregistrement avec un code de résultat de 500. Ce résultat est inférieur au seuil et ne déclenche donc pas d’alerte.
-- À l’itération suivante, à 13 h 10, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a fourni cinq enregistrements avec un code de résultat de 500. Comme cinq dépasse le seuil, l’alerte est déclenchée et les actions associées sont déclenchées.
-- À 13 h 15, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a fourni deux enregistrements avec un code de résultat de 500. Comme deux dépasse le seuil, l’alerte est déclenchée et les actions associées sont déclenchées.
-- À présent, à l’itération suivante, à 13 h 20, lorsque Contoso-Log-Alert a été exécutée par l’alerte Azure, le résultat de la recherche dans les journaux a fourni de nouveau zéro enregistrement avec un code de résultat de 500. Ce résultat est inférieur au seuil et ne déclenche donc pas d’alerte.
+À chaque intervalle ci-dessous, le système d’alertes Azure évalue la condition de l’alerte *Contoso-Log-Alert*.
 
-Mais dans le cas listé ci-dessus, à 13 h 15, les alertes Azure ne peuvent pas déterminer si les problèmes sous-jacents observés à 13 h 10 persistent et s’il n’y a pas de nouvelles pannes. Comme la requête fournie par l’utilisateur est susceptible de prendre en compte des enregistrements antérieurs, les alertes Azure peuvent être fiables. Dans la mesure où la logique de l’alerte est encapsulée dans la requête d’alerte, les deux enregistrements avec le code de résultat 500 observés à 13 h 15 peuvent ou non avoir déjà été observés à 13 h 10. Pour plus de prudence, quand Contoso-Log-Alert est exécutée à 13 h 15, l’action configurée est déclenchée à nouveau. Maintenant à 13 h 20 lorsqu’aucun enregistrement n’est visible avec le code de résultat 500, les alertes Azure ne peuvent pas avoir l’assurance que la cause du code de résultat 500 observé à 13 h 10 et à 13 h 15 a été résolue et les alertes Azure Monitor peuvent déduire en toute confiance que les problèmes d’erreur 500 ne se produiront plus pour les mêmes raisons. Par conséquent, Contoso-Log-Alert ne va pas passer à l’état Résolu dans le tableau de bord Azure Alert et/ou les notifications envoyées indiquant la résolution de l’alerte. À la place, l’utilisateur qui comprend la condition exacte ou la raison pour la logique incorporée dans la requête Analytics peut [marquer l’alerte comme étant fermée](alerts-managing-alert-states.md) en fonction des besoins.
+
+| Temps    | Nombre d’enregistrements renvoyé par la requête de recherche dans les journaux | Évaluation de la condition de journal | Résultat 
+| ------- | ----------| ----------| ------- 
+| 13h05 | 0 enregistrement | 0 n’est pas > 0, donc FALSE |  L’alerte ne se déclenche pas. Aucune action n’est appelée.
+| 13h10 | 2 enregistrements | 2 > 0 donc TRUE  | L’alerte se déclenche et les groupes d’actions sont appelés. État d’alerte ACTIF.
+| 13h15 | 5 enregistrements | 5 > 0 donc TRUE  | L’alerte se déclenche et les groupes d’actions sont appelés. État d’alerte ACTIF.
+| 13h20 | 0 enregistrement | 0 n’est pas > 0, donc FALSE |  L’alerte ne se déclenche pas. Aucune action n’est appelée. État d’alerte laissé ACTIF.
+
+En utilisant le cas précédent comme exemple :
+
+À 13h15, les alertes Azure ne peuvent pas déterminer si les problèmes sous-jacents observés à 13h10 persistent et si les enregistrements sont de nouveaux échecs nets ou des répétitions d’échecs plus anciens à 13h10. La requête fournie par l’utilisateur peut ou non prendre en compte les enregistrements précédents et le système ne le sait pas. Le système d’alertes Azure est conçu pour s’exécuter avec prudence et il déclenche l’alerte et les actions associées à nouveau à 13h15. 
+
+À 13h20, lors de la détection de zéro enregistrement avec un code de résultat de 500, les alertes Azure ne peuvent pas être certaines que la cause du code de résultat 500 observé à 13h10 et à 13h15 est désormais résolue. Il ne sait pas si les problèmes d’erreur 500 se reproduiront pour les mêmes raisons. Par conséquent, *Contoso-Log-Alert* ne passe pas à l’état **Résolu** dans le tableau de bord Azure Alert et/ou des notifications ne sont pas envoyées pour indiquer la résolution de l’alerte. Vous seul qui comprenez la condition ou la raison exacte pour la logique incorporée dans la requête Analytics pouvez [marquer l’alerte comme étant fermée](alerts-managing-alert-states.md) en fonction des besoins.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Tarification et facturation des alertes de journal
 

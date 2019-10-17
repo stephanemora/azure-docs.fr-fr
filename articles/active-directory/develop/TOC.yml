@@ -345,6 +345,8 @@
               href: active-directory-how-applications-are-added.md
             - name: Limitations et restrictions des URL de réponse/URI de redirection
               href: reply-url.md
+            - name: Différences de validation par types de comptes pris en charge
+              href: supported-accounts-validation.md
             - name: Application monolocataire et application multilocataire
               href: single-and-multi-tenant-apps.md
         - name: Autorisations et consentement

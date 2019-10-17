@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/27/2019
+ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 65a049070806fd702497d50236e9d541de2e8b1a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672643"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842293"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -60,6 +60,9 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Rôle d’administrateur de cluster Azure Kubernetes Service](#azure-kubernetes-service-cluster-admin-role) | Répertorie les actions relatives aux informations d’identification de l’administrateur du cluster. |
 | [Rôle d’utilisateur de cluster Azure Kubernetes Service](#azure-kubernetes-service-cluster-user-role) | Répertorie les actions relatives aux informations d’identification de l’utilisateur du cluster. |
 | [Lecteur de données Azure Maps (préversion)](#azure-maps-data-reader-preview) | Octroie un accès pour lire les données liées au mappage à partir d’un compte Azure Maps. |
+| [Contributeur Azure Sentinel](#azure-sentinel-contributor) | Contributeur Azure Sentinel |
+| [Lecteur Azure Sentinel](#azure-sentinel-reader) | Lecteur Azure Sentinel |
+| [Répondeur Azure Sentinel](#azure-sentinel-responder) | Répondeur Azure Sentinel |
 | [Propriétaire de données Azure Service Bus](#azure-service-bus-data-owner) | Permet un accès total aux ressources Azure Service Bus. |
 | [Récepteur de données Azure Service Bus](#azure-service-bus-data-receiver) | Permet d’obtenir un accès en réception aux ressources Azure Service Bus. |
 | [Expéditeur de données Azure Service Bus](#azure-service-bus-data-sender) | Permet d’obtenir un accès en envoi aux ressources Azure Service Bus. |
@@ -178,7 +181,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Permet de tout gérer, à l’exception de l’accès aux ressources. |
+> | **Description** | Permet de tout gérer, à l’exception de l’octroi de l’accès aux ressources. |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **Actions** |  |
 > | * | Créer et gérer les ressources de tous les types |
@@ -645,6 +648,89 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | *Aucune* |  |
 > | **DataActions** |  |
 > | Microsoft.Maps/accounts/data/read | Accorde à un compte Maps l’accès en lecture aux données. |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="azure-sentinel-contributor"></a>Contributeur Azure Sentinel
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Contributeur Azure Sentinel |
+> | **Id** | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | **Actions** |  |
+> | Microsoft.SecurityInsights/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Effectue les recherches à l’aide d’un nouveau moteur. |
+> | Microsoft.OperationalInsights/workspaces/read | Obtient un espace de travail existant. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
+> | Microsoft.OperationsManagement/solutions/read | Obtenir la solution OMS existante. |
+> | Microsoft.OperationalInsights/workspaces/query/read | Exécuter des requêtes sur les données dans l’espace de travail |
+> | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
+> | Microsoft.Insights/workbooks/* |  |
+> | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
+> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="azure-sentinel-reader"></a>Lecteur Azure Sentinel
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Lecteur Azure Sentinel |
+> | **Id** | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | **Actions** |  |
+> | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Effectue les recherches à l’aide d’un nouveau moteur. |
+> | Microsoft.OperationalInsights/workspaces/read | Obtient un espace de travail existant. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtient une requête de recherche enregistrée. |
+> | Microsoft.OperationsManagement/solutions/read | Obtenir la solution OMS existante. |
+> | Microsoft.OperationalInsights/workspaces/query/read | Exécuter des requêtes sur les données dans l’espace de travail |
+> | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
+> | Microsoft.Insights/workbooks/read | Lire un classeur |
+> | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
+> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="azure-sentinel-responder"></a>Répondeur Azure Sentinel
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Répondeur Azure Sentinel |
+> | **Id** | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | **Actions** |  |
+> | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/cases/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Effectue les recherches à l’aide d’un nouveau moteur. |
+> | Microsoft.OperationalInsights/workspaces/read | Obtient un espace de travail existant. |
+> | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtient une requête de recherche enregistrée. |
+> | Microsoft.OperationsManagement/solutions/read | Obtenir la solution OMS existante. |
+> | Microsoft.OperationalInsights/workspaces/query/read | Exécuter des requêtes sur les données dans l’espace de travail |
+> | Microsoft.OperationalInsights/workspaces/dataSources/read | Obtenir des sources de données sous un espace de travail. |
+> | Microsoft.Insights/workbooks/read | Lire un classeur |
+> | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
+> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
@@ -1767,7 +1853,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Web/customApis/* | Crée et gère une API personnalisée. |
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Récupère les propriétés d’un plan App Service. |
-> | Microsoft.Web/sites/functions/listSecrets/action | Répertorie les fonctions Web Apps des clés secrètes. |
+> | Microsoft.Web/sites/functions/listSecrets/action | Liste les secrets de fonction. |
 > | **NotActions** |  |
 > | *Aucune* |  |
 > | **DataActions** |  |
@@ -2278,6 +2364,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Lire des points de récupération de réplication. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Réparer la réplication. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Reprotéger l’élément protégé. |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Basculer un conteneur de protection. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Test Failover |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Nettoyage de basculement test. |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Basculement |

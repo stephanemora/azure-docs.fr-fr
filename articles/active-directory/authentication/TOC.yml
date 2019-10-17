@@ -131,6 +131,8 @@
       href: howto-password-smart-lockout.md
     - name: Sans mot de passe
       items:
+        - name: Déploiement sans mot de passe
+          href: howto-authentication-passwordless-deployment.md
         - name: Clés de sécurité sans mot de passe
           href: howto-authentication-passwordless-security-key.md
         - name: Connexion par téléphone sans mot de passe

@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b830538f81d1696c34db3e4f66a07346c17bcdcc
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8dae5bcc082ba5dd0953e3e97f609e4031547a35
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211959"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030642"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Didacticiel : Notifications Push vers des applications iOS Swift qui utilisent l’API REST Notification Hubs
 
@@ -297,7 +297,7 @@ Dans le cadre de cet exemple Swift, vous allez utiliser la bibliothèque open so
 
 Pour ajouter et configurer l’en-tête de pontage :
 
-1. Dans Xcode, sélectionnez **Fichier** > **Nouveau** > **Fichier** > **Fichier d’en-tête**. Nommez le fichier d’en-tête **BridgingHeader.h**.
+1. Dans Xcode, sélectionnez **File** > **New** > **File** > **Header File**. Nommez le fichier d’en-tête **BridgingHeader.h**.
 
 1. Modifiez le fichier à importer **CommonHMAC.h** :
 
@@ -313,11 +313,11 @@ Pour ajouter et configurer l’en-tête de pontage :
 
 1. Mettez à jour les **Paramètres de Build** de la cible pour référencer l’en-tête de pontage :
 
-   1. Ouvrez l’onglet  **Paramètres de Build**  et faites défiler jusqu’à la section  **Compilateur Swift** .
+   1. Ouvrez l’onglet **Building Settings**, puis faites défiler jusqu’à la section **Swift Compiler**.
 
-   1. Veillez à ce que l’option  **Installer l’en-tête de compatibilité Objective-C**  soit définie sur  **Oui**.
+   1. Vérifiez que l’option **Install Objective-C Compatibility Header** est définie sur **Yes**.
 
-   1. Entrez le chemin d’accès `'<ProjectName>/BridgingHeader.h'` dans l’option **En-tête de pontage Objective-C** . Il s’agit du chemin d’accès vers notre en-tête de pontage.
+   1. Entrez le chemin `'<ProjectName>/BridgingHeader.h'` dans l’option **Objective-C bridging Header**. Il s’agit du chemin d’accès vers notre en-tête de pontage.
 
    Si vous ne trouvez pas ces options, assurez-vous de sélectionner la vue **Tout** au lieu de **De base** ou **Personnalisé**.
 

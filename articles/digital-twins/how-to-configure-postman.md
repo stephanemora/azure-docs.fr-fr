@@ -1,19 +1,19 @@
 ---
 title: Guide pratique pour configurer Postman pour Azure Digital Twins | Microsoft Docs
 description: Guide pratique pour configurer Postman pour Azure Digital Twins
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-adgera
-ms.openlocfilehash: f33e5be2408d2ebacd215c5f0601d712197254a7
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 14e6a52f86586eaae019d9658c2f813a15fc3474
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803410"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949205"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -122,7 +122,8 @@ Après avoir effectué les étapes précédentes, configurez Postman pour effect
    [![Type de contenu multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Sérialisez les données non textuelles dans des fichiers. Les données JSON seraient enregistrées dans un fichier JSON.
-1. Sous l’onglet **Corps**, ajoutez chaque fichier en assignant un nom de **clé** et en sélectionnant `file` ou `text`.
+1. Sous l’onglet **Corps**, sélectionnez `form-data`. 
+1. Ajoutez chaque fichier en attribuant un nom de **clé** et en sélectionnant `file`.
 1. Ensuite, sélectionnez chaque fichier à l’aide du bouton **Choisir un fichier**.
 
    [![Exemple de client Postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)

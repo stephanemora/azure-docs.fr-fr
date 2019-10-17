@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: df9e6e3a9116b9a4490d8847e9a9d3e9e112f4f7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/03/2019
+ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098788"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035737"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters Azure HDInsight à l’aide d’actions de script
 
@@ -157,13 +157,9 @@ Cette section explique les différentes façons d’utiliser des actions de scri
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Utiliser une action de script lors de la création d’un cluster à partir du portail Azure
 
-1. Démarrez la création d’un cluster comme décrit dans [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md) Durant la phase de création du cluster, vous arrivez à la page __Résumé du cluster__. Dans la page __Résumé du cluster__, sélectionnez le lien __modifier__ des __Paramètres avancés__.
+1. Passez à la création d’un cluster en suivant les étapes décrites dans [Créer des clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md). Durant la phase de création du cluster, vous arrivez à l’étape 6 : **Actions de script**. Accédez à **Facultatif** >  **+Envoyer**.
 
-    ![Portail Azure - Paramètres de cluster avancés](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
-
-1. Dans la section __Paramètres avancés__, sélectionnez __Actions de script__. Dans la section __Actions de script__, sélectionnez __+ Soumettre nouveau__.
-
-    ![Actions de script du portail - Soumettre nouveau](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Portail Azure - Action de script dans le cluster](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
 1. Utilisez l’entrée __Sélectionner un script__ pour sélectionner un script prédéfini. Pour utiliser un script personnalisé, sélectionnez __Personnalisé__. Entrez ensuite le __nom__ et l’__URI de script Bash__ pour votre script.
 
@@ -185,7 +181,7 @@ Cette section explique les différentes façons d’utiliser des actions de scri
 
     ![HDInsight - Plusieurs actions de script](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    Quand vous avez terminé l’ajout des scripts, choisissez le bouton __Sélectionner__ et le bouton __Suivant__ pour revenir à la section __Résumé du cluster__.
+    Une fois l’ajout de scripts terminé, choisissez le bouton __Sélectionner__ et le bouton __Suivant__ pour passer à la section __Résumé du cluster__.
 
 1. Dans la page __Résumé du cluster__, sélectionnez __Créer__ pour créer le cluster.
 
@@ -235,9 +231,7 @@ Cette section explique comment appliquer des actions de script à un cluster en 
 
 Accédez au [portail Azure](https://portal.azure.com) :
 
-1. Dans le menu de gauche, sélectionnez **Tous les services**.
-
-1. Sous **ANALYTIQUE**, sélectionnez **Clusters HDInsight**.
+1. Dans le menu de gauche, accédez à **Tous les services** >  **Analytique** > **Clusters HDInsight**.
 
 1. Sélectionnez votre cluster dans la liste ; la vue par défaut s’affiche.
 
@@ -336,9 +330,7 @@ Pour obtenir un exemple d’utilisation du SDK .NET afin d’appliquer des scrip
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Dans le menu de gauche, sélectionnez **Tous les services**.
-
-1. Sous **ANALYTIQUE**, sélectionnez **Clusters HDInsight**.
+1. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight**.
 
 1. Sélectionnez votre cluster dans la liste ; la vue par défaut s’affiche.
 
@@ -403,8 +395,8 @@ Deux types de composants open source sont disponibles dans le service HDInsight�
 
   * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
   * Le langage de requête Hive [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-  * [Apache Mahout](https://mahout.apache.org/). 
-    
+  * [Apache Mahout](https://mahout.apache.org/).
+
     La liste complète des composants de cluster est disponible dans [Quels sont les composants et versions Apache Hadoop disponibles avec HDInsight ?](hdinsight-component-versioning.md)
 
 * **Composants personnalisés**. En tant qu’utilisateur du cluster, vous pouvez installer ou utiliser dans votre charge de travail tout composant qui est disponible dans la communauté ou que vous avez créé.

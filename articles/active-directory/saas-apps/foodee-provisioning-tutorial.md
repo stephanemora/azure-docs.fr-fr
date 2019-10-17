@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: abf2a752eaf0f1d0a9a8b07072dfc0b4c1ae45b7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812719"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170069"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Didacticiel : Configurer Foodee pour le provisionnement automatique d’utilisateurs
 
@@ -118,7 +118,7 @@ Configurez le provisionnement automatique d’utilisateurs pour Foodee dans Azur
 
 1. Sous **Informations d’identification de l’administrateur**, procédez comme suit :
 
-   a. Dans la zone **URL de locataire**, entrez la valeur **https://concierge.food.ee/scim/v2** que vous avez récupérée précédemment.
+   a. Dans la zone **URL de locataire**, entrez la valeur **https:\//concierge.food.ee/scim/v2** que vous avez récupérée précédemment.
 
    b. Dans la zone **Secret Token (Jeton secret)** , entrez la valeur **API Token (Jeton d’API)** que vous avez récupérée précédemment.
    

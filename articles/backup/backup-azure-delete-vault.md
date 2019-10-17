@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162204"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028280"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Supprimer un coffre Recovery Services Sauvegarde Azure
 
@@ -84,7 +84,7 @@ Commencez par lire la section **[Avant de commencer](#before-you-start)** pour c
 
         ![Pour MARS, sélectionnez votre coffre pour en ouvrir le tableau de bord.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - Pour MABS ou DPM, sélectionnez  **Serveurs de gestion de sauvegarde**. Ensuite, sélectionnez le serveur à supprimer. 
+      - Pour MABS ou DPM, sélectionnez **Serveurs de gestion de sauvegarde**. Ensuite, sélectionnez le serveur à supprimer. 
 
 
           ![Pour MABS, sélectionnez votre coffre pour en ouvrir le tableau de bord.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)

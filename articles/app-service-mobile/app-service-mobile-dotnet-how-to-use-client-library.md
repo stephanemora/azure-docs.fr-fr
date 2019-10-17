@@ -14,23 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: af0a4af2bec29e68175d2e15203a02507f08bfeb
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2abced3bd7f1afe5e447a60c73da26fa302ced98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446357"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027391"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Utilisation du client géré pour Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center investit dans des services nouveaux et intégrés, essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent surveiller l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics** et interagir avec des utilisateurs à l’aide du service **Push**. Les développeurs peuvent également utiliser **Auth** pour authentifier leurs utilisateurs, ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud. Découvrez [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library) dès aujourd’hui.
->
+> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
+> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
 
 ## <a name="overview"></a>Vue d'ensemble
-Ce guide vous montre comment mettre en place des scénarios courants à l’aide de la bibliothèque cliente gérée pour Azure App Service Mobile Apps pour les applications Windows et Xamarin. Si vous débutez avec Mobile Apps, suivez le didacticiel [Démarrage rapide avec Azure Mobile Apps][1] . Dans ce guide, nous nous concentrons sur le Kit de développement logiciel (SDK) géré côté client. Pour plus d’informations sur les Kits de développement logiciel (SDK) côté serveur pour Mobile Apps, consultez la documentation du [Kit de développement logiciel (SDK) .NET Server][2] or the
-[Node.js Server SDK][3].
+Ce guide vous montre comment mettre en place des scénarios courants à l’aide de la bibliothèque cliente gérée pour Azure App Service Mobile Apps pour les applications Windows et Xamarin. Si vous débutez avec Mobile Apps, suivez le didacticiel [Démarrage rapide avec Azure Mobile Apps][1] . Dans ce guide, nous nous concentrons sur le Kit de développement logiciel (SDK) géré côté client. Pour plus d’informations sur les kits SDK côté serveur pour Mobile Apps, consultez la documentation du [SDK .NET Server][2] ou du [SDK Node.js Server][3].
 
 ## <a name="reference-documentation"></a>Documentation de référence
 La documentation de référence du kit SDK du client se trouve ici : [Référence du client .NET Azure Mobile Apps][4].
@@ -67,8 +66,7 @@ public class TodoItem
 
 L’attribut [JsonPropertyAttribute][6] est utilisé pour définir le mappage *PropertyName* entre le champ client et le champ de la table.
 
-Pour savoir comment créer des tables dans votre back end Mobile Apps, consultez la rubrique relative au [Kit de développement logiciel (SDK) .NET Server][7]
-or the [Node.js Server SDK topic][8]. Si vous avez créé votre backend Mobile Apps dans le Portail Azure avec le démarrage rapide, vous pouvez également utiliser le paramètre **Tables facile** dans le [Portail Azure].
+Pour savoir comment créer des tables dans votre back-end Mobile Apps, consultez la [rubrique SDK .NET Server][7] ou la [rubrique SDK Node.js Server][8]. Si vous avez créé votre backend Mobile Apps dans le Portail Azure avec le démarrage rapide, vous pouvez également utiliser le paramètre **Tables facile** dans le [Portail Azure].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Activation Installer le package du Kit de développement logiciel (SDK) client géré
 Utilisez une des méthodes suivantes pour installer le package du Kit de développement logiciel (SDK) client géré pour applications mobiles à partir de [NuGet][9]:
@@ -86,8 +84,7 @@ using Microsoft.WindowsAzure.MobileServices;
 > Notez que tous les packages de support référencés dans votre projet Android doivent avoir la même version. Le SDK a la dépendance `Xamarin.Android.Support.CustomTabs` pour la plateforme Android. Ainsi, si votre projet utilise des packages de support plus récents, vous devez installer directement ce package avec la version nécessaire pour éviter les conflits.
 
 ### <a name="symbolsource"></a>Procédure : Utilisation des symboles de débogage dans Visual Studio
-Les symboles de l’espace de noms Microsoft.Azure.Mobile sont disponibles sur [SymbolSource][10].  Refer to the
-[SymbolSource instructions][11] pour intégrer SymbolSource à Visual Studio.
+Les symboles de l’espace de noms Microsoft.Azure.Mobile sont disponibles sur [SymbolSource][10].  Consultez les [instructions SymbolSource][11] pour intégrer SymbolSource à Visual Studio.
 
 ## <a name="create-client"></a>Création du client Mobile Apps
 Le code suivant permet de créer l’objet [MobileServiceClient][12] utilisé pour accéder à votre backend Mobile Apps.

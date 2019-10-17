@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1aad2284c0f64c92efaefe3f9145d95c4aabec67
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 457154a797a4b6d9853b1effe0d8121053653a99
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839453"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174761"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Styles de cartes pris en charge dans Azure Maps
 Azure Maps prend en charge plusieurs styles de mappage intégrés, qui sont décrits ci-dessous.
@@ -96,3 +96,11 @@ Le **relief par ombres portées** est un style d’Azure Maps qui reprend le rel
 * [Vignette de la carte](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Contrôle de carte du SDK web
 * Commandes de carte Android
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Découvrez comment définir un style de carte dans Azure Maps :
+
+> [!div class="nextstepaction"]
+> [Choisir un style de carte](https://docs.microsoft.com/en-us/azure/azure-maps/choose-map-style)

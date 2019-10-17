@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/01/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0625a233b3b4a949feff2e289361a26fc8dc5a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f4f26c82d4cda6ce3d8bf01c7fd52fa579e86dcf
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835344"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240229"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -65,9 +65,8 @@ Dans le menu déroulant **Choisir le format du nom de l’identificateur**, vous
 | **Persistent** | Azure AD utilisera Persistent comme format pour NameID. |
 | **EmailAddress** | Azure AD utilisera EmailAddress comme format pour NameID. |
 | **Unspecified** | Azure AD utilisera Unspecified comme format pour NameID. |
-| **Transient** | Azure AD utilisera Transient comme format pour NameID. |
 
-Pour en savoir plus sur l’attribut NameIDPolicy, consultez [Protocole SAML d’authentification unique](single-sign-on-saml-protocol.md).
+Un élément NameID temporaire est également pris en charge, mais il n’est pas disponible dans la liste déroulante et ne peut pas être configuré côté Azure. Pour en savoir plus sur l’attribut NameIDPolicy, consultez [Protocole SAML d’authentification unique](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Attributs
 
@@ -84,6 +83,20 @@ Sélectionnez la source souhaitée pour la revendication `NameIdentifier` (ou Na
 | Attributs d’extension 1-15 | Attributs d’extension local utilisés pour étendre le schéma Azure AD |
 
 Pour plus d’informations, consultez [Tableau 3 : Validez les valeurs d’ID par source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+
+Vous pouvez également attribuer une valeur constante (statique) quelconque à toute revendication que vous définissez dans Azure AD. Suivez les étapes ci-dessous pour attribuer une valeur constante :
+
+1. Dans le [Portail Azure](https://portal.azure.com/), dans la section **Attributs et revendications de l’utilisateur**, cliquez sur l’icône **Modifier** pour modifier les revendications.
+
+1. Cliquez sur la revendication requise que vous souhaitez modifier.
+
+1. Entrez la valeur constante dans **Attribut source** conformément à votre organisation, puis cliquez sur **Enregistrer**.
+
+    ![Ouvrez la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
+
+1. La valeur constante sera affichée comme ci-dessous.
+
+    ![Ouvrez la section Attributs et revendications de l’utilisateur dans le Portail Microsoft Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Transformations de revendications générales
 

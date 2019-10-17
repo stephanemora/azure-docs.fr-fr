@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265982"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030622"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Intégration et livraison continues (CI/CD) dans Azure Data Factory
 
@@ -328,7 +328,7 @@ Si vous êtes en mode GIT, vous pouvez remplacer les propriétés par défaut da
 * Vous utilisez CI/CD automatisé et souhaitez modifier certaines propriétés pendant le déploiement de Resource Manager, mais les propriétés ne sont pas paramétrables par défaut.
 * Votre fabrique est si volumineuse que le modèle Resource Manager par défaut n’est pas valide car il dépasse le nombre maximum autorisé de paramètres (256).
 
-Dans ces conditions, pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé  *arm-template-parameters-definition.json*  dans le dossier racine du référentiel. Le nom de fichier doit correspondre exactement. Data Factory tente de lire ce fichier à partir de la branche dans laquelle vous vous trouvez actuellement dans le portail Azure Data Factory, et pas uniquement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications à l’aide du **modèle Export ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration. Si aucun fichier n’est trouvé, le modèle par défaut est utilisé.
+Dans ces conditions, pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé *arm-template-parameters-definition.json* dans le dossier racine du dépôt. Le nom de fichier doit correspondre exactement. Data Factory tente de lire ce fichier à partir de la branche dans laquelle vous vous trouvez actuellement dans le portail Azure Data Factory, et pas uniquement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications à l’aide du **modèle Export ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration. Si aucun fichier n’est trouvé, le modèle par défaut est utilisé.
 
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Syntaxe d’un fichier de paramètres personnalisés

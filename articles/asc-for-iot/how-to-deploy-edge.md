@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: bb6a975d2a2fc2cc3e65fa8969f8b005be8b1417
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299718"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176664"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
@@ -70,7 +70,7 @@ La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s�
 
 #### <a name="step-1-add-modules"></a>Étape 1 : Ajouter des modules
 
-1. À partir de l’onglet **Ajouter des modules**, dans la zone **Modules de déploiement**, cliquez sur **AzureSecurityCenterforIoT**. 
+1. À partir de l’onglet **Ajouter des modules**, dans la zone **Modules de déploiement**, cliquez sur l’option **Configurer** pour **AzureSecurityCenterforIoT**. 
    
 1. Remplacez **nom** par **azureiotsecurity**.
 1. Remplacez **URI d’Image** par **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
@@ -95,10 +95,13 @@ La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s�
 1. Vérifiez que l’option **Définir les propriétés souhaitées du jumeau de module** est activée, puis remplacez l’objet de configuration par :
       
     ``` json
-    "desired": {
-        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-          } 
-        }
+    { 
+       "properties.desired":{ 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
+
+          }
+       }
+    }
     ```
 
 1. Cliquez sur **Enregistrer**.
@@ -110,13 +113,25 @@ La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s�
          
     ``` json
     { 
-    "HostConfig":{
-                    "PortBindings":{
-                    "8883/tcp": [{"HostPort": "8883"}],
-                    "443/tcp": [{"HostPort": "443"}],
-                    "5671/tcp": [{"HostPort": "5671"}]
-                    }
-        }
+       "HostConfig":{ 
+          "PortBindings":{ 
+             "8883/tcp":[ 
+                { 
+                   "HostPort":"8883"
+                }
+             ],
+             "443/tcp":[ 
+                { 
+                   "HostPort":"443"
+                }
+             ],
+             "5671/tcp":[ 
+                { 
+                   "HostPort":"5671"
+                }
+             ]
+          }
+       }
     }
     ```
 1. Cliquez sur **Enregistrer**.
@@ -125,16 +140,15 @@ La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s�
 
 #### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des routes 
 
-1. Dans l’onglet **Spécifier les itinéraires**, vérifiez que vous disposez d’un itinéraire (explicite ou implicite) qui transférera les messages depuis le module **azureiotsecurity** vers **$upstream**. 
-1. Cliquez sur **Suivant**.
+1. Sous l’onglet **Spécifier des routes**, vérifiez que vous avez une route (explicite ou implicite) qui va transférer les messages depuis le module **azureiotsecurity** vers **$upstream** conformément aux exemples suivants, ensuite seulement cliquez sur **Suivant**. 
 
-    ~~~Default implicit route
-    "route": "FROM /messages/* INTO $upstream" 
-    ~~~
+~~~Default implicit route
+"route": "FROM /messages/* INTO $upstream" 
+~~~
 
-    ~~~Explicit route
-    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-    ~~~
+~~~Explicit route
+"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+~~~
 
 #### <a name="step-3-review-deployment"></a>Étape 3 : Vérifier le déploiement
 

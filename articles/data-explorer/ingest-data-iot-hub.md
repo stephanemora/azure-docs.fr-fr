@@ -7,14 +7,19 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: cbe9aa2ea664d97df6008de05d6cb84da9771bcc
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 9f1bd795af2802af642d48b4a16a55425c5f4c7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166442"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028472"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Ingérer les données d’un hub IoT dans Azure Data Explorer (préversion)
+
+> [!div class="op_single_selector"]
+> * [Portal](ingest-data-iot-hub.md)
+> * [C#](data-connection-iot-hub-csharp.md)
+> * [Python](data-connection-iot-hub-python.md)
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. Azure Data Explorer propose l’ingestion (chargement de données) à partir d’un hub IoT, plateforme de streaming de big data et service d’ingestion IoT.
 
@@ -80,8 +85,7 @@ Connectez-vous maintenant au hub IoT depuis Azure Data Explorer. Une fois cette 
     | IoT Hub | Nom de l’IoT Hub |
     | Stratégie d’accès partagé | Nom de la stratégie d’accès partagé. Doit avoir des autorisations de lecture |
     | Groupe de consommateurs |  Groupe de consommateurs défini dans le point de terminaison intégré au hub IoT |
-    | Propriétés du système d’événements | Propriétés du système d’événements de hub IoT |
-    | | 
+    | Propriétés du système d’événements | [Propriétés système d’événement du hub IoT](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). Lors de l’ajout des propriétés système, [créez](/azure/kusto/management/tables#create-table) ou [mettez à jour](/azure/kusto/management/tables#alter-table-and-alter-merge-table) le schéma de table et le [mappage](/azure/kusto/management/mappings) pour inclure les propriétés sélectionnées. | | | 
 
     > [!NOTE]
     > En cas de [basculement manuel](/azure/iot-hub/iot-hub-ha-dr#manual-failover), vous devez recréer la connexion de données.
@@ -94,12 +98,13 @@ Connectez-vous maintenant au hub IoT depuis Azure Data Explorer. Une fois cette 
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
     | Table | *TestTable* | Table que vous avez créée dans **testdb**. |
-    | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, JSON MULTILIGNE, PSV, SOH, SCSV, TSV et TXT. |
-    | Mappage de colonnes | *TestMapping* | Mappage que vous avez créé dans **testdb**, qui mappe les données JSON entrantes aux noms de colonnes et aux types de données de **testdb**. Obligatoire pour les formats JSON, MULTILINE JSON et AVRO, et facultatif pour les autres formats.|
+    | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE et TXT. |
+    | Mappage de colonnes | *TestMapping* | [Mappage](/azure/kusto/management/mappings) que vous avez créé dans **testdb**, qui mappe les données JSON entrantes aux noms de colonnes et aux types de données de **testdb**. Obligatoire pour les formats JSON, MULTILINE JSON et AVRO, et facultatif pour les autres formats.|
     | | |
 
-    > [!TIP]
-    > Sélectionnez **My data includes routing info** pour utiliser le routage dynamique, où vos données incluent les informations de routage nécessaires comme indiqué dans les commentaires de l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si à la fois des propriétés statiques et des propriétés dynamiques sont définies, les propriétés dynamiques remplacent les propriétés statiques. 
+    > [!NOTE]
+    > * Sélectionnez **My data includes routing info** pour utiliser le routage dynamique, où vos données incluent les informations de routage nécessaires comme indiqué dans les commentaires de l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). Si à la fois des propriétés statiques et des propriétés dynamiques sont définies, les propriétés dynamiques remplacent les propriétés statiques. 
+    > * Seuls les événements mis en file d’attente après que vous avez créé la connexion de données sont ingérés.
 
 ## <a name="generate-sample-data-for-testing"></a>Générer des exemples de données pour les tests
 

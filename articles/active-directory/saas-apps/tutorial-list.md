@@ -17,12 +17,12 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a87346d76bbf1502a073f4bcb4d11eb659929d
-ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.openlocfilehash: 4594d54f245c8fb96e62d7f193816e1031138ec0
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67358149"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026140"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Didacticiels pour l’intégration d’applications SaaS avec Azure Active Directory
 
@@ -50,7 +50,7 @@ Pour accéder à d’autres didacticiels, reportez-vous à la table des matière
 | ![Logo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Alibaba Cloud Service (SSO par rôle)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![Logo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Google Cloud Platform](google-apps-tutorial.md)| [Google Cloud Platform - Approvisionnement d’utilisateurs](google-apps-provisioning-tutorial.md) |
 | ![Logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce - Approvisionnement d’utilisateurs](salesforce-provisioning-tutorial.md) |
-| ![Logo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)| |
+| ![Logo](./media/tutorial-list/active-directory-saas-sapboc-tutorial.png)| [SAP Cloud Identity Platform](saphana-tutorial.md)|[SAP Cloud Identity Platform - Provisionnement](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial) |
 
 ## <a name="oneclick-sso"></a>Authentification unique OneClick
 

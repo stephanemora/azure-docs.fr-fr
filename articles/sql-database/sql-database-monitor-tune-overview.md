@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 83ff39e9f3b7f95256466c74011e55ebdc22a7a9
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910525"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935599"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Surveillance et optimisation des performances
 
@@ -187,7 +187,7 @@ Une recompilation (ou une nouvelle compilation après éviction du cache) peut t
 
 Après avoir identifié le problème, vous pouvez soit optimiser les requêtes posant problème, soit changer la taille de calcul ou le niveau de service de façon à augmenter la capacité de votre base de données SQL pour répondre aux besoins en ressources de processeur. 
 
-Pour plus d’informations, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](sql-database-single-database-scale.md) et [Mettre à l’échelle un pool élastique dans Azure SQL Database](sql-database-elastic-pool-scale.md). Pour plus d’informations sur la mise à l’échelle d’une instance managée, consultez [Limites de ressources au niveau de l’instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Pour plus d’informations, consultez [Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database](sql-database-single-database-scale.md) et [Mettre à l’échelle un pool élastique dans Azure SQL Database](sql-database-elastic-pool-scale.md). Pour plus d’informations sur la mise à l’échelle d’une instance managée, consultez [Limites de ressources des niveaux de service](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="performance-problems-caused-by-increased-workload-volume"></a>Problèmes de performances dus à une hausse du volume de la charge de travail
 

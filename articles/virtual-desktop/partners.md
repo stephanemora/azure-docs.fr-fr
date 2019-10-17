@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 90007a82acce0010504bc06e96801869aea4a87a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673023"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937501"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Intégrations de partenaires Windows Virtual Desktop
 
@@ -33,9 +33,9 @@ Citrix étend la valeur de Windows Virtual Desktop à l’aide d’outils d’en
 
 ![Logo VMware](./media/partners/vmware.png)
 
-VMware Horizon Cloud sur Microsoft Azure permet aux organisations de connecter leur propre instance de Microsoft Azure au plan de contrôle simple et intuitif d’Horizon Cloud, créant ainsi une solution sécurisée, complète et hébergée dans le cloud pour la fourniture d’applications et de bureaux Windows virtualisés. Avec la mise en production de Windows Virtual Desktop, VMware s’est associé à Microsoft pour étendre les fonctionnalités de Windows Virtual Desktop aux clients utilisant Horizon Cloud sur Microsoft Azure.
-
-VMware étant un fournisseur approuvé, les clients VMware Horizon Cloud sur Microsoft Azure bénéficient de tous les avantages de Windows Virtual Desktop, tels que Windows 10 Entreprise pour les sessions multiples, Windows 7 avec mises à jour de sécurité étendues gratuites pendant jusqu’à trois ans et les fonctionnalités FSLogix. Ces avantages s’ajoutent à l’ensemble des fonctionnalités modernes de classe entreprise d’Horizon Cloud, telles que la prise en charge étendue des points de terminaison, l’intermédiation globale optimisée pour le cloud, des options et configurations de bureau flexibles, la gestion de l’environnement utilisateur et la prise en charge des environnements hybrides. 
+VMware Horizon Cloud sur Microsoft Azure permet aux organisations de connecter leur propre instance de Microsoft Azure au plan de contrôle simple et intuitif d’Horizon Cloud, créant ainsi une solution sécurisée, complète et hébergée dans le cloud pour la fourniture d’applications et de bureaux Windows virtualisés. Avec la mise en production de Windows Virtual Desktop, VMware s’est associé à Microsoft pour étendre les fonctionnalités de Windows Virtual Desktop aux clients utilisant Horizon Cloud sur Microsoft Azure. Cette fonctionnalité sera disponible dans la version Tech Preview d’ici la fin 2019.
+ 
+En tant que fournisseur approuvé, les avantages de Windows Virtual Desktop seront étendus aux clients VMware Horizon Cloud sur Microsoft Azure, notamment Windows 10 Entreprise pour les sessions multiples, Windows 7 avec les mises à jour de sécurité étendues gratuites pendant trois ans et FSLogix. De plus, les clients bénéficieront des fonctionnalités adaptées aux grandes entreprises de Horizon Cloud, comme la prise en charge étendue des points de terminaison ; l’intermédiation globale optimisée pour le cloud ; les configurations et les options de bureau flexibles ; la gestion des environnements utilisateur ; et la prise en charge des environnements hybrides.
 
 - [Inscrivez-vous pour avoir accès à la préversion (Tech Preview) d’Horizon Cloud sur Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Visitez le site web du partenaire](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
@@ -93,7 +93,7 @@ Nerdio est une plate-forme d'automatisation informatique Azure qui facilite le d
 Nerdio étend la valeur de Windows Virtual Desktop en facilitant l'allocation des ressources Azure et en rationalisant le déploiement. Avec Nerdio pour Azure, les services informatiques peuvent déployer et gérer automatiquement un environnement Azure complet, y compris Windows Virtual Desktop, en moins de deux heures.
 
 - [Consultez le résumé de la solution conjointe](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
-- [Visitez le site web du partenaire](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/).
+- [Visitez le site web du partenaire](https://getnerdio.com/windows-virtual-desktop/).
 
 ## <a name="thinprint"></a>ThinPrint
 

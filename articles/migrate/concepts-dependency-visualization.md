@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b71146f0c2aff51a0c2498705b047e9fa4632c8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202900"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178135"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -51,7 +51,7 @@ Azure Migrate utilise la solution [Service Map](../operations-management-suite/o
   > Une fois que vous avez joint un espace de travail à un projet, vous ne pouvez plus le modifier.
 
   > [!NOTE]
-  > Azure Migrate prend actuellement en charge la création d’un espace de travail OMS dans les régions USA Est, Asie Sud-Est et Europe Ouest. Si l’espace de travail est créé en dehors d’Azure Migrate dans une autre région, actuellement il ne peut pas être associé à un projet Azure Migrate. 
+  > Azure Migrate prend actuellement en charge la création ou l’association des espaces de travail Log Analytics situés dans les régions USA Est, Asie Sud-Est et Europe Ouest. Si l’espace de travail est créé en dehors d’Azure Migrate dans une région non prise en charge, il ne peut actuellement pas être associé à un projet Azure Migrate. 
 
 - L’espace de travail associé est étiqueté avec la clé **Projet de migration** et la valeur **Nom du projet**, que vous pouvez utiliser pour effectuer une recherche dans le portail Azure.
 - Pour accéder à l’espace de travail associé au projet, vous pouvez accéder à la section **Bases** de la page **Vue d’ensemble** du projet.

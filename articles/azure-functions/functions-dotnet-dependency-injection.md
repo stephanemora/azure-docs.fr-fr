@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: e1cf67abcc44a3ca134e5435137869d4fff1a7eb
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: de8782edcc8b9c64621f1ca67d4bb810c926afaf
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162362"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973386"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -157,7 +157,9 @@ Le remplacement des services fournis par l’hôte n’est pas pris en charge ac
 
 Des valeurs définies dans les [paramètres de l’application](./functions-how-to-use-azure-function-app-settings.md#settings) sont disponibles dans une instance `IConfiguration`, ce qui vous permet de lire les valeurs de paramètres d’application dans la classe de démarrage.
 
-Vous pouvez extraire des valeurs de l’instance `IConfiguration` dans un type personnalisé. La copie des valeurs de paramètres d’application dans un type personnalisé facilite le test de vos services en rendant ces valeurs injectables. Considérons la classe suivante qui comprend une propriété nommée cohérente avec un paramètre d’application.
+Vous pouvez extraire des valeurs de l’instance `IConfiguration` dans un type personnalisé. La copie des valeurs de paramètres d’application dans un type personnalisé facilite le test de vos services en rendant ces valeurs injectables. Les paramètres lus dans l’instance de configuration doivent être des paires clé-valeur simples.
+
+Considérons la classe suivante qui comprend une propriété nommée cohérente avec un paramètre d’application.
 
 ```csharp
 public class MyOptions

@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
-ms.openlocfilehash: 201f35e7b3ccf7c113ae30a6d007ad3a1f9adb98
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6996a5965454dfd5997f0c0404e0c348c68b626f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087680"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177472"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Authentification de service à service auprès d’Azure Key Vault à l’aide de .NET
 
@@ -87,7 +87,7 @@ Pour utiliser Azure CLI :
 
 1. Connectez-vous au portail Azure : *az login* pour se connecter à Azure.
 
-1. Vérifiez l’accès en entrant *az account get-access-token*. Si vous recevez une erreur, vérifiez que la version appropriée d’Azure CLI est correctement installée.
+1. Vérifiez l’accès en entrant *az account get-access-token --resource https://vault.azure.net* . Si vous recevez une erreur, vérifiez que la version appropriée d’Azure CLI est correctement installée.
 
    Si Azure CLI n’est pas installé dans le répertoire par défaut, vous pouvez recevoir une erreur signalant que `AzureServiceTokenProvider` ne peut pas trouver le chemin d’accès à Azure CLI. Utilisez la variable d’environnement **AzureCLIPath** pour définir le dossier d’installation d’Azure CLI. Le paramètre `AzureServiceTokenProvider` ajoute le répertoire spécifié dans la variable d’environnement **AzureCLIPath** à la variable d’environnement **Path**, le cas échéant.
 
@@ -171,7 +171,11 @@ Il existe trois méthodes principales d’utilisation d’un principal de servic
 
 ### <a name="use-a-shared-secret-credential-to-sign-into-azure-ad"></a>Utilisez une information d’identification de secret partagé pour vous connecter à Azure AD
 
-1. Créer un certificat principal de service à l’aide du mot de passe [az ad sp create-for-rbac --password](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac).
+1. Créez un certificat principal de service avec un mot de passe à l’aide de la commande Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) et du paramètre --sdk-auth.
+
+    ```azurecli
+    az ad sp create-for-rbac --sdk-auth
+    ```
 
 1. Définissez la variable d’environnement **AzureServicesAuthConnectionString** sur la valeur suivante :
 

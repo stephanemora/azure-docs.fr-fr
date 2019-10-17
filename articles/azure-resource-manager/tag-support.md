@@ -4,14 +4,14 @@ description: Indique les types de ressources Azure qui prennent en charge les é
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 06028224379bd42e1e0ea21b684ce443abd5992a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996823"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937014"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md). La colonne intitulée **Prend en charge les balises** indique si le type de ressource a une propriété pour la balise. La colonne intitulée **Balise dans le rapport des coûts** indique si ce type de ressource transmet la balise au rapport des coûts.
@@ -40,7 +40,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -123,6 +122,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -393,6 +393,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | billingAccounts/customers | Non |Non |
 > | billingAccounts/customers/billingSubscriptions | Non |Non |
 > | billingAccounts/customers/initiateTransfer | Non |Non |
+> | billingAccounts/customers/policies | Non |Non |
 > | billingAccounts/customers/products | Non |Non |
 > | billingAccounts/customers/transactions | Non |Non |
 > | billingAccounts/customers/transfers | Non |Non |
@@ -440,13 +441,6 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | mapApis | OUI |OUI |
 > | updateCommunicationPreference | Non |Non |
-
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
-> | ------------- | ----------- | ----------- |
-> | BizTalk | OUI |OUI |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -542,7 +536,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | capabilities | Non |Non |
-> | domainNames | OUI |OUI |
+> | domainNames | Non |Non |
 > | domainNames/capabilities | Non |Non |
 > | domainNames/internalLoadBalancers | Non |Non |
 > | domainNames/serviceCertificates | Non |Non |
@@ -556,7 +550,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | quotas | Non |Non |
 > | resourceTypes | Non |Non |
 > | validateSubscriptionMoveAvailability | Non |Non |
-> | virtualMachines | OUI |OUI |
+> | virtualMachines | Non |Non |
 > | virtualMachines/diagnosticSettings | Non |Non |
 > | virtualMachines/metricDefinitions | Non |Non |
 > | virtualMachines/metrics | Non |Non |
@@ -577,10 +571,10 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | expressRouteCrossConnections | Non |Non |
 > | expressRouteCrossConnections/peerings | Non |Non |
 > | gatewaySupportedDevices | Non |Non |
-> | networkSecurityGroups | OUI |OUI |
+> | networkSecurityGroups | Non |Non |
 > | quotas | Non |Non |
-> | reservedIps | OUI |OUI |
-> | virtualNetworks | OUI |OUI |
+> | reservedIps | Non |Non |
+> | virtualNetworks | Non |Non |
 > | virtualNetworks/remoteVirtualNetworkPeeringProxies | Non |Non |
 > | virtualNetworks/virtualNetworkPeerings | Non |Non |
 
@@ -596,7 +590,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | osPlatformImages | Non |Non |
 > | publicImages | Non |Non |
 > | quotas | Non |Non |
-> | storageAccounts | OUI |OUI |
+> | storageAccounts | Non |Non |
 > | storageAccounts/blobServices | Non |Non |
 > | storageAccounts/fileServices | Non |Non |
 > | storageAccounts/metricDefinitions | Non |Non |
@@ -634,10 +628,10 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | diskEncryptionSets | OUI |OUI |
 > | disks | OUI |OUI |
 > | galleries | OUI |OUI |
-> | galeries/applications | OUI |OUI |
-> | galleries/applications/versions | OUI |OUI |
-> | galleries/images | OUI |OUI |
-> | galleries/images/versions | OUI |OUI |
+> | galeries/applications | Non |Non |
+> | galleries/applications/versions | Non |Non |
+> | galleries/images | Non |Non |
+> | galleries/images/versions | Non |Non |
 > | hostGroups | OUI |OUI |
 > | hostGroups/hosts | OUI |OUI |
 > | images | OUI |OUI |
@@ -645,13 +639,11 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | restorePointCollections | OUI |OUI |
 > | restorePointCollections/restorePoints | Non |Non |
 > | sharedVMImages | OUI |OUI |
-> | sharedVMImages/versions | OUI |OUI |
+> | sharedVMImages/versions | Non |Non |
 > | snapshots | OUI |OUI |
 > | virtualMachines | OUI |OUI |
 > | virtualMachines/extensions | OUI |OUI |
 > | virtualMachines/metricDefinitions | Non |Non |
-> | virtualMachines/scriptJobs | Non |Non |
-> | virtualMachines/softwareUpdateDeployments | Non |Non |
 > | virtualMachineScaleSets | OUI |OUI |
 > | virtualMachineScaleSets/extensions | Non |Non |
 > | virtualMachineScaleSets/networkInterfaces | Non |Non |
@@ -776,7 +768,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Rapports | Non |Non |
 > | Paramètres | Non |Non |
 > | showbackRules | Non |Non |
-> | Views | Non |Non |
+> | Les vues | Non |Non |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
@@ -919,6 +911,9 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | serverGroups | OUI |OUI |
 > | servers | OUI |OUI |
 > | servers/advisors | Non |Non |
+> | servers/privateEndpointConnectionProxies | Non |Non |
+> | servers/privateEndpointConnections | Non |Non |
+> | servers/privateLinkResources | Non |Non |
 > | servers/queryTexts | Non |Non |
 > | servers/recoverableServers | Non |Non |
 > | servers/topQueryStatistics | Non |Non |
@@ -1199,6 +1194,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | clusters/databases | Non |Non |
 > | clusters/databases/dataconnections | Non |Non |
 > | clusters/databases/eventhubconnections | Non |Non |
+> | clusters/sharedidentities | Non |Non |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1363,11 +1359,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | OUI |OUI |
+> | netAppAccounts/backupPolicies | OUI |OUI |
 > | netAppAccounts/capacityPools | OUI |OUI |
 > | netAppAccounts/capacityPools/volumes | OUI |OUI |
+> | netAppAccounts/capacityPools/volumes/backups | Non |Non |
 > | netAppAccounts/capacityPools/volumes/mountTargets | OUI |OUI |
 > | netAppAccounts/capacityPools/volumes/snapshots | OUI |OUI |
-
+> | netAppAccounts/vaults | Non |Non |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1458,6 +1456,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > [!NOTE]
 > Pour Azure Front Door Service, vous pouvez appliquer des balises lors de la création de la ressource, mais la mise à jour ou l’ajout de balises n’est actuellement pas pris en charge.
 
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1465,6 +1464,13 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | ------------- | ----------- | ----------- |
 > | namespaces | OUI |Non |
 > | namespaces/notificationHubs | OUI |Non |
+
+## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Type de ressource | Prend en charge les étiquettes | Balise dans le rapport des coûts |
+> | ------------- | ----------- | ----------- |
+> | osNamespaces | OUI |OUI |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1614,6 +1620,8 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | les ressources | Non |Non |
 > | subscriptions | Non |Non |
 > | subscriptions/providers | Non |Non |
+> | subscriptions/resourceGroups | Non |Non |
+> | subscriptions/resourcegroups/resources | Non |Non |
 > | subscriptions/resources | Non |Non |
 > | subscriptions/tagnames | Non |Non |
 > | subscriptions/tagNames/tagValues | Non |Non |
@@ -1680,6 +1688,7 @@ Accédez à un espace de noms du fournisseur de ressources :
 > | securityStatusesSummaries | Non |Non |
 > | serverVulnerabilityAssessments | Non |Non |
 > | paramètres | Non |Non |
+> | subAssessments | Non |Non |
 > | tâches | Non |Non |
 > | topologies | Non |Non |
 > | workspaceSettings | Non |Non |

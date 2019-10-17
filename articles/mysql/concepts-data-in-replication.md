@@ -1,17 +1,17 @@
 ---
-title: Répliquer des données Azure Database pour MySQL.
-description: Cet article décrit la réplication des données entrantes pour Azure Database pour MySQL.
+title: Répliquer des données dans Azure Database pour MySQL
+description: Découvrez comment utiliser la réplication de données entrantes à synchroniser entre un serveur externe et le service Azure Database pour MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 5ef11e86b85a537a809352325d56ac3ff983c2c1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b501a1f1ea54aff5617932dc5085d6d19f86976c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993049"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970348"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Répliquer des données dans Azure Database pour MySQL
 
@@ -48,4 +48,4 @@ La [*base de données système mysql*](https://dev.mysql.com/doc/refman/5.7/en/s
 ## <a name="next-steps"></a>Étapes suivantes
 - Découvrez comment [configurer la réplication des données entrantes](howto-data-in-replication.md)
 - En savoir plus sur la [réplication dans Azure avec des réplicas en lecture](concepts-read-replicas.md)
-- Découvrez comment migrer des données avec un temps d’arrêt minimal à l’aide de DMS](howto-migrate-online.md).
+- Découvrez comment [migrer des données avec un temps d’arrêt minimal à l’aide de DMS](howto-migrate-online.md).
