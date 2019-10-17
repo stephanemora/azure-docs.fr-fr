@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: ea8f14a7013a937ddd77baf0f50b8dca09cabad6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 10/04/2019
+ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076325"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167347"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
 
@@ -45,7 +45,6 @@ Consultez le tableau suivant pour découvrir les différentes façon d’utilise
 | [API REST](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
-
 ## <a name="hiveql-language-reference"></a>Référence du langage HiveQL
 
 Les informations de référence sur le langage HiveQL sont disponibles dans le [manuel du langage](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
@@ -67,7 +66,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive prend également en charge un **sérialiseur/ désérialiseur (SerDe)** personnalisé pour des données structurées de manière irrégulière ou complexes. Pour plus d’informations, consultez le document [Utilisation d’un SerDe JSON personnalisé avec HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
+Hive prend également en charge un **sérialiseur/ désérialiseur (SerDe)** personnalisé pour des données structurées de manière irrégulière ou complexes. Pour plus d’informations, consultez le document [Utilisation d’un SerDe JSON personnalisé avec HDInsight](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/).
 
 Pour plus d’informations sur les formats de fichier pris en charge par Hive, consultez le [manuel de langage (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -127,13 +126,12 @@ CREATE EXTERNAL TABLE log4jLogs (
     t7 string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
-SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
-    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
+SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
+    WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log'
     GROUP BY t4;
 ```
 
 Dans l’exemple précédent, les instructions HiveQL effectuent les opérations suivantes :
-
 
 * `DROP TABLE`: Si la table existe déjà, supprimez-la.
 
@@ -171,7 +169,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 Ces instructions effectuent les opérations suivantes :
 
-* `CREATE TABLE IF NOT EXISTS`: Si la table n’existe pas, créez-la. Étant donné que le mot-clé **EXTERNAL** n’est pas utilisé, cette instruction crée une table interne. La table est stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
+* `CREATE TABLE IF NOT EXISTS`: Si la table n’existe pas, créez-la. Étant donné que le mot clé **EXTERNAL** n’est pas utilisé, cette instruction crée une table interne. La table est stockée dans l’entrepôt de données Hive et gérée intégralement par Hive.
 
 * `STORED AS ORC`: Stocke les données dans un format ORC (Optimized Row Columnar). ORC est un format particulièrement efficace et optimisé pour le stockage de données Hive.
 

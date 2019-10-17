@@ -150,8 +150,14 @@
     - name: Automatisation de l’infrastructure
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Sécurité et stratégie
-      href: ../virtual-machines/windows/security-policy.md
+    - name: Sécurité
+      items:
+        - name: Sécurité et stratégie
+          href: ../virtual-machines/windows/security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Contrôles de sécurité intégrés
+          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: Surveillance
       href: ../virtual-machines/windows/monitor.md
@@ -163,8 +169,6 @@
           maintainContext: true
     - name: FAQ sur le groupe identique
       href: virtual-machine-scale-sets-faq.md
-    - name: Contrôles de sécurité intégrés
-      href: virtual-machine-scale-sets-security-controls.md
 - name: Procédure
   items:
     - name: Planifier et concevoir
@@ -212,12 +216,15 @@
         - name: Chiffrer des disques dans des groupes identiques
           items:
             - name: Utiliser PowerShell
-              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+              href: disk-encryption-powershell.md
             - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
-              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+              href: disk-encryption-cli.md
+            - name: Utiliser les modèles Azure Resource Manager
+              href: disk-encryption-azure-resource-manager.md
             - name: Séquencement d’extensions
-              href: ../security/azure-security-disk-encryption-extension-sequencing.md
-              maintainContext: true
+              href: disk-encryption-extension-sequencing.md
+            - name: Coffre de clés pour Azure Disk Encryption
+              href: disk-encryption-key-vault.md
         - name: Travailler avec des groupes identiques de grande taille
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertir un modèle de groupe identique pour utiliser un disque géré

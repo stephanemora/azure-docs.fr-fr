@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentation Azure Managed Applications
 metadata:
-  title: 'Documentation Azure Managed Applications - Didacticiels, informations de référence sur les API'
+  title: Documentation Azure Managed Applications
   description: Utilisez Azure Managed Applications pour publier des solutions Cloud plus faciles à gérer pour les utilisateurs.
   services: managed-applications
   author: tfitzmac
@@ -25,7 +25,7 @@ sections:
         items:
           - image:
               src: /azure/managed-applications/media/index/cli.svg
-            text: Azure CLI
+            text: D’Azure CLI
             href: /azure/managed-applications/managed-apps-quickstart-cli
   - title: Didacticiels pas à pas
     items:
