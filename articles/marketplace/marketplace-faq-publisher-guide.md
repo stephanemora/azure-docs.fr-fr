@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827984"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969583"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>FAQ sur la Place de marché commerciale de Microsoft
 
@@ -381,9 +381,9 @@ Pour plus d’informations, consultez [Suppression d’une offre](./cloud-partne
     > [!NOTE]
     > Les applications disparaissent d’une liste existante après 90 jours.
 
-*Applications Power BI :*
+**Pourquoi mes modifications n’apparaissent-elles pas dans l’offre ?**
 
-Contact : [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+Les modifications apportées dans l’Espace partenaires sont uniquement mises à jour dans le système. Elles le sont ensuite dans le store une fois que vous avez republié l’offre. Veillez à soumettre l’offre pour publication après toute modification.
 
 ### <a name="benefits-and-go-to-market-gtm-resources"></a>Ressources et avantages pour la commercialisation (GTM)
 
@@ -463,6 +463,16 @@ Les transactions peuvent être effectuées dans les 17 devises suivantes : AUD
 **Quelle est la différence entre le niveau Gratuit et une version d’évaluation gratuite ?**
 
 Un abonnement de niveau Gratuit est une offre perpétuelle gratuite.  Une offre Essai gratuit du logiciel (essayez-le maintenant) est une offre payante, disponible gratuitement pour une durée limitée.
+
+**Quel est le processus qui permet de valider l’achat de bout en bout et le flux de provisionnement ?**
+
+Pendant le processus de publication, vous aurez accès à un aperçu de votre offre. Cet accès est limité aux utilisateurs que vous avez spécifiés sous l’onglet Aperçu, et il s’agit d’une offre en direct que personne d’autre ne peut voir. Vous pouvez l’acheter et tester le processus. Cependant, le montant total vous sera facturé conformément à la configuration de votre offre.
+
+Pour effectuer un achat à un prix très bas, Microsoft vous conseille de publier un plan privé pour vous-même dont vous pourrez accepter le prix comme coût de test. Il est possible de fixer un coût égal à zéro, mais vous ne profiterez pas d’une expérience complète comme le permet un abonnement payant.
+
+**Est-ce que Microsoft versera un remboursement en dehors des stratégies standard ?**
+
+Oui, aussitôt que vous en aurez fait la demande via un ticket de support, Microsoft créditera votre client si vous le jugez opportun.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,21 +1,21 @@
 ---
-title: Versions prises en charge dans Azure Database for MariaDB
-description: Décrit les versions prises en charge dans Azure Database for MariaDB.
+title: Versions prises en charge - Azure Database for MariaDB
+description: Découvrez les versions du serveur MariaDB qui sont prises en charge dans le service Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: e5d1dbc8c212d4cdefb12fb740a454324d3adfa1
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 950f8600dac6fccfa72f5dea6e900a210572ee38
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962915"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973532"
 ---
 # <a name="supported-azure-database-for-mariadb-server-versions"></a>Versions du serveur Azure Database for MariaDB prises en charge
 
-Azure Database for MariaDB a été développé à partir du [serveur MariaDB](https://downloads.mariadb.org/) open source, en utilisant le moteur InnoDB. 
+Azure Database for MariaDB a été développé à partir du [serveur MariaDB](https://downloads.mariadb.org/) open source, en utilisant le moteur InnoDB.
 
 MariaDB utilise le schéma de nommage X.Y.Z. X correspond à la version majeure, Y à la version mineure et Z à la version du correctif.
 

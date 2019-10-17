@@ -7,19 +7,19 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: cf04efd8dac3ba4d252701d79c65b1bf56619fe0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968236"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973420"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Déployer une application Azure Service Fabric avec une identité managée attribuée par le système (préversion)
 
 Pour accéder à la fonctionnalité d’identité managée pour les applications Azure Service Fabric, vous devez d’abord activer le service de jeton d’identité managée sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService** à côté d’autre services système.
 
 > [!NOTE] 
-> Le déploiement d’applications Service Fabric avec des identités managées est pris en charge à partir de la version d’API `"2019-06-01-preview"`. Vous pouvez également utiliser la même version d’API pour le type d’application, la version de type d’application et les ressources de service. La version minimale du runtime Service Fabric pris en charge est 6.5 CU2.
+> Le déploiement d’applications Service Fabric avec des identités managées est pris en charge à partir de la version d’API `"2019-06-01-preview"`. Vous pouvez également utiliser la même version d’API pour le type d’application, la version de type d’application et les ressources de service. La version minimale du runtime Service Fabric pris en charge est 6.5 CU2. De plus, l’environnement de build/package doit aussi disposer du SDK SF .Net au niveau de la CU2 ou d’une version supérieure
 
 ## <a name="system-assigned-managed-identity"></a>Identité managée affectée par le système
 

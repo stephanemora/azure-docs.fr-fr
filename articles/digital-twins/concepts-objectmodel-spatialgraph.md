@@ -1,19 +1,19 @@
 ---
-title: Comprendre les modèles objet Digital Twins et le graphe d’intelligence spatiale | Microsoft Docs
+title: Comprendre les modèles objet Azure Digital Twins et le graphe d’intelligence spatiale | Microsoft Docs
 description: Azure Digital Twins permet de modéliser les relations entre des personnes, des lieux et des appareils
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177072"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950006"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Comprendre les modèles objet Digital Twins et le graphe d’intelligence spatiale
 

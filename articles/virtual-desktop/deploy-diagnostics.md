@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 07a45f54eb7c00e20abcfb05979e24493e5b9604
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676651"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177763"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
 
@@ -51,14 +51,22 @@ Cette section vous montre comment utiliser PowerShell pour créer l’applicatio
 >Les autorisations d’API sont Windows Virtual Desktop, les autorisations d’API Log Analytics et Microsoft Graph sont ajoutées à l’application Azure Active Directory.
 
 1. Ouvrez PowerShell en tant qu’administrateur.
-2. Accédez au [référentiel GitHub de modèles de Services Bureau à distance](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) et exécutez le script **Créer une inscription d’application AD pour Diagnostics.ps1** dans PowerShell.
-3.  Lorsque le script vous demande de nommer votre application, entrez un nom d’application unique.
-4.  Le script vous demande ensuite de vous connecter avec un compte d’administrateur. Entrez les informations d’identification d’un utilisateur disposant d’un [accès administrateur délégué](delegated-access-virtual-desktop.md). L’administrateur doit avoir des droits propriétaire ou contributeur des Services Bureau à distance.
+2. Connectez-vous à Azure avec un compte disposant des autorisations Propriétaire ou Collaborateur sur l’abonnement Azure que vous souhaitez utiliser pour l’outil de diagnostic :
+   ```powershell
+   Login-AzAccount
+   ```
+3. Connectez-vous à Azure AD avec le même compte :
+   ```powershell
+   Connect-AzureAD
+   ```
+4. Accédez au [dépôt GitHub RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) et exécutez le script **CreateADAppRegistrationforDiagnostics.ps1** dans PowerShell.
+5.  Lorsque le script vous demande de nommer votre application, entrez un nom d’application unique.
+
 
 Une fois que le script s’exécute correctement, il doit afficher les éléments suivants dans sa sortie :
 
 -  Un message confirmant votre application a maintenant une attribution de rôle de principal du service.
--  Votre ID client d’impression et votre clé secrète client dont vous aurez besoin quand vous déploierez l’outil de diagnostic.
+-  Votre ID client et votre clé secrète client dont vous aurez besoin quand vous déploierez l’outil de diagnostic.
 
 Maintenant que vous avez inscrit votre application, il est temps de configurer votre espace de travail Log Analytics.
 
@@ -76,7 +84,7 @@ Vous pouvez exécuter un script PowerShell pour créer un espace de travail Log 
 Pour exécuter le script PowerShell :
 
 1.  Ouvrez PowerShell en tant qu’administrateur.
-2.  Accédez au [référentiel GitHub de modèles des Services Bureau à distance](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) et exécutez le script **Créer LogAnalyticsWorkspace pour Diagnostics.ps1** dans PowerShell.
+2.  Accédez au [dépôt GitHub RDS-Templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) et exécutez le script **CreateLogAnalyticsWorkspaceforDiagnostics.ps1** dans PowerShell.
 3. Entrez les valeurs suivantes pour les paramètres :
 
     - Pour **ResourceGroupName**, entrez le nom du groupe de ressources.
@@ -189,7 +197,7 @@ Pour définir l’URI de redirection :
 
 Avant de rendre l’outil de diagnostic disponible pour vos utilisateurs, assurez-vous qu’ils disposent des autorisations suivantes :
 
-- Les utilisateurs doivent avoir un accès en lecture pour l’analytique des journaux d'activité. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Les utilisateurs doivent avoir un accès en lecture pour l’analytique des journaux d'activité. Pour plus d’informations, consultez [Prise en main des rôles, des autorisations et de la sécurité dans Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Les utilisateurs ont également besoin d’un accès en lecture pour l’abonné Windows Virtual Desktop (rôle de lecteur des Services Bureau à distance). Pour plus d’informations, consultez [Accès délégué dans Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 Vous devez également fournir aux utilisateurs les informations suivantes :
@@ -203,7 +211,7 @@ Une fois que vous êtes connecté à votre compte à l’aide des informations q
 
 ### <a name="how-to-read-activity-search-results"></a>Comment lire les résultats de la recherche d’une activité
 
-Les activités sont triées par timestamp, avec l’activité la plus récente en premier. Si les résultats retournent une erreur, commencez par vérifier s’il s’agit d’une erreur de service. Pour les erreurs de service, créez un ticket de support avec les informations d’activité pour nous aider à déboguer le problème. Tous les autres types d’erreurs peuvent généralement être résolus par l’utilisateur ou l’administrateur. Pour obtenir une liste des scénarios d’erreur les plus courants et savoir comment les résoudre, consultez [Identifier les problèmes avec la fonctionnalité de diagnostic](diagnostics-role-service.md#common-error-scenarios).
+Les activités sont triées par timestamp, avec l’activité la plus récente en premier. Si les résultats retournent une erreur, commencez par vérifier s’il s’agit d’une erreur de service. Pour les erreurs de service, créez un ticket de support avec les informations d’activité pour nous aider à déboguer le problème. Tous les autres types d’erreurs peuvent généralement être résolus par l’utilisateur ou l’administrateur. Pour obtenir la liste des scénarios d’erreur les plus courants et savoir comment les résoudre, consultez [Identifier et diagnostiquer les problèmes](diagnostics-role-service.md#common-error-scenarios).
 
 >[!NOTE]
 >Les erreurs de service sont appelées « erreurs externes » dans la documentation liée. Cela sera modifié lors de la mise à jour de la référence PowerShell.

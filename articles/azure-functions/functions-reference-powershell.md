@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 36d24e798e73ef336324eedadee1ba3fec4c0e1d
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 9163f2b7943a8022b88b2ed514f4a466e61a8d98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773042"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029021"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide des développeurs PowerShell sur Azure Functions
 
@@ -426,6 +426,17 @@ requirements.psd1
     SqlServer = '21.1.18147'
 }
 ```
+
+Les paramètres suivants sont disponibles pour changer la façon de télécharger et d’installer les dépendances managées. La mise à niveau de votre application démarre selon MDMaxBackgroundUpgradePeriod, puis le processus de mise à niveau se termine à peu près selon MDNewSnapshotCheckPeriod.
+
+| Paramètre d’application de fonction              | Valeur par défaut             | Description                                         |
+|   -----------------------------   |   -------------------     |  -----------------------------------------------    |
+| MDMaxBackgroundUpgradePeriod      | « 7.00:00:00 » (7 jours)     | Chaque Worker PS lance la vérification des mises à niveau de module dans la galerie PS au démarrage du processus Worker et à chaque MDMaxBackgroundUpgradePeriod par la suite. Si de nouvelles versions de module sont disponibles dans la galerie PS, elles sont installées sur le système de fichiers disponible pour les Workers PS. Diminuer cette valeur permet à votre application de fonction d’obtenir plus rapidement les versions de module les plus récentes, mais cela augmente aussi l’utilisation des ressources d’application (E/S réseau, processeur, stockage). Augmenter cette valeur permet de diminuer l’utilisation des ressources d’application, mais retarde aussi la remise des nouvelles versions de module à votre application.      | 
+| MDNewSnapshotCheckPeriod          | « 01:00:00 » (1 heure)       | Une fois que les nouvelles versions de module sont installées dans le système de fichiers, chaque Worker PS a besoin d’un redémarrage. Le redémarrage des Workers PS peut affecter la disponibilité de votre application, car il peut interrompre les appels de fonction en cours. Tant que tous les Workers PS n’ont pas redémarré, les appels de fonction peuvent utiliser les versions anciennes ou nouvelles de module. Le redémarrage de tous les Workers PS s’effectue dans un délai défini par MDNewSnapshotCheckPeriod. L’augmentation de cette valeur diminue la fréquence des interruptions, mais peut également augmenter la durée pendant laquelle les appels de fonction utilisent les anciennes ou nouvelles version de module de manière non déterministe. |
+| MDMinBackgroundUpgradePeriod      | « 1.00:00:00 » (1 jour)     | Afin d’éviter des mises à niveau de module excessives lors des fréquents redémarrages de Workers, la vérification des mises à niveau de module n’est pas effectuée si un Worker l’a déjà lancée pendant la dernière période MDMinBackgroundUpgradePeriod. |
+
+> [!NOTE]
+> Les dépendances managées reposent sur l’accès à www.powershellgallery.com pour télécharger les modules. Vous devez vous assurer que le runtime de fonction a accès à cette URL en ajoutant les règles de pare-feu nécessaires.
 
 L’utilisation de vos propres modules personnalisés est légèrement différente de l’utilisation normale.
 

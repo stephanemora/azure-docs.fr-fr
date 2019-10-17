@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 65cf71140d1706b8607e721ac323b1a97ae272fa
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898442"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177434"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -61,7 +61,7 @@ Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gate
 
 Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-réseau Application Gateway. Placez les restrictions suivantes sur le sous-réseau dans cet ordre de priorité :
 
-1. Autorisez le trafic entrant provenant d’une adresse IP/plage d’adresses IP sources.
+1. Autorisez le trafic entrant à partir d’une plage IP/IP source vers l’ensemble du sous-réseau Application Gateway ou vers l’adresse IP front-end privée configurée spécifique. Le groupe de sécurité réseau ne fonctionne pas sur une adresse IP publique.
 2. Autorisez les requêtes entrantes de toutes les sources vers les ports 65503-65534 pour la référence SKU Application Gateway v1 et vers les ports 65200-65535 pour la référence SKU v2 de la [communication sur l'intégrité du serveur principal](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés en place, les entités externes ne peuvent pas lancer des modifications sur ces points de terminaison.
 3. Autorisez les sondes Azure Load Balancer entrantes (balise *AzureLoadBalancer*) et le trafic de réseau virtuel entrant (balise *VirtualNetwork*) sur le [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquez tout autre trafic entrant avec une règle Tout refuser.
@@ -121,7 +121,7 @@ Choisissez l’adresse IP front-end que vous prévoyez d’associer à cet écou
 
 Choisissez le port front-end. Sélectionnez un port existant ou créez-en un. Choisissez une valeur dans la [plage de ports autorisée](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Vous pouvez utiliser non seulement les ports connus, comme les ports 80 et 443, mais aussi tout port personnalisé autorisé qui convient. Un port peut être utilisé pour des écouteurs publics ou privés.
 
-### <a name="protocol"></a>Protocole
+### <a name="protocol"></a>Protocol
 
 Choisissez HTTP ou HTTPS :
 
@@ -262,7 +262,7 @@ Cette fonctionnalité s’avère utile quand vous voulez garder une session util
 
 Le vidage des connexions vous permet de supprimer élégamment des membres du pool de back-ends pendant les mises à jour de service planifiées. Vous pouvez appliquer ce paramètre à tous les membres d’un pool de back-ends lors de la création d’une règle. Il garantit que toutes les instances de désinscription d’un pool de back-ends ne reçoivent pas de nouvelles demandes. Dans l’intervalle, les demandes existantes sont autorisées à se terminer dans un délai configuré. Le vidage des connexions s’applique aux instances back-end qui sont explicitement supprimées du pool de back-ends par un appel d’API. Il s’applique également aux instances back-end signalées comme étant *non saines* par les sondes d’intégrité.
 
-### <a name="protocol"></a>Protocole
+### <a name="protocol"></a>Protocol
 
 Application Gateway prend en charge les protocoles HTTP et HTTPS pour router les demandes vers les serveurs back-end. Si vous choisissez HTTP, le trafic vers les serveurs back-end est non chiffré. Si des communications non chiffrées ne sont pas acceptables, sélectionnez HTTPS.
 

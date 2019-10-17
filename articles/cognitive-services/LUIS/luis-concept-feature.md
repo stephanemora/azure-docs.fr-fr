@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: dab4b4c6f41a95623a40e5d3fd859f9613afac27
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624569"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949596"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Caractéristiques de liste d’expressions dans votre application LUIS
 
@@ -46,14 +46,7 @@ Vous pouvez [créer une liste d’expressions](luis-how-to-add-features.md) lors
 
 Une fois que vous avez entré plusieurs mots ou expressions, utilisez la caractéristique **Recommandation** pour obtenir les valeurs associées. Passez en revue ces valeurs avant de les ajouter à votre liste d’expressions.
 
-|Type de liste|Objectif|
-|--|--|
-|Interchangeable|Synonymes ou mots qui, quand ils sont remplacés par un autre mot dans la liste, ont la même intention et extraction d’entité.|
-|Non-interchangeable|Vocabulaire d’application propre à votre application (généralement plus que d’autres mots dans cette langue).|
-
-### <a name="interchangeable-lists"></a>Listes d’expressions interchangeables
-
-Une liste d’expressions *interchangeables* est constituée de synonymes. Par exemple, si vous souhaitez obtenir tous les synonymes d’étendues d’eau et que vous disposez des exemples d’énoncés suivants : 
+Une liste d’expressions concerne les valeurs qui sont des synonymes. Par exemple, si vous souhaitez obtenir tous les synonymes d’étendues d’eau et que vous disposez des exemples d’énoncés suivants : 
 
 * Quelles sont les villes qui sont proches des Grands Lacs ? 
 * Quelle est la route qui longe les rives de Lake Havasu ?
@@ -65,17 +58,7 @@ Chaque énoncé doit être déterminé à la fois par l’intention et par les e
 * Quelle est la route qui longe les rives de [Étendue d’eau] ?
 * Où naît et où se jette [Étendue d’eau] ? 
 
-Puisque les mots et les expressions relatifs à l’étendue d’eau sont synonymes et peuvent être utilisés indifféremment dans les énoncés, utilisez le paramètre **Interchangeable** dans la liste d’expressions. 
-
-### <a name="non-interchangeable-lists"></a>Listes d’expressions non interchangeables
-
-Une liste d’expressions non interchangeables est un signal qui améliore la détection LUIS. La liste d’expressions indique les mots ou les expressions qui sont plus importants que les autres. Cela aide à la fois à déterminer l’intention et à détecter les entités. Par exemple, supposons que vous ayez un domaine tel que le voyage qui soit « mondial » (c’est-à-dire qui englobe plusieurs cultures, tout en restant dans une même langue). Il existe des mots et des expressions qui sont importants pour l’application, mais qui ne sont pas synonymes. 
-
-Prenons un autre exemple : l’utilisation d’une liste d’expressions non interchangeables pour les mots rares, propriétaires et étrangers. LUIS peut ne pas être en mesure de reconnaître des mots rares et propriétaires, ainsi que des mots étrangers (en dehors de la culture de l’application). Le paramètre non interchangeable indique que l’ensemble de mots rares constitue une classe que LUIS doit apprendre à reconnaître, mais que ces mots ne sont ni synonymes, ni interchangeables entre eux.
-
-N’ajoutez pas tous les mots ou expressions possibles à la liste d’expressions. N’ajoutez que quelques mots ou expressions à la fois, effectuez un nouvel entraînement, puis publiez. 
-
-À mesure que la liste d’expressions s’agrandit, vous constaterez peut-être que certains termes ont de nombreuses formes (synonymes). Répartissez-les dans une autre liste d’expressions interchangeable. 
+Puisque les mots ou les expressions relatifs à l’étendue d’eau sont synonymes et peuvent être utilisés indifféremment dans les énoncés. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

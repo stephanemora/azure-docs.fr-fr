@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932473"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960574"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installer et utiliser l’explorateur Azure IoT
 
@@ -65,29 +65,27 @@ Modifiez les priorités sources :
 
 Vous pouvez faire glisser et déposer l’une des sources de définition de modèle dans une position différente sur la liste. En cas de conflit, les sources de définition avec des classements supérieurs remplacent les sources avec des classements moins élevés.
 
-### <a name="overview-page"></a>Page Vue d’ensemble
+### <a name="view-devices"></a>Afficher les appareils
 
-#### <a name="device-overview"></a>Vue d'ensemble de l’appareil
+Une fois que l’outil se connecte à votre hub IoT, une page présente la liste des **Appareils** et des identités d’appareils qui sont inscrits auprès de votre hub IoT. Vous pouvez développer n’importe quelle entrée de la liste pour afficher plus d’informations à son sujet.
 
-Une fois que l’outil se connecte à votre hub IoT, une page de vue d’ensemble qui répertorie toutes les identités d’appareils inscrits auprès de votre hub Azure IoT s’affiche. Sélectionnez un appareil pour afficher plus de détails.
+Dans la page **Appareils**, vous pouvez :
 
-#### <a name="device-management"></a>Gestion des appareils
-
-- Pour inscrire un nouvel appareil à votre hub, sélectionnez **Ajouter**. Entrez un ID d'appareil. Utilisez les paramètres par défaut pour générer automatiquement les clés d’authentification et activez la connexion à votre hub.
-- Pour supprimer une identité d’appareil, sélectionnez **Supprimer**. Passez en revue les détails de l’appareil avant d’effectuer cette action pour vous assurer que vous supprimez l’identité du bon appareil.
-- L’outil prend en charge l'interrogation par `capabilityID` et `interfaceID`. Ajoutez votre `capabilityID` ou `interfaceID` en tant que paramètre pour interroger vos appareils.
+- Sélectionner **Ajouter** pour inscrire un nouvel appareil auprès de votre hub, puis entrer un ID d’appareil. Utilisez les paramètres par défaut pour générer automatiquement les clés d’authentification et activer la connexion à votre hub.
+- Sélectionnez un appareil, puis sélectionnez **Supprimer** pour supprimer une identité d’appareil. Passez en revue les détails de l’appareil avant d’effectuer cette action pour vous assurer que vous supprimez l’identité du bon appareil.
+- Exécuter une requête par `capabilityID` et par `interfaceID`. Ajoutez votre `capabilityID` ou `interfaceID` en tant que paramètre pour interroger vos appareils.
 
 ## <a name="interact-with-a-device"></a>Interagir avec un appareil
 
-Double-cliquez sur un appareil dans la page vue d’ensemble pour afficher le niveau de détails suivant. Il y a deux sections : **Appareil** et **Jumeau numérique.**
+Dans la page de liste **Appareils**, sélectionnez une valeur dans la colonne **ID d’appareil** pour afficher la page de détails de l’appareil inscrit. Pour chaque appareil, il existe deux sections : **Appareil** et **Jumeau numérique.**
 
 ### <a name="device"></a>Appareil
 
-Cette section inclut les onglets **Identité d'appareil**, **Données de télémétrie** et **Jumeau d'appareil**.
+Cette section inclut les onglets **Identité d’appareil**, **Jumeau d’appareil** et **Données de télémétrie**.
 
-- Vous pouvez afficher et mettre à jour les informations d’identité de l'appareil sous l’onglet **Identité d'appareil**.
-- Si un appareil est connecté et envoie activement des données, vous pouvez afficher les données de télémétrie dans l'onglet **Données de télémétrie**.
-- Vous pouvez accéder aux informations sur le jumeau d'appareil dans l’onglet **Jumeau d'appareil**.
+- Vous pouvez voir et mettre à jour les informations d’[identité d’appareil](../iot-hub/iot-hub-devguide-identity-registry.md) sous l’onglet **Identité d’appareil**.
+- Vous pouvez accéder aux informations sur le [jumeau d’appareil](../iot-hub/iot-hub-devguide-device-twins.md) sous l’onglet **Jumeau d’appareil**.
+- Si un appareil est connecté et envoie activement des données, vous pouvez voir les données de [télémétrie](../iot-hub/iot-hub-devguide-messages-read-builtin.md) sous l’onglet **Données de télémétrie**.
 
 ### <a name="digital-twin"></a>Jumeau numérique
 

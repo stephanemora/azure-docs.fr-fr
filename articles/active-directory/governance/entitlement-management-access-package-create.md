@@ -16,12 +16,12 @@ ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1283549ce78535757b7ba42eaf7054538f0c9784
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326336"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170009"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Créer un package d’accès dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -44,7 +44,7 @@ Le diagramme suivant montre le processus de haut niveau permettant de créer un 
 
 ## <a name="start-new-access-package"></a>Démarrer le nouveau package d’accès
 
-**Rôle prérequis :** Administrateur général, Administrateur d’utilisateurs ou Propriétaire de catalogue
+**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -126,5 +126,3 @@ Sous l’onglet **Vérifier + créer**, vous pouvez consulter vos paramètres et
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Modifier et gérer un package d’accès existant](entitlement-management-access-package-edit.md)
-- [Ajouter un propriétaire de catalogue ou un gestionnaire de package d’accès](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
-- [Créer et gérer un catalogue](entitlement-management-catalog-create.md)

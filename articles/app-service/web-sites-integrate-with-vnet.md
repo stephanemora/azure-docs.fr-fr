@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827576"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034729"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet.  
@@ -63,6 +63,10 @@ L’intégration au réseau virtuel ne prend pas en charge certaines choses, not
 * NetBios ;
 
 ## <a name="regional-vnet-integration"></a>Intégration au réseau virtuel régional 
+
+> [!NOTE]
+> Le peering n’est pas encore disponible pour App Service pour Linux.
+>
 
 Quand l’intégration au réseau virtuel est utilisée avec des réseaux virtuels de la même région que votre application, il est nécessaire d’utiliser un sous-réseau délégué avec au moins 32 adresses. Le sous-réseau ne peut pas être utilisé à d’autres fins. Les appels sortants effectués à partir de votre application le seront à partir des adresses contenues dans le sous-réseau délégué. Quand vous utilisez cette version de l’intégration au réseau virtuel, les appels sont effectués à partir des adresses contenues dans votre réseau virtuel. Voici ce que peut faire votre application en utilisant les adresses de votre réseau virtuel :
 

@@ -1,18 +1,18 @@
 ---
 title: Nœuds dans Azure Database pour PostgreSQL - Hyperscale (Citus) (préversion)
-description: Les deux types de nœuds possibles dans un groupe de serveurs.
+description: Découvrez les deux types de nœud, coordinateur et de travail, au sein d’un groupe de serveurs dans Azure Database pour PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: c6b948ed63f43f1597103d123be5ed39f42bd276
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 097fcdb3a7e53bb63db9dc2d352d754062df7be6
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077274"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947553"
 ---
 # <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Nœuds dans Azure Database pour PostgreSQL - Hyperscale (Citus) (préversion)
 

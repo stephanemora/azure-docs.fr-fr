@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b714559c6c009139da97c7d90425011fb3130ef8
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096399"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263315"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -117,6 +117,9 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](.
 |---------|---------|---------| 
 |isEnabled|true|Active ou désactive l’échantillonnage.| 
 |maxTelemetryItemsPerSecond|5\.|Seuil à partir duquel l’échantillonnage débute.| 
+|EnableLiveMetrics |true|Active la collecte des métriques temps réel.|
+|EnableDependencyTracking|true|Active le suivi des dépendances.|
+|EnablePerformanceCountersCollection|true|Active la collecte des compteurs de performances Kudu.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -184,6 +187,20 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 ## <a name="http"></a>http
 
 Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons HTTP](functions-bindings-http-webhook.md).
+
+```json
+{
+    "extensions": {
+        "http": {
+            "routePrefix": "api",
+            "maxOutstandingRequests": 200,
+            "maxConcurrentRequests": 100,
+            "dynamicThrottlesEnabled": true
+        }
+    }
+}
+```
+
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 

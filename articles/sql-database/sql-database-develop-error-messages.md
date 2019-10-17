@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/06/2019
-ms.openlocfilehash: 24bd2cca2e4ed053d51f618d90274e8988a09c26
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/02/2019
+ms.openlocfilehash: 19febc5a0a6e4a72cfebfaecd917185538130152
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568903"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035024"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
@@ -55,13 +55,35 @@ Les erreurs suivantes sont temporaires et doivent être relancées dans la logiq
 | Code d'erreur | severity | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossible d'ouvrir de base de données "%.&#x2a;ls" demandée par la connexion. La connexion a échoué. Pour plus d’informations, consultez [Erreurs 4000 à 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
-| 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d'erreur (%d) incorporé au message d'erreur 40197 fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion à votre serveur SQL Database vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. Pour plus d’informations, consultez [Erreurs temporaires](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
+| 40197 |17 |Le service a rencontré une erreur lors du traitement de votre demande. Réessayez. Code d'erreur % d.<br/><br/>Vous recevez cette erreur lorsque le service est arrêté en raison de mises à niveau logicielles ou matérielles, de pannes de matériel ou tout autre problème de basculement. Le code d’erreur (%d) [incorporé au message d’erreur 40197](sql-database-develop-error-messages.md#embedded-error-codes) fournit des informations supplémentaires sur le type de défaillance ou de basculement survenu. 40020, 40143, 40166 et 40540 sont des exemples de codes d'erreur incorporés au message d'erreur 40197.<br/><br/>La reconnexion à votre serveur SQL Database vous reconnecte automatiquement à une copie saine de votre base de données. Votre application doit détecter l'erreur 40197, consigner le code d'erreur incorporé (%d) dans le message pour la résolution des problèmes, et essayer de se reconnecter à la base de données SQL jusqu'à ce que les ressources soient disponibles et que votre connexion soit rétablie. Pour plus d’informations, consultez [Erreurs temporaires](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 40501 |20 |Le service est actuellement occupé. Relancez la demande dans 10 secondes. ID de l'incident : %ls. Code : %d. Pour plus d'informations, consultez les pages suivantes : <br/>&bull; &nbsp;[Limites de ressources du serveur de base de données](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de ressources d’une instance gérée](sql-database-managed-instance-resource-limits.md)|
 | 40613 |17 |La base de données ’%.&#x2a;ls’ sur le serveur ’%.&#x2a;ls’ n’est pas disponible actuellement. Veuillez réessayer la connexion ultérieurement. Si le problème persiste, contactez le support technique en indiquant l'ID de suivi de session ’%.&#x2a;ls’’.<br/><br/> Cette erreur peut se produire s’il existe déjà une connexion d’administrateur dédiée à la base de données. Pour plus d’informations, consultez [Erreurs temporaires](sql-database-connectivity-issues.md#transient-errors-transient-faults).|
 | 49918 |16 |Impossible de traiter la requête. Ressources insuffisantes pour traiter la demande.<br/><br/>Le service est actuellement occupé. Relancez la requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull; &nbsp;[Limites de ressources du serveur de base de données](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de ressources d’une instance gérée](sql-database-managed-instance-resource-limits.md) |
 | 49919 |16 |Processus ne peut pas créer ou mettre à jour de la demande. Opérations de mise à jour ou de création en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes de création ou de mise à jour pour votre abonnement ou le serveur. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) pour les opérations en attente. Patientez jusqu’à ce que les demandes de création ou de mise à jour soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull; &nbsp;[Limites de ressources du serveur de base de données](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de ressources d’une instance gérée](sql-database-managed-instance-resource-limits.md) |
 | 49920 |16 |Impossible de traiter la requête. Opérations en cours pour l'abonnement « % ld » trop nombreuses.<br/><br/>Le service est occupé à traiter plusieurs demandes pour cet abonnement. Les requêtes sont actuellement bloquées pour l’optimisation des ressources. Requête [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) pour l'état de l'opération. Patientez jusqu’à ce que les requêtes soient terminées ou supprimez l’une de vos requêtes en cours et réessayez votre requête ultérieurement. Pour plus d'informations, consultez les pages suivantes : <br/>&bull; &nbsp;[Limites de ressources du serveur de base de données](sql-database-resource-limits-database-server.md)<br/>&bull; &nbsp;[Limites de DTU pour les bases de données uniques](sql-database-service-tiers-dtu.md)<br/>&bull; &nbsp;[Limites de DTU pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de vCores pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md)<br/>&bull; &nbsp;[Limites de vCores pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&bull; &nbsp;[Limites de ressources d’une instance gérée](sql-database-managed-instance-resource-limits.md) |
 | 4221 |16 |La connexion au serveur de lecture secondaire a échoué en raison d’une longue attente sur 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING'. Le réplica n’est pas disponible pour la connexion, car il manque des versions de ligne pour les transactions qui étaient en cours lorsque le réplica a été recyclé. Le problème peut être résolu en restaurant ou en validant les transactions actives au niveau du réplica principal. Les occurrences de cette erreur peuvent être réduites en évitant les transactions d’écriture longues sur le serveur principal. |
+
+## <a name="embedded-error-codes"></a>Codes d’erreur incorporés
+
+Les erreurs suivantes sont incorporées dans le code d’erreur plus général 40197 :
+
+```
+The service has encountered an error processing your request. Please try again. Error code %d.
+```
+
+| Code d'erreur | severity | Description | 
+| ---:| ---:|:---|
+|  1104 |17 |Espace insuffisant pour TEMPDB pendant le dépassement. Créez de l’espace en supprimant des objets et/ou réécrivez la requête pour qu’elle occupe moins de lignes. Si le problème persiste, passez à un objectif de niveau service supérieur.|
+| 40020 |16 |La base de données est en cours de transition et les transactions sont arrêtées.|
+| 40143 |16 |Le réplica que le nœud de données héberge pour la partition demandée n’est pas le réplica principal.|
+| 40166 |16 |Une reconfiguration CloudDB est en cours et toutes les nouvelles transactions utilisateur sont abandonnées.|
+| 40540 |16 |La transaction a été abandonnée, car la base de données a été placée en mode de lecture seule. Cette situation est temporaire. Recommencez l’opération.|
+
+Vous trouverez plus d’informations sur les autres erreurs incorporées en interrogeant `sys.messages` :
+
+```sql
+SELECT * FROM sys.[messages] WHERE [message_id] = <error_code>
+```
 
 ## <a name="database-copy-errors"></a>Erreurs de copie de base de données
 

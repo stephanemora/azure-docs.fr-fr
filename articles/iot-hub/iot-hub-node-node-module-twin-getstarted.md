@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 0fc676fd32c585324bac0024655765ebd628385a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802405"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165907"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Bien démarrer avec l’identité de module et le jumeau de module IoT Hub (Node.js)
 
@@ -54,12 +54,12 @@ Dans cette section, vous allez créer une application Node.js qui crée une iden
 
 1. Créez un répertoire pour stocker votre code.
 
-2. À l’intérieur de ce répertoire, exécutez d’abord  **npm init -y**  pour créer un fichier package.json vide comportant les valeurs par défaut. Il s’agit du fichier projet pour votre code.
+2. À l’intérieur de ce répertoire, exécutez d’abord **npm init -y** pour créer un fichier package.json vide comportant les valeurs par défaut. Il s’agit du fichier projet pour votre code.
 
-3. Exécutez  **npm install -S azure-iothub\@modules-preview** pour installer le Kit de développement logiciel (SDK) du service à l’intérieur du sous-répertoire  **node_modules** .
+3. Exécutez **npm install -S azure-iothub\@modules-preview** pour installer le SDK du service à l’intérieur du sous-répertoire **node_modules**.
 
     > [!NOTE]
-    > Dans le nom du sous-répertoire « node_modules », le mot « module » désigne « une bibliothèque de nœuds ». En l’occurrence, le terme n’a rien à voir avec les modules IoT Hub.
+    > Dans le nom de sous-répertoire node_modules, le mot « module » désigne « une bibliothèque de nœuds ». En l’occurrence, le terme n’a rien à voir avec les modules IoT Hub.
 
 4. Créez le fichier .js suivant dans votre répertoire. Appelez-le **add.js**. Copiez et collez la chaîne de connexion de hub et le nom du hub.
 
@@ -192,7 +192,7 @@ Dans cette section, vous allez créer sur votre appareil simulé une application
     });
     ```
 
-4. Maintenant, exécutez cet élément à l’aide de la commande  **node twin.js**.
+4. Maintenant, exécutez ceci à l’aide de la commande **node twin.js**.
 
    ```cmd/sh
    F:\temp\module_twin>node twin.js

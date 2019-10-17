@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 026689b68244052c3ad7cb50cd90d7319b6760ef
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229416"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024610"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Didacticiel : Examiner les incidents avec Azure Sentinel
 
@@ -44,7 +44,7 @@ Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de ma
 
 ## <a name="how-to-investigate-incidents"></a>Comment examiner les incidents
 
-1. Sélectionnez  **Incidents**. La page  **Incidents**  vous permet de connaître le nombre d’incidents, le nombre d’incidents ouverts, le nombre d’incidents définis sur  **En cours** et le nombre d’incidents clos. Pour chaque incident, vous pouvez voir l’heure à laquelle il s’est produit et son état. Examinez la gravité de décider quels incidents gérer en premier.
+1. Sélectionnez **Incidents**. La page **Incidents** vous permet de connaître le nombre d’incidents, le nombre d’incidents ouverts, le nombre d’incidents définis sur **En cours** et le nombre d’incidents clos. Pour chaque incident, vous pouvez voir l’heure à laquelle il s’est produit et son état. Examinez la gravité de décider quels incidents gérer en premier.
 
     ![Afficher la gravité de l’incident](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -78,14 +78,14 @@ Le graphique d’examen vous fournit les éléments suivants :
 
 Pour utiliser le graphique d’examen :
 
-1. Sélectionnez un incident, puis  **Examiner**. Vous accédez au graphique d’examen. Le graphique fournit une carte illustrant les entités directement connectées à l’alerte et à chaque ressource connectée.
+1. Sélectionnez un incident, puis **Examiner**. Vous accédez au graphique d’examen. Le graphique fournit une carte illustrant les entités directement connectées à l’alerte et à chaque ressource connectée.
 
    > [!IMPORTANT] 
    > Vous ne pourrez examiner l’incident que si vous avez utilisé les champs de mappage d’entité lorsque vous avez configuré votre règle d’analyse. Le graphique d’examen requiert que votre incident d’origine comprenne des entités.
 
    ![Afficher la carte](media/tutorial-investigate-cases/map1.png)
 
-1. Sélectionnez une entité pour ouvrir le volet **Entités**  afin de pouvoir consulter les informations sur celle-ci.
+1. Sélectionnez une entité pour ouvrir le volet **Entités** et consulter les informations y afférentes.
 
     ![Afficher les entités dans la carte](media/tutorial-investigate-cases/map-entities.png)
   
@@ -97,7 +97,7 @@ Pour utiliser le graphique d’examen :
 
     ![Afficher les alertes associées](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Pour chaque requête d’exploration, vous pouvez sélectionner l’option afin d’ouvrir les résultats bruts de l’événement et la requête utilisée dans Log Analytics, en sélectionnant Événements.
+1. Pour chaque requête d’exploration, vous pouvez sélectionner l’option permettant d’ouvrir les résultats bruts de l’événement et la requête utilisée dans Log Analytics, en sélectionnant **Événements\>** .
 
 1. Pour comprendre l’incident, le graphique vous donne une chronologie parallèle.
 

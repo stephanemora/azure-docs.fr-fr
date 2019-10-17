@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9de3232bcd7908f775dadff4dc584f2a687b0c68
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8c9b8489ded264a895d480ed180b411da079e883
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299757"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950119"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accéder aux données dans les services de stockage Azure
 
-Dans cet article, découvrez comment accéder facilement à vos données dans les services de stockage Azure via des magasins de données Azure Machine Learning. Les banques de données permettent de stocker les informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton. L’utilisation de banques de données vous permet d’accéder à votre stockage sans avoir à coder en dur les informations de connexion dans vos scripts.
+Dans cet article, découvrez comment accéder facilement à vos données dans les services de stockage Azure via des magasins de données Azure Machine Learning. Les banques de données permettent de stocker les informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton. L’utilisation de banques de données vous permet d’accéder à votre stockage sans avoir à coder en dur les informations de connexion dans vos scripts. Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix).
 
 Cette procédure montre des exemples des tâches suivantes :
 * [Enregistrer les magasins de données](#access)
@@ -30,49 +30,81 @@ Cette procédure montre des exemples des tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser des banques de données, vous devez tout d’abord disposer d’un [espace de travail](concept-workspace.md).
+- Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-Commencez soit par [créer un espace de travail](how-to-manage-workspace.md), soit par en récupérer un existant :
+- Un compte de stockage Azure avec un [conteneur d’objets blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) ou un [partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-```Python
-import azureml.core
-from azureml.core import Workspace, Datastore
+- Le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’accès à la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com/).
 
-ws = Workspace.from_config()
-```
+- Un espace de travail Azure Machine Learning. 
+    - [Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md) ou utilisez un espace de travail existant à l’aide du SDK Python.
+
+        ```Python
+        import azureml.core
+        from azureml.core import Workspace, Datastore
+        
+        ws = Workspace.from_config()
+        ```
 
 <a name="access"></a>
 
-## <a name="register-datastores"></a>Enregistrer les magasins de données
+## <a name="create-and-register-datastores"></a>Créer et inscrire des magasins de données
+
+Quand vous inscrivez une solution de stockage Azure en tant que magasin de données, ce dernier est automatiquement créé dans un espace de travail spécifique. Vous pouvez créer des magasins de données et les inscrire auprès d’un espace de travail à l’aide du SDK Python ou de la page d’accueil de l’espace de travail.
+
+### <a name="using-the-python-sdk"></a>Utilisation du Kit de développement logiciel (SDK) Python
 
 Toutes les méthodes d’inscription sont sur la classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) et ont la forme register_azure_*.
+
+Vous trouverez les informations dont vous avez besoin pour renseigner la méthode register() dans le [portail Azure](https://ms.portal.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche. 
 
 Les exemples suivants vous montrent comment inscrire un conteneur d’objets blob Azure ou un partage de fichiers Azure comme magasin de données.
 
 + Pour un **magasin de données de conteneur d’objets blob Azure**, utilisez [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
-  ```Python
-  datastore = Datastore.register_azure_blob_container(workspace=ws, 
-                                                      datastore_name='your datastore name', 
-                                                      container_name='your azure blob container name',
-                                                      account_name='your storage account name', 
+    Le code suivant crée le magasin de données `my_datastore` et l’inscrit auprès de l’espace de travail `ws`. Ce magasin de données accède au conteneur d’objets blob Azure `my_blob_container` sur le compte de stockage Azure `my_storage_account` à l’aide de la clé de compte fournie.
+
+    ```Python
+       datastore = Datastore.register_azure_blob_container(workspace=ws, 
+                                                          datastore_name='my_datastore', 
+                                                          container_name='my_blob_container',
+                                                          account_name='my_storage_account', 
+                                                          account_key='your storage account key',
+                                                          create_if_not_exists=True)
+    ```
+
++ Pour un **magasin de données de partage de fichiers Azure**, utilisez [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
+
+    Le code suivant crée le magasin de données `my_datastore` et l’inscrit auprès de l’espace de travail `ws`. Ce magasin de données accède au partage de fichiers Azure `my_file_share` sur le compte de stockage Azure `my_storage_account` à l’aide de la clé de compte fournie.
+
+    ```Python
+       datastore = Datastore.register_azure_file_share(workspace=ws, 
+                                                      datastore_name='my_datastore', 
+                                                      file_share_name='my_file_share',
+                                                      account_name='my_storage account', 
                                                       account_key='your storage account key',
                                                       create_if_not_exists=True)
-  ```
-
-+ Pour un **magasin de données de partage de fichiers Azure**, utilisez [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Par exemple : 
-  ```Python
-  datastore = Datastore.register_azure_file_share(workspace=ws, 
-                                                  datastore_name='your datastore name', 
-                                                  file_share_name='your file share name',
-                                                  account_name='your storage account name', 
-                                                  account_key='your storage account key',
-                                                  create_if_not_exists=True)
-  ```
+    ```
 
 ####  <a name="storage-guidance"></a>Conseils liés au stockage
 
 Nous vous recommandons d’utiliser le conteneur d’objets Blob Azure. Les stockages Standard et Premium sont tous deux disponibles pour les objets blob. Bien que plus cher, nous vous suggérons le stockage Premium pour ses vitesses de débit supérieures qui peuvent améliorer la vitesse de vos exécutions d’entraînement, en particulier si vous effectuez l’entraînement sur un jeu de données volumineux. Pour plus d’informations sur les coûts des comptes de stockage, consultez [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+
+### <a name="using-the-workspace-landing-page"></a>Avec la page d’accueil de l’espace de travail 
+
+Créez un magasin de données en quelques étapes dans la page d’accueil de l’espace de travail.
+
+1. Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com/).
+1. Sélectionnez **Magasins de données** dans le volet gauche sous **Gérer**.
+1. Sélectionnez **+ Nouveau magasin de données**.
+1. Remplissez le formulaire du nouveau magasin de données. Le formulaire est mis à jour intelligemment en fonction du type de stockage Azure et des sélections relatives au type d’authentification.
+  
+Vous pouvez trouver les informations dont vous avez besoin pour remplir le formulaire dans le [Portail Azure](https://ms.portal.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des éléments d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche.
+
+L’exemple suivant montre à quoi ressemble le formulaire si vous créez un magasin de données d’objets blob Azure. 
+    
+ ![Nouveau magasin de données](media/how-to-access-data/new-datastore-form.png)
+
 
 <a name="get"></a>
 
@@ -201,6 +233,7 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[datastore1.as_download(), datastore2.path('./foo').as_download(), datastore3.as_upload(path_on_compute='./bar.pkl')])
 ```
+<a name="matrix"></a>
 
 ### <a name="compute-and-datastore-matrix"></a>Matrice de calcul et de magasin de données
 

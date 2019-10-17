@@ -9,20 +9,26 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: abmotley
-ms.subservice: cognitive-search
-ms.openlocfilehash: 62dd3440deaf31f3739ad5d8fde1d8b54a20197e
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b5a161e570489e6382f2226ab5dc9a1c34dc67df
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828265"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028317"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Erreurs et avertissements courants du pipeline d'enrichissement de l'IA dans Recherche Azure
 
 Cet article fournit des informations et des solutions aux erreurs et aux avertissements courants que vous pourriez rencontrer lors de l'enrichissement de l'IA dans Recherche Azure.
 
 ## <a name="errors"></a>Errors
-L'indexation s'arrête lorsque le nombre d'erreurs dépasse ['maxfaileditems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). Les sections suivantes peuvent vous aider à résoudre les erreurs et à poursuivre l'indexation.
+L’indexation s’arrête quand le nombre d’erreurs dépasse la valeur de ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
+
+Si vous souhaitez que les indexeurs ignorent ces erreurs (et sautent les « documents en échec »), envisagez de mettre à jour `maxFailedItems` et `maxFailedItemsPerBatch` comme décrit [ici](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+
+> [!NOTE]
+> Chaque document en échec et la clé de document correspondante (quand elle est disponible) sont présentées comme une erreur dans l’état d’exécution de l’indexeur. Vous pouvez utiliser l’[api index](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) pour charger manuellement les documents à un moment ultérieur si vous avez défini l’indexeur de façon à tolérer les échecs.
+
+Les sections suivantes peuvent vous aider à résoudre les erreurs et à poursuivre l'indexation.
 
 ### <a name="could-not-read-document"></a>Impossible de lire le document
 L'indexeur n'a pas pu lire le document à partir de la source de données. Cela peut se produire si :
@@ -52,6 +58,14 @@ L’indexeur a lu le document à partir de la source de données, mais un probl�
 | La clé du document n’est pas valide | La clé du document ne peut pas contenir plus de 1024 caractères | Modifiez la clé du document pour répondre aux exigences de validation. |
 | Impossible d'appliquer le mappage de champs à un champ | Impossible d'appliquer la fonction de mappage `'functionName'` au champ `'fieldName'`. Le tableau ne peut pas être null. Nom du paramètre : octets | Vérifiez soigneusement les [mappages de champs](search-indexer-field-mappings.md) définis sur l'indexeur, puis comparez ces valeurs avec les données du champ spécifié du document en échec. Il peut être nécessaire de modifier les mappages de champs ou les données du document. |
 | Impossible de lire la valeur du champ | Impossible de lire la valeur de la colonne `'fieldName'` à l'index `'fieldIndex'`. Une erreur de niveau transport s’est produite lors de la réception des résultats à partir du serveur. (fournisseur : Fournisseur TCP, erreur : 0 - Une connexion existante a été fermée de force par l'hôte distant.) | Ces erreurs sont généralement dues à des problèmes de connectivité inattendus avec le service sous-jacent de la source de données. Essayez d'exécuter ultérieurement le document dans votre indexeur. |
+
+### <a name="could-not-index-document"></a>Impossible d’indexer le document
+Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à l’index de recherche. Cela peut se produire si :
+
+| Motif | Exemples | Action |
+| --- | --- | --- |
+| Un champ contient un terme trop grand | Votre document contient un terme qui dépasse la [limite de 32 Ko](search-limits-quotas-capacity.md#api-request-limits) | Vous pouvez éviter cette restriction en vérifiant que le champ n’est pas configuré comme étant filtrable, à choix multiple ou triable.
+| Le document est trop volumineux pour être indexé | Un document est plus volumineux que la [taille maximale de demande d’API](search-limits-quotas-capacity.md#api-request-limits) | [Indexer les jeux de données volumineux](search-howto-large-index.md)
 
 ### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>L'entrée de compétence 'languageCode' contient les codes de langue suivants 'X,Y,Z', dont au moins un élément n’est pas valide.
 Une ou plusieurs des valeurs passées dans l'entrée optionnelle `languageCode` d'une compétence en aval n'est pas prise en charge. Cela peut se produire si vous passez la sortie de [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) à des compétences ultérieures, et que la sortie comporte plus de langues que celles prises en charge dans ces compétences en aval.
@@ -110,6 +124,18 @@ Si vous rencontrez une erreur d’expiration d’une compétence personnalisée 
 ```
 
 La valeur maximale que vous pouvez définir pour le paramètre `timeout` est de 230 secondes.  Si votre compétence personnalisée ne peut pas s'exécuter de façon constante en 230 secondes, vous pouvez réduire la valeur `batchSize` de votre compétence personnalisée afin qu'elle ait moins de documents à traiter en une seule exécution.  Si vous avez déjà réglé votre valeur `batchSize` sur 1, vous devrez réécrire la compétence pour pouvoir l'exécuter en moins de 230 secondes ou la diviser en plusieurs compétences personnalisées de sorte que le délai d'exécution d'une seule compétence personnalisée soit au maximum de 230 secondes. Pour plus d'informations, consultez la [documentation sur les compétences personnalisées](cognitive-search-custom-skill-web-api.md).
+
+### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>Impossible de « `MergeOrUpload` » | « `Delete` » le document dans l’index de recherche
+
+Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à l’index de recherche. Cela peut se produire si :
+
+| Motif | Exemples | Action |
+| --- | --- | --- |
+| Votre document contient un terme qui dépasse la [limite de 32 Ko](search-limits-quotas-capacity.md#api-request-limits) | Un champ contient un terme trop grand | Vous pouvez éviter cette restriction en vérifiant que le champ n’est pas configuré comme étant filtrable, à choix multiple ou triable.
+| Un document est plus volumineux que la [taille maximale de demande d’API](search-limits-quotas-capacity.md#api-request-limits) | Le document est trop volumineux pour être indexé | [Indexer les jeux de données volumineux](search-howto-large-index.md)
+| Difficultés à se connecter à l’index cible (qui persiste après les nouvelles tentatives), car le service est soumis à une autre charge, par exemple l’interrogation ou l’indexation. | Échec de l’établissement d’une connexion pour mettre à jour l’index. Le service de recherche est soumis à une charge importante. | [Effectuer le scale-up de votre service de recherche](search-capacity-planning.md)
+| Un correctif est appliqué au service de recherche en vue de sa mise à jour ou fait l’objet d’une reconfiguration de topologie. | Échec de l’établissement d’une connexion pour mettre à jour l’index. Le service de recherche est actuellement inopérant/Le service de recherche est en cours de transition. | Configurer le service avec au moins trois réplicas pour une disponibilité de 99,9 % selon la [documentation SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
+| Échec dans la ressource de calcul/réseau sous-jacente (rare) | Échec de l’établissement d’une connexion pour mettre à jour l’index. Une erreur inconnue s’est produite. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec.
 
 ##  <a name="warnings"></a>Avertissements
 L’indexation des avertissements ne s’arrête pas, mais certaines conditions pourraient entraîner des résultats inattendus. Vos données et votre scénario conditionnent les mesures que vous devriez prendre.

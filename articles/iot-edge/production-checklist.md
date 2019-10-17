@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29a771b93e1d686f7972e7dc4d9e78e5858644d6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 599b5b075f32294f9e68c776c4a7744283e9c269
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899399"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244041"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -83,7 +83,7 @@ Une fois l’appareil IoT Edge connecté, poursuivez la configuration de la vari
 
 ### <a name="be-consistent-with-upstream-protocol"></a>Rester cohérent avec le protocole en amont
 
-Si vous avez configuré l’agent IoT Edge sur votre appareil IoT Edge de façon à ce qu’il utilise un protocole autre que le protocole par défaut (AMQP), déclarez le même protocole dans tous les déploiements futurs. Par exemple, si votre appareil IoT Edge se trouve derrière un serveur proxy qui bloque les ports AMQP, vous avez probablement configuré l’appareil se sorte qu’il se connecte via AMQP sur WebSocket (AMQPWS). Lorsque vous déployez des modules sur l’appareil, configurez le même protocole APQPWS pour l’agent IoT Edge et le hub IoT Edge. Sinon, le protocole par défaut, AMQP, remplacera les paramètres et vous empêchera de vous reconnecter. 
+Si vous avez configuré l’agent IoT Edge sur votre appareil IoT Edge de façon à ce qu’il utilise un protocole autre que le protocole par défaut (AMQP), déclarez le même protocole dans tous les déploiements futurs. Par exemple, si votre appareil IoT Edge se trouve derrière un serveur proxy qui bloque les ports AMQP, vous avez probablement configuré l’appareil se sorte qu’il se connecte via AMQP sur WebSocket (AMQPWS). Lorsque vous déployez des modules sur l’appareil, configurez le même protocole AMQPWS pour l’agent IoT Edge et le hub IoT Edge. Sinon, le protocole par défaut, AMQP, remplacera les paramètres et vous empêchera de vous reconnecter. 
 
 Il suffit de configurer la variable d’environnement UpstreamProtocol pour les deux modules : l’agent IoT Edge et le hub IoT Edge. Tous les modules supplémentaires adoptent le protocole défini dans les modules de runtime. 
 
@@ -177,9 +177,11 @@ Cette liste de vérification est un point de départ pour les règles de pare-fe
    | mcr.microsoft.com  | 443 | Registre de conteneurs Microsoft |
    | global.azure-devices-provisioning.net  | 443 | Accès DPS (facultatif) |
    | \*.azurecr.io | 443 | Registres de conteneurs personnels et tiers |
-   | \*.blob.core.windows.net | 443 | Téléchargement de deltas d’image | 
+   | \*.blob.core.windows.net | 443 | Télécharger les deltas d’image Azure Container Registry à partir du stockage Blob  | 
    | \*.azure-devices.net | 5671, 8883, 443 | Accès IoT Hub |
    | \*.docker.io  | 443 | Accès Docker Hub (facultatif) |
+
+Certaines de ces règles de pare-feu sont héritées d’Azure Container Registry. Pour plus d’informations, consultez [Configurer des règles pour accéder à un registre de conteneurs Azure derrière un pare-feu](../container-registry/container-registry-firewall-access-rules.md).
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurer la communication via un proxy
 

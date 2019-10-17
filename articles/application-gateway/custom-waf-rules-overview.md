@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 9c04f805cf410d2306eda76c84a201a67b022b84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 154317e558c2c9a22f569f569684cced467900d5
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716620"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937478"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2"></a>Règles personnalisées du pare-feu d’applications web v2
 
@@ -96,8 +96,8 @@ Il s’agit du nom de la règle. Ce nom apparaît dans les journaux.
 
 ### <a name="priority-required"></a>Priorité [requise]
 
-- Détermine l’ordre dans lequel les règles sont évaluées. Plus la valeur est faible, plus l’évaluation de la règle est récente.
-\- Doit être unique parmi toutes les règles personnalisées. Une règle dont la priorité est égale à 100 est évaluée avant une règle dont la priorité est 200.
+- Détermine l’ordre dans lequel les règles sont évaluées. Plus la valeur est faible, plus l’évaluation de la règle est récente. La plage autorisée est comprise entre 1 et 100. 
+- Doit être unique parmi toutes les règles personnalisées. Une règle dont la priorité est égale à 40 est évaluée avant une règle dont la priorité est égale à 80.
 
 ### <a name="rule-type-required"></a>Type de règle [obligatoire]
 
@@ -111,8 +111,8 @@ Doit être l’une des variables suivantes :
 - RequestMethod - Méthode de requête HTTP (GET, POST, PUT, DELETE etc.)
 - Chaîne de requête - Variable de l’URI
 - PostArgs – Arguments envoyés dans le corps POST. Les règles personnalisées utilisant cette variable de correspondance ne sont appliquées que si l’en-tête « Content-Type » est défini sur « application/x-www-form-urlencoded » et « multipart/form-data ».
-- RequestUri : URI de la requête
-- RequestHeaders : en-têtes de la demande
+- RequestUri - URI de la requête
+- RequestHeaders - En-têtes de la requête
 - RequestBody : contient le corps de la demande en tant que tout. Les règles personnalisées utilisant cette variable de correspondance ne sont appliquées que si l’en-tête « Content-Type » est défini sur « application/x-www-form-urlencoded ». 
 - RequestCookies - Cookies de la requête
 

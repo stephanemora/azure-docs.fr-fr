@@ -1,40 +1,22 @@
 ---
 title: Abonnement LCS
-description: Introduction à un tutoriel pour la création d’un abonnement.
+description: 'Dépréciation de l’article Portail Cloud Partner, ajout d’un lien à l’article Espace partenaires ; auparavant : « Introduction à un didacticiel pour la création d’un abonnement ».'
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 43d27f832d5eb456de60e86257e2be8575f94bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 58733bec13c99f2c871c1782d56db8304386dc44
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935192"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034374"
 ---
 # <a name="lcs-subscription"></a>Abonnement LCS
 
-Ce didacticiel vous apprendra à créer un abonnement. Cet abonnement vous propose un abonné de test Microsoft Online et un projet Microsoft Dynamics Lifecycle Services où vous pouvez déployer un environnement. Vous allez également définir d’autres utilisateurs dans votre abonné Microsoft Online et gagner en expérience avec les fonctionnalités d’administration de service suivantes. Voici les compétences que vous allez acquérir :
+Le [Portail Cloud Partner](https://cloudpartner.azure.com/) ne prend plus en charge la création et la gestion des offres Dynamics 365 for Finance and Operations. Cette fonctionnalité a été déplacée vers le [portail de l’Espace partenaires](https://partner.microsoft.com/) Microsoft. Pour plus d’informations, consultez [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- Abonnement et création d’un nouvel abonné de test Microsoft Online.
-- Navigation dans les projets Lifecycle Services.
-- Utilisation des fonctionnalités de Lifecycle Services.
-- Ajout d’utilisateurs supplémentaires à Microsoft Azure Active Directory et au client.
-- Consultation de ressources Azure dans votre abonnement.
-
-## <a name="key-terms"></a>Termes clés
-
-**Abonné Microsoft Online Services** : l’abonné est le regroupement de tous les abonnements et tous les utilisateurs de votre organisation. L’abonné est créé en même temps que votre premier abonnement dans Microsoft Online Services.
-
-**Abonnement** : l’abonnement vous offre un environnement en ligne. Cet environnement vous permet de profiter de Dynamics 365 for Operations dans le cloud et vous permet également de voir comment les personnalisations que vous développez peuvent être déployées dans le cloud.
-
-**Microsoft Azure Active Directory** : l’environnement cloud comprend Azure Active Directory (AD), qui vous permet de gérer les utilisateurs, les groupes, les rôles de sécurité et les licences des applications en ligne, comme vous les géreriez dans les environnements locaux.
-
-**Utilisateurs** : les utilisateurs des services auxquels votre organisation est abonnée sont gérés dans Azure AD. Tous les utilisateurs peuvent être ajoutés et affectés à des rôles de sécurité.
-
-**Développeurs et administrateurs** : les développeurs et les administrateurs sont des utilisateurs qui ont également accès à Lifecycle Services, ce qui leur permet de gérer les projets et les environnements. Ces utilisateurs sont également les utilisateurs finaux.
-
-Consultez [Abonnement LCS](https://docs.microsoft.com/dynamics365/operations/dev-itpro/dev-tools/sign-up-preview-subscription) pour plus d’informations.
+Avant de créer une offre Dynamics 365 for Operations, lisez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account), puis ouvrez le [tableau de bord de la Place de marché commerciale](https://partner.microsoft.com/dashboard/directory) et sélectionnez la page **Vue d’ensemble**. Suivez les instructions fournies dans [Créer une offre Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) pour créer votre offre.

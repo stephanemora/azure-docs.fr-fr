@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30fd1ebf8a59c80764335be47c986ea77f5d1438
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c4f236f2f2fdbf2736f87f754f48387f9f41850d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879169"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024625"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 
@@ -173,6 +173,9 @@ Pour Azure AD Connect version 1.1.443.0 et versions ultérieures, vous avez bes
 Pour plus de granularité, reportez-vous à la liste mise à jour des [plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), actualisée tous les mercredis et appliquée le lundi qui suit.
 
 Pour plus d’informations, vérifiez les prérequis de connectivité dans l’article [Conditions préalables pour Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
+
+> [!NOTE]
+> La réinitialisation de mot de passe en libre-service peut également échouer si le paramètre « Le mot de passe n’expire jamais » ou « L’utilisateur ne peut pas changer de mot de passe » est configuré sur le compte dans AD DS local. 
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Redémarrer le service de synchronisation Azure AD Connect
 

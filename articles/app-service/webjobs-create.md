@@ -12,12 +12,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 66c1b62dc94fc071d3b04fc0d4e89220df74d1f8
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 53f808570a298c8e576b6df7b4654196ffc56813
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945807"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177507"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
@@ -75,15 +75,15 @@ when making changes in one don't forget the other two.
 
     ![Page WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Utilisez les paramètres **Ajouter une tâche web** , comme spécifié dans le tableau.
+3. Utilisez les paramètres **Ajouter une tâche web**, comme spécifié dans le tableau.
 
    ![Ajouter une page WebJob](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Paramètre      | Exemple de valeur   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Nom** | myContinuousWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
-   | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
-   | **Type** | Continue | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
+   | **Nom** | myContinuousWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
+   | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
+   | **Type** | Continue | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
    | **Mettre à l'échelle** | Multi-instances | Disponible uniquement pour les tâches web continues. Détermine si le programme ou le script s’exécute sur toutes les instances ou une seule instance. L’option permettant une exécution sur plusieurs instances ne s’applique pas aux [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuit ou Partagé. | 
 
 4. Cliquez sur **OK**.
@@ -113,16 +113,16 @@ when making changes in one don't forget the other two.
 
     ![Page WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Utilisez les paramètres **Ajouter une tâche web** , comme spécifié dans le tableau.
+3. Utilisez les paramètres **Ajouter une tâche web**, comme spécifié dans le tableau.
 
    ![Ajouter une page WebJob](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Paramètre      | Exemple de valeur   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Nom** | myTriggeredWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »).|
-   | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
-   | **Type** | Déclenchée | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
-   | **Déclencheurs** | Manuel | |
+   | **Nom** | myTriggeredWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »).|
+   | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
+   | **Type** | Déclenchée | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
+   | **Déclencheurs** | Manuel | |
 
 4. Cliquez sur **OK**.
 
@@ -151,17 +151,17 @@ when making changes in one don't forget the other two.
 
    ![Page WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Utilisez les paramètres **Ajouter une tâche web** , comme spécifié dans le tableau.
+3. Utilisez les paramètres **Ajouter une tâche web**, comme spécifié dans le tableau.
 
    ![Ajouter une page WebJob](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
    | Paramètre      | Exemple de valeur   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Nom** | myScheduledWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
-   | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
-   | **Type** | Déclenchée | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
-   | **Déclencheurs** | Planifiée | Pour que la planification fonctionne correctement, activez la fonctionnalité Toujours actif. La fonctionnalité Toujours actif est disponible uniquement dans les niveaux tarifaires De base, Standard et Premium.|
-   | **Expression CRON** | 0 0/20 * * * * | Les [expressions CRON](#ncrontab-expressions) sont décrites dans la section suivante. |
+   | **Nom** | myScheduledWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
+   | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
+   | **Type** | Déclenchée | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
+   | **Déclencheurs** | Planifiée | Pour que la planification fonctionne correctement, activez la fonctionnalité Toujours actif. La fonctionnalité Toujours actif est disponible uniquement dans les niveaux tarifaires De base, Standard et Premium.|
+   | **Expression CRON** | 0 0/20 * * * * | Les [expressions CRON](#ncrontab-expressions) sont décrites dans la section suivante. |
 
 4. Cliquez sur **OK**.
 
@@ -171,7 +171,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>Expressions NCRONTAB
 
-Vous pouvez entrer une [expression NCRONRAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) dans le portail ou inclure un fichier `settings.job` à la racine du fichier *.zip* de votre tâche web, comme dans l’exemple suivant :
+Vous pouvez entrer une [expression NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) dans le portail ou inclure un fichier `settings.job` à la racine du fichier *.zip* de votre tâche web, comme dans l’exemple suivant :
 
 ```json
 {

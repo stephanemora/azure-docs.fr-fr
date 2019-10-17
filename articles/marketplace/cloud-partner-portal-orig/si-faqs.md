@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 059ec175a48cdcdec6214a6581452ec0536bf566
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943091"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030438"
 ---
 <a name="seller-insights-faq"></a>FAQ sur Seller Insights
 ===================
@@ -41,7 +41,7 @@ Après avoir téléchargé vos transactions à partir du module Payout (Revenu),
 <a name="calculate-revenue-by-customer-usage-period"></a>Calcul du revenu par période d’utilisation de client
 ------------------------------------------
 
-Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée  **Transaction Status** (État de transaction), puis appliquez le filtre pour afficher uniquement la valeur « Paid » (Payé).   Pour chaque transaction répertoriée, la colonne intitulée  **Montant du paiement (DE)**   représente le montant qui vous a été payé.  Pour estimer la période d’utilisation associée à la transaction, utilisez la colonne  **Date de facturation**, qui est une approximation du dernier jour d’utilisation de la période à laquelle s’applique la transaction.
+Après avoir téléchargé vos transactions à partir du module Payout (Revenu), recherchez la colonne intitulée **Transaction Status** (État de transaction), puis appliquez le filtre pour afficher uniquement la valeur « Paid » (Payé).   Pour chaque transaction répertoriée, la colonne intitulée **Montant du paiement (DE)** représente le montant qui vous a été payé.  Pour estimer la période d’utilisation associée à la transaction, utilisez la colonne **Date de facturation**, qui est une approximation du dernier jour d’utilisation de la période à laquelle s’applique la transaction.
 
 
 <a name="calculate-your-bad-debt"></a>Calcul de votre créance irrécouvrable

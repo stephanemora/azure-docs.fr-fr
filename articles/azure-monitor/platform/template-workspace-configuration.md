@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ac5d5d31bb54ce87859a6eec52dbe5948864d4c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 9c5fb38e66cb783b02d314d55cf0d0510523b6a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147325"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375978"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gérer un espace de travail Log Analytics à l’aide de modèles Azure Resource Manager
 
@@ -121,7 +121,7 @@ L’exemple suivant crée un espace de travail avec un modèle à partir de votr
 
 2. Modifiez le modèle en fonction de vos besoins. Consultez la référence [Microsoft.OperationalInsights/workspaces modèle](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) pour découvrir les propriétés et les valeurs prises en charge. 
 3. Enregistrez ce fichier au format **deploylaworkspacetemplate.json** dans un dossier local.
-4. Vous êtes prêt à déployer ce modèle. Vous utilisez PowerShell ou la ligne de commande pour créer l’espace de travail, en spécifiant le nom et l’emplacement de l’espace de travail au sein de la commande.
+4. Vous êtes prêt à déployer ce modèle. Vous utilisez PowerShell ou la ligne de commande pour créer l’espace de travail, en spécifiant le nom et l’emplacement de l’espace de travail au sein de la commande. Le nom de l’espace de travail doit être globalement unique dans tous les abonnements Azure.
 
    * Pour PowerShell, utilisez les commandes suivantes à partir du dossier qui contient le modèle :
    
@@ -243,7 +243,7 @@ L’exemple de modèle suivant illustre comment :
     "customlogName": {
     "type": "string",
     "metadata": {
-      "description": "custom log name"
+      "description": "The custom log name"
       }
     },
     "variables": {
@@ -419,7 +419,7 @@ L’exemple de modèle suivant illustre comment :
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
           "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
           ],
           "kind": "CustomLog",
           "properties": {
@@ -462,7 +462,7 @@ L’exemple de modèle suivant illustre comment :
               }
             ]
           }
-        }
+        },
         {
           "apiVersion": "2015-11-01-preview",
           "type": "datasources",
@@ -592,6 +592,7 @@ L’exemple de modèle suivant illustre comment :
 }
 
 ```
+
 ### <a name="deploying-the-sample-template"></a>Déploiement de l’exemple de modèle
 
 Pour déployer l’exemple de modèle :

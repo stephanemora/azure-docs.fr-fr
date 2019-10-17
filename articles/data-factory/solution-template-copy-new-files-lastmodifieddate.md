@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60312706"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030072"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copier les fichiers nouveaux et modifiés par LastModifiedDate avec Azure Data Factory
 
@@ -88,8 +88,8 @@ Le modèle définit quatre paramètres :
 11. Entrez la valeur correspondant aux **Paramètres d’exécution du déclencheur** comme suit, puis sélectionnez **Terminer**.
     - **FolderPath_Source** =  **/source/** .  Vous pouvez remplacer ce dossier par votre dossier dans le magasin de données sources.
     - **FolderPath_Destination** =  **/destination/** .  Vous pouvez remplacer ce dossier par votre dossier dans le magasin de données de destination.
-    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  Cette variable système issue du déclencheur détermine l'heure du dernier déclenchement du pipeline.
-    - **LastModified_To** =  **@trigger().outputs.windowEndTime**.  Cette variable système issue du déclencheur détermine l'heure du déclenchement du pipeline actuel.
+    - **LastModified_From** =   **\@trigger().outputs.windowStartTime**.  Cette variable système issue du déclencheur détermine l'heure du dernier déclenchement du pipeline.
+    - **LastModified_To** =  **\@trigger().outputs.windowEndTime**.  Cette variable système issue du déclencheur détermine l'heure du déclenchement du pipeline actuel.
     
     ![Paramètres d'entrée](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

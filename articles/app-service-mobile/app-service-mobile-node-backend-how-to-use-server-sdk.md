@@ -14,16 +14,20 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 6eaaeba8a36bcba8134d605889185fb8827dd05c
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 74a522f8761c2eeaf329c90ae35aef0f44c40254
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851188"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027191"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Utiliser le Kit de développement logiciel (SDK) Node.js pour Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center prend en charge les services intégrés essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
+> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) dès aujourd’hui.
 
 Cet article fournit des informations détaillées, ainsi que des exemples sur l’utilisation d’un serveur principal Node.js dans la fonctionnalité Mobile Apps d’Azure App Service.
 
@@ -413,7 +417,7 @@ L’utilisation d’Azure SQL Database en tant que datastore est identique pour 
    d. Cliquez sur le bouton **Sélectionner**.
 
    e. Retournez dans le volet **Plan App Service**, puis sélectionnez **OK**.
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 La configuration d’un serveur principal Mobile Apps peut prendre quelques minutes. Une fois le serveur principal Mobile Apps configuré, le portail ouvre le volet **Paramètres** correspondant au serveur principal Mobile Apps.
 

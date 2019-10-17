@@ -1,20 +1,20 @@
 ---
-title: Création d’un pool de locataires et d'hôtes dans Windows Virtual Desktop - Azure
-description: Comment résoudre les problèmes lorsque vous configurez un locataire et une machine virtuelle hôte de session dans un environnement Windows Virtual Desktop ?
+title: Configuration d’une machine virtuelle hôte de session – Azure
+description: Guide pratique pour résoudre les problèmes pendant la configuration de machines virtuelles hôte de session Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: d163bbf50193743b6602bc9ec3d330df4c14ebcc
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676421"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841292"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
+# <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
 Utilisez cet article pour résoudre les problèmes rencontrés lors de la configuration des machines virtuelles hôtes de session Windows Virtual Desktop.
 
@@ -374,7 +374,7 @@ Si vous utilisez la version « 1903 », suivez ces instructions :
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d’informations sur le service, voir [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Pour plus d'informations sur le service, consultez [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

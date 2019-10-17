@@ -1,19 +1,19 @@
 ---
-title: Entrée de télémétrie et connectivité des appareils avec Azure Digital Twins | Microsoft Docs
+title: Entrée de télémétrie et connectivité des appareils - Azure Digital Twins | Microsoft Docs
 description: Vue d’ensemble de l’intégration d’un appareil à Azure Digital Twins
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 22ae7aeeff4542bee764e131f58eb115026a4fb3
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 6c61bc6075b3f0713dd790f1b3aa1a47af9d8e6c
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177107"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950035"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrée de télémétrie et connectivité des appareils
 

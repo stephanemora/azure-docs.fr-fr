@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 54686a96385532e17fe0ac6e59058b91b40c1342
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b02e819255db0cdf8b9d241f2ec0d41df7494162
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742562"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844362"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -55,35 +55,15 @@ Lorsque vous tentez de sélectionner la machine source pour activer la réplicat
 
 Les machines virtuelles répliquées sous Azure Site Recovery sont indisponibles sur le portail Azure s’il existe des entrées en double dans le système. Pour savoir comment supprimer des entrées périmées et résoudre le problème, consultez [Azure Site Recovery, WMware vers Azure : comment nettoyer les entrées en double ou périmées](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
-## <a name="common-errors-and-solutions"></a>Erreurs courantes et solutions
+## <a name="no-crash-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Aucun point de récupération d’incident cohérent disponible pour la machine virtuelle pendant les « XXX » dernières minutes
+
+Certains des problèmes les plus courants sont répertoriés ci-dessous
 
 ### <a name="initial-replication-issues-error-78169"></a>Problèmes de réplication initiale [erreur 78169]
 
 Après vous être assuré de l’absence de problèmes de connectivité, de bande passante ou de synchronisation de l’heure, vérifiez les points suivants :
 
 - Aucun antivirus ne bloque Azure Site Recovery. Apprenez-en [plus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) sur les exclusions de dossier requises pour Azure Site Recovery.
-
-### <a name="missing-app-consistent-recovery-points-error-78144"></a>Points de récupération de cohérence des applications manquants [erreur 78144]
-
- Cette erreur découle de l’existence de problèmes avec le service VSS. Pour résoudre ce problème : 
- 
-- Vérifiez que la version installée de l’agent Azure Site Recovery n’est pas inférieure à la version 9.22.2. 
-- Vérifiez que le fournisseur VSS est installé en tant que service dans les services Windows, et vérifiez également que le fournisseur VSS Azure Site Recovery est répertorié dans la console MMC de services de composant.
-- Si le fournisseur VSS n’est pas installé, consultez [l’article concernant la détection des échecs d’installation](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
-
-- Si le service VSS est désactivé :
-    - Vérifiez que le type de démarrage du service fournisseur VSS est défini sur **Automatique**.
-    - Redémarrez les services suivants :
-        - Service VSS
-        - Fournisseur VSS d’Azure Site Recovery
-        - Service VDS (Virtual Disk Service)
-
-- Si vous exécutez des charges de travail SQL ou Exchange, recherchez les échecs dans les journaux de ces créateurs d’applications. Les erreurs fréquentes et leur résolution sont répertoriées dans les articles suivants :
-    -  [L’option de fermeture automatique de la base de données SQL Server est définie sur TRUE](https://support.microsoft.com/help/4504104)
-    - [SQL Server 2008 R2 levant une erreur non renouvelable](https://support.microsoft.com/help/4504103)
-    - [Problème connu dans SQL Server 2016 et 2017](https://support.microsoft.com/help/4493364)
-    - [Problème courant avec les serveurs Exchange Server 2013 et 2016](https://support.microsoft.com/help/4037535)
-
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>Machines sources à taux d’évolution élevé [erreur 78188]
 
@@ -138,8 +118,21 @@ Pour résoudre ce problème, vérifiez l’état du service en procédant comme 
     - Vérifiez les journaux à l’emplacement ci-après pour obtenir les détails de l’erreur :
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+3. Pour inscrire le serveur cible maître auprès du serveur de configuration, accédez au dossier **%PROGRAMDATA%\ASR\Agent**, puis exécutez ce qui suit dans l’invite de commandes :
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID d’erreur 78144 : aucun point de récupération cohérent avec l’application disponible pour la machine virtuelle pendant les « XXX » dernières minutes
+
+Des améliorations ont été apportées aux versions [9.23](vmware-physical-mobility-service-overview.md##from-923-version-onwards) & [9.27](site-recovery-whats-new.md#update-rollup-39) de l’agent de mobilité pour gérer les comportements d’échec d’installation VSS. Vérifiez que vous disposez des dernières versions pour obtenir les meilleurs conseils en matière de résolution des défaillances VSS.
 
 Certains des problèmes les plus courants sont répertoriés ci-dessous
 

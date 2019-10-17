@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: a9de9924b851024dd36c848203cc3ada2cde208c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71328723"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176614"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Base de référence d’Azure Security Center pour IoT et vérifications personnalisées
 
@@ -32,7 +32,7 @@ Une base de référence établit un comportement standard pour chaque appareil e
 
 ## <a name="baseline-custom-checks"></a>Vérifications personnalisées de base de référence
 
-Pour les vérifications personnalisées de base de référence, une liste personnalisée de vérifications est établie pour la base de référence de chaque appareil à l’aide du jumeau d’identité de module de l’appareil. 
+Pour les vérifications personnalisées de référence, une liste personnalisée de vérifications est établie pour la base de référence de chaque appareil à l’aide du **jumeau d’identité de module** de l’appareil. 
 
 ## <a name="setting-baseline-properties"></a>Définition des propriétés de la base de référence
 
@@ -55,7 +55,7 @@ Pour configurer les vérifications personnalisées de base de référence :
         "baselineCustomChecksFilePath": {
           "value" : "/home/user/full_path.xml"
         },
-        "baselineCustomChecksFilePath": {
+        "baselineCustomChecksFileHash": {
           "value" : "#hashexample!"
         }
       }
@@ -67,8 +67,8 @@ Pour configurer les vérifications personnalisées de base de référence :
 | Nom| Statut | Valeurs valides| Valeurs par défaut| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Obligatoire : true |Valeurs valides :  **Booléen** |Valeur par défaut : **false** |Intervalle de temps maximal avant l’envoi de messages de priorité élevée.|
-|baselineCustomChecksFilePath |Obligatoire : true|Valeurs valides :  **Chaîne**, **Null** |Valeur par défaut : **PT5H** |Chemin complet de la configuration XML de la base de référence|
-|baselineCustomChecksFileHash |Obligatoire : true|Valeurs valides :  **Chaîne**, **Null** |Valeur par défaut : **PT5H** |`sha256sum` du fichier de configuration XML. Pour plus d’informations, consultez la [référence sha256sum](https://linux.die.net/man/1/sha256sum). |
+|baselineCustomChecksFilePath |Obligatoire : true|Valeurs valides :  **Chaîne**, **Null** |Valeur par défaut : **Null** |Chemin complet de la configuration XML de la base de référence|
+|baselineCustomChecksFileHash |Obligatoire : true|Valeurs valides :  **Chaîne**, **Null** |Valeur par défaut : **Null** |`sha256sum` du fichier de configuration XML. Pour plus d’informations, consultez la [référence sha256sum](https://linux.die.net/man/1/sha256sum). |
 
 Pour voir d’autres exemples de base de référence, consultez l’[exemple de base de référence personnalisée 1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) et l’[exemple de base de référence personnalisée 2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 
