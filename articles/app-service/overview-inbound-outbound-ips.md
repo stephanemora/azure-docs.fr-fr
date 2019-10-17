@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2508090fa8831c8fefb0e710c28e512ec0c94c6e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: de98f972a43f3845d2a01b928d90283732ef4843
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074152"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329792"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Adresses IP entrantes et sortantes dans Azure App Service
 
@@ -52,7 +52,7 @@ Quel que soit le nombre d’instances scale-out, chaque application a un nombre 
 
 L’ensemble d’adresses IP sortantes de votre application change lorsque vous faites évoluer votre application entre les niveaux inférieurs (**De base**, **Standard** et **Premium**) et le niveau **Premium V2**.
 
-Vous pouvez trouver toutes les adresses IP sortantes que votre application est susceptible d’utiliser, indépendamment des niveaux de tarification, en recherchant la propriété `possibleOutboundIPAddresses`, ou à l’aide du champ **Adresses IP sortantes supplémentaires** du panneau **Propriétés** du portail Azure. Consultez [Trouver des adresses IP sortantes](#find-outbound-ips).
+Vous pouvez trouver toutes les adresses IP sortantes que votre application est susceptible d’utiliser, indépendamment des niveaux de tarification, en recherchant la propriété `possibleOutboundIpAddresses`, ou à l’aide du champ **Adresses IP sortantes supplémentaires** du panneau **Propriétés** du portail Azure. Consultez [Trouver des adresses IP sortantes](#find-outbound-ips).
 
 ## <a name="find-outbound-ips"></a>Trouver des adresses IP sortantes
 

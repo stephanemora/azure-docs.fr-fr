@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: lahugh
-ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 314056b6e55838d32c70d81570cdeaf7a84b6671
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173779"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300639"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Prise en charge des machines virtuelles de 2e génération (préversion) sur Azure
 
@@ -93,7 +93,7 @@ Azure ne prend actuellement pas en charge certaines fonctionnalités qui sont pr
 | Prise en charge de groupes de machines virtuelles identiques | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :x:                |
 | Sauvegarde/restauration                    | :heavy_check_mark: | :heavy_check_mark: |
-| Galerie d’images partagées              | :heavy_check_mark: | :x:                |
+| Galerie d’images partagées              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Disk Encryption             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Création d’une machine virtuelle de 2e génération

@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/04/2017
-ms.openlocfilehash: 1f468cac29579d8748f61a47b548a67d36ff8279
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695946"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311681"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>SDK REST Apache Phoenix Query Server
 
-[Apache Phoenix](https://phoenix.apache.org/) est une couche de base de données relationnelle massivement parallèle open source qui vient s’ajouter à [Apache HBase](apache-hbase-overview.md). Phoenix vous permet d’utiliser des requêtes de type SQL avec HBase via des outils SSH tels que [SQLUltraLite](apache-hbase-phoenix-squirrel-linux.md). Phoenix fournit également un serveur HTTP appelé un serveur de requêtes Phoenix (PQS), un client léger qui prend en charge deux mécanismes de transport pour la communication client : JSON et les mémoires tampons de protocole. Les mémoires tampons de protocole constituent le mécanisme par défaut et offrent une communication plus efficace que JSON.
+[Apache Phoenix](https://phoenix.apache.org/) est une couche de base de données relationnelle massivement parallèle open source qui vient s’ajouter à [Apache HBase](apache-hbase-overview.md). Phoenix vous permet d’utiliser des requêtes de type SQL avec HBase via des outils SSH tels que [SQLUltraLite](apache-hbase-query-with-phoenix.md). Phoenix fournit également un serveur HTTP appelé un serveur de requêtes Phoenix (PQS), un client léger qui prend en charge deux mécanismes de transport pour la communication client : JSON et les mémoires tampons de protocole. Les mémoires tampons de protocole constituent le mécanisme par défaut et offrent une communication plus efficace que JSON.
 
 Cet article décrit comment utiliser le Kit de développement logiciel (SDK) REST PQS pour créer des tables, des lignes d’upsert individuellement et en bloc, puis sélectionner des données à l’aide d’instructions SQL. Les exemples utilisent le [pilote Microsoft .NET pour le serveur de requêtes Apache Phoenix](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Ce SDK repose sur des API [Avatica d’Apache Calcite](https://calcite.apache.org/avatica/) qui utilisent exclusivement des mémoires tampons de protocole pour le format de sérialisation.
 

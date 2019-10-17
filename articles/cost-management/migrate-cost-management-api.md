@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c2041984ffa2c455ea4d60a756fcb4142219d91
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 53c171df47dde58b264b354eea5ff1ccca9f5256
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981454"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374726"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement
 
-Cet article vous aide à comprendre la structure de données, l’API et les autres différences d’intégration de système entre les comptes de Contrat Entreprise Microsoft (ou EA pour Enterprise Agreement) et de Contrat Client Microsoft (ou MCA, pour Microsoft Customer Agreement). Azure Cost Management prend en charge les API pour ces deux types de compte. Avant de continuer, veuillez lire l’article [Découvrez comment configurer votre compte de facturation associé à un Contrat Client Microsoft](../billing/billing-mca-setup-account.md).
+Cet article vous aide à comprendre la structure de données, l’API et les autres différences d’intégration de système entre les comptes de Contrat Entreprise Microsoft (ou EA pour Enterprise Agreement) et de Contrat Client Microsoft (ou MCA, pour Microsoft Customer Agreement). Azure Cost Management prend en charge les API pour ces deux types de compte. Avant de continuer, veuillez lire l’article [Découvrez comment configurer votre compte de facturation associé à un Contrat Client Microsoft](../billing/mca-setup-account.md).
 
 Nous recommandons aux organisations ayant déjà un compte EA de lire attentivement cet article lors de la phase de configuration de leur compte MCA. Auparavant, le renouvellement d’un compte EA nécessitait un minimum de travail pour passer d’une ancienne inscription vers une nouvelle. Quant à la migration vers un compte MCA, elle nécessitait encore plus d’efforts. Ces efforts supplémentaires étaient dus aux modifications du sous-système de facturation sous-jacent, impactant toutes les API liées et les offres de service liés aux coûts.
 

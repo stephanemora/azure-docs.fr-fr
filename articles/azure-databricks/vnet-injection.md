@@ -1,21 +1,21 @@
 ---
-title: Déployer l’espace de travail Azure Databricks dans votre réseau virtuel (Préversion)
-description: Cet article explique comment déployer Azure Databricks sur votre réseau virtuel, ce que l’on appelle également une injection de réseau virtuel.
+title: Déployer Azure Databricks sur votre réseau virtuel
+description: Cet article explique comment déployer Azure Databricks sur votre réseau virtuel, opération également appelée injection de réseau virtuel.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/10/2019
+ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62126679"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432660"
 ---
-# <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Déployer l’espace de travail Azure Databricks dans votre réseau virtuel (Préversion)
+# <a name="deploy-azure-databricks-in-your-virtual-network"></a>Déployer Azure Databricks sur votre réseau virtuel
 
 Le déploiement par défaut d’Azure Databricks est un service entièrement géré sur Azure : toutes les ressources de plan de données, y compris un réseau virtuel (VNet), sont déployées sur un groupe de ressources verrouillé. Cependant, si vous devez personnaliser votre réseau, vous pouvez déployer les ressources Azure Databricks dans votre propre réseau virtuel. Cette opération est nommée « injection de réseau virtuel ». Elle vous permet de :
 
@@ -37,7 +37,7 @@ Vous pouvez utiliser l’interface de déploiement d’espace de travail Azure D
 
 Le réseau virtuel dans lequel vous déployez votre espace de travail Azure Databricks doit respecter les conditions suivantes :
 
-### <a name="location"></a>Lieu
+### <a name="location"></a>Location
 
 Le réseau virtuel doit résider dans le même emplacement que l’espace de travail Azure Databricks.
 
@@ -101,7 +101,7 @@ Lorsque vous utilisez ce modèle, vous n’avez pas besoin effectuer manuellemen
 
 ### <a name="network-security-groups"></a>Groupes de sécurité réseau
 
-Pour créer des groupes de sécurité réseau avec les règles requises pour un réseau virtuel existant, utilisez le [Modèle de groupe de sécurité réseau pour l’Injection de réseau virtuel Databricks](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection).
+Pour créer des groupes de sécurité réseau avec les règles requises pour un réseau virtuel existant, utilisez le [Modèle de groupe de sécurité réseau pour l’Injection de réseau virtuel Databricks](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
 
 Lorsque vous utilisez ce modèle, vous n’avez pas besoin effectuer manuellement la mise en liste verte du trafic de sous-réseau.
 
@@ -121,7 +121,7 @@ Si vous utilisez ce modèle sans utiliser également le modèle de groupes de s�
 
 Si vous n’utilisez pas le [portail Microsoft Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) ou les [modèles Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) pour créer les groupes de sécurité de votre réseau, vous devez manuellement placer en liste verte les éléments suivants du trafic sur vos sous-réseaux.
 
-|Direction|Protocole|Source|Port source|Destination|Port de destination|
+|Direction|Protocol|Source|Port source|Destination|Port de destination|
 |---------|--------|------|-----------|-----------|----------------|
 |Trafic entrant|\*|VirtualNetwork|\*|\*|\*|
 |Trafic entrant|\*|IP NAT de plan de contrôle|\*|\*|22|

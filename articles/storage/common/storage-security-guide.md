@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986549"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299625"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -102,9 +102,7 @@ Voici les principaux points à prendre en compte pour accéder aux opérations d
 * [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Cette référence d’API décrit les API que vous pouvez utiliser pour gérer votre compte de stockage par programmation.
-* [Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements](../../azure-resource-manager/resource-manager-api-authentication.md)
 
-  Cet article explique l’authentification avec les API Resource Manager.
 * [Role-Based Access Control for Microsoft Azure from Ignite (Contrôle d’accès en fonction du rôle pour Microsoft Azure)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   Ce lien donne accès à une vidéo sur Channel 9 enregistrée à l’occasion de la conférence MS Ignite en 2015. Cette session traite des fonctionnalités de gestion d’accès et de création de rapports d’Azure et explore les bonnes pratiques en ce qui concerne la sécurisation de l’accès aux abonnements Azure à l’aide d’Azure Active Directory.

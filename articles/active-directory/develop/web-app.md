@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d41cd23d551e4834bf6b94f513e36ff46c1cd45
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544720"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373642"
 ---
 # <a name="web-apps"></a>les applications web
 
@@ -57,4 +57,4 @@ La session utilisateur expire lorsque la durée de vie du jeton émis par Azure�
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les autres [types d’applications et scénarios](app-types.md)
-* En savoir plus sur les [principes de base de l’authentification](authentication-scenarios.md) Azure AD
+* En savoir plus sur les [principes de base de l’authentification](v1-authentication-scenarios.md) Azure AD

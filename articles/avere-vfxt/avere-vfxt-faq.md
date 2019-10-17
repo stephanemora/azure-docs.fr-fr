@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: v-erkell
-ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rohogue
+ms.openlocfilehash: f42a9cf5aaa3256865bcf388aa5bd422664c73dd
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595407"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255408"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Questions fréquentes (FAQ) sur Avere vFXT pour Azure
 

@@ -2,18 +2,17 @@
 title: Actualisation asynchrone pour les modèles Azure Analysis Services | Microsoft Docs
 description: En savoir plus sur le codage de l’actualisation asynchrone à l’aide de l’API REST.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932292"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301166"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 

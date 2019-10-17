@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 06/24/2019
 ms.author: lbosq
-ms.openlocfilehash: 159233da989a5bbec75dbd0a6cfe230b8a512979
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0c1ca054f9d28bb81c6f8acf6c0f43b134a596ed
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261292"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293760"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
 Azure Cosmos DB prend en charge le langage de traversées de graphes [Apache Tinkerpop](https://tinkerpop.apache.org), connu sous le nom de [Gremlin](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps). Vous pouvez utiliser le langage Gremlin pour créer des entités de graphes (vertex et bords), modifier les propriétés au sein de ces entités, exécuter des requêtes et traversées et supprimer des entités. 
@@ -27,7 +27,7 @@ Le tableau suivant présente des pilotes Gremlin courants que vous pouvez utilis
 | --- | --- | --- | --- |
 | [.NET](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-DotNet) | [Gremlin.NET sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-dotnet) | [Créer un graphe avec .NET](create-graph-dotnet.md) | 3.4.0-RC2 |
 | [Java](https://mvnrepository.com/artifact/com.tinkerpop.gremlin/gremlin-java) | [Gremlin JavaDoc](https://tinkerpop.apache.org/javadocs/current/full/) | [Créer un graphe avec Java](create-graph-java.md) | 3.2.0+ |
-| [Node.JS](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript sur GitHub](https://github.com/jbmusso/gremlin-javascript) | [Créer un graphe avec Node.js](create-graph-nodejs.md) | 3.3.4+ |
+| [Node.JS](https://www.npmjs.com/package/gremlin) | [Gremlin-JavaScript sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-javascript) | [Créer un graphe avec Node.js](create-graph-nodejs.md) | 3.3.4+ |
 | [Python](https://tinkerpop.apache.org/docs/3.3.1/reference/#gremlin-python) | [Gremlin-Python sur GitHub](https://github.com/apache/tinkerpop/tree/master/gremlin-python) | [Créer un graphe avec Python](create-graph-python.md) | 3.2.7 |
 | [PHP](https://packagist.org/packages/brightzone/gremlin-php) | [Gremlin-PHP sur GitHub](https://github.com/PommeVerte/gremlin-php) | [Créer un graphe avec PHP](create-graph-php.md) | 3.1.0 |
 | [Console Gremlin](https://tinkerpop.apache.org/downloads.html) | [Documents TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) |  [Créer un graphe à l’aide de la console Gremlin](create-graph-gremlin-console.md) | 3.2.0 + |

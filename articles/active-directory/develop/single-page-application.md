@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6f66779bec9ed4e38e5a662c2d3728ba2034b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8afb226406c02f395c7112d485d4616bfbec140e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545296"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373849"
 ---
 # <a name="single-page-applications"></a>Applications monopages
 
@@ -68,4 +68,4 @@ Après une authentification réussie, Azure AD écrit un cookie dans le navigate
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les autres [types d’applications et scénarios](app-types.md)
-* En savoir plus sur les [principes de base de l’authentification](authentication-scenarios.md) Azure AD
+* En savoir plus sur les [principes de base de l’authentification](v1-authentication-scenarios.md) Azure AD

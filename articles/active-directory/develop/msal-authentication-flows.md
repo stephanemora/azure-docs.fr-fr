@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd932d2b11c61c380638a1a95f8da357d0c62e3
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: d41e011fd58c20cbe6d2dc8d9029e645f8851bd9
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533001"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513034"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -37,9 +37,26 @@ Cet article décrit les différents flux d’authentification fournis par Micros
 | [Informations d’identification du client](#client-credentials) | Vous permet d’accéder aux ressources hébergées sur le web à l’aide de l’identité d’une application. Couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l’interaction immédiate d’un utilisateur. | [Applications démon](scenario-daemon-overview.md) |
 | [Code d’appareil](#device-code) | Permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
 | [Authentification Windows intégrée](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permet aux applications sur des ordinateurs joints à un domaine ou à Azure Active Directory (Azure AD) d’obtenir un jeton silencieusement (sans interaction de l’utilisateur avec l’interface utilisateur).| [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Nom d’utilisateur/mot de passe](scenario-desktop-acquire-token.md#username--password) | Permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Ce flux n’est pas recommandé. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#username--password) | 
+| [Nom d’utilisateur/mot de passe](scenario-desktop-acquire-token.md#username--password) | Permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Ce flux n’est pas recommandé. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#username--password) |
+
+## <a name="how-each-flow-emits-tokens-and-codes"></a>Comment chaque flux émet des jetons et des codes
+ 
+Selon la façon dont votre client est créé, il peut utiliser un ou plusieurs des flux d’authentification pris en charge par la plateforme d’identité Microsoft.  Ces flux peuvent produire divers jetons (id_tokens, jetons d’actualisation, jetons d’accès) ainsi que des codes d’autorisation, et ils nécessitent des jetons différents pour les faire fonctionner. Ce graphique présente une vue d’ensemble :
+ 
+|Flux | Nécessite | id_token | access token | jeton d'actualisation | code d’autorisation | 
+|-----|----------|----------|--------------|---------------|--------------------|
+|[Flux du code d’autorisation](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flux implicite](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
+|[Circuit OIDC hybride](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Échange de jetons d’actualisation](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | jeton d'actualisation | x | x | x| |
+|[Flux On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) | access token| x| x| x| |
+|[Flux de code d’appareil](v2-oauth2-device-code.md) | | x| x| x| |
+|[Informations d’identification du client](v2-oauth2-client-creds-grant-flow.md) | | | x (application uniquement)| | |
+ 
+Les jetons émis via le mode implicite ont une longueur maximale du fait qu’ils sont renvoyés au navigateur via l’URL (où `response_mode` est `query` ou `fragment`).  Certains navigateurs limitent la taille de l’URL qui peut être placée dans la barre d’adresse et refusent les URL trop longues.  Par conséquent, ces jetons n’ont pas de revendications `groups` ou `wids`.
 
 ## <a name="interactive"></a>Interactive
+
 MSAL permet d’inviter l’utilisateur à entrer ses informations d’identification de manière interactive pour se connecter, et d’obtenir un jeton à l’aide de ces informations d’identification.
 
 ![Diagramme d’un flux interactif](media/msal-authentication-flows/interactive.png)
@@ -62,6 +79,7 @@ De nombreuses applications web modernes sont créées en tant qu’applications 
 Ce flux d’authentification n’inclut pas les scénarios d’application qui utilisent des infrastructures JavaScript inter-plateformes comme Electron et React-Native, car ils nécessitent des fonctionnalités plus poussées pour l’interaction avec les plateformes natives.
 
 ## <a name="authorization-code"></a>Code d’autorisation.
+
 MSAL prend en charge [l’octroi de code d’autorisation OAuth 2](v2-oauth2-auth-code-flow.md). Ce type d’octroi peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API web. Cela vous permet d’ajouter un accès de connexion et d’API à vos applications mobiles et de bureau. 
 
 Lorsque les utilisateurs se connectent aux applications web (sites web), l’application web reçoit un code d’autorisation.  Ce code d’autorisation est utilisé pour acquérir un jeton servant à appeler les API web. Dans les applications web ASP.NET et ASP.NET Core, le seul objectif de `AcquireTokenByAuthorizationCode` est d’ajouter un jeton dans le cache de jeton. Le jeton peut ensuite être utilisé par l’application (généralement dans les contrôleurs, qui obtiennent simplement un jeton pour une API à l’aide de la méthode `AcquireTokenSilent`).
@@ -74,6 +92,7 @@ Dans le diagramme ci-dessus, l’application :
 2. Utilise le jeton d’accès pour appeler une API web.
 
 ### <a name="considerations"></a>Considérations
+
 - Vous ne pouvez utiliser le code d’autorisation qu’une seule fois pour récupérer un jeton. N’essayez pas d’obtenir un jeton plusieurs fois avec le même code d’autorisation (cela est explicitement interdit par la spécification du protocole standard). Si vous échangez le code plusieurs fois intentionnellement, ou si vous ne savez pas qu’une infrastructure le fait également pour vous, vous obtiendrez l’erreur suivante : `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
 - Si vous écrivez une application ASP.NET ou ASP.NET Core, cela peut se produire si vous n’indiquez pas à l’infrastructure que vous avez déjà utilisé le code d’autorisation. Pour cela, vous devez appeler la méthode `context.HandleCodeRedemption()` du gestionnaire d’événements `AuthorizationCodeReceived`.
@@ -104,7 +123,7 @@ Le flux d’octroi des informations d’identification du client permet à un se
 
 MSAL.NET prend en charge deux types d’informations d’identification client. Ces informations d’identification client doivent être inscrites auprès d’Azure AD. Elles sont transmises aux constructeurs de l’application cliente confidentielle dans votre code.
 
-### <a name="application-secrets"></a>Secrets de l’application 
+### <a name="application-secrets"></a>Secrets de l’application
 
 ![Diagramme de client confidentiel avec mot de passe](media/msal-authentication-flows/confidential-client-password.png)
 
@@ -113,7 +132,7 @@ Dans le diagramme ci-dessus, l’application :
 1. Acquiert un jeton à l’aide d’un secret d’application ou d’informations d’identification avec mot de passe.
 2. Utilise le jeton pour effectuer des demandes sur la ressource.
 
-### <a name="certificates"></a>Certificats 
+### <a name="certificates"></a>Certificats
 
 ![Diagramme de client confidentiel avec certificat](media/msal-authentication-flows/confidential-client-certificate.png)
 
@@ -126,8 +145,8 @@ Ces informations d’identification client doivent être :
 - Inscrites auprès d’Azure AD.
 - Transmises aux constructeurs de l’application cliente confidentielle dans votre code.
 
-
 ## <a name="device-code"></a>Code d’appareil
+
 MSAL prend en charge le [flux de code d’appareil OAuth 2](v2-oauth2-device-code.md), ce qui permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante. L’authentification interactive avec Azure AD nécessite un navigateur web. Le flux de code d’appareil permet à l’utilisateur d’utiliser un autre appareil (par exemple un autre ordinateur ou un téléphone mobile) pour se connecter de manière interactive, lorsque l’appareil ou le système d’exploitation ne propose pas de navigateur web.
 
 En utilisant le flux de code d’appareil, l’application obtient les jetons via un processus en deux étapes spécialement conçu pour ces appareils ou systèmes d’exploitation. De telles applications incluent par exemple celles qui s’exécutent sur des appareils IoT ou des outils de ligne de commande (CLI). 
@@ -149,6 +168,7 @@ Dans le diagramme ci-dessus :
 - Les comptes personnels Microsoft ne sont pas encore pris en charge par le point de terminaison Azure AD v2.0 (vous ne pouvez pas utiliser les locataires `/common` ou `/consumers`).
 
 ## <a name="integrated-windows-authentication"></a>Authentification Windows intégrée
+
 MSAL prend en charge l’authentification Windows intégrée (IWA) pour les applications de bureau ou mobiles qui s’exécutent sur un ordinateur Windows joint à un domaine ou à Azure AD. Avec l’authentification Windows intégrée, ces applications peuvent acquérir un jeton silencieusement (sans interaction de l’utilisateur avec l’interface utilisateur). 
 
 ![Diagramme dl’authentification Windows intégrée](media/msal-authentication-flows/integrated-windows-authentication.png)
@@ -186,7 +206,8 @@ Le flux d’authentification Windows intégrée est activé pour les application
   
 Pour plus d’informations sur le consentement, consultez [Autorisations et consentement dans v2.0](v2-permissions-and-consent.md).
 
-## <a name="usernamepassword"></a>Nom d’utilisateur/mot de passe 
+## <a name="usernamepassword"></a>Nom d’utilisateur/mot de passe
+
 MSAL prend en charge l’[octroi des informations d’identification de mot de passe du propriétaire des ressources OAuth 2](v2-oauth-ropc.md), qui permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Dans votre application de bureau, vous pouvez utiliser le flux de nom d’utilisateur/mot de passe pour acquérir un jeton silencieusement. Aucune interface utilisateur n’est requise lorsque vous utilisez l’application.
 
 ![Diagramme de flux de nom d’utilisateur/mot de passe](media/msal-authentication-flows/username-password.png)

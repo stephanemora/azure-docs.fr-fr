@@ -13,19 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94c2ac1d662851b5a0b44ec475becb5f5e0403c4
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 4e29aacb1357509e2b000a9d05c5ced8f9a30dce
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146397"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517162"
 ---
 # <a name="bulk-download-members-of-a-group-preview-in-azure-active-directory"></a>Télécharger en bloc les membres d’un groupe (préversion) dans Azure Active Directory
 
 À l’aide du portail Azure Active Directory (Azure AD), vous pouvez télécharger en bloc les membres d’un groupe de votre organisation dans un fichier de valeurs séparées par des virgules (CSV).
-
-> [!NOTE]
-> Les opérations en bloc d’Azure AD sont une fonctionnalité en préversion publique d’Azure AD disponible avec un plan de licence Azure AD payante. Pour plus d’informations sur les conditions d’utilisation des préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="to-bulk-download-group-membership"></a>Pour télécharger en bloc des appartenances de groupes
 

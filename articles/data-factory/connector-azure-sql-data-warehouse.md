@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: jingwang
-ms.openlocfilehash: 78b74c1db5f331e7b74a730148d52b1ff7694ec0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5351f7f01bbe99b1e3ebc3c94a0805f0419cc1cf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71058998"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387911"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -590,7 +590,7 @@ La valeur NULL est une forme spéciale de la valeur par défaut. Si la colonne e
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
-Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation de réception](data-flow-sink.md) dans Mappage de flux de données.
+Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans la section sur le mappage de flux de données.
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Mappage de type de données pour Azure SQL Data Warehouse
 

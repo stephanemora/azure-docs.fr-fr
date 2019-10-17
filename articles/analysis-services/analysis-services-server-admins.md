@@ -2,18 +2,17 @@
 title: Gérer les administrateurs de serveur dans Azure Analysis Services | Microsoft Docs
 description: Apprenez à gérer des administrateurs de serveur pour un serveur Analysis Services dans Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb5248d374fa6212398ad652b4db1496833473ae
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: fbb7d339c5c3c12990a49d6ebd53760e101f4eb7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696305"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301096"
 ---
 # <a name="manage-server-administrators"></a>Gérer des administrateurs de serveur
 

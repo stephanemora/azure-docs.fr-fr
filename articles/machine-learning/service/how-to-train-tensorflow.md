@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3b8f213bd614e4adce74b83c87649a0f248cba7b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 11b16f91d600c20b48fbdc5887a4a0a4b538e916
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710108"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330653"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Créer un modèles de Deep Learning TensorFlow à l’échelle avec Azure Machine Learning
 
@@ -142,9 +142,9 @@ L’estimateur TensorFlow est implémenté via la classe générique [`estimator
 
 Si l’exécution de votre script d’entraînement exige des packages PIP ou Conda supplémentaires, vous pouvez installer les packages sur l’image Docker obtenue en transmettant leurs noms via les arguments `pip_packages` et `conda_packages`.
 
-```Python
+```python
 script_params = {
-    '--data-folder': ws.get_default_datastore().as_mount(),
+    '--data-folder': dataset.as_named_input('mnist').as_mount(),
     '--batch-size': 50,
     '--first-layer-neurons': 300,
     '--second-layer-neurons': 100,

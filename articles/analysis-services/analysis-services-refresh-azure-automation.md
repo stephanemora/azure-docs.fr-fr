@@ -2,17 +2,16 @@
 title: Actualiser des modèles Azure Analysis Services avec Azure Automation | Microsoft Docs
 description: Découvrez comment coder des actualisations de modèle à l’aide d’Azure Automation.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 4cae93cff594ad561973f8029ea7335dc4c60263
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356996"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294781"
 ---
 # <a name="refresh-with-azure-automation"></a>Actualiser avec Azure Automation
 
@@ -28,7 +27,7 @@ Tous les appels doivent être authentifiés avec un jeton Azure Active Directory
 
 Pour en savoir plus sur la création d’un principal de service, voir [Créer un principal de service à l’aide du portail Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 > [!IMPORTANT]
 > L’exemple suivant suppose que le pare-feu Azure Analysis Services est désactivé. Si le pare-feu est activé, l’adresse IP publique de l’initiateur de la demande doit figurer sur la liste verte du pare-feu.

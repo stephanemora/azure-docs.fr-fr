@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 09/03/2019
 ms.author: heidist
-ms.openlocfilehash: 3b0647c3a71e6ce242e7cbd0eedcca3d0fa30ded
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: b92838f7c43a11cd8bd4e1e19f906d33758bf495
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274049"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331167"
 ---
 # <a name="what-is-azure-search"></a>Présentation de Recherche Azure
 
@@ -62,7 +62,7 @@ Recherche Azure est adapté aux scénarios d’application suivants :
 | Niveau&nbsp;de la plate-forme&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Caractéristiques |
 |-------------------|----------|
 | Outils de prototypage et d’inspection | Dans le portail, vous pouvez utiliser l’[**Assistant Importation de données**](search-import-data-portal.md) pour configurer des indexeurs, le concepteur d’index pour créer un index, et l’[**Explorateur de recherche**](search-explorer.md) pour tester les requêtes et affiner les profils de score. Vous pouvez également ouvrir un index pour consulter son schéma. |
-| Surveillance et diagnostics | [**Activez les fonctionnalités de surveillance**](search-monitor-usage.md) pour aller au-delà des métriques visibles en un coup d'œil sur le portail. Des mesures sur les requêtes par seconde, la latence et la limitation sont capturées et affichées sur les pages du portail sans aucune configuration supplémentaire. <br/><br/>L'[**Analytique du trafic des recherches**](search-traffic-analytics.md) constitue une autre alternative de surveillance. Les données côté serveur et côté client sont collectées et analysées pour dévoiler des insights sur ce que les utilisateurs saisissent dans la zone de recherche. |
+| Surveillance et diagnostics | [**Activez les fonctionnalités de surveillance**](search-monitor-usage.md) pour aller au-delà des métriques visibles en un coup d'œil sur le portail. Des mesures sur les requêtes par seconde, la latence et la limitation sont capturées et affichées sur les pages du portail sans aucune configuration supplémentaire.|
 | Chiffrement côté serveur | Le [**chiffrement au repos géré par Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) est intégré dans la couche de stockage interne et est irrévocable. Vous pouvez également compléter le chiffrement par défaut avec des [**clés de chiffrement gérées par le client (préversion)** ](search-security-manage-encryption-keys.md). Les clés que vous créez et gérez dans Azure Key Vault permettent de chiffrer les index et les mappages de synonymes dans Recherche Azure. |
 | Infrastructure | La **plateforme haute disponibilité** garantit une expérience de service de recherche extrêmement fiable. Lorsqu’il est correctement mis à l'échelle, [Azure Search offre un SLA de 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> En tant que solution complète **entièrement gérée et extensible**, Recherche Azure n’exige absolument aucune gestion d’infrastructure. Votre service peut être adapté à vos besoins avec la mise à l’échelle en deux dimensions pour gérer plus de stockage de documents, plus de charge de requêtes, ou les deux.<br/><br/>|
 

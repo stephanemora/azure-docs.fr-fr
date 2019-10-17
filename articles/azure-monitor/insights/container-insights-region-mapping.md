@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 06/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 481a2a400be4e983e0a2337a200324061494efa1
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: ca77277c8d8d405b8fe81f612a8d7600d3c937ab
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67518123"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388182"
 ---
 # <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Mappages de régions pris en charge par Azure Monitor pour conteneurs
 
@@ -66,6 +66,7 @@ Les ressources du cluster AKS ou l’espace de travail Log Analytics peuvent ré
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
 |WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
+|Gouvernement américain - Virginie |Gouvernement américain - Virginie |
 
 <sup>1</sup> En raison de restrictions de capacité, la région n’est pas disponible lors de la création de ressources. Cela comprend les espaces de travail Log Analytics. Toutefois, les ressources liées préexistantes dans la région doivent continuer à fonctionner.
 

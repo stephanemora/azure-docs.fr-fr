@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.date: 04/19/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: e7cc9b63768385e4665e330b2b02a884b84c2188
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 307074618cae75ba57be219b4f975e2aec279682
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615384"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255500"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide d’un modèle Azure Resource Manager
 
 AKS (Azure Kubernetes Service) est un service Kubernetes managé qui vous permet de déployer et de gérer rapidement des clusters. Dans ce guide de démarrage rapide, vous déployez un cluster AKS à l’aide d’un modèle Azure Resource Manager. Une application multiconteneur composée d’un front-end web et d’une instance Redis est exécutée dans le cluster.
 
-![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 Ce guide de démarrage rapide suppose une compréhension élémentaire des concepts liés à Kubernetes. Pour plus d’informations, consultez [Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service][kubernetes-concepts].
 
@@ -259,7 +259,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Pour voir l’application Azure Vote en action, ouvrez un navigateur web en utilisant l’adresse IP externe de votre service.
 
-![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="delete-cluster"></a>Supprimer un cluster
 

@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0034668231d97e64602bdbdd0836bded97bb733d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545837"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373867"
 ---
 # <a name="native-apps"></a>Applications natives
 
@@ -64,4 +64,4 @@ Quand l’application native utilise son code d’autorisation pour obtenir un j
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur les autres [types d’applications et scénarios](app-types.md)
-- En savoir plus sur les [principes de base de l’authentification](authentication-scenarios.md) Azure AD
+- En savoir plus sur les [principes de base de l’authentification](v1-authentication-scenarios.md) Azure AD

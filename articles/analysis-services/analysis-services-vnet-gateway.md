@@ -2,18 +2,17 @@
 title: Utiliser la passerelle de données locale pour les sources de données de réseau virtuel Azure | Microsoft Docs
 description: Découvrez comment configurer un serveur afin d’utiliser une passerelle pour les sources de données sur un réseau virtuel.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 675d8ecd3d6a3310a9b102df37df18bed02df3de
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958804"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301217"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Utiliser la passerelle pour les sources de données sur un réseau virtuel Azure (VNet)
 

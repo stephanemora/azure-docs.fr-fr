@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: b06fe477f551977b1357f3b1b185cb340a948052
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: f4c483c36dc7a19e3e16dcaabab10af03cdfe17e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905496"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515517"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>Activer Azure Monitor pour machines virtuelles (préversion) pour un environnement hybride
 
@@ -206,24 +206,6 @@ Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interfac
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -279,9 +261,8 @@ Vérifiez le fichier C:\Program Files\Microsoft Dependency Agent\logs\wrapper.lo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la surveillance activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles.
+Une fois la supervision activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles.
  
-- Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles](vminsights-health.md).
 - Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).
+
 - Pour identifier les goulots d’étranglement et l’utilisation globale avec les performances de votre machine virtuelle, consultez [Consulter les performances des machines virtuelles Azure](vminsights-performance.md).
-- Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c75ec0ec212c99e474d13892178acbdc14e5f386
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075272"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430041"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Adoption de l’accès conditionnel Azure AD
 
@@ -69,7 +69,6 @@ Suivez les liens ci-dessous pour obtenir une vue d’ensemble du fonctionnement 
 
 En outre, consultez les liens suivants pour obtenir des conseils afin de protéger l’accès à tous les services qui sont intégrés à Azure Active Directory.
 
-* [What are baseline policies?](baseline-protection.md) (Que sont les stratégies de base ?) La protection de base garantit qu’au moins le niveau de sécurité de base est activé dans votre environnement Azure Active Directory.
 * [Configurations des identités et de l’accès aux appareils](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations). Décrit comment configurer un accès sécurisé aux services de cloud via les produits Enterprise Mobility + Security en implémentant un environnement et une configuration recommandés, y compris un ensemble prescrit de stratégies d’accès conditionnel et des fonctions connexes.
 * [Azure Active Directory conditional access settings reference](technical-reference.md) (Référence des paramètres d’accès conditionnel Azure Active Directory). Découvrez :
    * Quelles applications utilisent un accès conditionnel.

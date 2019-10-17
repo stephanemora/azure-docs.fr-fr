@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147289"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285986"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -79,7 +79,6 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 |Danemark   |Italie   |     Norvège          |États-Unis |
 |Finlande   |Japon   |     Pologne          
 
-Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement aura lieu dans les régions suivantes : États-Unis, Canada, Royaume-Uni et Australie. Les catalogues pour les autres pays/régions seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Comment s’inscrire aux services de conseil dans la Place de marché Azure et AppSource
 Commencez par [inscrire](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) votre entreprise dans la Place de marché. Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 

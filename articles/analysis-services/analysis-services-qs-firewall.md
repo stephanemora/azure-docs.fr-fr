@@ -2,18 +2,17 @@
 title: 'Démarrage rapide : configurer un pare-feu pour un serveur Analysis Services dans Azure | Microsoft Docs'
 description: Découvrez comment configurer un pare-feu pour une instance de serveur Analysis Services dans Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52ccaa17b9994751bb9dfd54848e20aef90146c3
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c3c8de80f90fe203029b38171502e3d4a9b9dd46
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905876"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298536"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Démarrage rapide : Configurer un pare-feu de serveur - Portail
 

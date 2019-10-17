@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: a56040f5938cc5d1edd452a81935591372cff0d6
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 8f29ea1e3de8f71c489438cd2d794c03b72ca38e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326644"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514268"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -122,7 +122,7 @@ Par exemple, dans une application de jeu, envoyez un événement chaque fois qu'
 *JavaScript*
 
 ```javascript
-appInsights.trackEvent("WinGame");
+appInsights.trackEvent({name:"WinGame"});
 ```
 
 *C#*

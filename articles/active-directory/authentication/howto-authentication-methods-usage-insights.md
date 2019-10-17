@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f6a74308f1bc4a7b77576fb9f39f965de0a4f8
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: ddfea07989f52c463816318276fd5b6643cb2041
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67561026"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255062"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>Utilisation de méthodes d’authentification et informations (préversion)
 
@@ -58,8 +58,6 @@ Le graphique **Inscriptions** de l’onglet **Inscriptions** indique le nombre d
 En cliquant sur l’un ou l’autre des graphiques, vous obtiendrez une liste pré-filtrée d’événements d’inscription ou de réinitialisation.
 
 A l’aide de la commande située dans le coin supérieur droit, vous pouvez remplacer la valeur de la plage de dates pour les données d’audit affichées dans les graphiques Inscriptions et Réinitialisations par 24 heures, 7 jours ou 30 jours.
-
-Données d’inscription à partir des 
 
 ### <a name="registration-details"></a>détails de l’inscription
 

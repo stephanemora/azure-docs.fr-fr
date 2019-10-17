@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: f6273e9b6c7ed0c4685479976343497f01201b0b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 456ed0a48db015d3c95827942a576e6916095131
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206761"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515438"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>Utiliser la fonctionnalité Cartographie d’Azure Monitor pour machines virtuelles (préversion) afin de mieux comprendre le fonctionnement des composants d’application
 Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d’application qui ont été détectés sur les machines virtuelles Windows et Linux exécutées dans Azure ou votre environnement. Il existe deux manières d’observer les machines virtuelles : en affichant une carte directement à partir d’une machine virtuelle ou en affichant une carte à partir d’Azure Monitor pour voir les composants dans les groupes de machines virtuelles. Cet article vous aidera à bien comprendre ces deux méthodes de visualisation et à utiliser correctement la fonctionnalité Cartographie. 
@@ -124,6 +124,7 @@ Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir 
 >Vous pouvez également accéder à la carte d’une instance spécifique à partir de la vue **Instances** de votre groupe de machines virtuelles identiques. Dans la section **Paramètres**, accédez à **Instances** > **Insights (préversion)** .
 
 ## <a name="view-a-map-from-azure-monitor"></a>Afficher une carte à partir d’Azure Monitor
+
 Dans Azure Monitor, la fonctionnalité Cartographie offre une vue globale de vos machines virtuelles et de leurs dépendances. Pour accéder à la fonctionnalité Cartographie dans Azure Monitor :
 
 1. Dans le Portail Azure, sélectionnez **Surveiller**. 
@@ -139,5 +140,5 @@ Le sélecteur **Groupe** affiche les abonnements, les groupes de ressources, les
 Par défaut, la carte affiche les 30 dernières minutes. Si vous souhaitez voir les dépendances sur une plus grande période passée, vous pouvez exécuter une requête sur un intervalle de temps historique allant jusqu’à une heure. Pour exécuter la requête, utilisez le sélecteur **TimeRange**. Vous pouvez exécuter une requête, par exemple, durant un incident ou pour afficher l’état avant une modification.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour savoir comment utiliser la fonctionnalité Intégrité, consultez [Afficher l’intégrité d’une machine virtuelle Azure](vminsights-health.md). 
-- Pour identifier les goulots d’étranglement, superviser les performances et comprendre l’utilisation globale de vos machines virtuelles, consultez [Afficher les performances avec Azure Monitor pour machines virtuelles](vminsights-performance.md). 
+
+Pour identifier les goulots d’étranglement, superviser les performances et comprendre l’utilisation globale de vos machines virtuelles, consultez [Afficher les performances avec Azure Monitor pour machines virtuelles](vminsights-performance.md). 

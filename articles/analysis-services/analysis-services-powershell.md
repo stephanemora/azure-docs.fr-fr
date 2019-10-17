@@ -2,18 +2,17 @@
 title: Gérer Azure Analysis Services avec PowerShell | Microsoft Docs
 description: Gestion d’Azure Analysis Services avec PowerShell.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
 ms.date: 07/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 38ce44f486616e4ab94e8332884005a187e31008
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bfe1bfc2828347e34fa92564c26d005998e14ece
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932420"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294735"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gérer Azure Analysis Services avec PowerShell
 

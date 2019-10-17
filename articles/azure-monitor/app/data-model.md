@@ -5,19 +5,20 @@ services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/14/2019
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 749b4077b457eff836ec515f21d97e892e663156
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b14ce5cc83dcbbeef2379d21027d4bca337fd9fd
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60899184"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376038"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modèle de données de télémétrie d’Application Insights
 
@@ -49,7 +50,7 @@ Le modèle de télémétrie d’Application Insights définit un moyen de [mettr
 
 Le modèle de données d’Application Insights est certes simple et basique, mais suffisamment puissant pour modéliser les données de télémétrie de votre application. Nous faisons en sorte que ce modèle reste le plus simple et le plus léger possible pour prendre en charge des scénarios essentiels et permettre l’extension du schéma pour une utilisation avancée.
 
-Pour signaler des problèmes concernant le modèle de données ou le schéma et pour faire des suggestions, utilisez le référentiel GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema).
+Pour signaler des problèmes concernant le modèle de données ou le schéma et pour faire des suggestions, utilisez le référentiel GitHub [ApplicationInsights-Home](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

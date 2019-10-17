@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: becb4e4787c21e18455144108274f585ba25cb72
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 23c2a4e8c576f3f2355db0d903c43c9c5b24cc18
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105379"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311649"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix dans Azure HDInsight
 
@@ -40,7 +40,7 @@ CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) IN
 
 Cette approche peut générer une augmentation significative des performances par rapport à l’exécution des requêtes avec index unique. Ce type d’index secondaire est un **index couvrant** comportant l’ensemble des colonnes incluses dans la requête. Par conséquent, aucune recherche de table n’est requise et l’index satisfait l’intégralité de la requête.
 
-### <a name="views"></a>Views
+### <a name="views"></a>Les vues
 
 Les vues de Phoenix fournissent un moyen de surmonter une limite de HBase, où les performances commencent à se dégrader lorsque vous créez plus de 100 tables physiques. Avec les vues de Phoenix, plusieurs *tables virtuelles* peuvent partager une table HBase physique sous-jacente.
 
@@ -137,4 +137,4 @@ Un cluster HDInsight HBase comprend l’[interface utilisateur Ambari](hdinsight
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Utilisation d’Apache Phoenix avec les clusters HBase basés sur Linux dans HDinsight](hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Utilisation d’Apache Phoenix avec les clusters HBase basés sur Linux dans HDinsight](hbase/apache-hbase-query-with-phoenix.md)

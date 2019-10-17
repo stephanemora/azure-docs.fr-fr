@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.reviewer: jeking
-ms.openlocfilehash: 4e4e4d250de823ae8fb78a306bae313f340e7ce9
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 5badd4aeabd8ec322ea5fb847cf134f302269c27
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992302"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331011"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Démarrage rapide : Analyser des données dans Azure Data Lake Storage Gen2 à l’aide d’Azure Databricks
 
@@ -78,11 +78,11 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     ![Créer un cluster Databricks Spark sur Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Créer un cluster Databricks Spark sur Azure")
 
-    Acceptez toutes les valeurs par défaut autres que les suivantes :
+    Renseignez les champs suivants et acceptez les valeurs par défaut pour les autres champs :
 
-    * Entrez un nom pour le cluster.
-    * Créez un cluster avec le runtime **5.1**.
-    * Veillez à cocher la case **Arrêter après 120 minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
+    - Entrez un nom pour le cluster.
+     
+    - Veillez à cocher la case **Arrêter après 120 minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
 4. Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 

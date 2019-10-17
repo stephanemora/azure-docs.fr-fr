@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
-ms.openlocfilehash: b53bb0f04bf6a739b588b14febd622f6bf7a6a63
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354902"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286653"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole AMQP
 
@@ -262,7 +262,7 @@ Les chemins de liaisons suivants sont pris en charge en tant qu’opérations d�
 | Créé par | Type de liaison | Chemin de liaison | Description |
 |------------|-----------|-----------|-------------|
 | Appareils | Liaison de récepteur | `/devices/<deviceID>/messages/devicebound` | Les messages cloud-à-appareil destinés aux appareils sont reçus sur cette liaison par chaque appareil de destination. |
-| Appareils | Liaison d’expéditeur | `/devices/<deviceID>messages/events` | Les messages appareil-à-cloud qui sont envoyés à partir d’un appareil sont envoyés par le biais de cette liaison. |
+| Appareils | Liaison d’expéditeur | `/devices/<deviceID>/messages/events` | Les messages appareil-à-cloud qui sont envoyés à partir d’un appareil sont envoyés par le biais de cette liaison. |
 | Appareils | Liaison d’expéditeur | `/messages/serviceBound/feedback` | Messages de commentaires cloud-à-appareil envoyés au service sur cette liaison par les appareils. |
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>Recevoir des commandes cloud-à-appareil (client d’appareil)

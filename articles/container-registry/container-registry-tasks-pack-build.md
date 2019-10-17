@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.author: danlep
-ms.openlocfilehash: 4e41bcaff8faef2c4eaec9ae852955d4b7ce354b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: b544820a0c496e0814de44790ea9c28878031a7d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839898"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293908"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Générer et envoyer (push) une image à partir d’une application à l’aide d’un Cloud Native Buildpack
 
@@ -31,20 +31,20 @@ Au minimum, spécifiez les éléments suivants lorsque vous exécutez `az acr pa
 
 * Un registre de conteneurs Azure dans lequel vous exécutez la commande
 * Un nom d’image et étiquette pour l’image résultante
-* L’un des [emplacements de contexte pris en charge](container-registry-tasks-overview.md#quick-task) pour les tâches ACR, comme un répertoire local, un GitHub référentiel ou un tarball distant
-* Le nom d’une image du générateur Buildpack, telle que `cloudfoundry/cnb:bionic`.  
+* L’un des [emplacements de contexte pris en charge](container-registry-tasks-overview.md#context-locations) pour les tâches ACR, comme un répertoire local, un GitHub référentiel ou un tarball distant
+* Le nom d’une image du générateur Buildpack, telle que `cloudfoundry/cnb:0.0.12-bionic`.  
 
 `az acr pack build` prend en charge d’autres fonctionnalités des commandes de tâches ACR, notamment les [variables d’exécution](container-registry-tasks-reference-yaml.md#run-variables) et les [journaux d’exécution des tâches](container-registry-tasks-overview.md#view-task-logs) qui sont diffusés en continu et également enregistrés pour une récupération ultérieure.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemple : Créer une image Node.js avec Cloud Foundry Builder
 
-L’exemple suivant crée une image conteneur à partir de l’application Node.js dans le référentiel [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world), à l’aide du générateur `cloudfoundry/cnb:bionic` :
+L’exemple suivant crée une image conteneur à partir de l’application Node.js dans le référentiel [Azure-Samples/nodejs-docs-hello-world](https://github.com/Azure-Samples/nodejs-docs-hello-world), à l’aide du générateur `cloudfoundry/cnb:0.0.12-bionic` :
 
 ```azurecli
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --pull --builder cloudfoundry/cnb:bionic \
+    --pull --builder cloudfoundry/cnb:0.0.12-bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 

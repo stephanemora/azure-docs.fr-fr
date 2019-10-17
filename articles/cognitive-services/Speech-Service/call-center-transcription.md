@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b7c7bfffb5ddf947dc9bd25e6828e2816a7325cd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559731"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516769"
 ---
 # <a name="speech-services-for-telephony-data"></a>Services Speech pour les données de téléphonie
 
@@ -110,7 +110,7 @@ Vous pouvez facilement intégrer les services Speech à une solution à l’aide
 
 Plusieurs produits de service RVI ou de téléphonie (comme Genesys ou AudioCodes) offrent des fonctionnalités d’intégration qui peuvent être exploitées pour permettre au trafic audio entrant et sortant d’accéder à un service Azure. Fondamentalement, un service Azure personnalisé peut fournir une interface spécifique pour définir des sessions d’appel téléphonique (comme un démarrage d’appel ou une fin d’appel) et exposer une API WebSocket pour recevoir les données audio de flux entrant utilisées avec les services Speech. Les réponses sortantes, telles que la transcription de conversation ou les connexions avec le Bot Framework, peuvent être synthétisées avec le service de synthèse vocale de Microsoft et retournées au système RVI à des fins de lecture.
 
-Un autre scénario est l’intégration de SIP direct. Un service Azure se connecte à un serveur SIP, obtenant ainsi un flux entrant et un flux sortant, qui est utilisé pour les phases de reconnaissance vocale et de synthèse vocale. Pour vous connecter à un serveur SIP, vous disposez d’offres de logiciels commerciaux, tels que le SDK Ozeki ou l’[API Appel et réunions de Teams](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (en version bêta), qui sont conçues pour prendre en charge ce type de scénario pour les appels audio.
+Un autre scénario est l’intégration de SIP direct. Un service Azure se connecte à un serveur SIP, obtenant ainsi un flux entrant et un flux sortant, qui est utilisé pour les phases de reconnaissance vocale et de synthèse vocale. Pour vous connecter à un serveur SIP, vous disposez d’offres de logiciels commerciaux, tels que le SDK Ozeki ou l’[API Appel et réunions de Teams](/graph/api/resources/communications-api-overview) (en version bêta), qui sont conçues pour prendre en charge ce type de scénario pour les appels audio.
 
 ## <a name="customize-existing-experiences"></a>Personnaliser les expériences existantes
 

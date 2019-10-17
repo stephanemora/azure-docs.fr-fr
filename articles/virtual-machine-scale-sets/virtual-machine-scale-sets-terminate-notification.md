@@ -3,7 +3,7 @@ title: Notification d’arrêt des instances de groupe de machines virtuelles id
 description: Découvrez comment activer la notification d’arrêt pour les instances de groupe de machines virtuelles identiques Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: mayanknayar
+author: shandilvarun
 manager: drewm
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
-ms.author: manayar
-ms.openlocfilehash: de303032fcbbde30534c802e3d5185aedf05cb98
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.author: vashan
+ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076081"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264683"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notification d’arrêt des instances de groupe de machines virtuelles identiques Azure (préversion)
 Les instances de groupe identique peuvent choisir de recevoir des notifications d’arrêt de l’instance et de configurer un délai d’attente prédéfini pour l’opération d’arrêt. La notification d’arrêt est envoyée par le biais d’Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), qui fournit des notifications et un report des opérations ayant un impact, telles que le redémarrage et le redéploiement. La solution en préversion ajoute un autre événement (Terminate) à la liste de Scheduled Events, et le délai associé à l’événement d’arrêt dépend de la limite de délai spécifiée par les utilisateurs dans leurs configurations de modèle de groupe identique.

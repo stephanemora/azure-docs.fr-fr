@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 80f0ec57aa287bae9b10d9a4cdb013014aab3332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2293eac45da6f53b0cd29fda68b0ddc76aea1a6c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082555"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390635"
 ---
 # <a name="openshift-in-azure"></a>OpenShift dans Azure
 
@@ -49,9 +49,9 @@ OKD est un projet initial [open source](https://www.okd.io/) d’OpenShift dont
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer les éléments prérequis communs pour OpenShift dans Azure](./openshift-prerequisites.md)
-- [Déployer OpenShift Container Platform dans Azure](./openshift-container-platform.md)
-- [Déployer un cluster OpenShift Container Platform autogéré à l’aide de l’offre de la Place de marché](./openshift-marketplace-self-managed.md)
+- [Configurer les éléments prérequis communs pour OpenShift dans Azure](./openshift-container-platform-3x-prerequisites.md)
+- [Déployer OpenShift Container Platform dans Azure](./openshift-container-platform-3x.md)
+- [Déployer un cluster OpenShift Container Platform autogéré à l’aide de l’offre de la Place de marché](./openshift-container-platform-3x-marketplace-self-managed.md)
 - [Déployer OpenShift dans Azure Stack](./openshift-azure-stack.md)
-- [Tâches de post-déploiement](./openshift-post-deployment.md)
-- [Résoudre les problèmes liés au déploiement d’OpenShift](./openshift-troubleshooting.md)
+- [Tâches de post-déploiement](./openshift-container-platform-3x-post-deployment.md)
+- [Résoudre les problèmes liés au déploiement d’OpenShift](./openshift-container-platform-3x-troubleshooting.md)

@@ -2,18 +2,17 @@
 title: Sources de données prises en charge par Azure Analysis Services | Microsoft Docs
 description: Décrit les sources de données prises en charge pour les modèles de données dans Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993387"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512446"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 

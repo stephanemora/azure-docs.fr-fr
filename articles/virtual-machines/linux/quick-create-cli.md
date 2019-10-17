@@ -14,17 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174296"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427927"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : Créer une machine virtuelle Linux avec Azure CLI
 
-Ce guide de démarrage rapide explique comment utiliser l’interface de ligne de commande Azure (CLI) pour déployer une machine virtuelle Linux dans Azure. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Dans ce tutoriel, nous allons installer Ubuntu 16.04 LTS. Pour voir la machine virtuelle en action, vous allez vous y connecter à l’aide de SSH et installer le serveur web NGINX.
+Ce guide de démarrage rapide explique comment utiliser l’interface de ligne de commande Azure (CLI) pour déployer une machine virtuelle Linux dans Azure. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts.
+
+Dans ce tutoriel, nous allons installer Ubuntu 16.04 LTS. Pour voir la machine virtuelle en action, vous allez vous y connecter à l’aide de SSH et installer le serveur web NGINX.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -107,7 +113,7 @@ Lorsque vous avez terminé, tapez `exit` pour quitter la session SSH.
 
 Utilisez le navigateur web de votre choix pour visualiser la page d’accueil NGINX par défaut. Utilisez l’adresse IP publique de votre machine virtuelle comme adresse web. L’exemple suivant montre le site web NGINX par défaut :
 
-![Site par défaut NGINX](./media/quick-create-cli/nginx.png)
+![Afficher la page d’accueil NGINX](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

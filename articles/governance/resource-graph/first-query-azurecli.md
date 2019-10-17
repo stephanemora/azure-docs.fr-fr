@@ -3,15 +3,15 @@ title: Exécuter votre première requête avec Azure CLI
 description: Cet article vous guide tout au long des étapes à suivre pour activer l’extension Resource Graph pour Azure CLI et exécuter votre première requête.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/26/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 34325fe8e8fdf7f53eb730818dc57800b65076e2
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b50a21f9c1a4bae7ced8afd9a49c33cc936983ac
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976708"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389738"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide d’Azure CLI
 
@@ -54,7 +54,7 @@ Une fois l’extension Azure CLI ajoutée à l’environnement de votre choix, v
    # Login first with az login if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   az graph query -q 'project name, type | limit 5'
+   az graph query -q 'Resources | project name, type | limit 5'
    ```
 
    > [!NOTE]
@@ -64,7 +64,7 @@ Une fois l’extension Azure CLI ajoutée à l’environnement de votre choix, v
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with 'order by'
-   az graph query -q 'project name, type | limit 5 | order by name asc'
+   az graph query -q 'Resources | project name, type | limit 5 | order by name asc'
    ```
 
    > [!NOTE]
@@ -74,7 +74,7 @@ Une fois l’extension Azure CLI ajoutée à l’environnement de votre choix, v
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   az graph query -q 'project name, type | order by name asc | limit 5'
+   az graph query -q 'Resources | project name, type | order by name asc | limit 5'
    ```
 
 Si votre environnement ne change pas et que vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et conformes aux attentes. En effet, ils sont classés en fonction de la propriété **name** et limités aux cinq premiers.

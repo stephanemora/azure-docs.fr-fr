@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11924b44a51767df68372cd94c581b2feaa8ac25
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812458"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72247102"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Nombre de domaines d’erreur par région
 
@@ -20,10 +20,10 @@ ms.locfileid: "67812458"
 | USA Ouest             | 3                       |
 | USA Ouest 2           | 2                       |
 | USA Centre          | 3                       |
-| Centre-Nord des États-Unis    | 3                       |
+| USA Centre Nord    | 3                       |
 | États-Unis - partie centrale méridionale    | 3                       |
 | Centre-USA Ouest     | 2                       |
-| Centre du Canada      | 3                      |
+| Centre du Canada      | 3                       |
 | Est du Canada         | 2                       |
 |                     |                         |
 | Europe Nord        | 3                       |
@@ -42,6 +42,11 @@ ms.locfileid: "67812458"
 | Corée du Sud         | 2                       |
 | Émirats arabes unis Nord           | 2                       |
 |                     |                         |
+| Chine orientale          | 2                       |
+| Chine orientale 2        | 2                       |
+| Chine du Nord         | 2                       |
+| Chine Nord 2       | 2                       |
+|
 | Australie Est      | 2                       |
 | Sud-Australie Est | 2                       |
 | Centre de l’Australie   | 2                       |

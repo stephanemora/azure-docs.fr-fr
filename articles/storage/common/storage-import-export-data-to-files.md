@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1799acdc7a6969d88936705006d67a6ea832fd81
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478993"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300274"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 
@@ -70,7 +70,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
                         
        ```
-     Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de données ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
+     Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de données ici](storage-import-export-tool-preparing-hard-drives-import.md).
     
 
 4. Modifiez le fichier *driveset.csv* dans le dossier racine où réside l’outil. Ajoutez des entrées dans le fichier *driveset.csv* comme dans les exemples suivants. Le fichier driveset contient la liste des disques et des lettres de lecteur correspondantes pour que l’outil puisse choisir correctement les disques à préparer.
@@ -91,7 +91,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
        G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631
        ```
 
-     Plusieurs entrées correspondant aux différents lecteurs peuvent être créées dans le même fichier. Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de disques ici](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file). 
+     Plusieurs entrées correspondant aux différents lecteurs peuvent être créées dans le même fichier. Vous trouverez plus d’informations sur la [préparation du fichier CSV du jeu de disques ici](storage-import-export-tool-preparing-hard-drives-import.md). 
 
 5. Utilisez l’option `PrepImport` pour copier et préparer des données sur le lecteur de disque. Pendant la première session de copie, pour copier des répertoires et/ou des fichiers dans une nouvelle session de copie, exécutez la commande suivante :
 

@@ -3,15 +3,15 @@ title: Exécuter votre première requête à l’aide de l’Explorateur Azure R
 description: Cet article vous guide tout au long des étapes à suivre pour exécuter votre première requête à partir du portail Azure à l’aide de l’Explorateur Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/29/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: d533d24f9bfe133955c0f503e2458c8fcb0bf1de
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981244"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387605"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
 
@@ -27,19 +27,19 @@ Ouvrez le [portail Azure](https://portal.azure.com) pour rechercher et utiliser 
 
 1. Sélectionnez **Tous les services** dans le volet gauche. Recherchez et sélectionnez l’**Explorateur Resource Graph**.
 
-1. Dans la partie **Requête 1** de la fenêtre, entrez la requête `project name, type | limit 5`, puis sélectionnez  **Exécuter la requête**.
+1. Dans la partie **Requête 1** de la fenêtre, entrez la requête `Resources | project name, type | limit 5`, puis sélectionnez  **Exécuter la requête**.
 
    > [!NOTE]
    > Comme cet exemple de requête ne fournit pas de modificateur de tri tel que `order by`, l’exécution répétée de cette requête peut produire un ensemble distinct de ressources par requête.
 
 1. Passez en revue la réponse à la requête sous l’onglet **Résultats**. Sélectionnez l’onglet **Messages** pour afficher les détails relatifs à la requête, notamment le nombre de résultats et sa durée. Les erreurs éventuelles sont affichées sous cet onglet.
 
-1. Mettez à jour la requête pour la trier (`order by`) en fonction de la propriété **name** : `project name, type | limit 5 | order by name asc`. Sélectionnez ensuite **Exécuter la requête**.
+1. Mettez à jour la requête pour la trier (`order by`) en fonction de la propriété **name** : `Resources | project name, type | limit 5 | order by name asc`. Sélectionnez ensuite **Exécuter la requête**.
 
    > [!NOTE]
    > Comme précédemment, l’exécution répétée de cette requête peut produire un ensemble différent de ressources. L’ordre des commandes de requête est important. Dans cet exemple, `order by` vient après `limit`. Cela signifie que les résultats de la requête sont d’abord limités avant d’être triés.
 
-1. Mettez à jour la requête pour la trier (`order by`) d’abord en fonction de la propriété **name**, puis limitez `limit` les résultats aux cinq premiers : `project name, type | order by name asc | limit 5`. Sélectionnez ensuite **Exécuter la requête**.
+1. Mettez à jour la requête pour la trier (`order by`) d’abord en fonction de la propriété **name**, puis limitez `limit` les résultats aux cinq premiers : `Resources | project name, type | order by name asc | limit 5`. Sélectionnez ensuite **Exécuter la requête**.
 
 Si votre environnement ne change pas et si vous exécutez plusieurs fois la requête finale, les résultats retournés sont cohérents et conformes aux attentes. En effet, ils sont classés en fonction de la propriété **name** et limités aux cinq premiers.
 
@@ -54,7 +54,8 @@ Après avoir exécuté la dernière requête ci-dessus, si vous sélectionnez l�
 1. Dans la partie **Requête 1** de la fenêtre, entrez la requête suivante, puis sélectionnez  **Exécuter la requête**.
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

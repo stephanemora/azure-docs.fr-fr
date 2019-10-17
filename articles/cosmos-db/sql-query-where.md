@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 362024868de269ed64a440a25e8c19c5b68bef80
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003463"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326640"
 ---
-# <a name="where-clause"></a>Clause WHERE
+# <a name="where-clause-in-azure-cosmos-db"></a>Clause WHERE dans Azure Cosmos DB
 
 La clause WHERE facultative (`WHERE <filter_condition>`) spécifie la ou les conditions que les éléments JSON sources doivent remplir pour que la requête les inclue dans les résultats. Un élément JSON doit évaluer les conditions spécifiées comme étant égales à `true` pour être pris en considération pour le résultat. La couche d’index utilise la clause WHERE pour identifier le plus petit sous-ensemble d’éléments sources pouvant appartenir au résultat.
   

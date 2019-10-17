@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 2aae0ce7bbf5c8804dcaab90fcb60a66dfe59cf0
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744418"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514007"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Démarrage rapide : Restaurer une base de données sur une instance managée
 
@@ -40,7 +40,7 @@ Dans ce guide de démarrage rapide :
 - Nécessite un compte de stockage Blob Azure (par exemple, Standard_LRS V2) sur une **adresse IP publique**, protégé avec des **informations d’identification SAS** ayant l’autorisation `rw`. [Actuellement, les adresses IP privées pour un stockage d’objets blob protégé par un pare-feu](https://docs.microsoft.com/azure/storage/common/storage-network-security) et les points de terminaison de service de stockage Blob Azure ne sont pas pris en charge.
 
 > [!NOTE]
-> Pour plus d’informations sur la sauvegarde et la restauration d’une base de données SQL Server à l’aide du stockage Blob Azure et d’une [clé de signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consultez [Sauvegarde SQL Server vers une URL](sql-database-managed-instance-get-started-restore.md).
+> Pour plus d’informations sur la sauvegarde et la restauration d’une base de données SQL Server à l’aide du stockage Blob Azure et d’une [clé de signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consultez [Sauvegarde SQL Server vers une URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Restaurer la base de données à partir d’un fichier de sauvegarde
 

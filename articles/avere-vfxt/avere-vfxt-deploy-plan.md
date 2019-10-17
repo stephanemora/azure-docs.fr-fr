@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 1317e900fd4448ded046ffea481313f8ea9f68e3
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409876"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256236"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planifier votre système Avere vFXT
 
@@ -44,10 +44,10 @@ Suivez ces instructions pour planifier l’infrastructure réseau de votre syst�
 
   | Ressource | Utiliser l’existant ? | Configuration requise |
   |----------|-----------|----------|
-  | Groupe de ressources | Oui, si vide | Doit être vide| 
+  | Resource group | Oui, si vide | Doit être vide| 
   | Compte de stockage | Oui, en cas de connexion d'un conteneur d'objets blob existant après création du cluster <br/>  Non, en cas de création d'un conteneur d’objets blob lors de la création du cluster | Le conteneur d’objets blob existant doit être vide <br/> &nbsp; |
   | Réseau virtuel | OUI | Doit inclure un point de terminaison de service de stockage en cas de création d’un conteneur d’objets blob Azure | 
-  | Sous-réseau | OUI |   |
+  | Subnet | OUI |   |
 
 ## <a name="ip-address-requirements"></a>Exigences relatives aux adresses IP 
 

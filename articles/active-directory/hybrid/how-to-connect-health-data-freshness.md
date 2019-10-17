@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c5bc2ea76c558e47eaa5f297ebe36a629aa5754
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 41c1c102e88e1712d561874aef87a6f22ed250a9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702641"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430215"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Les données du Service de contrôle d’intégrité ne sont pas mises à jour
 
@@ -52,7 +52,7 @@ Le tableau suivant mappe les types de services aux types de données requises co
 
 ## <a name="troubleshooting-steps"></a>Étapes de dépannage 
 
-Les étapes requises pour diagnostiquer le problème sont décrites ci-dessous. La première est un ensemble de vérifications de base communes à tous les types de services. Le tableau ci-dessous répertorie les étapes spécifiques pour chaque type de service et type de données. 
+Les étapes requises pour diagnostiquer le problème sont décrites ci-dessous. La première est un ensemble de vérifications de base communes à tous les types de services. 
 
 > [!IMPORTANT] 
 > Cette alerte suit la [stratégie de conservation des données](reference-connect-health-user-privacy.md#data-retention-policy) de Connect Health.

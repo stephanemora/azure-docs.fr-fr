@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d4376632b8f912cd76f3af5e9a8819b75f8144b6
-ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
+ms.openlocfilehash: 06171dbedb55b4a80e2b27b9314247331d65ed97
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209489"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286479"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Démarrage rapide : Créer une fabrique de données Azure à l’aide de PowerShell
 
@@ -316,12 +316,12 @@ Dans cette étape, vous allez créer une exécution du pipeline.
 
 Exécutez l’applet de commande **Invoke-AzDataFactoryV2Pipeline** pour créer une exécution du pipeline. L’applet de commande renvoie l’ID d’exécution du pipeline pour permettre une surveillance ultérieure.
 
-    ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline `
-        -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName `
-        -PipelineName $DFPipeLine.Name 
-    ```
+  ```powershell
+$RunId = Invoke-AzDataFactoryV2Pipeline `
+    -DataFactoryName $DataFactory.DataFactoryName `
+    -ResourceGroupName $ResGrp.ResourceGroupName `
+    -PipelineName $DFPipeLine.Name 
+```
 
 ## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline
 

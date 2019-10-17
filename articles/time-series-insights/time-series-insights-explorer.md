@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a6bebfa11294821ff717f221e3e0ddfd68cd65c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: aa04b2508f89b9658d904624e884bf9133caf3b7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948225"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299535"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 
@@ -126,4 +126,5 @@ Vous avez maintenant vu les différentes fonctionnalités et options disponibles
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [Diagnostiquer et résoudre les problèmes](time-series-insights-diagnose-and-solve-problems.md) dans votre environnement Time Series Insights.
+
 - Suivez la visite guidée du [démarrage rapide d’Azure Time Series Insights](time-series-quickstart.md).

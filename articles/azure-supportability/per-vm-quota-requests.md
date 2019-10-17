@@ -5,14 +5,14 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9caf82d2fa4683e845d23b5496f9e7b8f9682ec7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: e99bdd92d4a1aab833a95943b22aaabe7f0daa1d
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234811"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248675"
 ---
 # <a name="vm-series-vcpu-limit-increase"></a>Augmentation de la limite des processeurs virtuels de séries de machines virtuelles
 
@@ -21,7 +21,7 @@ Les quotas de processeurs virtuels de Resource Manager pour les machines virtuel
 Le premier niveau est la **limite de total de processeurs virtuels régionaux** (sur toutes les séries de machines virtuelles), et le deuxième niveau est la **limite de processeurs virtuels par série de machines virtuelles** (par exemple, les processeurs virtuels de la série D). Chaque fois qu’une nouvelle machine virtuelle est déployée, la somme des processeurs virtuels nouveaux et existants pour cette série de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels approuvé pour cette série de machines virtuelles particulière. En outre, le nombre total de processeurs virtuels nouveaux et existants déployés sur toutes les séries de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels régionaux total approuvé pour l’abonnement. Si l’un de ces quotas est dépassé, le déploiement des machines virtuelles n’est pas autorisé.
 Vous pouvez demander une augmentation de la limite de quota de processeurs virtuels pour une série de machines virtuelles à partir du portail Azure. Une augmentation du quota de série de machines virtuelles augmente automatiquement la limite totale de processeurs virtuels régionaux du même montant. 
 
-Apprenez-en davantage sur les quotas sur la [page Quotas de processeurs virtuels pour les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) et la page [Limites du service et de l’abonnement Azure](https://aka.ms/quotalimits). 
+Apprenez-en davantage sur les quotas sur la page [Quotas de processeurs virtuels pour les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) et la page [Limites du service et de l’abonnement Azure](https://aka.ms/quotalimits). 
 
 Vous pouvez désormais demander une augmentation via le panneau **Aide + Support** ou **Utilisation + quotas** dans le portail. 
 

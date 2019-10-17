@@ -13,19 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4412bc9ce8d78b5810b25b60724575af66774127
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 8ff4234d9fd28e655e868108e37b09c5afe2767c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146232"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517130"
 ---
 # <a name="bulk-import-group-members-preview-in-azure-active-directory"></a>Importer en bloc les membres d’un groupe (préversion) dans Azure Active Directory
 
 En utilisant le portail Azure Active Directory (Azure AD), vous pouvez ajouter un grand nombre de membres à un groupe en utilisant un fichier de valeurs séparées par des virgules (CSV) pour importer en bloc les membres du groupe.
-
-> [!NOTE]
-> Les opérations en bloc d’Azure AD sont une fonctionnalité en préversion publique d’Azure AD disponible avec un plan de licence Azure AD payante. Pour plus d’informations sur les conditions d’utilisation des préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="to-bulk-import-group-members"></a>Pour importer en bloc les membres du groupe
 

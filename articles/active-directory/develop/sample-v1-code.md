@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bc671080a05e2c4e27fabcbab5cc40b9717dc85
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 41ff9bce6135936a4b23096fb18efecf7be1e1e2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834900"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374110"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v1.0)
 
@@ -36,7 +36,7 @@ Cette section fournit des liens vers des exemples que vous pouvez utiliser pour 
 > [!NOTE]
 > Si vous êtes intéressé par des exemples de code Azure AD V2, consultez [Exemples de code v2.0 par scénario](sample-v2-code.md).
 
-Pour comprendre le scénario de base de chaque type d’exemple, consultez [Scénarios d’authentification pour Azure AD](authentication-scenarios.md).
+Pour comprendre le scénario de base de chaque type d’exemple, consultez [Scénarios d’authentification pour Azure AD](v1-authentication-scenarios.md).
 
 Vous pouvez également contribuer à nos exemples sur GitHub. Pour en savoir plus, consultez [Documentation et exemples Microsoft Azure Active Directory](https://github.com/Azure-Samples?page=3&query=active-directory).
 

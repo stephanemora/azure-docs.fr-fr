@@ -1,5 +1,5 @@
 ---
-title: Gestion des ressources déléguées Azure – Azure Lighthouse
+title: Gestion des ressources déléguées Azure
 description: Les offres de services managés permettent aux fournisseurs de services de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
 author: JnHs
 ms.service: lighthouse
@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: cec6453cdf339e82420a1b12af6c8e60526fdc03
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8cc75fde348d070a19d1987d1403c63e8e6d2278
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811003"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286635"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 7b9d4099734af3a04f43d35d89f07f8b005c90f9
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 9a2d25aba03156d6d14fe5ef9aa58b3748033b85
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802509"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296387"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Exceptions Service Bus dans Azure Resource Manager
 
@@ -57,9 +57,9 @@ Comme en HTTP, le « code d’erreur 429 » signifie « Trop de demandes ».
 | 429 | 50004 | SubCode=50004. La demande a été arrêtée parce que l’espace de noms *votre espace de noms* est limité. | Cette condition d’erreur est atteinte lorsque le nombre de demandes entrantes dépasse la limitation de la ressource. | Patientez quelques secondes, puis réessayez. <br/> <br/> En savoir plus sur les [quotas](service-bus-quotas.md) et les [limites de demandes d’Azure Resource Manager](../azure-resource-manager/resource-manager-request-limits.md).|
 | 429 | 40901 | SubCode=40901. Une autre opération conflictuelle est en cours. | Une autre opération conflictuelle est en cours sur la même ressource/entité | Attendez la fin de l’opération en cours avant de réessayer. |
 | 429 | 40900 | SubCode=40900. Conflit. Vous demandez une opération qui n’est pas autorisée dans l’état actuel de la ressource. | Cette condition peut être atteinte lorsque plusieurs demandes sont faites pour effectuer les opérations sur la même entité (file d’attente, rubrique, abonnement ou règle) en même temps. | Patientez quelques secondes, puis réessayez |
+| 429 | 40901 | Une demande sur l’entité *'nom de l’entité'* est en conflit avec une autre demande | Une autre opération conflictuelle est en cours sur la même ressource/entité | Attendez la fin de l’opération précédente avant de réessayer |
+| 429 | 40901 | Une autre demande de mise à jour est en cours pour l’entité *'nom de l’entité'* . | Une autre opération conflictuelle est en cours sur la même ressource/entité | Attendez la fin de l’opération précédente avant de réessayer |
 | 429 | Aucun | Un conflit de ressources s’est produit. Une autre opération conflictuelle est peut-être en cours. S’il s’agit d’une nouvelle tentative d’exécution d’une opération qui a échoué, cela signifie qu’un nettoyage en arrière-plan est en attente. Réessayez ultérieurement. | Cette condition peut être atteinte quand il existe une opération en attente sur la même entité. | Attendez la fin de l’opération précédente avant de réessayer. |
-| 429 | Aucun | Une demande sur l’entité *'nom de l’entité'* est en conflit avec une autre demande | Une autre opération conflictuelle est en cours sur la même ressource/entité | Attendez la fin de l’opération précédente avant de réessayer |
-| 429 | Aucun | Une autre demande de mise à jour est en cours pour l’entité *'nom de l’entité'* . | Une autre opération conflictuelle est en cours sur la même ressource/entité | Attendez la fin de l’opération précédente avant de réessayer |
 
 
 ## <a name="error-code-not-found"></a>Code d’erreur : Introuvable

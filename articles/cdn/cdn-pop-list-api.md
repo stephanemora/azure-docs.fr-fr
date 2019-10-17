@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 95b85aa11d99ddd48c90c8d9fa28789e79ee979f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146892"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299239"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Récupérer la liste d’adresses IP POP actuelle pour Azure CDN
 
@@ -41,7 +41,6 @@ Configurez les ACL IP pour vos back-ends de manière à accepter uniquement le t
 
 Vous trouverez les plages d’adresses IP et les étiquettes de service pour les services Microsoft [ici](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Filtrez sur les valeurs acceptées pour l’en-tête entrant « X-Forwarded-Host » envoyé par Microsoft Azure CDN. Les seules valeurs autorisées pour l’en-tête doivent être tous les hôtes de point de terminaison comme défini dans votre configuration CDN. Plus précisément, il s’agit uniquement des noms des hôtes en provenance desquels vous souhaitez accepter le trafic sur votre origine spécifique.
 
 ## <a name="typical-use-case"></a>Cas d’utilisation classique
 

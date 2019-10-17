@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 572547f4e22a4fcb63a030e64ca95a0b9d3eff00
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 92950a79be43bc656d50e2ced106a2fdb47f53bf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734483"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387706"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Format Parquet dans Azure Data Factory
 
@@ -81,9 +81,9 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 | Type          | La propriété type de la source de l’activité de copie doit être définie sur **ParquetSink**. | OUI      |
 | storeSettings | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`. **Consultez les détails dans l’article du connecteur -> section des propriétés de l’activité de copie**. | Non       |
 
-## <a name="mapping-data-flow-properties"></a>Mappage des propriétés de flux de données
+## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 
-Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans Mappage de flux de données.
+Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans la section sur le mappage de flux de données.
 
 ## <a name="data-type-support"></a>Prise en charge des types de données
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6f5d865b5a12ce8989631deee7ebda49dbe1ab12
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 10/09/2019
+ms.openlocfilehash: b876fba2ae10c4f8b973ad1bb0c98bfa95c7f481
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103197"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249318"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -303,9 +303,6 @@ Cette séquence est recommandée dans le but spécifique d’éviter le problèm
 
 > [!NOTE]
 > Si vous avez créé une base de données secondaire dans le cadre de la configuration des groupes de basculement, il n’est pas conseillé de passer la base de données secondaire à un niveau de service inférieur. En effet, votre couche Données pourrait manquer de capacité pour traiter votre charge de travail normale après l’activation du basculement.
-
-> [!IMPORTANT]
-> La mise à niveau ou la rétrogradation d’une instance Managed Instance qui est membre d’un groupe de basculement n’est pas prise en charge actuellement.
 
 ## <a name="preventing-the-loss-of-critical-data"></a>Prévention de la perte de données critiques
 

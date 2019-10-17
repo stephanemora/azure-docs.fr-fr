@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: fccb77110eafa131733ecea70fb209b2a168436c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 66d17fb2a96bbb5b1dcb51151242f014b4116b86
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082511"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390526"
 ---
 # <a name="deploy-okd-in-azure"></a>Déployer OKD dans Azure
 
@@ -163,6 +163,6 @@ az group delete --name openshiftrg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Tâches de post-déploiement](./openshift-post-deployment.md)
-- [Résoudre les problèmes liés au déploiement d’OpenShift](./openshift-troubleshooting.md)
+- [Tâches de post-déploiement](./openshift-container-platform-3x-post-deployment.md)
+- [Résoudre les problèmes liés au déploiement d’OpenShift](./openshift-container-platform-3x-troubleshooting.md)
 - [Bien démarrer avec OKD](https://docs.okd.io)

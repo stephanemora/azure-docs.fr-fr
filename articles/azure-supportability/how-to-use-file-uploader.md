@@ -1,26 +1,19 @@
 ---
 title: Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure | Microsoft Docs
 description: Décrit les recommandations d’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
-services: ''
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 088835f6983814bbe47afeeec210ac41964e7863
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f01c70a2a077e28e8de5118332b780f27dc9ec93
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121175"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248686"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Recommandations pour l’utilisation de l’utilitaire de téléchargement de fichiers dans le cadre d’une nouvelle demande de support Microsoft Azure
 Lorsque vous [créez une demande de support](https://portal.azure.com/#create/Microsoft.Support), l’utilitaire de téléchargement de fichiers peut vous aider à charger facilement des fichiers de diagnostic ou tout autre fichier qui vous semble s’appliquer à l’incident.  

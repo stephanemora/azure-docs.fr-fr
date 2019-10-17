@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 0df60cac241151b5968c5ddfc01ca9c0515a5e6b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 0e09d541cb84ef7857e4d68f776b92f845488771
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996984"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329888"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Démarrage rapide : déployer un cluster AKS (Azure Kubernetes Service) à l’aide du portail Azure
 
 AKS (Azure Kubernetes Service) est un service Kubernetes managé qui vous permet de déployer et de gérer rapidement des clusters. Dans ce guide de démarrage rapide, vous allez déployer un cluster AKS à l’aide du portail Azure. Une application multiconteneur composée d’un front-end web et d’une instance Redis est exécutée dans le cluster. Vous pouvez ainsi voir comment superviser l’intégrité du cluster et des pods qui exécutent votre application.
 
-![Image de la navigation vers l’exemple d’application Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image de la navigation vers l’exemple d’application Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 Ce guide de démarrage rapide suppose une compréhension élémentaire des concepts liés à Kubernetes. Pour plus d’informations, consultez [Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service][kubernetes-concepts].
 
@@ -48,6 +48,7 @@ Pour créer un cluster AKS, exécutez les étapes suivantes :
 2. Sur la page **Mise à l’échelle**, conservez les options par défaut. En bas de l’écran, cliquez sur **Suivant:Authentification**.
 > [!CAUTION]
 > La propagation et la mise en disponibilité des nouveaux principaux de service AAD créés peuvent prendre plusieurs minutes, ce qui entraîne des erreurs « Principal du service introuvable » et des échecs de validation dans le portail Azure. Si vous rencontrez ce problème, consultez [ceci](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) pour obtenir des solutions de contournement.
+
 3. Sur la page **Authentification**, configurez les options suivantes :
    - Créez un principal de service en laissant dans le champ **Principal du Service** **(nouveau) le principal du service par défaut**. Ou vous pouvez choisir *Configurer un principal du service* pour utiliser un principal existant. Si vous utilisez un principal du service existant, vous devez indiquer l’ID client SPN et le secret associés.
    - Activez l’option pour les contrôles d’accès en fonction des rôles Kubernetes (RBAC). Ces options fournissent un contrôle plus précis sur l’accès aux ressources Kubernetes déployées dans votre cluster AKS.
@@ -219,7 +220,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Pour voir l’application Azure Vote en action, ouvrez un navigateur web en utilisant l’adresse IP externe de votre service.
 
-![Image de la navigation vers l’exemple d’application Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image de la navigation vers l’exemple d’application Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="monitor-health-and-logs"></a>Analyser le fonctionnement et les journaux d’activité
 

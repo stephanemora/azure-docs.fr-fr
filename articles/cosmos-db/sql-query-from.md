@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: tisande
-ms.openlocfilehash: 6bc93569dc9a0405ec3a8dfd719c89ede01df84d
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 79bb17277a041f71c095ed724737012f9501f16f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343242"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326992"
 ---
-# <a name="from-clause"></a>Clause FROM
+# <a name="from-clause-in-azure-cosmos-db"></a>Clause FROM dans Azure Cosmos DB
 
 La clause FROM (`FROM <from_specification>`) est facultative, sauf si la source est filtrée ou projetée plus loin dans la requête. Une requête comme `SELECT * FROM Families` énumère l’ensemble du conteneur `Families`. Vous pouvez également utiliser l’identificateur ROOT spécial pour le conteneur au lieu d’utiliser le nom du conteneur.
 

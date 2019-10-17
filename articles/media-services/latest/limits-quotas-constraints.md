@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 819548d784e5cba9fcec6b2110137d91bf28e03d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293439"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296913"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas et limitations dans Azure Media Services v3
 
@@ -32,8 +32,6 @@ Cet article décrit les quotas et les limitations dans Azure Media Services v3.
 | Fichiers par JobInput|10 (fixe)|
 | Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>(1)</sup> |
 | Travaux par compte Media Services | 500 000 <sup>(2)</sup> (fixe)|
-| Énumération des transformations|Pagination de la réponse avec 1 000 transformations par page|
-| Énumération des travaux|Pagination de la réponse avec 500 travaux par page|
 | Événements en temps réel par compte Media Services |5\.|
 | Comptes Media Services dans un même abonnement | 25 (fixe) |
 | Sorties en direct par événement en direct |3 <sup>(3)</sup> |
@@ -48,7 +46,7 @@ Cet article décrit les quotas et les limitations dans Azure Media Services v3.
 
 <sup>1</sup> La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans Stockage Blob Azure. Des limites supplémentaires sont applicables dans Media Services en fonction des tailles de machine virtuelle utilisées par le service. La limite de taille s’applique aux fichiers que vous chargez et également aux fichiers qui sont générés suite au traitement (encodage ou analyse) par Media Services. Si votre fichier source est supérieur à 260 Go, votre travail échouera probablement. 
 
-Le tableau suivant indique les limites pour les unités réservées Multimédia S1, S2 et S3. Si votre fichier source dépasse la limite définie dans le tableau, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez obligatoirement utiliser des unités réservées Multimédia S3 afin d’obtenir les performances nécessaires. Si vous avez du contenu 4K qui dépasse la limite de 260 Go sur les unités réservées Multimédia S3, contactez-nous à l’adresse amshelp@microsoft.com afin d’identifier des solutions d’atténuation potentielles permettant de prendre en charge votre scénario.
+Le tableau suivant indique les limites pour les unités réservées Multimédia S1, S2 et S3. Si votre fichier source dépasse la limite définie dans le tableau, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez obligatoirement utiliser des unités réservées Multimédia S3 afin d’obtenir les performances nécessaires. Si vous avez du contenu 4K qui dépasse la limite de 260 Go sur les unités réservées Multimédia S3, contactez-nous à l’adresse amshelp@microsoft.com afin d’identifier des solutions d’atténuation potentielles permettant de prendre en charge votre scénario.
 
 |Types d’unités réservées Multimédia   |Taille maximale en entrée (Go)|
 |---|---|

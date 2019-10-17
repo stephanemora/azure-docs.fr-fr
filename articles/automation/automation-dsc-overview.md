@@ -10,16 +10,16 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061392"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429409"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Vue d’ensemble d’Azure Automation State Configuration
 
-Azure Automation State Configuration est un service Azure qui vous permet d’écrire, de gérer et de compiler des [configurations](/powershell/dsc/configurations) PowerShell Desired State Configuration (DSC), d’importer des [ressources DSC](/powershell/dsc/resources) et d’affecter des configurations à des nœuds cibles, le tout dans le cloud.
+Azure Automation State Configuration est un service Azure qui vous permet d’écrire, de gérer et de compiler des [configurations](/powershell/scripting/dsc/configurations/configurations) PowerShell Desired State Configuration (DSC), d’importer des [ressources DSC](/powershell/scripting/dsc/resources/resources) et d’affecter des configurations à des nœuds cibles, le tout dans le cloud.
 
 ## <a name="why-use-azure-automation-state-configuration"></a>Pourquoi utiliser Azure Automation State Configuration
 
@@ -27,11 +27,11 @@ Azure Automation State Configuration offre plusieurs avantages par rapport à l�
 
 ### <a name="built-in-pull-server"></a>Serveur collecteur intégré
 
-Azure Automation State Configuration fournit un serveur collecteur DSC semblable à celui de [Windows Feature DSC-Service](/powershell/dsc/pullserver). Les nœuds cibles reçoivent donc automatiquement les configurations, sont conformes à l’état souhaité et présentent un rapport attestant de leur conformité. Le serveur collecteur intégré dans Azure Automation vous permet d’éviter d’avoir à configurer et à gérer votre propre serveur collecteur. Azure Automation peut cibler des machines physiques ou virtuelles Windows ou Linux, dans le cloud ou en local.
+Azure Automation State Configuration fournit un serveur collecteur DSC semblable à celui de [Windows Feature DSC-Service](/powershell/scripting/dsc/pull-server/pullserver). Les nœuds cibles reçoivent donc automatiquement les configurations, sont conformes à l’état souhaité et présentent un rapport attestant de leur conformité. Le serveur collecteur intégré dans Azure Automation vous permet d’éviter d’avoir à configurer et à gérer votre propre serveur collecteur. Azure Automation peut cibler des machines physiques ou virtuelles Windows ou Linux, dans le cloud ou en local.
 
 ### <a name="management-of-all-your-dsc-artifacts"></a>Gestion de tous vos artefacts DSC
 
-Azure Automation State Configuration apporte la même couche de gestion à la [configuration d’état souhaité PowerShell](/powershell/dsc/overview) que celle proposée par Azure Automation pour l’écriture de scripts PowerShell.
+Azure Automation State Configuration apporte la même couche de gestion à la [configuration d’état souhaité PowerShell](/powershell/scripting/dsc/overview/overview) que celle proposée par Azure Automation pour l’écriture de scripts PowerShell.
 
 À partir du portail Azure, ou de PowerShell, vous pouvez gérer toutes vos configurations DSC, vos ressources et vos nœuds cibles.
 

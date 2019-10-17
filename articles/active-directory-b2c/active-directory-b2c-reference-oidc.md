@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 35abb84f92ed9a7295c45afc69b673a3be46be15
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 12b21717bd36f5577336ebbc3a236747ae7fc1be
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874131"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385916"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Connexion web avec OpenID Connect dans Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | Paramètre | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | {tenant} | OUI | Nom de votre locataire Azure AD B2C |
-| {policy} | OUI | Flux utilisateur à exécuter. Spécifiez le nom d’un flux utilisateur que vous avez créé dans votre locataire Azure AD B2C. Par exemple : `b2c_1_sign_in`, `b2c_1_sign_up` ou `b2c_1_edit_profile`. |
+| {policy} | OUI | Flux utilisateur à exécuter. Spécifiez le nom d'un flux utilisateur créé dans votre locataire Azure AD B2C. Par exemple : `b2c_1_sign_in`, `b2c_1_sign_up` ou `b2c_1_edit_profile`. |
 | client_id | OUI | ID d’application que le [portail Azure](https://portal.azure.com/) a affecté à votre application. |
 | nonce | OUI | Valeur incluse dans la demande (générée par l’application) qui est incluse dans le jeton d’ID résultant en tant que revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique aléatoire qui peut être utilisée pour identifier l’origine de la demande. |
 | response_type | OUI | Doit inclure un jeton d’ID pour OpenID Connect. Si votre application web a également besoin de jetons pour appeler une API web, vous pouvez utiliser `code+id_token`. |
@@ -141,7 +141,7 @@ POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
+grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Paramètre | Obligatoire | Description |

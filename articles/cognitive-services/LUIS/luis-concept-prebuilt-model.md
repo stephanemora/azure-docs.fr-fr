@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: b072e265204bba3caa1388576008d5e41adcc33d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: b88801ded3dea7c7514ff117361feba3e95444ed
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619712"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264390"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>Modèles de domaine, d’intention et d’entité prédéfinis
 
@@ -28,7 +28,7 @@ LUIS fournit 3 types de modèles prédéfinis. Chaque modèle peut être ajouté
 
 |Type de modèle|Inclus|
 |--|--|
-|Domaine|Intentions, énoncés, entités|
+|Domain|Intentions, énoncés, entités|
 |Intentions|Intentions, énoncés|
 |Entités|Entités uniquement| 
 
@@ -58,7 +58,7 @@ LUIS fournit les intentions prédéfinies et leurs énoncés. Les intentions peu
 
 LUIS comprend un ensemble d’entités prédéfinies pour reconnaître des types courants d’informations telles que des dates, heures, nombres, mesures et devises. La prise en charge de l’entité prédéfinie varie selon la culture de votre application LUIS. Pour obtenir la liste complète des entités prédéfinies que LUIS prend en charge, notamment en lien avec la culture, voir la [documentation de référence sur les entités prédéfinies](./luis-reference-prebuilt-entities.md).
 
-Quand une entité prédéfinie est incluse dans votre application, ses prédictions sont incluses dans votre application publiée. Le comportement des entités prédéfinies est préformé et **ne peut pas** être modifié. Procédez comme suit pour voir comment fonctionne une entité prédéfinie :
+Quand une entité prédéfinie est incluse dans votre application, ses prédictions sont incluses dans votre application publiée. Le comportement des entités prédéfinies est préformé et **ne peut pas** être modifié. 
 
 > [!NOTE]
 > L’entité **builtin.datetime** est désapprouvée. Elle est remplacée par l’entité [**builtin.datetimev2**](luis-reference-prebuilt-datetimev2.md), qui fournit la reconnaissance des plages de dates et d’heures, ainsi qu’une reconnaissance améliorée des dates et heures ambiguës.

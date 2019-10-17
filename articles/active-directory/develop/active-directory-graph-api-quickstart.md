@@ -19,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee6c4630205561eb8beb19062520f8ae2a35e1b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 662d8ecf3d20716a717a5f04f30e04114c9dce04
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073912"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374168"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Activation Utiliser l’API Azure AD Graph
 
@@ -87,7 +87,7 @@ Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser le débogue
 
 Dans l'exemple ci-dessous, vous utilisez le débogueur web Fiddler pour créer un nouveau groupe de sécurité « MyTestGroup » dans votre annuaire Azure AD.
 
-**Obtenir un jeton d’accès** : Pour accéder à Azure AD Graph, les clients doivent tout d’abord s’authentifier auprès d’Azure AD. Pour plus d’informations, consultez [Scénarios d’authentification pour Azure AD](authentication-scenarios.md).
+**Obtenir un jeton d’accès** : Pour accéder à Azure AD Graph, les clients doivent tout d’abord s’authentifier auprès d’Azure AD. Pour plus d’informations, consultez [Scénarios d’authentification pour Azure AD](v1-authentication-scenarios.md).
 
 **Composer et exécuter une requête** : Effectuez ensuite les tâches suivantes :
 

@@ -2,24 +2,19 @@
 title: Création d’une demande de support Azure | Microsoft Docs
 description: Création d’une demande de support Azure.
 services: Azure Supportability
-documentationcenter: ''
 author: ganganarayanan
 manager: scotthit
-editor: ''
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 462a14d7845c6723a3482e50b01c50e3d913beee
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0195cc86875b075e00e9305d803b8d637905db78
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71072085"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248708"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Création d’une demande de support Azure
 ## <a name="summary"></a>Résumé

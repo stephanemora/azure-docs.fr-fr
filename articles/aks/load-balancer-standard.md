@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c9b6f6cf52d71451d2e1de27d0637eeb749b1e0b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 55ded9a733baaac7fbc78621bd625d57d1d37ad1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349063"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255476"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge de référence (SKU) Standard dans Azure Kubernetes Service (AKS)
 
@@ -256,7 +256,7 @@ azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP  
 
 Accédez à l’adresse IP publique dans un navigateur et vérifiez que vous voyez l’exemple d’application. Dans l’exemple ci-dessus, l’IP publique est `52.179.23.131`.
 
-![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 > [!NOTE]
 > Vous pouvez également configurer l’équilibreur de charge pour qu’il soit interne et n’expose pas une adresse IP publique. Pour configurer l’équilibreur de charge en interne, ajoutez `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` comme notation pour le service *LoadBalancer*. Vous pouvez voir un exemple de manifeste YAML, ainsi que plus de détails sur les équilibreurs de charge internes [ici][internal-lb-yaml].

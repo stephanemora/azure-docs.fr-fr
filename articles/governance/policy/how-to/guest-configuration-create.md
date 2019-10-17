@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fcb65e75de730178901742dc36c72776e39b044b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0be6afc2d4d7f97717200b86d5e5b3bc2194afee
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977970"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376185"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Créer des stratégies Guest Configuration
 
-Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/dsc) (DSC) pour créer la configuration pour l’audit de machines Azure. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’**auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
+Guest Configuration utilise un module de ressources [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) pour créer la configuration pour l’audit de machines Azure. La configuration DSC définit la condition dans laquelle la machine doit se trouver. Si l’évaluation de la configuration échoue, l’**auditIfNotExists** d’effet de stratégie est déclenché et la machine est considérée comme **non conforme**.
 
 La [configuration d’invité Azure Policy](/azure/governance/policy/concepts/guest-configuration) peut être utilisée uniquement pour auditer les paramètres à l’intérieur des machines. La correction des paramètres à l’intérieur des machines n’est pas encore disponible.
 
@@ -55,7 +55,7 @@ Guest Configuration utilise le module de ressource **GuestConfiguration** pour l
 
 ## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Créer une configuration et des ressources Guest Configuration personnalisées
 
-La première étape de création d’une stratégie personnalisée pour Guest Configuration consiste à créer la configuration DSC. Pour obtenir une vue d’ensemble des concepts et de la terminologie DSC, consultez [Vue d’ensemble PowerShell DSC](/powershell/dsc/overview/overview).
+La première étape de création d’une stratégie personnalisée pour Guest Configuration consiste à créer la configuration DSC. Pour obtenir une vue d’ensemble des concepts et de la terminologie DSC, consultez [Vue d’ensemble PowerShell DSC](/powershell/scripting/dsc/overview/overview).
 
 Si votre configuration nécessite uniquement des ressources qui sont intégrées à l’agent Guest Configuration, vous avez seulement besoin de créer un fichier MOF de configuration. Si vous devez exécuter un script supplémentaire, vous devez créer un module de ressource personnalisé.
 
@@ -115,7 +115,7 @@ Configuration baseline
 baseline
 ```
 
-Pour plus d’informations, consultez [Écrire, compiler et appliquer une configuration](/powershell/dsc/configurations/write-compile-apply-configuration).
+Pour plus d’informations, consultez [Écrire, compiler et appliquer une configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ### <a name="custom-guest-configuration-configuration-on-windows"></a>Configuration Guest Configuration personnalisée sur Windows
 
@@ -141,7 +141,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Pour plus d’informations, consultez [Écrire, compiler et appliquer une configuration](/powershell/dsc/configurations/write-compile-apply-configuration).
+Pour plus d’informations, consultez [Écrire, compiler et appliquer une configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ## <a name="create-guest-configuration-custom-policy-package"></a>Créer un package de stratégies personnalisées Guest Configuration
 
@@ -190,7 +190,7 @@ Dans la configuration Guest Configuration d’Azure Policy, le meilleur moyen de
 
 1. Enfin, dans votre ressource personnalisée, utilisez l’ID client généré ci-dessus pour accéder à Key Vault à l’aide du jeton disponible à partir de l’ordinateur.
 
-   Le `client_id` et l’URL de l’instance Key Vault peuvent être passés à la ressource en tant que [propriétés](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) pour que la ressource n’ait pas à être mise à jour pour plusieurs environnement, ou si les valeurs doivent être modifiées.
+   Le `client_id` et l’URL de l’instance Key Vault peuvent être passés à la ressource en tant que [propriétés](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) pour que la ressource n’ait pas à être mise à jour pour plusieurs environnement, ou si les valeurs doivent être modifiées.
 
 L’exemple de code suivant peut être utilisé dans une ressource personnalisée pour récupérer des secrets à partir de Key Vault à l’aide d’une identité affectée par l’utilisateur. La valeur retournée de la requête à Key Vault est en texte brut. Il est recommandé de la stocker dans un objet d’informations d’identification.
 
@@ -226,7 +226,7 @@ La cmdlet prend aussi en charge l’entrée depuis le pipeline PowerShell. Dirig
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-Pour savoir comment tester avec des paramètres, consultez la section ci-dessous [Utilisation des paramètres dans des stratégies personnalisées Guest Configuration](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies).
+Pour savoir comment tester avec des paramètres, consultez la section ci-dessous [Utilisation des paramètres dans des stratégies personnalisées Guest Configuration](#using-parameters-in-custom-guest-configuration-policies).
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Créer la définition Azure Policy et les fichiers de déploiement d’initiative
 
@@ -367,7 +367,7 @@ Le moyen le plus simple de publier un package mis à jour consiste à répéter 
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Conversion de contenu de stratégie de groupe Windows en configuration d’invité Azure Policy
 
-La configuration d’invité, lors de l’audit de machines Windows, est une implémentation de la syntaxe de Desired State Configuration PowerShell. La communauté DSC a publié des outils pour convertir les modèles de stratégie de groupe exportés au format DSC. En utilisant cet outil avec les cmdlets de configuration d’invité décrites ci-dessus, vous pouvez convertir du contenu de stratégie de groupe Windows et le compresser/publier pour Azure Policy à des fins d’audit. Pour plus d’informations sur l’utilisation de l’outil, consultez l’article [Démarrage rapide : Convertir une stratégie de groupe en DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+La configuration d’invité, lors de l’audit de machines Windows, est une implémentation de la syntaxe de Desired State Configuration PowerShell. La communauté DSC a publié des outils pour convertir les modèles de stratégie de groupe exportés au format DSC. En utilisant cet outil avec les cmdlets de configuration d’invité décrites ci-dessus, vous pouvez convertir du contenu de stratégie de groupe Windows et le compresser/publier pour Azure Policy à des fins d’audit. Pour plus d’informations sur l’utilisation de l’outil, consultez l’article [Démarrage rapide : Convertir une stratégie de groupe en DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 Une fois que le contenu a été converti, les étapes ci-dessus pour créer un package et le publier en tant qu’Azure Policy sont les mêmes que pour tout contenu DSC.
 
 ## <a name="optional-signing-guest-configuration-packages"></a>FACULTATIF : Signature des packages Guest Configuration

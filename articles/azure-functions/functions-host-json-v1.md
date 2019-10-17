@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: b373afc9b5a60abee7a587fc405320fe3c583369
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 3d6a28c8cdcf13dc805d70832ed65732911138cd
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735152"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263351"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Informations de référence sur le fichier host.json pour Azure Functions 1.x
 
@@ -143,7 +143,7 @@ Paramètres de configuration pour le [déclencheur et les liaisons Azure Cosmos�
 |Propriété  |Default | Description |
 |---------|---------|---------|
 |GatewayMode|Passerelle|Le mode de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB. Les options sont `Direct` et `Gateway`.|
-|Protocole|Https|Le protocole de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB.  Voir [l’explication des deux modes](../cosmos-db/performance-tips.md#networking).|
+|Protocol|Https|Le protocole de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB.  Voir [l’explication des deux modes](../cosmos-db/performance-tips.md#networking).|
 |leasePrefix|n/a|Préfixe de bail à utiliser dans toutes les fonctions d’une application.|
 
 ## <a name="durabletask"></a>durableTask
@@ -203,6 +203,17 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 ## <a name="http"></a>http
 
 Paramètre de configuration pour les [déclencheurs et liaisons http](functions-bindings-http-webhook.md).
+
+```json
+{
+    "http": {
+        "routePrefix": "api",
+        "maxOutstandingRequests": 200,
+        "maxConcurrentRequests": 100,
+        "dynamicThrottlesEnabled": true
+    }
+}
+```
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 

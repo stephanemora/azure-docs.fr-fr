@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: eb6773d1547499fcd3a73aebf8f17ec61b6dc06a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: bb7b9a41523ab1b1addbf37cb7b463f12a72a814
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827600"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263661"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Guide pratique pour administrer le Cache Azure pour Redis
 Cette rubrique explique comment effectuer des tâches d’administration comme le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Azure pour Redis.
@@ -48,17 +48,11 @@ L’impact sur les applications clientes varie selon les nœuds que vous redéma
 * **Master et Subordonné** - lorsque les nœuds du cache sont redémarrés, toutes les données sont perdues dans le cache et les connexions au cache échouent jusqu’à ce que le nœud principal soit de nouveau en ligne. Si vous avez configuré la [persistance des données](cache-how-to-premium-persistence.md), la sauvegarde la plus récente est restaurée au moment où le cache est de nouveau en ligne. Toutefois, toute écriture de cache intervenue après cette sauvegarde est perdue.
 * **Nœuds d’un cache Premium avec activation du clustering** : lorsque vous redémarrez le ou les nœuds d’un cache Premium et que le clustering est activé, le comportement des nœuds sélectionnés est le même que lorsque vous redémarrez un ou plusieurs nœuds correspondants d’un cache non cluster.
 
-> [!IMPORTANT]
-> Le redémarrage est désormais disponible pour tous les niveaux de tarification.
-> 
-> 
-
 ## <a name="reboot-faq"></a>Forum aux questions sur le redémarrage
 * [Quel nœud dois-je redémarrer pour tester mon application ?](#which-node-should-i-reboot-to-test-my-application)
 * [Est-il possible de redémarrer le cache pour effacer les connexions client ?](#can-i-reboot-the-cache-to-clear-client-connections)
 * [Vais-je perdre les données dans mon cache si je redémarre ?](#will-i-lose-data-from-my-cache-if-i-do-a-reboot)
 * [Est-il possible de redémarrer mon cache à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres outils de gestion ?](#can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools)
-* [Quels niveaux tarifaires peuvent utiliser la fonctionnalité de redémarrage ?](#what-pricing-tiers-can-use-the-reboot-functionality)
 
 ### <a name="which-node-should-i-reboot-to-test-my-application"></a>Quel nœud dois-je redémarrer pour tester mon application ?
 Pour tester la résilience de votre application en cas de défaillance du nœud principal de votre cache, redémarrez le nœud **Master** . Pour tester la résilience de votre application en cas de défaillance du nœud secondaire de votre cache, redémarrez le nœud **Subordonné** . Pour tester la résilience de votre application en cas de défaillance totale de votre cache, redémarrez les **deux** nœuds.
@@ -79,23 +73,18 @@ Si vous redémarrez simplement l’un des nœuds, les données ne sont général
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Est-il possible de redémarrer mon cache à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres outils de gestion ?
 Oui. Pour connaître les instructions PowerShell, voir [Redémarrer un Cache Azure pour Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
-### <a name="what-pricing-tiers-can-use-the-reboot-functionality"></a>Quels niveaux tarifaires peuvent utiliser la fonctionnalité de redémarrage ?
-Le redémarrage est disponible pour tous les niveaux de tarification.
-
 ## <a name="schedule-updates"></a>Planifier les mises à jour
 Le panneau **Planification de mises à jour** vous permet de désigner une fenêtre de maintenance pour votre instance de cache. Lorsque la fenêtre de maintenance est spécifiée, toute mise à jour du serveur Redis est effectuée pendant cet intervalle. 
 
 > [!NOTE] 
 > Notez que la fenêtre de maintenance s’applique uniquement aux mises à jour du serveur Redis et non à toutes les mises à jour d’Azure ou celles du système d’exploitation des machines virtuelles qui hébergent le cache.
-> 
-> 
+>
 
 ![Planifier les mises à jour](./media/cache-administration/redis-schedule-updates.png)
 
 Pour spécifier une fenêtre de maintenance, vérifiez les jours choisis et spécifiez l’heure de début de la fenêtre de maintenance pour chaque jour, puis cliquez sur **OK**. Notez que l’heure de la maintenance est au format UTC. 
 
 La fenêtre de maintenance minimale et par défaut pour les mises à jour est de cinq heures. Cette valeur n’est pas configurable à partir du portail Azure, mais vous pouvez la configure dans PowerShell à l’aide du paramètre `MaintenanceWindow` de la cmdlet [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) . Pour plus d'informations, consultez Puis-je gérer les mises à jour planifiées à l'aide de PowerShell, de l'interface CLI ou de tout autre outil de gestion ?
-
 
 ## <a name="schedule-updates-faq"></a>Forum aux questions de la planification des mises à jour
 * [Quand les mises à jour sont-elles effectuées si je n’utilise pas la fonctionnalité de planification des mises à jour ?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)

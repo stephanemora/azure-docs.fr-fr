@@ -3,15 +3,15 @@ title: Résolution des erreurs courantes
 description: Découvrez comment résoudre les problèmes liés à l’interrogation des ressources Azure avec Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976605"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389706"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Résoudre les erreurs à l’aide d’Azure Resource Graph
 
@@ -39,7 +39,7 @@ Requêtes par lots pour la requête avec un sous-ensemble d’abonnements à con
 
 ```azurepowershell-interactive
 # Replace this query with your own
-$query = 'project type'
+$query = 'Resources | project type'
 
 # Fetch the full array of subscription IDs
 $subscriptions = Get-AzSubscription
@@ -73,6 +73,7 @@ L’API REST Azure Resource Graph ne prend en charge qu’un `Content-Type`  **a
 #### <a name="resolution"></a>Résolution :
 
 Vérifiez que l’outil ou l’agent que vous utilisez pour interroger Azure Resource Graph a l’en-tête API REST `Content-Type` configuré pour **application/json**.
+
 ### <a name="rest-403"></a>Scénario : Aucune autorisation de lecture sur tous les abonnements répertoriés
 
 #### <a name="issue"></a>Problème

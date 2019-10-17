@@ -2,18 +2,17 @@
 title: Surveiller les indicateurs de performance de serveur de Azure Analysis Services | Microsoft Docs
 description: Découvrez comment surveiller les indicateurs de performance de serveur Analysis Services dans un portail Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c7aaf911930f83775f66c47377bc68edb059519
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a66089d01ed9eabdb78975eb1738b87c99fbf311
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958980"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294876"
 ---
 # <a name="monitor-server-metrics"></a>Surveiller les indicateurs de performances du serveur
 

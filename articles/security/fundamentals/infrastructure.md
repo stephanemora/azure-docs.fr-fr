@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 3da9fef8c7de248f30100f94724cd5dcdb7db8e3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a17d98d49d2c653e2498a663829d26e8a171fd74
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727078"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433513"
 ---
 # <a name="azure-infrastructure-security"></a>Sécurité de l’infrastructure Azure
 Microsoft Azure s’exécute dans des centres de données gérés et exploités par Microsoft. Ces centres de données répartis à divers endroits sont conformes aux principales normes du secteur relatives à la sécurité et à la fiabilité, telles que ISO/IEC 27001:2013 et NIST SP 800-53. Les centres de données sont gérés, surveillés et administrés par le personnel d’exploitation de Microsoft. Le personnel d’exploitation a des années d’expérience dans les services en ligne les plus importants au monde avec une continuité des activités 24 heures sur 24, 7 jours sur 7.
@@ -50,7 +50,7 @@ Vous êtes toujours responsable des éléments suivants, quel que soit le type d
 - Compte
 - gestion de l’accès
 
-Veillez à bien comprendre la répartition des responsabilités entre Microsoft et vous-même dans un déploiement SaaS, PaaS et IaaS. Pour plus d’informations, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
+Veillez à bien comprendre la répartition des responsabilités entre Microsoft et vous-même dans un déploiement SaaS, PaaS et IaaS. Pour plus d’informations, consultez [Responsabilités partagées pour le cloud computing](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur ce que Microsoft fait pour sécuriser l’infrastructure Azure, consultez :

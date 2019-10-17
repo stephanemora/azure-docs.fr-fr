@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: atsenthi
-ms.openlocfilehash: 36c0f02202c738ac96d26b748b741cd8eee27380
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241818"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390094"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Qu’est-ce qu’un modèle de ressource d’application Service Fabric ?
 Le déploiement d’applications Service Fabric dans votre cluster Service Fabric par le biais d’Azure Resource Manager est recommandé. Cette méthode permet de décrire les applications et les services au format JSON et de les déployer dans le même modèle Resource Manager que votre cluster. Au lieu de déployer et de gérer des applications via PowerShell ou Azure CLI, il n’est pas nécessaire d’attendre que le cluster soit prêt. Le processus d’inscription, d’approvisionnement et de déploiement d’applications peut s’effectuer en une seule étape. Il est recommandé de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez les [meilleures pratiques](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -156,8 +156,8 @@ Obtenir des informations sur le modèle de ressource de l’application :
 * [Manifestes des services et applications Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
 
 ## <a name="see-also"></a>Voir aussi
-* [Bonnes pratiques](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
-* [Gérer des applications et services en tant que ressources Azure](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [Bonnes pratiques](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [Gérer des applications et services en tant que ressources Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

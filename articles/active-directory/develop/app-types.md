@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72fab8a51f1ea1b9c7bda14d825dad538f96cde6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540658"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374062"
 ---
 # <a name="application-types-in-v10"></a>Types d’applications dans v1.0
 
@@ -82,4 +82,4 @@ Chaque scénario répertorié dans ce document inclut une sous-section décrivan
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur les [principes de base de l’authentification Azure AD](authentication-scenarios.md)
+- En savoir plus sur les [principes de base de l’authentification Azure AD](v1-authentication-scenarios.md)

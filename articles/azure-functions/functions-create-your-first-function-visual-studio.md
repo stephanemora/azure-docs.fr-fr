@@ -1,8 +1,6 @@
 ---
 title: Créer votre première fonction dans Azure à l’aide de Visual Studio
 description: Créez et publiez une fonction Azure HTTP déclenchée à l’aide de Visual Studio.
-services: functions
-documentationcenter: na
 author: ggailey777
 manager: gwallace
 keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
@@ -12,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 9a2978bc181fd4c50665b6178d22d19eeb9e2568
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d798be3a0cde39de208105c4b3d4458fa5b124c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096566"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329487"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
 

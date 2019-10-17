@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2019
-ms.openlocfilehash: 467a8b1de3f6c234d9dfdfaf6132025688757997
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.date: 10/11/2019
+ms.openlocfilehash: 4f81b23378427faa522071f4a20e07485f5c3387
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327127"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296419"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique
 PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions regroupent plusieurs objets SQL associés au sein d’un package qui peut être chargé ou supprimé de votre base de données à l’aide d’une seule commande. Une fois chargées dans la base de données, les extensions fonctionnent comme des fonctionnalités intégrées.
@@ -44,7 +44,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | Types de données pour les standards internationaux de numérotation de produits|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | Extension pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
@@ -90,7 +90,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[isn](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | Types de données pour les standards internationaux de numérotation de produits|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.2             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | Extension pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
@@ -136,7 +136,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[isn](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | Types de données pour les standards internationaux de numérotation de produits|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.1.2             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | Fonctions de chiffrement|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | Extension pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | Affiche les informations de verrouillage au niveau des lignes|
@@ -182,7 +182,7 @@ Les extensions suivantes sont disponibles dans les serveurs Azure Database pour 
 > |[isn](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | Types de données pour les standards internationaux de numérotation de produits|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | Type de données pour les structures hiérarchiques de type arborescence|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Fonctions et opérateurs qui émulent un sous-ensemble de fonctions et de packages à partir de systèmes SGBDR commerciaux|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | fournit des fonctionnalités d’audit|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.0.7             | fournit des fonctionnalités d’audit|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | Fonctions de chiffrement|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | Extension pgRouting|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | Affiche les informations de verrouillage au niveau des lignes|

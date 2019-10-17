@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: cf39c8b5e204493380c095519e0ff25c3ce19f68
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 46e7f5b5376622be9a05265942b6aceb38feebac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959902"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372451"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Fonctionnalités Application Insights prises en charge pour Azure Functions
 
-Azure Functions offre une [intégration prédéfinie](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) à Application Insights, elle est disponible via l’interface ILogger. La liste des fonctionnalités actuellement prises en charge est indiquée ci-dessous. Servez-vous du guide d’Azure Functions pour [Bien démarrer](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
+Azure Functions offre une [intégration prédéfinie](../../azure-functions/functions-monitoring.md) à Application Insights, elle est disponible via l’interface ILogger. La liste des fonctionnalités actuellement prises en charge est indiquée ci-dessous. Servez-vous du guide d’Azure Functions pour [Bien démarrer](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
 
 ## <a name="supported-features"></a>Fonctionnalités prises en charge
 

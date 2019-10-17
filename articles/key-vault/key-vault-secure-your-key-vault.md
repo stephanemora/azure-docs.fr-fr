@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 4857cda7c3387e72be8837422469888adc5504d1
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883095"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301061"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -37,7 +37,7 @@ Quand vous créez un coffre de clés dans un abonnement Azure, il est automatiqu
 - **Accès utilisateur plus application** : l’application accède au coffre de clés pour le compte d’un utilisateur connecté. Azure PowerShell et le portail Azure sont des exemples de ce type d’accès. L’accès utilisateur est accordé de deux manières. Les utilisateurs peuvent accéder au coffre de clés à partir de n’importe quelle application ou ils doivent utiliser une application spécifique (appelée _identité composée_).
 - **Accès application uniquement** : L’application s’exécute comme service de démon ou travail en arrière-plan. L’identité de l’application se voit octroyer l’accès au coffre de clés.
 
-Pour les deux types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../active-directory/develop/authentication-scenarios.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../active-directory/develop/v1-protocols-oauth-code.md).
+Pour les deux types d’accès, l’application s’authentifie auprès d’Azure AD. L’application utilise une [méthode d’authentification prise en charge](../active-directory/develop/authentication-scenarios.md) en fonction du type d’application. L’application acquiert un jeton pour une ressource dans le plan pour accorder l’accès. La ressource est un point de terminaison dans le plan de gestion ou de données, en fonction de l’environnement Azure. L’application utilise le jeton et envoie une demande d’API REST à Key Vault. Pour en savoir plus, passez en revue le [flux d’authentification intégral](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
 Le modèle d’un mécanisme d’authentification unique auprès des deux plans présente plusieurs avantages :
 
@@ -208,7 +208,7 @@ Nous vous recommandons vivement de renforcer la sécurité de l’accès à votr
 
     Cette vidéo sur la conférence 2015 Microsoft Ignite parle des fonctionnalités de gestion des accès et de création de rapport dans Azure. Elle explore également les bonnes pratiques pour sécuriser l’accès aux abonnements Azure à l’aide d’Azure Active Directory.
 
-* [Autoriser l’accès aux applications web avec OAuth 2.0 et Azure AD](../active-directory/develop/v1-protocols-oauth-code.md)
+* [Autoriser l’accès aux applications web avec OAuth 2.0 et Azure AD](../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
 * [API REST de gestion des coffres de clés](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 

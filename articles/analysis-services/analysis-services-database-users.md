@@ -2,18 +2,17 @@
 title: Gérer les rôles et les utilisateurs dans Azure Analysis Services | Microsoft Docs
 description: Découvrez comment gérer les rôles et les utilisateurs sur un serveur Analysis Services dans Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a6c63c4ae58079c79a9d344f1e2550e4768088f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 426b69173994fc94a52ef0fcccb0dbc6315de14a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932242"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301154"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 

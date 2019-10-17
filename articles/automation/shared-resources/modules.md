@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cbc6932c3bbe11f0c4def17097c1791cbb1687bf
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 82f02f0ac11c80161f709b3b493306bc8aafc8bd
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515892"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435452"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -269,4 +269,4 @@ Le tableau suivant liste les modules qui sont importés par défaut au moment de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la création de modules PowerShell, consultez [Writing a Windows PowerShell Module (Écriture d’un module Windows PowerShell)](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
+* Pour en savoir plus sur la création de modules PowerShell, consultez [Writing a Windows PowerShell Module (Écriture d’un module Windows PowerShell)](/powershell/scripting/developer/windows-powershell)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 39f451e94f2a825e69425f71aceda5f34de7eeb5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: c9d3b2858ea3d80836b280b795025f2ce2eb85c7
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642029"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311760"
 ---
 # <a name="how-to-secure-your-private-cloud-environment"></a>Sécurisation de votre environnement cloud privé
 
@@ -33,12 +33,12 @@ Pour plus d’informations sur le RBAC, consultez la page [Qu’est-ce que le co
 
 ## <a name="rbac-for-private-cloud-vcenter"></a>RBAC pour le cloud privé vCenter
 
-Un utilisateur par défaut `CloudOwner@cloudsimple.local` est créé dans le domaine SSO vCenter lors de la création d’un cloud privé.  L’utilisateur CloudOwner dispose des privilèges lui permettant de gérer vCenter.   Des sources d’identité supplémentaires sont ajoutées au SSO vCenter pour donner accès à différents utilisateurs.  Les groupes et les rôles prédéfinis sont configurés sur le vCenter qui peut être utilisé pour ajouter des utilisateurs supplémentaires.
+Un utilisateur par défaut `CloudOwner@cloudsimple.local` est créé dans le domaine SSO vCenter lors de la création d’un cloud privé.  L’utilisateur CloudOwner dispose des privilèges lui permettant de gérer vCenter. Des sources d’identité supplémentaires sont ajoutées au SSO vCenter pour donner accès à différents utilisateurs.  Les groupes et les rôles prédéfinis sont configurés sur le vCenter qui peut être utilisé pour ajouter des utilisateurs supplémentaires.
 
 ### <a name="add-new-users-to-vcenter"></a>Ajouter de nouveaux utilisateurs dans VCenter
 
-1. [Élevez les privilèges](escalate-private-cloud-privileges.md) pour *CloudOwner@cloudsimple.local* un utilisateur sur le cloud privé.
-2. Connectez-vous à vCenter à l’aide de *CloudOwner@cloudsimple.local*
+1. [Élevez les privilèges](escalate-private-cloud-privileges.md) pour **CloudOwner@cloudsimple.local** un utilisateur sur le cloud privé.
+2. Connectez-vous à vCenter à l’aide de **CloudOwner@cloudsimple.local**
 3. [Ajouter des utilisateurs avec authentification unique sur vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html).
 4. Ajoutez des utilisateurs pour les [groupes avec authentification unique sur vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
@@ -51,8 +51,8 @@ Vous pouvez ajouter des fournisseurs d’identité supplémentaires pour le doma
 * [Utilisez Active Directory en tant que fournisseur d’identité](set-vcenter-identity.md) sur le cloud privé vCenter.
 * [Utiliser Azure AD en tant que fournisseur d’identité](azure-ad.md) sur le cloud privé vCenter
 
-1. [Élevez les privilèges](escalate-private-cloud-privileges.md) pour *CloudOwner@cloudsimple.local* un utilisateur sur le cloud privé.
-2. Connectez-vous à vCenter à l’aide de *CloudOwner@cloudsimple.local*
+1. [Élevez les privilèges](escalate-private-cloud-privileges.md) pour **CloudOwner@cloudsimple.local** un utilisateur sur le cloud privé.
+2. Connectez-vous à vCenter à l’aide de **CloudOwner@cloudsimple.local**
 3. Ajoutez des utilisateurs à partir du fournisseur d’identité à [des groupes avec authentification unique sur vCenter](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html).
 
 ## <a name="secure-network-on-your-private-cloud-environment"></a>Sécurisez le réseau de votre environnement de cloud privé

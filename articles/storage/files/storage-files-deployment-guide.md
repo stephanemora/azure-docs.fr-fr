@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699713"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299586"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
@@ -63,7 +63,7 @@ Les étapes suivantes montrent comment importer des données d’un emplacement 
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Plusieurs partages peuvent être spécifiés avec un compte de stockage. Pour plus d’informations, voir [Préparer le fichier CSV du jeu de données](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file).
+    Plusieurs partages peuvent être spécifiés avec un compte de stockage. Pour plus d’informations, voir [Préparer le fichier CSV du jeu de données](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 5. Créez le fichier CSV du jeu de lecteurs. Le fichier CSV du jeu de lecteurs répertorie les disques disponibles pour l’agent d’exportation local. Par exemple, le fichier CSV du jeu de lecteurs suivant répertorie les lecteurs `X:`, `Y:` et `Z:` à utiliser dans le cadre de la tâche d’exportation locale :
 
@@ -74,7 +74,7 @@ Les étapes suivantes montrent comment importer des données d’un emplacement 
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Pour plus d’informations, voir [Préparer le fichier CSV du jeu de lecteurs](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file).
+    Pour plus d’informations, voir [Préparer le fichier CSV du jeu de lecteurs](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 6. Utilisez l’outil [WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) pour copier vos données sur un ou plusieurs disques durs.
 

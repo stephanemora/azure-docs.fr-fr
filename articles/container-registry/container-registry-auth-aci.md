@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: d2099de9ad909b23b79a92a831d7730b1cf126e3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b11f88cbb29016032cbf536a2c970573eda82152
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311638"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262861"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>S’authentifier avec Azure Container Registry à partir d’Azure Container Instances
 
@@ -57,7 +57,7 @@ Vous trouverez les exemples de scripts précédents pour Azure CLI sur GitHub, a
 Les articles suivants incluent des détails supplémentaires sur l’utilisation des principaux de service et ACR :
 
 * [Authentification Azure Container Registry avec des principaux de service](container-registry-auth-service-principal.md)
-* [S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
+* [S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

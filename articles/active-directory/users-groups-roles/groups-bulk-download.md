@@ -13,19 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76aafa978732b3f4bae82f8ad3c09e67caf297ae
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 4b08e807e179270b63ca81d3777c230c3e129c3a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146282"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517139"
 ---
 # <a name="bulk-download-a-list-of-groups-preview-in-azure-active-directory"></a>Télécharger une liste de groupes par lot (préversion) dans Azure Active Directory
 
 À l’aide du portail Azure Active Directory (Azure AD), vous pouvez télécharger en bloc la liste de tous les groupes de votre organisation dans un fichier de valeurs séparées par des virgules (CSV).
-
-> [!NOTE]
-> Les opérations par lot d’Azure AD sont une fonctionnalité en préversion publique d’Azure AD disponible avec un plan de licence Azure AD payante. Pour plus d’informations sur les conditions d’utilisation des préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="to-download-a-list-of-groups"></a>Pour télécharger une liste de groupes
 

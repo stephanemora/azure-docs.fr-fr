@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: fcd115b672e4e2677cb7ad48fc94905747d66781
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: c9b72c90bc23cfac6f064445c4f6f98d05d7fe16
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675107"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331770"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Démarrage rapide : Configurer Data Science Virtual Machine pour Windows
 
@@ -77,5 +77,4 @@ Vous pouvez également attacher une DSVM à Azure Notebooks pour exécuter des n
 * Lisez l’article intitulé [Dix choses que vous pouvez effectuer sur la machine virtuelle Windows Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](../team-data-science-process/index.yml).
 * Visitez [Azure AI Gallery](https://gallery.cortanaintelligence.com) pour obtenir des exemples de machine learning et d’analytique données qui utilisent Azure Machine Learning et des services de données connexes sur Azure. Nous avons également inclus une icône dans le menu **Démarrer** et sur le bureau de la machine virtuelle pour accéder à cette galerie.
-* Consultez la [documentation de référence](./reference-windows-vm.md) appropriée pour cette machine virtuelle.
 

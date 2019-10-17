@@ -5,14 +5,14 @@ author: anavinahar
 ms.author: anavin
 ms.date: 06/19/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 48d7e9cc4a3034e149901931f2addbc7df78e2bc
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 278e9ff68fa20a0a99a6447bb4cf7ac7fddbfb7b
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296866"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249115"
 ---
 # <a name="networking-limit-increase"></a>Augmentation de la limite réseau
 

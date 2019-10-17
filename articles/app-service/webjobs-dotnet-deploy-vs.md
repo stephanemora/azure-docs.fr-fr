@@ -1,26 +1,21 @@
 ---
 title: Développer et déployer des tâches web à l’aide de Visual Studio - Azure
 description: Découvrez comment développer et déployer des tâches web Azure dans Azure App Service à l’aide de Visual Studio.
-services: app-service
-documentationcenter: ''
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.service: app-service
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.custom: vs-azure
-ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 58d03d80c82fbf58803f7fefa8ef60c19f99bced
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: ac458b01135be8628fbf939e310f8bda02b8d290
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876889"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303541"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
@@ -229,6 +224,8 @@ Lorsque vous [créez une tâche web à partir du portail Azure](webjobs-create.m
 ### <a name="cron-expressions"></a>Expressions CRON
 
 Un projet WebJobs utilise les mêmes expressions CRON pour la planification que le déclencheur de minuteur dans Azure Functions. Pour en savoir plus sur la prise en charge de CRON, consultez l’[article de référence du déclencheur de minuteur](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ### <a name="settingjob-reference"></a>Référence de setting.job
 

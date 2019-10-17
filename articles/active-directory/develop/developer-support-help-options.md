@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235335"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429985"
 ---
 # <a name="support-and-help-options-for-developers"></a>Options d’aide et de support pour les développeurs
 
@@ -95,9 +95,3 @@ Si vous avez besoin de vous entretenir avec quelqu’un, vous pouvez ouvrir une 
 * Si vous n’êtes pas un client Azure, vous pouvez également ouvrir une demande de support auprès de Microsoft via [notre assistance commerciale](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
 
 Vous avez aussi la possibilité de vous adresser à un [agent virtuel](https://support.microsoft.com/contactus/?ws=support) pour obtenir une assistance ou poser des questions.
-
-### <a name="free-chat-support-for-a-limited-time"></a>Assistance gratuite par chat à durée limitée
-
-Vous pouvez également utiliser notre assistance par messagerie instantanée ; celle-ci est gratuite pour les partenaires Microsoft sur une durée limitée. Si votre entreprise n’est pas un partenaire Microsoft, vous pouvez l’inscrire gratuitement et bénéficier d’autres avantages en vous rendant [ici](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
-
-Dès l’inscription de votre entreprise effectuée, vous pouvez démarrer la demande de conversation [ici](https://aka.ms/devchat).
