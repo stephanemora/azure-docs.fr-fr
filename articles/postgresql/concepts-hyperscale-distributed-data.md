@@ -1,18 +1,18 @@
 ---
 title: Données distribuées dans Azure Database pour PostgreSQL – Hyperscale (Citus)
-description: Tables et partitions distribuées dans le groupe de serveurs.
+description: Découvrez en quoi consistent les tables distribuées, les tables de référence, les tables locales et les partitions dans Azure Database pour PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: acc07086f4eaac523cb27e1361cb9cc6d380c695
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998042"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947483"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Données distribuées dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 
@@ -68,7 +68,7 @@ Si le nœud coordinateur souhaite déterminer quelle partition héberge une lign
 
 ### <a name="shard-placements"></a>Placements de partition
 
-Supposons que la partition 102027 est associée à la ligne en question. La ligne est lue ou écrite dans une table appelée `github_events_102027` dans un des Workers. Quel Worker ? Cela est entièrement déterminé par les tables de métadonnées. Le mappage de partition au Worker est appelé positionnement de partition.
+Supposons que la partition 102027 est associée à la ligne en question. La ligne est lue ou écrite dans une table appelée `github_events_102027` dans un des Workers. Quel worker ? Cela est entièrement déterminé par les tables de métadonnées. Le mappage de partition au Worker est appelé positionnement de partition.
 
 Le nœud coordinateur réécrit les requêtes en fragments qui font référence à des tables spécifiques, telles que `github_events_102027`, et exécute ces fragments sur les Workers appropriés. Voici un exemple d’une requête exécutée en arrière-plan pour rechercher le nœud contenant l’ID de partition 102027.
 

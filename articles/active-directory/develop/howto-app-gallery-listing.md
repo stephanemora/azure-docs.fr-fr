@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd20928816a30ad2843ce6c876bd77152dcd69e1
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: c77657101f5cd8a117b2163386f6d551b7985458
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001740"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374070"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -71,7 +71,7 @@ Notre équipe examine ces informations et vous octroie l’accès en conséquenc
 
 Pour lister une application dans la galerie d’applications Azure AD, vous devez tout d’abord implémenter l’un des protocoles de fédération suivants pris en charge par Azure AD. Vous devez également accepter les conditions générales de la galerie d’applications Azure AD. Lisez les conditions générales de la galerie d’applications Azure AD sur [ce site web](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **OpenID Connect** : pour intégrer votre application à Azure AD en utilisant le protocole Open ID Connect, suivez les [instructions destinées aux développeurs](authentication-scenarios.md).
+- **OpenID Connect** : pour intégrer votre application à Azure AD en utilisant le protocole Open ID Connect, suivez les [instructions destinées aux développeurs](v1-authentication-scenarios.md).
 
     ![Listing d’une application OpenID Connect dans la galerie](./media/howto-app-gallery-listing/openid.png)
 
