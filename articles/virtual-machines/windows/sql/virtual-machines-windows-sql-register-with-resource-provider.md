@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262879"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023598"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -42,6 +42,11 @@ Pour utiliser le fournisseur de ressources de machines virtuelles SQL, vous deve
 
   > [!NOTE]
   > Aucune exigence de licence supplémentaire n’est associée à l’inscription auprès du fournisseur de ressources. L’inscription auprès du fournisseur de ressources de machine virtuelle SQL offre une méthode simplifiée permettant de notifier à Microsoft qu’Azure Hybrid Benefit a été activé à la place de la gestion des formulaires d’inscription de licence pour chaque ressource. 
+
+Pour plus d’informations sur les avantages du fournisseur de ressources de machine virtuelle SQL, consultez la vidéo de [Channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) suivante : 
+
+<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Avantages du fournisseur de ressources de machine virtuelle SQL lors de l’installation automatique de SQL Server sur Azure - Vidéo sur Microsoft Channel 9"></iframe>
+
 
 ## <a name="prerequisites"></a>Prérequis
 

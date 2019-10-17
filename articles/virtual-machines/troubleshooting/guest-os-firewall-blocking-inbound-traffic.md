@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154036"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028801"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Le pare-feu du système d’exploitation invité des machines virtuelles Azure bloque le trafic entrant
 
@@ -102,7 +102,7 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
 
 #### <a name="mitigation-2"></a>Atténuation 2
 
-1.  Interrogez les profils de pare-feu pour déterminer si la stratégie de pare-feu de trafic entrant est définie sur  *BlockInboundAlways* :
+1.  Interrogez les profils de pare-feu pour déterminer si la stratégie de pare-feu de trafic entrant est définie sur *BlockInboundAlways* :
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
     >    * *BlockInbound* : l’ensemble du trafic entrant est bloqué, sauf si vous avez une règle effective pour autoriser ce trafic.
     >    * *BlockInboundAlways* : toutes les règles de pare-feu sont ignorées et l’ensemble du trafic est bloqué.
 
-2.  Modifiez *DefaultInboundAction* pour définir ces profils sur **Autoriser** le trafic. Pour ce faire, exécutez la commande suivante :
+2.  Modifiez l’action *DefaultInboundAction* de sorte que ces profils **autorisent** le trafic. Pour ce faire, exécutez la commande suivante :
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ Connectez-vous à la [console série et ouvrez une instance PowerShell](serial-c
 
 2.  Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 
-3.  Vérifiez que le disque est marqué comme **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque système attaché.
+3.  Vérifiez que le disque est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque système attaché.
 
 #### <a name="mitigation-1"></a>Atténuation 1
 
@@ -150,7 +150,7 @@ Consultez [Activer ou désactiver une règle de pare-feu sur un système d’ex
 
 2.  Établissez une connexion Bureau à distance avec la machine virtuelle de récupération.
 
-3.  Une fois le disque système attaché à une machine virtuelle de récupération, vérifiez qu’il est marqué **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur qui est affectée au disque du système d’exploitation attaché.
+3.  Une fois le disque système attaché à la machine virtuelle de récupération, vérifiez qu’il est marqué **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur qui est affectée au disque du système d’exploitation attaché.
 
 4.  Ouvrez une instance CMD avec élévation de privilèges et exécutez le script suivant :
 

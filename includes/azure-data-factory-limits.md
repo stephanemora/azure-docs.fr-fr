@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c92bb8b2adb3e91e691e9fd1c17a7ee43e84fd11
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 6dc846ab6af0ed4d6d48c6f6db0abbce06427c36
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68362508"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035881"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -44,6 +44,10 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Lire des appels d’API | 12 500/h<br/><br/> Cette limite est imposée par Azure Resource Manager, et non par Azure Data Factory. | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Surveillance des requêtes par minute | 1 000 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Opérations CRUD d’entité par minute | 50 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Durée maximale d’une session de débogage de flux de données | 8 heures | 8 heures |
+| Nombre de flux de données simultanés par fabrique | 50 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Nombre de sessions de débogage de flux de données simultanées par utilisateur et par fabrique | 3 | 3 |
+| Limite de durée de vie de flux de données avec Azure IR | 4 heures | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> L’unité d’intégration de données (DIU) est utilisée dans une opération de copie de cloud à cloud, pour en savoir plus consultez [Unités d’intégration de données (version 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Pour plus d’informations sur la facturation, consultez [Tarification d’Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
