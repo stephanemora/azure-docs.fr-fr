@@ -6,13 +6,13 @@ author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: ed9eca88e5ccc386b25acb95fa729a3cfb95cbd0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 0f3c7b01ee9d4a62ec0d563af55f2086894081be
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543457"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256048"
 ---
 # <a name="tutorial-install-azure-fxt-edge-filer"></a>Didacticiel : Installer Azure FXT Edge Filer 
 
@@ -25,7 +25,7 @@ L’installation d’un nœud Azure FXT Edge Filer prend environ une heure.
 Ce tutoriel comprend les étapes d’installation suivantes : 
 
 > [!div class="checklist"]
-> * Déballer l’appareil
+> * Déballez l’appareil
 > * Monter l’appareil dans un rack
 > * Installer le panneau avant (facultatif)
 
@@ -99,7 +99,7 @@ Pour les racks avec trous ronds ou carrés enfichables, appliquez cette procédu
 
 2. Alignez chaque extrémité dans les trous haut et bas du rack, dans l’espace où vous souhaitez effectuer le montage. (2)
 
-3. Engagez l’arrière du rail jusqu’à son enclenchement complet dans la bride verticale du rack et jusqu’à l’enclenchement du loquet. Répétez ces étapes pour positionner et enclencher l’extrémité avant sur la bride verticale du rack. (3)
+3. Engagez l’arrière du rail jusqu’à son enclenchement complet dans la collerette verticale du rack et jusqu’à l’enclenchement du loquet. Répétez ces étapes pour positionner et enclencher l’extrémité avant sur la bride verticale du rack. (3)
 
 > [!TIP]
 > Pour retirer les rails, tirez sur le bouton de dégagement du loquet situé au milieu de l’extrémité (4) et dégagez chaque rail.
