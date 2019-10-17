@@ -6,18 +6,18 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 10/02/2019
 ms.author: danlep
-ms.openlocfilehash: 36d27bc6089bbe3f4ada6862a9c1be1fa0bdbae7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 79b3e48373114bfcee6dca2e6142f23bed1699e6
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71305920"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972656"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Stratégie de rétention pour les manifestes non étiquetés
 
-Azure Container Registry vous donne la possibilité de définir une *stratégie de rétention* pour les manifestes d’image stockés qui n’ont pas d’étiquette associée (*manifestes non étiquetés*). Quand une stratégie de rétention est activée, les manifestes non étiquetés dans le registre sont automatiquement supprimés après un certain nombre de jours que vous définissez. Cette fonctionnalité empêche que le registre se remplisse d’artefacts superflus et vous permet d’économiser des coûts de stockage. Si l’attribut `delete-enabled` d’un manifeste non étiqueté a la valeur `false`, le manifeste ne peut pas être supprimé et la stratégie de rétention ne s’applique pas.
+Azure Container Registry vous donne la possibilité de définir une *stratégie de rétention* pour les manifestes d’image stockés qui n’ont pas d’étiquette associée (*manifestes non étiquetés*). Quand une stratégie de rétention est activée, les manifestes non étiquetés dans le registre sont automatiquement supprimés après un certain nombre de jours que vous définissez. Cette fonctionnalité empêche que le registre se remplisse d’artefacts superflus et vous permet d’économiser des coûts de stockage. Si l’attribut `delete-enabled` d’un manifeste non étiqueté a la valeur `false`, le manifeste ne peut pas être supprimé et la stratégie de conservation ne s’applique pas.
 
 Pour exécuter les exemples de commandes fournis dans cet article, vous pouvez utiliser Azure Cloud Shell ou une installation locale d’Azure CLI. Si vous souhaitez l’utiliser en local, la version 2.0.74 ou une version ultérieure est requise. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli].
 
@@ -27,12 +27,17 @@ Pour exécuter les exemples de commandes fournis dans cet article, vous pouvez u
 > [!WARNING]
 > Définissez la stratégie de rétention avec soin car les données d’une image supprimée son IRRÉCUPÉRABLES. Si vous disposez de systèmes qui tirent (pull) des images en fonction du code de hachage du manifeste (et non en fonction du nom de l’image), vous ne devez pas définir de stratégie de rétention pour les manifestes non étiquetés. La suppression des images sans étiquette va empêcher ces systèmes de tirer les images à partir du registre. Au lieu de tirer en fonction du manifeste, envisagez d’adopter un schéma d’*étiquetage unique* (il s’agit là d’une [bonne pratique](container-registry-image-tag-version.md)).
 
-Si vous souhaitez supprimer des étiquettes d’image unique ou des manifestes à l'aide des commandes Azure CLI, consultez [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
-
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
 * Seul un registre de conteneurs **Premium** peut être configuré avec une stratégie de rétention. Pour plus d’informations sur les niveaux de service de registre, consultez [Références SKU Azure Container Registry](container-registry-skus.md).
 * Vous ne pouvez définir une stratégie de rétention que pour des manifestes non étiquetés.
+* La stratégie de conservation s’applique actuellement uniquement aux manifestes non étiquetés *après* l’activation de la stratégie. Les manifestes non étiquetés figurant dans le registre ne sont pas soumis à cette stratégie. Pour supprimer des manifestes non étiquetés, consultez des exemples dans [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
+
+## <a name="about-the-retention-policy"></a>À propos de la stratégie de conservation
+
+Azure Container Registry fait référence au décompte des manifestes dans le registre. Lorsqu’un manifeste n’est pas étiqueté, il vérifie la stratégie de conservation. Si une stratégie de conservation est activée, une opération de suppression de manifeste est mise en file d’attente, avec une date spécifique, en fonction du nombre de jours défini dans la stratégie.
+
+Un travail de gestion de file d’attente distinct traite en permanence les messages et effectue la mise à l’échelle requise. En guise d’exemple, supposons que vous avez supprimé les étiquettes de deux manifestes, à 1 heure d’intervalle, dans un registre avec une stratégie de conservation de 30 jours. Deux messages sont mis en file d’attente. Ensuite, 30 jours plus tard, à environ 1 heure d’intervalle, les messages sont récupérés de la file d’attente et traités, en supposant que la stratégie était toujours en vigueur.
 
 ## <a name="set-a-retention-policy---cli"></a>Définir une stratégie de rétention – CLI
 
@@ -45,27 +50,38 @@ Par défaut, aucune stratégie de rétention n’est définie dans un registre d
 L’exemple suivant définit une stratégie de rétention de 30 jours pour les manifestes non étiquetés dans le registre *myregistry* :
 
 ```azurecli
-az acr config retention update --name myregistry --status enabled --days 30 --type UntaggedManifests
+az acr config retention update --registry myregistry --status enabled --days 30 --type UntaggedManifests
 ```
 
-L’exemple suivant définit une stratégie pour supprimer du registre tout manifeste non étiqueté. Créez cette stratégie en définissant une période de rétention de 0 jour :
+L’exemple suivant définit une stratégie pour supprimer du registre tout manifeste non étiqueté. Créez cette stratégie en définissant une période de conservation de 0 jour. 
 
 ```azurecli
-az acr config retention update --name myregistry --status enabled --days 0 --type UntaggedManifests
+az acr config retention update --registry myregistry --status enabled --days 0 --type UntaggedManifests
 ```
+
+### <a name="validate-a-retention-policy"></a>Valider une stratégie de conservation
+
+Si vous activez la stratégie précédente avec une période de conservation de 0 jour, vous pouvez rapidement vérifier que les manifestes non étiquetés sont supprimés :
+
+1. Envoyez une image de test `hello-world:latest` à votre registre ou remplacez une autre image de test de votre choix.
+1. Supprimez les étiquettes de l’image `hello-world:latest`, par exemple, à l’aide de la commande [az acr repository untag][az-acr-repository-untag]. Le manifeste non étiqueté reste dans le registre.
+    ```azurecli
+    az acr repository untag --name myregistry --image hello-world:latest
+    ```
+1. Au bout de quelques secondes, le manifeste non étiqueté est supprimé. Vous pouvez vérifier la suppression en dressant la liste des manifestes dans le référentiel, par exemple, à l’aide de la commande [az acr repository show-manifests][az-acr-repository-show-manifests]. Si l’image de test était la seule dans le référentiel, le référentiel lui-même est supprimé.
 
 ### <a name="disable-a-retention-policy"></a>Désactiver une stratégie de rétention
 
 Pour afficher la stratégie de rétention définie dans un registre, exécutez la commande [az acr config retention show][az-acr-config-retention-show] :
 
 ```azurecli
-az acr config retention show --name myregistry
+az acr config retention show --registry myregistry
 ```
 
 Pour désactiver une stratégie de rétention dans un registre, exécutez la commande [az acr config retention update][az-acr-config-retention-update] et définissez `--status disabled` :
 
 ```azurecli
-az acr config retention update --name myregistry --status disabled
+az acr config retention update --registry myregistry --status disabled --type UntaggedManifests
 ```
 
 ## <a name="set-a-retention-policy---portal"></a>Définir une stratégie de rétention – Portail
@@ -101,3 +117,5 @@ Vous pouvez également définir une stratégie de rétention du registre via le 
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-config-retention-update]: /cli/azure/acr/config/retention#az-acr-config-retention-update
 [az-acr-config-retention-show]: /cli/azure/acr/config/retention#az-acr-config-retention-show
+[az-acr-repository-untag]: /cli/azure/acr/repository#az-acr-repository-untag
+[az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests

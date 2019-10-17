@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 7cd915c47fa0661a9da66d7ca3315480ce7d6b98
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ada573cc919d775af52abc5a75004866aebbeddb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709422"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033940"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurer la collecte de données de l’agent pour Azure Monitor pour conteneurs
 
@@ -49,7 +49,7 @@ Voici les paramètres qui peuvent être configurés pour contrôler la collecte 
 |`[log_collection_settings.stdout] exclude_namespaces =`|Chaîne | Tableau séparé par des virgules |Tableau d’espaces de noms Kubernetes pour lesquels aucun journal stdout n’est collecté. Ce paramètre est effectif uniquement si `log_collection_settings.stdout.enabled` est défini sur `true`. S’il n’est pas spécifié dans ConfigMap, la valeur par défaut est `exclude_namespaces = ["kube-system"]`.|
 |`[log_collection_settings.stderr] enabled =` |Boolean | true ou false |Ce paramètre contrôle si la collecte de journaux de conteneur stderr est activée. Lorsque la valeur est `true` et qu’aucun espace de noms n’est exclus de la collecte de journaux stdout (paramètre `log_collection_settings.stderr.exclude_namespaces`), les journaux stderr sont collectés à partir de tous les conteneurs parmi l’ensemble des nœuds/pods du cluster. Si elle n’est pas spécifiée dans ConfigMaps, la valeur par défaut est `enabled = true`. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |Chaîne |Tableau séparé par des virgules |Tableau d’espaces de noms Kubernetes pour lesquels aucun journal stderr n’est collecté. Ce paramètre est effectif uniquement si `log_collection_settings.stdout.enabled` est défini sur `true`. S’il n’est pas spécifié dans ConfigMap, la valeur par défaut est `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true ou false | Cette option détermine si la collecte de variables d’environnement est activée. Lorsque la valeur est définie sur `false`, aucune variable d’environnement n’est collectée pour les conteneurs exécutés sur tous les nœuds/pods du cluster. Si elle n’est pas spécifiée dans ConfigMap, la valeur par défaut est `enabled = true`. |
+| `[log_collection_settings.env_var] enabled =` |Boolean | true ou false | Ce paramètre contrôle la collecte des variables d’environnement sur tous les pods/nœuds du cluster et a pour valeur par défaut `enabled = true` lorsqu’il n’est pas spécifié dans ConfigMaps. Si la collecte des variables d’environnement est globalement activée, vous pouvez la désactiver pour un conteneur spécifique en définissant la variable d’environnement `AZMON_COLLECT_ENV` sur **False** avec un paramètre Dockerfile ou dans le [fichier de configuration pour le pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) dans la section **env :** . Si la collecte des variables d’environnement est désactivée globalement, vous ne pouvez pas activer la collecte pour un conteneur spécifique (autrement dit, la seule substitution applicable au niveau du conteneur consiste à désactiver la collecte lorsqu’elle est déjà activée globalement). |
 
 ### <a name="prometheus-scraping-settings"></a>Paramètres de capture de Prometheus
 
@@ -84,7 +84,7 @@ Quand une URL est spécifiée, Azure Monitor pour conteneurs ne capture que le p
 | À l’ensemble du nœud ou du cluster | `interval` | Chaîne | 60s | La valeur par défaut de l’intervalle de collection est d’une minute (60 secondes). Vous pouvez modifier la collection pour *[prometheus_data_collection_settings. node]* et/ou pour *[prometheus_data_collection_settings. cluster]* en unités de temps telles que NS, US (ou Âμs), MS, s, m, h. |
 | À l’ensemble du nœud ou du cluster | `fieldpass`<br> `fielddrop`| Chaîne | Tableau séparé par des virgules | Vous pouvez spécifier certaines mesures à collecter ou non à partir du point de terminaison en définissant la liste Autoriser (`fieldpass`) et Interdire (`fielddrop`). Vous devez d’abord définir la liste Autoriser. |
 
-ConfigMap est une liste globale et il ne peut y avoir qu’un seul élément ConfigMap appliqué à l’agent. Vous ne pouvez pas avoir un autre élément ConfigMap qui annule les collections.
+ConfigMaps est une liste globale et il ne peut y avoir qu’un seul élément ConfigMap appliqué à l’agent. Vous ne pouvez pas avoir un autre élément ConfigMaps qui annule les collectes.
 
 ## <a name="configure-and-deploy-configmaps"></a>Configurer et déployer ConfigMaps
 

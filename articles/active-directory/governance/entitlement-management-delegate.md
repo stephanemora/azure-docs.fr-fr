@@ -1,6 +1,6 @@
 ---
-title: Déléguer des tâches dans la gestion des droits d’utilisation Azure AD (préversion) - Azure Active Directory
-description: Découvrez les rôles que vous pouvez affecter pour déléguer des tâches dans la gestion des droits d’utilisation Azure Active Directory.
+title: Délégation et rôles dans la gestion des droits d’utilisation Azure AD (préversion) - Azure Active Directory
+description: Découvrez comment déléguer la gouvernance des accès des administrateurs informatiques aux chefs de service et chefs de projet pour qu’ils puissent gérer les accès eux-mêmes.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,92 +12,110 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 89cdab09e3ae03ddea6259eda657908f900f982e
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057779"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169837"
 ---
-# <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Déléguer des tâches dans la gestion des droits d’utilisation Azure AD (préversion)
+# <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Délégation et rôles dans la gestion des droits d’utilisation Azure AD (préversion)
 
 > [!IMPORTANT]
 > La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Par défaut, les administrateurs généraux et les administrateurs d’utilisateurs peuvent créer et gérer tous les aspects de la gestion des droits d’utilisation Azure AD. Toutefois, les utilisateurs de ces rôles sont susceptibles de ne pas connaître tous les scénarios dans lesquels des packages d’accès sont requis. En général, ce sont les utilisateurs au sein des services qui savent qui a besoin de collaborer. 
+Par défaut, les administrateurs généraux et les administrateurs d’utilisateurs peuvent créer et gérer tous les aspects de la gestion des droits d’utilisation Azure AD. Toutefois, les utilisateurs de ces rôles sont susceptibles de ne pas connaître toutes les situations dans lesquelles des packages d’accès sont exigés. D’ordinaire, il s’agit d’utilisateurs au sein des services, équipes ou projets respectifs qui savent avec qui ils collaborent, en utilisant quelles ressources et pendant combien de temps. Plutôt que d’accorder des autorisations illimitées pour aux non-administrateurs, vous pouvez accorder aux utilisateurs les dernières autorisations dont ils ont besoin pour effectuer leur travail et éviter de créer des conflits ou des droits d’accès inappropriés.
 
-Plutôt que d’accorder des autorisations illimitées pour aux non-administrateurs, vous pouvez accorder aux utilisateurs les dernières autorisations dont ils ont besoin pour effectuer leur travail et éviter de créer des conflits ou des droits d’accès inappropriés. Cet article décrit les rôles que vous pouvez affecter afin de déléguer des diverses tâches dans la gestion des droits d’utilisation. 
+Cette vidéo fournit une vue d’ensemble de la délégation de la gouvernance des accès de l’administrateur informatique aux utilisateurs qui ne sont pas administrateurs.
 
-## <a name="delegate-example-for-departmental-adoption"></a>Exemple de délégation pour l’adoption par service
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq00]
 
-Pour comprendre comment déléguer des tâches de gestion des droits d’utilisation, prenons un exemple. 
+## <a name="delegate-example"></a>Exemple de délégué
 
-Supposons que votre organisation possède les cinq utilisateurs suivants :
+Pour comprendre comment déléguer la gouvernance des accès dans le cadre de la gestion des droits d’utilisation, prenons un exemple. Supposons que votre organisation emploie l’administrateur et les chefs de service suivants.
 
-| Utilisateur | department | Notes |
-| --- | --- | --- |
-| Alice | IT | Administrateur général |
-| Bob | Recherche | Bob est également propriétaire d’un groupe de recherche |
-| Carole | Recherche |  |
-| Dave | Marketing |  |
-| Elisa | Marketing | Elisa est également propriétaire d’une application marketing |
+![Déléguer de l’administrateur informatique aux chefs](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
-Les services Recherche et Marketing souhaitent utiliser la gestion des droits d’utilisation pour leurs utilisateurs. Alice n’est pas encore prête que d’autres services utilisent la gestion des droits d’utilisation. Voici comment Alice pourrait déléguer des tâches aux services de Recherche et Marketing.
+En tant qu’administrateur informatique, Hana a des contacts au sein de chaque service : Mamta du service marketing, Mark du service financier et Joe du service juridique, chacun étant responsable des ressources et du contenu stratégique métier de son service.
 
-1. Alice crée un nouveau groupe de sécurité Azure AD pour les créateurs de catalogues et ajoute Bob, Carol, Dave et Elisa à ce groupe.
+Avec la gestion des droits d’utilisation, vous pouvez déléguer la gouvernance des accès à ces non-administrateurs, car il s’agit des personnes qui savent quels utilisateurs ont besoin d’un accès, pendant combien de temps et à quelles ressources. Ainsi, ce sont les bonnes personnes qui gèrent les accès pour leurs services.
 
-1. Alice utilise les paramètres de gestion des droits d’utilisation pour ajouter ce groupe au rôle de créateurs de catalogues.
+Voici une façon pour Hana de déléguer la gouvernance des accès aux services marketing, financier et juridique.
 
-1. Carol crée un catalogue **Recherche** et ajoute Bob comme copropriétaire de ce catalogue. Bob ajoute le groupe de recherche qu’il détient au catalogue en tant que ressource, de sorte qu’il puisse être utilisé dans un package d’accès pour la collaboration de recherche.
+1. Hana crée un groupe de sécurité Azure AD et ajoute Mamta, Mark et Joe en tant que membres du groupe.
 
-1. Dave crée un catalogue **Marketing** et ajoute Elisa comme copropriétaire de ce catalogue. Elisa ajoute l’application marketing qu’elle détient au catalogue en tant que ressource, de sorte qu’il puisse être utilisé dans un package d’accès pour la collaboration marketing.
+1. Hana ajoute ce groupe au rôle de créateur de catalogue.
 
-Maintenant les services Recherche et Marketing peuvent utiliser la gestion des droits d’utilisation. Bob, Carol, Dave et Elisa peuvent créer et gérer des packages d’accès dans leurs catalogues respectifs.
+    Mamta, Mark et Joe peuvent désormais créer des catalogues pour leurs services, ajouter les ressources dont leurs services ont besoin et effectuer d’autres actions de délégation au sein de leur catalogue.
+
+    Notez que Mamta, Mark et Joe ne peuvent pas voir les catalogues des autres.
+
+1. Mamta crée un catalogue **Marketing**, qui est un conteneur de ressources.
+
+1. Mamta ajoute les ressources que possède son service marketing à ce catalogue.
+
+1. Mamta peut aussi y ajouter d’autres personnes de son service comme propriétaires de catalogue. Ainsi, les responsabilités de la gestion du catalogue sont mieux partagées.
+
+1. Mamta peut également déléguer la création et la gestion des packages d’accès dans le catalogue Marketing aux chefs de projet du service marketing. Pour cela, elle peut leur attribuer le rôle de gestionnaire de package d’accès. Un gestionnaire de package d’accès peut créer et gérer des packages d’accès. 
+
+Le diagramme suivant montre les catalogues contenant les ressources des services marketing, financier et juridique. À l’aide de ces catalogues, les chefs de projet peuvent créer des packages d’accès pour leurs équipes ou projets.
 
 ![Exemple de délégation de la gestion des droits d’utilisation](./media/entitlement-management-delegate/elm-delegate.png)
 
+À l’issue de la délégation, le service marketing peut avoir des rôles similaires à ceux indiqués dans le tableau suivant.
+
+| Utilisateur | Fonction principale | Rôle Azure AD | Rôle de gestion des droits d’utilisation |
+| --- | --- | --- | --- |
+| Hana | Administrateur informatique | Administrateur général ou Administrateur d’utilisateurs |  |
+| Mamta | Directrice marketing | Utilisateur | Créateur du catalogue et propriétaire du catalogue |
+| Bob | Responsable marketing | Utilisateur | Propriétaire de catalogue |
+| Jessica | Chef de projet marketing | Utilisateur | Gestionnaire de package d’accès |
 
 ## <a name="entitlement-management-roles"></a>Rôles de gestion des droits d’utilisation
 
 La gestion des droits d’utilisation a les rôles suivants, qui sont spécifiques à la gestion des droits d’utilisation.
 
-| Role | Description |
+| Rôle de gestion des droits d’utilisation | Description |
 | --- | --- |
 | Créateur de catalogue | Crée et gère des catalogues. Il s’agit, en général, d’un administrateur informatique qui n’est ni administrateur d’entreprise, ni propriétaire de ressource pour une collection de ressources. La personne qui crée un catalogue devient automatiquement le premier propriétaire du catalogue et peut ajouter des propriétaires de catalogues. Un créateur de catalogue ne peut ni gérer ni voir les catalogues dont il n’est pas propriétaire, et ne peut pas ajouter à un catalogue les ressources dont il n’est pas propriétaire. Si le créateur de catalogue doit gérer un autre catalogue ou ajouter des ressources dont il n’est pas propriétaire, il peut demander à être copropriétaire de ce catalogue ou de cette ressource. |
 | Propriétaire de catalogue | Modifie et gère les catalogues existants. Il s’agit, en général, d’un administrateur informatique, d’un propriétaire de ressource ou d’un utilisateur désigné par le propriétaire du catalogue. |
 | Gestionnaire de package d’accès | Modifie et gère tous les packages d’accès existants au sein d’un catalogue. |
 
 De plus, l’approbateur et le demandeur désignés d’un package d’accès ont également des droits, bien qu’il ne s’agisse pas de rôles.
- 
-* Approbateur : personne autorisée par une stratégie à approuver ou refuser des demandes d’accès aux packages, bien qu’elle ne puisse pas modifier les définitions de ces derniers.
-* Demandeur : personne autorisée par la stratégie d’un package d’accès à demander ce package d’accès.
 
-Le tableau suivant répertorie les tâches réalisables par ces rôles.
+| Right | Description |
+| --- | --- |
+| Approbateur | personne autorisée par une stratégie à approuver ou refuser des demandes d’accès aux packages, bien qu’elle ne puisse pas modifier les définitions de ces derniers. |
+| Demandeur | personne autorisée par la stratégie d’un package d’accès à demander ce package d’accès. |
 
-| Tâche | Créateur de catalogue | Propriétaire de catalogue | Gestionnaire de package d’accès | Approbateur |
+Le tableau suivant liste les tâches que les rôles de gestion des droits d’utilisation peuvent effectuer.
+
+| Tâche | Admin | Créateur de catalogue | Propriétaire de catalogue | Gestionnaire de package d’accès |
 | --- | :---: | :---: | :---: | :---: |
-| [Créer un catalogue](entitlement-management-catalog-create.md) | :heavy_check_mark: |  |  |  |
-| [Ajouter une ressource à un catalogue](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | | :heavy_check_mark: | | |
-| [Modifier un catalogue](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
-| [Supprimer un catalogue](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
-| [Ajouter un propriétaire de catalogue ou un gestionnaire de package d’accès à un catalogue](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Créer un package d’accès dans un catalogue](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
-| [Gérer des rôles de ressources dans un package d’accès](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Créer et modifier des stratégies](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Affecter directement un utilisateur à un package d’accès](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Afficher qui a une affectation à un package d’accès](entitlement-management-access-package-edit.md#view-who-has-an-assignment) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Afficher les requêtes d’un package d’accès](entitlement-management-access-package-edit.md#view-requests) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Afficher les erreurs de remise d’une requête](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Annuler une requête en attente](entitlement-management-access-package-edit.md#cancel-a-pending-request) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Masquer un package d’accès](entitlement-management-access-package-edit.md#change-the-hidden-setting) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Supprimer un package d’accès](entitlement-management-access-package-edit.md#delete) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Approuver une requête d’accès](entitlement-management-request-approve.md) |  |  |  | :heavy_check_mark: |
+| [Déléguer à un créateur de catalogue](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Créer un catalogue](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Ajouter une ressource à un catalogue](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Ajouter un propriétaire de catalogue](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Modifier un catalogue](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Supprimer un catalogue](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Déléguer à un gestionnaire de package d’accès](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Supprimer un gestionnaire de package d’accès](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Créer un package d’accès dans un catalogue](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
+| [Gérer des rôles de ressources dans un package d’accès](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Créer et modifier des stratégies](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Affecter directement un utilisateur à un package d’accès](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Afficher qui a une affectation à un package d’accès](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Afficher les requêtes d’un package d’accès](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Afficher les erreurs de remise d’une requête](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Annuler une requête en attente](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Masquer un package d’accès](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Supprimer un package d’accès](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Rôles requis pour ajouter des ressources à un catalogue
 
@@ -119,49 +137,7 @@ Afin qu’un utilisateur, qui ni administrateur général, ni administrateur d�
 
 Pour déterminer le rôle le moins privilégié pour une tâche, vous pouvez également référencer les [rôles d’administrateur par tâche administrateur dans Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="add-a-catalog-creator"></a>Ajouter un créateur de catalogue
-
-Si vous souhaitez déléguer la création de catalogues, ajoutez des utilisateurs au rôle de créateur de catalogue.  Vous pouvez ajouter des utilisateurs individuels, ou pour plus de commodité un groupe, dont les membres sont alors en mesure de créer des catalogues. Suivez ces étapes pour affecter un utilisateur au rôle de créateur de catalogue.
-
-**Rôle prérequis :** Administrateur général ou Administrateur d’utilisateurs
-
-1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
-
-1. Dans le menu de gauche, dans la section **Gestion des droits d’utilisation**, cliquez sur **Paramètres**.
-
-1. Cliquez sur **Modifier**.
-
-1. Dans la section **Déléguer la gestion des droits d’utilisation**, cliquez sur **Ajouter des créateurs de catalogue** pour sélectionner les utilisateurs ou les groupes qui seront membres de ce rôle de gestion des droits d’utilisation.
-
-1. Cliquez sur **Sélectionner**.
-
-1. Cliquez sur **Enregistrer**.
-
-## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Ajouter un propriétaire de catalogue ou un gestionnaire de package d’accès
-
-Pour déléguer la gestion d’un catalogue ou de packages d’accès dans le catalogue, ajoutez des utilisateurs aux rôles de propriétaire de catalogue ou de gestionnaire de packages d’accès. La personne qui crée un catalogue en devient le premier propriétaire. 
-
-Le propriétaire de catalogue ou le gestionnaire de packages d’accès affecté doit bien connaître le projet. L’auteur du catalogue doit créer le package d’accès s’il est impliqué dans les opérations quotidiennes du projet, et connaître les informations suivantes :
-- quelles ressources sont nécessaires
-- qui aura besoin d’un accès
-- qui doit approuver l’accès
-- combien de temps durera le projet
-
-Le créateur de catalogue doit déléguer la tâche au coordinateur de projet, qui crée et gère le package d’accès, s’il n’est pas impliqué dans les opérations quotidiennes du projet. Suivez ces étapes pour affecter un utilisateur au rôle de propriétaire de catalogue ou de gestionnaire de package d’accès :
-
-**Rôle prérequis :** Administrateur général, administrateur d’utilisateurs ou propriétaire de catalogue
-
-1. Dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Identity Governance**.
-
-1. Dans le menu de gauche, cliquez sur **Catalogues**, puis ouvrez le catalogue auquel vous souhaitez ajouter des administrateurs.
-
-1. Dans le menu de gauche, cliquez sur **Rôles et administrateurs**.
-
-1. Cliquez sur **Ajouter des propriétaires** ou **Ajouter des gestionnaires de package d’accès** pour sélectionner les membres de ces rôles.
-
-1. Cliquez sur **Sélectionner** pour ajouter ces membres.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Ajouter des approbateurs](entitlement-management-access-package-edit.md#policy-request)
-- [Ajouter des ressources à un catalogue](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
+- [Déléguer la gouvernance des accès aux créateurs de catalogue](entitlement-management-delegate-catalog.md)
+- [Créer et gérer un catalogue de ressources](entitlement-management-catalog-create.md)

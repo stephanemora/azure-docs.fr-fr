@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d6d4af28d79b2375e774da98d4fdb1ad9dc22063
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 99194c42dbc6ef07301be517021bf0fb4b4e7c23
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035722"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173504"
 ---
 # <a name="create-the-azure-vmware-solution-by-cloudsimple-service"></a>Créer la solution Azure VMware du service CloudSimple
 
@@ -46,5 +46,6 @@ Le service est créé et ajouté à la liste des services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Découvrez comment [approvisionner des nœuds](create-nodes.md)
 * Découvrez comment [créer un cloud privé](create-private-cloud.md)
 * Découvrez comment [configurer un environnement de cloud privé](quickstart-create-private-cloud.md)

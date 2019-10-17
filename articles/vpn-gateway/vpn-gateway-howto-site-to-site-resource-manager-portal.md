@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9fb62d74025869c3442308f9e4ac9fb8fc02669b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 96a8b8d33f713faf96e7a96b32e9e41ca669e6cb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266552"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970806"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Création d’une connexion de site à site dans le portail Azure
 
@@ -46,12 +46,11 @@ Nous utilisons les valeurs suivantes dans les exemples de cet article. Vous pouv
 * **Espace d’adressage :** 10.1.0.0/16
 * **Abonnement :** abonnement à utiliser
 * **Groupe de ressources :** TestRG1
-* **Emplacement :** USA Est
+* **Région :** USA Est
 * **Sous-réseau :** Front-end : 10.1.0.0/24, back-end : 10.1.1.0/24 (facultatif pour cet exercice)
-* **Nom du sous-réseau de passerelle :** GatewaySubnet (renseigné automatiquement dans le portail)
-* **Plage d’adresses du sous-réseau de passerelle** : 10.1.255.0/27
+* **Plage d’adresses du sous-réseau de passerelle :** 10.1.255.0/27
 * **Nom de la passerelle de réseau virtuel :** VNet1GW
-* **Adresse IP publique :** VNet1GWIP
+* **Nom de l'adresse IP publique :** VNet1GWIP
 * **Type de VPN :** basé sur la route
 * **Type de connexion :** Site à site (IPsec)
 * **Type de passerelle :** VPN
@@ -69,6 +68,16 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 
 [!INCLUDE [About gateway subnets](../../includes/vpn-gateway-about-gwsubnet-portal-include.md)]
 
+### <a name="example-settings"></a>Exemples de paramètres
+
+* **Détails de l’instance > Région :** USA Est
+* **Réseau virtuel > Réseau virtuel :** VNet1
+* **Détails de l’instance > Nom :** VNet1GW
+* **Détails de l’instance > Type de passerelle :** VPN
+* **Détails de l’instance > Type de VPN :** basé sur la route
+* **Réseau virtuel > Plage d’adresses de sous-réseau de passerelle :** 10.1.255.0/27
+* **Adresse IP publique > Nom de l’adresse IP publique :** VNet1GWIP
+
 [!INCLUDE [Create a vpn gateway](../../includes/vpn-gateway-add-gw-rm-portal-include.md)]
 
 [!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -77,6 +86,13 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 ## <a name="LocalNetworkGateway"></a>3. Créer la passerelle de réseau local
 
 La passerelle de réseau local fait généralement référence à votre emplacement local. Donnez au site un nom auquel Azure pourra se référer, puis spécifiez l’adresse IP du périphérique VPN local vers lequel vous allez créer une connexion. Spécifiez également les préfixes d’adresses IP qui seront acheminés via la passerelle VPN vers le périphérique VPN. Les préfixes d’adresses que vous spécifiez sont les préfixes situés sur votre réseau local. En cas de modification du réseau ou si vous devez modifier l’adresse IP publique de l’appareil VPN, il est simple de mettre à jour les valeurs ultérieurement.
+
+**Exemples de valeurs**
+
+* **Nom :** Site1
+* **Groupe de ressources :** TestRG1
+* **Emplacement :** USA Est
+
 
 [!INCLUDE [Add a local network gateway](../../includes/vpn-gateway-add-local-network-gateway-portal-include.md)]
 

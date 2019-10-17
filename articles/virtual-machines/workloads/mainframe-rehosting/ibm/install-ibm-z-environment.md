@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 7ba3323f0811f3f9b76d73796264bf17712a1179
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841337"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025938"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installer l’environnement de développement/test IBM zD&T sur Azure
 
@@ -104,7 +104,7 @@ Le fichier d’installation du serveur web se nomme **ZDT\_Install\_EE\_V12.0.0.
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 
-3. Sélectionnez **1** pour installer Enterprise Server.
+3. Sélectionnez **1** pour installer Enterprise Server.
 
 4. Appuyez sur **Entrée** et lisez attentivement les contrats de licence. À la fin de la licence, entrez **Oui** pour continuer.
 

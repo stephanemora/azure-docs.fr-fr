@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 37ebe2f0c5cbbaca712e69ab4484379ecf0f4830
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67333374"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72237337"
 ---
 | Ressource | Limite maximale/par défaut |
 | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "67333374"
 | Serveurs principaux par pool back-end | 100 |
 | Modèles de chemin à utiliser pour une règle de routage | 25 |
 | Règles personnalisées de pare-feu d’applications web par stratégie | 10 |
-| Stratégie de pare-feu d’applications web par ressource | 100 |
+| Stratégie de pare-feu d’applications web par abonnement | 100 |
 | Conditions de correspondance du pare-feu d'applications web par règle personnalisée | 10 |
 | Plages d’adresses IP du pare-feu d'applications web par condition de correspondance | 600 |
 | Valeurs de correspondance de chaîne du pare-feu d'applications web par condition de correspondance | 10 |
@@ -53,4 +53,5 @@ ms.locfileid: "67333374"
 | **Charger** |  Aucune limite tant que la taille de chaque chargement avec encodage de transfert mémorisé en bloc est inférieure à 2 Go. | Elle ne peut pas être supérieure à 2 Go. |
 
 ### <a name="other-limits"></a>Autres limites
-- Taille d’URL maximale : 8 192 octets - Spécifie la longueur maximale de l’URL brute (schéma + nom d’hôte + port + chemin + chaîne de requête de l’URL) - Taille maximale de chaîne de requête : 4 096 octets - Spécifie la longueur maximale de la chaîne de requête en octets.
+- Taille d’URL maximale : 8 192 octets - Spécifie la longueur maximale de l’URL brute (schéma + nom d’hôte + port + chemin + chaîne de requête de l’URL)
+- Taille maximale de chaîne de requête : 4 096 octets - Spécifie la longueur maximale de la chaîne de requête en octets.

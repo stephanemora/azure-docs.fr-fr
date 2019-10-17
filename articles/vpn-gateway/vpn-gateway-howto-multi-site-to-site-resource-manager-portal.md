@@ -2,25 +2,18 @@
 title: 'Ajouter plusieurs connexions site à site de passerelle VPN à un réseau virtuel : Portail Azure : Resource Manager| Microsoft Docs'
 description: Ajouter des connexions S2S multisites à une passerelle VPN qui dispose déjà d’une connexion
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4b9f007e00d0912687b723bd4f7e747da893948d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60760460"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244617"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
 
@@ -32,7 +25,7 @@ ms.locfileid: "60760460"
 
 Cet article vous aide à utiliser le portail Azure pour ajouter des connexions de site à site (S2S) à une passerelle VPN qui dispose déjà d’une connexion. Pour ce type de connexion, on fait souvent référence à une configuration « multisite ». Vous pouvez ajouter une connexion S2S à un réseau virtuel qui possède déjà une connexion S2S, une connexion de point à site ou une connexion de réseau virtuel à réseau virtuel. L’ajout de connexions est soumis à certaines limitations. Consultez la section [Avant de commencer](#before) dans cet article pour effectuer les vérifications qu’il se doit avant de commencer votre configuration. 
 
-Cet article s’applique aux réseaux virtuels de Resource Manager qui contiennent une passerelle VPN RouteBased. Ces étapes ne s’appliquent pas aux configurations de connexion coexistante ExpressRoute/site à site. Consultez l’article [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) (Connexions coexistantes ExpressRoute/S2S) pour en savoir plus sur les connexions coexistantes.
+Cet article s’applique aux réseaux virtuels de Resource Manager qui contiennent une passerelle VPN RouteBased. Ces étapes ne s’appliquent pas aux nouvelles configurations de connexions coexistantes ExpressRoute/site à site. Toutefois, vous pouvez les suivre si vous ajoutez simplement une nouvelle connexion VPN à une configuration de coexistence. Consultez l’article [ExpressRoute/S2S coexisting connections](../expressroute/expressroute-howto-coexist-resource-manager.md) (Connexions coexistantes ExpressRoute/S2S) pour en savoir plus sur les connexions coexistantes.
 
 ### <a name="deployment-models-and-methods"></a>Outils et modèles de déploiement
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
@@ -44,7 +37,7 @@ Nous mettons à jour ce tableau à mesure que de nouveaux articles et des outils
 ## <a name="before"></a>Avant de commencer
 Vérifiez les points suivants :
 
-* Vous ne créez pas de connexion coexistante ExpressRoute/S2S.
+* Vous n’effectuez pas une nouvelle configuration de connexions coexistantes ExpressRoute/passerelle VPN.
 * Vous disposez d’un réseau virtuel qui a été créé selon le modèle de déploiement Resource Manager avec une connexion existante.
 * La passerelle de réseau virtuel de votre réseau virtuel est de type RouteBased. Si vous avez une passerelle VPN de type PolicyBased, vous devez supprimer la passerelle de réseau virtuel et créer une passerelle VPN de type RouteBased.
 * Les plages d’adresses ne se chevauchent pour aucun des réseaux virtuels auxquels ce réseau virtuel se connecte.

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 06/04/2018
+ms.date: 09/28/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 43e381bd26dadbea5ef5bfb002e51465e180a097
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a852807ab685e85b76d26e5b39c99a32f645bbd7
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176949"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838162"
 ---
-N’associez pas une table de routage comprenant un itinéraire avec une destination 0.0.0.0/0 au sous-réseau de passerelle. Le fonctionnement correct de la passerelle s’en trouve empêché.
+Les routes définies par l’utilisateur avec une destination 0.0.0.0/0 et des groupes de sécurité réseau sur le sous-réseau de passerelle **ne sont pas pris en charge**. La création de passerelles avec cette configuration est bloquée. Les passerelles nécessitent l’accès aux contrôleurs de gestion pour fonctionner correctement.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8778a8bc27995cc9d0969762b6897f6cac0283a2
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 729b832c068dcd401fa6e9d2f4af9193d3859a83
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828896"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845546"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Vue d'ensemble des nœuds CloudSimple
 
@@ -42,7 +42,7 @@ Les types de nœuds suivants sont disponibles à l'achat ou à la réservation.
 | UC           | 2 x 2,2 GHz, 28 cœurs (56 HT) | 2 x 2,3 GHz, 36 cœurs (72 HT) | 2 x 2,3 GHz, 36 cœurs (72 HT) |
 | RAM           | 256 Go                      | 512 Go                      | 576 Go                      |
 | Disque de cache    | NVMe de 1,6 To                 | NVMe de 3,2 To                 | NVMe de 3,2 To                 |
-| Capacité de disque | 5,625 To de données brutes                | 11,25 To de données brutes                | 13,36 To de données brutes                |
+| Capacité de disque | 5,625 To de données brutes                | 11,25 To de données brutes                | 15,36 To de données brutes                |
 | Type de stockage  | Flash                   | Flash                   | Flash                   |
 
 ## <a name="limits"></a>limites

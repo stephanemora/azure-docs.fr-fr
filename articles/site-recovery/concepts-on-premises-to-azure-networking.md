@@ -1,87 +1,159 @@
 ---
-title: Configurer l’adressage IP pour se connecter après une reprise d’activité et un basculement vers Azure avec Azure Site Recovery | Microsoft Docs
-description: Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles Azure après une reprise d’activité et un basculement à partir d’un site local avec Azure Site Recovery
-services: site-recovery
+title: Se connecter à des machines virtuelles Azure après le basculement d’un environnement local vers Azure avec Azure Site Recovery
+description: Explique comment se connecter à des machines virtuelles Azure après le basculement d’un environnement local vers Azure à l’aide d’Azure Site Recovery
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 10/03/2019
 ms.author: mayg
-ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 182c93ea0b887242d142eda5aeb44b2749c7ac66
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772239"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937556"
 ---
-# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurer l’adressage IP pour se connecter à des machines virtuelles Azure après un basculement
+# <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Se connecter à des machines virtuelles Azure après le basculement d’un environnement local 
 
-Cet article explique la configuration réseau requise pour se connecter aux machines virtuelles Azure après avoir utilisé le service [Azure Site Recovery](site-recovery-overview.md) pour la réplication et le basculement vers Azure.
 
-Cet article porte sur les points suivants :
+Cet article explique comment configurer la connectivité en vue de se connecter à des machines virtuelles Azure après un basculement.
+
+Quand vous configurez la récupération d’urgence pour des machines virtuelles locales et des serveurs physiques vers Azure, [Azure Site Recovery](site-recovery-overview.md) lance la réplication des machines sur Azure. Par la suite, quand des interruptions se produisent, vous pouvez basculer vers Azure à partir de votre site local. Quand le basculement se produit, Site Recovery crée des machines virtuelles Azure en utilisant les données locales répliquées. Au moment de planifier la récupération d’urgence, vous devez trouver le moyen de vous connecter aux applications qui s’exécutent sur ces machines virtuelles Azure après le basculement.
+
+Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Les méthodes de connexion que vous pouvez utiliser
-> * L’utilisation d’une adresse IP différente pour les machines virtuelles Azure répliquées
-> * La conservation des adresses IP pour les machines virtuelles Azure après le basculement
+> * Préparer les ordinateurs locaux avant le basculement.
+> * Préparer les machines virtuelles Azure après le basculement. 
+> * Conserver les adresses IP sur les machines virtuelles Azure après le basculement.
+> * Attribuer de nouvelles adresses IP aux machines virtuelles Azure après le basculement.
 
-## <a name="connecting-to-replica-vms"></a>Connexion aux machines virtuelles de réplication
+## <a name="prepare-on-premises-machines"></a>Préparer les ordinateurs locaux
 
-Lorsque vous planifiez votre stratégie de basculement et de réplication, l’une des questions clés est de savoir comment se connecter à la machine virtuelle Azure après le basculement. Il existe plusieurs options lors de la conception de votre stratégie réseau pour les machines virtuelles réplica Azure :
+Pour assurer la connectivité avec les machines virtuelles Azure, préparez vos ordinateurs locaux avant le basculement.
 
-- **Adresse IP différente** : vous pouvez choisir d’utiliser une autre plage d’adresses IP pour le réseau de la machine virtuelle Azure répliquée. Dans ce scénario, la machine virtuelle reçoit une nouvelle adresse IP après le basculement, et une mise à jour DNS est nécessaire.
-- **Conserver la même adresse IP** : vous souhaiterez peut-être utiliser la même plage d’adresses IP que celle du site principal local pour le réseau Azure après le basculement. La conservation des mêmes adresses IP simplifie la récupération en réduisant les problèmes liés au réseau après le basculement. Toutefois, lorsque vous effectuez une réplication vers Azure, vous devez mettre à jour des itinéraires avec le nouvel emplacement des adresses IP après le basculement.
+### <a name="prepare-windows-machines"></a>Préparer les ordinateurs Windows
 
-## <a name="retaining-ip-addresses"></a>Conservation des adresses IP
+Sur les ordinateurs Windows locaux, effectuez les tâches suivantes :
 
-Site Recovery offre la possibilité de conserver des adresses IP fixes lors du basculement vers Azure, grâce à un basculement de sous-réseau.
+1. Configurez les paramètres Windows. Cela consiste notamment à supprimer les routes statiques persistantes ou le proxy WinHTTP et à définir la stratégie SAN des disques sur **OnlineAll**. [Suivez](../virtual-machines/windows/prepare-for-upload-vhd-image.md#set-windows-configurations-for-azure) ces instructions.
 
-- Avec le basculement de sous-réseau, un sous-réseau spécifique est présent sur le Site 1 ou sur le Site 2, mais jamais sur les deux sites simultanément.
-- Pour conserver l’espace d’adressage IP en cas de basculement, vous pouvez mettre en place un programme pour que l’infrastructure du routeur déplace les sous-réseaux d’un site à un autre.
-- Pendant le basculement, les sous-réseaux se déplacent avec les machines virtuelles protégées associées. Le principal inconvénient est qu’en cas de défaillance, vous devez déplacer le sous-réseau tout entier.
+2. Vérifiez que [ces services](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) sont en cours d’exécution.
 
+3. Activez le bureau à distance (RDP) pour autoriser les connexions à distance à l’ordinateur local. [Découvrez comment](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) activer RDP avec PowerShell.
+
+4. Pour accéder à une machine virtuelle Azure via Internet après le basculement, dans le Pare-feu Windows de l’ordinateur local, autorisez TCP et UDP dans le profil public, puis définissez RDP comme application autorisée pour tous les profils.
+
+5. Si vous voulez accéder à une machine virtuelle Azure via un réseau privé virtuel (VPN) site à site après le basculement, dans le Pare-feu Windows de l’ordinateur local, autorisez RDP pour les profils de domaine et privé. [Découvrez](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) comment autoriser le trafic RDP.
+6. Veillez à ce qu’aucune mise à jour Windows ne soit en attente sur la machine virtuelle locale au moment de déclencher un basculement. Si c’est le cas, les mises à jour risquent de s’installer sur la machine virtuelle Azure après le basculement, et vous ne pourrez pas vous y connecter tant que les mises à jour n’auront pas abouti.
+
+### <a name="prepare-linux-machines"></a>Préparer les ordinateurs Linux
+
+Sur les ordinateurs Linux locaux, effectuez les tâches suivantes :
+
+1. Vérifiez que le service Secure Shell est configuré pour démarrer automatiquement au démarrage du système.
+2. Vérifiez que les règles de pare-feu autorisent une connexion SSH.
+
+
+## <a name="configure-azure-vms-after-failover"></a>Configurer les machines virtuelles Azure après le basculement
+
+Après le basculement, effectuez les tâches suivantes sur les machines virtuelles Azure qui ont été créées.
+
+1. Pour vous connecter à la machine virtuelle via Internet, attribuez-lui une adresse IP publique. Vous ne pouvez pas attribuer à la machine virtuelle Azure la même adresse IP publique que celle que vous avez utilisée pour votre ordinateur local. [En savoir plus](../virtual-network/virtual-network-public-ip-address.md)
+2. Vérifiez que les règles de groupe de sécurité réseau (NSG) de la machine virtuelle autorisent les connexions entrantes sur le port RDP ou SSH.
+3. Cochez [Diagnostics de démarrage](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) pour afficher la machine virtuelle.
+
+
+> [!NOTE]
+> Le service Azure Bastion offre un accès RDP et SSH privé aux machines virtuelles Azure. [Découvrez plus en détail](../bastion/bastion-overview.md) ce service.
+
+## <a name="set-a-public-ip-address"></a>Définir une adresse IP publique
+
+Plutôt que d’affecter manuellement une adresse IP publique à une machine virtuelle Azure, vous pouvez affecter l’adresse pendant le basculement à l’aide d’un script ou d’un runbook Azure Automation dans un [plan de récupération](site-recovery-create-recovery-plans.md) Site Recovery, ou vous pouvez configurer le routage au niveau du DNS en utilisant Azure Traffic Manager. [Apprenez-en davantage](concepts-public-ip-address-with-site-recovery.md) sur la configuration d’une adresse publique.
+
+
+## <a name="assign-an-internal-address"></a>Attribuer une adresse interne
+
+Pour définir l’adresse IP interne d’une machine virtuelle Azure après le basculement, vous disposez de deux options :
+
+- **Conserver la même adresse IP** : vous pouvez utiliser la même adresse IP sur la machine virtuelle Azure que celle allouée à l’ordinateur local.
+- **Adresse IP différente** : vous pouvez utiliser une adresse IP différente pour la machine virtuelle Azure.
+
+
+## <a name="retain-ip-addresses"></a>Conserver les adresses IP
+
+Site Recovery vous permet de conserver les mêmes adresses IP quand vous basculez vers Azure. En conservant la même adresse IP, vous évitez des problèmes réseau potentiels après le basculement, mais vous introduisez une certaine complexité.
+
+- Si la machine virtuelle Azure cible utilise la même adresse IP/le même sous-réseau que votre site local, vous ne pouvez pas les connecter entre eux avec une connexion VPN site à site ou ExpressRoute, en raison du chevauchement d’adresse. Les sous-réseaux doivent être uniques.
+- Pour assurer la disponibilité des applications sur les machines virtuelles Azure, une connexion est nécessaire entre le site local et Azure après le basculement. Azure ne prend pas en charge les VLAN étirés. Si vous voulez conserver les adresses IP, vous devez donc placer l’espace IP sur Azure en basculant l’ensemble du sous-réseau, en plus de l’ordinateur local.
+- Le basculement du sous-réseau est l’assurance qu’aucun sous-réseau spécifique n’est disponible simultanément en local et sur Azure.
+
+La conservation des adresses IP passe par les étapes suivantes :
+
+- Dans les propriétés de l’ordinateur local, définissez l’adressage réseau et IP de la machine virtuelle Azure cible en le calquant sur la configuration locale.
+- Les sous-réseaux doivent être gérés dans le cadre du processus de récupération d’urgence. Vous avez besoin d’un réseau virtuel Azure qui corresponde au réseau local. Après le basculement, les routes réseau doivent être modifiées en tenant compte du fait que le sous-réseau a été déplacé vers Azure et en prenant en considération les nouveaux emplacements d’adresses IP.  
 
 ### <a name="failover-example"></a>Exemple de basculement
 
-Examinons un exemple de basculement vers Azure à l’aide d’une société fictive, Woodgrove Bank.
+Intéressons-nous à un exemple.
 
-- Woodgrove Bank héberge ses applications métier sur un site local. Elle héberge ses applications mobiles sur Azure.
-- Il existe une connectivité de site à site VPN entre le réseau de périmètre local et le réseau virtuel Azure. En raison de la connexion VPN, le réseau virtuel dans Azure s’affiche en tant qu’extension du réseau local.
-- Woodgrove souhaite répliquer les charges de travail locales vers Azure à l’aide de Site Recovery.
-  - Comme certaines applications dépendent d’adresses IP codées en dur, Woodgrove doit conserver les adresses IP des applications après le basculement vers Azure.
-  - Les ressources qui s’exécutent dans Azure utilisent la plage d’adresses IP 172.16.1.0/24 - 172.16.2.0/24.
+- La société fictive Woodgrove Bank héberge ses applications métier localement. Ses applications mobiles sont hébergées dans Azure.
+- L’environnement local et Azure sont reliés par un VPN site à site. 
+- Woodgrove utilise Site Recovery pour répliquer les ordinateurs locaux sur Azure.
+- Sachant que ses applications locales utilisent des adresses IP codées en dur, son souhait est de conserver les mêmes adresses IP dans Azure.
+- Les ordinateurs locaux sur lesquels s’exécutent les applications sont présents dans trois sous-réseaux :
+    - 192.168.1.0/24
+    - 192.168.2.0/24
+    - 192.168.3.0/24
+- Les applications s’exécutant sur Azure sont situées dans deux sous-réseaux du **réseau Azure**, à savoir :
+- 172.16.1.0/24
+- 172.16.2.0/24
 
-![Avant le basculement de sous-réseau](./media/site-recovery-network-design/network-design7.png)
+Pour conserver ses adresses, voici comment la société procède.
+
+1. Quand elle active la réplication, elle indique que les ordinateurs doivent être répliqués sur le **réseau Azure**.
+2. Elle crée un **réseau de récupération** dans Azure. Ce réseau virtuel est le reflet du sous-réseau 192.168.1.0/24 de son réseau local.
+3. Woodgrove configure une [connexion de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) entre les deux réseaux. 
+
+    > [!NOTE]
+    > Selon les besoins des applications, une connexion de réseau virtuel à réseau virtuel pourrait être configurée avant le basculement, sous forme d’étape manuelle/étape scriptée/runbook Azure Automation dans un [plan de récupération](site-recovery-create-recovery-plans.md) Site Recovery ou à l’issue du basculement.
+
+4. Avant le basculement, dans les propriétés de l’ordinateur dans Site Recovery, l’adresse IP cible est définie comme étant l’adresse de l’ordinateur local, comme décrit dans la procédure suivante.
+5. Après le basculement, les machines virtuelles Azure sont créées avec la même adresse IP. Woodgrove établit une connexion entre le **réseau Azure** et le réseau virtuel du **réseau de récupération** via 
+6. En local, Woodgrove doit apporter des modifications au réseau, notamment en modifiant les routes en fonction du déplacement de 192.168.1.0/24 vers Azure.  
 
 **Infrastructure avant le basculement**
 
-
-Pour pouvoir répliquer ses machines virtuelles vers Azure en conservant les adresses IP, voici ce que Woodgrove doit faire :
-
-
-1. Créer un réseau virtuel Azure dans lequel les machines virtuelles Azure sont créées après le basculement des machines locales. Il doit s’agir d’une extension du réseau local afin que les applications puissent basculer en toute transparence.
-2. Avant le basculement, dans Site Recovery, attribuer la même adresse IP dans les propriétés de la machine. Après le basculement, Site Recovery affecte cette adresse à la machine virtuelle Azure.
-3. Une fois le basculement exécuté et les machines virtuelles Azure créées avec la même adresse IP, se connecter au réseau en utilisant une [connexion de réseau virtuel à réseau virtuel](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Cette action peut être scriptée.
-4. Modifier les itinéraires, afin de refléter le fait que 192.168.1.0/24 a été déplacé vers Azure.
+![Avant le basculement de sous-réseau](./media/site-recovery-network-design/network-design7.png)
 
 
 **Infrastructure après le basculement**
 
 ![Après le basculement de sous-réseau](./media/site-recovery-network-design/network-design9.png)
 
-#### <a name="site-to-site-connection"></a>Connexion de site à site
 
-Outre la connexion de réseau virtuel à réseau virtuel, après le basculement, Woodgrove peut configurer la connectivité VPN de site à site :
-- Quand vous configurez une connexion de site à site, dans le réseau Azure, vous pouvez uniquement acheminer le trafic à l’emplacement local (réseau local) si la plage d’adresses IP est différente de la plage d’adresses IP locales. Cela est dû au fait qu’Azure ne prend pas en charge les sous-réseaux étirés. Si vous avez un sous-réseau local 192.168.1.0/24, vous ne pouvez donc pas ajouter un réseau local 192.168.1.0/24 dans le réseau Azure. Ceci est dû au fait que Azure ne sait pas qu’aucune machine virtuelle n’est active dans le sous-réseau et que le sous-réseau est créé uniquement à des fins de récupération d’urgence.
-- Pour pouvoir acheminer correctement le trafic réseau à partir d’un réseau Azure, les sous-réseaux du réseau et le réseau local ne doivent pas entrer en conflit.
+### <a name="set-target-network-settings"></a>Définir les paramètres réseau de la cible
+
+Avant le basculement, spécifiez les paramètres réseau et l’adresse IP de la machine virtuelle Azure cible.
+
+1.  Dans le coffre Recovery Services -> **Éléments répliqués**, sélectionnez l’ordinateur local.
+2. Dans la page **Calcul et réseau** de l’ordinateur, cliquez sur **Modifier** pour configurer les paramètres réseau et de carte pour la machine virtuelle Azure cible.
+3. Dans **Propriétés du réseau**, sélectionnez le réseau cible sur lequel la machine virtuelle Azure se trouvera une fois celle-ci créée à l’issue du basculement.
+4. Dans **Interfaces réseau**, configurez les cartes réseau du réseau cible. Par défaut, Site Recovery présente toutes les cartes réseau détectées sur l’ordinateur local.
+    - Dans **Type d’interface réseau cible**, vous pouvez définir chaque carte réseau comme étant **Principale**, **Secondaire** ou **Ne pas créer** si vous n’avez pas besoin de la carte réseau en question sur le réseau cible. Vous devez définir une carte réseau principale pour le basculement. Notez que la modification du réseau cible affecte toutes les cartes réseau de la machine virtuelle Azure.
+    - Cliquez sur le nom de la carte réseau pour spécifier le sous-réseau sur lequel la machine virtuelle Azure doit être déployée.
+    - Remplacez **Dynamique** par l’adresse IP privée que vous voulez attribuer à la machine virtuelle Azure cible. Si aucune adresse IP n’est spécifiée, Site Recovery attribue l’adresse IP disponible suivante du sous-réseau à la carte réseau au moment du basculement.
+    - [Apprenez-en davantage](site-recovery-manage-network-interfaces-on-premises-to-azure.md) sur la gestion des cartes réseau pour un basculement local vers Azure.
 
 
+## <a name="get-new-ip-addresses"></a>Obtenir de nouvelles adresses IP
+
+Dans ce scénario, la machine virtuelle Azure obtient une nouvelle adresse IP après le basculement. Une mise à jour DNS met à jour les enregistrements pour les ordinateurs basculés pour qu’ils pointent vers l’adresse IP de la machine virtuelle Azure.
 
 
-## <a name="assigning-new-ip-addresses"></a>Affectation de nouvelles adresses IP
-
-Cet [article de blog](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explique comment configurer le service d’infrastructure réseau Azure lorsqu’il n’est pas nécessaire de conserver les adresses IP après le basculement. Il commence par une description de l’application, aborde la procédure de configuration des services de mise en réseau locaux et se conclut par des informations sur l’exécution des basculements.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Exécuter un basculement](site-recovery-failover.md)
+[Découvrir](site-recovery-active-directory.md) la réplication des services locaux Active Directory et DNS vers Azure.
+
+

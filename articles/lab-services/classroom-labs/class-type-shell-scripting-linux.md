@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 147d3dba2e2dc271d5b7422d7ba2b28c04f583af
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 69fe370029cef391b8ee483ffdee5c588df41d58
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330636"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030658"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurer un labo pour enseigner la création de scripts shell sur Linux
 Cet article vous montre comment configurer un labo pour enseigner la création de scripts shell sur Linux. Dans le cadre de l’administration système, l’écriture de scripts permet aux administrateurs d’éviter les tâches répétitives. Dans cet exemple de scénario, les scripts bash traditionnels et les scripts améliorés sont abordés. Les scripts améliorés sont des scripts qui associent des commandes bash et Ruby. Cette approche permet à Ruby de passer des données et fournit des commandes bash pour interagir avec le shell. 
@@ -40,7 +40,7 @@ Suivez [ce tutoriel](tutorial-setup-classroom-lab.md) pour créer un labo et app
 | ------------ | ------------------ |
 | Taille de machine virtuelle | Petite  |
 | Image de machine virtuelle | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer1804LTS) |
-| Activer la connexion Bureau à distance | Activer. <p>L’activation de ce paramètre permet aux enseignants et aux étudiants de se connecter à leurs machines virtuelles à l’aide du Bureau à distance (RDP). Pour plus d’informations, consultez [Activer le Bureau à distance pour les machines virtuelles Linux dans un labo dans Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Activer la connexion Bureau à distance | Activer. <p>L’activation de ce paramètre permet aux enseignants et aux étudiants de se connecter à leurs machines virtuelles à l’aide du Bureau à distance (RDP). Pour plus d’informations, consultez [Activer le Bureau à distance pour les machines virtuelles Linux dans un labo dans Azure Lab Services](how-to-enable-remote-desktop-linux.md#teachers-connecting-to-the-template-vm-using-rdp). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Installer le Bureau à distance et xrdp
@@ -96,9 +96,9 @@ Cet article vous a présenté les étapes de création d’un labo pour les cour
 Les étapes suivantes sont communes à la configuration de n’importe quel labo :
 
 - [Ajout d'utilisateurs](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Définir un quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Définir un quota](tutorial-setup-classroom-lab.md#set-quotas-for-users)
 - [Définir un calendrier](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Envoyer par mail des liens d’inscription aux étudiants](how-to-configure-student-usage.md#send-invitations-to-users) 
+- [Envoyer par mail des liens d’inscription aux étudiants](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link) 
 
 
 

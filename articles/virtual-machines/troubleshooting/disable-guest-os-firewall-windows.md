@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086533"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030600"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Désactiver le pare-feu du système d’exploitation invité dans une machine virtuelle Azure
 
@@ -92,7 +92,7 @@ Procédez comme suit pour utiliser le [Registre à distance](https://support.mic
 
 1.  Sur la machine virtuelle de dépannage, démarrez l’éditeur de Registre et accédez à **Fichier** > **Connexion au Registre réseau**.
 
-2.  Ouvrez la branche  *MACHINE CIBLE*\SYSTEM et spécifiez les valeurs suivantes :
+2.  Ouvrez la branche *MACHINE CIBLE*\SYSTEM et spécifiez les valeurs suivantes :
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -102,13 +102,13 @@ Procédez comme suit pour utiliser le [Registre à distance](https://support.mic
 
 3.  Redémarrez le service. Étant donné que vous ne pouvez pas faire cela en utilisant le Registre à distance, vous devez utiliser Supprimer la console de service.
 
-4.  Ouvrez une instance de  **Services.msc**.
+4.  Ouvrez une instance de **Services.msc**.
 
 5.  Cliquez sur **Services (Local)** .
 
 6.  Sélectionnez **Se connecter à un autre ordinateur**.
 
-7.  Entrez  **l’adresse IP privée (DIP)**   de la machine virtuelle qui cause problème.
+7.  Entrez l’**adresse IP privée (DIP)** de la machine virtuelle posant problème.
 
 8.  Redémarrez la stratégie de pare-feu local.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/19/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b51d984726cfd178189e7fe1a994c35c7efaed36
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a48c1352e4628d8e1776a9479aceac7c294a2ea1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124072"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72023064"
 ---
 Le tableau suivant présente les limites par défaut pour les comptes de stockage V1, V2 et d’objets blob universels. La limite d’*entrée* désigne toutes les données issues de requêtes envoyées à un compte de stockage. La limite de *sortie* désigne toutes les données issues des réponses reçues depuis un compte de stockage.
 
@@ -31,7 +31,8 @@ Le tableau suivant présente les limites par défaut pour les comptes de stockag
 
 <sup>1</sup>Les comptes Azure Standard Storage prennent en charge la demande de limites supérieures pour les entrées. Pour demander une augmentation des limites de compte pour la sortie, contactez le [support Azure](https://azure.microsoft.com/support/faq/). Pour plus d’informations, consultez [Annonce de comptes de stockage plus grands et à plus grande échelle](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
-<sup>2</sup> Si l’accès en lecture est activé (RA-GRS/RA-GZRS), les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement primaire. Voici certaines options de [réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) : [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
+<sup>2</sup> Si l’accès en lecture est activé (RA-GRS/RA-GZRS), les cibles de sortie pour l’emplacement secondaire sont identiques à celles de l’emplacement primaire. Voici certaines options de [réplication du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy) :  
+[!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]
 > Nous vous recommandons d’utiliser des comptes de stockage universels v2 pour la plupart des scénarios. Vous pouvez facilement mettre à niveau un compte de stockage universel v1 ou un compte de stockage d’objets blob Azure vers un compte universel v2, sans que cela nécessite un temps d’arrêt ou la copie de données.

@@ -1,6 +1,6 @@
 ---
 title: Démarrage rapide - Configurer le chiffrement SSL de bout en bout avec Azure Application Gateway - Portail Azure | Microsoft Docs
-description: Découvrez comment utiliser le portail Azure pour créer une Azure Application Gateway avec chiffrement SSL de bout en bout.
+description: Découvrez comment utiliser le portail Azure pour créer une passerelle d’application avec chiffrement SSL de bout en bout.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: a37b313bd808ee0441d84ac92050b087eba7ac9d
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ba31b5ebf83edcd08060a2acc3b5639a521e2729
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097183"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243669"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurer le chiffrement SSL de bout en bout avec Application Gateway et le portail
 
-Cet article vous montre comment utiliser le portail Azure pour configurer le chiffrement SSL de bout en bout avec une passerelle d’application v1.  
+Cet article explique comment utiliser le portail Azure pour configurer un chiffrement SSL (Secure Sockets Layer) de bout en bout par le biais du SKU Azure Application Gateway v1.
 
 > [!NOTE]
 > Application Gateway v2 requiert des certificats racine approuvés pour permettre la configuration de bout en bout.
@@ -26,19 +26,21 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour configurer un chiffrement SSL de bout en bout avec une passerelle d’application, un certificat est requis pour la passerelle et des certificats sont requis pour les serveurs back-end. Le certificat de passerelle est utilisé pour dériver une clé symétrique conformément aux spécifications du protocole SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. Pour le chiffrement SSL de bout en bout, les serveurs back-end appropriés doivent être autorisés dans la passerelle d’application. Pour ce faire, chargez le certificat public des serveurs back-end, aussi appelés certificats d’authentification (v1) ou certificats racines approuvés (v2), sur la passerelle d’application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur back-end connues. Il sécurise la communication de bout en bout.
+Pour configurer le protocole SSL de bout en bout avec une passerelle d’application, vous avez besoin d’un certificat pour la passerelle. Les certificats sont également exigés pour les serveurs back-end. Le certificat de passerelle est utilisé pour dériver une clé symétrique conformément aux spécifications du protocole SSL. La clé symétrique est ensuite utilisée pour chiffrer et déchiffrer le trafic envoyé à la passerelle. 
+
+Pour le chiffrement SSL de bout en bout, les serveurs back-end appropriés doivent être autorisés dans la passerelle d’application. Pour autoriser cet accès, chargez le certificat public des serveurs back-end, aussi appelés certificats d’authentification (v1) ou certificats racines approuvés (v2), sur la passerelle d’application. L’ajout du certificat permet à la passerelle d’application de communiquer uniquement avec des instances de serveur back-end connues. Cette configuration renforce la sécurité de la communication de bout en bout.
 
 Pour plus d’information, consultez [Arrêt SSL et SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Créer une passerelle d’application avec SSL de bout en bout
 
-Pour créer une passerelle d’application avec chiffrement SSL de bout en bout, vous devez d’abord activer un arrêt SSL lors de la création d’une passerelle d’application. Cette opération active le chiffrement SSL pour la communication entre le client et l’application de passerelle. Ensuite, vous devez autoriser les certificats pour les serveurs principaux dans les paramètres HTTP afin d’activer le chiffrement SSL pour la communication entre les serveurs de passerelle et les serveurs principaux, pour obtenir un chiffrement SSL de bout en bout.
+Pour créer une passerelle d’application avec chiffrement SSL de bout en bout, vous devez d’abord activer un arrêt SSL lors de la création d’une passerelle d’application. Cette action active le chiffrement SSL pour la communication entre le client et la passerelle d’application. Ensuite, vous devez placer dans la liste des destinataires approuvés les certificats des serveurs back-end indiqués dans les paramètres HTTP. Cette configuration active le chiffrement SSL pour la communication entre la passerelle d’application et les serveurs back-end. Ainsi est effectué le chiffrement SSL de bout en bout.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Activer l’arrêt SSL lors de la création d’une passerelle d’application
 
-Consultez cet article pour comprendre comment [activer l’arrêt SSL lors de la création d’une passerelle d’application](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Pour en savoir plus, consultez [Activer l’arrêt SSL lors de la création d’une passerelle d’application](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
-### <a name="add-authenticationroot-certificate-of-back-end-servers"></a>Ajouter le certificat d’authentification/racine des serveurs back-end
+### <a name="add-authenticationroot-certificates-of-back-end-servers"></a>Ajouter des certificats d’authentification/racines des serveurs back-end
 
 1. Sélectionnez **Toutes les ressources**, puis **myAppGateway**.
 
@@ -46,48 +48,49 @@ Consultez cet article pour comprendre comment [activer l’arrêt SSL lors de la
 
 3. Sélectionnez **appGatewayBackendHttpSettings**.
 
-4. Sous **Protocole**, sélectionnez **HTTPS**. Un volet relatif aux **certificats d’authentification back-end ou certificats racines approuvés** s’affiche. 
+4. Sous **Protocole**, sélectionnez **HTTPS**. Un volet relatif aux **certificats d’authentification back-end ou certificats racines approuvés** s’affiche.
 
-5. Choisissez **Créer nouveau**.
+5. Sélectionnez **Créer nouveau**.
 
-6. Entrez un nom approprié dans le champ **Nom**.
+6. Dans le champ **Nom**, entrez un nom approprié.
 
-7. Sélectionnez le fichier de certificat à l’aide de la zone **Charger le certificat CER**.
+7. Sélectionnez le fichier de certificat dans la zone **Charger le certificat CER**.
 
    Pour les passerelles d’application standard et WAF (v1), vous devez charger la clé publique de votre certificat de serveur back-end au format .cer.
 
-   ![addcert](./media/end-to-end-ssl-portal/addcert.png)
+   ![Ajouter un certificat](./media/end-to-end-ssl-portal/addcert.png)
 
-   Pour les passerelles d’application Standard_v2 et WAF_v2, vous devez charger le **certificat racine** du certificat de serveur back-end au format .cer. Si le certificat back-end est émis par une autorité de certification connue, vous pouvez cocher la case « Utiliser le certificat de l’autorité de certification connue » et il n’est pas nécessaire de charger un certificat.
+   Pour les passerelles d’application Standard_v2 et WAF_v2, vous devez charger le certificat racine du certificat de serveur back-end au format .cer. Si le certificat back-end est émis par une autorité de certification connue, vous pouvez cocher la case **Utiliser le certificat de l’autorité de certification connue** et vous n’avez pas besoin de charger un certificat.
 
-   ![addtrustedrootcert](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
+   ![Ajouter un certificat racine approuvé](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
-   ![rootcert](./media/end-to-end-ssl-portal/trustedrootcert.png)
+   ![Certificat racine](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
 8. Sélectionnez **Enregistrer**.
 
-## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Activer le protocole SSL de bout en bout pour la passerelle d’application existante
+## <a name="enable-end-to-end-ssl-for-an-existing-application-gateway"></a>Activer le protocole SSL de bout en bout pour une passerelle d’application existante
 
-Pour configurer une passerelle d’application existante avec le chiffrement SSL de bout en bout, vous devez d’abord activer un arrêt SSL sur l’écouteur. Cette opération active le chiffrement SSL pour la communication entre le client et l’application de passerelle. Ensuite, vous devez autoriser les certificats pour les serveurs principaux dans les paramètres HTTP afin d’activer le chiffrement SSL pour la communication entre les serveurs de passerelle et les serveurs principaux, pour obtenir un chiffrement SSL de bout en bout.
+Pour configurer une passerelle d’application existante avec le chiffrement SSL de bout en bout, vous devez d’abord activer un arrêt SSL sur l’écouteur. Cette action active le chiffrement SSL pour la communication entre le client et la passerelle d’application. Ensuite, placez ces certificats pour les serveurs back-end dans les paramètres HTTP, dans la liste des destinataires approuvés. Cette configuration active le chiffrement SSL pour la communication entre la passerelle d’application et les serveurs back-end. Ainsi est effectué le chiffrement SSL de bout en bout.
 
-Vous devez utiliser un écouteur avec le protocole et un certificat HTTPS pour activer la terminaison SSL. Par conséquent, vous pouvez choisir d’utiliser un écouteur existant avec le certificat et le protocole HTTPS ou bien créer un écouteur. Si vous choisissez la première solution, vous pouvez ignorer les étapes mentionnées ci-dessous pour **activer l’arrêt SSL dans la passerelle d’application existante** et passer directement à la section **Ajouter des certificats racines d’authentification/approuvés pour les serveurs back-end**. Si vous choisissez la dernière option, suivez ces étapes.
+Vous devez utiliser un écouteur avec le protocole HTTPS et un certificat pour activer l’arrêt SSL. Vous pouvez soit utiliser un écouteur existant qui remplit ces conditions, soit créer un écouteur. Si vous choisissez la première option, vous pouvez ignorer la section « Activer l’arrêt SSL dans une passerelle d’application existante » pour passer directement à la section « Ajouter des certificats d’authentification/racines approuvés pour des serveurs back-end ».
 
-### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Activer l’arrêt SSL sur une passerelle d’application existante
+Si vous choisissez la seconde option, appliquez les étapes de la procédure suivante.
+### <a name="enable-ssl-termination-in-an-existing-application-gateway"></a>Activer l’arrêt SSL dans une passerelle d’application existante
 
 1. Sélectionnez **Toutes les ressources**, puis **myAppGateway**.
 
 2. Dans le menu de gauche, sélectionnez **Écouteurs**.
 
-3. Choisissez un écouteur de **base** ou **multisite** en fonction de vos besoins.
+3. Sélectionnez un écouteur **de base** ou **multisite** en fonction de vos besoins.
 
 4. Sous **Protocole**, sélectionnez **HTTPS**. Un volet de **certificat** s’affiche.
 
 5. Chargez le certificat PFX que vous souhaitez utiliser pour l’arrêt SSL entre le client et la passerelle d’application.
 
    > [!NOTE]
-   > Dans le cadre d’un test, vous pouvez utiliser un certificat auto-signé. Toutefois, ce n’est pas recommandé pour les charges de travail de production, car elles sont plus difficiles à gérer et non entièrement sécurisées. Découvrez comment [créer un certificat auto-signé](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
+   > Dans le cadre d’un test, vous pouvez utiliser un certificat auto-signé. Toutefois, ces derniers ne sont pas recommandés pour les charges de travail de production, car elles sont plus difficiles à gérer et ne sont pas entièrement sécurisées. Pour plus d’informations, consultez [Créer un certificat auto-signé](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
 
-6. Ajoutez les autres paramètres requis pour l’**écouteur** en fonction de vos besoins.
+6. Ajoutez les autres paramètres exigés pour l’**écouteur** en fonction de vos besoins.
 
 7. Sélectionnez **OK** pour enregistrer.
 
@@ -95,25 +98,25 @@ Vous devez utiliser un écouteur avec le protocole et un certificat HTTPS pour a
 
 1. Sélectionnez **Toutes les ressources**, puis **myAppGateway**.
 
-2. Sélectionnez **Paramètres HTTP** dans le menu de gauche. Vous pouvez soit autoriser les certificats dans un paramètre de serveur principal HTTP, soit créer un paramètre HTTP. Dans la procédure suivante, nous allons autoriser le certificat pour le paramètre HTTP par défaut, **appGatewayBackendHttpSettings**.
+2. Sélectionnez **Paramètres HTTP** dans le menu de gauche. Vous pouvez soit placer des certificats dans un paramètre HTTP de back-end existant dans la liste des destinataires approuvés, soit créer un paramètre HTTP. (À l’étape suivante, le certificat du paramètre HTTP par défaut, **appGatewayBackendHttpSettings**, est ajouté à la liste des destinataires approuvés.)
 
 3. Sélectionnez **appGatewayBackendHttpSettings**.
 
 4. Sous **Protocole**, sélectionnez **HTTPS**. Un volet relatif aux **certificats d’authentification back-end ou certificats racines approuvés** s’affiche. 
 
-5. Choisissez **Créer nouveau**.
+5. Sélectionnez **Créer nouveau**.
 
-6. Entrez un **Nom**.
+6. Dans le champ **Nom**, entrez un nom approprié.
 
-7. Sélectionnez le fichier de certificat à l’aide de la zone **Charger le certificat CER**.
+7. Sélectionnez le fichier de certificat dans la zone **Charger le certificat CER**.
 
    Pour les passerelles d’application standard et WAF (v1), vous devez charger la clé publique de votre certificat de serveur back-end au format .cer.
 
-   ![addcert](./media/end-to-end-ssl-portal/addcert.png)
+   ![Ajouter un certificat](./media/end-to-end-ssl-portal/addcert.png)
 
-   Pour les passerelles d’application Standard_v2 et WAF_v2, vous devez charger le **certificat racine** du certificat de serveur back-end au format .cer. Si le certificat back-end est émis par une autorité de certification connue, vous pouvez cocher la case « Utiliser le certificat de l’autorité de certification connue » et il n’est pas nécessaire de charger un certificat.
+   Pour les passerelles d’application Standard_v2 et WAF_v2, vous devez charger le certificat racine du certificat de serveur back-end au format .cer. Si le certificat back-end est émis par une autorité de certification connue, vous pouvez cocher la case **Utiliser le certificat de l’autorité de certification connue** et vous n’avez pas besoin de charger un certificat.
 
-   ![addtrustedrootcert](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
+   ![Ajouter un certificat racine approuvé](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
 8. Sélectionnez **Enregistrer**.
 

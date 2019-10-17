@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 8cdfe82888cca471aa5aae6717a16f62000c4ad5
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69657774"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839237"
 ---
 | Ressource | Gratuit | Partagé | De base | standard | Premium (v2) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ ms.locfileid: "69657774"
 <sup>2</sup>Le nombre d'applications qui peuvent être hébergées sur ces ordinateurs dépend de l'activité des applications, de la taille des instances des ordinateurs et de l'utilisation de ressources correspondante.  
 <sup>3</sup>Les instances dédiées peuvent être de différentes tailles. Pour en savoir plus, consultez [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).  
 <sup>4</sup>Davantage autorisées sur demande.  
-<sup>5</sup>La limite de stockage est la taille totale du contenu entre toutes les applications du même plan de service d’application.  
+<sup>5</sup>La limite de stockage est la taille totale du contenu entre toutes les applications du même plan de service d’application. La taille totale du contenu de toutes les applications de l’ensemble des plans de service d’application d’un même groupe de ressources et d’une même région ne peut pas dépasser 500 Go.  
 <sup>6</sup>Ces ressources sont limitées par les ressources physiques sur les instances dédiées (taille de l'instance et nombre d'instances).  
 <sup>7</sup>Si vous mettez à l'échelle une application sur deux instances dans la version de base, vous disposez de 350 connexions simultanées pour chacune des deux instances. Pour le niveau Standard et les niveaux supérieurs, il n’existe aucune limite théorique concernant les Web Sockets. Toutefois, d’autres facteurs peuvent limiter leur nombre. Par exemple, le nombre maximal autorisé de requêtes simultanées (défini par `maxConcurrentRequestsPerCpu`) est ainsi : 7 500 pour une petite machine virtuelle, 15 000 pour une machine virtuelle moyenne (7 500 x 2 cœurs) et 75 000 pour une grande machine virtuelle (18 750 x 4 cœurs).  
 <sup>8</sup>Exécution d’exécutables et/ou de scripts personnalisés à la demande, selon une planification ou en continu en tant que tâche en arrière-plan au sein de votre instance App Service. La fonctionnalité AlwaysOn est nécessaire à l'exécution de tâches web en continu. Azure Scheduler (version Gratuite ou Standard) est nécessaire aux tâches web programmées. Il n’existe aucune limite prédéfinie pour le nombre de tâches Web pouvant s’exécuter dans une instance App Service. Il existe des limites pratiques qui dépendent de ce que le code d’application tente de faire.  

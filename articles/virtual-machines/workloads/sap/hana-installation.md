@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ebf4a0f892e65bf96e07e333cf5446d3036108a0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: aacedeb2c047d1abfc5affdcf94404abbb2c7b62
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099794"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168614"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure
 
@@ -45,7 +45,7 @@ Avant de commencer l’installation de HANA, validez les éléments suivants :
 
 Après avoir reçu l’unité de grandes instances HANA de Microsoft, validez les paramètres suivants, puis effectuez les ajustements nécessaires.
 
-La **première étape** après réception de la Grande instance HANA et l’établissement de l’accès et de la connectivité aux instances consiste à vérifier sur le portail Azure si la ou les instances s’affichent avec les bonnes références SKU et le bon système d’exploitation dans le portail Azure. Consultez [Contrôle des grandes instances Azure HANA à l’aide du portail Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) pour connaître les étapes nécessaires à l’exécution des vérifications.
+La **première étape** après réception de la Grande instance HANA et l’établissement de l’accès et de la connectivité aux instances consiste à vérifier sur le portail Azure si la ou les instances s’affichent avec les bonnes références SKU et le bon système d’exploitation. Consultez [Contrôle des grandes instances Azure HANA à l’aide du portail Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal) pour connaître les étapes nécessaires à l’exécution des vérifications.
 
 Après avoir reçu l’unité de grandes instances HANA, puis établi l’accès et la connectivité aux instances, la **deuxième étape** consiste à enregistrer le système d’exploitation de l’instance auprès de votre fournisseur de système d’exploitation. Cela inclut l’inscription de votre système d’exploitation SUSE Linux dans une instance de SUSE SMT déployée sur une machine virtuelle dans Azure. 
 

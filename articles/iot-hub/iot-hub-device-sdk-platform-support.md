@@ -1,100 +1,141 @@
 ---
-title: Prise en charge des plateformes par les Kits de développement logiciel (SDK) d’appareils Azure IoT | Microsoft Docs
-description: Concepts - liste des plateformes prises en charge par les Kits de développement logiciel (SDK) d’appareils Azure IoT
+title: Prise en charge des plateformes par les kits Azure IoT device SDK | Microsoft Docs
+description: Concepts - liste des plateformes prises en charge par les kits Azure IoT device SDK
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 9a64c6e476910ab4fe983fa949680f05fdded3ae
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 030ea87018e1a2d438e3e4d728af76e429efda08
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161856"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169017"
 ---
-# <a name="azure-iot-sdks-platform-support"></a>Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
+# <a name="azure-iot-device-sdks-platform-support"></a>Prise en charge des plateformes par les kits Azure IoT device SDK
 
-Les [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md) constituent un ensemble de bibliothèques pour interagir avec IoT Hub et le service de provisionnement des appareils avec une vaste prise en charge des langages et des plateformes. Les Kits de développement logiciel s’exécutent sur la plupart des plateformes courantes et les développeurs peuvent porter le Kit de développement logiciel (SDK) C sur une plateforme spécifique en suivant le [guide de portage](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md). 
+Microsoft travaille continuellement au développement des appareils Azure IoT Hub. Microsoft publie des kits Device SDK open source sur GitHub pour vous aider à connecter des appareils à Azure IoT Hub et au service Device Provisioning. Les kits Device SDK sont disponibles dans les langages C, .NET (C#), Java, Node.js et Python. Microsoft teste chaque SDK afin de vérifier s’il s’exécute dans l’une des configurations prises en charge qui sont détaillées dans la section [SDK Microsoft et prise en charge des plateformes d’appareils](#microsoft-sdks-and-device-platform-support).
 
-Microsoft prend en charge une variété de systèmes d’exploitation/plateformes/infrastructures et peut être étendu à l’aide du Kit de développement logiciel (SDK) C d’Azure IoT. Certains sont officiellement pris en charge par l’équipe, regroupés en niveaux qui représentent le niveau de prise en charge que les utilisateurs peuvent espérer. Les *plateformes entièrement prises en charge* signifient que Microsoft :
+En plus des kits Device SDK, Microsoft propose aux clients et aux développeurs d’autres moyens de connecter leurs appareils à Azure IoT :
 
-- Génère et teste de bout en bout en permanence ses produits par rapport aux versions maître et LTS prises en charge.  Pour que les tests couvrent différentes versions, nous les effectuons généralement sur la version LTS la plus récente et la version la plus populaire.  Les autres versions de la même plateforme peuvent être prises en charge en fonction de la compatibilité des versions de plateforme.
-- Fournit des packages ou un guide d’installation, le cas échéant.
-- Prend entièrement en charge les plateformes sur GitHub.
+* Microsoft collabore avec plusieurs sociétés partenaires afin de les aider à publier des kits de développement basés sur le SDK Azure IoT en C pour leurs plateformes matérielles.
 
-En outre, une liste de partenaires a porté notre Kit de développement logiciel (SDK) C sur un plus grand nombre de plateformes et ils gèrent la couche d’abstraction de plateforme (PAL). Le [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsolutions.com/) inclut également une liste de plateformes de système d’exploitation sur lesquelles les différents Kits de développement logiciel (SDK) ont été testés. Les kits SDK s’appuient régulièrement sur les plateformes suivantes, avec un test et une prise en charge limités :
+* Microsoft collabore avec des partenaires approuvés Microsoft afin de fournir un ensemble étendu d’appareils qui ont été testés et certifiés pour Azure IoT. Pour obtenir la liste actuelle de ces appareils, consultez le [Catalogue d’appareils Azure Certified pour IoT](https://catalog.azureiotsolutions.com/).
 
-* MBED2
-* Arduino
-* Windows CE 2013 (déconseillé depuis octobre 2018)
-* .NET standard 1.3 avec .NET Core 2.1 et .NET Framework 4.7
-* Xamarin iOS, Android, UWP
+* Microsoft fournit une couche d’abstraction de plateforme dans le kit Azure IoT Hub Device SDK en C, afin d’aider les développeurs à porter facilement le SDK vers leur plateforme. Pour plus d’informations, consultez le [guide de portage pour les SDK en C](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
-## <a name="supported-platforms"></a>Plateformes prises en charge
+Cette rubrique fournit des informations sur les kits SDK Microsoft et les configurations de plateforme qu’ils prennent en charge, ainsi que des informations sur les autres options listées plus haut.
 
-Il existe plusieurs plateformes prises en charge.
+## <a name="microsoft-sdks-and-device-platform-support"></a>SDK Microsoft et prise en charge des plateformes d’appareils
+
+Microsoft publie des kits SDK open source sur GitHub pour les langages suivants : C, .NET (C#), Node.js, Java et Python. Les kits SDK et leurs dépendances sont listés dans cette section. Les kits SDK sont pris en charge sur toutes les plateformes d’appareils qui sont compatibles avec ces dépendances.
+
+Pour chacun des kits SDK listés, Microsoft :
+
+* Crée et exécute en continu des tests de bout en bout sur la branche master du SDK dans GitHub, et ce, sur différentes plateformes connues.  Pour que les tests couvrent différentes versions du compilateur, nous les effectuons généralement sur la version LTS la plus récente et sur la version la plus utilisée.
+
+* Fournit des instructions d’installation ou des packages d’installation, si nécessaire.
+
+* Prend entièrement en charge les kits SDK sur GitHub avec du code open source, un chemin pour les contributions client et l’engagement de l’équipe produit concernant les problèmes GitHub.
 
 ### <a name="c-sdk"></a>Kit de développement logiciel (SDK) C
 
-| OS                  | Arch | Compilateur             | Bibliothèque TLS       |
-|---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | openssl  - 1.0.2g |
-| Ubuntu 18.04 LTS    | X64  | gcc-7.3              | WolfSSL – 1.13    |
-| Ubuntu 18.04 LTS    | X64  | Clang 6.0.X          | Openssl – 1.1.0g  |
-| OSX 10.13.4         | x64  | XCode 9.4.1          | OSX natif        |
-| Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
-| Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
-| Debian 9 Stretch    | x64  | gcc-7.3              | Openssl – 1.1.0f  |
+Le kit [Azure IoT Hub device SDK en C](https://github.com/Azure/azure-iot-sdk-c) a été testé avec les configurations suivantes et les prend donc en charge.
+
+| OS                  | Bibliothèque TLS                  | Conditions supplémentaires                                                                     |
+|---------------------|------------------------------|---------------------------------------------------------------------------------------------|
+| Linux               | OpenSSL, WolfSSL ou BearSSL | Sockets Berkeley</br></br>POSIX (Portable Operating System Interface)                       |
+| iOS 12.2            | OpenSSL ou OSX natif        | XCode émulé dans OSX 10.13.4                                                               |
+| Famille Windows 10   | SChannel                     |                                                                                             |
+| Mbed OS 5.4         | Mbed TLS 2                   | [DevKit IoT MXChip](https://microsoft.github.io/azure-iot-developer-kit/)                  |
+| Système d’exploitation Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
 
 ### <a name="python-sdk"></a>Kit de développement logiciel (SDK) Python
 
-| OS                  | Arch | Compilateur   | Bibliothèque TLS |
-|---------------------|------|------------|-------------|
-| Windows Server 2016 | x86  | Python 2.7 | openssl     |
-| Windows Server 2016 | x64  | Python 2.7 | openssl     |
-| Windows Server 2016 | x86  | Python 3.5 | openssl     |
-| Windows Server 2016 | x64  | Python 3.5 | openssl     |
-| Ubuntu 18.04 LTS    | x86  | Python 2.7 | openssl     |
-| Ubuntu 18.04 LTS    | x86  | Python 3.4 | openssl     |
-| MacOS High Sierra   | x64  | Python 2.7 | openssl     |
+Le kit [Azure IoT Hub device SDK en Python](https://github.com/Azure/azure-iot-sdk-python) a été testé avec les configurations suivantes et les prend donc en charge.
+
+| OS                  | Compilateur                       |
+|---------------------|--------------------------------|
+| Linux               | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
+| MacOS High Sierra   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
+| Famille Windows 10   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
 
 ### <a name="net-sdk"></a>Kit de développement logiciel (SDK) .NET
 
-| OS                  | Arch | Framework            | standard          |
-|---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET standard 2.0 |
-| Windows Server 2016 | X64  | .NET Core 2.1        | .NET standard 2.0 |
-| Windows Server 2016 | X64  | .NET Framework 4.7   | .NET standard 2.0 |
-| Windows Server 2016 | X64  | .NET Framework 4.5.1 | N/A               |
+Le kit [Azure IoT Hub device SDK en .NET (C#)](https://github.com/Azure/azure-iot-sdk-csharp) a été testé avec les configurations suivantes et les prend donc en charge.
+
+| OS                                   | standard                                                   |
+|--------------------------------------|------------------------------------------------------------|
+| Linux                                | .NET Core 2.1                                              |
+| Références SKU Windows 10 Desktop et Server   | .NET Core 2.1, .NET Framework 4.5.1 ou .NET Framework 4.7 |
 
 ### <a name="nodejs-sdk"></a>Kit de développement logiciel (SDK) Node.js
 
-| OS                                           | Arch | Version de nœud    |
-|----------------------------------------------|------|-----------------|
-| Ubuntu 16.04 LTS (avec une image Docker de nœud 6) | X64  | LTS et actuel |
-| Windows Server 2016                          | X64  | LTS et actuel |
+Le kit [Azure IoT Hub device SDK en Node.js](https://github.com/Azure/azure-iot-sdk-node) a été testé avec les configurations suivantes et les prend donc en charge.
+
+| OS                  | Version de nœud    |
+|---------------------|-----------------|
+| Linux               | LTS et actuel |
+| Famille Windows 10   | LTS et actuel |
 
 ### <a name="java-sdk"></a>Kit de développement logiciel (SDK) Java
 
-| OS                  | Arch | Version de Java |
-|---------------------|------|--------------|
-| Ubuntu 16.04 LTS    | X64  | Java 8       |
-| Windows Server 2016 | X64  | Java 8       |
-| API Android 28 | X64  | Java 8       |
-| Android Things | X64  | Java 8      |
+Le kit [Azure IoT Hub device SDK en Java](https://github.com/Azure/azure-iot-sdk-java) a été testé avec les configurations suivantes et les prend donc en charge.
 
-## <a name="partner-supported-platforms"></a>Plateformes prises en charge de partenaires
+| OS                     | Version de Java |
+|------------------------|--------------|
+| API Android 28         | Java 8       |
+| Linux x64             | Java 8       |
+| Famille Windows 10 x64  | Java 8       |
 
-Les clients peuvent étendre la prise en charge de la plateforme en portant le SDK Azure IoT C pour créer spécialement la couche d’abstraction de plateforme (PAL) du SDK. Microsoft travaille avec les partenaires pour fournir la prise en charge étendue. Une liste de partenaires a porté le SDK C vers plus de plateformes et gèrent la couche PAL.
+## <a name="partner-supported-development-kits"></a>Kits de développement pris en charge par les partenaires
+
+Microsoft travaille avec différents partenaires en vue de fournir des kits de développement pour plusieurs architectures de microprocesseur. Ces partenaires ont effectué le portage du SDK Azure IoT en C vers leur plateforme. Les partenaires sont chargés de créer la couche d’abstraction de plateforme du SDK et d’effectuer sa maintenance. Microsoft collabore avec les partenaires pour fournir une prise en charge étendue.
 
 | Partenaire             | Appareils                            | Lien                     | Support |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Modem LTE IoT Qualcomm MDM9206     | [LTE Qualcomm pour le Kit de développement logiciel (SDK) IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| ST Microelectronics | Série STM32L4 <br/> Série STM32F4 <br/>  Série STM32F7 <br/>  Kit de découverte STM32L4 pour nœud IoT    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Support](https://www.st.com/content/st_com/en/support/support-home.html)
+| ST Microelectronics | Série STM32L4 <br/> Série STM32F4 <br/>  Série STM32F7 <br/>  Kit de découverte STM32L4 pour nœud IoT    | [X-CUBE-AZURE](https://www.st.com/en/embedded-software/x-cube-azure.html) <br/>  <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Support](https://www.st.com/content/st_com/en/support/support-home.html)
 | Texas Instruments   | CC3220SF Launchpad </br> CC3220S Launchpad </br> CC3235SF Launchpad </br> CC3235S LaunchPad </br> MSP432E4 Launchpad | [Plug-in Azure IoT pour SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Forum TI E2E](https://e2e.ti.com) <br/> [Forum TI E2E pour CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [Forum TI E2E pour MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
+
+## <a name="porting-the-microsoft-azure-iot-c-sdk"></a>Portage du SDK Microsoft Azure IoT en C
+
+Si la plateforme de votre appareil n’est pas mentionnée dans l’une des sections précédentes, vous pouvez effectuer le portage du SDK Azure IoT en C. Le portage du SDK en C implique principalement l’implémentation de la couche d’abstraction de plateforme du SDK. La couche d’abstraction de plateforme définit des primitives qui « lient » votre appareil aux fonctions de niveau supérieur du SDK. Pour plus d’informations, consultez [Instructions de portage](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
+
+## <a name="microsoft-partners-and-certified-azure-iot-devices"></a>Partenaires Microsoft et appareils Azure Certified pour IoT
+
+Microsoft collabore avec différents partenaires en vue d’étendre le nombre d’appareils testés et certifiés pour Azure IoT.
+
+* Pour découvrir les appareils Azure Certified pour IoT, consultez le [Catalogue d’appareils Azure Certified pour IoT](https://catalog.azureiotsolutions.com/).
+
+* Pour en savoir plus sur les partenaires de confiance Microsoft ou pour savoir comment devenir partenaire de confiance Microsoft, consultez [Microsoft Azure Certified - Partenaires de confiance de l’Internet des objets](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
+
+## <a name="connecting-to-iot-hub-without-an-sdk"></a>Connexion à IoT Hub sans SDK
+
+Si vous n’êtes pas en mesure d’utiliser l’un des kits Azure IoT Hub device SDK, vous pouvez vous connecter directement à IoT Hub à l’aide des [API REST IoT Hub](https://docs.microsoft.com/en-us/rest/api/iothub/) à partir de n’importe quelle application capable d’envoyer et de recevoir des requêtes et des réponses HTTPS.
+
+## <a name="support-and-other-resources"></a>Prise en charge et autres ressources
+
+Si vous rencontrez des problèmes lors de l’utilisation des kits Azure IoT device SDK, vous pouvez obtenir de l’aide de différentes façons. Vous pouvez essayer l’un des canaux suivants :
+
+**Signaler des bogues** : les bogues des kits Device SDK peuvent être signalés dans la page des problèmes du projet GitHub concerné. Les correctifs apportés au projet sont rapidement intégrés aux mises à jour du produit.
+
+* [Problèmes concernant le SDK Azure IoT Hub C](https://github.com/Azure/azure-iot-sdk-c/issues)
+
+* [Problèmes concernant le SDK Azure IoT Hub .NET (C#)](https://github.com/Azure/azure-iot-sdk-csharp/issues)
+
+* [Problèmes concernant le SDK Azure IoT Hub Java](https://github.com/Azure/azure-iot-sdk-java/issues)
+
+* [Problèmes concernant le SDK Azure IoT Hub Node.js](https://github.com/Azure/azure-iot-sdk-node/issues)
+
+* [Problèmes concernant le SDK Azure IoT Hub Python](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**Équipe de support technique Microsoft** : les utilisateurs qui ont un [plan de support](https://azure.microsoft.com/support/plans/) peuvent solliciter l’équipe de support technique Microsoft en créant une demande de support directement à partir du [portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+**Demandes de fonctionnalités** : vous pouvez suivre vos demandes de fonctionnalités Azure IoT dans la [page User Voice](https://feedback.azure.com/forums/321918-azure-iot) du produit concerné.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
