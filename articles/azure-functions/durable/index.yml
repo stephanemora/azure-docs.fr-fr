@@ -1,0 +1,110 @@
+### YamlMime:Landing
+title: Documentation Azure Durable Functions
+summary: Durable Functions est une extension d’Azure Functions qui vous permet d’écrire des fonctions avec état dans un environnement de calcul serverless.
+metadata:
+  title: Documentation Azure Durable Functions
+  description: Durable Functions est une extension d’Azure Functions qui vous permet d’écrire des fonctions avec état dans un environnement de calcul serverless.
+  ms.service: azure-functions
+  ms.topic: landing-page
+  author: ggailey777
+  ms.author: azfundocs
+  ms.date: 10/04/2019
+  ms.openlocfilehash: f0f47c8d997a3d02ad3bae1bc4634f4c7ad2155c
+  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72529684"
+landingContent:
+- title: À propos de Durable Functions
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Présentation de Durable Functions
+      url: durable-functions-overview.md
+    - text: Comparer les options serverless
+      url: ../functions-compare-logic-apps-ms-flow-webjobs.md
+  - linkListType: concept
+    links:
+    - text: Types de fonction durable
+      url: durable-functions-types-features-overview.md
+  - linkListType: video
+    links:
+    - text: Franchir les barrières du serverless
+      url: https://azure.microsoft.com/resources/videos/break-through-the-serverless-barriers-with-durable-functions/
+- title: Prise en main
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Créer des fonctions durables (C#)
+      url: durable-functions-create-first-csharp.md
+    - text: Créer votre première fonction (JavaScript)
+      url: quickstart-js-vscode.md
+  - linkListType: learn
+    links:
+    - text: Créer un workflow serverless de longue durée
+      url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/
+  - linkListType: video
+    links:
+    - text: Regarder comment bien démarrer
+      url: https://azure.microsoft.com/resources/videos/azure-friday-durable-functions-in-azure-functions/
+- title: Concepts clés
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Orchestrations
+      url: durable-functions-orchestrations.md
+    - text: Entités avec état
+      url: durable-functions-entities.md
+    - text: Fonctionnalités HTTP
+      url: durable-functions-http-features.md
+    - text: Hubs de tâche
+      url: durable-functions-task-hubs.md
+    - text: Contrôle de version
+      url: durable-functions-versioning.md
+  - linkListType: video
+    links:
+    - text: Entités serverless, orchestrations et fonctions avec état
+      url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B206
+- title: Modèles d’application
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Chaînage de fonctions
+      url: durable-functions-sequence.md
+    - text: API HTTP Async
+      url: durable-functions-create-first-csharp.md
+    - text: Fan-out/fan-in
+      url: durable-functions-cloud-backup.md
+    - text: Analyses
+      url: durable-functions-monitor.md
+    - text: Interaction humaine
+      url: durable-functions-phone-verification.md
+    - text: Aggrégateur
+      url: durable-functions-entities.md
+- title: Performances et surveillance
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Diagnostics
+      url: durable-functions-diagnostics.md
+  - linkListType: concept
+    links:
+    - text: Surveiller des fonctions
+      url: ../functions-monitoring.md
+    - text: Mise en réseau - Éléments à prendre en compte
+      url: ../functions-networking-options.md
+- title: Exemples
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Exemples de fonctions durables
+      url: /samples/browse/?products=azure-functions&term=durable
+    - text: Azure Serverless Community Library
+      url: https://www.serverlesslibrary.net/
+    - text: Modèles Microsoft Azure Resource Manager
+      url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
+  - linkListType: how-to-guide
+    links:
+    - text: Exemples d’interface de ligne de commande Azure
+      url: ../functions-cli-samples.md

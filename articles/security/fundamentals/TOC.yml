@@ -49,16 +49,6 @@
             - name: À propos d’Azure Disk Encryption
               displayName: 'BitLocker, bek'
               href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: Démarrages rapides
-              items:
-                - name: Chiffrer une machine virtuelle Linux avec Azure CLI
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart'
-                - name: Chiffrer une machine virtuelle Linux avec Azure PowerShell
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart'
-                - name: Chiffrer une machine virtuelle Windows avec Azure CLI
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart'
-                - name: Chiffrer une machine virtuelle Windows avec Azure PowerShell
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart'
             - name: Azure Disk Encryption
               items:
                 - name: Configuration requise pour le chiffrement de disque
@@ -151,8 +141,6 @@
           href: network-best-practices.md
         - name: Protection DDOS
           href: ddos-best-practices.md
-        - name: Limites de sécurité
-          href: network-best-practices.md
 - name: Application
   items:
     - name: PaaS
@@ -185,9 +173,6 @@
   items:
     - name: Audit et journalisation
       items:
-        - name: Gestion de la sécurité
-          displayName: 'vulnerability, incident, virus,'
-          href: 'https://docs.microsoft.com/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
         - name: Sécurité de la gestion à distance
           href: management.md
         - name: Intégration des journaux Azure
@@ -199,9 +184,6 @@
             - name: Intégrer des journaux d’audit Azure AD
               displayName: active directory
               href: azure-log-integration-ad.md
-            - name: Intégrer des alertes Azure Security Center
-              displayName: splunk
-              href: 'https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
             - name: Intégrer des journaux d’activité à partir de Key Vault
               displayName: keyvault
               href: azure-log-integration-keyvault-eventhub.md

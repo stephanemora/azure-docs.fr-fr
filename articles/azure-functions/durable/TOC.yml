@@ -1,5 +1,5 @@
 - name: Documentation de Durable Functions
-  href: durable-functions-overview.md
+  href: index.yml
 - name: Vue d'ensemble
   items:
     - name: À propos d’Azure Functions
@@ -34,7 +34,7 @@
 - name: Exemples
   items:
     - name: Exemples de code
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions&sort=0&term=durable+'
+      href: /samples/browse/?products=azure-functions&term=durable
     - name: D’Azure CLI
       href: ../functions-cli-samples.md
 - name: Concepts
@@ -81,6 +81,8 @@
       href: durable-functions-bindings.md
     - name: API HTTP
       href: durable-functions-http-api.md
+    - name: API d’extension durable
+      href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet-preview
 - name: Guides pratiques
   items:
     - name: Développement

@@ -35,20 +35,6 @@
       href: policy-samples.md
 - name: Concepts
   items:
-    - name: Passerelle NAT
-      items:
-        - name: Vue d'ensemble
-          items:
-            - name: À propos de la passerelle NAT
-              href: nat-service-overview.md
-        - name: Démarrages rapides
-          items:
-            - name: Créer une passerelle NAT - Azure CLI
-              href: quickstart-create-nat-gateway-cli.md
-        - name: Tutoriels
-          items:
-            - name: Créer et valider une passerelle NAT - Azure CLI
-              href: tutorial-create-validate-nat-gateway-cli.md
     - name: Groupes de sécurité
       href: security-overview.md
     - name: Routage
@@ -75,6 +61,8 @@
       href: public-ip-address-prefix.md
     - name: IPv6 pour les réseaux virtuels Azure
       href: ipv6-overview.md
+    - name: "Préfixe d’adresse\_IPv6 publique"
+      href: ipv6-public-ip-address-prefix.md
     - name: Protection DDoS
       href: ddos-protection-overview.md
     - name: Interopérabilité de connectivité du serveur principal
@@ -248,6 +236,8 @@
           items:
             - name: Sous-réseaux
               href: virtual-network-manage-subnet.md
+            - name: Délégation de sous-réseau
+              href: manage-subnet-delegation.md
             - name: Peerings
               href: virtual-network-manage-peering.md
             - name: Protection DDoS
@@ -271,6 +261,8 @@
           href: virtual-network-public-ip-address.md
         - name: Préfixe d’adresse IP publique
           href: manage-public-ip-address-prefix.md
+        - name: "Préfixe d’adresse\_IPv6 publique"
+          href: ipv6-reserve-public-ip-address-prefix.md
     - name: Passer d’une région à l’autre
       items:
         - name: Groupes de sécurité réseau - Portail

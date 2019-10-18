@@ -205,7 +205,11 @@
                 - name: Node.js
                   href: app/nodejs.md
                 - name: Python
-                  href: app/opencensus-python.md
+                  items:
+                    - name: Vue d'ensemble
+                      href: app/opencensus-python.md
+                    - name: Les dépendances
+                      href: app/opencensus-python-dependency.md
                 - name: Pages web
                   items:
                     - name: JavaScript côté client
