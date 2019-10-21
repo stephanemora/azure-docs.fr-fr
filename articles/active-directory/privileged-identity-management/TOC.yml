@@ -6,7 +6,7 @@
       href: pim-configure.md
 - name: Concepts
   items:
-    - name: "Conditions de licence\_:"
+    - name: Conditions de licence
       href: subscription-requirements.md
     - name: Rôles que vous ne pouvez pas gérer
       href: pim-roles.md
@@ -83,6 +83,8 @@
           href: azure-pim-resource-rbac.md
         - name: Utiliser des rôles personnalisés
           href: pim-resource-roles-custom-role-policy.md
+    - name: Résoudre les problèmes de PIM
+      href: pim-troubleshoot.md
     - name: Révisions d’accès
       items:
         - name: Rôles Azure AD

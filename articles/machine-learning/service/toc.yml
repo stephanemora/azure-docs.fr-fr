@@ -269,6 +269,8 @@
         - name: Pipelines Azure pour CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Planifier des pipelines ML en Python
+          href: how-to-schedule-pipelines.md
     - name: Gérer les quotas de ressources
       displayName: limits
       href: how-to-manage-quotas.md

@@ -39,6 +39,8 @@
           href: cache-best-practices.md
         - name: Meilleures pratiques de l’architecture Azure pour la mise en cache
           href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+    - name: Explication du basculement et des correctifs
+      href: cache-failover.md
 - name: Guides pratiques
   items:
     - name: Planification

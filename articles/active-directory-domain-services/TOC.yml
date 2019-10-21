@@ -65,6 +65,8 @@
           href: notifications.md
         - name: Supprimer un domaine managé
           href: delete-aadds.md
+        - name: Migrer à partir d’un déploiement classique (préversion)
+          href: migrate-from-classic-vnet.md
     - name: "Sécuriser Azure AD\_DS"
       items:
         - name: Sécuriser votre domaine managé

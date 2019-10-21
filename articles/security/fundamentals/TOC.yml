@@ -44,39 +44,8 @@
           href: data-encryption-best-practices.md
         - name: Chiffrement des données au repos
           href: encryption-atrest.md
-        - name: Chiffrement de disque pour les VM IaaS
-          items:
-            - name: À propos d’Azure Disk Encryption
-              displayName: 'BitLocker, bek'
-              href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: Azure Disk Encryption
-              items:
-                - name: Configuration requise pour le chiffrement de disque
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites'
-                - name: Chiffrement de disque pour les machines virtuelles Windows
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows'
-                - name: Chiffrement de disque pour les machines virtuelles Linux
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux'
-                - name: Chiffrement de disques avec un séquencement d’extensions de groupes de machines virtuelles identiques
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-extension-sequencing'
-                - name: Annexe relative au chiffrement de disque
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-appendix'
-                - name: FAQ relative au chiffrement de disque
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq'
-                - name: Résolution de problèmes
-                  href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg'
-                - name: Azure Disk Encryption avec l’application Azure AD (version précédente)
-                  displayName: active directory
-                  items:
-                    - name: Chiffrement de disque avec les prérequis de l’application Azure AD
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad'
-                    - name: Chiffrement de disque avec l’application Azure AD pour les machines virtuelles Windows
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows-aad'
-                    - name: Chiffrement de disque avec l’application Azure AD pour les machines virtuelles Linux
-                      displayName: active directory
-                      href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad'
+        - name: Azure Disk Encryption pour les machines virtuelles et les groupes de machines virtuelles identiques
+          href: azure-disk-encryption-vms-vmss.md
     - name: Guide sur la sécurité du stockage
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Customer Lockbox
@@ -154,13 +123,6 @@
           href: paas-applications-using-sql.md
     - name: IoT
       href: iot-overview.md
-      items:
-        - name: Meilleures pratiques relatives à la sécurité IoT
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-security-best-practices?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
-        - name: Sécurité IoT
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-security-architecture?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
-        - name: Sécuriser votre déploiement IoT
-          href: 'https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-security-deployment?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Sécurité de Microsoft Azure Service Fabric
       href: service-fabric-overview.md
       items:
@@ -273,8 +235,8 @@
           href: ../blueprints/ukofficial-iaaswa-overview.md
         - name: Application web PaaS
           href: ../blueprints/ukofficial-paaswa-overview.md
-- name: Livres blancs
-  href: white-papers.md
+- name: Livres blancs sur la sécurité
+  href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Services de sécurité Azure
   href: services-technologies.md
 - name: Présentations techniques
