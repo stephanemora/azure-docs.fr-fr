@@ -60,7 +60,7 @@ En reprenant le même exemple :
 
 - le chemin du `employees` de `headquarters` est `/headquarters/employees/?`
 
-- le chemin `country` du de `locations` est `/locations/[]/country/?`
+- le chemin `country` de `locations` est `/locations/[]/country/?`
 
 - le chemin de tout ce qui se trouve sous `headquarters` est `/headquarters/*`
 
