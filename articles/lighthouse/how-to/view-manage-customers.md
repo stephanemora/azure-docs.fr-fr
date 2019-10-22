@@ -1,5 +1,5 @@
 ---
-title: Voir et gérer les clients et les ressources déléguées sur le portail Azure
+title: Voir et gérer les clients et les ressources déléguées
 description: En tant que fournisseur de services utilisant la gestion des ressources déléguées Azure, vous pouvez afficher l’ensemble des ressources et abonnements délégués de vos clients en accédant à Mes clients sur le portail Azure.
 author: JnHs
 ms.author: jenhayes
@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: acc90afa258fa7140cd7dfa8711dd64b554df45d
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810843"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302748"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Voir et gérer les clients et les ressources déléguées
 
@@ -37,7 +37,7 @@ Vous pouvez afficher les informations suivantes de cette page :
 
 - Pour afficher l’ensemble des abonnements, offres et délégations associés à un client, sélectionnez le nom de celui-ci.
 - Pour afficher des détails supplémentaires sur une offre et ses délégations, sélectionnez le nom de l’offre.
-- Pour afficher plus de détails sur les affectations pour les abonnements ou groupes de ressources délégués, sélectionnez l’entrée dans la colonne **Délégations**.
+- Pour voir plus de détails sur les affectations de rôles pour les abonnements ou groupes de ressources délégués, sélectionnez l’entrée dans la colonne **Délégations**.
 
 ## <a name="view-delegations"></a>Afficher les délégations
 

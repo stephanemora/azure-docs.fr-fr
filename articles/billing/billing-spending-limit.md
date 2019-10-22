@@ -11,39 +11,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: banders
-ms.openlocfilehash: 1324b60de05805cd409975358ff78e5b2b27eef1
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 97e6e04bf7fab3a48f1ce0552e1b653b208be77b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70114448"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375431"
 ---
 # <a name="azure-spending-limit"></a>Limite de dépense d’Azure
 
-La limite de dépense dans Azure vous empêche de dépasser la quantité de vos crédits. Pour tout nouveau client optant pour un essai d’Azure ou une offre incluant des crédits s’étalant sur plusieurs mois, la limite de dépense est activée par défaut. La limite de dépense est de 0 $ et n’est pas modifiable. Par exemple, vous ne pouvez pas fixer la limite de dépense à 100 $. Cependant, vous pouvez supprimer la limite de dépense. Par conséquent, soit vous n’avez pas de limite, soit vous avez une limite nulle qui vous empêche de couvrir la plupart des dépenses. La limite de dépense n’est pas disponible pour les abonnements faisant l’objet d’un paiement à l’utilisation et les plans d’engagement. Pour plus d’informations, consultez la [liste complète des offres Azure et la disponibilité de la limite de dépense](https://azure.microsoft.com/support/legal/offer-details/).
+La limite de dépense dans Azure vous empêche de dépasser la quantité de vos crédits. Pour tout nouveau client qui s’inscrit en vue d’obtenir un compte gratuit Azure ou des types d’abonnements incluant des crédits s’étalant sur plusieurs mois, la limite de dépense est activée par défaut. La limite de dépense est égale au montant de crédit et ne peut pas être modifiée. Par exemple, si vous vous êtes inscrit à un compte gratuit Azure, votre limite de dépense est fixée à 200 USD et vous ne pouvez pas la remplacer par 500 USD. Cependant, vous pouvez supprimer la limite de dépense. Par conséquent, soit vous n’avez aucune limite, soit vous avez une limite égale au montant de votre crédit. Cela vous évite la plupart des dépenses. La limite de dépense n’est pas disponible pour les abonnements impliquant un plan d’engagement ou un paiement à l’utilisation. Pour plus d’informations, consultez la [liste complète des types d’abonnements Azure et la disponibilité de la limite de dépense](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## <a name="reaching-a-spending-limit"></a>Atteindre une limite de dépense
 
-Si votre utilisation entraîne des frais dépassant les quantités mensuelles incluses dans votre abonnement Azure, les services que vous avez déployés sont désactivés jusqu’à la fin de cette période de facturation.
+Si votre utilisation entraîne des frais dépassant votre limite de dépense, les services que vous avez déployés sont désactivés jusqu’à la fin de la période de facturation.
 
-Par exemple, quand vous dépensez tous les crédits inclus dans votre abonnement, les ressources Azure que vous déployez sont supprimées de la production et vos machines virtuelles Azure sont arrêtées et désallouées. Les données de vos comptes de stockage sont accessibles en lecture seule.
+Par exemple, quand vous dépensez tous les crédits inclus dans votre abonnement gratuit Azure, les ressources Azure que vous déployez sont supprimées de la production et vos machines virtuelles Azure sont arrêtées et désallouées. Les données de vos comptes de stockage sont accessibles en lecture seule.
 
-Au début de la période de facturation suivante, si votre offre d’abonnement inclut des crédits sur plusieurs mois, votre abonnement est automatiquement réactivé. Vous pouvez redéployer vos ressources Azure et disposer d’un accès complet à vos comptes de stockage et bases de données.
+Si votre offre d’abonnement inclut des crédits sur plusieurs mois, votre abonnement est automatiquement réactivé au début de la période de facturation suivante. Vous pouvez redéployer vos ressources Azure et disposer d’un accès complet à vos comptes de stockage et bases de données.
 
-Azure envoie des notifications par e-mail quand vous atteignez la limite de dépense de votre abonnement. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions) pour voir les notifications concernant les abonnements qui ont atteint leur limite de dépense.
+Azure envoie des notifications par e-mail quand vous atteignez la limite de dépense. Connectez-vous au [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) pour voir les notifications concernant les abonnements qui ont atteint leur limite de dépense.
 
-Si vous utilisez un essai gratuit et que vous atteignez la limite de dépense, vous pouvez passer à un abonnement avec [paiement à l’utilisation](billing-upgrade-azure-subscription.md) pour supprimer la limite de dépense et activer automatiquement l’abonnement.
+Si vous vous êtes inscrit pour obtenir un compte gratuit Azure et avez atteint la limite de dépense, vous pouvez passer à un abonnement avec [paiement à l’utilisation](billing-upgrade-azure-subscription.md) pour supprimer la limite de dépense et réactiver automatiquement l’abonnement.
 
 <a id="remove"></a>
 
-## <a name="remove-the-spending-limit-in-account-center"></a>Supprimer la limite de dépense dans le Centre des comptes
+## <a name="remove-the-spending-limit-in-azure-portal"></a>Supprimer la limite de dépense dans le portail Azure
 
-Vous pouvez supprimer la limite de dépense à tout moment, pour autant qu’un mode de paiement valide soit associé à votre abonnement Azure. Pour les offres bénéficiant d’un crédit s’étalant sur plusieurs mois, vous pouvez également activer la limite de dépense au début de votre période de facturation suivante.
+Vous pouvez supprimer la limite de dépense à tout moment, pour autant qu’un mode de paiement valide soit associé à votre abonnement Azure. Pour les types d’abonnements qui ont un crédit sur plusieurs mois, comme Visual Studio Enterprise ou Visual Studio Professional, vous pouvez également activer la limite de dépense au début de votre prochaine période de facturation.
 
 Pour supprimer votre limite de dépense, procédez comme suit :
 
-1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
-1. Sélectionnez un abonnement. Si l’abonnement est désactivé car la limite de dépense est atteinte, cliquez sur la notification : **L’abonnement a atteint la limite de dépense et a été désactivé pour empêcher les frais.** Autrement, cliquez sur **Supprimer la limite de dépense** dans la zone **ÉTAT DE L’ABONNEMENT**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Sélectionnez un abonnement. Si la limite de dépense de l’abonnement est atteinte, celui-ci est désactivé.
+1. Sélectionnez **Supprimer la limite de dépense** en haut de la page.
 1. Sélectionnez une option adaptée à votre situation.
 
 ![Sélection d’une option de suppression de la limite de dépense](./media/billing-spending-limit/remove-spending-limit.PNG)
@@ -57,13 +58,13 @@ Pour supprimer votre limite de dépense, procédez comme suit :
 
 La limite de dépense peut vous empêcher de déployer ou d’utiliser certains services Microsoft et tiers. Voici les situations dans lesquelles vous devez lever la limite de dépense liée à votre abonnement.
 
--  Vous prévoyez de déployer des images internes telles qu’Oracle et des services tels qu’Azure DevOps Services. Cette situation entraîne presque immédiatement un dépassement de votre limite de dépense, qui a pour effet de désactiver votre abonnement.
-- Vous avez des services que vous ne souhaitez pas interrompre.
-- Vous avez des services et ressources utilisant des paramètres tels que des adresses IP virtuelles que vous ne voulez pas perdre. Ces paramètres sont perdus en cas de désallocation des services et ressources.
+-  Vous prévoyez de déployer des images de premier tiers telles qu’Oracle ou des services tels qu’Azure DevOps Services. Cette situation entraîne presque immédiatement l’atteinte de votre limite de dépense, ce qui a pour effet de désactiver votre abonnement.
+- Vous avez des services que vous ne souhaitez pas interrompre. Lorsque vous atteignez votre limite de dépense, les ressources Azure que vous avez déployées sont supprimées de l’environnement de production, et vos machines virtuelles Azure sont arrêtées et désallouées. Si vous avez des services que vous ne souhaitez pas interrompre, vous devez supprimer votre limite de dépense.
+- Vous avez des services et ressources utilisant des paramètres tels que des adresses IP virtuelles que vous ne voulez pas perdre. Ces paramètres sont perdus lorsque vous atteignez votre limite de dépense, et les services et ressources sont désalloués.
 
 ## <a name="turn-on-the-spending-limit-after-removing"></a>Activer la limite de dépense après l’avoir supprimée
 
-Cette fonctionnalité est disponible uniquement lorsque la limite de dépense a été supprimée indéfiniment. Modifiez cette option pour l’activer automatiquement au début de la prochaine période de facturation.
+Cette fonctionnalité est disponible uniquement lorsque la limite de dépense a été supprimée de façon indéfinie pour les types d’abonnements qui incluent des crédits sur plusieurs mois. Vous pouvez utiliser cette fonctionnalité pour activer automatiquement votre limite de dépense au début de la période de facturation suivante.
 
 1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
 1. Cliquez sur la bannière jaune pour modifier l’option de limite de dépense.

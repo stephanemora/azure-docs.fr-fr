@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43986ce57b8d320beeae748d3b848cf9ef38744d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 2803f8d659726ac95bcefa6191a816ed2b2dcb2d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718721"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375413"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Comprendre vos frais de service externes Azure
-Les services externes sont publiés par des éditeurs de logiciels tiers sur la Place de marché Microsoft Azure. Par exemple, SendGrid est un service externe que vous pouvez acheter dans Azure, mais qui n’est pas publié par Microsoft. Certains produits Microsoft sont aussi vendus sur la Place de marché Azure.
+Les services externes sont publiés par des éditeurs de logiciels tiers sur la Place de marché Azure. Par exemple, SendGrid est un service externe que vous pouvez acheter dans Azure, mais qui n’est pas publié par Microsoft. Certains produits Microsoft sont aussi vendus sur la Place de marché Azure.
 
 ## <a name="how-external-services-are-billed"></a>Facturation des services externes
 
-- Si vous avez un [contrat client Microsoft](#check-access), vos services tiers sont facturés avec le reste de vos services Azure.
-- Dans le cas contraire, vos services externes sont facturés indépendamment de vos services Azure.
+- Si vous avez un Contrat Client Microsoft (MCA) ou un Contrat Partenaire Microsoft (MPA), vos services tiers sont facturés avec le reste de vos services Azure. [Vérifiez votre type de compte de facturation](#check-billing-account-type) pour voir si vous avez accès à un contrat MCA ou MPA.
+- Si vous n’avez pas de contrat MCA ou MPA, vos services externes sont facturés séparément de vos services Azure.
 - Chaque service externe possède un modèle de facturation différent. Certains services sont facturés selon un mode de paiement à l’utilisation, tandis que d’autres utilisent un modèle de paiement mensuel fixe.
 - Vous ne pouvez pas utiliser de crédits mensuels gratuits pour les services externes. Si vous utilisez un abonnement Azure incluant des [crédits gratuits](https://azure.microsoft.com/pricing/spending-limits/), ceux-ci ne peuvent pas s’appliquer aux montants des factures de services externes. Lorsque vous configurez un nouveau service externe ou une ressource, un avertissement s’affiche :
 
@@ -48,11 +48,11 @@ You can view a list of the external services that are on each subscription withi
 
     ![View external services billing history](./media/billing-understand-your-azure-marketplace-charges/billing-overview-blade.png) -->
 
-## <a name="view-and-download-invoices"></a>Afficher et télécharger des factures
+## <a name="view-and-download-invoices-for-external-services"></a>Voir et télécharger les factures pour les services externes
 
-Si vous avez un [contrat client Microsoft](#check-access), les frais de vos fournisseurs tiers figurent sur la même facture que vos frais Azure. Découvrez comment [afficher et télécharger votre facture Azure](billing-download-azure-invoice.md) à partir du portail Microsoft Azure, afin de consulter les frais de vos fournisseurs tiers.
+Si vous avez un Contrat Client Microsoft (MCA) ou un Contrat Partenaire Microsoft (MPA), vos services tiers sont facturés avec le reste de vos services Azure. [Vérifiez votre type de compte de facturation](#check-billing-account-type) pour voir si vous avez accès à un contrat MCA ou MPA. Si c’est le cas, consultez [Afficher et télécharger les factures dans le portail Azure](billing-download-azure-invoice.md) pour voir les frais de vos fournisseurs tiers.
 
-Si vous n’avez pas de contrat client Microsoft, les frais de vos fournisseurs tiers sont facturés de manière séparée. Vous pouvez afficher et télécharger vos factures associées à la Place de marché Azure à partir du portail Microsoft Azure, en procédant comme suit :
+Si vous n’avez pas de contrat MCA ou MPA, les frais de vos fournisseurs tiers sont facturés de manière séparée. Vous pouvez afficher et télécharger vos factures associées à la Place de marché Azure à partir du portail Microsoft Azure, en procédant comme suit :
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Recherchez **Gestion des coûts + facturation**.
@@ -108,8 +108,8 @@ Si vous souhaitez annuler votre commande de service externe, supprimez la ressou
     ![Supprimer la ressource](./media/billing-understand-your-azure-marketplace-charges/delete-resource.PNG)
 1. Cliquez sur **Supprimer**.
 
-## <a name="check-access"></a>Vérifier l’accès
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-billing-account-type"></a>Vérifier le type de compte de facturation
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

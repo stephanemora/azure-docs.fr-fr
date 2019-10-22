@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 10/03/2019
 ms.author: juliako
-ms.openlocfilehash: 152a767ad1aa2494579f15dd8051c6bc1f718a92
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910255"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383530"
 ---
 # <a name="dynamic-packaging"></a>l’empaquetage dynamique
 
@@ -30,7 +30,7 @@ Dans Media Services, un [point de terminaison de streaming](streaming-endpoint-c
 
 Pour tirer parti de l’empaquetage dynamique, vous devez [encoder](encoding-concept.md) votre fichier mezzanine (source) en un ensemble de fichiers MP4 à vitesse de transmission multiple (format ISO de base pour les fichiers médias 14496-12). Vous devez avoir un [actif multimédia](assets-concept.md) avec les fichiers MP4 encodés et les fichiers de configuration de streaming requis par l’empaquetage dynamique Media Services. À partir de cet ensemble de fichiers MP4, vous pouvez utiliser l’empaquetage dynamique pour diffuser de la vidéo avec les protocoles de streaming multimédia suivants :
 
-|Protocole|Exemples|
+|Protocol|Exemples|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
@@ -236,11 +236,30 @@ Le lecteur peut utiliser l'élément `Label` pour l’afficher sur son interface
 
 ### <a name="signaling-audio-description-tracks"></a>Signalisation des pistes de description audio
 
-Un client peut annoter une piste audio en tant description audio dans le manifeste. Pour ce faire, il doit ajouter les paramètres « accessibility » et « Role » au fichier .ism. Media Services reconnaît la description audio si une piste audio a le paramètre « accessibility » avec la valeur « description » et le paramètre « role » avec la valeur « alternate ». Si Media Services détecte la description audio dans le fichier .ism, les informations de description audio sont transmises au manifeste du client en tant qu’attributs `Accessibility="description"` et `Role="alternate"` dans l’élément `StreamIndex`.
+Vous pouvez ajouter une piste de narration à votre vidéo pour aider les clients malvoyants à suivre l’enregistrement vidéo en écoutant la narration. Vous devez annoter une piste audio en tant que description audio dans le manifeste. Pour ce faire, ajoutez les paramètres « accessibility » et « role » au fichier .ism. Il vous incombe de définir correctement ces paramètres pour signaler une piste audio en tant que description audio. Par exemple, ajoutez `<param name="accessibility" value="description" />` et `<param name="role" value="alternate"` au fichier .ism pour une piste audio spécifique. 
 
-Si la combinaison « accessibility » = « description » et « role » = « alternate » est définie dans le fichier .ism, le manifeste DASH et le manifeste Smooth transmettent les valeurs définies dans les paramètres « accessibility » et « role ». Il incombe au client de définir ces deux valeurs correctement et de marquer une piste audio en tant que description audio. Selon la spécification DASH, la combinaison « accessibility » = « description » et « role » = « alternate » signifie qu'une piste audio est une description audio.
+Pour plus d’informations, consultez l’exemple [Guide pratique pour signaler des pistes audio descriptives](signal-descriptive-audio-howto.md).
 
-Pour TLS v7 et versions ultérieures (`format=m3u8-cmaf`), sa playlist transmet `CHARACTERISTICS="public.accessibility.describes-video"` uniquement lorsque la combinaison « accessibility » = « description » et « role » = « alternate » est définie dans le fichier .ism. 
+#### <a name="smooth-streaming-manifest"></a>Manifeste Smooth Streaming
+
+Si vous lisez un flux Smooth Streaming, le manifeste transmet des valeurs dans les attributs `Accessibility` et `Role` pour cette piste audio. Par exemple, `Role="alternate" Accessibility="description"` est ajouté à l’élément `StreamIndex` pour indiquer qu’il s’agit d’une description audio.
+
+#### <a name="dash-manifest"></a>Manifeste DASH
+
+Pour le manifeste DASH, les deux éléments suivants sont ajoutés pour signaler la description audio :
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### <a name="hls-playlist"></a>Sélection HLS
+
+Pour HLS v7 et ultérieur `(format=m3u8-cmaf)`, sa sélection transmet `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` quand la piste de description audio est signalée.
+
+#### <a name="example"></a>Exemples
+
+Pour plus d’informations, consultez [Guide pratique pour signaler des pistes audio descriptives](signal-descriptive-audio-howto.md).
 
 ## <a name="dynamic-manifest"></a>Manifeste dynamique
 

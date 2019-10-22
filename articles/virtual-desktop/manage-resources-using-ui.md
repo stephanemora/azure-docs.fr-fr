@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679485"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300905"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Didacticiel : Déployer un outil de gestion
 
@@ -26,6 +26,12 @@ L’outil de gestion fournit une interface utilisateur (IU) pour la gestion des 
 Étant donné que l’application nécessite un consentement pour interagir avec Windows Virtual Desktop, cet outil ne prend pas en charge les scénarios B2B (Business-to-Business). Chaque abonnement du locataire Azure Active Directory (AAD) nécessite son propre déploiement de l’outil de gestion.
 
 Cet outil de gestion est un exemple. Microsoft fournira des mises à jour importantes pour la qualité et la sécurité. Le [code source est disponible sur GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Les clients et les partenaires sont encouragés à personnaliser l’outil pour l’adapter à leurs besoins métier.
+
+Les navigateurs suivants sont compatibles avec l’outil de gestion :
+- Google Chrome version 68 ou ultérieure
+- Microsoft Edge version 40.15063 ou ultérieure
+- Mozilla Firefox version 52.0 ou ultérieure
+- Safari version 10 ou ultérieure (macOS uniquement)
 
 ## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Exécution du modèle Azure Resource Manager
 

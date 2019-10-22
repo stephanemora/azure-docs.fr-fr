@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345236"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515597"
 ---
-# <a name="quickstart-personalize-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Personalizer pour .NET
+# <a name="quickstart-personalizer-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Personalizer pour .NET
 
 Affichez du contenu personnalisé dans ce guide de démarrage rapide C# avec le service Personalizer.
 

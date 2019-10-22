@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9f43b056275ba83630e711ff1a512cb73e84216a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8dc7bc36b3d4b172521b0fbbf9aa09cf4d1a9b29
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034639"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390128"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Démarrage rapide : Rechercher des images à l'aide de l'API REST Recherche d'images Bing et de Python
 
@@ -67,12 +67,13 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. Utilisez la bibliothèque `requests` pour appeler l’API Recherche d’images Bing. Ajoutez à la demande votre en-tête et vos paramètres, et renvoyez la réponse sous forme d’objet JSON. 
+2. Utilisez la bibliothèque `requests` pour appeler l’API Recherche d’images Bing. Ajoutez à la demande votre en-tête et vos paramètres, et renvoyez la réponse sous forme d’objet JSON. Récupérez les URL de plusieurs images miniatures à partir du champ `thumbnailUrl` de la réponse.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
+    thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
     ```
 
 ## <a name="view-the-response"></a>Afficher la réponse
@@ -80,6 +81,8 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 1. Créez une figure avec quatre colonnes et quatre lignes à l’aide de la bibliothèque matplotlib. 
 
 2. Effectuez une itération dans les lignes et colonnes de la figure, et utilisez la méthode `Image.open()` de la bibliothèque PIL pour ajouter une vignette de l’image à chaque espace. 
+
+3. Utilisez `plt.show()` pour tracer la figure et afficher les images.
 
     ```python
     f, axes = plt.subplots(4, 4)
@@ -90,9 +93,9 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
             image = Image.open(BytesIO(image_data.content))        
             axes[i][j].imshow(image)
             axes[i][j].axis("off")
+    plt.show()
     ```
 
-3. Utilisez `plt.show()` pour tracer la figure et afficher les images.
 
 ## <a name="example-json-response"></a>Exemple de réponse JSON
 

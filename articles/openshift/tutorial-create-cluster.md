@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/14/2019
-ms.openlocfilehash: 4c186787af08a565dc100dfbd79d166688d89d8f
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013434"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285519"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Didacticiel : Créer un cluster Azure Red Hat OpenShift
 
@@ -126,6 +126,9 @@ Par exemple : `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResource
 ### <a name="create-the-cluster"></a>Création du cluster
 
 Vous êtes prêt à créer un cluster. La procédure ci-après crée le cluster dans le locataire Azure AD spécifié, puis définit l’objet d’application Azure AD et le secret à utiliser comme principal de sécurité ainsi que le groupe de sécurité qui contient les membres disposant d’un accès administrateur au cluster.
+
+> [!IMPORTANT]
+> Avant de créer le cluster, vérifiez que vous avez correctement ajouté les autorisations appropriées pour l’application Azure AD comme [expliqué ici](howto-aad-app-configuration.md#add-api-permissions).
 
 Si vous **n’effectuez pas** le peering de votre cluster à un réseau virtuel, utilisez la commande suivante :
 

@@ -4,16 +4,16 @@ description: Cet article présente les tâches courantes à la charge d’un adm
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f344436b1e1f1a97b981c1ead469d965b06a12ce
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035208"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329334"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -62,7 +62,7 @@ Gardez les points suivants à l’esprit quand vous transférez un compte d’en
 
 La date de transfert effectif peut être la date de début de l’inscription vers laquelle vous souhaitez effectuer le transfert ou une date ultérieure. L’inscription vers laquelle vous effectuez le transfert est l’_inscription cible_. Une fois le compte transféré, toutes les informations sur l’utilisation du compte avant la date de transfert effectif restent dans l’inscription à partir de laquelle vous effectuez le transfert. L’inscription à partir de laquelle vous effectuez le transfert est l’_inscription source_.  L’utilisation de l’inscription source est facturée dans le cadre de l’engagement monétaire ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée vers la nouvelle inscription et facturée en conséquence.
 
-Vous pouvez antidater un transfert de compte jusqu’à la date de début de l’inscription cible. Ou, jusqu’à la date de début effectif de l’inscription source.
+Vous pouvez antidater un transfert d’inscription jusqu’à la date de début de l’inscription cible. Ou, jusqu’à la date de début effectif de l’inscription source.
 
 ### <a name="monetary-commitment"></a>Engagement monétaire
 
@@ -212,12 +212,11 @@ Si une notification n’est pas reçue par un utilisateur, vérifiez que les par
 ![Exemple montrant la zone Ajouter un contact ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Offre Azure Sponsorship
+
 L’offre Azure Sponsorship est un compte Microsoft Azure sponsorisé limité. Elle est disponible sur invitation électronique pour certains clients sélectionnés par Microsoft. Si vous bénéficiez de l’offre Microsoft Azure Sponsorship, vous recevrez une invitation électronique pour votre ID de compte.
+
 Pour plus d'informations, consultez les pages suivantes :
 
-- Présentation de l’offre Sponsorship - https://azure.microsoft.com/en-us/offers/ms-azr-0143p/
-- Portail du solde de l’offre Sponsorship - https://www.microsoftazuresponsorships.com/balance  
-- FAQ externe sur Sponsorship - https://azuresponsorships-staging.azurewebsites.net/faq
 - Demande de support concernant l’activation de Sponsorship - http://aka.ms/azrsponsorship
 
 ## <a name="next-steps"></a>Étapes suivantes

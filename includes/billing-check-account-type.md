@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: a271f03788bc7b831e6d8daff3d53503db5a2710
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 4b2533131407081b97bb491895d96cf566442090
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491004"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375459"
 ---
 Vérifier le type de contrat pour déterminer le type de votre compte de facturation
  
@@ -23,7 +23,7 @@ Vérifier le type de contrat pour déterminer le type de votre compte de factura
  
     ![Capture d’écran montrant la page de propriétés d’un contrat client Microsoft](./media/billing-check-account-type/billing-mca-property.png)
     
-    Le **type de compte de facturation** sur les propriétés de page détermine le type de votre compte. Il peut s’agir du programme de service en ligne Microsoft, du Contrat entreprise ou du Contrat client Microsoft. Pour en savoir plus sur le type de compte de facturation, consultez [Afficher vos comptes de facturation dans le portail Azure](../articles/billing/billing-view-all-accounts.md).  
+    Le **type de compte de facturation** sur les propriétés de page détermine le type de votre compte. Il peut s’agir d’un compte de facturation Microsoft Online Service Program (MOSP), Contrat Entreprise, Contrat Client Microsoft ou Contrat Partenaire Microsoft. Pour en savoir plus sur le type de compte de facturation, consultez [Afficher vos comptes de facturation dans le portail Azure](../articles/billing/billing-view-all-accounts.md).  
  
 4. Si vous avez accès à plusieurs étendues de facturation, sélectionnez **Compte de facturation** ou **Toutes les étendues de facturation** sur la gauche. Vérifiez le type dans la colonne **Type de compte de facturation**.
  

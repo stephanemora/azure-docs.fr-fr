@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: ab6c381e779ddc19211f183b9bc80e586f58e804
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90fb3fe732889f3ba3965210cd8a681a0487f78e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261409"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515008"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Démarrage rapide : Activer SSH et RDP sur un flux d’appareil IoT Hub à l’aide d’une application de proxy C# (préversion)
 
@@ -86,10 +86,10 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
    > [!NOTE]
    > * Remplacez l’espace réservé *YourIoTHubName* par le nom que vous avez choisi pour votre hub IoT.
-   > * Utilisez *MyDevice* comme indiqué. Il s’agit du nom donné à l’appareil inscrit. Si vous choisissez un autre nom pour votre appareil, utilisez-le pour l’ensemble de cet article et mettez à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
+   > * Pour le nom de l’appareil que vous êtes en train d’inscrire, nous vous recommandons d’utiliser *MyDevice* comme indiqué. Si vous choisissez un autre nom pour votre appareil, utilisez-le pour l’ensemble de cet article et mettez à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Pour obtenir la *chaîne de connexion d’appareil* pour celui que vous venez d’inscrire, exécutez les commandes suivantes dans Cloud Shell :
@@ -98,10 +98,10 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
    > Remplacez l’espace réservé *YourIoTHubName* par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Notez la chaîne de connexion d’appareil car vous l’utiliserez plus tard au cours de ce démarrage rapide. Cela ressemble à l’exemple suivant :
+    Notez la chaîne de connexion d’appareil retournée ; vous en aurez besoin plus loin dans ce guide de démarrage rapide. Cela ressemble à l’exemple suivant :
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -111,10 +111,10 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
    > Remplacez l’espace réservé *YourIoTHubName* par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Notez la valeur renvoyée pour l’utiliser plus tard dans le cadre du présent démarrage rapide. Cela ressemble à l’exemple suivant :
+    Notez la chaîne de connexion de service retournée ; vous en aurez besoin plus loin dans ce guide de démarrage rapide. Cela ressemble à l’exemple suivant :
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -124,15 +124,15 @@ Dans cette section, vous allez établir un flux de bout en bout pour tunneliser 
 
 ### <a name="run-the-device-local-proxy-application"></a>Exécuter l’application proxy locale de l’appareil
 
-Accédez au répertoire *device-streams-proxy/device* dans votre dossier de projet décompressé. Gardez à portée de main les informations suivantes :
+Dans une fenêtre de terminal locale, accédez au répertoire `device-streams-proxy/device` dans votre dossier de projet décompressé. Gardez à portée de main les informations suivantes :
 
 | Nom de l’argument | Valeur de l’argument |
 |----------------|-----------------|
-| `deviceConnectionString` | Chaîne de connexion de l’appareil que vous avez créée précédemment. |
+| `DeviceConnectionString` | Chaîne de connexion d’appareil que vous avez créée précédemment. |
 | `targetServiceHostName` | Adresse IP où le serveur SSH écoute. Cette adresse serait `localhost` s’il s’agissait de la même adresse IP que celle où l’application de proxy locale d’appareil est en cours d’exécution. |
 | `targetServicePort` | Port utilisé par votre protocole d’application (par défaut, il s’agit du port 22 pour SSH).  |
 
-Compilez et exécutez le code comme suit :
+Compilez et exécutez le code avec les commandes suivantes :
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device/
@@ -142,23 +142,23 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $deviceConnectionString localhost 22
+dotnet run ${DeviceConnectionString} localhost 22
 
 # In Windows
-dotnet run %deviceConnectionString% localhost 22
+dotnet run {DeviceConnectionString} localhost 22
 ```
 
 ### <a name="run-the-service-local-proxy-application"></a>Exécuter l’application proxy locale du service
 
-Accédez à `device-streams-proxy/service` dans votre dossier de projet décompressé. Vous aurez besoin des informations suivantes :
+Dans une autre fenêtre de terminal locale, accédez à `device-streams-proxy/service` dans votre dossier de projet décompressé. Gardez à portée de main les informations suivantes :
 
 | Nom du paramètre | Valeur du paramètre |
 |----------------|-----------------|
-| `iotHubConnectionString` | Chaîne de connexion de service de votre hub IoT. |
-| `deviceId` | Identificateur de l’appareil que vous avez créé précédemment. |
+| `ServiceConnectionString` | Chaîne de connexion de service de votre hub IoT. |
+| `MyDevice` | Identificateur de l’appareil que vous avez créé précédemment. |
 | `localPortNumber` | Port local auquel votre client SSH se connecte. Nous utilisons le port 2222 dans cet exemple, mais vous pouvez utiliser d’autres numéros arbitraires. |
 
-Compilez et exécutez le code comme suit :
+Compilez et exécutez le code avec les commandes suivantes :
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -168,10 +168,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-the-ssh-client"></a>Exécuter le client SSH
@@ -179,7 +179,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 Utilisez à présent votre application cliente SSH pour vous connecter à l’application de proxy locale de service sur le port 2222 (au lieu du démon SSH directement).
 
 ```
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 À ce stade, la fenêtre de connexion SSH vous invite à entrer vos informations d’identification.
@@ -198,42 +198,42 @@ Sortie de console de l’application cliente SSH. Le client SSH communique avec 
 
 ## <a name="rdp-to-a-device-via-device-streams"></a>Liaison RDP à un appareil par le biais de flux d’appareil
 
-La configuration pour le protocole RDP est très similaire à celle du protocole SSH (décrite plus haut). Vous utilisez l’adresse IP de destination RDP et le port 3389, ainsi que le client RDP (au lieu du client SSH).
+La configuration pour le protocole RDP est similaire à celle du protocole SSH (décrite plus haut). Vous utilisez l’adresse IP de destination RDP et le port 3389, ainsi que le client RDP (au lieu du client SSH).
 
 ### <a name="run-the-device-local-proxy-application-rdp"></a>Exécuter l’application de proxy locale d’appareil (RDP)
 
-Accédez au répertoire *device-streams-proxy/device* dans votre dossier de projet décompressé. Gardez à portée de main les informations suivantes :
+Dans une fenêtre de terminal locale, accédez au répertoire `device-streams-proxy/device` dans votre dossier de projet décompressé. Gardez à portée de main les informations suivantes :
 
 | Nom de l’argument | Valeur de l’argument |
 |----------------|-----------------|
-| `DeviceConnectionString` | Chaîne de connexion de l’appareil que vous avez créée précédemment. |
+| `DeviceConnectionString` | Chaîne de connexion d’appareil que vous avez créée précédemment. |
 | `targetServiceHostName` | Nom d’hôte ou adresse IP où s’exécute le serveur RDP. Cette adresse serait `localhost` s’il s’agissait de la même adresse IP que celle où l’application de proxy locale d’appareil est en cours d’exécution. |
 | `targetServicePort` | Port utilisé par votre protocole d’application (par défaut, il s’agit du port 3389 pour RDP).  |
 
-Compilez et exécutez le code comme suit :
+Compilez et exécutez le code avec les commandes suivantes :
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/device
 
 # Run the application
 # In Linux or macOS
-dotnet run $DeviceConnectionString localhost 3389
+dotnet run ${DeviceConnectionString} localhost 3389
 
 # In Windows
-dotnet run %DeviceConnectionString% localhost 3389
+dotnet run {DeviceConnectionString} localhost 3389
 ```
 
 ### <a name="run-the-service-local-proxy-application-rdp"></a>Exécuter l’application de proxy locale de service (RDP)
 
-Accédez à `device-streams-proxy/service` dans votre dossier de projet décompressé. Vous aurez besoin des informations suivantes :
+Dans une autre fenêtre de terminal locale, accédez à `device-streams-proxy/service` dans votre dossier de projet décompressé. Gardez à portée de main les informations suivantes :
 
 | Nom du paramètre | Valeur du paramètre |
 |----------------|-----------------|
-| `iotHubConnectionString` | Chaîne de connexion de service de votre hub IoT. |
-| `deviceId` | Identificateur de l’appareil que vous avez créé précédemment. |
+| `ServiceConnectionString` | Chaîne de connexion de service de votre hub IoT. |
+| `MyDevice` | Identificateur de l’appareil que vous avez créé précédemment. |
 | `localPortNumber` | Port local auquel votre client SSH se connecte. Nous utilisons le port 2222 dans cet exemple, mais vous pouvez utiliser d’autres nombres arbitraires. |
 
-Compilez et exécutez le code comme suit :
+Compilez et exécutez le code avec les commandes suivantes :
 
 ```
 cd ./iot-hub/Quickstarts/device-streams-proxy/service/
@@ -243,10 +243,10 @@ dotnet build
 
 # Run the application
 # In Linux or macOS
-dotnet run $serviceConnectionString MyDevice 2222
+dotnet run ${ServiceConnectionString} MyDevice 2222
 
 # In Windows
-dotnet run %serviceConnectionString% MyDevice 2222
+dotnet run {ServiceConnectionString} MyDevice 2222
 ```
 
 ### <a name="run-rdp-client"></a>Exécuter le client RDP

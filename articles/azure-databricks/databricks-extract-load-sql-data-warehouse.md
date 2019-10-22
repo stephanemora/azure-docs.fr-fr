@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 172921dcb082f511d16394b7693f40edf8394821
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 228b0fff7231af811206d5c477b63ed70706939b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826054"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329774"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -49,7 +49,7 @@ Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
 * Créez un entrepôt de données SQL Azure, créez une règle de pare-feu au niveau du serveur et connectez-vous au serveur en tant qu’administrateur. Consultez [Démarrage rapide : Créer et interroger un entrepôt de données SQL Azure dans le portail Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
 
-* Créez une clé principale de base de données pour l’entrepôt de données SQL Azure. Consultez [Créer une clé principale de base de données](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Créez une clé principale pour l’entrepôt de données SQL Azure. Consultez [Créer une clé principale de base de données](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
 * Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Consultez [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
@@ -141,7 +141,7 @@ Dans cette section, vous créez un bloc-notes dans l’espace de travail Azure D
 
     ![Fournir des détails pour un notebook dans Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "fournir des détails pour un notebook dans Databricks")
 
-4. Sélectionnez **Créer**.
+4. Sélectionnez **Create** (Créer).
 
 5. Le bloc de code suivant définit les informations d’identification par défaut du principal de service pour tout compte ADLS Gen 2 sollicité dans la session Spark. Le deuxième bloc de code ajoute le nom du compte au paramètre afin de spécifier les informations d’identification pour un compte ADLS Gen 2 spécifique.  Copiez et collez l’un ou l’autre bloc de code dans la première cellule de votre bloc-notes Azure Databricks.
 

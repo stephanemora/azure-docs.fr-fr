@@ -1,5 +1,5 @@
 ---
-title: Guide de démarrage rapide – Déployer un conteneur Docker sur Azure Container Instances – CLI
+title: 'Démarrage rapide : Déployer un conteneur Docker sur Azure Container Instances – Azure CLI'
 description: Dans ce guide de démarrage rapide, vous utilisez le Azure CLI pour déployer rapidement une application web conteneurisée qui s’exécute dans une instance de conteneur Azure isolé.
 services: container-instances
 author: dlepow
@@ -8,13 +8,16 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
-ms.custom: seodec18, mvc
-ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.custom:
+- seo-python-october2019
+- seodec18
+- mvc
+ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050624"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429204"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Démarrage rapide : Déployer un instance de conteneur dans Azure à l’aide d’Azure CLI
 
@@ -22,7 +25,7 @@ Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des
 
 Dans cette procédure de démarrage rapide, vous utilisez Azure CLI pour déployer un conteneur Docker isolé et mettre son application à disposition avec un nom de domaine complet (FQDN). Quelques secondes après l’exécution d’une seule commande de déploiement, vous pouvez accéder à l’application en cours d’exécution dans le conteneur :
 
-![Application déployée dans Azure Container Instances affichée dans le navigateur][aci-app-browser]
+![Afficher une application déployée sur Azure Container Instances dans le navigateur][aci-app-browser]
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][azure-account] avant de commencer.
 
@@ -69,7 +72,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 Si l’élément `ProvisioningState` du conteneur est défini sur **Réussite**, accédez à son nom de domaine complet dans votre navigateur. Si vous voyez une page web similaire à l’image suivante, félicitations ! Cela signifie que vous avez réussi à déployer une application s’exécutant dans un conteneur Docker sur Azure.
 
-![Capture d’écran du navigateur représentant une application exécutée dans une instance de conteneur Azure][aci-app-browser]
+![Afficher une application déployée sur Azure Container Instances dans le navigateur][aci-app-browser]
 
 Si l’application n’apparaît pas dans un premier temps, vous devrez peut-être patienter quelques secondes, le temps que le DNS se propage, puis essayez d’actualiser votre navigateur.
 
@@ -155,7 +158,7 @@ Dans ce guide de démarrage rapide, vous avez créé une instance de conteneur A
 Pour tester les options d’exécution des conteneurs dans un système d’orchestration sur Azure, consultez les guides de démarrage rapide [Azure Kubernetes Service (AKS)][container-service].
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

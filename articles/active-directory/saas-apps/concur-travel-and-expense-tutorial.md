@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 03/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f933cf54b354475146c1291b486173e0b57dbb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9dddd9f6904aa5ef7840850792aeabf04666dddc
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026723"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373410"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Concur Travel and Expense
 
@@ -38,16 +38,18 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 Pour commencer, vous devez disposer de ce qui suit :
 
 * Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
-* Abonnement Concur Travel and Expense pour lequel l’authentification unique est activée.
+* Abonnement Concur Travel and Expense.
+* Un rôle « Company Administrator » (Administrateur d’entreprise) sous votre compte d’utilisateur Concur. Vous pouvez vérifier si vous disposez de l’accès adéquat en accédant à [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin) (Outil libre-service d’authentification unique Concur). Si vous ne disposez pas de l’accès, contactez le chef de projet d’implémentation ou de support Concur. 
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD.
 
-* Concur Travel and Expense prend en charge l’authentification unique lancée par le **fournisseur d’identité**
+* Concur Travel and Expense prend en charge l’authentification unique lancée par le **fournisseur d’identité** et le **fournisseur de services**
+* Concur Travel and Expense prend en charge le test de l’authentification unique dans l’environnement de production et dans l’environnement d’implémentation 
 
 > [!NOTE]
-> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
+> L’identificateur de cette application est une valeur de chaîne fixe pour chacune des trois régions : États-Unis, EMEA et Chine. Ainsi, une seule instance peut être configurée pour chaque région dans un locataire. 
 
 ## <a name="adding-concur-travel-and-expense-from-the-gallery"></a>Ajout de Concur Travel and Expense à partir de la galerie
 
@@ -85,13 +87,16 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans la section **Configuration SAML de base**, l’application est préconfigurée en mode Lancement par le **fournisseur d’identité** et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
 
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+    > [!NOTE]
+    > L’identificateur (ID d’entité) et l’URL de réponse (URL Assertion Consumer Service) sont spécifiques à la région. Veuillez les sélectionner en fonction du centre de données de votre entité Concur. Si vous ne connaissez pas le centre de données de votre entité Concur, contactez le support technique Concur. 
+
+5. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Attribut utilisateur** afin de modifier les paramètres. L’identifiant utilisateur unique doit correspondre à l’identifiant de connexion de l’utilisateur Concur. En règle générale, vous devez remplacer **user.userprincipalname** par **user.mail**.
+
+    ![Modifier un attribut utilisateur](common/edit-attribute.png)
+
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger les métadonnées et les enregistrer sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
-
-1. Dans la section **Configurer Concur Travel and Expense**, copiez l’URL ou les URL appropriées en fonction de vos besoins.
-
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -125,11 +130,31 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 ## <a name="configure-concur-travel-and-expense-sso"></a>Configurer l’authentification unique Concur Travel and Expense
 
-Pour configurer l’authentification unique côté **Concur Travel and Expense**, vous devez envoyer le fichier **XML de métadonnées de fédération** téléchargé et les URL appropriées, copiées à partir du portail Azure, à l’[équipe du support technique de Concur Travel and Expense](https://www.concur.com/support). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+1. Pour configurer l’authentification unique côté **Concur Travel and Expense**, vous devez charger le fichier **XML de métadonnées de fédération** sur [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin) et vous connecter avec un compte ayant le rôle « Company Administrator ». 
+
+1. Cliquez sur **Add**.
+1. Entrez un nom personnalisé pour votre fournisseur d’identité, par exemple « Azure AD (US) ». 
+1. Cliquez sur **Upload XML File** (Charger le fichier XML) et joignez le fichier **XML de métadonnées de fédération** que vous avez téléchargé.
+1. Cliquez sur **Add Metadata** (Ajouter les métadonnées) pour enregistrer la modification.
+
+    ![Capture d’écran de l’outil libre-service d’authentification unique](./media/concur-travel-and-expense-tutorial/add-metadata-concur-self-service-tool.png)
 
 ### <a name="create-concur-travel-and-expense-test-user"></a>Créer un utilisateur de test Concur Travel and Expense
 
-Dans cette section, vous créez un utilisateur appelé B.Simon dans Concur Travel and Expense. Collaborez avec l’ [équipe du support technique Concur Travel and Expense](https://www.concur.com/support) pour ajouter les utilisateurs à la plateforme Concur Travel and Expense. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous créez un utilisateur appelé B.Simon dans Concur Travel and Expense. Collaborez avec l’équipe du support technique Concur pour ajouter les utilisateurs à la plateforme Concur Travel and Expense. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique. 
+
+> [!NOTE]
+> L’ID de connexion Concur de B.Simon doit correspondre à l’identificateur unique de B.Simon sur Azure AD. Par exemple, si l’identificateur unique Azure AD de B.Simon est `B.Simon@contoso.com`, l’ID de connexion Concur de B.Simon doit également être `B.Simon@contoso.com`. 
+
+## <a name="configure-concur-mobile-sso"></a>Configurer l’authentification unique mobile Concur
+Pour activer l’authentification unique mobile Concur, vous devez fournir à l’équipe de support technique Concur l’**URL de l’accès utilisateur**. Suivez les étapes ci-dessous pour obtenir l’**URL de l’accès utilisateur** auprès d’Azure AD :
+1. Accédez à **Applications d’entreprise**.
+1. Cliquez sur **Concur Travel and Expense**.
+1. Cliquez sur **Propriétés**.
+1. Copiez l’**URL de l’accès utilisateur**, puis communiquez-la à l’équipe de support.
+
+> [!NOTE]
+> L’option libre-service pour configurer l’authentification unique n’étant pas disponible, collaborez avec l’équipe du support technique Concur pour activer l’authentification unique mobile. 
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

@@ -1,18 +1,18 @@
 ---
 title: Charger en parallèle de grandes quantités de données aléatoires dans le stockage Azure | Microsoft Docs
-description: Découvrir comment utiliser le SDK Azure pour charger en parallèle de grandes quantités de données aléatoires dans un compte de stockage Azure
+description: Découvrir comment utiliser la bibliothèque de client Stockage Azure pour charger en parallèle de grandes quantités de données aléatoires dans un compte de stockage Azure
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: e5c1a78bf2f482e99d8ff13590a8bb81f9601991
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698969"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302981"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Charger en parallèle de grandes quantités de données aléatoires dans le stockage Azure
 
@@ -28,7 +28,7 @@ Dans ce deuxième volet, vous apprenez à :
 
 Le Stockage blob Azure fournit un service évolutif pour stocker vos données. Pour que votre application soit aussi performante que possible, vous devez comprendre le fonctionnement du stockage blob. Vous devez connaître les limites des objets blob Azure. Pour en savoir plus sur ces limites, consultez : [Objectifs d’évolutivité du stockage blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-La [convention de nommage des partitions](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) est un autre facteur potentiellement important quand vous concevez une application hautement performante à l’aide d’objets blob. Pour les tailles de bloc supérieures ou égales à quatre MiB, des [objets blob de type bloc à débit élevé](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) sont utilisés, et le choix de nom de partition n’affecte pas les performances. Pour les tailles de bloc inférieures à quatre MiB, le Stockage Azure utilise un schéma de partitionnement basé sur une plage pour mettre à l’échelle et équilibrer la charge. Cette configuration signifie que les fichiers qui ont des conventions de nommage ou des préfixes similaires sont dirigés dans la même partition. Cette logique inclut le nom du conteneur dans lequel les fichiers sont chargés. Dans ce didacticiel, vous utilisez des fichiers qui ont des GUID comme noms ainsi que du contenu généré aléatoirement. Ils sont ensuite chargés dans cinq conteneurs différents avec des noms aléatoires.
+La [convention de nommage des partitions](../blobs/storage-performance-checklist.md#partitioning) est un autre facteur potentiellement important quand vous concevez une application hautes performances à l’aide d’objets blob. Pour les tailles de bloc supérieures ou égales à 4 Mio, des [objets blob de blocs à débit élevé](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) sont utilisés, et le nommage des partitions n’affecte pas les performances. Pour les tailles de bloc inférieures à 4 Mio, le Stockage Azure utilise un schéma de partitionnement basé sur une plage pour mettre à l’échelle et équilibrer la charge. Cette configuration signifie que les fichiers qui ont des conventions de nommage ou des préfixes similaires sont dirigés dans la même partition. Cette logique inclut le nom du conteneur dans lequel les fichiers sont chargés. Dans ce didacticiel, vous utilisez des fichiers qui ont des GUID comme noms ainsi que du contenu généré aléatoirement. Ils sont ensuite chargés dans cinq conteneurs différents avec des noms aléatoires.
 
 ## <a name="prerequisites"></a>Prérequis
 

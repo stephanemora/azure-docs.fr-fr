@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: 65956ab9fa182794b4cb9ac1fc1800198f2dcdaa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 025779edd1400c65d10788def17529e84349d582
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561117"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515749"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Didacticiel : Utiliser un modèle ONNX à partir de Custom Vision avec Windows ML (préversion)
 
@@ -31,9 +31,9 @@ Les informations dans ce document indiquent comment utiliser un fichier ONNX exp
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Windows 10 build 17738 ou version ultérieure
+* Windows 10 version 1809 ou ultérieure
 
-* SDK Windows pour build 17738 ou version ultérieure
+* Microsoft Windows SDK pour build 17763 ou ultérieure
 
 * Visual Studio 2017 version 15.7 ou ultérieure avec la charge de travail __Développement pour la plateforme Windows universelle__ activée.
 
@@ -45,7 +45,7 @@ L’application est une application UWP Windows générique. Elle vous permet de
 
 ## <a name="get-the-example-code"></a>Obtenir l’exemple de code
 
-L’exemple d’application est disponible à l’adresse [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/).
+L’exemple d’application est disponible à l’adresse [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample).
 
 ## <a name="run-the-example"></a>Exécuter l’exemple
 
@@ -59,7 +59,7 @@ Pour utiliser votre propre modèle, procédez comme suit :
 
 1. [Créez un classifieur et effectuez son apprentissage](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) avec Service Vision personnalisée. Pour exporter le modèle, sélectionnez un domaine __compact__ comme **General (compact)** (Général (compact)). Pour exporter un classifieur existant, convertissez le domaine en domaine compact en sélectionnant l’icône d’engrenage en haut à droite. Dans __Paramètres__, choisissez un modèle compact, enregistrez-le et effectuez l’apprentissage de votre projet.  
 
-1. [Exportez votre modèle](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) en accédant à l’onglet Performances. Sélectionnez une itération formée avec un domaine compact ; un bouton « Exporter » va s’afficher. Sélectionnez *Exporter*, *ONNX* (ONNX), *ONNX1.2* (ONNX1.2), puis *Exporter*. Une fois que le fichier est prêt, sélectionnez le bouton *Télécharger*.
+1. [Exportez votre modèle](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) en accédant à l’onglet Performances. Sélectionnez une itération formée avec un domaine compact ; un bouton « Exporter » va s’afficher. Sélectionnez *Exporter*, *ONNX*, puis *Exporter*. Une fois que le fichier est prêt, sélectionnez le bouton *Télécharger*.
 
 1. Déposez le fichier ONNX dans le dossier __Ressources__ de votre projet. 
 

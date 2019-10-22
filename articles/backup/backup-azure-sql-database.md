@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1482ac4b885507e37ba5972065810682c19bebed
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 202d608e5d994cabd3d7e2e9a0887c8aab75af31
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958462"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437822"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>À propos de la sauvegarde SQL Server sur des machines virtuelles Azure
 
@@ -24,7 +24,7 @@ Cette solution exploite les API natives de SQL pour effectuer des sauvegardes de
 
 * Une fois que vous avez spécifié la machine virtuelle SQL Server que vous voulez protéger et dont vous voulez interroger des bases de données, le service Sauvegarde Azure installe une extension de sauvegarde de charge de travail sur la machine virtuelle nommée `AzureBackupWindowsWorkload`.
 * Cette extension se compose d’un coordinateur et d’un plug-in SQL. Alors que le coordinateur est responsable du déclenchement des flux de travail pour diverses opérations, comme le configuration de la sauvegarde, la sauvegarde et la restauration, le plug-in est responsable du flux de données réel.
-* Pour pouvoir découvrir les bases de données sur cette machine virtuelle, Sauvegarde Azure crée le compte `NT SERVICE\AzureWLBackupPluginSvc`. Ce compte est utilisé pour la sauvegarde et la restauration. Il doit disposer d’autorisations d’administrateur système SQL. Sauvegarde Azure utilise le compte `NT AUTHORITY\SYSTEM` pour la découverte et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL. Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](#set-vm-permissions).
+* Pour pouvoir découvrir les bases de données sur cette machine virtuelle, Sauvegarde Azure crée le compte `NT SERVICE\AzureWLBackupPluginSvc`. Ce compte est utilisé pour la sauvegarde et la restauration. Il doit disposer d’autorisations d’administrateur système SQL. Le compte `NT SERVICE\AzureWLBackupPluginSvc` est un [compte de service virtuel](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts) et ne nécessite donc pas de gestion des mots de passe. Sauvegarde Azure utilise le compte `NT AUTHORITY\SYSTEM` pour la découverte et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL. Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](#set-vm-permissions).
 * Lorsque vous déclenchez la configuration de la protection sur les bases de données sélectionnées, le service de sauvegarde configure le coordinateur avec les planifications de sauvegarde et d’autres détails de stratégie, ce que l’extension met en cache localement sur la machine virtuelle.
 * À l’heure planifiée, le coordinateur communique avec le plug-in et démarre le streaming des données de sauvegarde à partir du serveur SQL avec l’infrastructure VDI.  
 * Le plug-in envoie les données directement au coffre Recovery Services, ce qui élimine la nécessité d’un emplacement intermédiaire. Les données sont chiffrées et stockées par le service de Sauvegarde Azure dans des comptes de stockage.
@@ -62,32 +62,33 @@ Les utilisateurs ne seront pas facturés pour cette fonctionnalité tant qu’el
 
 ## <a name="feature-consideration-and-limitations"></a>Considérations et limitations relatives aux fonctionnalités
 
-- La sauvegarde SQL Server peut être configurée dans le portail Azure ou **PowerShell**. Nous ne prenons pas en charge l’interface CLI.
-- La solution est prise en charge pour les deux types de [déploiements](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) : machines virtuelles Azure Resource Manager et machines virtuelles classiques.
-- La machine virtuelle exécutant SQL Server nécessite une connexion Internet pour accéder aux adresses IP publiques Azure.
-- L’**instance de cluster de basculement (FCI)** SQL Server et l’instance de cluster de basculement SQL Server Always On ne sont pas prises en charge.
-- Les opérations de sauvegarde et de restauration des bases de données miroir et des instantanés de base de données ne sont pas prises en charge.
-- L’utilisation de plusieurs solutions de sauvegarde pour sauvegarder votre instance SQL Server autonome ou votre groupe de disponibilité SQL AlwaysOn peut entraîner l’échec de la sauvegarde. Une telle utilisation est donc à éviter.
-- La sauvegarde de deux nœuds d’un groupe de disponibilité individuellement avec les mêmes solutions ou des solutions différentes peut également entraîner l’échec de la sauvegarde.
-- La Sauvegarde Azure prend uniquement en charge les types de sauvegarde Complète et Copie complète uniquement pour les bases de données **en lecture seule**.
-- Les bases de données comprenant un grand nombre de fichiers ne peuvent pas être protégées. Le nombre maximal de fichiers pris en charge est d’**environ 1 000**.  
-- Vous pouvez sauvegarder jusqu’à **environ 2 000** bases de données SQL Server dans un coffre. Vous pouvez créer plusieurs coffres au cas où vous auriez un plus grand nombre de bases de données.
-- Vous pouvez configurer la sauvegarde pour au maximum **50** bases de données en une seule fois. Cette restriction permet d’optimiser les charges de sauvegardes.
-- Nous prenons en charge les bases de données d’une taille maximale de **2 To**. Pour les tailles supérieures, des problèmes de performance peuvent survenir.
-- Pour avoir une idée du nombre de bases de données qui peuvent être protégées par serveur, nous devons tenir compte de facteurs tels que la bande passante, la taille de la machine virtuelle, la fréquence des sauvegardes, la taille des bases de données, etc. [Téléchargez](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) le planificateur de ressources qui donne le nombre approximatif de bases de données que vous pouvez avoir par serveur en fonction des ressources de la machine virtuelle et de la stratégie de sauvegarde.
-- Dans le cas des groupes de disponibilité, les sauvegardes sont effectuées à partir des différents nœuds en fonction de plusieurs facteurs. Le comportement des sauvegardes pour un groupe de disponibilité est récapitulé ci-dessous.
+* La sauvegarde SQL Server peut être configurée dans le portail Azure ou **PowerShell**. Nous ne prenons pas en charge l’interface CLI.
+* La solution est prise en charge pour les deux types de [déploiements](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) : machines virtuelles Azure Resource Manager et machines virtuelles classiques.
+* La machine virtuelle exécutant SQL Server nécessite une connexion Internet pour accéder aux adresses IP publiques Azure.
+* L’**instance de cluster de basculement (FCI)** SQL Server et l’instance de cluster de basculement SQL Server Always On ne sont pas prises en charge.
+* Les opérations de sauvegarde et de restauration des bases de données miroir et des instantanés de base de données ne sont pas prises en charge.
+* L’utilisation de plusieurs solutions de sauvegarde pour sauvegarder votre instance SQL Server autonome ou votre groupe de disponibilité SQL AlwaysOn peut entraîner l’échec de la sauvegarde. Une telle utilisation est donc à éviter.
+* La sauvegarde de deux nœuds d’un groupe de disponibilité individuellement avec les mêmes solutions ou des solutions différentes peut également entraîner l’échec de la sauvegarde.
+* La Sauvegarde Azure prend uniquement en charge les types de sauvegarde Complète et Copie complète uniquement pour les bases de données **en lecture seule**.
+* Les bases de données comprenant un grand nombre de fichiers ne peuvent pas être protégées. Le nombre maximal de fichiers pris en charge est d’**environ 1 000**.  
+* Vous pouvez sauvegarder jusqu’à **environ 2 000** bases de données SQL Server dans un coffre. Vous pouvez créer plusieurs coffres au cas où vous auriez un plus grand nombre de bases de données.
+* Vous pouvez configurer la sauvegarde pour au maximum **50** bases de données en une seule fois. Cette restriction permet d’optimiser les charges de sauvegardes.
+* Nous prenons en charge les bases de données d’une taille maximale de **2 To**. Pour les tailles supérieures, des problèmes de performance peuvent survenir.
+* Pour avoir une idée du nombre de bases de données qui peuvent être protégées par serveur, nous devons tenir compte de facteurs tels que la bande passante, la taille de la machine virtuelle, la fréquence des sauvegardes, la taille des bases de données, etc. [Téléchargez](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) le planificateur de ressources qui donne le nombre approximatif de bases de données que vous pouvez avoir par serveur en fonction des ressources de la machine virtuelle et de la stratégie de sauvegarde.
+* Dans le cas des groupes de disponibilité, les sauvegardes sont effectuées à partir des différents nœuds en fonction de plusieurs facteurs. Le comportement des sauvegardes pour un groupe de disponibilité est récapitulé ci-dessous.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Comportement des sauvegardes dans le cas des groupes de disponibilité AlwaysOn
 
 Dans un groupe de disponibilité, il est recommandé de ne configurer une sauvegarde que sur un seul nœud. Les sauvegardes doivent toujours être configurées dans la même région que le nœud principal. En d’autres termes, le nœud principal doit toujours se trouver dans la région où vous configurez la sauvegarde. Si tous les nœuds du groupe de disponibilité se trouvent dans la même région où la sauvegarde est configurée, cela ne pose pas de problème.
 
-**Groupe de disponibilité interrégional**
-- Quelle que soit la préférence de sauvegarde, les sauvegardes ne peuvent pas être effectuées sur les nœuds qui ne se trouvent pas dans la région où la sauvegarde est configurée. Ceci est dû au fait que les sauvegardes interrégionales ne sont pas prises en charge. Si vous ne disposez que de deux nœuds et que le nœud secondaire se trouve dans l’autre région, les sauvegardes continueront alors à s’effectuer sur le nœud principal (sauf si votre préférence de sauvegarde est « Secondaire uniquement »).
-- Si un basculement se produit vers une région différente de celle dans laquelle la sauvegarde est configurée, les sauvegardes échouent sur les nœuds de la région ayant basculé.
+#### <a name="for-cross-region-ag"></a>Groupe de disponibilité interrégional
+
+* Quelle que soit la préférence de sauvegarde, les sauvegardes ne peuvent pas être effectuées sur les nœuds qui ne se trouvent pas dans la région où la sauvegarde est configurée. Ceci est dû au fait que les sauvegardes interrégionales ne sont pas prises en charge. Si vous ne disposez que de deux nœuds et que le nœud secondaire se trouve dans l’autre région, les sauvegardes continueront alors à s’effectuer sur le nœud principal (sauf si votre préférence de sauvegarde est « Secondaire uniquement »).
+* Si un basculement se produit vers une région différente de celle dans laquelle la sauvegarde est configurée, les sauvegardes échouent sur les nœuds de la région ayant basculé.
 
 En fonction de la préférence de sauvegarde et des types de sauvegardes (complète/différentielle/de fichier journal/copie complète uniquement), les sauvegardes sont effectuées à partir d’un nœud particulier (principal/secondaire).
 
-- **Préférence de sauvegarde : Primaire**
+* **Préférence de sauvegarde : Primaire**
 
 **Type de sauvegarde** | **Node**
     --- | ---
@@ -96,7 +97,7 @@ En fonction de la préférence de sauvegarde et des types de sauvegardes (compl�
     Journal |  Primaire
     Copie complète uniquement |  Primaire
 
-- **Préférence de sauvegarde : Secondaire uniquement**
+* **Préférence de sauvegarde : Secondaire uniquement**
 
 **Type de sauvegarde** | **Node**
 --- | ---
@@ -105,7 +106,7 @@ Différentielle | Primaire
 Journal |  Secondaire
 Copie complète uniquement |  Secondaire
 
-- **Préférence de sauvegarde : Secondaire**
+* **Préférence de sauvegarde : Secondaire**
 
 **Type de sauvegarde** | **Node**
 --- | ---
@@ -114,7 +115,7 @@ Différentielle | Primaire
 Journal |  Secondaire
 Copie complète uniquement |  Secondaire
 
-- **Pas de préférence de sauvegarde**
+* **Pas de préférence de sauvegarde**
 
 **Type de sauvegarde** | **Node**
 --- | ---
@@ -227,7 +228,6 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 ```
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

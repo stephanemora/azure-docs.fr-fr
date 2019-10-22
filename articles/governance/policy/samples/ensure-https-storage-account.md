@@ -1,17 +1,17 @@
 ---
-title: Exemple - Garantir le trafic HTTPS pour le compte de stockage uniquement
+title: Exemple - Garantir le trafic HTTPS pour les comptes de stockage
 description: Pour cet exemple de définition de stratégie, les comptes de stockage doivent utiliser le trafic HTTPS.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 07694c7f6ca4590615c1f5530c19a530025c6add
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 41e752d3b88a7b36dbe7d9200ad6de42ab9d563f
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977094"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255765"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>Exemple - Garantir le trafic HTTPS pour le compte de stockage uniquement
 

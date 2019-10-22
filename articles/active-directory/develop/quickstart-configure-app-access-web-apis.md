@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937fca5698378a8c877b4a981557f87d06170e9a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879403"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389606"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Démarrage rapide : Configurer une application cliente pour accéder aux API web
 
@@ -80,8 +80,9 @@ Pour ajouter un URI de redirection à votre application :
 
 1. Pour choisir parmi les URI de redirection suggérés pour les clients publics (mobile, bureau), procédez comme suit :
     1. Recherchez la section des **URI de redirection suggérés pour les clients publics (mobile, bureau)** .
-    1. Sélectionnez le ou les URI de redirection approprié(s) pour votre application en cochant les cases correspondantes.
+    1. Sélectionnez le ou les URI de redirection approprié(s) pour votre application en cochant les cases correspondantes. Vous pouvez également entrer un URI de redirection personnalisé. Si vous n’êtes pas sûr de ce qu’il faut utiliser, consultez la documentation de la bibliothèque.
 
+Certaines restrictions s’appliquent aux URI de redirection. Apprenez-en davantage sur les [restrictions et limitations des URI de redirection](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 > [!NOTE]
 > Essayez la nouvelle expérience des paramètres d’**authentification** vous permettant de configurer les paramètres de votre application en fonction de la plateforme ou du périphérique que vous souhaitez cibler.
 >
@@ -128,7 +129,7 @@ Pour configurer les paramètres de l’application en fonction de la plateforme 
 
    | Plateforme                | Choices              | Paramètres de configuration            |
    |-------------------------|----------------------|-----------------------------------|
-   | **Applications web**    | **web**              | Entrez l’**URI de redirection** de votre application. |
+   | **Applications web**    | **Web**              | Entrez l’**URI de redirection** de votre application. |
    | **Applications mobiles** | **iOS**              | Entrez l’**ID d’offre groupée** de l’application, que vous pouvez trouver dans Xcode dans Info.plist ou Paramètres de build. L’ajout de l’ID d’offre groupée crée automatiquement un URI de redirection pour l’application. |
    |                         | **Android**          | * Indiquez le **nom du package** de l’application, que vous trouverez dans le fichier AndroidManifest.xml.<br/>* Générez et entrez le **code de hachage de la signature**. L’ajout du code de hachage de la signature crée automatiquement un URI de redirection pour l’application.  |
    | **Bureau + appareils**   | **Bureau + appareils** | * Facultatif. Sélectionnez l’un des **URI de redirection suggérés** si vous créez des applications pour des ordinateurs de bureau et des appareils.<br/>* Facultatif. Entrez un **URI de redirection personnalisé**, qui sert d’emplacement vers lequel Azure AD redirige les utilisateurs en réponse aux demandes d’authentification. Par exemple, pour les applications .NET Core pour lesquelles vous souhaitez une interaction, utilisez `https://localhost`. |

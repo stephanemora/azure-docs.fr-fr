@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 82c56a01d7f14f1eeae26dfa784f3545552bf6b9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 43d39039d01b22e7d918755e9557d6a1030ef7a8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981388"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302861"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Didacticiel : Créer et gérer des stratégies pour appliquer la conformité
 
@@ -390,7 +390,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 1. Sélectionnez **Conformité** dans la partie gauche de la page Azure Policy.
 
-1. Localisez l’initiative **Obtenir des sources**. Elle est probablement toujours à l’_État de conformité_ **Non démarrée**.
+1. Localisez l’initiative **Garantir la sécurité**. Elle est probablement toujours à l’_État de conformité_ **Non démarrée**.
    Cliquez sur l’initiative pour obtenir tous les détails sur la progression de l’affectation.
 
    ![Page de conformité de l’initiative - évaluations non démarrées](../media/create-and-manage/compliance-status-not-started.png)

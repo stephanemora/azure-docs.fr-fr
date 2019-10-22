@@ -1,21 +1,21 @@
 ---
-title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost Management | Microsoft Docs'
+title: 'Tutoriel : Créer et gérer des données exportées depuis Azure Cost Management'
 description: Cet article vous montre comment créer et gérer des données Azure Cost Management exportées pour les utiliser dans des systèmes externes.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 10/12/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 070844cbf8f6a550b92d764ddb8a31afec12f437
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792884"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374610"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Didacticiel : Créer et gérer des données exportées
 
@@ -50,8 +50,8 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 Pour créer, afficher ou planifier une exportation de données, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Analyse du coût** dans le menu. Par exemple, accédez à **Abonnements**, sélectionnez un abonnement dans la liste, puis sélectionnez **Analyse du coût** dans le menu. En haut de la page Analyse du coût, cliquez sur **Exporter**, puis choisissez une option d’exportation. Par exemple, cliquez sur **Planifier l’exportation**.  
 
 > [!NOTE]
-> Vous pouvez non seulement créer des exportations sur des abonnements, mais aussi sur des groupes de ressources, des comptes, des services et des inscriptions. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
->
+> - Vous pouvez non seulement créer des exportations sur des abonnements, mais aussi sur des groupes de ressources, des comptes, des services et des inscriptions. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
+>- Quand vous êtes connecté en tant que partenaire dans l’étendue du compte de facturation ou sur le locataire d’un client, vous pouvez exporter des données vers un compte de stockage Azure lié à votre compte de stockage partenaire. Toutefois, vous devez disposer d’un abonnement actif dans votre locataire CSP.
 >
 
 

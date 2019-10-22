@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806348"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390158"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -40,11 +40,11 @@ Pour les machines virtuelles Windows et SQL Database, vous pouvez couvrir les co
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Qui peut acheter une réservation ?
 
-Pour acheter un plan, vous devez disposer d’un rôle de propriétaire dans un abonnement Entreprise (MS-AZR-0017P ou MS-AZR-0148P) ou Paiement à l’utilisation (MS-AZR-0003P ou MS-AZR-0023P). Les fournisseurs de solutions cloud peuvent utiliser le portail Azure ou l’ [Espace partenaires](/partner-center/azure-reservations) pour acheter des réservations Azure.
+Pour acheter un plan, vous devez avoir un rôle de propriétaire dans un abonnement Entreprise (MS-AZR-0017P ou MS-AZR-0148P), Paiement à l’utilisation (MS-AZR-0003P ou MS-AZR-0023P) ou Contrat Client Microsoft. Les fournisseurs de solutions cloud peuvent utiliser le portail Azure ou l’ [Espace partenaires](/partner-center/azure-reservations) pour acheter des réservations Azure.
 
 Les clients Contrat Entreprise (EA) peuvent limiter les achats aux administrateurs EA en désactivant l'option **Ajouter des instances réservées** dans le portail EA. Les administrateurs EA doivent être propriétaires d'au moins un abonnement EA pour acheter une réservation. Cette option est particulièrement utile pour les entreprises souhaitant qu'une équipe centralisée achète des réservations pour différents centres de coûts. Au terme de l'achat, les équipes centralisées peuvent ajouter des propriétaires de centres de coûts aux réservations. Les propriétaires peuvent ensuite étendre la réservation à leurs abonnements. L’équipe centralisée n'est pas tenue de disposer d'un accès de propriétaire d'abonnement là où la réservation est achetée.
 
-Une remise de réservation s’applique uniquement aux ressources associées aux abonnements achetés via des forfaits d’entreprise, de fournisseurs de solutions cloud et individuels avec paiement à l’utilisation.
+Une remise de réservation s’applique uniquement aux ressources associées aux abonnements qui ont été achetés dans le cadre de plans Entreprise, CSP, Contrat Client Microsoft et individuels avec paiement à l’utilisation.
 
 ## <a name="scope-reservations"></a>Réservations d’étendue
 
@@ -56,7 +56,7 @@ Avec l’étendue de réservation des groupes de ressources, vous disposez de tr
 
 - **Étendue de groupe de ressources unique** : applique la remise de réservation aux ressources correspondantes incluses dans le groupe de ressources sélectionné uniquement.
 - **Étendue d’abonnement unique** : applique la remise de réservation aux ressources correspondantes incluses dans l’abonnement sélectionné.
-- **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
+- **Étendue partagée** : applique la remise de réservation aux ressources correspondantes dans les abonnements éligibles inclus dans le contexte de facturation. Pour les clients Contrat Entreprise, le contexte de facturation correspond à l’inscription. Pour les clients avec un Contrat Client Microsoft, l’étendue de facturation correspond au profil de facturation. Pour les abonnements individuels utilisant les tarifs du paiement à l’utilisation, l’étendue de facturation correspond à tous les abonnements éligibles créés par l’administrateur de compte.
 
 Lors de l’application des remises de réservation sur votre utilisation, Azure traite la réservation dans l’ordre suivant :
 
@@ -84,7 +84,7 @@ Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour ce
 
 Vous pouvez surveiller l’utilisation de la réservation de plusieurs façons : via le portail Azure, via l’API ou via les données d’utilisation. Pour voir toutes les réservations auxquelles vous avez accès, accédez à **Réservations** dans le portail Azure. La grille de réservations affiche le dernier pourcentage d’utilisation enregistré pour la réservation. Cliquez sur la réservation pour voir l’utilisation à long terme de la réservation.
 
-Vous pouvez également obtenir les informations d’utilisation de la réservation avec les [API](billing-reservation-apis.md#see-reservation-usage) et vos [données d’utilisation](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) si vous êtes un client avec un contrat entreprise.
+Vous pouvez également obtenir les informations d’utilisation de la réservation avec les [API](billing-reservation-apis.md#see-reservation-usage) et vos [données d’utilisation](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) si vous êtes client Contrat Entreprise ou Contrat Client Microsoft.
 
 Si vous remarquez que l’utilisation de la réservation de votre groupe de ressources est faible, vous pouvez mettre à jour l’étendue de réservation vers un abonnement unique ou le partager dans le contexte de facturation. Vous pouvez également fractionner la réservation et appliquer les réservations qui en résultent à différents groupes de ressources.
 
@@ -99,6 +99,7 @@ L’étendue de réservation ne se met automatiquement à jour si vous déplacez
 Les remises de réservation s’appliquent aux types d'abonnements et d'offres éligibles suivants.
 
 - Contrat Entreprise (références de l’offre : MS-AZR-0017P ou MS-AZR-0148P)
+- Abonnements avec Contrat Client Microsoft.
 - Forfaits individuels avec paiement à l’utilisation (références de l’offre : MS-AZR-0003P ou MS-AZR-0023P)
 - Abonnements CSP
 
@@ -106,7 +107,7 @@ Les ressources opérant dans le cadre d’un abonnement relevant d’autres type
 
 ## <a name="how-is-a-reservation-billed"></a>Comment une réservation est-elle facturée ?
 
-La réservation est facturée selon le mode de paiement associé à l’abonnement. Si vous avez souscrit un abonnement Entreprise, le coût des réservations est déduit de votre solde d’engagement. Lorsque ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement pour les achats en paiement initial. Les paiements mensuels apparaissent sur votre facture et votre carte de crédit est facturée chaque mois. Lorsque vous réglez sur facture, les frais sont portés sur votre prochaine facture.
+La réservation est facturée selon le mode de paiement associé à l’abonnement. Le coût de la réservation est déduit de votre solde d’engagement financier, le cas échéant. Lorsque ce solde ne couvre pas le coût des réservations, le dépassement vous est facturé. Si vous avez souscrit un abonnement à partir d’un forfait individuel avec paiement à l’utilisation, la carte de crédit associée à votre compte est facturée immédiatement pour les achats en paiement initial. Les paiements mensuels apparaissent sur votre facture et votre carte de crédit est facturée chaque mois. Lorsque vous réglez sur facture, les frais sont portés sur votre prochaine facture.
 
 ## <a name="how-reservation-discount-is-applied"></a>Comment la remise de réservation est-elle appliquée ?
 
@@ -120,7 +121,7 @@ Par exemple, vous pourrez plus tard créer une ressource et disposer d'une rése
 
 Si elles s’exécutent dans différents abonnements au sein de votre compte/inscription, sélectionnez l’étendue alors définie comme partagée. Cette étendue partagée permet d’appliquer la remise de réservation à différents abonnements. Vous pouvez modifier l’étendue après l’achat d’une réservation. Pour plus d’informations, voir [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md).
 
-Une remise sur réservation s’applique uniquement aux ressources associées aux types d’abonnements CSP, Entreprise ou avec paiement à l’utilisation. Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation.
+Une remise de réservation s’applique uniquement aux ressources associées aux types d’abonnements Entreprise, Contrat Client Microsoft, CSP, ou avec paiement à l’utilisation. Les ressources opérant dans le cadre d’un abonnement relevant d’autres types d’offres ne bénéficient d’aucune remise sur réservation.
 
 ## <a name="when-the-reservation-term-expires"></a>Expiration du terme de la réservation
 

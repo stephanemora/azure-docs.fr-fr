@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720058"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515711"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Didacticiel : Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure
 
@@ -46,21 +46,18 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
 2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
-3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
+3. Dans la page **Bases**, entrez ou sélectionnez les informations suivantes, puis acceptez les valeurs par défaut pour les autres paramètres :
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|myVirtualNetwork1|
-    |Espace d’adressage|10.0.0.0/16|
-    |Abonnement| Sélectionnez votre abonnement.|
+    |Subscription| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez *myResourceGroup*.|
-    |Location| Sélectionnez **USA Est**.|
-    |Nom du sous-réseau|Sous-réseau1|
-    |Plage d’adresses de sous-réseau|10.0.0.0/24|
-
-      ![Créez un réseau virtuel](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
-
-4. Effectuez à nouveau les étapes 1 à 3, avec les modifications suivantes :
+    |Région| Sélectionnez **USA Est**.|
+    |Nom|myVirtualNetwork1|
+    ![Configurer les paramètres de réseau virtuel de base] (
+4. Dans la page **Adresses IP**, entrez 10.0.0.0/16 dans le champ **Espace d’adressage**. Cliquez sur le bouton **Ajouter un sous-réseau** situé dessous, puis entrez Subnet1 sous **Nom du sous-réseau** et 10.0.0.0/24 sous **Plage d’adresses de sous-réseau**.
+   
+5. Effectuez à nouveau les étapes 1 à 3, avec les modifications suivantes :
 
     |Paramètre|Valeur|
     |---|---|
@@ -105,22 +102,26 @@ Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir
 
     |Paramètre|Valeur|
     |---|---|
+    |Resource group| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
     |Nom|myVm1|
+    |Location| Sélectionnez **USA Est**.|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Emplacement| Sélectionnez **USA Est**.|
-4. Sélectionnez une taille de machine virtuelle sous **Choisir une taille**.
-5. Dans **Paramètres**, sélectionnez les valeurs suivantes, puis sélectionnez **OK** :
+   
+4. Sélectionnez une taille de machine virtuelle sous l’option **Taille**.
+5. Sélectionnez les valeurs suivantes sous **Réseaux** :
 
     |Paramètre|Valeur|
     |---|---|
-    |Réseau virtuel| myVirtualNetwork1 : S’il n’est pas déjà sélectionné, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork1** sous **Choisir un réseau virtuel**.|
-    |Subnet| Subnet1 : S’il n’est pas déjà sélectionné, sélectionnez **Sous-réseau**, puis sélectionnez **Subnet1** sous **Choisir un sous-réseau**.|
+    |Réseau virtuel| myVirtualNetwork1 : S’il n’est pas déjà sélectionné, sélectionnez **Réseau virtuel**, puis **myVirtualNetwork1**.|
+    |Subnet| Subnet1 : S’il n’est pas déjà sélectionné, sélectionnez **Sous-réseau**, puis sélectionnez **Subnet1**.|
     
+
     ![Paramètres de la machine virtuelle](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
- 
-6. Sous **Créer** dans **Résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
+   
+6. Sélectionnez **Mise en réseau**. Choisissez **Autoriser les ports sélectionnés** sous l’option **Ports d’entrée publics**. Choisissez **RDP** sous l’option **Sélectionner des ports d’entrée** située dessous. 
+
+7. Sélectionnez le bouton **Vérifier + créer**  dans l’angle inférieur gauche pour démarrer le déploiement de la machine virtuelle.
 
 ### <a name="create-the-second-vm"></a>Créer la seconde machine virtuelle
 

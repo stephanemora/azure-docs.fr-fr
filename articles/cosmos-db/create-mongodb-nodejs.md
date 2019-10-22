@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7fd74e31b0527b256f6bb9f17029a02aaf41568b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: b9cadbf35680953058bd38d7db26a6e6c684836b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931803"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327288"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Démarrage rapide : Migrer une application web Node.js MongoDB existante vers Azure Cosmos DB 
 
@@ -27,9 +27,9 @@ ms.locfileid: "70931803"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur de Cosmos DB. 
+Ce guide de démarrage rapide montre comment utiliser une application MongoDB existante écrite en Node.js et comment la connecter à votre base de données Azure Cosmos prenant en charge le client MongoDB. En d’autres termes, l’application sait que les données sont stockées dans la base de données Cosmos.
 
-Ce démarrage rapide montre comment utiliser une application MongoDB existante écrite en Node.js et comment la connecter à votre base de données Cosmos prenant en charge le client MongoDB. En d’autres termes, l’application sait que les données sont stockées dans la base de données Cosmos.
+Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous avez la possibilité de créer et d’interroger rapidement des documents, des paires clé/valeur et des bases de données de graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur de Cosmos DB.
 
 Une fois que vous avez terminé, vous obtenez une application MEAN (MongoDB, Express, Angular et Node.js) exécutée dans [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

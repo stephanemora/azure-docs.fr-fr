@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: e85f2ea849aca9deeb92da7d7b2381d6c2b1b725
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c7257ec35f9a53f84edebd5e15b7144c49daf682
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802441"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514958"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans Node.js par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -48,7 +48,7 @@ Pour le moment, la préversion des flux d’appareil est uniquement prise en cha
 
 *  **EUAP USA Centre**
 
-Pour exécuter l’application côté service dans le cadre du présent guide de démarrage rapide, vous avez besoin de Node.js version 10.x.x ou ultérieure sur votre ordinateur de développement.
+Pour exécuter l’application côté service dans le cadre de ce guide de démarrage rapide, vous avez besoin de Node.js version 10.x.x ou ultérieure sur votre ordinateur de développement.
 
 Vous pouvez télécharger Node.js pour plusieurs plateformes sur [Nodejs.org](https://nodejs.org).
 
@@ -82,10 +82,10 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
    **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
-   **MyDevice** : il s’agit du nom donné à l’appareil inscrit. Utilisez MyDevice comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez également utiliser ce nom pour l’ensemble de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
+   **MyDevice** : il s’agit du nom de l’appareil que vous inscrivez. Nous vous recommandons d’utiliser **MyDevice** comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez utiliser ce nom tout au long de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 2. Vous avez également besoin d’une *chaîne de connexion de service* pour activer l’application back-end afin de vous connecter à votre IoT Hub et récupérer les messages. La commande suivante récupère la chaîne de connexion de service correspondant à votre hub IoT :
@@ -93,10 +93,10 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     **YourIoTHubName** : Remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name {YourIoTHubName} --output table
     ```
 
-    Notez la valeur retournée, qui ressemble à ceci :
+    Notez la chaîne de connexion de service retournée ; vous en aurez besoin plus loin dans ce guide de démarrage rapide. Cela ressemble à l’exemple suivant :
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
@@ -106,7 +106,7 @@ Dans cette section, vous exécutez l’application côté appareil et l’applic
 
 ### <a name="run-the-device-side-application"></a>Exécuter l’application côté appareil
 
-Comme mentionné précédemment, le SDK Node.js IoT Hub prend uniquement en charge des flux d’appareil côté service. Pour l’application côté serveur, utilisez les programmes d’appareil complémentaires, disponibles dans l’un de ces guides de démarrage rapide :
+Comme mentionné précédemment, le SDK Node.js IoT Hub prend uniquement en charge des flux d’appareil côté service. Pour une application côté appareil, utilisez l’un des programmes d’appareil complémentaires disponibles dans ces guides de démarrage rapide :
 
    * [Communiquer avec des applications d’appareil en C via les flux d'appareils IoT Hub](./quickstart-device-streams-echo-c.md)
 
@@ -116,21 +116,21 @@ Vérifiez que l’application côté appareil est en cours d’exécution avant 
 
 ### <a name="run-the-service-side-application"></a>Exécuter l’application côté service
 
-Si l’application côté appareil est en cours d’exécution, suivez les étapes ci-dessous pour exécuter l’application côté service dans Node.js :
+Si l’application côté appareil est en cours d’exécution, effectuez les étapes ci-dessous dans une fenêtre de terminal locale pour exécuter l’application côté service dans Node.js :
 
 * Indiquez les informations d’identification de votre service et l’ID de l’appareil sous forme de variables d’environnement.
  
    ```cmd/sh
    # In Linux
-   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
+   export IOTHUB_CONNECTION_STRING="{ServiceConnectionString}"
    export STREAMING_TARGET_DEVICE="MyDevice"
 
    # In Windows
-   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
+   SET IOTHUB_CONNECTION_STRING={ServiceConnectionString}
    SET STREAMING_TARGET_DEVICE=MyDevice
    ```
   
-   Remplacez `MyDevice` par l’ID d’appareil que vous avez choisi pour votre appareil.
+   Modifiez l’espace réservé ServiceConnectionString pour qu’il corresponde à votre chaîne de connexion de service, et **MyDevice** pour qu’il corresponde à votre ID d’appareil si vous lui avez donné un nom différent.
 
 * Accédez à `Quickstarts/device-streams-service` dans votre dossier de projet décompressé, puis exécutez l’exemple en utilisant Node.
 
@@ -156,9 +156,9 @@ Vous pouvez ensuite mettre fin au programme en appuyant de nouveau sur Entrée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un appareil, établi un flux d’appareil entre des applications côté appareil et service, puis utilisé le flux pour envoyer des données dans les deux sens entre les applications.
+Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un appareil, établi un flux d’appareil entre des applications côté appareil et côté service, puis utilisé le flux pour envoyer des données dans les deux sens entre les applications.
 
-Utilisez les liens ci-dessous pour en savoir plus sur les flux d’appareil :
+Utilisez les liens ci-dessous pour en savoir plus sur les flux d’appareils :
 
 > [!div class="nextstepaction"]
 > [Vue d’ensemble des flux d’appareil](./iot-hub-device-streams-overview.md) 

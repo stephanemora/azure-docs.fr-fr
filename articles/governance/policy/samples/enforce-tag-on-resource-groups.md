@@ -1,17 +1,17 @@
 ---
-title: Exemple - Forcer l’application d’une balise et de sa valeur sur les groupes de ressources
+title: Exemple - Forcer l’application d’une balise et d’une valeur sur les groupes de ressources
 description: Cet exemple de définition de stratégie exige une étiquette et une valeur sur un groupe de ressources.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 00c94aa6077c8a8599b31e9ab37f925fdfebefb0
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5f4af5ee88ad491e7864e82afc337801e47f2204
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977168"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255779"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemple - Forcer l’application d’une balise et de sa valeur sur les groupes de ressources
 

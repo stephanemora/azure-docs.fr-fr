@@ -1,5 +1,5 @@
 ---
-title: Gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure
+title: Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 description: Cet article fournit une vue d’ensemble de l’utilisation de la gestion des mises à jour d’Azure Automation pour gérer les mises à jour et les correctifs pour vos machines virtuelles Windows Azure.
 services: automation
 author: zjalexander
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: fbca620fca1aeb53acc9bd70561e783b49ff1a60
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: a2d13833b60076caa371a7fa8a696ab5964a28e3
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822346"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376079"
 ---
-# <a name="manage-windows-updates-by-using-azure-automation"></a>Gérer les mises à jour Windows à l’aide d’Azure Automation
+# <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
 Vous pouvez utiliser la solution de gestion des mises à jour pour gérer les mises à jour et les correctifs pour vos machines virtuelles. Dans ce tutoriel, vous allez découvrir comment évaluer rapidement l’état des mises à jour disponibles, planifier l’installation des mises à jour nécessaires, passer en revue les résultats des déploiements et créer une alerte pour vérifier que les mises à jour sont appliquées correctement.
 
@@ -66,7 +66,7 @@ Sous **Gestion des mises à jour**, définissez l’emplacement, l’espace de t
 
 ![Fenêtre Activer la solution de gestion des mises à jour](./media/automation-tutorial-update-management/manageupdates-update-enable.png)
 
-L’activation de la solution peut prendre quelques minutes. Pendant ce temps, ne fermez pas la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux d’activité Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
+L’activation de la solution peut prendre quelques minutes. Pendant ce temps, ne fermez pas la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
 ## <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 
@@ -97,7 +97,7 @@ Cliquez sur **Ajouter une condition** pour sélectionner le signal qui convient 
 |**Nombre total d’exécutions de déploiement de mises à jour**|- Nom du déploiement de mises à jour</br>- Statut|Ce signal sert à générer des alertes concernant le statut global d’un déploiement de mises à jour.|
 |**Nombre total d’exécutions de déploiement de mises à jour d’ordinateurs**|- Nom du déploiement de mises à jour</br>- Statut</br>- Ordinateur cible</br>- ID d’exécution du déploiement des mises à jour|Ce signal sert à générer des alertes concernant le statut d’un déploiement de mises à jour ciblant des ordinateurs spécifiques|
 
-Pour les valeurs de dimension, sélectionnez une valeur valide dans la liste. Si la valeur que vous recherchez ne figure pas dans la liste, cliquez sur le signe **\+** à côté de la dimension et tapez le nom personnalisé. Vous pouvez ensuite sélectionner la valeur que vous souhaitez rechercher. Si vous souhaitez sélectionner toutes les valeurs d’une dimension, cliquez sur le bouton **Sélectionner \***. Si vous ne choisissez pas une valeur pour une dimension, celle-ci sera ignorée lors de l’évaluation.
+Pour les valeurs de dimension, sélectionnez une valeur valide dans la liste. Si la valeur que vous recherchez ne figure pas dans la liste, cliquez sur le signe **\+** à côté de la dimension et tapez le nom personnalisé. Vous pouvez ensuite sélectionner la valeur que vous souhaitez rechercher. Si vous souhaitez sélectionner toutes les valeurs d’une dimension, cliquez sur le bouton **Sélectionner \*** . Si vous ne choisissez pas une valeur pour une dimension, celle-ci sera ignorée lors de l’évaluation.
 
 ![Configurer la logique du signal](./media/automation-tutorial-update-management/signal-logic.png)
 
@@ -135,35 +135,50 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Système d’exploitation** : sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
-* **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
+* **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management-groups.md)
 
-* **Ordinateurs à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux d’activité Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux d’activité Azure Monitor](../azure-monitor/platform/computer-groups.md).
+* **Ordinateurs à mettre à jour** : Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
 * **Classification des mises à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
 
   Les types de classification sont les suivants :
 
-   |SE  |Type  |
+   |OS  |Type  |
    |---------|---------|
-   | Windows     | Mises à jour critiques</br>Mises à jour de sécurité</br>Correctifs cumulatifs</br>Packs de fonctionnalités</br>Service Packs</br>Mises à jour de définitions</br>Outils</br>Mises à jour        |
+   |Windows     | Mises à jour critiques</br>Mises à jour de sécurité</br>Correctifs cumulatifs</br>Packs de fonctionnalités</br>Service Packs</br>Mises à jour de définitions</br>Outils</br>Mises à jour        |
    |Linux     | Mises à jour critiques et de sécurité</br>Autres mises à jour       |
 
-   Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-update-management.md#update-classifications).
+   Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-view-update-assessments.md#update-classifications).
 
-* **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior)
+* **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts.
+
+> [!NOTE]
+> Il est important de se souvenir que les exclusions sont prioritaires sur les inclusions. Par exemple, si vous définissez une règle d’exclusion de `*`, aucun correctif ou package n’est installé puisque cette règle les exclut tous. Les correctifs exclus sont toujours affichés comme étant manquants sur l’ordinateur. Sur les machines Linux, si un package est inclus, mais qu’il a un package dépendant exclu, le package n’est pas installé.
 
 * **Paramètres de planification** : le volet **Paramètres de planification** s’affiche. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
 
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Sous **Récurrence**, sélectionnez **Une fois**. Laissez la valeur par défaut sur 1 jour et sélectionnez **OK**. Cela configure une planification récurrente.
 
 * **Préscripts + postscripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
-* **Fenêtre de maintenance (minutes)**  : Conservez la valeur par défaut. Vous pouvez définir la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
+
+* **Fenêtre de maintenance (minutes)**  : Conservez la valeur par défaut. Les fenêtres de maintenance contrôlent la période pendant laquelle les mises à jour doivent être installées. Tenez compte des détails suivants au moment de spécifier une fenêtre de maintenance.
+
+  * Les fenêtres de maintenance contrôlent le nombre de tentatives d’installation des mises à jour.
+  * Update Management n’arrête pas l’installation de nouvelles mises à jour si la fin d’une fenêtre de maintenance est proche.
+  * Update Management ne met pas fin aux mises à jour en cours si la fenêtre de maintenance est dépassée.
+  * Le dépassement de la fenêtre de maintenance sur Windows est souvent le signe que l’installation d’une mise à jour de Service Pack prend beaucoup de temps.
+
+  > [!NOTE]
+  > Pour éviter que les mises à jour soient appliquées en dehors d’une fenêtre de maintenance sur Ubuntu, reconfigurez le package Unattended-Upgrade pour désactiver les mises à jour automatiques. Pour plus d’informations sur la configuration du package, consultez la rubrique [Mises à jour automatiques du Guide du serveur Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Options de redémarrage** : ce paramètre détermine comment les redémarrages doivent être traités. Options disponibles :
   * Redémarrer si nécessaire (par défaut)
   * Toujours redémarrer
   * Ne jamais redémarrer
   * Redémarrer uniquement : les mises à jour ne sont pas installées
+
+> [!NOTE]
+> Les clés de Registre répertoriées sous [Clés de Registre utilisées pour gérer le redémarrage](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) peuvent entraîner un événement de redémarrage même si l’option **Contrôle de redémarrage** est définie sur **Ne jamais redémarrer**.
 
 Lorsque vous avez terminé de configurer la planification, sélectionnez **Créer**.
 
@@ -172,7 +187,9 @@ Lorsque vous avez terminé de configurer la planification, sélectionnez **Crée
 Vous revenez au tableau de bord d’état. Sélectionnez **Déploiements des mises à jour planifiés** pour afficher la planification de déploiement que vous avez créée.
 
 > [!NOTE]
-> Update Management prend en charge le déploiement des mises à jour principales et le téléchargement préalable des correctifs. Cela nécessite des modifications sur les systèmes en cours de correction, consultez [first party and pre-download support](automation-update-management.md#firstparty-predownload) (prise en charge principale et téléchargement préalable) pour apprendre à configurer ces paramètres sur vos systèmes.
+> Update Management prend en charge le déploiement des mises à jour principales et le téléchargement préalable des correctifs. Cela nécessite des modifications sur les systèmes en cours de correction, consultez [first party and pre-download support](automation-configure-windows-update.md) (prise en charge principale et téléchargement préalable) pour apprendre à configurer ces paramètres sur vos systèmes.
+
+Vous pouvez également créer des **déploiements de mises à jour** par programmation. Pour savoir comment créer un **déploiement de mises à jour** avec l’API REST, consultez [Configurations des mises à jour logicielles - Créer](/rest/api/automation/softwareupdateconfigurations/create). Vous pouvez également utiliser un exemple de runbook fourni pour créer un **déploiement de mises à jour** hebdomadaires. Pour en savoir plus sur ce runbook, consultez [Créer un déploiement de mises à jour hebdomadaires pour une ou plusieurs machines virtuelles dans un groupe de ressources](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
 ## <a name="view-results-of-an-update-deployment"></a>Afficher les résultats d’un déploiement de mises à jour
 

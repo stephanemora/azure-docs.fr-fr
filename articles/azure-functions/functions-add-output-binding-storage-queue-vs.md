@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 6ef6f4ae86f0f732164603bd8b38dc1bbef95dd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600146"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329632"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Connecter des fonctions à Stockage Azure avec Visual Studio
 
-Azure Functions vous permet de connecter des fonctions à des services Azure et à d’autres ressources sans avoir à écrire votre propre code d’intégration. Ces connexions prédéfinies sont appelées *liaisons*. Les liaisons permettent à une fonction d’utiliser des services Azure et d’autres ressources comme entrée et sortie pour une fonction.
-
-L’exécution d’une fonction est lancée par un *déclencheur*. Un déclencheur est un type spécial de liaison d’entrée. Bien que ne pouvant avoir qu’un seul déclencheur, une fonction peut avoir plusieurs liaisons d’entrée et de sortie. Pour en savoir plus, consultez [Concepts des déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 Cet article montre comment utiliser Visual Studio pour connecter à Stockage Azure la fonction que vous avez créée dans l’[article du guide de démarrage rapide précédent]. La liaison de sortie que vous ajoutez à cette fonction écrit des données provenant de la requête HTTP dans un message au sein de la file d’attente de Stockage File d’attente Azure. 
 

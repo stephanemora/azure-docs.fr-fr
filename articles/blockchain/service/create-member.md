@@ -1,21 +1,21 @@
 ---
-title: Créer un membre de blockchain Azure Blockchain Service à l’aide du portail Azure
+title: Créer un membre Azure Blockchain Service à l’aide du portail Azure
 description: Utilisez Azure Blockchain Service pour créer un membre de blockchain.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 08/29/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 9f58379acd88fd93a00edc11b73b41dc3d6226a5
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: c87f9a044d6655b2062f2c2657d3b465699e0dd2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241036"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329259"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Démarrage rapide : Créer un membre de blockchain Azure Blockchain Service à l’aide du portail Azure
 
@@ -43,7 +43,7 @@ Créez un membre de blockchain qui exécute le protocole de registre Quorum dans
     Mot de passe du compte du membre | Le mot de passe du compte du membre sert à chiffrer la clé privée du compte Ethereum créé pour votre membre. Vous utilisez le compte du membre et le mot de passe du compte du membre pour la gestion du consortium.
     Nom du consortium | Pour un nouveau consortium, entrez un nom unique. Si vous rejoignez un consortium par le biais d’une invitation, la valeur correspond au consortium que vous rejoignez.
     Description | Description du consortium.
-    Protocole |  La préversion prend en charge le protocole Quorum.
+    Protocol |  La préversion prend en charge le protocole Quorum.
     Tarifs | Configuration des nœuds de votre nouveau service. Sélectionnez **Standard**. Les paramètres par défaut comprennent 2 nœuds validateurs et 1 nœud de transaction.
     Mot de passe du nœud de transaction | Le mot de passe du nœud de transaction par défaut du membre. Utilisez le mot de passe pour l’authentification de base lorsque vous vous connectez au point de terminaison public du nœud de transaction par défaut du membre blockchain.
 

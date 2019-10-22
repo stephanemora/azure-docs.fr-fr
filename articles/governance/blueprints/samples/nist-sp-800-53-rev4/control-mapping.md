@@ -1,17 +1,17 @@
 ---
-title: Exemple - Blueprint NIST SP 800-53 R4 - Mappage des contrôles
-description: Mappage des contrôles de l’exemple de blueprint NIST SP 800-53 R4 à Azure Policy.
+title: Exemple de blueprint NIST SP 800-53 R4 - Mappage des contrôles
+description: Mappage des contrôles de l’exemple de blueprint NIST SP 800-53 R4. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: c4d8cd7996e45aafca37e68974d6250578ba9502
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1fab1ebee03f48434fd0fb8ccb1bf1be708370e5
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980960"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299069"
 ---
 # <a name="control-mapping-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint NIST SP 800-53 R4
 

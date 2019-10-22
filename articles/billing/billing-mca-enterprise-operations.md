@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b6d1de1ee24ce9ca67d3bd8fa514ec9ea7a5c771
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca0f83628edeef9e55ebc81798d0229791b80a7a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709557"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375509"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Effectuer des tâches Contrat Entreprise dans votre compte de facturation pour un contrat client Microsoft
 
@@ -27,7 +27,7 @@ Si votre organisation a signé un Contrat client Microsoft pour renouveler votre
 
 Le schéma suivant explique comment la facturation est organisée dans le nouveau compte de facturation.
 
-![Image de ea-mca-post-transition-hierarchy](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
+![Image de ea-mca-post-transition-hierarchy](./media/mca-setup-account/mca-post-transition-hierarchy.png)
 
 | Contrat Entreprise   | Contrat client Microsoft    |
 |------------------------|--------------------------------------------------------|
@@ -72,9 +72,9 @@ Pour voir le coût cumulé pour les abonnements appartenant à un compte, vous d
 
 Une facture mensuelle est générée pour chaque profil de facturation dans votre compte de facturation. Pour chaque facture, vous pouvez télécharger le fichier CSV d’utilisation et de frais Azure, la grille tarifaire et le document fiscal (le cas échéant). Vous pouvez également télécharger les fichiers CSV d’utilisation et de frais Azure pour les frais du mois en cours.
 
-Pour savoir comment télécharger les fichiers CSV d’utilisation et de frais Azure, consultez [Télécharger les informations d’utilisation pour votre Contrat client Microsoft](billing-download-azure-daily-usage.md#download-usage-for-your-microsoft-customer-agreement).
+Pour savoir comment télécharger les fichiers CSV d’utilisation et de frais Azure, consultez [Télécharger les informations d’utilisation pour votre Contrat client Microsoft](billing-download-azure-daily-usage.md).
 
-Pour savoir comment télécharger la grille tarifaire, consultez [Télécharger la tarification pour votre Contrat client Microsoft](billing-ea-pricing.md#microsoft-customer-agreement-pricing).
+Pour savoir comment télécharger la grille tarifaire, consultez [Télécharger la tarification pour votre Contrat client Microsoft](billing-ea-pricing.md).
 
 Pour savoir comment télécharger les documents fiscaux, consultez [Afficher les documents fiscaux pour votre Contrat client Microsoft](billing-mca-download-tax-document.md#view-and-download-tax-documents).
 
@@ -90,7 +90,7 @@ Créez une section de facture pour organiser vos coûts en fonction de vos besoi
 
 ### <a name="create-a-new-account"></a>Créer un nouveau compte
 
-Affectez aux utilisateurs le rôle de créateur d’abonnement Azure sur les sections de facture pour les autoriser à créer des abonnements Azure, par exemple les comptes qui ont été créés dans l’accord de mise en œuvre EA. Pour plus d’informations, consultez [Autoriser d’autres utilisateurs à créer des abonnements Azure](billing-mca-create-subscription.md#give-others-permission).
+Affectez aux utilisateurs le rôle de créateur d’abonnement Azure sur les sections de facture pour les autoriser à créer des abonnements Azure, par exemple les comptes qui ont été créés dans l’accord de mise en œuvre EA. Pour plus d’informations sur l’attribution de rôles, consultez [Gérer les rôles de facturation dans le portail Azure](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ## <a name="changes-for-department-administrators"></a>Modifications apportées aux administrateurs de service
 
@@ -116,7 +116,7 @@ Pour savoir comment fournit un accès à votre section de facture, consultez [G�
 
 ### <a name="create-a-new-account-in-your-department"></a>Créer un compte dans votre département
 
-Affecter le rôle de créateur d’abonnement Azure sur la section de facture créée pour votre département. Pour plus d’informations, consultez [Autoriser d’autres utilisateurs à créer des abonnements Azure](billing-mca-create-subscription.md#give-others-permission).
+Affecter le rôle de créateur d’abonnement Azure sur la section de facture créée pour votre département. Pour plus d’informations sur l’attribution de rôles, consultez [Gérer les rôles de facturation dans le portail Azure](billing-understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### <a name="view-charges-for-accounts-in-your-departments"></a>Consulter les frais pour les comptes dans vos départements
 

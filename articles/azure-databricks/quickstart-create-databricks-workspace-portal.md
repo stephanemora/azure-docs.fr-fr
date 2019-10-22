@@ -1,5 +1,5 @@
 ---
-title: "Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l'aide du portail Azure"
+title: Exécuter une tâche Spark sur Azure Databricks à l'aide du portail Azure
 description: Ce guide de démarrage rapide montre comment utiliser le portail Azure pour créer un espace de travail Azure Databricks et un cluster Apache Spark et exécuter une tâche Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 3570325880b4c8d8eb311f00477262126a2b18ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 21a3e8541441e6139c1c84138870b3ffaf3cacc1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932563"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515808"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks avec le portail Azure
 
@@ -54,8 +54,9 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md). |
     |**Lieu**     | Sélectionnez **USA Ouest 2**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
     |**Niveau tarifaire**     |  Choisissez **Standard**, **Premium** ou **Essai**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
+    |**Réseau virtuel**     |  Choisissez de déployer un espace de travail Azure Databricks sur votre propre réseau virtuel (VNet). Pour plus d’informations, consultez [Déployer Azure Databricks dans votre propre réseau virtuel Azure (injection de réseau virtuel)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Sélectionnez **Épingler au tableau de bord**, puis cliquez sur **Créer**.
+    Sélectionnez **Create** (Créer).
 
 4. La création de l’espace de travail dure quelques minutes. Pendant la création de l'espace de travail, vous pouvez consulter l'état du déploiement dans **Notifications**.
 
@@ -79,7 +80,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
    * Entrez un nom pour le cluster.
-   * Pour cet article, créez un cluster avec le runtime **5.2**.
+   * Pour cet article, créez un cluster avec le runtime **5.3**.
    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
     
      Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
@@ -98,7 +99,7 @@ Procédez comme suit pour créer un notebook dans Databricks, le configurer pour
 
     ![Créer un notebook dans Databricks](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-details.png "Créer un notebook dans Databricks")
 
-    Sélectionnez **Créer**.
+    Sélectionnez **Create** (Créer).
 
 3. Au cours de cette étape, créez un DataFrame Spark avec les données de sécurité Boston d'[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/boston-safety-data/#AzureDatabricks), et utilisez SQL pour interroger les données.
 
@@ -136,7 +137,7 @@ Procédez comme suit pour créer un notebook dans Databricks, le configurer pour
 
 5. Vous voyez une sortie tabulaire, comme celle qui est montrée dans la capture d’écran suivante (seules certaines colonnes apparaissent) :
 
-    ![Exemples de données](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Exemples de données JSON")
+    ![Exemples de données](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Exemple de données JSON")
 
 6. Vous allez maintenant créer une représentation visuelle de ces données pour indiquer le nombre d'événements de sécurité signalés à l'aide de l'application Citizens Connect et de l'application City Worker au lieu d'autres sources. Dans le bas de la sortie tabulaire, sélectionnez l'icône **Graphique à barres**, puis cliquez sur **Options de traçage**.
 
@@ -144,7 +145,7 @@ Procédez comme suit pour créer un notebook dans Databricks, le configurer pour
 
 8. Dans **Personnaliser le traçage**, faites un glisser-déplacer des valeurs comme indiqué dans la capture d’écran.
 
-    ![Personnaliser le graphique en secteurs](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personnaliser le graphique à barres")
+    ![Personnaliser le graphique à secteurs](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personnaliser le graphique à barres")
 
    * Définissez **Clés** sur **source**.
    * Définissez **Valeurs** sur **<\id>** .

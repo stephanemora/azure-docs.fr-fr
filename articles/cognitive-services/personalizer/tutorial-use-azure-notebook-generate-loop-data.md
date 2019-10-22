@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Azure Notebook - Personalizer'
+title: 'Didacticiel : Azure Notebook - Personalizer'
 titleSuffix: Azure Cognitive Services
 description: Ce tutoriel simule un système de boucle Personalizer dans un notebook Azure, qui suggère le type de café que doit commander un client. Les utilisateurs et leurs préférences sont stockés dans un jeu de données d’utilisateurs. Des informations sur le café sont également disponibles et stockées dans un jeu de données de cafés.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: b724e54eb2d9e61bd576ab8a094489bbed6db20d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975217"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515167"
 ---
-# <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutoriel : Utiliser Personalizer dans Azure Notebook
+# <a name="tutorial-use-personalizer-in-azure-notebook"></a>Didacticiel : Utiliser Personalizer dans Azure Notebook
 
 Ce tutoriel exécute une boucle Personalizer dans un notebook Azure, illustrant le cycle de vie de bout en bout d’une boucle Personalizer. 
 
@@ -33,12 +33,12 @@ Le notebook sélectionne un utilisateur aléatoire, l’heure de la journée et 
 
 Pour aider Personalizer à apprendre, au fil du temps, la sélection de café correcte pour chaque personne, le _système_ connaît également les détails sur le café.
 
-|Café - caractéristiques d’action|Type de température|Lieu d’origine|Type de torréfaction|Bio|
+|Café - caractéristiques d’action|Types d’entités temperature|Lieu d’origine|Type de torréfaction|Bio|
 |--|--|--|--|--|
-|Cappuccino|Chaud|Kenya|Corsé|Bio|
+|Cappuccino|À chaud|Kenya|Foncé|Bio|
 |Infusion à froid|Froid|Brésil|Léger|Bio|
 |Moka frappée|Froid|Éthiopie|Léger|Non bio|
-|Latte|Chaud|Brésil|Corsé|Non bio|
+|Latte|À chaud|Brésil|Foncé|Non bio|
 
 
 L’**objectif** de la boucle Personalizer est de trouver le plus souvent possible la meilleure correspondance entre les utilisateurs et le café. 
@@ -93,7 +93,7 @@ Ces valeurs sont très brèves afin de pouvoir observer les changements dans ce 
 ## <a name="set-up-the-azure-notebook"></a>Configurer le notebook Azure
 
 1. Remplacez le noyau par `Python 3.6`. 
-1. Ouvrez le fichier `Personalizer.ipynb`.
+1. Ouvrez le fichier `Personalizer.ipynb` .
 
 ## <a name="run-notebook-cells"></a>Exécuter les cellules du notebook
 
@@ -122,7 +122,7 @@ personalization_base_url = "https://<your-resource-name>.cognitiveservices.azure
 resource_key = "<your-resource-key>"
 ```
 
-### <a name="print-current-data-and-time"></a>Imprimer l’heure et la date actuelles
+### <a name="print-current-date-and-time"></a>Imprimer la date et l’heure actuelles
 Utilisez cette fonction pour noter les heures de début et de fin de la fonction itérative.
 
 Ces cellules n’ont pas de sortie. La fonction génère la date et l’heure actuelles quand elle est appelée.

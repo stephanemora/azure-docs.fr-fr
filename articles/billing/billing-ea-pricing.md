@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 486a6b46b6c4590b7f49cd8aba449204cd8f4fac
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c38cd7f4b2fb1ae88b65031d3c93b153500b96ac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709701"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375780"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Afficher et télécharger les tarifs Azure de votre organisation
 
-Les clients Azure disposant d’un Contrat Entreprise Azure (EA) ou d’un [Contrat client Microsoft](#check-your-access-to-a-microsoft-customer-agreement) peuvent voir et télécharger leurs tarifs dans le Portail Azure.
+Les clients Azure qui ont un Contrat Entreprise Azure (EA), un Contrat Client Microsoft (MCA) ou un Contrat Partenaire Microsoft (MPA) peuvent voir et télécharger leurs tarifs dans le portail Azure. [Découvrez comment vérifier votre type de compte de facturation](#check-your-billing-account-type).
 
-## <a name="ea-pricing"></a>Tarification EA
+## <a name="download-pricing-for-an-enterprise-agreement"></a>Télécharger les tarifs pour un Contrat Entreprise
 
 Selon les stratégies définies pour votre organisation par l’administrateur d’entreprise, seuls certains rôles d’administrateur permettent d’accéder aux informations tarifaires Contrat Entreprise de votre organisation. Pour plus d’informations, consultez [Comprendre les rôles d’administrateur Contrat Entreprise Azure dans Azure](billing-understand-ea-roles.md).
 
@@ -42,18 +42,9 @@ Selon les stratégies définies pour votre organisation par l’administrateur d
 
    ![Capture d’écran montrant le bouton de téléchargement de fichier csv de la grille tarifaire](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## <a name="microsoft-customer-agreement-pricing"></a>Tarification du Contrat client Microsoft
+## <a name="download-pricing-for-an-mca-or-mpa-account"></a>Télécharger les tarifs pour un compte MCA ou MPA
 
-Vous devez être gestionnaire de factures, propriétaire, contributeur ou lecteur de profil de facturation pour afficher et télécharger les tarifs. Pour en savoir plus sur les rôles de facturation pour les Contrats client Microsoft, consultez [Tâches et rôles du profil de facturation](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-### <a name="download-price-sheets-for-the-current-billing-period"></a>Télécharger les grilles tarifaires pour la période de facturation actuelle
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Recherchez *Gestion des coûts + facturation*.
-1. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être sélectionner au préalable un compte de facturation.
-1. Dans la zone **Vue d’ensemble**, recherchez les liens de téléchargement sous les frais en cumul mensuel à ce jour.
-1. Sélectionnez **Grille tarifaire Azure**.
-![Capture d’écran montrant le téléchargement à partir du panneau Vue d’ensemble](./media/billing-ea-pricing/open-pricing.png)
+Si vous avez un compte MCA, vous devez être responsable de la facturation ou propriétaire, contributeur ou lecteur de profil de facturation pour voir et télécharger les tarifs. Si vous avez un compte MPA, vous devez avoir le rôle Administrateur général ou Agent d’administration dans l’organisation partenaire pour voir et télécharger les tarifs.
 
 ### <a name="download-price-sheets-for-billed-charges"></a>Télécharger les grilles tarifaires pour les frais facturés
 
@@ -69,6 +60,17 @@ Vous devez être gestionnaire de factures, propriétaire, contributeur ou lecteu
 1. Si vous souhaitez voir les tarifs de tous les services Azure pour la période de facturation donnée, sélectionnez **Grille tarifaire Azure**.
 
 ![Capture d’écran montrant le menu contextuel avec les grilles tarifaires](./media/billing-ea-pricing/contextmenu-pricesheet.png)
+
+### <a name="download-price-sheets-for-the-current-billing-period"></a>Télécharger les grilles tarifaires pour la période de facturation actuelle
+
+Si vous avez un compte MCA, vous pouvez télécharger les tarifs pour la période de facturation actuelle.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Recherchez *Gestion des coûts + facturation*.
+1. Sélectionnez un profil de facturation. Selon votre accès, vous devrez peut-être sélectionner au préalable un compte de facturation.
+1. Dans la zone **Vue d’ensemble**, recherchez les liens de téléchargement sous les frais en cumul mensuel à ce jour.
+1. Sélectionnez **Grille tarifaire Azure**.
+![Capture d’écran montrant le téléchargement à partir du panneau Vue d’ensemble](./media/billing-ea-pricing/open-pricing.png)
 
 ## <a name="estimate-costs-with-the-azure-pricing-calculator"></a>Estimer les coûts avec la calculatrice de prix Azure
 
@@ -86,8 +88,8 @@ Vous pouvez également utiliser les tarifs de votre organisation pour estimer le
 1. Recherchez et ajoutez des produits à votre devis.
 1. Les prix estimés affichés sont basés sur les tarifs de l’organisation que vous avez sélectionnés.
 
-## <a name="check-your-access-to-a-microsoft-customer-agreement"></a>Vérifier votre accès à un Contrat client Microsoft
-[!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
+## <a name="check-your-billing-account-type"></a>Vérifier votre type de compte de facturation
+[!INCLUDE [billing-check-account-type](../../includes/billing-check-account-type.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

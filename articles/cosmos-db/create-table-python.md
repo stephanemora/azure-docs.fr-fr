@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom: seo-python-october2019
+ms.openlocfilehash: d4cfba26192eb097d06f82e18acb41c1f9640e66
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020131"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437333"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application d’API Table avec Python et Azure Cosmos DB
 
@@ -84,7 +85,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **Chaîne de connexion**. 
 
-    ![Afficher et copier la CHAÎNE DE CONNEXION dans le volet Chaîne de connexion](./media/create-table-python/connection-string.png)
+    ![Afficher et copier la CHAÎNE DE CONNEXION dans les paramètres Chaîne de connexion](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. Copiez le NOM DU COMPTE en utilisant le bouton situé à droite.
 
@@ -94,7 +95,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 5. Collez la CLÉ PRIMAIRE à partir du portail dans la valeur STORAGE_ACCOUNT_KEY de la ligne 20.
 
-3. Enregistrez le fichier config.py.
+6. Enregistrez le fichier config.py.
 
 ## <a name="run-the-app"></a>Exécution de l'application
 

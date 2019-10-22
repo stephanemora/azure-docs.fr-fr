@@ -1,6 +1,6 @@
 ---
 title: Exemple de script Azure PowerShell - Créer une définition d’application managée | Microsoft Docs
-description: Exemple de script Azure PowerShell - Créer une définition d’application managée
+description: Fournit un exemple de script Azure PowerShell qui crée une définition d’application managée dans l’abonnement Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 35f1b805323da03f1622e5c355d6ffa6d960b275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0491a5025886317faf7cb4601f8db3915527b80
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171505"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332577"
 ---
 # <a name="create-a-managed-application-definition-with-powershell"></a>Créer une définition d’application managée avec PowerShell
 

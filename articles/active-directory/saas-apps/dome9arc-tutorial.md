@@ -1,11 +1,11 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Check Point CloudGuard Dome9 Arc | Microsoft Docs'
+title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point CloudGuard Dome9 Arc | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Check Point CloudGuard Dome9 Arc.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/14/2019
+ms.date: 09/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 240d962d56e4a2dc0758f3170c51b343d22ef98d
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: fb47d60f609e63e5a17fd8abd3efe420ea7fd187
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944589"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264103"
 ---
-# <a name="tutorial-integrate-check-point-cloudguard-dome9-arc-with-azure-active-directory"></a>Didacticiel : Intégrer Check Point CloudGuard Dome9 Arc à Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Check Point CloudGuard Dome9 Arc
 
 Dans ce tutoriel, vous allez apprendre à intégrer Check Point CloudGuard Dome9 Arc à Azure Active Directory (Azure AD). Quand vous intégrez Check Point CloudGuard Dome9 Arc à Azure AD, vous pouvez :
 
@@ -42,7 +42,12 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. Check Point CloudGuard Dome9 Arc prend en charge l’authentification unique lancée par **l’ISP (fournisseur de services) et l’IDP (fournisseur d’identité)** .
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
+
+* Check Point CloudGuard Dome9 Arc prend en charge l’authentification unique lancée par **le fournisseur de services et le fournisseur d’identité**
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-check-point-cloudguard-dome9-arc-from-the-gallery"></a>Ajout de Check Point CloudGuard Dome9 Arc à partir de la galerie
 
@@ -55,106 +60,54 @@ Pour configurer l’intégration de Check Point CloudGuard Dome9 Arc à Azure A
 1. Dans la section **Ajouter à partir de la galerie**, tapez **Check Point CloudGuard Dome9 Arc** dans la zone de recherche.
 1. Sélectionnez **Check Point CloudGuard Dome9 Arc** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on-for-check-point-cloudguard-dome9-arc"></a>Configurer et tester l’authentification unique Azure AD pour Check Point CloudGuard Dome9 Arc
 
 Configurez et testez l’authentification unique Azure AD avec Check Point CloudGuard Dome9 Arc pour un utilisateur de test nommé **B.Simon**. Pour que l’authentification unique fonctionne, vous devez établir un lien entre un utilisateur Azure AD et l’utilisateur Check Point CloudGuard Dome9 Arc associé.
 
 Pour configurer et tester l’authentification unique Azure AD avec Check Point CloudGuard Dome9 Arc, suivez les indications des modules ci-dessous :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurez Check Point CloudGuard Dome9 Arc](#configure-check-point-cloudguard-dome9-arc)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créez un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B.Simon.
-4. **[Affectez l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B.Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créez l’utilisateur de test Check Point CloudGuard Dome9 Arc](#create-check-point-cloudguard-dome9-arc-test-user)** pour avoir un équivalent de B.Simon dans Check Point CloudGuard Dome9 Arc lié à la représentation Azure AD de cet utilisateur.
-6. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurez l’authentification unique Check Point CloudGuard Dome9 Arc](#configure-check-point-cloudguard-dome9-arc-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créez l’utilisateur de test Check Point CloudGuard Dome9 Arc](#create-check-point-cloudguard-dome9-arc-test-user)** pour avoir un équivalent de B.Simon dans Check Point CloudGuard Dome9 Arc lié à la représentation Azure AD de cet utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Effectuez les étapes suivantes pour activer l’authentification unique Azure AD dans le Portail Azure.
 
 1. Dans le [portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Check Point CloudGuard Dome9 Arc**, recherchez la section **Gérer**, puis sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet pour **Configuration SAML de base** afin de modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
+1. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode Initié par le **fournisseur d’identité**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://secure.dome9.com/`
+    a. Dans la zone de texte **Identificateur**, tapez une URL : `https://secure.dome9.com/`
 
-    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
     > Vous allez sélectionner le nom de votre société dans le portail d’administration dome9, comme expliqué plus loin dans le didacticiel.
 
-5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+1. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles. Pour obtenir ces valeurs, contactez [l’équipe du support technique Check Point CloudGuard Dome9 Arc](mailto:Dome9@checkpoint.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. L’application Check Point CloudGuard Dome9 Arc s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration de vos attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut. Cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue Attributs d’utilisateur.
+1. Check Point CloudGuard Dome9 Arc nécessite que des rôles soient configurés dans Azure AD. La revendication de rôle est préconfigurée. Vous n’avez donc pas à la configurer, mais vous devez toujours créer les rôles dans Azure AD en suivant les instructions de cet [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
-    ![image](common/edit-attribute.png)
+1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (en base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
-7. En plus de ce qui précède, l’application Check Point CloudGuard Dome9 Arc s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous : 
-
-    | Nom |  Attribut source|
-    | ---------------| --------------- |
-    | memberof | user.assignedroles |
-
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-
-    c. Laissez le champ **Espace de noms** vide.
-
-    d. Sélectionnez Source comme **Attribut**.
-
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
-
-    f. Cliquez sur **OK**.
-
-    g. Cliquez sur **Enregistrer**.
-
-1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (Base64)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
-
-   ![Lien Téléchargement de certificat](common/certificatebase64.png)
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
 1. Dans la section **Configurer Check Point CloudGuard Dome9 Arc**, copiez les URL appropriées en fonction des exigences.
 
-   ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
-### <a name="configure-check-point-cloudguard-dome9-arc"></a>Configurer Check Point CloudGuard Dome9 Arc
-
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Check Point CloudGuard Dome9 Arc en tant qu’administrateur.
-
-2. Cliquez sur les **paramètres du profil** dans l’angle supérieur droit puis cliquez sur les **paramètres du compte**. 
-
-    ![Configuration de Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure1.png)
-
-3. Accédez à **SSO**, puis cliquez sur **ACTIVER**.
-
-    ![Configuration de Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure2.png)
-
-4. Dans la section de la configuration de l’authentification unique, effectuez les étapes suivantes :
-
-    ![Configuration de Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure3.png)
-
-    a. Entrez le nom de la société dans la zone de texte **Account ID** (ID de compte). Cette valeur doit être utilisée dans l’URL de réponse mentionnée dans la section **Configuration SAML de base** du portail Azure.
-
-    b. Dans la zone de texte **Issuer (Émetteur)** , collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du portail Azure.
-
-    c. Dans la zone de texte **Idp endpoint url** (URL du point de terminaison IDP), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
-
-    d. Ouvrez le certificat codé en base64 que vous avez téléchargé dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 certificate** (Certificat X.509).
-
-    e. Cliquez sur **Enregistrer**.
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -185,6 +138,40 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **B. Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** au bas de l’écran.
 1. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 1. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-check-point-cloudguard-dome9-arc-sso"></a>Configurer l’authentification unique Check Point CloudGuard Dome9 Arc
+
+1. Pour automatiser la configuration dans Check Point CloudGuard Dome9 Arc, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
+
+    ![Extension My apps](common/install-myappssecure-extension.png)
+
+2. Après avoir ajouté l’extension au navigateur, cliquez sur **Configurer Check Point CloudGuard Dome9 Arc** afin d’accéder à l’application Check Point CloudGuard Dome9 Arc. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Check Point CloudGuard Dome9 Arc. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 6.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer manuellement Check Point CloudGuard Dome9 Arc, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Check Point CloudGuard Dome9 Arc en tant qu’administrateur et effectuez les étapes suivantes :
+
+2. Cliquez sur les **paramètres du profil** dans l’angle supérieur droit puis cliquez sur les **paramètres du compte**. 
+
+    ![Configuration de Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure1.png)
+
+3. Accédez à **SSO**, puis cliquez sur **ACTIVER**.
+
+    ![Configuration de Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure2.png)
+
+4. Dans la section de la configuration de l’authentification unique, effectuez les étapes suivantes :
+
+    ![Configuration de Check Point CloudGuard Dome9 Arc](./media/dome9arc-tutorial/configure3.png)
+
+    a. Entrez le nom de la société dans la zone de texte **Account ID** (ID de compte). Cette valeur doit être utilisée dans l’URL de réponse mentionnée dans la section **Configuration SAML de base** du portail Azure.
+
+    b. Dans la zone de texte **Issuer (Émetteur)** , collez la valeur de l’**identificateur Azure AD** que vous avez copiée à partir du portail Azure.
+
+    c. Dans la zone de texte **Idp endpoint url** (URL du point de terminaison IDP), collez la valeur **URL de connexion** que vous avez copiée dans le portail Azure.
+
+    d. Ouvrez le certificat codé en base64 que vous avez téléchargé dans le Bloc-notes, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **X.509 certificate** (Certificat X.509).
+
+    e. Cliquez sur **Enregistrer**.
 
 ### <a name="create-check-point-cloudguard-dome9-arc-test-user"></a>Créer un utilisateur de test Check Point CloudGuard Dome9 Arc
 
@@ -219,14 +206,19 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Check Point CloudGu
 
     e. Cliquez sur **CREATE** (Créer).
 
-### <a name="test-sso"></a>Tester l’authentification unique (SSO)
+## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
-Quand vous sélectionnez la vignette Check Point CloudGuard Dome9 Arc dans le volet d’accès, vous devez être automatiquement connecté à l’application Check Point CloudGuard Dome9 Arc pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
+
+Quand vous cliquez sur la vignette Check Point CloudGuard Dome9 Arc dans le volet d’accès, vous devez être automatiquement connecté à l’application Check Point CloudGuard Dome9 Arc pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Essayer Check Point CloudGuard Dome9 Arc avec Azure AD](https://aad.portal.azure.com/)
+

@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/04/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 74a47bc5fc6dbcadef5e1a0da88eb93056334703
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 59770bccec57220560eeb5a5204e574ce172fc80
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244874"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296485"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Démarrage rapide : Lancer une application Azure Spring Cloud en utilisant le portail Azure
 
@@ -37,7 +37,7 @@ Dans ce guide de démarrage rapide, vous découvrez comment :
 > Avant de commencer ce guide de démarrage rapide, vérifiez que votre abonnement Azure a accès à Azure Spring Cloud.  Comme il s’agit d’un service en préversion, nous demandons aux clients de nous contacter pour pouvoir ajouter leur abonnement à notre liste verte.  Si vous voulez explorer les fonctionnalités d’Azure Spring Cloud, contactez-nous par e-mail à l’adresse azure-spring-cloud@service.microsoft.com.
 
 >[!TIP]
-> Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez votre [Azure Cloud Shell](https://shell.azure.com) à partir de shell.azure.com.  Vous pouvez découvrir plus d’informations sur Azure Cloud Shell [en lisant notre documentation](../cloud-shell/overview.md).
+> Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez [Azure Cloud Shell](https://shell.azure.com) à partir de shell.azure.com.  Pour en savoir plus, [lisez notre documentation sur Azure Cloud Shell](../cloud-shell/overview.md).
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -49,17 +49,19 @@ Pour suivre ce guide de démarrage rapide :
 
 ## <a name="install-the-azure-cli-extension"></a>Installez l’extension Azure CLI
 
-Installez l’extension Azure Spring Cloud pour Azure CLI avec la commande suivante
+Installer l’extension Azure Spring Cloud pour Azure CLI avec la commande suivante
 
 ```Azure CLI
 az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
 ```
 
-## <a name="provision-a-service-instance-on-the-azure-portal"></a>Provisionnez une instance de service sur le portail Azure
+## <a name="provision-a-service-instance-on-the-azure-portal"></a>Provisionner une instance de service sur le portail Azure
 
-1. Dans un navigateur web, ouvrez le [portail Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension) et connectez-vous à votre compte.
+1. Dans un navigateur web, ouvrez [ce lien vers Azure Spring Cloud dans le portail Azure](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud).
 
-1. Recherchez **Azure Spring Cloud** et sélectionnez-le pour accéder à la page de vue d’ensemble. Sélectionnez le bouton **Créer** pour commencer.
+    ![Capture d’écran du portail ASC](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
+
+1. Sélectionnez **Azure Spring Cloud** pour accéder à la page de vue d’ensemble. Ensuite, sélectionnez le bouton **Créer** pour commencer.
 
 1. Remplissez le formulaire en tenant compte des instructions suivantes :
     - Nom du service : Spécifiez le nom de votre instance de service.  Le nom doit comporter entre 4 et 32 caractères, et contenir uniquement des lettres minuscules, des chiffres et des traits d’union.  Le premier caractère du nom du service doit être une lettre, et le dernier doit être une lettre ou un chiffre.
@@ -67,13 +69,15 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
     - Groupe de ressources : Une bonne pratique consiste à créer des groupes de ressources pour les nouvelles ressources.
     - Localisation : Sélectionnez l’emplacement de votre instance de service. Les emplacements actuellement pris en charge sont USA Est, USA Ouest 2, Europe Ouest et Asie Sud-Est.
     
-Le déploiement du service prend environ 5 minutes.  Une fois le déploiement terminé, la page **Vue d’ensemble** de l’instance de service apparaît.
+Le déploiement du service nécessite environ 5 minutes.  Une fois le déploiement terminé, la page **Vue d’ensemble** de l’instance de service apparaît.
 
 ## <a name="set-up-your-configuration-server"></a>Configurer votre serveur de configuration
 
 1. Accédez à la page **Vue d’ensemble** du service, puis sélectionnez **Serveur de configuration**.
 
 1. Dans la section **Dépôt par défaut**, définissez **URI** sur « https://github.com/Azure-Samples/piggymetrics  », définissez **LABEL** (ÉTIQUETTE) sur « config », puis sélectionnez **Appliquer** pour enregistrer vos modifications.
+
+    ![Capture d’écran du portail ASC](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Générer et déployer des applications de microservices
 
@@ -130,10 +134,15 @@ Le déploiement du service prend environ 5 minutes.  Une fois le déploiement t
 
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Affecter un point de terminaison public à la passerelle
 
-1. Ouvrez la page **Tableau de bord de l’application**.
-2. Sélectionnez l’application `gateway` pour afficher la page **Détails de l’application**.
-3. Sélectionnez **Affecter un domaine** pour affecter un point de terminaison public à la passerelle. Cette opération peut prendre quelques minutes. 
-4. Entrez l’adresse IP publique affectée dans votre navigateur pour voir votre application en cours d’exécution.
+1. Ouvrez l’onglet **Applications** dans le menu de gauche.
+2. Sélectionnez l’application `gateway` pour afficher la page **Vue d’ensemble**.
+3. Sélectionnez **Affecter un domaine** pour affecter un point de terminaison public à la passerelle. Cette opération peut prendre quelques minutes.
+
+    ![Capture d’écran du portail ASC](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+
+1. Entrez le point de terminaison IP public affecté (libellé **URL**) dans votre navigateur pour voir votre application en cours d’exécution.
+
+    ![Capture d’écran du portail ASC](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

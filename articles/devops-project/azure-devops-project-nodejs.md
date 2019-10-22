@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: vsts
-ms.openlocfilehash: 9fc276626d2a863f7f2e53cd7312ab8b3be513dd
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 11edeb35119e2c598fd83fd89c65ba4dc4679650
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815780"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256108"
 ---
 #  <a name="quickstart-create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-projects"></a>Démarrage rapide : Créer un pipeline CI/CD dans Azure Pipelines pour Node.js avec Azure DevOps Projects
 
@@ -37,7 +37,7 @@ DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer
 
 1. Dans le volet gauche, sélectionnez **Créer une ressource**, puis recherchez **DevOps Projects**. 
 
-    ![Démarrage de la configuration de la livraison continue](_img/azure-devops-project-nodejs/fullbrowser.png)
+    ![Créer une ressource de configuration de livraison continue](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Sélectionner un exemple d’application et le service Azure
 
@@ -60,7 +60,7 @@ DevOps Projects crée un pipeline CI/CD dans Azure Pipelines. Vous pouvez créer
      
 3. Sélectionnez **Parcourir** pour voir votre application en cours d’exécution.
 
-    ![Vue du tableau de bord](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
+    ![Vue Tableau de bord d’un pipeline CI/CD](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
     
 DevOps Projects a configuré automatiquement un déclencheur de build et de mise en production CI.  Vous êtes maintenant prêt à collaborer avec une équipe sur une application Node.js avec un processus CI/CD qui déploie automatiquement votre travail le plus récent sur votre site web.
 

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
 ms.openlocfilehash: 3adcccde89823f865535c9e1350ac4c3e541eef6
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71066253"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Liaison privée pour Azure SQL Database et Data Warehouse (préversion)
@@ -29,7 +29,7 @@ Imaginez un scénario dans lequel un utilisateur exécute SSMS (SQL Server Manag
 
 1. Désactivez tout le trafic des services Azure à destination de la base de données SQL par le biais du point de terminaison public en affectant **OFF** à l’option Autoriser les services Azure. Vérifiez qu’aucune adresse IP n’est autorisée dans les règles de pare-feu au niveau du serveur et de la base de données. Pour plus d’informations, consultez [Contrôles d’accès réseau Azure SQL Database et Data Warehouse ](sql-database-networkaccess-overview.md).
 1. Autorisez uniquement le trafic à destination de la base de données SQL utilisant l’adresse IP privée de la machine virtuelle. Pour plus d’informations, consultez les articles sur le [point de terminaison de service](sql-database-vnet-service-endpoint-rule-overview.md) et les [règle de pare-feu du réseau virtuel](sql-database-firewall-configure.md).
-1. Sur la machine virtuelle Azure, réduisez l’étendue de la connexion sortante à l’aide de <bpt id="p1">[</bpt>groupes de sécurité réseau<ept id="p1">](../virtual-network/manage-network-security-group.md)</ept> et d’étiquettes de service, comme ceci :
+1. Sur la machine virtuelle Azure, limitez l’étendue de la connexion sortante à l’aide de [groupes de sécurité réseau (NSG)](../virtual-network/manage-network-security-group.md) et d’étiquettes de service comme suit.
     - Spécifiez une règle NSG pour autoriser le trafic pour Service Tag = SQL.WestUs (autorise uniquement la connexion à la base de données SQL dans USA Ouest)
     - Spécifiez une règle NSG avec une **priorité plus élevée** pour refuser le trafic pour Service Tag = SQL (refuse les connexions à la base de données SQL dans toutes les régions)
 

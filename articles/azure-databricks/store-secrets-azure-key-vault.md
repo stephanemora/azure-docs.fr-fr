@@ -1,5 +1,5 @@
 ---
-title: Accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant le tutoriel Azure Key Vault
+title: Accéder au stockage d’objets BLOB à l’aide d’un coffre de clés - Azure Databricks
 description: Ce tutoriel explique comment accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant des secrets stockés dans un coffre de clés.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 1e44a1f1be6dcadac937d641e00c99994af0c651
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976525"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274076"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Didacticiel : Accéder à Stockage Blob Azure à partir d’Azure Databricks en utilisant Azure Key Vault
 
@@ -68,7 +68,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
    ![Zone de recherche Créer une ressource Azure](./media/store-secrets-azure-key-vault/find-key-vault-resource.png)
 
-2. La ressource Key Vault est automatiquement sélectionnée. Sélectionnez **Créer**.
+2. La ressource Key Vault est automatiquement sélectionnée. Sélectionnez **Create** (Créer).
 
    ![Créez une ressource Key Vault](./media/store-secrets-azure-key-vault/create-key-vault-resource.png)
 
@@ -121,7 +121,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
    ![Propriétés de l’espace de travail Databricks](./media/store-secrets-azure-key-vault/create-databricks-service.png)
 
-   Sélectionnez **Créer**.
+   Sélectionnez **Create** (Créer).
 
 3. Accédez à votre ressource Azure Databricks nouvellement créée dans le portail Azure et sélectionnez **Lancer l’espace de travail**.
 

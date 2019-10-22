@@ -1,17 +1,17 @@
 ---
 title: Vue d’ensemble des applications gérées Azure | Microsoft Docs
-description: Décrit les concepts relatifs aux applications gérées Azure
+description: Décrit les concepts relatifs aux applications managées Azure, qui fournissent des solutions cloud faciles à déployer et à utiliser par les consommateurs.
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: fa37536b800203e981a841d049dc385640733f92
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234754"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332684"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 

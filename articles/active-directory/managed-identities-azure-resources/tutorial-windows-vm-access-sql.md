@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/07/2018
+ms.date: 10/16/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d5452f23e830ca7a9ffe5ca5ed3d4aa12fb717
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a11c5489c97e1050e525c0b83c160c1360119b60
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236046"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433176"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure SQL
 
@@ -103,7 +103,7 @@ Le code qui s’exécute dans la machine virtuelle peut désormais obtenir un je
 
 Azure SQL prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide d’identités managées attribuées par le système pour les ressources Azure. Vous utilisez la méthode de **jeton d’accès** pour créer une connexion à SQL. Cela fait partie de l’intégration d’Azure SQL avec Azure AD, et diffère de la fourniture d’informations d’identification sur la chaîne de connexion.
 
-Voici un exemple de code .NET pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès. Pour permettre l’accès au point de terminaison de l’identité managée attribuée par le système de machine virtuelle, ce code doit s’exécuter sur la machine virtuelle. Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure est requis. Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence. Notez l’ID de ressource pour SQL Azure est `https://database.windows.net/`.
+Voici un exemple de code .NET pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès. Pour permettre l’accès au point de terminaison de l’identité managée attribuée par le système de machine virtuelle, ce code doit s’exécuter sur la machine virtuelle. Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure ou **.NET Core 2.2** ou version ultérieure est requis. Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence. Notez l’ID de ressource pour SQL Azure est `https://database.windows.net/`.
 
 ```csharp
 using System.Net;

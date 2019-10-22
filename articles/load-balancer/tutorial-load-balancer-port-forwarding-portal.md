@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273448"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428229"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Didacticiel : Configurer la redirection de port dans Azure Load Balancer à l’aide du portail
 
@@ -78,7 +78,7 @@ Créez un réseau virtuel avec deux machines virtuelles, puis ajoutez les machin
    - **Groupe de ressources** : Faites défiler la liste déroulante **Sélectionner** et choisissez **MyResourceGroupLB**. 
    - **Sous-réseau** > **Nom** : Entrez *MyBackendSubnet*.
    
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
    ![Créez un réseau virtuel](./media/tutorial-load-balancer-port-forwarding-portal/2-load-balancer-virtual-network.png)
 
@@ -235,6 +235,7 @@ Créez une règle de traduction d’adresses réseau (NAT) de trafic entrant d�
    - **Nom** : Tapez *MyNATRuleVM1*.
    - **Port** : Tapez *4221*.
    - **Machine virtuelle cible** : Sélectionnez **MyVM1** dans la liste déroulante.
+   - **Configuration IP réseau** : Sélectionnez **ipconfig1** dans la liste déroulante.
    - **Mappage de port** : Sélectionnez **Personnalisé**.
    - **Port cible** : Tapez *3389*.
    

@@ -1,9 +1,9 @@
 ---
-title: Notifications push avec clôture virtuelle avec Azure Notification Hubs et données spatiales Bing | Microsoft Docs
+title: Envoyer des notifications Push avec Azure Notification Hubs et les données spatiales Bing | Microsoft Docs
 description: Ce didacticiel vous présente comment envoyer des notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing.
 services: notification-hubs
 documentationcenter: windows
-keywords: notification push, notification push
+keywords: Notifications Push, notifications Push
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 84e52feb6e30e0b9b693019b671906fad8c908db
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 510e2648db3076a0e3ee2535c6058f7ed212f558
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213244"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387496"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Didacticiel : Notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing
+# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Didacticiel : Envoyer des notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing
 
 Ce didacticiel vous présente comment envoyer des notifications Push en fonction du lieu avec Azure Notification Hubs et les données spatiales Bing.
 

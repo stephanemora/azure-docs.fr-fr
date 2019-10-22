@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: a2764c8e634fd8d827cba9fa7ec9cb61cc6c40af
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035302"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299939"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application ASP.NET Core avec Azure App Configuration
 
@@ -53,7 +53,9 @@ Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](https://docs.
 
 2. Dans le nouveau dossier, exécutez la commande suivante pour créer un projet d’application web MVC ASP.NET Core :
 
+    ```CLI
         dotnet new mvc --no-https
+    ```
 
 ## <a name="add-secret-manager"></a>Ajouter Secret Manager
 
@@ -83,19 +85,23 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
 
 1. Ajoutez une référence au package NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` en exécutant la commande suivante :
 
+    ```CLI
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
-
+    ```
 2. Exécutez la commande suivante pour restaurer les packages de votre projet :
 
+    ```CLI
         dotnet restore
-
+    ```
 3. Ajoutez un secret nommé *ConnectionStrings:AppConfig* à Secret Manager.
 
     Ce secret contient la chaîne de connexion permettant d’accéder à votre magasin de configuration d’application. Dans la commande suivante, remplacez la valeur par la chaîne de connexion de votre magasin de configuration d’application.
 
     Cette commande doit être exécutée dans le même répertoire que le fichier *.csproj*.
 
+    ```CLI
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```
 
     > [!IMPORTANT]
     > Certains interpréteurs de commandes tronquent la chaîne de connexion, à moins qu’elle soit placée entre guillemets. Vérifiez que la sortie de la commande `dotnet user-secrets` affiche la chaîne de connexion complète. Si ce n’est pas le cas, réexécutez la commande en plaçant la chaîne de connexion entre guillemets.
@@ -111,6 +117,11 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
     ```
 
 5. Mettez à jour la méthode `CreateWebHostBuilder` pour utiliser App Configuration en appelant la méthode `config.AddAzureAppConfiguration()`.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` remplace `CreateWebHostBuilder` dans .NET Core 3.0.  Sélectionnez la syntaxe appropriée en fonction de votre environnement.
+
+    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Mettre à jour `CreateWebHostBuilder` pour .NET Core 2.x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -123,9 +134,23 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
             .UseStartup<Startup>();
     ```
 
+    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Mettre à jour `CreateHostBuilder` pour .NET Core 3.x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+        })
+        .UseStartup<Startup>());
+    ```
+
 6. Ouvrez *Index.cshtml* dans le répertoire Views > Home, puis remplacez son contenu par le code suivant :
 
-    ```html
+    ```HTML
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
@@ -144,7 +169,7 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
 
 7. Ouvrez *_Layout.cshtml* dans le répertoire Views > Shared, puis remplacez son contenu par le code suivant :
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
@@ -173,11 +198,15 @@ L’outil Secret Manager stocke les données sensibles pour les travaux de déve
 
 1. Pour générer l’application à l’aide de l’interface CLI .NET Core, exécutez la commande suivante dans l’interpréteur de commandes :
 
-        dotnet build
+    ```CLI
+       dotnet build
+    ```
 
 2. Une fois la génération correctement terminée, exécutez la commande suivante pour exécuter l’application web localement :
 
+    ```CLI
         dotnet run
+    ```
 
 3. Ouvrez une fenêtre de navigateur, puis accédez à `http://localhost:5000`, qui est l’URL par défaut de l’application web hébergée localement.
 

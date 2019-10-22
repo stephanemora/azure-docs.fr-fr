@@ -1,5 +1,5 @@
 ---
-title: Application web Python (Django) avec PostgreSQL sur Linux - Azure App Service | Microsoft Docs
+title: 'Didacticiel : Application web Python (Django) avec PostgreSQL sur Linux - Azure App Service'
 description: Découvrez comment exécuter une application Python (Django) basée sur les données dans Azure avec une connexion à une base de données PostgreSQL.
 services: app-service\web
 documentationcenter: python
@@ -11,19 +11,22 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.custom:
+- mvc
+- seodec18
+- seo-python-october2019
+ms.openlocfilehash: 34dbce2a6da2395bbc627a30d464a9817dfe76fe
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203265"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439420"
 ---
-# <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Créer une application web Python (Django) avec PostgreSQL dans Azure App Service
+# <a name="tutorial-build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Didacticiel : Créer une application web Python (Django) avec PostgreSQL dans Azure App Service
 
 [App Service sur Linux](app-service-linux-intro.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce tutoriel montre comment créer une application web Python (Django) basée sur les données, en utilisant PostgreSQL comme serveur back-end de base de données. Quand c’est terminé, vous disposez d’une application web Django s’exécutant dans Azure App Service sur Linux.
 
-![Application web Python Django dans App Service sur Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Application web Python Django dans Azure App Service sur Linux](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -144,7 +147,7 @@ Dans un navigateur, accédez à `http://localhost:8000`. Vous devriez voir le me
 
 Accédez à `http://localhost:8000/admin`, puis connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé à la dernière étape. Sélectionnez **Ajouter** en regard de **Questions**, puis créez une question de sondage à choix multiple.
 
-![Application Python Django s’exécutant localement](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![Exécuter l’application Python Django dans App Services localement](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 Accédez à nouveau à `http://localhost:8000`, puis consultez la question de sondage affichée.
 
@@ -273,7 +276,7 @@ Accédez à nouveau à `http://localhost:8000`. Vous devriez voir le message `No
 
 Accédez à `http://localhost:8000/admin`, puis connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé, puis créez une autre question de sondage comme précédemment.
 
-![Application Python Django s’exécutant localement](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![Exécuter l’application Python Django dans App Services localement](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 Accédez à nouveau à `http://localhost:8000`, puis consultez la question de sondage affichée. Votre application écrit désormais les données dans la base de données, dans Azure.
 
@@ -388,7 +391,7 @@ App Service détecte un projet Django dans votre dépôt en recherchant dans cha
 
 Accédez à `<app-name>.azurewebsites.net`, puis connectez-vous à l’aide de l’utilisateur administrateur que vous avez créé. Si vous le souhaitez, essayez de créer d’autres questions de sondage.
 
-![Application Python Django s’exécutant localement](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Exécuter l’application Python Django dans App Services dans Azure](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 **Félicitations !** Vous exécutez une application Python (Django) dans Azure App Service pour Linux.
 
@@ -402,11 +405,11 @@ Accédez au [Portail Azure](https://portal.azure.com) pour voir l’application 
 
 Dans le menu de gauche, sélectionnez **App Services**, puis sélectionnez le nom de votre application Azure.
 
-![Navigation au sein du portail pour accéder à l’application Azure](./media/tutorial-python-postgresql-app/app-resource.png)
+![Accéder à votre application Python Django dans le portail Azure](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
 
 Par défaut, le portail affiche la page **Vue d’ensemble** de votre application. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
 
-![Page App Service du Portail Azure](./media/tutorial-python-postgresql-app/app-mgmt.png)
+![Gérer votre application Python Django dans la page Vue d’ensemble du portail Azure](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 9/11/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: d7bc07ddce605838cf7aa966c6c94b85dad6b58c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d3035572e629bc11207cc473b51e3edb4f6a5a13
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212217"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302829"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Démarrage rapide : Configurer Azure NetApp Files et créer un volume NFS 
 
@@ -242,7 +242,7 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
        * Entrez **myvnet1** comme nom du réseau virtuel.
        * Spécifiez un espace d’adressage pour votre paramètre, par exemple, 10.7.0.0/16
        * Entrez **myANFsubnet** comme nom du sous-réseau.
-       * Spécifiez la plage d’adresses du sous-réseau, par exemple, 10.7.0.0/24. Notez que vous ne pouvez pas partager le sous-réseau dédié avec d’autres ressources.
+       * Spécifiez la plage d’adresses du sous-réseau, par exemple, 10.7.0.0/24. Vous ne pouvez pas partager le sous-réseau dédié avec d’autres ressources.
        * Sélectionnez **Microsoft.NetApp/volumes** pour la délégation de sous-réseau.
        * Cliquez sur **OK** pour créer le réseau virtuel.
    5. Dans le sous-réseau, sélectionnez le réseau virtuel qui vient d’être créé (**myvnet1**) comme sous-réseau délégué.
@@ -251,11 +251,16 @@ Cet article de guide pratique nécessite le module Azure PowerShell Az version�
 
       ![Fenêtre Créer un réseau virtuel](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Cliquez sur **Protocole**, puis sélectionnez **NFS** comme type de protocole pour le volume.   
+4. Cliquez sur **Protocole**, puis effectuez les actions suivantes : 
+    * Sélectionnez **NFS** comme type de protocole pour le volume.  
+    * Entrez **myfilepath1** comme chemin de fichier à utiliser pour créer le chemin d’exportation du nouveau volume.  
+    * Sélectionnez la version de NFS (**NFSv3** ou **NFSv4.1**) du volume.  
+      Consultez les [Considérations](azure-netapp-files-create-volumes.md#considerations) et les [Bonnes pratiques](azure-netapp-files-create-volumes.md#best-practice) relatives aux versions NFS. 
+      
+> [!IMPORTANT] 
+> L’accès à la fonctionnalité NFSv4.1 nécessite la mise en liste verte.  Pour demander une mise en liste verte, envoyez une demande à <anffeedback@microsoft.com>. 
 
-    Entrez **myfilepath1** comme chemin de fichier à utiliser pour créer le chemin d’exportation du nouveau volume. 
-
-    ![Spécifiez le protocole NFS pour le démarrage rapide](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+  ![Spécifiez le protocole NFS pour le démarrage rapide](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Cliquez sur **Revoir + créer**.
 

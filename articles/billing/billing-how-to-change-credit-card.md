@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
-ms.openlocfilehash: f89f9a08feb2ea2bcb7a9e8180002557df1d2b56
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e652237e6faa705aa3ea09e7cf80c4eb692acc98
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300307"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375585"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Ajouter, mettre à jour ou supprimer une carte de crédit pour Azure
 
@@ -131,7 +131,7 @@ Si vous basculez vers le mode de paiement par chèque/virement bancaire, découv
 1. Sélectionnez une carte existante ou ajoutez en une nouvelle.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
-Si vous obtenez des erreurs lors de l’ajout ou de la mise à jour de votre carte de crédit, essayez en ouvrant votre navigateur en mode privé.
+Les cartes virtuelles ou prépayées ne sont pas prises en charge. Si vous obtenez des erreurs lors de l’ajout ou de la mise à jour d’une carte de crédit valide, essayez d’ouvrir votre navigateur en mode privé.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 Les sections suivantes répondent à des questions fréquemment posées sur la modification des informations de votre carte de crédit.

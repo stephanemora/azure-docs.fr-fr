@@ -1,18 +1,18 @@
 ---
-title: Expériences de gestion inter-locataires avec Azure Lighthouse
+title: Expériences de la gestion multilocataire
 description: La gestion des ressources déléguées Azure offre une expérience de gestion inter-locataires.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309646"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300987"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
@@ -58,6 +58,7 @@ Actuellement, l’expérience de gestion inter-locataire prend en charge les sc�
 - Afficher les alertes relatives aux abonnements délégués sur le portail Azure, ou par programme via des appels d’API REST, avec la possibilité d’afficher des alertes dans tous les abonnements
 - Afficher les détails du journal d’activité pour des abonnements délégués
 - Log Analytics : interroger des données à partir d’espaces de travail du clients distants dans plusieurs locataires
+- Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure, dans le locataire du fournisseur de services par le biais de webhooks
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/) :
 
@@ -65,7 +66,7 @@ Actuellement, l’expérience de gestion inter-locataire prend en charge les sc�
 - Créer et modifier des définitions de stratégie au sein d’un abonnement délégué
 - Affecter des définitions de stratégie définies par le client au sein de l’abonnement délégué
 - Les clients voient les stratégies créées par le fournisseur de services en même temps que les stratégies qu’ils ont créées eux-mêmes
-- Peut corriger des affectations deployIfNotExists au sein des locataires du client si celui-ci a configuré l’identité gérée et *roleDefinitionIds* pour cette affectation de stratégie
+- Peut [corriger deployIfNotExists ou modifier des affectations au sein du locataire du client](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/) :
 

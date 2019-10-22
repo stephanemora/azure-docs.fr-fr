@@ -1,17 +1,17 @@
 ---
-title: Exemple - Blueprint Canada Federal PBMM - Correspondance des contrôles
-description: Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM avec Azure Policy.
+title: Exemple de blueprint Canada Federal PBMM - Correspondance des contrôles
+description: Correspondance des contrôles des exemples de blueprint Canada Federal PBMM. Chaque contrôle est mis en correspondance avec une ou plusieurs stratégies Azure qui simplifient l’évaluation.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 8fae03acf33d80502869e2f8d19aa619d72f038c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b16ad4fd08776312d318067b4bc84f79b9797e70
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981658"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299166"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Correspondance des contrôles de l’exemple de blueprint Canada Federal PBMM
 
