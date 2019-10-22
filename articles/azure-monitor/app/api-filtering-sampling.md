@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 095d539404412d34c66201646f6134ff740f86b7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: cae035927217a7e2677cf6ebfcce1b53782e4c01
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299270"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248746"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrage et pré-traitement de la télémétrie dans le Kit de développement logiciel (SDK) Application Insights
 
@@ -30,7 +30,7 @@ Vous pouvez écrire et configurer des plug-ins pour le kit de développement log
 
 Avant de commencer :
 
-* Installez le kit de développement logiciel (SDK) correspondant à votre application. [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md) ou [Java](../../azure-monitor/app/java-get-started.md) dans votre application.
+* Installez le kit de développement logiciel (SDK) correspondant à votre application : [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [Non HTTP/Worker for .NET/.NET Core](worker-service.md) ou [Java](../../azure-monitor/app/java-get-started.md).
 
 <a name="filtering"></a>
 

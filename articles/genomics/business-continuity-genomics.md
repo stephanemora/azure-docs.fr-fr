@@ -1,21 +1,21 @@
 ---
-title: Continuité d’activité - Microsoft Genomics | Microsoft Docs
-titleSuffix: Azure
-description: Cette vue d’ensemble décrit les fonctionnalités de Microsoft Genomics en matière de continuité d’activité et de récupération d’urgence. En savoir plus sur les options de récupération après des événements d’interruption, comme la panne d’une région Azure, pouvant entraîner des pertes de données.
+title: Vue d’ensemble de la continuité des activités
+titleSuffix: Microsoft Genomics
+description: Cette vue d’ensemble décrit les fonctionnalités de Microsoft Genomics en matière de continuité d’activité et de récupération d’urgence.
 keywords: continuité d’activité, récupération d’urgence
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 7a51477dbbf6f4e50959a6d979342961c7e49ad9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641107"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249176"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Vue d’ensemble de la continuité d’activité avec Microsoft Genomics
 Cette vue d’ensemble décrit les fonctionnalités de Microsoft Genomics en matière de continuité d’activité et de récupération d’urgence. En savoir plus sur les options de récupération après des événements d’interruption, comme la panne d’une région Azure, pouvant entraîner des pertes de données. 
@@ -30,7 +30,7 @@ Cela est rare, mais un centre de données Azure peut subir une panne, susceptibl
 
 
 ### <a name="manually-failover-microsoft-genomics-workflows-to-another-region"></a>Basculer manuellement les workflows Microsoft Genomics vers une autre région
-Dans l’éventualité d’une panne régionale du centre de données, vous pouvez décider d’envoyer les workflows Microsoft Genomics vers une région secondaire, en fonction de vos exigences individuelles de souveraineté et de continuité d’activité. Pour basculer manuellement les workflows Microsoft Genomics, il vous faut utiliser un compte Genomics d’une région différente et soumettre la tâche avec des informations d’identification spécifiques à la région Genomics et du compte de stockage.
+Si une panne régionale du centre de données se produit, vous pouvez choisir d’envoyer les workflows Microsoft Genomics vers une région secondaire, en fonction de vos exigences individuelles de souveraineté et de continuité d’activité. Pour basculer manuellement les workflows Microsoft Genomics, il vous faut utiliser un compte Genomics d’une région différente et soumettre la tâche avec des informations d’identification spécifiques à la région Genomics et du compte de stockage.
 
 Plus précisément, vous devez :
 * créer un compte Genomics dans une région secondaire, à l’aide du portail Azure ; 

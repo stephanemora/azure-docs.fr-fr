@@ -4,17 +4,17 @@ description: Azure DevOps Projects facilite la prise en main d’Azure. Il vous 
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 07/09/2019
+ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 109a7e327217a342f485dd61b53115569f2346cd
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: daa4bc7b1584dc2159d4128fa4b44056df347ecb
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67722981"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72253010"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Créer un pipeline CI/CD pour IoT Edge avec Azure DevOps Projects
 
@@ -30,7 +30,7 @@ Azure DevOps Projects crée un pipeline CI/CD dans Azure DevOps. Vous pouvez cr�
 
 1. Dans le volet gauche, sélectionnez **Créer une ressource**, puis recherchez **DevOps Projects**.  
 
-1.  Sélectionnez **Créer**.
+1.  Sélectionnez **Create** (Créer).
 
 ## <a name="create-a-new-application-pipeline"></a>Créer un pipeline d'application 
 
@@ -56,6 +56,8 @@ Azure DevOps Projects crée un pipeline CI/CD dans Azure DevOps. Vous pouvez cr�
 
    4. Utilisez le nom IoT Hub généré par le nom de votre projet ou fournir votre propre nom.
 
+   5. Acceptez l’emplacement par défaut ou choisissez un emplacement proche de vous. 
+
    5. Sélectionnez **Paramètres supplémentaires** pour configurer les ressources Azure créées par DevOps Projects.
 
    6. Sélectionnez **Terminé** pour finir de créer votre projet. 
@@ -64,7 +66,7 @@ Azure DevOps Projects crée un pipeline CI/CD dans Azure DevOps. Vous pouvez cr�
 
 Après quelques minutes, le tableau de bord DevOps Projects s’affiche dans le portail Azure. Sélectionnez le nom de votre projet pour afficher la progression. Il peut être nécessaire d’actualiser la page. Un exemple d’application IoT Edge est configuré dans un dépôt de votre organisation Azure DevOps, une build est exécutée et votre application est déployée sur l’appareil IoT Edge. Ce tableau de bord donne une visibilité sur votre dépôt de code, le pipeline CI/CD et votre application dans Azure.
 
-   ![Afficher l’application dans le portail DevOps](./media/how-to-devops-project/devops-portal.png)
+   ![Afficher l’application dans le Portail Azure](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Valider les modifications de code et exécuter CI/CD
@@ -77,23 +79,16 @@ DevOps Projects crée un dépôt Git pour votre projet dans Azure Repos. Dans ce
 
 2. Les étapes suivantes expliquent comment utiliser le navigateur web pour apporter des modifications au code. Si vous préférez cloner localement votre référentiel, sélectionnez **Cloner** dans la partie supérieure droite de la fenêtre. Utilisez l’URL fournie pour cloner votre référentiel Git dans Visual Studio Code ou votre outil de développement préféré. 
 
-3. Le référentiel contient déjà du code pour un module appelé **SampleModule** basé sur le langage de l’application que vous avez sélectionné lors du processus de création. Ouvrez le fichier **modules/SampleModule/module.json**.
+3. Le référentiel contient déjà du code pour un module appelé **FilterModule** basé sur le langage de l’application que vous avez sélectionné lors du processus de création. Ouvrez le fichier **modules/FilterModule/module.json**.
 
    ![Ouvrir le fichier module.json dans Azure Repos](./media/how-to-devops-project/open-module-json.png)
 
-4. Sélectionnez **Modifier**, puis modifiez `"version"` sous `"tag"`. Par exemple, vous pouvez la changer en `"version": "${BUILD_BUILDID}"` pour utiliser des [variables de build Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) dans le cadre de votre étiquette d’image de module Azure IoT Edge.
+4. Notez que ce fichier utilise des [variables de build Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) dans le paramètre **version**. Cette configuration garantit qu’une nouvelle version du module sera créée chaque fois qu’un nouveau build s’exécutera. 
 
-   ![Modifier la version de façon à accepter des variables de build](media/how-to-devops-project/update-module-json.png)
-
-5. Sélectionnez **Valider**, puis enregistrez vos modifications.
-
-6. Dans votre navigateur, revenez à votre tableau de bord DevOps Projects dans le portail Azure. Vous devez maintenant voir qu’une build est en cours. Les modifications que vous avez apportées font automatiquement l’objet d’une build et d’un déploiement via un pipeline CI/CD.
-
-    ![Afficher l’état en cours](media/how-to-devops-project/ci-cd-in-progress.png)
 
 ## <a name="examine-the-cicd-pipeline"></a>Examiner le pipeline CI/CD
 
-Dans les précédentes sections, Azure DevOps Projects a configuré automatiquement un pipeline CI/CD complet pour votre application IoT Edge. Vous avez ensuite testé ce pipeline de build en validant les modifications apportées à un des fichiers. À présent, explorez et personnalisez le pipeline selon vos besoins. Pour vous familiariser avec les pipelines de build et de mise en production d’Azure DevOps, effectuez les étapes suivantes.
+Dans les précédentes sections, Azure DevOps Projects a configuré automatiquement un pipeline CI/CD complet pour votre application IoT Edge. À présent, explorez et personnalisez le pipeline selon vos besoins. Pour vous familiariser avec les pipelines de build et de mise en production d’Azure DevOps, effectuez les étapes suivantes.
 
 1. Pour afficher les pipelines de build dans votre projet DevOps, sélectionnez **Générer des pipelines** dans le menu du tableau de bord de votre projet. Ce lien ouvre un onglet du navigateur et le pipeline de build Azure DevOps pour votre nouveau projet.
 
@@ -111,7 +106,7 @@ Dans les précédentes sections, Azure DevOps Projects a configuré automatiquem
 
 5. Sélectionnez **Enregistrer et mettre en file d’attente**, puis **Enregistrer**.
 
-6. Dans le menu de votre pipeline de build, sélectionnez **Déclencheurs**. DevOps Projects a créé automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
+6. Sélectionnez **Déclencheurs** dans le menu du pipeline de build. DevOps Projects a créé automatiquement un déclencheur CI, et chaque validation dans le dépôt lance une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
 
 7. Sélectionnez **Rétention**. En fonction de votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
 

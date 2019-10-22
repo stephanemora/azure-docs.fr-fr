@@ -1,22 +1,22 @@
 ---
-title: 'Microsoft Genomics : Guide de résolution des problèmes | Microsoft Docs'
-titleSuffix: Azure
-description: Découvrez les stratégies de dépannage
+title: Guide de résolution des problèmes
+titleSuffix: Microsoft Genomics
+description: Apprenez-en davantage sur les stratégies de résolution des problèmes pour l’utilisation de Microsoft Genomics.
 keywords: dépannage, erreur, débogage
-services: microsoft-genomics
+services: genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
 ms.service: genomics
 ms.workload: genomics
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790502"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248512"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 

@@ -4,16 +4,16 @@ description: Cet article fournit des informations de référence sur la commande
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fb6c3b711a89ae7e4ef403a75927c4c6172523d0
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8b4ab0e44f2432056c9c94061c59c99c89a6407d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196751"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513417"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -26,19 +26,18 @@ Les heures de dernière modification sont utilisées à des fins de comparaison.
 Les paires prises en charge sont les suivantes :
 
 - Local <-> Objet blob Azure (authentification SAP ou OAuth)
+- Objet blob Azure <-> objet blob Azure (la source doit inclure une signature d’accès partagé (SAP) ou est accessible au public ; l’authentification SAP ou OAuth peut être utilisée pour la destination)
+- Fichier Azure <-> fichier Azure (la source doit inclure une signature d’accès partagé (SAP) ou est accessible au public ; l’authentification SAP doit être utilisée pour la destination)
 
 Il existe plusieurs différences entre la commande sync et la commande copy :
 
-  1. L’indicateur recursive est activé par défaut.
-  2. La source et la destination ne doivent pas contenir de caractères génériques (comme * ou ?).
-  3. Les indicateurs include et exclude peuvent constituer des listes de caractères génériques correspondant aux noms des fichiers. Pour voir un exemple, reportez-vous à la section Exemple.
-  4. Si des fichiers ou des objets blob de l’emplacement de destination ne sont pas présents dans l’emplacement source, l’utilisateur est invité à les supprimer.
-
-     Cette invite peut être rendue silencieuse à l’aide des indicateurs correspondants permettant de répondre automatiquement à la question de suppression.
+1. Par défaut, l’indicateur récursif possède la valeur true et la synchronisation copie tous les sous-répertoires. La synchronisation copie uniquement les fichiers de niveau supérieur à l’intérieur d’un répertoire si l’indicateur récursif possède la valeur false.
+2. Lors de la synchronisation entre répertoires virtuels, ajoutez une barre oblique finale au chemin d’accès (voir exemples) s’il existe un objet blob portant le même nom que l’un des répertoires virtuels.
+3. Si l’indicateur « deleteDestination » est défini sur true ou prompt, la synchronisation supprime les fichiers et objets blob de destination qui ne sont pas présents au niveau de la source.
 
 ### <a name="advanced"></a>Avancé
 
-AzCopy détecte automatiquement le type de contenu des fichiers lorsque vous les chargez à partir du disque local, en se basant sur l’extension du fichier ou sur son contenu (si aucune extension n’est spécifiée).
+Si vous n’indiquez pas d’extension de fichier, AzCopy détecte automatiquement le type de contenu des fichiers lorsque vous les chargez à partir du disque local, en se basant sur l’extension du fichier ou sur son contenu (si aucune extension n’est spécifiée).
 
 La table de recherche intégrée contient peu de données. Toutefois, sur UNIX, elle est augmentée par le ou les fichiers mime.types (si disponibles) du système local, qui peuvent porter les noms suivants :
 
@@ -96,22 +95,55 @@ Synchroniser l’intégralité d’un répertoire, mais exclure certains fichier
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
 ```
 
+Synchronisez un objet blob :
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
+
+Sync a virtual directory:
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=true
+```
+
+Synchronisez un répertoire virtuel portant le même nom qu’un objet blob (ajoutez une barre oblique finale au chemin d’accès pour lever l’ambiguïté) :
+
+```azcopy
+azcopy sync "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/?[SAS]" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]/" --recursive=true
+```
+
+Synchronisez un répertoire Azure File (même syntaxe que l’objet blob) :
+
+```azcopy
+azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]" "https://[account].file.core.windows.net/[share]/[path/to/dir]" --recursive=true
+```
+
 > [!NOTE]
 > Si les indicateurs include/exclude sont utilisés ensemble, seuls les fichiers correspondant aux caractères génériques include sont examinés. Ceux qui correspondent aux caractères génériques exclude seront toujours ignorés.
 
 ## <a name="options"></a>Options
 
-|Option|Description|
-|--|--|
-|--block-size-mb float|Taille de bloc (spécifiée en Mio) utilisée lors du chargement dans le stockage Azure ou du téléchargement à partir du stockage Azure. La valeur par défaut est calculée automatiquement en fonction de la taille du fichier. Les fractions décimales sont autorisées (par exemple : 0,25).|
-|--check-md5 (chaîne)|Spécifie la manière dont les hachages MD5 doivent être validés lors du téléchargement. Disponible uniquement lors du téléchargement. Valeurs disponibles : NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (par défaut « FailIfDifferent »)|
-|--delete-destination (chaîne)|Définit si les fichiers de l’emplacement de destination qui ne sont pas présents dans l’emplacement source doivent être supprimés. Valeurs possibles : true, false ou prompt. Si la valeur est définie sur prompt, l’utilisateur est invité à répondre à une question avant de planifier la suppression des fichiers et des objets blob. (par défaut : « false »)|
-|--exclude (chaîne)|Exclut les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName.|
-|-h, --help|Affiche l’aide de la commande sync.|
-|--include (chaîne)|Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName.|
-|--log-level (chaîne)|Définit le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut : « INFO »).|
-|--put-md5|Crée un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination (par défaut, le hachage n’est pas créé.) Disponible uniquement lors du chargement.|
-|--recursive|True par défaut. Examine les sous-répertoires de manière récursive lors de la synchronisation des répertoires. (par défaut : true)|
+**--block-size-mb** float         Taille de bloc (spécifiée en Mio) utilisée lors du chargement dans Stockage Azure ou le téléchargement à partir de Stockage Azure. La valeur par défaut est calculée automatiquement en fonction de la taille du fichier. Les fractions décimales sont autorisées (par exemple : 0,25).
+
+**--check-md5** string         Spécifie la manière dont les hachages MD5 doivent être validés lors du téléchargement. Disponible uniquement lors du téléchargement. Valeurs disponibles : NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (par défaut « FailIfDifferent ») (par défaut « FailIfDifferent »)
+
+**--delete-destination** string   Détermine si les fichiers de l’emplacement de destination qui ne sont pas présents dans l’emplacement source doivent être supprimés. Valeurs possibles : true, false ou prompt. Si la valeur est définie sur prompt, l’utilisateur est invité à répondre à une question avant de planifier la suppression des fichiers et des objets blob. (par défaut : « false ») (par défaut : « false »)
+
+**--exclude-attributes** string   (Windows uniquement) Exclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
+
+**--exclude-pattern** string      Exclut les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName
+
+**-h, --help**                        Aide pour la synchronisation
+
+**--include-attributes** string   (Windows uniquement) Inclut uniquement les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
+
+**--include-pattern** string      Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName
+
+**--log-level** string            Définit le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes et réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie). (par défaut : INFO) (par défaut : « INFO »)
+
+**--put-md5**                     Crée un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination. (par défaut, le hachage n’est pas créé.) Disponible uniquement lors du chargement.
+
+**--recursive**                   True par défaut. Examine les sous-répertoires de manière récursive lors de la synchronisation des répertoires. (par défaut : true) (par défaut : true)
 
 ## <a name="options-inherited-from-parent-commands"></a>Options héritées des commandes parentes
 

@@ -1,17 +1,17 @@
 ---
-title: Transformation de colonne dérivée dans le mappage Data Flow - Azure Data Factory | Microsoft Docs
+title: Transformation de colonne dérivée dans le flux de données de mappage Azure Data Factory | Microsoft Docs
 description: Découvrez comment transformer des données à l’échelle dans Azure Data Factory avec la transformation de colonne dérivée du mappage Data Flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.openlocfilehash: aacd6f1799f1813e168bd04e78f18cf60ad5243f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/15/2019
+ms.openlocfilehash: 60451fa6152590ed0fde51be436c867f39906acf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026855"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514817"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformation de colonne dérivée dans le mappage Data Flow
 
@@ -23,9 +23,46 @@ Pour remplacer une colonne existante, sélectionnez-la via le menu déroulant Co
 
 ![Paramètres de la colonne dérivée](media/data-flow/dc1.png "Paramètres de la colonne dérivée")
 
-Pour ajouter des colonnes dérivées, pointez sur une colonne dérivée existante et cliquez sur « + ». Ensuite, choisissez « Ajouter une colonne » ou « Ajouter un modèle de colonne ». Les modèles de colonnes peuvent s’avérer utiles si le nom de vos colonnes est variable selon les sources. Pour plus d’informations, voir [Modèles de colonnes](concepts-data-flow-column-pattern.md).
+Pour ajouter des colonnes dérivées, pointez sur une colonne dérivée existante et cliquez sur l’icône plus. Choisissez **Ajouter une colonne** ou **Ajouter un modèle de colonne**. Les modèles de colonnes peuvent s’avérer utiles si le nom de vos colonnes est variable selon les sources. Pour plus d’informations, voir [Modèles de colonnes](concepts-data-flow-column-pattern.md).
 
 ![Nouvelle sélection de colonne dérivée](media/data-flow/columnpattern.png "Nouvelle sélection de colonne dérivée")
+
+## <a name="data-flow-script"></a>Script de flux de données
+
+### <a name="syntax"></a>Syntaxe
+
+```
+<incomingStream>
+    derive(
+           <columnName1> = <expression1>,
+           <columnName2> = <expression2>,
+           each(
+                match(matchExpression),
+                <metadataColumn1> = <metadataExpression1>,
+                <metadataColumn2> = <metadataExpression2>
+               )
+          ) ~> <deriveTransformationName>
+```
+
+### <a name="example"></a>Exemples
+
+L’exemple ci-dessous est une colonne dérivée nommée `CleanData` qui prend un flux entrant `MoviesYear` et crée deux colonnes dérivées. La première colonne dérivée remplace la colonne `Rating` par la valeur de l’évaluation en tant que type entier. La deuxième colonne dérivée est un modèle qui correspond à chaque colonne dont le nom commence par « movies ». Pour chaque colonne correspondante, il crée une colonne `movie` qui est égale à la valeur de la colonne correspondante avec le préfixe « movie_ ». 
+
+Dans l’expérience utilisateur Data Factory, cette transformation ressemble à l’image ci-dessous :
+
+![Exemple de dérivation](media/data-flow/derive-script1.png "Exemple de dérivation")
+
+Le script de flux de données pour cette transformation se trouve dans l’extrait de code ci-dessous :
+
+```
+MoviesYear derive(
+                Rating = toInteger(Rating),
+                each(
+                    match(startsWith(name,'movies')),
+                    'movie' = 'movie_' + toString($$)
+                )
+            ) ~> CleanData
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

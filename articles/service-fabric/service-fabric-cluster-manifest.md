@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca04539049766e1f053d74b3a8536f154c3fd830
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209720"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383584"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
 Cet article décrit les paramètres de configuration d’un cluster Azure Service Fabric autonome qui peuvent être définis dans le fichier *ClusterConfig.json*. Utilisez ce fichier pour spécifier les informations sur les nœuds de cluster, les configurations de la sécurité ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau.  Après la modification ou l’ajout de paramètres de configuration, vous pouvez [créer un cluster autonome](service-fabric-cluster-creation-for-windows-server.md) ou [mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -202,6 +202,7 @@ Pour configurer des fonctionnalités supplémentaires, définissez la valeur api
     ]
 }
 ```
+Toutes les fonctionnalités de module complémentaire disponibles sont décrites dans les [Informations de référence sur l’API REST de Service Fabric](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures).
 
 ### <a name="container-support"></a>Support pour les conteneurs
 Pour activer le support pour les conteneurs Windows Server et Hyper-V pour les clusters autonomes, la fonctionnalité supplémentaire DnsService doit être activée.

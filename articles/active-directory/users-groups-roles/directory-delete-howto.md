@@ -11,15 +11,15 @@ ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91ac6b4530414850c52605bac8cb701aa2b877d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473126"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439355"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Supprimer un annuaire dans Azure Active Directory
 
@@ -65,21 +65,33 @@ Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (
 
 ## <a name="delete-a-subscription"></a>Supprimer un abonnement
 
-Vous pouvez placer un abonnement dans un état Approvisionnement annulé à supprimer 365 jours après à l’aide du centre d’administration Microsoft 365.
+Vous pouvez placer un abonnement dans un état **Approvisionnement annulé** à supprimer trois jours après à l’aide du centre d’administration Microsoft 365.
 
 1. Connectez-vous au [Centre d’administration Microsoft 365](https://admin.microsoft.com) avec un compte d’administrateur général pour votre organisation. Si vous essayez de supprimer l’annuaire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
 
-2. Sélectionnez **Facturation**, **Abonnements**, puis choisissez l’abonnement que vous souhaitez annuler. Après avoir cliqué sur **Annuler**, actualisez la page.
-  
+2. Affichez un aperçu du nouveau Centre d’administration Microsoft 365 en vous assurant que la bascule **Découvrez le nouveau centre d’administration** est activée.
+
+   ![Afficher un aperçu de la nouvelle expérience du centre d’administration M365](./media/directory-delete-howto/preview-toggle.png)
+
+3. Une fois le nouveau centre d’administration activé, vous devez annuler un abonnement pour pouvoir le supprimer. Sélectionnez **Facturation** et sélectionnez **Produits et services**, puis sélectionnez **Annuler l’abonnement** pour l’abonnement que vous souhaitez annuler. Vous êtes redirigé vers une page de commentaires.
+
+   ![Choisir l’abonnement à annuler](./media/directory-delete-howto/cancel-choose-subscription.png)
+
+4. Remplissez le formulaire de commentaires et sélectionnez **Annuler l’abonnement** pour annuler l’abonnement.
+
+   ![Commande Annuler dans la version préliminaire de l’abonnement](./media/directory-delete-howto/cancel-command.png)
+
+5. Vous pouvez maintenant supprimer l’abonnement. Sélectionnez **Supprimer** pour l’abonnement que vous souhaitez supprimer. Si vous ne trouvez pas l’abonnement dans la page **Produits et services** , assurez-vous que **État de l'abonnement** est défini sur **Tous**.
+
    ![Supprimer un lien pour supprimer l’abonnement](./media/directory-delete-howto/delete-command.png)
-  
-3. Sélectionnez **Supprimer** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez réactiver l’abonnement pendant la période de trois jours si vous changez d’avis.
+
+6. Sélectionnez **Supprimer l’abonnement** pour supprimer l’abonnement et accepter les conditions générales. Toutes les données sont définitivement supprimées dans un délai de trois jours. Vous pouvez [réactiver l’abonnement](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) pendant la période de trois jours si vous changez d’avis.
   
    ![Lisez attentivement les termes et conditions](./media/directory-delete-howto/delete-terms.png)
 
-4. À présent, l’état de l’abonnement a changé et il est marqué pour suppression. L’abonnement passe à l’état **Déprovisionné** 72 heures plus tard.
+7. À présent, l’état de l’abonnement a changé et il est marqué pour suppression. L’abonnement passe à l’état **Déprovisionné** 72 heures plus tard.
 
-5. Une fois que vous avez supprimé un abonnement dans votre annuaire et que le délai de 72 heures s’est écoulé, vous pouvez vous reconnecter au centre d’administration Azure AD pour vérifier qu’aucune action n’est nécessaire et qu’aucun abonnement ne bloque la suppression de votre annuaire. Vous pouvez alors supprimer votre annuaire Azure AD.
+8. Une fois que vous avez supprimé un abonnement dans votre annuaire et que le délai de 72 heures s’est écoulé, vous pouvez vous reconnecter au centre d’administration Azure AD pour vérifier qu’aucune action n’est nécessaire et qu’aucun abonnement ne bloque la suppression de votre annuaire. Vous pouvez alors supprimer votre annuaire Azure AD.
   
    ![écran de vérification d’abonnement pour la suppression](./media/directory-delete-howto/delete-checks-passed.png)
 

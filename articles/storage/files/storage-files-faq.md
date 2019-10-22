@@ -7,12 +7,12 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cc827f52d227ee36620bd215dfcba96b433804d3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 6fecd143055da2829ac49cee4f50d448a37a6e1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103052"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514888"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -344,7 +344,12 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="need-larger-share"></a>
 **Quelles sont les tailles disponibles pour les partages de fichiers Azure ?**  
-    Les tailles des partages de fichiers Azure (Premium et standard) ne peuvent pas dépasser 100 Tio. Les tailles de partages de fichiers Premium de 100 Tio maximum sont disponibles sous la forme d’une offre GA. C’est également le cas pour les partages de fichiers standard de 5 Tio maximum, alors que les autres tailles, jusqu’à 100 Tio, sont accessibles en préversion. Consultez la section relative à [l’intégration de partages de fichiers plus grands (niveau standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) du guide de planification pour savoir comment intégrer des partages de fichiers plus grands, en préversion, au niveau standard.
+    Les tailles des partages de fichiers Azure (Premium et standard) ne peuvent pas dépasser 100 Tio. Consultez la section relative à [l’intégration de partages de fichiers plus grands (niveau standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) du guide de planification pour savoir comment intégrer des partages de fichiers plus grands au niveau standard.
+
+* <a id="lfs-performance-impact"></a>
+**L’extension du quota de partage de fichiers a-t-elle un impact sur mes charges de travail ou Azure File Sync ?**
+    
+    Non. Non, elle n’a d’impact ni sur vos charges de travail, ni sur Azure File Sync.
 
 * <a id="open-handles-quota"></a>
 **Combien de clients peuvent accéder simultanément au même fichier ?**    

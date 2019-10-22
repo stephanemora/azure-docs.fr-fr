@@ -53,8 +53,6 @@
       href: supported-languages.md
     - name: Styles de carte pris en charge
       href: supported-map-styles.md
-    - name: Navigateurs pris en charge pour le kit SDK web
-      href: supported-browsers.md
     - name: Niveaux de zoom et grille mosaïque
       href: zoom-levels-and-tile-grid.md
     - name: Structure des données Mobility Service
@@ -147,6 +145,8 @@
               href: map-get-information-from-coordinate.md
             - name: Afficher des directions de A à B
               href: map-route.md
+        - name: Navigateurs pris en charge pour le kit SDK web
+          href: supported-browsers.md
     - name: Développer avec le kit Android SDK
       items:
         - name: Bien démarrer avec le contrôle de carte Android

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772782"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252978"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -48,10 +48,9 @@ Pour forcer la gestion de la requête par une zone géographique Azure spécifiq
 |Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asie-Pacifique|    api-apc.cognitive.microsofttranslator.com|
 
-
 ## <a name="authentication"></a>Authentication
 
-Abonnez-vous à l’API de traduction de texte Translator Text ou à [un abonnement multiservice Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) dans Microsoft Cognitive Services, et utilisez votre clé d’abonnement (disponible dans le portail Azure) pour vous authentifier. 
+Abonnez-vous à l’API de traduction de texte Translator Text ou à [un abonnement multiservice Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) dans Azure Cognitive Services, et utilisez votre clé d’abonnement (disponible dans le portail Azure) pour vous authentifier. 
 
 Trois en-têtes sont à votre disposition pour authentifier votre abonnement. Ce tableau décrit la façon dont chaque en-tête est utilisé :
 
@@ -62,7 +61,7 @@ Trois en-têtes sont à votre disposition pour authentifier votre abonnement. Ce
 |Ocp-Apim-Subscription-Region|*À utiliser avec un abonnement multiservice à Cognitive Services si vous passez une clé secrète multiservice.*<br/>La valeur est la région de l’abonnement multiservice. Cette valeur est facultative si vous n’utilisez pas un abonnement multiservice.|
 
 ###  <a name="secret-key"></a>Clé secrète
-La première option consiste à procéder à l’authentification à l’aide de l’en-tête `Ocp-Apim-Subscription-Key`. Ajoutez simplement l’en-tête `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` à votre requête.
+La première option consiste à procéder à l’authentification à l’aide de l’en-tête `Ocp-Apim-Subscription-Key`. Ajoutez l’en-tête `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` à votre requête.
 
 ### <a name="authorization-token"></a>Jeton d’autorisation
 Vous pouvez également échanger votre clé secrète contre un jeton d’accès. Ce jeton est inclus avec chaque requête sous la forme de l’en-tête `Authorization`. Pour obtenir un jeton d’autorisation, exécutez une demande `POST` pour l’URL suivante :
@@ -73,7 +72,7 @@ Vous pouvez également échanger votre clé secrète contre un jeton d’accès.
 
 Voici des exemples de demandes pour obtenir un jeton avec une clé secrète :
 
-```
+```curl
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
 
@@ -83,7 +82,7 @@ curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscrip
 
 Une demande réussie retourne le jeton d’accès codé sous forme de texte brut dans le corps de la réponse. Le jeton valide est transmis au service de traduction sous forme de jeton du porteur dans l’autorisation.
 
-```
+```http
 Authorization: Bearer <Base64-access_token>
 ```
 
@@ -111,12 +110,11 @@ Si vous utilisez un jeton du porteur, vous devez obtenir le jeton du point de te
 Une réponse d’erreur standard est un objet JSON avec une paire nom/valeur nommée `error`. La valeur est également un objet JSON avec les propriétés :
 
   * `code`: code d’erreur défini par le serveur.
-
   * `message`: chaîne fournissant une représentation lisible de l’erreur.
 
 Par exemple, un client avec un abonnement d’essai gratuit recevrait l’erreur suivante une fois le quota gratuit épuisé :
 
-```
+```json
 {
   "error": {
     "code":403001,
@@ -156,7 +154,7 @@ Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTT
 | 400079| Le système personnalisé demandé pour la traduction entre le langage source et le langage cible n’existe pas.|
 | 400080| La translittération n’est pas prise en charge pour la langue ou le script.|
 | 401000| La requête n’est pas autorisée car les informations d’identification sont manquantes ou non valides.|
-| 401015| « Les informations d’identification fournies sont valables pour l’API Speech. Cette requête nécessite des informations d’identification pour l’API Texte. Veuillez utiliser un abonnement à l’API de traduction de texte Translator Text. »|
+| 401015| « Les informations d’identification fournies sont valables pour l’API Speech. Cette requête nécessite des informations d’identification pour l’API Texte. Utilisez un abonnement à l’API de traduction de texte Translator Text. »|
 | 403000| L’opération n’est pas autorisée.|
 | 403001| L’opération n’est pas autorisée, car l’abonnement a dépassé son quota gratuit.|
 | 405000| La méthode de requête n’est pas prise en charge pour la ressource demandée.|

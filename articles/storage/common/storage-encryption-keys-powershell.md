@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 10/09/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 982996bdbc5e618cf90aa4b028c0585a7898f465
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670958"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249287"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurer les clés gérées par le client pour le chiffrement du stockage Azure depuis PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "71670958"
 Cet article explique comment configurer un coffre de clés avec des clés gérées par le client à l’aide de PowerShell.
 
 > [!IMPORTANT]
-> Pour utiliser des clés gérées par le client avec un chiffrement Azure Storage, le coffre de clés doit contenir deux propriétés requises configurées, **Soft Delete** (Suppression réversible) et **Do Not Purge** (Ne pas purger). Ces propriétés sont activées par défaut lorsque vous créez un coffre de clés dans le portail Azure. Toutefois, si vous devez activer ces propriétés sur un coffre de clés existant, vous devez utiliser PowerShell ou Azure CLI.
+> Pour utiliser des clés gérées par le client avec un chiffrement Stockage Microsoft Azure, deux propriétés doivent être configurées sur le coffre de clés, **Soft Delete** (Suppression réversible) et **Do Not Purge** (Ne pas purger). Ces propriétés ne sont pas activées par défaut. Pour activer ces propriétés, utilisez PowerShell ou Azure CLI.
 > Seules les clés RSA et la taille de clé 2048 sont prises en charge.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Affecter une identité au compte de stockage

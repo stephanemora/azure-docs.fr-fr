@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972078"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255208"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
@@ -25,6 +25,17 @@ Cet article résume ce qui est pris en charge lorsque vous utilisez le service [
 > [!NOTE]
 > La réplication de machines virtuelles locales VMware et de serveurs physiques est fournie par InMage Scout. InMage Scout est inclus dans l’abonnement au service Azure Site Recovery.
 
+## <a name="end-of-support-announcement"></a>Annonce de fin de prise en charge
+Le scénario Site Recovery de réplication entre des centres de données VMware locaux ou physiques atteint la fin de la prise en charge.
+
+- À partir d’août 2018, le scénario ne peut pas être configuré dans le coffre Recovery Services, et le logiciel InMage Scout ne peut pas être téléchargé à partir du coffre. Les déploiements existants seront pris en charge.
+- - À partir du 31 décembre 2020, le scénario ne sera plus pris en charge.
+Les partenaires existants peuvent intégrer de nouveaux clients au scénario jusqu’à la fin de la prise en charge.
+- En 2018 et 2019, deux mises à jour seront publiées :
+
+    - Mise à jour 7 : résout des problèmes de configuration et de conformité réseau et prend en charge TLS 1.2.
+    - Mise à jour 8 : ajoute la prise en charge des systèmes d’exploitation Linux RHEL/CentOS 7.3/7.4/7.5 et SUSE 12
+    - Après la mise à jour 8, aucune autre mise à jour ne sera publiée. La prise en charge du correctif logiciel sera limitée pour les systèmes d’exploitation ajoutés dans la mise à jour 8 et les corrections de bogues seront basées sur le meilleur effort.
 
 ## <a name="host-servers"></a>Serveurs hôtes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a0ceb5aa82b0d38ab5d2567689e3e131ba781ce9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295557"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254991"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Requêtes de recherche dans les journaux d’activité Azure Monitor
 Les requêtes de journal Azure Monitor peuvent commencer par un nom de table ou une commande de recherche. Ce tutoriel couvre les requêtes basées sur la recherche. Chaque méthode présente des avantages.
@@ -50,7 +50,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### <a name="table-and-column-scoping"></a>Étendue de table et de colonne
-Par défaut, la commande **search** évalue toutes les colonnes du jeu de données. Pour effectuer une recherche uniquement dans une colonne spécifique, utilisez la syntaxe suivante :
+Par défaut, la commande **search** évalue toutes les colonnes du jeu de données. Pour rechercher uniquement une colonne spécifique (nommée *Source* dans l’exemple ci-dessous), utilisez la syntaxe suivante :
 
 ```Kusto
 search in (Event) Source:"error"
