@@ -81,7 +81,7 @@ Lorsque vous incluez et excluez des chemins d’accès, vous pouvez rencontrer l
 
 - `kind` peut être `range` ou `hash`. La fonctionnalité d’index de plage fournit toutes les fonctionnalités d’un index de hachage. Nous vous recommandons donc d’utiliser un index de plage.
 
-- `precision` est un nombre est défini au niveau de l’index pour les chemins inclus. La valeur `-1` indique la précision maximale. Nous vous recommandons de toujours définir cette valeur sur `-1`.
+- `precision` est un nombre défini au niveau de l’index pour les chemins inclus. La valeur `-1` indique la précision maximale. Nous vous recommandons de toujours définir cette valeur sur `-1`.
 
 - `dataType` peut être `String` ou `Number`. Cela indique les types de propriétés JSON qui seront indexées.
 
