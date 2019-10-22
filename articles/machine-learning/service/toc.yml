@@ -297,7 +297,15 @@
         - name: Entrée et sortie de données
           items:
             - name: Importer des données
-              href: ../algorithm-module-reference/import-data.md
+              items:
+                - name: Importer des données
+                  href: ../algorithm-module-reference/import-data.md
+                - name: Importer à partir d’une URL web via HTTP
+                  href: ../algorithm-module-reference/import-from-web-url-via-http.md
+                - name: Importer à partir du module de stockage Blob Azure
+                  href: ../algorithm-module-reference/import-from-azure-blob-storage.md
+                - name: Importer à partir d’Azure SQL Database
+                  href: ../algorithm-module-reference/import-from-azure-sql-database.md
             - name: Exporter des données
               href: ../algorithm-module-reference/export-data.md
             - name: Entrer des données manuellement
@@ -330,6 +338,10 @@
               href: ../algorithm-module-reference/normalize-data.md
             - name: Partition et échantillon
               href: ../algorithm-module-reference/partition-and-sample.md
+            - name: Limiter les valeurs
+              href: ../algorithm-module-reference/clip-values.md
+            - name: Appliquer une transformation SQL
+              href: ../algorithm-module-reference/apply-sql-transformation.md
         - name: Apprentissage automatique
           items:
             - name: Noter un modèle
@@ -382,6 +394,12 @@
               href: ../algorithm-module-reference/create-python-model.md
             - name: "Exécuter un script\_R"
               href: ../algorithm-module-reference/execute-r-script.md
+        - name: Fonctions statistiques
+          items:
+            - name: Appliquer une opération mathématique
+              href: ../algorithm-module-reference/apply-math-operation.md
+            - name: Totaliser les données
+              href: ../algorithm-module-reference/summarize-data.md
         - name: Messages et code d’erreur
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Ressources

@@ -127,12 +127,18 @@
   href: storage-resource-deletion-errors.md
 - name: Erreurs lors de la suppression des ressources de stockage classiques
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: Redémarrages inattendus de machines virtuelles avec des VHD joints
-  href: unexpected-reboots-attached-vhds.md
-- name: Problèmes d’activation Windows
-  href: troubleshoot-activation-problems.md
-- name: Problème d’activation avec le tunneling forcé
-  href: custom-routes-enable-kms-activation.md
+- name: Résoudre les problèmes de redémarrage de machine virtuelle
+  items:
+    - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
+      href: unexpected-reboots-attached-vhds.md
+    - name: Comprendre un redémarrage du système
+      href: understand-vm-reboot.md
+- name: Activation de Windows
+  items:
+    - name: Problèmes d’activation Windows
+      href: troubleshoot-activation-problems.md
+    - name: Problème d’activation avec le tunneling forcé
+      href: custom-routes-enable-kms-activation.md
 - name: Problèmes d’accès à l’application
   href: troubleshoot-app-connection.md
 - name: Nouveaux déploiements de machines virtuelles
@@ -188,8 +194,6 @@
   href: troubleshooting-throttling-errors.md
 - name: Utiliser la virtualisation imbriquée
   href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Comprendre un redémarrage du système
-  href: understand-vm-reboot.md
 - name: Outils de dépannage à distance
   href: remote-tools-troubleshoot-azure-vm-issues.md
 - name: Réparation de machine virtuelle
