@@ -1,23 +1,19 @@
 ---
 title: 'Modèle de données de télémétrie d’Azure Application Insights : télémétrie des dépendances | Microsoft Docs'
 description: Modèle de données Application Insights pour la télémétrie des dépendances
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 3e3d6b8fdc9ac8dd28f73fecd6231e97a5645407
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0923c20b11aa02f380af1faa6766d2346ad1fb2
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60901023"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677430"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Télémétrie des dépendances : Modèle de données Application Insights
 
@@ -27,7 +23,7 @@ La télémétrie des dépendances (dans [Application Insights](../../azure-monit
 
 Nom de la commande lancée par cet appel de dépendance. Valeur de faible cardinalité. Exemples : nom de procédure stockée et modèle de chemin d’accès d’URL.
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 
 Identificateur d’une instance d’appel de dépendance. Utilisé pour la corrélation avec l’élément de télémétrie de demande correspondant à cet appel de dépendance. Pour plus d’informations, consultez la page relative à la [corrélation](../../azure-monitor/app/correlation.md).
 

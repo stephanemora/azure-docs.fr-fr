@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 08/29/2019
-ms.openlocfilehash: ae7baf09df42a5824e5f59e7ebb372f4d9f6350c
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/21/2019
+ms.openlocfilehash: 108e31ebff5910c139bcaf83675cc8161c2a96f6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72032871"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693362"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 
@@ -46,8 +46,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Mémoire (Go)|7|14|21|28|35|42|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Taille maximale des données (Go)|1 024|1 024|1 024|1536|1536|1536|
-|Taille maximale du journal (Go)|307|307|307|461|461|461|
+|Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|
+|Taille maximale du journal (Go)|307|307|461|461|461|922|
 |Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -69,8 +69,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Mémoire (Go)|49|56|63|70|112|168|
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Taille maximale des données (Go)|1536|3 072|3 072|3 072|4096|4096|
-|Taille maximale du journal (Go)|461|922|922|922|1229|1229|
+|Taille maximale des données (Go)|3 072|3 072|3 072|3 072|4096|4096|
+|Taille maximale du journal (Go)|922|922|922|922|1229|1229|
 |Taille maximale des données TempDB (Go)|224|256|288|320|384|384|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)
@@ -93,7 +93,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|3 072|
-|Taille maximale du journal (Go)|307|307|307|461|461|461|461|
+|Taille maximale du journal (Go)|307|307|461|461|461|922|922|
 |Taille maximale des données TempDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
@@ -196,8 +196,8 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est en préversion
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|1|2|3|4|5\.|6|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Taille maximale des données (Go)|650|650|650|650|650|650|
-|Taille maximale du journal (Go)|195|195|195|195|195|195|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
+|Taille maximale du journal (Go)|307|307|307|307|307|307|
 |Taille maximale des données TempDB (Go)|32|64|96|128|160|192|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |Nombre maximal d’IOPS de données (64 Ko)|5 000|10000|15000|20000|25000|30000|
@@ -220,8 +220,8 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est en préversion
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|7|8|9,5|11|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|Taille maximale des données (Go)|650|650|650|650|1 024|1 024|
-|Taille maximale du journal (Go)|195|195|195|195|307|307|
+|Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
+|Taille maximale du journal (Go)|307|307|307|307|307|307|
 |Taille maximale des données TempDB (Go)|224|256|288|320|384|384|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |Nombre maximal d’IOPS de données (64 Ko)|35000|40000|45000|50000|80000|120 000|
@@ -244,7 +244,7 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est en préversion
 |Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage In-Memory OLTP (Go)|1 571|3 142|4 713|6 284|8 655|11 026|13 397|
 |Taille maximale des données (Go)|1 024|1 024|1536|1536|1536|3 072|3 072|
-|Taille maximale du journal (Go)|307|307|307|461|461|922|922|
+|Taille maximale du journal (Go)|307|307|461|461|461|922|922|
 |Taille maximale des données TempDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|

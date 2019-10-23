@@ -9,10 +9,10 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71123444"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Vérification de la connectivité ExpressRoute
@@ -47,9 +47,9 @@ Selon le modèle de connectivité ExpressRoute (colocalisation Cloud Exchange, c
 6.  Passerelle de réseau virtuel (VNet)
 7.  Appareil de calcul sur le réseau virtuel Azure
 
-Si les modèles de connectivité Colocalisation Cloud Exchange ou Connexion Ethernet point à point sont utilisés, le routeur de périphérie du client (2) établit l’homologation BGP avec des MSEE (5). Les points de réseau 3 et 4 existent toujours, mais sont quelque peu transparents en tant qu'appareils de couche 2.
+Si les modèles de connectivité Colocalisation Cloud Exchange ou Connexion Ethernet point à point sont utilisés, le routeur de périphérie du client (2) établit le peering BGP avec des MSEE (5). Les points de réseau 3 et 4 existent toujours, mais sont quelque peu transparents en tant qu'appareils de couche 2.
 
-Si le modèle de connectivité universelle (IPVPN) est utilisé, les PE (collaborant avec des MSEE) (4) établissent une homologation BGP avec des MSEE (5). Les itinéraires sont ensuite propagés sur le réseau du client par le biais du réseau de fournisseur de service IPVPN.
+Si le modèle de connectivité universelle (IPVPN) est utilisé, les PE (collaborant avec des MSEE) (4) établissent un peering BGP avec des MSEE (5). Les itinéraires sont ensuite propagés sur le réseau du client par le biais du réseau de fournisseur de service IPVPN.
 
 > [!NOTE]
 >Pour la haute disponibilité ExpressRoute, Microsoft nécessite une paire de sessions BGP redondante entre des MSEE (5) et des PE-MSEE (4). Une paire redondante de chemins d’accès au réseau est également recommandée entre le réseau du client et les PE-CE. Cependant, dans le modèle de connexion universelle (IPVPN), un seul appareil CE (2) peut-être connecté à un ou plusieurs PE (3).
@@ -58,7 +58,7 @@ Si le modèle de connectivité universelle (IPVPN) est utilisé, les PE (collabo
 
 Les étapes suivantes permettent de valider un circuit ExpressRoute (avec le point de réseau indiqué par le nombre associé) :
 1. [Validation de l'approvisionnement et l’état du circuit (5)](#validate-circuit-provisioning-and-state)
-2. [Valider qu'au moins une homologation ExpressRoute est configurée (5)](#validate-peering-configuration)
+2. [Valider qu'au moins un peering ExpressRoute est configuré (5)](#validate-peering-configuration)
 3. [Validation de l'ARP entre Microsoft et le fournisseur de service (lien entre 4 et 5)](#validate-arp-between-microsoft-and-the-service-provider)
 4. [Valider les BGP et les itinéraires sur les MSEE (BGP entre 4 et 5 et 5 et 6 si un réseau virtuel est connecté)](#validate-bgp-and-routes-on-the-msee)
 5. [Vérifier les statistiques de trafic (trafic passant par 5)](#check-the-traffic-statistics)
@@ -164,13 +164,13 @@ Pour vérifier si un circuit ExpressRoute est opérationnel, portez une attentio
 >
 >
 
-## <a name="validate-peering-configuration"></a>Validation de la configuration de l’homologation
+## <a name="validate-peering-configuration"></a>Validation de la configuration du peering
 Une fois que le fournisseur de services a terminé l'approvisionnement du circuit ExpressRoute, une configuration de routage peut être créée à travers le circuit ExpressRoute entre des MSEE-PR (4) et des MSEE (5). Chaque circuit ExpressRoute peut avoir un, deux ou trois contextes de routage activés : l’appairage privé Azure (trafic vers des réseaux virtuels privés dans Azure), l’appairage public Azure (le trafic vers des adresses IP publiques dans Azure) et l’appairage Microsoft (trafic vers Office 365). Pour plus d’informations sur la création et la modification de la configuration de routage, consultez l’article [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Vérification par le biais du portail Azure
 
 > [!NOTE]
-> Si la couche 3 est fournie par le fournisseur de services et que les homologations sont vides dans le portail, actualisez la configuration du circuit à l’aide du bouton Actualiser du portail. Cette opération appliquera la configuration de routage appropriée à votre circuit. 
+> Si la couche 3 est fournie par le fournisseur de services et que les peerings sont vides dans le portail, actualisez la configuration du circuit à l’aide du bouton Actualiser du portail. Cette opération appliquera la configuration de routage appropriée à votre circuit. 
 >
 >
 
@@ -178,20 +178,20 @@ Dans le portail Azure, l’état d’un circuit ExpressRoute peut être vérifi�
 
 ![5][5]
 
-Dans l’exemple précédent, nous avons noté que le contexte de routage Homologation privée Azure est activé, tandis que les contextes de routage Homologation publique Azure et Microsoft ne sont pas activés. Un contexte d’homologation correctement activé doit également répertorier les sous-réseaux de point à point principaux et secondaires (nécessaires pour BGP). Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE. 
+Dans l’exemple précédent, nous avons noté que le contexte de routage Peering privé Azure est activé, tandis que les contextes de routage Peering public Azure et Microsoft ne sont pas activés. Un contexte de peering correctement activé doit également répertorier les sous-réseaux de point à point principaux et secondaires (nécessaires pour BGP). Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE. 
 
 > [!NOTE]
-> Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur les PE-MSEE. Dans le cas contraire, pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
+> Si aucun peering n’est activé, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur les PE-MSEE. Dans le cas contraire, pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
 >
 >
 
 ### <a name="verification-via-powershell"></a>Vérification par le biais de PowerShell
-Pour obtenir les détails sur la configuration de l'homologation privée Azure, utilisez les commandes suivantes :
+Pour obtenir les détails sur la configuration du peering privé Azure, utilisez les commandes suivantes :
 
     $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
-Voici un exemple de réponse pour une homologation privée correctement configurée :
+Voici un exemple de réponse pour un peering privé correctement configuré :
 
     Name                       : AzurePrivatePeering
     Id                         : /subscriptions/***************************/resourceGroups/Test-ER-RG/providers/***********/expressRouteCircuits/Test-ER-Ckt/peerings/AzurePrivatePeering
@@ -208,19 +208,19 @@ Voici un exemple de réponse pour une homologation privée correctement configur
     MicrosoftPeeringConfig     : null
     ProvisioningState          : Succeeded
 
- Un contexte d’homologation correctement activé répertorie les préfixes d’adresses principales et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE.
+ Un contexte de peering correctement activé répertorie les préfixes d’adresses principales et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE.
 
-Pour obtenir les détails sur la configuration de l'homologation publique Azure, utilisez les commandes suivantes :
+Pour obtenir les détails sur la configuration du peering public Azure, utilisez les commandes suivantes :
 
     $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
     Get-AzExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 
-Pour obtenir les détails sur la configuration de l'homologation Microsoft, utilisez les commandes suivantes :
+Pour obtenir les détails sur la configuration du peering Microsoft, utilisez les commandes suivantes :
 
     $ckt = Get-AzExpressRouteCircuit -ResourceGroupName "Test-ER-RG" -Name "Test-ER-Ckt"
      Get-AzExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
-Si aucune homologation n’est configurée, un message d’erreur est généré. Voici un exemple de réponse si les homologations mentionnées (l'homologation publique Azure dans cet exemple) ne sont pas configurées dans le circuit :
+Si aucun peering n’est configuré, un message d’erreur est généré. Voici un exemple de réponse si les peerings mentionnés (le peering public Azure dans cet exemple) ne sont pas configurés dans le circuit :
 
     Get-AzExpressRouteCircuitPeeringConfig : Sequence contains no matching element
     At line:1 char:1
@@ -231,16 +231,16 @@ Si aucune homologation n’est configurée, un message d’erreur est généré.
 
 
 > [!NOTE]
-> Si aucune homologation n’est activée, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].  
+> Si aucun peering n’est activé, vérifiez si les sous-réseaux principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureASN* et *PeerASN* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].  
 >
 >
 
 ### <a name="verification-via-powershell-classic"></a>Vérification par le biais de PowerShell (classique)
-Pour obtenir les détails sur la configuration de l'homologation privée Azure, utilisez la commande suivante :
+Pour obtenir les détails sur la configuration du peering privé Azure, utilisez la commande suivante :
 
     Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
-Voici un exemple de réponse pour une homologation privée correctement configurée :
+Voici un exemple de réponse pour un peering privé correctement configuré :
 
     AdvertisedPublicPrefixes       : 
     AdvertisedPublicPrefixesState  : Configured
@@ -255,23 +255,23 @@ Voici un exemple de réponse pour une homologation privée correctement configur
     State                          : Enabled
     VlanId                         : 100
 
-Un contexte d’homologation correctement activé répertorie les sous-réseaux d'homologation principaux et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE.
+Un contexte de peering correctement activé répertorie les sous-réseaux de peering principaux et secondaires. Les sous-réseaux /30 sont utilisés pour l’adresse IP d’interface des MSEE et PE-MSEE.
 
-Pour obtenir les détails sur la configuration de l'homologation publique Azure, utilisez les commandes suivantes :
+Pour obtenir les détails sur la configuration du peering public Azure, utilisez les commandes suivantes :
 
     Get-AzureBGPPeering -AccessType Public -ServiceKey "*********************************"
 
-Pour obtenir les détails sur la configuration de l'homologation Microsoft, utilisez les commandes suivantes :
+Pour obtenir les détails sur la configuration du peering Microsoft, utilisez les commandes suivantes :
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
 > [!IMPORTANT]
-> Si les homologations de couche 3 ont été définies par le fournisseur de services, la définition d'homologations ExpressRoute par le biais du portail ou de PowerShell remplace les paramètres du fournisseur de service. La réinitialisation des paramètres d’homologation côté fournisseur nécessite le support du fournisseur de services. Modifiez uniquement les homologations ExpressRoute si vous êtes certain que le fournisseur de services fournit uniquement des services de couche 2 !
+> Si les peerings de couche 3 ont été définis par le fournisseur de services, la définition de peerings ExpressRoute par le biais du portail ou de PowerShell remplace les paramètres du fournisseur de service. La réinitialisation des paramètres de peering côté fournisseur nécessite le support du fournisseur de services. Modifiez uniquement les peerings ExpressRoute si vous êtes certain que le fournisseur de services fournit uniquement des services de couche 2 !
 >
 >
 
 > [!NOTE]
-> Si une homologation n’est pas activée, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
+> Si un peering n’est pas activé, vérifiez si les sous-réseaux de peering principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
 >
 >
 
@@ -283,7 +283,7 @@ Cette section utilise les commandes PowerShell (classiques). Si vous avez utilis
 >
 >
 
-Pour obtenir la table ARP depuis le routeur MSEE principal pour l’homologation privée, utilisez la commande suivante :
+Pour obtenir la table ARP depuis le routeur MSEE principal pour le peering privé, utilisez la commande suivante :
 
     Get-AzureDedicatedCircuitPeeringArpInfo -AccessType Private -Path Primary -ServiceKey "*********************************"
 
@@ -295,9 +295,9 @@ Voici un exemple de réponse pour la commande si le scénario réussit :
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-De même, vous pouvez vérifier la table ARP à partir des MSEE dans le chemin d'accès *principal*/*secondaire* pour les homologations *privée*/*publique*/*Microsoft*.
+De même, vous pouvez vérifier la table ARP à partir des MSEE dans le chemin d'accès *principal*/*secondaire* pour les peerings *privé*/*public*/*Microsoft*.
 
-L’exemple suivant montre la réponse de la commande pour une homologation inexistante.
+L’exemple suivant montre la réponse de la commande pour un peering inexistant.
 
     ARP Info:
        
@@ -327,7 +327,7 @@ Voici un exemple de réponse :
             Neighbor                   V                  AS              UpDown         StatePfxRcd
             10.0.0.1                   4                ####                8w4d                  50
 
-Comme indiqué dans l’exemple précédent, la commande est utile pour déterminer pour la durée de mise en place du contexte de routage. Il indique également le nombre de préfixes d’itinéraire annoncés par le routeur d'homologation.
+Comme indiqué dans l’exemple précédent, la commande est utile pour déterminer pour la durée de mise en place du contexte de routage. Il indique également le nombre de préfixes d’itinéraire annoncés par le routeur de peering.
 
 > [!NOTE]
 > Si l’état est Activé ou Inactif, vérifiez si les sous-réseaux d’homologation principaux et secondaires attribués correspondent à la configuration sur le PE-MSEE lié. Vérifiez également si les *VlanId*, *AzureAsn* et *PeerAsn* sont utilisés sur des MSEE et si ces valeurs correspondent à celles utilisées sur le PE-MSEE lié. Si le hachage MD5 est choisi, la clé partagée doit être la même sur la paire MSEE et PE-MSEE. Pour modifier la configuration sur les routeurs MSEE, reportez-vous à la rubrique [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering].
@@ -335,7 +335,7 @@ Comme indiqué dans l’exemple précédent, la commande est utile pour détermi
 >
 
 > [!NOTE]
-> Si certaines destinations ne sont pas accessibles par le biais d’une homologation particulière, vérifiez la table d’itinéraires des MSEE appartenant au contexte d’homologation spécifique. Si aucun préfixe correspondant (éventuellement NATed IP) n'est présent dans la table de routage, vérifiez s’il existe des pare-feu/NSG/ACL sur le chemin d’accès et si elles autorisent le trafic.
+> Si certaines destinations ne sont pas accessibles par le biais d’un peering particulier, vérifiez la table d’itinéraires des MSEE appartenant au contexte de peering spécifique. Si aucun préfixe correspondant (éventuellement NATed IP) n'est présent dans la table de routage, vérifiez s’il existe des pare-feu/NSG/ACL sur le chemin d’accès et si elles autorisent le trafic.
 >
 >
 
@@ -352,14 +352,14 @@ Voici un exemple de sortie réussie de la commande :
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-De même, vous pouvez vérifier la table de routage à partir des MSEE dans le chemin d'accès *principal*/*secondaire* pour le contexte d'homologation *privé*/*public*/*Microsoft*.
+De même, vous pouvez vérifier la table de routage à partir des MSEE dans le chemin d'accès *principal*/*secondaire* pour le contexte de peering *privé*/*public*/*Microsoft*.
 
-L’exemple suivant montre la réponse de la commande pour une homologation inexistante :
+L’exemple suivant montre la réponse de la commande pour un peering inexistant :
 
     Route Table Info:
 
 ## <a name="check-the-traffic-statistics"></a>Vérification des statistiques de trafic
-Pour obtenir les statistiques combinées du trafic de chemin d’accès primaire et secondaire (octets en entrée et en sortie) d’un contexte d’homologation, utilisez la commande suivante :
+Pour obtenir les statistiques combinées du trafic de chemin d’accès primaire et secondaire (octets en entrée et en sortie) d’un contexte de peering, utilisez la commande suivante :
 
     Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
 
@@ -369,7 +369,7 @@ Voici un exemple de sortie de la commande :
     -------------- --------------- ---------------- -----------------
          240780020       239863857        240565035         239628474
 
-Voici un exemple de sortie de la commande pour une homologation inexistante :
+Voici un exemple de sortie de la commande pour un peering inexistant :
 
     Get-AzureDedicatedCircuitStats : ResourceNotFound: Can not find any subinterface for peering type 'Public' for circuit '97f85950-01dd-4d30-a73c-bf683b3a6e5c' .
     At line:1 char:1

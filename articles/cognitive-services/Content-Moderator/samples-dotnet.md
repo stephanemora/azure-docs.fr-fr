@@ -3,19 +3,19 @@ title: Exemples de code - Content Moderator, .NET
 titleSuffix: Azure Cognitive Services
 description: Utilisez Content Moderator dans vos applications .NET à l’aide du SDK.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 0c7db3c48f1ff7a141fda84caaad84ac8ff7f85d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 23ef7b515f5391a30f6d1fa9fce1dcb856643c69
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564436"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757278"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Exemples du SDK Content Moderator pour .NET
 

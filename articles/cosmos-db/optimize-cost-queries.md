@@ -1,17 +1,17 @@
 ---
 title: Optimiser les unités et les coûts des requêtes pour exécuter ces dernières dans Azure Cosmos DB
 description: Découvrez comment évaluer les frais liés aux unités d’une requête, et optimiser cette dernière en termes de performances et de coût.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
-ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717022"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753299"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimiser le coût de requête dans Azure Cosmos DB
 

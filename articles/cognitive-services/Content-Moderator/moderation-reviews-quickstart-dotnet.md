@@ -3,19 +3,19 @@ title: Créer des révisions à l’aide de .NET - Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Comment créer des révisions à l’aide du SDK Azure Content Moderator pour .NET.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
-ms.openlocfilehash: e3b36eae4f6dc4343828a38fa4ffe3920a83f589
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 540d9872d41ba3ffc73f5e42f098fe51437789c6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242864"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755310"
 ---
 # <a name="create-human-reviews-net"></a>Créer des révisions humaines (.NET)
 

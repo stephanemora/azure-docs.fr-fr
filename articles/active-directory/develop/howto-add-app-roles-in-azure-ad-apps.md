@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24e933399454942f4ee50440cffd791599679074
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e8c0e761c7a03efda470aba83bfa02a30b22a21
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299142"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754315"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Activation Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -129,7 +129,7 @@ Une fois que vous avez ajouté des rôles d’application dans votre application
 
 ## <a name="more-information"></a>Plus d’informations
 
-- [Autorisation dans une application web à l’aide de rôles d’application &amp; revendications de rôle d’Azure AD (exemple)](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-roleclaims/)
+- [Autorisation dans une application web à l’aide de rôles d’application &amp; revendications de rôle d’Azure AD (exemple)](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims)
 - [Utilisation de groupes de sécurité et de rôles d’Application dans vos applications (vidéo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
 - [Azure Active Directory, désormais avec les revendications de groupe et les rôles d’application](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles)
 - [Manifeste d’application Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)

@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 60538145652f3539768e6deb591352a1765488fd
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: f27ea984e2c11be03d69295d206c1b99791a3f72
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019007"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693278"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -36,7 +36,7 @@ Azure SQL Analytics est une solution de monitoring entièrement dans le cloud qu
 
 | Source connectée | Pris en charge | Description |
 | --- | --- | --- |
-| [Diagnostics Azure](../platform/collect-azure-metrics-logs.md) | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Azure Monitor directement par Azure. |
+| [Paramètres de diagnostic](../platform/diagnostic-settings.md) | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Azure Monitor directement par Azure. |
 | [Compte Azure Storage](../platform/collect-azure-metrics-logs.md) | Non | Azure Monitor ne lit pas les données d’un compte de stockage. |
 | [Agents Windows](../platform/agent-windows.md) | Non | Les agents directs Windows ne sont pas utilisés par la solution. |
 | [Agents Linux](../learn/quick-collect-linux-computer.md) | Non | Les agents directs Linux ne sont pas utilisés par la solution. |
