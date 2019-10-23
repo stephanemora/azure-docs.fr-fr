@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841292"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330822"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuration d’une machine virtuelle hôte de session
 
@@ -296,16 +296,23 @@ Si vous utilisez Microsoft Windows 10, suivez les instructions ci-dessous :
 
 16. Une fois les cmdlets exécutées, redémarrez la machine virtuelle présentant un dysfonctionnement de pile côte à côte.
 
-## <a name="remote-licensing-model-isnt-configured"></a>Le mode de licence des services Bureau à distance n’est pas configuré
+## <a name="remote-desktop-licensing-mode-isnt-configured"></a>Le mode de licence des services Bureau à distance n’est pas configuré
 
 Si vous vous connectez à Windows 10 Entreprise multisession à l’aide d’un compte d’administrateur, vous pouvez recevoir une notification indiquant que, « Le mode de licence des services Bureau à distance n’est pas configuré, les services Bureau à distance cesseront de fonctionner dans X jours. Sur le serveur Broker pour les connexions, utilisez le gestionnaire de serveur pour spécifier le mode de licence des services Bureau à distance. »
 
 Si le délai limite expire, le message d’erreur « La session distante a été déconnectée, car aucune licence d’accès client Bureau à distance n’est disponible pour cet ordinateur » s’affiche.
 
-Si vous voyez l’un de ces messages, cela signifie que vous devez ouvrir l’éditeur de stratégie de groupe et définir manuellement le mode de licence sur **Par utilisateur**. Le processus de configuration manuelle est différent selon la version de Windows 10 Entreprise multisession que vous utilisez. Les sections suivantes expliquent comment obtenir le numéro de votre version et quelles étapes de configuration effectuer pour chaque version.
+Si vous voyez l’un de ces messages, cela signifie que les dernières mises à jour Windows ne sont pas installées sur l’image ou que vous définissez le mode de licence Bureau à distance via la stratégie de groupe. Suivez les étapes décrites dans les sections suivantes pour vérifier le paramètre de stratégie de groupe, identifier la version de Windows 10 Entreprise multi-session et installer la mise à jour correspondante.  
 
 >[!NOTE]
 >Windows Virtual Desktop nécessite une licence d’accès client (CAL) aux services Bureau à distance uniquement si votre pool d’hôtes contient des hôtes de session Windows Server. Pour savoir comment configurer une licence d’accès client aux services Bureau à distance, consultez [Gérer les licences de votre déploiement Services Bureau à distance avec des licences d’accès client (CAL)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Désactiver le paramètre de stratégie de groupe du mode de licence des services Bureau à distance
+
+Vérifiez le paramètre de stratégie de groupe en ouvrant l’éditeur de stratégie de groupe dans la machine virtuelle et en accédant à **Modèles administratifs** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session de B à distance** > **Gestion des licences** > **Définissez le mode de licence des services Bureau à distance**. Si le paramètre de stratégie de groupe est **Activé**, remplacez-le par **Désactivé**. S’il est déjà désactivé, laissez-le tel quel.
+
+>[!NOTE]
+>Si vous définissez la stratégie de groupe par le biais de votre domaine, désactivez ce paramètre sur les stratégies qui ciblent ces machines virtuelles à plusieurs sessions Windows 10 Entreprise.
 
 ### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identifier le numéro de votre version de Windows 10 Entreprise multisession
 
@@ -322,50 +329,11 @@ Maintenant que vous connaissez le numéro de votre version, passez directement �
 
 ### <a name="version-1809"></a>Version 1809
 
-Si vous utilisez la version « 1809 », vous pouvez effectuer une mise à niveau vers la version 1903 de Windows 10 Entreprise multisession, ou redéployer le pool d’hôtes avec l’image la plus récente.
-
-Pour effectuer une mise à niveau vers Windows 10 version 1903 :
-
-1. Si vous ne l’avez pas déjà fait, téléchargez et installez la [mise à jour de mai 2019 de Windows 10](https://support.microsoft.com/help/4028685/windows-10-get-the-update).
-2. Connectez-vous à votre ordinateur avec votre compte administrateur.
-3. Exécutez **gpedit.msc** pour ouvrir l’éditeur de stratégie de groupe.
-4. Sous Configuration de l’ordinateur, accédez à **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Licences**.
-5. Sélectionnez **Définir le mode de licence des services Bureau à distance**.
-6. Dans la fenêtre qui s’ouvre, sélectionnez d’abord **Activé** et, sous Options, spécifiez le mode de licence **Par utilisateur** pour le serveur hôte de session des services Bureau à distance, comme illustré ci-dessous.
-    
-    ![Capture d’écran de la fenêtre « Définir le mode de licence des services Bureau à distance » configurée conformément aux instructions de l’étape 6.](media/group-policy-editor-per-user.png)
-
-7. Sélectionnez **Appliquer**.
-8. Sélectionnez **OK**.
-9.  Redémarrez votre ordinateur.
-
-Pour redéployer le pool d’hôtes avec l’image la plus récente :
-
-1. Suivez les instructions du tutoriel [Créer un pool d’hôtes en utilisant la Place de marché Azure](create-host-pools-azure-marketplace.md) jusqu’à ce que vous soyez invité à choisir une version du système d’exploitation de l’image. Vous pouvez choisir Windows 10 Entreprise multisession avec ou sans Office 365 ProPlus.
-2. Connectez-vous à votre ordinateur avec votre compte administrateur.
-3. Exécutez **gpedit.msc** pour ouvrir l’éditeur de stratégie de groupe.
-4. Sous Configuration de l’ordinateur, accédez à **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Licences**.
-5. Sélectionnez **Définir le mode de licence des services Bureau à distance**.
-6. Dans la fenêtre qui s’ouvre, sélectionnez d’abord **Activé** et, sous Options, spécifiez le mode de licence **Par utilisateur** pour le serveur hôte de session des services Bureau à distance.
-7. Sélectionnez **Appliquer**.
-8. Sélectionnez **OK**.
-9.  Redémarrez votre ordinateur.
+Si votre numéro de version indique « 1809 », installez [la mise à jour KB4516077](https://support.microsoft.com/help/4516077).
 
 ### <a name="version-1903"></a>Version 1903
 
-Si vous utilisez la version « 1903 », suivez ces instructions :
-
-1. Connectez-vous à votre ordinateur avec votre compte administrateur.
-2. Exécutez **gpedit.msc** pour ouvrir l’éditeur de stratégie de groupe.
-3. Sous Configuration de l’ordinateur, accédez à **Modèles d’administration** > **Composants Windows** > **Services Bureau à distance** > **Hôte de session Bureau à distance** > **Licences**.
-4. Sélectionnez **Définir le mode de licence des services Bureau à distance**.
-6. Dans la fenêtre qui s’ouvre, sélectionnez d’abord **Activé** et, sous Options, spécifiez le mode de licence **Par utilisateur** pour le serveur hôte de session des services Bureau à distance, comme illustré ci-dessous.
-    
-    ![Capture d’écran de la fenêtre « Définir le mode de licence des services Bureau à distance » configurée conformément aux instructions de l’étape 6.](media/group-policy-editor-per-user.png)
-
-7. Sélectionnez **Appliquer**.
-8. Sélectionnez **OK**.
-9.  Redémarrez votre ordinateur.
+Si votre numéro de version indique « 1903 », installez [la mise à jour KB4517211](https://support.microsoft.com/help/4517211).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -374,7 +342,7 @@ Si vous utilisez la version « 1903 », suivez ces instructions :
 - Pour résoudre les problèmes de configuration d’une machine virtuelle dans Windows Virtual Desktop, consultez [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 - Pour résoudre les problèmes de connexion au client Windows Virtual Desktop, consultez [Connexions au client Bureau à distance](troubleshoot-client-connection.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
-- Pour plus d'informations sur le service, consultez [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
 - Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).
 - Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 - Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).

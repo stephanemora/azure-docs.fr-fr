@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9b2cb9b16a91220db6fcc193fe64ea674b7103ab
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: b49206c677e2f1b20c154ae0c9e358e8b2b0bbd8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937086"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430197"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -30,13 +30,13 @@ Vous pouvez utiliser Application Insights avec toutes les pages web ; il vous s
 1. Tout d’abord, vous avez besoin d’une ressource Application Insights. Si vous ne disposez pas encore d’une ressource ni d’une clé d’instrumentation, suivez les [instructions permettant de créer une ressource](create-new-resource.md).
 2. Copiez la clé d’instrumentation de la ressource à laquelle vous souhaitez envoyer vos données de télémétrie JavaScript.
 3. Ajoutez le kit SDK JavaScript Application Insights à votre page web ou à votre application via l’une des deux options suivantes :
-    * [Configuration NPM](#npm-based-setup)
+    * [Configuration basée sur npm](#npm-based-setup)
     * [Extrait de code JavaScript](#snippet-based-setup)
 
 > [!IMPORTANT]
-> Vous devez uniquement utiliser l’une des méthodes ci-dessous pour ajouter le kit SDK JavaScript Application Insights à votre application. Si vous utilisez la configuration basée sur NPM, n’utilisez pas celle basée sur un extrait de code. Il en va de même pour le scénario inverse lorsque vous utilisez l’approche basée sur un extrait, n’utilisez pas également la configuration basée sur NPM. 
+> Vous devez uniquement utiliser l’une des méthodes ci-dessous pour ajouter le kit SDK JavaScript Application Insights à votre application. Si vous utilisez la configuration basée sur npm, n’utilisez pas celle basée sur un extrait de code. Il en va de même pour le scénario inverse lorsque vous utilisez l’approche basée sur un extrait, n’utilisez pas également la configuration basée sur npm. 
 
-### <a name="npm-based-setup"></a>Configuration basée sur NPM
+### <a name="npm-based-setup"></a>Configuration basée sur npm
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -50,7 +50,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>Configuration basée sur un extrait
 
-Si votre application n’utilise pas NPM, vous pouvez directement instrumenter vos pages web avec Application Insights en collant cet extrait de code en haut de chacune de vos pages. De préférence, il doit s’agir du premier script dans votre section `<head>` pour qu’il puisse surveiller tous les problèmes potentiels liés à l’ensemble de vos dépendances. Si vous utilisez l’application Blazor Server App, ajoutez l’extrait de code en haut du fichier `_Host.cshtml`, dans la section `<head>`.
+Si votre application n’utilise pas npm, vous pouvez directement instrumenter vos pages web avec Application Insights en collant cet extrait de code en haut de chacune de vos pages. De préférence, il doit s’agir du premier script dans votre section `<head>` pour qu’il puisse surveiller tous les problèmes potentiels liés à l’ensemble de vos dépendances. Si vous utilisez l’application Blazor Server App, ajoutez l’extrait de code en haut du fichier `_Host.cshtml`, dans la section `<head>`.
 
 ```html
 <script type="text/javascript">
@@ -229,7 +229,7 @@ Si vous utilisez le kit SDK de PRODUCTION d’Application Insights actuel (1.0.2
    "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
    ```
 
-- Scénario NPM : Appelez `downloadAndSetup` pour télécharger le script ApplicationInsights complet à partir de CDN et l’initialiser avec la clé d’instrumentation :
+- Scénario npm : Appelez `downloadAndSetup` pour télécharger le script ApplicationInsights complet à partir de CDN et l’initialiser avec la clé d’instrumentation :
 
    ```ts
    appInsights.downloadAndSetup({

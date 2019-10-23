@@ -2,18 +2,18 @@
 title: Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure
 description: Découvrez comment créer et gérer des clusters Azure HDInsight avec le portail Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: dfe531f8b298be1d90df45f57918f87744912949
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 10/04/2019
+ms.openlocfilehash: 4cf979c99c596abff075eb38f3358c6389a6b07e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077059"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264289"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gérer des clusters Apache Hadoop dans HDInsight à l’aide du portail Azure
 
@@ -26,14 +26,17 @@ Le [portail Azure](https://portal.azure.com) vous permet de gérer des clusters 
 Un cluster Apache Hadoop existant dans HDInsight.  Consultez [Création de clusters Linux dans HDInsight à l’aide du portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="getting-started"></a>Mise en route
+
 Connectez-vous à [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="showClusters"></a> Lister et afficher les clusters
+
 La page **Clusters HDInsight** liste vos clusters existants.  À partir du portail :
 1. Dans le menu de gauche, sélectionnez **Tous les services**.
 2. Sous **ANALYTICS**, sélectionnez **Clusters HDInsight**.
 
 ## <a name="homePage"></a> Page d’accueil de cluster 
+
 Sélectionnez le nom de votre cluster dans la page [**Clusters HDInsight**](#showClusters).  Cette opération ouvre la **Vue d’ensemble**, qui est similaire à l’image suivante :
 
 ![essentials du cluster HDInsight du portail Azure](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
@@ -47,6 +50,7 @@ Sélectionnez le nom de votre cluster dans la page [**Clusters HDInsight**](#sho
 |Actualiser|permet d’actualiser la vue.|
 
 **Menu de gauche :**  
+
   - **Menu en haut à gauche**
 
     | Item| Description |
@@ -83,7 +87,7 @@ Sélectionnez le nom de votre cluster dans la page [**Clusters HDInsight**](#sho
     |Alertes|permet de gérer les alertes et les actions.|
     |Mesures|permet de surveiller les mesures du cluster dans les journaux Azure Monitor.|
     |Paramètres de diagnostic|Paramètres de l’emplacement de stockage des métriques de diagnostic.|
-    |Operations Management Suite|permet de superviser votre cluster dans Azure Operations Management Suite (OMS) et les journaux Azure Monitor.|
+    |Azure Monitor|Supervisez votre cluster dans Azure Monitor.|
 
   - **Menu Support et dépannage**
 
@@ -125,6 +129,7 @@ Dans la [page d’accueil du cluster](#homePage) :
 3. Suivez les instructions fournies dans la nouvelle page.
 
 ## <a name="delete-clusters"></a>Suppression des clusters
+
 La suppression d’un cluster ne supprime pas le compte de stockage par défaut ni les comptes de stockage liés. Vous pouvez recréer le cluster en utilisant les mêmes comptes de stockage et les mêmes metastores. Il est recommandé d’utiliser un nouveau conteneur d’objets blob par défaut quand vous recréez le cluster.
 
 Dans la [page d’accueil du cluster](#homePage) :
@@ -146,15 +151,15 @@ Pour plus d’informations, consultez la rubrique [Mettre à l’échelle les cl
 
 ## <a name="pauseshut-down-clusters"></a>Pause/arrêt de clusters
 
-La plupart des travaux Hadoop sont les traitements par lots exécutés occasionnellement seulement. Pour la plupart des clusters Hadoop, il existe de longues périodes pendant lequel le cluster n’est pas utilisé pour le traitement. Avec HDInsight, vos données sont stockées Azure Storage, pour que vous puissiez supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation.
-Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés.
+La plupart des travaux Hadoop sont les traitements par lots exécutés occasionnellement seulement. Pour la plupart des clusters Hadoop, il existe de longues périodes pendant lequel le cluster n’est pas utilisé pour le traitement. Avec HDInsight, vos données sont stockées dans le stockage Azure. Vous pouvez ainsi supprimer un cluster en toute sécurité s’il n’est pas en cours d’utilisation.
+Vous devez également payer pour un cluster HDInsight, même quand vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, mieux vaut supprimer les clusters quand ils ne sont pas utilisés.
 
 Il existe de nombreuses façons de programmer le processus :
 
-* Utilisateur d’Azure Data Factory. Pour créer des services liés HDInsight à la demande, consultez [Création de clusters Apache Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md).
-* Utilisation d’Azure PowerShell  Voir [Analyse des données sur les retards de vol](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
-* Utiliser l’interface de ligne de commande Microsoft Azure Consultez [Gérer des clusters HDInsight à l’aide d’Azure CLI](hdinsight-administer-use-command-line.md).
-* Utilisation du kit de développement logiciel .NET. Voir [Envoyer des tâches Apache Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
+- Utilisateur d’Azure Data Factory. Pour créer des services liés HDInsight à la demande, consultez [Création de clusters Apache Hadoop à la demande basés sur Linux dans HDInsight avec Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md).
+- Utilisation d’Azure PowerShell  Voir [Analyse des données sur les retards de vol](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
+- Utiliser l’interface de ligne de commande Microsoft Azure Consultez [Gérer des clusters HDInsight à l’aide d’Azure CLI](hdinsight-administer-use-command-line.md).
+- Utilisation du kit de développement logiciel .NET. Voir [Envoyer des tâches Apache Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 
 Pour les informations de tarification, consultez [Tarification HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/). Pour supprimer un cluster du portail, consultez [Supprimer les clusters](#delete-clusters)
 
@@ -178,6 +183,7 @@ Dans la [page d’accueil du cluster](#homePage) :
 Pour plus d’informations, consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="change-passwords"></a>Modifier les mots de passe
+
 Un cluster HDInsight peut disposer de deux comptes d'utilisateur. le compte d’utilisateur du cluster HDInsight (compte d’utilisateur HTTP) et le compte d’utilisateur SSH sont créés durant le processus de création. Vous pouvez utiliser le portail pour modifier le mot de passe du compte d’utilisateur du cluster, et des actions de script pour modifier le compte d’utilisateur SSH.
 
 ### <a name="change-the-cluster-user-password"></a>Modifier le mot de passe d’utilisateur du cluster
@@ -194,6 +200,7 @@ Dans la [page d’accueil du cluster](#homePage) :
 Le mot de passe est modifié sur tous les nœuds du cluster.
 
 ### <a name="change-the-ssh-user-password"></a>Modifier le mot de passe d’utilisateur SSH
+
 1. À l’aide d’un éditeur de texte, enregistrez le texte suivant dans un fichier nommé **changepassword.sh**.
 
     > [!IMPORTANT]  
@@ -223,26 +230,31 @@ Le mot de passe est modifié sur tous les nœuds du cluster.
 6. Sélectionnez **Créer** pour appliquer le script. Une fois le script terminé, vous pouvez vous connecter au cluster à l’aide de SSH avec le nouveau mot de passe.
 
 ## <a name="grantrevoke-access"></a>Octroyer/Révoquer l’accès
+
 Les clusters HDInsight disposent des services web HTTP suivants (tous ces services ont des points de terminaison RESTful) :
 
-* ODBC
-* JDBC
-* Ambari
-* Oozie
-* Templeton
+- ODBC
+- JDBC
+- Ambari
+- Oozie
+- Templeton
 
 Par défaut, l'accès à ces services est octroyé. Vous pouvez révoquer ou octroyer l’accès à l’aide d’[Azure PowerShell](hdinsight-administer-use-powershell.md#grantrevoke-access).
 
 ## <a name="find-the-subscription-id"></a>Rechercher l’ID d’abonnement
+
 Chaque cluster est lié à un abonnement Azure.  L’ID d’abonnement Azure est visible dans la [page d’accueil du cluster](#homePage).
 
 ## <a name="find-the-resource-group"></a>Trouvez le groupe de ressources
+
 En mode Azure Resource Manager, chaque cluster HDInsight est créé avec un groupe de ressources Azure Resource Manager. Le groupe Resource Manager est visible dans la [page d’accueil du cluster](#homePage).
 
 ## <a name="find-the-storage-accounts"></a>Rechercher les comptes de stockage
+
 Les clusters HDInsight utilisent un compte Stockage Azure ou Azure Data Lake Storage pour stocker les données. Chaque cluster HDInsight peut avoir un compte de stockage par défaut et une série de comptes de stockage liés. Pour lister les comptes de stockage, dans la [page d’accueil du cluster](#homePage), sous **Paramètres**, sélectionnez **Comptes de stockage**.
 
 ## <a name="monitor-jobs"></a>Surveiller des travaux
+
 Consultez [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md#monitoring).
 
 ## <a name="cluster-size"></a>Taille du cluster
@@ -254,18 +266,18 @@ La vignette **Taille du cluster** de la [page d’accueil du cluster](#homePage)
 
 ## <a name="connect-to-a-cluster"></a>Se connecter à un cluster
 
-* [Utilisation d’Apache Hive avec HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
-* [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
+- [Utilisation d’Apache Hive avec HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
+- [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez découvert certaines fonctions d’administration de base. Pour en savoir plus, consultez les articles suivants :
 
-* [Administration de HDInsight à l’aide d’Azure PowerShell](hdinsight-administer-use-powershell.md)
-* [Administration de HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md)
-* [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-* [En savoir plus sur l’utilisation de l’API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [Utilisation d’Apache Hive dans HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utiliser Apache Sqoop dans HDInsight](hadoop/hdinsight-use-sqoop.md)
-* [Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight](hadoop/python-udf-hdinsight.md)
-* [Version de Apache Hadoop dans Azure HDInsight](hdinsight-component-versioning.md)
+- [Administration de HDInsight à l’aide d’Azure PowerShell](hdinsight-administer-use-powershell.md)
+- [Administration de HDInsight à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md)
+- [Création de clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [En savoir plus sur l’utilisation de l’API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md)
+- [Utilisation d’Apache Hive dans HDInsight](hadoop/hdinsight-use-hive.md)
+- [Utiliser Apache Sqoop dans HDInsight](hadoop/hdinsight-use-sqoop.md)
+- [Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight](hadoop/python-udf-hdinsight.md)
+- [Version de Apache Hadoop dans Azure HDInsight](hdinsight-component-versioning.md)

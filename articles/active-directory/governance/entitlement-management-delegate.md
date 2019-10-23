@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89cdab09e3ae03ddea6259eda657908f900f982e
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6d44a4265c3729bff3d983395a37a6cb64a463d4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169837"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389120"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Délégation et rôles dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -107,23 +107,23 @@ Le tableau suivant liste les tâches que les rôles de gestion des droits d’ut
 | [Déléguer à un gestionnaire de package d’accès](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Supprimer un gestionnaire de package d’accès](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
 | [Créer un package d’accès dans un catalogue](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
-| [Gérer des rôles de ressources dans un package d’accès](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Créer et modifier des stratégies](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Affecter directement un utilisateur à un package d’accès](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Afficher qui a une affectation à un package d’accès](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Afficher les requêtes d’un package d’accès](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Afficher les erreurs de remise d’une requête](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Annuler une requête en attente](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Modifier des rôles de ressources dans un package d’accès](entitlement-management-access-package-resources.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Créer et modifier des stratégies](entitlement-management-access-package-request-policy.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Affecter directement un utilisateur à un package d’accès](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Afficher qui a une affectation à un package d’accès](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Afficher les requêtes d’un package d’accès](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Afficher les erreurs de remise d’une requête](entitlement-management-access-package-requests.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Annuler une requête en attente](entitlement-management-access-package-requests.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [Masquer un package d’accès](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Supprimer un package d’accès](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Supprimer un package d’accès](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Rôles requis pour ajouter des ressources à un catalogue
 
-Un administrateur d’entreprise peut ajouter ou supprimer n’importe quel groupe (groupes de sécurité ou groupes Office 365 créés dans le cloud), application ou site SharePoint Online d’un catalogue. Un administrateur d’utilisateurs peut ajouter ou supprimer n’importe quel groupe ou application d’un catalogue.
+Un Administrateur d’entreprise peut ajouter ou supprimer n’importe quel groupe (groupes de sécurité ou groupes Office 365 créés dans le cloud), application ou site SharePoint Online d’un catalogue. Un administrateur d’utilisateurs peut ajouter ou supprimer n’importe quel groupe ou application d’un catalogue.
 
 Afin qu’un utilisateur, qui ni administrateur général, ni administrateur d’utilisateurs, puisse ajouter des groupes, des applications ou des sites SharePoint Online à un catalogue, cet utilisateur doit disposer *à la fois* du rôle Azure AD Directory requis et du rôle de gestion des droits d’utilisation de propriétaire de catalogue. Le tableau suivant répertorie les combinaisons de rôles nécessaires pour ajouter des ressources à un catalogue. Pour supprimer les ressources d’un catalogue, vous devez disposer des mêmes rôles.
 
-| Rôle d’annuaire Azure AD | Rôle de gestion des droits d’utilisation | Peut ajouter un groupe de sécurité | Peut ajouter un groupe Office 365 | Peut ajouter une application | Peut ajouter un site SharePoint Online |
+| Rôle d’annuaire Azure AD | Rôle de gestion des droits d’utilisation | Peut ajouter un groupe de sécurité | Peut ajouter un groupe Office 365 | Peut ajouter une application | Peut ajouter un site SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Administrateur général](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | [Administrateur d’utilisateurs](../users-groups-roles/directory-assign-admin-roles.md) | n/a |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |

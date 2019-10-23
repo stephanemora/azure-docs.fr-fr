@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 2ec38659b0bafa8836ac787ac36b662970141843
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709826"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249093"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Architectures basées sur des événements serverless avec Azure Cosmos DB et Azure Functions
 
@@ -29,7 +29,7 @@ Avec le [déclencheur Azure Functions pour Cosmos DB](../azure-functions/functio
 
 Pour implémenter un flux serverless basé sur des événements, vous avez besoin des éléments suivants :
 
-* **Conteneur supervisé :** le conteneur supervisé désigne le conteneur Azure Cosmos actuellement supervisé. Il stocke les données à partir desquelles le flux de modification est généré. Toutes les insertions et les modifications (par exemple, CRUD) apportées au conteneur supervisé sont répercutées dans le flux de modification du conteneur.
+* **Conteneur supervisé :** le conteneur supervisé désigne le conteneur Azure Cosmos actuellement supervisé. Il stocke les données à partir desquelles le flux de modification est généré. Toutes les insertions, mises à jour apportées au conteneur supervisé sont répercutées dans le flux de modification du conteneur.
 * **Conteneur de baux** : le conteneur de baux gère l’état entre plusieurs instances de fonction Azure serverless dynamiques et permet une mise à l’échelle dynamique. Ce conteneur de bail peut être créé manuellement ou automatiquement par le déclencheur Azure Functions pour Cosmos DB. Pour créer automatiquement le conteneur de bail, définissez l'indicateur *CreateLeaseCollectionIfNotExists* dans la [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Les conteneurs de baux partitionnés sont nécessaires pour avoir une définition de clé de partition `/id`.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Créer votre déclencheur Azure Functions pour Cosmos DB

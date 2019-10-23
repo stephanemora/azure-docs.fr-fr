@@ -3,13 +3,13 @@ ms.topic: include
 ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a3c630b54ff95a9b1200e2421c787a514a0aa52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/09/2019
+ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431040"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72259096"
 ---
 ## <a name="business-disaster-recovery"></a>Récupération d'urgence
 
@@ -24,6 +24,7 @@ Les fonctionnalités de haute disponibilité supplémentaires fournies par l’i
 - **Basculement** : Azure fournit la [géoréplication et l’équilibrage de charge](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Restauration des données** et **restauration du stockage** : Azure fournit [plusieurs options pour préserver et récupérer les données](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
 - **Récupération de site** : Azure fournit des fonctionnalités de récupération de site via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+- **Sauvegarde Azure** : [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-architecture) prend en charge la sauvegarde locale et dans le cloud des machines virtuelles Azure.
 
 Veillez à activer les fonctionnalités pertinentes d’Azure pour offrir une haute disponibilité mondiale, interrégionale pour vos utilisateurs et appareils.
 

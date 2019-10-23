@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e2781229974ed872d477579d6c738822f910df6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1751e8d67f59285d011df33a2d4d1d6d8abcec6a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243512"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376059"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -57,7 +57,7 @@ La solution rapporte l’état de mise à jour de l’ordinateur en fonction de 
 
 Vous pouvez déployer et installer des mises à jour logicielles sur des ordinateurs qui nécessitent les mises à jour en créant un déploiement planifié. Les mises à jour considérées comme *facultatives* ne sont pas incluses dans le déploiement des ordinateurs Windows. Seules les mises à jour nécessaires sont incluses dans le déploiement.
 
-Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, en spécifiant explicitement les ordinateurs, en sélectionnant un [groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs ou une [requête Azure](#azure-machines) qui sélectionne des machines virtuelles Azure de manière dynamique selon des critères spécifiés. Ces groupes sont différents de la [configuration de l’étendue](../azure-monitor/insights/solution-targeting.md), qui est utilisée uniquement pour déterminer quelles machines reçoivent les packs d’administration qui activent la solution.
+Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, en spécifiant explicitement les ordinateurs, en sélectionnant un [groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs ou une [requête Azure](automation-update-management-query-logs.md) qui sélectionne des machines virtuelles Azure de manière dynamique selon des critères spécifiés. Ces groupes sont différents de la [configuration de l’étendue](../azure-monitor/insights/solution-targeting.md), qui est utilisée uniquement pour déterminer quelles machines reçoivent les packs d’administration qui activent la solution.
 
 Vous spécifiez également une planification pour approuver et définir la période pendant laquelle les mises à jour peuvent être installées. Cette période est appelée fenêtre de maintenance. Vingt minutes de la fenêtre de maintenance sont réservées aux redémarrages si un redémarrage est nécessaire et que vous avez sélectionné l’option de redémarrage approprié. Si la mise à jour corrective prend plus longtemps que prévu et qu’il reste moins de vingt minutes dans la fenêtre de maintenance, aucun redémarrage ne se produit.
 
@@ -97,9 +97,15 @@ Le tableau suivant répertorie les systèmes d’exploitation qui ne sont pas pr
 
 ### <a name="client-requirements"></a>Configuration requise des clients
 
+Les informations ci-dessous décrivent la configuration requise du client spécifique au système d’exploitation.  Vous devez également consulter la [Planification réseau](#ports) pour plus d’informations.
+
 #### <a name="windows"></a>Windows
 
-Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS ou avoir accès à Microsoft Update. Vous pouvez utiliser Update Management avec System Center Configuration Manager. Pour en savoir plus sur les scénarios d’intégration, consultez la section [Intégrer System Center Configuration Manager à Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). L’[agent Windows](../azure-monitor/platform/agent-windows.md) est obligatoire. L’agent est automatiquement installé si vous intégrez une machine virtuelle Azure.
+Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS ou avoir accès à Microsoft Update.
+
+Vous pouvez utiliser Update Management avec System Center Configuration Manager. Pour en savoir plus sur les scénarios d’intégration, consultez la section [Intégrer System Center Configuration Manager à Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). L’[agent Windows](../azure-monitor/platform/agent-windows.md) est obligatoire. L’agent est automatiquement installé si vous intégrez une machine virtuelle Azure.
+
+Les machines virtuelles Windows déployées à partir de Place de marché Microsoft Azure sont configurées par défaut pour recevoir des mises à jour automatiques de Windows Update Service. Ce comportement ne change pas lorsque vous ajoutez cette solution ou des machines virtuelles Windows à votre espace de travail. Si vous n’avez pas géré activement les mises à jour avec cette solution, le comportement par défaut (appliquer automatiquement les mises à jour) s’applique.
 
 > [!NOTE]
 > Un utilisateur peut modifier la stratégie de groupe afin que le redémarrage de la machine ne puisse être effectué que par lui et non par le système. Les machines managées peuvent rester bloquées si Update Management ne dispose pas des droits nécessaires pour les redémarrer sans intervention manuelle de l'utilisateur.
@@ -111,6 +117,8 @@ Les agents Windows doivent être configurés pour communiquer avec un serveur 
 Pour Linux, la machine doit avoir accès à un référentiel de mises à jour, qui peut être privé ou public. TLS 1.1 ou TLS 1.2 est exigé pour interagir avec Update Management. La configuration de Log Analytics Agent pour Linux afin d’envoyer des rapports à plusieurs espaces de travail Log Analytics n’est pas prise en charge avec cette solution.  Python 2.x doit également être installé sur la machine.
 
 Pour plus d’informations sur la manière d’installer Log Analytics Agent pour Linux et télécharger la dernière version, consultez [Log Analytics Agent pour Linux](https://github.com/microsoft/oms-agent-for-linux). Pour plus d’informations sur la manière d’installer Log Analytics Agent pour Windows et télécharger la dernière version, consultez [Microsoft Monitoring Agent pour Windows](../log-analytics/log-analytics-windows-agent.md).
+
+Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) déployée dans Azure. Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distribution en ligne en tenant compte de leurs méthodes de distribution prises en charge.
 
 ## <a name="permissions"></a>Autorisations
 
@@ -144,50 +152,6 @@ Pour plus d’informations sur la façon dont ces packs d’administration de so
 > [!NOTE]
 > Pour les systèmes dotés de l’agent Operations Manager, pour pouvoir être entièrement gérés par Update Management, l’agent doit être mis à jour vers Microsoft Monitoring Agent. Pour savoir comment mettre à jour l’agent, consultez [Guide pratique pour mettre à niveau un agent Operations Manager](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents). Pour les environnements qui utilisent Operations Manager, il est nécessaire d’exécuter System Center Operations Manager 2012 R2 UR 14 ou ultérieur.
 
-## <a name="onboard"></a>Activer Update Management
-
-Pour commencer à appliquer des correctifs aux systèmes, vous devez activer la solution Update Management. Vous pouvez intégrer des machines à Update Management de différentes manières. Voici des méthodes recommandées et prises en charge pour intégrer la solution :
-
-* [Depuis une machine virtuelle](automation-onboard-solutions-from-vm.md)
-* [Depuis plusieurs machines](automation-onboard-solutions-from-browse.md)
-* [Depuis votre compte Automation](automation-onboard-solutions-from-automation-account.md)
-* [Avec un runbook Azure Automation](automation-onboard-solutions.md)
-
-### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Vérifier que les ordinateurs non-Azure sont intégrés
-
-Pour confirmer que les ordinateurs directement connectés communiquent avec les journaux Azure Monitor, vous pouvez exécuter l’une des recherches suivantes dans les journaux au bout de quelques minutes.
-
-#### <a name="linux"></a>Linux
-
-```loganalytics
-Heartbeat
-| where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
-```
-
-#### <a name="windows"></a>Windows
-
-```loganalytics
-Heartbeat
-| where OSType == "Windows" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
-```
-
-Sur un ordinateur Windows, vous pouvez vérifier les informations suivantes pour tester la connectivité de l’agent avec les journaux Azure Monitor :
-
-1. Dans le Panneau de configuration, ouvrez **Microsoft Monitoring Agent**. Sous l’onglet **Azure Log Analytics**, l’agent affiche le message suivant : **Microsoft Monitoring Agent s’est correctement connecté à Log Analytics.**
-2. Ouvrez le journal des événements Windows. Accédez à **Application and Services Logs\Operations Manager**, puis recherchez l’ID d’événement 3000 et 5002 à partir du **connecteur de service** source. Ces événements indiquent que l’ordinateur est enregistré sur l’espace de travail Log Analytics et qu’il reçoit la configuration.
-
-Si l’agent ne parvient pas à communiquer avec les journaux Azure Monitor et s’il est configuré pour communiquer avec Internet par le biais d’un pare-feu ou d’un serveur proxy, vérifiez que le pare-feu ou le serveur proxy est correctement configuré. Pour savoir comment vérifier la configuration du pare-feu ou du serveur proxy, consultez [Configuration réseau de l’agent Windows](../azure-monitor/platform/agent-windows.md) ou [Configuration réseau de l’agent Linux](../log-analytics/log-analytics-agent-linux.md).
-
-> [!NOTE]
-> Si vos systèmes Linux sont configurés pour communiquer avec un proxy ou Log Analytics Gateway et que vous intégrez cette solution, vous devez mettre à jour les autorisations *proxy.conf* pour accorder au groupe omiuser une autorisation d’accès en lecture sur le fichier. Pour cela, exécutez les commandes suivantes :
->
-> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
-> `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
-
-Les nouveaux agents Linux ajoutés affichent l’état **Mis à jour** après l’exécution d’une évaluation. Ce processus peut prendre jusqu’à 6 heures.
-
-Pour vérifier qu’un groupe d’administration Operations Manager communique avec les journaux Azure Monitor, consultez [Valider l’intégration d’Operations Manager aux journaux Azure Monitor](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
-
 ## <a name="data-collection"></a>Collecte des données
 
 ### <a name="supported-agents"></a>Agents pris en charge
@@ -210,7 +174,28 @@ L’affichage sur le tableau de bord des données mises à jour provenant des or
 
 La consommation moyenne de données des journaux Azure Monitor pour une machine utilisant la solution Update Management est d’environ 25 Mo par mois. Cette valeur est approximative et sujette à modification en fonction de votre environnement. Nous vous recommandons de surveiller votre environnement pour connaître votre consommation exacte.
 
-## <a name="viewing-update-assessments"></a>Afficher les évaluations des mises à jour
+## <a name="ports"></a>Planification réseau
+
+Les adresses suivantes sont exigées particulièrement pour Update Management. La communication avec ces adresses s’effectue par le biais du port 443.
+
+|Azure (public)  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|\* .azure-automation.net|*.azure-automation.us|
+
+Pour les machines Windows, vous devez également autoriser le trafic vers tous les points de terminaison requis par Windows Update.  Vous trouverez une liste actualisée des points de terminaison requis dans [Problèmes liés à HTTP/au proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Si vous disposez d’un [Windows Update Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) local, vous devez également autoriser le trafic vers le serveur spécifié dans votre [clé WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+
+Pour les machines Red Hat Linux, reportez-vous aux [adresses IP des serveurs de distribution de contenu RHUI](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) pour les points de terminaison requis. Pour les autres distributions Linux, reportez-vous à la documentation du fournisseur.
+
+Pour plus d’informations sur les ports exigés par le Runbook Worker hybride, consultez [Ports du rôle de Worker hybride](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+
+Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, reflète les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
+
+Suivez les instructions dans [Connecter des ordinateurs sans accès Internet](../azure-monitor/platform/gateway.md) pour configurer des ordinateurs qui n’ont pas accès à Internet.
+
+## <a name="view-update-assessments"></a>Voir les évaluations des mises à jour
 
 Dans votre compte Automation, cliquez sur **Update Management** pour afficher l’état de vos ordinateurs.
 
@@ -220,74 +205,11 @@ Pour exécuter une recherche dans les journaux qui permet de retourner des infor
 
 ![Vue par défaut de Update Management](media/automation-update-management/update-management-view.png)
 
-## <a name="install-updates"></a>Installer les mises à jour
-
-Une fois les mises à jour évaluées pour tous les ordinateurs Linux et Windows dans votre espace de travail, vous pouvez installer les mises à jour obligatoires en créant une opération de *déploiement de mises à jour*. Pour créer un déploiement de mises à jour, vous devez disposer d’un accès en écriture au compte Automation et d’un accès en écriture à toutes les machines virtuelles Azure ciblées dans le déploiement. Un déploiement de mises à jour est une installation planifiée de mises à jour obligatoires pour un ou plusieurs ordinateurs. Vous pouvez spécifier la date et l’heure du déploiement ainsi qu’un ordinateur ou groupe d’ordinateurs à inclure dans un déploiement. Pour en savoir plus sur les groupes d’ordinateurs, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
-
-Lorsque vous incluez des groupes d’ordinateurs dans votre déploiement de mises à jour, l’appartenance au groupe n’est évaluée qu’une seule fois au moment de la création de la planification. Les modifications ultérieures apportées à un groupe ne sont pas répercutées. Pour contourner ce problème, utilisez des [groupes dynamiques](#using-dynamic-groups), car ces groupes sont résolus au moment du déploiement et ils sont définis par une requête pour les machines virtuelles Azure ou par une recherche enregistrée pour les machines virtuelles non-Azure.
-
-> [!NOTE]
-> Les machines virtuelles Windows déployées à partir de Place de marché Microsoft Azure sont configurées par défaut pour recevoir des mises à jour automatiques de Windows Update Service. Ce comportement ne change pas lorsque vous ajoutez cette solution ou des machines virtuelles Windows à votre espace de travail. Si vous n’avez pas géré activement les mises à jour avec cette solution, le comportement par défaut (appliquer automatiquement les mises à jour) s’applique.
-
-Pour éviter que les mises à jour soient appliquées en dehors d’une fenêtre de maintenance sur Ubuntu, reconfigurez le package Unattended-Upgrade pour désactiver les mises à jour automatiques. Pour plus d’informations sur la configuration du package, consultez la rubrique [Mises à jour automatiques du Guide du serveur Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
-
-Les machines virtuelles créées à partir des images Red Hat Enterprise Linux (RHEL) à la demande disponibles dans le service Place de marché Azure sont inscrites pour accéder à l’infrastructure [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) déployée dans Azure. Toute autre distribution Linux doit être mise à jour à partir du référentiel de fichiers de distribution en ligne en tenant compte de leurs méthodes de distribution prises en charge.
-
-Pour créer un déploiement de mises à jour, sélectionnez **Planifier le déploiement de la mise à jour**. La page **Nouveau déploiement de mises à jour** s’ouvre. Entrez les valeurs des propriétés décrites dans le tableau suivant, puis cliquez sur **Créer** :
-
-| Propriété | Description |
-| --- | --- |
-| Nom |Nom unique identifiant le déploiement de mises à jour. |
-|Système d’exploitation| Linux ou Windows|
-| Groupes à mettre à jour |Pour des machines Azure, définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. </br></br>Pour les machines non-Azure, sélectionnez une recherche existante enregistrée pour sélectionner un groupe de machines non-Azure à inclure dans le déploiement. </br></br>Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)|
-| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md). |
-|Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
-|Inclure/exclure des mises à jour|La page **Inclure/Exclure** s’ouvre. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior) |
-|Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|
-| Préscripts + postscripts|Sélectionnez les scripts à exécuter avant et après votre déploiement|
-| Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures |
-| Contrôle du redémarrage| Détermine la façon dont doivent être gérés les redémarrages. Options disponibles :</br>Redémarrer si nécessaire (par défaut)</br>Toujours redémarrer</br>Ne jamais redémarrer</br>Redémarrer uniquement : les mises à jour ne sont pas installées|
-
-Vous pouvez également créer des déploiements de mises à jour par programmation. Pour savoir comment créer un déploiement de mises à jour avec l’API REST, consultez [Configurations des mises à jour logicielles - Créer](/rest/api/automation/softwareupdateconfigurations/create). Vous pouvez également utiliser un exemple de runbook fourni pour créer un déploiement de mises à jour hebdomadaires. Pour en savoir plus sur ce runbook, consultez [Créer un déploiement de mises à jour hebdomadaires pour une ou plusieurs machines virtuelles dans un groupe de ressources](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
-
-> [!NOTE]
-> Les clés de Registre répertoriées sous [Clés de Registre utilisées pour gérer le redémarrage](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) peuvent entraîner un événement de redémarrage même si l’option **Contrôle de redémarrage** est définie sur **Ne jamais redémarrer**.
-
-### <a name="maintenance-windows"></a>Fenêtres de maintenance
-
-Les fenêtres de maintenance contrôlent la période pendant laquelle les mises à jour doivent être installées. Tenez compte des détails suivants au moment de spécifier une fenêtre de maintenance.
-
-* Les fenêtres de maintenance contrôlent le nombre de tentatives d’installation des mises à jour.
-* Update Management n’arrête pas l’installation de nouvelles mises à jour si la fin d’une fenêtre de maintenance est proche.
-* Update Management ne met pas fin aux mises à jour en cours si la fenêtre de maintenance est dépassée.
-* Le dépassement de la fenêtre de maintenance sur Windows est souvent le signe que l’installation d’une mise à jour de Service Pack prend beaucoup de temps.
-
-### <a name="multi-tenant"></a>Déploiements de mise à jour inter-tenants
-
-Si des machines se trouvent dans un autre rapport de tenant Azure pour Update Management que vous devez corriger, vous devez utiliser la solution de contournement suivante pour planifier l’opération. Vous pouvez utiliser la cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) avec le commutateur `-ForUpdate` pour créer une planification, et utiliser la cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) et faire passer les machines de l’autre tenant au paramètre `-NonAzureComputer`. L’exemple suivant vous montre comment procéder :
-
-```azurepowershell-interactive
-$nonAzurecomputers = @("server-01", "server-02")
-
-$startTime = ([DateTime]::Now).AddMinutes(10)
-
-$sched = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
-
-New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
-```
-
 ## <a name="view-missing-updates"></a>Afficher les mises à jour manquantes
 
 Sélectionnez **Mises à jour manquantes** pour afficher la liste des mises à jour qui manquent à vos ordinateurs. Chaque mise à jour est répertoriée et peut être sélectionnée. Les informations sur le nombre d’ordinateurs qui nécessitent la mise à jour, le système d’exploitation et le lien vers plus d’informations s’affichent. Le volet **Recherche dans les journaux** affiche plus d’informations sur les mises à jour.
 
-## <a name="view-update-deployments"></a>Afficher les déploiements de mises à jour
-
-Sélectionnez l’onglet **Déploiements de mises à jour** pour afficher la liste des déploiements de mises à jour existants. Sélectionnez l’un des déploiements de mises à jour dans le tableau pour ouvrir le volet **Exécution du déploiement des mises à jour** de ce déploiement de mises à jour. Les journaux d’activité de travail sont stockés pendant 30 jours maximum.
-
-![Vue d’ensemble des résultats d’un déploiement de mises à jour](./media/automation-update-management/update-deployment-run.png)
-
-Pour afficher un déploiement de mises à jour à partir de l’API REST, consultez [Exécutions de configurations de mises à jour logicielles](/rest/api/automation/softwareupdateconfigurationruns).
+![Mises à jour manquantes](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
 ## <a name="update-classifications"></a>Classifications des mises à jour
 
@@ -321,321 +243,15 @@ sudo yum -q --security check-update
 
 Il n’existe actuellement aucune méthode prise en charge permettant d’activer la disponibilité des données de classification natives sur CentOS. Pour le moment, seule une prise en charge au mieux est proposée aux clients l’ayant activé eux-mêmes.
 
-## <a name="firstparty-predownload"></a>Paramètres avancés
-
-Update Management s’appuie sur Windows Update pour télécharger et installer les mises à jour de Windows. Par conséquent, nous respectons la plupart des paramètres utilisés par Windows Update. Si vous utilisez des paramètres pour activer les mises à jour non-Windows, Update Management gérera également ces mises à jour. Si vous souhaitez activer le téléchargement des mises à jour avant le déploiement de mises à jour, le déploiement des mise à jour peut être plus rapide et être moins susceptible de dépasser la fenêtre de maintenance.
-
-### <a name="pre-download-updates"></a>Prétélécharger les mises à jour
-
-Pour configurer automatiquement le téléchargement des mises à jour dans la stratégie de groupe, vous pouvez définir le paramètre [Configurer les mises à jour automatiques](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) sur **3**. Cela télécharge les mises à jour nécessaires en arrière-plan, mais ne les installe pas. Cela permet à Update Management de garder le contrôle de la planification, mais aussi d’autoriser les mises à jour à être téléchargées en dehors de la fenêtre de maintenance d’Update Management. Ceci peut empêcher les erreurs de **fenêtre de maintenance dépassée** dans la Update Management.
-
-Vous pouvez également définir ce paramètre avec PowerShell. Exécutez la commande PowerShell suivante sur le système sur lequel vous souhaitez activer le téléchargement automatique des mises à jour.
-
-```powershell
-$WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
-$WUSettings.NotificationLevel = 3
-$WUSettings.Save()
-```
-
-### <a name="disable-automatic-installation"></a>Désactiver l’installation automatique
-
-Pour les machines virtuelles Azure, l’installation automatique des mises à jour est activée par défaut. Cela peut entraîner l’installation de mises à jour avant que vous n’en planifiez l’installation par Update Management. Vous pouvez désactiver ce comportement en définissant la clé de Registre `NoAutoUpdate` sur `1`. L’extrait de code PowerShell suivant vous montre une façon de procéder.
-
-```powershell
-$AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
-Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
-```
-
-### <a name="enable-updates-for-other-microsoft-products"></a>Activer les mises à jour pour d’autres produits Microsoft
-
-Par défaut, Windows Update fournit uniquement des mises à jour pour Windows. Si vous activez l’option **Me communiquer les mises à jour d’autres produits Microsoft lorsque je mets à jour Windows**, les mises à jour des autres produits vous sont fournies, y compris les correctifs de sécurité pour SQL Server ou d’autres logiciels. Cette option ne peut pas être configurée par la stratégie de groupe. Exécutez la commande PowerShell suivante sur les systèmes sur lesquels vous souhaitez activer d’autres correctifs tiers. Update Management appliquera ce paramètre.
-
-```powershell
-$ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
-$ServiceManager.Services
-$ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
-$ServiceManager.AddService2($ServiceId,7,"")
-```
-
-## <a name="third-party"></a> Correctifs tiers sur Windows
-
-Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Il s’agit de WSUS ou de Windows Update. Des outils tels que l’[éditeur de mise à jour System Center ](/sccm/sum/tools/updates-publisher
-) (Éditeur de mise à jour) vous permettent de publier des mises à jour personnalisées dans WSUS. Ce scénario permet à Update Management de corriger les machines qui utilisent System Center Configuration Manager comme référentiel de mise à jour avec des logiciels tiers. Pour savoir comment configurer l’éditeur de mise à jour, consultez [Installer l’éditeur de mise à jour](/sccm/sum/tools/install-updates-publisher).
-
-## <a name="ports"></a>Planification réseau
-
-Les adresses suivantes sont exigées particulièrement pour Update Management. La communication avec ces adresses s’effectue par le biais du port 443.
-
-|Azure (public)  |Azure Government  |
-|---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|\* .azure-automation.net|*.azure-automation.us|
-
-Pour les machines Windows, vous devez également autoriser le trafic vers tous les points de terminaison requis par Windows Update.  Vous trouverez une liste actualisée des points de terminaison requis dans [Problèmes liés à HTTP/au proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Si vous disposez d’un [Windows Update Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) local, vous devez également autoriser le trafic vers le serveur spécifié dans votre [clé WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
-
-Pour les machines Red Hat Linux, reportez-vous aux [adresses IP des serveurs de distribution de contenu RHUI](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) pour les points de terminaison requis. Pour les autres distributions Linux, reportez-vous à la documentation du fournisseur.
-
-Pour plus d’informations sur les ports exigés par le Runbook Worker hybride, consultez [Ports du rôle de Worker hybride](automation-hybrid-runbook-worker.md#hybrid-worker-role).
-
-Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, reflète les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
-
-Suivez les instructions dans [Connecter des ordinateurs sans accès Internet](../azure-monitor/platform/gateway.md) pour configurer des ordinateurs qui n’ont pas accès à Internet.
-
-## <a name="search-logs"></a>Rechercher des journaux d’activité
-
-En plus des détails fournis dans le portail Azure, vous pouvez effectuer des recherches dans les journaux d’activité. Dans les pages de solutions, sélectionnez **Log Analytics**. Le volet **Recherche dans les journaux** s’ouvre.
-
-Vous pouvez également apprendre à personnaliser les requêtes ou les utiliser à partir de différents clients et plus en consultant :  [Documentation de l’API de recherche Log Analytics](
-https://dev.loganalytics.io/).
-
-### <a name="sample-queries"></a>Exemples de requêtes
-
-Les sections suivantes fournissent des exemples de requêtes de journal pour les enregistrements de mise à jour qui sont collectés par cette solution :
-
-#### <a name="single-azure-vm-assessment-queries-windows"></a>Requêtes d’évaluation de la machine virtuelle Azure unique (Windows)
-
-Remplacez la valeur VMUUID par le GUID VM de la machine virtuelle que vous interrogez. Pour trouver le VMUUID à utiliser, exécutez la requête suivante dans les journaux Azure Monitor : `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
-
-##### <a name="missing-updates-summary"></a>Récapitulatif des mises à jour manquantes
-
-```loganalytics
-Update
-| where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"b08d5afa-1471-4b52-bd95-a44fea6e4ca8"
-| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
-| where UpdateState=~"Needed" and Approved!=false
-| summarize by UpdateID, Classification
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
-```
-
-##### <a name="missing-updates-list"></a>Liste des mises à jour manquantes
-
-```loganalytics
-Update
-| where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"8bf1ccc6-b6d3-4a0b-a643-23f346dfdf82"
-| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, KBID, PublishedDate, Approved) by Computer, SourceComputerId, UpdateID
-| where UpdateState=~"Needed" and Approved!=false
-| project-away UpdateState, Approved, TimeGenerated
-| summarize computersCount=dcount(SourceComputerId, 2), displayName=any(Title), publishedDate=min(PublishedDate), ClassificationWeight=max(iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1))) by id=strcat(UpdateID, "_", KBID), classification=Classification, InformationId=strcat("KB", KBID), InformationUrl=iff(isnotempty(KBID), strcat("https://support.microsoft.com/kb/", KBID), ""), osType=2
-| sort by ClassificationWeight desc, computersCount desc, displayName asc
-| extend informationLink=(iff(isnotempty(InformationId) and isnotempty(InformationUrl), toobject(strcat('{ "uri": "', InformationUrl, '", "text": "', InformationId, '", "target": "blank" }')), toobject('')))
-| project-away ClassificationWeight, InformationId, InformationUrl
-```
-
-#### <a name="single-azure-vm-assessment-queries-linux"></a>Requêtes d’évaluation de la machine virtuelle Azure unique (Linux)
-
-Pour certaines distributions de Linux, il existe une incompatibilité de [mode Endian](https://en.wikipedia.org/wiki/Endianness) entre la valeur VMUUID qui provient d’Azure Resource Manager, et ce qui est stocké dans les journaux Azure Monitor. La requête suivante recherche une correspondance sur l’un des modes Endian. Remplacez les valeurs VMUUID avec le format big-endian et little-endian du GUID afin de retourner correctement les résultats. Pour trouver le VMUUID à utiliser, exécutez la requête suivante dans les journaux Azure Monitor : `Update | where Computer == "<machine name>"
-| summarize by Computer, VMUUID`
-
-##### <a name="missing-updates-summary"></a>Récapitulatif des mises à jour manquantes
-
-```loganalytics
-Update
-| where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
-| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by Computer, SourceComputerId, Product, ProductArch
-| where UpdateState=~"Needed"
-| summarize by Product, ProductArch, Classification
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
-```
-
-##### <a name="missing-updates-list"></a>Liste des mises à jour manquantes
-
-```loganalytics
-Update
-| where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
-| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, BulletinUrl, BulletinID) by Computer, SourceComputerId, Product, ProductArch
-| where UpdateState=~"Needed"
-| project-away UpdateState, TimeGenerated
-| summarize computersCount=dcount(SourceComputerId, 2), ClassificationWeight=max(iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1))) by id=strcat(Product, "_", ProductArch), displayName=Product, productArch=ProductArch, classification=Classification, InformationId=BulletinID, InformationUrl=tostring(split(BulletinUrl, ";", 0)[0]), osType=1
-| sort by ClassificationWeight desc, computersCount desc, displayName asc
-| extend informationLink=(iff(isnotempty(InformationId) and isnotempty(InformationUrl), toobject(strcat('{ "uri": "', InformationUrl, '", "text": "', InformationId, '", "target": "blank" }')), toobject('')))
-| project-away ClassificationWeight, InformationId, InformationUrl
-
-```
-
-#### <a name="multi-vm-assessment-queries"></a>Requêtes d’évaluation sur plusieurs VM
-
-##### <a name="computers-summary"></a>Récapitulatif des ordinateurs
-
-```loganalytics
-Heartbeat
-| where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
-| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
-| where Solutions has "updates"
-| distinct SourceComputerId
-| join kind=leftouter
-(
-    Update
-    | where TimeGenerated>ago(14h) and OSType!="Linux"
-    | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Approved, Optional, Classification) by SourceComputerId, UpdateID
-    | distinct SourceComputerId, Classification, UpdateState, Approved, Optional
-    | summarize WorstMissingUpdateSeverity=max(iff(UpdateState=~"Needed" and (Optional==false or Classification has "Critical" or Classification has "Security") and Approved!=false, iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1)), 0)) by SourceComputerId
-)
-on SourceComputerId
-| extend WorstMissingUpdateSeverity=coalesce(WorstMissingUpdateSeverity, -1)
-| summarize computersBySeverity=count() by WorstMissingUpdateSeverity
-| union (Heartbeat
-| where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
-| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
-| where Solutions has "updates"
-| distinct SourceComputerId
-| join kind=leftouter
-(
-    Update
-    | where TimeGenerated>ago(5h) and OSType=="Linux"
-    | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by SourceComputerId, Product, ProductArch
-    | distinct SourceComputerId, Classification, UpdateState
-    | summarize WorstMissingUpdateSeverity=max(iff(UpdateState=~"Needed", iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1)), 0)) by SourceComputerId
-)
-on SourceComputerId
-| extend WorstMissingUpdateSeverity=coalesce(WorstMissingUpdateSeverity, -1)
-| summarize computersBySeverity=count() by WorstMissingUpdateSeverity)
-| summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
-| summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeedOtherUpdatesCount=sum(computersNeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
-| extend allComputersCount=assessedComputersCount+notAssessedComputersCount
-
-
-```
-
-##### <a name="missing-updates-summary"></a>Récapitulatif des mises à jour manquantes
-
-```loganalytics
-Update
-| where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
-| where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
-| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
-| where Solutions has "updates"
-| distinct SourceComputerId))
-| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by Computer, SourceComputerId, Product, ProductArch
-| where UpdateState=~"Needed"
-| summarize by Product, ProductArch, Classification
-| union (Update
-| where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((Heartbeat
-| where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
-| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
-| where Solutions has "updates"
-| distinct SourceComputerId))
-| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
-| where UpdateState=~"Needed" and Approved!=false
-| summarize by UpdateID, Classification )
-| summarize allUpdatesCount=count(), criticalUpdatesCount=countif(Classification has "Critical"), securityUpdatesCount=countif(Classification has "Security"), otherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security")
-```
-
-##### <a name="computers-list"></a>Liste des ordinateurs
-
-```loganalytics
-Heartbeat
-| where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
-| summarize arg_max(TimeGenerated, Solutions, Computer, ResourceId, ComputerEnvironment, VMUUID) by SourceComputerId
-| where Solutions has "updates"
-| extend vmuuId=VMUUID, azureResourceId=ResourceId, osType=1, environment=iff(ComputerEnvironment=~"Azure", 1, 2), scopedToUpdatesSolution=true, lastUpdateAgentSeenTime=""
-| join kind=leftouter
-(
-    Update
-    | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
-    | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
-    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
-    | where Solutions has "updates"
-    | distinct SourceComputerId))
-    | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Product, Computer, ComputerEnvironment) by SourceComputerId, Product, ProductArch
-    | summarize Computer=any(Computer), ComputerEnvironment=any(ComputerEnvironment), missingCriticalUpdatesCount=countif(Classification has "Critical" and UpdateState=~"Needed"), missingSecurityUpdatesCount=countif(Classification has "Security" and UpdateState=~"Needed"), missingOtherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security" and UpdateState=~"Needed"), lastAssessedTime=max(TimeGenerated), lastUpdateAgentSeenTime="" by SourceComputerId
-    | extend compliance=iff(missingCriticalUpdatesCount > 0 or missingSecurityUpdatesCount > 0, 2, 1)
-    | extend ComplianceOrder=iff(missingCriticalUpdatesCount > 0 or missingSecurityUpdatesCount > 0 or missingOtherUpdatesCount > 0, 1, 3)
-)
-on SourceComputerId
-| project id=SourceComputerId, displayName=Computer, sourceComputerId=SourceComputerId, scopedToUpdatesSolution=true, missingCriticalUpdatesCount=coalesce(missingCriticalUpdatesCount, -1), missingSecurityUpdatesCount=coalesce(missingSecurityUpdatesCount, -1), missingOtherUpdatesCount=coalesce(missingOtherUpdatesCount, -1), compliance=coalesce(compliance, 4), lastAssessedTime, lastUpdateAgentSeenTime, osType=1, environment=iff(ComputerEnvironment=~"Azure", 1, 2), ComplianceOrder=coalesce(ComplianceOrder, 2)
-| union(Heartbeat
-| where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
-| summarize arg_max(TimeGenerated, Solutions, Computer, ResourceId, ComputerEnvironment, VMUUID) by SourceComputerId
-| where Solutions has "updates"
-| extend vmuuId=VMUUID, azureResourceId=ResourceId, osType=2, environment=iff(ComputerEnvironment=~"Azure", 1, 2), scopedToUpdatesSolution=true, lastUpdateAgentSeenTime=""
-| join kind=leftouter
-(
-    Update
-    | where TimeGenerated>ago(14h) and OSType!="Linux" and SourceComputerId in ((Heartbeat
-    | where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
-    | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
-    | where Solutions has "updates"
-    | distinct SourceComputerId))
-    | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, Optional, Approved, Computer, ComputerEnvironment) by Computer, SourceComputerId, UpdateID
-    | summarize Computer=any(Computer), ComputerEnvironment=any(ComputerEnvironment), missingCriticalUpdatesCount=countif(Classification has "Critical" and UpdateState=~"Needed" and Approved!=false), missingSecurityUpdatesCount=countif(Classification has "Security" and UpdateState=~"Needed" and Approved!=false), missingOtherUpdatesCount=countif(Classification !has "Critical" and Classification !has "Security" and UpdateState=~"Needed" and Optional==false and Approved!=false), lastAssessedTime=max(TimeGenerated), lastUpdateAgentSeenTime="" by SourceComputerId
-    | extend compliance=iff(missingCriticalUpdatesCount > 0 or missingSecurityUpdatesCount > 0, 2, 1)
-    | extend ComplianceOrder=iff(missingCriticalUpdatesCount > 0 or missingSecurityUpdatesCount > 0 or missingOtherUpdatesCount > 0, 1, 3)
-)
-on SourceComputerId
-| project id=SourceComputerId, displayName=Computer, sourceComputerId=SourceComputerId, scopedToUpdatesSolution=true, missingCriticalUpdatesCount=coalesce(missingCriticalUpdatesCount, -1), missingSecurityUpdatesCount=coalesce(missingSecurityUpdatesCount, -1), missingOtherUpdatesCount=coalesce(missingOtherUpdatesCount, -1), compliance=coalesce(compliance, 4), lastAssessedTime, lastUpdateAgentSeenTime, osType=2, environment=iff(ComputerEnvironment=~"Azure", 1, 2), ComplianceOrder=coalesce(ComplianceOrder, 2) )
-| order by ComplianceOrder asc, missingCriticalUpdatesCount desc, missingSecurityUpdatesCount desc, missingOtherUpdatesCount desc, displayName asc
-| project-away ComplianceOrder
-```
-
-##### <a name="missing-updates-list"></a>Liste des mises à jour manquantes
-
-```loganalytics
-Update
-| where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
-| where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
-| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
-| where Solutions has "updates"
-| distinct SourceComputerId))
-| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, BulletinUrl, BulletinID) by SourceComputerId, Product, ProductArch
-| where UpdateState=~"Needed"
-| project-away UpdateState, TimeGenerated
-| summarize computersCount=dcount(SourceComputerId, 2), ClassificationWeight=max(iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1))) by id=strcat(Product, "_", ProductArch), displayName=Product, productArch=ProductArch, classification=Classification, InformationId=BulletinID, InformationUrl=tostring(split(BulletinUrl, ";", 0)[0]), osType=1
-| union(Update
-| where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and SourceComputerId in ((Heartbeat
-| where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
-| summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
-| where Solutions has "updates"
-| distinct SourceComputerId))
-| summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, KBID, PublishedDate, Approved) by Computer, SourceComputerId, UpdateID
-| where UpdateState=~"Needed" and Approved!=false
-| project-away UpdateState, Approved, TimeGenerated
-| summarize computersCount=dcount(SourceComputerId, 2), displayName=any(Title), publishedDate=min(PublishedDate), ClassificationWeight=max(iff(Classification has "Critical", 4, iff(Classification has "Security", 2, 1))) by id=strcat(UpdateID, "_", KBID), classification=Classification, InformationId=strcat("KB", KBID), InformationUrl=iff(isnotempty(KBID), strcat("https://support.microsoft.com/kb/", KBID), ""), osType=2)
-| sort by ClassificationWeight desc, computersCount desc, displayName asc
-| extend informationLink=(iff(isnotempty(InformationId) and isnotempty(InformationUrl), toobject(strcat('{ "uri": "', InformationUrl, '", "text": "', InformationId, '", "target": "blank" }')), toobject('')))
-| project-away ClassificationWeight, InformationId, InformationUrl
-```
-
-## <a name="using-dynamic-groups"></a>Utilisation de groupes dynamiques
-
-Update Management permet de cibler un groupe dynamique de machines virtuelles Azure ou non-Azure pour les déploiements de mises à jour. Ces groupes sont évalués au moment du déploiement, donc vous n’êtes pas obligé de modifier votre déploiement pour ajouter des machines.
-
-> [!NOTE]
-> Vous devez disposer des autorisations appropriées lors de la création d’un déploiement de mises à jour. Pour plus d’informations, consultez [Installer des mises à jour](#install-updates).
-
-### <a name="azure-machines"></a>Machines Azure
-
-Ces groupes sont définis par une requête et, au démarrage d’un déploiement de mise à jour, les membres de ce groupe sont évalués. Les groupes dynamiques ne fonctionnent pas avec des machines virtuelles classiques. Quand vous définissez votre requête, les éléments suivants peuvent être utilisés ensemble pour remplir le groupe dynamique
-
-* Subscription
-* Groupes de ressources
-* Emplacements
-* Balises
-
-![Sélection de groupes](./media/automation-update-management/select-groups.png)
-
-Pour prévisualiser les résultats d’un groupe dynamique, cliquez sur le bouton **Aperçu**. Cet aperçu montre l’appartenance au groupe à ce moment-là. Dans cet exemple, nous recherchons les machines dont la balise **Role** (Rôle) est définie à **BackendServer**. Si plusieurs machines ont cette balise, elles seront ajoutées à tous les déploiements ultérieurs effectués pour ce groupe.
-
-![aperçu des groupes](./media/automation-update-management/preview-groups.png)
-
-### <a name="non-azure-machines"></a>Machines non-Azure
-
-Pour les machines non-Azure, les recherches enregistrées également appelées groupes d’ordinateurs sont utilisées pour créer le groupe dynamique. Pour apprendre à créer une recherche enregistrée, consultez [Création d’un groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Une fois que votre groupe est créé, vous pouvez le sélectionner dans la liste des recherches enregistrées. Cliquez sur **Aperçu** pour afficher un aperçu des ordinateurs figurant dans la recherche enregistrée à ce moment-là.
-
-![Sélection de groupes](./media/automation-update-management/select-groups-2.png)
-
 ## <a name="integrate-with-system-center-configuration-manager"></a>Intégrer avec System Center Configuration Manager
 
 Les clients qui ont investi dans System Center Configuration Manager pour gérer des PC, serveurs et appareils mobiles s’appuient aussi sur la puissance et la maturité de Configuration Manager pour les aider à gérer les mises à jour logicielles. Configuration Manager fait partie de leur cycle de gestion des mises à jour logicielles (SUM).
 
 Pour découvrir comment intégrer la solution de gestion à System Center Configuration Manager, consultez l’article [Intégrer System Center Configuration Manager à Update Management](oms-solution-updatemgmt-sccmintegration.md).
 
-## <a name="inclusion-behavior"></a>Comportement d’inclusion
+### <a name="third-party-patches-on-windows"></a>Correctifs tiers sur Windows
 
-L’inclusion de mise à jour vous permet de spécifier des mises à jour spécifiques à appliquer. Tous les correctifs ou packages qui sont inclus sont installés. Quand des correctifs ou des packages sont inclus et qu’une classification est également sélectionnée, les éléments inclus ainsi que les éléments qui remplissent les critères de la classification sont installés.
-
-Il est important de se souvenir que les exclusions sont prioritaires sur les inclusions. Par exemple, si vous définissez une règle d’exclusion de `*`, aucun correctif ou package n’est installé puisque cette règle les exclut tous. Les correctifs exclus sont toujours affichés comme étant manquants sur l’ordinateur. Sur les machines Linux, si un package est inclus, mais qu’il a un package dépendant exclu, le package n’est pas installé.
+Update Management s’appuie sur le référentiel de mise à jour configuré localement pour corriger les systèmes Windows pris en charge. Il s’agit de WSUS ou de Windows Update. Des outils tels que l’[éditeur de mise à jour System Center ](/sccm/sum/tools/updates-publisher) (Éditeur de mise à jour) vous permettent de publier des mises à jour personnalisées dans WSUS. Ce scénario permet à Update Management de corriger les machines qui utilisent System Center Configuration Manager comme référentiel de mise à jour avec des logiciels tiers. Pour savoir comment configurer l’éditeur de mise à jour, consultez [Installer l’éditeur de mise à jour](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="patch-linux-machines"></a>Appliquer une mise à jour corrective aux ordinateurs Linux
 
@@ -661,12 +277,29 @@ Toutefois, Update Management peut quand même signaler que cet ordinateur n’es
 
 Le déploiement de mises à jour par classification ne fonctionne pas directement sur CentOS. Pour déployer correctement les mises à jour pour CentOS, sélectionnez toutes les classifications pour garantir que les mises à jour sont appliquées. Pour SUSE, sélectionner *uniquement* « Autres mises à jour » en tant que classification peut entraîner l’installation de certaines mises à jour de sécurité si les mises à jour de sécurité associées à zypper (gestionnaire de package) ou ses dépendances sont requises en premier. Il s’agit d’une limitation de zypper. Dans certains cas, vous devrez peut-être réexécuter le déploiement des mises à jour. Pour savoir si cela est nécessaire, consultez le journal des mises à jour.
 
-## <a name="remove-a-vm-from-update-management"></a>Supprimer une machine virtuelle d’Update Management
+### <a name="multi-tenant"></a>Déploiements de mise à jour inter-tenants
 
-Pour supprimer une machine virtuelle de Update Management :
+Si des machines se trouvent dans un autre rapport de tenant Azure pour Update Management que vous devez corriger, vous devez utiliser la solution de contournement suivante pour planifier l’opération. Vous pouvez utiliser la cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) avec le commutateur `-ForUpdate` pour créer une planification, et utiliser la cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+) et faire passer les machines de l’autre tenant au paramètre `-NonAzureComputer`. L’exemple suivant vous montre comment procéder :
 
-* Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la rechercher enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
-* Supprimez l’agent [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$sched = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+## <a name="onboard"></a>Activer Update Management
+
+Pour commencer à appliquer des correctifs aux systèmes, vous devez activer la solution Update Management. Vous pouvez intégrer des machines à Update Management de différentes manières. Voici des méthodes recommandées et prises en charge pour intégrer la solution :
+
+* [Depuis une machine virtuelle](automation-onboard-solutions-from-vm.md)
+* [Depuis plusieurs machines](automation-onboard-solutions-from-browse.md)
+* [Depuis votre compte Automation](automation-onboard-solutions-from-automation-account.md)
+* [Avec un runbook Azure Automation](automation-onboard-solutions.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Prendre en main le stockage d’objets blob et les services connectés de Visual Studio (services cloud) | Microsoft Docs
+title: Bien démarrer avec Stockage Blob à l’aide de Visual Studio (services cloud)
 description: Comment prendre en main le stockage d’objets blob Azure dans un projet service cloud dans Visual Studio après s’être connecté à un compte de stockage à l’aide des services connectés de Visual Studio
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 56aceb4c782c15f69c7994df787b4b950523e8b5
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d151e55f627166d8ad7d8affa53740e86cd1e501
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510708"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298792"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Prendre en main le stockage d’objets blob Azure et les services connectés de Visual Studio (projets services cloud)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]

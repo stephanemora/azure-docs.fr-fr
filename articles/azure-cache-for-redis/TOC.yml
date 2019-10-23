@@ -28,19 +28,17 @@
     - name: Exemples du cache Azure pour Redis
       href: cache-redis-samples.md
     - name: Azure PowerShell
-      href: cache-howto-manage-redis-cache-powershell.md
+      href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
 - name: Concepts
   items:
     - name: Bonnes pratiques
-      items:
-        - name: Bonnes pratiques pour le cache Azure pour Redis
-          href: cache-best-practices.md
-        - name: Meilleures pratiques de l’architecture Azure pour la mise en cache
-          href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-    - name: Explication du basculement et des correctifs
+      href: cache-best-practices.md
+    - name: Basculement et correctif
       href: cache-failover.md
+    - name: Bonnes pratiques de l’architecture pour la mise en cache
+      href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
 - name: Guides pratiques
   items:
     - name: Planification
@@ -58,19 +56,25 @@
     - name: Automatisation
       items:
         - name: Déployer et gérer à l’aide d’Azure PowerShell
-          href: cache-howto-manage-redis-cache-powershell.md
+          href: cache-how-to-manage-redis-cache-powershell.md
         - name: Déployer et gérer à l’aide de l’interface de ligne de commande Azure
           href: cli-samples.md
         - name: Provisionner un cache Azure pour Redis
           href: cache-redis-cache-arm-provision.md
         - name: Provisionner une application web avec le cache Azure pour Redis
           href: cache-web-app-arm-with-redis-cache-provision.md
-    - name: Intégrer à ASP.NET
+    - name: Intégrer à l’application
       items:
-        - name: Fournisseur d’état de session
-          href: cache-aspnet-session-state-provider.md
-        - name: Fournisseur de caches de sortie
-          href: cache-aspnet-output-cache-provider.md
+        - name: ASP.NET
+          items:
+            - name: Utiliser le fournisseur d’état de session
+              href: cache-aspnet-session-state-provider.md
+            - name: Utiliser le fournisseur de cache de sortie
+              href: cache-aspnet-output-cache-provider.md
+        - name: Java Spring
+          items:
+            - name: Utiliser un initialiseur Spring Boot
+              href: cache-java-spring-boot-initializer-with-redis-cache.md
     - name: gérer
       items:
         - name: Configurer dans le portail Azure
@@ -85,24 +89,28 @@
           href: 'cache-administration.md#schedule-updates'
         - name: Configurer l’accès redis-cli.exe
           href: cache-how-to-redis-cli-tool.md
-    - name: Surveiller et résoudre des problèmes
+    - name: Surveiller
       items:
         - name: Surveiller dans le portail Azure
           href: cache-how-to-monitor.md
-        - name: Résoudre les problèmes de cache
-          href: cache-how-to-troubleshoot.md
         - name: Définir des alertes pour les exceptions
           href: 'cache-how-to-monitor.md#operations-and-alerts'
+    - name: Diagnostiquer et résoudre les problèmes
+      items:
+        - name: Résoudre les problèmes du serveur Redis
+          href: cache-how-to-troubleshoot-server.md
+        - name: Résoudre les problèmes du client Redis
+          href: cache-how-to-troubleshoot-client.md
+        - name: Résoudre les problèmes d’expiration du délai d’attente
+          href: cache-how-to-troubleshoot-timeouts.md
+        - name: Résoudre les problèmes de perte des données
+          href: cache-how-to-troubleshoot-data-loss.md
     - name: Scale
       items:
         - name: Mettre à jour vers une taille et un niveau différents
           href: cache-how-to-scale.md
         - name: Utiliser un cluster Redis pour augmenter/diminuer la taille des instances
           href: cache-how-to-premium-clustering.md
-    - name: Intégrer avec Spring Boot
-      items:
-        - name: Utiliser une application d’initialisation Spring Boot avec le cache Azure pour Redis
-          href: cache-java-spring-boot-initializer-with-redis-cache.md
 - name: Informations de référence
   items:
     - name: Exemples de code

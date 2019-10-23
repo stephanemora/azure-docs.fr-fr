@@ -4,14 +4,14 @@ description: Répertorie les types de ressources Azure qui peuvent avoir plus de
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973319"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249132"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Ressources non limitées à 800 instances par groupe de ressources
 
@@ -32,7 +32,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
-* botServices - Contactez le support pour étendre la limite.
+* botServices : par défaut, limité à 800 instances. Cette limite peut être augmentée en contactant le support.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -128,7 +128,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - Contactez le support pour étendre la limite.
+* publicIPAddresses : par défaut, limité à 800 instances. Cette limite peut être augmentée en contactant le support.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -139,7 +139,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections - Contactez le support pour étendre la limite.
+* publicIPAddresses : par défaut, limité à 800 instances. Cette limite peut être augmentée en contactant le support.
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 

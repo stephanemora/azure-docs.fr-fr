@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169813"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389086"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Demander l’accès à un package d’accès dans la gestion des droits d’utilisation de Azure Active Directory (préversion)
 
@@ -30,7 +30,7 @@ ms.locfileid: "72169813"
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Avec la gestion des droits d'utilisation d’Azure AD, un package d’accès vous permet d’effectuer une configuration unique des ressources et des stratégies qui gèrent automatiquement l’accès pendant toute la durée de vie du package d’accès. 
+Avec la gestion des droits d'utilisation d’Azure AD, un package d’accès vous permet d’effectuer une configuration unique des ressources et des stratégies qui gèrent automatiquement l’accès pendant toute la durée de vie du package d’accès. 
 
 Un gestionnaire de package d’accès peut configurer des stratégies pour exiger une approbation pour que les utilisateurs aient accès aux packages d’accès. Un utilisateur qui a besoin d’accéder à un package d’accès peut envoyer une demande d’accès. Cet article explique comment envoyer une demande d’accès.
 
@@ -40,7 +40,7 @@ La première étape consiste à se connecter au portail Mon Accès à partir duq
 
 **Rôle prérequis :** Demandeur
 
-1. Recherchez un e-mail ou un message de la part du chef de projet ou du directeur commercial avec lequel vous travaillez. L’e-mail doit inclure un lien vers le package d’accès auquel vous devrez accéder. Le lien commencera par « myaccess », inclura un indicateur de répertoire et se terminera par un ID de package d’accès similaire à ceci :
+1. Recherchez un e-mail ou un message de la part du chef de projet ou du directeur commercial avec lequel vous travaillez. L’e-mail doit inclure un lien vers le package d’accès auquel vous devrez accéder. Le lien commence par `myaccess`, comprend une indication de répertoire et se termine par un ID de package d’accès.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

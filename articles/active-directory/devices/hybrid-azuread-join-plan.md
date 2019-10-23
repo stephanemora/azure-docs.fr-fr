@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d89c0784c2125f5a7810ff134686645e8314a6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3e1024b529bd099c70b870fe8b059d4982f04e40
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960224"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389555"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -97,7 +97,7 @@ Si vos appareils Windows 10 joints à un domaine sont [inscrits sur Azure AD](o
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Vérifier la validation contrôlée de la jonction Azure AD Hybride
 
-Lorsque toutes les conditions préalables sont en place, les appareils Windows sont inscrits automatiquement en tant qu’appareils dans votre locataire Azure AD. L’état de ces identités d’appareils dans Azure AD est appelé jonction Azure AD Hybride. Des informations supplémentaires sur les concepts abordés dans cet article sont disponibles dans les articles [Présentation de la gestion des identités des appareils dans Azure Active Directory](overview.md) et [Planifier votre implémentation de jonction Azure Active Directory Hybride](hybrid-azuread-join-plan.md).
+Lorsque toutes les conditions préalables sont en place, les appareils Windows sont inscrits automatiquement en tant qu’appareils dans votre locataire Azure AD. L’état de ces identités d’appareils dans Azure AD est appelé jonction Azure AD Hybride. Des informations supplémentaires sur les concepts abordés dans cet article sont disponibles dans l’article [Présentation de la gestion des identités des appareils dans Azure Active Directory](overview.md).
 
 Les organisations peuvent vouloir effectuer une validation contrôlée de la jonction Azure AD Hybride avant de l’activer dans leur organisation entière en une fois. Consultez l'article [Validation contrôlée de la jonction Azure AD Hybride](hybrid-azuread-join-control.md) pour savoir comment procéder.
 

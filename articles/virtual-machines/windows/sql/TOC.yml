@@ -64,9 +64,9 @@
           href: virtual-machines-windows-ps-sql-create.md
     - name: S’inscrire auprès du fournisseur de ressources
       href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: Modifier le modèle de licence pour une machine virtuelle SQL
+    - name: Changer de modèle de licence
       href: virtual-machines-windows-sql-ahb.md
-    - name: Changer d’édition de SQL Server
+    - name: Changer d’édition
       href: virtual-machines-windows-sql-change-edition.md
     - name: Migrer
       items:
@@ -103,7 +103,7 @@
             - name: Avec des espaces de stockage direct
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
             - name: Avec le partage de fichiers Premium
-              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92623377daa80efe08b260745fa1d9443366cb8a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170269"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300593"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -375,14 +375,15 @@ Pour créer l’équilibrage de charge :
 
 1. Configurez l’équilibrage de charge avec :
 
-   - **Nom** : Nom qui identifie l’équilibreur de charge.
-   - **Type** : L’équilibreur de charge peut être public ou privé. Un équilibrage de charge privé est accessible à partir du même réseau virtuel. La plupart des applications Azure peut utiliser un équilibrage de charge privé. Si votre application doit accéder à SQL Server directement via Internet, utilisez un équilibrage de charge public.
-   - **Réseau virtuel** : Le même réseau que les machines virtuelles.
-   - **Sous-réseau** : Le même sous-réseau que les machines virtuelles.
-   - **Adresse IP privée** : La même adresse IP que celle attribuée à la ressource réseau de cluster FCI SQL Server.
-   - **Abonnement** : Votre abonnement Azure.
+   - **Abonnement**: Votre abonnement Azure.
    - **Groupe de ressources** : Utilisez le même groupe de ressources que celui de vos machines virtuelles.
-   - **Emplacement** : Utilisez le même emplacement Azure que celui de vos machines virtuelles.
+   - **Nom** : Nom qui identifie l’équilibreur de charge.
+   - **Région** : Utilisez le même emplacement Azure que celui de vos machines virtuelles.
+   - **Type** : L’équilibreur de charge peut être public ou privé. Un équilibrage de charge privé est accessible à partir du même réseau virtuel. La plupart des applications Azure peut utiliser un équilibrage de charge privé. Si votre application doit accéder à SQL Server directement via Internet, utilisez un équilibrage de charge public.
+   - **SKU** : La référence SKU de l’équilibreur de charge doit être standard. 
+   - **Réseau virtuel** : Le même réseau que les machines virtuelles.
+   - **Affectation d'adresses IP** : L’attribution d’adresses IP doit être statique. 
+   - **Adresse IP privée** : La même adresse IP que celle attribuée à la ressource réseau de cluster FCI SQL Server.
    Consultez l’illustration suivante :
 
    ![CréerÉquilibrageCharge](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

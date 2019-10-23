@@ -1,7 +1,7 @@
 ---
-title: Soumettre un workflow à l’aide de signatures d’accès partagé - Microsoft Genomics
-titleSuffix: Azure
-description: Cet article part du principe que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
+title: Workflow utilisant des signatures d’accès partagé (SAP)
+titleSuffix: Microsoft Genomics
+description: Cet article montre comment envoyer un workflow au service Microsoft Genomics à l’aide de signatures d’accès partagé (SAP) au lieu de clés de compte de stockage.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657095"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248584"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
@@ -33,14 +33,14 @@ L’URI d’un jeton de signature d’accès partagé (SAP) au niveau du service
 Deux ou plusieurs jetons SAP sont requis pour chaque flux de travail envoyé au service Microsoft Genomics, un pour chaque fichier d’entrée et un pour le conteneur de sortie.
 
 Les SAP pour les fichiers d’entrée doivent avoir les propriétés suivantes :
-1.  Portée (compte, conteneur, blob) : blob
-2.  Expiration : 48 heures à partir de maintenant
-3.  Autorisations : lecture
+ - Portée (compte, conteneur, blob) : blob
+ - Expiration : 48 heures à partir de maintenant
+ - Autorisations : lecture
 
 Les SAP pour le conteneur de sortie doivent avoir les propriétés suivantes :
-1.  Portée (compte, conteneur, blob) : conteneur
-2.  Expiration : 48 heures à partir de maintenant
-3.  Autorisations : lecture, écriture, suppression
+ - Portée (compte, conteneur, blob) : conteneur
+ - Expiration : 48 heures à partir de maintenant
+ - Autorisations : lecture, écriture, suppression
 
 
 ## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>Créer une SAP pour les fichiers d’entrée et le conteneur de sortie

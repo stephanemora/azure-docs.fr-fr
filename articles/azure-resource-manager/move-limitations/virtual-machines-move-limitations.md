@@ -4,14 +4,14 @@ description: Utilisez Azure Resource Manager pour déplacer des machines virtuel
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 10/10/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7b9cce7ac367f42329e3198c75a7640a205d01fe
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 443d6f2bcbb61d9106b079a4e63c48bb433d19c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035539"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286740"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Conseils pour le déplacement de machines virtuelles
 
@@ -24,8 +24,9 @@ Les scénarios suivants ne sont pas encore pris en charge :
 * Les disques managés dans les zones de disponibilité ne peuvent pas être déplacés vers un autre abonnement.
 * Les groupes de machines virtuelles identiques avec un équilibreur de charge de référence SKU Standard ou avec une adresse IP publique de référence SKU Standard ne peuvent pas être déplacés.
 * Les machines virtuelles auxquelles des plans sont associés créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des groupes de ressources ou des abonnements. Annulez l'approvisionnement de la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
-* Les machines virtuelles d'un réseau virtuel existant, mais vous ne déplacez pas toutes les ressources dans le réseau virtuel.
+* Les machines virtuelles d'un réseau virtuel existant ne peuvent pas être déplacées vers un nouvel abonnement si vous ne déplacez pas toutes les ressources dans le réseau virtuel.
 * Les machines virtuelles et les groupes de machines virtuelles identiques basse priorité ne peuvent pas être déplacés entre des groupes de ressources ou abonnements.
+* Les machines virtuelles d’un groupe à haute disponibilité ne peuvent pas être déplacées individuellement.
 
 ## <a name="virtual-machines-with-azure-backup"></a>Machines virtuelles avec Sauvegarde Azure
 

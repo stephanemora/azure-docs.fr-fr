@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e89a8f98d92e92fa8afe93340576b14ff1dd5051
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949027"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249198"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Contrôle d’accès en fonction du rôle dans Azure Digital Twins
 
-Azure Digital Twins permet un contrôle d’accès précis à des données, ressources et actions spécifiques de votre graphe spatial. En effet, il utilise une gestion granulaire des rôles et des autorisations appelée contrôle d’accès en fonction du rôle. RBAC se compose de _rôles_ et d’_attributions de rôles_. Les rôles identifient le niveau d’autorisations. Les attributions de rôles associent un rôle à un utilisateur ou un appareil.
+Azure Digital Twins permet un contrôle d’accès précis sur des données, ressources et actions spécifiques de votre graphe spatial. En effet, il utilise une gestion granulaire des rôles et des autorisations appelée [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/). RBAC se compose de _rôles_ et d’_attributions de rôles_. Les rôles identifient le niveau d’autorisations. Les attributions de rôles associent un rôle à un utilisateur ou un appareil.
 
 À l’aide de RBAC, l’autorisation peut être accordée à :
 
@@ -84,3 +84,5 @@ Pour accorder des autorisations à un destinataire, créez une attribution de r�
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur la création et la gestion des attributions de rôle Azure Digital Twins, consultez [Créer et gérer des attributions de rôle](./security-create-manage-role-assignments.md).
+
+- En savoir plus sur les [RBAC pour Azure ](https://docs.microsoft.com/azure/role-based-access-control/).

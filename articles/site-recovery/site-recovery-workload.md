@@ -1,22 +1,22 @@
 ---
-title: Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ? | Microsoft Docs
+title: À propos de la reprise d’activité pour les applications locales avec Azure Site Recovery
 description: Décrit les charges de travail qui peuvent être protégées à l’aide de la récupération d’urgence avec le service Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ad989a28e150635637a477d07803107a9fefff63
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232194"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255565"
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
+# <a name="about-disaster-recovery-for-on-premises-apps"></a>À propos de la reprise d’activité pour les applications locales
 
-Cet article décrit les charges de travail et les applications que vous pouvez protéger pour la récupération d’urgence avec le service [Azure Site Recovery](site-recovery-overview.md).
+Cet article décrit les charges de travail et les applications locales que vous pouvez protéger pour la récupération d’urgence avec le service [Azure Site Recovery](site-recovery-overview.md).
 
 
 

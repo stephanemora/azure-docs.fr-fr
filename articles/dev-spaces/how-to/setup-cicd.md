@@ -10,12 +10,12 @@ ms.topic: conceptual
 manager: gwallace
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
-ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7058806e58dbc2d9a196062c129688e6a96c5f31
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704068"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264464"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Utiliser CI/CD avec Azure Dev Spaces
 
@@ -31,7 +31,7 @@ Bien que cet article vous guide avec Azure DevOps, les mêmes concepts sont appl
 * [Organisation Azure DevOps avec un projet](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [ACR (Azure Container Registry)](../../container-registry/container-registry-get-started-azure-cli.md)
     * Détails du [compte d’administrateur](../../container-registry/container-registry-authentication.md#admin-account) Azure Container Registry disponibles
-* [Autoriser votre cluster AKS à tirer (pull) de votre registre Azure Container Registry](../../container-registry/container-registry-auth-aks.md)
+* [Autoriser votre cluster AKS à tirer (pull) de votre registre Azure Container Registry](../../aks/cluster-container-registry-integration.md)
 
 ## <a name="download-sample-code"></a>Télécharger l’exemple de code
 Pour des questions de temps, créons une duplication (fork) de notre exemple de dépôt GitHub de code. Accédez à https://github.com/Azure/dev-spaces et sélectionnez **Duplication (fork)** . Une fois que le processus de duplication est terminé, **clonez** votre version dupliquée du dépôt localement. Par défaut, la branche _maîtresse_ est extraite, mais nous avons inclus quelques modifications pour gagner du temps dans la branche _azds_updates_, qui doit également avoir été transférée au cours de la duplication. La branche _azds_updates_ contient des mises à jour que nous vous demandons d’effectuer manuellement dans les sections du tutoriel Dev Spaces, ainsi que certains fichiers YAML et JSON prédéfinis pour simplifier le déploiement du système CI/CD. Vous pouvez utiliser une commande similaire à `git checkout -b azds_updates origin/azds_updates` pour extraire la branche _azds_updates_ dans votre dépôt local.
@@ -77,7 +77,7 @@ Selon le langage que vous avez choisi, le pipeline YAML a été archivé dans un
 Pour créer un pipeline à partir de ce fichier :
 1. Dans la page principale de votre projet DevOps, accédez à Pipelines > Builds.
 1. Sélectionnez l’option permettant de créer un **Nouveau** pipeline de build.
-1. Sélectionnez **GitHub** comme source, donnez l’autorisation avec votre compte GitHub si nécessaire, puis sélectionnez la branche _azds_updates_ à partir de votre version dupliquée du dépôt dev-spaces sampleapp.
+1. Sélectionnez **GitHub** comme source, donnez l’autorisation avec votre compte GitHub si nécessaire, puis sélectionnez la branche _azds_updates_ à partir de votre version dupliquée du dépôt de l’exemple d’application _dev-spaces_.
 1. Sélectionnez **Configuration sous forme de code** ou **YAML** comme modèle.
 1. Une page de configuration s’affiche à présent pour votre pipeline de build. Comme mentionné ci-dessus, naviguez jusqu’à l’emplacement propre au langage pour le **chemin du fichier YAML** à l’aide du bouton **...** . Par exemple : `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Accédez à l’onglet **Variables**.
@@ -133,11 +133,11 @@ Un processus de mise en production automatisé commence, déployant les graphiqu
 La mise en production est terminée quand toutes les tâches sont terminées.
 
 > [!TIP]
-> Si votre mise en production échoue avec un message d’erreur de type *ÉCHEC DE LA MISE À NIVEAU : expiration du délai d’attente pour la condition*, essayez d’inspecter les pods dans votre cluster [à l’aide du tableau de bord Kubernetes](../../aks/kubernetes-dashboard.md). Si vous voyez que les pods ne parviennent pas à démarrer avec des messages d’erreur comme *Échec de l’extraction de l’image « azdsexample.azurecr.io/mywebapi:122 » : erreur rpc : code = inconnu desc = Réponse d’erreur du démon : Obtention de https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: non autorisée : authentification obligatoire*, cela peut signifier que votre cluster n’a pas été autorisé à tirer de votre registre Azure Container Registry. Vérifiez que vous avez rempli le prérequis [Autoriser votre cluster AKS à tirer (pull) de votre registre Azure Container Registry](../../container-registry/container-registry-auth-aks.md).
+> Si votre mise en production échoue avec un message d’erreur de type *ÉCHEC DE LA MISE À NIVEAU : expiration du délai d’attente pour la condition*, essayez d’inspecter les pods dans votre cluster [à l’aide du tableau de bord Kubernetes](../../aks/kubernetes-dashboard.md). Si vous voyez que les pods ne parviennent pas à démarrer avec des messages d’erreur comme *Échec de l’extraction de l’image « azdsexample.azurecr.io/mywebapi:122 » : erreur rpc : code = inconnu desc = Réponse d’erreur du démon : Obtention de https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: non autorisée : authentification obligatoire*, cela peut signifier que votre cluster n’a pas été autorisé à tirer de votre registre Azure Container Registry. Vérifiez que vous avez rempli le prérequis [Autoriser votre cluster AKS à tirer (pull) de votre registre Azure Container Registry](../../aks/cluster-container-registry-integration.md).
 
 Vous disposez maintenant d’un pipeline CI/CD entièrement automatisé pour votre duplication GitHub des exemples d’applications Dev Spaces. Chaque fois que vous validez et envoyez le code, le pipeline de build va générer et transmettre les images *mywebapi* et *webfrontend* à votre instance ACR personnalisée. Ensuite, le pipeline de mise en production va déployer le graphique Helm pour chaque application dans l’espace _dev_ sur votre cluster compatible Dev Spaces.
 
-## <a name="accessing-your-dev-services"></a>Accès à vos services _dev_
+## <a name="accessing-your-_dev_-services"></a>Accès à vos services _dev_
 Après le déploiement, la version _dev_ de *webfrontend* est accessible avec une URL publique comme : `http://dev.webfrontend.fedcba098.eus.azds.io`. Vous trouverez cette URL en exécutant la commande `azds list-uri` : 
 
 ```cmd

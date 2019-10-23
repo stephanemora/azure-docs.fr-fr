@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 9fbe6768014550a3746085406e9039e83185c20f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0d48f3eacad86dac520d837b80605a75cce8cfd5
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949679"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514494"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console série Azure pour Windows
 
@@ -185,6 +185,7 @@ Problème                             |   Atténuation
 :---------------------------------|:--------------------------------------------|
 L’utilisation de la touche **Entrée** après la bannière de connexion n’entraîne pas l’affichage d’une invite de connexion. | Pour plus d’informations, consultez [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cette erreur peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de démarrage qui empêche Windows de se connecter correctement au port série. Cette erreur se produit également si vous exécutez une machine virtuelle Windows 10, car seules les machines virtuelles Windows Server sont configurées pour avoir EMS activé.
 Seules les informations d’intégrité sont affichées lors de la connexion à une machine virtuelle Windows| Cette erreur se produit si la console d’administration spéciale n’a pas été activée pour votre image Windows. Pour obtenir des instructions sur la façon d’activer manuellement la console SAC sur votre machine virtuelle Windows, consultez [Activer la console série dans les images personnalisées ou anciennes](#enable-the-serial-console-in-custom-or-older-images). Pour plus d’informations, consultez [Signaux d’intégrité Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
+SAC n’occupe pas la totalité de la zone de la console série dans le navigateur | Il s’agit d’un problème connu touchant Windows et l’émulateur de terminal. Nous effectuons le suivi de ce problème avec les deux équipes, mais pour l’instant, aucune solution d’atténuation n’est disponible.
 Impossible d’entrer des données à l’invite de commandes de la console SAC si le débogage du noyau est activé. | Établissez une connexion RDP vers la machine virtuelle et exécutez `bcdedit /debug {current} off` à partir d’une invite de commandes avec élévation de privilèges. Si vous ne pouvez pas établir de connexion RDP, vous pouvez joindre le disque du système d’exploitation à une autre machine virtuelle Azure et le modifier pendant qu’il est joint en tant que disque de données en exécutant `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, puis en rebasculant le disque.
 Coller du contenu dans PowerShell sous la console SAC génère un troisième caractère si le contenu d’origine contenait un caractère répété. | Une solution de contournement consiste à exécuter `Remove-Module PSReadLine` pour décharger le module PSReadLine de la session active. Cette action ne supprime pas et ne désinstalle pas le module.
 Certaines entrées de clavier produisent une sortie étrange de la console SAC (par exemple, **[A**, **[3~** ). | Les séquences d’échappement [VT100](https://aka.ms/vtsequences) ne sont pas prises en charge par l’invite de la console SAC.

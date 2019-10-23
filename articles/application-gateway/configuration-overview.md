@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: d67a14b1cbd3fb352ee1c4b271945ab347ee7fed
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177434"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389974"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -48,7 +48,7 @@ Nous vous recommandons d’utiliser une taille de sous-réseau d’au moins /28.
 
 Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gateway. Mais il existe plusieurs restrictions :
 
-- Vous devez inclure des exceptions pour le trafic entrant sur les ports 65503-65534 pour la référence SKU v1 d’Application Gateway et les ports 65200-65535 pour la référence SKU v2. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Des entités externes, notamment les clients de ces passerelles, ne peuvent pas lancer des modifications sur ces points de terminaison sans les certificats appropriés en place.
+- Vous devez autoriser le trafic Internet entrant sur les ports TCP 65503-65534 pour la référence (SKU) Application Gateway v1, et sur les ports TCP 65200-65535 pour la référence (SKU) v2 avec le sous-réseau de destination en tant que *Any*. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Des entités externes, notamment les clients de ces passerelles, ne peuvent pas lancer des modifications sur ces points de terminaison sans les certificats appropriés en place.
 
 - La connectivité Internet sortante ne peut pas être bloquée. Les règles de trafic sortant par défaut dans le groupe de sécurité réseau permettent une connectivité Internet. Nous vous recommandons :
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982840"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331139"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Fonctionnalités prises en charge disponibles dans Azure Security Center
 
@@ -39,31 +39,31 @@ Les sections suivantes présentent les fonctionnalités de Security Center dispo
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Microsoft Azure**||**Non-Azure**|**Microsoft Azure**||**Non-Azure**||
 ||**Machine virtuelle**|**Groupe de machines virtuelles identiques**||**Machine virtuelle**|**Groupe de machines virtuelles identiques**|
-|Alertes de détection des menaces – Analytique comportementale des machines virtuelles|✔|✔|✔|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
-|Alertes de détection des menaces réseau|✔|✔|X|✔|✔|X|standard|
-|Intégration de Microsoft Defender ATP|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|X|X|X|standard|
-|Correctifs manquants|✔|✔|✔|✔|✔|✔|Gratuit|
-|Configurations de sécurité|✔|✔|✔|✔|✔|✔|Gratuit|
-|Évaluation de la protection des points de terminaison|✔|✔|✔|X|X|X|Gratuit|
-|Accès juste-à-temps aux machines virtuelles|✔|X|X|✔|X|X|standard|
-|Contrôles d’application adaptative|✔|X|✔|✔|X|✔|standard|
-|Supervision de l’intégrité des fichiers|✔|✔|✔|✔|✔|✔|standard|
-|Évaluation du chiffrement des disques|✔|✔|X|✔|✔|X|Gratuit|
-|Déploiement tiers|✔|X|X|✔|X|X|Gratuit|
-|Évaluation du groupe de sécurité réseau|✔|✔|X|✔|✔|X|Gratuit|
-|Détection des menaces sans fichier|✔|✔|✔|X|X|X|standard|
-|Mappage réseau|✔|✔|X|✔|✔|X|standard|
-|Sécurisation adaptative du réseau|✔|X|X|✔|X|X|standard|
+|[Intégration de Microsoft Defender ATP](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|X|X|X|standard|
+|[Alertes de détection des menaces – Analytique comportementale des machines virtuelles](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (sur les versions prises en charge)|✔ (sur les versions prises en charge)|✔|Recommandations (Gratuit) Détection des menaces (Standard)|
+|[Alertes de détection des menaces sans fichier](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|standard|
+|[Alertes de détection des menaces réseau](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|standard|
+|[Accès juste-à-temps aux machines virtuelles](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|standard|
+|[Supervision de l’intégrité des fichiers](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|standard|
+|[Contrôles d’application adaptative](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|standard|
+|[Mappage réseau](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|standard|
+|[Durcissement réseau adaptatif](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|standard|
 |Contrôles réseau adaptatifs|✔|✔|X|✔|✔|X|standard|
-|Tableau de bord et rapports de conformité à la réglementation|✔|✔|✔|✔|✔|✔|standard|
+|[Tableau de bord et rapports de conformité à la réglementation](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|standard|
 |Recommandations et détection des menaces sur les conteneurs IaaS hébergés dans Docker|X|X|X|✔|✔|✔|standard|
+|Évaluation des correctifs de système d’exploitation manquants|✔|✔|✔|✔|✔|✔|Gratuit|
+|Évaluation des erreurs de configuration de la sécurité|✔|✔|✔|✔|✔|✔|Gratuit|
+|[Évaluation de la protection des points de terminaison](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Gratuit|
+|Évaluation du chiffrement des disques|✔|✔|X|✔|✔|X|Gratuit|
+|Évaluation des vulnérabilités tierces|✔|X|X|✔|X|X|Gratuit|
+|[Évaluation de la sécurité réseau](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|Gratuit|
 
 ### Solutions de protection du point de terminaison prises en charge <a name="endpoint-supported"></a>
 
 Le tableau suivant fournit une matrice de ce qui suit :
 
  - Si vous pouvez utiliser Azure Security Center pour installer chaque solution.
- - Les solutions de protection du point de terminaison que Security Center peut détecter. Si une de ces solutions de protection du point de terminaison est détectée, Security Center vous déconseillera d'en installer une autre.
+ - Les solutions de protection du point de terminaison que Security Center peut détecter. Si l’une des solutions de protection du point de terminaison de cette liste est détectée, Security Center vous déconseillera d'en installer une autre.
 
 Pour plus d’informations sur le moment où les recommandations sont générées pour chacune de ces protections, consultez [Évaluation de la protection de point de terminaison et recommandations](security-center-endpoint-protection.md).
 
@@ -77,7 +77,7 @@ Pour plus d’informations sur le moment où les recommandations sont générée
 | McAfee v10+ | Famille de serveurs Linux  | Non | Oui **\*** |
 | Sophos V9+| Famille de serveurs Linux  | Non | Oui  **\***  |
 
- **\*** L’état de couverture et les données de prise en charge sont actuellement disponibles uniquement dans l’espace de travail Log Analytics associé à vos abonnements protégés. Ils ne sont pas reflétés dans le portail Azure Security Center.
+ **\*** L’état de couverture et les données de prise en charge sont actuellement disponibles uniquement dans l’espace de travail Log Analytics associé à vos abonnements protégés. Il n’est pas reflété dans le portail Azure Security Center.
 
 > [!NOTE]
 >

@@ -1,47 +1,50 @@
 ---
-title: Configurer un tunnel VPN Always On pour la passerelle VPN
-description: Étapes de configuration d’un tunnel VPN utilisateur Always On pour la passerelle VPN
+title: Configurer un tunnel utilisateur VPN Always On pour la passerelle VPN
+description: Cet article explique comment configurer un tunnel utilisateur VPN Always On pour votre passerelle VPN
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: dc0abf12c60f845fde0d16bd874a1436aef3b7ab
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 9aa1f951add5b79eab12f4957be05a42bbdd4434
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71846373"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299927"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Configurer un tunnel utilisateur VPN Always On
 
-L’une des nouvelles fonctionnalités du client de réseau privé virtuel (VPN) Windows 10 est la capacité de gérer une connexion VPN. Always On est une fonctionnalité de Windows 10 qui permet au profil VPN actif de se connecter automatiquement et rester connecté en fonction de déclencheurs, à savoir connexion de l’utilisateur, changement de l’état du réseau ou écran de l’appareil actif.
+Le client VPN Windows 10, Always On, est doté d’une nouvelle fonctionnalité, qui permet de maintenir une connexion VPN. Always On permet au profil VPN actif de se connecter automatiquement et rester connecté en fonction de déclencheurs, tels qu’une connexion d’utilisateur, un changement de l’état du réseau ou l’activation de l’écran de l’appareil.
 
-Les passerelles de réseau virtuel Azure peuvent être utilisées avec Windows 10 Always On pour établir des tunnels d’utilisateur persistants ainsi que des tunnels d’appareil vers Azure. Cet article vous aidera à configurer un tunnel utilisateur VPN Always On.
+Vous pouvez utiliser les passerelles de réseau virtuel Azure avec Windows 10 Always On pour établir des tunnels d’utilisateur persistants et des tunnels d’appareil vers Azure. Dans cet article, vous apprendrez à configurer un tunnel utilisateur VPN Always On.
 
-Les connexions VPN Always On incluent deux types de tunnels :
+Les connexions VPN Always On incluent l’un de ces types de tunnels :
 
-* Le **tunnel d’appareil** se connecte à des serveurs VPN spécifiés avant que les utilisateurs ne se connectent à l’appareil. Les scénarios de connectivité de préconnexion et la gestion des appareils utilisent un tunnel d’appareil.
+* **Tunnel de d’appareil** : se connecte à des serveurs VPN spécifiés avant que les utilisateurs ne se connectent à l’appareil. Les scénarios de connectivité de préconnexion et de gestion des appareils utilisent un tunnel d’appareil.
 
-* Le **tunnel d’utilisateur** se connecte uniquement après la connexion d’un utilisateur à l’appareil. Le tunnel d’utilisateur permet aux utilisateurs d’accéder aux ressources de l’organisation via les serveurs VPN.
+* **Tunnel utilisateur** : établit une connexion uniquement lorsque l’utilisateur se connecte à son appareil. En utilisant un tunnel d’utilisateur, vous pouvez accéder aux ressources de votre entreprise ou organisation via des serveurs VPN.
 
-Le tunnel d’appareil et le tunnel d’utilisateur fonctionnent tous deux de façon indépendante avec leurs profils VPN. Ils peuvent être connectés en même temps et utiliser différentes méthodes d’authentification et d’autres paramètres de configuration VPN selon les besoins.
+Le tunnel appareil et le tunnel utilisateur fonctionnent tous deux de façon indépendante vis-à-vis de leurs profils VPN. Ils peuvent être connectés simultanément et utiliser différentes méthodes d’authentification et d’autres paramètres de configuration VPN selon les besoins.
 
-## <a name="1-configure-the-gateway"></a>1. Configurer la passerelle
+Dans les sections suivantes, vous allez configurer une passerelle VPN et un tunnel utilisateur.
 
-Configurez la passerelle VPN pour utiliser IKEv2 et l’authentification basée sur les certificats à l’aide de cet [article sur la connexion point à site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+## <a name="step-1-configure-a-vpn-gateway"></a>Étape 1 : Configurer une passerelle VPN
 
-## <a name="2-configure-the-user-tunnel"></a>2. Configurer le tunnel d’utilisateur
+Pour configurer la passerelle VPN afin de d’utiliser le protocole IKEv2 et l’authentification basée sur les certificats, veuillez vous reporter à l’article [Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-1. Installez des certificats clients sur le client Windows 10 comme indiqué dans cet [article sur un client VPN point à site](point-to-site-how-to-vpn-client-install-azure-cert.md). Le certificat doit se trouver dans le magasin de l’utilisateur actuel
-2. Configurez le client VPN Always On via PowerShell, SCCM ou Intune en suivant [ces instructions](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+## <a name="step-2-configure-a-user-tunnel"></a>Étape 2 : Configurer un tunnel utilisateur
 
-### <a name="configuration-example-for-user-tunnel"></a>Exemple de configuration de tunnel utilisateur
+1. Installez des certificats clients sur le client Windows 10 comme indiqué dans l’article [Installer des certificats client pour des connexions d’authentification par certificat P2S](point-to-site-how-to-vpn-client-install-azure-cert.md). Le certificat doit se trouver dans le magasin d’utilisateurs actuel.
 
-Après avoir configuré la passerelle de réseau virtuel et installé le certificat client dans le magasin de l’ordinateur local sur le client Windows 10, utilisez les exemples suivants pour configurer un tunnel d’appareil client.
+1. Configurez le client VPN Always On par le biais de PowerShell, System Center Configuration Manager ou Intune en suivant les instructions de l’article [Configurer les connexions VPN Always On du client Windows 10 ](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-1. Copiez le texte suivant et enregistrez-le sous le nom ***usercert.ps1***.
+### <a name="example-configuration-for-the-user-tunnel"></a>Exemple de configuration pour le tunnel utilisateur
+
+Après avoir configuré la passerelle de réseau virtuel et installé le certificat client dans le magasin de l’ordinateur local sur le client Windows 10, configurez un tunnel appareil client en procédant comme suit :
+
+1. Copiez le texte suivant et enregistrez-le sous le nom *usercert.ps1* :
 
    ```
    Param(
@@ -93,7 +96,7 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copiez le texte suivant et enregistrez-le sous le nom ***VPNProfile.xml*** dans le même dossier que **usercert.ps1**. Modifiez le texte suivant pour correspondre à votre environnement.
+1. Copiez le texte suivant et enregistrez-le sous le nom *VPNProfile.xml* dans le même dossier que *usercert.ps1*. Modifiez le texte suivant pour correspondre à votre environnement :
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
    * `<Address>192.168.3.5</Address>`
@@ -136,33 +139,33 @@ Après avoir configuré la passerelle de réseau virtuel et installé le certifi
     <RegisterDNS>true</RegisterDNS>
     </VPNProfile>
    ```
-1. Exécutez PowerShell en tant qu’administrateur.
+1. Exécutez PowerShell ISE en tant qu’administrateur.
 
-1. Dans PowerShell, accédez au dossier où **usercert.ps1** et **VPNProfile.xml** se trouvent, et exécutez la commande suivante :
+1. Dans PowerShell, accédez au dossier où *usercert.ps1* et *VPNProfile.xml* se trouvent, et exécutez la commande suivante :
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
    ![MachineCertTest](./media/vpn-gateway-howto-always-on-user-tunnel/p2s2.jpg)
-1. Regardez sous Paramètres VPN.
-
-1. Recherchez l’entrée **UserTest**, puis cliquez sur **Se connecter**.
+1. Sous **Paramètres VPN**, recherchez l’entrée **UserTest**, puis sélectionnez **Connecter**.
 
 1. Si la connexion réussit, vous avez correctement configuré un tunnel utilisateur Always On.
 
-## <a name="cleanup"></a>Nettoyage
+## <a name="clean-up-your-resources"></a>Nettoyage des ressources
 
-Pour supprimer le profil, exécutez la commande suivante :
+Pour supprimer le profil :
 
-1. Arrêtez la connexion et désactivez la case à cocher « Se connecter automatiquement ».
+1. Exécutez la commande suivante :
 
    ```powershell
    C:\> Remove-VpnConnection UserTest  
    ```
 
+1. Arrêtez la connexion et désactivez la case à cocher **Se connecter automatiquement**.
+
 ![Nettoyage](./media/vpn-gateway-howto-always-on-user-tunnel/p2s4..jpg)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour résoudre les problèmes, consultez [Problèmes de connexion point à site Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+Pour résoudre les problèmes de connexion qui peuvent se produire, consultez l’article [Résolution des problèmes : problèmes de connexion point à site Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

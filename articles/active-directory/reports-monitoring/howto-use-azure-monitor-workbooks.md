@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931246"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255665"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory
 
@@ -48,6 +48,13 @@ Pour pouvoir utiliser les classeurs Azure Monitor, vous devez disposer des élé
 - Un locataire Azure Active Directory avec une licence premium (P1/P2). Découvrez comment [obtenir une licence premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - Un [espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+
+- [Accéder](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) à l’espace de travail Log Analytics
+- Rôles suivants dans Azure Active Directory (si vous accédez à Log Analytics via le portail Azure Active Directory)
+    - Administrateur de la sécurité
+    - Lecteur de sécurité
+    - Lecteur de rapport
+    - Administrateur général
 
 ## <a name="roles"></a>contrôleur
 Vous devez être dans l’un des rôles suivants et avoir [accès à l’espace de travail Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) sous-jacent pour gérer les classeurs :

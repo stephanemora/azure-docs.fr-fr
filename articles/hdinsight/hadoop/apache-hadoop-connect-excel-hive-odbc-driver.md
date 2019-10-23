@@ -3,18 +3,18 @@ title: Connecter Excel à Apache Hadoop à l’aide du pilote ODBC Hive - Azure 
 description: Découvrez comment configurer et utiliser le pilote ODBC Microsoft Hive pour Excel afin d’interroger des données dans des clusters HDInsight à partir de Microsoft Excel.
 keywords: hadoop excel,hive excel,hive odbc
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.author: hrasheed
-ms.openlocfilehash: c81c0de98442f576145f2c2e12f0b2053b80e83a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/08/2019
+ms.openlocfilehash: 7451eaf56a2466bbb02fa879008b4a9787f6c2f5
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033602"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264620"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Connecter Excel à Apache Hadoop dans Azure HDInsight avec le pilote ODBC Microsoft Hive
 

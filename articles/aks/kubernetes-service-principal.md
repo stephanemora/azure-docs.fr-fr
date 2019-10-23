@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: 304b9dae9f3a1e134809d8959a96dc4e3ec0edd3
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: e24d930ec82ea92a040efeed3056a10917ce2b2a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67615105"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263908"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ Les sections suivantes détaillent les délégations courantes que vous serez pe
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-Si vous utilisez Azure Container Registry (ACR) comme magasin d’images conteneur, vous devez accorder des autorisations pour que votre cluster AKS puisse lire et extraire des images. Le rôle *Lecteur* doit être délégué au principal du service du cluster AKS dans le registre. Pour des instructions détaillées, consultez [Accorder à AKS un accès à ACR][aks-to-acr].
+Si vous utilisez Azure Container Registry (ACR) comme magasin d’images conteneur, vous devez accorder des autorisations au principal de service pour que votre cluster AKS puisse lire et extraire des images. Actuellement, la configuration recommandée consiste à utiliser la commande [az aks create ][az-aks-create] ou la commande [az aks update][az-aks-update] pour l’intégration à un registre et l’attribution du rôle approprié au principal de service. Pour connaître les étapes détaillées, consultez [S’authentifier avec Azure Container Registry à partir d’Azure Kubernetes Service][aks-to-acr].
 
 ### <a name="networking"></a>Mise en réseau
 
@@ -177,6 +177,6 @@ Pour plus d’informations sur la mise à jour des informations d’identificati
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
-[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[aks-to-acr]: cluster-container-registry-integration.md
 [update-credentials]: update-credentials.md
 [azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

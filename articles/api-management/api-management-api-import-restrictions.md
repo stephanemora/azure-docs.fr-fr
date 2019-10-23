@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074952"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294347"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrictions et problèmes connus relatifs à l’importation d’API
 
@@ -39,6 +39,7 @@ Si vous recevez des erreurs durant l’importation de votre document OpenAPI, v�
 -   **Récursivité** : Gestion des API ne prend pas en charge les définitions spécifiées de manière récursive (par exemple, les schémas qui se référencent eux-mêmes).
 -   L’URL de fichier source (si disponible) est appliquée aux URL de serveur relatives.
 -   Les définitions de sécurité sont ignorées.
+-   Les définitions de schéma Inline pour les opérations d’API ne sont pas prises en charge. Les définitions de schéma sont définies dans l’étendue de l’API et peuvent être référencées dans les étendues de la réponse ou de la réponse des opérations de l’API.
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 

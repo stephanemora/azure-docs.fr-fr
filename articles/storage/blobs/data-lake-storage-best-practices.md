@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991868"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299661"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen2
 
-Dans cet article, vous allez découvrir les bonnes pratiques et considérations concernant l’utilisation d’Azure Data Lake Storage Gen2. Cet article fournit des informations concernant la sécurité, les performances, la résilience et la supervision pour Azure Data Lake Storage Gen2. Avant Azure Data Lake Storage Gen2, il était difficile de travailler avec de grandes quantités de données dans des services comme Azure HDInsight. Il fallait partitionner les données sur plusieurs comptes de stockage d’objets blob afin de rendre possible, à cette échelle, le stockage pétaoctet et des performances optimales. Avec Azure Data Lake Storage Gen2, la plupart des limites inconditionnelles de taille et de performance ont été supprimées. Toutefois, il reste des points à prendre en compte que cet article aborde pour vous permettre d’obtenir les meilleures performances avec Azure Data Lake Storage Gen2.
+Dans cet article, vous allez découvrir les bonnes pratiques et considérations concernant l’utilisation d’Azure Data Lake Storage Gen2. Cet article fournit des informations concernant la sécurité, les performances, la résilience et la supervision pour Azure Data Lake Storage Gen2. Avant Azure Data Lake Storage Gen2, il était difficile de travailler avec de grandes quantités de données dans des services comme Azure HDInsight. Il fallait partitionner les données sur plusieurs comptes de stockage d’objets blob afin de rendre possible, à cette échelle, le stockage pétaoctet et des performances optimales. Data Lake Storage Gen2 prend en charge des tailles de fichiers individuelles de 5 To maximum et la plupart des limites matérielles des performances ont été supprimées. Toutefois, il reste des points à prendre en compte que cet article aborde pour vous permettre d’obtenir les meilleures performances avec Azure Data Lake Storage Gen2.
 
 ## <a name="security-considerations"></a>Considérations relatives à la sécurité
 

@@ -4,14 +4,14 @@ description: Utilisez le portail Azure pour exporter un modèle Azure Resource M
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959696"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300411"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure
 
@@ -48,39 +48,36 @@ Exportez le modèle avant le déploiement ou de l’historique, lorsque :
 * Vous souhaitez un modèle facile à réutiliser.
 * Vous n’avez pas besoin d’inclure les modifications apportées après le déploiement d’origine.
 
-## <a name="export-template-from-resource-group"></a>Exportation du modèle à partir d’un groupe de ressources
+## <a name="export-template-from-a-resource-group"></a>Exportation du modèle à partir d’un groupe de ressources
 
 Pour exporter une ou plusieurs ressources à partir d’un groupe de ressources :
 
 1. Sélectionnez le groupe de ressources qui contient les ressources que vous souhaitez exporter.
 
-1. Pour exporter toutes les ressources dans le groupe de ressources, sélectionnez-les toutes, puis cliquez sur **Exporter le modèle**. L’option **Exporter le modèle** devient active seulement uniquement après la sélection d’au moins une ressource.
+1. Sélectionnez une ou plusieurs ressources en cochant les cases correspondantes.  Pour sélectionner tout, cochez la case située à gauche de **Nom**. L’élément de menu **Exporter le modèle** devient actif seulement uniquement après la sélection d’au moins une ressource.
 
    ![Exporter toutes les ressources](./media/export-template-portal/select-all-resources.png)
 
-1. Pour choisir des ressources spécifiques à exporter, sélectionnez les cases à cocher en regard de ces ressources. Sélectionnez ensuite **Exporter le modèle**.
+    Dans la capture d’écran, seul le compte de stockage est sélectionné.
+1. Sélectionnez **Exporter le modèle**.
 
-   ![Sélectionner les ressources à exporter](./media/export-template-portal/select-resources.png)
-
-1. Le modèle exporté s’affiche et est disponible au téléchargement.
+1. Le modèle exporté s’affiche et est disponible au téléchargement et au déploiement.
 
    ![Afficher le modèle](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>Exporter un modèle à partir d’une ressource
+## <a name="export-template-from-a-resource"></a>Exportation du modèle à partir d’une ressource
 
 Pour exporter une ressource :
 
 1. Sélectionnez le groupe de ressources qui contient la ressource que vous souhaitez exporter.
 
-1. Sélectionner la ressource à exporter.
-
-   ![Sélectionner une ressource](./media/export-template-portal/select-link-resource.png)
+1. Sélectionnez la ressource que vous souhaitez exporter pour ouvrir la ressource.
 
 1. Pour cette ressource, sélectionnez **Exporter le modèle** dans le volet de gauche.
 
    ![Exporter une ressource](./media/export-template-portal/export-single-resource.png)
 
-1. Le modèle exporté s’affiche et est disponible au téléchargement. Le modèle contient uniquement la ressource unique.
+1. Le modèle exporté s’affiche et est disponible au téléchargement et au déploiement. Le modèle contient uniquement la ressource unique.
 
 ## <a name="export-template-before-deployment"></a>Exporter un modèle avant le déploiement
 
@@ -92,9 +89,8 @@ Pour exporter une ressource :
 
    ![Télécharger un modèle](./media/export-template-portal/download-before-deployment.png)
 
-1. Le modèle s’affiche et est disponible au téléchargement.
+1. Le modèle s’affiche et est disponible au téléchargement et au déploiement.
 
-   ![Afficher le modèle](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>Exporter un modèle après le déploiement
 

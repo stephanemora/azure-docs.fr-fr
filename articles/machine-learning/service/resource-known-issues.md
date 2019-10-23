@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338750"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286554"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
@@ -185,7 +185,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Mise à jour des composants d’Azure Machine Learning dans le cluster AKS
 
-Les mises à jour des composants Azure Machine Learning installés dans un cluster Azure Kubernetes Service doivent être appliquées manuellement. Vous pouvez appliquer ces mises à jour en détachant le cluster de l’espace de travail Azure Machine Learning, puis en réattachant le cluster à l’espace de travail. Si le protocole SSL est activé dans le cluster, vous devrez fournir le certificat et la clé privée SSL lors du rattachement du cluster. 
+Les mises à jour des composants Azure Machine Learning installés dans un cluster Azure Kubernetes Service doivent être appliquées manuellement. 
+
+> [!WARNING]
+> Avant d’effectuer les actions suivantes, vérifiez la version de votre cluster Azure Kubernetes Service. Si la version du cluster est supérieure ou égale à 1.14, vous ne pourrez pas rattacher votre cluster à l’espace de travail Azure Machine Learning.
+
+Vous pouvez appliquer ces mises à jour en détachant le cluster de l’espace de travail Azure Machine Learning, puis en réattachant le cluster à l’espace de travail. Si le protocole SSL est activé dans le cluster, vous devrez fournir le certificat et la clé privée SSL lors du rattachement du cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)

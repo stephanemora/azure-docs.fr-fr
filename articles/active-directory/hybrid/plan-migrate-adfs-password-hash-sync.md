@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b291f2243dfe28a8e866796e0b7375f94fa4f2e
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 23ba9b06c9a3e6025d7227493713fe9187fba233
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779441"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514896"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
@@ -161,7 +161,7 @@ Pour plus d’informations sur la condition [Emplacement](https://docs.microsoft
 
 Quand vous joignez un appareil à Azure AD, vous pouvez créer des règles d’accès conditionnel qui imposent que les appareils répondent à vos standards d’accès pour la sécurité et la conformité. De même, les utilisateurs peuvent se connecter à un appareil en utilisant un compte professionnel ou scolaire d’une organisation au lieu d’un compte personnel. Quand vous utilisez des appareils joints à Azure AD Hybride, vous pouvez joindre à Azure AD vos appareils joints à un domaine Active Directory. Votre environnement fédéré peut avoir été configuré pour utiliser cette fonctionnalité.
 
-Pour garantir le bon fonctionnement de la jonction hybride pour les appareils joints au domaine une fois vos domaines convertis à la synchronisation de hachage de mot de passe, pour les clients Windows 10, vous devez utiliser Azure AD Connect pour synchroniser les comptes d’ordinateur Active Directory avec Azure AD. 
+Pour garantir le bon fonctionnement de la jonction hybride pour les appareils joints au domaine une fois vos domaines convertis à la synchronisation de hachage de mot de passe, pour les clients Windows 10, vous devez utiliser les options d’appareil Azure AD Connect pour remplir SCP, puis synchroniser les comptes d’ordinateur Active Directory avec Azure AD. 
 
 Pour les comptes d’ordinateur Windows 8 et Windows 7, la jointure hybride utilise l’authentification unique fluide pour inscrire l’ordinateur dans Azure AD. Vous n’avez pas à synchroniser les comptes d’ordinateur Windows 8 et Windows 7 comme vous le faites pour les appareils Windows 10. Cependant, vous devez déployer un fichier workplacejoin.exe mis à jour (via un package .msi) sur les clients Windows 8 et Windows 7 afin qu’ils puissent s’inscrire avec l’authentification unique fluide. [Téléchargez le package .msi](https://www.microsoft.com/download/details.aspx?id=53554).
 

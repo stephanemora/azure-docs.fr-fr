@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203540"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249214"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ sur Azure Red Hat OpenShift
 
@@ -161,7 +161,7 @@ Pour plus d’informations, consultez la [documentation OpenShift](https://docs.
 
 ## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Est-il possible de spécifier des plages d’adresses IP pour un déploiement sur un réseau virtuel privé, en évitant les conflits avec d’autres réseaux virtuels d’entreprise après l’appairage ?
 
-Azure Red Hat OpenShift prend en charge l’appairage de réseaux virtuels et permet au client de fournir un réseau virtuel avec lequel effectuer un appairage, ainsi qu’un CIDR de réseau virtuel pour le réseau OpenShift.
+Azure Red Hat OpenShift prend en charge le peering de réseaux virtuels et permet au client de fournir un réseau virtuel avec lequel effectuer un peering, ainsi qu’un CIDR de réseau virtuel pour le réseau OpenShift.
 
 Le réseau virtuel créé par ARO est protégé et sa configuration ne peut pas être modifiée. Le réseau virtuel appairé est contrôlé par le client et se trouve dans son abonnement.
 
@@ -189,7 +189,7 @@ Cela sera possible avec l’intégration Azure AD. 
 
 Chaque cluster Azure Red Hat OpenShift est dédié à un client donné et se trouve dans l’abonnement du client. 
 
-## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>Est-il possible de choisir une solution de stockage persistant ? OCS ? 
+## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>Est-il possible de choisir une solution de stockage persistant, comme OCS ? 
 
 Il est possible de choisir entre deux classes de stockage : Disque Azure et Fichier Azure.
 

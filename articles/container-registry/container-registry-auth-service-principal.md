@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: bee8b801f46c0018e75d58f941470adcc271daf0
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 16ad37eaa50f0c3825d131338cc4a0abdc369978
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032372"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262870"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Authentification Azure Container Registry avec des principaux de service
 
@@ -35,7 +35,7 @@ Par exemple, configurez votre application web pour utiliser un principal de serv
 
 Vous devez utiliser un principal de service pour fournir l’accès au registre dans les **scénarios sans affichage**. Autrement dit, pour toute application, service ou script qui doit envoyer ou extraire des images conteneur de manière automatisée ou sans assistance. Par exemple :
 
-  * *Pull* : déployer des conteneurs à partir d’un registre vers des systèmes d’orchestration, y compris Kubernetes, DC/OS et Docker Swarm. Vous pouvez également procéder à des extractions depuis les registres de conteneurs vers des services Azure connexes, tels que [Azure Kubernetes Service (AKS)](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), etc.
+  * *Pull* : déployer des conteneurs à partir d’un registre vers des systèmes d’orchestration, y compris Kubernetes, DC/OS et Docker Swarm. Vous pouvez également procéder à des extractions depuis les registres de conteneurs vers des services Azure connexes, tels que [Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), etc.
 
   * *Push* : générer des images conteneur et les envoyer (push) à un registre en utilisant des solutions d’intégration et de déploiement en continu, comme Azure Pipelines ou Jenkins.
 
@@ -65,10 +65,9 @@ Chaque valeur correspond à un GUID sous la forme `xxxxxxxx-xxxx-xxxx-xxxx-xxxxx
 
 ### <a name="use-credentials-with-azure-services"></a>Utiliser les informations d’identification avec les services Azure
 
-Vous pouvez utiliser les informations d’identification du principal de service à partir de n’importe quel service Azure capable de s’authentifier auprès d’un registre de conteneurs Azure. Voici quelques exemples :
+Vous pouvez utiliser les informations d’identification du principal de service à partir de n’importe quel service Azure capable de s’authentifier auprès d’un registre de conteneurs Azure.  Utilisez les informations d’identification du principal de service à la place des informations d’identification d’administrateur du Registre pour un large éventail de scénarios.
 
-* [S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
-* [S’authentifier avec Azure Container Registry à partir d’Azure Container Instances (ACI)](container-registry-auth-aci.md)
+Par exemple, utilisez les informations d’identification pour extraire une image d’un registre de conteneurs Azure vers [Azure Container Instances](container-registry-auth-aci.md).
 
 ### <a name="use-with-docker-login"></a>Utiliser avec la connexion Docker
 

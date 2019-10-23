@@ -1,19 +1,19 @@
 ---
-title: Guide de performance et de réglage des flux de données de mappage dans Azure Data Factory | Microsoft Docs
+title: Guide des performances et du réglage du mappage de flux de données dans Azure Data Factory | Microsoft Docs
 description: Découvrez des informations sur les facteurs clés ayant une incidence sur les performances des flux de données de mappage dans Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030719"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72387322"
 ---
-# <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage des flux de données de mappage
+# <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
 Les flux de données de mappage dans Azure Data Factory fournissent une interface sans code pour concevoir, déployer et orchestrer des transformations de données à grande échelle. Si vous n’êtes pas familiarisé avec les flux de données de mappage, consultez [Vue d’ensemble des flux de données de mappage](concepts-data-flow-overview.md).
 
@@ -23,11 +23,11 @@ Quand vous concevez et testez des flux de données à partir de l’interface ut
 
 Lors de la conception de flux de données de mappage, vous pouvez effectuer un test unitaire de chaque transformation en cliquant sur l’onglet de prévisualisation des données dans le panneau de configuration. Une fois que vous avez vérifié votre logique, testez votre flux de données de bout en bout en tant qu’activité dans un pipeline. Ajoutez une activité Exécuter Data Flow et utilisez le bouton Déboguer pour tester les performances de votre flux de données. Pour ouvrir le plan d’exécution et le profil de performances de votre flux de données, cliquez sur l’icône en forme de lunettes sous « Actions » sous l’onglet de sortie de votre pipeline.
 
-![Analyse de flux de données](media/data-flow/mon002.png "Analyse de flux de données 2")
+![Moniteur Data Flow](media/data-flow/mon002.png "Moniteur Data Flow 2")
 
  Vous pouvez utiliser ces informations pour évaluer les performances de votre flux de données sur des sources de données de différentes tailles. Pour plus d’informations, consultez [Supervision des flux de données de mappage](concepts-data-flow-monitoring.md).
 
-![Analyse de flux de données](media/data-flow/mon003.png "Analyse de flux de données 3")
+![Supervision du flux de données](media/data-flow/mon003.png "Moniteur Data Flow 3")
 
  Pour les exécutions de débogage de pipeline, il faut environ une minute de temps de configuration de cluster dans vos calculs des performances globales pour un cluster à chaud. Si vous initialisez le runtime d’intégration Azure par défaut, la rotation peut prendre environ 5 minutes.
 
@@ -37,7 +37,7 @@ Un runtime d’intégration avec davantage de cœurs augmente le nombre de nœud
 * Essayez un cluster **optimisé pour le calcul** si vous voulez que votre vitesse de traitement soit supérieure à votre vitesse d’entrée.
 * Essayez un cluster **à mémoire optimisée** si vous voulez mettre en cache plus de données en mémoire.
 
-![Nouveau runtime d’intégration](media/data-flow/ir-new.png "Nouveau runtime d’intégration")
+![Nouveau runtime d'intégration](media/data-flow/ir-new.png "Nouveau runtime d'intégration")
 
 Pour plus d’informations sur la création d’un runtime d’intégration, consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
 
@@ -56,7 +56,7 @@ Par défaut, l’activation du débogage utilise le runtime d’intégration Azu
 1. Si vous avez sélectionné **Colonne**, choisissez la colonne de partition.
 1. Si vous avez sélectionné **Requête**, entrez une requête qui correspond au schéma de partitionnement de votre table de base de données. Cette requête permet au moteur de base de données source de tirer parti de l’élimination de partition. Vos tables de base de données sources n’ont pas besoin d’être partitionnées. Si votre source n’est pas déjà partitionnée, ADF utilise toujours le partitionnement des données dans l’environnement de transformation Spark en fonction de la clé que vous sélectionnez dans la transformation de la source.
 
-![Partie source](media/data-flow/sourcepart3.png "Partie Source")
+![Partie source](media/data-flow/sourcepart3.png "Partie source")
 
 ### <a name="source-batch-size-input-and-isolation-level"></a>Taille de lot, entrée et niveau d’isolation de la source
 
@@ -72,7 +72,7 @@ Sous **Options de la source** dans la transformation de la source, les paramètr
 
 Pour éviter un traitement ligne par ligne de vos flux de données, définissez **Taille du lot** sous l’onglet Paramètres des récepteurs Azure SQL DB et Azure SQL DW. Si la taille du lot est définie, ADF traite les écritures dans les bases de données par lots en fonction de la taille fournie.
 
-![Récepteur](media/data-flow/sink4.png "Récepteur")
+![Section sink](media/data-flow/sink4.png "Récepteur")
 
 ### <a name="partitioning-on-sink"></a>Partitionnement sur un récepteur
 

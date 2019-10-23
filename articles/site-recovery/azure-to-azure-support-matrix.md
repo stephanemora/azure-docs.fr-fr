@@ -5,18 +5,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 895ce98f290ce23580bb70023e2539ab4272f8b8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 843cac8c7a5e6c80b7663df2a48079dd307b7d5a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350268"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383513"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de support pour la réplication de machines virtuelles Azure d'une région vers une autre
 
-Cet article récapitule la prise en charge et les conditions préalables lorsque vous définissez la récupération d’urgence de machines virtuelles Azure d’une région Azure vers une autre, avec le service [Azure Site Recovery](site-recovery-overview.md).
+Cet article récapitule la prise en charge et les conditions préalables pour la récupération d’urgence de machines virtuelles Azure d’une région Azure vers une autre, avec le service [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="deployment-method-support"></a>Prise en charge de la méthode de déploiement
@@ -32,7 +32,7 @@ Cet article récapitule la prise en charge et les conditions préalables lorsque
 ## <a name="resource-support"></a>Prise en charge des ressources
 
 **Action de ressource** | **Détails**
---- | --- | ---
+--- | --- 
 **Déplacer des coffre entre plusieurs groupes de ressources** | Non pris en charge
 **Déplacer le calcul/le stockage/les ressources réseau entre plusieurs groupes de ressources** | Non pris en charge.<br/><br/> Si vous déplacez une machine virtuelle ou des composants associés tels que le stockage/réseau après la réplication de la machine virtuelle, vous devez désactiver et réactiver la réplication pour la machine virtuelle.
 **Répliquer des machines virtuelles Azure d’un abonnement à un autre pour la reprise d’activité** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
@@ -58,7 +58,7 @@ Régions restreintes réservées pour la reprise d’activité après sinistre d
 >[!NOTE]
 >
 > - Pour **Brésil Sud**, vous pouvez répliquer et basculer vers ces régions : USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2 et USA Centre Nord.
-> - Brésil Sud fait uniquement office de région source à partir de laquelle les machines virtuelles peuvent répliquer à l’aide de Site Recovery. Elle ne peut pas faire office de région cible et ce, en raison de problèmes de latence dus aux distances géographiques.
+> - Brésil Sud fait uniquement office de région source à partir de laquelle les machines virtuelles peuvent répliquer à l’aide de Site Recovery. Elle ne peut pas faire office de région cible et ce, en raison de problèmes de latence dus aux distances géographiques. Notez que si vous basculez du Brésil Sud en tant que région source vers une cible, la restauration automatique vers le Brésil Sud à partir de la région cible est prise en charge.
 > - Vous pouvez travailler dans des régions pour lesquelles vous disposez d'un accès approprié.
 > - Si la région où vous souhaitez créer un coffre ne s'affiche pas, assurez-vous que votre abonnement dispose d'un accès lui permettant de créer des ressources dans cette région.
 > - Si vous ne parvenez pas à voir une région au sein d’un cluster géographique lorsque vous activez la réplication, assurez-vous que votre abonnement dispose des autorisations nécessaires pour créer des machines virtuelles dans cette région.
@@ -82,17 +82,21 @@ Site Recovery prend en charge la réplication de machines virtuelles Azure exéc
 
 ### <a name="windows"></a>Windows
 
+
 **Système d’exploitation** | **Détails**
 --- | ---
-Windows Server 2019 | Server Core, Server avec Expérience utilisateur
-Windows Server 2016  | Server Core, Server avec Expérience utilisateur
-Windows Server 2012 R2 |
-Windows Server 2012 |
-Windows Server 2008 R2 | Exécutant SP1 ou version ultérieure
-Windows 10 (x64) |
-Windows 8.1 (x64) |
-Windows 8 (x64) |
-Windows 7 (x64) | Exécutant SP1 ou version ultérieure (Windows 7 RTM n'est pas pris en charge)
+Windows Server 2019 | Pris en charge pour Server Core, Server avec Expérience utilisateur.
+Windows Server 2016  | Prise en charge de Server Core, Server avec Expérience utilisateur.
+Windows Server 2012 R2 | Pris en charge.
+Windows Server 2012 | Pris en charge.
+Windows Server 2008 R2 avec SP1/SP2 | Pris en charge.<br/><br/> À partir de la version 9.30.x.x (version attendue à partir de novembre 2019) de l’extension du service Mobilité pour les machines virtuelles Azure, vous devez installer une [mise à jour de la pile de maintenance](https://support.microsoft.com/help/4490628) Windows et une [mise à jour SHA-2](https://support.microsoft.com/help/4474419) sur les machines exécutant Windows Server 2008 R2 SP1/SP2.  SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu. En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 avec SP2 | À partir de la version 9.30.x.x (version attendue à partir de novembre 2019) de l’extension du service Mobilité pour les machines virtuelles Azure, vous devez installer une [mise à jour de la pile de maintenance](https://support.microsoft.com/help/4493730) Windows et une [mise à jour SHA-2](https://support.microsoft.com/help/4474419) sur les machines exécutant Windows Server 2008 avec SP2.  SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu. En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
+Windows 10 (x64) | Pris en charge.
+Windows 8.1 (x64) | Pris en charge.
+Windows 8 (x64) | Pris en charge.
+Windows 7 (x64) avec SP1 et versions ultérieures | À partir de la version 9.30.x.x (version attendue à partir de novembre 2019) de l’extension du service Mobilité pour les machines virtuelles Azure, vous devez installer une [mise à jour de la pile de maintenance](https://support.microsoft.com/help/4490628) Windows et une [mise à jour SHA-2](https://support.microsoft.com/help/4474419) sur les machines exécutant Windows 7 avec SP1.  SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu. En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
+
+
 
 #### <a name="linux"></a>Linux
 

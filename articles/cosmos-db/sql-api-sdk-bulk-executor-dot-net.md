@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/08/2019
+ms.date: 10/11/2019
 ms.author: ramkris
-ms.openlocfilehash: 90537a7e24e5f87087fb718322a7271043d1d229
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 9da994550609b0be44362e0f0059844b288aabbd
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176842"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388063"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc .NET : Télécharger des informations 
 
@@ -42,6 +42,10 @@ ms.locfileid: "72176842"
 
 ## <a name="release-notes"></a>Notes de publication
 
+### <a name="a-name241-preview241-preview"></a><a name="2.4.1-preview"/>2.4.1 (préversion)
+
+* Correction de TotalElapsedTime dans la réponse de BulkDelete pour mesurer correctement la durée totale, incluant les nouvelles tentatives.
+
 ### <a name="a-name240-preview240-preview"></a><a name="2.4.0-preview"/>2.4.0-preview
 
 * Dépendance du kit SDK remplacée par >= 2.5.1
@@ -65,6 +69,14 @@ ms.locfileid: "72176842"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
 
 * Ajout de .NET Standard 2.0 comme l’un des frameworks cibles pris en charge pour que la bibliothèque d’exécuteurs en bloc fonctionne avec les applications .NET Core.
+
+### <a name="a-name184184"></a><a name="1.8.4"/>1.8.4
+
+* Correction du traitement des identificateurs lors de l’appel de BulkImport avec une liste d’objets POCO contenant des valeurs numériques.
+
+### <a name="a-name183183"></a><a name="1.8.3"/>1.8.3
+
+* Correction de TotalElapsedTime dans la réponse de BulkDelete pour mesurer correctement la durée totale, incluant les nouvelles tentatives.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 

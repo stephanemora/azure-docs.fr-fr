@@ -1,27 +1,24 @@
 ---
 title: Bonnes pratiques pour Azure Functions | Microsoft Docs
 description: Découvrez les bonnes pratiques et les modèles pour Azure Functions.
-services: functions
-documentationcenter: na
-author: wesmc7777
-manager: jeconnoc
-keywords: azure functions, modèles, bonne pratique, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
+author: ggailey777
+manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ad7bdfd3abc4d3b4b672f5471ea826d4cef0f3fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933053"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596882"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
-Cet article fournit des instructions pour améliorer les performances et la fiabilité de vos applications de fonction [sans serveur](https://azure.microsoft.com/solutions/serverless/). 
+Cet article fournit des instructions pour améliorer les performances et la fiabilité de vos applications de fonction [sans serveur](https://azure.microsoft.com/solutions/serverless/).  
 
 ## <a name="general-best-practices"></a>Bonnes pratiques générales
 
@@ -29,7 +26,9 @@ Voici les bonnes pratiques liées à la création et à l’élaboration de vos 
 
 ### <a name="avoid-long-running-functions"></a>Évitez les fonctions dont l’exécution prend beaucoup de longtemps
 
-Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Une fonction peut devenir volumineuse en raison d’un nombre important de dépendances Node.js. L’importation des dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances sont chargées tant explicitement qu’implicitement. Un module chargé par votre code peut charger ses propres modules supplémentaires.  
+Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Pour en savoir plus sur les délais d’attente pour un plan d’hébergement donné, consultez [Durée du délai d’attente de l’application de fonction](functions-scale.md#timeout). 
+
+Une fonction peut devenir volumineuse en raison d’un nombre important de dépendances Node.js. L’importation des dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances sont chargées tant explicitement qu’implicitement. Un module chargé par votre code peut charger ses propres modules supplémentaires. 
 
 Autant que possible, subdivisez les fonctions volumineuses en ensembles de fonctions plus petits qui fonctionnent ensemble et retournent des réponses rapides. Par exemple, un webhook ou une fonction de déclenchement HTTP peut nécessiter une réponse avec accusé de réception dans un délai imparti. Il est courant que des webhooks demandent une réponse immédiate. Vous pouvez passer la charge utile du déclencheur HTTP dans une file d’attente en vue de son traitement par une fonction de déclenchement de file d’attente. Cette approche vous permet de différer le travail réel et de retourner une réponse immédiate.
 

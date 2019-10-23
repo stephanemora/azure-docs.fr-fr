@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8ea6a365b0c7bc6c254c1313445bb54231e161ae
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383354"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285643"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -267,19 +267,15 @@ Deux pare-feu sont importants : le *pare-feu d’entreprise*, exécuté sur le r
 
 Au niveau du *pare-feu d’entreprise*, vous devez configurer les domaines et ports de sortie suivants :
 
-Noms de domaine | Ports | Description
------------- | ----- | ------------
-*.servicebus.windows.net | 443 | Utilisé pour la communication avec le service de déplacement des données du serveur principal
-*.core.windows.net | 443 | Utilisé pour une copie intermédiaire via le stockage Azure Blob (si configuré)
-*.frontend.clouddatahub.net | 443 | Utilisé pour la communication avec le service de déplacement des données du serveur principal
-download.microsoft.com | 443 | Utilisé pour télécharger les mises à jour
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+
 
 Au niveau du *pare-feu Windows* (niveau de la machine), ces ports de sortie sont normalement activés. Dans le cas contraire, vous pouvez configurer les domaines et les ports en conséquence sur une machine du runtime d’intégration auto-hébergé.
 
 > [!NOTE]
-> Selon votre source et vos récepteurs, vous devez peut-être ajouter des domaines et des ports de sortie supplémentaires à la liste verte de votre pare-feu d’entreprise ou Windows.
+> Selon votre source et vos récepteurs, vous devez peut-être autoriser des domaines et des ports de sortie supplémentaires dans votre pare-feu d’entreprise ou Windows.
 >
-> Pour certaines bases de données cloud (par exemple, Azure SQL Database et Azure Data Lake), vous devez peut-être ajouter les adresses IP des machines du runtime d’intégration auto-hébergé à la liste verte dans la configuration du pare-feu.
+> Pour certaines bases de données cloud (par exemple, Azure SQL Database et Azure Data Lake), vous devez peut-être autoriser les adresses IP des machines du runtime d’intégration auto-hébergé dans la configuration du pare-feu.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copier des données d’une source vers un récepteur
 Assurez-vous que les règles de pare-feu sont correctement activées sur le pare-feu d’entreprise, sur le pare-feu Windows de la machine du runtime d’intégration auto-hébergé, ainsi que sur le magasin de données lui-même. Activer ces règles permet au runtime d’intégration autohébergé de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
@@ -360,7 +356,7 @@ Si vous sélectionnez le paramètre **Utiliser le proxy système** pour le proxy
 > [!IMPORTANT]
 > N’oubliez pas de mettre à jour diahost.exe.config et diawp.exe.config.
 
-Vous devez également vérifier que Microsoft Azure figure dans la liste verte de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
+Vous devez également vérifier que Microsoft Azure figure dans la liste autorisée de votre entreprise. Vous pouvez télécharger la liste des adresses IP Microsoft Azure valides à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Symptômes possibles des erreurs liées au pare-feu et au serveur proxy
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, ce qui empêche le runtime d’intégration auto-hébergé de se connecter à Data Factory pour s’authentifier. Pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés, reportez-vous à la section précédente.

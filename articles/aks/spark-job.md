@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205350"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263894"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Exécution de tâches Apache Spark sur AKS
 
@@ -313,7 +313,7 @@ Lors de l’exécution du travail, au lieu d’indiquer une URL de fichier jar 
 ```
 
 > [!WARNING]
-> À partir de la [documentation Spark][spark-docs] : « Le planificateur Kubernetes est actuellement en phase expérimentale. Dans les versions ultérieures, des modifications comportementales autour de la configuration, des images de conteneur et des points d’entrée peuvent subvenir ».
+> À partir de la [documentation][spark-docs] Spark : « Le planificateur Kubernetes est actuellement en phase expérimentale. Dans les versions ultérieures, des modifications comportementales autour de la configuration, des images de conteneur et des points d’entrée peuvent subvenir ».
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -333,7 +333,7 @@ Pour plus de détails, consultez la documentation Spark.
 
 
 <!-- LINKS - internal -->
-[acr-aks]: https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks
+[acr-aks]: cluster-container-registry-integration.md
 [acr-create]: https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli
 [aks-quickstart]: https://docs.microsoft.com/azure/aks/
 [azure-cli]: https://docs.microsoft.com/cli/azure/?view=azure-cli-latest

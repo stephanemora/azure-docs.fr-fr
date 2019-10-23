@@ -8,12 +8,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
-ms.openlocfilehash: 316ddbf662a5418e54f37cb335475a86c50118c7
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131092"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264493"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Utiliser l’activité de commande Azure Data Factory pour exécuter des commandes de contrôle Azure Data Explorer
 
@@ -34,6 +34,8 @@ ms.locfileid: "71131092"
    ![Créer un pipeline](media/data-factory-command-activity/create-pipeline.png)
 
 ## <a name="create-a-lookup-activity"></a>Créer une activité Lookup
+
+Une [activité Lookup](/azure/data-factory/control-flow-lookup-activity) peut récupérer un jeu de données à partir de n’importe quelle source de données compatible Azure Data Factory. La sortie de l’activité Lookup peut être utilisée dans une activité ForEach ou une autre activité.
 
 1. Dans le volet **Activities**, sous **General**, sélectionnez l’activité **Lookup**. Faites-la glisser et déposez-la dans le canevas principal à droite.
  
@@ -103,7 +105,9 @@ ms.locfileid: "71131092"
 
 ## <a name="create-a-for-each-activity"></a>Créer une activité For-Each 
 
-1. Ensuite, vous ajoutez une activité For-Each au pipeline. Cette activité traite les données retournées par l’activité Lookup. 
+L’activité [For-Each](/azure/data-factory/control-flow-for-each-activity) permet d’effectuer une itération sur une collection et d’exécuter des activités spécifiées dans une boucle. 
+
+1. Maintenant, vous ajoutez une activité For-Each au pipeline. Cette activité traite les données retournées par l’activité Lookup. 
     * Dans le volet **Activities**, sous **Iteration & Conditionals** (Itération & Conditions), sélectionnez l’activité **ForEach**, puis faites-la glisser et déposez-la dans le canevas.
     * Dessinez une ligne entre la sortie de l’activité Lookup et l’entrée de l’activité ForEach dans le canevas pour les connecter.
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e1875ebdb62cfc6d606465b863215513aaa47c02
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 5b6ec913226f44a47bfa5c734e0c20ef3a87ca67
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972904"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329430"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor
 
@@ -30,9 +30,9 @@ Les journaux Azure Monitor sont conçus pour la mise à l’échelle et la prise
 
 Dans cet article, nous allons passer en revue les méthodes permettant de surveiller de façon proactive la croissance du stockage et du volume de données ingérées, et définir des limites pour contrôler les coûts associés. 
 
-## <a name="pricing-model"></a>Modèle tarifaire
+## <a name="pricing-model"></a>Modèle de tarification
 
-Les tarifs par défaut de Log Analytics suivent un modèle de **paiement à l’utilisation**, basé sur le volume de données ingérées, et peuvent varier si la période de conservation des données est plus longue. Chaque espace de travail Log Analytics est facturée en tant que service distinct et s’ajoute à la facture de votre abonnement Azure. La quantité de données ingérées peut être considérable en fonction des facteurs suivants : 
+Les tarifs par défaut de Log Analytics suivent un modèle de **paiement à l’utilisation**, basé sur le volume de données ingérées, et peuvent varier si la période de conservation des données est plus longue. Le volume de données est mesuré comme la taille des données qui seront stockées. Chaque espace de travail Log Analytics est facturée en tant que service distinct et s’ajoute à la facture de votre abonnement Azure. La quantité de données ingérées peut être considérable en fonction des facteurs suivants : 
 
   - Nombre de solutions de gestion activées et leur configuration (p. ex. 
   - Nombre de machines virtuelles surveillées
@@ -123,13 +123,13 @@ Pour définir la durée de conservation par défaut pour votre espace de travail
 
     ![Changer le paramètre de conservation des données de l’espace de travail](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-La rétention peut également être [définie via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) à l’aide du paramètre `retentionInDays`. En outre, si vous définissez la conservation des données sur 30 jours, vous pouvez déclencher un vidage immédiat d’anciennes données à l’aide du paramètre `immediatePurgeDataOn30Days`, ce qui peut être utile pour les scénarios liés à la conformité. Cette fonctionnalité est exposée uniquement via ARM. 
+La rétention peut également être [définie via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) à l’aide du paramètre `retentionInDays`. En outre, si vous définissez la conservation des données sur 30 jours, vous pouvez déclencher un vidage immédiat d’anciennes données à l’aide du paramètre `immediatePurgeDataOn30Days`, ce qui peut être utile pour les scénarios liés à la conformité. Cette fonctionnalité est exposée uniquement via Azure Resource Manager. 
 
 Deux types de données (`Usage` et `AzureActivity`) sont conservés pendant 90 jours par défaut, et aucun frais n’est facturé pour cette rétention de 90 jours. Ces types de données sont également exempts des frais d’ingestion de données. 
 
 ### <a name="retention-by-data-type"></a>Durée de conservation par type de données
 
-Il est également possible de spécifier des paramètres de conservation différents pour des types de données individuels. Chaque type de données est une sous-ressource de l’espace de travail. Par exemple, la table SecurityEvent peut être traitée dans [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) comme suit :
+Il est également possible de spécifier des paramètres de conservation différents pour des types de données individuels. Chaque type de données est une sous-ressource de l’espace de travail. Par exemple, la table SecurityEvent peut être traitée dans [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) comme suit :
 
 ```
 /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
@@ -161,7 +161,7 @@ Pour définir la durée de conservation d’un type de données particulier (dan
 
 Les types de données `Usage` et `AzureActivity` ne peuvent pas être définis avec une durée de conservation personnalisée. Ils prendront la durée maximale de conservation de l’espace de travail par défaut ou 90 jours. 
 
-Un excellent outil pour se connecter directement à ARM pour définir la durée de conservation par type de données est l’outil OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Découvrez plus d’informations sur ARMclient dans les articles de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) et de [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Voici un exemple d’utilisation d’ARMClient, définissant une durée de conservation de 730 jours pour les données SecurityEvent :
+Un excellent outil pour se connecter directement à Azure Resource Manager pour définir la durée de conservation par type de données est l’outil OSS [ARMclient](https://github.com/projectkudu/ARMClient).  Découvrez plus d’informations sur ARMclient dans les articles de [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) et de [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Voici un exemple d’utilisation d’ARMClient, définissant une durée de conservation de 730 jours pour les données SecurityEvent :
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"
@@ -170,7 +170,7 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 > [!NOTE]
 > La définition d’une durée de conservation sur des types de données individuels peut être utilisée pour réduire vos coûts de conservation de données.  Pour les données collectées à partir d’octobre 2019 (date de publication de cette fonctionnalité), la réduction de la durée de conservation de certains types de données peut réduire vos coûts de conservation à terme.  Pour les données collectées précédemment, la définition d’une durée de conservation inférieure pour un type individuel n’affecte pas vos coûts de conservation.  
 
-## <a name="legacy-pricing-tiers"></a>Niveaux tarifaires existants
+## <a name="legacy-pricing-tiers"></a>Niveaux de tarification hérités
 
 Les abonnements qui incluaient un espace de travail Log Analytics ou une ressource Application Insights avant le 2 avril 2018, ou qui sont liés à un Contrat Entreprise commencé avant le 1er février 2019, auront toujours accès aux niveaux tarifaires hérités : **Gratuit**, **Autonome (par Go)** et **Par nœud (OMS)** .  Les espaces de travail du niveau tarifaire Gratuit présentent une ingestion des données quotidienne limitée à 500 Mo (à l’exception des types de données de sécurité collectés par Azure Security Center) et une conservation des données limitée à 7 jours. Le niveau tarifaire Gratuit est conçu à des fins d’évaluation uniquement. Les espaces de travail des niveaux tarifaires Autonome et Par nœud présentent une rétention configurable par l’utilisateur jusqu’à 2 ans. 
 
@@ -193,7 +193,7 @@ Si votre espace de travail Log Analytics a accès aux niveaux tarifaires hérit�
 3. Sous **Niveau tarifaire**, sélectionnez un niveau tarifaire et cliquez sur **Sélectionner**.  
     ![Plan tarifaire sélectionné](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Vous pouvez également [définir le niveau tarifaire via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) à l’aide du paramètre `sku`. (`pricingTier` dans le modèle ARM). 
+Vous pouvez également [définir le niveau tarifaire via Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) à l’aide du paramètre `sku`. (`pricingTier` dans le modèle ARM). 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Dépannage si Log Analytics ne collecte plus de données
 

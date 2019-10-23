@@ -4,14 +4,14 @@ description: Décrit la structure et les propriétés des modèles Azure Resourc
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e5ef3dcd7c2eec08237d5eb31fb95a0e450d9ac9
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694972"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286722"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 
@@ -66,7 +66,7 @@ Les propriétés disponibles pour un paramètre sont :
     "minLength": <minimum-length-for-string-or-array>,
     "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "<description-of-the parameter>" 
+      "description": "<description-of-the parameter>"
     }
   }
 }
@@ -107,8 +107,8 @@ L’exemple suivant montre les options disponibles pour la définition d’une v
 ```json
 "variables": {
   "<variable-name>": "<variable-value>",
-  "<variable-name>": { 
-    <variable-complex-type-value> 
+  "<variable-name>": {
+    <variable-complex-type-value>
   },
   "<variable-object-name>": {
     "copy": [
@@ -252,7 +252,7 @@ Vous définissez des ressources avec la structure suivante :
 | properties |Non |Paramètres de configuration spécifiques aux ressources. Les valeurs de propriétés sont identiques à celles que vous fournissez dans le corps de la requête pour l’opération d’API REST (méthode PUT) pour créer la ressource. Vous pouvez aussi spécifier une copie en groupe pour créer plusieurs instances d’une propriété. Pour déterminer les valeurs disponibles, consultez [référence de modèle](/azure/templates/). |
 | sku | Non | Certaines ressources autorisent les valeurs qui définissent la référence SKU à déployer. Par exemple, vous pouvez spécifier le type de redondance pour un compte de stockage. |
 | kind | Non | Certaines ressources autorisent une valeur qui définit le type de ressource que vous déployez. Par exemple, vous pouvez spécifier le type Cosmos DB à créer. |
-| Plan | Non | Certaines ressources autorisent les valeurs qui définissent le plan à déployer. Par exemple, vous pouvez spécifier l’image de marketplace pour une machine virtuelle. | 
+| Plan | Non | Certaines ressources autorisent les valeurs qui définissent le plan à déployer. Par exemple, vous pouvez spécifier l’image de marketplace pour une machine virtuelle. |
 | les ressources |Non |Ressources enfants qui dépendent de la ressource qui est définie. Fournissez uniquement des types de ressources qui sont autorisés par le schéma de la ressource parente. La dépendance sur la ressource parente n’est pas induite. Vous devez la définir explicitement. Consultez [Définition du nom et du type des ressources enfants](child-resource-name-type.md). |
 
 ## <a name="outputs"></a>Outputs
@@ -355,7 +355,10 @@ Pour **outputs**, ajoutez un objet de métadonnées à la valeur de sortie.
 
 Vous ne pouvez pas ajouter un objet de métadonnées aux fonctions définies par l’utilisateur.
 
-Pour les commentaires inclus, vous pouvez utiliser `//`, mais cette syntaxe ne fonctionne pas avec tous les outils. Vous ne pouvez pas utiliser Azure CLI pour déployer le modèle avec les commentaires inclus. Et, vous ne pouvez pas utiliser l’éditeur de modèle du portail pour travailler sur des modèles avec des commentaires inclus. Si vous ajoutez ce style de commentaire, vérifiez que les outils que vous utilisez prennent en charge les commentaires JSON inclus.
+Pour les commentaires inclus, vous pouvez utiliser `//` ou `/* ... */`, mais cette syntaxe ne fonctionne pas avec tous les outils. Vous ne pouvez pas utiliser l’éditeur de modèle du portail pour travailler sur des modèles avec des commentaires inclus. Si vous ajoutez ce style de commentaire, vérifiez que les outils que vous utilisez prennent en charge les commentaires JSON inclus.
+
+> [!NOTE]
+> Pour déployer des modèles avec des commentaires à l’aide d’Azure CLI, vous devez utiliser le commutateur `--handle-extended-json-format`.
 
 ```json
 {
@@ -363,7 +366,7 @@ Pour les commentaires inclus, vous pouvez utiliser `//`, mais cette syntaxe ne f
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
-  "dependsOn": [ // storage account and network interface must be deployed first
+  "dependsOn": [ /* storage account and network interface must be deployed first */
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
@@ -376,6 +379,30 @@ Dans VS Code, vous pouvez définir le mode de langage sur JSON avec des commenta
 1. Sélectionnez **JSON avec des commentaires**.
 
    ![Sélectionner un mode de langage](./media/resource-group-authoring-templates/select-json-comments.png)
+
+## <a name="multi-line-strings"></a>Chaînes à lignes multiples
+
+Vous pouvez scinder une chaîne en plusieurs lignes. Par exemple, la propriété location et l’un des commentaires dans l’exemple JSON suivant.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+Pour déployer des modèles avec des chaînes à plusieurs lignes à l’aide d’Azure CLI, vous devez utiliser le commutateur `--handle-extended-json-format`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

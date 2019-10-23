@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001645"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263044"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -35,6 +35,7 @@ Si vous recherchez des informations sur un code d’erreur et que ces informatio
 | BadRequest | Vous avez envoyé des valeurs de déploiement qui ne correspondent pas aux valeurs attendues par Resource Manager. Vérifiez le message d’état interne pour résoudre plus facilement le problème. | [Référence de modèle](/azure/templates/) et [Emplacements pris en charge](resource-location.md) |
 | Conflit | Vous demandez une opération qui n’est pas autorisée dans l’état actuel de la ressource. Par exemple, un redimensionnement de disque est autorisé uniquement durant la création ou la libération d’une machine virtuelle. | |
 | DeploymentActiveAndUneditable | Attendez le déploiement simultané sur ce groupe de ressources soit terminé. | |
+| DeploymentFailedCleanUp | Lorsque vous déployez en mode complet, toutes les ressources qui ne sont pas dans le modèle sont supprimées. Vous recevez cette erreur lorsque vous n’avez pas les autorisations appropriées pour supprimer toutes les ressources qui ne sont pas dans le modèle. Pour éviter cette erreur, remplacez le mode de déploiement par le mode incrémentiel. | [Modes de déploiement Azure Resource Manager](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | Le nom du déploiement ne peut contenir que des lettres, des chiffres, « - », « . » et « _ ». | |
 | DeploymentNameLengthLimitExceeded | Les noms de déploiement sont limités à 64 caractères.  | |
 | DeploymentFailed | L’erreur DeploymentFailed est une erreur générale qui ne fournit pas les détails dont vous avez besoin pour résoudre l’erreur. Pour en savoir plus, recherchez un code d’erreur dans les détails de l’erreur. | [Rechercher un code d’erreur](#find-error-code) |
@@ -246,7 +247,7 @@ Dans certains cas, le moyen le plus simple pour résoudre les problèmes de votr
 }
 ```
 
-Si vous rencontrez des erreurs de déploiement que vous pensez liées à une mauvaise définition des dépendances, vous pouvez tester votre modèle en le divisant en modèles plus simples. Commencez par créer un modèle déployant une seule ressource (comme un serveur SQL Server). Lorsque vous êtes sûr que cette ressource est correctement définie, ajoutez une ressource qui en dépend (par exemple une base de données SQL). Une fois ces deux ressources correctement définies, ajoutez les autres ressources dépendantes (telles que les stratégies d’audit). Supprimez le groupe de ressources entre chaque déploiement de test afin de tester correctement les dépendances.
+Si vous obtenez des erreurs de déploiement que vous pensez liées à une mauvaise définition des dépendances, vous pouvez tester votre modèle en le divisant en modèles plus simples. Commencez par créer un modèle déployant une seule ressource (comme un serveur SQL Server). Lorsque vous êtes sûr que cette ressource est correctement définie, ajoutez une ressource qui en dépend (par exemple, une base de données SQL). Une fois ces deux ressources correctement définies, ajoutez les autres ressources dépendantes (telles que les stratégies d’audit). Supprimez le groupe de ressources entre chaque déploiement de test afin de tester correctement les dépendances.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

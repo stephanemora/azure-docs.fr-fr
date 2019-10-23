@@ -8,15 +8,14 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e22d772ef9b90f415f10b65e4a4290a1f7bd81
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65914305"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434820"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Comment provisionner des appareils hérités avec des clés symétriques
-
 
 Un problème courant avec beaucoup d’appareils hérités est qu’ils ont souvent une identité composée d’un seul élément d’information. Cette information d’identité est généralement une adresse MAC ou un numéro de série. Les appareils hérités peuvent ne pas avoir de certificat, de module de plateforme sécurisée (TPM) ou d’autre fonctionnalité de sécurité utilisable pour identifier l’appareil de façon sécurisée. Le service Device Provisioning pour les hubs IoT inclut l’attestation de clé symétrique. L’attestation de clé symétrique peut être utilisée pour identifier un appareil sur la base d’informations comme l’adresse MAC ou un numéro de série.
 
@@ -28,6 +27,8 @@ Cet article suppose également que la mise à jour de l’appareil a lieu dans u
 
 Cet article traite d’une station de travail Windows. Toutefois, vous pouvez effectuer les procédures sur Linux. Pour obtenir un exemple sur Linux, consultez [Guide pratique du provisionnement pour la multilocation](how-to-provision-multitenant.md).
 
+> [!NOTE]
+> L’exemple utilisé dans cet article est écrit en C. Un [exemple de clé symétrique d’approvisionnement d’appareil en C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) est également disponible. Pour utiliser cet exemple, téléchargez ou clonez le référentiel [azure-iot-samples-csharp ](https://github.com/Azure-Samples/azure-iot-samples-csharp) et suivez les instructions en ligne de l’exemple de code. Vous pouvez suivre les instructions de cet article pour créer un groupe d’inscription de clé symétrique à l’aide du portail et pour rechercher l’étendue de l’ID et les clés primaires et secondaires du groupe d’inscription nécessaires à l’exécution de l’exemple. Vous pouvez également créer des inscriptions individuelles à l’aide de l’exemple.
 
 ## <a name="overview"></a>Vue d'ensemble
 

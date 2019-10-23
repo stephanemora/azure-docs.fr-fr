@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 395e8b1bc92ea64c8a5cea114be443d6411c7412
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: c8fc6c552920cf7790bf5c89531fc04ad4c57d36
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170331"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333217"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Générer des applications de stockage Azure hautement disponibles sur le stockage géoredondant interzone (GZRS) (préversion)
 
@@ -25,7 +25,7 @@ Microsoft recommande l’utilisation de GZRS pour les applications ayant des bes
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 
-Seuls les comptes de stockage v2 à usage général prennent en charge GZRS et RA-GZRS. Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md). GZRS et RA-GZRS prennent en charge les objets blob de bloc, les objets blob de page qui ne sont pas des disques VHD, les fichiers, les tables et les files d’attente.
+Seuls les comptes de stockage v2 à usage général prennent en charge GZRS et RA-GZRS. Pour plus d’informations sur les types de comptes de stockage, voir [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md). GZRS et RA-GZRS prennent en charge les objets blob de bloc, les objets blob de page (qui ne sont pas des disques VHD), les fichiers, les tables et les files d’attente.
 
 GZRS et RA-GZRS sont actuellement disponibles en préversion dans les régions suivantes :
 

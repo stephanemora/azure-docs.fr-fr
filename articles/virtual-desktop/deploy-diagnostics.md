@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177763"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332830"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Déployer l’outil de diagnostic
 
@@ -108,7 +108,7 @@ Voici comment configurer manuellement les compteurs de performances recommandés
 3. Dans la section **Paramètres**, sélectionnez **Paramètres avancés**.
 4. Ensuite, accédez à **Données** >  **Compteurs de performances Windows** et ajoutez les compteurs suivants :
 
-    -   LogicalDisk(\*)\|%Espace libre
+    -   LogicalDisk(\*)\%Espace libre
     -   LogicalDisk(C:)\\Moy. Longueur de file d'attente de disque
     -   Mémoire(\*)\\Mo disponibles
     -   Informations processeur (\*)\\Temps processeur
@@ -142,7 +142,7 @@ Pour vous assurer que votre espace de travail Log Analytics dispose des compteur
 3. Ensuite, accédez à **Données** > **Compteur de performances Windows**.
 4. Assurez-vous que les compteurs suivants sont préconfigurés :
 
-   - LogicalDisk(\*)\|%Espace libre : Affiche la quantité d’espace libre de l’espace total utilisable sur le disque sous forme de pourcentage.
+   - LogicalDisk(\*)\%Espace libre : Affiche la quantité d’espace libre de l’espace total utilisable sur le disque sous forme de pourcentage.
    - LogicalDisk(C:)\\Moy. Longueur de file d'attente du disque : La longueur de la requête de transfert sur le disque pour votre lecteur C. La valeur ne doit pas dépasser 2 pendant plus d’une courte période.
    - Mémoire(\*)\\Mo disponibles : Mémoire disponible pour le système en mégaoctets.
    - Informations processeur(\*)\\Temps processeur : pourcentage de durée calendaire passée par le processeur pour exécuter des threads actives.

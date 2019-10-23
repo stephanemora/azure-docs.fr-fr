@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57b4f018cd044b4f516266dcf9776e82252f7f22
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 439e5ab4bf943293ff4ed20ed477bc98bb683836
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937112"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299333"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -213,7 +213,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     }
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
- ```
+```
 
 ## <a name="configuration"></a>Configuration
 
@@ -264,7 +264,7 @@ Chaque champ peut être associé aux types de valeurs suivants :
 |---------|---------|---------|
 |Une valeur spécifique |<nobr>"0 5 * * * *"</nobr>|à hh:05:00 où hh correspond à toutes les heures (une fois par heure)|
 |Toutes les valeurs (`*`)|<nobr>"0 * 5 * * *"</nobr>|à 5:mm:00 chaque jour, où mm correspond à toutes les minutes de l’heure (60 fois par jour)|
-|Une plage (opérateur `-`)|<nobr>"5-7 * * * * *"</nobr>|à hh:mm:05, hh:mm:06 et hh:mm:07 où hh:mm correspond à toutes les minutes de toutes les heures (3 fois par minute)|  
+|Une plage (opérateur `-`)|<nobr>"5-7 * * * * *"</nobr>|à hh:mm:05, hh:mm:06 et hh:mm:07 où hh:mm correspond à toutes les minutes de toutes les heures (3 fois par minute)|
 |Un ensemble de valeurs (opérateur `,`)|<nobr>"5,8,10 * * * * *"</nobr>|à hh:mm:05, hh:mm:08 et hh:mm:10 où hh:mm correspond à toutes les minutes de toutes les heures (3 fois par minute)|
 |Une valeur d’intervalle (opérateur `/`)|<nobr>"0 */5 * * * *"</nobr>|à hh:05:00, hh:10:00, hh:15:00 et ainsi de suite jusqu’à hh:55:00, où hh correspond à toutes les heures (12 fois par heure)|
 
@@ -317,7 +317,7 @@ Exprimé sous forme de chaîne, le format `TimeSpan` est `hh:mm:ss` lorsque la v
 |---------|---------|
 |"01:00:00" | toutes les heures        |
 |"00:01:00"|chaque minute         |
-|"24:00:00" | tous les 24 jours        |
+|"24:00:00" | Toutes les 24 heures        |
 |"1.00:00:00" | chaque jour        |
 
 ## <a name="scale-out"></a>Montée en charge
@@ -326,7 +326,16 @@ Si une application de fonction augmente la taille de plusieurs instances, une se
 
 ## <a name="function-apps-sharing-storage"></a>Applications de fonction qui partagent du stockage
 
-Si vous partagez un compte de stockage entre plusieurs applications de fonction, assurez-vous que chacune d’entre elles a une `id` différente dans *host.json*. Vous pouvez omettre la propriété `id` ou définir manuellement chaque `id` de l’application de fonction sur une autre valeur. Le déclencheur du minuteur utilise un verrou de stockage pour vous assurer qu’il n’y aura qu’une seule instance du minuteur lorsqu’une application de fonction augmentera la taille de plusieurs instances. Si deux applications de fonction partagent le même `id` et que chacune utilise un déclencheur de minuteur, un seul minuteur s’exécutera.
+Si vous partagez des comptes de stockage entre des applications de fonction qui ne sont pas déployées sur App Service, vous devrez peut-être affecter explicitement l’ID d’hôte à chaque application.
+
+| Version de Functions | Paramètre                                              |
+| ----------------- | ---------------------------------------------------- |
+| 2.x               | `AzureFunctionsWebHost__hostid` variable d’environnement |
+| 1.x               | `id` dans *host.json*                                  |
+
+Vous pouvez omettre la valeur d’identification ou définir manuellement la configuration d’identification de chaque application de fonction sur une valeur différente.
+
+Le déclencheur du minuteur utilise un verrou de stockage pour s’assurer qu’il n’y a qu’une seule instance du minuteur lorsqu’une application de fonction augmente la taille de plusieurs instances. Si deux applications de fonction partagent la même configuration d’identification et que chacune utilise un déclencheur de minuteur, un seul minuteur s’exécute.
 
 ## <a name="retry-behavior"></a>Comportement pour les nouvelles tentatives
 

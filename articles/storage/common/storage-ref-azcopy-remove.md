@@ -4,20 +4,20 @@ description: Cet article fournit des informations de référence sur la commande
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0cc366ab2cdad9c7258dca905d8f4a06472119fe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: fc23afb9a407fc2e6689c5c8766cb4beba868269
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196795"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513430"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
-Supprime les entités d’Azure Storage Blob, d’Azure Files et d’Azure Data Lake Storage Gen2.
+Supprimez des objets BLOB ou des fichiers d’un compte de stockage Azure.
 
 ## <a name="synopsis"></a>Synopsis
 
@@ -57,13 +57,24 @@ Supprimer l’intégralité d’un répertoire virtuel, mais exclure certains ob
 azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --exclude="foo*;*bar"
 ```
 
-Supprimer un fichier de Data Lake Storage Gen2 (include et exclude ne sont pas pris en charge) :
+Supprimez des objets BLOB et des répertoires virtuels spécifiques en plaçant leurs chemins d’accès relatifs (NON codés URL) dans un fichier :
+
+```azcopy
+azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt
+file content:
+  dir1/dir2
+  blob1
+  blob2
+
+```
+
+Supprimez un seul fichier d’un compte de stockage d’objets BLOB qui a un espace de noms hiérarchique (inclure/exclure non pris en charge).
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/file]?[SAS]"
 ```
 
-Supprimer un répertoire de Data Lake Storage Gen2 (include et exclude ne sont pas pris en charge) :
+Supprimez un seul répertoire d’un compte de stockage d’objets BLOB qui a un espace de noms hiérarchique (inclure/exclure non pris en charge) :
 
 ```azcopy
 azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory]?[SAS]"
@@ -71,13 +82,21 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Options
 
-|Option|Description|
-|--|--|
-|--exclude (chaîne)|Exclut les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName|
-|-h, --help|Affiche l’aide de la commande remove.|
-|--include (chaîne)|Inclure uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName|
-|--log-level (chaîne)|Définit le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut : « INFO »)|
-|--recursive|Examine les sous-répertoires de manière récursive lors de la synchronisation des répertoires.|
+Chaîne **--exclude-path**      Exclut ces chemins d’accès lors de la suppression. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe du chemin d’accès relatif. Par exemple : myFolder;myFolder/subDirName/file.pdf.
+
+Chaîne **--exclude-pattern** Exclut les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName
+
+**-h, --help**                     Aide pour la suppression
+
+Chaîne **--include-path**      Inclut uniquement ces chemins lors de la suppression. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe du chemin d’accès relatif. Par exemple : myFolder;myFolder/subDirName/file.pdf
+
+Chaîne **--include-pattern** Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName
+
+Chaîne **--list-of-files**    Définit l’emplacement d’un fichier qui contient la liste des fichiers et répertoires à supprimer. Les chemins d’accès relatifs doivent être délimités par des sauts de ligne, et les chemins d’accès ne doivent pas être codés URL.
+
+Chaîne **--log-level**         Définit la verbosité du journal pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (« INFO » par défaut) (« INFO » par défaut)
+
+**--recursive**                Examine les sous-répertoires de manière récursive lors de la synchronisation des répertoires.
 
 ## <a name="options-inherited-from-parent-commands"></a>Options héritées des commandes parentes
 

@@ -1,5 +1,5 @@
 ---
-title: Prendre en main Stockage Blob et les services connectés de Visual Studio (ASP.NET Core) | Microsoft Docs
+title: Bien démarrer avec Stockage Blob à l’aide de Visual Studio (ASP.NET Core)
 description: Comment prendre en main Stockage Blob Azure dans un projet ASP.NET Core Visual Studio après avoir créé un compte de stockage à l’aide des services connectés de Visual Studio
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: c0f4124ffdb03a7a193791515444c4c7001378d7
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 81df41470c893f569fd17345e8bdf4b29641ec64
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511567"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298839"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Prendre en main Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core)
 

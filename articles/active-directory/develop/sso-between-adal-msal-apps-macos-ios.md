@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 218e659452779b6372541c3abec908878493f5d2
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 2a554602b9648190926168e4886d4f0773692225
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269343"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264153"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Activation Authentification unique entre les applications ADAL et MSAL sur macOS et iOS
 
@@ -110,7 +110,7 @@ ADAL 2.7.x retourne le `homeAccountId` dans l’objet `ADUserInformation` dans 
 
 Si `homeAccountId` n’est pas disponible, ou si vous ne disposez que de l’identificateur affichable, vous pouvez utiliser le `userId` d’ADAL pour rechercher le compte dans MSAL.
 
-Dans MSAL, commencez par rechercher un compte par `username` ou `identifier`. Utilisez toujours `identifier` pour l’interrogation si vous l’avez et utilisez uniquement `username` en dernier recours. Si le compte est trouvé, utilisez-le dans les appels acquireTokenSilent.
+Dans MSAL, commencez par rechercher un compte par `username` ou `identifier`. Utilisez toujours `identifier` pour l’interrogation si vous l’avez et utilisez uniquement `username` en dernier recours. Si le compte est trouvé, utilisez-le dans les appels `acquireTokenSilent`.
 
 Objective-C :
 

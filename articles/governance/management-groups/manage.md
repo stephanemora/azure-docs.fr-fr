@@ -1,17 +1,17 @@
 ---
-title: Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration - Gouvernance Azure
+title: Comment utiliser vos groupes d’administration - Gouvernance Azure
 description: Découvrez comment afficher, tenir, mettre à jour et supprimer votre hiérarchie de groupes d’administration.
 author: rthorn17
 ms.service: governance
 ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 28bfabd5c28fe833050551e7be690c0ea3d1e6a0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 57695157119b81580777c0581adccb267e7e9faa
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338941"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255930"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gérer vos ressources avec des groupes d’administration
 

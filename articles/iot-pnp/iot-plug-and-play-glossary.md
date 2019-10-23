@@ -3,18 +3,18 @@ title: Glossaire terminologique - Préversion d’IoT Plug-and-Play | Microsoft 
 description: 'Concepts : glossaire des termes courants relatifs à la préversion d’IoT Plug-and-Play.'
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858834"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249298"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossaire terminologique pour la préversion d’IoT Plug-and-Play
 
@@ -97,6 +97,7 @@ Une chaîne de connexion encapsule les informations nécessaires pour se connect
 
 - Les chaînes de connexion d’appareil permettent aux [appareils IoT Plug-and-Play](#iot-plug-and-play-device) de se connecter aux points de terminaison visibles par l’appareil sur un hub IoT. Le code client sur un appareil utilise la chaîne de connexion pour établir une connexion sécurisée avec un hub IoT.
 - Les chaînes de connexion IoT Hub permettent aux applications back-end de se connecter aux points de terminaison visibles par le service sur un hub IoT. Ces solutions et ces outils gèrent le hub IoT et les appareils qui y sont connectés.
+- Les chaînes de connexion de référentiel de modèles d’entreprise permettent d’utiliser des solutions et des outils back-end pour se connecter en toute sécurité à un [référentiel de modèles d’entreprise](#company-model-repository). Ces solutions et outils utilisent ou gèrent les [modèles de capacité d’appareil](#device-capability-model) et les [interfaces](#interface) dans le référentiel.
 
 ## <a name="device-capability-model"></a>Modèle de capacité d’appareil
 

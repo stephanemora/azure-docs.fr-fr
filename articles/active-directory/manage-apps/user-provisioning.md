@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001698"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330019"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 
@@ -102,7 +102,7 @@ Utilisez le portail Azure Active Directory pour configurer le service d’approv
 
 1. Sélectionnez l’option Automatique comme **Mode d’approvisionnement** pour spécifier les paramètres des informations d’identification administrateur, des mappages, des arrêts et des démarrages et de la synchronisation.
 
-   - Développez **Informations d’identification administrateur** pour saisir les informations d’identification requises par Azure AD pour se connecter à l’API de gestion des utilisateurs de l’application. Cette section vous permet également d’activer les notifications par e-mail en cas d’échec des informations d’identification, ou si le travail d’approvisionnement est [mis en quarantaine](#quarantine).
+   - Développez **Informations d’identification administrateur** pour saisir les informations d’identification requises par Azure AD pour se connecter à l’API de gestion des utilisateurs de l’application. Cette section vous permet également d’activer les notifications par e-mail en cas d’échec des informations d’identification, ou si le travail d’approvisionnement est [mis en quarantaine](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
    - Développez **Mappages** pour afficher et modifier les attributs utilisateur qui circulent entre Azure AD et l’application cible lorsque des comptes d’utilisateur sont configurés ou mis à jour. Cette section permet également de configurer l’approvisionnement de groupes et de comptes d’utilisateurs si l’application prend en charge cette fonctionnalité. Sélectionnez un mappage dans la table pour ouvrir l’éditeur de mappage sur la droite, où vous pouvez afficher et personnaliser les attributs de l’utilisateur.
 
      Les **filtres d’étendue** indiquent au service d’approvisionnement quels utilisateurs et groupes du système source doivent être approvisionnés ou désapprovisionnés sur le système cible. Dans le volet **Mappage d’attribut**, sélectionnez **Étendue de l’objet source** pour filtrer des valeurs d’attribut spécifiques. Par exemple, vous pouvez spécifier que seuls les utilisateurs dont l’attribut « Service » est défini sur « Ventes » seront concernés par l’approvisionnement. Pour plus d’informations, consultez [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](define-conditional-rules-for-provisioning-user-accounts.md).
@@ -176,7 +176,7 @@ Si la plupart ou la totalité des appels effectués sur le système cible échou
 
 Lors de la mise en quarantaine, la fréquence des cycles incrémentiels est progressivement réduite à une fois par jour.
 
-Le travail d’approvisionnement sera supprimé de la mise en quarantaine après la correction de toutes les erreurs qui posent problème, et le prochain cycle de synchronisation démarre. Si le travail d’approvisionnement reste en quarantaine pendant plus de quatre semaines, celui-ci est désactivé.
+Le travail d’approvisionnement sera supprimé de la mise en quarantaine après la correction de toutes les erreurs qui posent problème, et le prochain cycle de synchronisation démarre. Si le travail d’approvisionnement reste en quarantaine pendant plus de quatre semaines, celui-ci est désactivé. Pour en savoir plus sur l’état de quarantaine, [cliquez ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Combien de temps faut-il pour approvisionner des utilisateurs ?
 

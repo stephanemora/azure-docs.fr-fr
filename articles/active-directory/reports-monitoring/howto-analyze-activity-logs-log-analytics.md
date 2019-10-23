@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77eb03089d956d0fb32ef0463b3d1cdb49ff0dbb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1670c93f83ecd6f5bd557d24ec754998a225db0c
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989826"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255623"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analyser les journaux d'activité Azure AD à l'aide des journaux Azure Monitor
 
@@ -38,7 +38,13 @@ Pour suivre l’article, vous devez préalablement :
 
 * Espace de travail Log Analytics dans votre abonnement Azure. Découvrez comment [créer un espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 * Effectuer les étapes nécessaires pour [envoyer les journaux d’activité Azure AD dans votre espace de travail Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
-
+*  [Accéder](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) à l’espace de travail Log Analytics
+* Les rôles suivants dans Azure Active Directory (si vous accédez à Log Analytics via le portail Azure Active Directory)
+    - Administrateur de la sécurité
+    - Lecteur de sécurité
+    - Lecteur de rapport
+    - Administrateur général
+    
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Accéder à l’espace de travail Log Analytics
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 

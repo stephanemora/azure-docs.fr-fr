@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 388b389cca7c3e820ea3ccfd37a2a93ccd476b31
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c3c13b7e28ef7c17fd45682d828f318de5326542
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68254633"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293870"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -30,6 +30,10 @@ Cet article suppose que vous avez déjà lu les articles suivants :
 
 * [Guide de développement Azure Functions](functions-reference.md)
 * [Outils Azure Functions Visual Studio 2019](functions-develop-vs.md)
+
+## <a name="supported-versions"></a>Versions prises en charge
+
+Le runtime Azure Functions 2.x utilise .NET Core 2.2. Votre code de fonction peut utiliser les API .NET Core 2.2 en mettant à jour les paramètres de projet Visual Studio. Les modèles Function n’utilisent pas par défaut .NET Core 2.2 pour éviter d’affecter négativement les clients qui n’ont pas .NET Core 2.2 installé.
 
 ## <a name="functions-class-library-project"></a>Projet de bibliothèque de classes Azure Functions
 
@@ -54,6 +58,7 @@ Ce répertoire correspond à ce qui est déployé dans votre application de fonc
 
 > [!IMPORTANT]
 > Le processus de génération crée un fichier *function.json* pour chaque fonction. Ce fichier *function.json* n’est pas destiné à être directement modifié. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. Pour savoir comment désactiver une fonction, consultez le [Guide pratique pour désactiver des fonctions](disable-function.md#functions-2x---c-class-libraries).
+
 
 ## <a name="methods-recognized-as-functions"></a>Méthodes reconnues en tant que fonctions
 

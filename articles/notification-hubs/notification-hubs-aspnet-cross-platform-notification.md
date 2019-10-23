@@ -12,36 +12,38 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: cea0d63c20af781fcfc6ba5d7c06061b12992702
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 8f4de88ed79ee802866579448681cfe6cee3e654
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212028"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293416"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Envoi de notifications interplateforme aux utilisateurs avec Notification Hubs
 
-Dans le didacticiel précédent, [Notification des utilisateurs via Notification Hubs], vous avez appris à envoyer des notifications Push à tous les appareils inscrits pour un utilisateur authentifié spécifique. Dans ce didacticiel, l'envoi d'une notification à chaque plateforme cliente prise en charge nécessitait plusieurs demandes. Azure Notification Hubs prend en charge des modèles avec lesquels vous pouvez spécifier le mode de réception des notifications pour un appareil déterminé. Cette méthode simplifie l’envoi de notifications interplateformes.
+Ce tutoriel se base sur le précédent [Envoyer des notifications à des utilisateurs spécifiques à l’aide d’Azure Notification Hubs]. Ce tutoriel décrit comment envoyer des notifications Push à tous les appareils inscrits pour un utilisateur authentifié spécifique. Cette approche nécessitait que plusieurs demandes envoient une notification à chaque plateforme cliente prise en charge. Azure Notification Hubs prend en charge des modèles avec lesquels vous pouvez spécifier le mode de réception des notifications pour un appareil déterminé. Cette méthode simplifie l’envoi de notifications interplateformes.
 
-Cet article montre comment exploiter les modèles pour envoyer, dans une même demande, une notification qui cible toutes les plateformes, quelles qu’elles soient. Pour plus d’informations sur les modèles, consultez [Vue d’ensemble d’Azure Notification Hubs][Templates].
+Cet article montre comment exploiter les modèles pour envoyer une notification qui cible toutes les plateformes. Cet article utilise une seule demande pour envoyer une notification indépendante de la plateforme. Pour plus d’informations sur les modèles, consultez [Vue d’ensemble de Notification Hubs][Templates].
 
 > [!IMPORTANT]
-> Les projets Windows Phone version 8.1 et antérieures ne sont pas pris en charge dans Visual Studio 2017. Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2017](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Les projets Windows Phone version 8.1 et antérieures ne sont pas pris en charge dans Visual Studio 2019. Pour en savoir plus, consultez [Plateforme cible et compatibilité dans Visual Studio 2019](/visualstudio/releases/2019/compatibility).
 
 > [!NOTE]
-> Avec Notification Hubs, un appareil peut inscrire plusieurs modèles avec une même balise. Dans ce cas, un message entrant qui cible cette balise déclenche l’envoi de plusieurs notifications à destination de l’appareil, une pour chaque modèle. Ce processus vous permet d’afficher un même message dans plusieurs notifications visuelles, par exemple, sous la forme d’un badge et d’une notification toast dans une application du Windows Store.
+> Avec Notification Hubs, un appareil peut inscrire plusieurs modèles en utilisant la même balise. Dans ce cas, un message entrant qui cible cette balise déclenche l’envoi de plusieurs notifications à destination de l’appareil (une pour chaque modèle). Ce processus vous permet d’afficher un même message dans plusieurs notifications visuelles, par exemple, sous la forme d’un badge et d’une notification toast dans une application du Windows Store.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Envoyer des notifications multiplateformes à l’aide de modèles
 
+Cette section utilise l’exemple de code que vous avez créé dans le tutoriel [Envoyer des notifications à des utilisateurs spécifiques à l’aide d’Azure Notification Hubs]. Vous pouvez télécharger l’exemple sur [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+
 Pour envoyer des notifications interplateformes en utilisant des modèles, procédez comme suit :
 
-1. Dans l’Explorateur de solutions de Visual Studio, développez le dossier **Contrôleurs**, puis ouvrez le fichier RegisterController.cs.
+1. Dans **l’Explorateur de solutions** de Visual Studio, développez le dossier **Contrôleurs**, puis ouvrez le fichier *RegisterController.cs*.
 
-2. Recherchez le bloc de code dans la méthode `Put` qui crée une inscription, puis remplacez le contenu de `switch` par le code suivant :
+1. Recherchez le bloc de code dans la méthode `Put` qui crée une inscription, puis remplacez le contenu de `switch` par le code suivant :
 
     ```csharp
     switch (deviceUpdate.Platform)
@@ -74,7 +76,7 @@ Pour envoyer des notifications interplateformes en utilisant des modèles, proc�
 
     Ce code permet d’appeler la méthode propre à la plateforme pour créer une inscription de modèle et non une inscription native. Sachant que les inscriptions de modèles sont dérivées d’inscriptions natives, vous n’avez pas besoin de modifier les inscriptions existantes.
 
-3. Dans le contrôleur `Notifications`, remplacez la méthode `sendNotification` par le code suivant :
+1. Dans **l’Explorateur de solutions**, dans le dossier **Contrôleurs**, ouvrez le fichier *NotificationsController.cs*. Remplacez la méthode `Post` par le code suivant :
 
     ```csharp
     public async Task<HttpResponseMessage> Post()
@@ -89,21 +91,20 @@ Pour envoyer des notifications interplateformes en utilisant des modèles, proc�
     }
     ```
 
-    Ce code envoie une notification à toutes les plateformes à la fois, sans avoir à spécifier de charge utile native. Notification Hubs génère et remet la charge utile appropriée à chaque appareil avec la valeur de *balise* fournie, comme spécifié dans les modèles inscrits.
+    Ce code envoie une notification à toutes les plateformes en même temps. Vous ne spécifiez pas de charge utile native. Notification Hubs génère et remet la charge utile appropriée à chaque appareil avec la valeur de balise fournie, comme spécifié dans les modèles inscrits.
 
-4. Republiez votre projet principal WebApi.
+1. Republiez votre projet d’API web.
 
-5. Réexécutez l’application cliente et vérifiez que l’inscription a abouti.
+1. Réexécutez l’application cliente pour vérifier que l’inscription a abouti.
 
-6. (Facultatif) Déployez l’application cliente sur un deuxième appareil, puis exécutez l’application.
-    Une notification s’affiche sur chaque appareil.
+1. Vous pouvez aussi déployer l’application cliente sur un deuxième appareil, puis exécuter l’application. Une notification s’affiche sur chaque appareil.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez terminé ce didacticiel, vous trouverez des informations supplémentaires sur Notification Hubs et les modèles dans les rubriques suivantes :
+Maintenant que vous avez terminé ce didacticiel, vous trouverez des informations supplémentaires sur Notification Hubs et les modèles dans les articles suivants :
 
-* [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
-* [Vue d’ensemble d’Azure Notification Hubs][Templates] : contient des informations plus détaillées sur les modèles.
+* Pour un scénario différent sur l’utilisation des modèles, consultez le tutoriel [Notifications Push vers des appareils Windows spécifiques exécutant des applications de plateforme Windows universelle][Use Notification Hubs to send breaking news].
+* Pour plus d’informations sur les modèles, consultez [Vue d’ensemble de Notification Hubs][Templates].
 
 <!-- Anchors. -->
 
@@ -112,10 +113,10 @@ Maintenant que vous avez terminé ce didacticiel, vous trouverez des information
 <!-- URLs. -->
 [Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Push to users Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Visual Studio 2012 Express for Windows 8]: https://go.microsoft.com/fwlink/?LinkId=257546
+[Visual Studio 2012 Express for Windows 8]: https://visualstudio.microsoft.com/downloads/
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Azure Notification Hubs]: https://go.microsoft.com/fwlink/p/?LinkId=314257
-[Notification des utilisateurs via Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Envoyer des notifications à des utilisateurs spécifiques à l’aide d’Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Templates]: https://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: https://msdn.microsoft.com/library/windowsazure/jj927172.aspx

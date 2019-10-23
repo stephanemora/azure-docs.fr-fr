@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 30530f445941747c659f584d279261148b08825e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 15e4fc3ce412807908c75fe25acecac0fe86d261
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240801"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262800"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -124,6 +124,10 @@ L’approvisionnement de débit au niveau du conteneur et de la base de données
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB prend-il en charge l’analyse des séries chronologiques ?
 
 Oui, Azure CosmosDB prend en charge l’analyse des séries chronologiques. Voici un exemple de [modèle de série chronologique](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Cet exemple montre comment utiliser des flux de modification pour créer des affichages agrégés sur les données de série chronologique. Vous pouvez étendre cette approche à l’aide de Spark Streaming ou d’un autre processeur de données de flux.
+
+## <a name="what-are-the-azure-cosmos-db-service-quotas-and-throughput-limits"></a>Quels sont les quotas de service Azure Cosmos DB et les limites de débit ?
+
+Pour plus d’informations, consultez les articles sur les [quotas de service](concepts-limits.md) et les [limites de débit par conteneur et base de données](set-throughput.md#comparison-of-models) pour Azure Cosmos DB.
 
 ## <a name="sql-api"></a>API SQL
 

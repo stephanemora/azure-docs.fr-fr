@@ -9,8 +9,10 @@
 - name: Tutoriels
   expanded: true
   items:
-    - name: Créer un domaine managé
+    - name: Créer un domaine managé de base
       href: tutorial-create-instance.md
+    - name: Configurer le réseau virtuel pour les applications
+      href: tutorial-configure-networking.md
     - name: Joindre une machine virtuelle Windows Server à un domaine
       href: join-windows-vm.md
     - name: Installer des outils de gestion
@@ -19,6 +21,8 @@
       href: tutorial-configure-ldaps.md
     - name: Configurer la synchronisation de hachage de mot de passe
       href: tutorial-configure-password-hash-sync.md
+    - name: Créer un domaine managé avancé
+      href: tutorial-create-instance-advanced.md
 - name: Exemples
   items:
     - name: Créer un domaine managé avec Azure PowerShell

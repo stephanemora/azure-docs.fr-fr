@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240649"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285915"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
 
@@ -119,7 +119,7 @@ Pour les organisations disposant d’une infrastructure existante basée sur un 
 
 Pour toutes les méthodes d’ingestion autres que l’ingestion à partir de requête, mettez en forme les données afin qu’Azure Data Explorer puisse les analyser. les formats de données pris en charge sont :
 
-* CSV, TSV, TSVE, PSV, SCSV, SOH
+* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
 * JSON (séparé par une ligne, multiligne), Avro
 * ZIP et GZIP 
 

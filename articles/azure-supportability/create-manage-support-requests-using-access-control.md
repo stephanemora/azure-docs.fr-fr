@@ -1,20 +1,24 @@
 ---
-title: Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support | Microsoft Docs
+title: Contrôle d’accès pour créer des demandes de support dans Azure
 description: Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 328f4928aff6a892849ce3e08fe794578b5e03a4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967811"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299264"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Contrôle d’accès en fonction du rôle (RBAC) Azure pour contrôler les droits d’accès en vue de créer et de gérer des demandes de support
+
+> [!IMPORTANT]
+> Cette approche manuelle pour contrôler les droits d’accès à la prise en charge de la demande dans Azure a été remplacée par un rôle intégré. Pour plus d’informations, consultez [Contributeur de demande de support](../role-based-access-control/built-in-roles.md#support-request-contributor). 
 
 Le [contrôle d’accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) permet une gestion précise de l’accès pour Azure.
 La création de demandes de support dans le portail Azure, [portal.azure.com](https://portal.azure.com), utilise le modèle RBAC d’Azure pour définir qui peut créer et gérer les demandes de support.

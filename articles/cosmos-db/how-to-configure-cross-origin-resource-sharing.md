@@ -4,20 +4,23 @@ description: Cet article décrit comment configurer le partage des ressources in
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 1269c4c2405e9b906b63c8a29c0de1ac217da1d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82c49854611e6c425b75f0830a1402c8f5a4694e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241890"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299177"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configuration du partage des ressources cross-origin (CORS) 
 
-CORS (Cross Origin Resource Sharing) est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d’accéder aux ressources d’un autre domaine. Les navigateurs web implémentent une restriction de sécurité, appelée stratégie de même origine, qui empêche une page web d’appeler des API dans un domaine différent. CORS, cependant, constitue un moyen sûr permettant d’autoriser le domaine d’origine à appeler des API dans un autre domaine. L’API SQL de base dans Azure Cosmos DB prend désormais en charge le partage des ressources inter-origines à l’aide de l’en-tête « allowedOrigins ». Après avoir activé la prise en charge CORS pour votre compte Azure Cosmos, seules les requêtes authentifiées sont évaluées pour déterminer si elles sont autorisées selon les règles que vous avez spécifiées.
+CORS (Cross Origin Resource Sharing) est une fonctionnalité HTTP qui permet à une application web exécutée dans un domaine d’accéder aux ressources d’un autre domaine. Les navigateurs web implémentent une restriction de sécurité, appelée stratégie de même origine, qui empêche une page web d’appeler des API dans un domaine différent. Toutefois, CORS permet au domaine d’origine d’appeler des API dans un autre domaine de façon sécurisée. L’API Core (SQL) dans Azure Cosmos DB prend désormais en charge le partage des ressources cross-origin (CORS) avec l'en-tête « allowedOrigins ». Après avoir activé la prise en charge CORS pour votre compte Azure Cosmos, seules les requêtes authentifiées sont évaluées pour déterminer si elles sont autorisées selon les règles que vous avez spécifiées.
 
-Vous pouvez configurer le paramètre CORS à partir du portail Azure ou d’un modèle Azure Resource Manager. Dans Azure Cosmos DB, l’API SQL de base prend en charge une bibliothèque JavaScript qui fonctionne dans Node.js et dans les environnements de navigateur. Cette bibliothèque peut désormais tirer parti de la prise en charge de CORS lorsque le mode passerelle est utilisé. Cette fonctionnalité ne nécessite aucune configuration côté client. Avec la prise en charge de CORS, les ressources provenant d’un navigateur peuvent accéder directement à Azure Cosmos DB via la [bibliothèque JavaScript](https://www.npmjs.com/package/@azure/cosmos), ou directement à partir de l’[API REST](https://docs.microsoft.com/rest/api/cosmos-db/) pour les opérations simples. 
+Vous pouvez configurer le paramètre CORS à partir du portail Azure ou d’un modèle Azure Resource Manager. Pour les comptes Cosmos utilisant l’API Core (SQL), Azure Cosmos DB prend en charge une bibliothèque JavaScript qui fonctionne dans Node.js et dans les environnements de navigateur. Cette bibliothèque peut désormais tirer parti de la prise en charge de CORS lorsque le mode passerelle est utilisé. Cette fonctionnalité ne nécessite aucune configuration côté client. Avec la prise en charge de CORS, les ressources provenant d’un navigateur peuvent accéder directement à Azure Cosmos DB via la [bibliothèque JavaScript](https://www.npmjs.com/package/@azure/cosmos), ou directement à partir de l’[API REST](https://docs.microsoft.com/rest/api/cosmos-db/) pour les opérations simples. 
+
+> [!NOTE]
+> La prise en charge de CORS est uniquement applicable et prise en charge pour l’API Core (SQL) Azure Cosmos DB. Cela n’est pas applicable aux API Azure Cosmos DB pour Cassandra, Gremlin ou MongoDB, car ces protocoles n’utilisent pas HTTP pour la communication client-serveur. 
 
 ## <a name="enable-cors-support-from-azure-portal"></a>Activer la prise en charge CORS à partir du portail Azure
 

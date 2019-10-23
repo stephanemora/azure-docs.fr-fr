@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 687c21170c0397b89270e9c3a6af1e994c758179
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178093"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331112"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurer le mappage réseau et l’adressage IP pour les réseaux virtuels
 
@@ -76,8 +76,7 @@ L’adresse IP pour chaque carte réseau sur une machine virtuelle cible est con
 **Sous-réseaux source et cible** | **Détails**
 --- | ---
 Même espace d’adressage | L’adresse IP de la carte réseau de la machine virtuelle source est définie comme l’adresse IP de la carte réseau de la machine virtuelle cible.<br/><br/> Si l’adresse n’est pas disponible, l’adresse IP suivante disponible est définie comme cible.
-
-Espace d’adressage différent<br/><br/> L’adresse IP suivante disponible dans le sous-réseau cible est définie comme adresse de la carte réseau de la machine virtuelle cible.
+Espace d’adressage différent | L’adresse IP suivante disponible dans le sous-réseau cible est définie comme adresse de la carte réseau de la machine virtuelle cible.
 
 
 
@@ -85,8 +84,8 @@ Espace d’adressage différent<br/><br/> L’adresse IP suivante disponible dan
 
 **Réseau cible** | **Détails**
 --- | ---
-Le réseau cible est le réseau virtuel pour le basculement | - L’adresse IP cible est statique, mais n’est pas la même adresse IP que celle réservée pour le basculement.<br/><br/>  - L’adresse attribuée est la prochaine adresse disponible à partir de la fin de la plage du sous-réseau.<br/><br/> Par exemple :  si l’adresse IP source est 10.0.0.19 et que le réseau de basculement utilise la plage 10.0.0.0/24, alors l’adresse IP suivante attribuée à la machine virtuelle cible est 10.0.0.254.
-Le réseau cible n’est pas le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP réservée pour le basculement.<br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau.<br/><br/> Par exemple :  si l’adresse IP source est 10.0.0.19 et que le basculement se trouve sur un réseau qui n’est pas le réseau de basculement, avec la plage 10.0.0.0/24, alors l’adresse IP statique cible est 10.0.0.0.19 si elle est disponible, et dans le cas contraire, 10.0.0.254.
+Le réseau cible est le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP. <br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau. Par exemple :  si l’adresse IP source est 10.0.0.19 et que le réseau de basculement utilise la plage 10.0.0.0/24, alors l’adresse IP suivante attribuée à la machine virtuelle cible est 10.0.0.254.
+Le réseau cible n’est pas le réseau virtuel pour le basculement | - L’adresse IP cible est statique avec la même adresse IP.<br/><br/>  - Si la même adresse IP est déjà attribuée, alors l’adresse IP est la prochaine disponible à la fin de la plage du sous-réseau.<br/><br/> Par exemple :  si l’adresse IP source est 10.0.0.19 et que le basculement se trouve sur un réseau qui n’est pas le réseau de basculement, avec la plage 10.0.0.0/24, alors l’adresse IP statique cible est 10.0.0.0.19 si elle est disponible, et dans le cas contraire, 10.0.0.254.
 
 - Le réseau virtuel de basculement est le réseau cible que vous sélectionnez lorsque vous configurez la récupération d’urgence.
 - Nous vous recommandons de toujours utiliser un réseau de non production pour le test de basculement.

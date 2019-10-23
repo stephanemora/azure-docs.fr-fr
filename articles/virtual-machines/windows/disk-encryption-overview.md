@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 885be4a58b65002d71e677b63fc6f756194753d7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245962"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435721"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption pour les machines virtuelles Windows 
 
-Azure Disk Encryption vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Il utilise la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Windows pour assurer le chiffrement de volume des disques de système d’exploitation et de données des machines virtuelles Azure. Il s’intègre à [Azure Key Vault](../../key-vault/index.yml) pour vous aider à contrôler et à gérer les secrets et les clés de chiffrement de disque. 
+Azure Disk Encryption vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Il utilise la fonctionnalité [Bitlocker](https://en.wikipedia.org/wiki/BitLocker) de Windows pour assurer le chiffrement de volume des disques de système d’exploitation et de données des machines virtuelles Azure. Il s’intègre à [Azure Key Vault](../../key-vault/index.yml) pour vous aider à contrôler et à gérer les secrets et les clés de chiffrement de disque. 
 
 Si vous utilisez [Azure Security Center](../../security-center/index.yml), vous recevez une alerte dès lors que certaines de vos machines virtuelles ne sont pas chiffrées. Les alertes indiquent un niveau de gravité élevé et recommandent de chiffrer ces machines virtuelles.
 
@@ -32,7 +32,7 @@ Vous pouvez découvrir les notions de base d’Azure Disk Encryption pour Window
 
 ### <a name="supported-vm-sizes"></a>Tailles des machines virtuelles prises en charge
 
-Les machines virtuelles Windows sont disponibles dans une [gamme de tailles](sizes-general.md). Azure Disk Encryption n’est pas disponible sur les [machines virtuelles De base et de série A](/pricing/details/virtual-machines/series/), ni sur celles disposant de moins de 2 Go de mémoire.
+Les machines virtuelles Windows sont disponibles dans une [gamme de tailles](sizes-general.md). Azure Disk Encryption n’est pas disponible sur les [machines virtuelles De base et de série A](https://azure.microsoft.com/pricing/details/virtual-machines/series/), ni sur celles disposant de moins de 2 Go de mémoire.
 
 Azure Disk Encryption est également disponible pour les machines virtuelles avec stockage premium.
 

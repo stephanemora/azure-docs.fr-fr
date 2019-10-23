@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ca5a98fb4fd0fd07cd0e2557840a2e0aed6901e5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931268"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285618"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -152,24 +152,17 @@ Les images suivantes décrivent l’utilisation du runtime d’intégration auto
 
 ![VPN IPSec avec passerelle](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> Configurations de pare-feu et mise en liste verte des adresses IP
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a> Configurations de pare-feu et configuration de la liste d’autorisation pour les adresses IP
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Configuration requise du pare-feu pour un réseau local/privé  
 Dans une entreprise, un pare-feu d’entreprise s’exécute sur le routeur central de l’organisation. Le pare-feu Windows s’exécute en tant que démon sur la machine locale sur laquelle est installé le runtime d’intégration auto-hébergé. 
 
 Le tableau suivant indique les exigences de ports et de domaines sortants pour les pare-feu d’entreprise :
 
-| Noms de domaine                  | Ports sortants | Description                              |
-| ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443            | Requis par le runtime d’intégration auto-hébergé pour se connecter aux services de déplacement des données dans Data Factory. |
-| `*.frontend.clouddatahub.net` | 443            | Requis par le runtime d’intégration auto-hébergé pour se connecter au service Data Factory. |
-| `download.microsoft.com`    | 443            | Exigé par le runtime d’intégration auto-hébergé pour télécharger les mises à jour. Si vous avez désactivé la mise à jour automatique, vous pouvez ignorer cet élément. |
-| `*.core.windows.net`          | 443            | Utilisé par le runtime d’intégration auto-hébergé pour se connecter au compte de stockage Azure lorsque vous utilisez la fonctionnalité [copie intermédiaire](copy-activity-performance.md#staged-copy). |
-| `*.database.windows.net`      | 1433           | (Facultatif) Nécessaire lorsque vous copiez depuis ou vers Azure SQL Database ou Azure SQL Data Warehouse. Utilisez la fonctionnalité copie intermédiaire pour copier des données vers Azure SQL Database ou Azure SQL Data Warehouse sans ouvrir le port 1433. |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | (Facultatif) Nécessaire lorsque vous copiez depuis ou vers Azure Data Lake Store. |
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Vous devrez peut-être gérer les ports ou les domaines de mise en liste verte au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure SQL Data Warehouse et Azure Data Lake Store comme exemples.   
+> Vous devrez peut-être gérer les ports ou configurer une liste d’autorisation pour les domaines au niveau du pare-feu d’entreprise tel que requis par les sources de données respectives. Ce tableau utilise uniquement Azure SQL Database, Azure SQL Data Warehouse et Azure Data Lake Store comme exemples.   
 
 Le tableau suivant indique les exigences de ports entrants pour le pare-feu Windows :
 
@@ -179,10 +172,10 @@ Le tableau suivant indique les exigences de ports entrants pour le pare-feu Wind
 
 ![Configuration requise des ports de la passerelle](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>Configurations IP et mise en liste verte dans des banques de données
-Certaines banques de données dans le cloud exigent également que mettiez sur liste verte l’adresse IP de la machine qui accède au magasin. Vérifiez que l’adresse IP de la machine runtime d’intégration auto-hébergé est mise en liste verte ou configurée correctement dans le pare-feu.
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>Configurations IP et configuration de la liste d’autorisation dans les magasins de données
+Certains magasins de données dans le cloud exigent également que autorisiez l’adresse IP de la machine qui accède au magasin. Vérifiez que l’adresse IP de la machine runtime d’intégration auto-hébergé est autorisée ou configurée correctement dans le pare-feu.
 
-Les banques de données cloud suivantes exigent que vous mettiez sur liste verte l’adresse IP de la machine runtime d’intégration auto-hébergé. Il est possible que certaines de ces banques de données ne requièrent pas par défaut la mise en liste verte des adresses IP. 
+Les magasins de données cloud suivants exigent que vous autorisiez l’adresse IP de la machine runtime d’intégration auto-hébergé. Il est possible que certains de ces magasins de données ne requièrent pas par défaut la liste d’autorisation. 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -198,7 +191,7 @@ Oui. Plus de détails [ici](https://azure.microsoft.com/blog/sharing-a-self-host
 
 **Quelle sont les exigences de ports pour assurer un bon fonctionnement du runtime d’intégration auto-hébergé ?**
 
-Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l’accès à Internet. Le port sortant 443 doit être ouvert pour que le runtime d’intégration autohébergé puisse établir cette connexion. Ouvrez le port entrant 8060 uniquement au niveau de la machine (et non au niveau du pare-feu d’entreprise) pour l’application du gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source ou destination, vous devez également ouvrir le port 1433 également. Pour en savoir plus, consultez la section [Configurations du pare-feu et adresses IP de mise en liste verte](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+Le runtime d’intégration auto-hébergé établit des connexions HTTP pour l’accès à Internet. Le port sortant 443 doit être ouvert pour que le runtime d’intégration autohébergé puisse établir cette connexion. Ouvrez le port entrant 8060 uniquement au niveau de la machine (et non au niveau du pare-feu d’entreprise) pour l’application du gestionnaire des informations d’identification. Si vous utilisez Azure SQL Database ou Azure SQL Data Warehouse comme source ou destination, vous devez également ouvrir le port 1433 également. Pour en savoir plus, consultez la section [Configurations de pare-feu et configuration de la liste d’autorisation pour les adresses IP](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,20 +1,18 @@
 ---
 title: Analyser les performances d’Azure App Service | Microsoft Docs
 description: Analyse des performances des applications pour les services d’application Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 10/04/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 1a00a487713458e4221f1832b2a4840ebd0d0375
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/04/2019
+ms.openlocfilehash: 1937cce03412db55dafc2025c6a59b037deee3d1
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972955"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677655"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -37,7 +35,7 @@ Il existe deux façons d’activer la supervision des applications hébergées p
     * Utilisez cette méthode si vous devez effectuer des appels d’API personnalisés pour suivre les événements/dépendances qui ne sont pas capturés par défaut avec la supervision basée sur un agent. Pour en savoir plus, consultez l’[article sur l’API Application Insights pour les événements et mesures personnalisés](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics).
 
 > [!NOTE]
-> Si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un SDK, sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) ci-après.
+> Si les deux méthodes, la supervision basée sur un agent et l’instrumentation manuelle basée sur un Kit de développement logiciel (SDK), sont détectées, seuls les paramètres de l’instrumentation manuelle sont appliqués. Cela évite que des données en double soient envoyées. Pour en savoir plus, consultez la [section de résolution des problèmes](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
 ## <a name="enable-agent-based-monitoring-for-net-applications"></a>Activer la surveillance basée sur les agents pour les applications .NET
 

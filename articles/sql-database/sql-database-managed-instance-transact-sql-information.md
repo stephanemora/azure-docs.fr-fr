@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9a043d07004870c00c656b655d56a1526f8993d8
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: b7ace716f920304eff3ddcfa3fab887f780cec0e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000499"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372320"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Différences T-SQL, limitations et problèmes connus avec une instance managée
 
@@ -537,13 +537,21 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="tempdb"></a>TEMPDB
 
-La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur les niveaux usage général et critique pour l’entreprise. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
+La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau Usage général. La taille maximale de `tempdb` sur un niveau Critique pour l’entreprise est limitée à la taille de stockage d’instance. La taille du fichier journal `Tempdb` est limitée à 120 Go sur le niveau Usage général. Certaines requêtes peuvent retourner une erreur si elles ont besoin de plus de 24 Go par cœur dans `tempdb` ou si elles produisent plus de 120 Go de données de journal.
 
 ### <a name="error-logs"></a>Des journaux d’activité d’erreurs
 
-Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont journalisés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Managed Instance - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+Une instance managée ajoute des informations détaillées dans les journaux des erreurs. Beaucoup d’événements système internes sont journalisés dans le journal des erreurs. utilisez une procédure personnalisée pour lire les journaux des erreurs en excluant les entrées non pertinentes. Pour plus d’informations, consultez [Instance managée – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/) ou [Extension d’instance managée (préversion)](https://docs.microsoft.com/sql/azure-data-studio/azure-sql-managed-instance-extension#logs) pour Azure Data Studio.
 
 ## <a name="Issues"></a> Problèmes connus
+
+### <a name="in-memory-oltp-memory-limits-are-not-applied"></a>Les limites de mémoire OLTP en mémoire ne sont pas appliquées
+
+**Date :** Octobre 2019
+
+Le niveau de service Critique pour l'entreprise n’appliquera pas correctement les [limites max de mémoire pour les objets à mémoire optimisée ](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space) dans certains cas. L’instance managée peut permettre à la charge de travail d’utiliser davantage de mémoire pour les opérations OLTP en mémoire, ce qui peut affecter la disponibilité et la stabilité de l’instance. Les requêtes OLTP en mémoire qui atteignent les limites peuvent ne pas échouer immédiatement. Ce problème sera corrigé bientôt. Les requêtes qui utilisent plus de mémoire OLTP en mémoire échoueront plus tôt si elles atteignent les [limites](sql-database-managed-instance-resource-limits.md#in-memory-oltp-available-space).
+
+**Solution de contournement :** [Surveillez l’utilisation du stockage OLTP en mémoire ](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring) à l’aide de [SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage#bkmk_Monitoring) pour vous assurer que la charge de travail n’utilise pas plus que la mémoire disponible. Augmentez les limites de mémoire qui dépendent du nombre de vCores ou optimisez votre charge de travail pour utiliser moins de mémoire.
 
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Erreur retournée lors de la tentative de suppression d’un fichier qui n’est pas vide
 

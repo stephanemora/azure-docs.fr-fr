@@ -9,15 +9,15 @@ ms.author: estfan
 ms.reviewers: klam, LADocs
 manager: carmonm
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
-ms.topic: article
-ms.date: 09/06/2019
+ms.topic: conceptual
+ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122708"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264354"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recevoir et répondre aux appels HTTPS entrants à l’aide d’Azure Logic Apps
 
@@ -27,7 +27,8 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur
 * Déclencher un flux de travail lorsqu’un événement de webhook externe se produit.
 * Recevoir et répondre à un appel HTTPS en provenance d’une autre application logique.
 
-Le déclencheur de requête prend en charge *uniquement* HTTPS. Pour effectuer des appels HTTP ou HTTPS sortants, utilisez le [déclencheur ou l’action HTTP](../connectors/connectors-native-http.md) intégrés.
+> [!NOTE]
+> Le déclencheur de demande prend en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2 pour les appels entrants. Les appels sortants continuent à prendre en charge les protocoles TLS 1.0, 1.1 et 1.2. Si vous constatez des erreurs de liaison SSL, assurez-vous d’utiliser le protocole TLS 1.2.
 
 ## <a name="prerequisites"></a>Prérequis
 

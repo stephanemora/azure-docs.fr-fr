@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: a6acdd6255278123ff13a8597cadd2a386536bd4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d3651c63b206c37b1f41ecab7f69e24fc94ddffd
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67613792"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263854"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface de ligne de commande Azure
 
@@ -64,11 +64,11 @@ Les régions suivantes sont prises en charge pour les déploiements de nœuds vi
 Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de fonctionnalités d’ACI. Les scénarios suivants ne sont pas encore pris en charge avec les nœuds virtuels
 
 * Utilisation du principal du service pour extraire des images ACR. Une [solution de contournement](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste à utiliser les [Secrets Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitations du réseau virtuel](../container-instances/container-instances-vnet.md), dont l’homologation de réseaux virtuels, les stratégies réseau Kubernetes et le trafic sortant vers Internet avec les groupes de sécurité réseau.
+* [Limitations du réseau virtuel](../container-instances/container-instances-vnet.md), dont le peering de réseaux virtuels, les stratégies réseau Kubernetes et le trafic sortant vers Internet avec les groupes de sécurité réseau.
 * Initialiser les conteneurs
 * [Alias d’hôte](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Arguments](../container-instances/container-instances-exec.md#restrictions) pour exécution dans ACI
-* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploiera pas de pods dans le nœud virtuel
+* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) ne déploiera pas de pods dans le nœud virtuel
 * [Les nœuds Windows Server (actuellement en version préliminaire dans AKS)](windows-container-cli.md) ne sont pas pris en charge aux côtés des nœuds virtuels. Vous pouvez utiliser des nœuds virtuels pour planifier des conteneurs Windows Server sans avoir besoin de nœuds Windows Server dans un cluster AKS.
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
@@ -364,6 +364,7 @@ Les nœuds virtuels constituent souvent l’un des composants d’une solution d
 [aks-github]: https://github.com/azure/aks/issues
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
+[acr-aks-secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
@@ -384,4 +385,3 @@ Les nœuds virtuels constituent souvent l’un des composants d’une solution d
 [aks-basic-ingress]: ingress-basic.md
 [az-provider-list]: /cli/azure/provider#az-provider-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret

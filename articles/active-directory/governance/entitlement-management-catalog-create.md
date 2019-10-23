@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 85479abfd19110703d5ce9f59f545830e84feadb
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169942"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429566"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>Créer et gérer un catalogue de ressources dans la gestion des droits d’utilisation Azure AD (préversion)
 
@@ -52,13 +52,13 @@ Un catalogue est un conteneur de ressources et de packages d’accès. Vous cré
 
 1. Si vous souhaitez que les utilisateurs de répertoires externes sélectionnés puissent demander des packages d’accès dans ce catalogue, définissez **Activé pour les utilisateurs externes** sur **Oui**.
 
-    ![Volet Nouveau catalogue](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![Volet Nouveau catalogue](./media/entitlement-management-shared/new-catalog.png)
 
 1. Cliquez sur **Créer** pour créer le catalogue.
 
 ## <a name="add-resources-to-a-catalog"></a>Ajouter des ressources à un catalogue
 
-Pour inclure des ressources dans un package d’accès, les ressources doivent exister dans un catalogue. Les types de ressources que vous pouvez ajouter sont des groupes, des applications et des sites SharePoint Online. Pour les groupes, il peut s’agir de groupes Office 365 ou de groupes de sécurité Azure AD créés sur le cloud. Pour les applications, il peut s’agir d’applications d’entreprise Azure AD, ce qui inclut les applications SaaS et vos propres applications fédérées avec Azure AD. Pour les sites, il peut s’agir de sites ou de collection de sites SharePoint Online.
+Pour inclure des ressources dans un package d’accès, les ressources doivent exister dans un catalogue. Les types de ressources que vous pouvez ajouter sont des groupes, des applications et des sites SharePoint Online. Pour les groupes, il peut s’agir de groupes Office 365 ou de groupes de sécurité Azure AD créés sur le cloud. Pour les applications, il peut s’agir d’applications d’entreprise Azure AD, ce qui inclut les applications SaaS et vos propres applications fédérées avec Azure AD. Pour les sites, il peut s’agir de sites ou de collection de sites SharePoint Online.
 
 **Rôle prérequis :** Voir [Rôles requis pour ajouter des ressources à un catalogue](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
@@ -130,7 +130,9 @@ Vous pouvez modifier le nom et la description d’un catalogue. Les utilisateurs
 
 1. Dans la page **Vue d’ensemble** du catalogue, cliquez sur **Modifier**.
 
-1. Modifiez le nom ou la description du catalogue.
+1. Modifiez le nom, la description ou les paramètres activés du catalogue.
+
+    ![Modifier les paramètres du catalogue](./media/entitlement-management-shared/catalog-edit.png)
 
 1. Cliquez sur **Enregistrer**.
 

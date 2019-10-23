@@ -11,22 +11,23 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8c9b8489ded264a895d480ed180b411da079e883
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3576f7cc0297ff1e9b10373ccc27b09e1a0ae8ae
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950119"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436693"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accéder aux données dans les services de stockage Azure
 
-Dans cet article, découvrez comment accéder facilement à vos données dans les services de stockage Azure via des magasins de données Azure Machine Learning. Les banques de données permettent de stocker les informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton. L’utilisation de banques de données vous permet d’accéder à votre stockage sans avoir à coder en dur les informations de connexion dans vos scripts. Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix).
+Dans cet article, découvrez comment accéder facilement à vos données dans les services de stockage Azure via des magasins de données Azure Machine Learning. Les banques de données permettent de stocker les informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton. L’utilisation de banques de données vous permet d’accéder à votre stockage sans avoir à coder en dur les informations de connexion dans vos scripts. Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix). Pour les solutions de stockage non prises en charge, nous vous recommandons de déplacer vos données vers nos solutions de stockage Azure prises en charge pour réduire le coût de sortie des données pendant les expériences de Machine Learning. [Découvrez comment déplacer vos données](#move). 
 
 Cette procédure montre des exemples des tâches suivantes :
 * [Enregistrer les magasins de données](#access)
 * [Récupérer les magasins de données de l’espace de travail](#get)
 * [Charger et télécharger des données à l’aide de magasins de données](#up-and-down)
 * [Accéder aux données pendant l’entraînement](#train)
+* [Déplacer des données vers Azure](#move)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -276,6 +277,10 @@ Azure Machine Learning offre plusieurs moyens d’utiliser vos modèles pour le 
 
 Dans les situations où le SDK ne fournit pas d’accès aux banques de données, vous pouvez créer un code personnalisé à l’aide du SDK Azure approprié pour accéder aux données. Par exemple, le [kit de développement logiciel (SDK) de stockage Azure pour Python](https://github.com/Azure/azure-storage-python) est une bibliothèque cliente que vous pouvez utiliser pour accéder aux données stockées dans des objets blob ou des fichiers.
 
+<a name="move"></a>
+## <a name="move-data-to-supported-azure-storage-solutions"></a>Déplacer des données vers des solutions de stockage Azure prises en charge
+
+Azure Machine Learning service prend en charge l’accès aux données à partir d’Azure Blob, Azure file, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Pour le stockage non pris en charge, nous vous recommandons de déplacer vos données vers nos solutions de stockage Azure prises en charge à l’aide d’Azure Data Factory pour réduire le coût de sortie des données pendant les expériences de Machine Learning. Azure Data Factory offre un transfert de données efficace et résilient avec plus de 80 connecteurs préconfigurés, notamment les services de données Azure, les sources de données locales, Amazon S3, Redshift et Google BigQuery®, sans frais supplémentaires. [Suivez le guide pas à pas pour déplacer vos données à l’aide d’ Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2019
-ms.openlocfilehash: c32560f7bb182ac347e9e5a71b53b57cf80fac38
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dfaa39b33839406ffdf484299cb520aebf011c7d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034626"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299687"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 
@@ -114,7 +114,7 @@ Pour plus d’informations, consultez la référence [az ml computetarget create
 
 **Durée estimée** : 5 minutes environ.
 
-Si vous avez déjà un cluster AKS version 1.12.## dans votre abonnement Azure, vous pouvez l’utiliser pour déployer votre image.
+Si vous avez déjà un cluster AKS d’une version inférieure à 1.14 dans votre abonnement Azure, vous pouvez l’utiliser pour déployer votre image.
 
 > [!TIP]
 > Le cluster AKS existant peut se trouver dans une autre région Azure que celle de votre espace de travail Azure Machine Learning.
@@ -133,7 +133,7 @@ Pour plus d’informations sur la création d’un cluster AKS à l’aide de l�
 * [Créer un cluster AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Créer un cluster AKS (portail)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
-Les exemples suivants montrent comment attacher un cluster AKS 1.12.## existant à votre espace de travail :
+Les exemples suivants montrent comment attacher un cluster AKS existant à votre espace de travail :
 
 **Avec le kit SDK**
 

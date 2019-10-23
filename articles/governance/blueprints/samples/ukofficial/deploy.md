@@ -1,18 +1,18 @@
 ---
-title: Exemples - Blueprint UK OFFICIAL et UK NHS - Étapes de déploiement
-description: Étapes de déploiement des exemples de blueprint UK OFFICIAL et UK NHS.
+title: Exemples de blueprint UK OFFICIAL et UK NHS - Étapes de déploiement
+description: Étapes de déploiement des exemples de blueprint UK OFFICIAL et UK NHS, y compris les détails du paramètre d’artefact blueprint.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: ea58ef49aa4d901339bf87343f0eea8eb517011d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978244"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299015"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Déployer les exemples de blueprint UK OFFICIAL et UK NHS
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981417"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255897"
 ---
 # <a name="azure-policy-assignment-structure"></a>Structure d’attribution Azure Policy
 
@@ -58,8 +58,7 @@ Vous utilisez **displayName** et **description** pour identifier l’attribution
 
 ## <a name="enforcement-mode"></a>Mode d’application
 
-La propriété **enforcementMode** permet aux clients de tester le résultat d’une stratégie sur des ressources existantes sans lancer l’effet de stratégie ni déclencher des entrées du [journal d’activité Azure](../../../azure-monitor/platform/activity-logs-overview.md).
-Ce scénario est de type « What If » et suit des pratiques de déploiement sécurisées.
+La propriété **enforcementMode** permet aux clients de tester le résultat d’une stratégie sur des ressources existantes sans lancer l’effet de stratégie ni déclencher des entrées du [journal d’activité Azure](../../../azure-monitor/platform/activity-logs-overview.md). Ce scénario est de type « What If » et suit des pratiques de déploiement sécurisées. **enforcementMode** diffère de l’effet [Disabled ](./effects.md#disabled), car cet effet empêche l’évaluation des ressources de se produire.
 
 Cette propriété a les valeurs suivantes :
 

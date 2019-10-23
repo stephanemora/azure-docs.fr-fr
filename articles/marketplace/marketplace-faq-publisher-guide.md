@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: c24f956a7aeb68fe6b0325705a9e7dab8e70b063
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969583"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330237"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>FAQ sur la Place de marché commerciale de Microsoft
 
@@ -24,7 +24,7 @@ Réponses aux questions courantes sur la Place de marché Azure et Microsoft App
 
 **Qu’est-ce que la Place de marché Microsoft Azure ?**
 
-La [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace) fournit un accès et des informations sur les solutions et services proposées par Microsoft et par ses partenaires. Les clients (des professionnels de l’informatique et des développeurs) peuvent découvrir, essayer et acheter des solutions logicielles cloud créées sur ou pour Azure. Avec plus de 8 000 référencements, notre catalogue offre des blocs de construction Azure tels que des machines virtuelles, des API, des applications Azure, des modèles de solution et des applications managées, des applications SaaS, des conteneurs et des services de conseil. 
+La [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com/marketplace) fournit un accès et des informations sur les solutions et services proposées par Microsoft et par ses partenaires. Les clients peuvent découvrir, essayer et acheter des solutions logicielles cloud créées sur ou pour Azure. Avec plus de 8 000 référencements, notre catalogue offre des blocs de construction Azure tels que des machines virtuelles, des API, des applications Azure, des modèles de solution et des applications managées, des applications SaaS, des conteneurs et des services de conseil.
 
 **Qui sont les clients de la Place de marché Microsoft Azure ?**
 
@@ -32,7 +32,7 @@ La Place de marché Microsoft Azure est conçue pour les professionnels de l’i
 
 **Quels sont les types de produits actuellement disponibles sur la Place de marché Microsoft Azure ?**
 
-La Place de marché Microsoft Azure propose des solutions et services techniques de Microsoft et de partenaires, conçus pour étendre les produits et services Azure. Le catalogue de solutions couvre plusieurs catégories, sans s’y limiter :
+La Place de marché Microsoft Azure propose des solutions et services techniques de Microsoft et de partenaires, conçus pour étendre les produits et services Azure. Le catalogue de solutions couvre plusieurs catégories :
 
 * les systèmes d’exploitation de base
 * databases
@@ -41,9 +41,6 @@ La Place de marché Microsoft Azure propose des solutions et services techniques
 * networking
 * blockchain
 * Outils de développement
-* Et bien plus...
-
-La Place de marché Microsoft Azure propose des applications SaaS, des machines virtuelles, des modèles de solutions, des applications managées Azure et des services de consulting.
 
 ### <a name="azure-marketplace-for-customers"></a>Place de marché Microsoft Azure pour les clients
 
@@ -338,7 +335,7 @@ Les prospects sont des clients qui déploient vos produits à partir de la Place
 
 **Où puis-je obtenir de l’aide pour configurer la destination des prospects ?**
 
-Apprenez-en davantage dans la documentation [Portail Cloud Partner-Obtenir des prospects](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) ou soumettez un ticket de support via [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) en sélectionnant le type d’offre et la gestion des prospects.
+Apprenez-en davantage dans la documentation [Partner Center-Obtenir des prospects](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) ou soumettez un ticket de support via [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) en sélectionnant le type d’offre et la gestion des prospects.
 
 **Dois-je obligatoirement configurer une destination des prospects pour publier une offre sur la Place de marché ?**
 
@@ -346,7 +343,7 @@ Oui, si vous publiez une offre **Contact Me**, une **application SaaS** ou des *
 
 **Comment puis-je vérifier que la configuration des prospects est correcte ?**
 
-Après que vous avez complété l’offre et mis en place une destination de prospect, l’annonce peut être correctement publiée dans le [Portail Cloud Partner](https://cloudpartner.azure.com/). Avant que le référencement soit publiée, vous pouvez vérifier si la configuration des prospects fonctionne correctement.  Envoyez un prospect de test à la destination des prospects configurée dans l’offre.
+Après que vous avez complété l’offre et mis en place une destination de prospect, l’annonce peut être correctement publiée dans le [Partner Center](https://cloudpartner.azure.com/). Avant que le référencement soit publiée, vous pouvez vérifier si la configuration des prospects fonctionne correctement.  Envoyez un prospect de test à la destination des prospects configurée dans l’offre.
 
 **Quels sont les pays/régions à partir desquels les éditeurs peuvent vendre sur la Place de marché Microsoft Azure ?**
 
@@ -356,7 +353,7 @@ Les éditeurs basés dans les pays/régions suivants peuvent actuellement vendre
 
 *Applications de machine virtuelle et Azure :*
 
-1. Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/).
+1. Connectez-vous à l’[Espace partenaires](https://cloudpartner.azure.com/).
 1. Sélectionnez l’offre dans l’onglet **Toutes les offres**.
 1. Dans le volet à gauche de l’écran, sélectionnez l’onglet **SKU**.
 1. Sélectionnez la référence SKU que vous souhaitez supprimer et cliquez sur le bouton **Supprimer** pour cette référence SKU.
@@ -366,7 +363,7 @@ Pour plus d’informations, consultez [Suppression d’une offre](./cloud-partne
 
 *Web Apps (applications SaaS, extensions) et services de conseil :*
 
-1. Dans le portail Cloud Partner, sélectionnez l’icône Point d’interrogation, puis cliquez sur **Support**.
+1. Dans le Partner Center, sélectionnez l’icône Point d’interrogation, puis cliquez sur **Support**.
 1. Accédez à <https://go.microsoft.com/fwlink/?linkid=844975>
 1. Sur la page de support, sélectionnez le type d’offre.
 1. Sélectionnez **Supprimer** pour supprimer une offre publiée.
@@ -419,19 +416,19 @@ Ouvrez un ticket auprès du [Support Microsoft](https://support.microsoft.com/ge
 
 **Qui dois-je contacter pour poser des questions générales de support technique concernant la Place de marché Microsoft Azure ?**
 
-Pour une assistance générale en lien avec l’utilisation ou le dépannage d’applications, contactez le [Support du Portail Cloud Partner](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007).
+Pour une assistance générale en lien avec l’utilisation ou le dépannage d’applications, contactez le [Support du Partner Center](https://support.microsoft.com/getsupport?wf=0&tenant=ClassicCommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&ccsid=636565784998876007).
 
 Pour les problèmes de facturation et d’abonnement concernant vos achats sur la Place de marché Azure, contactez le [support Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 **Qui contacter si j’ai des questions à poser sur la publication ou la gestion des offres ?**
 
-Pour accéder à des ressources et à une documentation à jour sur les questions fréquemment posées, voir le [Guide pour les éditeurs de la Place de marché Azure](marketplace-publishers-guide.md). Vous pouvez également ouvrir un ticket auprès du [Support Microsoft sur le Portail Cloud Partner](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
+Pour accéder à des ressources et à une documentation à jour sur les questions fréquemment posées, voir le [Guide pour les éditeurs de la Place de marché Azure](marketplace-publishers-guide.md). Vous pouvez également ouvrir un ticket auprès du [Support Microsoft sur le Partner Center](https://support.microsoft.com/getsupport?oaspworkflow=start_1.0.0.0&wf=0&wfname=productselection&prid=16230&forceorigin=esmc&ccsid=636694515623707953).
 
 ### <a name="azure-marketplace-for-publishers"></a>Place de marché Azure pour les éditeurs
 
 **Comment puis-je définir ma disponibilité géographique pour permettre la vente dans différents pays/régions ?**
 
-1.  Dans le Portail Cloud Partner, accédez à la référence SKU à laquelle vous souhaitez ajouter de nouveaux pays/régions.  Dans **Détails de la référence SKU**, accédez à **Disponibilité par pays/région** et cliquez sur **Sélectionner des régions**.
+1.  Dans le Partner Center, accédez à la référence SKU à laquelle vous souhaitez ajouter de nouveaux pays/régions.  Dans **Détails de la référence SKU**, accédez à **Disponibilité par pays/région** et cliquez sur **Sélectionner des régions**.
 
     ![Sélectionner des régions](media/marketplace-publishers-guide/FAQ-choose-geo.png)
 

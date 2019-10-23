@@ -11,19 +11,19 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
-ms.date: 06/20/2017
+ms.date: 10/08/2019
 ms.author: lahugh
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2014b00a82a6d56bf58b471336c6d809721abea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: H1Hack27Feb2017,fasttrack-edit
+ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095431"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286697"
 ---
-# <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Mettre automatiquement à l’échelle les nœuds de calcul dans un pool Azure Batch
+# <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
-Azure Batch peut automatiquement mettre à l’échelle des pools en fonction de paramètres que vous définissez. Grâce à la mise à l’échelle automatique, Batch ajoute dynamiquement des nœuds à un pool à mesure que les demandes de tâches augmentent, et supprime les nœuds de calcul lorsqu’elles diminuent. Vous gagnez à la fois du temps et de l’argent en ajustant automatiquement le nombre de nœuds de calcul utilisés par votre application Batch. 
+Azure Batch peut automatiquement mettre à l’échelle des pools en fonction de paramètres que vous définissez. Grâce à la mise à l’échelle automatique, Batch ajoute dynamiquement des nœuds à un pool à mesure que les demandes de tâches augmentent, et supprime les nœuds de calcul lorsqu’elles diminuent. Vous gagnez à la fois du temps et de l’argent en ajustant automatiquement le nombre de nœuds de calcul utilisés par votre application Batch.
 
 Pour activer la mise à l’échelle automatique sur un pool de nœuds de calcul, associez-lui une *formule de mise à l’échelle* définie par vos soins. Le service Batch utilise la formule de mise à l’échelle automatique pour déterminer le nombre de nœuds de calcul nécessaires à l’exécution de votre charge de travail. Les nœuds de calcul peuvent être des nœuds dédiés ou des [nœuds de faible priorité](batch-low-pri-vms.md). Batch répond aux données des mesures de service collectées à intervalles réguliers. Avec ces données de mesures, Batch ajuste le nombre de nœuds de calcul dans le pool en fonction de votre formule et à intervalles configurables.
 
@@ -39,6 +39,7 @@ Cet article décrit les différentes entités qui composent vos formules de mise
 >
 
 ## <a name="automatic-scaling-formulas"></a>Formules de mise à l’échelle automatique
+
 Une formule de mise à l’échelle automatique est une valeur de chaîne définie par vos soins qui contient une ou plusieurs instructions. La formule de mise à l’échelle automatique est affectée à l’élément [autoScaleFormula][rest_autoscaleformula] d’un pool (Batch REST) ou à la propriété [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). Le service Batch utilise votre formule pour déterminer le nombre de nœuds de calcul cibles d’un pool pour le prochain intervalle de traitement. La chaîne de formule ne peut pas dépasser 8 Ko. Elle peut inclure jusqu’à 100 instructions séparées par des points-virgules, et peut comprendre des sauts de ligne et des commentaires.
 
 Les formules de mise à l’échelle automatique reviennent en quelque sorte à utiliser un « langage » de mise à l’échelle Batch. Les instructions de formules sont des expressions de forme libre qui peuvent inclure des variables définies par le service (variables définies par le service Batch) et des variables définies par l’utilisateur (variables que vous définissez). Elles peuvent effectuer différentes opérations sur ces valeurs à l’aide de types, d’opérateurs et de fonctions intégrés. Par exemple, une instruction peut prendre la forme suivante :
@@ -63,12 +64,14 @@ Le nombre cible de nœuds peut être supérieur, inférieur ou égal au nombre a
 Voici des exemples de formules de mise à l’échelle automatique qui peuvent être adaptés pour convenir à la plupart des scénarios. Les variables `startingNumberOfVMs` et `maxNumberofVMs` dans les exemples de formules peuvent être ajustées en fonction de vos besoins.
 
 #### <a name="pending-tasks"></a>Tâches en attente
+
 ```
 startingNumberOfVMs = 1;
 maxNumberofVMs = 25;
 pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 Avec cette formule de mise à l’échelle automatique, le pool est à l’origine créé avec une seule machine virtuelle. La mesure `$PendingTasks` définit le nombre de tâches en cours d’exécution ou en file d’attente. Cette formule recherche le nombre moyen de tâches en attente au cours des 180 dernières secondes et définit la variable `$TargetDedicatedNodes` en conséquence. La formule garantit que le nombre cible de nœuds dédiés ne dépasse jamais 25 machines virtuelles. À mesure que de nouvelles tâches sont envoyées, le pool s’accroît automatiquement. Lorsque les tâches se terminent, les machines virtuelles se libèrent une par une, et la formule de mise à l’échelle automatique réduit le pool.
@@ -76,15 +79,18 @@ Avec cette formule de mise à l’échelle automatique, le pool est à l’origi
 Cette formule met à l’échelle des nœuds dédiés, mais elle peut être modifiée pour s’appliquer également aux nœuds de faible priorité.
 
 #### <a name="preempted-nodes"></a>Nœuds reportés 
+
 ```
 maxNumberofVMs = 25;
 $TargetDedicatedNodes = min(maxNumberofVMs, $PreemptedNodeCount.GetSample(180 * TimeInterval_Second));
 $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicatedNodes);
+$NodeDeallocationOption = taskcompletion;
 ```
 
 Cet exemple crée un pool qui commence par 25 nœuds basse priorité. Chaque fois qu’un nœud basse priorité est reporté, il est remplacé par un nœud dédié. Comme pour le premier exemple, la variable `maxNumberofVMs` empêche le pool de dépasser 25 machines virtuelles. Cet exemple est utile pour tirer parti des machines virtuelles basse priorité, tout en garantissant que seul un nombre fixe de reports se produit pendant la durée de vie du pool.
 
 ## <a name="variables"></a>variables
+
 Vous pouvez utiliser aussi bien des variables **définies par le service** que des variables **définies par l’utilisateur** dans les formules de mise à l’échelle automatique. Les variables définies par le service sont intégrées dans le service Batch. Certaines variables définies par le service sont en lecture-écriture, tandis que d’autres sont en lecture seule. Les variables définies par l’utilisateur sont des variables que vous définissez. Dans l’exemple de formule illustré dans la section précédente, `$TargetDedicatedNodes` et `$PendingTasks` sont des variables définies par le service. Les variables `startingNumberOfVMs` et `maxNumberofVMs` sont des variables définies par l’utilisateur.
 
 > [!NOTE]
@@ -100,7 +106,12 @@ Vous pouvez obtenir et définir les valeurs de ces variables définies par le se
 | --- | --- |
 | $TargetDedicatedNodes |Nombre cible de nœuds de calcul dédiés pour le pool. Le nombre de nœuds dédiés est spécifié en tant que cible, car un pool peut ne pas toujours atteindre le nombre de nœuds souhaité. Par exemple, si le nombre cible de nœuds dédiés est modifié par une évaluation de la mise à l’échelle automatique avant que le pool n’ait atteint la cible initiale, le pool risque de ne pas atteindre la cible. <br /><br /> Un pool dans un compte créé avec la configuration de service Batch peut ne pas atteindre sa cible si la cible dépasse un quota de nœuds ou de cœurs défini pour le compte Batch. Un pool dans un compte créé avec la configuration d’abonnement utilisateur peut ne pas atteindre sa cible si la cible dépasse le quota de nœuds partagé pour l’abonnement.|
 | $TargetLowPriorityNodes |Nombre cible de nœuds de calcul de faible priorité pour le pool. Le nombre de nœuds de faible priorité est spécifié en tant que cible, car un pool peut ne pas toujours atteindre le nombre de nœuds souhaité. Par exemple, si le nombre cible de nœuds de faible priorité est modifié par une évaluation de la mise à l’échelle automatique avant que le pool n’ait atteint la cible initiale, le pool risque de ne pas atteindre la cible. Un pool peut également ne pas atteindre sa cible si la cible dépasse un quota de nœuds ou de cœurs défini pour le compte Batch. <br /><br /> Pour plus d’informations sur les nœuds de calcul de faible priorité, consultez [Utiliser des machines virtuelles de faible priorité avec Batch (préversion)](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |Action exécutée lorsque des nœuds de calcul sont supprimés d’un pool. Les valeurs possibles sont les suivantes :<ul><li>**requeue** : arrête immédiatement les tâches et les replace dans la file d’attente des travaux pour qu’elles soient replanifiées.<li>**terminate** : arrête immédiatement les tâches et les supprime de la file d’attente des travaux.<li>**taskcompletion** : attend la fin des tâches en cours d’exécution, puis supprime le nœud du pool.<li>**retaineddata** : attend que toutes les données de tâche locales conservées sur le nœud aient été nettoyées avant de supprimer le nœud du pool.</ul> |
+| $NodeDeallocationOption |Action exécutée lorsque des nœuds de calcul sont supprimés d’un pool. Les valeurs possibles sont les suivantes :<ul><li>**requeue**-- La valeur par défaut. Arrête immédiatement les tâches et les replace dans la file d’attente des travaux pour qu’elles soient replanifiées. Cette action garantit que le nombre cible de nœuds est atteint aussi rapidement que possible, mais peut être moins efficace, car toutes les tâches en cours d’exécution sont interrompues et doivent être redémarrées, ce qui gaspille tout le travail déjà effectué. <li>**terminate** : arrête immédiatement les tâches et les supprime de la file d’attente des travaux.<li>**taskcompletion** : attend la fin des tâches en cours d’exécution, puis supprime le nœud du pool. Utilisez cette option pour éviter l’interruption et la remise en file d’attente des tâches, ce qui gaspille le travail effectué par la tâche. <li>**retaineddata** : attend que toutes les données de tâche locales conservées sur le nœud aient été nettoyées avant de supprimer le nœud du pool.</ul> |
+
+> [!NOTE]
+> La variable `$TargetDedicatedNodes` peut également être spécifiée à l’aide de l’alias `$TargetDedicated`. De même, la variable `$TargetLowPriorityNodes` peut être spécifiée à l’aide de l’alias `$TargetLowPriority`. Si la variable entièrement nommée et son alias sont définis par la formule, la valeur assignée à la variable entièrement nommée est prioritaire.
+>
+>
 
 Vous pouvez obtenir la valeur des variables définies par le service ci-après pour effectuer des ajustements basés sur les mesures à partir du service Batch :
 
@@ -132,6 +143,7 @@ Vous pouvez obtenir la valeur des variables définies par le service ci-après p
 >
 
 ## <a name="types"></a>Types
+
 Ces types sont pris en charge dans une formule :
 
 * double
@@ -161,6 +173,7 @@ Ces types sont pris en charge dans une formule :
   * TimeInterval_Year
 
 ## <a name="operations"></a>Opérations
+
 Les opérations autorisées sur les types répertoriés dans la section précédente sont les suivantes :
 
 | Opération | Opérateurs pris en charge | Type de résultat |
@@ -194,7 +207,7 @@ Les **fonctions** prédéfinies disponibles pour la définition d’une formule 
 | lg(double) |double |Retourne la base logarithmique 2 de l’élément double. |
 | lg(doubleVecList) |doubleVec |Retourne la base logarithmique 2 au niveau composant de l’élément doubleVecList. Un élément vec(double) doit être explicitement transmis pour le paramètre. Dans le cas contraire, la version double lg(double) est prise en compte. |
 | ln(double) |double |Retourne le logarithme naturel de l’élément double. |
-| ln(doubleVecList) |doubleVec |Retourne la base logarithmique 2 au niveau composant de l’élément doubleVecList. Un élément vec(double) doit être explicitement transmis pour le paramètre. Dans le cas contraire, la version double lg(double) est prise en compte. |
+| ln(doubleVecList) |doubleVec |Retourne le logarithme naturel de l’élément double. |
 | log(double) |double |Retourne la base logarithmique 10 de l’élément double. |
 | log(doubleVecList) |doubleVec |Retourne la base logarithmique 10 au niveau composant de l’élément doubleVecList. Un élément vec(double) doit être explicitement transmis pour le paramètre de type double unique. Dans le cas contraire, la version double log(double) est prise en compte. |
 | max(doubleVecList) |double |Retourne la valeur maximale de l’élément doubleVecList. |
@@ -216,6 +229,7 @@ Certaines des fonctions décrites dans le tableau précédent peuvent accepter u
 La valeur *doubleVecList* est convertie en un seul paramètre *doubleVec* avant l’évaluation. Par exemple, si `v = [1,2,3]`, alors appeler `avg(v)` revient à appeler `avg(1,2,3)`. Appeler `avg(v, 7)` équivaut à appeler `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Obtenir des échantillons de données
+
 Les formules de mise à l’échelle automatique agissent sur les données métriques (échantillons) qui sont fournies par le service Batch. Une formule augmente ou réduit la taille du pool en fonction des valeurs obtenues à partir du service. Les variables qui sont définies par le service et illustrées ci-dessus sont des objets qui fournissent diverses méthodes pour accéder aux données associées à chaque objet. Par exemple, l’expression ci-après présente une requête visant à obtenir les cinq dernières minutes de l’utilisation du processeur :
 
 ```
@@ -275,6 +289,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 >
 
 ## <a name="metrics"></a>Mesures
+
 Vous pouvez utiliser à la fois les mesures de ressources et de tâches quand vous définissez une formule. Vous ajustez le nombre cible de nœuds dédiés dans le pool en fonction des données métriques que vous obtenez et évaluez. Consultez la section [Variables](#variables) ci-dessus pour plus d’informations sur chaque métrique.
 
 <table>
@@ -321,13 +336,15 @@ Vous pouvez utiliser à la fois les mesures de ressources et de tâches quand vo
 </table>
 
 ## <a name="write-an-autoscale-formula"></a>Écrire une formule de mise à l’échelle automatique
+
 Vous générez une formule de mise à l’échelle automatique en formant des instructions qui utilisent les composants ci-dessus, puis vous combinez ces instructions dans une formule complète. Dans cette section, nous allons créer un exemple de formule capable de prendre des décisions concrètes en matière de mise à l’échelle automatique.
 
 Commençons par définir les exigences de notre nouvelle formule de mise à l’échelle automatique. La formule doit :
 
 1. Augmenter le nombre cible de nœuds de calcul dédiés dans un pool si l’utilisation du processeur est intensive.
-2. Réduire le nombre cible de nœuds de calcul dédiés dans un pool si l’utilisation du processeur est faible.
-3. Toujours limiter le nombre maximal de nœuds dédiés à 400.
+1. Réduire le nombre cible de nœuds de calcul dédiés dans un pool si l’utilisation du processeur est faible.
+1. Toujours limiter le nombre maximal de nœuds dédiés à 400.
+1. Lorsque vous réduisez le nombre de nœuds, ne supprimez pas les nœuds qui exécutent des tâches. Si nécessaire, attendez que les tâches soient terminées pour supprimer des nœuds.
 
 Pour augmenter le nombre de nœuds en cas d’utilisation intensive du processeur, définissez l’instruction qui renseigne une variable définie par l’utilisateur (`$totalDedicatedNodes`) en utilisant une valeur équivalente à 110 % du nombre cible actuel de nœuds dédiés si l’utilisation moyenne du processeur minimale au cours des 10 dernières minutes est supérieure à 70 %. Sinon, utilisez la valeur du nombre actuel de nœuds dédiés.
 
@@ -634,9 +651,11 @@ Error:
 ```
 
 ## <a name="example-autoscale-formulas"></a>Exemples de formules de mise à l’échelle automatique
+
 Passons en revue quelques formules illustrant les différentes façons d’ajuster la quantité de ressources de calcul dans un pool.
 
 ### <a name="example-1-time-based-adjustment"></a>Exemple 1 : ajustement en fonction du temps
+
 Supposons que vous souhaitiez ajuster la taille du pool selon le jour et l’heure. Cet exemple montre comment augmenter ou diminuer le nombre de nœuds dans le pool en conséquence.
 
 Cette formule obtient dans un premier temps l’heure actuelle. S’il s’agit d’un jour de la semaine (1 à 5) et des heures de travail (8 heures à 18 heures), la taille du pool cible est définie sur 20 nœuds. Sinon, elle est définie sur 10 nœuds.
@@ -647,9 +666,11 @@ $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
 $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
 $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
+$NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-2-task-based-adjustment"></a>Exemple 2 : ajustement en fonction de la tâche
+
 Dans cet exemple, la taille du pool est ajustée en fonction du nombre de tâches présentes dans la file d’attente. Les commentaires et les sauts de ligne sont acceptés dans les chaînes de formule.
 
 ```csharp
@@ -664,11 +685,12 @@ $targetVMs = $tasks > 0? $tasks:max(0, $TargetDedicatedNodes/2);
 // The pool size is capped at 20, if target VM value is more than that, set it
 // to 20. This value should be adjusted according to your use case.
 $TargetDedicatedNodes = max(0, min($targetVMs, 20));
-// Set node deallocation mode - keep nodes active only until tasks finish
+// Set node deallocation mode - let running tasks finish before removing a node
 $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>Exemple 3 : comptabilisation des tâches parallèles
+
 Cet exemple montre l’ajustement de la taille du pool en fonction du nombre de tâches. Cette formule prend également en compte la valeur [MaxTasksPerComputeNode][net_maxtasks] qui a été définie pour le pool. Cette approche est particulièrement utile dans les situations où [l’exécution parallèle de tâches](batch-parallel-node-tasks.md) a été activée sur votre pool.
 
 ```csharp
@@ -690,6 +712,7 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>Exemple 4 : définition d’une taille de pool initiale
+
 Cet exemple montre un extrait de code C# avec une formule de mise à l’échelle automatique qui définit la taille du pool sur un certain nombre de nœuds pour une période initiale. La taille du pool est ensuite ajustée en fonction du nombre de tâches en cours d’exécution et actives une fois la période initiale écoulée.
 
 Dans l’extrait de code suivant, la formule :
@@ -714,6 +737,7 @@ string formula = string.Format(@"
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Optimiser l’utilisation des ressources de calcul Azure Batch avec des tâches de nœud simultanées](batch-parallel-node-tasks.md) contient des informations sur la façon dont vous pouvez effectuer plusieurs tâches simultanément sur les nœuds de calcul de votre pool. En plus de la mise à l’échelle automatique, cette fonctionnalité peut aider à réduire la durée du travail pour certaines charges de travail et vous permettre d’économiser de l’argent.
 * Afin d’améliorer encore l’efficacité, assurez-vous que votre application Batch interroge le service Batch de la manière la plus optimale qui soit. Consultez [Interroger efficacement le service Azure Batch](batch-efficient-list-queries.md) pour découvrir comment limiter la quantité de données qui transitent par le réseau lorsque vous interrogez l’état des milliers de nœuds de calcul ou de tâches potentiels.
 

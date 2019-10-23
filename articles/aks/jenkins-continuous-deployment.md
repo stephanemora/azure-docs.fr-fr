@@ -7,12 +7,12 @@ author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e46e2c2933ee9afda860b68b10c135ac75a5d247
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073784"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263930"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Didacticiel : Effectuer un déploiement sur Azure Kubernetes Service (AKS) à partir de GitHub avec l’intégration continue et le déploiement continu Jenkins
 
@@ -37,13 +37,13 @@ Pour les besoins de ce tutoriel, vous devez disposer des éléments suivants :
 
 - Un [registre Azure Container Registry (ACR)][acr-quickstart], le nom du serveur de connexion ACR et le cluster AKS configuré pour [s’authentifier auprès du registre ACR][acr-authentication].
 
-- Azure CLI version 2.0.46 ou ultérieure installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+- Azure CLI version 2.0.46 ou ultérieure installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
-- [Docker installé][docker-install] sur votre système de développement.
+- [Docker installé][docker-install] sur votre système de développement
 
-- Un compte GitHub, un [jeton d’accès personnel GitHub][git-access-token] et un client Git installé sur votre système de développement.
+- Un compte GitHub, un [jeton d’accès personnel GitHub][git-access-token] et un client Git installé sur votre système de développement
 
-- Si vous fournissez votre propre instance Jenkins à la place de cet exemple de façon scriptée de déployer Jenkins, votre instance Jenkins a besoin de [Docker installé et configuré][docker-install], et de [kubectl][kubectl-install].
+- Si vous fournissez votre propre instance Jenkins à la place de cet exemple de façon scriptée de déployer Jenkins, votre instance Jenkins a besoin de [Docker installé et configuré][docker-install] et de [kubectl][kubectl-install].
 
 ## <a name="prepare-your-app"></a>Préparation de votre application
 
@@ -326,7 +326,7 @@ Dans cet article, vous avez appris à utiliser Jenkins dans le cadre d’une sol
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list
-[acr-authentication]: ../container-registry/container-registry-auth-aks.md#grant-aks-access-to-acr
+[acr-authentication]: cluster-container-registry-integration.md
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md

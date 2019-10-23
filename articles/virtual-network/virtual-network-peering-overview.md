@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 728d32ddb63658d24e932e8eeef4a3f50371ccc3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177673"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72265052"
 ---
 # <a name="virtual-network-peering"></a>Peering de réseau virtuel
 
@@ -91,6 +91,9 @@ Pour en savoir plus sur les autorisations requises pour créer un peering de ré
 Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une connexion de peering de réseau virtuel. Pour plus d’informations sur la tarification de VNet Peering (homologation de réseaux virtuels) et Global VNet Peering, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/virtual-network).
 
 Le transit de passerelle est une propriété de peering qui permet à un réseau virtuel d’exploiter une passerelle VPN/ExpressRoute d’un réseau virtuel appairé pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le trafic vers la passerelle (en entrée ou en sortie) dans le réseau virtuel appairé entraîne des frais d’appairage de réseau virtuel. Pour plus d’informations, consultez les pages dédiées aux [frais de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/), aux frais de passerelle ExpressRoute ou aux [frais d’appairage de réseau virtuel](https://azure.microsoft.com/pricing/details/virtual-network).
+
+>[!NOTE]
+> Une version précédente de ce document indiquait que les frais de VNET Peering ne s’appliquaient pas au transit par passerelle. Elle a été mise à jour pour refléter le tarif correct indiqué sur la page de tarification.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 90be253a4763aebd31b663aa0e765c187c8bff92
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266417"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249385"
 ---
 # <a name="sql-database-release-notes"></a>Notes de publication SQL Database
 
@@ -46,6 +46,7 @@ Cet article répertorie les fonctionnalités SQL Database actuellement en préve
 
 | Fonctionnalité | Détails |
 | ---| --- |
+| <a href="/azure/sql-database/sql-database-managed-instance-connectivity-architecture#service-aided-subnet-configuration-public-preview-in-east-us-and-west-us">Configuration de sous-réseau assistée par le service</a> | Moyen sécurisé et pratique de gérer la configuration de sous-réseau. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pools d’instances</a> | Moyen pratique et économique de migrer des instances SQL plus petites vers le cloud. |
 | <a href="https://aka.ms/managed-instance-tde-byok">Chiffrement transparent des données (TDE) avec prise en charge du service BYOK (Bring Your Own Key)</a> |Pour plus d’informations, consultez [Azure SQL Transparent Data Encryption avec les clés managées par le client dans Azure Key Vault : prise en charge de Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md).|
 | <a href="https://aka.ms/managed-instance-aadlogins">Principaux de serveur (connexions) Azure AD au niveau de l’instance</a> | Créer des connexions de niveau serveur avec l’instruction <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a>. |

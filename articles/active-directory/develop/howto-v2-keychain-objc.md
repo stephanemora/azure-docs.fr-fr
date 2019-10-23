@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e85fc5e6e907e32c0ad67af339c48cf84ef4764
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269379"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264184"
 ---
 # <a name="configure-keychain"></a>Configurer le trousseau
 
-Quand la bibliothèque [MSAL (Microsoft Authentication Library) pour iOS et macOS](msal-overview.md) se connecte à un utilisateur, ou actualise un jeton, elle tente de mettre en cache les jetons dans le trousseau. En mettant en cache les jetons dans le trousseau, MSAL peut fournir une authentification unique silencieuse entre plusieurs applications distribuées par le même développeur Apple. L’authentification unique est effectuée par le biais de la fonctionnalité de groupes d’accès au trousseau (voir la [documentation d’Apple](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc)).
+Quand la bibliothèque [MSAL (Microsoft Authentication Library) pour iOS et macOS](msal-overview.md) se connecte à un utilisateur, ou actualise un jeton, elle tente de mettre en cache les jetons dans le trousseau. En mettant en cache les jetons dans le trousseau, MSAL peut fournir une authentification unique silencieuse entre plusieurs applications distribuées par le même développeur Apple. L’authentification unique est effectuée par le biais de la fonctionnalité de groupes d’accès au trousseau. Pour plus d’informations, consultez la [documentation sur les éléments de trousseau](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) d’Apple.
 
 Cet article explique comment configurer des droits d’application afin que MSAL puisse écrire des jetons mis en cache dans le trousseau iOS et macOS.
 

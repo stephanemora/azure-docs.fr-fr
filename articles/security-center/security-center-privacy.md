@@ -13,31 +13,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: aab2535eb44ca5007859c71bf1f8142b26de7d14
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 0d05650ff349cb9e9750b0cefe0de217a986b32a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996744"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254607"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Gérer les données utilisateur dans Azure Security Center
 Cet article fournit des informations sur la façon dont vous pouvez gérer les données utilisateur dans Azure Security Center. La gestion des données utilisateur inclut la possibilité d’accéder à des données, d’en supprimer ou d’en exporter.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut accéder aux données client dans l’outil. Pour en savoir plus sur les rôles Lecteur, Propriétaire et Contributeur, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md). Consultez [Ajout ou modification des administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md) pour en savoir plus sur le rôle Administrateur de compte.
+Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut accéder aux données client dans l’outil. Pour en savoir plus sur le rôle Administrateur de compte, consultez [Rôles intégrés pour le contrôle d’accès en fonction du rôle Azure](../role-based-access-control/built-in-roles.md) pour en savoir plus sur les rôles Lecteur, Propriétaire et Contributeur. Consultez [Administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 ## <a name="searching-for-and-identifying-personal-data"></a>Recherche et identification des données personnelles
-Un utilisateur de Security Center peut afficher ses données personnelles via le Portail Azure. Security Center ne stocke que les informations de contact de sécurité telles que les adresses e-mail et les numéros de téléphone. Consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md) pour plus d’informations.
+Un utilisateur de Security Center peut afficher ses données personnelles via le Portail Azure. Security Center ne stocke que les informations de contact de sécurité telles que les adresses e-mail et les numéros de téléphone. Pour plus d’informations, consultez [Fournir les détails du contact de sécurité dans Azure Security Center](security-center-provide-security-contact-details.md).
 
-Sur le portail Azure, un utilisateur peut consulter les configurations IP autorisées en utilisant la fonctionnalité d’accès juste-à-temps à la machine virtuelle de Security Center. Pour plus d’informations, consultez [Gérer l’accès juste-à-temps à la machine virtuelle](security-center-just-in-time.md).
+Sur le portail Azure, un utilisateur peut consulter les configurations IP autorisées en utilisant la fonctionnalité d’accès juste-à-temps à la machine virtuelle de Security Center. Pour plus d’informations, consultez [Gérer l’accès Juste à temps à la machine virtuelle](security-center-just-in-time.md).
 
-Dans le Portail Azure, un utilisateur peut afficher des alertes de sécurité fournies par Security Center, notamment des informations sur l’attaquant et les adresses IP. Pour en savoir plus, consultez [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
+Dans le Portail Azure, un utilisateur peut afficher des alertes de sécurité fournies par Security Center, notamment des informations sur l’attaquant et les adresses IP. Pour plus d’informations, consultez [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md).
 
 ## <a name="classifying-personal-data"></a>Classification des données personnelles
-Vous n’avez pas besoin de classer les données personnelles trouvées dans la fonctionnalité de contact de sécurité de Security Center. Les données enregistrées sont une adresse e-mail (ou plusieurs) et un numéro de téléphone. Les [données de contact](security-center-provide-security-contact-details.md) sont validées par Security Center.
+Vous n’avez pas besoin de classer les données personnelles trouvées dans la caractéristique de contact de sécurité de Security Center. Les données enregistrées sont une adresse e-mail (ou plusieurs) et un numéro de téléphone. Les [données de contact](security-center-provide-security-contact-details.md) sont validées par Security Center.
 
-Vous n’avez pas besoin de classifier les adresses IP et les numéros de port enregistrés par la fonctionnalité [juste-à-temps](security-center-just-in-time.md) de Security Center.
+Vous n’avez pas besoin de classer les adresses IP et les numéros de port enregistrés par la caractéristique [juste-à-temps](security-center-just-in-time.md) du Security Center.
 
 Seul un utilisateur possédant le rôle Administrateur peut classer les données personnelles par [alertes d’affichage](security-center-managing-and-responding-alerts.md) dans Security Center.
 
@@ -60,12 +60,12 @@ Un utilisateur de Security Center disposant du rôle Propriétaire, Contributeur
 
 Un utilisateur de Security Center disposant du rôle Propriétaire, Contributeur ou Administrateur de compte peut supprimer les [stratégies juste-à-temps](security-center-just-in-time.md) via le portail Azure.
 
-Un utilisateur de Security Center ne peut pas supprimer d’incidents d’alerte. Pour des raisons de sécurité, un [incident d’alerte](security-center-managing-and-responding-alerts.md) fait partie des données en lecture seule.
+Un utilisateur de Security Center ne peut pas supprimer des incidents d’alerte. Pour des raisons de sécurité, un [incident d’alerte](security-center-managing-and-responding-alerts.md) fait partie des données en lecture seule.
 
 ## <a name="exporting-personal-data"></a>Exportation des données personnelles
 Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Contributeur ou Administrateur de compte peut exporter des [données de contact de sécurité](security-center-provide-security-contact-details.md) via les méthodes suivantes :
 
-- En effectuant une copie à partir du Portail Azure
+- Copie à partir du Portail Azure
 - En exécutant l’appel d’API REST Azure, GET HTTP :
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
@@ -73,7 +73,7 @@ Un utilisateur de Security Center disposant du rôle Lecteur, Propriétaire, Con
 
 Un utilisateur de Security Center disposant du rôle Administrateur de compte peut exporter les [stratégies juste-à-temps](security-center-just-in-time.md) contenant les adresses IP via les méthodes suivantes :
 
-- En effectuant une copie à partir du Portail Azure
+- Copie à partir du Portail Azure
 - En exécutant l’appel d’API REST Azure, GET HTTP :
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
@@ -81,13 +81,13 @@ Un utilisateur de Security Center disposant du rôle Administrateur de compte pe
 
 Un administrateur de compte peut exporter les détails de l’alerte via les méthodes suivantes :
 
-- En effectuant une copie à partir du Portail Azure
+- Copie à partir du Portail Azure
 - En exécutant l’appel d’API REST Azure, GET HTTP :
   ```HTTP
   GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
   ```
 
-Consultez [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx) (Obtenir des alertes de sécurité (Collection GET)) pour plus d’informations.
+Pour plus d’informations, consultez [Get Security Alerts (GET Collection)](https://msdn.microsoft.com/library/mt704050.aspx) (Obtenir des alertes de sécurité (Collection GET)).
 
 ## <a name="restricting-the-use-of-personal-data-for-profiling-or-marketing-without-consent"></a>Restriction de l’utilisation des données personnelles pour le profilage ou le marketing sans consentement
 Un utilisateur de Security Center peut choisir de refuser en supprimant ses [données de contact de sécurité](security-center-provide-security-contact-details.md).

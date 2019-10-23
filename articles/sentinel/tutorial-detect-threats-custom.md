@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18c11198f6b81e72e371b3ab06ed3a7330078c52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5d4c549eaded78c69d3e7fa7173b5ad9b1d82f2f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023775"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333146"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Didacticiel : Créer des règles d’analytique personnalisées pour détecter les menaces suspectes
 
@@ -56,7 +56,7 @@ Vous pouvez créer des règles d’analytique personnalisées pour détecter plu
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > La requête peut comporter entre 1 et 10 000 caractères, et ne doit pas contenir « search \* » ou « union \* ».
+   > La requête peut comporter entre 1 et 1 000 caractères, et ne doit pas contenir « search \* » ou « union \* ».
 
     1. Sous **Query scheduling** (Planification de requête), définissez les paramètres suivants :
 

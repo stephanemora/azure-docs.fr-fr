@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 182c93ea0b887242d142eda5aeb44b2749c7ac66
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937556"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333044"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Se connecter à des machines virtuelles Azure après le basculement d’un environnement local 
 
@@ -91,7 +91,7 @@ Site Recovery vous permet de conserver les mêmes adresses IP quand vous bascule
 
 La conservation des adresses IP passe par les étapes suivantes :
 
-- Dans les propriétés de l’ordinateur local, définissez l’adressage réseau et IP de la machine virtuelle Azure cible en le calquant sur la configuration locale.
+- Dans les propriétés Calcul et réseau de l’élément répliqué, définissez l’adressage réseau et IP de la machine virtuelle Azure cible en le calquant sur la configuration locale.
 - Les sous-réseaux doivent être gérés dans le cadre du processus de récupération d’urgence. Vous avez besoin d’un réseau virtuel Azure qui corresponde au réseau local. Après le basculement, les routes réseau doivent être modifiées en tenant compte du fait que le sous-réseau a été déplacé vers Azure et en prenant en considération les nouveaux emplacements d’adresses IP.  
 
 ### <a name="failover-example"></a>Exemple de basculement
@@ -120,7 +120,7 @@ Pour conserver ses adresses, voici comment la société procède.
     > Selon les besoins des applications, une connexion de réseau virtuel à réseau virtuel pourrait être configurée avant le basculement, sous forme d’étape manuelle/étape scriptée/runbook Azure Automation dans un [plan de récupération](site-recovery-create-recovery-plans.md) Site Recovery ou à l’issue du basculement.
 
 4. Avant le basculement, dans les propriétés de l’ordinateur dans Site Recovery, l’adresse IP cible est définie comme étant l’adresse de l’ordinateur local, comme décrit dans la procédure suivante.
-5. Après le basculement, les machines virtuelles Azure sont créées avec la même adresse IP. Woodgrove établit une connexion entre le **réseau Azure** et le réseau virtuel du **réseau de récupération** via 
+5. Après le basculement, les machines virtuelles Azure sont créées avec la même adresse IP. Woodgrove se connecte à partir du **Réseau Azure** vers le **Réseau de récupération** VNet à l’aide de VNET Peering (la connectivité de transit est activée).
 6. En local, Woodgrove doit apporter des modifications au réseau, notamment en modifiant les routes en fonction du déplacement de 192.168.1.0/24 vers Azure.  
 
 **Infrastructure avant le basculement**

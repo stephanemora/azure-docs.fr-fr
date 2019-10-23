@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: 74fd8abbe78395a75d9c0a49eb717fb8ceecd11e
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: 17ffc07bb5632b1b56b7bff1e843e5955d396089
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982786"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372210"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -69,14 +69,14 @@ L’instance gérée a deux niveaux de service : [Usage général](sql-database
 | Mémoire maximale | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4-408 Go (5,1 Go/vCore)<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 20,4 Go-408 Go (5,1 Go/vCore) pour les requêtes en lecture-écriture<br/>+ 20,4 Go-408 Go (5,1 Go/vCore) supplémentaires pour les requêtes en lecture seule.<br/>Ajoutez plus de vCores pour obtenir davantage de mémoire. |
 | Taille de stockage maximale d’instance (réservée) | - 2 To pour les 4 vCores (Gen5 uniquement)<br/>- 8 To pour les autres tailles | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 4, 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
 | Taille de base de données maximale | Jusqu’à la taille d’instance actuellement disponible (maximum 2-8 To en fonction du nombre de vCores). | Jusqu’à la taille d’instance actuellement disponible (maximum 1-4 To en fonction du nombre de vCores). |
-| Taille maximale de tempDB | Limitée à 24 Go/vCore (96-1920 Go) et à la taille de stockage d’instance actuellement disponible.<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB. | Jusqu’à la taille de stockage d’instance actuellement disponible. La taille du fichier journal TempDB est actuellement limitée à 24 Go/vCore. |
+| Taille maximale de tempDB | Limitée à 24 Go/vCore (96-1920 Go) et à la taille de stockage d’instance actuellement disponible.<br/>Ajoutez plus de vCores pour obtenir davantage d’espace TempDB.<br/> La taille du fichier journal est limitée à 120 Go.| Jusqu’à la taille de stockage d’instance actuellement disponible. |
 | Nombre maximal de bases de données par instance | 100, sauf si la limite de taille de stockage d’instance a été atteinte. | 100, sauf si la limite de taille de stockage d’instance a été atteinte. |
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280, sauf si la limite de taille de stockage d’instance ou d’[espace d’allocation de stockage sur disque Premium Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) a été atteinte. | 32 767 fichiers par base de données, sauf si la limite de taille de stockage d’instance a été atteinte. |
 | Taille maximale du fichier de données | Limitée à la taille de stockage d’instance actuellement disponible (maximum 2-8 To) et à l’[espace d’allocation de stockage sur disque Premium Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitée à la taille de stockage d’instances actuellement disponible (jusqu’à 1-4 To). |
 | Taille maximale du fichier journal | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. | Limitée à 2 To et à la taille de stockage d’instance actuellement disponible. |
-| IOPS de données/journal (approximatives) | Jusqu’à 30-40 K IOPS par instance*, 500-7500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 K-110 K (1375 IOPS/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
+| IOPS de données/journal (approximatives) | Jusqu’à 30-40 K IOPS par instance*, 500-7500 par fichier<br/>\*[Augmentez la taille de fichier pour obtenir davantage d’IOPS](#file-io-characteristics-in-general-purpose-tier)| 5,5 K-110 K (1375 IOPS/vCore)<br/>Ajoutez plus de vCores pour obtenir de meilleures performances d’E/S. |
 | Limite du débit d’écriture du journal (par instance) | 3 Mo/s par vCore<br/>22 Mo/s max. | 4 Mo/s par vCore<br/>48 Mo/s max. |
-| Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Non limité. |
+| Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Augmentez la taille de fichier pour obtenir de meilleures performances d’E/S](#file-io-characteristics-in-general-purpose-tier) | Non limité. |
 | Latence d’E/S de stockage (approximative) | 5 - 10 ms | 1 - 2 ms |
 | OLTP en mémoire | Non pris en charge | Disponible, [la taille dépend du nombre de vCores](#in-memory-oltp-available-space) |
 | Nombre maximal de sessions | 30000 | 30000 |
@@ -85,8 +85,8 @@ L’instance gérée a deux niveaux de service : [Usage général](sql-database
 > [!NOTE]
 > - **La taille de stockage d’instance actuellement disponible** est la différence entre la taille d’instance réservée et l’espace de stockage utilisé.
 > - Les tailles des données et des fichiers journaux dans les bases de données utilisateur et système sont comprises dans la taille de stockage d’instance qui est comparée à la limite de taille de stockage maximale. Utilisez la vue système <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> pour déterminer l’espace total utilisé par les bases de données. Les journaux d’activité d’erreurs ne sont ni conservés ni compris dans la taille. Les sauvegardes ne sont pas comprises dans la taille de stockage.
-> - Le débit et les IOPS dépendent également de la taille de page qui n’est pas explicitement limitée par instance gérée.
-> Vous pouvez créer un autre réplica lisible dans une région Azure différente à l’aide de groupes de basculement automatique.
+> - Le débit et les IOPS sur le niveau Usage général dépendent également de la [taille de page](#file-io-characteristics-in-general-purpose-tier) qui n’est pas explicitement limitée par l’instance gérée.
+> - Vous pouvez créer un autre réplica lisible dans une région Azure différente à l’aide de groupes de basculement automatique.
 > - Le nombre maximal d’IOPS d’instance dépend de la disposition des fichiers et de la distribution de la charge de travail. Par exemple, si vous créez sept fichiers de 1 Go avec un maximum de 5 000 IOPS et sept fichiers de petite taille (moins de 128 Go) avec 500 IOPS chacun, vous pouvez vous obtenir 38 500 IOPS par instance (7x5000+7x500) si votre charge de travail peut utiliser tous les fichiers. Notez qu’un certain nombre d’IOPS sont également utilisés pour les sauvegardes automatiques.
 
 > [!NOTE]

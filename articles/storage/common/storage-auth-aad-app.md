@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0ff2d9b8c0ca891b25dfcd6bf1f19d1541fd1541
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: ca6b055b5d3702cea4ca1986ad1c81b59f76cee3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673233"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299640"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>Autoriser un accès aux objets blob et aux files d’attente avec Azure Active Directory à partir d’une application cliente
 
@@ -76,7 +76,7 @@ L’application a besoin d’une clé secrète client pour prouver son identité
 
 Lorsque vous avez inscrit votre application et les autorisations pour accéder aux données dans le Stockage Blob ou File d’attente Azure, vous pouvez ajouter le code à votre application pour authentifier un principal de sécurité et acquérir un jeton OAuth 2.0. Pour authentifier et acquérir le jeton, vous pouvez utiliser l’une des [Bibliothèques d’authentification de plateforme d’identité Microsoft](../../active-directory/develop/reference-v2-libraries.md) ou une autre bibliothèque Open Source prenant en charge OpenID Connect 1.0. Votre application peut alors utiliser le jeton d’accès pour autoriser une requête sur le Stockage Blob ou File d’attente Azure.
 
-Pour obtenir la liste de scénarios pour lesquels l’acquisition de jetons est pris en charge, veuillez consulter la section [Scénarios](https://aka.ms/msal-net-scenarios) du référentiel GitHub [Microsoft Authentication Library (MSAL) pour .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet).
+Pour obtenir la liste de scénarios pour lesquels l’acquisition de jetons est prise en charge, consultez la section [flux d’authentification](/en-us/azure/active-directory/develop/msal-authentication-flows) du [contenu Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
 
 ## <a name="well-known-values-for-authentication-with-azure-ad"></a>Valeurs connues pour l’authentification avec Azure AD
 

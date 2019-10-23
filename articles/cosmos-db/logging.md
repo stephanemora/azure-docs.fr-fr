@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e43bc4b8eb1db91493f279f5c46681483e4b18c4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261398"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294046"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
 
@@ -106,6 +106,12 @@ Pour activer la journalisation des diagnostics dans le portail Azure, effectuez 
 
        ```
        { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
+       ```
+
+      * **PartitionKeyStatistics** : Ce journal répertorie les statistiques des clés de partition. Actuellement, les statistiques sont représentées par la taille de stockage (Ko) des clés de partition. Le journal est émis sur les trois premières clés de partition qui occupent la plupart du stockage de données.
+
+       ```
+       { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
        ```
 
       * **Requêtes de métrique** : sélectionnez cette option pour stocker des données détaillées dans les [métriques Azure](../azure-monitor/platform/metrics-supported.md). Si vous effectuez un archivage dans un compte de stockage, vous pouvez sélectionner la période de rétention des journaux de diagnostic. Les journaux d’activité sont supprimés automatiquement après l’expiration de la période de rétention.

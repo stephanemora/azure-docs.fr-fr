@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a9446301cc4bb46c989223ad020c7a8e8b353ad3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b3382cffdc41685f8329a640aaf6c6c526375a83
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446185"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299846"
 ---
 # <a name="localization-support-in-azure-maps"></a>Prise en charge de la localisation dans Azure Maps
 
@@ -45,7 +45,7 @@ Les services Azure Maps ont été localisés en différentes langues. Le tableau
 | en-US      | Anglais (États-Unis)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | Et-EE      | Estonien               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finnois                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| fr-FR      | Anglais                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| fr-FR      | Français                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | Français (Canada)      |       |    ✓   |         |                   |                |     ✓     |
 | gl-ES      | Galicien               |       |    ✓   |         |                   |                |     ✓     |
 | de-DE      | Allemand                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -86,7 +86,7 @@ Les services Azure Maps ont été localisés en différentes langues. Le tableau
 ## <a name="azure-maps-supported-views"></a>Affichages pris en charge dans Azure Maps
 
 > [!Note]
-> Le 1er août 2019, nous lançons Azure Maps dans les pays/régions suivants :
+> Azure Maps a été lancé le 1er août 2019 dans les pays/régions suivants :
 >  * Argentine
 >  * Inde
 >  * Maroc

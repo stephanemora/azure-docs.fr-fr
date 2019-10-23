@@ -1,5 +1,5 @@
 ---
-title: Prise en main du stockage File d’attente et des services connectés Visual Studio (projets WebJob) | Microsoft Docs
+title: Bien démarrer avec Stockage File d’attente à l’aide de Visual Studio (projets WebJob)
 description: Comment commencer à utiliser le stockage de files d'attente Azure dans un projet WebJob après la connexion à un compte Azure Storage à l'aide des services connectés Visual Studio.
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510787"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298750"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage de files d'attente Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]

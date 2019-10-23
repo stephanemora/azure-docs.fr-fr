@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828943"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285783"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Démarrage rapide - Configurer un environnement de cloud privé
 
@@ -183,9 +183,9 @@ Si vous définissez un mot de passe ne répondant pas aux exigences :
 * Si vous utilisez le client Flash vSphere, il signale une erreur
 * Si vous utilisez le client HTML5, il ne signale pas d’erreur. Le client n’accepte pas la modification et l’ancien mot de passe continue de fonctionner.
 
-## <a name="change-nsx-administrator-password"></a>Modifier le mot de passe d’administrateur NSX
+## <a name="access-nsx-manager"></a>Accéder à NSX Manager
 
-Le gestionnaire NSX est déployé avec un mot de passe par défaut.  Nous vous recommandons de le modifier après avoir créé votre cloud privé.
+Le gestionnaire NSX est déployé avec un mot de passe par défaut. 
 
 * Nom d’utilisateur : **admin**
 * Mot de passe : **CloudSimple123!**
@@ -198,8 +198,6 @@ Vous pouvez trouver le nom de domaine complet (FQDN) et l’adresse IP de NSX Ma
 4. Utiliser le nom de domaine complet ou l’adresse IP de **NSX Manager** et connectez-vous en utilisant un navigateur web.
 
     ![Rechercher le nom de domaine complet de NSX Manager](media/private-cloud-nsx-manager-fqdn.png)
-
-Pour modifier le mot de passe, suivez les instructions de l’article [Installation de NSX Manager](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## <a name="create-a-port-group"></a>Créer un groupe de ports
 

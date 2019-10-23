@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 12/18/2018
-ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/10/2019
+ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568602"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264239"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Créer des rapports sur des bases de données cloud avec montée en charge (version préliminaire)
 
@@ -33,7 +33,7 @@ Téléchargez et exécutez l’exemple de la rubrique [Prise en main des outils 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Créez un gestionnaire des cartes de partitions à l’aide de l’exemple d’application
 Ici vous allez créer un gestionnaire des cartes de partitions avec plusieurs partitions, puis insérer des données dans les partitions. Si vos partitions comportent déjà des données partitionnées, vous pouvez ignorer ces étapes et passer à la section suivante.
 
-1. Créez et exécutez l’exemple d’application de la rubrique **Prise en main des outils de base de données élastique** . Suivez la procédure jusqu’à l’étape 7 dans la section [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). À la fin de l’étape 7, vous verrez l’invite de commande suivante :
+1. Générez et exécutez l’exemple d’application **Prise en main des outils de base de données élastique** en suivant les étapes décrites dans la section de l’article [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Une fois toutes les étapes terminées, l’invite de commandes suivante s’affiche :
 
     ![invite de commande][1]
 2. Dans la fenêtre de commande, entrez « 1 » et appuyez sur **Entrée**. Cela crée le gestionnaire des cartes de partitions et ajoute deux partitions sur le serveur. Tapez « 3 », puis appuyez sur **Entrée**. Répétez l’action quatre fois. Cela permet d’insérer des lignes d’exemples de données dans vos partitions.
@@ -62,13 +62,13 @@ Celles-ci sont utilisées pour se connecter au gestionnaire des cartes de partit
 1. Ouvrez SQL Server Management Studio ou SQL Server Data Tools dans Visual Studio.
 2. Connectez-vous à la base de données ElasticDBQuery et exécutez les commandes T-SQL suivantes :
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    Le nom d’utilisateur et le mot de passe doivent être les mêmes que les informations de connexion utilisées à l’étape 6 de la rubrique [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) dans [Prise en main des outils de base de données élastique](sql-database-elastic-scale-get-started.md).
+    Le nom d’utilisateur et le mot de passe doivent être les mêmes que les informations de connexion utilisées à l’étape 3 de la section [Télécharger et exécuter l’exemple d’application](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) dans l’article **Prise en main des outils de base de données élastique**.
 
 ### <a name="external-data-sources"></a>Sources de données externes
 Pour créer une source de données externe, exécutez la commande suivante sur la base de données ElasticDBQuery :

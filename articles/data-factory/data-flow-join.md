@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029326"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387236"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Mappage de la transformation de jointure (Join) de Data Flow
 
@@ -20,7 +20,7 @@ ms.locfileid: "72029326"
 
 Utilisez la transformation de jointure (Join) pour combiner les données de deux tables dans votre Data Flow. Cliquez sur la transformation qui sera la relation de gauche et ajoutez une transformation de jointure (Join) à partir de la boîte à outils. Dans la transformation de jointure (Join), vous allez sélectionner un autre flux de données à partir de votre flux de données pour qu’il devienne la relation de droite.
 
-![Transformation de jointure](media/data-flow/join.png "Join")
+![Transformation de jointure (Join)](media/data-flow/join.png "Join")
 
 ## <a name="join-types"></a>Types de jointure
 
@@ -56,7 +56,7 @@ Vous devez entrer au moins 1 (1..n) conditions de jointure. Ils peut s’agit de
 
 Contrairement à la jointure de fusion (Merge) dans les outils tels que SSIS, la jointure dans ADF Data Flow n’est pas une opération de jointure de fusion obligatoire. Par conséquent, les clés de jointure n’ont pas besoin d’être triées en premier lieu. L’opération de jointure se produira en fonction de l’opération de jointure optimale dans Spark : Jointure de diffusion / côté mappage :
 
-![Optimisation de la transformation de jointure](media/data-flow/joinoptimize.png "Optimisation de la jointure")
+![Optimisation de la transformation de jointure (Join)](media/data-flow/joinoptimize.png "Optimisation de la jointure")
 
 Si votre jeu de données peut tenir dans la mémoire de nœud Worker, nous pouvons optimiser vos performances de jointure. Vous pouvez également spécifier le partitionnement de vos données dans l’opération de jointure (Join) pour créer des jeux de données qui s’adaptent mieux à la mémoire par worker.
 

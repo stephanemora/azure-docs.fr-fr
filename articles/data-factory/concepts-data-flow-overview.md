@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 8d0ad794caee8a06c8d403a981037d6560fb3f43
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 37fec388acda78f3d13c8e85ddddf780ad099d69
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030131"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388000"
 ---
-# <a name="what-are-mapping-data-flows"></a>Qu’est-ce que le mappage de flux de données?
+# <a name="what-are-mapping-data-flows"></a>Que sont les flux de données de mappage ?
 
 Les mappages de flux de données sont des transformations de données conçues de manière graphique dans Azure Data Factory. Les flux de données permettent aux ingénieurs de données de développer une logique de transformation graphique des données sans rédiger de code. Les flux de données qui en résultent sont exécutés en tant qu’activités dans les pipelines Azure Data Factory à l’aide de clusters Spark faisant l’objet d’un scale-out. Les activités de flux de données peuvent être mises en œuvre à l’aide de fonctionnalités de planification, de contrôle, de flux et de supervision Data Factory existantes.
 
@@ -32,13 +32,13 @@ Vous accédez au canevas du flux de données dans lequel vous pouvez créer votr
 
 Le canevas de flux de données est divisé en trois parties : la barre supérieure, le graphe et le panneau de configuration. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![Canevas](media/data-flow/canvas1.png "Canevas")
 
 ### <a name="graph"></a>Graph
 
 Le graphe affiche le flux de transformation. Il montre la traçabilité des données sources à mesure qu’elles sont transmises à un ou plusieurs récepteurs. Pour ajouter une nouvelle source, cliquez sur la zone « Ajouter une source ». Pour ajouter une nouvelle transformation, cliquez sur le signe plus (+) situé en bas à droite d’une transformation existante.
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![Canevas](media/data-flow/canvas2.png "Canevas")
 
 ### <a name="configuration-panel"></a>Panneau de configuration
 
@@ -56,7 +56,7 @@ Le premier onglet du volet de configuration de chaque transformation contient le
 
 L’onglet _Optimiser_ contient des paramètres pour configurer des schémas de partitionnement.
 
-![Optimiser](media/data-flow/optimize1.png "Optimiser")
+![Optimize](media/data-flow/optimize1.png "Optimisation")
 
 Le paramètre par défaut est d’utiliser le partitionnement actuel, ce qui indique à Azure Data Factory d’utiliser le schéma de partitionnement natif pour les flux de données s’exécutant sur Spark. Dans la plupart des scénarios, ce paramètre est l’approche recommandée.
 
@@ -108,7 +108,7 @@ La barre supérieure contient des actions qui affectent l’ensemble du flux de 
 
 Si vous masquez votre graphe, vous pouvez naviguer latéralement dans vos nœuds de transformation à l’aide des boutons **précédent** et **suivant**.
 
-![Naviguer](media/data-flow/showhide.png "Naviguer")
+![Naviguer](media/data-flow/showhide.png "naviguer")
 
 ## <a name="next-steps"></a>Étapes suivantes
 

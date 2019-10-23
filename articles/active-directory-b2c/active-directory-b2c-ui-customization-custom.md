@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 88a8258a91237c7b3eadccc32a30c3fe8149eca5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ef4ddc422041de623b96f3a0c85f067427cacd7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064633"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374230"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -119,7 +119,7 @@ Vérifiez que vous êtes prêt en effectuant les étapes suivantes :
 
 Pour configurer la personnalisation de l’interface utilisateur, copiez l’élément **ContentDefinition** et ses éléments enfants entre le fichier de base et le fichier d’extension.
 
-1. Ouvrez le fichier de base de votre stratégie. Par exemple, *`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`***. Il s’agit de l’un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir dans le prérequis,[Bien démarrer avec les stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Ouvrez le fichier de base de votre stratégie. Par exemple <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>. Il s’agit de l’un des fichiers de stratégie inclus dans le pack de démarrage des stratégies personnalisées, que vous avez dû obtenir dans le prérequis,[Bien démarrer avec les stratégies personnalisées](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Recherchez et copiez le contenu entier de l’élément **ContentDefinitions**.
 1. Ouvrez le fichier d’extension. Par exemple, *TrustFrameworkExtensions.xml*. Recherchez l’élément **BuildingBlocks**. Si l’élément n’existe pas, ajoutez-le.
 1. Collez le contenu entier de l’élément **ContentDefinitions** que vous avez copié en tant qu’enfant de l’élément **BuildingBlocks**.

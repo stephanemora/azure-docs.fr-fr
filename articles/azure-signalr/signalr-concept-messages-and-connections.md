@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e82ce8f5c97aed7e2cb832d8e808ff84691f7c9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401200"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285491"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Messages et connexions dans Azure SignalR Service
 
@@ -42,13 +42,15 @@ Le nombre de messages affiché dans le portail Azure reste à 0 jusqu’à ce q
 
 ## <a name="how-connections-are-counted"></a>Mode de calcul des connexions
 
-Il existe des connexions serveur et des connexions client. Par défaut, chaque serveur d’applications dispose de cinq connexions par hub avec Azure SignalR Service et chaque client a une connexion cliente avec Azure SignalR Service.
+Il existe des connexions serveur et des connexions client avec Azure SignalR Service. Par défaut, chaque serveur d’applications démarre avec cinq connexions initiales par hub et chaque client dispose d’une connexion client.
 
 Le nombre de connexions indiqué dans le portail Azure inclut les connexions serveur et les connexions clientes.
 
 Par exemple, imaginez que vous utilisez deux serveurs d’applications et que vous définissez cinq hubs dans le code. Le nombre de connexions serveur sera de 50 : 2 serveurs d’applications * 5 hubs * 5 connexions par hub.
 
-ASP.NET SignalR calcule le nombre de connexions serveur de manière différente. Il inclut un hub par défaut en plus des hubs que vous définissez. Par défaut, chaque serveur d’applications a besoin de cinq connexions serveur supplémentaires. Le nombre de connexions pour le hub par défaut reste cohérent avec le nombre des autres hubs.
+ASP.NET SignalR calcule le nombre de connexions serveur de manière différente. Il inclut un hub par défaut en plus des hubs que vous définissez. Par défaut, chaque serveur d’applications a besoin de cinq connexions serveur initiales supplémentaires. Le nombre de connexions initiales pour le hub par défaut reste cohérent avec le nombre des autres hubs.
+
+Pendant la durée de vie du serveur d’applications, le service et le serveur d’applications conservent l’état de la connexion de synchronisation et effectuent des ajustements aux connexions serveur pour améliorer les performances et la stabilité du service. Par conséquent, le numéro de connexion au serveur peut changer de temps en temps.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Mode de calcul du trafic entrant/sortant
 

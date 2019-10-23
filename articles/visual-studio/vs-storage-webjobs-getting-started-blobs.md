@@ -1,5 +1,5 @@
 ---
-title: Prise en main du stockage blob et des services connectés Visual Studio (projets WebJob) | Microsoft Docs
+title: Bien démarrer avec Stockage Blob à l’aide de Visual Studio (projets WebJob)
 description: Comment commencer à utiliser le stockage d'objets blob dans un projet WebJob après la connexion à un stockage Azure à l'aide des services connectés Visual Studio.
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 1e951fde7e47ccfcce5f64db4ef27ac767d63480
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510651"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299977"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Prise en main du stockage d’objets blob Azure et des services connectés Visual Studio (projets WebJob)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]

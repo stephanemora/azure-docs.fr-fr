@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ae3350b14ca1073a5fbb1a353b9301c57e7f1ea4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176851"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298325"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 Cet article décrit les différents environnements de calcul que vous pouvez utiliser pour traiter ou transformer des données. Il fournit également des détails sur les différentes configurations (à la demande ou de type « apporter votre propre configuration ») prises en charge par Data Factory lors de la configuration des services liés qui relient ces environnements de calcul à Azure Data Factory.
@@ -27,7 +27,8 @@ Le tableau suivant fournit une liste d’environnements de calcul pris en charge
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster HDInsight à la demande](#azure-hdinsight-on-demand-linked-service) ou [votre propre cluster HDInsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Streaming Hadoop](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personnalisée](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Activités Machine Learning : exécution par lot et ressource de mise à jour](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Activités Machine Learning : exécution par lot et ressource de mise à jour](transform-data-using-machine-learning.md) |
+| [Service Azure Machine Learning](#azure-machine-learning-service-linked-service) | [Activité d’exécution des pipelines Azure Machine Learning](transform-data-machine-learning-service.md) |
 | [Service Analytique Azure Data Lake](#azure-data-lake-analytics-linked-service) | [Langage U-SQL du service Analytique Data Lake](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procédure stockée](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
@@ -354,8 +355,8 @@ Consultez les rubriques suivantes si vous ne connaissez pas le service Azure Bat
 | linkedServiceName | Nom du service lié Azure Storage associé à ce service lié Azure Batch. Ce service lié est utilisé pour les fichiers intermédiaires requis pour exécuter l’activité. | OUI      |
 | connectVia        | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non       |
 
-## <a name="azure-machine-learning-linked-service"></a>Service lié Microsoft Azure Machine Learning
-Vous créez un service lié Azure Machine Learning pour inscrire un point de terminaison de notation par lot Machine Learning pour une fabrique de données.
+## <a name="azure-machine-learning-studio-linked-service"></a>Service lié Azure Machine Learning Studio
+Vous créez un service lié Azure Machine Learning Studio pour inscrire un point de terminaison de notation par lot Machine Learning pour une fabrique de données.
 
 ### <a name="example"></a>Exemples
 
@@ -391,6 +392,50 @@ Vous créez un service lié Azure Machine Learning pour inscrire un point de ter
 | tenant                 | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Obligatoire si updateResourceEndpoint est spécifié |
 | connectVia             | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non                                       |
 
+## <a name="azure-machine-learning-service-linked-service"></a>Service lié Azure Machine Learning Service
+Vous créez un service lié Azure Machine Learning Service pour connecter un espace de travail de service Azure Machine Learning à une fabrique de données.
+
+> [!NOTE]
+> Actuellement, seule l’authentification du principal du service est prise en charge pour le service lié Azure Machine Learning Service.
+
+### <a name="example"></a>Exemples
+
+```json
+{
+    "name": "AzureMLServiceLinkedService",
+    "properties": {
+        "type": "AzureMLService",
+        "typeProperties": {
+            "subscriptionId": "subscriptionId",
+            "resourceGroupName": "resourceGroupName",
+            "mlWorkspaceName": "mlWorkspaceName",
+            "servicePrincipalId": "service principal id",
+            "servicePrincipalKey": {
+                "value": "service principal key",
+                "type": "SecureString"
+            },
+            "tenant": "tenant ID"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime?",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="properties"></a>properties
+| Propriété               | Description                              | Obligatoire                                 |
+| ---------------------- | ---------------------------------------- | ---------------------------------------- |
+| Type                   | La propriété de type doit être définie sur : **AzureMLService**. | OUI                                      |
+| subscriptionId         | ID d’abonnement Azure              | OUI                                      |
+| resourceGroupName      | Nom | OUI                                      |
+| mlWorkspaceName        | Nom de l’espace de travail Azure Machine Learning Service | OUI  |
+| servicePrincipalId     | Spécifiez l’ID client de l’application.     | Non |
+| servicePrincipalKey    | Spécifiez la clé de l’application.           | Non |
+| tenant                 | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Vous pouvez le récupérer en pointant la souris dans le coin supérieur droit du portail Azure. | Obligatoire si updateResourceEndpoint est spécifié | Non |
+| connectVia             | Runtime d’intégration à utiliser pour répartir les activités à ce service lié. Vous pouvez utiliser un runtime d’intégration Azure ou un runtime d’intégration auto-hébergé. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |    
+
 ## <a name="azure-data-lake-analytics-linked-service"></a>Service lié Azure Data Lake Analytics
 Vous créez un service lié **Analytique Azure Data Lake** pour lier un service de calcul Analytique Azure Data Lake Analytics à une fabrique de données Azure. L’activité U-SQL Analytique Data Lake dans le pipeline fait référence à ce service lié. 
 
@@ -410,7 +455,7 @@ Vous créez un service lié **Analytique Azure Data Lake** pour lier un service 
                 "type": "SecureString"
             },
             "tenant": "tenant ID",
-            "subscriptionId": "<optional, subscription id of ADLA>",
+            "subscriptionId": "<optional, subscription ID of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },
         "connectVia": {

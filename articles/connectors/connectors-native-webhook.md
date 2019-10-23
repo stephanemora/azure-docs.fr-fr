@@ -1,6 +1,6 @@
 ---
-title: Créer des tâches et des flux de travail basés sur les événements dans Azure Logic Apps
-description: Utilisez Azure Logic Apps pour déclencher, suspendre et reprendre des tâches, processus et autres flux de travail automatisés en fonction d’événements se produisant sur un point de terminaison
+title: Attendre et répondre aux événements - Azure Logic Apps
+description: Automatiser les flux de travail qui déclenchent, suspendent et reprennent en fonction des événements au niveau d’un point de terminaison de service à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,16 +8,16 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: c2658df185d4836210c496d2c46a00a3541257a2
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 36b0ea7233b449584bd83450b45276da5baa135b
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541332"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264345"
 ---
-# <a name="automate-event-based-tasks-and-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Automatiser des tâches et des flux de travail basés sur des événements à l’aide de Webhooks HTTP dans Azure Logic Apps
+# <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Créer et exécuter des flux de travail automatisés basés sur des événements à l’aide de Webhooks HTTP dans Azure Logic Apps
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur Webhook HTTP intégré vous permettent d’automatiser des flux de travail qui attendent et s’exécutent en fonction d’événements spécifiques qui se produisent sur point de terminaison HTTP ou HTTPS en générant des applications logiques. Par exemple, vous pouvez créer une application logique qui surveille un point de terminaison de service dans l’attente d’un événement spécifique avant de déclencher le flux de travail et d’exécuter les actions spécifiées, plutôt que de vérifier ou d’*interroger* ce point de terminaison périodiquement.
 
@@ -37,6 +37,9 @@ Une action de Webhook HTTP est également basée sur un événement et *s’abon
 * Avant que la logique d’application arrive à expiration.
 
 Par exemple, l’action [**Envoyer un e-mail d’approbation**](connectors-create-api-office365-outlook.md) du connecteur Office 365 Outlook est un exemple d’action de Webhook qui suit ce modèle. Vous pouvez étendre ce modèle à tout service à l’aide de l’action de Webhook.
+
+> [!NOTE]
+> Logic Apps applique le protocole TLS (Transport Layer Security) 1.2 lors de la réception du rappel sur le déclencheur ou l’action Webhook HTTP. Si vous constatez des erreurs de liaison SSL, assurez-vous d’utiliser le protocole TLS 1.2.
 
 Pour plus d’informations, consultez les rubriques suivantes :
 
@@ -122,8 +125,8 @@ Voici d’autres informations sur les sorties d’un déclencheur ou d’une act
 
 | Nom de la propriété | type | Description |
 |---------------|------|-------------|
-| headers | objet | En-têtes de la requête |
-| body | objet | Objet JSON | Objet avec le contenu du corps de la requête |
+| headers | object | En-têtes de la requête |
+| body | object | Objet JSON | Objet avec le contenu du corps de la requête |
 | Code d’état | int | Code d’état de la requête |
 |||
 

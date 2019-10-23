@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244604"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438143"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -65,7 +65,7 @@ Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exp
 
 #### <a name="network-access"></a>Accès réseau
 
-Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de la machine virtuelle, car vous pouvez utiliser l’agent pour rediriger les communications vers le contrôleur de structure Azure pour les communications d’agent (fonctionnalité HostGAPlugin via le canal privilégié à l’adresse IP privée 168.63.129.16). Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
+Les paquets d’extensions sont téléchargés à partir du dépôt d’extensions Stockage Azure, et les chargements d’état d’extension sont publiés dans le service Stockage Azure. Si vous utilisez une version [prise en charge](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) des agents, vous n’avez pas besoin d’autoriser l’accès au service Stockage Azure dans la région de la machine virtuelle, car vous pouvez utiliser l’agent pour rediriger les communications vers le contrôleur de structure Azure pour les communications d’agent (fonctionnalité HostGAPlugin via le canal privilégié à l’adresse IP privée [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)). Si vous utilisez une version non prise en charge de l’agent, vous devez autoriser l’accès sortant vers le service Stockage Azure dans cette région à partir de la machine virtuelle.
 
 > [!IMPORTANT]
 > Si vous avez bloqué l’accès à l’adresse *168.63.129.16* à l’aide du pare-feu invité ou avec un proxy, les extensions échouent, que vous utilisiez ou non une version prise en charge. Les ports 80, 443 et 32526 sont nécessaires.

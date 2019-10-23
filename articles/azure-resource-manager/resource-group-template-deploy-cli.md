@@ -4,18 +4,18 @@ description: Utilisez Azure Resource Manager et Azure CLI pour déployer des res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: bef9d0490ce9109a960b69febf2970a289c25e40
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: c5a07d8b52e83215b2fdc220d76557ca45e1eae9
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973409"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286014"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles Resource Manager et dAzure CLI
 
-Cet article explique comment utiliser Azure CLI avec les modèles Resource Manager pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).  
+Cet article explique comment utiliser Azure CLI avec les modèles Resource Manager pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -49,7 +49,7 @@ Au moment de déployer des ressources dans Azure, vous effectuez les opérations
 2. Créez un groupe de ressources qui sert de conteneur pour les ressources déployées. Le nom du groupe de ressources ne peut contenir que des caractères alphanumériques, des points, des traits de soulignement, des traits d'union et des parenthèses. Il peut comprendre jusqu’à 90 caractères. Il ne peut pas se terminer par un point.
 3. Déploiement dans le groupe de ressources du modèle qui définit les ressources à créer
 
-Un modèle peut inclure des paramètres qui permettent de personnaliser le déploiement. Par exemple, vous pouvez indiquer des valeurs qui sont adaptées à un environnement particulier (par exemple, de développement, de test ou de production). L’exemple de modèle définit un paramètre pour la référence (SKU) de compte de stockage. 
+Un modèle peut inclure des paramètres qui permettent de personnaliser le déploiement. Par exemple, vous pouvez indiquer des valeurs qui sont adaptées à un environnement particulier (par exemple, de développement, de test ou de production). L’exemple de modèle définit un paramètre pour la référence (SKU) de compte de stockage.
 
 L’exemple suivant crée un groupe de ressources et déploie un modèle à partir de votre ordinateur local :
 
@@ -149,9 +149,31 @@ az group deployment create \
   --parameters @storage.parameters.json
 ```
 
+## <a name="handle-extended-json-format"></a>Gérer le format JSON étendu
+
+Pour déployer un modèle avec des chaînes ou des commentaires sur plusieurs lignes, vous devez utiliser le commutateur `--handle-extended-json-format`.  Par exemple :
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
 ## <a name="test-a-template-deployment"></a>Tester le déploiement d’un modèle
 
-Pour tester votre modèle et vos valeurs de paramètres sans réellement déployer toutes les ressources, utilisez [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate). 
+Pour tester votre modèle et vos valeurs de paramètres sans réellement déployer toutes les ressources, utilisez [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate).
 
 ```azurecli-interactive
 az group deployment validate \
@@ -176,8 +198,8 @@ Si une erreur est détectée, la commande retourne un message d’erreur. Par ex
   "error": {
     "code": "InvalidTemplate",
     "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
+      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
       value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
     "target": null
   },

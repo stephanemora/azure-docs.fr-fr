@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023598"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512363"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -203,7 +203,7 @@ Vous pouvez afficher le mode actuel de votre agent SQL Server IaaS à l’aide d
      $sqlvm.Properties.sqlManagement
   ```
 
-Machines virtuelles SQL Server sur lesquelles l’extension IaaS en mode *léger* est installée, vous pouvez opérer une mise à niveau vers le mode _complet_ via le Portail Azure. Les machines virtuelles SQL Server en mode _No-Agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Comme il n’est pas possible de passer à une version antérieure, pour ce faire, vous devez désinstaller complètement l’extension IaaS SQL, puis la réinstaller. 
+Machines virtuelles SQL Server sur lesquelles l’extension IaaS en mode *léger* est installée, vous pouvez opérer une mise à niveau vers le mode _complet_ via le Portail Azure. Les machines virtuelles SQL Server en mode _No-Agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Pour passer à une version antérieure, vous devez obligatoirement supprimer la ressource du fournisseur de ressources de machine virtuelle SQL à l’aide du portail Azure, puis vous inscrire à nouveau auprès du fournisseur de ressources de machine virtuelle SQL. 
 
 Pour mettre à niveau l’agent en mode complet : 
 
@@ -353,7 +353,7 @@ Oui. La mise à niveau du mode de gestion de léger à complet est prise en char
 
 Non. La rétrogradation du mode de gestion de l’extension IaaS SQL Server n’est pas prise en charge. Le mode de gestion SQL ne peut pas être rétrogradé du mode complet vers le mode léger ou sans agent, ni du mode léger vers le mode sans agent. 
 
-Pour modifier le mode de gestion à partir de la gestion complète, supprimez l’extension IaaS SQL Server. Ensuite, supprimez la ressource Microsoft.SqlVirtualMachine et réinscrivez la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL.
+Pour changer le mode de gestion à partir de la gestion complète : supprimez la ressource Microsoft.SqlVirtualMachine, puis réinscrivez la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL.
 
 **Puis-je m’inscrire auprès du fournisseur de ressources de machine virtuelle SQL à partir du portail Azure ?**
 

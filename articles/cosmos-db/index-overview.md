@@ -4,14 +4,14 @@ description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914190"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299789"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Vue d’ensemble de l’indexation dans Azure Cosmos DB
 
@@ -64,15 +64,26 @@ Lorsqu’un élément est écrit, Azure Cosmos DB indexe efficacement le chemin 
 
 ## <a name="index-kinds"></a>Types d’index
 
-Azure Cosmos DB prend actuellement en charge trois types d’index :
+Azure Cosmos DB prend actuellement en charge trois types d’index.
 
-Le type d’index **plage** est utilisé pour les types de requête suivants :
+### <a name="range-index"></a>Index de plage
+
+L’index de **plage** est basé sur une structure de type arborescence ordonnée. Le type d’index de plage est utilisé pour les types de requête suivants :
 
 - Requêtes d’égalité :
 
     ```sql
    SELECT * FROM container c WHERE c.property = 'value'
    ```
+
+   ```sql
+   SELECT * FROM c WHERE c.property IN ("value1", "value2", "value3")
+   ```
+
+   Correspondance d’égalité sur un élément de tableau
+   ```sql
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    ```
 
 - Requêtes de plage :
 
@@ -81,9 +92,21 @@ Le type d’index **plage** est utilisé pour les types de requête suivants :
    ```
   (fonctionne pour `>`, `<`, `>=`, `<=`, `!=`)
 
+- Vérification de la présence d’une propriété :
+
+   ```sql
+   SELECT * FROM c WHERE IS_DEFINED(c.property)
+   ```
+
+- Correspondances de préfixes de chaîne (le mot clé CONTAINS ne tire pas parti de l’index de plage) :
+
+   ```sql
+   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   ```
+
 - Requêtes `ORDER BY` :
 
-   ```sql 
+   ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
@@ -95,23 +118,33 @@ Le type d’index **plage** est utilisé pour les types de requête suivants :
 
 Les index plage sont utilisables sur des valeurs scalaires (chaîne ou nombre).
 
-Le type d’index **spatial** est utilisé pour les types de requête suivants :
+### <a name="spatial-index"></a>Index spatial
 
-- Requêtes de distance géospatiale : 
+Les index **spatiaux** permettent d’exécuter des requêtes efficaces sur des objets géospatiaux comme des points, des lignes, des polygones et des multipolygones. Ces requêtes utilisent des mots clés ST_DISTANCE, ST_WITHIN, ST_INTERSECTS. Voici quelques exemples qui utilisent le type d’index spatial :
+
+- Requêtes de distance géospatiale :
 
    ```sql
    SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
    ```
 
-- Géospatial dans les requêtes : 
+- Géospatial dans les requêtes :
 
    ```sql
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
+- Requêtes d’intersection géospatiale :
+
+   ```sql
+   SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
+   ```
+
 Les index spatiaux sont utilisables sur des objets [GeoJSON](geospatial.md) correctement formatés . Les points, les LineStrings, les polygones et les multipolygones sont actuellement pris en charge.
 
-Le type d’index **plage** est utilisé pour les types de requête suivants :
+### <a name="composite-indexes"></a>Index composites
+
+Les index **composites** augmentent l’efficacité lorsque vous effectuez des opérations sur plusieurs champs. Le type d’index composite est utilisé pour les types de requête suivants :
 
 - Requêtes `ORDER BY` sur plusieurs propriétés :
 
@@ -130,6 +163,13 @@ Le type d’index **plage** est utilisé pour les types de requête suivants :
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
+
+Tant qu’un prédicat de filtre utilise sur le type d’index, le moteur de requête évalue celui-ci en premier avant d’analyser le reste. Par exemple, si vous avez une requête SQL comme `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+
+* La requête ci-dessus filtre d’abord les entrées où firstName = « Andrew » à l’aide de l’index. Elle transmet ensuite toutes les entrées firstName = « Andrew » via un pipeline pour évaluer le prédicat de filtre CONTAINS.
+
+* Vous pouvez accélérer les requêtes et éviter les analyses de conteneur complètes lorsque vous utilisez des fonctions qui n’utilisent pas l’index (par exemple, CONTAINS) en ajoutant des prédicats de filtre supplémentaires qui utilisent l’index. L’ordre des clauses de filtre n’est pas important. Le moteur de requête détermine les prédicats les plus sélectifs et exécute la requête en conséquence.
+
 
 ## <a name="querying-with-indexes"></a>Interrogation avec des index
 
