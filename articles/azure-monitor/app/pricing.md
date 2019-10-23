@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 55ff134bfa76634250b7495120432d7310b07c06
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: f9d92f03b1f55ad9d1f1e272886095ae48033266
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431881"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750397"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gérer l’utilisation et les coûts pour Application Insights
 
@@ -45,7 +45,7 @@ Il existe ici deux approches possibles : utiliser la surveillance par défaut e
 
 Avec l’[échantillonnage adaptatif](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications) du kit SDK ASP.NET, le volume de données est automatiquement ajusté pour demeurer à un taux de trafic maximal spécifié pour la surveillance Application Insights par défaut. Si l’application génère une faible quantité de données de télémétrie, comme lors du débogage ou en raison d’une faible utilisation, les éléments ne sont pas supprimés par le processeur d’échantillonnage tant que le volume reste inférieur au niveau configuré d’événements par seconde. Pour une application à volume élevé, avec le seuil par défaut de 5 événements par seconde, l’échantillonnage adaptatif limite le nombre d’événements quotidiens à 432 000. En utilisant une taille moyenne d’événement standard de 1 Ko, cela correspond à 13,4 Go de données de télémétrie pour un mois de 31 jours par nœud hébergeant votre application (puisque l’échantillonnage s’effectue localement sur chaque nœud). 
 
-Pour les kits de développement logiciel (SDK) qui ne prennent pas en charge l’échantillonnage adaptatif, vous pouvez utiliser l’[échantillonnage d’ingestion](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) où l’échantillonnage a lieu quand les données sont reçues par Application Insights en fonction d’un pourcentage de données à conserver, ou l’[échantillonnage à débit fixe pour les sites web ASP.NET, ASP.NET Core et Java](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) afin de réduire le trafic envoyé à partir de votre serveur web et de vos navigateurs web
+Pour les kits de développement logiciel (SDK) qui ne prennent pas en charge l’échantillonnage adaptatif, vous pouvez utiliser l’[échantillonnage d’ingestion](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) où l’échantillonnage a lieu quand les données sont reçues par Application Insights en fonction d’un pourcentage de données à conserver, ou l’[échantillonnage à débit fixe pour les sites web ASP.NET, ASP.NET Core et Java](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) afin de réduire le trafic envoyé à partir de votre serveur web et de vos navigateurs web
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Apprendre de ce que les clients similaires collectent
 
@@ -102,9 +102,9 @@ Voici quelques suggestions de techniques pour vous aider à gérer le volume de 
 
 * **Limitez les appels AJAX** : vous pouvez [Limiter le nombre d’appels Ajax qui peuvent être signalés](../../azure-monitor/app/javascript.md#configuration) dans chaque affichage de page, ou désactiver les rapports Ajax.
 
-* **Désactivez les modules inutiles** : [modifiez ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) pour désactiver les modules de collecte dont vous n’avez pas besoin. Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
+* **Désactivez les modules inutiles** : [Modifiez ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) pour désactiver les modules de collecte dont vous n’avez pas besoin. Par exemple, vous pouvez décider que les compteurs de performances ou les données de dépendance ne sont pas essentiels.
 
-* **Procédez à la pré-agrégation des métriques** : si vous placez des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs).
+* **Procédez à la pré-agrégation des métriques** : Si vous placez des appels de TrackMetric dans votre application, vous pouvez réduire le trafic en utilisant la surcharge qui accepte votre calcul de la moyenne et de l’écart type d’un lot de mesures. Une autre possibilité consiste à utiliser un [package de pré-agrégation](https://www.myget.org/gallery/applicationinsights-sdk-labs).
  
 * **Limite quotidienne** : au moment où vous créez une ressource Application Insights dans le Portail Azure, la limite quotidienne est définie à 100 Go/jour. Quand vous créez une ressource Application Insights dans Visual Studio, la valeur par défaut est faible (seulement 32,3 Mo/jour). La valeur par défaut de la limite quotidienne est définie pour faciliter les tests. L’idée est que l’utilisateur augmente la limite quotidienne avant de déployer l’application en production. 
 
@@ -170,7 +170,7 @@ Pour changer le délai de conservation, dans votre ressource Application Insight
 
 ![Ajuster la limite du volume quotidien des données de télémétrie](./media/pricing/pricing-005.png)
 
-La rétention peut également être [définie par programme en utilisant le paramètre Powershell](powershell.md) `retentionInDays`. En outre, si vous définissez la conservation des données sur 30 jours, vous pouvez déclencher un vidage immédiat d’anciennes données à l’aide du paramètre `immediatePurgeDataOn30Days`, ce qui peut être utile pour les scénarios liés à la conformité. Cette fonctionnalité de vidage est exposée uniquement via Azure Resource Manager et doit être utilisée avec une extrême prudence. 
+La rétention peut également être [définie par programme en utilisant le paramètre Powershell](powershell.md#set-the-data-retention) `retentionInDays`. En outre, si vous définissez la conservation des données sur 30 jours, vous pouvez déclencher un vidage immédiat d’anciennes données à l’aide du paramètre `immediatePurgeDataOn30Days`, ce qui peut être utile pour les scénarios liés à la conformité. Cette fonctionnalité de vidage est exposée uniquement via Azure Resource Manager et doit être utilisée avec une extrême prudence. 
 
 Quand la facturation commence pour une conservation plus longue début décembre 2019, les données conservées plus de 90 jours sont facturées selon le même tarif que celles actuellement facturées pour la conservation des données Azure Log Analytics. Apprenez-en davantage dans la [page des tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Tenez-vous informé de la progression de la rétention variable en [votant pour cette suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 

@@ -92,6 +92,6 @@ Bénéficiez non seulement de la haute disponibilité et la fiabilité décrites
 Pivotal a lancé un [ERT compact](https://docs.pivotal.io/pivotalcf/2-0/customizing/small-footprint.html) pour les clients PCF, les composants étant situés dans seulement 4 machines virtuelles pouvant exécuter jusqu’à 2 500 instances d’application. La version d’évaluation est désormais disponible sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les fonctionnalités d’intégration Azure sont d’abord disponibles avec [Open Source Cloud Foundry ](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/) avant de l’être sur Pivotal Cloud Foundry. Les fonctionnalités marquées d’un astérisque ne sont toujours pas disponibles via PCF. L’intégration de Cloud Foundry dans Azure Stack n’est pas non plus abordée dans ce document.
+Les fonctionnalités d’intégration Azure sont d’abord disponibles avec [Open Source Cloud Foundry ](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/) avant de l’être sur Pivotal Cloud Foundry. Les fonctionnalités marquées d’un * ne sont toujours pas disponibles via PCF. L’intégration de Cloud Foundry dans Azure Stack n’est pas non plus abordée dans ce document.
 Pour connaître l’état actuel du support PCF sur les fonctionnalités marquées d’un astérisque (*) ou de l’intégration de Cloud Foundry dans Azure Stack, contactez votre gestionnaire de compte Pivotal et Microsoft. 
 

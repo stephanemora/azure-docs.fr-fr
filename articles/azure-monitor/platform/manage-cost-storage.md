@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/17/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5b6ec913226f44a47bfa5c734e0c20ef3a87ca67
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 1480418a70166887e7327452d407f78c2c992378
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329430"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597304"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor
 
@@ -268,7 +268,7 @@ Sur la page **Utilisation et estimation des coûts**, le graphique *Ingestion de
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 Notez que la clause « where IsBillable = true » exclut les types de données de certaines solutions pour lesquels il n’existe aucun frais d’ingestion. 
@@ -278,7 +278,7 @@ Vous pouvez explorer de façon plus précise et déterminer ainsi des tendances 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 | where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart
+| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
 ```
 
 ### <a name="data-volume-by-computer"></a>Volume de données par ordinateur
@@ -428,7 +428,7 @@ La requête suivante obtient un résultat quand plus de 100 Go de données sont
 ```kusto
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
-| extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type 
+| extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type 
 | where DataGB > 100
 ```
 
@@ -438,7 +438,7 @@ La requête suivante utilise une formule simple pour prévoir le moment où plus
 union withsource = $table Usage 
 | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true 
 | extend Type = $table 
-| summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type 
+| summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type 
 | where EstimatedGB > 100
 ```
 
@@ -451,7 +451,7 @@ Lors de la création de l’alerte pour la première requête, lorsque plus de 1
 - **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
 - **Critères d’alerte** spécifiez les éléments suivants :
    - **Nom du signal** sélectionnez **Recherche de journal personnalisée**
-   - **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1000.)) by Type | where DataGB > 100`
    - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
    - **Période de temps** de *1440* minutes et **fréquence des alertes** toutes les *60* minutes comme les données d’utilisation ne se mettent à jour qu’une fois par heure.
 - **Définir les détails de l’alerte** spécifiez les éléments suivants :
@@ -465,7 +465,7 @@ Lors de la création de l’alerte pour la seconde requête, lorsqu’il est pr�
 - **Définir la condition d’alerte** spécifiez votre espace de travail Log Analytics comme cible de la ressource.
 - **Critères d’alerte** spécifiez les éléments suivants :
    - **Nom du signal** sélectionnez **Recherche de journal personnalisée**
-   - **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Requête de recherche** sur `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1000.)) by Type | where EstimatedGB > 100`
    - La **logique d’alerte** est **basée sur**  le *nombre de résultats* et **Condition** est *supérieur à* un **seuil**  de *0*
    - **Période de temps** de *180* minutes et **fréquence des alertes** toutes les *60* minutes comme les données d’utilisation ne se mettent à jour qu’une fois par heure.
 - **Définir les détails de l’alerte** spécifiez les éléments suivants :

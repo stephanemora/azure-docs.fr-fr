@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331139"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529485"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Fonctionnalités prises en charge disponibles dans Azure Security Center
 
@@ -96,14 +96,14 @@ Azure Security Center prend en charge les ressources PaaS suivantes :
 |MySQL*|✔| ✔|
 |CosmosDB*|X| ✔|
 |Stockage d'objets blob|✔| ✔|
-|Compte de stockage|✔| N/D|
+|Compte de stockage|✔| X|
 |App Service|✔| ✔|
 |Fonction|✔| X|
 |Service cloud|✔| X|
-|Réseau virtuel|✔| N/D|
-|Subnet|✔| N/D|
-|Carte d’interface réseau|✔| N/D|
-|Groupe de sécurité réseau|✔| N/D|
+|Réseau virtuel|✔| X|
+|Subnet|✔| X|
+|Carte d’interface réseau|✔| X|
+|Groupe de sécurité réseau|✔| X|
 |Subscription|✔ **| ✔|
 |Compte Batch|✔| X|
 |Compte Service Fabric|✔| X|
@@ -114,7 +114,7 @@ Azure Security Center prend en charge les ressources PaaS suivantes :
 |Stream Analytics|✔| X|
 |Espace de noms du hub d’événements|✔| X|
 |Logic Apps|✔| X|
-|Redis|✔| N/D|
+|Redis|✔| X|
 |Data Lake Analytics|✔| X|
 |Data Lake Store|✔| X|
 |Coffre de clés|✔| X|
