@@ -3,19 +3,19 @@ title: Modérer des images avec des listes personnalisées et la console d'API -
 titleSuffix: Azure Content Moderator
 description: Vous utilisez l'API Gestion de liste dans Azure Content Moderator pour créer des listes d'images personnalisées.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 2b2ab138945d32ca874dc20576d412c862965dc9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564365"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757191"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Modérer avec des listes d’images personnalisées dans la console API
 

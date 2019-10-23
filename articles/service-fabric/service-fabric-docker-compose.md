@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168831"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553561"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Prise en charge du déploiement Docker Compose dans Azure Service Fabric (préversion)
 
 Docker utilise le fichier [docker-compose.yml](https://docs.docker.com/compose) pour la définition d’applications à conteneurs multiples. Pour permettre aux clients familiarisés avec Docker d’orchestrer facilement des applications de conteneur existantes sur Azure Service Fabric, nous avons inclus la prise en charge en préversion du déploiement Docker Compose en mode natif dans la plateforme. Service Fabric peut accepter des fichiers `docker-compose.yml` version 3 ou ultérieure. 
 
-Étant donné que cette prise en charge est disponible en préversion, seul un sous-ensemble des directives de Compose est reconnu. Par exemple, les mises à niveau d’application ne sont pas prises en charge. Toutefois, vous pouvez toujours supprimer et déployer des applications au lieu de les mettre à niveau.
+Étant donné que cette prise en charge est disponible en préversion, seul un sous-ensemble des directives de Compose est reconnu.
 
 Pour utiliser cette préversion, créez votre cluster en utilisant la version 5.7 ou plus du runtime Service Fabric via le portail Azure, ainsi que le Kit de développement logiciel (SDK) correspondant. 
 

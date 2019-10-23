@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a0b9166d24bea28bb3271d719e8ffe0b24d71381
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f254ebe599e64f4c48a839d9defd57e0899138a5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826929"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755780"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer une connexion pour un service Azure Active Directory mutualisé à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -83,19 +83,19 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
           <Description>Login with your Contoso account</Description>
           <Protocol Name="OpenIdConnect"/>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/common/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration</Item>
             <!-- Update the Client ID below to the Application ID -->
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="response_types">code</Item>
-            <Item Key="scope">openid</Item>
+            <Item Key="scope">openid profile</Item>
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
             <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
-            <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
+            <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000,https://login.microsoftonline.com/11111111-1111-1111-1111-111111111111</Item>
             <!-- The commented key below specifies that users from any tenant can sign-in. Uncomment if you would like anyone with an Azure AD account to be able to sign in. -->
-            <!-- <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/</Item> -->
+            <!-- <Item Key="ValidTokenIssuerPrefixes">https://login.microsoftonline.com/</Item> -->
           </Metadata>
           <CryptographicKeys>
             <Key Id="client_secret" StorageReferenceId="B2C_1A_AADAppSecret"/>
@@ -129,17 +129,17 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
 ### <a name="restrict-access"></a>Restriction de l’accès
 
 > [!NOTE]
-> La valeur `https://sts.windows.net` pour **ValidTokenIssuerPrefixes** autorise tous les utilisateurs Azure AD à se connecter à votre application.
+> La valeur `https://login.microsoftonline.com/` pour **ValidTokenIssuerPrefixes** autorise tous les utilisateurs Azure AD à se connecter à votre application.
 
 Vous devez mettre à jour la liste des émetteurs de jetons valides et restreindre l’accès à une liste spécifique d’utilisateurs locataires Azure AD qui peuvent se connecter.
 
-Pour obtenir les valeurs correspondantes, examinez les métadonnées de découverte OpenID Connect de chacun des locataires Azure AD à partir desquels les utilisateurs seront autorisés à se connecter. Le format de l’URL des métadonnées est semblable à `https://login.windows.net/your-tenant/.well-known/openid-configuration`, où `your-tenant` est votre nom de locataire Azure AD. Par exemple :
+Pour obtenir les valeurs correspondantes, examinez les métadonnées de découverte OpenID Connect de chacun des locataires Azure AD à partir desquels les utilisateurs seront autorisés à se connecter. Le format de l’URL des métadonnées est semblable à `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`, où `your-tenant` est votre nom de locataire Azure AD. Par exemple :
 
-`https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
+`https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 
 Effectuez ces étapes pour chaque locataire Azure AD qui doit être utilisé pour se connecter :
 
-1. Ouvrez votre navigateur et accédez à l’URL des métadonnées OpenID Connect pour le locataire. Recherchez l’objet **issuer** et enregistrez sa valeur. Elle doit ressembler à `https://sts.windows.net/00000000-0000-0000-0000-000000000000/`.
+1. Ouvrez votre navigateur et accédez à l’URL des métadonnées OpenID Connect pour le locataire. Recherchez l’objet **issuer** et enregistrez sa valeur. Elle doit ressembler à `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/`.
 1. Copiez et collez la valeur dans la clé **ValidTokenIssuerPrefixes**. Séparez plusieurs émetteurs par une virgule. Un exemple avec deux émetteurs apparaît dans l’exemple XML `ClaimsProvider` précédent.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Télécharger le fichier d’extension pour la vérification

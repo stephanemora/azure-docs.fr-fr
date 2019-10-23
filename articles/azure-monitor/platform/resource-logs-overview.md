@@ -1,19 +1,18 @@
 ---
 title: Vue d’ensemble des journaux de ressource Azure | Microsoft Docs
 description: Découvrez les services pris en charge et le schéma d’événement pour les journaux de ressource Azure.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: reference
-ms.date: 09/20/2019
-ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: bfcd2ded96c2679ba9177a760a8b11dc7d2c9a77
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 09/20/2019
+ms.openlocfilehash: a418e3d1a59379284422d1d24c1457ab61d84a4c
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71263032"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551758"
 ---
 # <a name="azure-resource-logs-overview"></a>Vue d’ensemble des journaux de ressource Azure
 Les journaux de ressource Azure sont des [journaux de plateforme](platform-logs-overview.md) émis par des ressources Azure qui décrivent leur fonctionnement interne. Tous les journaux de ressource partagent un schéma commun de niveau supérieur, avec la flexibilité pour chaque service d’émettre des propriétés uniques pour ses propres événements.

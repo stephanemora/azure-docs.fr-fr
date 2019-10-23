@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671074"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595201"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Reprise d’activité après sinistre et basculement de compte de stockage (préversion) dans Stockage Azure
 
@@ -119,8 +119,14 @@ Vous pouvez lancer un basculement de compte à partir du portail Azure, de Power
 
 Le basculement de compte est disponible en préversion pour tous les clients qui utilisent GRS ou RA-GRS avec des déploiements Azure Resource Manager. Les types de comptes v1 universel, v2 universel et Stockage Blob sont pris en charge. Le basculement de compte est actuellement disponible dans les régions suivantes :
 
-- USA Ouest 2
+- Asie de l’Est
+- Asie du Sud-Est
+- Australie Est
+- Sud-Australie Est
+- USA Centre
+- USA Est 2
 - USA Centre-Ouest
+- USA Ouest 2
 
 La préversion est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
 
