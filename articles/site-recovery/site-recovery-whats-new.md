@@ -5,20 +5,35 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8e034153a2e98a101527f411c78ace6e46b01b29
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5e3d226b0f15148c5ac4a9da84462f4a3277e112
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937524"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383557"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
 Le service [Azure Site Recovery](site-recovery-overview.md) fait l’objet de mises à jour et d’améliorations continues. Pour vous aider à rester à jour, cet article vous donne des informations sur les versions les plus récentes, les nouvelles fonctionnalités et le nouveau contenu. Cette page est régulièrement mise à jour.
 
 Vous pouvez suivre et vous abonner aux notifications de mise à jour Site Recovery dans le canal [Mises à jour Azure](https://azure.microsoft.com/updates/?product=site-recovery).
+
+## <a name="update-to-servicing-stack-updatesha-2"></a>Mise à jour vers la mise à jour de la pile de maintenance/SHA-2
+
+Pour la récupération d’urgence de machines virtuelles Azure vers une région secondaire ou la récupération d'urgence de machines virtuelles VMware locales ou des serveurs physiques vers Azure, notez les points suivants :
+
+- À partir de la version 9.30.x.x (attendue en novembre 2019) de l’extension du service Mobility (pour les machines virtuelles Azure) et de l’agent du service Mobility (pour VMware/ordinateurs physiques), certains systèmes d’exploitation d’ordinateur doivent exécuter la mise à jour de la pile de maintenance et SHA-2. Les détails sont indiqués dans le tableau ci-dessous.
+- Installez la mise à jour et l’algorithme SHA-2 conformément à la base de connaissances liée. SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu.
+- En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
+
+**Système d’exploitation** | **Microsoft Azure** | **Machine virtuelle VMware/ordinateur physique**
+--- | --- | ---
+**Windows 2008 R2 SP1** | [Mise à jour de la pile de maintenance](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Mise à jour de la pile de maintenance](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 2008 SP2** | [Mise à jour de la pile de maintenance](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Mise à jour de la pile de maintenance](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 7 SP1** | [Mise à jour de la pile de maintenance](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Mise à jour de la pile de maintenance](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
+
 
 ## <a name="supported-updates"></a>Mises à jour prises en charge
 
