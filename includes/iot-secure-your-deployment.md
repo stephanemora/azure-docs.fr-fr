@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: e696db3ad452152f6478701876b7760d7fed355b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177719"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793084"
 ---
-# <a name="secure-your-internet-of-things-iot-deployment"></a>Sécuriser votre déploiement Internet des objets
-
 Cet article fournit davantage de détails sur la sécurisation de l’infrastructure Internet des objets (IoT) basée sur Azure IoT. Il est lié à la procédure au niveau de l’implémentation pour la configuration et le déploiement de chaque composant. Il fournit également des comparaisons et des choix entre les différentes méthodes.
 
 La sécurisation du déploiement Azure IoT peut être divisée selon les trois zones de sécurité suivantes :

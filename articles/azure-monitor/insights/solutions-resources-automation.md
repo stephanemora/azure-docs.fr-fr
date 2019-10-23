@@ -1,25 +1,19 @@
 ---
 title: Ressources Azure Automation dans des solutions de gestion | Microsoft Docs
 description: Les solutions de gestion comprennent généralement des runbooks dans Azure Automation pour automatiser des processus tels que la collecte et le traitement de l’analyse des données.  Cet article explique comment inclure des runbooks et leurs ressources associées dans une solution.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 5281462e-f480-4e5e-9c19-022f36dce76d
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c9b13f44dae068597cb82a0aa803283ad5e67bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63e09bacd1ce70f05f04798f092d3eb4b3e36ab5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110359"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555243"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Ajout de ressources Azure Automation à une solution de gestion (préversion)
 > [!NOTE]

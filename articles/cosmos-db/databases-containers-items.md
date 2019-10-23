@@ -1,18 +1,18 @@
 ---
 title: Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 description: Cet article explique comment créer et utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: de9b0a372d04b40a24b6dc0a8952722129f4a55f
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0823b4b7e19bec9d8efc83dbb3996076425cb4f1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241208"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756882"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 

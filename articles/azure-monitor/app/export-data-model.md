@@ -1,23 +1,18 @@
 ---
 title: Modèle de données d’Azure Application Insights | Microsoft Docs
 description: Décrit les propriétés exportées à partir de l’exportation continue dans JSON et utilisées comme filtres.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/08/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 4f8fd0b317c17f142664d22291c23442dd49f970
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/08/2019
+ms.openlocfilehash: 8f84e3179a6f949e4a322a2218736fc9ebe60442
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053289"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677907"
 ---
 # <a name="application-insights-export-data-model"></a>Modèle d’exportation de données Application Insights
 Cette table répertorie les propriétés de télémétrie envoyées à partir des Kits SDK [Application Insights](../../azure-monitor/app/app-insights-overview.md) au portail.
@@ -114,187 +109,187 @@ Points à noter :
 ## <a name="context"></a>Context
 Tous les types de données de télémétrie sont accompagnés d’une section de contexte. Tous ces champs ne sont pas transmis avec tous les points de données.
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
 | context.custom.dimensions [0] |objet [ ] |Paires clé-valeur définies par le paramètre des propriétés personnalisées. Longueur maximale de clé 100, longueur maximale de valeur 1024. Plus de 100 valeurs uniques, la propriété peut faire l’objet d’une recherche, mais ne peut pas être utilisée pour la segmentation. 200 clés maximum par ikey. |
 | context.custom.metrics [0] |objet [ ] |Paires clé-valeur définies par le paramètre des mesures personnalisées et par TrackMetrics. Longueur maximale de clé 100, les valeurs peuvent être numériques. |
-| context.data.eventTime |chaîne |UTC |
-| context.data.isSynthetic |booléenne |Requête transmise par un robot ou un test web. |
+| context.data.eventTime |string |UTC |
+| context.data.isSynthetic |boolean |Requête transmise par un robot ou un test web. |
 | context.data.samplingRate |number |Pourcentage de télémétrie générée par le Kit SDK qui est envoyé vers le portail. Plage 0.0-100.0. |
-| context.device |objet |Appareil client |
-| context.device.browser |chaîne |IE, Chrome, ... |
-| context.device.browserVersion |chaîne |Chrome 48.0, ... |
-| context.device.deviceModel |chaîne | |
-| context.device.deviceName |chaîne | |
-| context.device.id |chaîne | |
-| context.device.locale |chaîne |en-GB, de-DE, ... |
-| context.device.network |chaîne | |
-| context.device.oemName |chaîne | |
-| context.device.os |chaîne | |
-| context.device.osVersion |chaîne |Système d’exploitation hôte |
-| context.device.roleInstance |chaîne |ID de l’hôte du serveur |
-| context.device.roleName |chaîne | |
-| context.device.screenResolution |chaîne | |
-| context.device.type |chaîne |PC, navigateur... |
-| context.location |objet |Dérivé de clientip. |
-| context.location.city |chaîne |Dérivé de clientip, si connu |
-| context.location.clientip |chaîne |Dernier octogone anonyme (0). |
-| context.location.continent |chaîne | |
-| context.location.country |chaîne | |
-| context.location.province |chaîne |État ou province |
-| context.operation.id |chaîne |Les éléments qui affichent le même ID d’opération sont représentés en tant qu’éléments associés dans le portail. Généralement l’ID de requête. |
-| context.operation.name |chaîne |nom d’URL ou de requête |
-| context.operation.parentId |chaîne |Autorise les éléments liés imbriqués. |
-| context.session.id |chaîne |ID d’un groupe d’opérations de la même source. Une période de 30 minutes sans opération signale la fin d’une session. |
-| context.session.isFirst |booléenne | |
-| context.user.accountAcquisitionDate |chaîne | |
-| context.user.accountId |chaîne | |
-| context.user.anonAcquisitionDate |chaîne | |
-| context.user.anonId |chaîne | |
-| context.user.authAcquisitionDate |chaîne |[Utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
-| context.user.authId |chaîne | |
-| context.user.isAuthenticated |booléenne | |
-| context.user.storeRegion |chaîne | |
-| internal.data.documentVersion |chaîne | |
-| internal.data.id |chaîne | ID unique assigné lorsqu’un élément est ingéré dans Application Insights |
+| context.device |object |Appareil client |
+| context.device.browser |string |IE, Chrome, ... |
+| context.device.browserVersion |string |Chrome 48.0, ... |
+| context.device.deviceModel |string | |
+| context.device.deviceName |string | |
+| context.device.id |string | |
+| context.device.locale |string |en-GB, de-DE, ... |
+| context.device.network |string | |
+| context.device.oemName |string | |
+| context.device.os |string | |
+| context.device.osVersion |string |Système d’exploitation hôte |
+| context.device.roleInstance |string |ID de l’hôte du serveur |
+| context.device.roleName |string | |
+| context.device.screenResolution |string | |
+| context.device.type |string |PC, navigateur... |
+| context.location |object |Dérivé de clientip. |
+| context.location.city |string |Dérivé de clientip, si connu |
+| context.location.clientip |string |Dernier octogone anonyme (0). |
+| context.location.continent |string | |
+| context.location.country |string | |
+| context.location.province |string |État ou province |
+| context.operation.id |string |Les éléments qui affichent le même ID d’opération sont représentés en tant qu’éléments associés dans le portail. Généralement l’ID de requête. |
+| context.operation.name |string |nom d’URL ou de requête |
+| context.operation.parentId |string |Autorise les éléments liés imbriqués. |
+| context.session.id |string |ID d’un groupe d’opérations de la même source. Une période de 30 minutes sans opération signale la fin d’une session. |
+| context.session.isFirst |boolean | |
+| context.user.accountAcquisitionDate |string | |
+| context.user.accountId |string | |
+| context.user.anonAcquisitionDate |string | |
+| context.user.anonId |string | |
+| context.user.authAcquisitionDate |string |[Utilisateur authentifié](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
+| context.user.isAuthenticated |boolean | |
+| context.user.storeRegion |string | |
+| internal.data.documentVersion |string | |
+| internal.data.id |string | ID unique assigné lorsqu’un élément est ingéré dans Application Insights |
 
 ## <a name="events"></a>Événements
 Événements personnalisés générés par [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent).
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
 | event [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
-| event [0] name |chaîne |Nom de l’événement.  Longueur maximale 250. |
-| event [0] url |chaîne | |
-| event [0] urlData.base |chaîne | |
-| event [0] urlData.host |chaîne | |
+| event [0] name |string |Nom de l’événement.  Longueur maximale 250. |
+| event [0] url |string | |
+| event [0] urlData.base |string | |
+| event [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>Exceptions
 Signale des [exceptions](../../azure-monitor/app/asp-net-exceptions.md) sur le serveur et dans le navigateur.
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
-| basicException [0] assembly |chaîne | |
+| basicException [0] assembly |string | |
 | basicException [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
-| basicException [0] exceptionGroup |chaîne | |
-| basicException [0] exceptionType |chaîne | |
-| basicException [0] failedUserCodeMethod |chaîne | |
-| basicException [0] failedUserCodeAssembly |chaîne | |
-| basicException [0] handledAt |chaîne | |
-| basicException [0] hasFullStack |booléenne | |
-| basicException [0] id |chaîne | |
-| basicException [0] method |chaîne | |
-| basicException [0] message |chaîne |Message d’exception. Longueur maximale 10 000. |
-| basicException [0] outerExceptionMessage |chaîne | |
-| basicException [0] outerExceptionThrownAtAssembly |chaîne | |
-| basicException [0] outerExceptionThrownAtMethod |chaîne | |
-| basicException [0] outerExceptionType |chaîne | |
-| basicException [0] outerId |chaîne | |
-| basicException [0] parsedStack [0] assembly |chaîne | |
-| basicException [0] parsedStack [0] fileName |chaîne | |
+| basicException [0] exceptionGroup |string | |
+| basicException [0] exceptionType |string | |
+| basicException [0] failedUserCodeMethod |string | |
+| basicException [0] failedUserCodeAssembly |string | |
+| basicException [0] handledAt |string | |
+| basicException [0] hasFullStack |boolean | |
+| basicException [0] id |string | |
+| basicException [0] method |string | |
+| basicException [0] message |string |Message d’exception. Longueur maximale 10 000. |
+| basicException [0] outerExceptionMessage |string | |
+| basicException [0] outerExceptionThrownAtAssembly |string | |
+| basicException [0] outerExceptionThrownAtMethod |string | |
+| basicException [0] outerExceptionType |string | |
+| basicException [0] outerId |string | |
+| basicException [0] parsedStack [0] assembly |string | |
+| basicException [0] parsedStack [0] fileName |string | |
 | basicException [0] parsedStack [0] level |integer | |
 | basicException [0] parsedStack [0] line |integer | |
-| basicException [0] parsedStack [0] method |chaîne | |
-| basicException [0] stack |chaîne |Longueur maximale 10 000 |
-| basicException [0] typeName |chaîne | |
+| basicException [0] parsedStack [0] method |string | |
+| basicException [0] stack |string |Longueur maximale 10 000 |
+| basicException [0] typeName |string | |
 
 ## <a name="trace-messages"></a>Messages de suivi
 Envoyé par [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) et par les [adaptateurs de journalisation](../../azure-monitor/app/asp-net-trace-logs.md).
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
-| message [0] loggerName |chaîne | |
-| message [0] parameters |chaîne | |
-| message [0] raw |chaîne |Le message du fichier journal, longueur maximale 10k. |
-| message [0] severityLevel |chaîne | |
+| message [0] loggerName |string | |
+| message [0] parameters |string | |
+| message [0] raw |string |Le message du fichier journal, longueur maximale 10k. |
+| message [0] severityLevel |string | |
 
 ## <a name="remote-dependency"></a>Dépendance distante
 Envoyé par TrackDependency. Utilisé pour consigner les performances et l’utilisation des [appels aux dépendances](../../azure-monitor/app/asp-net-dependencies.md) dans le serveur, et des appels AJAX dans le navigateur.
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
-| remoteDependency [0] async |booléenne | |
-| remoteDependency [0] baseName |chaîne | |
-| remoteDependency [0] commandName |chaîne |Par exemple, « home/index » |
+| remoteDependency [0] async |boolean | |
+| remoteDependency [0] baseName |string | |
+| remoteDependency [0] commandName |string |Par exemple, « home/index » |
 | remoteDependency [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
-| remoteDependency [0] dependencyTypeName |chaîne |HTTP, SQL, ... |
+| remoteDependency [0] dependencyTypeName |string |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |number |Délai de l’appel à la fin de la réponse par la dépendance |
-| remoteDependency [0] id |chaîne | |
-| remoteDependency [0] name |chaîne |Url. Longueur maximale 250. |
-| remoteDependency [0] resultCode |chaîne |à partir de la dépendance HTTP |
-| remoteDependency [0] success |booléenne | |
-| remoteDependency [0] type |chaîne |HTTP, SQL, ... |
-| remoteDependency [0] url |chaîne |Longueur maximale 2 000 |
-| remoteDependency [0] urlData.base |chaîne |Longueur maximale 2 000 |
-| remoteDependency [0] urlData.hashTag |chaîne | |
-| remoteDependency [0] urlData.host |chaîne |Longueur maximale 200 |
+| remoteDependency [0] id |string | |
+| remoteDependency [0] name |string |Url. Longueur maximale 250. |
+| remoteDependency [0] resultCode |string |à partir de la dépendance HTTP |
+| remoteDependency [0] success |boolean | |
+| remoteDependency [0] type |string |HTTP, SQL, ... |
+| remoteDependency [0] url |string |Longueur maximale 2 000 |
+| remoteDependency [0] urlData.base |string |Longueur maximale 2 000 |
+| remoteDependency [0] urlData.hashTag |string | |
+| remoteDependency [0] urlData.host |string |Longueur maximale 200 |
 
 ## <a name="requests"></a>Demandes
 Envoyées par [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Les modules standard les utilisent pour consigner le temps de réponse du serveur, mesuré sur le serveur.
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
 | request [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple :  4 =&gt; 25 %. |
 | request [0] durationMetric.value |number |Délai entre l’arrivée de la requête et la réponse. 1e7 = 1s |
-| request [0] id |chaîne |ID d’opération |
-| request [0] name |chaîne |GET/POST + base d’URL  Longueur maximale 250 |
+| request [0] id |string |ID d’opération |
+| request [0] name |string |GET/POST + base d’URL  Longueur maximale 250 |
 | request [0] responseCode |integer |Réponse HTTP envoyée au client |
-| request [0] success |booléenne |Par défaut == (responseCode &lt; 400) |
-| request [0] url |chaîne |Sans hôte |
-| request [0] urlData.base |chaîne | |
-| request [0] urlData.hashTag |chaîne | |
-| request [0] urlData.host |chaîne | |
+| request [0] success |boolean |Par défaut == (responseCode &lt; 400) |
+| request [0] url |string |Sans hôte |
+| request [0] urlData.base |string | |
+| request [0] urlData.hashTag |string | |
+| request [0] urlData.host |string | |
 
 ## <a name="page-view-performance"></a>Performances d’affichage de la page
 Envoyées par le navigateur. Mesure le temps de traitement d’une page, du lancement de la requête par l’utilisateur à l’affichage complet (sans les appels asynchrones AJAX).
 
 Les valeurs de contexte représentent la version de système d’exploitation et de navigateur du client.
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |integer |Délai entre la fin de la réception du code HTML et l’affichage de la page. |
-| clientPerformance [0] name |chaîne | |
+| clientPerformance [0] name |string | |
 | clientPerformance [0] networkConnection.value |integer |Temps nécessaire pour l’établissement d’une connexion réseau. |
 | clientPerformance [0] receiveRequest.value |integer |Délai entre la fin de l’envoi d’une requête et la réception du code HTML en réponse. |
 | clientPerformance [0] sendRequest.value |integer |Délai nécessaire à l’envoi de la requête HTTP. |
 | clientPerformance [0] total.value |integer |Délai entre le début d’envoi de la requête et l’affichage de la page. |
-| clientPerformance [0] url |chaîne |URL de cette requête. |
-| clientPerformance [0] urlData.base |chaîne | |
-| clientPerformance [0] urlData.hashTag |chaîne | |
-| clientPerformance [0] urlData.host |chaîne | |
-| clientPerformance [0] urlData.protocol |chaîne | |
+| clientPerformance [0] url |string |URL de cette requête. |
+| clientPerformance [0] urlData.base |string | |
+| clientPerformance [0] urlData.hashTag |string | |
+| clientPerformance [0] urlData.host |string | |
+| clientPerformance [0] urlData.protocol |string | |
 
 ## <a name="page-views"></a>Affichages de pages
 Envoyé par trackPageView() ou [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
 | view [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
 | view [0] durationMetric.value |integer |Valeur éventuellement définie dans trackPageView() ou par startTrackPage() - stopTrackPage(). Pas identique aux valeurs clientPerformance. |
-| view [0] name |chaîne |Titre de la page.  Longueur maximale 250 |
-| view [0] url |chaîne | |
-| view [0] urlData.base |chaîne | |
-| view [0] urlData.hashTag |chaîne | |
-| view [0] urlData.host |chaîne | |
+| view [0] name |string |Titre de la page.  Longueur maximale 250 |
+| view [0] url |string | |
+| view [0] urlData.base |string | |
+| view [0] urlData.hashTag |string | |
+| view [0] urlData.host |string | |
 
 ## <a name="availability"></a>Disponibilité
 Consigne les [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md).
 
-| path | Type | Notes |
+| Path | Type | Notes |
 | --- | --- | --- |
-| availability [0] availabilityMetric.name |chaîne |Availability |
+| availability [0] availabilityMetric.name |string |Availability |
 | availability [0] availabilityMetric.value |number |1.0 ou 0.0 |
 | availability [0] count |integer |100 / (taux d’[échantillonnage](../../azure-monitor/app/sampling.md) ). Par exemple, 4 =&gt; 25 %. |
-| availability [0] dataSizeMetric.name |chaîne | |
+| availability [0] dataSizeMetric.name |string | |
 | availability [0] dataSizeMetric.value |integer | |
-| availability [0] durationMetric.name |chaîne | |
+| availability [0] durationMetric.name |string | |
 | availability [0] durationMetric.value |number |Durée du test. 1e7 = 1s |
-| availability [0] message |chaîne |Diagnostic de défaillance |
-| availability [0] result |chaîne |Réussite/Échec |
-| availability [0] runLocation |chaîne |Source géographique de la requête HTTP |
-| availability [0] testName |chaîne | |
-| availability [0] testRunId |chaîne | |
-| availability [0] testTimestamp |chaîne | |
+| availability [0] message |string |Diagnostic de défaillance |
+| availability [0] result |string |Réussite/Échec |
+| availability [0] runLocation |string |Source géographique de la requête HTTP |
+| availability [0] testName |string | |
+| availability [0] testRunId |string | |
+| availability [0] testTimestamp |string | |
 
 ## <a name="metrics"></a>Mesures
 Généré par TrackMetric().

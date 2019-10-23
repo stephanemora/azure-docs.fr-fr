@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 33fc6e59a0a85275b055524d8ccf5d78935725a8
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 05ce5fd560168c1f60b7c559539f4a368ba83ca8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718758"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754276"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Passer en revue la facturation d’un abonnement avec les API REST
 
@@ -92,7 +92,7 @@ Chaque élément de **value** représente une information détaillée concernant
 |**meterDetails** | Informations détaillées sur l’utilisation. |
 |**nextLink**| Quand elle est définie, spécifie une URL pour la « page » suivante d’informations détaillées. Vide quand la page est la dernière. |
 
-Cet exemple est abrégé ; consultez [Liste des détails d’utilisation](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) pour une description complète de chaque champ de la réponse.
+Cet exemple est abrégé ; consultez [Liste des détails d’utilisation](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) pour une description complète de chaque champ de la réponse.
 
 Les autres codes d’état indiquent les conditions d’erreur. Dans ces cas, l’objet de réponse explique pourquoi la demande a échoué.
 

@@ -1,23 +1,18 @@
 ---
 title: Limites du service Azure Monitor | Microsoft Docs
 description: Répertorie les limites dans différentes zones d’Azure Monitor.
-author: bwren
-manager: carmonm
-editor: tysonn
-services: azure-monitor
-documentationcenter: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/10/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 0386700c238c213fd9cde3ca1b49e5e598d05bfd
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 06/10/2019
+ms.openlocfilehash: 37401a8eb2a8da82cef4854ab41e40b81ba429fa
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405675"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597274"
 ---
 # <a name="azure-monitor-service-limits"></a>Limites du service Azure Monitor
 
@@ -31,7 +26,7 @@ Cet article répertorie les limites dans différentes zones d’Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
 
-## <a name="log-queries-and-language"></a>Requêtes de journal et langage
+## <a name="log-queries-and-language"></a>Requêtes dans les journaux et langage
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 

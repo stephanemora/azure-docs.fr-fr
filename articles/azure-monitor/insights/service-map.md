@@ -1,24 +1,18 @@
 ---
 title: Utiliser la solution Service Map dans Azure | Microsoft Docs
 description: Service Map est une solution comprise dans Azure qui détecte automatiquement les composants d’application sur les systèmes Windows et Linux et mappe la communication entre les services. Cet article fournit des informations sur le déploiement de Service Map dans votre environnement et son utilisation dans divers scénarios.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 98bf38a6c293f6d339413b5395bb32d74bcb30c0
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 07/24/2019
+ms.openlocfilehash: 00bb58c88b7dc535bf76e1a96e9748a2c366b338
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905712"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554002"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 

@@ -1,18 +1,18 @@
 ---
 title: Utiliser des jetons de ressource Azure Cosmos DB avec le SDK Gremlin
 description: Découvrez comment créer des jetons de ressource et les utiliser pour accéder à la base de données de graphe.
-author: olignat
+author: luisbosquez
+ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/06/2019
-ms.author: olignat
-ms.openlocfilehash: 6364bd0f762647b5fe9567ed40042a5ad81f97c1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 443b6ea2583c7c8a1c633cf1825e83cc02bd168c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105033"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756062"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Utiliser des jetons de ressource Azure Cosmos DB avec le SDK Gremlin
 

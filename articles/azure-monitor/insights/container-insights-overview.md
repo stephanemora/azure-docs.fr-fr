@@ -1,24 +1,18 @@
 ---
 title: Vue d’ensemble d’Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit Azure Monitor pour les conteneurs qui surveille la solution AKS Container Service et la valeur qu’elle offre en surveillant l’intégrité de vos clusters AKS et Container Instances dans Azure.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: e1fca1532352c4955f478df70f818ee3151053c1
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.date: 08/02/2019
+ms.openlocfilehash: 8a6a9862679508971edd23b2d4220446c2692d72
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742209"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555381"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Vue d’ensemble d’Azure Monitor pour les conteneurs
 

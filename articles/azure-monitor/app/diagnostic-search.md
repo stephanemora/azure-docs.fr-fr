@@ -1,23 +1,18 @@
 ---
 title: Utilisation de la recherche dans Azure Application Insights | Microsoft Docs
 description: Recherchez et filtrez la télémétrie brute envoyée par votre application web.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/30/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: d08fd2ac6db63eee01c0653d2dbb1623fb1b51ed
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.date: 07/30/2019
+ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68705424"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678054"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 

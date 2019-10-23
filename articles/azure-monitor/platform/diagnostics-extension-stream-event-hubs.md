@@ -1,20 +1,18 @@
 ---
 title: Diffuser des données Diagnostics Azure en continu à Event Hubs
 description: Configuration de bout en bout de Diagnostics Azure avec Event Hubs, y compris des conseils relatifs aux scénarios courants.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/13/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 07/13/2017
+ms.openlocfilehash: 2b24618e4d7c12366db5e72226c6f94924d4d3a5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "64922824"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555534"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Diffusion des données de Diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs
 Diagnostics Azure propose des moyens flexibles de collecter des mesures et des journaux à partir de machines virtuelles de services cloud et de transférer les résultats dans Stockage Azure. Depuis mars 2016 (Kit de développement logiciel (SDK) 2.9), vous pouvez envoyer les données Diagnostics à des sources de données personnalisées et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).

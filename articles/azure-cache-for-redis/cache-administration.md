@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: bb7b9a41523ab1b1addbf37cb7b463f12a72a814
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: afb48c18f9690e77a5478956e1147acf850290ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263661"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756616"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Guide pratique pour administrer le Cache Azure pour Redis
 Cette rubrique explique comment effectuer des tâches d’administration comme le [redémarrage](#reboot) et la [planification des mises à jour](#schedule-updates) de vos instances du Cache Azure pour Redis.
@@ -71,7 +71,7 @@ Si vous redémarrez à la fois les nœuds **Maître** et **Subordonné**, toutes
 Si vous redémarrez simplement l’un des nœuds, les données ne sont généralement pas perdues, mais elles peuvent toujours l’être. Par exemple, si le nœud principal est redémarré et qu’une opération d’écriture dans le cache est en cours, les données écrites dans le cache sont perdues. Vous êtes également susceptible de perdre des données lorsque vous redémarrez un nœud et que l’autre nœud se met hors service en même temps en raison d’une défaillance. Pour plus d’informations sur les causes possibles d’une perte de données, voir [Qu’est-il arrivé à mes données dans Redis ?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Est-il possible de redémarrer mon cache à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres outils de gestion ?
-Oui. Pour connaître les instructions PowerShell, voir [Redémarrer un Cache Azure pour Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+Oui. Pour connaître les instructions PowerShell, voir [Redémarrer un Cache Azure pour Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ## <a name="schedule-updates"></a>Planifier les mises à jour
 Le panneau **Planification de mises à jour** vous permet de désigner une fenêtre de maintenance pour votre instance de cache. Lorsque la fenêtre de maintenance est spécifiée, toute mise à jour du serveur Redis est effectuée pendant cet intervalle. 

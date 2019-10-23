@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 1d7a18f3f46cec73d70389b82eed5a85e440d340
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4756635ae0ab0d282975a6376e60da5f148917
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119076"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755418"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Création et gestion du Cache Azure pour Redis à l’aide de l’interface de ligne de commande classique Azure
 > [!div class="op_single_selector"]
-> * [PowerShell](cache-howto-manage-redis-cache-powershell.md)
+> * [PowerShell](cache-how-to-manage-redis-cache-powershell.md)
 > * [Azure Classic CLI](cache-manage-cli.md)
 >
 
@@ -58,9 +58,9 @@ Les propriétés suivantes sont utilisées lors de la création et de la mise à
 | Réseau virtuel |-v, --virtual-network |Quand vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de la ressource ARM exacte du réseau virtuel où déployer le Cache Azure pour Redis. Exemple de format : /subscriptions/{ID_abonnement}/resourceGroups/{nom_groupe_ressources}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | key type |-t, --key-type |Type de clé à renouveler. Valeurs valides : [Primary, Secondary] |
 | StaticIP |-p, --static-ip \<static-ip\> |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie une adresse IP unique dans le sous-réseau pour le cache. Si elle est omise, une adresse IP est choisie pour vous dans le sous-réseau. |
-| Sous-réseau |t, --subnet \<subnet\> |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie le nom du sous-réseau dans lequel déployer le cache. |
+| Subnet |t, --subnet \<subnet\> |Lorsque vous hébergez votre cache dans un réseau virtuel, spécifie le nom du sous-réseau dans lequel déployer le cache. |
 | VirtualNetwork |-v, --virtual-network \<virtual-network\> |Quand vous hébergez votre cache dans un réseau virtuel, spécifie l’ID de la ressource ARM exacte du réseau virtuel où déployer le Cache Azure pour Redis. Exemple de format : /subscriptions/{ID_abonnement}/resourceGroups/{nom_groupe_ressources}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Abonnement |-s, --subscription |Identificateur de l’abonnement. |
+| Subscription |-s, --subscription |Identificateur de l’abonnement. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>Voir toutes les commandes de Cache Azure pour Redis
 Pour afficher toutes les commandes de Cache Azure pour Redis et leurs paramètres, utilisez la commande `azure rediscache -h`.

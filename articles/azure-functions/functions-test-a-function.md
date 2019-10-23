@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 9155df315a5afb9a0fa7722c955333a47a73085a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709337"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596852"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -363,7 +363,8 @@ Pour déboguer vos tests, ajoutez la configuration suivante à votre fichier *la
   "type": "node",
   "request": "launch",
   "name": "Jest Tests",
-  "program": "${workspaceRoot}\\node_modules\\jest\\bin\\jest.js",
+  "disableOptimisticBPs": true,
+  "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
   "args": [
       "-i"
   ],

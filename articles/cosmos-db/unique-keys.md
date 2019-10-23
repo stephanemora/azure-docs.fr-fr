@@ -1,18 +1,18 @@
 ---
 title: Utiliser des clés uniques dans Azure Cosmos DB
 description: Apprenez à utiliser des clés uniques dans votre base de données Azure Cosmos.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e5b8eb4d5334eb198ff6699897c56b516ded069e
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4a929566d464f8548c4bffeb9f89099e77722e67
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467565"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756792"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Contraintes des clés uniques dans Azure Cosmos DB
 

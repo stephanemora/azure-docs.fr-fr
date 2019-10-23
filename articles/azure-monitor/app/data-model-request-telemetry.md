@@ -1,23 +1,19 @@
 ---
 title: 'Modèle de données de télémétrie d’Azure Application Insights : télémétrie des requêtes | Microsoft Docs'
 description: Modèle de données Application Insights pour la télémétrie des requêtes
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: fef016d87cc60bc916fdcb08f92171e115221fe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff7b52cbd88e4927db275dee4d7fbc4691ad076b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900515"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677326"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Télémétrie des demandes : Modèle de données Application Insights
 
@@ -33,7 +29,7 @@ Le Kit de développement logiciel (SDK) Web d’Application Insights envoie le n
 
 Longueur maximale : 1 024 caractères
 
-## <a name="id"></a>ID
+## <a name="id"></a>id
 
 Identificateur d’une instance d’appel de requête. Utilisé pour la corrélation entre la requête et d’autres éléments de télémétrie. L’ID doit être globalement unique. Pour plus d’informations, consultez la page relative à la [corrélation](../../azure-monitor/app/correlation.md).
 

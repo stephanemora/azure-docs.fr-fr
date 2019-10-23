@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fa638a00e0d35e1d48bc3205ce2a77e7faf5d22e
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 0ab81d3c1d4c68827cf1569bf4a22c3311fe355d
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718383"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555827"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schéma d’événements Azure Event Grid pour le stockage Blob
 
@@ -36,17 +36,14 @@ Ces événements sont déclenchés quand un client crée, remplace ou supprime u
 
 Ces événements sont déclenchés si vous activez un espace de noms hiérarchique sur le compte de stockage et que des clients appellent des API REST Azure Data Lake Storage Gen2.
 
-> [!NOTE]
-> Ces événements sont en préversion publique. Ils sont disponibles uniquement dans les régions **Ouest des États-Unis 2** et **USA Centre-Ouest**.
-
- |Nom de l'événement|Description|
- |----------|-----------|
- |**Microsoft.Storage.BlobCreated** | Déclenché quand un objet blob est créé ou remplacé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent les opérations `CreateFile` et `FlushWithClose` qui sont disponibles dans l’API REST Azure Data Lake Storage Gen2. |
- |**Microsoft.Storage.BlobDeleted** |Déclenché quand un objet blob est supprimé. <br>Plus précisément, cet événement est également déclenché quand des clients appellent l’opération `DeleteFile` qui est disponible dans l’API REST Azure Data Lake Storage Gen2. |
- |**Microsoft.Storage.BlobRenamed**|Déclenché quand un objet blob est renommé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `RenameFile` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryCreated**|Déclenché quand un répertoire est créé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `CreateDirectory` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryRenamed**|Déclenché quand un répertoire est renommé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `RenameDirectory` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
- |**Microsoft.Storage.DirectoryDeleted**|Déclenché quand un répertoire est supprimé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `DeleteDirectory` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
+|Nom de l'événement|Description|
+|----------|-----------|
+|**Microsoft.Storage.BlobCreated** | Déclenché quand un objet blob est créé ou remplacé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent les opérations `CreateFile` et `FlushWithClose` qui sont disponibles dans l’API REST Azure Data Lake Storage Gen2. |
+|**Microsoft.Storage.BlobDeleted** |Déclenché quand un objet blob est supprimé. <br>Plus précisément, cet événement est également déclenché quand des clients appellent l’opération `DeleteFile` qui est disponible dans l’API REST Azure Data Lake Storage Gen2. |
+|**Microsoft.Storage.BlobRenamed**|Déclenché quand un objet blob est renommé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `RenameFile` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
+|**Microsoft.Storage.DirectoryCreated**|Déclenché quand un répertoire est créé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `CreateDirectory` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
+|**Microsoft.Storage.DirectoryRenamed**|Déclenché quand un répertoire est renommé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `RenameDirectory` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
+|**Microsoft.Storage.DirectoryDeleted**|Déclenché quand un répertoire est supprimé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent l’opération `DeleteDirectory` qui est disponible dans l’API REST Azure Data Lake Storage Gen2.|
 
 > [!NOTE]
 > Si vous voulez vérifier que l’événement **Microsoft.Storage.BlobCreated** est déclenché uniquement quand un objet blob de blocs est entièrement validé, filtrez l’événement pour l’appel d’API REST `FlushWithClose`. Cet appel d’API déclenche l’événement **Microsoft.Storage.BlobCreated** uniquement quand les données sont entièrement validées dans un objet blob de blocs. Pour savoir comment créer un filtre, consultez [Filtrer des événements pour Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).

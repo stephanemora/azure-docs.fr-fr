@@ -1,24 +1,18 @@
 ---
 title: Surveiller les services de stockage Azure avec Azure Monitor pour le stockage (préversion) | Microsoft Docs
 description: Cet article décrit la fonctionnalité Azure Monitor pour le stockage, qui fournit aux administrateurs du stockage une compréhension rapide des problèmes de performances et d’utilisation avec leurs comptes de stockage Azure.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 1ab49d17ebf10a1ae0277768ddbd1878195d835d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 08/15/2019
+ms.openlocfilehash: e5738b9f7cca03898d3bb5c593004bb316aa0b23
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212767"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553886"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Analyse de votre service de stockage avec Azure Monitor pour le stockage (préversion)
 

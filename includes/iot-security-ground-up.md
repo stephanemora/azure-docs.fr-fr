@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 128a2e8b200f1323b88aad635f27c1b686ecbed2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177177"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789710"
 ---
-# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Sécurisation de l’Internet des objets (IdO) de bout en bout
-
 L’Internet des objets (IoT, Internet of Things) confronte les entreprises du monde entier à des défis uniques en termes de sécurité, de confidentialité et de conformité. Contrairement à la technologie informatique traditionnelle où ces problèmes sont axés sur les logiciels et leur mode d’implémentation, l’IoT porte sur les effets de la convergence entre le monde informatique et le monde physique. La protection des solutions IoT implique un approvisionnement sécurisé des appareils, une connexion sécurisée entre ces appareils et le cloud et une protection efficace des données dans le cloud, dans le cadre du traitement et du stockage. Cependant, les appareils avec contraintes de ressources, la répartition géographique des déploiements et le grand nombre d’appareils inclus au sein d’une solution vont à l’encontre de ces fonctionnalités.
 
 Cet article étudie de quelle façon les accélérateurs de solution IoT fournissent une solution Internet des objets sécurisée et privée dans le cloud. Les accélérateurs de solution offrent une solution complète et de bout en bout qui intègre la sécurité à chaque étape. Enraciné dans des décennies d’expérience, le développement de logiciels sécurisés fait partie intégrante des pratiques de Microsoft en matière d’ingénierie logicielle. À cet égard, l’approche Security Development Lifecycle (SDL) représente la méthodologie de développement fondamentale. Elle est associée à une multitude de services de sécurité au niveau de l’infrastructure, comme le processus OSA (Operational Security Assurance), la Microsoft Digital Crimes Unit, Microsoft Security Response Center et le Centre de protection Microsoft contre les programmes malveillants.

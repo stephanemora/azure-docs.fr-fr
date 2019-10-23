@@ -1,23 +1,18 @@
 ---
 title: 'Guide de dépannage : Application Insights pour .NET'
 description: Vous ne voyez pas de données dans Azure Application Insights ? Essayez ici.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: e231569f-1b38-48f8-a744-6329f41d91d3
-ms.service: application-insights
-ms.workload: mobile
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/23/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b4bfd984f1e169cb1044002118f9534c4efc9bd8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 07/23/2018
+ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169574"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678344"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Guide de dépannage : Application Insights pour .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Certaines de mes données télémétriques manquent

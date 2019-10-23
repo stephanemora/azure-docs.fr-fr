@@ -1,24 +1,19 @@
 ---
 title: Recherches enregistrées dans des solutions de gestion | Microsoft Docs
 description: Les solutions de gestion incluent généralement des recherches enregistrées dans Log Analytics afin d’analyser les données collectées par la solution. Elles peuvent également définir des alertes pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique. Cet article décrit comment définir les recherches enregistrées Log Analytics dans un modèle Resource Manager de sorte qu’elles puissent être incluses dans des solutions de gestion.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/29/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5372ac8b31db91aaac018b203ee8868fa313fd8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: ce4f3dcbc28668f786c706e7029061e541a76ce9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772983"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553910"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 

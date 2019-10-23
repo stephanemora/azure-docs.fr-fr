@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: 793dbf056201a3315a9b77dfebbb9331a8ed7db1
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 69104cdaeb4abfc15e2ac4209e1ddbc610656c13
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310596"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793982"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Autorisations et rôles Azure Container Registry
 
@@ -23,7 +23,7 @@ Le service Azure Container Registry prend en charge un ensemble de rôles Azure 
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Propriétaire | X | X | X | X | X | X |  |  
 | Contributeur | X | X | X |  X | X | X |  |  
-| Lecteur | X |  |  |  |  |  |  |
+| Lecteur | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |

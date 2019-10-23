@@ -3,15 +3,15 @@ title: Exécuter votre première requête à l’aide de l’Explorateur Azure R
 description: Cet article vous guide tout au long des étapes à suivre pour exécuter votre première requête à partir du portail Azure à l’aide de l’Explorateur Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387605"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752147"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Démarrage rapide : Exécuter votre première requête Resource Graph à l’aide de l’Explorateur Azure Resource Graph
 
@@ -45,7 +45,10 @@ Si votre environnement ne change pas et si vous exécutez plusieurs fois la requ
 
 ### <a name="schema-browser"></a>Navigateur de schémas
 
-Le navigateur de schémas est situé dans le volet gauche de l’Explorateur Resource Graph. Cette liste de ressources montre tous les _types de ressource_ Azure pris en charge par Azure Resource Graph et présents sur le locataire auquel vous avez accès. Le développement d’un type de ressource ou de sous-propriétés montre les propriétés enfants qui peuvent être utilisées pour créer une requête Resource Graph. La sélection du type de ressource entraîne le placement de `where type =="<resource type>"` dans la zone de requête. La sélection d’une des propriétés enfants entraîne l’ajout de `where <propertyName> == "INSERT_VALUE_HERE"` dans la zone de requête. Le navigateur de schémas est un excellent moyen de découvrir les propriétés à utiliser dans les requêtes. Veillez à remplacer _INSERT\_VALUE\_HERE_ par votre propre valeur, et à modifier la requête à l’aide des conditions, des opérateurs et des fonctions nécessaires pour obtenir les résultats souhaités.
+Le navigateur de schémas est situé dans le volet gauche de l’Explorateur Resource Graph. Cette liste de ressources montre tous les _types de ressource_ Azure pris en charge par Azure Resource Graph et présents sur le locataire auquel vous avez accès. Le développement d’un type de ressource ou de sous-propriétés montre les propriétés enfants qui peuvent être utilisées pour créer une requête Resource Graph.
+
+La sélection du type de ressource entraîne le placement de `where type =="<resource type>"` dans la zone de requête. La sélection d’une des propriétés enfants entraîne l’ajout de `where <propertyName> == "INSERT_VALUE_HERE"` dans la zone de requête.
+Le navigateur de schémas est un excellent moyen de découvrir les propriétés à utiliser dans les requêtes. Veillez à remplacer _INSERT\_VALUE\_HERE_ par votre propre valeur, et à modifier la requête à l’aide des conditions, des opérateurs et des fonctions nécessaires pour obtenir les résultats souhaités.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Créer un graphique à partir de la requête Resource Graph
 

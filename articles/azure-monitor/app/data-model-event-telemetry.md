@@ -1,23 +1,19 @@
 ---
 title: 'Modèle de données de télémétrie d’Azure Application Insights : télémétrie des événements | Microsoft Docs'
 description: Modèle de données Application Insights pour la télémétrie des événements
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 8e519e5a5e5fe6b893fa5663e1426630f46f885f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 620983fb2174fe7f32a61503b0b87e8e7ce0c330
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900848"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678150"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Télémétrie des événements : Modèle de données Application Insights
 

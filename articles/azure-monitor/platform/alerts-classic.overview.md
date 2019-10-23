@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble des alertes classiques dans Microsoft Azure et Azure Monitor
 description: Les alertes classiques sont désormais déconseillées. Les alertes vous permettent d’analyser des mesures de ressources, événements ou journaux d’activité Azure, puis d’envoyer des alertes quand une condition spécifiée est remplie.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 05/19/2018
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/19/2018
+ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65914707"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555687"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 

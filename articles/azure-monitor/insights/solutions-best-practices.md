@@ -1,24 +1,18 @@
 ---
 title: Bonnes pratiques en matière de solution de gestion dans Azure | Microsoft Docs
 description: ''
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: a4f982f6265d1c8cab2ae666b9d6e2e33beb5064
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.date: 04/27/2017
+ms.openlocfilehash: 28ae01fe28b1b2d6af95567e529c7c9ae17920e4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672923"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553935"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Bonnes pratiques pour la création de solutions de gestion dans Azure (préversion)
 > [!NOTE]
@@ -38,7 +32,7 @@ Cet article décrit les bonnes pratiques pour la [création d’un fichier de so
 - Incluez le [module IngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) dans votre solution pour qu’il puisse être utilisé par les runbooks pour écrire des données dans le dépôt Log Analytics.  Configurez la solution pour [référencer](solutions-solution-file.md#solution-resource) cette ressource afin qu’elle reste si la solution est supprimée.  Cela permet à plusieurs solutions de partager le module.
 - Utilisez des [variables Automation](../../automation/automation-schedules.md) pour fournir des valeurs à la solution que les utilisateurs souhaiteront peut-être modifier ultérieurement.  Même si la solution est configurée pour contenir la variable, sa valeur peut toujours être modifiée.
 
-## <a name="views"></a>Views
+## <a name="views"></a>Les vues
 - Toutes les solutions doivent inclure une vue unique qui s’affiche dans le portail de l’utilisateur.  La vue peut contenir plusieurs [parties de visualisation](../../azure-monitor/platform/view-designer-parts.md) pour illustrer les différents ensembles de données.
 - Ajoutez un message de [vérification du flux de données](../../azure-monitor/platform/view-designer-tiles.md) à toutes les vues dans votre solution pour indiquer à l’utilisateur les sources de données qui doivent être configurées pour les données requises à collecter.
 - Configurez la solution pour qu’elle [contienne](solutions-solution-file.md#solution-resource) la vue afin qu’elle soit supprimée si la solution est supprimée.

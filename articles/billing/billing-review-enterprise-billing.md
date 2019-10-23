@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 3ff1a119ed87c8bffff227679bec41bc653c0c42
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 47668169841cc2b180995808349487cefed02391
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718770"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754301"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Passer en revue la facturation de l’Accord de Mise en Œuvre Entreprise avec les API REST
 
@@ -78,7 +78,7 @@ Le code d’état 200 (OK) est retourné pour indiquer une réponse correcte, qu
 }
 ```  
 
-Cet exemple est abrégé. Consultez [Get usage detail for a billing account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) (Obtenir les détails d’utilisation pour un compte de facturation) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
+Cet exemple est abrégé. Consultez [Get usage detail for a billing account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist-legacy) (Obtenir les détails d’utilisation pour un compte de facturation) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
 
 ## <a name="department-billing"></a>Facturation de service 
 
@@ -134,7 +134,7 @@ L’exemple suivant montre la sortie de l’API REST pour le service `1234`.
 }
 ```  
 
-Cet exemple est abrégé. Consultez [Get usage detail for a department](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) (Obtenir les détails d’utilisation pour un service) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
+Cet exemple est abrégé. Consultez [Get usage detail for a department](/rest/api/consumption/usagedetails/list#departmentusagedetailslist-legacy) (Obtenir les détails d’utilisation pour un service) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
 
 ## <a name="enrollment-account-billing"></a>Facturation du compte d’inscription
 
@@ -187,7 +187,7 @@ L’exemple suivant montre la sortie de l’API REST pour l’inscription d’en
 }
 ``` 
 
-Cet exemple est abrégé. Consultez [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) (Obtenir les détails d’utilisation pour un compte d’inscription) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
+Cet exemple est abrégé. Consultez [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) (Obtenir les détails d’utilisation pour un compte d’inscription) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consulter [Présentation des rapports d’entreprise](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

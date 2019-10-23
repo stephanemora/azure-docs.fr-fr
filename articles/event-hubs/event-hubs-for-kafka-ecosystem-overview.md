@@ -3,19 +3,19 @@ title: Utiliser un hub d’événements à partir de l’application Apache Kafk
 description: Cet article fournit des informations sur la prise en charge d’Apache Kafka par Azure Event Hubs.
 services: event-hubs
 documentationcenter: .net
-author: shvija
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shvija
+ms.openlocfilehash: d3271d6e8cb7d423e1dccd235b244688e7ab5683
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821699"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555793"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Utiliser Azure Event Hubs à partir d’applications Apache Kafka
 Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos applications Kafka pour éviter d’exécuter votre propre cluster Kafka. Event Hubs prend en charge [Apache Kafka protocole 1.0 et ultérieurs](https://kafka.apache.org/documentation/), et fonctionne avec vos applications Kafka, notamment MirrorMaker.  

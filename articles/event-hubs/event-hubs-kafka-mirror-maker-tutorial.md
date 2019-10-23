@@ -3,19 +3,19 @@ title: Utiliser Apache Kafka MirrorMaker - Azure Event Hubs | Microsoft Docs
 description: Cet article fournit des informations sur l’utilisation de Kafka MirrorMaker pour mettre en miroir un cluster Kafka dans Azure Event Hubs.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: 43a32177280361bb0c2a433af0cb5dd3cfc6b9d3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.author: shvija
+ms.openlocfilehash: 6d1596cf0a50ed5dcb896896282178b6fc12c1a1
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967604"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555108"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>Utiliser Kafka MirrorMaker avec Event Hubs pour Apache Kafka
 

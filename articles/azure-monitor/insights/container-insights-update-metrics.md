@@ -1,24 +1,18 @@
 ---
 title: Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques | Microsoft Docs
 description: Cet article décrit comment mettre à jour Azure Monitor pour conteneurs afin d’activer la fonctionnalité de métriques personnalisées prenant en charge l’exploration de métriques agrégées et la génération d’alertes sur ces dernières.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/06/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/06/2019
+ms.openlocfilehash: dd1618151b97ab4f958bfd5d50333b9551014f0f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148866"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554070"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Mise à jour d’Azure Monitor pour conteneurs afin d’activer les métriques
 Azure Monitor pour conteneurs prend désormais en charge la collecte de métriques à partir des nœuds et pods de clusters Azure Kubernetes Service (AKS), ainsi que la consignation de ces métriques dans le magasin de métriques Azure Monitor. Cette modification est destinée à accroître la rapidité d’exécution lors de la présentation de calculs agrégés (Avg, Count, Max, Min, Sum) dans les graphiques de performances, à prendre en charge l’épinglage de ces graphiques dans les tableaux de bord du Portail Azure et à gérer les alertes de métrique.

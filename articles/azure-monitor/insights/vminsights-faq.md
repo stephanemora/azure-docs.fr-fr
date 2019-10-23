@@ -1,21 +1,18 @@
 ---
 title: Questions fréquentes sur Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Azure Monitor pour machines virtuelles est une solution d’Azure qui supervise à la fois l’intégrité et les performances du système d’exploitation de la machine virtuelle Azure. En outre, elle identifie automatiquement les composants des applications et leurs dépendances avec les autres ressources, et effectue le mappage de leurs communications respectives. Cet article apporte des réponses aux questions les plus fréquentes.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/09/2018
+ms.openlocfilehash: 675277a33a5613507297f1c77ee9cef3215b22a2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522205"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555214"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur Azure Monitor pour machines virtuelles (préversion)
 Cette FAQ Microsoft est une liste de questions fréquemment posées au sujet d’Azure Monitor pour machines virtuelles (préversion). Si vous avez d’autres questions sur la solution, rendez-vous sur le [forum de discussion](https://feedback.azure.com/forums/34192--general-feedback) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.

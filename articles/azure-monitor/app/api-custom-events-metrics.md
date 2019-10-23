@@ -1,23 +1,18 @@
 ---
 title: API Application Insights pour les événements et les métriques personnalisés | Microsoft Docs
 description: Insérez quelques lignes de code dans votre application de périphérique ou de bureau, votre page web ou votre service pour suivre l'utilisation et diagnostiquer les problèmes.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/27/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 8f29ea1e3de8f71c489438cd2d794c03b72ca38e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 03/27/2019
+ms.openlocfilehash: ca77cf6b838d2e10eab422f37ff55fbb43a2dba0
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514268"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677839"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
@@ -1183,8 +1178,8 @@ Pour déterminer la durée de conservation des données, consultez [Rétention d
 
 ## <a name="reference-docs"></a>Documents de référence
 
-* [Référence ASP.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/insights?view=azure-dotnet)
-* [Référence Java](https://docs.microsoft.com/en-us/java/api/overview/azure/appinsights?view=azure-java-stable/)
+* [Référence ASP.NET](https://docs.microsoft.com/dotnet/api/overview/azure/insights?view=azure-dotnet)
+* [Référence Java](https://docs.microsoft.com/java/api/overview/azure/appinsights?view=azure-java-stable/)
 * [Référence JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 
 

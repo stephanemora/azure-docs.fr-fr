@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights pour les applications ASP.NET Core | Microsoft Docs
 description: Superviser la disponibilité, les performances et l’utilisation des applications web ASP.NET Core.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 939a29e8d7b03c5af28342dffe44939f8ec34ae0
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 05/22/2019
+ms.openlocfilehash: 5b9b92cd39e8d540f784d82d6c7f4a5754c85b62
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258464"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677723"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights pour applications ASP.NET Core
 

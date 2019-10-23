@@ -2,18 +2,18 @@
 title: Streaming de données avec Azure Event Hubs en utilisant le protocole Kafka | Microsoft Docs
 description: Cet article fournit des informations sur la façon d’effectuer une diffusion en continu dans Azure Event Hubs à l’aide du protocole Kafka et d’API.
 services: event-hubs
-author: basilhariri
-ms.author: bahariri
+author: ShubhaVijayasarathy
+ms.author: shvija
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 05/06/2019
-ms.openlocfilehash: a4e050fdef20cdc62ee92e6383c455ffcb9abc90
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ebe3dc39cf135f09c084a8325d380b9bc9ef48dc
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203918"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554974"
 ---
 # <a name="data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Streaming de données avec Event Hubs en utilisant le protocole Kafka
 Ce guide de démarrage rapide montre comment échanger des données avec Event Hubs prenant en charge Kafka, sans changer vos protocoles clients ni exécuter vos propres clusters. Vous découvrez comment utiliser vos producteurs et vos consommateurs pour communiquer avec Event Hubs prenant en charge Kafka, avec seulement une modification de configuration dans vos applications. Azure Event Hubs prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)

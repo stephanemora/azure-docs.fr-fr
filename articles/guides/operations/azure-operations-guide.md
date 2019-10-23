@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543429"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693448"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -461,7 +461,6 @@ Par défaut, un réseau virtuel Azure est accessible uniquement aux ressources s
 ### <a name="hybrid-virtual-networks"></a>Réseaux virtuels hybrides
 
 Vous pouvez connecter le réseau local à un réseau virtuel Azure par le biais d’une connexion ExpressRoute ou VPN de site à site. Dans cette configuration, le réseau virtuel Azure est essentiellement une extension cloud de votre réseau local.
-![Réseau virtuel hybride utilisant VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Le réseau virtuel Azure étant connecté à votre réseau local, les réseaux virtuels entre locaux ne doivent utiliser qu’une partie de l’espace d’adressage utilisé par votre organisation. De la même façon que les différents locaux de l’entreprise se voient affecter un sous-réseau IP spécifique, Azure devient un emplacement supplémentaire lorsque vous étendez votre réseau.
 Il existe plusieurs options pour déployer un réseau virtuel.

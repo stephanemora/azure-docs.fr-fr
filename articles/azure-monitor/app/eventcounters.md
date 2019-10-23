@@ -1,23 +1,18 @@
 ---
 title: Compteurs d’événements dans Application Insights | Microsoft Docs
 description: Supervisez les compteurs d’événements .NET/.NET Core système et personnalisés dans Application Insights.
-services: application-insights
-documentationcenter: ''
-author: cithomas
-manager: carmonm
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/20/2019
+author: cithomas
 ms.author: cithomas
-ms.openlocfilehash: fc9148d4f4c5920210b9218ca70f270bae3b663b
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.date: 09/20/2019
+ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273943"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72677165"
 ---
 # <a name="eventcounters-introduction"></a>Présentation des compteurs d’événements
 

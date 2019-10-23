@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: akjosh
-ms.openlocfilehash: 3a999b93ce7246a91db8dd3df7536513b6e11029
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 86c05519e7027ec8b7434919bf43f9b4602b0300
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174044"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789959"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Utiliser l’extension de script personnalisé Azure version 2 avec des machines virtuelles Linux
 L’extension de script personnalisé version 2 télécharge et exécute des scripts sur des machines virtuelles Azure. Elle est utile pour la configuration de post-déploiement, l’installation de logiciels ou toute autre tâche de configuration/gestion. Il est possible de télécharger des scripts à partir du Stockage Azure ou de tout autre emplacement Internet accessible, ou de les fournir au runtime de l’extension. 
@@ -38,7 +38,7 @@ Basculez entre les déploiements existant et nouveau pour utiliser plutôt la no
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension de script personnalisé pour Linux s’exécute sur les systèmes d’exploitation pris en charge par l’extension. Pour en savoir plus, voir cet [article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+L’extension de script personnalisé pour Linux s’exécute sur les systèmes d’exploitation pris en charge par l’extension. Pour en savoir plus, voir cet [article](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
 ### <a name="script-location"></a>Emplacement du script
 

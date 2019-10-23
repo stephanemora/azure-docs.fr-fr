@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e14025a5a7a3e81404498638d6f6f9c5ff18ed58
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1dc4065540256c8af0856b0e156053f7c2097c1f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650760"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755848"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
 
@@ -48,7 +48,7 @@ Dans cette section, vous créez un pipeline de build. Configurez le pipeline de 
 >1. Dans Azure, DevOps, sélectionnez l’icône de votre profil, puis **Fonctionnalités d'évaluation**.
 >2. Désactivez **Nouvelle expérience de création de pipeline YAML**. 
 >
->Pour plus d’informations, consultez [Créer un pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
+>Pour plus d’informations, consultez [Créer un pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
 1. Connectez-vous à votre organisation Azure DevOps (**https:\//dev.azure.com/{votre organisation}/** ), puis ouvrez le projet contenant votre référentiel de solutions IoT Edge.
 

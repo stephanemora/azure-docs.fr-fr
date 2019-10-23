@@ -1,18 +1,18 @@
 ---
 title: Stockage transactionnel et analytique distribué à l’échelle mondiale pour les conteneurs Azure Cosmos
 description: Apprenez-en davantage sur le stockage transactionnel et analytique et ses options de configuration pour les conteneurs Azure Cosmos.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 27ca2102ee95273fbedd1a870e57d2ae3318e879
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: abf222b7a6d6e8fd053fa83c066d2b7850f575ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703622"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756905"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Stockage transactionnel et analytique distribué à l’échelle mondiale pour les conteneurs Azure Cosmos
 

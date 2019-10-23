@@ -1,18 +1,18 @@
 ---
 title: Points de terminaison régionaux pour la base de données de graphes Azure Cosmos DB
 description: Découvrir comment se connecter au point de terminaison de base de données de graphes le plus proche pour votre application
-author: olignat
+author: luisbosquez
+ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/09/2019
-ms.author: olignat
-ms.openlocfilehash: a7db86c120fd633dd70fbb5733383c98a25e2cde
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 6bce69889910296f5ff28090e62cfe27c0640d95
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886853"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755028"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Points de terminaison régionaux pour le compte de graphe Azure Cosmos DB
 Comme la base de données de graphes Azure Cosmos DB est [globalement distribuée](distribute-data-globally.md), les applications peuvent utiliser plusieurs points de terminaison de lecture. Les applications qui ont besoin d’un accès en écriture dans plusieurs emplacements doivent activer la fonctionnalité [multimaître](how-to-multi-master.md).

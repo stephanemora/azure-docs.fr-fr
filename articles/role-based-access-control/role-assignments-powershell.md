@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4eaf59200295a25498d3c8b84196e73a703b055d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 5a6ed66efa0f73f957c3acb048136a5328f9c264
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995246"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750164"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle RBAC et d'Azure PowerShell
 
@@ -423,7 +423,7 @@ L’exemple suivant retire le rôle <nom_du_rôle> à <id_objet> dans l’étend
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Si vous obtenez le message d’erreur : « Les informations fournies ne dirigent pas à une attribution de rôle », veillez à vérifier que vous avez aussi spécifié les paramètres `-Scope` ou `-ResourceGroupName`. Pour plus d’informations, consultez [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure](troubleshooting.md#role-assignments-without-a-security-principal).
+Si vous obtenez le message d’erreur : « Les informations fournies ne dirigent pas à une attribution de rôle », veillez à vérifier que vous avez aussi spécifié les paramètres `-Scope` ou `-ResourceGroupName`. Pour plus d’informations, consultez [Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

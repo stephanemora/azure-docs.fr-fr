@@ -1,22 +1,18 @@
 ---
 title: Gestion Azure et Microsoft Operations Management Suite (OMS) | Microsoft Docs
 description: Vue d’ensemble des domaines de gestion des applications et ressources Azure avec des liens vers du contenu sur les outils de gestion Azure qui étaient auparavant regroupés dans l’offre Operations Management Suite (OMS).
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4096ee477dc1d40ff6b98b20dd384c6ffad17e5f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 09/07/2018
+ms.openlocfilehash: 7f515c1c5d44058e14f02f7681bfbb7fd2787c6f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779265"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597366"
 ---
 # <a name="azure-management---monitoring"></a>Gestion et surveillance Azure
 

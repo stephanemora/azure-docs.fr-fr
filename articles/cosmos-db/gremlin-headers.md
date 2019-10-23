@@ -1,18 +1,18 @@
 ---
 title: En-têtes de réponse Gremlin d’Azure Cosmos DB
 description: Documentation de référence sur les métadonnées de réponse de serveur permettant de résoudre des problèmes supplémentaires
-author: olignat
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-ms.author: olignat
-ms.openlocfilehash: 9efd2afe2e1048b205f8ae0b0680fad2417c42bf
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+author: luisbosquez
+ms.author: lbosq
+ms.openlocfilehash: 95677f4c45c0213de5ffac5521bac1c6bf7294e4
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737447"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755075"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>En-têtes de réponse du serveur Gremlin d’Azure Cosmos DB
 Cet article traite des en-têtes que le serveur Gremlin de Cosmos DB retourne à l’appelant lors de l’exécution d’une requête. Ces en-têtes sont utiles pour la résolution des problèmes de performance des requêtes et la création d’applications s’intégrant de manière native au service Cosmos DB. Ils contribuent également à simplifier les opérations du service clientèle.

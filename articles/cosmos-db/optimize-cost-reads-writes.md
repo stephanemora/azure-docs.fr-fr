@@ -1,17 +1,17 @@
 ---
 title: Optimisation des coûts de lecture et d’écriture dans Azure Cosmos DB
 description: Cet article explique comment réduire les coûts d’Azure Cosmos DB lors de l’exécution d’opérations de lecture et d’écriture sur les données.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: 13ce5ee8b0e2a5d9cc84ea1a408ebba152b46050
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 934853b80c6e6377923df4c2b5cce7b7d7d57d7c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967406"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754926"
 ---
 # <a name="optimize-reads-and-writes-cost-in-azure-cosmos-db"></a>Optimisation des coûts de lecture et d’écriture dans Azure Cosmos DB
 

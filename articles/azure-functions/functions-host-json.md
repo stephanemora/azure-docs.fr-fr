@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b714559c6c009139da97c7d90425011fb3130ef8
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263315"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596870"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -69,7 +69,7 @@ L’exemple de fichier *host.json* suivant contient toutes les options possibles
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
+              "maxTelemetryItemsPerSecond" : 20
             }
         }
     },
@@ -104,7 +104,7 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](.
     "applicationInsights": {
         "samplingSettings": {
           "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
+          "maxTelemetryItemsPerSecond" : 20
         }
     }
 }
@@ -116,7 +116,7 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](.
 |Propriété  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|true|Active ou désactive l’échantillonnage.| 
-|maxTelemetryItemsPerSecond|5\.|Seuil à partir duquel l’échantillonnage débute.| 
+|maxTelemetryItemsPerSecond|20|Seuil à partir duquel l’échantillonnage débute.| 
 |EnableLiveMetrics |true|Active la collecte des métriques temps réel.|
 |EnableDependencyTracking|true|Active le suivi des dépendances.|
 |EnablePerformanceCountersCollection|true|Active la collecte des compteurs de performances Kudu.|

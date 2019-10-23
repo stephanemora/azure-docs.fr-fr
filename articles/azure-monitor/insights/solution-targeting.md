@@ -1,24 +1,18 @@
 ---
 title: Ciblage des solutions de supervision dans Azure Monitor | Microsoft Docs
 description: Le ciblage des solutions de supervision vous permet de limiter les solutions de supervision à un ensemble spécifique d'agents.  Cet article décrit comment créer une configuration d’étendue et l’appliquer à une solution.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4082847e1871fc03713471b0c043dddb80f91b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/27/2017
+ms.openlocfilehash: 04b47cb6079d9213c1a20425f62286f1b2aa778b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110342"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555312"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Ciblage des solutions de supervision dans Azure Monitor (préversion)
 Lorsque vous ajoutez une solution de supervision à votre abonnement, par défaut, celle-ci est automatiquement déployée sur tous les agents Windows et Linux connectés à votre espace de travail Log Analytics.  Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents.  Cet article explique comment utiliser le **ciblage de solution**, une fonctionnalité qui permet d’appliquer une étendue à vos solutions.

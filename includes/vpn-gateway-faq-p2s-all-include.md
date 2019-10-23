@@ -9,10 +9,10 @@ ms.date: 05/23/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3cffd2de0763ea6984b64b965ce1214951d3d569
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "67056479"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Combien de points de terminaison clients VPN puis-je avoir dans ma configuration point à site ?

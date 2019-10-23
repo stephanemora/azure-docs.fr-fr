@@ -1,24 +1,18 @@
 ---
 title: Guide pratique pour interroger des journaux à partir d’Azure Monitor pour conteneurs | Microsoft Docs
 description: Azure Monitor pour conteneurs collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 07/12/2019
+ms.openlocfilehash: c3a034776b32db57f70ddee960c1cd5fc96b170b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948045"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555413"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Guide pratique pour interroger des journaux à partir d’Azure Monitor pour conteneurs
 

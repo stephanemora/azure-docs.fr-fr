@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773216"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784815"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
@@ -72,10 +72,10 @@ Vous pouvez également exporter la liste de contacts existante d'une offre, puis
 
     | **Rôle**    | **Description**  |
     | :------------------- | :-------------------|
-    | *Marketing partenaires* | Ce rôle est axé sur l'aspect marketing de votre solution et sur la collaboration aux efforts de marketing avec les équipes commerciales de Microsoft et les revendeurs partenaires. Principal point de contact pour les engagements marketing et le contenu des listes d'offres, comme les descriptions de produits, les images et les vidéos. |
-    | *Ventes partenaires* | Ce rôle est axé sur la vente de votre solution ainsi que sur la collaboration avec les équipes commerciales de Microsoft et les revendeurs partenaires. Pour les solutions de co-vente, fournissez au moins un contact commercial partenaire par région dans laquelle vous souhaitez devenir « Co-sell Ready ». Le même contact commercial partenaire peut couvrir plusieurs régions. |
-    | *Support technico-commercial partenaires* | Prend en charge l'architecture technique et les considérations relatives au déploiement pendant le cycle de vente, l'intégration après-vente et les périodes de déploiement. |
-    | *Responsable réussite clients partenaires* | Assure généralement la prise en charge des clients après le déploiement, pour les aider à tirer le meilleur parti de votre solution et à accroître son empreinte au sein de l'organisation du client. |
+    | *:::no-loc text="Partner marketing":::* | Ce rôle est axé sur l'aspect marketing de votre solution et sur la collaboration aux efforts de marketing avec les équipes commerciales de Microsoft et les revendeurs partenaires. Principal point de contact pour les engagements marketing et le contenu des listes d'offres, comme les descriptions de produits, les images et les vidéos. |
+    | *:::no-loc text="Partner sales":::* | Ce rôle est axé sur la vente de votre solution ainsi que sur la collaboration avec les équipes commerciales de Microsoft et les revendeurs partenaires. Pour les solutions de co-vente, fournissez au moins un contact commercial partenaire par région dans laquelle vous souhaitez devenir « Co-sell Ready ». Le même contact commercial partenaire peut couvrir plusieurs régions. |
+    | *:::no-loc text="Partner technical sales":::* | Prend en charge l'architecture technique et les considérations relatives au déploiement pendant le cycle de vente, l'intégration après-vente et les périodes de déploiement. |
+    | *:::no-loc text="Partner customer success manager":::* | Assure généralement la prise en charge des clients après le déploiement, pour les aider à tirer le meilleur parti de votre solution et à accroître son empreinte au sein de l'organisation du client. |
 
 * *Pays/Régions (obligatoire) :*  lorsque vous complétez le modèle, utilisez les [codes de pays/région à deux lettres répertoriés ici](./commercial-marketplace-co-sell-countries.md). Si le contact couvre l'ensemble des pays/régions, utilisez le code à trois lettres « OOO ». Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux lettres séparés par une virgule (par exemple, entrez « US, CA, FR » sans guillemets dans le modèle).
 

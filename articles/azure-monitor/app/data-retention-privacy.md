@@ -1,23 +1,18 @@
 ---
 title: Conservation et stockage des données dans Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 08/22/2019
+ms.openlocfilehash: 62758ef82b074e093e837b2095dd9f27ab31657b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207297"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678095"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 

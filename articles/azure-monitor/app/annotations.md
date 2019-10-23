@@ -1,23 +1,18 @@
 ---
 title: Annotations de version pour Application Insights | Microsoft Docs
 description: Ajouter des marqueurs déploiement ou de build aux graphiques Metrics Explorer dans Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/01/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: e3ec202ba6126b150fb78c76591682f163018661
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/01/2019
+ms.openlocfilehash: 9dbdd683a8545e0f8c573dfba60daa96ef5ff08d
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604544"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677857"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
 
@@ -49,7 +44,7 @@ Créez une clé API distincte pour chacun de vos modèles de mise en production 
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez la ressource Application Insights qui surveille votre application. Si vous n’en avez pas, [créez une ressource Application Insights](../../azure-monitor/app/app-insights-overview.md).
    
-1. Ouvrez l’onglet **Accès d’API** et copiez l’**ID d’Application Insights**.
+1. Ouvrez l’onglet **Accès à l’API** et copiez l’**ID d’Application Insights**.
    
    ![Sous Accès d’API, copiez l’ID d’application.](./media/annotations/2-app-id.png)
 

@@ -1,25 +1,19 @@
 ---
 title: Générer une solution de gestion dans Azure | Microsoft Docs
 description: Les solutions de gestion incluent des scénarios de gestion prêts à l’emploi dans Azure que les clients peuvent ajouter à leur espace de travail Log Analytics.  Cet article fournit des informations sur la manière dont vous pouvez créer des solutions de gestion à utiliser dans votre propre environnement ou à mettre à la disposition de vos clients.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef1af4d3d27bc098341a4de716e293557baa946a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595793"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555287"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Concevoir et générer une solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -59,7 +53,7 @@ Si le problème peut potentiellement être corrigé avec un processus automatis�
 
 Si votre solution nécessite une fonctionnalité externe en réponse à une alerte, alors vous pouvez utiliser une [réponse webhook](../../azure-monitor/platform/alerts-metric.md).  Cela vous permet d’appeler un service web externe envoyant des informations à partir de l’alerte.
 
-### <a name="views"></a>Views
+### <a name="views"></a>Les vues
 Les vues dans Log Analytics permettent de visualiser les données à partir du référentiel de Log Analytics.  Chaque solution contient en général une vue unique avec une [mosaïque](../../azure-monitor/platform/view-designer-tiles.md) qui s’affiche sur le tableau de bord principal de l’utilisateur.  La vue peut contenir n’importe quel nombre de [composants de visualisation](../../azure-monitor/platform/view-designer-parts.md) pour fournir différentes visualisations des données collectées à l’utilisateur.
 
 Vous [créez des vues personnalisées à l’aide du Concepteur de vue](../../azure-monitor/platform/view-designer.md) que vous pouvez ultérieurement exporter pour l’inclure dans votre fichier solution.  

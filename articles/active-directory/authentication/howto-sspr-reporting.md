@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 794a99481d9394229e77168e75c48f4110735578
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536925"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786726"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -38,10 +38,6 @@ Les questions suivantes peuvent trouver réponse dans les rapports qui existent 
 * Quels sont les problèmes courants rencontrés par les utilisateurs ou les administrateurs lors des tentatives d’utilisation de la fonctionnalité de réinitialisation des mots de passe ?
 * Quels sont les administrateurs qui réinitialisent fréquemment leurs mots de passe ?
 * Y a-t-il des activités suspectes en rapport avec la réinitialisation des mots de passe ?
-
-## <a name="power-bi-content-pack"></a>Pack de contenu Power BI
-
-Si vous utilisez Power BI, il existe un pack de contenu pour Azure AD qui permet de générer facilement des rapports pour SSPR. Pour plus d’informations sur l’utilisation et le déploiement du pack de contenu, consultez [Utilisation du pack de contenu Power BI Azure Active Directory](../reports-monitoring/howto-power-bi-content-pack.md). Avec le pack de contenu, vous pouvez créer vos propres tableaux de bord et les partager avec d’autres membres de votre organisation.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Comment visualiser les rapports de gestion des mots de passe dans le portail Azure
 

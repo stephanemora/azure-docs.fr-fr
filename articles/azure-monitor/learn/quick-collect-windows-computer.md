@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 50059711df195c13ee44061ee4844f0192e0e10d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992094"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677276"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Collecter des données à partir d’un ordinateur Windows dans un environnement hybride avec Azure Monitor
 
@@ -37,7 +37,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Espaces de travail Log Analytics**.
 
-    ![Portail Azure](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Portail Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
@@ -47,7 +47,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
    * Sélectionnez l’**Emplacement** dans lequel vos machines virtuelles sont déployées.  Pour en savoir plus, découvrez dans quelles [régions Log Analytics est disponible](https://azure.microsoft.com/regions/services/).
    * Si vous créez un espace de travail dans un nouvel abonnement créé après le 2 avril 2018, il utilisera automatiquement le plan tarifaire *Par Go* et l’option pour sélectionner un niveau de tarification ne sera pas disponible.  Si vous créez un espace de travail pour un abonnement existant créé avant le 2 avril ou pour un abonnement lié à une inscription EA existante, sélectionnez le niveau tarifaire de votre choix.  Pour plus d’informations sur les différents niveaux proposés, consultez le [détail des tarifs de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Créer le panneau de ressources Log Analytics](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Créer le panneau de ressources Log Analytics](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. Une fois que vous avez entré les informations requises dans le volet **Espace de travail Log Analytics**, sélectionnez **OK**.  
 
@@ -64,7 +64,7 @@ Avant d’installer l’agent Log Analytics pour Windows (aussi appelé Microsof
 
 3. Sélectionnez **Paramètres avancés** :
 
-    ![Paramètres avancés de Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Paramètres avancés de Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
   
 4. Sélectionnez **Sources connectées**, puis **Serveurs Windows**.
 
@@ -109,7 +109,7 @@ Azure Monitor peut collecter les événements que vous spécifiez à partir du j
 
 2. Sélectionnez **Paramètres avancés** :
 
-    ![Paramètres avancés de Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Paramètres avancés de Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
  
 3. Sélectionnez **Données**, puis **Journaux des événements Windows**.  
 

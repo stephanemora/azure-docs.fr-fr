@@ -1,24 +1,18 @@
 ---
 title: Créer des alertes de performances à l’aide d’Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article explique comment créer des alertes personnalisées basées sur des requêtes de journal relatives à l’utilisation de la mémoire et de l’UC à partir d’Azure Monitor pour conteneurs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/26/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 2b1ee0e56b5a133e65a25b5d9af645f351d039c0
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 04/26/2019
+ms.openlocfilehash: c71893ec9eae844fb213114f6a3805815ff5894f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722679"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555446"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour des problèmes de performances dans Azure Monitor pour conteneurs
 Azure Monitor pour conteneurs supervise les performances des charges de travail de conteneur déployées sur Azure Container Instances ou sur des clusters Kubernetes managés hébergés sur Azure Kubernetes Service (AKS).

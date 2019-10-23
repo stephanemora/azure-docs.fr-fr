@@ -1,18 +1,18 @@
 ---
 title: Transactions de base de données et contrôle d’accès concurrentiel optimiste dans Azure Cosmos DB
 description: Cet article décrit les transactions de base de données et le contrôle d’accès concurrentiel optimiste dans Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: b58255aa471fe78c84b5f6a7432c0f3d402f0875
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 4c263b32b7ededb9e5169e80a29806f322a3c849
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467900"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755170"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transactions et contrôle d’accès concurrentiel optimiste
 

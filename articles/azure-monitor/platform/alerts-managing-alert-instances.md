@@ -1,19 +1,18 @@
 ---
 title: Gérer les instances d’alerte dans Azure Monitor
 description: Gestion des instances d’alerte dans Azure
-author: anantr
-services: monitoring
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 91a770b522011f3955ae0956e289886eb204cf47
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
+ms.openlocfilehash: 955ed75f8253798e6970c02b0abf5794298ae6da
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702904"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555629"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>Gérer les instances d’alerte avec des alertes unifiées
 L’[expérience des alertes unifiées](https://aka.ms/azure-alerts-overview) dans Azure Monitor, vous permet de voir vos différents types d’alertes dans Azure. Elle s’étend sur plusieurs abonnements dans un seul volet. Cet article explique comment afficher vos instances d’alerte et comment rechercher des instances d’alerte spécifiques pour résoudre des problèmes.

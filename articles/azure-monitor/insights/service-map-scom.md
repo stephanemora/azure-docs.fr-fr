@@ -1,24 +1,18 @@
 ---
 title: Intégration d’Azure Monitor pour machines virtuelles avec System Center Operations Manager | Microsoft Docs
 description: Azure Monitor pour machines virtuelles découvre automatiquement les composants d’application sur les systèmes Windows et Linux, et cartographie la communication entre les différents services. Cet article décrit l’utilisation de la fonctionnalité Map pour créer automatiquement des diagrammes d’application distribuée dans Operations Manager.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b16505eb2c12819532b8675472cf0e6f4177f7bf
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 07/12/2019
+ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489720"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553965"
 ---
 # <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>Intégration de System Center Operations Manager avec la fonctionnalité Map d’Azure Monitor pour machines virtuelles
 
@@ -27,7 +21,7 @@ Dans Azure Monitor pour machines virtuelles, vous pouvez voir les composants d�
 >[!NOTE]
 >Si vous avez déjà déployé Service Map, vous pouvez visualiser vos cartes dans Azure Monitor pour machines virtuelles, qui inclut des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances des machines virtuelles. La fonctionnalité Map d’Azure Monitor pour machines virtuelles est destinée à remplacer la solution autonome Service Map. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](vminsights-overview.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un groupe d’administration System Center Operations Manager (2012 R2 ou version ultérieure).
 * Un espace de travail Log Analytics configuré pour prendre en charge Azure Monitor pour machines virtuelles.

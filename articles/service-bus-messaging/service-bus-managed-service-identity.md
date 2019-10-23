@@ -1,5 +1,5 @@
 ---
-title: Identités managées pour les ressources Azure avec Azure Service Bus | Microsoft Docs
+title: Identités managées pour les ressources Azure avec Service Bus
 description: Utiliser les identités managées pour les ressources Azure avec Azure Service Bus
 services: service-bus-messaging
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2019
+ms.date: 10/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 86721907352f19cc7ed69fba1f1a021dcf1ed1b7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 57c52640262854037420c1679804f611394230ef
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299639"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793147"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Azure Service Bus
 La fonctionnalité [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) vous permet de créer une identité sécurisée associée au déploiement sous lequel s’exécute le code de votre application. Vous pouvez ensuite associer cette identité à des rôles de contrôle d’accès qui accordent des autorisations personnalisées pour l’accès aux ressources Azure nécessaires à votre application.

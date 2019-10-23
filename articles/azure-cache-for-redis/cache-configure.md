@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6bc4b69122df7d29a611571a750229f47337015c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60554496"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756793"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -429,7 +429,7 @@ Les nouvelles instances de cache Azure pour Redis sont configurées avec les val
 Pour plus d’informations sur les bases de données, consultez [Quelles sont les bases de données Redis ?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> Le paramètre `databases` peut être configuré uniquement lors de la création du cache et uniquement à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres clients de gestion. Pour obtenir un exemple de configuration de `databases` lors de la création du cache à l’aide de PowerShell, voir [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> Le paramètre `databases` peut être configuré uniquement lors de la création du cache et uniquement à l’aide de PowerShell, de l’interface de ligne de commande ou d’autres clients de gestion. Pour obtenir un exemple de configuration de `databases` lors de la création du cache à l’aide de PowerShell, voir [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

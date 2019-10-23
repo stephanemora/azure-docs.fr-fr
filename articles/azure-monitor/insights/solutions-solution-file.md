@@ -1,25 +1,19 @@
 ---
 title: Création d’un fichier de solution de gestion dans Azure | Microsoft Docs
 description: Les solutions de gestion fournissent des scénarios de gestion empaquetée que les clients peuvent ajouter à leur environnement Azure.  Cet article fournit des informations sur la manière dont vous pouvez créer des solutions de gestion à utiliser dans votre propre environnement ou à mettre à la disposition de vos clients.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595762"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553844"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -85,12 +79,12 @@ Le tableau suivant répertorie les paramètres standard pour toutes les solution
 
 | Paramètre | type | Description |
 |:--- |:--- |:--- |
-| accountName |chaîne |Nom de compte Azure Automation. |
-| pricingTier |chaîne |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
-| regionId |chaîne |Région du compte Azure Automation. |
-| solutionName |chaîne |Nom de la solution.  Si vous déployez votre solution via des modèles de démarrage rapide, vous devez définir solutionName comme un paramètre afin de pouvoir définir une chaîne au lieu d’obliger l’utilisateur à en spécifier une. |
-| workspaceName |chaîne |Nom de l’espace de travail Log Analytics. |
-| workspaceRegionId |chaîne |Région de l’espace de travail Log Analytics. |
+| accountName |string |Nom de compte Azure Automation. |
+| pricingTier |string |Niveau tarifaire de l’espace de travail Log Analytics et du compte Azure Automation. |
+| regionId |string |Région du compte Azure Automation. |
+| solutionName |string |Nom de la solution.  Si vous déployez votre solution via des modèles de démarrage rapide, vous devez définir solutionName comme un paramètre afin de pouvoir définir une chaîne au lieu d’obliger l’utilisateur à en spécifier une. |
+| workspaceName |string |Nom de l’espace de travail Log Analytics. |
+| workspaceRegionId |string |Région de l’espace de travail Log Analytics. |
 
 
 Voici la structure des paramètres standards que vous pouvez copier et coller dans votre fichier de solution.  

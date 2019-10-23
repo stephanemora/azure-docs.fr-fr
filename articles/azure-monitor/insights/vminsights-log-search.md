@@ -1,24 +1,18 @@
 ---
 title: Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Azure Monitor pour machines virtuelles collecte des métriques et des données de journal. Cet article décrit les enregistrements correspondants et inclut des exemples de requêtes.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 23ce57add0d55ba5901e2f5fcf82b3279d349cdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/10/2019
+ms.openlocfilehash: 7363f1ec11974dab3e0c0149c18ac4f0bf1c86ee
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472579"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555191"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
 Azure Monitor pour machines virtuelles collecte des métriques de performances et de connexion, les données d’inventaire des ordinateurs et processus et des informations concernant l’état d’intégrité, puis les transfère à l'espace de travail Log Analytics dans Azure Monitor.  Ces données sont disponibles pour la [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
@@ -58,7 +52,7 @@ Les champs et les conventions suivants s’appliquent à VMConnection et VMBound
 |SourceIp |Adresse IP de la source |
 |DestinationIp |Adresse IP de la destination |
 |DestinationPort |Numéro de port de la destination |
-|Protocole |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
+|Protocol |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
 
 Pour prendre en compte l’impact du regroupement, les informations sur le nombre de connexions physiques groupées sont fournies dans les propriétés suivantes de l’enregistrement :
 
@@ -115,7 +109,7 @@ Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensem
 |Description |Description de la menace observée. |
 |TLPLevel |Niveau de protocole TLP (Traffic Light Protocol) est réglé sur l’une des valeurs définies, *Blanc*, *Vert*, *Orange*, *Rouge*. |
 |Confiance |Les valeurs sont comprises dans la fourchette *0 – 100*. |
-|Severity |Les valeurs sont comprises dans la fourchette *0 – 5*,  dans laquelle *5* correspond à la gravité maximale et *0* à l’absence de gravité. La valeur par défaut est *3*.  |
+|severity |Les valeurs sont comprises dans la fourchette *0 – 5*,  dans laquelle *5* correspond à la gravité maximale et *0* à l’absence de gravité. La valeur par défaut est *3*.  |
 |FirstReportedDateTime |La première fois que le fournisseur a déclaré l’indicateur. |
 |LastReportedDateTime |La dernière fois que l’indicateur a été vu par Interflow. |
 |IsActive |Indique les indicateurs sont désactivés avec la valeur *True* ou la valeur *False*. |
@@ -132,7 +126,7 @@ Chaque enregistrement de VMBoundPort est identifié par les champs suivants :
 |Process | Identité du processus (ou groupes de processus) auquel le port est associé.|
 |IP | Adresse IP du port (peut correspondre à une adresse IP générique, *0.0.0.0*) |
 |Port |Numéro de port |
-|Protocole | Protocole.  Exemple, *tcp* ou *udp* (actuellement, seul *tcp* est pris en charge).|
+|Protocol | Protocole.  Exemple, *tcp* ou *udp* (actuellement, seul *tcp* est pris en charge).|
  
 Identité d'un port dérivée des cinq champs ci-dessus et stockée dans la propriété PortId. Cette propriété peut être utilisée pour rapidement rechercher les enregistrements d'un port spécifique au fil du temps. 
 
@@ -150,7 +144,7 @@ Voici quelques points importants à prendre en compte :
 - Pour réduire le niveau de détail et le volume de données, les enregistrements avec IP générique sont omis en présence d’un enregistrement correspondant (pour le même processus, le même port et le même protocole) avec une adresse IP spécifique. Lorsqu’un enregistrement d’adresse IP générique est omis, la propriété *IsWildcardBind* de l’enregistrement avec l’adresse IP spécifique est définie sur *True*.  Cela indique que le port est exposé via toutes les interfaces de la machine qui rend compte. 
 - Pour les ports liés à une interface spécifique uniquement, IsWildcardBind a la valeur *False*. 
 
-### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
+### <a name="servicemapcomputer_cl-records"></a>Enregistrements ServiceMapComputer_CL
 Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
 | Propriété | Description |
@@ -175,7 +169,7 @@ Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventa
 | VirtualMachineName_s | Nom de la machine virtuelle |
 | BootTime_t | Temps de démarrage |
 
-### <a name="servicemapprocesscl-type-records"></a>Enregistrements de type ServiceMapProcess_CL
+### <a name="servicemapprocess_cl-type-records"></a>Enregistrements de type ServiceMapProcess_CL
 Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventaire pour les processus connectés à TCP sur les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
 | Propriété | Description |

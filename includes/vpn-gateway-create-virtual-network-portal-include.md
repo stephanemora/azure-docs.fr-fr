@@ -9,10 +9,10 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8b585a47d3950d232eb3e8047c12ee8949030c95
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68780202"
 ---
 Pour créer un réseau virtuel dans le modèle de déploiement Resource Manager à l’aide du portail Azure, suivez les étapes ci-dessous. Utilisez les **valeurs d’exemple** si vous utilisez ces étapes sous forme de didacticiel. Si vous n’effectuez pas ces étapes sous forme d’un didacticiel, veillez à remplacer les valeurs par les vôtres. Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).

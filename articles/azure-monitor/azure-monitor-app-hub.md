@@ -3,19 +3,18 @@ layout: HubPage
 hide_bc: false
 title: Documentation Azure Monitor Application Insights - Didacticiels, informations de référence sur les API | Microsoft Docs
 description: Azure Monitor Application Insights fournit une analyse approfondie des performances d'application au niveau du code.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
 ms.service: application-insights
-ms.topic: landing-page
-ms.date: 01/15/2019
+ms.subservice: ''
+ms.topic: hub-page
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 6f35bf82e1c3275772bc9f5ccdcaceed024bd7d9
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.date: 01/15/2019
+ms.openlocfilehash: 254cd4e67c0c64ba9b21133e957ae2cacfefe7a7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967787"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596822"
 ---
 <div id="main" class="v2">
     <div class="container">
