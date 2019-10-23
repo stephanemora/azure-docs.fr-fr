@@ -1,19 +1,19 @@
 ---
 title: Comment effectuer des interrogation avec le langage SQL dans Azure Cosmos DB ?
 description: Apprendre à effectuer des interrogations avec le langage SQL dans Azure Cosmos DB
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ffebdb0a46fdae981ca73a4569344365459dd7b8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932794"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756823"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Didacticiel : Interroger Azure Cosmos DB à l’aide de l’API SQL
 
@@ -65,7 +65,7 @@ Pour plus d’informations sur les requêtes SQL, consultez :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB. Cela n’est pas le cas ? Procédez au [démarrage rapide en 5 minutes](create-mongodb-nodejs.md).
+Ce didacticiel suppose que vous ayez un compte et une collection Azure Cosmos DB. Cela n’est pas le cas ? Procédez au [démarrage rapide en 5 minutes](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Exemple de requête 1
 
