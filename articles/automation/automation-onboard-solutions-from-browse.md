@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534689"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372782"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -147,12 +147,19 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 **Solution**: pour intégrer une machine virtuelle à une solution, la machine virtuelle doit être en cours d’exécution. Cliquez sur le lien inline **Démarrer la machine virtuelle** pour démarrer la machine virtuelle sans quitter la page.
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Pour supprimer une machine virtuelle de Update Management :
+
+* Dans votre espace de travail Log Analytics, supprimez la machine virtuelle de la rechercher enregistrée pour la configuration d’étendue `MicrosoftDefaultScopeConfig-Updates`. Les recherches enregistrées se trouvent sous la section **Général** de votre espace de travail.
+* Supprimez l’agent [Microsoft Monitoring agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou l’[agent Log Analytics pour Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que la solution est activée pour vos machines virtuelles, consultez l’article de présentation de la solution Update Management pour savoir comment afficher l’évaluation des mises à jour pour vos machines.
+Maintenant que la solution est activée pour vos machines virtuelles, consultez l’article de présentation de la solution Update Management pour savoir comment créer un **Déploiement de mise à jour** pour vos machines.
 
 > [!div class="nextstepaction"]
-> [Update Management - Afficher l’évaluation des mises à jour](./automation-update-management.md#viewing-update-assessments)
+> [Gestion des mises à jour - Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure](./automation-tutorial-update-management.md)
 
 Autres tutoriels sur les solutions et leur utilisation :
 

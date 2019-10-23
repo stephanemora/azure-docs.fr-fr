@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: 2d90fe4d40c51b21deea23675d6b51b972429237
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390236"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429031"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemple : Comment extraire des phrases clés avec l’Analyse de texte
 
@@ -91,7 +91,7 @@ Rappelez-vous que le service est sans état. Aucune donnée n’est stockée dan
 
 ## <a name="step-3-view-results"></a>Étape 3 : Afficher les résultats
 
-Toutes les demandes POST retournent une réponse au format JSON avec les ID et les propriétés détectées.
+Toutes les demandes POST retournent une réponse au format JSON avec les ID et les propriétés détectées. L’ordre des expressions clés retournées est déterminé en interne par le modèle.
 
 La sortie est retournée immédiatement. Vous pouvez diffuser en continu les résultats dans une application qui accepte le code JSON ou enregistrer la sortie dans un fichier sur le système local, puis l’importer dans une application qui vous permet de trier, rechercher et manipuler les données.
 

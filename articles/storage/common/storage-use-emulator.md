@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 575f23aef9534696566080257e61b2fa84de5d0f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013553"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428321"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -59,7 +59,7 @@ La première fois que vous exécutez l'émulateur de stockage, l'environnement d
 L’émulateur de stockage est installé par défaut dans `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](https://storageexplorer.com) pour travailler avec les ressources d’émulateur de stockage local. Recherchez « (Développement) » sous « Comptes de stockage » dans l’arborescence de ressources de l’Explorateur de stockage après avoir installé et démarré l’émulateur de stockage.
+> Vous pouvez utiliser [l’Explorateur Stockage Microsoft Azure](https://storageexplorer.com) pour travailler avec les ressources d’émulateur de stockage local. Recherchez « (Émulateur - Ports par défaut) » sous « Locaux et joints » dans l’arborescence de ressources de l’Explorateur de stockage après avoir installé et démarré l’émulateur de stockage.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Initialiser l’émulateur de stockage de manière à utiliser une autre base de données SQL

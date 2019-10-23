@@ -11,17 +11,17 @@ ms.author: marthalc
 author: marthalc
 ms.date: 07/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c747f25b92d9f165bfeb4468a0e263f102976f9
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 109db23976f6332b24bcfa565812bd9491062691
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350575"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330730"
 ---
 # <a name="collect-data-for-models-in-production"></a>Collecter des données pour des modèles en production
 
 >[!IMPORTANT]
-> Ce kit SDK sera bientôt mis hors service et sera remplacé par une [supervision des données simplifiée avec Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
+> Ce kit de développement logiciel (SDK) sera bientôt mis hors service. Ce kit de développement logiciel (SDK) est toujours approprié pour les développeurs surveillant la dérive des données dans les modèles, mais la plupart des développeurs bénéficieraient de la [surveillance simplifiée des données avec Application Insights ](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
 
 Dans cet article, vous allez découvrir comment collecter des données de modèle d’entrée à partir d’Azure Machine Learning déployé dans un cluster Azure Kubernetes dans un stockage d’objets blob Azure. 
 

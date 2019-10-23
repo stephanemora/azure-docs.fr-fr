@@ -1,112 +1,108 @@
 ---
-title: Se connecter à SQL Server ou Azure SQL Database - Azure Logic Apps | Microsoft Docs
-description: Comment accéder à des bases de données SQL locales ou dans le cloud et les gérer en automatisant des workflows avec Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/15/2018
-ms.topic: article
-ms.service: logic-apps
+title: Se connecter à SQL Server ou Azure SQL Database - Azure Logic Apps
+description: Automatiser des tâches pour les bases de données SQL localement ou dans le cloud à l’aide d’Azure Logic Apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam; LADocs
+manager: carmonm
+ms.topic: conceptual
 tags: connectors
-ms.openlocfilehash: 804a913d17c3151d07a1ecf229e2db148dc45558
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.date: 10/14/2019
+ms.openlocfilehash: 6c86ef26bbf7bd9dbce8aa77aef2213b14b57f5f
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050755"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311923"
 ---
-# <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Se connecter à SQL Server ou Azure SQL Database depuis Azure Logic Apps
+# <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour SQL Server ou Azure SQL Database à l’aide d’Azure Logic Apps
 
-Cet article explique comment accéder aux données dans votre base de données SQL depuis une application logique avec le connecteur SQL Server. Vous pouvez ainsi automatiser des tâches, des processus et des workflows qui gèrent vos données et ressources SQL en créant des applications logiques. Le connecteur fonctionne pour [SQL Server sur site](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) et [Azure SQL Database dans le cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
+Cet article explique comment accéder aux données dans votre base de données SQL depuis une application logique avec le connecteur SQL Server. Vous pouvez ainsi automatiser des tâches, des processus ou des workflows qui gèrent vos données et ressources SQL en créant des applications logiques. Le connecteur SQL Server fonctionne pour [SQL Server en local](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) et [Azure SQL Database dans le cloud](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
 
-Vous pouvez créer des applications logiques qui s’exécutent lorsqu’elles sont déclenchées par des événements dans votre base de données SQL ou dans d’autres systèmes, tels que Dynamics CRM Online. Vos applications logiques peuvent également obtenir, insérer et supprimer des données, ainsi qu’exécuter des requêtes SQL et des procédures stockées. Par exemple, vous pouvez concevoir une application logique qui recherche automatiquement les nouveaux enregistrements dans Dynamics CRM Online, ajoute des éléments à votre base de données SQL en cas de nouveaux enregistrements, puis envoie des alertes par e-mail.
+Vous pouvez créer des applications logiques qui s’exécutent lorsqu’elles sont déclenchées par des événements dans votre base de données SQL ou dans d’autres systèmes, tels que Dynamics CRM Online. Vos applications logiques peuvent également obtenir, insérer et supprimer des données, ainsi qu’exécuter des requêtes SQL et des procédures stockées. Par exemple, vous pouvez concevoir une application logique qui recherche automatiquement les nouveaux enregistrements dans Dynamics CRM Online, ajoute des éléments à votre base de données SQL en cas de nouveaux enregistrements, puis envoie des alertes sur les éléments ajoutés par e-mail.
 
-Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir des informations techniques spécifiques aux connecteurs, consultez la [référence du connecteur SQL Server](https://docs.microsoft.com/connectors/sql/).
+Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour obtenir les informations techniques, les limitations et les problèmes connus spécifiques aux connecteurs, consultez la page [référence du connecteur SQL Server](https://docs.microsoft.com/connectors/sql/).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* L’application logique où vous devez avoir accès à votre base de données SQL. Pour démarrer votre application logique avec un déclencheur SQL, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-* Une [base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) ou une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
+* Une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) ou une [base de données SQL Azure](../sql-database/sql-database-get-started-portal.md)
 
-  Vos tables doivent contenir des données afin que votre application logique puisse renvoyer les résultats lors de l’appel des opérations. Si vous créez une base de données Azure SQL, vous pouvez utiliser les exemples de bases de données inclus. 
+  Vos tables doivent contenir des données afin que votre application logique puisse renvoyer les résultats lors de l’appel des opérations. Si vous créez une base de données Azure SQL, vous pouvez utiliser les exemples de bases de données inclus.
 
-* Le nom de votre serveur SQL, le nom de la base de données, votre nom d’utilisateur et votre mot de passe. Vous avez besoin de ces informations d’identification pour autoriser votre application logique à accéder à votre serveur SQL. 
+* Le nom de votre serveur SQL, le nom de la base de données, votre nom d’utilisateur et votre mot de passe. Vous avez besoin de ces informations d’identification pour autoriser votre application logique à accéder à votre serveur SQL.
+
+  * Pour SQL Server, vous trouverez ces informations dans la chaîne de connexion :
+
+    `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
 
   * Pour Azure SQL Database, vous trouverez ces informations dans la chaîne de connexion, ou dans le portail Azure sous les propriétés de base de données SQL :
 
-    "Server=tcp:<*yourServerName*>.database.windows.net,1433;Initial Catalog=<*yourDatabaseName*>;Persist Security Info=False;User ID=<*yourUserName*>;Password=<*yourPassword*>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+    `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-  * Pour SQL Server, vous trouverez ces informations dans la chaîne de connexion : 
+* Avant de pouvoir connecter les applications logiques aux systèmes locaux, tels que SQL Server, vous devez [configurer une passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). De cette façon, vous pouvez sélectionner la passerelle lorsque vous créez la connexion SQL pour votre application logique.
 
-    "Server=<*yourServerAddress*>;Database=<*yourDatabaseName*>;User Id=<*yourUserName*>;Password=<*yourPassword*>;"
-
-* Avant de pouvoir connecter les applications logiques aux systèmes sue site, tels que SQL Server, vous devez [configurer une passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). De cette façon, vous pouvez sélectionner la passerelle lorsque vous créez la connexion SQL pour votre application logique.
+* L’application logique où vous devez avoir accès à votre base de données SQL. Pour démarrer votre application logique avec un déclencheur SQL, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-sql-trigger"></a>
 
-## <a name="add-sql-trigger"></a>Ajouter un déclencheur SQL
+## <a name="add-a-sql-trigger"></a>Ajouter un déclencheur SQL
 
-Dans Azure Logic Apps, chaque application logique doit démarrer avec un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique et lance l’exécution du flux de travail de votre application.
+Dans Azure Logic Apps, chaque application logique doit démarrer avec un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts), qui s’active lorsqu’un événement spécifique se produit ou lorsqu’une condition particulière est remplie. Chaque fois que le déclencheur s’active, le moteur Logic Apps crée une instance d’application logique et lance l’exécution du flux de travail de votre application logique.
 
 1. Dans le portail Azure ou Visual Studio, créez une application logique vide, qui ouvre le Concepteur d'applications logiques. Cet exemple utilise le portail Azure.
 
-2. Dans la zone de recherche, saisissez le filtre « sql server ». Dans la liste des déclencheurs, sélectionnez le déclencheur SQL souhaité. 
+1. Dans la zone de recherche du Concepteur, entrez le filtre « sql server ». Dans la liste des déclencheurs, sélectionnez le déclencheur SQL souhaité.
 
-   Dans cet exemple, sélectionnez ce déclencheur : **SQL Server - Lorsqu’un élément est créé**
+   Cet exemple utilise le déclencheur **Lorsqu'un élément est créé**.
 
-   ![Sélectionner le déclencheur « SQL Server - Lorsqu'un élément est créé »](./media/connectors-create-api-sqlazure/sql-server-trigger.png)
+   ![Sélectionner le déclencheur « Lorsqu'un élément est créé »](./media/connectors-create-api-sqlazure/select-sql-server-trigger.png)
 
-3. Si vous êtes invité à entrer les informations de connexion, [créez votre connexion SQL maintenant](#create-connection). 
-   Ou, si votre connexion existe déjà, sélectionnez le **nom de la table** souhaité dans la liste.
+1. Si vous êtes invité à créer une connexion, [créez votre connexion SQL maintenant](#create-connection). Si votre connexion existe, sélectionnez un **Nom de table**.
 
-   ![Sélectionner une table](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
+   ![Sélectionnez la table de votre choix](./media/connectors-create-api-sqlazure/azure-sql-database-table.png)
 
-4. Définissez les propriétés **Intervalle** et **Fréquence** qui spécifient la fréquence à laquelle votre application logique vérifie la table.
+1. Définissez les propriétés **Intervalle** et **Fréquence** qui spécifient la fréquence à laquelle votre application logique vérifie la table.
 
-   Cet exemple vérifie uniquement la table sélectionnée. 
-   Pour aller plus loin, ajoutez des actions qui effectuent les tâches qui vous intéressent. 
-   
-   Par exemple, pour afficher le nouvel élément dans la table, vous pouvez ajouter d’autres actions, comme créer un fichier qui comporte des champs de la table, puis envoyer des alertes par e-mail. 
-   Pour en savoir plus sur les autres actions possibles avec ce connecteur ou d’autres, consultez la section [Connecteurs d’applications logiques](../connectors/apis-list.md).
+   Ce déclencheur ne renvoie qu’une seule ligne de la table sélectionnée. Pour effectuer d’autres tâches, ajoutez d’autres actions qui effectuent les tâches de votre choix. Par exemple, pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, puis envoient des alertes par e-mail. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/).
 
-5. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**. 
+1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
-   Cette étape active et publie automatiquement votre application logique dans Azure. 
+   Cette étape active et publie automatiquement votre application logique dans Azure.
 
 <a name="add-sql-action"></a>
 
-## <a name="add-sql-action"></a>Ajouter une action SQL
+## <a name="add-a-sql-action"></a>Ajouter une action SQL
 
 Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une étape de votre flux de travail qui suit un déclencheur ou une autre action. Dans cet exemple, l’application logique commence par le [déclencheur de périodicité](../connectors/connectors-native-recurrence.md) et appelle une action qui reçoit une ligne d’une base de données SQL.
 
 1. Dans le portail Azure ou Visual Studio, ouvrez votre application logique dans le Concepteur d’applications logiques. Cet exemple utilise le portail Azure.
 
-2. Dans le Concepteur d’application logique, sous le déclencheur ou l’action, choisissez **Nouvelle étape** > **Ajouter une action**.
+1. Sous le déclencheur auquel/l’action à laquelle vous souhaitez ajouter l’action SQL, sélectionnez **Nouvelle étape**.
 
-   ![Sélectionnez « Nouvelle étape », « Ajouter une action »](./media/connectors-create-api-sqlazure/add-action.png)
-   
-   Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. 
-   Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+   ![Sélectionner « Nouvelle étape »](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-2. Dans la zone de recherche, saisissez le filtre « sql server ». Dans la liste des actions, sélectionnez les actions SQL souhaitées. 
+   Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-   Dans cet exemple, sélectionnez cette action, qui obtient un enregistrement unique : **SQL Server - Obtenir une ligne**
+1. Sous **Choisir une action**, dans la zone de recherche, entrez « sql server » en guise de filtre. Dans la liste des actions, sélectionnez l’action SQL souhaitée.
 
-   ![Entrez « sql server », sélectionnez « SQL Server - Obtenir une ligne ».](./media/connectors-create-api-sqlazure/select-sql-get-row.png) 
+   Cet exemple utilise l’action **Obtenir la ligne**, qui obtient un enregistrement unique.
 
-3. Si vous êtes invité à entrer les informations de connexion, [créez votre connexion SQL maintenant](#create-connection). 
-   Ou, si vous avez établi une connexion, sélectionnez un **nom de table**, puis entrez l’**ID de ligne** correspondant à l’enregistrement souhaité.
+   ![Rechercher et sélectionner l’action SQL « Obtenir la ligne »](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+
+   Cette action ne renvoie qu’une seule ligne de la table sélectionnée. Pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/).
+
+1. Si vous êtes invité à créer une connexion, [créez votre connexion SQL maintenant](#create-connection). Si vous avez établi une connexion, sélectionnez un **nom de table**, puis entrez l’**ID de ligne** correspondant à l’enregistrement souhaité.
 
    ![Entrez le nom de la table et l’ID de ligne.](./media/connectors-create-api-sqlazure/table-row-id.png)
-   
-   Cet exemple ne renvoie qu’une seule ligne de la table sélectionnée. 
-   Pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier avec les champs de la ligne pour consultation ultérieure, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions possibles avec ce connecteur ou d’autres, consultez la section [Connecteurs d’applications logiques](../connectors/apis-list.md).
 
-4. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**. 
+1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+
+   Cette étape active et publie automatiquement votre application logique dans Azure.
 
 <a name="create-connection"></a>
 
@@ -124,12 +120,9 @@ Parfois, vous manipulez des jeux de résultats tellement volumineux que le conne
 
 * Créez une procédure stockée qui trie les résultats comme vous le souhaitez.
 
-  Lorsque vous procédez à l’extraction ou à l’insertion de plusieurs lignes, votre application logique peut effectuer une itération dans ces lignes en utilisant une [*boucle Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dans ces [limites](../logic-apps/logic-apps-limits-and-config.md). 
-  Toutefois, lorsque votre application logique doit manipuler des jeux d’enregistrements si volumineux (plusieurs milliers ou millions de lignes, par exemple), vous devez réduire les coûts liés aux appels à la base de données.
+  Lorsque vous procédez à l’extraction ou à l’insertion de plusieurs lignes, votre application logique peut effectuer une itération dans ces lignes en utilisant une [*boucle Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dans ces [limites](../logic-apps/logic-apps-limits-and-config.md). Toutefois, lorsque votre application logique doit manipuler des jeux d’enregistrements si volumineux (plusieurs milliers ou millions de lignes, par exemple), vous devez réduire les coûts liés aux appels à la base de données.
 
-  Pour organiser les résultats à votre convenance, vous pouvez créer une [*procédure stockée*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise l’instruction **SELEC  - ORDER BY**. 
-  Cette solution vous permet de déterminer la taille et la structure de vos résultats. 
-  Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server.
+  Pour organiser les résultats à votre convenance, vous pouvez créer une [*procédure stockée*](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise l’instruction **SELEC  - ORDER BY**. Cette solution vous permet de déterminer la taille et la structure de vos résultats. Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server.
 
   Pour en savoir plus sur la solution, consultez les articles suivants :
 
@@ -139,9 +132,8 @@ Parfois, vous manipulez des jeux de résultats tellement volumineux que le conne
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Pour obtenir des informations techniques sur les déclencheurs, les actions et les limites de ce connecteur, consultez la section [Informations de référence du connecteur](/connectors/sql/). 
+Pour obtenir des informations techniques sur les déclencheurs, les actions et les limites de ce connecteur, consultez la page [Informations de référence du connecteur](/connectors/sql/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)
-
+* En savoir plus sur [tous les autres connecteurs pour Azure Logic apps](../connectors/apis-list.md)

@@ -1,5 +1,5 @@
 ---
-title: Apprentissage actif - Personalizer
+title: Événements actifs et inactifs - Personalizer
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -10,47 +10,36 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663708"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429039"
 ---
-# <a name="active-learning-and-learning-policies"></a>Apprentissage actif et stratégies d’apprentissage 
+# <a name="active-and-inactive-events"></a>Événements actifs et inactifs
 
-Lorsque votre application appelle l’API Rank, vous recevez un classement pour le contenu. La logique métier peut utiliser ce rang pour déterminer si le contenu doit être montré à l’utilisateur. Lorsque vous affichez le contenu classé, il s’agit d’un événement de classement _actif_. Lorsque votre application n’affiche pas le contenu classé, il s’agit d’un événement de classement _inactif_. 
+Lorsque votre application appelle l’API de classement, vous recevez l’action que l’application doit afficher dans le champ rewardActionId.  À partir de ce moment, Personalizer attend un appel de récompense avec le même ID d’événement. Le score de récompense sera utilisé pour former le modèle qui sera utilisé pour les appels de classement ultérieurs. Si aucun appel de récompense n’est reçu pour l’ID d’événement, une récompense par défaut sera appliquée. Les récompenses par défaut sont établies dans le portail Azure.
 
-Des informations sur les événements de classement actifs sont retournées à Personalizer. Ces informations sont utilisées pour continuer l’entraînement du modèle via la stratégie d’apprentissage actuelle.
-
-## <a name="active-events"></a>Événements actifs
-
-Les événements actifs doivent toujours être montrés à l’utilisateur, et l’appel de récompense doit être retourné afin de fermer la boucle d’apprentissage. 
-
-### <a name="inactive-events"></a>Événements inactifs 
-
-Les événements inactifs ne doivent pas modifier le modèle sous-jacent parce que l’utilisateur n’a pas eu la possibilité de choisir le contenu classé.
-
-## <a name="dont-train-with-inactive-rank-events"></a>N’utilisez pas les événements de classement inactifs pour l’entraînement 
-
-Pour certaines applications, vous devrez peut-être appeler l’API Rank sans savoir encore si votre application montrera les résultats à l’utilisateur. 
-
-Cela se produit dans les situations suivantes :
+Dans certains cas, l’application peut avoir besoin de l’appel de classement avant de savoir si le résultat sera utilisé ou affiché pour l’utilisateur. Cela peut se produire dans les situations où, par exemple, le rendu de la page du contenu promu est remplacé par une campagne marketing. Si le résultat de l’appel de classement n’a jamais été utilisé et que l’utilisateur n’a jamais eu l’occasion de le voir, il serait incorrect de le former avec une récompense, zéro ou autre.
+En général, cela se produit dans les cas suivants :
 
 * Vous préaffichez une partie de l’interface utilisateur que l’utilisateur peut voir ou ne pas voir. 
 * Votre application peut effectuer une personnalisation prédictive dans laquelle les appels d’API Rank sont effectués avec moins de contexte en temps réel, et leur sortie peut ou non être utilisée par l’application. 
 
-### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>Désactiver l’apprentissage actif pour les événements de classement inactifs pendant un appel Rank
+Dans ce cas, la façon correcte d’utiliser Personalizer consiste à effectuer l’appel de classement en demandant à ce que l’événement soit _inactif_. Personalizer n’attend pas de récompense pour cet événement et n’applique pas non plus de récompense par défaut. Plus tard, dans votre logique métier, si l’application utilise les informations de l’appel de classement, il vous suffit _d’activer_ l’événement. À partir du moment où l’événement est actif, Personalizer s’attend à obtenir une récompense pour l’événement ou applique une récompense par défaut si aucun appel explicite n’est effectué pour l’API de récompense.
 
-Pour désactiver l’apprentissage automatique, appelez Rank avec `learningEnabled = False`.
+## <a name="get-inactive-events"></a>Obtenir les événements inactifs
 
-L’apprentissage d’un événement inactif est implicitement activé si vous envoyez une récompense pour le classement.
+Pour désactiver la formation pour un événement, faites un appel de classement avec `learningEnabled = False`.
 
-## <a name="learning-policies"></a>Stratégies d’apprentissage
+La formation pour un événement inactif est implicitement activée si vous envoyez une récompense pour l’eventID ou appelez l’API `activate` pour cet eventID.
 
-Une stratégie d’apprentissage détermine les *hyperparamètres* de l’entraînement des modèles. Deux modèles qui contiennent des données identiques, mais qui ont été entraînés à l’aide de stratégies d’apprentissage différentes, auront un comportement différent.
+## <a name="learning-settings"></a>Paramètres d’apprentissage
 
-### <a name="importing-and-exporting-learning-policies"></a>Importation et exportation de stratégies d’apprentissage
+Les paramètres d’apprentissage déterminent les *hyperparamètres* de l’entraînement des modèles. Deux modèles qui contiennent des données identiques, mais qui ont été entraînés à l’aide de paramètres d’apprentissage différents, seront différents au final.
+
+### <a name="import-and-export-learning-policies"></a>Importer et exporter les stratégies d’apprentissage
 
 Vous pouvez importer et exporter des fichiers de stratégie d’apprentissage à partir du portail Azure. Ainsi, vous pouvez enregistrer les stratégies existantes, les tester, les remplacer et les archiver dans votre contrôle de code source en tant qu’artefacts, pour référence ultérieure et pour de prochains audits.
 

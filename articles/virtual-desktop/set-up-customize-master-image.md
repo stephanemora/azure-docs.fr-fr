@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710193"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330842"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
@@ -62,11 +62,25 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Installation et préparation des logiciels
 
-Cette section explique comment préparer et installer FSLogix, Windows Defender et d’autres applications courantes. 
+Cette section explique comment préparer et installer FSLogix et Windows Defender, ainsi que certaines options de configuration de base pour les applications et le registre de votre image. 
 
-Si vous installez Office 365 ProPlus et OneDrive sur votre machine virtuelle, consultez [Installer Office sur une image VHD principale](install-office-on-wvd-master-image.md). Suivez le lien dans les étapes suivantes de cet article pour revenir à cet article et terminer le processus du disque dur virtuel principal.
+Si vous installez Office 365 ProPlus et OneDrive sur votre machine virtuelle, accédez à [Installer Office sur une image VHD principale](install-office-on-wvd-master-image.md) et suivez les instructions pour installer les applications. Une fois que vous avez terminé, revenez à cet article.
 
 Si vos utilisateurs ont besoin d’accéder à certaines applications métier, nous vous recommandons de les installer à la fin des instructions de cette section.
+
+### <a name="set-up-user-profile-container-fslogix"></a>Configurer le conteneur du profil utilisateur (FSLogix)
+
+Pour inclure le conteneur FSLogix dans l’image, suivez les instructions de l’article [Créer un conteneur de profil pour un pool d’hôtes à l’aide d’un partage de fichiers](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Vous pouvez tester la fonctionnalité du conteneur FSLogix avec [ce démarrage rapide](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+
+### <a name="configure-windows-defender"></a>Configurer Windows Defender
+
+Si Windows Defender est configuré dans la machine virtuelle, assurez-vous qu’il l’est de façon à ne pas analyser tout le contenu des fichiers VHD et VHDX durant le rattachement.
+
+Cette configuration supprime uniquement l’analyse des fichiers VHD et VHDX au cours du rattachement, mais n’affecte pas l’analyse en temps réel.
+
+Pour obtenir des instructions plus complètes sur la façon de configurer Windows Defender sur Windows Server, consultez [Configurer les exclusions de l’antivirus Windows Defender sur Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+
+Pour en savoir plus sur la façon de configurer Windows Defender pour exclure l’analyse de certains fichiers, consultez [Configurer et valider des exclusions basées sur l’emplacement ou l’extension des fichiers](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="disable-automatic-updates"></a>Désactiver les mises à jour automatiques
 
@@ -88,20 +102,6 @@ Exécutez cette commande pour spécifier une mise en page de démarrage pour les
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
-
-### <a name="set-up-user-profile-container-fslogix"></a>Configurer le conteneur du profil utilisateur (FSLogix)
-
-Pour inclure le conteneur FSLogix dans l’image, suivez les instructions de l’article [Créer un conteneur de profil pour un pool d’hôtes à l’aide d’un partage de fichiers](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Vous pouvez tester la fonctionnalité du conteneur FSLogix avec [ce démarrage rapide](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
-
-### <a name="configure-windows-defender"></a>Configurer Windows Defender
-
-Si Windows Defender est configuré dans la machine virtuelle, assurez-vous qu’il l’est de façon à ne pas analyser tout le contenu des fichiers VHD et VHDX durant le rattachement.
-
-Cette configuration supprime uniquement l’analyse des fichiers VHD et VHDX au cours du rattachement, mais n’affecte pas l’analyse en temps réel.
-
-Pour obtenir des instructions plus complètes sur la façon de configurer Windows Defender sur Windows Server, consultez [Configurer les exclusions de l’antivirus Windows Defender sur Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
-
-Pour en savoir plus sur la façon de configurer Windows Defender pour exclure l’analyse de certains fichiers, consultez [Configurer et valider des exclusions basées sur l’emplacement ou l’extension des fichiers](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="configure-session-timeout-policies"></a>Configurer des stratégies de délai d’expiration de session
 

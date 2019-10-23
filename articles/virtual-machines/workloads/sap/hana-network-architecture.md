@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24404d6b55f83f96d8e2601afd35b2dec00cc7e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0872d3c798bd5bd94e425869822602e8123517b4
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099729"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303609"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architecture réseau de SAP HANA (grandes instances)
 
@@ -138,7 +138,14 @@ Pour un déploiement par défaut, trois points importants sont à prendre en com
 * Les unités SAP HANA sur Azure (Grandes instances) ont une adresse IP assignée à partir de la plage d’adresses du pool d’adresses IP du serveur que vous avez envoyée lors de la demande du déploiement de Grande instance HANA. Pour plus d’informations, consultez [Infrastructure et connectivité SAP HANA (grandes instances) sur Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Cette adresse IP est accessible via les abonnements Azure et le circuit qui connecte les réseaux virtuels Azure aux Grandes instances HANA. L’adresse IP assignée hors que plage d’adresses de pools IP du serveur est directement assignée à l’unité matérielle. Elle n’est *plus* assignée via la traduction d'adresses réseau, comme c’était le cas dans les premiers déploiements de cette solution. 
 
 ### <a name="direct-routing-to-hana-large-instances"></a>Routage direct vers de Grandes Instances HANA
-Par défaut, le routage transitif entre des unités de Grande instance HANA et le réseau local, ou entre Grandes instances HANA déployées dans deux régions différentes, ne fonctionne pas. Il existe plusieurs possibilités pour permettre un tel routage transitif.
+
+Par défaut, le routage transitif ne fonctionne pas dans les scénarios suivants :
+
+* Entre les unités de grande instance HANA et un déploiement local.
+
+* Entre des routages de grande instance HANA déployés dans deux régions différentes.
+
+Il existe trois façons d’activer le routage transitif dans ces scénarios :
 
 - Un proxy inverse pour router les données, dans un sens et dans l’autre. Par exemple, F5 BIG-IP, NGINX avec Traffic Manager déployé dans le réseau virtuel Azure qui se connecte aux Grandes instances HANA et au réseau local en tant que solution de routage de pare-feu/trafic virtuel.
 - Utilisation des [règles IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) sur une machine virtuelle Linux pour activer le routage entre des emplacements locaux et des unités de grande instance HANA ou entre des unités de grande instance HANA dans différentes régions. La machine virtuelle exécutant IPTables doit être déployée sur le réseau virtuel Azure qui se connecte aux Grandes instances HANA et au réseau local. La machine virtuelle doit être dimensionnée en conséquence, de sorte que son débit réseau soit suffisant pour le trafic réseau attendu. Pour plus d’informations sur la bande passante réseau machines virtuelles, voir l’article [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).

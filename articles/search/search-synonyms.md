@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d9ddb5af42c538558a69ce68e7ea90161c947b12
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186462"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331176"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymes dans Recherche Azure
 
@@ -40,6 +40,8 @@ L’incorporation de synonymes dans votre application de recherche est un proces
 1.  Ajoutez une carte de synonymes à votre service de recherche via les API ci-dessous.  
 
 2.  Configurez un champ pouvant faire l’objet d’une recherche pour utiliser la carte de synonymes dans la définition d’index.
+
+Vous pouvez créer plusieurs cartes de synonymes pour votre application de recherche (par exemple, par langue si votre application prend en charge une base de clients multilingue). Actuellement, un champ peut uniquement utiliser une de ces deux méthodes. Vous pouvez mettre à jour la propriété synonymMaps d’un champ à tout moment.
 
 ### <a name="synonymmaps-resource-apis"></a>API de ressources SynonymMaps
 
@@ -154,16 +156,9 @@ Les extensions de synonymes ne s’appliquent pas aux termes de recherche géné
 
 Si vous devez faire une requête unique qui applique l’expansion de synonymes et des recherches avec des caractères génériques, des expressions régulières ou une correspondance approximative, vous pouvez combiner les requêtes avec la syntaxe d’OR. Par exemple, pour combiner des synonymes avec des caractères génériques pour une syntaxe de requête simple, le terme serait `<query> | <query>*`.
 
-## <a name="tips-for-building-a-synonym-map"></a>Conseils pour créer une carte de synonymes
-
-- Une carte de synonymes claire et précise est plus efficace qu’une liste exhaustive des correspondances possibles. Les dictionnaires très volumineux ou complexes prennent plus de temps à analyser et affectent la latence des requêtes si la requête s’étend sur plusieurs synonymes. Au lieu de deviner les termes qui peuvent être utilisés, vous pouvez obtenir les termes réels via un [rapport d’analyse du trafic de recherche](search-traffic-analytics.md).
-
-- Comme exercice préliminaire et de validation, activez et utilisez ce rapport pour déterminer avec précision les termes les plus propices à une carte de synonymes, puis continuez à utiliser ces termes pour valider le fait que votre carte de synonymes génère un meilleur résultat. Dans le rapport prédéfini, les titres « Requêtes de recherche courantes » et « Requêtes de recherche sans résultats » vous fourniront les informations nécessaires.
-
-- Vous pouvez créer plusieurs cartes de synonymes pour votre application de recherche (par exemple, par langue si votre application prend en charge une base de clients multilingue). Actuellement, un champ peut uniquement utiliser une de ces deux méthodes. Vous pouvez mettre à jour la propriété synonymMaps d’un champ à tout moment.
+Si vous avez un index existant dans un environnement de déploiement (non production), faites des essais avec un petit dictionnaire pour voir comment l’ajout de synonymes modifie l’expérience de recherche, notamment son impact sur les profils de score, la mise en surbrillance des correspondances et les suggestions.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous avez un index existant dans un environnement de déploiement (non production), faites des essais avec un petit dictionnaire pour voir comment l’ajout de synonymes modifie l’expérience de recherche, notamment son impact sur les profils de score, la mise en surbrillance des correspondances et les suggestions.
-
-- [Activez l’analyse du trafic des recherches](search-traffic-analytics.md) et utilisez le rapport Power BI prédéfini pour connaître les termes les plus utilisés, et ceux qui ne renvoient aucun document. Grâce à ces informations, modifiez le dictionnaire afin d’inclure les synonymes pour les requêtes non productives qui devraient être associées à des documents dans l’index.
+> [!div class="nextstepaction"]
+> [Créer une carte de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

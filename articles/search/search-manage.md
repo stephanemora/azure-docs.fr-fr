@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719881"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331271"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administration des services pour Azure Search dans le portail Azure
 > [!div class="op_single_selector"]
@@ -34,8 +34,7 @@ Azure Search est un service de recherche entièrement géré, basé sur le cloud
 
 Notez que la *mise à niveau* n’est pas répertoriée comme une tâche administrative. Sachant que les ressources sont allouées pendant l’approvisionnement du service, le passage à un autre niveau nécessite de créer un nouveau service. Pour plus d’informations, consultez [Création d’un service Azure Search](search-create-service-portal.md).
 
-> [!Tip]
-> Besoin d’aide sur la façon d’analyser le trafic des recherches ou le niveau de performance des requêtes ? Vous pouvez surveiller le volume de requêtes, les termes recherchés par les utilisateurs et l’efficacité avec laquelle les résultats de la recherche guident les clients vers des documents spécifiques dans votre index. Pour plus d’informations, consultez [Analytique du trafic de recherche pour Recherche Azure](search-traffic-analytics.md), [Surveiller les métriques relatives à l’utilisation et aux requêtes](search-monitor-usage.md) et [Niveau de performance et optimisation](search-performance-optimization.md).
+Vous pouvez surveiller le volume des requêtes et d’autres métriques, et utiliser ces informations pour adapter votre service afin d’accélérer les temps de réponse. Pour plus d’informations, consultez [Surveiller l’utilisation et les statistiques](search-monitor-usage.md) et [Performances et optimisation](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -55,7 +54,7 @@ En termes d’informations générales relatives à votre service, vous pouvez o
 
 * Sur le portail, le tableau de bord du service, via les notifications, les propriétés et les messages d’état.
 * À l’aide de [PowerShell](search-manage-powershell.md) ou de [l’API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/) pour [obtenir les propriétés du service](https://docs.microsoft.com/rest/api/searchmanagement/services), ou de l’état sur l’utilisation des ressources d’index.
-* Via la [recherche du trafic d’analyse](search-traffic-analytics.md), comme indiqué précédemment.
+
 
 <a id="sub-5"></a>
 

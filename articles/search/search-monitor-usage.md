@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.openlocfilehash: d0c93d941047413c5056b3718f57b360357affbd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327136"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331208"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -58,7 +58,6 @@ Le tableau suivant compare les options de stockage des journaux d’activité et
 
 | Ressource | Utilisé pour |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous, mis en corrélation avec les événements utilisateur de votre application. Il s’agit de la seule solution qui prend en compte les signaux ou les actions utilisateur, en mappant les événements à partir d’une recherche lancée par l’utilisateur, par opposition aux requêtes de filtre soumises par le code d’application. Pour utiliser cette approche, copiez-collez le code d’instrumentation dans vos fichiers sources pour router les informations de requête de route vers Application Insights. Pour plus d’informations, consultez [Analytique du trafic des recherches](search-traffic-analytics.md). |
 | [Journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un espace de travail Log Analytics. Vous pouvez exécuter des requêtes sur un espace de travail pour retourner des informations détaillées du journal. Pour plus d’informations, consultez [Bien démarrer avec les journaux Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Événements et métriques des requêtes journalisés, basés sur l’un des schémas ci-dessous. Les événements sont journalisés dans un conteneur d’objets blob et stockés dans des fichiers JSON. Utilisez un éditeur JSON pour afficher le contenu des fichiers.|
 | [Concentrateur d’événements](https://docs.microsoft.com/azure/event-hubs/) | Événements et métriques des requêtes journalisés, basés sur les schémas présentés dans cet article. Choisissez cette option comme autre service de collecte de données pour les journaux d’activité très volumineux. |
@@ -136,7 +135,7 @@ Les métriques sont capturées pour les demandes de requête.
 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
-| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
+| resourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |votre ID de ressource |
 | metricName |string |« Latency » |Nom de la mesure |
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | average |int |64 |Valeur moyenne des échantillons bruts dans l’intervalle de temps de la mesure |

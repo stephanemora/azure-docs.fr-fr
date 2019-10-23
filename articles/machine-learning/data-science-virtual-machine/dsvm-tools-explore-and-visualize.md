@@ -6,16 +6,16 @@ keywords: outils de science des données, machine virtuelle science des données
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
-ms.openlocfilehash: 14c34a13440d50fcf42c2207f9933dc1de014a14
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 10/11/2019
+ms.openlocfilehash: a18c374df0cad7994af855089f1096d52fe30ce2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191968"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330700"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-azure-data-science-virtual-machine"></a>Outils d’exploration et de visualisation de données sur Azure Data Science Virtual Machine
 
@@ -31,15 +31,18 @@ Dans la science des données, l’essentiel est de comprendre les données. Les 
 | Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau  <br/> [Prendre en main Drill en 10 minutes](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Outils associés sur la machine virtuelle DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
-## <a name="weka"></a>Weka
+## <a name="power-bi-desktop"></a>Power BI Desktop 
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   |  Collection d’algorithmes de Machine Learning pour les tâches d’exploration de données. Ces algorithmes peuvent être appliqués directement à un jeu de données ou être appelés à partir de votre propre code Java. Weka contient des outils pour le prétraitement de données, la classification, la régression, le clustering, les règles d’association et la visualisation. |
-| Éditions DSVM prises en charge     | Windows, Linux     |
-| Utilisations classiques      | Outil de Machine Learning général     |
-| Comment l’utiliser et l’exécuter ?      | Sur Windows, recherchez Weka dans le menu Démarrer. Sur Linux, connectez-vous avec X2Go, puis accédez à Applications > Développement > Weka. |
-| Liens vers des exemples      | [Exemples Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Outils associés sur la machine virtuelle DSVM      |LightGBM, Rattle, Xgboost   |
+| Qu’est-ce que c’est ?   | Outil décisionnel et de visualisation interactive des données    |
+| Versions DSVM prises en charge      | Windows  |
+| Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
+| Comment l’utiliser et l’exécuter ?      | Raccourci bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`) ou exécutez simplement à partir du menu **Démarrer**.      |
+| Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+
+> [!NOTE]
+> Vous devez disposer d’un compte Microsoft Office 365 pour accéder à Power BI.
+
 
 ## <a name="rattle"></a>Rattle
 |    |           |
@@ -51,12 +54,17 @@ Dans la science des données, l’essentiel est de comprendre les données. Les 
 | Liens vers des exemples      | [Rattle](https://togaware.com/onepager/) |
 | Outils associés sur la machine virtuelle DSVM      |LightGBM, Weka, Xgboost   |
 
-## <a name="power-bi-desktop"></a>Power BI Desktop 
+
+## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Qu’est-ce que c’est ?   | Outil décisionnel et de visualisation interactive des données    |
-| Versions DSVM prises en charge      | Windows  |
-| Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
-| Comment l’utiliser et l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
-| Outils associés sur la machine virtuelle DSVM      |   Visual Studio 2019, Visual Studio Code, Juno      |
+| Qu’est-ce que c’est ?   |  Collection d’algorithmes de Machine Learning pour les tâches d’exploration de données. Ces algorithmes peuvent être appliqués directement à un jeu de données ou être appelés à partir de votre propre code Java. Weka contient des outils pour le prétraitement de données, la classification, la régression, le clustering, les règles d’association et la visualisation. |
+| Éditions DSVM prises en charge     | Windows, Linux     |
+| Utilisations classiques      | Outil de Machine Learning général     |
+| Comment l’utiliser et l’exécuter ?      | Sur Windows, recherchez Weka dans le menu Démarrer. Sur Linux, connectez-vous avec X2Go, puis accédez à Applications > Développement > Weka. |
+| Liens vers des exemples      | [Exemples Weka](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Outils associés sur la machine virtuelle DSVM      |LightGBM, Rattle, Xgboost   |
+
+
+
 

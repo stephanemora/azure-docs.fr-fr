@@ -1,6 +1,6 @@
 ---
 title: Application managée Azure avec identité managée
-description: Découvrez comment configurer une application managée avec une identité managée. Vous pouvez utiliser une identité managée pour déployer des applications managées liées à des ressources existantes, accorder des applications managées pour gérer les ressources Azure en dehors du groupe de ressources managé et fournir une identité opérationnelle des applications managées pour le journal d’activité et d’autres services dans Azure.
+description: Configurez l’application gérée avec une identité gérée pour lier des ressources existantes, gérer des ressources Azure et fournir une identité opérationnelle pour le journal d’activité.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e1f5072921104c749a0acef95b7da09f1cbb662
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434860"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330228"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Application managée Azure avec identité managée
 

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: deab527d44713bffed1f430ec283592d0e4232ee
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.date: 10/14/2019
+ms.openlocfilehash: 198ef6889ffb7874c44f15338afbd8b3135ae3ef
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764409"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331314"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
@@ -58,6 +58,10 @@ Les scénarios courants pour l’utilisation du Magasin des requêtes sont notam
 
 Pour réduire l’utilisation de l’espace, les statistiques d’exécution du runtime dans le magasin des statistiques d’exécution sont agrégées pendant une fenêtre de temps configurable fixe. Les informations contenues dans ces magasins sont visibles en interrogeant les vues des magasins de requêtes.
 
+## <a name="access-query-store-information"></a>Accéder aux informations du Magasin des requêtes
+
+Les données du Magasin des requêtes sont stockées dans la base de données azure_sys sur votre serveur Postgres. 
+
 La requête suivante retourne des informations sur les requêtes du Magasin des requêtes :
 ```sql
 SELECT * FROM query_store.qs_view; 
@@ -67,6 +71,9 @@ Ou cette requête pour les statistiques d’attente :
 ```sql
 SELECT * FROM query_store.pgms_wait_sampling_view;
 ```
+
+Vous pouvez également émettre des données du Magasin des requêtes vers les [Journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md) à des fins d’analyse et d’alerte, Event Hubs pour la diffusion et le stockage Azure pour l’archivage. Les catégories de journaux à configurer sont **QueryStoreRuntimeStatistics** et **QueryStoreWaitStatistics**. Pour en savoir plus sur la configuration, consultez l’article [Paramètres de diagnostic Azure Monitor](../azure-monitor/platform/diagnostic-settings.md).
+
 
 ## <a name="finding-wait-queries"></a>Recherche de requêtes d’attente
 Les types d’événements d’attente combinent différents événements d’attente dans des compartiments par similarité. Le Magasin des requêtes fournit le type d’événement d’attente, le nom d’événement d’attente spécifique et la requête en question. Pouvoir mettre en corrélation ces informations d’attente avec les statistiques d’exécution de requête vous permet de mieux comprendre ce qui contribue aux caractéristiques de performances des requêtes.

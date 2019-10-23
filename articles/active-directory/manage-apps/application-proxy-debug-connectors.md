@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: c3088ae777fe1a64be218105d36fdb9e01d7b798
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c041578932bd33eb0a2d3afc18a35c2c0458dc8b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172234"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311852"
 ---
 # <a name="debug-application-proxy-connector-issues"></a>Déboguer les problèmes d’un connecteur Proxy d’application 
 
@@ -30,7 +30,7 @@ Cet article suppose que vous avez installé le connecteur Proxy d’application 
 Pour plus d’informations sur le service Proxy d’application et l’utilisation de ses connecteurs, consultez :
 
 - [Accès à distance aux applications locales par le bais du proxy d’application](application-proxy.md)
-- [Connecteurs de proxy d’application](application-proxy-connectors.md)
+- [Connecteurs du service Proxy d’application](application-proxy-connectors.md)
 - [Installer et inscrire un connecteur](application-proxy-add-on-premises-application.md)
 - [Résoudre les problèmes de proxy d’application et les messages d’erreur](application-proxy-troubleshoot.md)
 
@@ -43,10 +43,10 @@ Cet organigramme vous guide à travers les étapes du débogage des problèmes d
 |  | Action | Description | 
 |---------|---------|---------|
 |1 | Recherchez le groupe de connecteurs attribué à l’application | Vous avez probablement un connecteur installé sur plusieurs serveurs, auquel cas les connecteurs doivent être [attribués à des groupes de connecteurs](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Pour en savoir plus sur les groupes de connecteurs, consultez [Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs](application-proxy-connector-groups.md). |
-|2 | Installez le connecteur et attribuez-lui un groupe | Si vous n’avez pas installé de connecteur, consultez [Installer et inscrire un connecteur](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br>Si le connecteur n’est pas attribué à un groupe, consultez [Attribuer le connecteur à un groupe](application-proxy-connector-groups.md#create-connector-groups).<br></br>Si l’application n’est pas attribuée à un groupe de connecteurs, consultez [Attribuer l’application à un groupe de connecteurs](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
+|2 | Installez le connecteur et attribuez-lui un groupe | Si vous n’avez pas installé de connecteur, consultez [Installer et inscrire un connecteur](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Si vous rencontrez des problèmes lors de l’installation du connecteur, consultez [Problème lors de l’installation du connecteur](application-proxy-connector-installation-problem.md).<br></br> Si le connecteur n’est pas attribué à un groupe, consultez [Attribuer le connecteur à un groupe](application-proxy-connector-groups.md#create-connector-groups).<br></br>Si l’application n’est pas attribuée à un groupe de connecteurs, consultez [Attribuer l’application à un groupe de connecteurs](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
 |3 | Exécutez un test de port sur le serveur du connecteur | Sur le serveur du connecteur, exécutez un test de port à l’aide de [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou autres outils de tests de port, pour vérifier si les ports 443 et 80 sont ouverts.|
 |4 | Configurez les domaines et les ports | [Assurez-vous que vos domaines et vos ports sont configurés correctement](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment). Pour que le connecteur fonctionne correctement, certains ports doivent être ouverts et votre serveur doit pouvoir accéder à certains URL. |
-|5. | Vérifiez si un proxy de serveur principal est en cours d’utilisation | Vérifiez si les connecteurs utilisent des serveurs proxy principaux ou les ignorent. Pour en savoir plus, consultez [Résoudre les problèmes courants de proxy de connecteur et de connectivité du service](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
+|5\. | Vérifiez si un proxy de serveur principal est en cours d’utilisation | Vérifiez si les connecteurs utilisent des serveurs proxy principaux ou les ignorent. Pour en savoir plus, consultez [Résoudre les problèmes courants de proxy de connecteur et de connectivité du service](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
 |6 | Mettez à jour le connecteur et le programme de mise à jour pour utiliser le proxy principal | Si un proxy de serveur principal est en cours d’utilisation, nous vous recommandons de vérifier que le connecteur utilise le même proxy. Pour plus d’informations sur le dépannage et la configuration des connecteurs pour les utiliser avec des serveurs proxy, consultez [Travailler avec des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md). |
 |7 | Chargez l’URL interne de l’application sur le serveur du connecteur | Sur le serveur de connecteur, chargez l’URL interne de l’application. |
 |8 | Vérifiez la connectivité de réseau interne | Votre réseau interne est soumis à un problème de connectivité que cette procédure de débogage ne peut pas diagnostiquer. L’application doit être accessible en interne pour que les connecteurs puissent fonctionner. Vous pouvez activer et afficher les journaux des événements du connecteur, comme décrit dans la section [Connecteurs de proxy d’application](application-proxy-connectors.md#under-the-hood). |

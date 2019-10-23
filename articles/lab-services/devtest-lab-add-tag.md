@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311347"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302802"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Ajouter des balises à un laboratoire dans Azure DevTest Labs
 
@@ -51,6 +51,9 @@ Chaque balise est composée d’une paire **nom**/**valeur**. Par exemple, vous 
 1. Pour créer une nouvelle étiquette pour ce laboratoire, entrez une paire **Nom**/**Valeur** et sélectionnez **Enregistrer**. Vous pouvez également sélectionner une balise existante dans la liste pour afficher ou gérer les ressources associées à cette balise.
 
     ![Gérer les balises](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
+
+> [!NOTE]
+> Les balises créées au niveau du labo sont transmises à toutes les ressources facturables que le labo prépare dans votre abonnement. Par exemple, les balises de niveau labo sont transmises aux machines virtuelles de calcul sous-jacentes des machines virtuelles du labo. Vous pouvez utiliser des balises dans le contexte de la gestion des coûts. Les balises de niveau labo apparaissent dans le filtre par balise pour la gestion des coûts.
 
 ## <a name="understanding-limitations-to-tags"></a>Présentation des limitations des balises
 

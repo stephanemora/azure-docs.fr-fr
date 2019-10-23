@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 6090881cc2b94fa42fdac22220c858a0153ccc5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648092"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331242"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gérer votre service Azure Search avec PowerShell
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Bien qu’il n’existe aucune commande PowerShell dédiée à la gestion de con
 
 Autres tâches non prises en charge par le biais de PowerShell ou de toute autre API (portail uniquement) :
 + [Attacher une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) à des fins d'[indexation IA](cognitive-search-concept-intro.md). Un service cognitif est attaché à un ensemble de compétences, et non à un abonnement ou service.
-+ [Solutions de supervision de module complémentaire](search-monitor-usage.md#add-on-monitoring-solutions) ou [Rechercher l’analyse du trafic](search-traffic-analytics.md) à des fins de supervision de Recherche Azure.
++ [Les solutions de supervision de module complémentaire](search-monitor-usage.md#add-on-monitoring-solutions) pour la surveillance de la Recherche Azure.
 
 <a name="check-versions-and-load"></a>
 

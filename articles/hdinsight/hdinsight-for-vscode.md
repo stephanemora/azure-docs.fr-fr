@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 2b4d588799d72be85030e70aed58b2c8d6b0a9a3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 10/11/2019
+ms.openlocfilehash: 03d0d26a21e710c07019d3ffcb13a1482a96af50
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091747"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311738"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Utilisez les outils Spark et Hive pour Visual Studio Code
 
@@ -28,7 +28,7 @@ Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessa
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono est nécessaire uniquement pour les plateformes Linux et MacOS.
 - [Un environnement interactif PySpark pour Visual Studio Code](set-up-pyspark-interactive-environment.md).
-- Un répertoire local nommé **HDexample**.  Cet article utilise **C:\HD\HDexample**.
+- Un répertoire local. Cet article utilise **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Installer les outils Spark et Hive
 
@@ -50,7 +50,7 @@ Une fois que vous disposez de tous les éléments prérequis, vous pouvez instal
 
 Pour ouvrir un dossier de travail et créer un fichier dans Visual Studio Code, procédez comme suit :
 
-1. À partir de la barre de menus, accédez à **Fichier** > **Ouvrir le dossier** > **C:\HD\HDexample**, puis cliquez sur le bouton **Sélectionner le dossier**. Le dossier s’affiche dans la vue **Explorer** sur la gauche.
+1. À partir de la barre de menus, accédez à **Fichier** > **Ouvrir le dossier...**  > **C:\HD\HDexample**, puis sélectionnez le bouton **Sélectionner le dossier**. Le dossier s’affiche dans la vue **Explorer** sur la gauche.
 
 2. Dans la vue **Explorateur**, sélectionnez le dossier **HDexample**, puis l’icône **Nouveau fichier** à côté du dossier de travail :
 
@@ -62,8 +62,8 @@ Pour ouvrir un dossier de travail et créer un fichier dans Visual Studio Code, 
 
 Pour un utilisateur de cloud national, suivez ces étapes pour configurer l’environnement Azure, puis utilisez la commande **Azure: Sign In** pour vous connecter à Azure :
 
-1. Sélectionnez **File\Preferences\Settings**.
-2. Recherchez la chaîne suivante : **Azure : Cloud**
+1. Accédez à **Fichier** > **Préférences** > **Paramètres**.
+2. Recherchez la chaîne suivante : **Azure : Cloud**.
 3. Sélectionnez le cloud national dans la liste :
 
    ![Définir la configuration de l’entrée de connexion par défaut](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -72,7 +72,7 @@ Pour un utilisateur de cloud national, suivez ces étapes pour configurer l’en
 
 Avant de pouvoir envoyer des scripts à vos clusters à partir de Visual Studio Code, vous devez vous connecter à votre compte Azure ou lier un cluster (à l’aide du nom d’utilisateur et du mot de passe Apache Ambari ou d’un compte joint au domaine). Suivez ces étapes pour vous connecter à Azure :
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Azure: Sign In** :
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **Azure : Sign In** :
 
     ![Outils Spark et Hive pour la connexion à Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -84,7 +84,7 @@ Avant de pouvoir envoyer des scripts à vos clusters à partir de Visual Studio 
 
 Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apache Ambari](https://ambari.apache.org/) managé ou lier un cluster de sécurité Hadoop de Pack Sécurité Entreprise à l’aide d’un nom d’utilisateur de domaine (par exemple : `user1@contoso.com`).
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Spark/Hive: Lier un cluster**.
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **Spark/Hive : Lier un cluster**.
 
    ![Commande de cluster Lien Palette de commandes](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -107,7 +107,7 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 ### <a name="link-generic-livy-endpoint"></a>Lien : point de terminaison Livy générique
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Spark/Hive: Lier un cluster**.
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **Spark/Hive : Lier un cluster**.
 
 2. Sélectionnez le type de cluster lié **Generic Livy Endpoint**.
 
@@ -121,7 +121,7 @@ Vous pouvez lier un cluster normal à l’aide d’un nom d’utilisateur [Apach
 
 ## <a name="list-clusters"></a>Énumérer les clusters
 
-1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes**, puis entrez **Spark/Hive: Répertorier un cluster**.
+1. À partir de la barre de menus, accédez à **Afficher** > **Palette de commandes...** , puis entrez **Spark/Hive : Répertorier un cluster**.
 
 2. Sélectionnez l’abonnement souhaité.
 
@@ -201,7 +201,7 @@ Pour envoyer des requêtes PySpark interactives, procédez comme suit :
 
 6. Si vous n’avez pas spécifié de cluster par défaut, sélectionnez le cluster. Peu après, les **résultats interactifs de Python** s’affichent dans un nouvel onglet. Les outils vous permettent également d’envoyer un bloc de code au lieu du fichier de script entier à partir du menu contextuel :
 
-   ![Fenêtre Python interactive dans PySpark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png) 
+   ![Fenêtre Python interactive dans PySpark Interactive](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
 7. Entrez **%%info**, puis appuyez sur Maj+Entrée pour afficher les informations sur le travail (facultatif) :
 
@@ -301,47 +301,32 @@ Méthode 2 - Envoyez un fichier. Vous constatez que le dossier .vscode est ajout
     | name | Nom de cette session | Chaîne |
     | conf | Propriétés de configuration Spark. | Map of key=val |
 
-    Response body   
-    Objet Batch créé
+    Corps de la réponse   L’objet Batch créé.
 
-    | name | description | Type |
-    | :- | :- | :- | 
-    | id | ID de session | Int | 
+    | Nom | description | Type |
+    | :- | :- | :- |
+    | id | ID de session | Int |
     | appId | ID d’application de cette session | Chaîne |
     | appInfo | Informations détaillées sur l’application | Map of key=val |
     | log | Lignes du journal | Liste de chaînes |
     | state |État du lot | Chaîne |
 
-    >[!NOTE]
-    >La configuration Livy attribuée s’affiche dans le volet de sortie quand vous envoyez le script.
+    > [!NOTE]
+    > La configuration Livy attribuée s’affiche dans le volet de sortie quand vous envoyez le script.
 
 ## <a name="integrate-with-azure-hdinsight-from-explorer"></a>Intégrer avec Azure HDInsight à partir de l’Explorateur
 
-**Azure HDInsight** a été ajouté à la vue Explorateur. Vous pouvez parcourir et gérer vos clusters directement à l’aide d’**Azure HDInsight**.
-
-1. [Connectez-vous](#connect-to-an-azure-account) à votre compte Azure ou liez un cluster si ce n’est déjà fait.
-
-2. À partir de la barre de menus, accédez à **Afficher** > **Explorateur**.
-
-3. Dans le volet gauche, développez **AZURE HDINSIGHT**.  Les clusters et abonnements disponibles (Spark, Hadoop et HBase sont pris en charge) s’affichent :
-
-   ![Affichage de l’abonnement Azure HDInsight](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
-
-4. Développez le cluster pour voir le schéma de table et la base de données de métadonnées Hive :
-
-   ![Supprimer un cluster Azure HDInsight](./media/hdinsight-for-vscode/hdi-azure-hdinsight-cluster.png)
-
-## <a name="preview-hive-table"></a>Aperçu de la table Hive
 Vous pouvez voir un aperçu de la table Hive directement dans vos clusters à l’aide de l’explorateur **Azure HDInsight** :
+
 1. [Connectez-vous](#connect-to-an-azure-account) à votre compte Azure, si ce n’est déjà fait.
 
 2. Cliquez sur l’icône **Azure** dans la colonne la plus à gauche.
 
-3. Dans le volet gauche, développez **AZURE HDINSIGHT**. Les clusters et les abonnements disponibles y sont listés.
+3. Dans le volet gauche, développez **AZURE : HDINSIGHT**. Les clusters et les abonnements disponibles y sont listés.
 
 4. Développez le cluster pour afficher le schéma de table et la base de données de métadonnées Hive.
 
-5. Cliquez avec le bouton droit sur la table Hive. Par exemple : **hivesampletable**. Sélectionnez **Aperçu**. 
+5. Cliquez avec le bouton droit sur la table Hive. Par exemple : **hivesampletable**. Sélectionnez **Aperçu**.
 
    ![Aperçu de la table Hive avec Spark et Hive pour Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -363,7 +348,8 @@ Vous pouvez voir un aperçu de la table Hive directement dans vos clusters à l�
         >Sous Linux, installez xclip pour autoriser la copie des données de table.
         >
         >![Spark et Hive pour Visual Studio Code dans Linux](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-linux-install-xclip.png)
-    ## <a name="additional-features"></a>Fonctionnalités supplémentaires
+
+## <a name="additional-features"></a>Fonctionnalités supplémentaires
 
 Les fonctionnalités suivantes sont également prises en charge par Spark et Hive pour Visual Studio Code :
 

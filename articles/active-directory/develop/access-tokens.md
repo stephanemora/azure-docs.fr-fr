@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 780ec85438990959b7b0ac686e05ad5db3f9eedf
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e7ef9b55dd17a6f1d190282f369ccb8b9386e65d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291080"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324277"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès de la plateforme d’identités Microsoft
 
@@ -116,9 +116,27 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 | `ver` | Chaîne, `1.0` ou `2.0` | Indique la version du jeton d’accès. |
 
 
-> [!Groups overage claim] Pour s’assurer que la taille du jeton ne dépasse pas les limites de taille d’en-tête HTTP, Azure AD limite le nombre d’ID d’objets inclus dans la revendication des groupes. Si un utilisateur est membre d’un nombre de groupes supérieur à la limite de dépassement (150 pour les jetons SAML, 200 pour les jetons JWT), Azure AD n’émet pas la revendication des groupes dans le jeton. Au lieu de cela, il inclut une revendication de dépassement dans le jeton, qui indique à l’application d’interroger l’API Graph pour récupérer l’appartenance de groupe de l’utilisateur.
-> { ... "_claim_names": { "groups": "src1" }, { "_claim_sources": { "src1": { "endpoint":"[Graph Url to get this user’s group membership from]" } }    
-    ... } Vous pouvez utiliser la valeur `BulkCreateGroups.ps1` fournie dans le [App Creation Scripts](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) pour aider à tester les scénarios de dépassement.
+> [!NOTE]
+> **Revendication de dépassement des groupes**
+>
+> Pour s’assurer que la taille du jeton ne dépasse pas les limites de taille d’en-tête HTTP, Azure AD limite le nombre d’ID d’objets inclus dans la revendication des groupes. Si un utilisateur est membre d’un nombre de groupes supérieur à la limite de dépassement (150 pour les jetons SAML, 200 pour les jetons JWT), Azure AD n’émet pas la revendication des groupes dans le jeton. Au lieu de cela, il inclut une revendication de dépassement dans le jeton, qui indique à l’application d’interroger l’API Graph pour récupérer l’appartenance de groupe de l’utilisateur.
+  ```csharp
+  {
+    ...
+    "_claim_names": {
+     "groups": "src1"
+      },
+      {
+    "_claim_sources": {
+      "src1": {
+          "endpoint":"[Graph Url to get this user's group membership from]"
+          }
+         }
+       }
+    ...
+   }
+   ```
+> Vous pouvez utiliser la valeur `BulkCreateGroups.ps1` fournie dans le [App Creation Scripts](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) pour aider à tester les scénarios de dépassement.
 
 #### <a name="v10-basic-claims"></a>Revendications de base v1.0
 

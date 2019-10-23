@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1702a0c7ab2d2a76e6ec0e8b217539804a683ff7
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834826"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389595"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitations et restrictions des URL de réponse/URI de redirection
 
@@ -24,7 +24,7 @@ Un URI de redirection ou une URL de réponse correspond à l'emplacement vers le
 
 ## <a name="maximum-number-of-redirect-uris"></a>Nombre maximal d'URI de redirection
 
-Le tableau suivant indique le nombre maximal d'URI de redirection que vous pouvez ajouter lorsque vous inscrivez votre application. 
+Le tableau suivant indique le nombre maximal d'URI de redirection que vous pouvez ajouter lorsque vous inscrivez votre application.
 
 | Comptes en cours de connexion | Nombre maximal d'URI de redirection | Description |
 |--------------------------|---------------------------------|-------------|
@@ -34,6 +34,12 @@ Le tableau suivant indique le nombre maximal d'URI de redirection que vous pouve
 ## <a name="maximum-uri-length"></a>Longueur maximale d’URI
 
 Vous pouvez utiliser un maximum de 256 caractères pour chaque URI de redirection que vous ajoutez à une inscription d’application.
+
+## <a name="supported-schemes"></a>Schémas pris en charge
+Le modèle d’application Azure AD prend aujourd’hui en charge les schémas HTTP et HTTPS pour les applications qui connectent des comptes professionnels ou scolaires Microsoft dans tout locataire Azure Active Directory (Azure AD) de l’organisation. C’est-à-dire que, dans le manifeste de l'application, le champ `signInAudience` est défini sur *AzureADMyOrg* ou *AzureADMultipleOrgs*. Pour les applications qui connectent des comptes Microsoft personnels et des comptes professionnels et scolaires (c’est-à-dire que `signInAudience` est défini sur *AzureADandPersonalMicrosoftAccount*), seul le schéma HTTPS est autorisé.
+
+> [!NOTE]
+> La nouvelle expérience [Inscription d'applications](https://go.microsoft.com/fwlink/?linkid=2083908) ne permet pas aux développeurs d’ajouter des URI avec schéma HTTP dans l’interface utilisateur. L'ajout d'URI HTTP pour les applications se connectant à des comptes professionnels ou scolaires est uniquement pris en charge par le biais de l’éditeur du manifeste d’application. À l’avenir, les nouvelles applications ne pourront pas utiliser de schémas HTTP dans les URI de redirection. Toutefois, les applications plus anciennes dont les URI de redirection contiennent des schémas HTTP continueront de fonctionner. Les développeurs doivent utiliser des schémas HTTPS dans les URI de redirection.
 
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Restrictions relatives aux caractères génériques dans les URI
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 3f443396627a4bbaba2a3eeb0a3ac05cc1597c85
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: de8cb74d788e3ca7599f226e4204c4b09112e70c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029286"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387215"
 ---
 # <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Transformation de nouvelle branche de mappage de flux de données pour Azure Data Factory
 
@@ -29,4 +29,4 @@ Vous pouvez traiter ce nouveau flux avec un ensemble de transformations et un r�
 > [!NOTE]
 > « Nouvelle branche » s’affiche uniquement en tant qu’action sur le menu Transformation + en cas de transformation en aval de l’emplacement actuel où vous tentez de créer une branche. Vous ne verrez donc pas d’option « Nouvelle branche » à la fin si vous n’ajoutez pas de transformation après la sélection.
 
-![Branche](media/data-flow/branch2.png "branche 2")
+![Branche](media/data-flow/branch2.png "Branche 2")

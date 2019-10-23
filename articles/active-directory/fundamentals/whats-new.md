@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/15/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 616a637df20e43c20faadaf3db9243c28f94de34
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 096c5f06c53f1e93a0c661f856ab112236c0ec60
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174730"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373546"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -40,6 +40,16 @@ Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. S
 ---
 
 ## <a name="september-2019"></a>Septembre 2019
+
+### <a name="deprecation-of-the-power-bi-content-packs"></a>Dépréciation des packs de contenu Power BI
+
+**Type :** Déconseillé  
+**Catégorie de service :** Reporting  
+**Fonctionnalité de produit :** Monitoring et création de rapports
+
+Power BI déprécie les packs de contenu de sa boutique, et à partir du **1er octobre 2019** , nous ne prendrons plus en charge le pack de contenu Azure AD Power BI. Les clients qui utilisent actuellement le pack de contenu peuvent continuer à l’utiliser, même si les API sous-jacentes sont des versions plus anciennes. En guise d’alternative à ce pack de contenu, vous pouvez utiliser des classeurs Azure AD (reposant sur Log Analytics) pour obtenir des informations sur les services liés à Azure AD.
+
+Pour plus d’informations sur les classeurs, découvrez [comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Pour plus d’informations sur la dépréciation des packs de contenu, consultez le billet de blog [Annonce de la disponibilité générale des applications de modèle Power BI](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/).
 
 ### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>Mon profil change de nom et s’intègre à la page du compte Microsoft Office
 

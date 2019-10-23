@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0c1bbbdf9b42dfe2b507f533ad1806e06991f33
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835421"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374187"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 
@@ -55,7 +55,7 @@ Il existe essentiellement deux cas d’erreurs AcquireTokenSilent :
 | Cas | Description |
 |------|-------------|
 | **Cas n° 1** : L’erreur peut être résolue via une connexion interactive | Pour les erreurs dues à un manque de jetons valides, une requête interactive est nécessaire. Plus spécifiquement, une recherche de cache et un jeton d’actualisation non valide/expiré nécessitent un appel AcquireToken pour résoudre l’erreur.<br><br>Dans ce cas, l’utilisateur final doit être invité à se connecter. L’application peut choisir d’effectuer une requête interactive immédiatement, après l’interaction de l’utilisateur final (par exemple, un clic sur un bouton de connexion) ou ultérieurement. Le choix dépend du comportement souhaité de l’application.<br><br>Consultez le code dans la section suivante pour ce cas particulier, ainsi que les erreurs qui le caractérisent.|
-| **Cas n° 2** : L’erreur ne peut pas être résolue via une connexion interactive | Pour les erreurs passagères/temporaires, les problèmes réseau et autres défaillances, une requête interactive AcquireToken ne permet pas de résoudre le problème. Les invites de connexion interactive inutiles peuvent également frustrer les utilisateurs finaux. ADAL effectue automatiquement une seule nouvelle tentative pour la plupart des erreurs relatives à des échecs AcquireTokenSilent.<br><br>L’application cliente peut également effectuer une nouvelle tentative ultérieurement, mais le moment et la façon de le faire dépend du comportement de l’application et de l’expérience utilisateur souhaitée. Par exemple, l’application peut effectuer une nouvelle tentative AcquireTokenSilent après quelques minutes ou en réponse à une action de l’utilisateur final. Une nouvelle tentative immédiate limite l’application et n’est pas recommandée.<br><br>Une nouvelle tentative ultérieure qui échoue avec la même erreur ne signifie pas que le client doive effectuer une requête interactive avec AcquireToken, étant donné qu’elle ne résout pas l’erreur.<br><br>Consultez le code dans la section suivante pour ce cas particulier, ainsi que les erreurs qui le caractérisent. |
+| **Cas n° 2** : L’erreur ne peut pas être résolue via une connexion interactive | Pour les erreurs passagères/temporaires, les problèmes réseau et autres défaillances, une requête interactive AcquireToken ne permet pas de résoudre le problème. Les invites de connexion interactive inutiles peuvent également frustrer les utilisateurs finaux. ADAL effectue automatiquement une seule nouvelle tentative pour la plupart des erreurs relatives à des échecs AcquireTokenSilent.<br><br>L’application cliente peut également effectuer une nouvelle tentative ultérieurement, mais le moment et la façon de le faire dépendent du comportement de l’application et de l’expérience utilisateur souhaitée. Par exemple, l’application peut effectuer une nouvelle tentative AcquireTokenSilent après quelques minutes ou en réponse à une action de l’utilisateur final. Une nouvelle tentative immédiate limite l’application et n’est pas recommandée.<br><br>Une nouvelle tentative ultérieure qui échoue avec la même erreur ne signifie pas que le client doive effectuer une requête interactive avec AcquireToken, étant donné qu’elle ne résout pas l’erreur.<br><br>Consultez le code dans la section suivante pour ce cas particulier, ainsi que les erreurs qui le caractérisent. |
 
 ### <a name="net"></a>.NET
 
@@ -200,7 +200,7 @@ La gestion des erreurs dans les applications natives peut être définie par deu
 
 |  |  |
 |------|-------------|
-| **Cas n° 1** :<br>Erreur non renouvelable (la plupart des cas) | 1. N’effectue pas de nouvelle tentative immédiate. Présente à l’utilisateur final une interface utilisateur basée sur l’erreur spécifique qui l’invite à effectuer une nouvelle tentative (« Effectuer une nouvelle tentative de connexion », « Télécharger l’application du répartiteur Azure AD », etc.). |
+| **Cas n° 1** :<br>Erreur non renouvelable (la plupart des cas) | 1. N’effectue pas de nouvelle tentative immédiate. Présente à l’utilisateur final une interface utilisateur basée sur l’erreur spécifique qui l’invite à effectuer une nouvelle tentative (par exemple « Effectuer une nouvelle tentative de connexion » ou « Télécharger l’application du répartiteur Azure AD »). |
 | **Cas n° 2** :<br>Erreur renouvelable | 1. Effectue une nouvelle tentative unique, car l’utilisateur final peut désormais se trouver dans un état permettant à la tentative de réussir.<br><br>2. Si la nouvelle tentative échoue, présente à l’utilisateur final une interface utilisateur basée sur l’erreur spécifique qui l’invite à effectuer une nouvelle tentative (« Effectuer une nouvelle tentative de connexion », « Télécharger l’application du répartiteur Azure AD », etc.). |
 
 > [!IMPORTANT]
@@ -212,9 +212,9 @@ La gestion des erreurs dans les applications natives peut être définie par deu
 Les conseils suivants incluent des exemples de gestion des erreurs menée avec toutes les méthodes ADAL AcquireToken(…) en mode non silencieux, *sauf* : 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(…,ClientCredential, …)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion,…)   
+- AcquireTokenAsync(…, ClientCredential, …)
+- AcquireTokenAsync(…, ClientAssertion, …)
+- AcquireTokenAsync(…, UserAssertion,…)   
 
 Votre code serait implémenté comme suit :
 
@@ -482,8 +482,8 @@ Nous avons créé un [exemple complet](https://github.com/Azure-Samples/active-d
 
 ## <a name="error-and-logging-reference"></a>Référence d’erreurs et de journalisation
 
-### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Journalisation des informations d’identification personnelles (PII) et des informations d’identification organisationnelles (OII)
-Par défaut, la journalisation ADAL ne capture pas et ne journalise pas les informations d’identification personnelles et organisationnelles. La bibliothèque permet aux développeurs d’applications d’activer cette fonctionnalité via une méthode setter de la classe de journalisation. Lorsque vous activez la journalisation des informations d’identification personnelles ou organisationnelles, l’application devient responsable de la gestion des données hautement sensibles et de la conformité de celle-ci aux réglementations.
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Journalisation des informations d’identification personnelles et des informations d’identification organisationnelles 
+Par défaut, la journalisation ADAL ne capture et n’enregistre pas les informations d’identification personnelles ou informations d’identification organisationnelles. La bibliothèque permet aux développeurs d’applications d’activer cette fonctionnalité via une méthode setter de la classe de journalisation. En enregistrant des informations d’identification personnelles ou des informations d’identification de l’organisation, l’application est chargée de gérer de façon sécurisée les données hautement sensibles et de respecter les exigences réglementaires.
 
 ### <a name="net"></a>.NET
 
@@ -590,7 +590,7 @@ Utilisez la section de commentaires suivante pour fournir des commentaires et no
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-portal]: https://portal.azure.com

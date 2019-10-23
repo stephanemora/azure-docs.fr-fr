@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fc497837792075501bcd92f6ee07ad9ee4fe2dfa
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027006"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72387266"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Transformation de Alter Row du flux de données de mappage Azure Data Factory
 
@@ -19,7 +19,7 @@ Utiliser la transformation de Alter Row pour définir des stratégies insert, de
 
 
 
-![Paramètres Alter row](media/data-flow/alter-row1.png "Paramètres Alter row")
+![Paramètres d’Alter Row](media/data-flow/alter-row1.png "Paramètres d’Alter Row")
 
 > [!NOTE]
 > Les transformations Alter Row ne fonctionnent que sur les récepteurs de base de données de votre flux de données. Les actions que vous attribuez aux lignes (insert, update, delete, upsert) n’ont pas lieu au cours des sessions de débogage. Vous devez ajouter une tâche Exécuter le flux de données à un pipeline et utiliser le débogage de pipeline ou des déclencheurs pour mettre en œuvre les stratégies Alter Row sur vos tables de base de données.
@@ -28,7 +28,7 @@ Utiliser la transformation de Alter Row pour définir des stratégies insert, de
 
 Créez une transformation Alter Row et spécifiez une stratégie de ligne associée à la condition `true()`. Les lignes qui ne correspondent à aucune des expressions définies précédemment seront associées à la stratégie de ligne spécifiée. Par défaut, les lignes qui ne correspondent à aucune expression conditionnelle seront associées à `Insert`.
 
-![Alter Row - Une stratégie](media/data-flow/alter-row4.png "Alter Row - Une stratégie")
+![Une seule stratégie Alter Row](media/data-flow/alter-row4.png "Une seule stratégie Alter Row")
 
 > [!NOTE]
 > Pour associer une stratégie à toutes les lignes, vous pouvez créer une condition pour cette stratégie et spécifier la condition comme `true()`.

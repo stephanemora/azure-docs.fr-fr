@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 08db59e26a66aca57d65458a302c3c1de2e34a7b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124920"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373496"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Une base d’identité solide en quatre étapes avec Azure Active Directory
 
@@ -83,7 +83,7 @@ Dans les entreprises modernes, les services informatiques n’ont souvent pas co
 
 [Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) peut vous aider à identifier les applications utiles qui sont couramment utilisées par les utilisateurs que l’équipe informatique peut approuver et ajouter à la galerie d’applications d’entreprise pour que les utilisateurs bénéficient de fonctionnalités telles que l’authentification unique et l’accès conditionnel.
 
-*« Cloud App Security* nous permet de nous assurer que nos collaborateurs utilisent correctement nos applications cloud et SaaS, d’une manière conforme aux stratégies de sécurité fondamentales qui permettent de protéger Accenture. » --- [John Blasi, Directeur général, Sécurité des informations, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>« **Cloud App Security** nous permet de nous assurer que nos collaborateurs utilisent correctement nos applications cloud et SaaS, d’une manière conforme aux stratégies de sécurité fondamentales qui permettent de protéger Accenture. »</em> --- [John Blasi, Directeur général, Sécurité des informations, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Outre la détection de l’informatique fantôme, MCAS peut également déterminer le niveau de risque des applications, empêcher tout accès non autorisé aux données d’entreprise, les fuites de données possibles et autres risques de sécurité inhérents aux applications.
 

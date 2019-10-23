@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029272"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72387195"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Transformation de sélection de mappage de flux de données
 
@@ -27,7 +27,7 @@ Dans le diagramme ci-dessus, la transformation de sélection (Select) se trouve 
 
 Le flux Select peut également être utilisé comme un moyen de désélectionner les colonnes à partir de votre flux de données. Par exemple, si vous avez 6 colonnes définies dans votre récepteur, mais que vous souhaitez choisir uniquement 3 colonnes spécifiques à transformer et à transmettre au récepteur, vous pouvez sélectionner uniquement ces 3 colonnes à l’aide de la transformation de sélection.
 
-![Transformation de sélection (Select)](media/data-flow/newselect1.png "Alias Select")
+![Transformation de sélection](media/data-flow/newselect1.png "Sélectionner un alias")
 
 ## <a name="options"></a>Options
 * Le paramètre par défaut pour « Sélectionner » consiste à inclure toutes les colonnes d’entrée et de conserver ces noms d’origine. Vous pouvez appliquer un alias au flux de données en définissant le nom de la transformation de sélection (Select).
@@ -44,7 +44,7 @@ Le flux Select peut également être utilisé comme un moyen de désélectionner
 ## <a name="mapping"></a>Mappage
 Par défaut, la transformation de sélection mappe automatiquement toutes les colonnes, ce qui permet de transmettre toutes les colonnes entrantes au même nom sur les données de sortie. Le nom du flux de sortie configuré dans Paramètres Select définit un nouveau nom d’alias pour le flux. Si vous conservez l’ensemble Select pour le mappage automatique, vous pouvez créer un alias de l’ensemble du flux avec toutes les colonnes identiques.
 
-![Règles de transformation Select](media/data-flow/rule2.png "Mappage basé sur des règles")
+![Règles de transformation de sélection](media/data-flow/rule2.png "Mappage basé sur des règles")
 
 Si vous souhaitez créer un alias, supprimer, renommer ou réorganiser des colonnes, vous devez d’abord désactiver l’option « auto-map » (mappage automatique). Par défaut, vous verrez un filtre par défaut entré pour vous, appelé « All input columns » (toutes les colonnes d’entrée). Vous pouvez laisser ce filtre si vous souhaitez toujours autoriser toutes les colonnes entrantes à mapper pour avoir le même nom à la sortie des données.
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 78a5b180d6e1531ca3ea15fbd6ec040a90d75e5c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978074"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330766"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -44,6 +44,9 @@ Il n’existe pas actuellement d’ordre d’évaluation pour l’effet **Enforc
 ## <a name="disabled"></a>Désactivé
 
 Cet effet peut s’avérer utile pour tester certaines situations ou lorsque la définition de stratégie a paramétré l’effet. Cette flexibilité permet de désactiver une seule affectation plutôt que de désactiver toutes les affectations de cette stratégie.
+
+Une alternative à l’effet Désactivé est **enforcementMode** , qui est défini sur l’attribution de stratégie.
+Lorsque **enforcementMode** est _Désactivé_, les ressources sont toujours évaluées. La journalisation, notamment les journaux d’activité, et l’effet de stratégie ne se produisent pas. Pour plus d’informations, consultez [Attribution de stratégie - Mode de mise en conformité](./assignment-structure.md#enforcement-mode).
 
 ## <a name="append"></a>Append
 
@@ -96,8 +99,7 @@ Exemple 2 : paire **champ/valeur** unique utilisant un [alias](definition-struc
 
 ## <a name="modify"></a>Modifier
 
-Modify est utilisé pour ajouter, mettre à jour ou supprimer les étiquettes d’une ressource lors d’une création ou d’une mise à jour. Un exemple courant consiste à mettre à jour les étiquettes des ressources telles que costCenter. Une stratégie Modify doit toujours avoir `mode` défini sur _Indexé_. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md).
-Une même règle Modify peut avoir autant d’opérations que vous le souhaitez.
+Modify est utilisé pour ajouter, mettre à jour ou supprimer les étiquettes d’une ressource lors d’une création ou d’une mise à jour. Un exemple courant consiste à mettre à jour les étiquettes des ressources telles que costCenter. Une stratégie Modify doit toujours avoir `mode` défini sur _Indexé_, sauf si la ressource cible est un groupe de ressources. Les ressources non conformes existantes peuvent être corrigées à l’aide d’une [tâche de correction](../how-to/remediate-resources.md). Une même règle Modify peut avoir autant d’opérations que vous le souhaitez.
 
 > [!IMPORTANT]
 > Modify s’utilise uniquement pour les étiquettes. Si vous gérez des étiquettes, il est recommandé d’utiliser Modify plutôt que Append, car Modify fournit des types d’opérations supplémentaires, ainsi que la possibilité de corriger les ressources existantes. Toutefois, Append est recommandé si vous n’êtes pas en mesure de créer une identité managée.

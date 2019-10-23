@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c82bba6ccb1eaa1933176362e34b8c3e30c37f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a35558b81d064680981bcf403a3584e3a3d00e4f
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783629"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311746"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 
@@ -37,13 +37,16 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 3.  **Authentification de l’administrateur** : pendant l’installation, l’utilisateur doit fournir des informations d’identification d’administrateur pour terminer l’installation du connecteur.
 
+> [!NOTE]
+> Les journaux d’installation du connecteur se trouvent dans le dossier %TEMP% et peuvent fournir des informations supplémentaires sur l’origine de l’échec de l’installation.
+
 ## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Vérification de la connectivité vers le service de proxy d’application cloud et la page de connexion Microsoft
 
 **Objectif** : vérifier que l’ordinateur connecteur peut se connecter au point de terminaison d’inscription du proxy d’application AAD ainsi qu’à la page de connexion Microsoft.
 
-1.  Ouvrez un navigateur et accédez à la page web suivante : <https://aadap-portcheck.connectorporttest.msappproxy.net>. Ensuite, vérifiez que la connectivité aux centres de données des régions USA Centre et USA Est avec les ports 80 et 443 fonctionne.
+1.  Sur le serveur du connecteur, exécutez un test de port à l’aide de [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) ou autres outils de tests de port, pour vérifier que les ports 443 et 80 sont ouverts.
 
-2.  En cas d’échec de l’un de ces ports (absence de coche verte), vérifiez que \*.msappproxy.net est correctement défini sur le proxy principal ou le pare-feu avec les ports 80 et 443.
+2.  Si un de ces ports ne réussit pas, vérifiez que le pare-feu ou proxy principal a accès aux domaines et ports requis. Voir [Préparer votre environnement local](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 3.  Ouvrez un navigateur (ou un nouvel onglet) et accédez à la page web suivante : <https://login.microsoftonline.com>. Ensuite, vérifiez que vous pouvez vous connecter à cette page.
 

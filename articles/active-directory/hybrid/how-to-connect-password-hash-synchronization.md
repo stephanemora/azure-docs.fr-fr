@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ce0ac4f40f3dd1bd7252689618459769d0aeb56
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fcc704e7027903a1ede14c787a64c35d6b5fd9c0
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203068"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373459"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -93,7 +93,7 @@ Vous pouvez continuer à vous connecter aux services cloud à l’aide d’un mo
 
 S’il existe des utilisateurs synchronisés qui interagissent uniquement avec des services intégrés Azure AD et doivent également respecter une stratégie d’expiration de mot de passe, vous pouvez les forcer à respecter votre stratégie d’expiration de mot de passe Azure AD en activant la fonctionnalité *EnforceCloudPasswordPolicyForPasswordSyncedUsers*.
 
-Quand  *EnforceCloudPasswordPolicyForPasswordSyncedUsers* est désactivée (ce qui est le paramètre par défaut), Azure AD Connect affecte la valeur « DisablePasswordExpiration » à l’attribut PasswordPolicies. Cette action est effectuée chaque fois que le mot de passe d’un utilisateur est synchronisé, et indique à Azure AD qu’il faut ignorer la stratégie d’expiration du mot de passe cloud pour cet utilisateur. Vous pouvez vérifier la valeur de l’attribut à l’aide du module Azure AD PowerShell à l’aide de la commande suivante :
+Quand *EnforceCloudPasswordPolicyForPasswordSyncedUsers* est désactivée (ce qui est le paramètre par défaut), Azure AD Connect affecte la valeur « DisablePasswordExpiration » à l’attribut PasswordPolicies. Cette action est effectuée chaque fois que le mot de passe d’un utilisateur est synchronisé, et indique à Azure AD qu’il faut ignorer la stratégie d’expiration du mot de passe cloud pour cet utilisateur. Vous pouvez vérifier la valeur de l’attribut à l’aide du module Azure AD PowerShell à l’aide de la commande suivante :
 
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 

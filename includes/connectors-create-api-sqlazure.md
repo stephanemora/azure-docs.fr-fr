@@ -5,17 +5,17 @@ services: logic-apps
 author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 05/15/2018
+ms.openlocfilehash: aa1001661d8fe03855e1a28b882f674bee3606b2
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177316"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72312023"
 ---
-* Si vous utilisez Azure SQL Database, suivez les étapes décrites dans [Connexion à Azure SQL Database](#connect-azure-sql-db). 
+* Si vous utilisez Azure SQL Database, suivez les étapes décrites dans [Connexion à Azure SQL Database](#connect-azure-sql-db).
 
 * Si vous utilisez SQL Server, suivez les étapes décrites dans [Se connecter à SQL Server](#connect-sql-server).
 
@@ -23,91 +23,52 @@ ms.locfileid: "67177316"
 
 ### <a name="connect-to-azure-sql-database"></a>Connexion à Azure SQL Database
 
-1. Lorsque le déclencheur ou l’action SQL vous invite à fournir des informations de connexion, effectuez les étapes suivantes :
+Lorsque le déclencheur ou l’action SQL vous invite à fournir des informations de connexion, effectuez les étapes suivantes, qui fonctionnent à la fois pour les déclencheurs et les actions.
 
-   1. Créez un nom pour votre connexion.
+1. Pour **Nom de la connexion**, créez un nom pour votre connexion.
 
-   2. Sélectionnez votre serveur SQL, puis votre base de données. 
+1. Sélectionnez votre serveur SQL Azure sous **Nom du serveur SQL**. Lorsque la liste **Nom de la base de données SQL**, sélectionnez votre base de données. Fournissez le nom d’utilisateur et le mot de passe associés à votre serveur SQL Azure.
 
-      La liste des bases de données s’affiche seulement après que vous avez sélectionné votre serveur SQL.
- 
-   3. Indiquez le nom d’utilisateur et le mot de passe de votre serveur.
+   Ces informations se trouvent également dans le Portail Azure sous les propriétés de votre base de données SQL ou dans votre chaîne de connexion :
 
-      Ces informations se trouvent dans le Portail Azure sous les propriétés de votre base de données SQL ou dans votre chaîne de connexion : 
-      
-      “User ID = <*votre_nom_utilisateur*>”
-      <br>
-      “Password=<*votre_mot_de_passe*>”
-
-   Cet exemple montre les informations de connexion d’un déclencheur, mais ces étapes peuvent également être appliquées aux actions.
+   * `User ID=<your-user-name>`
+   * `Password=<your-password>`
 
    ![Créer une connexion à Azure SQL Database](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
-   <br>
-   Les astérisques (*) indiquent des valeurs requises.
 
-   | Propriété | Valeur | Détails | 
-   |----------|-------|---------| 
-   | Nom de connexion | <*ma-connexion-sql-* > | Nom de votre connexion | 
-   | Nom du serveur SQL Server | <*mon-serveur-sql*> | Nom de votre serveur SQL |
-   | Nom de la base de données SQL | <*ma-base-de-données-sql*>  | Nom de votre base de données SQL | 
-   | Nom d’utilisateur | <*mon-nom-utilisateur-sql*> | Nom d’utilisateur pour accéder à votre base de données |
-   | Mot de passe | <*mon-mot-de-depasse-sql*> | Mot de passe pour accéder à votre base de données | 
-   |||| 
+1. Sélectionnez **Créer** lorsque vous avez terminé.
 
-2. Lorsque vous êtes prêt, choisissez **Créer**.
-
-3. Après avoir créé votre connexion, poursuivez avec [Ajouter un déclencheur SQL](#add-sql-trigger) ou [Ajouter une action SQL](#add-sql-action).
+1. Après avoir créé votre connexion, poursuivez avec [Ajouter un déclencheur SQL](#add-sql-trigger) ou [Ajouter une action SQL](#add-sql-action).
 
 <a name="connect-sql-server"></a>
 
 ### <a name="connect-to-sql-server"></a>Se connecter à SQL Server
 
-Avant de pouvoir sélectionner votre passerelle, assurez-vous d’avoir [configuré votre passerelle de données](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Votre passerelle apparaît alors dans la liste des passerelles lorsque vous créez votre connexion.
+Lorsque le déclencheur ou l’action SQL vous invite à fournir des informations de connexion, effectuez les étapes suivantes, qui fonctionnent à la fois pour les déclencheurs et les actions. Toutefois, avant de commencer, assurez-vous que vous avez déjà [configuré votre passerelle de données locale](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Sinon, votre passerelle n’apparaît pas dans la liste des passerelles lorsque vous créez votre connexion.
 
-1. Lorsque le déclencheur ou l’action SQL vous invite à fournir des informations de connexion, effectuez les étapes suivantes :
+1. Pour **Nom de la connexion**, créez un nom pour votre connexion.
 
-   1. Dans le déclencheur ou l’action, sélectionnez **Se connecter via une passerelle de données locale** afin que les options de serveur SQL s’affichent.
+1. Dans le déclencheur ou l’action, sélectionnez **Se connecter via une passerelle de données locale** afin que les options de serveur SQL s’affichent.
 
-   2. Créez un nom pour votre connexion.
+1. Pour **Nom du serveur SQL** et **Nom de la base de données SQL**, indiquez l’adresse de votre serveur SQL et le nom de votre base de données. Pour **Nom d'utilisateur** et **Mot de passe**, indiquez le nom d’utilisateur et le mot de passe de votre serveur.
 
-   3. Indiquez l’adresse de votre serveur SQL server, puis le nom de votre base de données.
-   
-      Ces informations se trouvent dans votre chaîne de connexion : 
-      
-      * “Server=<*Adresse_de_votre_serveur*>”
-      * “Database=<*nom_de_votre_base_de_données*>”
+   Ces informations se trouvent également dans votre chaîne de connexion :
 
-   4. Indiquez le nom d’utilisateur et le mot de passe de votre serveur.
-
-      Ces informations se trouvent dans votre chaîne de connexion : 
-      
-      * “User ID = <*votre_nom_utilisateur*>”
-      * “Password=<*votre_mot_de_passe*>”
-
-   5. Si votre serveur SQL utilise l’authentification Windows ou l’authentification De base, sélectionnez le type d’authentification.
-
-   6. Sélectionnez le nom de la passerelle de données locale que vous avez créée précédemment.
-   
-      Si votre passerelle n’apparaît pas dans la liste, vérifiez que vous avez correctement [configuré votre passerelle](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
-
-   Cet exemple montre les informations de connexion d’un déclencheur, mais ces étapes peuvent également être appliquées aux actions.
+   * `Server=<your-server-address>`
+   * `Database=<your-database-name>`
+   * `User ID=<your-user-name>`
+   * `Password=<your-password>`
 
    ![Créer une connexion SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
-   <br>
-   Les astérisques (*) indiquent des valeurs requises.
 
-   | Propriété | Valeur | Détails | 
-   |----------|-------|---------| 
-   | Se connecter via une passerelle locale | Sélectionnez tout d’abord cette option pour les paramètres SQL Server. | | 
-   | Nom de connexion | <*ma-connexion-sql-* > | Nom de votre connexion | 
-   | Nom du serveur SQL Server | <*mon-serveur-sql*> | Nom de votre serveur SQL |
-   | Nom de la base de données SQL | <*ma-base-de-données-sql*>  | Nom de votre base de données SQL |
-   | Nom d’utilisateur | <*mon-nom-utilisateur-sql*> | Nom d’utilisateur pour accéder à votre base de données |
-   | Mot de passe | <*mon-mot-de-depasse-sql*> | Mot de passe pour accéder à votre base de données | 
-   | Type d’authentification | Windows ou De base | Facultatif : type d’authentification utilisé par votre serveur SQL Server | 
-   | Passerelles | <*ma-passerelle-de-données*> | Nom de votre passerelle de données locale | 
-   |||| 
+1. Si votre serveur SQL utilise l’authentification Windows ou l’authentification De base, sélectionnez le **type d’authentification**.
 
-2. Lorsque vous êtes prêt, choisissez **Créer**. 
+1. Sous **Passerelles**, sélectionnez l’abonnement Azure associé à votre passerelle de données locale créée précédemment, puis sélectionnez le nom de votre passerelle de données locale.
 
-3. Après avoir créé votre connexion, poursuivez avec [Ajouter un déclencheur SQL](#add-sql-trigger) ou [Ajouter une action SQL](#add-sql-action).
+   Si votre passerelle n’apparaît pas dans la liste, vérifiez que vous avez correctement [configuré votre passerelle](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+
+   ![Créer une connexion SQL Server terminé](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
+
+1. Sélectionnez **Créer** lorsque vous avez terminé.
+
+1. Après avoir créé votre connexion, poursuivez avec [Ajouter un déclencheur SQL](#add-sql-trigger) ou [Ajouter une action SQL](#add-sql-action).

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147359"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372720"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -114,6 +114,12 @@ En plus de la télémétrie des appareils, le routage des messages permet égale
 ## <a name="testing-routes"></a>Test des routes
 
 Quand vous créez un nouvelle route ou que modifiez une route existante, vous devez tester la requête de route avec un exemple de message. Vous pouvez tester des routes individuelles ou toutes les routes à la fois. Aucun message n’est routé vers les points de terminaison pendant le test. Vous pouvez utiliser le portail Azure, Azure Resource Manager, Azure PowerShell et Azure CLI pour les tests. Les résultats vous permettent de déterminer si l’exemple de message correspondait ou non à la requête, ou si le test n’a pas pu s’exécuter, l’exemple de message ou la syntaxe de la requête étant incorrects. Pour plus d’informations, consultez [Tester une route](/rest/api/iothub/iothubresource/testroute) et [Tester toutes les routes](/rest/api/iothub/iothubresource/testallroutes).
+
+## <a name="ordering-guarantees-with-at-least-once-delivery"></a>L’ordonnancement garantit au moins une remise
+
+Le routage des messages IoT Hub garantit au moins une remise de messages aux points de terminaison. Cela signifie qu’il peut y avoir des messages en double et qu’une série de messages peuvent être retransmis en respectant l’ordre d’origine des messages. Par exemple, si l’ordre d’origine des messages est [1, 2, 3, 4], vous pouvez recevoir une séquence de messages telle que [1, 2, 1, 2, 3, 1, 2, 3, 4]. La garantie d’ordonnancement fait que, si vous recevez le message [1], il est toujours suivi de [2, 3, 4].
+
+Pour gérer les doublons, nous vous recommandons de marquer un identificateur unique dans les propriétés de l’application du message au point d’origine, qui est généralement un appareil ou un module. Le service consommant les messages peut gérer les messages en double à l’aide de cet identificateur.
 
 ## <a name="latency"></a>Latence
 

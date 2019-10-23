@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129174"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330879"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -115,6 +115,6 @@ Vous ne devez pas voir les valeurs suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir une assistance, entamez une conversation sur le [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou sur [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+- En savoir plus sur [Comment limiter la latence dans Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Vous pouvez également utiliser le [support Azure](https://azure.microsoft.com/support/options/) pour les options de support assisté.
+- Apprenez comment [Mettre à l’échelle votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

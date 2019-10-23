@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: d8ebc026add9dfd85d7cbe312a8cfffd3e365f82
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 31528c0ac7796aafbde74a3814d971138ec4ba2e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026879"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387259"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Créer un flux de données Azure Data Factory
 
@@ -21,15 +21,15 @@ Le mappage de flux de données ADF permet de transformer des données à grande 
 
 Commencez par créer une fabrique de données v2 sur le portail Azure. Ensuite, cliquez sur la vignette « Créer et surveiller » pour lancer l’interface utilisateur de Data Factory.
 
-![Options de flux de données](media/data-flow/v2portal.png "Créer un flux de données")
+![Options de flux de données](media/data-flow/v2portal.png "création de flux de données")
 
 Une fois dans l’interface utilisateur de Data Factory, vous pouvez utiliser des exemples de flux de données, disponibles dans la galerie de modèles ADF. Dans ADF, créez un « Pipeline à partir d’un modèle » et sélectionnez la catégorie de flux de données dans la galerie de modèles.
 
-![Options de flux de données](media/data-flow/template.png "Créer un flux de données")
+![Options de flux de données](media/data-flow/template.png "création de flux de données")
 
 Il vous est demandé d’entrer les informations d’identification de votre compte de Stockage Blob Azure.
 
-![Options de flux de données](media/data-flow/template2.png "Créer un flux de données 2")
+![Options de flux de données](media/data-flow/template2.png "création de flux de données 2")
 
 [Les données utilisées dans ces exemples se trouvent ici](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Téléchargez les exemples de données et stockez les fichiers dans vos comptes de Stockage Blob Azure pour pouvoir exécuter les exemples.
 

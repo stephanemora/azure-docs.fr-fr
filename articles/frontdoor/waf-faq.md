@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f6e0ea7ca5b9b131a8d7d7c2c6546130a7d020b3
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375343"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302847"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Forum aux questions sur le pare-feu d’applications web Azure
 
@@ -31,7 +31,7 @@ Une stratégie de pare-feu d’applications web Azure peut être appliquée aux 
 
 ## <a name="what-is-waf-for-azure-front-door-service"></a>Qu’est-ce qu’un pare-feu d’applications web pour le service Azure Front Door Service ? 
 
-Azure Front Door est un réseau de distribution de contenu et d’application hautement évolutif et distribué mondialement. Un pare-feu d’applications web Azure, lorsqu’intégré à Front Door, bloque les attaques DDoS et ciblant une application à la périphérie du réseau Azure, près de la source avant qu’elles ne pénètrent dans votre réseau virtuel, et offre une protection sans sacrifice des performances.
+Azure Front Door est un réseau de distribution de contenu et d’application hautement évolutif et distribué mondialement. Quand Azure WAF est intégré à Azure Front Door, les attaques par déni de service et sur des applications ciblées sont arrêtées à la périphérie du réseau Azure. Cette protection fonctionne à proximité de la source des attaques avant qu’elles aient la possibilité d’accéder à votre réseau virtuel. Le service WAF pour Azure Front Door Service offre une protection sans sacrifier les performances.
 
 ## <a name="does-azure-waf-support-https"></a>Le pare-feu d’applications web prend-il en charge HTTPS ?
 

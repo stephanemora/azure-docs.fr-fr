@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 45e2d35a3b0a3f3c89913bbe70d7c43c17cbcee0
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 144d6298a13d35d94a68b35c443a3a47cefcfc2a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029177"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387159"
 ---
 # <a name="mapping-data-flow-surrogate-key-transformation"></a>Transformation de clé de substitution du mappage de flux de données
 
@@ -20,7 +20,7 @@ ms.locfileid: "72029177"
 
 Utilisez la transformation de clé de substitution pour ajouter une valeur de clé arbitraire non professionnelle à incrémentation à l’ensemble de lignes de votre flux de données. Cela est utile lors de la conception de tables de dimension dans un modèle de données analytique de schéma en étoile où chaque membre de vos tables de dimension doit avoir une clé unique qui est une clé non professionnelle, faisant partie de la méthodologie Kimball DW.
 
-![Transformation de la clé de substitution](media/data-flow/surrogate.png "Transformation de la clé de substitution")
+![Transformation de clé de substitution](media/data-flow/surrogate.png "Transformation de clé de substitution")
 
 « Colonne clé » est le nom que vous donnerez à votre nouvelle colonne de clé de substitution.
 
@@ -30,7 +30,7 @@ Utilisez la transformation de clé de substitution pour ajouter une valeur de cl
 
 Si vous souhaitez démarrer votre séquence à partir d’une valeur existant dans une source, vous pouvez utiliser une transformation de colonne dérivée qui suit immédiatement votre transformation de clé de substitution et additionner les deux valeurs :
 
-![Ajout max de clé de substitution](media/data-flow/sk006.png "Ajout maximum de transformation de clé de substitution")
+![Ajouter max SK](media/data-flow/sk006.png "Ajout maximum de transformation de clé de substitution")
 
 Pour amorcer la valeur de clé avec la valeur maximale précédente, il existe deux techniques :
 

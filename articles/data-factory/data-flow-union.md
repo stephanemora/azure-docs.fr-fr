@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 35d5b2250cb5f2f5bd5b3a0073dc2e3c655ceccb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4832cd2036f615d1e90d5e7a21c1a9832c2fa837
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029923"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387135"
 ---
 # <a name="mapping-data-flow-union-transformation"></a>Transformation d’union des flux de données de mappage
 
@@ -26,15 +26,15 @@ Vous pouvez combiner des n flux dans le tableau de paramètres en sélectionnan
 
 Dans ce cas, vous pouvez associer des métadonnées disparates provenant de plusieurs sources (dans cet exemple, trois fichiers sources différents) et les combiner en un seul flux :
 
-![Vue d’ensemble de la transformation d’union](media/data-flow/union111.png "Union 1")
+![Vue d’ensemble de la transformation d’union](media/data-flow/union111.png "Union 1")
 
 Pour ce faire, ajoutez des lignes supplémentaires dans les paramètres d’union, en incluant toutes les sources que vous souhaitez ajouter. Il n’est pas nécessaire d’avoir une clé de recherche ou de jointure commune :
 
-![Paramètres de la transformation d’union](media/data-flow/unionsettings.png "Paramètres Union")
+![Paramètres de transformation d’union](media/data-flow/unionsettings.png "Paramètres d’union")
 
 Si vous définissez une transformation Sélectionner après l’union, vous ne pourrez pas renommer des champs qui se chevauchent ou ceux qui n’étaient pas nommés à partir de sources sans en-tête. Cliquez sur « Inspecter » pour afficher les métadonnées combinées avec les 132 colonnes de cet exemple à partir de trois sources différentes :
 
-![Transformation d’union finale](media/data-flow/union333.png "Union 3")
+![Transformation d’union finale](media/data-flow/union333.png "Union 3")
 
 ## <a name="name-and-position"></a>Nom et position
 
