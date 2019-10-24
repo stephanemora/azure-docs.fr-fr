@@ -1,6 +1,6 @@
 ---
 title: Élément d’interface utilisateur SizeSelector Azure | Microsoft Docs
-description: Décrit l’élément d’interface utilisateur Microsoft.Compute.SizeSelector pour le Portail Azure.
+description: Décrit l’élément d’interface utilisateur Microsoft.Compute.SizeSelector pour le Portail Azure. Permet de sélectionner la taille d’une machine virtuelle.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e5be5635964ebeedc7be4d1d1f5403e4d281b55c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 288ea7e887a170c8560b0126fa53c9132da35db6
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722349"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332666"
 ---
 # <a name="microsoftcomputesizeselector-ui-element"></a>Élément d’interface utilisateur Microsoft.Compute.SizeSelector
 Contrôle permettant de sélectionner une taille pour une ou plusieurs instances de machine virtuelle.

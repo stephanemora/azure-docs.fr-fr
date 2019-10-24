@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c19b874e79e70349437c5d44a6eb946aeeefb5
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 7149b9d871c43af083774ffb799255e0d1144113
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835046"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429943"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Différences entre MSAL JS et ADAL JS
 
@@ -65,7 +65,7 @@ Dans la version 2.0, l'utilisation de l'autorité `https://login.microsoftonlin
 
     Vous pouvez demander des étendues pour n'importe quelle API de ressources à l'aide de l'URI de l'API au format suivant : appidURI/scope Par exemple : https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    Pour l'API MS Graph uniquement, une valeur d'étendue `user.read` est mappée sur https://graph.microsoft.com/User.Read et peut être utilisée de manière interchangeable.
+    Pour l’API MS Graph uniquement, une valeur d’étendue `user.read` est mappée sur https:\//graph.microsoft.com/User.Read et peut être utilisée de manière interchangeable.
 
     ```javascript
     var request = {

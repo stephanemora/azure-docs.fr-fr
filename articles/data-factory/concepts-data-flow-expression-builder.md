@@ -1,29 +1,29 @@
 ---
-title: Générateur d’expressions de la fonctionnalité de mappage de flux de données d’Azure Data Factory
-description: Générateur d’expressions pour la fonctionnalité de mappage de flux de données d’Azure Data Factory
+title: Générateur d’expressions de flux de données de mappage Azure Data Factory
+description: Générateur d’expressions pour les flux de données de mappage Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 9862866d5cddb227d9417ac15db6b8ea851507e6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030293"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388048"
 ---
-# <a name="mapping-data-flow-expression-builder"></a>Générateur d’expressions de la fonctionnalité de mappage de Data Flow
+# <a name="mapping-data-flow-expression-builder"></a>Générateur d’expressions de flux de données de mappage
 
 
 
-La fonctionnalité de mappage de flux de données d’Azure Data Factory propose des zones d’expression dans lesquelles vous pouvez entrer des expressions pour la transformation de données. Vous pouvez utiliser des colonnes, champs, variables, paramètres et fonctions extraits de votre flux de données dans ces zones. Pour générer l’expression, utilisez le Générateur d’expressions que vous pouvez démarrer en cliquant dans la zone de texte d’expression à l’intérieur de la transformation. Lors de la sélection de colonnes pour la transformation, vous verrez parfois des options « Colonne calculée ». En cliquant sur celles-ci, vous verrez le Générateur d’expressions démarrer.
+La fonctionnalité de flux de données de mappage Azure Data Factory propose des zones d’expression dans lesquelles vous pouvez entrer des expressions pour la transformation de données. Vous pouvez utiliser des colonnes, champs, variables, paramètres et fonctions extraits de votre flux de données dans ces zones. Pour générer l’expression, utilisez le Générateur d’expressions que vous pouvez démarrer en cliquant dans la zone de texte d’expression à l’intérieur de la transformation. Lors de la sélection de colonnes pour la transformation, vous verrez parfois des options « Colonne calculée ». En cliquant sur celles-ci, vous verrez le Générateur d’expressions démarrer.
 
 ![Générateur d’expressions](media/data-flow/xpb1.png "Générateur d’expressions")
 
 Par défaut, l’option d’éditeur de texte est définie pour l’outil Générateur d’expressions. La fonctionnalité de saisie semi-automatique lit dans le modèle objet Data Flow d’Azure Data Factory, avec vérification et mise en surbrillance de la syntaxe.
 
-![Saisie semi-automatique du Générateur d’expressions](media/data-flow/expb1.png "Saisie semi-automatique du Générateur d’expressions")
+![Générateur d’expressions - saisie semi-automatique](media/data-flow/expb1.png "Générateur d’expressions - saisie semi-automatique")
 
 ## <a name="build-schemas-in-output-schema-pane"></a>Générer des schémas dans le volet Schéma de sortie
 
@@ -35,15 +35,15 @@ Dans le volet Schéma de sortie de gauche, les colonnes que vous modifiez et ajo
 
 ## <a name="data-preview-in-debug-mode"></a>Aperçu des données en mode de débogage
 
-![Générateur d’expressions](media/data-flow/exp4b.png "Aperçu des données d’une expression")
+![Générateur d’expressions](media/data-flow/exp4b.png "Aperçu des données d’expression")
 
 Lorsque vous travaillez sur vos expressions de flux de données, passez en mode de débogage à partir de l’aire de conception Data Flow d’Azure Data Factory, ce qui a pour effet d’activer l’aperçu en cours des résultats de données produits par l’expression que vous générez. Le débogage dynamique en temps réel est activé pour vos expressions.
 
-![Mode de débogage](media/data-flow/debugbutton.png "Bouton Déboguer")
+![Mode débogage](media/data-flow/debugbutton.png "Bouton Déboguer")
 
 Cliquez sur le bouton Actualiser pour mettre à jour les résultats de votre expression par rapport à un exemple en direct de votre source en temps réel.
 
-![Générateur d’expressions](media/data-flow/exp5.png "Aperçu des données d’une expression")
+![Générateur d’expressions](media/data-flow/exp5.png "Aperçu des données d’expression")
 
 ## <a name="comments"></a>Commentaires
 
@@ -71,7 +71,7 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 
 Avec des fonctions d’expression qui retournent des tableaux, utilisez des crochets [] pour adresser des index spécifiques qui retournent un objet tableau. Le tableau est de base 1.
 
-![Tableau du générateur d’expression](media/data-flow/expb2.png "Aperçu de données d’expression")
+![Générateur d’expressions - tableau](media/data-flow/expb2.png "Aperçu des données d’expression")
 
 ## <a name="handling-names-with-special-characters"></a>Gestion des noms avec des caractères spéciaux
 

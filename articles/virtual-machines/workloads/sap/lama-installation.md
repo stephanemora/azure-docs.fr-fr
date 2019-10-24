@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 1b8297a797f83935f16365a15d100ce88cadca30
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6521c139463bb0de1e24783bbbdd6a2d3996be6f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099537"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430094"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
@@ -289,7 +289,7 @@ Dans le compte NetApp, le pool de capacité spécifie la taille et le type de di
 
 ![Pool de capacité NetApp créé par SAP LaMa ](media/lama/sap-lama-capacitypool-list.png)
 
-Les volumes NFS peuvent maintenant être définis. Dans la mesure où il y aura des volumes pour plusieurs systèmes dans un pool, vous devez choisir un modèle d’attribution de noms à explication automatique. L’ajout du SID permet de regrouper les volumes associés. Pour les ASCS et l’instance AS, les montages suivants sont nécessaires :/sapmnt/\<SID\>, /usr/sap/\<SID\> and /home/\<sid\>adm. /usr/sap/trans facultatif pour le répertoire de transport central qui est au moins utilisé par tous les systèmes d’un paysage.
+Les volumes NFS peuvent maintenant être définis. Dans la mesure où il y aura des volumes pour plusieurs systèmes dans un pool, vous devez choisir un modèle d’attribution de noms à explication automatique. L’ajout du SID permet de regrouper les volumes associés. Pour les ASCS et l’instance AS, les montages suivants sont nécessaires : */sapmnt/\<SID\>* , */usr/sap/\<SID\>* et */home/\<sid\>adm*. */usr/sap/trans* est éventuellement nécessaire pour le répertoire de transport central, qui est au moins utilisé par tous les systèmes d’un paysage.
 
 > [!NOTE]
 > Pendant la phase BETA, le nom des volumes doit être unique au sein de l’abonnement.

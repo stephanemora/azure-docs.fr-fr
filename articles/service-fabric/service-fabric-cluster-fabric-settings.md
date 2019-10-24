@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: cdbb545e981e50e23bbbb011dc54577acf7974f7
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 71f2b111c0291bc9563b12a1cdbd88ea7e9f5b5b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241747"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376135"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -347,6 +347,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |DefaultContainerRepositoryAccountName|Chaîne (valeur par défaut : "")|statique|Informations d’identification par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|Chaîne (valeur par défaut : "")|statique|Informations d’identification de mot de passe par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml|
 |DefaultContainerRepositoryPasswordType|Chaîne (valeur par défaut : "")|statique|Quand ce n’est pas une chaîne vide, la valeur peut être « Encrypted » ou « SecretsStoreRef ».|
+|DefaultDnsSearchSuffixEmpty|valeur booléenne, valeur par défaut : FALSE|statique|Par défaut, le nom du service est ajouté au nom DNS SF pour les services de conteneur. Cette fonctionnalité met fin à ce comportement, si bien que rien n’est ajouté au nom DNS SF par défaut dans le cheminement de la résolution.|
 |DeploymentMaxFailureCount|entier, valeur par défaut : 20| Dynamique|Le déploiement de l’application sera retenté DeploymentMaxFailureCount fois avant l’échec du déploiement de cette application sur le nœud.| 
 |DeploymentMaxRetryInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600)|Dynamique| Spécifiez la durée en secondes. Intervalle maximum avant une nouvelle tentative de déploiement. À chaque échec continu, l’intervalle avant nouvelle tentative est calculé de la manière suivante : Min( DeploymentMaxRetryInterval; Nombre d’échecs continus * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(10)|Dynamique|Spécifiez la durée en secondes. Intervalle de temporisation pour l’échec du déploiement. À chaque échec de déploiement continu, le système retentera le déploiement jusqu'à la valeur MaxDeploymentFailureCount. L’intervalle entre chaque tentative est un produit de l’échec du déploiement continu et de l’intervalle de temporisation de déploiement. |
@@ -533,7 +534,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |DetailedNodeListLimit | Entier (valeur par défaut : 15) |Dynamique| Définit le nombre de nœuds par contrainte à inclure avant la troncation dans les rapports de réplica non placé. |
 |DetailedPartitionListLimit | Entier (valeur par défaut : 15) |Dynamique| Définit le nombre de partitions par entrée de diagnostic pour une contrainte à inclure avant la troncation dans Diagnostics. |
 |DetailedVerboseHealthReportLimit | Entier (valeur par défaut : 200) | Dynamique|Définit le nombre de fois qu’un réplica non placé doit être non placé de façon permanente avant que des rapports d’intégrité détaillés soient émis. |
-|EnforceUserServiceMetricCapacities|valeur booléenne, valeur par défaut : FALSE | statique |Active la protection des services de fabrique. Tous les services utilisateur se trouvent sous un objet de travail/cgroup et sont limités à une quantité de ressources spécifiée. Celle-ci doit être statique (nécessite le redémarrage de FabricHost) dans la mesure où la création/suppression de limites d’objet de travail utilisateur et de paramètres est effectuée pendant l’ouverture de l’hôte de fabrique |
+|EnforceUserServiceMetricCapacities|valeur booléenne, valeur par défaut : FALSE | statique |Active la protection des services de structure. Tous les services utilisateur relèvent d’un même objet de traitement/groupe de travaux et sont limités à une quantité spécifiée de ressources. Il doit être statique (nécessite le redémarrage de FabricHost), car la création/suppression de l’objet de traitement utilisateur et des limites de paramètres s’effectue pendant l’ouverture de Fabric Host. |
 |FaultDomainConstraintPriority | Entier (valeur par défaut : 0) |Dynamique| Détermine la priorité de la contrainte de domaine d’erreur : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
 |GlobalMovementThrottleCountingInterval | Durée en secondes (valeur par défaut : 600) |statique| Spécifiez la durée en secondes. Indiquez la durée de l’intervalle écoulé pendant lequel effectuer le suivi des mouvements de réplica de domaine (utilisés avec GlobalMovementThrottleThreshold). Réglez cette valeur sur 0 pour ignorer complètement la limitation globale. |
 |GlobalMovementThrottleThreshold | Valeur Uint (valeur par défaut : 1000) |Dynamique| Nombre maximum de mouvements autorisés dans la phase d’équilibrage de l’intervalle écoulé spécifié par GlobalMovementThrottleCountingInterval. |

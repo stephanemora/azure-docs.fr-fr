@@ -1,17 +1,17 @@
 ---
-title: Modèles de colonne Data Flow de mappage Azure Data Factory
+title: Modèles de colonne dans les flux de données de mappage Azure Data Factory
 description: Créer des modèles de transformation de données généralisés à l’aide de modèles de colonnes Azure Data Factory dans des flux de données de mappage
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 535656f315f65ffb7aa241618fe9e73b8246b71f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a95bbb726f8c391270d3f60ed769d9475004b1e4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027864"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388023"
 ---
 # <a name="mapping-data-flows-column-patterns"></a>Modèles de colonne de flux de données de mappage
 
@@ -35,7 +35,7 @@ Si vous choisissez d’utiliser l’une des fonctions d’expression régulière
 L’utilisation de SUM avec une série de champs entrants constitue un exemple de scénario de modèle de colonne. Les calculs agrégés des calculs de SUM résident dans la transformation agrégée. Vous pouvez ensuite utiliser SUM sur chaque correspondance des types de champs qui correspondent à « integer », puis utiliser $$ pour référencer chaque correspondance dans votre expression.
 
 ## <a name="match-columns"></a>Colonnes de correspondance
-![types de modèles de colonnes](media/data-flow/pattern2.png "Types de modèles")
+![types de modèles de colonne](media/data-flow/pattern2.png "Types de modèles")
 
 Pour créer des modèles basés sur des colonnes, vous pouvez faire correspondre le nom de colonne, le type, le flux ou la position et utiliser n’importe quelle combinaison de ceux-ci avec les fonctions d’expression et les expressions régulières.
 
@@ -57,5 +57,5 @@ Construisez vos règles à l’aide du générateur d’expressions. Vos express
 * `position` est la position ordinale des colonnes dans votre flux de données
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur le flux de données de mappage ADF [langage d’expression](https://aka.ms/dataflowexpressions) pour les transformations de données
+* En savoir plus sur le [langage d’expression](https://aka.ms/dataflowexpressions) du flux de données de mappage ADF pour les transformations de données
 * Utiliser des modèles de colonne dans la [Transformation du récepteur](data-flow-sink.md) et [Transformation de sélection](data-flow-select.md) avec un mappage basé sur des règles

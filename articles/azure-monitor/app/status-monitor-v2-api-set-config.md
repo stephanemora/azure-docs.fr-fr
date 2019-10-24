@@ -1,6 +1,6 @@
 ---
-title: 'Référence des API Azure Status Monitor v2 : Définir la configuration | Microsoft Docs'
-description: Référence sur les API Azure Status Monitor v2. Set-ApplicationInsightsMonitoringConfig. Surveillez les performances d’un site web sans avoir à le redéployer. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
+title: 'Référence API d’Azure Application Insights Agent : Définir la configuration | Microsoft Docs'
+description: Référence API d’Application Insights Agent. Set-ApplicationInsightsMonitoringConfig. Surveillez les performances d’un site web sans avoir à le redéployer. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6d93be5b01be63a75041b939f6b8deb9106c4262
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 2ab941b5587a8836f1e472fbce3966b12bfa1e11
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200445"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388256"
 ---
-# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig"></a>API Status Monitor v2 : Set-ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API d’Application Insights Agent : Set-ApplicationInsightsMonitoringConfig
 
 Ce document décrit une cmdlet appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -132,7 +132,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 - [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de la page web et pour activer le suivi des appels.
 - [Ajoutez le Kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
  
- Plus d’opérations avec Status Monitor v2 :
- - Utilisez notre guide pour [détecter un problème](status-monitor-v2-troubleshoot.md) dans Status Monitor v2.
+ En faire plus avec Application Insights Agent :
+ - Utilisez notre guide pour [résoudre les problèmes](status-monitor-v2-troubleshoot.md) d’Application Insights Agent.
  - [Obtenez la configuration](status-monitor-v2-api-get-config.md) pour confirmer que vos paramètres ont été enregistrés correctement.
  - [Obtenez l’état](status-monitor-v2-api-get-status.md) pour inspecter la surveillance.

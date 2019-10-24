@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ebc6dd672fd180e22cc1edf5c9978e0985427e50
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: f67be1d31125b21048deca4d9cafcc76f4ffc3b1
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991851"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516751"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -57,7 +57,7 @@ L’offre Event Hubs Dedicated est facturée à un tarif mensuel fixe, avec un m
 | Event Hubs |  10 par espace de noms | 1 000 par espace de noms |
 | Événements d’entrée | Paiement par million d’événements | Inclus |
 | Taille des messages | 1 million d’octets | 1 million d’octets |
-| Partitions | 40 par espace de noms | 2 000 par unité de capacité |
+| Partitions | 32 par hub d’événements | 1 024 par hub d’événements |
 | Groupes de consommateurs | 20 par hub d’événements | Aucune limite par unité de capacité, 1 000 par hub d’événements |
 | Connexions réparties | 1 000 inclus, 5 000 maximum | 100 000 inclus et maximum |
 | Rétention des messages | 7 jours, 84 Go inclus par unité de débit | 90 jours, 10 To inclus per unité de capacité |

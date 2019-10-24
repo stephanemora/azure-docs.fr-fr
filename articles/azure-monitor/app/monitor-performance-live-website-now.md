@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e7d69e2258036318b736f245f9e3aec3cf5f54de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67876437"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389944"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumenter des applications web au runtime avec jonction sans code Application Insights
+
+> [!IMPORTANT]
+> L’utilisation de Status Monitor n’est plus recommandée. Il a été remplacé par Azure Monitor Application Insights Agent (anciennement appelé Status Monitor v2). Consultez notre documentation sur les [déploiements de serveurs locaux](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) ou sur les [déploiements de machines virtuelles et de groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Vous pouvez instrumenter une application web dynamique avec Azure Application Insights, sans avoir à modifier ou à redéployer votre code. Cette opération nécessite un abonnement [Microsoft Azure](https://azure.com) .
 
@@ -39,7 +42,7 @@ Deux méthodes sont disponibles pour appliquer Application Insights à vos appli
 * **En cours d’exécution :** Instrumentez votre application web sur le serveur, comme décrit ci-dessous, sans régénérer ni redéployer le code.
 
 > [!NOTE]
-> Si vous utilisez l'instrumentation En cours de création, l'instrumentation En cours d'exécution ne fonctionnera pas, même si elle est activée.
+> Si vous utilisez l’instrumentation au moment de la génération, l’instrumentation au moment de l’exécution ne va pas fonctionner, même si elle est activée.
 
 Voici un résumé de ce que vous apporte chaque méthode :
 

@@ -1,21 +1,20 @@
 ---
 title: Surveiller l’exécution des fonctions Azure
 description: Découvrez comment utiliser Azure Application Insights avec Azure Functions pour surveiller l’exécution des fonctions.
-services: functions
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 8092108ef13f4b86f20cf5a8a0b41b49d75aa626
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: dc333ef542da1330672ad1dc8ad731969eef6742
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098681"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374570"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -28,6 +27,8 @@ L’instrumentation Application Insights requise étant intégrée à Azure Func
 ## <a name="application-insights-pricing-and-limits"></a>Tarification et limites d’Application Insights
 
 Vous pouvez essayer gratuitement l’intégration d’Application Insights avec les applications de fonctions. La quantité de données pouvant être traitée quotidiennement à titre gratuit est limitée. Il est possible que cette limite soit atteinte lors du test. Azure envoie des notifications sur le portail et par e-mail lorsque la limite quotidienne est proche. Si vous manquez ces alertes et atteignez la limite fixée, les nouveaux journaux d’activité n’apparaîtront pas dans les requêtes Application Insights. N’oubliez pas ces limites pour éviter de passer du temps à résoudre des problèmes superflus. Pour plus d’informations, consultez l’article [Gérer la tarification et le volume de données dans Application Insights](../azure-monitor/app/pricing.md).
+
+La liste complète des fonctionnalités Application Insights disponibles pour votre application de fonction est détaillée dans [Fonctionnalités Application Insights prises en charge pour Azure Functions](../azure-monitor/app/azure-functions-supported-features.md).
 
 ## <a name="enable-application-insights-integration"></a>Activer l’intégration à Application Insights
 
@@ -606,7 +607,7 @@ Pour signaler un problème avec l’intégration d’Application Insights dans A
 
 ## <a name="streaming-logs"></a>Journaux d’activité en continu
 
-Lors du développement d’une application, vous souhaitez souvent savoir ce qui est écrit dans les journaux presque en temps réel lors de l’exécution dans Azure.
+Quand vous développez une application, vous souhaitez souvent voir ce qui est écrit dans les journaux quasiment en temps réel au moment de l’exécution dans Azure.
 
 Il existe deux façons d’afficher un flux des fichiers journaux générés par vos exécutions de fonction.
 

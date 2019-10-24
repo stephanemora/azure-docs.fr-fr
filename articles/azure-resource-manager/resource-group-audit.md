@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25bce613ab45f20f7060447bcfc47f452f4d70f2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606571"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329440"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Afficher les journaux d’activité pour surveiller les actions sur les ressources
 
@@ -55,7 +55,7 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
     ![Filtres de vue](./media/resource-group-audit/view-filters.png)
 
-1. Pour vous concentrer sur des opérations spécifiques, changez les filtres ou appliquez-en de nouveaux. Par exemple, l'image suivante présente une nouvelle valeur pour l'**Intervalle de temps**, et le **Type de ressource** est défini sur des comptes de stockage. 
+1. Pour vous concentrer sur des opérations spécifiques, changez les filtres ou appliquez-en de nouveaux. Par exemple, l'image suivante présente une nouvelle valeur pour l'**Intervalle de temps**, et le **Type de ressource** est défini sur des comptes de stockage.
 
     ![Définir des options de filtre](./media/resource-group-audit/set-filter.png)
 
@@ -139,7 +139,7 @@ Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq
 
 Vous pouvez utiliser Resource Graph pour afficher l’historique des modifications d’une ressource. Pour plus d’informations, consultez [Obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-cli"></a>D’Azure CLI
 
 Pour récupérer des entrées de journal, exécutez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) avec un décalage pour indiquer la période.
 
@@ -193,6 +193,7 @@ Les opérations REST à utiliser avec le journal d’activité font partie de l�
 
 * Les journaux d’activité Azure sont utilisables avec Power BI pour obtenir des informations plus détaillées sur les actions de votre abonnement. Consultez le billet de blog sur [l’affichage et l’analyse des journaux d’activité Azure dans Power BI](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Pour en savoir plus sur la définition de stratégies de sécurité, consultez [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md).
+* Pour voir plus de détails sur les changements apportés à vos applications de la couche d’infrastructure jusqu’au déploiement des applications, consultez [Utiliser l’analyse des changements d’application dans Azure Monitor](../azure-monitor/app/change-analysis.md).
 * Pour en savoir plus sur les commandes permettant d’afficher les opérations de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour savoir comment empêcher des suppressions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 * Pour obtenir la liste des opérations disponibles pour chaque fournisseur Microsoft Azure Resource Manager, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md).

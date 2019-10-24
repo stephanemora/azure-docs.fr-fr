@@ -10,13 +10,13 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/22/2019
-ms.openlocfilehash: 2034701008396f524e5b058ddb726ddce89e4e32
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/10/2019
+ms.openlocfilehash: 54f8a1248688a6d62192e4f34cf6b98a94086da8
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300617"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274755"
 ---
 # <a name="create-and-access-datasets-preview-in-azure-machine-learning"></a>Créer des jeux de données et y accéder (préversion) dans Azure Machine Learning
 
@@ -55,11 +55,13 @@ Pour en savoir plus sur les futures modifications de l’API, consultez [ceci](h
 
 ## <a name="create-datasets"></a>Créez les jeux de données
 
-En créant un jeu de données, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. Les données restant à leur emplacement existant, aucun coût de stockage supplémentaire n’est encouru.
+En créant un jeu de données, vous créez une référence à l’emplacement de la source de données, ainsi qu’une copie de ses métadonnées. Les données restant à leur emplacement existant, aucun coût de stockage supplémentaire n’est encouru. Vous pouvez créer des jeux de données TabularDatasets et FileDatasets via le kit SDK Python ou la page d’accueil de l’espace de travail (préversion). 
 
 Pour que les données soient accessibles par Azure Machine Learning, les jeux de données doivent être créés à partir de chemins de [magasin de données Azure](how-to-access-data.md) ou d’URL web publiques.
 
-Pour créer des jeux de données à partir d’une [banque de données Azure](how-to-access-data.md)
+### <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
+
+Pour créer des jeux de données à partir d’un [magasin de données Azure](how-to-access-data.md) à l’aide du kit SDK Python :
 
 * Veillez à disposer d’un accès `contributor` ou `owner` à la banque de données Azure inscrite.
 
@@ -78,12 +80,7 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
-
-### <a name="create-tabulardatasets"></a>Créer un TabularDatasets
-
-Vous pouvez créer des TabularDatasets via le kit de développement logiciel (SDK) ou à l’aide de la page d’accueil de l’espace de travail (préversion). Un timestamp peut être spécifié à partir d’une colonne dans les données ou du modèle de chemin d’accès dans lequel les données sont stockées pour activer une caractéristique de série chronologique, qui permet un filtrage facile et efficace par heure.
-
-#### <a name="using-the-sdk"></a>Utilisation du kit de développement logiciel
+#### <a name="create-tabulardatasets"></a>Créer un TabularDatasets
 
 Utilisez la méthode [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) sur la classe `TabularDatasetFactory` pour lire des fichiers au format CSV ou TSV, puis créez un TabularDataset non inscrit. Si vous effectuez la lecture à partir de plusieurs fichiers, les résultats sont agrégés dans une représentation tabulaire.
 
@@ -120,10 +117,13 @@ from azureml.core import Dataset, Datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
-Utilisez la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) sur la classe `TabularDataset` pour permettre un filtrage facile et efficace par heure. Vous trouverez d’autres exemples et détails [ici](https://aka.ms/azureml-tsd-notebook).
+
+Dans les jeux de données TabularDatasets, un horodatage peut être spécifié à partir d’une colonne dans les données ou du modèle de chemin dans lequel les données sont stockées pour activer une caractéristique de série chronologique, qui permet un filtrage facile et efficace par heure.
+
+Utilisez la méthode [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) sur la classe `TabularDataset` pour spécifier votre colonne d’horodatage et activer le filtrage par heure. Vous trouverez d’autres exemples et détails [ici](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
-# create a TabularDataset with timeseries trait
+# create a TabularDataset with time series trait
 datastore_paths = [(datastore, 'weather/*/*/*/data.parquet')]
 
 # get a coarse timestamp column from the path pattern
@@ -132,24 +132,14 @@ dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_form
 # set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
 dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
 
-# filter with timeseries trait specific methods
+# filter with time-series-trait-specific methods
 data_slice = dataset.time_before(datetime(2019, 1, 1))
 data_slice = dataset.time_after(datetime(2019, 1, 1))
 data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### <a name="using-the-workspace-landing-page"></a>Avec la page d’accueil de l’espace de travail
-
-Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com) pour créer un jeu de données via l’expérience web. Actuellement, la page d’accueil de l’espace de travail prend uniquement en charge la création de TabularDatasets.
-
-L’animation suivante montre comment créer un jeu de données sur la page d’accueil de l’espace de travail.
-
-Tout d’abord, sélectionnez **Jeu de données** dans la section **Ressources** du volet gauche. Ensuite, sélectionnez **+ Créer un jeu de données** pour choisir la source de votre jeu de données. Il peut s’agir de fichiers locaux, de banques de données ou d’URL web publiques. Les formulaires **Paramètres et aperçu** et **Schéma** sont remplis intelligemment en fonction du type de fichier. Sélectionnez **Suivant** pour les vérifier ou pour configurer davantage votre jeu de données avant création. Sélectionnez **Terminé** pour terminer la création de votre jeu de données.
-
-![Créer un jeu de données avec l’interface utilisateur](media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-### <a name="create-filedatasets"></a>Créer des FileDatasets
+#### <a name="create-filedatasets"></a>Créer des FileDatasets
 
 Utilisez la méthode [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) sur la classe `FileDatasetFactory` pour charger des fichiers de tout format, puis créez un FileDataset non inscrit.
 
@@ -169,6 +159,16 @@ web_paths = [
            ]
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
+
+### <a name="using-the-workspace-landing-page"></a>Avec la page d’accueil de l’espace de travail
+
+Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com) pour créer un jeu de données via l’expérience web. La page d’accueil de l’espace de travail prend en charge la création de jeux de données TabularDatasets et FileDatasets.
+
+L’animation suivante montre comment créer un jeu de données sur la page d’accueil de l’espace de travail.
+
+Tout d’abord, sélectionnez **Jeu de données** dans la section **Ressources** du volet gauche. Ensuite, sélectionnez **+ Créer un jeu de données** pour choisir la source de votre jeu de données. Il peut s’agir de fichiers locaux, de banques de données ou d’URL web publiques. Sélectionnez le **type de jeu de données** : *Tabulaire ou Fichier. Les formulaires **Paramètres et aperçu** et **Schéma** sont remplis intelligemment en fonction du type de fichier. Sélectionnez **Suivant** pour les vérifier ou pour configurer davantage votre jeu de données avant création. Sélectionnez **Terminé** pour terminer la création de votre jeu de données.
+
+![Créer un jeu de données avec l’interface utilisateur](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 ## <a name="register-datasets"></a>Inscrire des jeux de données
 

@@ -1,5 +1,5 @@
 ---
-title: Exécuter Azure Container Instances
+title: Exécuter un conteneur Détecteur d’anomalies dans Azure Container Instances
 titleSuffix: Azure Cognitive Services
 description: Déployez le conteneur détecteur d’anomalies sur Azure Container Instance et testez-le dans un navigateur web.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: cdcf701c6356303c84d3f79ee4230271f64ace78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 52d2e3ed59a7ad71177f34909e37ce885d603297
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854229"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515277"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Déployer un conteneur détecteur d’anomalies sur Azure Container Instances
 

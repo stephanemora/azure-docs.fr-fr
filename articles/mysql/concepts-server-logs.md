@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262273"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434281"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Journaux des requêtes lentes dans Azure Database for MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -40,6 +40,9 @@ Les autres paramètres que vous pouvez ajuster incluent :
 - **log_queries_not_using_indexes** : détermine si les requêtes qui n’utilisent pas les index sont enregistrées dans le journal des requêtes lentes.
 - **log_throttle_queries_not_using_indexes** : Ce paramètre limite le nombre de requêtes hors index qui peuvent être écrites dans le journal des requêtes lentes. Ce paramètre prend effet lorsque log_queries_not_using_indexes est défini sur ON.
 
+> [!Note]
+> Pour `sql_text`, le journal est tronqué s’il dépasse 2 048 caractères.
+
 Consultez [la documentation MySQL consacrée au journal des requêtes lentes](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) pour obtenir une description complète des paramètres du journal des requêtes lentes.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
@@ -66,8 +69,8 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction de la mé
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Nom du serveur |
 | `start_time_t` [UTC] | Heure de début de la requête |
-| `query_time_s` | Durée totale d’exécution de la requête |
-| `lock_time_s` | Durée totale pendant laquelle la requête a été verrouillée |
+| `query_time_s` | Durée totale d’exécution de la requête en secondes |
+| `lock_time_s` | Durée totale en secondes pendant laquelle la requête a été verrouillée |
 | `user_host_s` | Nom d’utilisateur |
 | `rows_sent_s` | Nombre de lignes envoyées |
 | `rows_examined_s` | Nombre de lignes examinées |

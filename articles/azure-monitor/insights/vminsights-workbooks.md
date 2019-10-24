@@ -1,24 +1,18 @@
 ---
 title: Créer des rapports interactifs avec des classeurs Azure Monitor | Microsoft Docs
 description: Simplifier la création de rapports complexes grâce à des classeurs paramétrés prédéfinis et personnalisés pour Azure Monitor pour machines virtuelles.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/05/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/15/2019
+ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61387156"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553731"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Créer des rapports interactifs avec les classeurs Azure Monitor
 
@@ -252,4 +246,7 @@ Pour épingler un lien à un classeur dans un tableau de bord Azure :
 3. Cliquez sur **Épingler au tableau de bord**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour savoir comment utiliser la fonctionnalité d’intégrité, consultez [Afficher l’intégrité d’une machine virtuelle Azure](vminsights-health.md) ou pour afficher les dépendances d’application détectées, consultez [Comprendre la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles](vminsights-maps.md). 
+
+- Pour connaître les limitations et les performances globales des machines virtuelles, consultez [Afficher les performances des machines virtuelles Azure](vminsights-performance.md).
+
+- Pour en savoir plus sur les dépendances des applications détectées, consultez [View Azure Monitor for VMs Map](vminsights-maps.md) (Afficher la carte d’Azure Monitor pour machines virtuelles).

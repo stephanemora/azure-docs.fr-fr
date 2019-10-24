@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9e45787e7ae39b62605f5d8a54afd4ad95c9cca7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814428"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331910"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 
@@ -33,6 +33,9 @@ Un plan de récupération vous permet de définir un processus de récupération
 
 
 ## <a name="model-apps"></a>Modéliser des applications
+
+> [!NOTE]
+> Vous pouvez ajouter jusqu’à 100 instances protégées à un même plan de récupération.
 
 Vous pouvez planifier et créer un groupe de récupération pour capturer les propriétés propres à l’application. Par exemple, prenons une application à trois niveaux classique avec un serveur SQL principal, un intergiciel et un serveur web frontal. En règle générale, vous personnalisez le plan de récupération afin que les machines de chaque niveau démarrent dans l’ordre approprié après un basculement.
 

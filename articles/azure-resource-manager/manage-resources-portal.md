@@ -1,6 +1,6 @@
 ---
 title: Gérer des ressources Azure à l’aide du portail Azure | Microsoft Docs
-description: Utilisez le Portail Azure et Azure Resource Manager pour gérer vos ressources.
+description: Utilisez le portail Azure et Azure Resource Manager pour gérer vos ressources. Montre comment déployer et supprimer des ressources.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: a4ff94a98514041290518e72e1b13c76722b9d4f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c52d54ca02436f7224346a65048244a5ec8d104c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205598"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390396"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gérer des ressources Azure à l’aide du portail Azure
 

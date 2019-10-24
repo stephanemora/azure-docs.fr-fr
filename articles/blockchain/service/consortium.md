@@ -1,21 +1,21 @@
 ---
 title: Consortium Azure Blockchain Service
-description: ''
+description: Comprendre comment Azure Blockchain Service utilise un consortium privé
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e745a4ee4789ef46a61b5cb0bbf806c41ef631ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04ea4a4ebecec958ba9d9a72711e101adb3690ab
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027914"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329287"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Consortium Azure Blockchain Service
 

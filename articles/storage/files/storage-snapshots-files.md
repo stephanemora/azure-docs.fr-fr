@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699355"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333173"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
@@ -71,7 +71,7 @@ Vous pouvez copier des fichiers individuels d’un instantané de partage de fic
 
 L’instantané de partage reste intact après la copie, mais le partage de fichiers de base est remplacé par une copie des données qui étaient disponibles dans l’instantané de partage. Tous les fichiers restaurés sont considérés comme du contenu changé.
 
-Vous pouvez copier un fichier dans un instantané de partage vers une destination avec un nom différent. Le fichier de destination qui en découle est modifiable et n’est pas un instantané de partage.
+Vous pouvez copier un fichier dans un instantané de partage vers une destination différente avec un nom différent. Le fichier de destination qui en découle est modifiable et n’est pas un instantané de partage. Dans ce cas, votre partage de fichiers de base reste intact.
 
 Quand un fichier de destination est remplacé par une copie, tous les instantanés de partage associés au fichier de destination d’origine restent intacts.
 

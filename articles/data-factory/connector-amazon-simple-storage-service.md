@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: dcfe3807057e9c438d5705b4293de0e76aea8688
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: f8f7c33abda8d31d39051a024b9cc381c9f6b192
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008505"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387953"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -118,7 +118,7 @@ Pour effectuer une copie à partir d’Amazon S3 au **format Parquet, de texte d
 | version | La version de l’objet S3 si le contrôle de version S3 est activé. La version la plus récente sera extraite si vous n’avez rien spécifié. |Non |
 
 > [!NOTE]
-> Le jeu de données de type **AmazonS3Object** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité Copy/Lookup/GetMetadata pour la compatibilité descendante, mais il ne fonctionne pas pour le mappage de flux de données. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
+> Le jeu de données de type **AmazonS3Object** au format Parquet/texte mentionné dans la section suivante est toujours pris en charge tel quel pour l’activité Copy/Lookup/GetMetadata pour la compatibilité descendante, mais il ne fonctionne pas avec le flux de données de mappage. Il est recommandé d’utiliser ce nouveau modèle à partir de maintenant. L’IU de création ADF peut désormais générer ces nouveaux types.
 
 **Exemple :**
 
@@ -348,15 +348,15 @@ Cette section décrit le comportement résultant de l’utilisation de filtres d
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour en savoir plus sur les propriétés, voir [Activité Lookup](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="getmetadata-activity-properties"></a>Propriétés de l’activité GetMetadata
 
-Pour en savoir plus sur les propriétés, voir [Activité GetMetadata](control-flow-get-metadata-activity.md). 
+Pour en savoir plus sur les propriétés, consultez [Activité GetMetadata](control-flow-get-metadata-activity.md). 
 
 ## <a name="delete-activity-properties"></a>Propriétés de l’activité Delete
 
-Pour en savoir plus sur les propriétés, voir [Activité Delete](delete-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

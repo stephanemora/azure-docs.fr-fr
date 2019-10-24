@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 9df389b6e6a73530c9bbf5a2187d6735946e309f
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 96f020f24e27ff799f9bfbc08d899e8375b86094
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249768"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72431825"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Windows 
 
@@ -36,7 +36,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 
 ## <a name="connectivity-issues"></a>Problèmes de connectivité
 
-Si l’agent communique via un serveur proxy ou un pare-feu, des restrictions peuvent empêcher la communication à partir de l’ordinateur source et du service Azure Monitor. Si la communication est bloquée ou si la configuration est incorrecte, l’inscription auprès d’un espace de travail peut échouer lors de la tentative d’installation de l’agent, configurez l’agent après l’installation pour rendre compte à un espace de travail supplémentaire ou la communication de l’agent échoue après une inscription réussie. Cette section décrit les méthodes permettant de résoudre des problèmes de ce type avec l’agent Windows. 
+Si l’agent communique via un serveur proxy ou un pare-feu, des restrictions peuvent empêcher la communication à partir de l’ordinateur source et du service Azure Monitor. Si la communication est bloquée, à cause d’une configuration incorrecte, l’inscription auprès d’un espace de travail peut échouer quand vous tentez d’installer l’agent ou de configurer l’agent après l’installation pour envoyer les rapports à un espace de travail supplémentaire. La communication avec l’agent peut échouer après une inscription réussie. Cette section décrit les méthodes permettant de résoudre des problèmes de ce type avec l’agent Windows.
 
 Vérifiez que le pare-feu et le proxy sont configurés pour autoriser les URL et les ports suivants, indiqués dans le tableau ci-dessous. Confirmez également que l’inspection HTTP n’est pas activée pour le trafic web, car cela peut empêcher un canal TLS sécurisé entre l’agent et Azure Monitor.  
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: d73ab2d5cca4f20f954a0b0e972111d3f395c3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cff0286e944414d70cffd801620159ffef3db1a5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077529"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389825"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Activer la surveillance d’un nouveau cluster Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Cet article explique comment configurer Azure Monitor pour les conteneurs afin 
 
 Vous pouvez activer la surveillance d’un cluster AKS à l’aide d’une des méthodes prises en charge :
 
-* Azure CLI
+* D’Azure CLI
 * Terraform
 
 ## <a name="enable-using-azure-cli"></a>Activer à l’aide d’Azure CLI
@@ -34,8 +34,7 @@ Vous pouvez activer la surveillance d’un cluster AKS à l’aide d’une des 
 Pour activer la supervision d’un nouveau cluster AKS créé avec Azure CLI, suivez l’étape de l’article de démarrage rapide sous la section [Créer un cluster AKS](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI 2.0.59 ou version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
->
+>Si vous avez choisi d’utiliser Azure CLI, vous devez d’abord l’installer et l’utiliser localement. Vous devez exécuter Azure CLI version 2.0.74 ou une version ultérieure. Pour identifier votre version, exécutez `az --version`. Si vous devez installer ou mettre à niveau Azure CLI, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Si vous aviez installé l’extension CLI aks-preview version 0.4.12 ou ultérieure, supprimez toutes les modifications que vous aviez apportées pour activer une extension en préversion. Cette extension pourrait substituer le comportement Azure CLI par défaut, étant donné que les fonctionnalités AKS en préversion ne sont pas disponibles dans le cloud Azure US Government.
 
 ## <a name="enable-using-terraform"></a>Activer à l’aide de Terraform
 

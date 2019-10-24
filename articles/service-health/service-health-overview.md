@@ -7,12 +7,12 @@ services: service-health
 ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a6f6288aebe599db794a7f15fc733563d26c66cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067095"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515852"
 ---
 # <a name="service-health-overview"></a>Présentation de Service Health
 
@@ -27,7 +27,7 @@ Service Health suit trois types d’événements d’intégrité qui peuvent avo
 3. **Health advisories** (Avis concernant l’intégrité) : modifications apportées aux services Azure qui nécessitent votre attention. Ce type d’événement se produit par exemple lorsque des fonctionnalités Azure sont déconseillées ou si vous dépassez un quota d’utilisation.
 
 > [!NOTE]
-> Pour afficher les événements Service Health, les utilisateurs doivent avoir le rôle de lecteur sur un abonnement.
+> Pour voir les événements Service Health, les utilisateurs doivent [avoir le rôle Lecteur](../role-based-access-control/role-assignments-portal.md) dans un abonnement.
 
 ## <a name="get-started-with-service-health"></a>Prise en main de Service Health
 

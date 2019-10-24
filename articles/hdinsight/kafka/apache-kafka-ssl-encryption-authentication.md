@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5d567074a0038915cc43a585b34c9c71ccf3eb1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a817124afb9afcee25b5f2bff73b8a17e16519
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464992"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72431281"
 ---
 # <a name="set-up-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurer le chiffrement et l’authentification SSL pour Apache Kafka dans Azure HDInsight
 
@@ -128,7 +128,7 @@ Pour terminer la modification de configuration, procédez comme suit :
 
     ![Modification des propriétés de configuration SSL Kafka dans Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Ajoutez des propriétés de configuration au fichier `server.properties` Kafka pour afficher les adresses IP plutôt que le nom de domaine complet (FQDN).
+1. Exécutez les commandes ci-dessous afin d’ajouter des propriétés de configuration au fichier Kafka `server.properties` pour afficher les adresses IP plutôt que le nom de domaine complet.
 
     ```bash
     IP_ADDRESS=$(hostname -i)

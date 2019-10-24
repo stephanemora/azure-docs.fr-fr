@@ -5,28 +5,40 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 89b52f356b112cff51105ed44c79788ee4542c6e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000335"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430496"
 ---
-# <a name="what-is-passwordless"></a>Présentation de l’authentification sans mot de passe
+# <a name="passwordless-authentication-options"></a>Options d’authentification sans mot de passe
 
 L’authentification multifacteur (MFA) est un excellent moyen de sécuriser votre organisation, mais les utilisateurs se lasseront de la couche supplémentaire en plus de devoir se souvenir de leurs mots de passe. Les méthodes d’authentification sans mot de passe sont plus pratiques, car le mot de passe est supprimé et remplacé par quelque chose que vous avez et quelque chose que vous savez.
 
 |   | Quelque chose que vous avez | Quelque chose que vous êtes ou savez |
 | --- | --- | --- |
-| Sans mot de passe | Téléphone ou clé de sécurité | Biométrie ou code confidentiel |
+| Sans mot de passe | Appareil Windows 10, téléphone ou clé de sécurité | Biométrie ou code confidentiel |
 
-Chaque organisation a des besoins différents en matière d’authentification. Microsoft propose actuellement Windows Hello pour nos PC Windows. Nous ajoutons l’application Microsoft Authenticator et les clés de sécurité FIDO2 à la famille de mots de passe.
+Chaque organisation a des besoins différents en matière d’authentification. Microsoft propose trois options d’authentification sans mot de passe :
+
+- Windows Hello Entreprise 
+- Application Microsoft Authenticator 
+- Clés de sécurité FIDO2
+
+![Authentification : Sécurité et commodité](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
+
+## <a name="windows-hello-for-business"></a>Windows Hello Entreprise 
+
+Windows Hello Entreprise est idéal pour les professionnels de l’information qui disposent de leur propre PC Windows. Les données biométriques et le code confidentiel sont directement liés au PC de l’utilisateur, personne à part son propriétaire ne peut donc y accéder. Avec l’intégration PKI et la prise en charge intégrée de l'authentification unique (SSO), Windows Hello Entreprise offre une méthode d'accès simple et pratique aux ressources d'entreprise localement et dans le cloud.
+
+Le [guide de planification](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) Windows Hello Entreprise peut vous aider à déterminer le type de déploiement de Windows Hello Entreprise dont vous avez besoin, ainsi que les options à prendre en compte.
 
 ## <a name="microsoft-authenticator-app"></a>Application Microsoft Authenticator
 
@@ -44,7 +56,7 @@ Avec la préversion publique, les employés peuvent utiliser des clés de sécur
 
 ![Connectez-vous à Microsoft Edge avec une clé de sécurité](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-Bien qu’il existe de nombreuses clés FIDO2 certifiées par la FIDO Alliance, Microsoft exige que certaines des extensions facultatives de la spécification FIDO2 CTAP soient implémentées par le fournisseur afin de garantir une sécurité maximale et la meilleure expérience possible.
+Bien qu’il existe de nombreuses clés FIDO2 certifiées par la FIDO Alliance, Microsoft exige que certaines des extensions facultatives de la spécification FIDO2 CTAP (Client-to-Authenticator Protocol) soient implémentées par le fournisseur, afin de garantir une sécurité maximale et la meilleure expérience possible.
 
 Une clé de sécurité **doit** implémenter les fonctionnalités et extensions du protocole FIDO2 CTAP suivantes pour être compatible avec Microsoft :
 
@@ -55,7 +67,7 @@ Une clé de sécurité **doit** implémenter les fonctionnalités et extensions 
 | 3 | hmac-secret | Cette extension garantit que vous pouvez vous connecter à votre appareil lorsqu’il est hors connexion ou en mode avion. |
 | 4 | Plusieurs comptes par fournisseur de ressources | Cette fonctionnalité garantit que vous pouvez utiliser la même clé de sécurité dans plusieurs services, comme un compte Microsoft et Azure Active Directory. |
 
-Les fournisseurs suivants offrent des clés de sécurité FIDO2 de différents facteurs de forme qui sont connues pour être compatibles avec l’expérience sans mot de passe. Microsoft encourage les clients à évaluer les propriétés de sécurité de ces clés en contactant le fournisseur, ainsi que la FIDO Alliance.
+Les fournisseurs suivants offrent des clés de sécurité FIDO2 de différents facteurs de forme, qui sont connues pour être compatibles avec l’expérience sans mot de passe. Microsoft encourage les clients à évaluer les propriétés de sécurité de ces clés en contactant le fournisseur, ainsi que la FIDO Alliance.
 
 | Fournisseur | Contact |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: Azure Status Monitor v2 - Bien démarrer | Microsoft Docs
-description: Guide de démarrage rapide pour Status Monitor v2. Surveiller les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
+title: Bien démarrer avec Azure Application Insights Agent | Microsoft Docs
+description: Guide de démarrage rapide pour Application Insights Agent. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: d9c354edac3cbd3faccaa261654e56f858befdf6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: f1911d8187b186f301bea771963f922ee3574fd6
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058246"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388214"
 ---
-# <a name="get-started-with-status-monitor-v2"></a>Bien démarrer avec Status Monitor v2
+# <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Bien démarrer avec Azure Monitor Application Insights Agent pour les serveurs locaux
 
 Cet article contient les commandes de démarrage rapide susceptibles de fonctionner pour la plupart des environnements.
 Les instructions dépendent de PowerShell Gallery pour distribuer les mises à jour.
@@ -41,7 +41,7 @@ Install-Module -Name PowerShellGet -Force
 ``` 
 Fermez PowerShell.
 
-### <a name="install-status-monitor-v2"></a>Installer Status Monitor v2
+### <a name="install-application-insights-agent"></a>Installer Application Insights Agent
 Exécutez PowerShell en tant qu’administrateur.
 ```powershell   
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process -Force
@@ -59,7 +59,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 ### <a name="download-the-module"></a>Télécharger le module
 Téléchargez manuellement la dernière version du module à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 
-### <a name="unzip-and-install-status-monitor-v2"></a>Décompresser et installer Status Monitor v2
+### <a name="unzip-and-install-application-insights-agent"></a>Décompresser et installer Application Insights Agent
 ```powershell
 $pathToNupkg = "C:\Users\t\Desktop\Az.ApplicationMonitor.0.3.0-alpha.nupkg"
 $pathToZip = ([io.path]::ChangeExtension($pathToNupkg, "zip"))
@@ -89,7 +89,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 - [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de la page web et activer le suivi des appels.
 - [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
 
-En faire plus avec Status Monitor v2 :
+En faire plus avec Application Insights Agent :
 
 - Examinez les [instructions détaillées](status-monitor-v2-detailed-instructions.md) pour obtenir une explication des commandes répertoriées ici.
-- Utilisez notre guide pour [dépanner](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+- Utilisez notre guide pour [résoudre les problèmes](status-monitor-v2-troubleshoot.md) d’Application Insights Agent.

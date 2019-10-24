@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5812cc73fb1da58c591d0593e079851e05bd0940
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125693"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331961"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -98,6 +98,9 @@ Si vous répliquez plusieurs machines virtuelles VMware, lisez les [considérati
 > Veillez à ne pas modifier les configurations de ressources (restriction mémoire/cœurs/UC), modifier/supprimer des services ou fichiers installés sur le serveur de configuration après le déploiement. Cela aurait un impact sur l'inscription du serveur de configuration auprès des services Azure, ainsi que sur les performances de ce serveur.
 
 ## <a name="add-an-additional-adapter"></a>Ajouter une carte supplémentaire
+
+> [!NOTE]
+> Si vous envisagez de conserver les adresses IP des ordinateurs sources lors d’un basculement et que vous souhaitez par la suite effectuer une restauration automatique localement, vous avez besoin de deux cartes réseau : une à connecter aux ordinateurs sources et l’autre pour la connectivité Azure.
 
 Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au serveur de configuration, faites-le avant d’inscrire le serveur dans le coffre. L’ajout de cartes supplémentaires n’est pas pris en charge après l’inscription.
 

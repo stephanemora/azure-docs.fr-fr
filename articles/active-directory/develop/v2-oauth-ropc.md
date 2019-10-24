@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/11/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d5324aba5202abb76f07d1eaf43fe214e690393
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2fb475a5d88547cc5f39cb269cc1cbf72fcd25b3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193203"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295397"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>La plateforme d’identité Microsoft et les informations d’identification de mot de passe du propriétaire des ressources OAuth 2.0
 
@@ -34,6 +34,7 @@ La plateforme d’identité Microsoft prend en charge l’[octroi des informatio
 > * Les comptes personnels qui sont invités sur un locataire Azure AD ne peuvent pas utiliser ROPC.
 > * Les comptes qui n’ont pas de mots de passe ne peuvent pas se connecter via ROPC. Pour ce scénario, nous vous recommandons d’utiliser à la place un autre flux pour votre application.
 > * Si les utilisateurs doivent utiliser l’authentification multifacteur (MFA) pour se connecter à l’application, ils seront au lieu de cela bloqués.
+> * ROPC n’est pas pris en charge dans les scénarios de la [fédération d’identités hybrides](/azure/active-directory/hybrid/whatis-fed) (par exemple, Azure AD et ADFS utilisés pour authentifier des comptes locaux). Si les utilisateurs sont redirigés en pleine page vers des fournisseurs d’identité locaux, Azure AD n’est pas en mesure de tester le nom d’utilisateur et le mot de passe par rapport à ce fournisseur d’identité. [L’authentification directe](/azure/active-directory/hybrid/how-to-connect-pta) est toutefois prise en charge avec ROPC.
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 

@@ -1,31 +1,27 @@
 ---
 title: Consulter Azure Monitor pour afficher les journaux d’activité des conteneurs en temps réel | Microsoft Docs
 description: Cet article décrit la vue en temps réel des journaux d’activité de conteneur (stdout/stderr) et des événements sans l’utilisation de kubectl avec Azure Monitor pour les conteneurs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 2eab6fa75e4adbbde7bcf20f18301a1e516235c2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 07/12/2019
+ms.openlocfilehash: 25cfe10ec192f874d050bca22ce1b85c2d1afbb4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035359"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554084"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>Guide pratique pour afficher les journaux et événements en temps réel (préversion)
 Azure Monitor pour conteneurs inclut une fonctionnalité actuellement en préversion qui fournit une vue en temps réel de vos journaux de conteneur Azure Kubernetes Service (AKS) (stdout/stderr) et événements sans nécessiter l’exécution de commandes kubectl. Lorsque vous sélectionnez une option, un nouveau volet s’affiche sous la table de données de performances dans la vue **Nœuds**, **Contrôleurs** et **Conteneurs**. Il affiche la journalisation dynamique et les événements générés par le moteur du conteneur afin de faciliter la résolution des problèmes en temps réel.
 
 >[!NOTE]
->Un accès **Contributeur** à la ressource de cluster est requis pour que cette fonctionnalité soit opérationnelle.
->
+>Cette fonctionnalité est disponible dans toutes les régions Azure, y compris Azure - Chine. Elle n’est actuellement pas disponible dans la région Azure - Gouvernement des États-Unis.
+
+>[!NOTE]
+>Un accès **Rôle d’utilisateur de cluster Azure Kubernetes Service** à la ressource de cluster est requis pour que cette fonctionnalité soit opérationnelle. [Apprenez-en davantage sur le rôle d’utilisateur de cluster Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions).
 
 Les journaux d’activité dynamiques prennent en charge trois méthodes de contrôle d’accès aux journaux d’activité :
 
@@ -74,6 +70,9 @@ AKS peut être configuré dans le but d’utiliser Azure Active Directory (AD) p
 
 -  **URI de redirection** : Deux types d’applications **web** doivent être créés. La première valeur de l’URL de base doit être `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` et la deuxième valeur de l’URL de base doit être `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 - Après avoir inscrit l’application, dans la page **Présentation**, sélectionnez **Authentification** dans le volet de gauche. Dans la page **Authentification**, sous **Paramètres avancés** accordez implicitement des **Jetons d’accès** et des **Jetons d’ID**, puis enregistrez votre modifications.
+
+>[!NOTE]
+>Si vous utilisez cette fonctionnalité dans la région Azure - Chine, la première valeur de l’URL de base doit être `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` et la deuxième valeur de l’URL de base doit être `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 
 >[!NOTE]
 >La configuration de l’authentification avec Azure Active Directory pour l’authentification unique est possible seulement pendant le déploiement initial d’un nouveau cluster AKS. Vous ne pouvez pas configurer l’authentification unique pour un cluster AKS déjà déployé.

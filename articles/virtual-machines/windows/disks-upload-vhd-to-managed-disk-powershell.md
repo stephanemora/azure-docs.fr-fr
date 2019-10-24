@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: d193dcd0c0539c2daa7220d915fdc3e02c8ea798
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828654"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512437"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell
 
@@ -28,7 +28,7 @@ Actuellement, le chargement direct est pris en charge pour les disques managés 
 - Téléchargez la dernière [version d'AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installez le module Azure PowerShell](/powershell/azure/install-Az-ps).
 - Si vous envisagez de charger un disque dur virtuel à partir de on-pem : Un disque dur virtuel [préparé pour Azure](prepare-for-upload-vhd-image.md) et stocké localement.
-- Ou un disque managé dans Azure, si vous envisagez d'effectuer une action de copie.
+- Ou un disque managé dans Azure, si vous envisagez d’effectuer une action de copie.
 
 ## <a name="create-an-empty-managed-disk"></a>Créer un disque managé vierge
 
@@ -87,12 +87,12 @@ Revoke-AzDiskAccess -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
 
 ## <a name="copy-a-managed-disk"></a>Copier un disque managé
 
-Le chargement direct simplifie également le processus de copie d'un disque managé. Vous pouvez effectuer une copie au sein d'une même région ou entre des régions différentes (vers une autre région).
+Le chargement direct simplifie également le processus de copie d’un disque managé. Vous pouvez effectuer une copie au sein d’une même région ou entre des régions différentes (vers une autre région).
 
 Le script suivant effectuera cette opération pour vous. Le processus est similaire aux étapes décrites précédemment, à quelques différences près puisque vous utilisez un disque existant.
 
 > [!IMPORTANT]
-> Vous devez ajouter un décalage de 512 lorsque vous fournissez la taille en octets d'un disque managé à partir d'Azure. En effet, Azure omet le pied de page lors du renvoi de la taille du disque. Si vous ne le faites pas, la copie échouera. Le script suivant s'en charge pour vous.
+> Vous devez ajouter un décalage de 512 quand vous fournissez la taille en octets d’un disque managé d’Azure. En effet, Azure omet le pied de page lors du retour de la taille du disque. Si vous ne le faites pas, la copie échouera. Le script suivant s'en charge pour vous.
 
 Remplacez `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` et `<yourTargetLocationHere>` (la valeur d'emplacement pourrait par exemple être uswest2) par vos valeurs, puis exécutez le script suivant afin de copier un disque managé.
 
@@ -128,4 +128,4 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 Maintenant que vous avez chargé un disque dur virtuel sur un disque managé, vous pouvez joindre votre disque à une machine virtuelle et commencer à l'utiliser.
 
-Pour joindre un disque à une machine virtuelle, consultez l'article suivant : [Joindre un disque de données à une machine virtuelle Windows à l'aide de PowerShell](attach-disk-ps.md).
+Pour découvrir comment joindre un disque de données à une machine virtuelle, consultez l’article suivant : [Joindre un disque de données à une machine virtuelle Windows à l'aide de PowerShell](attach-disk-ps.md). Pour utiliser le disque comme disque de système d’exploitation, consultez [Créer une machine virtuelle Windows à partir d’un disque spécialisé](create-vm-specialized.md#create-the-new-vm).

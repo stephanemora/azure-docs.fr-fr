@@ -1,25 +1,25 @@
 ---
 title: Compatibilité Azure Cosmos DB Gremlin avec les fonctionnalités TinkerPop
 description: Documentation de référence sur les problèmes de compatibilité du moteur Graph
-author: olignat
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
-ms.author: olignat
-ms.openlocfilehash: d58d1ea50251c3568161ce008db2672ff0fd6372
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: sngun
+ms.openlocfilehash: 0ed5824859b8463919a809861993f9f98a4f9251
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910683"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327027"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Compatibilité Azure Cosmos DB Gremlin
 Le moteur Azure Cosmos DB Graph suit de près la spécification des étapes de traversée [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), mais avec quelques différences.
 
 ## <a name="behavior-differences"></a>Différences de comportement
 
-* Le moteur Azure Cosmos DB Graph fonctionne d’abord en largeur de traversée tandis que TinkerPop Gremlin fonctionne d’abord en profondeur. Ce comportement permet d'obtenir de meilleures performances dans un système horizontalement évolutif comme Cosmos DB. 
+* Le moteur Azure Cosmos DB Graph fonctionne ***d’abord en largeur*** de traversée tandis que TinkerPop Gremlin fonctionne d’abord en profondeur. Ce comportement permet d'obtenir de meilleures performances dans un système horizontalement évolutif comme Cosmos DB. 
 
 ## <a name="unsupported-features"></a>Fonctionnalités non prises en charge
 

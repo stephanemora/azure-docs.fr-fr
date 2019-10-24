@@ -1,55 +1,90 @@
 ---
 title: Comprendre le langage de requête
-description: Décrit les opérateurs et les fonctions Kusto disponibles et utilisables avec Azure Resource Graph.
+description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/22/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 54bb0b4f21752b91ceb9d4004c153ff4d95006aa
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6189920cb03a6cf388f0b5d232c6ce97ae4f3f82
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976762"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389759"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
-Le langage de requête pour Azure Resource Graph prend en charge un certain nombre d’opérateurs et de fonctions. Chacun fonctionne selon l’[explorateur de données Azure](../../../data-explorer/data-explorer-overview.md).
+Le langage de requête pour Azure Resource Graph prend en charge un certain nombre d’opérateurs et de fonctions. Leur fonctionnement et leur utilisation s’appuient sur le [langage de requête Kusto (KQL, Kusto Query Language)](/azure/kusto/query/index). Pour en savoir plus sur le langage de requête utilisé par Resource Graph, commencez par suivre le [tutoriel KQL](/azure/kusto/query/tutorial).
 
-La meilleure façon d’en savoir plus sur le langage de requête utilisé par Resource Graph consiste à consulter la documentation sur le [langage de requête](/azure/kusto/query/index) de l’explorateur de données Azure. Elle fournit des informations sur la structure du langage et sur la façon de combiner les différents opérateurs et fonctions pris en charge.
+Cet article traite des composants de langage pris en charge par Resource Graph :
 
-## <a name="supported-tabular-operators"></a>Opérateurs tabulaires pris en charge
+- [Tables Resource Graph](#resource-graph-tables)
+- [Éléments du langage KQL pris en charge](#supported-kql-language-elements)
+- [Caractères d’échappement](#escape-characters)
 
-Voici la liste des opérateurs tabulaires pris en charge dans Resource Graph :
+## <a name="resource-graph-tables"></a>Tables Resource Graph
 
-- [count](/azure/kusto/query/countoperator)
-- [distinct](/azure/kusto/query/distinctoperator)
-- [extend](/azure/kusto/query/extendoperator)
-- [limit](/azure/kusto/query/limitoperator)
-- [order by](/azure/kusto/query/orderoperator)
-- [project](/azure/kusto/query/projectoperator)
-- [project-away](/azure/kusto/query/projectawayoperator)
-- [sample](/azure/kusto/query/sampleoperator)
-- [sample-distinct](/azure/kusto/query/sampledistinctoperator)
-- [sort by](/azure/kusto/query/sortoperator)
-- [summarize](/azure/kusto/query/summarizeoperator)
-- [take](/azure/kusto/query/takeoperator)
-- [top](/azure/kusto/query/topoperator)
-- [top-nested](/azure/kusto/query/topnestedoperator)
-- [top-hitters](/azure/kusto/query/tophittersoperator)
-- [where](/azure/kusto/query/whereoperator)
+Resource Graph fournit plusieurs tables contenant les données qu’il stocke, relatives aux types de ressources Resource Manager et à leurs propriétés. Vous pouvez utiliser ces tables avec l’opérateur `join` ou `union` pour récupérer des propriétés à partir des types de ressources associés. Voici la liste des tables disponibles dans Resource Graph :
 
-## <a name="supported-functions"></a>Fonctions prises en charge
+|Tables Resource Graph |Description |
+|---|---|
+|Ressources |Table par défaut si aucune table n’est définie dans la requête. Elle contient la plupart des types de ressources et propriétés Resource Manager. |
+|ResourceContainers |Inclut les données et les types de ressources d’abonnement (`Microsoft.Resources/subscriptions`) et de groupe de ressources (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|AlertsManagementResources |Inclut les ressources _associées_ à `Microsoft.AlertsManagement`. |
+|SecurityResources |Inclut les ressources _associées_ à `Microsoft.Security`. |
 
-Voici la liste des fonctions prises en charge dans Resource Graph :
+> [!NOTE]
+> La table _Resources_  est la table par défaut. Quand vous interrogez la table _Resources_ , il n’est pas nécessaire d’indiquer le nom de la table, sauf si vous utilisez `join` ou `union`. Toutefois, la pratique recommandée consiste à toujours inclure la table initiale dans la requête.
 
-- [ago()](/azure/kusto/query/agofunction)
-- [buildschema()](/azure/kusto/query/buildschema-aggfunction)
-- [strcat()](/azure/kusto/query/strcatfunction)
-- [isnotempty()](/azure/kusto/query/isnotemptyfunction)
-- [tostring()](/azure/kusto/query/tostringfunction)
-- [zip()](/azure/kusto/query/zipfunction)
+Utilisez l’Explorateur Resource Graph dans le portail pour découvrir les types de ressources disponibles dans chaque table. Vous pouvez également utiliser une requête telle que `<tableName> | distinct type` pour obtenir la liste des types de ressources existant dans votre environnement, pris en charge par la table Resource Graph concernée.
+
+La requête suivante illustre un opérateur `join` simple. Le résultat de la requête fusionne les colonnes, et le suffixe **1** est ajouté à tous les noms de colonnes dupliqués de la table jointe (_ResourceContainers_ dans cet exemple). Comme la table _ResourceContainers_ possède des types pour les abonnements et les groupes de ressources, l’un ou l’autre de ces types peut être utilisé pour la jointure à la ressource à partir de la table _Resources_.
+
+```kusto
+Resources
+| join ResourceContainers on subscriptionId
+| limit 1
+```
+
+La requête suivante illustre une utilisation plus complexe de l’opérateur `join`. La requête limite la table jointe aux ressources d’abonnement et utilise `project` pour inclure uniquement le champ d’origine _subscriptionId_ et le champ _name_ renommé _SubName_. Le renommage de champ évite que `join` ne l’ajoute en tant que _name1_, puisque le champ existe déjà dans _Resources_. La table d’origine est filtrée avec `where` et le `project` suivant comprend des colonnes des deux tables. Le résultat de la requête est un coffre de clés unique affichant le type, le nom du coffre de clés et le nom de l’abonnement dans lequel il se trouve.
+
+```kusto
+Resources
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
+| where type == 'microsoft.keyvault/vaults'
+| project type, name, SubName
+| limit 1
+```
+
+> [!NOTE]
+> Quand vous limitez les résultats de `join` avec `project`, la propriété utilisée par `join` pour associer les deux tables (_subscriptionId_  dans l’exemple ci-dessus) doit être incluse dans `project`.
+
+## <a name="supported-kql-language-elements"></a>Éléments du langage KQL pris en charge
+
+Resource Graph prend en charge tous les [types de données](/azure/kusto/query/scalar-data-types/), [fonctions scalaires](/azure/kusto/query/scalarfunctions), [opérateurs scalaires](/azure/kusto/query/binoperators) et [fonctions d’agrégation](/azure/kusto/query/any-aggfunction) du langage KQL. Des [opérateurs tabulaires](/azure/kusto/query/queries) spécifiques sont pris en charge par Resource Graph, dont certains présentent différents comportements.
+
+### <a name="supported-tabulartop-level-operators"></a>Opérateurs tabulaires/de niveau supérieur pris en charge
+
+Voici la liste des opérateurs tabulaires KQL pris en charge par Resource Graph avec des exemples spécifiques :
+
+|KQL |Exemple de requête Resource Graph |Notes |
+|---|---|---|
+|[count](/azure/kusto/query/countoperator) |[Compter les coffres de clés](../samples/starter.md#count-keyvaults) | |
+|[distinct](/azure/kusto/query/distinctoperator) |[Afficher des valeurs distinctes pour un alias spécifique](../samples/starter.md#distinct-alias-values) | |
+|[extend](/azure/kusto/query/extendoperator) |[Compter les machines virtuelles par type de système d’exploitation](../samples/starter.md#count-os) | |
+|[join](/azure/kusto/query/joinoperator) |[Coffre de clés avec nom d’abonnement](../samples/advanced.md#join) |Variantes de jointure prises en charge : [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). Limite de 3 `join` dans une requête unique. Les stratégies de jointure personnalisées comme la jointure de diffusion ne sont pas autorisées. Peut être utilisé dans une table unique ou entre les tables _Resources_ et _ResourceContainers_. |
+|[limit](/azure/kusto/query/limitoperator) |[Lister toutes les adresses IP publiques](../samples/starter.md#list-publicip) |Identique à `take` |
+|[mv-expand](/azure/kusto/query/mvexpandoperator) |[Lister Cosmos DB avec des emplacements d’écriture spécifiques](../samples/advanced.md#mvexpand-cosmosdb) |Valeur _RowLimit_  maximale de 400 |
+|[order](/azure/kusto/query/orderoperator) |[Lister les ressources triées par nom](../samples/starter.md#list-resources) |Identique à `sort` |
+|[project](/azure/kusto/query/projectoperator) |[Lister les ressources triées par nom](../samples/starter.md#list-resources) | |
+|[project-away](/azure/kusto/query/projectawayoperator) |[Supprimer des colonnes des résultats](../samples/advanced.md#remove-column) | |
+|[sort](/azure/kusto/query/sortoperator) |[Lister les ressources triées par nom](../samples/starter.md#list-resources) |Identique à `order` |
+|[summarize](/azure/kusto/query/summarizeoperator) |[Compter les ressources Azure](../samples/starter.md#count-resources) |Première page simplifiée uniquement |
+|[take](/azure/kusto/query/takeoperator) |[Lister toutes les adresses IP publiques](../samples/starter.md#list-publicip) |Identique à `limit` |
+|[top](/azure/kusto/query/topoperator) |[Afficher les cinq premières machines virtuelles par nom et leur type de système d’exploitation](../samples/starter.md#show-sorted) | |
+|[union](/azure/kusto/query/unionoperator) |[Combiner les résultats de deux requêtes en un résultat unique](../samples/advanced.md#unionresults) |Table unique autorisée : _T_ `| union` \[`kind=` `inner`\|`outer`\] \[`withsource=`_NomColonne_\] _Table_. Limite de 3 sections `union` dans une requête unique. La résolution approximative des tables avec sections `union` n’est pas autorisée. Peut être utilisé dans une table unique ou entre les tables _Resources_ et _ResourceContainers_. |
+|[where](/azure/kusto/query/whereoperator) |[Afficher les ressources contenant storage](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Caractères d'échappement
 

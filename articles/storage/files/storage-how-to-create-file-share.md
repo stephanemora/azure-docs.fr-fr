@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 000dacb7530b52784a68663d295fde9784d50e29
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3b30df7410f56c203eb600089cce130a8de23d1b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013558"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514603"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Créer un partage de fichiers dans Azure Files
 Vous pouvez créer des partages de fichiers Azure à l’aide du  [portail Azure](https://portal.azure.com/), des applets de commande PowerShell du Stockage Azure, des bibliothèques clientes du Stockage Azure ou de l’API REST du Stockage Azure. Ce tutoriel vous apprendra à effectuer les opérations suivantes :
@@ -23,6 +23,9 @@ Vous pouvez créer des partages de fichiers Azure à l’aide du  [portail Azur
 ## <a name="prerequisites"></a>Prérequis
 Pour créer un partage de fichiers Azure, vous pouvez utiliser un compte de stockage existant ou [créer un compte de stockage Azure](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Pour créer un partage de fichiers Azure avec PowerShell, vous avez besoin de la clé de compte et du nom de votre compte de stockage. Si vous envisagez d’utiliser Powershell ou l’interface CLI, vous aurez besoin de la clé du compte de stockage.
 
+> [!NOTE]
+> Si vous souhaitez créer des partages de fichiers supérieurs à 5 Tio, consultez notre article [Activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
+
 ## <a name="create-a-file-share-through-the-azure-portal"></a>Créer un partage de fichiers via le portail Azure
 1. **Accédez au panneau Compte de stockage dans le portail Azure** :    
     ![Panneau Compte de stockage](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
@@ -30,7 +33,7 @@ Pour créer un partage de fichiers Azure, vous pouvez utiliser un compte de stoc
 2. **Cliquez sur Ajouter un partage de fichiers** :    
     ![Cliquez sur Ajouter un partage de fichiers](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **Indiquez le nom et le quota. La valeur maximale du quota est de 5 Tio** :    
+3. **Indiquez le nom et le quota** :    
     ![Indiquez un nom et le quota souhaité pour le nouveau partage de fichiers](./media/storage-how-to-create-file-share/create-file-share-portal3.png).
 
 4. **Affichez le nouveau partage de fichiers** :  ![Afficher le nouveau partage de fichiers](./media/storage-how-to-create-file-share/create-file-share-portal4.png)

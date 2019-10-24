@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: bb0c6e9d20c12df3532a52df1fe4d9574344d4b3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 8a72f70fbc1ab6052587beb1d949dd73b1ad3559
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104729"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376144"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.
@@ -114,10 +114,10 @@ Dans cette section, vous allez créer un compte de stockage privé à l’aide d
     | Réplication | Sélectionnez **Stockage géo-redondant avec accès en lecture (RA-GRS)** . |
     |||
   
-3. Sélectionnez **Suivant : Mise en réseau**.
-4. Dans  **Créer un compte de stockage - Mise en réseau**, pour la méthode de connectivité, sélectionnez **Private Endpoint**.
-5. Dans  **Créer un compte de stockage - Mise en réseau**, sélectionnez **Ajouter Private Endpoint**. 
-6. Dans **Créer Private Endpoint**, entrez ou sélectionnez les informations suivantes :
+3. Sélectionnez **Suivant : Mise en réseau**.
+4. Dans **Créer un compte de stockage - Mise en réseau**, pour la méthode de connectivité, sélectionnez **Point de terminaison privé**.
+5. Dans **Créer un compte de stockage - Mise en réseau**, sélectionnez **Ajouter un point de terminaison privé**. 
+6. Dans **Créer un point de terminaison privé**, entrez ou sélectionnez les informations suivantes :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -126,19 +126,19 @@ Dans cette section, vous allez créer un compte de stockage privé à l’aide d
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     |Location|Sélectionnez **WestCentralUS**.|
     |Nom|Entrez *myPrivateEndpoint*.  |
-    |Sous-ressource de stockage|Conservez la valeur de **Blob** par défaut. |
+    |Sous-ressource de stockage|Conservez l’objet **Blob** par défaut. |
     | **MISE EN RÉSEAU** |  |
     | Réseau virtuel  | Sélectionnez  *MyVirtualNetwork* dans le groupe de ressources *myResourceGroup*. |
     | Subnet | Sélectionnez *mySubnet*. |
     | **INTÉGRATION À DNS PRIVÉ**|  |
     | Intégrer à une zone DNS privée  | Conservez la valeur par défaut **Oui**. |
-    | Zone DNS privée  | Conservez la valeur par défaut ** (New) privatelink.blob.core.windows.net**. |
+    | Zone DNS privée  | Conservez la valeur par défaut ** (New) privatelink.blob.core.windows.net**. |
     |||
-7. Sélectionnez **OK**. 
-8. Sélectionnez **Vérifier + créer**. Vous êtes redirigé vers la page  **Vérifier + créer**  où Azure valide votre configuration. 
-9. Quand le message  **Validation réussie** s’affiche, sélectionnez  **Créer**. 
+7. Sélectionnez **OK**. 
+8. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
+9. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**. 
 10. Accédez à la ressource de compte de stockage que vous venez de créer.
-11. Sélectionnez  **Clés d’accès** dans le menu de contenu de gauche.
+11. Sélectionnez **Clés d’accès** dans le menu de contenu de gauche.
 12. Sélectionnez **Copier** sur la chaîne de connexion pour key1.
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
@@ -182,29 +182,30 @@ Dans cette section, vous allez vous connecter en privé au compte de stockage à
     Name:    mystorageaccount123123.privatelink.blob.core.windows.net
     Address:  10.0.0.5
     Aliases:  mystorageaccount.blob.core.windows.net
-3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
-8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
-11. Browse the Blob containers from mystorageaccount 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+    ```
+3. Installez [l’Explorateur Stockage Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+4. Sélectionnez **Comptes de stockage** en cliquant avec le bouton droit.
+5. Sélectionnez **Se connecter à un stockage Azure**.
+6. Sélectionnez **Utiliser une chaîne de connexion**.
+7. Sélectionnez **Suivant**.
+8. Entrez la chaîne de connexion en collant les informations précédemment copiées.
+9. Sélectionnez **Suivant**.
+10. Sélectionnez **Connecter**.
+11. Parcourir les conteneurs d’objets blob à partir de mystorageaccount 
+12. (Facultatif) Créez des dossiers et/ou téléchargez des fichiers vers *mystorageaccount* . 
+13. Fermez la connexion Bureau à distance avec  *myVM*. 
 
-Additional options to access the storage account:
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
+Options supplémentaires pour accéder au compte de stockage :
+- L’Explorateur Stockage Microsoft Azure est une application gratuite autonome de Microsoft qui vous permet d’exploiter visuellement les données de stockage Azure sur Windows, macOS et Linux. Vous pouvez installer l’application pour parcourir en privé le contenu du compte de stockage. 
  
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
+- L’utilitaire AzCopy est une autre option hautes performances pour transférer des données par script avec le stockage Azure. Utilisez AzCopy pour transférer des données à destination et à partir du stockage Blob, Table et Fichier. 
 
 
-## Clean up resources 
-When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+## <a name="clean-up-resources"></a>Supprimer des ressources 
+Lorsque vous avez fini d’utiliser le point de terminaison privé, le compte de stockage et la machine virtuelle, supprimez le groupe de ressources et toutes les ressources qu’il contient : 
+1. Entrez *myResourceGroup* dans la zone **Rechercher** en haut du portail, puis sélectionnez *myResourceGroup* dans les résultats de la recherche. 
+2. Sélectionnez **Supprimer le groupe de ressources**. 
+3. Entrez *myResourceGroup* pour **TAPEZ LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**. 
 
-## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+## <a name="next-steps"></a>Étapes suivantes
+Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle sur un réseau virtuel, ainsi qu’un compte de stockage et un point de terminaison privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le compte de stockage via une liaison privée. Pour en savoir plus sur le point de terminaison privé, consultez [Qu’est-ce qu’Azure Private Endpoint ?](private-endpoint-overview.md).

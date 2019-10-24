@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167407"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333102"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -81,7 +81,7 @@ Le niveau de durabilité est utilisé pour indiquer au système les privilèges 
 | Bronze           | 1                              | Machines virtuelles avec un disque SSD local d’au moins 50 Go                                              | Ne sont pas différées par le cluster Service Fabric           | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
 
 > [!WARNING]
-> Les types de nœud s’exécutant avec un niveau de durabilité Bronze n’obtiennent _aucun privilège_. Cela signifie que les travaux d’infrastructure qui affectent vos charges de travail sans état ne seront ni arrêtés ni différés. Utilisez Bronze uniquement pour les types de nœuds qui exécutent seulement des charges de travail sans état. Pour les charges de travail de production, il est recommandé d’exécuter Silver ou un niveau supérieur. 
+> Les types de nœud s’exécutant avec un niveau de durabilité Bronze n’obtiennent _aucun privilège_. Cela signifie que les travaux d’infrastructure qui affectent vos charges de travail avec état ne seront ni arrêtés ni différés, ce qui risque d’avoir un impact sur vos charges de travail. Utilisez Bronze uniquement pour les types de nœuds qui exécutent seulement des charges de travail sans état. Pour les charges de travail de production, il est recommandé d’exécuter Silver ou un niveau supérieur. 
 > 
 > Quel que soit le niveau de durabilité, la [désallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) d’un groupe de machines virtuelles identiques a pour effet de détruire le cluster.
 
@@ -123,7 +123,7 @@ Le niveau de fiabilité est utilisé pour définir le nombre de réplicas des se
 
 Le niveau de fiabilité peut avoir les valeurs suivantes :
 
-* Platinum : exécutez les services système avec un nombre de jeux de réplicas cible égal à sept
+* Platinum : Exécutez les services système avec un nombre de jeux de réplicas cible égal à neuf
 * Gold : Exécutez les services système avec un nombre de jeux de réplicas cible égal à sept
 * Silver : Exécutez les services système avec un nombre de jeux de réplicas cible égal à cinq 
 * Bronze : Exécutez les services système avec un nombre de jeux de réplicas cible égal à trois

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 65ad9e1f5ef62ab2dd9f37a13d3c18871c30e603
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933116"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515491"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendre l’intégrité de vos machines virtuelles Azure
 
@@ -36,7 +36,7 @@ Pour plus d’informations sur la configuration d’Azure Monitor pour les machi
 
 Cette section décrit les critères d’intégrité par défaut pour surveiller les machines virtuelles Azure Windows et Linux. Tous les critères d’intégrité sont préconfigurés pour envoyer une alerte lorsqu’une condition non saine est détectée.
 
-| Nom du moniteur | Fréquence (min) | Durée de recherche en arrière (min) | Operator | Seuil | Alerte pour l’état | Sévérité | Catégorie de charge de travail | 
+| Nom du moniteur | Fréquence (min) | Durée de recherche en arrière (min) | Operator | Seuil | Alerte pour l’état | severity | Catégorie de charge de travail | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
 | Disque logique en ligne | 5\. | 15 | <> | 1 (true) | Critique | Gra1 | Linux | 
 | Espace libre du disque logique | 5\. | 15 | < | 200 Mo (avertissement)<br> 100 Mo (critique) | Avertissement | Gra1<br> Gra2 | Linux | 
@@ -117,7 +117,7 @@ Un état d’intégrité inconnu peut être dû aux problèmes suivants :
 - L’agent a été reconfiguré et ne communique plus avec l’espace de travail spécifié lors de l’activation d’Azure Monitor pour machines virtuelles. Pour configurer l’agent pour qu’il communique avec l’espace de travail, consultez [Ajout ou suppression d’un espace de travail](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - La machine virtuelle a été supprimée.
 - L’espace de travail associé à Azure Monitor pour machines virtuelles a été supprimé. Vous pouvez récupérer l’espace de travail si vous disposez des avantages de support Premier. Accédez à [Premier](https://premier.microsoft.com/) et ouvrez une demande de support.
-- Les dépendances de solution ont été supprimées. Pour réactiver les solutions ServiceMap et InfrastructureInsights dans votre espace de travail Log Analytics, réinstallez ces solutions à l’aide du [modèle Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Vous pouvez également utiliser l’option Configurer l’espace de travail qui se trouve dans l’onglet Bien démarrer.
+- Les dépendances de solution ont été supprimées. Pour réactiver les solutions ServiceMap et InfrastructureInsights dans votre espace de travail Log Analytics, réinstallez la solution ServiceMap à l’aide du [modèle Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Pour réinstaller la solution InfastructureInsights, faites-en la demande par e-mail à vminsights@microsoft.com. 
 - La machine virtuelle a été arrêtée.
 - Le service de machine virtuelle Azure n’est pas disponible, ou une maintenance est en cours d’exécution.
 - La [limite de données quotidienne ou de rétention](../platform/manage-cost-storage.md) de l’espace de travail est atteinte.
@@ -440,5 +440,6 @@ L’intégrité d’Azure Monitor pour machines virtuelles prend en charge les n
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour identifier les limitations et les performances globales des machines virtuelles, consultez [View Azure VM performance](vminsights-performance.md) (Afficher les performances des machines virtuelles Azure).
+- Pour connaître les limitations et les performances globales des machines virtuelles, consultez [Afficher les performances des machines virtuelles Azure](vminsights-performance.md).
+
 - Pour en savoir plus sur les dépendances des applications détectées, consultez [View Azure Monitor for VMs Map](vminsights-maps.md) (Afficher la carte d’Azure Monitor pour machines virtuelles).

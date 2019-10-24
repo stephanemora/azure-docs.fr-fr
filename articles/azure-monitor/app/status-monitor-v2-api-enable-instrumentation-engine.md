@@ -1,6 +1,6 @@
 ---
-title: 'Référence sur l’API Azure Status Monitor v2 : Activer le moteur d’instrumentation | Microsoft Docs'
-description: Référence sur l’API Azure Status Monitor v2. Enable-InstrumentationEngine. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
+title: 'Référence API d’Azure Application Insights Agent : Activer le moteur d’instrumentation | Microsoft Docs'
+description: Référence API d’Application Insights Agent. Enable-InstrumentationEngine. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3c0f4e015d3e01e86daaf101c15e16857540a520
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 9958121c38b96dc9cfa4dda2812fa9ce2b18d785
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033140"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388281"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>API Status Monitor v2 : Enable-InstrumentationEngine
+# <a name="application-insights-agent-api-enable-instrumentationengine"></a>API d’Application Insights Agent : Enable-InstrumentationEngine
 
 Cet article décrit une cmdlet appartenant au [module PowerShell Az.ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -79,7 +79,7 @@ Configuring registry for instrumentation engine...
 - [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de la page web et activer le suivi des appels.
 - [Ajoutez le kit de développement logiciel (SDK) Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin de pouvoir insérer un suivi et journaliser les appels.
  
- Plus d’opérations avec Status Monitor v2 :
- - Utilisez notre guide pour [détecter un problème](status-monitor-v2-troubleshoot.md) dans Status Monitor v2.
+ En faire plus avec Application Insights Agent :
+ - Utilisez notre guide pour [résoudre les problèmes](status-monitor-v2-troubleshoot.md) d’Application Insights Agent.
  - [Obtenez la configuration](status-monitor-v2-api-get-config.md) pour confirmer que vos paramètres ont été enregistrés correctement.
  - [Obtenez l’état](status-monitor-v2-api-get-status.md) pour inspecter la surveillance.

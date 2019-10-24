@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240609"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372404"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel"></a>Repérer les menaces dans Azure Sentinel
 
@@ -68,7 +68,7 @@ La fonctionnalité de repérage d’Azure Sentinel vous offre les avantages suiv
 
 ## <a name="query-language"></a>Langage de requête 
 
-La fonctionnalité de repérage d’Azure Sentinel repose sur le langage de requête Azure Log Analytics. Pour plus d’informations sur le langage de requête et sur les opérateurs pris en charge, consultez l’article [Référence sur le langage de requête](https://docs.loganalytics.io/docs/Language-Reference/).
+La fonctionnalité de repérage d’Azure Sentinel repose sur le langage de requête Kusto. Pour plus d’informations sur le langage de requête et sur les opérateurs pris en charge, consultez l’article [Référence sur le langage de requête](https://docs.loganalytics.io/docs/Language-Reference/).
 
 ## <a name="public-hunting-query-github-repository"></a>Référentiel public GitHub de requêtes de repérage
 

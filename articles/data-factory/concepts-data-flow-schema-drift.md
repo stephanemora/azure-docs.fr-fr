@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1d6560613294584c77f002e2380065d64ea143f7
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029410"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387965"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Dérive de schéma dans le flux de données de mappage
 
@@ -34,7 +34,7 @@ Vous devez prendre une décision relative à l’architecture de votre flux de d
 
 Dans une transformation de source, la dérive de schéma est définie sous forme de colonnes de lecture qui ne sont pas définies dans votre schéma de jeu de données. Pour autoriser la dérive de schéma, cochez la case **Autoriser la dérive de schéma** dans la transformation de la source.
 
-![Dérive de schéma dans la source](media/data-flow/schemadrift001.png "Dérive de schéma dans la source")
+![Dérive de schéma - source](media/data-flow/schemadrift001.png "Dérive de schéma - source")
 
 Quand la dérive de schéma est autorisée, tous les champs entrants sont lus à partir de votre source pendant l’exécution et transmis au récepteur via l’ensemble du flux. Par défaut, toutes les colonnes nouvellement détectées (*colonnes dérivées*) arrivent en tant que type de données chaîne. Si vous souhaitez que votre flux de données déduise automatiquement les types de données des colonnes dérivées, cochez la case **Déduire les types des colonnes dérivées** dans les paramètres de la source.
 
@@ -42,11 +42,11 @@ Quand la dérive de schéma est autorisée, tous les champs entrants sont lus à
 
 Dans une transformation de récepteur, il y a dérive de schéma quand vous écrivez des colonnes supplémentaires, en plus de ce qui est défini dans le schéma de données du récepteur. Pour autoriser la dérive de schéma, cochez la case **Autoriser la dérive de schéma** dans la transformation du récepteur.
 
-![Dérive de schéma dans le récepteur](media/data-flow/schemadrift002.png "Dérive de schéma dans le récepteur")
+![Dérive de schéma - récepteur](media/data-flow/schemadrift002.png "Dérive de schéma - récepteur")
 
 Si la dérive de schéma est autorisée, assurez-vous que le curseur **Mappage automatique** est activé dans l’onglet Mappage. Quand ce curseur est activé, toutes les colonnes entrantes sont écrites dans votre destination. Dans le cas contraire, vous devez utiliser le mappage basé sur des règles pour écrire des colonnes dérivées.
 
-![Récepteur - Mappage automatique](media/data-flow/automap.png "Récepteur - Mappage automatique")
+![Mappage automatique du récepteur](media/data-flow/automap.png "Mappage automatique du récepteur")
 
 ## <a name="transforming-drifted-columns"></a>Transformation de colonnes dérivées
 

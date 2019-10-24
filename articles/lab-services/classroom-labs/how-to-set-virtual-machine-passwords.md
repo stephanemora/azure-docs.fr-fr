@@ -11,37 +11,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: a4cb2abec429a790f493f95d3d16b2ff7b3eb445
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 40cdd0adf7bf100e1dbca64dbba68db3bc59a4fe
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69645025"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331423"
 ---
-# <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-instructor"></a>Définir ou réinitialiser un mot de passe d'accès à des machines virtuelles dans un labo de salle de classe (instructeur)
-Un propriétaire de labo (professeur) peut définir/réinitialiser le mot de passe d’accès à des machines virtuelles au moment de la création du labo (avec l’Assistant de création de labo) ou après l’avoir créé (avec le tableau de bord). 
+# <a name="set-up-and-manage-virtual-machine-pool"></a>Configurer et gérer un pool de machines virtuelles 
+Cet article explique comment effectuer les tâches suivantes :
 
-## <a name="set-password-at-the-time-of-lab-creation"></a>Définir le mot de passe au moment de la création du labo
-Un propriétaire de labo (professeur) peut définir un mot de passe d’accès à des machines virtuelles via la page **Définition des informations d’identification** de l’Assistant de création de labo.
+- Augmenter le nombre de machines virtuelles dans le laboratoire
+- Démarrer toutes les machines virtuelles ou les machines virtuelles sélectionnées 
+- Réinitialiser les machines virtuelles
 
-![Définition des informations d’identification](../media/tutorial-setup-classroom-lab/set-credentials.png)
+## <a name="update-the-lab-capacity"></a>Mettre à jour la capacité du labo
+Pour augmenter ou diminuer la capacité du labo (nombre de machines virtuelles dans un laboratoire), procédez comme suit :
+
+1. Dans la page **Pool de machines virtuelles**, sélectionnez **Capacité du labo : &lt;nombre&gt; machines**.
+2. Entrez le nouveau **nombre de machines virtuelles** que vous souhaitez dans le laboratoire. Ce nombre doit être supérieur ou égal au nombre d’utilisateurs inscrits dans le labo. 
+3. Sélectionnez ensuite **Enregistrer**. 
+
+    ![Bouton Démarrer tout](../media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+4. Si vous avez augmenté la capacité, vous pouvez voir la ou les machines virtuelles en cours de création. 
+
+    ![Machine virtuelle en cours de création](../media/how-to-set-virtual-machine-passwords/vm-being-created.png)
+
+## <a name="start-vms"></a>Start VMs
+
+### <a name="start-ot-stop-all-vms"></a>Démarrer ou arrêter toutes les machines virtuelles
+1. Basculez vers la page **Pool de machines virtuelles**. 
+2. Sélectionnez **Démarrer tout** dans la barre d’outils. 
+
+    ![Bouton Démarrer tout](../media/how-to-set-virtual-machine-passwords/start-all-vms-button.png)
+3. Une fois que toutes les machines virtuelles ont démarré, vous pouvez toutes les arrêter en sélectionnant le bouton **Arrêter tout** dans la barre d’outils. 
+
+    ![Bouton Arrêter tout](../media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
+
+### <a name="start-selected-vms"></a>Démarrer les machines virtuelles sélectionnées
+Il existe deux façons de démarrer des machines virtuelles sélectionnées (une ou plusieurs). La première consiste à sélectionner la ou les machines virtuelles dans la liste, puis à sélectionner **Démarrer** dans la barre d’outils. La seconde consiste à sélectionner la ou les machines virtuelles dans la liste, à sélectionner la liste déroulante dans la colonne **État** de l’une des lignes, puis à sélectionner **Démarrer**. 
+
+![Démarrer les machines virtuelles sélectionnées](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
+
+De même, vous pouvez arrêter une ou plusieurs machines virtuelles à l’aide de la liste déroulante dans la colonne **État** ou **Arrêter** dans la barre d’outils. 
+
+## <a name="reset-vms"></a>Réinitialiser les machines virtuelles
+Pour réinitialiser une ou plusieurs machines virtuelles, sélectionnez-les dans la liste, puis sélectionnez **Réinitialiser** dans la barre d’outils. 
+
+![Réinitialiser les machines virtuelles sélectionnées](../media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
+
+Dans la boîte de dialogue **Réinitialiser la ou les machines virtuelles**, sélectionnez **Réinitialiser**. 
+
+![Boîte de dialogue Réinitialiser la machine virtuelle](../media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
+
+
+
+## <a name="set-password-for-vms"></a>Définir un mot de passe pour des machines virtuelles
+Un propriétaire de labo (enseignant) peut définir/réinitialiser le mot de passe pour des machines virtuelles au moment de la création du labo (avec l’Assistant de création de labo) ou après l’avoir créé, sur la page **Modèle**. 
+
+### <a name="set-password-at-the-time-of-lab-creation"></a>Définir le mot de passe au moment de la création du labo
+Un propriétaire de labo (enseignant) peut définir un mot de passe pour des machines virtuelles dans le labo, sur la page **Informations d’identification de machine virtuelle** de l’Assistant de création de labo.
+
+![Fenêtre Nouveau labo](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
 En activant ou désactivant l’option **Use same password for all virtual machines** (Utiliser le même mot de passe pour toutes les machines virtuelles) figurant sur cette page, un professeur peut choisir d’utiliser le même mot de passe pour toutes les machines virtuelles du labo, ou autoriser les étudiants à définir leur propre mot de passe pour l’accès aux machines virtuelles. Par défaut, ce paramètre est activé pour toutes les images de systèmes d’exploitation Windows et Linux, à l’exception d’Ubuntu. Lorsque ce paramètre est désactivé, les étudiants sont invités à définir un mot de passe lorsqu’ils tentent de se connecter à la machine virtuelle pour la première fois. 
 
-Le propriétaire de labo peut réinitialiser ce mot de passe (si nécessaire) sur la page **Configurer le modèle** de l’Assistant de création de labo. 
+### <a name="reset-password-later"></a>Réinitialiser le mot de passe plus tard
 
-![Page Configurer le modèle une fois terminé](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-
-Le propriétaire du labo peut également réinitialiser le mot de passe une fois l’atelier créé, via le tableau de bord. 
-
-## <a name="reset-password-on-the-dashboard"></a>Réinitialiser un mot de passe via le tableau de bord
-
-1. Sélectionnez le menu de dépassement de capacité (représenté par trois points verticaux) sur la mosaïque du labo, puis choisissez **Réinitialiser le mot de passe**. 
+1. Dans la page **Modèle** du laboratoire, sélectionnez **Réinitialiser le mot de passe** dans la barre d’outils. 
 
     ![Menu Réinitialiser le mot de passe figurant sur la page d’accueil](../media/how-to-set-virtual-machine-passwords/reset-password-menu-dashboard.png)
-1. Dans la boîte de dialogue **Set password** (Définir un mot de passe), saisissez un mot de passe, puis cliquez sur **Set password**  (Définir un mot de passe).
+1. Dans la boîte de dialogue **Réinitialiser le mot de passe**, entrez un mot de passe et sélectionnez **Réinitialiser le mot de passe**.
     
     ![Boîte de dialogue Set Password (Définir un mot de passe)](../media/how-to-set-virtual-machine-passwords/set-password.png)
 

@@ -1,19 +1,19 @@
 ---
-title: Paramètres de la fonctionnalité de mappage de Data Flow d’Azure Data Factory
+title: Paramètres de flux de données de mappage d’Azure Data Factory
 description: Découvrez comment paramétrer un flux de données de mappage à partir de pipelines Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 733d3f9c4079193107f22178bdbde3a3ecf0e7ca
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 0a1051d67bf45e96f82833ef8190008204cdc90b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028210"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387535"
 ---
-# <a name="mapping-data-flow-parameters"></a>Mappage de paramètres Data Flow
+# <a name="mapping-data-flow-parameters"></a>Paramètres de flux de données de mappage
 
 
 
@@ -28,27 +28,27 @@ Utilisez cette fonctionnalité pour rendre vos flux de données polyvalents, fle
 > [!NOTE]
 > Pour utiliser des expressions de flux de contrôle de pipeline, votre paramètre de flux de données doit être de type chaîne.
 
-## <a name="create-parameters-in-mapping-data-flow"></a>Créer des paramètres de mappage Data Flow
+## <a name="create-parameters-in-mapping-data-flow"></a>Créer des paramètres dans un flux de données de mappage
 
 Pour ajouter des paramètres à votre flux de données, cliquez sur la partie vide du canevas de celui-ci afin d’accéder aux propriétés générales. Le volet des paramètres doit contenir un onglet dénommé « Paramètres ». Cliquez sur le bouton « Nouveau » pour générer un nouveau paramètre. Pour chaque paramètre, vous devez attribuer un nom, sélectionner un type et éventuellement définir une valeur par défaut.
 
-![Créer des paramètres Data Flow](media/data-flow/create-params.png "Créer des paramètres Data Flow")
+![Créer des paramètres de flux de données](media/data-flow/create-params.png "Créer des paramètres de flux de données")
 
 Les paramètres peuvent être utilisés dans n’importe quelle expression de flux de données. Les paramètres commencent par $ et sont immuables. Vous trouverez la liste des paramètres disponibles dans le Générateur d’expressions sous l’onglet « Paramètres ».
 
-![Expression de paramètres Data Flow](media/data-flow/parameter-expression.png "Expression de paramètres Data Flow")
+![Expression de paramètre de flux de données](media/data-flow/parameter-expression.png "Expression de paramètre de flux de données")
 
 ## <a name="use-parameters-in-your-data-flow"></a>Utiliser des paramètres dans votre flux de données
 
-* Vous pouvez utiliser les valeurs de paramètre dans vos expressions de transformation. Vous trouverez la liste des paramètres sous l’onglet Paramètres dans le Générateur d’expressions. ![Utiliser des paramètres de Data Flow](media/data-flow/params9.png "Utiliser des paramètres de Data Flow")
+* Vous pouvez utiliser les valeurs de paramètre dans vos expressions de transformation. Vous trouverez la liste des paramètres sous l’onglet Paramètres dans le Générateur d’expressions. ![Utiliser des paramètres de flux de données](media/data-flow/params9.png "UUtiliser des paramètres de flux de données")
 
-* Les paramètres sont également utilisés pour configurer les valeurs dynamiques de vos paramètres de transformation Source et Sink. Lorsque vous cliquez à l’intérieur des champs configurables, le lien « Ajouter du contenu dynamique » apparaît. En cliquant dessus, vous accédez à un Générateur d’expressions dans lequel vous pouvez définir des paramètres pour utiliser des valeurs dynamiques. ![Contenu dynamique des flux de données](media/data-flow/params6.png "Contenu dynamique des flux de données")
+* Les paramètres sont également utilisés pour configurer les valeurs dynamiques de vos paramètres de transformation Source et Sink. Lorsque vous cliquez à l’intérieur des champs configurables, le lien « Ajouter du contenu dynamique » apparaît. En cliquant dessus, vous accédez à un Générateur d’expressions dans lequel vous pouvez définir des paramètres pour utiliser des valeurs dynamiques. ![Contenu dynamique de flux de données](media/data-flow/params6.png "DContenu dynamique de flux de données")
 
-## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Définir le mappage de paramètres Data Flow à partir d’un pipeline
+## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Définir les paramètres de flux de données de mappage à partir d’un pipeline
 
 Une fois que vous avez créé votre flux de données avec des paramètres, vous pouvez l’exécuter à partir d’un pipeline avec l’activité Exécuter un flux de données. Après avoir ajouté l’activité à votre canevas de pipeline, les paramètres de flux de données disponibles vous sont présentés dans l’onglet « Paramètres » de l’activité.
 
-![Définition d’un paramètre Data Flow](media/data-flow/parameter-assign.png "Définition d’un paramètre Data Flow")
+![Définition d’un paramètre de flux de données](media/data-flow/parameter-assign.png "Définition d’un paramètre de flux de données")
 
 Si votre type de données de paramètre est une chaîne de caractères, lorsque vous cliquez sur la zone de texte pour définir les valeurs des paramètres, vous pouvez choisir d’entrer un pipeline ou une expression de flux de données. Si vous choisissez l’expression de pipeline, le panneau d’expression de pipeline vous est présenté. Assurez-vous d’inclure les fonctions de pipeline dans la syntaxe d’interpolation de chaîne en utilisant `'@{<expression>}'`, par exemple :
 
@@ -59,7 +59,7 @@ Si votre paramètre n’est pas de type chaîne, le Générateur d’expressions
 * ```toInteger(Role)```
 * ```'this is my static literal string'```
 
-Chaque mappage Data Flow peut comporter n’importe quelle combinaison de paramètres d’expression de pipeline et de flux de données. 
+Chaque flux de données de mappage peut comporter n’importe quelle combinaison de paramètres d’expression de pipeline et de flux de données. 
 
 ![Exemple de paramètres de flux de données](media/data-flow/parameter-example.png "Exemple de paramètres de flux de données")
 

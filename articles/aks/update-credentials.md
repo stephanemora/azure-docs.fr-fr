@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 5aac941133296d2040d5dd670155b80f5807e1e9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bda0ab50b829fa2e6d58e73b51e3a0a0f6c9e2af
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614124"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432923"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Mettre à jour ou faire pivoter les informations d’identification d’un principal du service dans Azure Kubernetes Service (AKS)
 
@@ -29,9 +29,7 @@ Lorsque vous souhaitez mettre à jour les informations d’identification d’un
 * mettre à jour les informations d’identification du principal du service existant utilisées par le cluster, ou
 * créer un principal du service et mettre à jour le cluster pour qu’il utilise ces nouvelles informations d’identification.
 
-Si vous souhaitez créer un principal du service puis mettre à jour le cluster AKS, ignorez les étapes restantes de cette section et passez à [créer un principal du service](#create-a-service-principal). Si vous souhaitez mettre à jour les informations d’identification du principal du service existant utilisées par le cluster AKS, suivez les étapes décrites dans cette section.
-
-### <a name="get-the-service-principal-id"></a>Obtenir l’ID du principal du service
+### <a name="update-existing-service-principal-expiration"></a>Mettre à jour l’expiration du principal de service existant
 
 Pour mettre à jour les informations d’identification du principal de service existant, obtenez l’ID du principal de service de votre cluster à l’aide de la commande [az aks show][az-aks-show]. L’exemple suivant permet d’obtenir l’ID du cluster *myAKSCluster* dans le groupe de ressources *myResourceGroup*. L’ID du principal du service est défini en tant que variable nommée *SP_ID* pour être utilisé dans d’autres commandes.
 
@@ -40,17 +38,15 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
 ```
 
-### <a name="update-the-service-principal-credentials"></a>Mettre à jour les informations d’identification du principal du service
-
 Avec un jeu de variables contenant l’ID du principal de service, réinitialisez les informations d’identification en utilisant [az ad sp credential reset][az-ad-sp-credential-reset]. L’exemple suivant permet à la plateforme Azure de générer un nouveau secret sécurisé pour le principal du service. Ce nouveau secret sécurisé est également stocké dans une variable.
 
 ```azurecli-interactive
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
-Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification](#update-aks-cluster-with-new-credentials).
+Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification](#update-aks-cluster-with-new-credentials). Cette étape est nécessaire pour que les modifications apportées au principal de service soient reflétées sur le cluster AKS.
 
-## <a name="create-a-service-principal"></a>Créer un principal du service
+### <a name="create-a-new-service-principal"></a>Créer un principal de service
 
 Si vous avez choisi de mettre à jour les informations d’identification du principal du service existantes dans la section précédente, ignorez cette étape. Passez à [mettre à jour le cluster AKS avec les nouvelles informations d’identification](#update-aks-cluster-with-new-credentials).
 
@@ -77,6 +73,8 @@ Définissez maintenant des variables pour l’ID du principal de service et la c
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
+
+Passez maintenant à [mettre à jour le cluster AKS avec les nouvelles informations d’identification](#update-aks-cluster-with-new-credentials). Cette étape est nécessaire pour que les modifications apportées au principal de service soient reflétées sur le cluster AKS.
 
 ## <a name="update-aks-cluster-with-new-credentials"></a>Mettre à jour le cluster AKS avec les nouvelles informations d’identification
 

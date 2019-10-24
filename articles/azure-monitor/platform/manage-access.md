@@ -13,24 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695005"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329412"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
-Azure Monitor stocke les données de [journal](data-platform-logs.md) dans un espace de travail Log Analytics, qui n’est autre qu’un conteneur de données et d’informations de configuration. Pour gérer l’accès aux données de journal, vous accomplissez diverses tâches administratives liées à vos espaces de travail.
+Azure Monitor stocke les données de [journal](data-platform-logs.md) dans un espace de travail Log Analytics. Un espace de travail est un conteneur qui renferme des données ainsi que des informations de configuration. Pour gérer l’accès aux données de journal, vous accomplissez diverses tâches administratives liées à vos espaces de travail.
 
-Cet article explique comment gérer l’accès aux journaux et administrer les espaces de travail qui les contiennent, à savoir :
+Cet article explique comment gérer l’accès aux journaux et administrer les espaces de travail qui les contiennent, notamment comment accorder l’accès : 
 
-* Comment accorder un accès aux utilisateurs ayant besoin d’accéder à des données de journal à partir de ressources spécifiques à l’aide du Contrôle d’accès en fonction du rôle (RBAC) Azure.
-
-* Comment accorder l’accès à l’espace de travail à l’aide d’autorisations d’espace de travail.
-
-* Comment accorder l’accès aux utilisateurs qui doivent pouvoir accéder aux données de journal dans un tableau spécifique de l’espace de travail à l’aide d’Azure RBAC.
+* À l’espace de travail, à l’aide d’autorisations d’espace de travail.
+* Aux utilisateurs ayant besoin d’accéder à des données de journal à partir de ressources spécifiques, à l’aide du contrôle d’accès en fonction du rôle (RBAC) Azure.
+* Aux utilisateurs qui doivent pouvoir accéder aux données de journal dans un tableau spécifique de l’espace de travail, à l’aide de rôles RBAC Azure.
 
 ## <a name="configure-access-control-mode"></a>Configurer le mode de contrôle d’accès
 
@@ -150,7 +148,7 @@ Le rôle Lecteur Log Analytics inclut les actions Azure suivantes :
 
 Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérations suivantes :
 
-* Lecture de toutes les données de surveillance avec le rôle Lecteur Log Analytics
+* Lecture de toutes les données de supervision autorisées pour le rôle Lecteur Log Analytics
 * Création et configuration des comptes Automation
 * Ajout et suppression de solutions de gestion
 
@@ -158,7 +156,7 @@ Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérati
     > Pour réussir ces deux actions, cette autorisation doit être accordée au niveau du groupe de ressources ou de l’abonnement.
 
 * Lecture des clés de compte de stockage
-* Configuration de la collecte de journaux d’activité à partir du stockage Azure
+* Configuration de la collecte de journaux à partir de Stockage Azure
 * Modification des paramètres d’analyse pour les ressources Azure, notamment :
   * Ajout de l’extension de machine virtuelle à des machines virtuelles
   * Configuration des diagnostics Azure sur toutes les ressources Azure

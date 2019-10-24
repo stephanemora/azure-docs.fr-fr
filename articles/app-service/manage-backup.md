@@ -4,25 +4,24 @@ description: Apprenez à créer des sauvegardes de vos applications Web dans Azu
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2016
+ms.date: 10/16/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8784a06306f59015b95293d90ff5509dcfcae045
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bbfab41c3324bc16874463d2fc0201f99ee9284b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057936"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516994"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
-La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées.  Les sauvegardes peuvent être configurées pour être conservées au maximum indéfiniment. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application.
+La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez configurer les sauvegardes pour qu’elles soient conservées pendant une durée indéfinie. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application.
 
 Pour plus d’informations sur la restauration d’une application à partir d’une sauvegarde, consultez [Restauration d’une application dans Azure](web-sites-restore.md).
 
@@ -36,21 +35,21 @@ App Service peut sauvegarder les informations suivantes dans un compte de stocka
 * la base de données connectée à votre application.
 
 Les solutions de base de données suivantes sont prises en charge par la fonctionnalité de sauvegarde : 
-   - [Base de données SQL](https://azure.microsoft.com/services/sql-database/)
-   - [Azure Database pour MySQL](https://azure.microsoft.com/services/mysql)
-   - [Base de données Azure pour PostgreSQL](https://azure.microsoft.com/services/postgresql)
-   - [MySQL dans l’application](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
+
+- [Base de données SQL](https://azure.microsoft.com/services/sql-database/)
+- [Azure Database pour MySQL](https://azure.microsoft.com/services/mysql)
+- [Base de données Azure pour PostgreSQL](https://azure.microsoft.com/services/postgresql)
+- [MySQL dans l’application](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
  
 
 > [!NOTE]
->  Chaque sauvegarde représente une copie hors connexion complète de votre application et non une mise à jour incrémentielle.
->  
+> Chaque sauvegarde représente une copie hors connexion complète de votre application et non une mise à jour incrémentielle.
+>
 
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Exigences et restrictions
-* La fonctionnalité de sauvegarde et de restauration implique que le plan App Service soit de type **Standard** ou **Premium**. Pour plus d'informations sur la mise à l’échelle de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md).  
-  Le niveau **Premium** permet un plus grand nombre de sauvegardes quotidiennes que le niveau **Standard**.
+* La fonctionnalité de sauvegarde et de restauration implique que le plan App Service soit de type **Standard** ou **Premium**. Pour plus d'informations sur la mise à l’échelle de votre plan App Service en vue d'utiliser un niveau plus élevé, consultez [Mise à l’échelle d’une application web dans Microsoft Azure App Service](manage-scale-up.md). Le niveau **Premium** permet un plus grand nombre de sauvegardes quotidiennes que le niveau **Standard**.
 * Vous avez besoin d’un compte de stockage Azure et d’un conteneur dans le même abonnement que l’application que vous souhaitez sauvegarder. Pour plus d’informations sur les comptes de stockage Azure, consultez [Vue d’ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Les sauvegardes peuvent contenir jusqu’à 10 Go de contenu d’applications et de bases de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
 * La sauvegarde d’Azure Database pour MySQL avec SSL activé n’est pas prise en charge. Si une sauvegarde est configurée, celle-ci échoue.
@@ -63,52 +62,54 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 
 ## <a name="create-a-manual-backup"></a>Création d’une sauvegarde manuelle
 1. Dans le [portail Azure](https://portal.azure.com), accédez à la page de votre application, puis sélectionnez **Sauvegardes**. La page **Sauvegardes** s’affiche.
-   
-    ![Page Sauvegardes][ChooseBackupsPage]
-   
-   > [!NOTE]
-   > Si le message suivant s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre les sauvegardes.
-   > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](manage-scale-up.md).  
-   > ![Sélection d'un compte de stockage](./media/web-sites-backup/01UpgradePlan1.png)
-   > 
-   > 
 
-2. Dans la page **Sauvegarde**, cliquez sur **Configurer**.
-![Cliquer sur Configurer](./media/web-sites-backup/ClickConfigure1.png)
-3. Dans la page **Configuration de la sauvegarde**, cliquez sur **Stockage : Non configuré** pour configurer un compte de stockage.
-   
-    ![Sélection d'un compte de stockage][ChooseStorageAccount]
+    ![Page Sauvegardes](./media/manage-backup/access-backup-page.png)
+
+    > [!NOTE]
+    > Si le message suivant s’affiche, cliquez dessus pour mettre à niveau votre plan App Service avant de pouvoir poursuivre les sauvegardes.
+    > Pour plus d’informations, consultez [Faire monter en puissance une application web dans Azure](manage-scale-up.md).
+    > ![Sélection d'un compte de stockage](./media/manage-backup/upgrade-plan.png)
+    > 
+    > 
+
+2. Dans la page **Sauvegarde**, sélectionnez **La sauvegarde n’est pas configurée. Cliquez ici pour configurer la sauvegarde de votre application**.
+
+    ![Cliquez sur Configurer](./media/manage-backup/configure-start.png)
+
+3. Dans la page **Configuration de la sauvegarde**, cliquez sur **Stockage non configuré** pour configurer un compte de stockage.
+
+    ![Sélection d'un compte de stockage](./media/manage-backup/configure-storage.png)
+
 4. Choisissez la destination de sauvegarde en sélectionnant un **Compte de stockage** et un **Conteneur**. Ce compte de stockage doit relever du même abonnement que l’application que vous souhaitez sauvegarder. Si vous le souhaitez, vous pouvez créer un compte de stockage ou un conteneur dans les pages respectives. Quand vous avez terminé, cliquez sur **Sélectionner**.
-   
-    ![Sélection d'un compte de stockage](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. Dans la page **Configuration de la sauvegarde** toujours ouverte, vous pouvez configurer **Base de données de sauvegarde**, sélectionner les bases de données que vous souhaitez inclure dans les sauvegardes (base de données SQL ou MySQL), puis cliquer sur **OK**.  
-   
-    ![Sélection d'un compte de stockage](./media/web-sites-backup/03ConfigureDatabase1.png)
-   
-   > [!NOTE]
-   > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** de la page **Paramètres d’application** de votre application. 
-   >
-   > Les bases de données MySQL in-app sont automatiquement sauvegardées sans aucune configuration. Si vous définissez manuellement des paramètres des bases de données MySQL in-app, par exemple l’ajout de chaînes de connexion, il est possible que les sauvegardes ne fonctionnent pas correctement.
-   > 
-   > 
-6. Dans la page **Configuration de la sauvegarde**, cliquez sur **Enregistrer**.    
+
+5. Dans la page **Configuration de la sauvegarde** toujours ouverte, vous pouvez configurer **Base de données de sauvegarde**, sélectionner les bases de données que vous souhaitez inclure dans les sauvegardes (base de données SQL ou MySQL), puis cliquer sur **OK**.
+
+    ![Sélection d'un compte de stockage](./media/manage-backup/configure-database.png)
+
+    > [!NOTE]
+    > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** de la page **Paramètres d’application** de votre application. 
+    >
+    > Les bases de données MySQL in-app sont automatiquement sauvegardées sans aucune configuration. Si vous définissez manuellement des paramètres des bases de données MySQL in-app, par exemple l’ajout de chaînes de connexion, il est possible que les sauvegardes ne fonctionnent pas correctement.
+    > 
+    > 
+
+6. Dans la page **Configuration de la sauvegarde**, cliquez sur **Enregistrer**.
 7. Dans la page **Sauvegardes**, cliquez sur **Sauvegarde**.
-   
-    ![Bouton Backup Now][BackUpNow]
-   
+
+    ![Bouton Backup Now](./media/manage-backup/manual-backup.png)
+
     Un message de progression s’affiche au cours du processus de sauvegarde.
 
-Une fois le compte de stockage et le conteneur configurés, vous pouvez lancer une sauvegarde manuelle à tout moment.  
+Une fois le compte de stockage et le conteneur configurés, vous pouvez lancer une sauvegarde manuelle à tout moment.
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configuration de sauvegardes automatisées
 1. Dans la page **Configuration de la sauvegarde**, **activez** la **Sauvegarde planifiée**. 
-   
-    ![Sélection d'un compte de stockage](./media/web-sites-backup/05ScheduleBackup1.png)
-2. Les options de planification de la sauvegarde apparaissent : **activez** la **Sauvegarde planifiée**, puis configurez la planification de sauvegarde comme vous le souhaitez et cliquez sur **OK**.
-   
-    ![Activation des sauvegardes automatisées][SetAutomatedBackupOn]
+
+    ![Activation des sauvegardes automatisées](./media/manage-backup/scheduled-backup.png)
+
+2. Configurez la planification des sauvegardes comme vous le souhaitez et sélectionnez **OK**.
 
 <a name="partialbackups"></a>
 
@@ -127,22 +128,21 @@ Les sauvegardes partielles vous permettent de choisir exactement les fichiers à
 ### <a name="exclude-files-from-your-backup"></a>Exclusion de fichiers de votre sauvegarde
 Supposons que vous avez une application qui contient des fichiers journaux et des images statiques créés à un moment donné et qui ne seront jamais modifiés. Dans ce cas, vous pouvez exclure ces fichiers et dossiers du stockage lors de vos sauvegardes futures. Pour exclure des fichiers et dossiers de vos sauvegardes, créez un fichier `_backup.filter` dans le dossier `D:\home\site\wwwroot` de votre application. Spécifiez la liste des fichiers et dossiers à exclure de ce fichier. 
 
-L’utilisation de Kudu permet d’accéder facilement à vos fichiers. Cliquez sur le paramètre **Outils avancés -> Accéder** de votre application web pour accéder aux Kudu.
+Vous pouvez accéder à vos fichiers via `https://<app-name>.scm.azurewebsites.net/DebugConsole`. Si vous y êtes invité, connectez-vous à votre compte Azure.
 
-![Utilisation du portail par Kudu][kudu-portal]
+Identifiez les dossiers que vous souhaitez exclure de vos sauvegardes. Par exemple, si vous souhaitez exclure les fichiers et dossiers en surbrillance.
 
-Identifiez les dossiers que vous souhaitez exclure de vos sauvegardes.  Par exemple, si vous souhaitez exclure les fichiers et dossiers en surbrillance.
-
-![Dossier images][ImagesFolder]
+![Dossier images](./media/manage-backup/kudu-images.png)
 
 Créez un fichier sous le nom `_backup.filter` et placez la liste précédente dans le fichier, mais supprimez `D:\home`. Listez un répertoire ou fichier par ligne. Par conséquent, le contenu du fichier doit ressembler à ce qui suit :
- ```bash
-    \site\wwwroot\Images\brand.png
-    \site\wwwroot\Images\2014
-    \site\wwwroot\Images\2013
+
+ ```
+\site\wwwroot\Images\brand.png
+\site\wwwroot\Images\2014
+\site\wwwroot\Images\2013
 ```
 
-Téléchargez le fichier `_backup.filter` vers le répertoire `D:\home\site\wwwroot\` de votre site en utilisant [ftp](deploy-ftp.md) ou toute autre méthode. Si vous le souhaitez, vous pouvez créer le fichier directement à l’aide de Kudu `DebugConsole` et y insérer le contenu.
+Téléchargez le fichier `_backup.filter` vers le répertoire `D:\home\site\wwwroot\` de votre site en utilisant [ftp](deploy-ftp.md) ou toute autre méthode. Si vous le souhaitez, créez le fichier directement à l’aide de Kudu `DebugConsole` et ajoutez-y le contenu.
 
 Exécutez des sauvegardes comme vous le faites normalement, [manuellement](#create-a-manual-backup) ou [automatiquement](#configure-automated-backups). Maintenant, tous les fichiers et dossiers spécifiés dans `_backup.filter` sont exclus des futures sauvegardes planifiées ou lancées manuellement. 
 
@@ -178,16 +178,3 @@ Pour obtenir des exemples, consultez :
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur la restauration d’une application à partir d’une sauvegarde, consultez [Restauration d’une application dans Azure](web-sites-restore.md). 
-
-
-<!-- IMAGES -->
-[ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage1.png
-[ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount-1.png
-[BackUpNow]: ./media/web-sites-backup/04BackUpNow1.png
-[SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn1.png
-[SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
-[ImagesFolder]: ./media/web-sites-backup/11Images.png
-[LogsFolder]: ./media/web-sites-backup/12Logs.png
-[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
-[kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
-

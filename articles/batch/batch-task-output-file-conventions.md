@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4446b92a8998f05aae47a3bab6a2cea4785fddf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094562"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302678"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET
 
@@ -63,12 +63,12 @@ Pour conserver les données de sortie dans Azure Storage à l’aide de la bibli
 
 ## <a name="persist-output-data"></a>Conserver les données de sortie
 
-Pour conserver les données de sortie de travail et de tâche avec la bibliothèque File Conventions, créez un conteneur dans Azure Storage, puis enregistrez la sortie dans le conteneur. Utilisez la [bibliothèque du client Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage) dans le code de tâche pour charger la sortie de tâche dans le conteneur. 
+Pour conserver les données de sortie de travail et de tâche avec la bibliothèque File Conventions, créez un conteneur dans Azure Storage, puis enregistrez la sortie dans le conteneur. Utilisez la [bibliothèque du client Azure Storage pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage) dans le code de tâche pour charger la sortie de tâche dans le conteneur.
 
 Pour en savoir plus sur les conteneurs et les objets blob dans Azure Storage, consultez l’article [Prise en main du stockage d’objets blob Azure à l’aide de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Toutes les sorties de travail et de tâche conservées avec la bibliothèque File Conventions sont stockées dans le même conteneur. Si plusieurs tâches tentent de conserver des fichiers en même temps, des [limitations de stockage](../storage/common/storage-performance-checklist.md#blobs) peuvent être appliquées.
+> Toutes les sorties de travail et de tâche conservées avec la bibliothèque File Conventions sont stockées dans le même conteneur. Si de nombreuses tâches tentent de conserver des fichiers en même temps, des limitations de stockage Azure peuvent être appliquées. Pour plus d’informations sur les limitations, consultez [Liste de contrôle des performances et de la scalabilité pour le stockage Blob](../storage/blobs/storage-performance-checklist.md).
 
 ### <a name="create-storage-container"></a>Créer un conteneur de stockage
 

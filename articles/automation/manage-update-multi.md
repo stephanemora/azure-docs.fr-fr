@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0a4990673479c913777a5a7c410460d3d3b31264
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 367a4409c004c98cc4b5ec844aab5b05ec74abcb
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478316"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374497"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -59,7 +59,7 @@ Sélectionnez **Ajouter des machines virtuelles Azure**.
 
 ![Ajouter une machine virtuelle Azure](./media/manage-update-multi/update-onboard-vm.png)
 
-Sélectionnez une machine virtuelle à intégrer. 
+Sélectionnez une machine virtuelle à intégrer.
 
 Sous **Activer la gestion des mises à jour**, sélectionnez **Activer** pour intégrer la machine virtuelle.
 
@@ -130,12 +130,12 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 
 - **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
 - **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
-- **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
+- **Groupes à mettre à jour (préversion)**  : Définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management-groups.md)
 - **Machines à mettre à jour** : sélectionnez Recherche enregistrée, Groupe importé ou Machines pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans les journaux Azure Monitor, consultez [Groupes d’ordinateurs dans les journaux Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
   ![Volet Nouveau déploiement de mises à jour](./media/manage-update-multi/update-select-computers.png)
 
-- **Classification des mises à jour** : sélectionnez les types de logiciels à inclure dans le déploiement de mises à jour. Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-update-management.md#update-classifications). Les types de classification sont les suivants :
+- **Classification des mises à jour** : sélectionnez les types de logiciels à inclure dans le déploiement de mises à jour. Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-view-update-assessments.md#update-classifications). Les types de classification sont les suivants :
   - Mises à jour critiques
   - Mises à jour de sécurité
   - Correctifs cumulatifs
@@ -145,7 +145,7 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
   - Outils
   - Mises à jour
 
-- **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior)
+- **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 - **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut ; cette valeur est de 30 minutes après l’heure actuelle. Vous pouvez également spécifier une heure différente.
 
@@ -168,7 +168,7 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer** pour revenir au tableau de bord des états. Le tableau **Planifié** indique la planification de déploiement que vous avez créée.
 
 > [!NOTE]
-> Update Management prend en charge le déploiement des mises à jour principales et le téléchargement préalable des correctifs. Cela nécessite des modifications sur les systèmes en cours de correction, consultez [first party and predownload support](automation-update-management.md#firstparty-predownload) (prise en charge principale et téléchargement préalable) pour apprendre à configurer ces paramètres sur vos systèmes.
+> Update Management prend en charge le déploiement des mises à jour principales et le téléchargement préalable des correctifs. Cela nécessite des modifications sur les systèmes en cours de correction, consultez [first party and predownload support](automation-configure-windows-update.md#pre-download-updates) (prise en charge principale et téléchargement préalable) pour apprendre à configurer ces paramètres sur vos systèmes.
 
 ## <a name="view-results-of-an-update-deployment"></a>Afficher les résultats d’un déploiement de mises à jour
 

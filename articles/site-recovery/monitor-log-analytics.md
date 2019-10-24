@@ -1,18 +1,18 @@
 ---
-title: Superviser Azure Site Recovery avec les journaux Azure Monitor (Log Analytics)
+title: Superviser Azure Site Recovery avec les journaux Azure Monitor (Log Analytics) | Microsoft Docs
 description: Découvrez comment superviser Azure Site Recovery avec les journaux Azure Monitor (Log Analytics).
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4eb88658437d3b29cc55d24bb83f73b660daea43
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718228"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331934"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Superviser Site Recovery avec les journaux Azure Monitor
 
@@ -25,7 +25,11 @@ Pour Site Recovery, les journaux Azure Monitor vous permettent d’effectuer les
 - **Superviser l’intégrité et l’état de Site Recovery**. Par exemple, vous pouvez superviser l’intégrité de la réplication, l’état du test de basculement, les événements Site Recovery, les objectifs de point de récupération (RPO) pour les machines protégées et les taux de changement des disques ou des données.
 - **Configurer des alertes pour Site Recovery**. Par exemple, vous pouvez configurer des alertes concernant l’intégrité de la machine, l’état du test de basculement ou l’état d’un travail Site Recovery.
 
-L’utilisation des journaux Azure Monitor avec Site Recovery est prise en charge dans le cadre d’une réplication au sein d’Azure, ainsi que pour une réplication entre une machine virtuelle VMware ou un serveur physique et Azure.
+L’utilisation des journaux Azure Monitor avec Site Recovery est prise en charge pour la réplication d’**Azure à Azure** et pour la réplication d’une **machine virtuelle VMware ou d’un serveur physique dans Azure**.
+
+> [!NOTE]
+> Les journaux de données d’évolution et les journaux de taux de chargement sont uniquement disponibles pour les machines virtuelles Azure répliquées dans une région Azure secondaire.
+
 ## <a name="before-you-start"></a>Avant de commencer
 
 Voici ce dont vous avez besoin :
@@ -42,9 +46,10 @@ Avant de commencer, il est recommandé de consulter les [questions courantes con
 
     ![Sélectionner la journalisation des diagnostics](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. Dans **Paramètres de diagnostic**, spécifiez un nom pour l’action de journalisation, puis sélectionnez **Envoyer à Log Analytics**.
+2. Dans **Paramètres de diagnostic**, spécifiez un nom, puis cochez la case **Envoyer à Log Analytics**.
 3. Sélectionnez l’abonnement Journaux Azure Monitor et l’espace de travail Log Analytics.
-4. Dans la liste des journaux, sélectionnez tous les journaux ayant le préfixe **AzureSiteRecovery**. Cliquez ensuite sur **OK**.
+4. Sélectionnez **Diagnostics Azure** dans le bouton bascule.
+5. Dans la liste des journaux, sélectionnez tous les journaux ayant le préfixe **AzureSiteRecovery**. Cliquez ensuite sur **OK**.
 
     ![Sélectionner un espace de travail](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -171,7 +176,10 @@ AzureDiagnostics  
 
 ### <a name="query-data-change-rate-churn-for-a-vm"></a>Interroger le taux de changement des données (évolution) pour une machine virtuelle
 
-Cette requête trace un graphique de tendance qui suit l’évolution du taux de changement des données (octets écrits par seconde) et du taux de chargement des données pour une machine virtuelle Azure (ContosoVM123). Ces informations sont uniquement disponibles pour les machines virtuelles Azure qui ont été répliquées dans une région Azure secondaire.
+> [!NOTE] 
+> Ces informations d’évolution sont uniquement disponibles pour les machines virtuelles Azure qui sont répliquées dans une région Azure secondaire.
+
+Cette requête trace un graphique de tendance qui suit l’évolution du taux de changement des données (octets écrits par seconde) et du taux de chargement des données pour une machine virtuelle Azure (ContosoVM123). 
 
 ```
 AzureDiagnostics   

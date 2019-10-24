@@ -4,15 +4,15 @@ description: Découvrez les éléments à prendre en compte lors de la planifica
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327667"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514663"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -26,7 +26,7 @@ ms.locfileid: "71327667"
 
 * **Compte de stockage** : Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-* **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale du partage de fichiers. Pour les partages de fichiers standard, la capacité totale peut atteindre 5 TiO (GA) ou 100 TiO (préversion), pour les partages de fichiers Premium, la capacité totale peut atteindre 100 TiO.
+* **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale du partage de fichiers. La capacité totale pour les partages de fichiers Premium et Standard est de 100 Tio.
 
 * **Répertoire** : hiérarchie facultative de répertoires.
 
@@ -79,10 +79,8 @@ Azure Files offre deux niveaux de performances : Standard et Premium.
 
 Les partages de fichiers Standard s’appuient sur des disques durs (HDD). Les partages de fichiers Standard offrent des performances fiables pour les charges de travail d’E/S moins sensibles à la variabilité des performances, telles que les partages de fichiers à usage général et les environnements de Dev/Test. Les partages de fichiers standard sont disponibles uniquement dans le cadre d’un modèle de facturation avec paiement à l’utilisation.
 
-Les partages de fichiers Standard d’une taille de 5 Tio maximum sont disponibles sous la forme d’une offre GA. Les partages de fichiers plus volumineux, dépassant 5 Tio et pouvant atteindre 100 Tio, sont actuellement disponibles dans une offre de préversion.
-
 > [!IMPORTANT]
-> Consultez la section relative à l’[intégration des partages de fichiers plus grands (niveau Standard)](#onboard-to-larger-file-shares-standard-tier) pour connaître les étapes de l’incorporation, ainsi que la portée et les restrictions de la préversion.
+> Si vous souhaitez utiliser des partages de fichiers supérieurs à 5 Tio, consultez la section [Intégrer à des partages de fichiers plus grands (niveau Standard)](#onboard-to-larger-file-shares-standard-tier) pour connaître les étapes d’intégration, ainsi que les restrictions et la disponibilité régionale.
 
 ### <a name="premium-file-shares"></a>Partages de fichiers Premium
 
@@ -195,75 +193,43 @@ Gardez ces points à l’esprit au moment de choisir une option de réplication�
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Intégrer à des partages de fichiers plus grands (niveau Standard)
 
-Cette section s’applique uniquement aux partages de fichiers Standard. Tous les partages de fichiers Premium sont disponibles avec 100 Tio, sous la forme d’une offre GA.
+Cette section s’applique uniquement aux partages de fichiers Standard. Tous les partages de fichiers Premium sont disponibles avec une capacité de 100 Tio.
 
 ### <a name="restrictions"></a>Restrictions
 
-- Les [Conditions d’utilisation supplémentaires des Préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) s’appliquent aux partages de fichiers volumineux en préversion, y compris lorsqu’ils sont utilisés avec des déploiements Azure File Sync.
-- Vous oblige à créer un compte de stockage à usage général (impossibilité de développer des comptes de stockage existants).
-- La conversion de comptes LRS/ZRS en GRS/GZRS ne sera pas possible sur les nouveaux comptes de stockage, créés après l’acceptation de l’abonnement pour la préversion de partages de fichiers plus volumineux.
-
+- La conversion de compte LRS/ZRS en GRS/GZRS n’est pas possible pour les comptes de stockage avec des partages de fichiers volumineux activés.
 
 ### <a name="regional-availability"></a>Disponibilité régionale
 
 Le partage de fichiers Standard est disponible dans toutes les régions, jusqu’à 5 Tio. Dans certaines régions, il est disponible avec une limite de 100 Tio ; ces régions sont listées dans le tableau suivant :
 
-|Région |Redondance prise en charge |Prend en charge les comptes de stockage existants |Prise en charge du portail* |
-|-------|---------|---------|---------|
-|Australie Est |LRS     |Non    |OUI|
-|Sud-Australie Est|LRS     |Non    |Pas encore|
-|Inde centrale  |LRS     |Non    |Pas encore|
-|Asie Est      |LRS     |Non    |Pas encore|
-|USA Est        |LRS     |Non    |Pas encore|
-|France Centre |LRS, ZRS|Non    |LRS - Oui, ZRS - pas encore|
-|France Sud   |LRS     |Non    |OUI|
-|Europe Nord   |LRS     |Non    |Pas encore|
-|Inde Sud    |LRS     |Non    |Pas encore|
-|Asie Sud-Est |LRS, ZRS|Non    |OUI|
-|Centre-USA Ouest|LRS     |Non    |Pas encore|
-|Europe Ouest    |LRS, ZRS|Non    |OUI|
-|USA Ouest        |LRS     |Non    |Pas encore|
-|USA Ouest 2      |LRS, ZRS|Non    |OUI|
+|Région |Redondance prise en charge |
+|-------|---------|
+|Australie Est |LRS     |
+|Sud-Australie Est|LRS |
+|Inde centrale  |LRS     |
+|Asie Est      |LRS     |
+|USA Est*        |LRS     |
+|France Centre |LRS, ZRS|
+|France Sud   |LRS     |
+|Inde Sud    |LRS     |
+|Asie Sud-Est |LRS, ZRS|
+|Centre-USA Ouest|LRS     |
+|Europe Ouest*    |LRS, ZRS|
+|USA Ouest*        |LRS     |
+|USA Ouest 2      |LRS, ZRS|
 
-
-*Pour les régions sans prise en charge du portail, vous pouvez toujours utiliser PowerShell ou l’interface de ligne de commande (CLI) Azure pour créer plus de 5 partages TiO. Vous pouvez également créer un nouveau partage via le portail sans spécifier le quota. Cette opération crée un partage avec une taille par défaut de 100 TiO, qui peut être mis à jour ultérieurement via PowerShell ou Azure CLI.
+\* Pris en charge pour les nouveaux comptes ; les comptes existants n’ont pas tous terminé le processus de mise à niveau.
 
 Pour nous aider à hiérarchiser les nouvelles régions et les nouvelles fonctionnalités, veuillez répondre à ce [sondage](https://aka.ms/azurefilesatscalesurvey).
 
-### <a name="steps-to-onboard"></a>Étapes pour l’intégration
+### <a name="enable-and-create-larger-file-shares"></a>Activer et créer des partages de fichiers plus volumineux
 
-Pour inscrire votre abonnement à la préversion de partages de fichiers plus volumineux, vous devez utiliser Azure PowerShell. Vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/) ou installer le [module Azure PowerShell localement](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) pour exécuter les commandes PowerShell suivantes :
-
-Tout d’abord, assurez-vous que l’abonnement que vous souhaitez inscrire dans la préversion est sélectionné :
-
-```powershell
-$context = Get-AzSubscription -SubscriptionId ...
-Set-AzContext $context
-```
-
-Ensuite, inscrivez-vous dans la préversion à l’aide des commandes suivantes :
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-Votre abonnement est approuvé automatiquement dès que les deux commandes sont exécutées.
-
-Pour vérifier l’état de votre inscription, vous pouvez exécuter la commande suivante :
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-```
-
-La mise à jour de votre état vers **inscrit** peut prendre jusqu’à 15 minutes. Une fois votre état défini sur **inscrit**, vous devez être en mesure d’utiliser la fonctionnalité.
-
-### <a name="use-larger-file-shares"></a>Utiliser des partages de fichiers plus volumineux
-
-Pour commencer à utiliser des partages de fichiers plus volumineux, créez un compte de stockage v2 à usage général et un partage de fichiers.
+Pour commencer à utiliser des partages de fichiers plus volumineux, consultez notre article [Activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Modèle de croissance des données
 
-Aujourd’hui, la taille maximale d’un partage de fichiers Azure est de 5 Tio (100 Tio en préversion). En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure.
+Aujourd’hui, la taille maximale d’un partage de fichiers Azure est de 100 Tio. En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure.
 
 Vous pouvez synchroniser plusieurs partages de fichiers Azure sur un même serveur de fichiers Windows avec Azure File Sync. Cela vous permet d’inclure dans Azure File Sync des partages de fichiers plus anciens et très volumineux que vous pouvez avoir localement. Pour plus d’informations, voir [Planification d’un déploiement Azure File Sync](storage-files-planning.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Masquage de données dynamiques dans une base de données Azure SQL | Microsoft Docs
-description: Le masquage des données dynamiques de base de données SQL limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège
+title: Masquage des données dynamiques pour Azure SQL Database et Data Warehouse | Microsoft Docs
+description: Le masquage des données dynamiques limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilèges pour SQL Database et Data Warehouse
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,14 +11,14 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 ms.date: 03/04/2019
-ms.openlocfilehash: 366b9437aab134985c73611fa8b46c6fbd3d309c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e36e91330232a90ff51cf92ce8dc920b51e2d914
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568753"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430119"
 ---
-# <a name="sql-database-dynamic-data-masking"></a>Masquage de données dynamiques dans une base de données SQL
+# <a name="dynamic-data-masking-for-azure-sql-database-and-data-warehouse"></a>Masquage des données dynamiques pour Azure SQL Database et Data Warehouse
 
 Le masquage des données dynamiques de base de données SQL limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. 
 
@@ -26,7 +26,7 @@ Le masquage des données dynamiques empêche tout accès non autorisé aux donn�
 
 Par exemple, un représentant du centre d’appel peut identifier les appelants par plusieurs chiffres de leur numéro de carte de crédit, mais ces éléments de données ne doivent pas être divulgués entièrement au conseiller du service. Une règle de masquage peut être définie pour ne faire apparaître que les quatre derniers chiffres du numéro de carte de crédit dans l’ensemble de résultats de chaque requête. Autre exemple, un masque de données approprié peut être défini pour protéger les informations d'identification personnelle (PII), de telle sorte qu'un développeur puisse interroger les environnements de production à des fins de dépannage sans aller à l'encontre des réglementations de conformité.
 
-## <a name="sql-database-dynamic-data-masking-basics"></a>Principes fondamentaux du masquage de données dynamiques de base de données SQL
+## <a name="dynamic-data-masking-basics"></a>Principes de base du masquage des données dynamiques
 
 Pour définir une stratégie de masquage de données dynamiques sur le Portail Azure, sélectionnez l’opération de masquage des données dynamiques dans votre panneau de configuration ou de paramètres SQL Database.
 

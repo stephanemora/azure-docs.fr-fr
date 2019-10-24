@@ -1,6 +1,6 @@
 ---
-title: Problèmes connus et résolution des problèmes liés à Azure Status Monitor v2 | Microsoft Docs
-description: Exemples de problèmes connus et de résolution des problèmes liés à Status Monitor v2 Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées localement, dans des machines virtuelles ou sur Azure.
+title: Problèmes connus et résolution des problèmes d’Azure Application Insights Agent | Microsoft Docs
+description: Problèmes connus liés à Application Insights Agent et exemples de résolution. Surveillez les performances de site web sans avoir à redéployer le site web. Fonctionne avec les applications web ASP.NET hébergées en local, dans des machines virtuelles ou sur Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c3e9bffaf3b533ef8fbe3e32c1dca671fb67c911
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ab1ce01c41679c6ff686ab37692d3b8e9167a4f8
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058289"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388199"
 ---
-# <a name="troubleshooting-status-monitor-v2"></a>Résolution des problèmes liés à Status Monitor v2
+# <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Résolution des problèmes d’Application Insights Agent (anciennement appelé Status Monitor v2)
 
 Lorsque vous activez la surveillance, vous pouvez rencontrer des problèmes qui empêchent la collecte de données.
 Cet article répertorie tous les problèmes connus et propose des exemples de résolution des problèmes.
@@ -99,9 +99,9 @@ Vous pouvez utiliser la commande `Get-Module -ListAvailable` pour déterminer le
 Si un module n’a pas été chargé dans une session PowerShell, vous pouvez le charger manuellement à l’aide de la commande `Import-Module <path to psd1>`.
 
 
-### <a name="troubleshooting-the-status-monitor-v2-module"></a>Résolution des problèmes liés au module Status Monitor v2
+### <a name="troubleshooting-the-application-insights-agent-module"></a>Résolution des problèmes du module Application Insights Agent
 
-#### <a name="list-the-commands-available-in-the-status-monitor-v2-module"></a>Répertorier les commandes disponibles dans le module Status Monitor v2
+#### <a name="list-the-commands-available-in-the-application-insights-agent-module"></a>Lister les commandes disponibles dans le module Application Insights Agent
 Exécutez la commande `Get-Command -Module Az.ApplicationMonitor` pour obtenir les commandes disponibles :
 
 ```
@@ -117,7 +117,7 @@ Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az
 Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
-#### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>Déterminer la version actuelle du module v2 Status Monitor
+#### <a name="determine-the-current-version-of-the-application-insights-agent-module"></a>Déterminer la version actuelle du module Application Insights Agent
 Exécutez la commande `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` pour afficher les informations suivantes sur le module :
    - Version du module PowerShell
    - Version du Kit de développement logiciel (SDK) Application Insights

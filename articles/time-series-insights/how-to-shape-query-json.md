@@ -6,15 +6,15 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 48e09a64812f7552bd79c529138db693df283790
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947144"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274404"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Mise en forme de JSON afin d’optimiser les performances des requêtes 
 
@@ -27,6 +27,7 @@ Cet article fournit des conseils pour la procédure de mise en forme de JSON, en
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>Bonnes pratiques
+
 Réfléchissez à la façon dont vous envoyez les événements à Time Series Insights. À savoir, vous pouvez toujours :
 
 1. Envoyer les données aussi efficacement que possible sur le réseau.
@@ -57,9 +58,10 @@ Ces exemples sont basés sur un scénario où plusieurs appareils envoient des m
 
 Dans l’exemple suivant, il y a un seul message Azure IoT Hub, où le tableau externe contient une section partagée de valeurs de dimensions communes. Le tableau externe utilise des données de référence pour accroître les performances du message. Les données de référence contiennent des métadonnées d’appareil qui ne changent pas avec chaque événement, mais fournissent des propriétés utiles pour l’analyse des données. Le fait de traiter par lot les valeurs de dimensions communes et d’utiliser des données de référence permet d’économiser les octets envoyés sur le réseau, ce qui rend le message plus efficace.
 
-Exemple de charge utile JSON :
+Considérez la charge utile JSON suivante envoyée à votre environnement Time Series Insights en disponibilité générale à l’aide d’un [objet de message d’appareil IoT](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) qui est sérialisé en JSON lors de son envoi vers le cloud Azure :
 
-```json
+
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -103,13 +105,12 @@ Exemple de charge utile JSON :
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
    | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
-Remarques sur ces deux tables :
-
-- La colonne **deviceId** sert d’en-tête de colonne pour les différents appareils d’un parc. Faire de la valeur deviceId son propre nom de propriété limite le nombre total d’appareils à 595 (pour les environnements S1) ou à 795 (pour les environnements S2), avec les cinq autres colonnes.
-- Les propriétés inutiles sont évitées, par exemple les informations de marque et de modèle. Du fait que les propriétés ne seront pas interrogées ultérieurement, leur suppression permet d’accroître l’efficacité du réseau et du stockage.
-- Des données de référence sont utilisées pour réduire le nombre d’octets transférés sur le réseau. Les deux attributs, **messageId** et **deviceLocation**, sont joints à l’aide de la propriété de clé, **deviceId**. Ces données sont jointes avec les données de télémétrie au moment de l’entrée, puis stockées dans Time Series Insights en vue de leur interrogation.
-- Deux couches d’imbrication sont utilisées, ce qui est la quantité maximale d’imbrication prise en charge par Time Series Insights. Il est essentiel d’éviter les tableaux profondément imbriqués.
-- Les mesures sont envoyées en tant que propriétés distinctes dans le même objet, étant donné qu’elles sont peu nombreuses. Ici, **series.Flow Rate psi** et **series.Engine Oil Pressure ft3/s** sont des colonnes uniques.
+> [!NOTE]
+> - La colonne **deviceId** sert d’en-tête de colonne pour les différents appareils d’un parc. Faire de la valeur **deviceId** son propre nom de propriété limite le nombre total d’appareils à 595 (pour les environnements S1) ou à 795 (pour les environnements S2), avec les cinq autres colonnes.
+> - Les propriétés inutiles sont évitées (par exemple les informations de marque et de modèle). Du fait que les propriétés ne seront pas interrogées ultérieurement, leur suppression permet d’accroître l’efficacité du réseau et du stockage.
+> - Des données de référence sont utilisées pour réduire le nombre d’octets transférés sur le réseau. Les deux attributs, **messageId** et **deviceLocation**, sont joints à l’aide de la propriété de clé, **deviceId**. Ces données sont jointes avec les données de télémétrie au moment de l’entrée, puis stockées dans Time Series Insights en vue de leur interrogation.
+> - Deux couches d’imbrication sont utilisées, ce qui est la quantité maximale d’imbrication prise en charge par Time Series Insights. Il est essentiel d’éviter les tableaux profondément imbriqués.
+> - Les mesures sont envoyées en tant que propriétés distinctes dans le même objet, étant donné qu’elles sont peu nombreuses. Ici, **series.Flow Rate psi** et **series.Engine Oil Pressure ft3/s** sont des colonnes uniques.
 
 ## <a name="scenario-two-several-measures-exist"></a>Scénario 2 : il existe plusieurs mesures
 
@@ -118,7 +119,7 @@ Remarques sur ces deux tables :
 
 Exemple de charge utile JSON :
 
-```json
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -179,12 +180,11 @@ Exemple de charge utile JSON :
    | FYYY | pumpRate | LINE\_DATA | US | Débit | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
    | FYYY | oilPressure | LINE\_DATA | US | Pression d’huile moteur | psi | 2018-01-17T01:18:00Z | 22.2 |
 
-Remarques sur ces deux tables :
-
-- Les colonnes **deviceId** et **series.tagId** servent d’en-têtes de colonne pour les différents appareils et balises dans un parc. L’utilisation de chacune comme son propre attribut limite la requête à un total de 594 (pour les environnements S1) ou 794 (pour les environnements S2) appareils avec les six autres colonnes.
-- Les propriétés inutiles ont été évitées, pour la raison indiquée dans le premier exemple.
-- Des données de référence sont utilisées afin de réduire le nombre d’octets transférés sur le réseau en introduisant **deviceId**, qui est utilisée pour la paire unique de **messageId** et **deviceLocation**. Une clé composite, **series.tagId**, est utilisée pour la paire unique de **type** et **unit**. La clé composite permet d’utiliser la paire **deviceId** et **series.tagId** pour faire référence à quatre valeurs : **messageId, deviceLocation, type** et **unit**. Ces données sont jointes avec les données de télémétrie au moment de l’entrée. Elles sont ensuite stockées dans Time Series Insights pour être interrogées.
-- Deux couches d’imbrication sont utilisées, pour la raison indiquée dans le premier exemple.
+> [!NOTE]
+> - Les colonnes **deviceId** et **series.tagId** servent d’en-têtes de colonne pour les différents appareils et balises dans un parc. L’utilisation de chacune comme son propre attribut limite la requête à un total de 594 (pour les environnements S1) ou 794 (pour les environnements S2) appareils avec les six autres colonnes.
+> - Les propriétés inutiles ont été évitées, pour la raison indiquée dans le premier exemple.
+> - Des données de référence sont utilisées afin de réduire le nombre d’octets transférés sur le réseau en introduisant **deviceId**, qui est utilisée pour la paire unique de **messageId** et **deviceLocation**. Une clé composite, **series.tagId**, est utilisée pour la paire unique de **type** et **unit**. La clé composite permet d’utiliser la paire **deviceId** et **series.tagId** pour faire référence à quatre valeurs : **messageId, deviceLocation, type** et **unit**. Ces données sont jointes avec les données de télémétrie au moment de l’entrée. Elles sont ensuite stockées dans Time Series Insights pour être interrogées.
+> - Deux couches d’imbrication sont utilisées, pour la raison indiquée dans le premier exemple.
 
 ### <a name="for-both-scenarios"></a>Pour les deux scénarios
 
@@ -195,5 +195,8 @@ Pour une propriété avec un grand nombre de valeurs possibles, il est préféra
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- En savoir plus sur l’envoi des [messages des appareils IoT Hub vers le cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+
 - Lisez [Syntaxe de requête Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) afin d’en savoir plus sur la syntaxe de requête pour l’API REST d’accès aux données Time Series Insights.
+
 - Découvrez [comment mettre en forme les événements](./time-series-insights-send-events.md).

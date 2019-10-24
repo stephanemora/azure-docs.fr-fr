@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: ec0fa0ba7c7cad698cda0f7b440415c3dbb0236a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299631"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298472"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Questions fréquentes (FAQ) sur Azure NetApp Files
 
@@ -50,7 +50,7 @@ Oui, vous pouvez le faire si vous créez les entrées DNS requises. Azure NetApp
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Le trafic réseau entre la machine virtuelle Azure et le stockage peut-il être chiffré ?
 
-Le trafic de données (le trafic à partir du client NFSv3 ou SMBv3 fourni par les volumes Azure NetApp Files) n’est pas chiffré. Toutefois, le trafic à partir d’une machine virtuelle Azure (exécutant un client SMB ou NFS) vers Azure NetApp Files est aussi sécurisé que tout autre trafic entre machines virtuelles Azure. Ce trafic est local pour le réseau du centre de données Azure. 
+Le trafic de données (le trafic entre le client NFSv3, NFSv4.1 ou SMBv3 et les volumes Azure NetApp Files) n’est pas chiffré. Toutefois, le trafic à partir d’une machine virtuelle Azure (exécutant un client SMB ou NFS) vers Azure NetApp Files est aussi sécurisé que tout autre trafic entre machines virtuelles Azure. Ce trafic est local pour le réseau du centre de données Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Le stockage peut-il être chiffré au repos ?
 
@@ -120,7 +120,11 @@ La taille du volume signalée dans DF est la taille maximale que peut atteindre 
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Quelle version de NFS Azure NetApp Files prend-il en charge ?
 
-Azure NetApp Files prend actuellement en charge NFSv3.
+Azure NetApp Files prend en charge NFSv3 et NFSv4.1. Vous pouvez créer un volume à l’aide de l’une de ces versions NFS. 
+
+> [!IMPORTANT] 
+> L’accès à la fonctionnalité NFSv4.1 nécessite la mise en liste verte.  Pour demander une mise en liste verte, envoyez une demande à <anffeedback@microsoft.com>. 
+
 
 ### <a name="how-do-i-enable-root-squashing"></a>Comment activer le root squash ?
 
@@ -182,7 +186,7 @@ Vous pouvez également utiliser un large éventail d’outils gratuits pour copi
 
 La configuration requise pour la réplication d’un volume Azure NetApp Files vers une autre région Azure est la suivante : 
 - Vérifiez qu’Azure NetApp Files est disponible dans la région Azure cible.
-- Validez la connectivité réseau entre les réseaux virtuels dans chaque région. Actuellement, l’homologation globale entre réseaux virtuels n’est pas prise en charge.  Vous pouvez établir la connectivité entre réseaux virtuels en les liant à un circuit ExpressRoute ou à l’aide d’une connexion S2S VPN. 
+- Validez la connectivité réseau entre les réseaux virtuels dans chaque région. Actuellement, le peering global entre réseaux virtuels n’est pas pris en charge.  Vous pouvez établir la connectivité entre réseaux virtuels en les liant à un circuit ExpressRoute ou à l’aide d’une connexion S2S VPN. 
 - Créez le volume Azure NetApp Files cible.
 - Transférez les données de la source vers le volume cible à l’aide de votre outil de copie de fichiers par défaut.
 

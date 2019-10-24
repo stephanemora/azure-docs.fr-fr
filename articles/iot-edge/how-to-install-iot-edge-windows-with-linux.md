@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3cf30b53f950ff18dd6dcde332b7e97e332133aa
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034189"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516569"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Utiliser IoT Edge sur Windows pour exécuter des conteneurs Linux
 
@@ -92,20 +92,25 @@ Pour en savoir plus sur les différents paramètres et options d'installation, c
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 
-Vérifiez l’état du service IoT Edge. Il doit être listé comme étant en cours d’exécution.  
+Vérifiez l’état du service IoT Edge : 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Examinez les journaux d’activité du service des 5 dernières minutes. 
+Examinez les journaux du service des 5 dernières minutes : 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Répertoriez les modules en cours d’exécution. Après une nouvelle installation, le seul module que vous devez voir en cours d’exécution est **edgeAgent**. Une fois que vous avez [déployé les modules IoT Edge](how-to-deploy-modules-portal.md) pour la première fois, l’autre module système, **edgeHub**, démarre également sur l’appareil. 
+Exécutez une vérification automatisée des erreurs de configuration et de mise en réseau les plus courantes : 
 
+```powershell
+iotedge check
+```
+
+Répertoriez les modules en cours d’exécution. Après une nouvelle installation, le seul module que vous devez voir en cours d’exécution est **edgeAgent**. Une fois que vous avez [déployé les modules IoT Edge](how-to-deploy-modules-portal.md) pour la première fois, l’autre module système, **edgeHub**, démarre également sur l’appareil. 
 
 ```powershell
 iotedge list

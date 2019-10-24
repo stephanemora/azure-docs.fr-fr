@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968280"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333133"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identité managée pour l’application Service Fabric (préversion)
 
@@ -45,7 +45,7 @@ Les termes suivants sont utilisés dans l'ensemble de la documentation Identité
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scénarios pris en charge pour les applications Service Fabric
 
-Les identités managées pour Service Fabric sont prises en charge uniquement dans les clusters Service Fabric déployés dans Azure et uniquement pour les applications déployées en tant que ressources Azure ; les applications qui ne sont pas déployées en tant que ressource Azure ne peuvent pas se voir attribuer une identité. En théorie, le support des identités managées dans un cluster Azure Service Fabric est constitué de deux phases :
+Les identités managées pour Service Fabric sont prises en charge uniquement dans les clusters Service Fabric déployés dans Azure et uniquement pour les applications déployées en tant que ressources Azure ; une application qui n’est pas déployée en tant que ressource Azure ne peut pas se voir attribuer une identité. En théorie, le support des identités managées dans un cluster Azure Service Fabric est constitué de deux phases :
 
 1. Attribuez une ou plusieurs identités managées à la ressource d’application ; une application peut se voir attribuer une seule identité attribuée par le système et/ou des identités attribuées par des utilisateurs, jusqu’à 32, respectivement.
 
@@ -63,6 +63,8 @@ La liste des scénarios pris en charge pour la mise en production de la prévers
 Les scénarios suivants ne sont pas pris en charge ni recommandés ; notez que ces actions peuvent ne pas être bloquées, mais peuvent entraîner des pannes dans vos applications :
 
    - Supprimez ou modifiez les identités attribuées à une application. Si vous devez apporter des modifications, envoyez des déploiements distincts pour ajouter d’abord une nouvelle attribution d’identité, puis en supprimer une précédemment attribuée. La suppression d’une identité d’une application existante peut avoir des effets indésirables, notamment la sortie de votre application dans un état qui ne peut pas être mis à niveau. Il est sans danger de supprimer entièrement l’application si la suppression d’une identité est nécessaire ; notez que cette opération supprimera l’identité attribuée par le système (si définie) associée à l’application et supprimera toutes les associations avec les identités attribuées par l’utilisateur et attribuées à l’application.
+
+   - La prise en charge de SF pour les identités managées n’est pour l’heure pas intégrée à [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md) ; l’intégration sera effective d’ici la fin de la période de préversion de la fonctionnalité d’identité managée.
 
 >
 > [!NOTE]

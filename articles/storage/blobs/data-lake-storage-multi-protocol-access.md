@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 471e3008c25ddef83dd9b502dd8f677ae31cc71b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 9767282b3dd764a45f25a14d62af70a13c80b0ac
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259374"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300255"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Accès multi-protocole sur Azure Data Lake Storage (préversion)
 
@@ -22,11 +22,11 @@ Les API d’objets BLOB fonctionnent désormais avec les comptes qui ont un espa
 Jusqu’à récemment, vous avez peut-être dû maintenir des solutions de stockage distinctes pour le stockage des objets et l’analyse du stockage. Cela est dû au fait que Azure Data Lake Storage Gen2 avait une prise en charge limitée de l’écosystème. Il avait également un accès limité aux fonctionnalités du service BLOB, telles que la journalisation des diagnostics. Une solution de stockage fragmenté est difficile à maintenir, car vous devez déplacer les données entre les comptes pour effectuer différents scénarios. Vous n’avez plus à le faire.
 
 > [!NOTE]
-> L’accès multi-protocole sur Data Lake Storage est disponible en préversion publique uniquement dans les [régions suivantes](#region-availability). Pour passer en revue les limitations, consultez l’article [Problèmes connus](data-lake-storage-known-issues.md). Pour vous inscrire dans la préversion, consultez [cette page](https://aka.ms/blobinteropsignup).
+> L’accès multi-protocole sur Data Lake Storage est en préversion publique et disponible dans toutes les régions. Vous n’êtes pas obligé de vous inscrire à la préversion publique, car elle est disponible automatiquement pour tous les comptes qui ont un espace de noms hiérarchique. Pour passer en revue les limitations, consultez l’article [Problèmes connus](data-lake-storage-known-issues.md).
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>Utiliser l’intégralité de l’écosystème d’applications, d’outils et de services
 
-Si vous vous inscrivez dans la préversion de l’accès multi-protocole sur Data Lake Storage, vous pouvez travailler avec toutes vos données à l’aide de l’écosystème complet d’outils, d’applications et de services. Cela comprend les services Azure tels que[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/),[Power BI](https://docs.microsoft.com/power-bi/desktop-data-sources) et bien d’autres. 
+Avec l’accès multi-protocole sur Data Lake Storage, vous pouvez travailler avec toutes vos données à l’aide de l’écosystème complet d’outils, d’applications et de services. Cela comprend les services Azure tels que[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/),[Power BI](https://docs.microsoft.com/power-bi/desktop-data-sources) et bien d’autres. Pour obtenir une liste complète, consultez [Intégrer Azure Data Lake Storage aux services Azure](data-lake-store-integrate-with-azure-services.md).
 
 Cela comprend également des outils et des applications tiers. Vous pouvez les rediriger vers des comptes qui ont un espace de noms hiérarchique sans avoir à les modifier. Ces applications fonctionnent *comme telles* même si elles appellent des API d’objets BLOB, car les API d’objets BLOB peuvent désormais fonctionner sur des données de comptes qui ont un espace de noms hiérarchique.
 
@@ -47,20 +47,6 @@ Les API d’objets BLOB et les API Data Lake Storage Gen2 peuvent fonctionner su
 ![Accès multi-protocole sur Data Lake Storage conceptuelle](./media/data-lake-storage-interop/interop-concept.png) 
 
 Les outils et les applications existants qui utilisent l’API BLOB bénéficient automatiquement de ces avantages. Les développeurs ne sont pas obligés de les modifier. Data Lake Storage Gen2 applique de manière cohérente les listes de contrôle d’accès au niveau des répertoires et des fichiers, quel que soit le protocole utilisé par les outils et les applications pour accéder aux données. 
-
-<a id="region-availability" />
-
-## <a name="region-availability"></a>Disponibilité des régions
-
-L’accès multi-protocole sur Azure Data Lake Storage (préversion) est disponible dans les régions suivantes :
-
-|||||
-|-|-|-|-|
-|USA Centre|Centre-USA Ouest|Centre du Canada|
-|USA Est|Asie Est|Europe Nord|
-|USA Est 2|Asie Sud-Est|Europe Ouest|
-|USA Ouest|Australie Est|Japon Est|
-|USA Ouest 2|Brésil Sud||
 
 ## <a name="next-steps"></a>Étapes suivantes
 

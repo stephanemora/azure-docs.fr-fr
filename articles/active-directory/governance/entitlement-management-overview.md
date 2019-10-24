@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827159"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430296"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Présentation de la gestion des droits d’utilisation Azure AD (Préversion)
 
@@ -73,11 +73,11 @@ Pour une vue d’ensemble de la gouvernance des identités et de la gestion des 
 La gestion des droits d'utilisation vous permet de gérer l'accès aux types de ressources ci-dessous :
 
 - Groupes de sécurité Azure AD
-- Groupes Office 365
+- Groupes Office 365
 - Applications d’entreprise Azure AD, y compris les applications SaaS et les applications intégrées personnalisées prenant en charge la fédération ou l’approvisionnement
 - Sites et collections de sites SharePoint Online
 
-Vous pouvez également contrôler l’accès à d’autres ressources s'appuyant sur des groupes de sécurité Azure AD ou Office 365.  Par exemple :
+Vous pouvez également contrôler l’accès à d’autres ressources qui s’appuient sur des groupes de sécurité Azure AD ou des groupes Office 365.  Par exemple :
 
 - Vous pouvez accorder des licences aux utilisateurs pour Microsoft Office 365 en utilisant un groupe de sécurité Azure AD dans un package d’accès et en configurant la [gestion des licences par groupe](../users-groups-roles/licensing-groups-assign.md) pour ce groupe
 - Vous pouvez accorder un accès aux utilisateurs pour gérer des ressources Azure en utilisant un groupe de sécurité Azure AD dans un package d'accès et en créant un [attribution de rôle Azure](../../role-based-access-control/role-assignments-portal.md) pour ce groupe
@@ -104,16 +104,6 @@ Le diagramme suivant montre un exemple des différents éléments en matière de
 - Le **package d’accès 2** comprend un groupe, une application et un site SharePoint Online en tant que ressources. L’accès est défini par deux stratégies différentes. La première stratégie autorise un ensemble d’utilisateurs du répertoire à demander un accès. La seconde stratégie permet aux utilisateurs d'un répertoire externe de demander un accès.
 
 ![Vue d'ensemble de la gestion des droits d’utilisation](./media/entitlement-management-overview/elm-overview.png)
-
-## <a name="external-users"></a>Utilisateurs externes
-
-Lorsque vous utilisez l'expérience d'invitation [Azure AD entreprise à entreprise (B2B)](../b2b/what-is-b2b.md), vous devez déjà connaître les adresses e-mail des utilisateurs invités externes que vous souhaitez importer dans votre répertoire de ressources et avec lesquels collaborer. Cela fonctionne très bien lorsque vous travaillez sur un projet plus petit ou à court terme et que vous connaissez déjà tous les participants, mais s'avère plus complexe si vous souhaitez collaborer avec un grand nombre d'utilisateurs ou si les participants changent au fil du temps.  Par exemple, vous pouvez travailler avec une autre organisation et avoir un point de contact avec cette organisation, mais au fil du temps, d'autres utilisateurs de cette organisation auront également besoin d'un accès.
-
-Avec la gestion des droits d'utilisation, vous pouvez définir une stratégie autorisant les utilisateurs des organisations que vous spécifiez, et qui utilisent également Azure AD, à demander un package d'accès. Vous pouvez spécifier si une approbation est requise, ainsi qu'une date d’expiration de l’accès. Si une approbation est requise, vous pouvez également désigner un ou plusieurs utilisateurs de l'organisation externe que vous avez précédemment invités en tant qu'approbateurs, ceux-ci étant susceptibles de savoir quels utilisateurs externes à leur organisation ont besoin d'un accès. Une fois le package d'accès configuré, vous pouvez envoyer le lien correspondant à la personne à contacter au sein de l'organisation externe. Cette personne peut le partager avec d'autres utilisateurs de l'organisation externe et ceux-ci peuvent à leur tour utiliser ce lien pour demander le package d'accès.  Les utilisateurs de cette organisation déjà invités dans votre répertoire peuvent également utiliser ce lien.
-
-Lorsqu'une demande est approuvée, la gestion des droits d'utilisation accorde à l'utilisateur l'accès nécessaire, notamment une invitation si cet utilisateur n'est pas encore présent dans votre répertoire. Azure AD crée automatiquement un compte B2B pour cet utilisateur.  Notez qu’un administrateur peut avoir précédemment restreint les organisations autorisées à collaborer, en définissant une [liste d'autorisations ou de refus B2B](../b2b/allow-deny-list.md) pour autoriser ou refuser les invitations liées à d’autres organisations.  Si l’utilisateur ne figure pas sur la liste d'autorisations ou de refus, il ne sera pas invité.
-
-Pour limiter dans le temps l'accès de l'utilisateur externe, vous spécifiez une date d'expiration dans la stratégie, comme 180 jours. Une fois ces 180 jours écoulés et en l'absence de renouvellement, la gestion des droits d'utilisateur supprime tous les accès associés à ce package d'accès.  Si l'utilisateur invité par le biais de la gestion des droits d'utilisation ne dispose d'aucune autre attribution de package d'accès, lorsqu'il perd sa dernière attribution, son compte B2B est bloqué pendant 30 jours, puis supprimé.  Et ce, afin d'éviter la prolifération de comptes inutiles.  
 
 ## <a name="terminology"></a>Terminologie
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 293d0de024ad815b4755d48833b7058c29ebcd5a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326978"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513307"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Objectifs de performance et d’extensibilité du service Stockage Azure pour les comptes de stockage
 
@@ -46,8 +46,8 @@ Pour plus d’informations sur les objectifs de scalabilité et de performances 
 > [!IMPORTANT]
 > Les limites d’un compte de stockage s’appliquent à tous les partages. Vous pouvez scale up des comptes de stockage au maximum uniquement si vous disposez d’un seul partage par compte de stockage.
 >
-> Les partages de fichiers standard d’une taille supérieure à 5 Tio sont en préversion et présentent certaines limitations.
-> Pour obtenir la liste des limitations et s’inscrire à la préversion de ces tailles de partage de fichiers plus importantes, consultez la section [Partages de fichiers standard](../files/storage-files-planning.md#standard-file-shares) du guide de planification d’Azure Files.
+> Les partages de fichiers standard supérieurs à 5 Tio présentent certaines limitations et restrictions régionales.
+> Pour obtenir la liste des limitations, des informations régionales et des instructions permettant d’activer ces tailles de partage de fichiers plus volumineuses, consultez la section [Intégrer à des partages de fichiers plus grands (niveau Standard)](../files/storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) du guide de planification Azure Files.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

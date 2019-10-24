@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 36a95b502c13ccf360ba4ac56b4837d41ee487c8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065555"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296395"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gérer la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -102,5 +102,5 @@ Pour changer le comportement des sessions et les configurations de SSO, vous dev
 Les valeurs suivantes sont configurées dans l’exemple précédent :
 
 - **Authentification unique (SSO)** : l’authentification unique est configurée avec l’élément **SingleSignOn**. Les valeurs possibles sont `Tenant`, `Application`, `Policy` et `Suppressed`.
-- **Durée de vie de la session de l’application web (minutes)** : la durée de vie de la session de l’application web est définie avec l’élément **SessionExpiryInSeconds**. La valeur par défaut est de 86400 secondes (1440 minutes).
 - **Délai d’expiration de la session de l’application web** : il est défini avec l’élément **SessionExpiryType**. Les valeurs possibles sont `Absolute` et `Rolling`.
+- **Durée de vie de la session de l’application web** : elle est définie avec l’élément **SessionExpiryInSeconds**. La valeur par défaut est de 86400 secondes (1440 minutes).

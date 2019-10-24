@@ -1,6 +1,6 @@
 ---
 title: Élément d’interface utilisateur PasswordBox Azure | Microsoft Docs
-description: Décrit l’élément d’interface utilisateur Microsoft.Common.PasswordBox pour le Portail Azure.
+description: Décrit l’élément d’interface utilisateur Microsoft.Common.PasswordBox pour le Portail Azure. Permet aux utilisateurs de fournir une valeur secrète lors du déploiement d’applications managées.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a8b760d113e29efb0efacbd41dcaa7432ecdcfd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710942"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332803"
 ---
 # <a name="microsoftcommonpasswordbox-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.PasswordBox
 Contrôle qui peut être utilisé pour indiquer et confirmer un mot de passe.

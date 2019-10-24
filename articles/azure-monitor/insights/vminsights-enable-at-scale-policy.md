@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: cbb471d337bd386b6c5f2c7a960565ef29855c9c
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 3c213f73b1dfedf6850df5f9a422193c0bcf7241
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338237"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515521"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide d’Azure Policy
 
@@ -46,7 +46,7 @@ Ces informations sont utiles pour vous aider à planifier et exécuter votre sc�
 
 À partir de cette page, vous pouvez également configurer votre espace de travail Log Analytics pour Azure Monitor pour machines virtuelles, qui :
 
-- Installe la fonctionnalité Installation des solutions Service Map et Infrastructure Insights.
+- Installe la solution Service Map.
 - Active les compteurs de performances de système d’exploitation utilisés par les graphiques de performances, les classeurs et vos alertes et requêtes de journal personnalisées.
 
 ![Espace de travail de configuration d’Azure Monitor pour machines virtuelles](./media/vminsights-enable-at-scale-policy/manage-policy-page-02.png)
@@ -54,6 +54,7 @@ Ces informations sont utiles pour vous aider à planifier et exécuter votre sc�
 Cette option n’est associée à aucune action de stratégie. Elle est disponible pour fournir un moyen simple de satisfaire les [conditions préalables](vminsights-enable-overview.md) nécessaires à l’activation d’Azure Monitor pour machines virtuelles.  
 
 ### <a name="what-information-is-available-on-this-page"></a>Quelles sont les informations disponibles sur cette page ?
+
 Le tableau suivant fournit le détail des informations présentées sur la page de couverture de stratégie et la façon de les interpréter.
 
 | Fonction | Description | 
@@ -113,6 +114,7 @@ La stratégie autonome (non incluse avec l’initiative) est décrite ici :
 |\[Préversion\] : Auditer les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités |Signalez les machines virtuelles comme non conformes si elles ne se connectent pas à l’espace de travail Log Analytics spécifié dans l’attribution de stratégie ou d’initiative. |Stratégie |
 
 ### <a name="assign-the-azure-monitor-initiative"></a>Assigner l’initiative Azure Monitor
+
 Pour créer l’attribution de stratégie à partir de la page **Azure Monitor for VMs Policy Coverage (Couverture de stratégie Azure Monitor pour machines virtuelles)** , procédez comme suit. Pour savoir comment effectuer ces étapes, consultez  [Créer une affectation de stratégie à partir du portail Azure](../../governance/policy/assign-policy-portal.md).
 
 Lorsque vous attribuez la stratégie ou l’initiative, l’étendue sélectionnée dans l’attribution peut être l’étendue répertoriée ici ou un sous-ensemble de celle-ci. Par exemple, vous avez peut-être créé une attribution pour l’abonnement (étendue de la stratégie) et non pas le groupe d’administration (étendue de la couverture). Dans ce cas, le pourcentage de couverture indique les machines virtuelles dans l’étendue de stratégie ou d’initiative divisée par les machines virtuelles dans l’étendue de couverture. Dans un autre cas, vous pouvez avoir exclu des machines virtuelles, des groupes de ressources ou un abonnement de l’étendue de stratégie. Si la valeur est vide, elle indique que la stratégie ou l’initiative n’existe pas ou que vous n’avez pas d’autorisation. Des informations sont fournies sous **État de l’attribution**.
@@ -208,7 +210,6 @@ Sur la base des résultats des stratégies incluses avec l’initiative, les mac
 
 Une fois la supervision activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles. 
 
-- Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles](vminsights-health.md). 
 - Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md). 
+
 - Pour identifier les goulots d’étranglement et l’utilisation globale avec les performances de votre machine virtuelle, consultez [Consulter les performances des machines virtuelles Azure](vminsights-performance.md). 
-- Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).

@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: abf0f69ea70bae4102806214f0ef0fcfc25aad3a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 6550b6e3f59ff7e6bac39dfc1abcf829256122d4
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477045"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376350"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec la commande Run
 
@@ -41,6 +41,19 @@ Voici une liste des restrictions présentes lors de l’utilisation de la comman
 > [!NOTE]
 > Pour fonctionner correctement, la commande Run a besoin d’une connectivité (port 443) aux adresses IP publiques Azure. Si l’extension n’a pas accès à ces points de terminaison, il se peut que les scripts s’exécutent correctement, mais qu’ils ne retournent pas les résultats. Si vous bloquez le trafic sur la machine virtuelle, vous pouvez utiliser des [balises de service](../../virtual-network/security-overview.md#service-tags) pour autoriser le trafic à destination des adresses IP publiques Azure en utilisant la balise `AzureCloud`.
 
+## <a name="available-commands"></a>Commandes disponibles
+
+Ce tableau affiche la liste des commandes disponibles pour les machines virtuelles Linux. La commande **RunShellScript** peut être utilisée pour exécuter n’importe quel script personnalisé de votre choix. Quand vous utilisez Azure CLI ou PowerShell pour exécuter une commande, la valeur que vous fournissez pour le paramètre `--command-id` ou `-CommandId` doit être l’une des valeurs listées ci-dessous. Quand vous spécifiez une valeur qui n’est pas une commande disponible, vous recevez cette erreur.
+
+```error
+The entity was not found in this Azure location
+```
+
+|**Nom**|**Description**|
+|---|---|
+|**RunShellScript**|Exécute un script de shell Linux.|
+|**ifconfig**| Obtenez la configuration de toutes les interfaces réseau.|
+
 ## <a name="azure-cli"></a>D’Azure CLI
 
 Voici un exemple utilisant la commande [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) pour exécuter un script shell sur une machine virtuelle Linux Azure.
@@ -67,14 +80,13 @@ Une fois la commande choisie, cliquez sur **Run** pour exécuter le script. Le s
 
 ![Sortie du script d’une commande Run](./media/run-command/run-command-script-output.png)
 
-## <a name="available-commands"></a>Commandes disponibles
+### <a name="powershell"></a>PowerShell
 
-Ce tableau affiche la liste des commandes disponibles pour les machines virtuelles Linux. La commande **RunShellScript** peut être utilisée pour exécuter n’importe quel script personnalisé de votre choix.
+L'exemple suivant utilise la cmdlet [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) pour exécuter un script PowerShell sur une machine virtuelle Azure. Pour la cmdlet, le script référencé dans le paramètre `-ScriptPath` doit se situer au même emplacement qu'elle.
 
-|**Nom**|**Description**|
-|---|---|
-|**RunShellScript**|Exécute un script de shell Linux.|
-|**ifconfig**| Obtenez la configuration de toutes les interfaces réseau.|
+```powershell-interactive
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+```
 
 ## <a name="limiting-access-to-run-command"></a>Limitation de l’accès à la commande Run
 

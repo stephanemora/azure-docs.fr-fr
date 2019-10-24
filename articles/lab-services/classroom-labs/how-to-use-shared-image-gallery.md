@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 65cc2d9ac2b96822f2c1b740f3180ba1d9eaf98c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: e9073e7cba97c4f5e2d550e5e49a6655ec76abbe
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389970"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332087"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Utiliser une galerie d’images partagées dans Azure Lab Services
 Cet article explique comment les administrateurs de laboratoire/enseignants peuvent enregistrer une image de modèle de machine virtuelle pour qu’elle puisse être réutilisée par d’autres personnes. Ces images sont enregistrées dans une [galerie d’images partagées](../../virtual-machines/windows/shared-image-galleries.md) Azure. Dans un premier temps, l’administrateur de laboratoire associe une galerie d’images partagées existante au compte de laboratoire. Une fois la galerie d’images partagées associée, les laboratoires créés dans le compte de laboratoire peuvent enregistrer des images dans la galerie d’images partagées. D’autres enseignants peuvent sélectionner cette image à partir de la galerie d’images partagées pour créer un modèle pour leurs classes. 
@@ -31,18 +31,18 @@ Cet article explique comment les administrateurs de laboratoire/enseignants peuv
 ## <a name="save-an-image-to-the-shared-image-gallery"></a>Enregistrer une image dans la galerie d’images partagées
 Une fois qu’une galerie d’images partagées est associée, un administrateur de compte lab ou un enseignant peut enregistrer une image dans la galerie d’images partagées, afin qu’elle puisse être réutilisée par d’autres enseignants. 
 
-1. Dans la page d’accueil du lab, sélectionnez **Enregistrer l’image** sur la vignette dans la section **Modèle**.
+1. Dans la page **Modèle** du laboratoire, sélectionnez **Exporter vers Shared Image Gallery** dans la barre d’outils.
 
-    ![Bouton Enregistrer l’image](../media/how-to-use-shared-image-gallery/save-image-button.png)
-2.  Dans la fenêtre **Enregistrer l’image de machine virtuelle**, entrez un nom pour l’image, puis sélectionnez **Enregistrer**. 
+    ![Bouton Enregistrer l’image](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-button.png)
+2. Dans la boîte de dialogue **Exporter vers Shared Image Gallery**, entrez un **nom pour l’image**, puis sélectionnez **Exporter**. 
 
-    ![Fenêtre Enregistrer l’image de machine virtuelle](../media/how-to-use-shared-image-gallery/save-virtual-machine-image.png)
-3. Vérifiez l’état sur la vignette du lab. 
+    ![Boîte de dialogue Exporter vers Shared Image Gallery](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
+3. Vous pouvez voir la progression de cette opération sur la page **Modèle**. Cette opération peut prendre un certain temps. 
 
-    ![État de l’opération d’enregistrement de l’image](../media/how-to-use-shared-image-gallery/save-image-status.png)
-4. Vérifiez que l’opération a réussi.
+    ![Exportation en cours](../media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
+4. Une fois l’opération d’exportation réussie, le message suivant s’affiche :
 
-    ![L’opération d’enregistrement de l’image a réussi](../media/how-to-use-shared-image-gallery/save-image-successful.png)
+    ![Exportation terminée](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
 Vous pouvez aussi charger une image dans la galerie d’images partagées en dehors du contexte d’un lab. Pour plus d’informations, consultez [Vue d’ensemble de la galerie d’images partagées](../../virtual-machines/windows/shared-images.md). 
 

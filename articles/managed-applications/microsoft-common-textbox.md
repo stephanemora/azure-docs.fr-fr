@@ -1,6 +1,6 @@
 ---
 title: Élément d’interface utilisateur TextBox Azure | Microsoft Docs
-description: Décrit l’élément d’interface utilisateur Microsoft.Common.TextBox pour le Portail Azure.
+description: Décrit l’élément d’interface utilisateur Microsoft.Common.TextBox pour le Portail Azure. Permet d’ajouter du texte non mis en forme.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: b06e8b49efe8b6de720fa9bb819d4720e4f80fb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b72bfcf06f4c7e256dd227e4edf781c4500c7b19
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61044526"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331605"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.TextBox
 Contrôle pouvant être utilisé pour modifier du texte non mis en forme.

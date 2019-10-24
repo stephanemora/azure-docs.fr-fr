@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 04cd5035d012e7846cc97a5a057fd71ebe103ce3
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168748"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515570"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Créer, modifier ou supprimer un réseau virtuel
 
@@ -47,7 +47,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
      - 169.254.0.0/16 (lien-local)
      - 168.63.129.16/32 ([sonde d’intégrité](../load-balancer/load-balancer-custom-probe-overview.md#probesource) Azure Load Balancer, DHCP et DNS interne)
 
-     Si vous ne pouvez définir qu’une seule plage d’adresses durant la création du réseau virtuel, vous pouvez en ajouter d’autres à l’espace d’adressage une fois le réseau virtuel créé. Pour savoir comment ajouter une plage d’adresses à un réseau virtuel existant, consultez [Ajouter ou supprimer une plage d’adresses](#add-or-remove-an-address-range).
+     Si vous ne pouvez définir qu’une seule plage d’adresses durant la création du réseau virtuel dans le portail, vous pouvez en ajouter d’autres à l’espace d’adressage une fois le réseau virtuel créé. Pour savoir comment ajouter une plage d’adresses à un réseau virtuel existant, consultez [Ajouter ou supprimer une plage d’adresses](#add-or-remove-an-address-range).
 
      >[!WARNING]
      >Si un réseau virtuel comporte des plages d’adresses qui chevauchent celles d’un autre réseau virtuel ou local, il est impossible de connecter les deux réseaux. Avant de définir une plage d’adresses, demandez-vous si vous souhaiteriez peut-être connecter le réseau virtuel à d’autres réseaux virtuels ou locaux par la suite.

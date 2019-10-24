@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: be2ab5605f7fa60ebb78493f714648d458e82a6c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5fc9262dd53f390dbc43646626cc324d8655f1de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029245"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387779"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformation de réception des flux de données
 
@@ -21,18 +21,18 @@ Après avoir transformé votre flux de données, vous pouvez réceptionner les d
 
 Pour prendre en compte la modification des données entrantes et la dérive du schéma, réceptionnez les données de sortie dans un dossier sans schéma défini appartenant au jeu de données de sortie. Vous pouvez aussi tenir compte des modifications de colonne dans vos sources en sélectionnant **Autoriser la dérive du schéma** dans la source. Mappez automatiquement tous les champs dans le récepteur.
 
-![Options de l’onglet Récepteur, dont l’option de Mappage automatique](media/data-flow/sink1.png "récepteur 1")
+![Options de l’onglet Récepteur, dont l’option Mappage automatique](media/data-flow/sink1.png "Récepteur 1")
 
 Pour réceptionner tous les champs entrants, activez le **Mappage automatique**. Pour choisir les champs à réceptionner dans la destination, ou pour modifier les noms ou les champs à la destination, désactivez le **Mappage automatique**. Ouvrez ensuite l’onglet **Mappage** pour mapper les champs de sortie.
 
-![Options de l’onglet Mappage](media/data-flow/sink2.png "récepteur 2")
+![Options de l’onglet Mappage](media/data-flow/sink2.png "Récepteur 2")
 
 ## <a name="output"></a>Output 
 Pour les récepteurs Azure Storage Blob et Data Lake Storage, envoyez les données transformées vers un dossier. Spark génère des fichiers de données de sortie partitionnés, selon le schéma de partition utilisé par la transformation de réception. 
 
 Vous pouvez configurer le schéma de partition depuis l’onglet **Optimiser**. Si vous voulez que Data Factory fusionne vos résultats dans un seul fichier, sélectionnez **Partition unique**.
 
-![Options de l’onglet Optimiser](media/data-flow/opt001.png "options du récepteur")
+![Options de l’onglet Optimiser](media/data-flow/opt001.png "Options du récepteur")
 
 ## <a name="field-mapping"></a>Mappages de champs
 Sous l’onglet **Mappage** de la transformation de réception, vous pouvez mapper les colonnes entrantes du côté gauche vers la destination à droite. Lorsque des fichiers réceptionnent des flux de données, Data Factory écrit toujours les nouveaux fichiers dans un dossier. Lorsque vous mappez un jeu de données de base de données, vous devez choisir les options d’opération de table de base de données à des fins d'insertion, de mise à jour, d'upsert ou de suppression.
@@ -43,11 +43,11 @@ Vous pouvez utiliser la sélection multiple dans la table de mappage pour lier p
 
 Pour toujours mapper le jeu entrant des champs à une cible en l’état et pour accepter complètement les définitions de schéma flexibles, sélectionnez **Autoriser la dérive du schéma**.
 
-![Onglet Mappage, montrant les champs mappés aux colonnes du jeu de données](media/data-flow/multi1.png "plusieurs options")
+![Onglet Mappage montrant les champs mappés aux colonnes du jeu de données](media/data-flow/multi1.png "Plusieurs options")
 
 Pour réinitialiser vos mappages de colonne, sélectionnez **Remapper**.
 
-![Onglet Récepteur](media/data-flow/sink1.png "Récepteur un")
+![Onglet Récepteur](media/data-flow/sink1.png "Récepteur 1")
 
 Sélectionnez **Valider le schéma** pour faire échouer la réception si le schéma est modifié.
 
@@ -79,7 +79,7 @@ Configurez la dénomination des fichiers :
 
 Choisissez les Paramètres de base de données :
 
-![Onglet Paramètres, montrant les options du récepteur SQL](media/data-flow/alter-row2.png "Options SQL")
+![Onglet Paramètres montrant les options du récepteur SQL](media/data-flow/alter-row2.png "Options SQL")
 
 * **Mettre à jour la méthode** : Par défaut, elle autorise les insertions. Effacez **Autoriser les insertions** si vous souhaitez arrêter d’insérer des lignes à partir de votre source. Pour mettre à jour, upsert ou supprimer des lignes, ajoutez d’abord une transformation de ligne alternative pour baliser les lignes pour ces actions. 
 * **Recréer la table** : Supprimez ou créez la table cible avant que le flux de données se termine.
@@ -93,7 +93,7 @@ Choisissez les Paramètres de base de données :
 > [!NOTE]
 > Dans Data Flow, vous pouvez diriger Data Factory pour créer une nouvelle définition de table dans votre base de données cible. Pour créer la définition de table, définissez un ensemble dans la transformation de réception qui a un nouveau nom de table. Dans le jeu de données SQL, sous le nom de la table, sélectionnez **Modifier** et entrez un nouveau nom. Dans la transformation de réception, activez **Autoriser la dérive du schéma**. Définissez **Importer un schéma** sur **Aucun**.
 
-![Paramètres du jeu de données SQL, montrant où modifier le nom de la table](media/data-flow/dataset2.png "Schéma SQL")
+![Paramètres du jeu de données SQL montrant où modifier le nom de la table](media/data-flow/dataset2.png "Schéma SQL")
 
 > [!NOTE]
 > Lorsque vous mettez à jour ou supprimez des lignes dans votre récepteur de base de données, vous devez définir la colonne clé. Ce paramètre permet à la transformation de ligne alternative de déterminer la ligne unique dans la bibliothèque de déplacement des données (DML).

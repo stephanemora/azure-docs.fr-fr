@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/26/2019
-ms.openlocfilehash: 86750cea5e7f0d4726f3e0e9a03795ef2a602d8b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 42881fcb12f29ec14bbdc0ec4942b2eef17c7312
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443838"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434405"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Journaux d’audit dans Azure Database pour MySQL
 
@@ -22,22 +22,28 @@ Dans Azure Database pour MySQL, le journal d’audit est disponible pour les uti
 
 ## <a name="configure-audit-logging"></a>Configurer l’enregistrement d’audit
 
-Par défaut, le journal d’audit est désactivé. Pour l’activer, définissez `audit_log_enabled` sur Activé.
+Par défaut, le journal d’audit est désactivé. Pour l’activer, affectez la valeur ON à `audit_log_enabled`.
 
 Les autres paramètres que vous pouvez ajuster incluent :
 
-- `audit_log_events` : contrôle les événements à consigner. Consultez le tableau ci-dessous pour des événements d’audit spécifiques.
-- `audit_log_exclude_users`: utilisateurs MySQL à exclure de la journalisation. Quatre utilisateurs maximum sont autorisés. La longueur maximale du paramètre est de 256 caractères.
+- `audit_log_events` : contrôle les événements à enregistrer. Consultez le tableau ci-dessous pour des événements d’audit spécifiques.
+- `audit_log_include_users`: Utilisateurs MySQL à inclure pour la journalisation. La valeur par défaut de ce paramètre est vide, ce qui inclut tous les utilisateurs pour la journalisation. Il a une plus grande priorité que `audit_log_exclude_users`. La longueur maximale du paramètre est de 512 caractères.
+> [!Note]
+> `audit_log_include_users` a une plus grande priorité que `audit_log_exclude_users`. Par exemple, si audit_log_include_users = `demouser` et audit_log_exclude_users = `demouser`, il effectue un audit des journaux, car `audit_log_include_users` a une priorité plus élevée.
+- `audit_log_exclude_users`: utilisateurs MySQL à exclure de la journalisation. La longueur maximale du paramètre est de 512 caractères.
+
+> [!Note]
+> Pour `sql_text`, le journal est tronqué s’il dépasse 2048 caractères.
 
 | **Event** | **Description** |
 |---|---|
-| `CONNECTION` | - Initialisation de la connexion (réussite ou échec) <br> - Réauthentification d’utilisateur avec un autre utilisateur/mot de passe en cours de session <br> - Arrêt de la connexion |
+| `CONNECTION` | - Lancement de la connexion (réussite ou échec) <br> - Réauthentification d’utilisateur avec un autre utilisateur/mot de passe en cours de session <br> - Arrêt de la connexion |
 | `DML_SELECT`| Requêtes SELECT |
 | `DML_NONSELECT` | Requêtes INSERT/DELETE/UPDATE |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
-| `DDL` | Requêtes telles que « DROP DATABASE » |
-| `DCL` | Requêtes telles que « GRANT PERMISSION » |
-| `ADMIN` | Requêtes telles que « SHOW STATUS » |
+| `DDL` | Requêtes telles que « DROP DATABASE » |
+| `DCL` | Requêtes telles que « GRANT PERMISSION » |
+| `ADMIN` | Requêtes telles que « SHOW STATUS » |
 | `GENERAL` | Tout dans DML_SELECT, DML_NONSELECT, DML, DDL, DCL et ADMIN |
 | `TABLE_ACCESS` | - Uniquement disponible pour MySQL 5.7 <br> - Instructions de lecture de table, telles que SELECT ou INSERT INTO... SELECT <br> - Instructions de suppression de table, telles que DELETE ou TRUNCATE TABLE <br> - Instructions d’insertion de table, telles que INSERT ou REPLACE <br> - Instructions de mise à jour de table, telles que UPDATE |
 
@@ -96,7 +102,7 @@ Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELEC
 | `LogicalServerName_s` | Nom du serveur |
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (uniquement disponible pour MySQL 5.6) |
-| `event_time` | Secondes de démarrage de requête en horodatage UNIX |
+| `event_time` | Heure de début de la requête dans l’horodatage UTC |
 | `error_code_d` | Code d’erreur en cas d’échec de la requête. `0` signifie aucune erreur |
 | `thread_id_d` | ID du thread qui a exécuté la requête |
 | `host_s` | Vide |
@@ -126,7 +132,7 @@ Le schéma ci-dessous s’applique aux types d’événements GENERAL, DML_SELEC
 | `event_subclass_s` | `READ`, `INSERT`, `UPDATE` ou `DELETE` |
 | `connection_id_d` | ID de connexion unique généré par MySQL |
 | `db_s` | Nom de la base de données accédée |
-| `table_s` | Nom de la table accédée |
+| `table_s` | Nom de la table sollicitée |
 | `sql_text_s` | Texte de la requête complète |
 | `\_ResourceId` | URI de ressource |
 

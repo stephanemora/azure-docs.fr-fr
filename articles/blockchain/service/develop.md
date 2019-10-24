@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/11/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 6f27dd199cc054d128a4f46b222c7207d5975efb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2990917243507d93cb6a86da11cf771f3a42eebd
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241001"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298432"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Vue d’ensemble du développement d’Azure Blockchain Service
 
@@ -57,7 +57,7 @@ Consultez le [tutoriel : Envoi d’une transaction à l’aide d’Azure Blockc
 
 Les explorateurs de bloc sont des navigateurs de blockchain en ligne qui affichent le contenu des blocs individuels, les données des adresses des transactions et l’historique. Les informations de base sur les blocs sont disponibles via Azure Monitor dans Azure Blockchain Service. Toutefois, si vous avez besoin d’informations plus détaillées pendant le développement, les explorateurs de bloc peuvent être utiles.  Voici les explorateurs de bloc open source populaires que vous pouvez utiliser. Voici une liste des explorateurs de bloc qui fonctionnent avec Azure Blockchain Service :
 
-* [Azure Blockchain Service Explorer](https://web3labs.com/azure-offer) de Web3 Labs
+* [Epirus Azure Blockchain Service Explorer](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) de Web3 Labs
 * [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
 ## <a name="tps-measurement"></a>Mesure TPS

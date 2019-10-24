@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ecd46b8cb734355a8394b7480c6def341cf9700d
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533058"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430332"
 ---
 # <a name="what-are-baseline-policies"></a>Que sont les stratégies de référence ?
 
-Les stratégies de référence sont un ensemble de stratégies prédéfinies qui aident les organisations à se protéger contre de nombreuses attaques courantes. Ces attaques courantes peuvent inclure l’hameçonnage, la réinsertion et la pulvérisation de mot de passe. Les stratégies de référence sont disponibles dans toutes les éditions d’Azure AD. Microsoft propose ces stratégies de protection de référence à tout le monde, car les attaques basées sur l’identité ont connu une hausse au cours des dernières années. L’objectif de ces quatre stratégies est de veiller à ce que toutes les organisations aient un niveau de référence de sécurité activé sans aucun coût supplémentaire.  
+Les stratégies de référence forment un ensemble de stratégies prédéfinies qui aident les organisations à se protéger contre de nombreuses attaques courantes. Ces attaques courantes peuvent inclure l’hameçonnage, la réinsertion et la pulvérisation de mot de passe. Les stratégies de référence sont disponibles dans toutes les éditions d’Azure AD. Microsoft propose ces stratégies de protection de référence à tout le monde, car les attaques basées sur l’identité ont connu une hausse au cours des dernières années. L’objectif de ces quatre stratégies est de veiller à ce que toutes les organisations aient un niveau de référence de sécurité activé sans aucun coût supplémentaire.  
 
 La gestion de stratégies d’accès conditionnel personnalisé requiert une licence Azure AD Premium.
 
@@ -28,12 +28,12 @@ La gestion de stratégies d’accès conditionnel personnalisé requiert une lic
 
 ![Stratégies de référence d’accès conditionnel dans le portail Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-Il existe quatre stratégies de référence que les organisations peuvent activer :
+Il existe quatre stratégies de référence :
 
-* [Exiger l’authentification multifacteur pour les administrateurs (préversion)](howto-baseline-protect-administrators.md)
-* [Protection de l’utilisateur final (préversion)](howto-baseline-protect-end-users.md)
-* [Bloquer l’authentification héritée (préversion)](howto-baseline-protect-legacy-auth.md)
-* [Exiger l’authentification multifacteur pour le management des services (préversion)](howto-baseline-protect-azure.md)
+* Exiger l’authentification multifacteur pour les administrateurs (préversion)
+* Protection de l’utilisateur final (préversion)
+* Bloquer l’authentification héritée (préversion)
+* exiger l’authentification MFA pour le management des services (préversion)
 
 Ces quatre stratégies de base influent sur les flux d’authentification hérités comme POP, IMAP ou clients Office pour ordinateur de bureau plus ancien.
 
@@ -41,7 +41,7 @@ Ces quatre stratégies de base influent sur les flux d’authentification hérit
 
 En raison de l’importance et de l’accès de ces administrateurs de comptes, vous devez leur accorder une attention particulière. Une méthode courante pour améliorer la protection de comptes privilégiés consiste à demander une forme de vérification de compte plus stricte lorsqu’ils sont utilisés pour se connecter. Dans Azure Active Directory, vous pouvez obtenir une vérification plus stricte des comptes en demandant aux administrateurs de se procurer et d’utiliser une authentification multifacteur (MFA) Azure.
 
-[Exiger l’authentification multifacteur pour les administrateurs (préversion)](howto-baseline-protect-administrators.md) est une stratégie de référence qui exige une authentification multifacteur (MFA) pour les rôles d’annuaire suivants, considérés comme les rôles d’Azure AD les plus privilégiés :
+Exiger l’authentification multifacteur pour les administrateurs (préversion) est une stratégie de référence qui implique une authentification multifacteur (MFA) pour les rôles d’annuaire suivants, considérés comme les rôles d’Azure AD les plus privilégiés :
 
 * Administrateur général
 * Administrateur SharePoint
@@ -83,23 +83,10 @@ Le fait d’utiliser ces outils pour gérer des ressources est une action impliq
 
 Pour protéger les actions privilégiées, la stratégie **Exiger l’authentification multifacteur pour le management des services (préversion)** nécessite l’authentification multifacteur pour tout utilisateur accédant au portail Azure, à Azure PowerShell ou à Azure CLI.
 
-## <a name="enable-a-baseline-policy"></a>Activer une stratégie de base
-
-Pour activer une stratégie de référence :
-
-1. Connectez-vous au **portail Azure** en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-1. Accédez à **Azure Active Directory** > **Accès conditionnel**.
-1. Dans la liste des stratégies, sélectionnez une stratégie de référence que vous souhaitez activer.
-1. Définissez l’option **Appliquer la stratégie** sur **Activé**.
-1. Cliquez sur Enregistrer.
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d'informations, consultez les pages suivantes :
 
+* [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 * [Cinq étapes pour sécuriser votre infrastructure d’identité](../../security/fundamentals/steps-secure-identity.md)
 * [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](overview.md)
-* [Exiger l’authentification multifacteur pour les administrateurs (préversion)](howto-baseline-protect-administrators.md)
-* [Protection de l’utilisateur final (préversion)](howto-baseline-protect-end-users.md)
-* [Bloquer l’authentification héritée (préversion)](howto-baseline-protect-legacy-auth.md)
-* [Exiger l’authentification multifacteur pour le management des services (préversion)](howto-baseline-protect-azure.md)

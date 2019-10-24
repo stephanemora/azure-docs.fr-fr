@@ -1,6 +1,6 @@
 ---
 title: Erreurs liées aux quotas Azure | Microsoft Docs
-description: Explique comment résoudre les erreurs liées aux quotas de ressources.
+description: Décrit comment résoudre les erreurs liées aux quotas de ressources quand vous déployez des ressources avec Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7938f2c47e4af8d8804191fbb9e55b379f9554ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 201ddf69f9c28b5b3a4197f91768f749152094de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390194"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390312"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Résoudre les erreurs liées aux quotas de ressources
 
@@ -52,7 +52,7 @@ Pour obtenir des informations complètes sur les quotas, consultez [Abonnement A
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-cli"></a>D’Azure CLI
 
 Dans le cas d’Azure CLI, utilisez la commande `az vm list-usage` pour rechercher des quotas de machine virtuelle.
 

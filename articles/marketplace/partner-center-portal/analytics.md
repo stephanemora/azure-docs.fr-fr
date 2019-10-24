@@ -1,18 +1,18 @@
 ---
 title: Analytics pour la Place de marché commerciale dans l’Espace partenaires
 description: Découvrez comment accéder aux rapports analytiques pour surveiller les ventes, évaluer les performances et optimiser vos offres sur la Place de marché.
-author: chjenk
+author: ChJenk
 manager: evansma
-ms.author: shthota
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/14/2019
+ms.openlocfilehash: 593d43339961ab4576081aaa18a8d68716e40e9b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028847"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332134"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics pour la Place de marché commerciale dans l’Espace partenaires
 
@@ -321,3 +321,24 @@ La section Récapitulatif des évaluations et avis montre les métriques ci-dess
 Les avis sont affichés dans l’ordre chronologique de leur publication. La vue par défaut montre tous les avis. Vous pouvez filtrer les avis selon l’évaluation (étoiles) à l’aide du **filtre** dans le menu déroulant. Vous pouvez également rechercher les mots clés qui s’affichent dans l’avis.  
 
 ![Commentaires d’évaluation du menu Analyser de l’Espace partenaires](./media/analyze-reviews.png)
+
+## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
+
+Cette section fournit des réponses aux questions fréquemment posées sur les messages **Aucune analytique disponible pour l’instant** dans l’Espace partenaires.
+
+**Je ne parviens pas à afficher mes données d’analyse dans l’Espace partenaires. Lorsque j’accède à ces pages, le message ci-dessous s’affiche. Pourquoi ?**
+
+![Encore aucunes données pour vos offres](./media/analytics-faq-no-data.png)
+
+Raisons possibles de ce message :
+
+- Vos offres listées dans la Place de marché ne sont pas des offres SaaS. Actuellement, l’Espace partenaires fournit des rapports d’analyse pour les offres SaaS uniquement. Les offres Dynamics 365 peuvent être publiées dans l’Espace partenaires, mais les analyses ne sont pas encore activées pour ces offres dans l’Espace partenaires.
+- Aucune acquisition n’existe actuellement pour vos offres publiées dans la Place de marché. Cela peut signifier que vos offres sont en ligne dans la Place de marché et qu’elles sont visionnées par des clients dans les pages d’affichage de produit, mais que les clients n’ont pas encore entrepris d’action pour les acheter et les déployer.
+- La publication de votre offre est peut-être encore en cours et pas encore en ligne. Seules les offres en ligne peuvent être acquises par des clients. Pour vérifier le statut de vos offres, consultez Vue d’ensemble dans le [tableau de bord Analyser](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Pour plus d’informations, consultez le [tableau de bord Résumé](#summary-dashboard) dans cet article.
+- Vos offres peuvent être listées sous **Me contacter**, qui sont des offres à consulter uniquement et qui ne peuvent pas être achetées par les clients dans la Place de marché. Bien que ces offres génèrent des acheteurs et soient partagées avec vous, aucune commande n’est créée pour ces offres car elles ne peuvent pas être achetées. Pour vérifier le type de référencement de vos offres, accédez à la page de configuration.
+
+**Je sais que j’ai des données d’analytique, mais le message ci-dessous s’affiche :**
+
+![Aucune donnée pour la plage de dates donnée](./media/analytics-faq-data-range.png)
+
+Si vous recevez ce message, cela signifie que vous avez des données d’analytique, mais que vous n’avez pas de données pour la plage de dates que vous avez sélectionnée. Sélectionnez une autre plage de dates ou une plage de dates personnalisée pour afficher vos données depuis 2010. Pour plus d’informations, consultez [Plage de dates](#date-range).

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799079"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300924"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examiner la sortie de Video Indexer générée par l’API
 
@@ -112,7 +112,7 @@ Cette section présente le résumé des insights.
 |publishedUrlProxy|URL à partir de laquelle diffuser la vidéo en continu (pour les appareils Apple).|
 |viewToken|Jeton d’affichage de courte durée pour la diffusion en continu de la vidéo.|
 |sourceLanguage|Langue source de la vidéo.|
-|Langage|Langue réelle de la vidéo (traduction).|
+|langage|Langue réelle de la vidéo (traduction).|
 |indexingPreset|Présélection utilisée pour indexer la vidéo.|
 |streamingPreset|Présélection utilisée pour publier la vidéo.|
 |linguisticModelId|Modèle CRIS utilisé pour transcrire la vidéo.|
@@ -152,7 +152,7 @@ Un visage peut être doté d’un ID, d’un nom, d’une miniature, d’autres 
 |Version|Version du code|
 |---|---|
 |sourceLanguage|Langue source de la vidéo (en supposant une langue principale). Sous la forme d’une chaîne [BCP-47](https://tools.ietf.org/html/bcp47).|
-|Langage|Langue des insights (traduite à partir de la langue source). Sous la forme d’une chaîne [BCP-47](https://tools.ietf.org/html/bcp47).|
+|langage|Langue des insights (traduite à partir de la langue source). Sous la forme d’une chaîne [BCP-47](https://tools.ietf.org/html/bcp47).|
 |transcription|Dimension [transcript](#transcript).|
 |ocr|Dimension [OCR](#ocr).|
 |mots clés|Dimension [keywords](#keywords).|
@@ -202,7 +202,7 @@ instances|Liste des intervalles de temps de ce bloc.|
 |---|---|
 |id|ID de la ligne.|
 |text|La transcription proprement dite.|
-|Langage|La langue de la transcription. Permet de prendre en charge la transcription lorsque chaque ligne peut avoir une langue différente.|
+|langage|La langue de la transcription. Permet de prendre en charge la transcription lorsque chaque ligne peut avoir une langue différente.|
 |instances|Liste des intervalles de temps pendant lesquels cette ligne est apparue. Si l’instance est un attribut transcript, il n’y a qu’une seule instance.|
 
 Exemple :
@@ -241,7 +241,7 @@ Exemple :
 |id|ID de la ligne ROC.|
 |text|Texte de l’OCR.|
 |confidence|Degré de confiance de la reconnaissance.|
-|Langage|Langue de l’OCR.|
+|langage|Langue de l’OCR.|
 |instances|Liste des intervalles de temps au cours desquels cette OCR est apparue (la même OCR peut apparaître plusieurs fois).|
 |height|Hauteur du rectangle OCR|
 |top|Emplacement supérieur en px|
@@ -276,7 +276,7 @@ Exemple :
 |id|ID du mot clé.|
 |text|Texte du mot clé.|
 |confidence|Degré de confiance de la reconnaissance du mot clé.|
-|Langage|Langue du mot clé (si traduction).|
+|langage|Langue du mot clé (si traduction).|
 |instances|Liste des intervalles de temps pendant lesquels ce mot clé est apparu (un mot clé peut apparaître plusieurs fois).|
 
 ```json
@@ -314,7 +314,7 @@ Exemple :
 |referenceType|Bing uniquement (pour le moment).|
 |title|Dans le cas d’une célébrité, il s’agit de son poste (par exemple « PDG de Microsoft »).|
 |imageUrl|Dans le cas d’une célébrité, il s’agit de l’URL de l’image associée.|
-|instances|Instances où le visage est apparu dans l’intervalle de temps donné. Chaque instance possède également un thumbnailsId. |
+|instances|Instances où la visage est apparu dans l’intervalle de temps donné. Chaque instance possède également un thumbnailsId. |
 
 ```json
 "faces": [{
@@ -351,7 +351,7 @@ Exemple :
 |---|---|
 |id|ID de l’étiquette.|
 |Nom|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
-|Langage|Langue du nom de l’étiquette (si traduction). BCP-47|
+|langage|Langue du nom de l’étiquette (si traduction). BCP-47|
 |instances|Liste des intervalles de temps au cours desquels cette étiquette est apparue (une étiquette peut apparaître plusieurs fois). Chaque instance possède un champ de confiance. |
 
 
@@ -760,7 +760,7 @@ Video Indexer identifie les émotions grâce à des signaux audio et vocaux. L�
 
 #### <a name="topics"></a>topics
 
-Video Indexer fait des inférences des principales rubriques à partir de transcriptions. La taxonomie [IPTC](https://iptc.org/standards/media-topics/) de premier niveau est incluse lorsque cela est possible. 
+Video Indexer fait des inférences des principales rubriques à partir de transcriptions. La taxonomie [IPTC](https://iptc.org/standards/media-topics/) de second niveau est incluse lorsque cela est possible. 
 
 |Nom|Description|
 |---|---|
@@ -768,7 +768,7 @@ Video Indexer fait des inférences des principales rubriques à partir de transc
 |Nom|Nom de la rubrique, par exemple : « Produits pharmaceutiques ».|
 |referenceId|Barres de navigation indiquant la hiérarchie des rubriques. Par exemple :  « Santé et bien-être/Médecine et soins médicaux/Produits pharmaceutiques ».|
 |confidence|Score de confiance dans la plage [0,1]. Un score plus élevé est d’une plus grande confiance.|
-|Langage|Langue utilisée dans la rubrique.|
+|langage|Langue utilisée dans la rubrique.|
 |iptcName|Nom de code multimédia IPTC, si détecté.|
 |instances |Video Indexer n’indexe actuellement aucune rubrique à intervalles de temps, la vidéo entière est donc utilisée en tant qu’intervalle.|
 

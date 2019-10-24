@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177060"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72302306"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
@@ -130,7 +130,7 @@ Vos choix pour la haute disponibilité, la sauvegarde et la récupération d’u
 
 [Sauvegarde Azure](../articles/backup/backup-azure-vms-introduction.md) peut sauvegarder vos machines virtuelles exécutant Windows ou Linux dans le coffre Azure Recovery Services. La sauvegarde et la restauration des données critiques sont compliquées par le fait qu’elles doivent être sauvegardées alors que les applications qui génèrent les données sont en cours d’exécution. 
 
-Pour résoudre ce problème, Sauvegarde Azure offre des sauvegardes cohérentes entre les applications pour les charges de travail Microsoft. Elle utilise le service VSS (Volume Shadow Service) pour s’assurer que les données sont correctement écrites dans le stockage. Pour les machines virtuelles Linux, seules les sauvegardes cohérentes au niveau fichier sont possibles car l’équivalent de la fonctionnalité VSS n’existe pas sous Linux.
+Pour résoudre ce problème, Sauvegarde Azure offre des sauvegardes cohérentes entre les applications pour les charges de travail Microsoft. Elle utilise le service VSS (Volume Shadow Service) pour s’assurer que les données sont correctement écrites dans le stockage. Pour les machines virtuelles Linux, le mode de cohérence de sauvegarde par défaut est la sauvegarde cohérente au niveau fichier, car Linux n’a pas de fonctionnalité équivalente au service de cliché instantané des volumes disponible dans Windows. Pour les machines Linux, consultez [Sauvegarde cohérente des applications des machines virtuelles Linux Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
 
 ![Flux Sauvegarde Azure][1]
 

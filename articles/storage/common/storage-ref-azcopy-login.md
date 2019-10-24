@@ -4,16 +4,16 @@ description: Cet article fournit des informations de référence sur la commande
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 2938d85becbea738acc21fc7b15991301eef759f
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196739"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514705"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -38,37 +38,37 @@ azcopy login [flags]
 
 ## <a name="examples"></a>Exemples
 
-Connectez-vous de manière interactive avec l’ID de locataire AAD par défaut qui est défini sur « common » :
+Se connecter de manière interactive avec l’ID de locataire AAD par défaut qui est défini sur « common » :
 
 ```azcopy
 azcopy login
 ```
 
-Connectez-vous de manière interactive avec un ID de locataire spécifié :
+Se connecter de manière interactive avec un ID de locataire spécifié :
 
 ```azcopy
 azcopy login --tenant-id "[TenantID]"
 ```
 
-Connectez-vous à l’aide de l’identité affectée par le système d’une machine virtuelle :
+Se connecter à l’aide de l’identité attribuée par le système d’une machine virtuelle :
 
 ```azcopy
 azcopy login --identity
 ```
 
-Connectez-vous à l’aide de l’identité affectée par l’utilisateur d’une machine virtuelle, avec un ID client de l’identité du service :
+Se connecter à l’aide de l’identité attribuée par l’utilisateur d’une machine virtuelle et un ID de client de l’identité du service :
 
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
 
-Connectez-vous à l’aide de l’identité affectée par l’utilisateur d’une machine virtuelle, avec un ID objet de l’identité du service :
+Se connecter à l’aide de l’identité attribuée par l’utilisateur d’une machine virtuelle et un ID d’objet de l’identité du service :
 
 ```azcopy
 azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
-Connectez-vous à l’aide de l’identité affectée par l’utilisateur d’une machine virtuelle, avec un ID ressource de l’identité du service :
+Se connecter à l’aide de l’identité attribuée par l’utilisateur d’une machine virtuelle et un ID de ressource de l’identité du service :
 
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"

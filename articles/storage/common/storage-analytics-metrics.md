@@ -8,12 +8,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: ca831fe66a0ce6a2dbfafc54a761b86473067b10
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846886"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514781"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métriques Azure Storage Analytics (classique)
 
@@ -74,11 +74,8 @@ Pour activer les mesures dans le [Portail Azure](https://portal.azure.com), suiv
 
 Le [Portail Azure](https://portal.azure.com) ne vous permet pas de configurer des métriques par minute dans votre compte de stockage ; vous devez les activer avec PowerShell ou par programmation.
 
-> [!NOTE]
->  Notez qu’actuellement le portail Azure ne vous permet pas de configurer des mesures par minute dans votre compte de stockage. Vous devez les activer avec PowerShell ou de manière programmatique.
-
 ## <a name="enable-storage-metrics-using-powershell"></a>Activer les métriques de stockage avec PowerShell  
-Vous pouvez utiliser PowerShell sur votre ordinateur local pour configurer Storage Metrics dans votre compte de stockage. Utilisez la cmdlet Azure PowerShell **Get-AzureStorageServiceMetricsProperty** pour récupérer les paramètres actuels et la cmdlet **Set-AzureStorageServiceMetricsProperty** pour modifier les paramètres actuels.  
+Vous pouvez utiliser PowerShell sur votre ordinateur local pour configurer des métriques de stockage dans votre compte de stockage : utilisez l’applet de commande Azure PowerShell **Get-AzStorageServiceMetricsProperty** pour récupérer les paramètres actuels et l’applet de commande **Set-AzStorageServiceMetricsProperty** pour changer les paramètres actuels.  
 
 Les applets de commande qui contrôlent Storage Metrics utilisent les paramètres suivants :  
 
@@ -94,22 +91,22 @@ Par exemple, la commande suivante active les métriques par minute pour le servi
 > [!NOTE]
 > Cette commande part du principe que vous vous êtes connecté à votre abonnement Azure à l’aide de la commande `Connect-AzAccount`.
 
-```  
+```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
 
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
 
 * Remplacez la valeur d’espace réservé `<resource-group-name>` par le nom de votre groupe de ressources.
-
+        
 * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
 
 
 La commande suivante récupère le niveau actuel des métriques par heure et la période de rétention en jours pour le service BLOB dans votre compte de stockage par défaut :  
 
-```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
+```powershell
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Pour plus d’informations sur la configuration des applets de commande Azure PowerShell avec votre abonnement Azure et sur la sélection du compte de stockage par défaut à utiliser, consultez : [Guide pratique pour installer et configurer Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

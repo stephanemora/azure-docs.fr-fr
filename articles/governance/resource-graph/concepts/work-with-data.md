@@ -3,15 +3,15 @@ title: Utiliser de grands jeux de données
 description: Découvrez comment récupérer et contrôler des jeux de données volumineux lors de l’utilisation d’Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/01/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4da890a5ef7acb44d0e8628dc4ec3904f6a065e4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 74a618606fa8f2bdc678e8afc90640b5be8315a7
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980312"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752115"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -29,11 +29,11 @@ Par défaut, Resource Graph limite à **100** le nombre d’enregistrements que 
 La limite par défaut peut être modifiée via toutes les méthodes d’interaction avec Resource Graph. Les exemples suivants montrent comment modifier la limite de taille de jeu de données en la définissant sur _200_ :
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --first 200 --output table
+az graph query -q "Resources | project name | order by name asc" --first 200 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -First 200
+Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
 Dans l’[API REST](/rest/api/azureresourcegraph/resources/resources), le contrôle est **$top** et fait partie de **QueryRequestOptions**.
@@ -52,11 +52,11 @@ L’option suivante pour la manipulation de jeux de données volumineux est l’
 Les exemples suivants montrent comment ignorer les _10_ premiers enregistrements qu’une requête retournerait, en retournant le jeu de résultats à partir du 11e enregistrement :
 
 ```azurecli-interactive
-az graph query -q "project name | order by name asc" --skip 10 --output table
+az graph query -q "Resources | project name | order by name asc" --skip 10 --output table
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project name | order by name asc" -Skip 10
+Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
 Dans l’[API REST](/rest/api/azureresourcegraph/resources/resources), le contrôle est **$skip** et fait partie de **QueryRequestOptions**.
@@ -68,20 +68,104 @@ La valeur **resultTruncated** est une valeur booléenne qui informe l’utilisat
 
 Lorsque la valeur **resultTruncated** est **true**, la propriété **$skipToken** est définie dans la réponse. Cette valeur est utilisée avec les mêmes valeurs de requête et d’abonnement pour obtenir le jeu d’enregistrements suivant correspondant à la requête.
 
-Les exemples suivants montrent comment **ignorer** (skip) les 3 000 premiers enregistrements et retourner les 1 000 **premiers** (first) enregistrements suivants avec Azure CLI et Azure PowerShell :
+Les exemples suivants montrent comment **ignorer** (skip) les 3 000 premiers enregistrements et retourner les 1 000 **premiers** (first) enregistrements suivants avec Azure CLI et Azure PowerShell :
 
 ```azurecli-interactive
-az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+az graph query -q "Resources | project id, name | order by id asc" --first 1000 --skip 3000
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 1000 -Skip 3000
 ```
 
 > [!IMPORTANT]
 > Pour que la pagination fonctionne, la requête doit **projeter** le champ **id**. S’il est absent de la requête, la réponse n’inclut pas le **$skipToken**.
 
-Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegraph/resources/resources#next-page-query) dans la documentation de l’API REST.
+Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) dans la documentation de l’API REST.
+
+## <a name="formatting-results"></a>Mise en forme des résultats
+
+Les résultats d’une requête Resource Graph sont fournis aux formats _Table_  et _ObjectArray_ . Le format est configuré avec le paramètre **resultFormat** dans le cadre des options de requête. Le format _Table_ est la valeur par défaut du paramètre **resultFormat**.
+
+Les résultats de l’interface Azure CLI sont fournis au format JSON par défaut. Les résultats dans Azure PowerShell prennent la forme d’un objet **PSCustomObject** par défaut. Cependant, ils peuvent être convertis rapidement au format JSON à l’aide de l’applet de commande `ConvertTo-Json`. Pour les autres kits SDK, les résultats de la requête peuvent être configurés pour sortir au format _ObjectArray_.
+
+### <a name="format---table"></a>Format - Table
+
+Le format par défaut (_Table_ ) retourne les résultats dans un format JSON conçu pour mettre en évidence la conception des colonnes et les valeurs de lignes des propriétés retournées par la requête. Ce format se rapproche beaucoup de celui d’une table de données structurée ou d’une feuille de calcul avec les colonnes identifiées en premier et chaque ligne représentant les données alignées à ces colonnes.
+
+Voici un exemple de résultat de requête au format _Table_ :
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": {
+        "columns": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "type": "string"
+            },
+            {
+                "name": "subscriptionId",
+                "type": "string"
+            }
+        ],
+        "rows": [
+            [
+                "veryscaryvm2-nsg",
+                "microsoft.network/networksecuritygroups",
+                "eastus",
+                "11111111-1111-1111-1111-111111111111"
+            ]
+        ]
+    },
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+### <a name="format---objectarray"></a>Format - ObjectArray
+
+Le format _ObjectArray_ retourne également les résultats au format JSON. Toutefois, cette conception s’aligne sur la relation de paire clé/valeur courante du format JSON, où les données de colonne et de ligne sont mises en correspondance dans des groupes de tableaux.
+
+Voici un exemple de résultat de requête au format _ObjectArray_ :
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": [{
+        "name": "veryscaryvm2-nsg",
+        "type": "microsoft.network/networksecuritygroups",
+        "location": "eastus",
+        "subscriptionId": "11111111-1111-1111-1111-111111111111"
+    }],
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+Voici quelques exemples montrant comment définir le paramètre **resultFormat** pour utiliser le format _ObjectArray_ :
+
+```csharp
+var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
+var request = new QueryRequest(subscriptions, "Resources | limit 1", options: requestOptions);
+```
+
+```python
+request_options = QueryRequestOptions(
+    result_format=ResultFormat.object_array
+)
+request = QueryRequest(query="Resources | limit 1", subscriptions=subs_list, options=request_options)
+response = client.resources(request)
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 22f0ef7da9018da128e9a978cefa71eaa786829c
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098922"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274121"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -116,7 +116,7 @@ L’exemple suivant montre comment exprimer ce type de configuration de sonde da
 
 Les sondes HTTP et HTTPS sont basées sur la sonde TCP, et émettent un HTTP GET avec le chemin spécifié. Les deux sondes prennent en charge les chemins d’accès relatifs pour le HTTP GET. Les sondes HTTPS sont identiques aux sondes HTTP avec un wrapper Transport Layer Security (TLS, anciennement appelé SSL) supplémentaire. La sonde d’intégrité est marquée comme étant en fonctionnement lorsque l’instance répond avec un statut HTTP de 200 dans la période d’expiration.  Par défaut, la sonde d’intégrité tente de vérifier le port de sonde d’intégrité configuré toutes les 15 secondes. L’intervalle d’analyse de sonde minimal est de 5 secondes. La durée totale de tous les intervalles ne peut pas dépasser 120 secondes.
 
-Les sondes HTTP / HTTPS peuvent également être pratiques si vous voulez qu’une sonde d’intégrité  implémente votre propre logique pour supprimer des instances de la rotation de l’équilibrage de charge si le port de la sonde est également l’écouteur pour le service lui-même. Par exemple, vous pouvez décider de supprimer une instance si elle utilise plus de 90 % du processeur et retourne dans un état HTTP différent de 200. 
+Les sondes HTTP / HTTPS peuvent également être pratiques pour implémenter votre propre logique afin de supprimer des instances de la rotation de l’équilibreur de charge si le port de la sonde est également l’écouteur pour le service lui-même. Par exemple, vous pouvez décider de supprimer une instance si elle utilise plus de 90 % du processeur et retourne dans un état HTTP différent de 200. 
 
 Si vous utilisez Cloud Services et que vos rôles web utilisent w3wp.exe, vous bénéficiez aussi d’une surveillance automatique de votre site web. Les défaillances de votre code de site web renvoient un état autre que 200 pour la sonde de l’équilibreur de charge.
 

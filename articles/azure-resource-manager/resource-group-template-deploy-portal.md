@@ -1,17 +1,17 @@
 ---
 title: Utiliser le Portail Azure pour déployer des ressources Azure | Microsoft Docs
-description: Utilisez le Portail Azure et Azure Resource Manager pour déployer vos ressources.
+description: Utilisez le portail Azure et Azure Resource Manager pour déployer vos ressources dans un groupe de ressources de votre abonnement.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: a171d9b4f054c942eebb08e7e11dd1164545f408
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 249afcaad85d9031e0972d4fcfc185b5ff890f65
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460312"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390346"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure
 
@@ -85,7 +85,7 @@ Si vous souhaitez effectuer un déploiement sans utiliser l’un des modèles de
 
    ![Rechercher un déploiement de modèle](./media/resource-group-template-deploy-portal/search-template.png)
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 1. Vous voyez plusieurs options pour créer un modèle :
 
     - **Créer votre modèle dans l’éditeur** : créez un modèle à l’aide de l’éditeur de modèle du portail.  L’éditeur est capable d’ajouter un schéma de modèle de ressources.

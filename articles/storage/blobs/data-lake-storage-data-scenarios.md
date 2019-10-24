@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9eb10260573978355a3b6996a6f06c0c612abe4c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: eba0c6a8932a8c6d50bd98d94712c95516519274
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350024"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300331"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen2 pour le Big Data
 
@@ -26,6 +26,8 @@ Il existe quatre étapes principales dans traitement des données Big Data :
 > * Visualisation des données
 
 Commencez par créer un compte de stockage et un conteneur. Puis, octroyez l'accès aux données. Les premières sections de cet article vous aideront à accomplir ces tâches. Dans les sections suivantes, nous nous pencherons sur les options et outils à utiliser lors de chacune des phases de traitement.
+
+Pour obtenir la liste complète des services Azure que vous pouvez utiliser avec Azure Data Lake Storage Gen2, consultez [Intégrer Azure Data Lake Storage avec les services Azure](data-lake-store-integrate-with-azure-services.md).
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>Créer un compte Data Lake Storage Gen2
 

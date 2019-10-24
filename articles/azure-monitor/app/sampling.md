@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: d43fe7f1f0fc63ab50821a345802a9e7e62881b2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 83243ba7df48db5cd7757a464f0818ef69c4559e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169484"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372560"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -197,7 +197,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 **Si vous utilisez la méthode ci-dessus pour configurer l’échantillonnage, veillez à utiliser les paramètres ```aiOptions.EnableAdaptiveSampling = false;``` avec AddApplicationInsightsTelemetry().**
 
-## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites"></a>Échantillonnage à débit fixe pour les sites web ASP.NET, ASP.NET Core et Java
+## <a name="fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications"></a>Échantillonnage à taux fixe pour les sites web ASP.NET, ASP.NET Core et Java ainsi que pour les applications Python
 
 L’échantillonnage à débit fixe réduit le trafic envoyé depuis votre serveur web et les navigateurs web. À la différence de l’échantillonnage adaptatif, il réduit les données de télémétrie à un débit fixe choisi par vos soins. En outre, il synchronise l’échantillonnage client et serveur afin que les éléments associés soient conservés ; par exemple, quand vous examinez un affichage de page dans Recherche, vous pouvez trouver sa demande associée.
 
@@ -336,7 +336,27 @@ Voici les types de données de télémétrie qu’il est possible d’inclure ou
 
 <a name="other-web-pages"></a>
 
+### <a name="configuring-fixed-rate-sampling-in-opencensus-python"></a>Configuration de l’échantillonnage à taux fixe dans OpenCensus Python ###
 
+1. Instrumentez votre application avec les derniers [exportateurs OpenCensus Azure Monitor](../../azure-monitor/app/opencensus-python.md).
+
+> [!NOTE]
+> L’échantillonnage à taux fixe est uniquement disponible à l’aide de l’exportateur de traces. Cela signifie que les demandes entrantes et sortantes sont les seuls types de télémétrie où l’échantillonnage peut être configuré.
+> 
+> 
+
+2. Vous pouvez spécifier un `sampler` dans le cadre de votre configuration `Tracer`. Si aucun échantillonneur explicite n’est fourni, ProbabilitySampler est utilisé par défaut. ProbabilitySampler utilise un taux de 1/10 000 par défaut, ce qui signifie qu’une requête sur 10 000 est envoyée à Application Insights. Si vous souhaitez spécifier un taux d’échantillonnage, voir ci-dessous.
+
+3. Lorsque vous spécifiez un échantillonneur, assurez-vous que votre `Tracer` en spécifie avec un taux d’échantillonnage compris entre 0,0 et 1,0 inclus. Un taux d’échantillonnage de 1,0 représente 100 %, ce qui signifie que toutes vos requêtes sont envoyées sous forme de télémétrie à Application Insights.
+
+    ```python
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
+    ```
 
 ## <a name="ingestion-sampling"></a>échantillonnage d’ingestion
 

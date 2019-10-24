@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266855"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390544"
 ---
 ## <a name="benefits"></a>Avantages 
 
@@ -82,6 +82,8 @@ Il existe une limite de quota par défaut de 3 000 processeurs virtuels pour les
 ![Capture d’écran de la page d’utilisation et des quotas dans le portail](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
 Pour plus d’informations, consultez [Quotas de processeurs virtuels pour les machines virtuelles](/azure/virtual-machines/windows/quotas).
+
+L’évaluation gratuite et les abonnements MSDN n’ont pas de quota pour les hôtes dédiés Azure.
 
 ## <a name="pricing"></a>Tarifs
 

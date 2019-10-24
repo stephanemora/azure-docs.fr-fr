@@ -1,5 +1,5 @@
 ---
-title: Exécuter le service Kubernetes
+title: Exécuter le conteneur Détection de langue dans Kubernetes Service
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Déployez le conteneur Détection de langue avec un exemple opérationnel sur Azure Kubernetes Service et testez-le dans un navigateur web.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 852530910f7a8c6c815493d0dbcc57f67695d6de
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e33aa98939eeb5b5394f1f5cc05e28ae8f6ae4f2
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066102"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515239"
 ---
-# <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Déployer le conteneur Détection de langue sur Azure Kubernetes Service
+# <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Déployer le conteneur Détection de langue Analyse de texte sur Azure Kubernetes Service
 
 Découvrez comment déployer le conteneur Détection de langue. Cette procédure vous montre comment créer les conteneurs Docker locaux, envoyer (push) les conteneurs à votre propre registre de conteneurs privés, exécuter le conteneur dans un cluster Kubernetes et le tester dans un navigateur web.
 

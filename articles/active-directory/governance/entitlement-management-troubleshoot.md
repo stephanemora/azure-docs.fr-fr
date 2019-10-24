@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: ea979731c27a8d332102c3215e80510994f2ab3f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678086"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430237"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Résoudre les problèmes de gestion des droits d’utilisation Azure AD (préversion)
 
@@ -45,7 +45,7 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 * Les documents individuels et les bibliothèques SharePoint Online ne peuvent pas être ajoutés en tant que ressources.  Créez plutôt un groupe de sécurité Azure AD, incluez ce groupe et un rôle de site dans le package d’accès, puis dans SharePoint Online, utilisez ce groupe pour contrôler l’accès au document ou à la bibliothèque de documents.
 
-* Si des utilisateurs ont déjà été affectés à une ressource que vous souhaitez gérer avec un package d’accès, assurez-vous qu’ils sont affectés au package d’accès avec une stratégie appropriée. Par exemple, vous envisagez d’inclure un groupe dans un package d’accès qui contient déjà des utilisateurs dans le groupe. Si ces utilisateurs dans le groupe nécessitent un accès permanent, ils doivent avoir une stratégie appropriée pour les packages d’accès, afin de ne pas perdre leur accès au groupe. Vous pouvez affecter le package d’accès soit en indiquant aux utilisateurs qu’ils demandent le package d’accès contenant cette ressource, soit en les affectant directement au package d’accès. Pour plus d’informations, consultez [Modifier et gérer un package d’accès existant](entitlement-management-access-package-edit.md).
+* Si des utilisateurs ont déjà été affectés à une ressource que vous souhaitez gérer avec un package d’accès, assurez-vous qu’ils sont affectés au package d’accès avec une stratégie appropriée. Par exemple, vous envisagez d’inclure un groupe dans un package d’accès qui contient déjà des utilisateurs dans le groupe. Si ces utilisateurs dans le groupe nécessitent un accès permanent, ils doivent avoir une stratégie appropriée pour les packages d’accès, afin de ne pas perdre leur accès au groupe. Vous pouvez affecter le package d’accès soit en indiquant aux utilisateurs qu’ils demandent le package d’accès contenant cette ressource, soit en les affectant directement au package d’accès. Pour plus d’informations, consultez [Changer les paramètres de demande et d’approbation pour un package d’accès](entitlement-management-access-package-request-policy.md).
 
 ## <a name="checklist-for-providing-external-users-access"></a>Check-list pour la fourniture de l’accès à des utilisateurs externes
 
@@ -55,16 +55,17 @@ Cet article décrit certains éléments que vous devriez vérifier pour vous aid
 
 ## <a name="checklist-for-request-issues"></a>Check-list pour les problèmes de demande
 
-* Lorsqu’un utilisateur souhaite demander l’accès à un package d’accès, assurez-vous qu’il utilise le **lien du portail Mon accès** pour le package d’accès. Pour plus d’informations, consultez [Copier le lien du portail Mon Accès](entitlement-management-access-package-edit.md#copy-my-access-portal-link).  Si un utilisateur externe visite **myaccess.microsoft.com**, il verra les packages d’accès disponibles dans sa propre organisation.
+* Lorsqu’un utilisateur souhaite demander l’accès à un package d’accès, assurez-vous qu’il utilise le **lien du portail Mon accès** pour le package d’accès. Pour plus d’informations, consultez [Partager le lien pour demander un package d’accès](entitlement-management-access-package-settings.md).  Si un utilisateur externe visite **myaccess.microsoft.com**, il verra les packages d’accès disponibles dans sa propre organisation.
 
 * Lorsqu’un utilisateur qui ne figure pas encore dans votre annuaire se connecte au portail Mon Accès pour demander un package d’accès, assurez-vous qu’il s’authentifie à l’aide de son compte professionnel ou scolaire. Le compte professionnel ou scolaire peut être un compte présent dans l’annuaire de ressources, ou dans un annuaire qui est inclus dans l’une des stratégies du package d’accès. Si le compte de l’utilisateur n’est pas un compte professionnel ou scolaire, ou si l’annuaire auquel il s’authentifie n’est pas inclus dans la stratégie, l’utilisateur ne voit pas le package d’accès. Pour plus d’informations, consultez [Demander l’accès à un package d’accès](entitlement-management-request-access.md).
 
 * Si un utilisateur est empêché de se connecter à l’annuaire de ressources, il est dans l’incapacité de demander l’accès dans le portail Mon accès. Avant que l’utilisateur puisse demander l’accès, vous devez supprimer le bloc de connexion du profil de l’utilisateur. Pour supprimer le bloc de connexion, dans le portail Azure, cliquez sur **Azure Active Directory**, puis sur **Utilisateurs** ; cliquez ensuite sur l’utilisateur concerné, puis sur **Profil**. Modifiez la section **Paramètres** et remplacez **Bloquer la connexion** par **Non**. Pour plus d’informations, consultez [Ajouter ou mettre à jour les informations du profil utilisateur avec Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Vous pouvez également vérifier si l’utilisateur a été bloqué à cause d’une [Stratégie dIdentity Protection](../identity-protection/howto-unblock-user.md).
 
-* Dans le portail Mon accès, si un utilisateur est en même temps demandeur et approbateur, il ne peut pas voir sa demande pour un package d’accès dans la page **Approbations**. Ce comportement est intentionnel : un utilisateur ne peut pas approuver sa propre demande. Vérifiez que le package d’accès demandé compte des approbateurs supplémentaires configurés sur la stratégie. Pour plus d’informations, consultez [Modifier une stratégie existante](entitlement-management-access-package-edit.md#edit-an-existing-policy).
+* Dans le portail Mon accès, si un utilisateur est en même temps demandeur et approbateur, il ne peut pas voir sa demande pour un package d’accès dans la page **Approbations**. Ce comportement est intentionnel : un utilisateur ne peut pas approuver sa propre demande. Vérifiez que le package d’accès demandé compte des approbateurs supplémentaires configurés sur la stratégie. Pour plus d’informations, consultez [Changer les paramètres de demande et d’approbation pour un package d’accès](entitlement-management-access-package-request-policy.md).
 
 * Si un utilisateur externe, qui ne s’est pas connecté avant à votre annuaire, reçoit un package d’accès, y compris un site SharePoint Online, son package d’accès s’affiche comme n’étant pas entièrement remis tant que son compte ne sera pas provisionné dans SharePoint Online.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Afficher les rapports sur la façon dont les utilisateurs ont eu accès à la gestion des droits d’utilisation](entitlement-management-reports.md)
+- [Régir l’accès des utilisateurs externes](entitlement-management-external-users.md)

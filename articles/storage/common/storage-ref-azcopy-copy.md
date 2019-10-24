@@ -4,16 +4,16 @@ description: Cet article fournit des informations de référence sur la commande
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c15d188e333bea5e74fa65d2bbdf38ae7fadc246
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196743"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514762"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -21,18 +21,20 @@ Copie les données sources vers un emplacement de destination.
 
 ## <a name="synopsis"></a>Synopsis
 
-Les directions prises en charge sont les suivantes :
+Copie les données sources vers un emplacement de destination. Les directions prises en charge sont les suivantes :
 
-- Local <-> Objet blob Azure (authentification SAP ou OAuth)
-- Local <-> Fichier Azure (authentification SAP pour partage/répertoire)
-- Local <-> ADLS Gen 2 (authentification SAP, OAuth ou SharedKey)
-- Objet blob Azure (SAP ou public) <-> Objet blob Azure (authentification SAP ou OAuth)
-- Fichier Azure (SAP) -> Objet blob de blocs Azure (authentification SAP ou OAuth)
-- AWS S3 (clé d’accès) -> Objet blob de blocs Azure (authentification SAP ou OAuth)
+  - Local <-> Objet blob Azure (authentification SAS ou OAuth)
+  - Local <-> Azure Files (authentification SAS pour répertoire/partage)
+  - Local <-> ADLS Gen 2 (authentification SAS, OAuth ou SharedKey)
+  - Objet blob Azure (SAS ou public) -> Objet blob Azure (authentification SAS ou OAuth)
+  - Objet blob Azure (SAS ou public) -> Azure Files (SAS)
+  - Azure Files (SAS) -> Azure Files (SAS)
+  - Azure Files (SAS) -> Objet blob Azure (authentification SAS ou OAuth)
+  - AWS S3 (clé d’accès) -> Objet blob de blocs Azure (authentification SAS ou OAuth)
 
 Pour plus d’informations, consultez les exemples.
 
-### <a name="advanced"></a>Avancé
+## <a name="advanced"></a>Avancé
 
 AzCopy détecte automatiquement le type de contenu des fichiers lorsque vous les chargez à partir du disque local, en se basant sur l’extension du fichier ou sur son contenu (si aucune extension n’est spécifiée).
 
@@ -44,198 +46,193 @@ La table de recherche intégrée contient peu de données. Toutefois, sur UNIX, 
 
 Sur Windows, les types MIME sont extraits du Registre. Cette fonctionnalité peut être désactivée à l’aide d’un indicateur. Pour plus d’informations, référez-vous à la section relative aux indicateurs.
 
-> [!IMPORTANT]
-> Si vous définissez une variable d’environnement à l’aide de la ligne de commande, la variable sera lisible dans votre historique de ligne de commande. Vous pouvez supprimer de l’historique de la ligne de commande les variables qui contiennent des informations d’identification. Pour empêcher l’affichage des variables dans votre historique, vous pouvez utiliser un script qui invite l’utilisateur à entrer ses informations d’identification et qui définit la variable d’environnement.
+Si vous définissez une variable d’environnement à l’aide de la ligne de commande, la variable sera lisible dans votre historique de ligne de commande. Vous pouvez supprimer de l’historique de la ligne de commande les variables qui contiennent des informations d’identification. Pour empêcher l’affichage des variables dans votre historique, vous pouvez utiliser un script qui invite l’utilisateur à entrer ses informations d’identification et qui définit la variable d’environnement.
 
-```azcopy
+```
 azcopy copy [source] [destination] [flags]
 ```
 
 ## <a name="examples"></a>Exemples
 
-Chargez un fichier à l’aide de l’authentification OAuth.
+Charger un fichier à l’aide de l’authentification OAuth. Si vous ne vous êtes pas encore connecté à AzCopy, exécutez la commande azcopy login avant d’exécuter la commande suivante.
 
-Si vous ne vous êtes pas encore connecté à AzCopy, utilisez la commande `azcopy login` avant d’exécuter la commande suivante.
-
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
-```
+- azcopy cp "/path/to/file.txt" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/blob]"
 
 Comme ci-dessus, mais cette fois-ci, calcule également le hachage MD5 du contenu du fichier et l’enregistre en tant que propriété Content-MD5 de l’objet blob :
 
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
-```
+- azcopy cp "/path/to/file.txt" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/blob]" --put-md5
 
-Chargez un fichier à l’aide de l’authentification SAP :
+Charger un seul fichier à l’aide d’un jeton SAS :
 
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+- azcopy cp "/path/to/file.txt" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/blob]?[SAS]"
 
-Chargez un fichier avec une authentification SAP à l’aide du piping (objets blob de blocs uniquement) :
+Charger un seul fichier à l’aide d’un jeton SAS et du piping (objets blob de blocs uniquement) :
+  
+- cat "/path/to/file.txt" | azcopy cp "https://[compte].blob.core.windows.net/[conteneur]/[chemin/blob]?[SAS]"
 
-```azcopy
-cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+Charger un répertoire entier à l’aide d’un jeton SAS :
+  
+- azcopy cp "/path/to/dir" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" --recursive=true
 
-Chargez l’intégralité d’un répertoire avec l’authentification SAP :
+ou
 
-```azcopy
-azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- azcopy cp "/path/to/dir" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" --recursive=true --put-md5
 
-or
+Charger un ensemble de fichiers à l’aide d’un jeton SAS et de caractères génériques (*) :
 
-```azcopy
-azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --put-md5
-```
+- azcopy cp "/path/*foo/* bar/*.pdf" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]"
 
-Chargez un ensemble de fichiers avec l’authentification SAP à l’aide de caractères génériques :
+Charger des fichiers et des répertoires à l’aide d’un jeton SAS et de caractères génériques (*) :
 
-```azcopy
-azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
-```
+- azcopy cp "/path/*foo/* bar*" "https://[compte].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" --recursive=true
 
-Chargez des fichiers et des répertoires avec l’authentification SAP à l’aide de caractères génériques :
+Télécharger un seul fichier à l’aide de l’authentification OAuth. Si vous ne vous êtes pas encore connecté à AzCopy, exécutez la commande azcopy login avant d’exécuter la commande suivante.
 
-```azcopy
-azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- azcopy cp "https://[compte].blob.core.windows.net/[conteneur]/[chemin/blob]" "/path/to/file.txt"
 
-Téléchargez un fichier à l’aide de l’authentification OAuth.
+Télécharger un seul fichier à l’aide d’un jeton SAS :
 
-Si vous ne vous êtes pas encore connecté à AzCopy, utilisez la commande `azcopy login` avant d’exécuter la commande suivante.
+- azcopy cp "https://[compte].blob.core.windows.net/[conteneur]/[chemin/blob]?[SAS]" "/path/to/file.txt"
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]" "/path/to/file.txt"
-```
+Télécharger un seul fichier à l’aide d’un jeton SAS, puis diriger la sortie vers un fichier (objets blob de blocs uniquement) :
+  
+- azcopy cp "https://[compte].blob.core.windows.net/[conteneur]/[chemin/blob]?[SAS]" > "/path/to/file.txt"
 
-Téléchargez un fichier à l’aide de l’authentification SAP :
+Télécharger un répertoire entier à l’aide d’un jeton SAS :
+  
+- azcopy cp "https://[compte].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" "/path/to/dir" --recursive=true
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "/path/to/file.txt"
-```
+Remarque sur l’utilisation d’un caractère générique (*) dans les URL :
 
-Téléchargez un fichier avec une authentification SAP à l’aide du piping (objets blob de blocs uniquement) :
+Il existe seulement deux façons d’utiliser un caractère générique dans une URL. 
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
-```
+- Vous pouvez en utiliser un juste après la barre oblique finale (/) d’une URL. Cela copie tous les fichiers d’un répertoire directement vers la destination sans les placer dans un sous-répertoire.
 
-Téléchargez l’intégralité d’un répertoire avec l’authentification SAP :
+- Vous pouvez également en utiliser un dans le nom d’un conteneur, tant que l’URL fait uniquement référence à un conteneur et non à un objet blob. Vous pouvez adopter cette approche pour obtenir des fichiers à partir d’un sous-ensemble de conteneurs.
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
-```
+Télécharger le contenu d’un répertoire sans copier le répertoire contenant lui-même.
 
-Téléchargez un ensemble de fichiers avec l’authentification SAP à l’aide de caractères génériques :
+- azcopy cp "https://[comptesrc].blob.core.windows.net/[conteneur]/[chemin/dossier]/*?[SAS]" "/path/to/dir"
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/foo*?[SAS]" "/path/to/dir"
-```
+Télécharger l’intégralité d’un compte de stockage.
 
-Téléchargez des fichiers et des répertoires avec l’authentification SAP à l’aide de caractères génériques :
+- azcopy cp "https://[comptesrc].blob.core.windows.net/" "/path/to/dir" --recursive
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/foo*?[SAS]" "/path/to/dir" --recursive=true
-```
+Télécharger un sous-ensemble de conteneurs dans un compte de stockage en utilisant un caractère générique (*) dans le nom du conteneur.
 
-Copiez un objet blob avec authentification SAP vers un autre objet blob avec SAP :
+- azcopy cp "https://[comptesrc].blob.core.windows.net/[nom*conteneur]" "/path/to/dir" --recursive
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+Copier un seul objet blob vers un autre objet blob à l’aide d’un jeton SAS.
 
-Copiez un objet blob avec authentification SAP vers un autre objet blob avec jeton OAuth.
+- azcopy cp "https://[comptesrc].blob.core.windows.net/[conteneur]/[chemin/blob]?[SAS]" "https://[comptedest].blob.core.windows.net/[conteneur]/[chemin/blob]?[SAS]"
 
-Si vous ne vous êtes pas encore connecté à AzCopy, utilisez la commande `azcopy login` avant d’exécuter la commande suivante. Le jeton OAuth est utilisé pour accéder au compte de stockage de destination.
+Copier un seul objet blob dans un autre objet blob à l’aide d’un jeton SAS et d’un jeton OAuth. Vous devez utiliser un jeton SAS à la fin de l’URL du compte source, mais le compte de destination n’en a pas besoin si vous vous connectez à AzCopy à l’aide de la commande azcopy login. 
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
-```
+- azcopy cp "https://[comptesrc].blob.core.windows.net/[conteneur]/[chemin/blob]?[SAS]" "https://[comptedest].blob.core.windows.net/[conteneur]/[chemin/blob]"
 
-Copiez l’intégralité d’un répertoire à partir d’un répertoire virtuel d’objets blob avec authentification SAP vers un autre répertoire virtuel d’objets blob avec authentification SAP :
+Copier un répertoire virtuel d’objets blob vers un autre à l’aide d’un jeton SAS :
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- azcopy cp "https://[comptesrc].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" "https://[comptedest].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" --recursive=true
 
-Copiez l’intégralité des données d’un compte d’objets blob avec authentification SAP vers un autre compte d’objets blob avec authentification SAP :
+Copier tous les conteneurs d’objets blob, les répertoires et les objets blob du compte de stockage vers un autre à l’aide d’un jeton SAS :
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
+- azcopy cp "https://[comptesrc].blob.core.windows.net?[SAS]" "https://[comptedest].blob.core.windows.net?[SAS]" --recursive=true
 
-Copiez un objet à partir de S3 avec une clé d’accès vers un objet blob avec authentification SAP :
+Copier un seul objet dans le stockage d’objets blob à partir d’Amazon Web Services (AWS) S3 à l’aide d’une clé d’accès et d’un jeton SAS. Tout d’abord, définissez les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source AWS S3.
+  
+- azcopy cp "https://s3.amazonaws.com/ [compartiment]/[objet]" "https://[comptedest].blob.core.windows.net/[conteneur]/[chemin/blob]?[SAS]"
 
-Définissez les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source S3.
+Copier l’intégralité d’un répertoire dans le stockage d’objets blob à partir d’AWS S3 à l’aide d’une clé d’accès et d’un jeton SAS. Tout d’abord, définissez les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source AWS S3.
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+- azcopy cp "https://s3.amazonaws.com/ [compartiment]/[dossier]" "https://[comptedest].blob.core.windows.net/[conteneur]/[chemin/répertoire]?[SAS]" --recursive=true
 
-Copiez l’intégralité d’un répertoire entier à partir de S3 avec une clé d’accès vers le répertoire virtuel d’objets blob avec authentification SAP :
+Reportez-vous à https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html pour mieux comprendre l’espace réservé [dossier].
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+Copier tous les compartiments dans le stockage d’objets blob à partir d’Amazon Web Services (AWS) à l’aide d’une clé d’accès et d’un jeton SAS. Tout d’abord, définissez les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source AWS S3.
 
-Pour plus d’informations sur ce que signifie [folder] pour S3, consultez https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html. Définissez les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source S3.
+- azcopy cp "https://s3.amazonaws.com/ " "https://[comptedest].blob.core.windows.net?[SAS]" --recursive=true
 
-Copiez tous les compartiments du service S3 avec une clé d’accès vers le compte d’objets blob avec authentification SAP :
+Copier tous les compartiments dans le stockage d’objets blob à partir d’une région Amazon Web Services (AWS) à l’aide d’une clé d’accès et d’un jeton SAS. Tout d’abord, définissez les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source AWS S3.
 
-Définissez les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source S3.
+- azcopy cp "https://s3- [région].amazonaws.com/" "https://[comptedest].blob.core.windows.net?[SAS]" --recursive=true
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
+Copier un sous-ensemble de compartiments en utilisant un caractère générique (*) dans le nom du compartiment. Comme dans les exemples précédents, vous aurez besoin d’une clé d’accès et d’un jeton SAS. N’oubliez pas de définir les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source S3.
 
-Copiez tous les compartiments d’une région S3 avec une clé d’accès vers le compte d’objets blob avec authentification SAP :
-
-```azcopy
-azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
-
-Définissez les variables d’environnement AWS_ACCESS_KEY_ID et AWS_SECRET_ACCESS_KEY pour la source S3.
+- azcopy cp "https://s3.amazonaws.com/ [nom*compartiment]/" "https://[comptedest].blob.core.windows.net?[SAS]" --recursive=true
 
 ## <a name="options"></a>Options
 
-|Option|Description|
-|--|--|
-|--blob-type (chaîne)|Définit le type d’objet blob au niveau de la destination. Utilisé pour charger des objets blob et lors de la copie de données d’un compte à l’autre (par défaut « None »).|
-|--block-blob-tier (chaîne)|Permet de charger un objet blob de blocs dans le stockage Azure à l’aide de ce niveau d’objet blob (par défaut : « None »).|
-|--block-size-mb float |Taille de bloc (spécifiée en Mio) utilisée lors du chargement dans le stockage Azure et le téléchargement à partir du stockage Azure. La valeur par défaut est calculée automatiquement en fonction de la taille du fichier. Les fractions décimales sont autorisées (par exemple : 0,25).|
-|--cache-control (chaîne)|Définit l’en-tête cache-control. Retourné au moment du téléchargement.|
-|--check-md5 (chaîne)|Spécifie la manière dont les hachages MD5 doivent être validés lors du téléchargement. Disponible uniquement lors du téléchargement. Options disponibles : NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (par défaut « FailIfDifferent »)|
-|--content-disposition (chaîne)|Définit l’en-tête content-disposition. Retourné au moment du téléchargement.|
-|--content-encoding (chaîne)|Définit l’en-tête content-encoding. Retourné au moment du téléchargement.|
-|--content-language (chaîne)|Définit l’en-tête content-language. Retourné au moment du téléchargement.|
-|--content-type (chaîne) |Spécifie le type de contenu du fichier. Implique l’utilisation de no-guess-mime-type. Retourné au moment du téléchargement.|
-|--exclude (chaîne)|Permet d’exclure des fichiers lors de la copie. Prend en charge l’utilisation de *.|
-|--exclude-blob-type (chaîne)|(Facultatif) Spécifie le type d’objet blob (BlockBlob/PageBlob/AppendBlob) à exclure lors de la copie d’objets blob à partir du conteneur ou du compte. L’utilisation de cet indicateur ne s’applique pas à la copie de données à partir d’un service non Azure. Si vous avez plusieurs objets blob, vous devez les séparer par un point-virgule (« ; »).|
-|--follow-symlinks|Permet de suivre les liens symboliques lorsque vous effectuez un chargement à partir d’un système de fichiers local.|
-|--from-to (chaîne)|(Facultatif) Spécifie la combinaison destination-source. Par exemple : LocalBlob, BlobLocal, LocalBlobFS.|
-|-h, --help|Affiche l’aide de la commande copy. |
-|--log-level (chaîne)|Définit le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut : « INFO »).|
-|--metadata (chaîne)|Permet de charger dans le stockage Azure des paires clé-valeur en tant que métadonnées.|
-|--no-guess-mime-type|Empêche AzCopy de détecter le type de contenu (content-type) en fonction de l’extension ou du contenu du fichier.|
-|--overwrite|Si cet indicateur a la valeur true, remplace les fichiers ou objets blob qui sont en conflit dans la destination (par défaut : true).|
-|--page-blob-tier (chaîne) |Permet de charger un objet blob de pages dans le stockage Azure à l’aide de ce niveau d’objet blob (par défaut : « None »).|
-|--preserve-last-modified-time|Disponible uniquement quand la destination est un système de fichiers.|
-|--put-md5|Crée un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination (par défaut, le hachage n’est pas créé.) Disponible uniquement lors du chargement.|
-|--recursive|Examine le contenu des sous-répertoires de manière récursive lors d’un chargement à partir du système de fichiers local.|
-|--s2s-detect-source-changed|Vérifie si la source a changé après l’énumération. Pour les copies S2S, puisque la source est une ressource distante, le processus permettant de vérifier si la source a changé implique des coûts de requête supplémentaires.|
-|--s2s-handle-invalid-metadata (chaîne) |Spécifie la manière dont les clés de métadonnées non valides sont gérées. Options disponibles : ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid (par défaut : « ExcludeIfInvalid »).|
-|--s2s-preserve-access-tier|Préserve le niveau d’accès lors d’une copie de service à service. Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès.  (par défaut : true).|
-|--s2s-preserve-properties|Préserve l’intégralité des propriétés lors d’une copie de service à service. Pour une source de fichier non unique de type S3 ou Fichier Azure, puisque l’opération de liste ne retourne pas l’intégralité des propriétés des objets et des fichiers, pour conserver toutes les propriétés, AzCopy doit envoyer une requête supplémentaire pour chaque objet et fichier. (par défaut : true).|
+**--blob-type** string                     Définit le type d’objet blob au niveau de la destination. Utilisé pour charger des objets blob et lors de la copie de données d’un compte à l’autre (par défaut « Detect »). Les valeurs valides sont « Detect », « BlockBlob », « PageBlob » et « AppendBlob ». Lors de la copie entre comptes, la valeur « Detect » contraint AzCopy à utiliser le type de l’objet blob source pour déterminer le type de l’objet blob de destination. Lors du chargement d’un fichier, « Detect » détermine s’il s’agit d’un fichier VHD ou VHDX en fonction de l’extension de fichier. S’il s’agit d’un fichier VHD ou VHDX, AzCopy traite le fichier comme un objet blob de pages. (par défaut : « Detect »)
+
+**--block-blob-tier** string               Charger un objet blob de blocs dans Stockage Azure à l’aide de ce niveau d’objet blob. (par défaut : « None »).
+
+**--block-size-mb** float                  Taille de bloc (spécifiée en Mio) utilisée lors du chargement dans Stockage Azure et le téléchargement à partir de Stockage Azure. La valeur par défaut est calculée automatiquement en fonction de la taille du fichier. Les fractions décimales sont autorisées (par exemple : 0,25).
+
+**--cache-control** string                 Définir l’en-tête cache-control. Retourné au moment du téléchargement.
+
+**--check-length**                         Vérifier la longueur d’un fichier sur la destination après le transfert. En cas d’incompatibilité entre la source et la destination, le transfert est marqué comme ayant échoué. (par défaut : « true »).
+
+**--check-md5** string                     Spécifie la manière dont les hachages MD5 doivent être validés lors du téléchargement. Disponible uniquement lors du téléchargement. Options disponibles : NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (par défaut : « FailIfDifferent »)
+
+**--content-disposition** string           Définir l’en-tête content-disposition. Retourné au moment du téléchargement.
+
+**--content-encoding** string           Définir l’en-tête content-encoding. Retourné au moment du téléchargement.
+
+**--content-language** string           Définir l’en-tête content-language. Retourné au moment du téléchargement.
+
+**--content-type** string                  Spécifie le type de contenu du fichier. Implique l’utilisation de no-guess-mime-type. Retourné au moment du téléchargement.
+
+**--decompress**                           Décompresser automatiquement les fichiers lors du téléchargement, si content-encoding indique qu’ils sont compressés. Les valeurs de content-encoding prises en charge sont « gzip » et « deflate ». Les extensions de fichiers « .gz »/« .gzip » ou « .zz » ne sont pas nécessaires, mais seront supprimées si elles sont présentes.
+
+**--exclude-attributes** string            (Windows uniquement) Exclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
+
+**--exclude-blob-type** string             (Facultatif) Spécifie le type d’objet blob (BlockBlob/PageBlob/AppendBlob) à exclure lors de la copie d’objets blob à partir du conteneur ou du compte. L’utilisation de cet indicateur ne s’applique pas à la copie de données à partir d’un service non Azure. Si vous avez plusieurs objets blob, vous devez les séparer par un point-virgule (« ; »).
+
+**--exclude-path** string                  Exclut ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe de chemin relatif (Par exemple : myFolder;myFolder/subDirName/file.pdf.) En cas d’utilisation combinée avec la traversée de comptes, les chemins n’incluent pas le nom du conteneur.
+
+**--exclude-pattern** string               Exclure ces fichiers lors de la copie. Cette option prend en charge les caractères génériques (*).
+
+**--follow-symlinks**                      Suit les liens symboliques quand vous effectuez un chargement à partir d’un système de fichiers local.
+
+**--from-to** string                       (Facultatif) Spécifie la combinaison source-destination. Par exemple : LocalBlob, BlobLocal, LocalBlobFS.
+
+**-h, --help**                                 Aide pour la copie
+
+**--include-attributes** string            (Windows uniquement) Inclut les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
+
+**--include-path** string                  Inclut uniquement ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe de chemin relatif (Par exemple : myFolder;myFolder/subDirName/file.pdf.).
+
+**--include-pattern** string                  Inclut uniquement ces fichiers lors de la copie. Cette option prend en charge les caractères génériques (*). Séparez les fichiers à l’aide d’un signe « ; ».
+
+**--log-level** string                     Définir le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes/réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie) (par défaut : « INFO ») (par défaut : « INFO »)
+
+**--metadata** string                      Charge dans Stockage Azure avec ces paires clé-valeur en tant que métadonnées.
+
+**--no-guess-mime-type**                   Empêche AzCopy de détecter le type de contenu (content-type) en fonction de l’extension ou du contenu du fichier.
+
+**--overwrite** string                     Si cet indicateur a la valeur true, remplace les fichiers et objets blob qui sont en conflit dans la destination. (par défaut : « true ») Les valeurs possibles sont « true », « false » et « prompt ». (par défaut : « true »)
+
+**--page-blob-tier** string               Charger un objet blob de pages dans Stockage Azure à l’aide de ce niveau d’objet blob. (par défaut : « None »). (par défaut : « None »).
+
+**--preserve-last-modified-time**          Disponible uniquement quand la destination est un système de fichiers.
+
+**--put-md5**                             Créer un hachage MD5 de chaque fichier, puis enregistre le hachage en tant que propriété Content-MD5 de l’objet blob ou du fichier de destination (par défaut, le hachage n’est pas créé.) Disponible uniquement lors du chargement.
+
+**--recursive**                            Examiner le contenu des sous-répertoires de manière récursive lors d’un chargement à partir du système de fichiers local.
+
+**--s2s-detect-source-changed**           Vérifier si la source a changé après l’énumération.
+
+**--s2s-handle-invalid-metadata** string   Spécifie la manière dont les clés de métadonnées non valides sont gérées. Options disponibles : ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid (par défaut : « ExcludeIfInvalid »). (par défaut : « ExcludeIfInvalid »)
+
+**--s2s-preserve-access-tier**             Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut : true)  (par défaut : « true »).
+
+**--s2s-preserve-properties**             Conserver l’intégralité des propriétés lors d’une copie de service à service. Pour une source de fichier non unique Azure Files et AWS S3, l’opération de liste ne retourne pas les propriétés complètes des objets et des fichiers. Pour conserver l’intégralité des propriétés, AzCopy doit envoyer une requête supplémentaire par objet ou fichier. (par défaut : « true »).
 
 ## <a name="options-inherited-from-parent-commands"></a>Options héritées des commandes parentes
 
-|Option|Description|
-|---|---|
-|--cap-mbps uint32|Limite la vitesse de transfert, en mégabits par seconde. Par moment, le débit peut dépasser légèrement cette limite. Si cette option est définie sur zéro ou si elle est omise, le débit n’est pas limité.|
-|--output-type (chaîne)|Met en forme la sortie de la commande. Les formats possibles sont « text » et « JSON ». La valeur par défaut est « text ».|
+**--cap-mbps uint32**      Limite la vitesse de transfert, en mégabits par seconde. Par moment, le débit peut dépasser légèrement cette limite. Si cette option est définie sur zéro ou si elle est omise, le débit n’est pas limité.
+
+**--output-type** string   Met en forme la sortie de la commande. Les formats possibles sont « text » et « JSON ». La valeur par défaut est « text ». (par défaut : « text »).
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6edbd21eaf6f0a6f4f07263e006cc31fb1529511
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 7b5017cdeade14e53778b58154456412507c5ce8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877833"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430711"
 ---
-# <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>Présentation de la solution VMware sur Azure de CloudSimple
+# <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>En quoi consiste la solution Azure VMware de CloudSimple ?
 
-La **solution VMware sur Azure de CloudSimple** est un service complètement managé qui vous permet d'exécuter la plateforme VMware au sein d'Azure. Cette solution inclut vSphere vCenter, vSAN, NSX-T et les outils correspondants. Votre environnement VMware s'exécute en mode natif sur l'infrastructure Azure Bare Metal, sur des emplacements cloud Azure. Le service comprend toutes les fonctionnalités requises pour consommer efficacement et en toute sécurité les plateformes VMware.
+La **solution Azure VMware de CloudSimple** est un service complètement managé qui vous permet d’exécuter la plateforme VMware dans Azure. Cette solution inclut vSphere vCenter, vSAN, NSX-T et les outils correspondants. Votre environnement VMware s'exécute en mode natif sur l'infrastructure Azure Bare Metal, sur des emplacements cloud Azure. Le service comprend toutes les fonctionnalités requises pour consommer efficacement et en toute sécurité les plateformes VMware.
 
 ![Vue d’ensemble de la solution VMware sur Azure de CloudSimple](media/azure-vmware-solution-by-cloudsimple.png)
 

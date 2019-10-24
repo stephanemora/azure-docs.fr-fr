@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70993625"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Solutions préférées dans la Place de marché Azure et AppSource
@@ -41,6 +41,6 @@ Vous pouvez découvrir des solutions intégrées et communiquer avec ces précie
 
 Et aussi en accédant à la section Services de Conseil de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
 
-Pour plus d’informations, consultez Solutions intégrées de publication.
+Pour plus d’informations, consultez [Publication de solutions intégrées](https://docs.microsoft.com/azure/marketplace/integrated-solutions-for-publishers).
 
 ---

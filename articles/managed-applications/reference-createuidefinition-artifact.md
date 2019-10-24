@@ -1,18 +1,18 @@
 ---
 title: Référence d’artefact createUiDefinition d’applications managées Azure
-description: Cette article est une référence d’artefact createUiDefinition.
+description: Montre comment créer l’artefact createUiDefinition pour une application managée Azure. Le fichier est nommé createUiDefinition.json.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 5168e977a7bc289ec8981ef1df8cddd5cc6df678
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 09364a849926fc829a890bfcdc8b760c7c7e189c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336631"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330197"
 ---
 # <a name="reference-user-interface-elements-artifact"></a>Référence : Artefact d’éléments d’interface utilisateur
 

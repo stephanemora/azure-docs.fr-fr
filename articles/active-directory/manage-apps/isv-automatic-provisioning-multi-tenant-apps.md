@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 11fda31cd06db67e0a11a68a02da8b91a77e04e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 119c46ac2d1d34d86a6bfb9f75384f262f89219b
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729187"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429454"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Activer l'approvisionnement automatique d'utilisateurs pour votre application multilocataire
 
@@ -79,17 +79,17 @@ Pour savoir quelle option d'intégration utiliser pour votre application, report
 <sup>*</sup> - Azure AD Connect doit être installé pour synchroniser les utilisateurs d'AD vers Azure AD.  
 <sup>+</sup > - L'utilisation de SCIM pour l'approvisionnement ne vous empêche pas d'intégrer votre application à MIcrosoft Graph à d'autres fins.
 
-## <a name="azure-ad-provisioning-service"></a>Service d'approvisionnement Azure AD
+## <a name="azure-ad-provisioning-service-scim"></a>Service de provisionnement Azure AD (SCIM)
 
-Les services d'approvisionnement Azure AD utilisent SCIM, un protocole pris en charge par de nombreux fournisseurs d'identité (IdP). Nous vous recommandons d'utiliser le service d'approvisionnement Azure AD si vous souhaitez prendre en charge des IdP en plus d'Azure AD, car tout IdP compatible avec SCIM peut se connecter à votre point de terminaison SCIM.
+Les services de provisionnement Azure AD utilisent [SCIM](https://aka.ms/SCIMOverview), une norme industrielle pour le provisionnement qui est prise en charge par de nombreux fournisseurs d’identité (IdP) et de nombreuses applications (comme Slack, G Suite, Dropbox). Nous vous recommandons d'utiliser le service d'approvisionnement Azure AD si vous souhaitez prendre en charge des IdP en plus d'Azure AD, car tout IdP compatible avec SCIM peut se connecter à votre point de terminaison SCIM. En générant un simple point de terminaison /User, vous pouvez activer le provisionnement sans avoir à gérer votre propre moteur de synchronisation. 
 
 Pour plus d'informations sur le service d'approvisionnement Azure AD et SCIM, consultez : 
+
+* [En savoir plus sur la norme SCIM](https://aka.ms/SCIMOverview)
 
 * [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d'Azure Active Directory dans des applications](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 * [Comprendre l'implémentation de SCIM d'Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
-
-* [Créer un point de terminaison SCIM à l'aide des bibliothèques Microsoft CLI](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph pour l'approvisionnement
 
@@ -106,16 +106,6 @@ Apprenez-en plus sur l'utilisation de Microsoft Graph pour l'approvisionnement 
 * [Présentation de l'authentification de Microsoft Graph](https://docs.microsoft.com/graph/auth/)
 
 * [Prise en main de Microsoft Graph](https://developer.microsoft.com/graph/get-started)
-
-* [Utiliser l'API Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)
-
-* [Afficheur Microsoft Graph](https://aka.ms/ge) 
-
-* [Informations de référence sur les autorisations Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
-
-* [Meilleures pratiques pour utiliser Microsoft Graph](https://docs.microsoft.com/graph/best-practices-concept)
-
-* [Scénarios proposés pour Microsoft Graph](https://developer.microsoft.com/graph/examples)
 
 ## <a name="using-saml-jit-for-provisioning"></a>Utilisation de SAML JIT pour l'approvisionnement
 

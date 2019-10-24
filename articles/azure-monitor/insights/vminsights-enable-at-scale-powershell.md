@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/09/2019
+ms.date: 10/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 1025041ae69f2048a6c5396aaebb50b5fa884f86
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: 78fe9eec757274e4262857ac0441af61c47a992b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68444173"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515541"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Activer Azure Monitor pour machines virtuelles (préversion) à l’aide des modèles Azure PowerShell ou Resource Manager
 
@@ -36,7 +36,8 @@ Si l’espace de travail Log Analytics référencé par la solution n’est pas 
 * Manuellement, tel que décrit dans [Sources de données de performance Windows et Linux dans Log Analytics](../../azure-monitor/platform/data-sources-performance-counters.md)
 * En téléchargeant et en exécutant un script PowerShell disponible dans [Azure PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)
 
-### <a name="install-the-servicemap-and-infrastructureinsights-solutions"></a>Installer les solutions ServiceMap et InfrastructureInsights
+### <a name="install-the-servicemap-solution"></a>Installer la solution ServiceMap
+
 Cette méthode inclut un modèle JSON spécifiant la configuration requise pour activer les composants de la solution dans votre espace de travail Log Analytics.
 
 Si vous ne savez pas comment déployer des ressources à l’aide d’un modèle, consultez les sections suivantes :
@@ -84,24 +85,6 @@ Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interfac
                             "product": "[Concat('OMSGallery/', 'ServiceMap')]",
                             "promotionCode": ""
                         }
-                    },
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "location": "[parameters('WorkspaceLocation')]",
-                        "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "dependsOn": [
-                            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        ],
-                        "properties": {
-                            "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('WorkspaceName'))]"
-                        },
-                        "plan": {
-                            "name": "[concat('InfrastructureInsights', '(', parameters('WorkspaceName'),')')]",
-                            "publisher": "Microsoft",
-                            "product": "[Concat('OMSGallery/', 'InfrastructureInsights')]",
-                            "promotionCode": ""
-                        }
                     }
                 ]
             }
@@ -142,6 +125,7 @@ Pour utiliser Azure CLI, vous devez d’abord installer et utiliser l’interfac
         ```
 
 ## <a name="enable-with-azure-resource-manager-templates"></a>Activer avec des modèles Azure Resource Manager
+
 Nous avons créé des exemples de modèles Azure Resource Manager pour l’intégration de vos machines virtuelles et groupes de machines virtuelles identiques. Ces modèles incluent des scénarios que vous pouvez utiliser pour activer la surveillance sur une ressource existante et pour créer une ressource où la surveillance est activée.
 
 >[!NOTE]
@@ -163,7 +147,7 @@ Le fichier de téléchargement contient les modèles suivants pour différents s
 - Le modèle **NewVmOnboarding** crée une machine virtuelle et active Azure Monitor pour machines virtuelles à des fins de surveillance.
 - Le modèle **ExistingVmssOnboarding** active Azure Monitor pour machines virtuelles si le groupe de machines virtuelles identiques existe déjà.
 - Le modèle **NewVmssOnboarding** crée un groupe de machines virtuelles identiques et active Azure Monitor pour machines virtuelles afin de les surveiller.
-- Le modèle **ConfigureWorksapce** configure votre espace de travail Log Analytics pour prendre en charge Azure Monitor pour machines virtuelles en activant les solutions et la collection de compteurs de performances du système d’exploitation Linux et Windows.
+- Le modèle **ConfigureWorkspace** configure votre espace de travail Log Analytics pour prendre en charge Azure Monitor pour machines virtuelles en activant les solutions et la collection de compteurs de performances pour les systèmes d’exploitation Linux et Windows.
 
 >[!NOTE]
 >Si les groupes de machines virtuelles identiques étaient déjà présents et que la stratégie de mise à niveau est **manuelle**, Azure Monitor pour machines virtuelles n’est pas activé pour les instances par défaut après l’exécution du modèle Resource Manager **ExistingVmssOnboarding**. Vous devez mettre à niveau les instances manuellement.
@@ -180,6 +164,7 @@ Le changement de configuration peut prendre quelques minutes. Lorsqu’il est te
 ```powershell
 provisioningState       : Succeeded
 ```
+
 ### <a name="deploy-by-using-the-azure-cli"></a>Déployer à l’aide d’Azure CLI
 
 L’étape suivante active la surveillance à l’aide d’Azure CLI.
@@ -361,9 +346,8 @@ Failed: (0)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois la surveillance activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles.
+Une fois la supervision activée pour vos machines virtuelles, ces informations peuvent être analysées par Azure Monitor pour machines virtuelles.
  
-- Pour savoir comment utiliser la fonctionnalité de contrôle de l’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles](vminsights-health.md). 
 - Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md). 
+
 - Pour identifier les goulots d’étranglement et l’utilisation globale avec les performances de votre machine virtuelle, consultez [Afficher les performances des machines virtuelles Azure](vminsights-performance.md). 
-- Pour afficher les dépendances des applications détectées, consultez [Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application](vminsights-maps.md).

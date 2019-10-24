@@ -11,12 +11,12 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64918493"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515818"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
@@ -34,12 +34,12 @@ Le tableau suivant récapitule les autorisations nécessaires sur les objets AD 
 
 | Fonctionnalité | Autorisations |
 | --- | --- |
-| Fonctionnalité de ms-DS-ConsistencyGuid |Autorisations en écriture pour l’attribut ms-DS-ConsistencyGuid documentées dans [Principes de conception Azure AD Connect - Utilisation de ms-DS-ConsistencyGuid en tant que sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
+| Fonctionnalité de ms-DS-ConsistencyGuid |Autorisations de lecture et d’écriture sur l’attribut ms-DS-ConsistencyGuid documenté dans [Principes de conception Azure AD Connect - Utilisation de ms-DS-ConsistencyGuid en tant qu’attribut sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronisation de hachage de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
-| Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
+| Déploiement Exchange hybride |Autorisations de lecture et d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 
-| Réécriture du mot de passe |Autorisations d’écriture sur les attributs documentés dans [Prise en main de la gestion de mot de passe](../authentication/howto-sspr-writeback.md) pour les utilisateurs. |
-| Écriture différée des appareils |Autorisations d’écriture sur les objets et conteneurs d’appareil documentés dans la [réécriture d’appareil](how-to-connect-device-writeback.md). |
+| Réécriture du mot de passe |Autorisations de lecture et d’écriture sur les attributs documentés dans [Bien démarrer avec la gestion des mots de passe](../authentication/howto-sspr-writeback.md) pour les utilisateurs. |
+| Écriture différée des appareils |Autorisations de lecture et d’écriture sur les objets et conteneurs d’appareil documentés dans la [réécriture d’appareil](how-to-connect-device-writeback.md). |
 | Écriture différée de groupe |Lire, créer, mettre à jour et supprimer des objets de groupe pour les **groupes Office 365** synchronisés.  Pour plus d’informations, consultez [Écriture différée de groupe](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Utilisation du module PowerShell ADSyncConfig 

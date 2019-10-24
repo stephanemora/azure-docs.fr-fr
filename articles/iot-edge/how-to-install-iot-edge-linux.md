@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e08999798c72545f9fa1d1b5d362e23450ce16f5
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695327"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516669"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installer le runtime Azure IoT Edge sur des systèmes Linux Debian
 
@@ -248,19 +248,25 @@ sudo systemctl restart iotedge
 
 Si vous avez utilisé la procédure de **configuration manuelle** dans la section précédente, le runtime IoT Edge doit être correctement provisionné et en cours d’exécution sur votre appareil. Si vous avez utilisé la procédure de **configuration automatique**, vous devez suivre quelques étapes supplémentaires pour que le runtime puisse inscrire à votre place votre appareil avec votre hub IoT. Pour connaître les étapes suivantes, consultez [Créer et provisionner un appareil IoT Edge avec TPM simulé sur une machine virtuelle Linux](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm).
 
-Vous pouvez vérifier l’état du démon IoT Edge à l’aide de la commande suivante :
+Vous pouvez vérifier l’état du démon IoT Edge :
 
 ```bash
 systemctl status iotedge
 ```
 
-Examinez les journaux d’activité du démon à l’aide de la commande suivante :
+Examinez les journaux du démon :
 
 ```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Enfin, répertoriez les modules en cours d’exécution à l’aide de la commande suivante :
+Exécutez une vérification automatisée des erreurs de configuration et de mise en réseau les plus courantes : 
+
+```bash
+sudo iotedge check
+```
+
+De plus, listez les modules en cours d’exécution :
 
 ```bash
 sudo iotedge list

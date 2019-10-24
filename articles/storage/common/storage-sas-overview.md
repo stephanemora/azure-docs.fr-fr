@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0410da26a2ea5811c5a107ce233f2442b60fd9ca
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670844"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382009"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Accorder un accès limité aux ressources du Stockage Azure à l’aide des signatures d’accès partagé (SAP)
 
@@ -24,9 +24,17 @@ Une signature d’accès partagé (SAP) fournit un accès délégué sécurisé 
 
 Le service Stockage Azure prend en charge trois types de signatures d’accès partagé :
 
-- **SAP de délégation d’utilisateur (préversion).** Une SAP de délégation d’utilisateur est sécurisée avec les informations d’identification Azure Active Directory (Azure AD) ainsi que par les autorisations spécifiées pour la SAP. Une SAP de délégation d’utilisateur s’applique uniquement au stockage d’objets blob. Pour créer une SAP de délégation d’utilisateur, vous devez d’abord demander une clé de délégation d’utilisateur, qui est utilisée pour signer la SAP. Pour plus d’informations sur la SAP de délégation d’utilisateur, consultez [Créer une SAP de délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas).
-- **SAP de service.** Une SAP de service est sécurisée à l’aide de la clé de compte de stockage. Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage Azure : Stockage Blob, Stockage File d'attente, Stockage Table ou Azure Files. Pour plus d’informations sur la SAP de service, consultez [Créer une SAP de service (API REST)](/rest/api/storageservices/create-service-sas).
-- **SAP de compte.** Une SAP de compte est sécurisée à l’aide de la clé de compte de stockage. Une SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Toutes les opérations disponibles via une SAP de service ou de délégation d’utilisateur sont également disponibles via une SAP de compte. En outre, avec la SAP de compte, vous pouvez déléguer l’accès à des opérations qui s’appliquent au niveau du service, telles que **Get/Set Service Properties** et **Get Service Stats**. Vous pouvez également déléguer l'accès aux opérations de lecture, d’écriture et de suppression sur les conteneurs d'objets blob, les tables, les files d'attente et les partages de fichiers qui ne sont pas autorisées avec une SAP de service. Pour plus d’informations sur la SAP de compte, [Créez une SAP de compte (API REST)](/rest/api/storageservices/create-account-sas).
+- **SAP de délégation d’utilisateur (préversion).** Une SAP de délégation d’utilisateur est sécurisée avec les informations d’identification Azure Active Directory (Azure AD) ainsi que par les autorisations spécifiées pour la SAP. Une SAP de délégation d’utilisateur s’applique uniquement au stockage d’objets blob.
+
+    Pour plus d’informations sur la SAP de délégation d’utilisateur, consultez [Créer une SAP de délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas).
+
+- **SAP de service.** Une SAP de service est sécurisée à l’aide de la clé de compte de stockage. Une SAP de service délègue l’accès à une ressource d’un seul des services de stockage Azure : Stockage Blob, Stockage File d'attente, Stockage Table ou Azure Files. 
+
+    Pour plus d’informations sur la SAP de service, consultez [Créer une SAP de service (API REST)](/rest/api/storageservices/create-service-sas).
+
+- **SAP de compte.** Une SAP de compte est sécurisée à l’aide de la clé de compte de stockage. Une SAP de compte délègue l’accès aux ressources d’un ou plusieurs des services de stockage. Toutes les opérations disponibles via une SAP de service ou de délégation d’utilisateur sont également disponibles via une SAP de compte. En outre, avec la SAP de compte, vous pouvez déléguer l’accès à des opérations qui s’appliquent au niveau du service, telles que **Get/Set Service Properties** et **Get Service Stats**. Vous pouvez également déléguer l'accès aux opérations de lecture, d’écriture et de suppression sur les conteneurs d'objets blob, les tables, les files d'attente et les partages de fichiers qui ne sont pas autorisées avec une SAP de service. 
+
+    Pour plus d’informations sur la SAP de compte, [Créez une SAP de compte (API REST)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
 > Comme meilleure pratique de sécurité, Microsoft vous recommande d’utiliser si possible les informations d’identification Azure AD plutôt que d’utiliser la clé de compte qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé pour être en mesure d’accéder au Stockage Blob, utilisez les informations d’identification Azure AD pour créer, si possible, une SAP de délégation d’utilisateur pour profiter d’une sécurité supérieure.
@@ -47,7 +55,7 @@ Une signature d’accès partagé est un URI signé qui désigne une ou plusieur
 
 Vous pouvez signer une SAP de l’une des deux méthodes suivantes :
 
-- Avec une clé de délégation d’utilisateur créée à l’aide des informations d’identification d’Azure Active Directory (Azure AD). Une SAP de délégation d’utilisateur est signée avec la clé de délégation d’utilisateur.
+- Avec une *clé de délégation d’utilisateur* créée à l’aide des informations d’identification d’Azure Active Directory (Azure AD). Une SAP de délégation d’utilisateur est signée avec la clé de délégation d’utilisateur.
 
     Pour obtenir la clé de délégation d’utilisateur et créer la SAP, un rôle de contrôle d’accès en fonction du rôle (RBAC) incluant l’action **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** doit être attribué à un principal de sécurité Azure AD. Pour plus d’informations sur les rôles RBAC disposant des autorisations nécessaires pour obtenir la clé de délégation d’utilisateur, consultez [Créer une SAP (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 

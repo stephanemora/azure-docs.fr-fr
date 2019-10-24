@@ -4,15 +4,15 @@ description: Découvrez comment résoudre les problèmes courants avec Azure Fil
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e07d154ce5dae8a461bf9db19303db685f8a4152
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 31a9eda0e17083aac25be071c1d1a3ab84049e39
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103079"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274881"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -797,6 +797,17 @@ Pour résoudre ce problème, supprimez et recréez le groupe de synchronisation 
 4. Si la hiérarchisation cloud a été activée sur un point de terminaison de serveur, supprimez les fichiers hiérarchisés orphelins sur le serveur en effectuant les étapes décrites dans la section [Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’une section de point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint).
 5. Recréez le groupe de synchronisation.
 
+<a id="-2145844941"></a>**La synchronisation a échoué car la requête HTTP a été redirigée**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80190133 |
+| **HRESULT (décimal)** | -2145844941 |
+| **Chaîne d’erreur** | HTTP_E_STATUS_REDIRECT_KEEP_VERB |
+| **Correction requise** | OUI |
+
+Cette erreur se produit car Azure File Sync ne prend pas en charge la redirection HTTP (code d’état 3xx). Pour résoudre ce problème, désactivez la redirection HTTP sur votre serveur proxy ou périphérique réseau.
+
 ### <a name="common-troubleshooting-steps"></a>Ouvrir les étapes de résolution des problèmes
 <a id="troubleshoot-storage-account"></a>**Vérifiez l’existence du compte de stockage.**  
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
@@ -1008,7 +1019,22 @@ Si le rappel de fichiers échoue :
         - À partir d’une invite de commandes avec élévation de privilèges, exécutez `fltmc`. Vérifiez que les pilotes de filtre du système de fichiers StorageSync.sys et StorageSyncGuard.sys sont répertoriés.
 
 > [!NOTE]
-> Un d’ID d’événement 9006 est enregistré une fois par heure dans le journal d’événements de télémétrie si un fichier ne parvient pas à rappeler (un événement est enregistré par code d’erreur). Les journaux d’événements des opérations et de diagnostic doivent être utilisés si les informations supplémentaires sont nécessaires pour diagnostiquer un problème.
+> Un d’ID d’événement 9006 est enregistré une fois par heure dans le journal d’événements de télémétrie si un fichier ne parvient pas à rappeler (un événement est enregistré par code d’erreur). Consultez la section [Erreurs de rappel et correction](#recall-errors-and-remediation) pour vérifier si des étapes de correction sont fournies pour le code d’erreur.
+
+### <a name="recall-errors-and-remediation"></a>Erreurs de rappel et correction
+
+| HRESULT | HRESULT (décimal) | Chaîne d’erreur | Problème | Correction |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80070079 | -121 | ERROR_SEM_TIMEOUT | Le rappel du fichier a échoué à cause d’un délai d’expiration E/S. Ce problème peut se produire pour plusieurs raisons : contraintes de ressources du serveur, connectivité réseau médiocre ou problème de stockage Azure (par exemple une limitation). | Aucune action requise. Si l’erreur persiste pendant plusieurs heures, veuillez ouvrir un cas de support. |
+| 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | Le rappel du fichier a échoué à cause d’un problème réseau.  | Si l’erreur persiste, vérifiez la connectivité réseau vers le partage de fichiers Azure. |
+| 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | Le rappel du fichier a échoué car le point de terminaison de serveur a été supprimé. | Pour résoudre ce problème, consultez [Fichiers hiérarchisés non accessibles sur le serveur après la suppression d’un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Le rappel du fichier a échoué à cause d’une erreur de refus d’accès. Ce problème peut se produire si les paramètres du pare-feu et du réseau virtuel sur le compte de stockage sont activés et que le serveur n’a pas accès au compte de stockage. | Pour résoudre ce problème, ajoutez le réseau virtuel ou l’adresse IP du serveur en suivant les étapes décrites dans la section [Configurer les paramètres de pare-feu et de réseau virtuel](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) du Guide de déploiement. |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Le rappel du fichier a échoué car il n’est pas accessible dans le partage de fichiers Azure. | Pour résoudre ce problème, vérifiez que le fichier existe dans le partage de fichiers Azure. Si le fichier existe dans le partage de fichiers Azure, effectuez une mise à niveau vers la dernière [version de l’agent](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions) Azure File Sync. |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Le rappel du fichier a échoué en raison d’un échec d’autorisation auprès du compte de stockage. | Pour résoudre ce problème, vérifiez qu’[Azure File Sync a accès au compte de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+| 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Le rappel du fichier a échoué car le partage de fichiers Azure n’est pas accessible. | Vérifiez que le partage de fichiers existe et qu’il est accessible. Si le partage de fichiers a été supprimé et recréé, suivez les étapes décrites dans la section [La synchronisation a échoué car le partage de fichiers Azure a été supprimé et recréé](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) pour supprimer et recréer le groupe de synchronisation. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Le rappel du fichier a échoué car les ressources système sont insuffisantes. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau qui épuise les ressources système. |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Le rappel du fichier a échoué car la mémoire est insuffisante. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau à l’origine de l’insuffisance de mémoire. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | Le rappel du fichier a échoué car l’espace disque est insuffisant. | Pour résoudre ce problème, libérez de l’espace sur le volume en déplaçant des fichiers vers un autre volume, augmentez la taille du volume ou forcez la hiérarchisation des fichiers à l’aide de l’applet de commande Invoke-StorageSyncCloudTiering. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Les fichiers hiérarchisés ne sont pas accessibles sur le serveur après la suppression d’un point de terminaison de serveur
 Les fichiers hiérarchisés sur un serveur sont inaccessibles si les fichiers ne sont pas rappelés avant la suppression du point de terminaison.

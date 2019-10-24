@@ -1,21 +1,21 @@
 ---
-title: Comprendre et utiliser les étendues d’Azure Cost Management | Microsoft Docs
+title: Comprendre et utiliser les étendues d’Azure Cost Management
 description: Cet article vous explique les étendues de facturation et de gestion des ressources disponibles dans Azure, et comment les utiliser dans Cost Management et les API.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338634"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374481"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -128,7 +128,10 @@ Les comptes de facturation Contrat client Microsoft présentent les étendues su
 
     Type de ressource : `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **Client**  : représente un groupe d’abonnements associés à un client spécifique qui est intégré à un contrat client Microsoft par un partenaire. Cette étendue est spécifique au fournisseur CSP.
+
 Contrairement aux étendues de facturation EA, les comptes de facturation de contrat client _sont_ liés à un répertoire unique et ne peuvent pas posséder des abonnements sur plusieurs annuaires Azure AD.
+
 
 Les étendues de facturation de contrat client prennent en charge les rôles suivants :
 
@@ -149,7 +152,7 @@ Une fois l’intégration AWS terminée, consultez la section [Installer et conf
 - **Compte de facturation externe** : représente un contrat de client avec un fournisseur tiers. Cela est similaire au compte de facturation EA.
 
     Type de ressource : `Microsoft.CostManagement/externalBillingAccounts`
-    
+
 - **Abonnement externe** : représente un compte opérationnel client avec un fournisseur tiers. Cela est similaire à un abonnement Azure.
 
     Type de ressource : `Microsoft.CostManagement/externalSubscriptions`

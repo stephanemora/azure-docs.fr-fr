@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877172"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331357"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -43,7 +43,7 @@ Le tableau suivant présente les limitations appliquées. Les valeurs font réf�
 | Envois appareil-à-cloud | Plus de 100 opérations d’envoi/s ou 12 opérations d’envoi/s/unité <br/> Par exemple, deux unités S1 équivalent à 2\*12 = 24/s, mais vous obtenez au moins 100 opérations d’envoi/s sur vos unités. Avec neuf unités S1, vous avez 108 opérations d’envoi/s (9\*12) sur vos unités. | 120 opérations d’envoi/s/unité | 6 000 opérations d’envoi/s/unité |
 | Envois de cloud-à-appareil<sup>1</sup> | 1,67 opération d’envoi/s/unité (100 messages/min/unité) | 1,67 opération d’envoi/s/unité (100 opérations d’envoi/min/unité) | 83,33 opérations d’envoi/s/unité (5 000 opérations d’envoi/min/unité) |
 | Réceptions de cloud-à-appareil<sup>1</sup> <br/> (uniquement quand l’appareil utilise HTTPS)| 16,67 opérations de réception/s/unité (1 000 opérations de réception/min/unité) | 16,67 opérations de réception/s/unité (1 000 opérations de réception/min/unité) | 833,33 opérations de réception/s/unité (50 000 opérations de réception/min/unité) |
-| Chargement de fichiers | 1.67 notifications de téléchargement de fichier/s/unité (100/min/unité) | 1.67 notifications de téléchargement de fichier/s/unité (100/min/unité) | 83,33 notifications de téléchargement de fichier/s/unité (5 000/min/unité) |
+| Chargement de fichiers | 1,67 initiations de chargement de fichier/s/unité (100/min/unité) | 1,67 initiations de chargement de fichier/s/unité (100/min/unité) | 83,33 initiations de chargement de fichier/s/unité (5 000/min/unité) |
 | Méthodes directes<sup>1</sup> | 160 Ko/s/unité<sup>2</sup> | 480 Ko/s/unité<sup>2</sup> | 24 Mo/s/unité<sup>2</sup> | 
 | Requêtes | 20/min/unité | 20/min/unité | 1 000/min/unité |
 | Lectures de jumeaux (appareil et module)<sup>1</sup> | 100/s | Plus de 100/s ou 10/s/unité | 500/s/unité |
@@ -95,7 +95,7 @@ IoT Hub impose d’autres limites opérationnelles :
 
 | Opération | Limite |
 | --------- | ----- |
-| Appareils | Le nombre maximal d’appareils que vous pouvez connecter à un hub IoT unique est 1 000 000. Vous pouvez augmenter cette limite uniquement en contactant le [Support Microsoft](https://azure.microsoft.com/support/options/).|
+| Appareils | Le nombre total d’appareils plus les modules qui peuvent être inscrits auprès d’un même hub IoT est limité à 1 million. Vous pouvez augmenter cette limite uniquement en contactant le [Support Microsoft](https://azure.microsoft.com/support/options/).|
 | Chargements de fichiers | 10 chargements de fichiers simultanés par appareil. |
 | Travaux<sup>1</sup> | Le nombre maximal de travaux simultanés est 1 (pour les niveaux Gratuit et S1), 5 (pour S2) et 10 (pour S3). Toutefois, le nombre maximal de [travaux d’importation/exportation d’appareils](iot-hub-bulk-identity-mgmt.md) simultanés est 1 pour tous les niveaux. <br/>L’historique des travaux est conservé pendant 30 jours maximum. |
 | Points de terminaison supplémentaires | Les hubs avec SKU payants peuvent avoir 10 points de terminaison supplémentaires. Les hubs avec SKU gratuits peuvent avoir un point de terminaison supplémentaire. |

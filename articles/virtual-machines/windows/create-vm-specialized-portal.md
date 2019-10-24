@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079654"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390505"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure
 
@@ -34,6 +34,7 @@ Vous pouvez créer une machine virtuelle dans Azure de plusieurs façons :
 
 N’utilisez pas de disque spécialisé si vous souhaitez créer plusieurs machines virtuelles. Pour les déploiements plus importants, [créez une image](capture-image-resource.md), puis [utilisez-la pour créer plusieurs machines virtuelles](create-vm-generalized-managed.md).
 
+Nous vous recommandons de limiter le nombre de déploiements simultanés à 20 machines virtuelles provenant d’une seule capture instantanée ou d’un seul disque dur virtuel. 
 
 ## <a name="copy-a-disk"></a>Copier un disque
 
@@ -74,6 +75,7 @@ Quand vous avez le disque dur virtuel du disque managé que vous souhaitez utili
 10. Dans la page **Configuration de l’invité**, ajoutez les extensions nécessaires.
 11. Quand vous avez terminé, sélectionnez **Vérifier + créer**. 
 12. Si la configuration de la machine virtuelle est validée, sélectionnez **Créer** pour démarrer le déploiement.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

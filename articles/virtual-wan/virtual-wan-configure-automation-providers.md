@@ -219,7 +219,7 @@ La configuration de votre périphérique VPN/SDWAN local ou SD-WAN doit correspo
 
 [!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-### <a name="custom">Stratégies personnalisées pour la connectivité IPsec</a>
+### <a name="custom"></a>Stratégies personnalisées pour la connectivité IPsec
 
 [!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 

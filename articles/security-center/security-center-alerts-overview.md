@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 10/16/2019
 ms.author: memildin
-ms.openlocfilehash: 3b4b02574c028822d25d841376b127a718243b2e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 69b81417e541bd6853e02065e8cee08e3e04b4a2
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202564"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433885"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertes de sécurité dans Azure Security Center
 
@@ -51,21 +51,37 @@ Azure Security Center emploie des analyses de sécurité avancées allant bien a
 * **Analytique comportementale** : applique des modèles connus pour détecter les comportements malveillants.
 * **Détection des anomalies** : utilise le profilage statistique pour créer une base de référence. Il avertit sur les écarts par rapport aux lignes de base établies qui se conforment à un vecteur d’attaque potentielle.
 
-Les rubriques suivantes décrivent chacune de ces données analytiques plus en détail.
+Les sections suivantes décrivent plus en détail chacune de ces données analytiques.
 
 ### <a name="integrated-threat-intelligence"></a>Threat Intelligence intégrée
 
-Microsoft dispose d’une multitude d’informations en matière de menaces à l’échelle mondiale. La télémétrie provient de plusieurs sources, telles qu’Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) et Microsoft Security Response Center (MSRC). Les chercheurs reçoivent également les informations sur les menaces partagées par les principaux fournisseurs de services cloud et s’abonnent aux flux d’informations sur les menaces provenant de tiers. Azure Security Center peut utiliser ces informations pour vous alerter en cas de menaces provenant d’éléments malveillants connus.
+Microsoft dispose d’une multitude d’informations en matière de menaces à l’échelle mondiale. La télémétrie provient de plusieurs sources, telles qu’Azure, Office 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, Microsoft Digital Crimes Unit (DCU) et Microsoft Security Response Center (MSRC). Les chercheurs reçoivent aussi les informations sur les menaces partagées par les principaux fournisseurs de services cloud et les flux en provenance d’autres tiers. Azure Security Center peut utiliser ces informations pour vous alerter en cas de menaces provenant d’éléments malveillants connus.
 
 ### <a name="behavioral-analytics"></a>Analyse comportementale
 
 L’analyse comportementale est une technique qui analyse et compare les données à une collection de modèles connus. Toutefois, ces modèles ne sont pas de simples signatures. Ils sont déterminés par le biais d’algorithmes d’apprentissage automatique appliqués aux ensembles de données massifs. Ils sont également déterminés à travers une analyse minutieuse des comportements malveillants par des experts. Azure Security Center peut utiliser l’analyse comportementale pour identifier les ressources compromises en se basant sur l’analyse des journaux d’activité de la machine virtuelle, des journaux d’activité du périphérique réseau virtuel, des journaux d’activité Service Fabric, des vidages sur incident et d’autres sources.
 
-En outre, il existe une corrélation avec les autres signaux pour rechercher les preuves d’une campagne généralisée. Ce rapprochement permet d’identifier les événements qui sont cohérents avec les indicateurs de compromission établis. 
+De plus, il existe une corrélation avec les autres signaux pour rechercher les preuves d’une campagne généralisée. Ce rapprochement permet d’identifier les événements qui sont cohérents avec les indicateurs de compromission établis. 
 
 ### <a name="anomaly-detection"></a>Détection des anomalies
 
 Azure Security Center utilise également la détection des anomalies pour identifier les menaces. Contrairement à l’analyse comportementale (qui dépend des modèles connus dérivés de grands jeux de données), la détection des anomalies est plus « personnalisée » et se concentre sur les lignes de base propres à vos déploiements. L’apprentissage automatique est appliqué pour déterminer l’activité normale de vos déploiements et les règles sont générées pour définir les conditions de valeurs aberrantes pouvant signaler un événement de sécurité.
+
+## <a name="how-are-alerts-classified"></a>Comment les alertes sont-elles classifiées ?
+
+Security Center affecte un degré de gravité aux alertes pour vous aider à hiérarchiser l’ordre dans lequel vous remédiez à chaque alerte. Ainsi, quand une ressource est compromise, vous pouvez vous en occuper immédiatement. La gravité dépend du niveau de confiance que Security Center accorde à la recherche ou aux données analytiques utilisées pour émettre l’alerte, mais aussi de l’intention malveillante estimée de l’activité à l’origine de l’alerte.
+
+> [!NOTE]
+> La gravité des alertes s’affiche différemment dans le portail et dans l’API REST. Les différences sont indiquées dans la liste ci-dessous.
+
+* **Élevée :** il est fort probable que votre ressource ait été compromise. Vous devez étudier le problème immédiatement. Security Center est très confiant quant à l’intention malveillante et aux constats à l’origine de l’alerte. Par exemple, une alerte qui détecte l’exécution d’un outil malveillant connu, tel que Mimikatz, un outil couramment utilisé pour dérober des informations d’identification.
+* **Moyenne (faible dans l’API REST)** : il s’agit probablement d’une activité suspecte pouvant indiquer qu’une ressource est compromise.
+La confiance de Security Center dans l’analyse et le constat est moyenne, et la confiance quant à l’intention malveillante est moyenne à élevée. Il s’agit généralement de détections basées sur des anomalies ou l’apprentissage automatique. Par exemple, une tentative de connexion depuis un emplacement anormal.
+* **Faible (informations dans l’API REST)** : cela peut être un positif sans gravité ou une attaque bloquée.
+   * Security Center n’est pas suffisamment confiant sur le fait que l’intention soit malveillante, et l’activité peut être innocente. Par exemple, l’effacement des journaux est une action qui peut se produire lorsqu’un pirate tente de masquer ses traces mais, dans de nombreux cas, il s’agit d’une opération de routine effectuée par les administrateurs.
+   * Security Center ne vous indique généralement pas les blocages d’attaques, sauf s’il s’agit d’un cas intéressant que nous vous suggérons d’examiner. 
+* **Informations (Silencieuse dans l’API REST)** : vous voyez les alertes informatives seulement lorsque vous explorez en profondeur un incident de sécurité, ou si vous utilisez l’API REST avec un ID d’alerte spécifique. Un incident est généralement constitué de plusieurs d’alertes, dont certaines peuvent apparaître séparément comme informatives uniquement mais, dans le contexte des autres alertes, mériter un examen plus approfondi. 
+ 
 
 ## <a name="continuous-monitoring-and-assessments"></a>Surveillance et évaluations continues
 

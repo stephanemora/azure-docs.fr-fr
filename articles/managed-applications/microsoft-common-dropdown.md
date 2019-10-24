@@ -1,6 +1,6 @@
 ---
 title: Élément de l’interface utilisateur DropDown | Microsoft Docs
-description: Décrit l’élément d’interface utilisateur Microsoft.Common.DropDown pour le Portail Azure.
+description: Décrit l’élément d’interface utilisateur Microsoft.Common.DropDown pour le Portail Azure. Permet de sélectionner les options disponibles lors du déploiement d’une application managée.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e78fa419b067c0bad48229dcfd8d4e986fc16903
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5784b5df9b522f0489ca1f6087627b45cec5349d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117299"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331739"
 ---
 # <a name="microsoftcommondropdown-ui-element"></a>Élément d’interface utilisateur Microsoft.Common.DropDown
 Contrôle de sélection avec liste déroulante.

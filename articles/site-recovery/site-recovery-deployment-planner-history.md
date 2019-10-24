@@ -6,18 +6,26 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 07/29/2019
+ms.date: 10/16/2019
 ms.author: dapatil
-ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620104"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433413"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Historique des versions du Planificateur de déploiement Azure Site Recovery
 
 Cet article fournit un historique de toutes les versions du Planificateur de déploiement Azure Site Recovery, et décrit les correctifs et limitations connues de chaque version ainsi que leurs dates de publication.
+
+## <a name="version-251"></a>Version 2.51
+
+**Date de publication : 22 août 2019**
+
+**Correctifs :**
+
+- Correction du problème de recommandation de coût avec le Planificateur de déploiement version 2.5
 
 ## <a name="version-25"></a>Version 2.5
 

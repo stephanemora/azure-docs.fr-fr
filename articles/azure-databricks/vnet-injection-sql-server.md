@@ -1,5 +1,5 @@
 ---
-title: Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un notebook Azure Databricks
+title: Interroger un conteneur Docker SQL Server Linux avec Azure Databricks
 description: Cet article explique comment déployer Azure Databricks sur votre réseau virtuel, opération également appelée injection de réseau virtuel.
 services: azure-databricks
 author: mamccrea
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770637"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273986"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Didacticiel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un notebook Azure Databricks
 
@@ -66,11 +66,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     |-------|---------------|-----------|
     |Source|Adresses IP|Spécifie que le trafic entrant provenant d’une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
     |Adresses IP sources|<votre adresse IP publique\>|Entrez votre adresse IP publique. Pour connaître votre adresse IP publique, accédez à [bing.com](https://www.bing.com/), puis lancez une recherche sur **"my IP"** .|
-    |Plages de ports source|*|Autorise le trafic de tous les ports.|
+    |Source port ranges|*|Autorise le trafic de tous les ports.|
     |Destination|Adresses IP|Spécifie que le trafic sortant vers une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
     |Adresses IP de destination|<adresse IP publique de votre machine virtuelle\>|Entrez l’adresse IP publique de votre machine virtuelle. Celle-ci se trouve dans la page **Vue d’ensemble** de votre machine virtuelle.|
     |Plages de ports de destination|22|Ouvrez le port 22 pour le SSH.|
-    |Priorité|290|Attribuez une priorité à la règle.|
+    |Priority|290|Attribuez une priorité à la règle.|
     |Nom|ssh-databricks-tutorial-vm|Nommez la règle.|
 
 
@@ -82,11 +82,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
     |-------|---------------|-----------|
     |Source|Adresses IP|Spécifie que le trafic entrant provenant d’une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
     |Adresses IP sources|10.179.0.0/16|Entrez la plage d’adresses de votre réseau virtuel.|
-    |Plages de ports source|*|Autorise le trafic de tous les ports.|
+    |Source port ranges|*|Autorise le trafic de tous les ports.|
     |Destination|Adresses IP|Spécifie que le trafic sortant vers une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
     |Adresses IP de destination|<adresse IP publique de votre machine virtuelle\>|Entrez l’adresse IP publique de votre machine virtuelle. Celle-ci se trouve dans la page **Vue d’ensemble** de votre machine virtuelle.|
     |Plages de ports de destination|1433|Ouvrez le port 22 pour SQL Server.|
-    |Priorité|300|Attribuez une priorité à la règle.|
+    |Priority|300|Attribuez une priorité à la règle.|
     |Nom|sql-databricks-tutorial-vm|Nommez la règle.|
 
     ![Ajouter une règle de sécurité de trafic entrant pour le port 1433](./media/vnet-injection-sql-server/open-port2.png)

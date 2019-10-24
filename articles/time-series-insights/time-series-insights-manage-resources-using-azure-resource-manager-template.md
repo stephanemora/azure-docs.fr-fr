@@ -9,18 +9,18 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3e22df76124185c1e23f04f59145e12a1fec023
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164260"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274804"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Créer des ressources Time Series Insights à l’aide de modèles Azure Resource Manager
 
-Cet article explique comment créer et déployer des ressources Time Series Insights à l’aide de modèles Azure Resource Manager, de PowerShell et du fournisseur de ressources Time Series Insights.
+Cet article explique comment créer et déployer des ressources Time Series Insights à l’aide de [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/), de PowerShell et du fournisseur de ressources Time Series Insights.
 
 Time Series Insights prend en charge les ressources suivantes :
 
@@ -47,7 +47,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
 
 1. Installez Azure PowerShell en suivant les instructions disponibles dans [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-1. Clonez ou copiez le modèle [201-timeseriesinsights-environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) sur GitHub.
+1. Clonez ou copiez le modèle [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) sur GitHub.
 
    * Créer un fichier de paramètres
 
@@ -208,7 +208,7 @@ La procédure suivante explique comment utiliser PowerShell pour déployer un mo
        DeploymentName          : MyDemoDeployment
        ResourceGroupName       : MyDemoRG
        ProvisioningState       : Succeeded
-       Timestamp               : 5/8/2019 10:28:34 PM
+       Timestamp               : 10/11/2019 3:20:37 AM
        Mode                    : Incremental
        TemplateLink            :
        Parameters              :
