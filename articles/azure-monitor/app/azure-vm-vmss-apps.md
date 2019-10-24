@@ -1,20 +1,18 @@
 ---
 title: Surveiller les performances des applications hébergées sur les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure | Microsoft Docs
 description: Analyse des performances des applications pour les machines virtuelles Azure et les groupes de machines virtuelles identiques Azure. Analysez la charge, le temps de réponse et les dépendances dans des graphiques, et définissez des alertes sur les performances.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3b100fb4d7dfa03cfcc828180f2ca63f7219f610
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 08/26/2019
+ms.openlocfilehash: 4eb515d63d746e2f1f0b96431848a8b450d09358
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389924"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678218"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Déployer Azure Monitor Application Insights Agent sur des machines virtuelles Azure et des groupes de machines virtuelles identiques Azure
 

@@ -1,17 +1,17 @@
 ---
 title: Provisionner le débit sur les conteneurs et les bases de données Azure Cosmos
 description: Découvrez comment définir un débit provisionné pour vos conteneurs et bases de données Azure Cosmos.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: rimman
-ms.openlocfilehash: 146cc9e89959035ca211a036be4730b59cae8c0b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 4c25e8b93fe9bcce17189bd7b787eaf4c3885716
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68987392"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752488"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Approvisionner le débit sur les conteneurs et les bases de données
 
@@ -60,11 +60,26 @@ Tous les conteneurs créés à l’intérieur d’une base de données avec un d
 
 Si la charge de travail d'une partition logique consomme plus que le débit alloué à une partition logique spécifique, vos opérations sont limitées en termes de débit. En cas de limitation, vous pouvez augmenter le débit pour l’intégralité de la base de données ou retenter les opérations. Pour plus d’informations sur le partitionnement, consultez [Partitions logiques](partition-data.md).
 
-Le débit approvisionné sur une base de données peut être partagé par les conteneurs au sein de cette base. Un maximum de 25 conteneurs peuvent partager le débit approvisionné sur la base de données. Au-delà de 25 conteneurs, chaque nouveau conteneur créé dans cette base de données peut partager une partie du débit de la base de données avec d’autres collections déjà disponibles dans la base de données. La quantité de débit pouvant être partagée dépend du nombre de conteneurs approvisionnés dans la base de données. 
+Le débit approvisionné sur une base de données peut être partagé par les conteneurs au sein de cette base. Chaque nouveau conteneur inclus dans le débit partagé au niveau de la base de données nécessite 100 RU/s. Quand vous provisionnez des conteneurs avec une offre de base de données partagée :
 
-Si vos charges de travail impliquent la suppression et la recréation de toutes les collections d’une base de données, il est recommandé de supprimer la base de données vide et de recréer une nouvelle base de données avant la création de la collection.
+* Chaque groupe de 25 conteneurs occupe un jeu de partitions, et le débit de la base de données (D) est partagé entre ces conteneurs. Si la base de données contient au maximum 25 conteneurs et qu’à un moment donné, vous n’utilisez qu’un seul conteneur, celui-ci peut utiliser le débit maximal « D ».
 
-L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
+* Dès lors que 25 conteneurs ont été créés, un nouveau jeu de partitions est créé pour les nouveaux conteneurs, et le débit de la base de données est réparti entre les nouveaux jeux de partitions (c’est-à-dire D/2 pour 2 jeux de partitions, D/3 pour 3 jeux de partitions, etc.). Si, à un moment donné, vous utilisez un seul conteneur de la base de données, celui-ci peut utiliser un débit maximal de D/2, D/3, D/4, etc. respectivement. Compte tenu du débit réduit, il est recommandé de ne pas créer plus de 25 conteneurs dans une base de données.
+
+**Exemple**
+
+* Supposons que vous créiez une base de données nommée « MyDB » avec un débit provisionné de 10 000 RU/s.
+
+* Si vous provisionnez 25 conteneurs sous « MyDB », tous les conteneurs sont regroupés dans un jeu de partitions. Si, à un moment donné, vous utilisez un seul conteneur de la base de données, il peut utiliser un débit maximal de 10 000 RU/s (D).
+
+* Quand vous provisionnez le 26e conteneur, un nouveau jeu de partitions est créé et le débit est réparti de manière égale entre les deux jeux de partitions. Si, à un moment donné, vous utilisez un seul conteneur de la base de données, il peut donc utiliser un débit maximal de 5 000 RU/s (D/2). Comme il existe deux jeux de partitions, le facteur de partage du débit est D/2.
+
+   Le schéma ci-dessous illustre l’exemple précédent :
+
+   ![Facteur de partage du débit au niveau de la base de données](./media/set-throughput/database-level-throughput-shareability-factor.png)
+
+
+Si vos charges de travail impliquent la suppression et la recréation de toutes les collections d’une base de données, il est recommandé de supprimer la base de données vide et de recréer une nouvelle base de données avant la création de la collection. L’illustration suivante montre comment une partition physique peut héberger une ou plusieurs partitions logiques, appartenant à différents conteneurs, au sein d’une base de données :
 
 ![Partition physique](./media/set-throughput/resource-partition2.png)
 
