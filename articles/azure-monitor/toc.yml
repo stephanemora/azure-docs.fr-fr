@@ -639,6 +639,8 @@
                   href: insights/vminsights-workbooks.md
                 - name: Analyser des données avec des requêtes de journal
                   href: insights/vminsights-log-search.md
+                - name: Mettre à niveau l’agent de dépendances
+                  href: insights/vminsights-dependency-agent-maintenance.md
                 - name: Désactiver l’analyse
                   href: insights/vminsights-optout.md
             - name: Solution Capacité et performances

@@ -123,6 +123,8 @@
               href: deploy-continuous-deployment.md
             - name: Déployer à partir de Git local
               href: deploy-local-git.md
+            - name: Déployer avec GitHub Actions
+              href: deploy-github-actions.md
             - name: Déployer avec un modèle
               href: deploy-complex-application-predictably.md
         - name: Définir les informations d’identification de déploiement
