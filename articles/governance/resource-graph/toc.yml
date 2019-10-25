@@ -17,6 +17,11 @@
     - name: Exécuter votre première requête - PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+- name: Tutoriels
+  items:
+    - name: Créer et partager une requête dans le portail Azure
+      displayName: 'query, portal'
+      href: ./tutorials/create-share-query.md
 - name: Exemples
   items:
     - name: Requêtes de démarrage
