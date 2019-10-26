@@ -36,7 +36,7 @@ Vous devez maîtriser les concepts de la détection et de l'identification de vi
 
 La détection des visages identifie les repères visuels des visages humains et trouve leur emplacement dans les cadres englobants. Elle extrait également les traits du visage et les stocke pour les utiliser à des fins d’identification. Toutes ces informations forment la représentation d’un visage.
 
-Le modèle de reconnaissance est utilisé lors de l’extraction des traits de du visage, de sorte que vous pouvez spécifier une version du modèle lors de l’exécution de l'opération de détection.
+Le modèle de reconnaissance est utilisé lors de l’extraction des traits du visage, de sorte que vous pouvez spécifier une version du modèle lors de l’exécution de l'opération de détection.
 
 Lorsque vous utilisez l’API [Face - Detect], attribuez la version du modèle avec le paramètre `recognitionModel`. Les valeurs disponibles sont :
 
