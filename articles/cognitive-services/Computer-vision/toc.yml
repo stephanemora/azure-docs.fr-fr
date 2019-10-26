@@ -17,6 +17,8 @@
           href: quickstarts-sdk/java-sdk.md
         - name: Kit de développement logiciel (SDK) Node.js
           href: quickstarts-sdk/node-sdk.md
+        - name: Kit de développement logiciel (SDK) Go
+          href: quickstarts-sdk/go-sdk.md
     - name: Utilisation de l’API REST
       items:
         - name: Analyser une image distante

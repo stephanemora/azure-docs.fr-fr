@@ -11,12 +11,12 @@ metadata:
   author: jpconnock
   ms.author: jpconnock
   ms.date: 09/26/2019
-  ms.openlocfilehash: 0dcbe8d01761e8feb06cd5705a104d8c9e5196e0
-  ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+  ms.openlocfilehash: 671093610cc53fae3a06f9b185ef258ab2097305
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/08/2019
-  ms.locfileid: "72038599"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72933374"
 landingContent:
 - title: À propos d’Azure Spring Cloud
   linkLists:
@@ -38,6 +38,22 @@ landingContent:
     links:
     - text: Préparer une application Java Spring pour le déploiement
       url: spring-cloud-tutorial-prepare-app-deployment.md
+- title: Configurer votre service
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Utiliser le serveur de configuration pour gérer la configuration de l’application
+      url: spring-cloud-tutorial-config-server.md
+    - text: Mettre à l’échelle manuellement votre application
+      url: spring-cloud-tutorial-scale-manual.md
+  - linkListType: how-to-guide
+    links:
+    - text: Automatiser votre pipeline CI/CD dans Azure Spring Cloud
+      url: spring-cloud-howto-cicd.md
+    - text: Autoriser le déploiement bleu-vert à l’aide d’Azure Spring Cloud
+      url: spring-cloud-howto-staging-environment.md
+    - text: Utiliser le stockage persistant dans Azure Spring Cloud
+      url: spring-cloud-howto-persistent-storage.md
 - title: Superviser votre application
   linkLists:
   - linkListType: tutorial
@@ -60,19 +76,3 @@ landingContent:
       url: spring-cloud-tutorial-bind-mysql.md
     - text: Lier votre application à Azure CosmosDB
       url: spring-cloud-tutorial-bind-cosmos.md
-- title: Configurer votre service
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Utiliser le serveur de configuration pour gérer la configuration de l’application
-      url: spring-cloud-tutorial-config-server.md
-    - text: Mettre à l’échelle manuellement votre application
-      url: spring-cloud-tutorial-scale-manual.md
-  - linkListType: how-to-guide
-    links:
-    - text: Automatiser votre pipeline CI/CD dans Azure Spring Cloud
-      url: spring-cloud-howto-cicd.md
-    - text: Autoriser le déploiement bleu-vert à l’aide d’Azure Spring Cloud
-      url: spring-cloud-howto-staging-environment.md
-    - text: Utiliser le stockage persistant dans Azure Spring Cloud
-      url: spring-cloud-howto-persistent-storage.md
