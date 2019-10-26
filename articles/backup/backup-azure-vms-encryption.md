@@ -17,7 +17,7 @@ ms.locfileid: "71827384"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer une machine virtuelle Azure chiffrée
 
-Cet article explique comment sauvegarder et restaurer des machines virtuelles Azure Windows ou Linux avec des disques chiffrés à l’aide de du service [Sauvegarde Azure](backup-overview.md).
+Cet article explique comment sauvegarder et restaurer des machines virtuelles Azure Windows ou Linux avec des disques chiffrés à l’aide du service [Sauvegarde Azure](backup-overview.md).
 
 Avant de commencer, si vous souhaitez en savoir plus sur la façon dont Sauvegarde Azure interagit avec les machines virtuelles Azure, consultez ces ressources :
 
