@@ -249,7 +249,7 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 | Tahitien      | `ty`          |
 | Tamoul      | `ta`          |
 | Thaï      | `th`          |
-| Tonguien      | `to`          |
+| Tonga      | `to`          |
 | Turc      | `tr`          |
 | Ukrainien      | `uk`          |
 | Ourdou      | `ur`          |

@@ -161,7 +161,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Bangladesh                |   | Ø |
 | Bhoutan                    |   | Ø |
 | Territoire britannique de l'océan Indien |   | Ø |
-| Brunei                    | ✓ | ✓ |
+| Brunéi Darussalam                    | ✓ | ✓ |
 | Cambodge                  |   | Ø |
 | Chine                     |   | Ø |
 | Îles Cocos (Keeling)   |   | Ø |
@@ -297,7 +297,7 @@ Toutefois, Maps n’a pas le même niveau d’information et de précision pour 
 | Turquie                    | ✓ | ✓ |
 | Ukraine                   | ✓ | ✓ |
 | Royaume-Uni            | ✓ | ✓ |
-| Cité du Vatican              | ✓ | ✓ |
+| État de la Cité du Vatican              | ✓ | ✓ |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

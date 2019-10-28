@@ -236,7 +236,7 @@ L'utilisation du même fuseau horaire dans des instances principale et secondair
 | Heure standard du Kamchatka | (UTC+12:00) Petropavlovsk-Kamchatsky - Ancien |
 | Heure standard des Îles Chatham | (UTC+12:45) Îles Chatham |
 | UTC+13 | (UTC+13:00) Temps universel coordonné+13 |
-| Heure standard de Tonga | (UTC+13:00) Nuku’alofa |
+| Heure standard Tonga | (UTC+13:00) Nuku’alofa |
 | Heure standard de Samoa | (UTC+13:00) Samoa |
 | Heure standard des Îles de la Ligne | (UTC+14:00) Île de Kiritimati |
 

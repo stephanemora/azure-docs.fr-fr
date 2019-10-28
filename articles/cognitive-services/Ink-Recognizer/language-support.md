@@ -57,7 +57,7 @@ Cet article explique quelles langues sont prises en charge pour l’API d’Ink 
 | Kiswahili (Kenya)                          |     `sw-KE`     |
 | Coréen                                     |     `ko-KR`     |
 | Luxembourgeois                              |     `lb-LU`     |
-| Malais (Brunei Darussalam)                  |     `ms-BN`     |
+| Malais (Brunéi Darussalam)                  |     `ms-BN`     |
 | Malais (Malaisie)                           |     `ms-MY`     |
 | Maori                                      |     `mi-NZ`     |
 | Norvégien (bokmål)                         |     `nb-NO`     |
@@ -69,7 +69,7 @@ Cet article explique quelles langues sont prises en charge pour l’API d’Ink 
 | Roumain                                   |     `ro-RO`     |
 | Russe                                    |     `ru-RU`     |
 | Gaélique écossais                            |     `gd-GB`     |
-| Sesotho sa leboa                           |    `nso-ZA`     |
+| Sotho du Nord                           |    `nso-ZA`     |
 | Serbe (cyrillique, Bosnie-Herzégovine) |  `sr-Cyrl-BA`   |
 | Serbe (cyrillique, Monténégro)             |  `sr-Cyrl-ME`   |
 | Serbe (cyrillique, Serbie)                 |  `sr-Cyrl-RS`   |

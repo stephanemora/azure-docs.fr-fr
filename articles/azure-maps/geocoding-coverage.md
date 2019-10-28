@@ -95,7 +95,7 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 | Bangladesh                                          |                 |                |              |      ✓     |          ✓         |
 | Bhoutan                                              |                 |                |              |      ✓     |          ✓         |
 | Territoire britannique de l'océan Indien                      |                 |                |              |      ✓     |          ✓         |
-| Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Brunéi Darussalam                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambodge                                            |                 |                |              |      ✓     |          ✓         |
 | Chine                                               |                 |                |              |      ✓     |          ✓         |
 | Christmas (île)                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
@@ -214,7 +214,7 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 | Ukraine                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Royaume-Uni                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ouzbékistan                                          |                 |                |              |      ✓     |          ✓         |
-| Cité du Vatican                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| État de la Cité du Vatican                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
 
 ## <a name="middle-east-and-africa"></a>Moyen-Orient et Afrique

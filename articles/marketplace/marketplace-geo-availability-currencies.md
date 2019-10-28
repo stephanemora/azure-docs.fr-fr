@@ -41,7 +41,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Bosnie-Herzégovine              | BA        | USD          |
 | Botswana                            | BW        | USD          |
 | Brésil                              | BR        | BRL\*        |
-| Brunei                              | BN        | USD          |
+| Brunéi Darussalam                              | BN        | USD          |
 | Bulgarie                            | BG        | EUR          |
 | Cameroun                            | CM        | USD          |
 | Canada                              | CA        | CAD          |
@@ -147,7 +147,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Tunisie                             | TN        | USD          |
 | Turquie                              | TR        | USD          |
 | Turkménistan                        | TM        | USD          |
-| Cité du Vatican (Saint-Siège)             | VA        | EUR          |
+| État de la Cité du Vatican (Saint-Siège)             | VA        | EUR          |
 | Îles Vierges des États-Unis | VI        | USD          |
 | Ouganda                              | UG        | USD          |
 | Ukraine                             | UA        | USD          |

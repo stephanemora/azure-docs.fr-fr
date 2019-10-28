@@ -60,7 +60,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Brésil                              | BR        |
 | Territoire britannique de l'océan Indien      | IO        |
 | Îles Vierges britanniques              | VG        |
-| Brunei                              | BN        |
+| Brunéi Darussalam                              | BN        |
 | Bulgarie                            | BG        |
 | Burkina Faso                        | BF        |
 | Burundi                             | BI        |
@@ -266,7 +266,7 @@ Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux l
 | Données Îles Vierges                 | VI        |
 | Ouzbékistan                          | UZ        |
 | Vanuatu                             | VU        |
-| Cité du Vatican                        | VA        |
+| État de la Cité du Vatican                        | VA        |
 | Venezuela                           | VE        |
 | Vietnam                             | VN        |
 | Wallis et Futuna                   | WF        |

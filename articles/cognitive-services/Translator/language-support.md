@@ -99,7 +99,7 @@ L’**API Translator V3** est neurale par défaut et les systèmes statistiques
 |Tamoul| `ta`    |Statistique uniquement|  Statistique|
 |Télougou|    `te`    |Neural uniquement|   Neuronale|
 |Thaï|  `th`    |Neural disponible|  Neuronale|
-|Tonguien|    `to`    |Statistique uniquement|  Statistique|
+|Tonga|    `to`    |Statistique uniquement|  Statistique|
 |Turc|   `tr`    |Neural disponible   |Neuronale|
 |Ukrainien| `uk`    |Neural disponible|  Neuronale|
 |Ourdou|  `ur`    |Statistique uniquement|  Statistique|

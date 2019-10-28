@@ -76,10 +76,10 @@ ms.locfileid: "72755313"
 | Saurashtra | Zoulou | | |
 | Serbe (cyrillique) | Italien | | |
 | Serbe (latin) | Japonais | | |
-| Sinhala | Kannada | | |
+| Cingalais | Kannada | | |
 | Slovène | Kazakh | | |
 | Espagnol | Khmer | | |
-| Suédois | K'iche' | | |
+| Suédois | Quiché | | |
 | Sylheti | Kinyarwanda | | |
 | Syriaque | Kiswahili | | |
 | Tagbanwa | Konkani | | |
@@ -116,10 +116,10 @@ ms.locfileid: "72755313"
 | | Serbe (cyrillique, Bosnie-Herzégovine) | | |
 | | Serbe (latin) | | |
 | | Sesotho | | |
-| | Sesotho sa leboa | | |
+| | Sotho du Nord | | |
 | | Setswana | | |
 | | Sindhi | | |
-| | Sinhala | | |
+| | Cingalais | | |
 | | Slovaque | | |
 | | Slovène | | |
 | | Espagnol | | |

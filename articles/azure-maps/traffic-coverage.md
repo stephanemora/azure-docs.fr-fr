@@ -42,7 +42,7 @@ Toutefois, Maps n’a pas le même niveau d’informations et de précision pour
 |Pays/région   |Incidents  |Flux  |
 |---------|:---------:|:---------:|
 |Australie     |✓         |✓        |
-|Brunei   |✓         |✓        |
+|Brunéi Darussalam   |✓         |✓        |
 |Hong Kong (R.A.S.)     |✓         |✓         |
 |Inde   |✓         |✓         |
 |Indonésie     |✓         |✓         |
@@ -111,7 +111,7 @@ Toutefois, Maps n’a pas le même niveau d’informations et de précision pour
 |+Gibraltar     |✓         |✓         |
 |+Guernsey & Jersey     |✓         |✓         |
 |+Île de Man     |✓         |✓         |
-|Cité du Vatican   |✓         |✓         |
+|État de la Cité du Vatican   |✓         |✓         |
 
 
 ## <a name="middle-east-and-africa"></a>Moyen-Orient et Afrique

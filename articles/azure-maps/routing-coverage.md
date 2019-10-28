@@ -131,7 +131,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Australie                      |        ✓       |         ✓            |     ✓       |
 | \+ Christmas (île)              |        ✓       |                      |             |
-| Brunei                         |        ✓       |         ✓            |             |
+| Brunéi Darussalam                         |        ✓       |         ✓            |             |
 | Cambodge                       |        ✓       |                      |             |
 | Fidji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
@@ -222,7 +222,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | +Gibraltar                     |        ✓       |         ✓            |             | 
 | \+ Montserrat                    |        ✓       |                      |             |
 | \+ Turques-et-Caïques (îles)      |        ✓       |                      |             |
-| Cité du Vatican                   |        ✓       |         ✓            |             |
+| État de la Cité du Vatican                   |        ✓       |         ✓            |             |
 | Île de Man                    |        ✓       |                      |             |
 
 

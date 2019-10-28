@@ -132,7 +132,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
         - UA(Ukraine)
             - Région de Crimée
 
-        - VA(Cité du Vatican)
+        - VA(État de la Cité du Vatican)
 
         - XJ(Jan Mayen)
 
@@ -398,7 +398,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - BD(Bangladesh)
 
-        - BN(Brunei)
+        - BN(Brunéi Darussalam)
 
         - BT(Bhoutan)
 
