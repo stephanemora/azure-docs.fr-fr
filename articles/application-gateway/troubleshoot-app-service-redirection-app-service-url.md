@@ -48,7 +48,7 @@ En outre, lorsque vous utilisez des App Services derrière une passerelle d’ap
 
 App Service étant un service multilocataire, il utilise l’en-tête d’hôte de la requête pour router celle-ci vers le point de terminaison approprié. Le nom de domaine par défaut des App Services, *.azurewebsites.net (par exemple, contoso.azurewebsites.net), est différent du nom de domaine de la passerelle d’application (par exemple, contoso.com). 
 
-La demande d’origine du client a le nom de domaine de la passerelle d’application, contoso.com, en tant que nom d’hôte. Vous devez configurer la passerelle d’application pour remplacer le nom d’hôte dans la demande d’origine par le nom d’hôte de l’App Service lors de du routage de la demande vers le serveur principal du service. Utilisez le commutateur **Choisir le nom d’hôte à partir de l’adresse du serveur principal** dans la configuration du paramètre HTTP de la passerelle d’application. Utilisez le commutateur **Choisir le nom d’hôte à partir des paramètres HTTP du serveur principal** dans la configuration de la sonde d’intégrité.
+La demande d’origine du client a le nom de domaine de la passerelle d’application, contoso.com, en tant que nom d’hôte. Vous devez configurer la passerelle d’application pour remplacer le nom d’hôte dans la demande d’origine par le nom d’hôte de l’App Service lors du routage de la demande vers le serveur principal du service. Utilisez le commutateur **Choisir le nom d’hôte à partir de l’adresse du serveur principal** dans la configuration du paramètre HTTP de la passerelle d’application. Utilisez le commutateur **Choisir le nom d’hôte à partir des paramètres HTTP du serveur principal** dans la configuration de la sonde d’intégrité.
 
 
 
