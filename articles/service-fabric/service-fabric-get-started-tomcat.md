@@ -67,7 +67,7 @@ Suivez les étapes décrites dans cette section pour créer une image Docker bas
    docker build . -t tomcattest
    ```
 
-   Cette commande crée l’image en suivant les instructions de du Dockerfile, en nommant (balisant avec -t) l’image `tomcattest`. Pour générer une image de conteneur, l’image de base est d’abord téléchargée à partir du Hub Docker, puis l’application y est ajoutée. 
+   Cette commande crée l’image en suivant les instructions du Dockerfile, en nommant (balisant avec -t) l’image `tomcattest`. Pour générer une image de conteneur, l’image de base est d’abord téléchargée à partir du Hub Docker, puis l’application y est ajoutée. 
 
    Une fois la création terminée, exécutez la commande `docker images` pour afficher des informations sur la nouvelle image :
 
