@@ -54,7 +54,7 @@ Vous pouvez configurer une stratégie de filtrage géographique pour votre porte
 | BI | Burundi|
 | BJ | Bénin|
 | BL | Saint-Barthélemy|
-| BN | Brunei Darussalam|
+| BN | Brunéi Darussalam|
 | BO | Bolivie|
 | BR | Brésil|
 | BS | Les Bahamas|
