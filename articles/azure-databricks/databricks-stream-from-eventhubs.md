@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 942553e2ececf2bdc7bb2b240d4fa6c5f338beb2
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 0ea85e60a84b540af2c772f81326dd8c45f61d4d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68976506"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784019"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
 
@@ -45,7 +45,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 > [!Note]
 > Ce didacticiel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
-> Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
+> Si vous avez un compte gratuit, accédez à votre profil et modifiez votre abonnement sur **Paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/). Ensuite, [supprimez la limite de dépense](https://docs.microsoft.com/azure/billing/billing-spending-limit#why-you-might-want-to-remove-the-spending-limit), et [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) pour les processeurs virtuels dans votre région. Lorsque vous créez votre espace de travail Azure Databricks, vous pouvez sélectionner le tarif **Version d’évaluation (Premium - 14 jours de DBU offerts)** pour donner à l’accès de l’espace de travail un accès gratuit aux DBU d’Azure Databricks pendant 14 jours.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -117,17 +117,17 @@ Pour recevoir un flux de tweets, vous créez une application dans Twitter. Suive
 
 1. Dans un navigateur web, accédez à [Twitter For Developers](https://developer.twitter.com/en/apps), puis sélectionnez **Create an app** (Créer une application). Vous voyez normalement un message indiquant que vous devez demander un compte de développeur Twitter. N’hésitez pas à le faire et, une fois votre application approuvée, vous devez voir un e-mail de confirmation. L’approbation d’un compte de développeur peut prendre plusieurs jours.
 
-    ![Confirmation de compte de développeur Twitter](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "Confirmation de compte de développeur Twitter")
+    ![Confirmation du compte de développeur Twitter](./media/databricks-stream-from-eventhubs/databricks-twitter-dev-confirmation.png "Confirmation du compte de développeur Twitter")
 
 2. Sur la page **Créer une application**, renseignez les informations de la nouvelle application, puis sélectionnez **Créer votre application Twitter**.
 
-    ![Détails de l’application de Twitter](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Détails de l’application de Twitter")
+    ![Détails de l’application Twitter](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details.png "Détails de l’application Twitter")
 
-    ![Détails de l’application de Twitter](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details-create.png "Détails de l’application de Twitter")
+    ![Détails de l’application Twitter](./media/databricks-stream-from-eventhubs/databricks-provide-twitter-app-details-create.png "Détails de l’application Twitter")
 
 3. Dans la page de l’application, sélectionnez l’onglet **Keys and Tokens** (Clés et jetons), et copiez les valeurs de **Consumer API Key** (Clé d’API du consommateur) et **Consumer API Secret Key** (Clé secrète d’API du consommateur). Sélectionnez aussi **Create** (Créer) sous **Access Token and Access Token Secret** (Jeton d’accès et secret du jeton d’accès) pour générer les jetons d’accès. Copiez les valeurs de **Jeton d’accès** et **Secret du jeton d’accès**.
 
-    ![Détails de l’application de Twitter](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Détails de l’application de Twitter")
+    ![Détails de l’application Twitter](./media/databricks-stream-from-eventhubs/twitter-app-key-secret.png "Détails de l’application Twitter")
 
 Enregistrez les valeurs que vous avez récupérées pour l’application Twitter. Vous aurez besoin de ces valeurs plus loin dans le didacticiel.
 
@@ -146,9 +146,9 @@ Dans ce didacticiel, vous allez utiliser les API Twitter pour envoyer des tweets
    * Connecteur Spark Event Hubs : `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * API Twitter : `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Renseigner des coordonnées Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Renseigner des coordonnées Maven")
+     ![Fournir les coordonnées Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search.png "Fournir les coordonnées Maven")
 
-     ![Renseigner les coordonnées Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Rechercher des coordonnées Maven")
+     ![Fournir les coordonnées Maven](./media/databricks-stream-from-eventhubs/databricks-add-library-search-dialogue.png "Rechercher les coordonnées Maven")
 
 3. Sélectionnez **Installer**.
 

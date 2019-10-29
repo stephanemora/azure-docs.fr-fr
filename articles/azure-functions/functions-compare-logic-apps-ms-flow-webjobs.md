@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 47e300bf242f02d458363b7d2ab7af8a4399b399
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155037"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597439"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Que sont les services Microsoft Flow, Logic Apps, Functions et WebJobs ?
 
@@ -27,7 +27,9 @@ Cet article compare les services de cloud computing Microsoft suivants :
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
-Tous ces services peuvent résoudre des problèmes d’intégration et automatiser des processus métier. Ils peuvent tous définir des entrées, des actions, des conditions et des sorties. Vous pouvez exécuter chacun d’eux selon une planification ou à l’aide d’un déclencheur. Les services présentent des avantages qui leur sont propres. Cet article explique les différences entre eux.
+Tous ces services peuvent résoudre des problèmes d’intégration et automatiser des processus métier. Ils peuvent tous définir des entrées, des actions, des conditions et des sorties. Vous pouvez exécuter chacun d’eux selon une planification ou à l’aide d’un déclencheur. Les services présentent des avantages qui leur sont propres. Cet article explique les différences entre eux. 
+
+Si vous recherchez une comparaison plus générale entre Azure Functions et d’autres options de calcul Azure, consultez [Critères de sélection d’un service de calcul Azure](/azure/architecture/guide/technology-choices/compute-comparison) et [Choix d’une option de calcul Azure pour les microservices](/azure/architecture/microservices/design/compute-options).
 
 ## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Comparer Microsoft Flow et Azure Logic Apps
 

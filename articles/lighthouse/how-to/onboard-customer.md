@@ -4,15 +4,15 @@ description: Découvrez comment intégrer un client à la gestion des ressources
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/30/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: e16747d74df7db0fb2ca2d4e0f07247258a980d7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 882afb83aa2a9bad9633df43b29e00b43162bf87
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299755"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595660"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -195,7 +195,8 @@ La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** a
 Une fois que vous avez mis à jour votre fichier de paramètres, le client doit déployer le modèle de gestion des ressources dans le locataire du client en tant que déploiement de niveau abonnement. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer à la gestion des ressources déléguées Azure (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer).
 
 > [!IMPORTANT]
-> Le déploiement doit être effectué par un compte non invité dans le locataire du client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration).
+> Le déploiement doit être effectué par un compte non invité dans le locataire du client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell

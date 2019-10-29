@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
 ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266209"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Didacticiel : Traiter les tweets à l’aide d’Azure Event Hubs et d’Apache Spark dans HDInsight
@@ -74,7 +74,7 @@ Ce hub d’événements vous permet de stocker des tweets.
 
 3. Sous **Internet des objets**, sélectionnez **Event Hubs**. 
 
-    ![Créer un Event Hub pour un exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Créer un Event Hub pour un exemple de diffusion en continu Spark")
+    ![Créer un hub d’événements pour l’exemple de streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Créer un hub d’événements pour l’exemple de streaming Spark")
 
 4. Sélectionnez **Ajouter**.
 
@@ -90,7 +90,7 @@ Ce hub d’événements vous permet de stocker des tweets.
     |Activer la majoration automatique (facultatif) |L’augmentation automatique met automatiquement à l’échelle le nombre d’unités de débit affectées à votre espace de noms Event Hubs quand votre trafic dépasse la capacité des unités de débit qui lui sont assignées.  |
     |Augmentation automatique des unités de débit maximales (Facultatif)|Ce curseur ne s’affiche que si vous cochez **Activer l’augmentation automatique**.  |
 
-    ![Fournir un nom d’Event Hub pour un exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fournir un nom d’Event Hub pour un exemple de diffusion en continu Spark")
+    ![Fournir un nom de hub d’événements pour l’exemple de streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fournir un nom de hub d’événements pour l’exemple de streaming Spark")
 
 6. Sélectionnez **Créer** pour créer l’espace de noms.  Le déploiement prendra quelques minutes.
 
@@ -112,7 +112,7 @@ Créez un hub d’événements une fois que l’espace de noms Event Hubs a ét�
 
     - **Rétention des messages** : 1.   
    
-      ![Fournir des détails d’Event Hub pour un exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Fournir des détails d’Event Hub pour un exemple de diffusion en continu Spark")
+      ![Fournir les informations détaillées du hub d’événements pour l’exemple de streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Fournir les informations détaillées du hub d’événements pour l’exemple de streaming Spark")
 
 1. Sélectionnez **Create** (Créer).  Le déploiement doit se terminer en quelques secondes, et vous serez redirigé vers la page Espace de noms Event Hubs.
 
@@ -120,11 +120,11 @@ Créez un hub d’événements une fois que l’espace de noms Event Hubs a ét�
 
 1. Sélectionnez **RootManageSharedAccessKey**.
     
-     ![Définir des stratégies d’Event Hub pour l’exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Définir des stratégies d’Event Hub pour l’exemple de diffusion en continu Spark")
+     ![Définir des stratégies Event Hub pour l’exemple de streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Définir des stratégies Event Hub pour l’exemple de streaming Spark")
 
 1. Enregistrez les valeurs de **Clé primaire** et **Clé primaire de la chaîne de connexion** à utiliser plus tard dans le tutoriel.
 
-     ![Afficher des clés de stratégie d’Event Hub pour l’exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Afficher des clés de stratégie d’Event Hub pour l’exemple de diffusion en continu Spark")
+     ![Afficher les clés des stratégies Event Hub pour l’exemple de streaming Spark](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Afficher les clés des stratégies Event Hub pour l’exemple de streaming Spark")
 
 
 ## <a name="send-tweets-to-the-event-hub"></a>Envoyer des tweets au hub d’événements
@@ -252,7 +252,7 @@ Avec HDInsight, vos données étant stockées dans Stockage Azure ou Azure Data 
 
 Ouvrez le cluster dans le portail Azure, puis sélectionnez **Supprimer**.
 
-![Supprimer le cluster HDInsight dans le portail Azure](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Supprimer le cluster HDInsight")
+![Supprimer le cluster HDInsight dans le portail Azure](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Supprimer un cluster HDInsight")
 
 Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir la page du groupe de ressources, puis sélectionner **Supprimer le groupe de ressources**. En supprimant le groupe de ressources, vous supprimez le cluster HDInsight Spark et le compte de stockage par défaut.
 

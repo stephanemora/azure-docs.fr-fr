@@ -4,15 +4,15 @@ description: Découvrez comment publier une offre de service managé qui intègr
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c358c728f7fe008ee8d9138cd081932524e7eaf9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 10105d06e48a727e71ea5cb03f2ffceb589df50a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300304"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595271"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
 
@@ -132,7 +132,7 @@ Lorsque vous êtes satisfait de toutes les informations que vous avez fournies, 
 
 ## <a name="the-customer-onboarding-process"></a>Processus d’intégration des clients
 
-Lorsqu’un client ajoute votre offre, il est en mesure de [déléguer un ou plusieurs abonnements ou groupes de ressources spécifiques](view-manage-service-providers.md#delegate-resources) qui seront ensuite intégrés pour la gestion des ressources déléguées Azure. Si un client a accepté une offre mais n’a pas encore délégué de ressources, il voit une note s’afficher en haut de la section **Offres de fournisseur** de la page [**Fournisseurs de services**](view-manage-service-providers.md) du portail Azure.
+Lorsqu’un client ajoute votre offre, il est en mesure de [déléguer un ou plusieurs abonnements ou groupes de ressources spécifiques](view-manage-service-providers.md#delegate-resources) qui seront ensuite intégrés pour la gestion des ressources déléguées Azure. Si un client a accepté une offre mais n’a pas encore délégué de ressources, il voit une note s’afficher en haut de la section **Offres de fournisseur** de la page [**Fournisseurs de services**](view-manage-service-providers.md) du portail Azure. Si un utilisateur du locataire du client ne parvient pas à effectuer cette délégation, il ne dispose probablement pas du rôle Propriétaire pour l’abonnement. Pour rechercher les utilisateurs qui peuvent déléguer l’abonnement, l’utilisateur peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
 Pour qu’un abonnement (ou des groupes de ressources au sein d’un abonnement) puisse être intégré, l’intégration de l’abonnement doit être autorisée via une inscription manuelle du fournisseur de ressources **Microsoft.ManagedServices**. Un utilisateur figurant dans le locataire du client et doté du rôle Contributeur ou Propriétaire peut le faire en suivant les étapes décrites dans [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md).
 

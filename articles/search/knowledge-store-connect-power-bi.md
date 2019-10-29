@@ -1,23 +1,24 @@
 ---
-title: Se connecter à une base de connaissances avec Power BI - Recherche Azure
-description: Connectez une base de connaissances Recherche Azure à Power BI à des fins d’analyse et d’exploration.
+title: Se connecter une base de connaissances avec Power BI
+titleSuffix: Azure Cognitive Search
+description: Connectez une base de connaissances Recherche cognitive Azure à Power BI à des fins d’analyse et d’exploration.
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
+manager: nitinme
 ms.author: v-lilei
-ms.openlocfilehash: de282213535a2e49f73bc30e476bae02d470fdb2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265665"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790071"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connecter une base de connaissances à Power BI
 
 > [!Note]
-> La base de connaissances est en préversion et ne doit pas être utilisée en production. L’[API REST Recherche Azure version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
+> La base de connaissances est en préversion et ne doit pas être utilisée en production. L’[API REST Recherche cognitive Azure version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 >
 Dans cet article, vous allez apprendre à connecter et explorer une base de connaissances à l’aide de Power Query dans l’application Power BI Desktop. Pour créer l’exemple de base de connaissances utilisé dans cette procédure pas à pas, consultez [Créer une base de connaissances dans le portail Azure](knowledge-store-create-portal.md).
 
@@ -39,7 +40,7 @@ Dans cet article, vous allez apprendre à connecter et explorer une base de conn
 
 1. Si vous y êtes invité, entrez la clé du compte de stockage.
 
-1. Sélectionnez les tables *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* et *hotelReviewsSsPages*. Ces tables sont des projections de tables Azure pour les exemples de données basés sur les avis des clients. Elles comportent les enrichissements de services cognitifs sélectionnés durant la création de la base de connaissances.
+1. Sélectionnez les tables *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases* et *hotelReviewsSsPages*. Ces tables sont des projections de tables Azure pour les exemples de données d’avis sur des hôtels. Elles comportent les enrichissements par IA sélectionnés lors de la création de la base de connaissances.
 
 1. Cliquez sur **Charger**.
 
@@ -87,7 +88,7 @@ Create new containers in Azure Blob storage and upload each CSV file to its own 
 | Medium (6000 Records)| [HotelReviews_Medium.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Medium.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)
 | Large (Full dataset 35000 Records) | [HotelReviews_Large.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Be aware that very large data sets are expensive to process. This one costs roughly $1000 U.S dollars.|
 
-In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Search to use larger data sets. 
+In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Cognitive Search to use larger data sets. 
 
   ![Create a Cognitive Services resource](media/knowledge-store-connect-power-bi/create-cognitive-service.png "Create a Cognitive Services resource") -->
 

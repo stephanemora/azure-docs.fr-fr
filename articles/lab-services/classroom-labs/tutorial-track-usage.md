@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 10/18/2019
 ms.author: spelluru
-ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894358"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675741"
 ---
-# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Tutoriel : Suivre l’utilisation d’un laboratoire dans Azure Lab Service
+# <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>Didacticiel : Suivre l’utilisation d’un laboratoire dans Azure Lab Service
 Ce didacticiel vous montre comment un créateur ou propriétaire de laboratoire peut suivre l’utilisation d’un laboratoire.
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -49,18 +49,11 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
     ![Utilisation de machines virtuelles](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>Gérer les machines virtuelles des étudiants 
-Le fait de pointer la souris sur une ligne dans la liste des machines virtuelles vous permet de consulter les commandes pour effectuer les tâches suivantes (comme le montre l’image de la section précédente) : 
-
-- Se connecter à une machine virtuelle
-- Démarrer une machine virtuelle
-- Arrêter une machine virtuelle
-- Supprimer une machine virtuelle
-
+Dans cette page, vous pouvez démarrer, arrêter ou réinitialiser les machines virtuelles des étudiants en utilisant la liste déroulante de la colonne **État** ou les boutons de la barre d’outils. 
 
 ![Commandes des machines virtuelles](../media/tutorial-track-usage/vm-controls.png)
 
 Vous pouvez également utiliser les boutons de la barre d’outils pour démarrer, arrêter ou supprimer une machine virtuelle. 
-
 
 
 ## <a name="next-steps"></a>Étapes suivantes

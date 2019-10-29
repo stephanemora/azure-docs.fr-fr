@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 532c6a45351f872260ea9383adaacacd486b9d9a
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824730"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532718"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Créer une application ASP.NET Core et SQL Database dans Azure App Service sur Linux
 
@@ -49,7 +49,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Pour suivre ce tutoriel :
 
 * [Installez Git](https://git-scm.com/)
-* [Installez .NET Core](https://www.microsoft.com/net/core/)
+* [Installez le SDK .NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 
 ## <a name="create-local-net-core-app"></a>Création de l’application .NET Core locale
 

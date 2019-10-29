@@ -11,10 +11,10 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70098742"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Intégration du contrôle de code source pour Azure SQL Data Warehouse
@@ -35,9 +35,9 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 
 2. Ouvrez Visual Studio et connectez-vous à votre organisation et à votre projet Azure DevOps à l’étape 1 en sélectionnant « Gérer des connexions ».
 
-   ![Gérer des connexions](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gérer des connexions")
+   ![Gérer les connexions](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gérer les connexions")
 
-   ![Se connecter](media/sql-data-warehouse-source-control-integration/3-connect.png "Se connecter")
+   ![Connexion](media/sql-data-warehouse-source-control-integration/3-connect.png "Connecter")
 
 3. Clonez votre dépôt Azure à partir de votre projet sur votre ordinateur local.
 
@@ -47,7 +47,7 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 
 1. Dans Visual Studio, créez un projet de base de données SQL Server avec un répertoire et un dépôt Git local dans votre **dépôt cloné local**.
 
-   ![Créer un projet](media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Créer un projet")  
+   ![Créer un projet](media/sql-data-warehouse-source-control-integration/5-create-new-project.png "Création d’un projet")  
 
 2. Cliquez avec le bouton droit sur votre projet SQL vide et importez votre entrepôt de données dans le projet de base de données.
 
@@ -55,23 +55,23 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 
 3. Dans Team Explorer dans Visual Studio, validez tous les changements apportés à votre dépôt Git local. 
 
-   ![Valider](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Valider")  
+   ![Commiter](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Validation")  
 
 4. Les changements étant validés localement dans le dépôt cloné, synchronisez-les et envoyez-les (push) à votre dépôt Azure dans votre projet Azure DevOps.
 
-   ![Synchronisation et envoi (push) : préproduction](media/sql-data-warehouse-source-control-integration/7-commit-push-changes.png "Synchronisation et envoi (push) : préproduction")
+   ![Synchroniser et envoyer (push) - Préproduction](media/sql-data-warehouse-source-control-integration/7-commit-push-changes.png "Synchroniser et envoyer (push) - Préproduction")
 
-   ![Synchronisation et envoi (push)](media/sql-data-warehouse-source-control-integration/7.5-commit-push-changes.png "Synchronisation et envoi (push)")  
+   ![Synchroniser et envoyer (push)](media/sql-data-warehouse-source-control-integration/7.5-commit-push-changes.png "Synchroniser et envoyer (push)")  
 
 ## <a name="validation"></a>Validation
 
 1. Vérifiez que les changements ont été envoyés (push) à votre dépôt Azure en mettant à jour une colonne de table dans votre projet de base de données à partir de Visual Studio SQL Server Data Tools (SSDT).
 
-   ![Valider avec mise à jour d’une colonne](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Valider avec mise à jour d’une colonne")
+   ![Valider la mise à jour de colonne](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "Valider la mise à jour de colonne")
 
 2. Validez le changement et envoyez-la (push) depuis votre dépôt local vers votre dépôt Azure.
 
-   ![Envoyer (push) les changements](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Envoyer (push) les changements")
+   ![Envoyer (push) les changements](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Envoi (push) des modifications")
 
 3. Vérifiez que le changement a été envoyé (push) dans votre dépôt Azure.
 

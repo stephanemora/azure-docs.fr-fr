@@ -1,24 +1,25 @@
 ---
-title: Tutoriel C# sur le classement des résultats - Recherche Azure
-description: Ce tutoriel s’appuie sur le projet « Pagination des résultats de la recherche - Recherche Azure » pour ajouter le classement des résultats de la recherche. Découvrez comment classer les résultats sur une propriété principale et, pour les résultats qui ont la même propriété principale, comment classer les résultats sur une propriété secondaire. Enfin, découvrez comment classer les résultats en fonction d’un profil de score.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Tutoriel C# sur le classement des résultats
+titleSuffix: Azure Cognitive Search
+description: Ce tutoriel s’appuie sur le projet « Pagination des résultats de la recherche - Recherche cognitive Azure » et y ajoute le classement des résultats de la recherche. Découvrez comment classer les résultats sur une propriété principale et, pour les résultats qui ont la même propriété principale, comment classer les résultats sur une propriété secondaire. Enfin, découvrez comment classer les résultats en fonction d’un profil de score.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/21/2019
-ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327648"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794051"
 ---
-# <a name="c-tutorial-order-the-results---azure-search"></a>Tutoriel C# : Classer les résultats - Recherche Azure
+# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>Tutoriel C# : Classer les résultats - Recherche cognitive Azure
 
 Jusqu’à présent, dans notre série de tutoriels, les résultats sont retournés et affichés dans un ordre par défaut. Il peut s’agit de l’ordre dans lequel se trouvent les données ou bien dépendant d’un éventuel _profil de score_ qui a été défini et qui est utilisé quand aucun paramètre de classement n’est spécifié. Dans ce tutoriel, nous allons découvrir comment classer les résultats en fonction d’une propriété principale puis, pour les résultats qui ont la même propriété principale, comment classer cette sélection sur une propriété secondaire. Comme alternative au classement sur la base de valeurs numériques, le dernier exemple montre comment classer selon un profil de score personnalisé. Nous allons également explorer plus avant l’affichage de _types complexes_.
 
-Afin de comparer facilement les résultats retournés, ce projet s’appuie sur le projet avec défilement infini créé dans le [Tutoriel C# : Pagination des résultats de la recherche - Recherche Azure](tutorial-csharp-paging.md).
+Afin de comparer facilement les résultats retournés, ce projet s’appuie sur le projet avec défilement infini créé dans le [Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -31,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
-Disposer de la version avec défilement infini opérationnelle du [Tutoriel C# : Pagination des résultats de la recherche - Recherche Azure](tutorial-csharp-paging.md). Ce projet peut être votre propre version ou vous pouvez l’installer à partir de GitHub : [Créer votre première application](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Disposer de la version avec défilement infini opérationnelle du [Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md). Ce projet peut être votre propre version ou vous pouvez l’installer à partir de GitHub : [Créer votre première application](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="order-results-based-on-one-property"></a>Classer des résultats en fonction d’une seule propriété
 
@@ -435,7 +436,7 @@ Pour afficher les résultats en fonction de la distance géographique, plusieurs
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Bien que les résultats aient été retournés par Recherche Azure avec un filtre de distance, la distance calculée entre les données et le point spécifié n’est _pas_ retournée. Recalculez cette valeur dans la vue ou dans le contrôleur si vous voulez l’afficher dans les résultats.
+3. Bien que les résultats aient été retournés par Recherche cognitive Azure avec un filtre de distance, la distance calculée entre les données et le point spécifié n’est _pas_ retournée. Recalculez cette valeur dans la vue ou dans le contrôleur si vous voulez l’afficher dans les résultats.
 
     Le code suivant calcule la distance entre deux points définis par leur latitude/longitude.
 
@@ -465,7 +466,7 @@ Pour afficher les résultats en fonction de la distance géographique, plusieurs
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Classer des résultats en fonction d’un profil de score
 
-Les exemples donnés jusqu’à présent dans le tutoriel montrent comment classer sur des valeurs numériques (évaluation, date de rénovation, distance géographique), fournissant un processus de classement _exact_. Cependant, certaines recherches et certaines données ne se prêtent pas à cette comparaison facile entre deux éléments de données. Recherche Azure inclut le concept de _scoring_. Des _profils de score_ peuvent être spécifiés pour un jeu de données qui peut être utilisé pour fournir des comparaisons plus complexes et qualitatives, ce qui doit être plus utile par exemple lors de la comparaison de données texte pour déterminer ce qui doit être affiché en premier.
+Les exemples donnés jusqu’à présent dans le tutoriel montrent comment classer sur des valeurs numériques (évaluation, date de rénovation, distance géographique), fournissant un processus de classement _exact_. Cependant, certaines recherches et certaines données ne se prêtent pas à cette comparaison facile entre deux éléments de données. Recherche cognitive Azure inclut le concept de _scoring_. Des _profils de score_ peuvent être spécifiés pour un jeu de données qui peut être utilisé pour fournir des comparaisons plus complexes et qualitatives, ce qui doit être plus utile par exemple lors de la comparaison de données texte pour déterminer ce qui doit être affiché en premier.
 
 Les profils de score ne sont pas définis par les utilisateurs, mais ils le sont en général par les administrateurs d’un jeu de données. Plusieurs profils de score ont été définis sur les données des hôtels. Voyons comment un profil de score est défini, puis essayons d’écrire du code pour effectuer des recherches sur ces profils.
 
@@ -957,7 +958,7 @@ Examinons trois exemples de profils de score et regardons comment chacun _devrai
 
 ### <a name="resources"></a>Ressources
 
-Pour plus d’informations, consultez [Ajouter des profils de score à un index Recherche Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Pour plus d’informations, consultez [Ajouter des profils de score à un index Recherche cognitive Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
@@ -971,6 +972,6 @@ Retenez les points importants suivants de ce projet :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez terminé cette série de tutoriels C# et vous avez normalement acquis une bonne connaissance des API de Recherche Azure.
+Vous avez terminé cette série de tutoriels C# et vous avez normalement acquis une bonne connaissance des API de Recherche cognitive Azure.
 
-Pour plus d’informations et des tutoriels, parcourez [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) ou les autres tutoriels de la [Documentation de Recherche Azure](https://docs.microsoft.com/azure/search/).
+Pour plus d’informations de référence et des tutoriels, parcourez [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) ou les autres tutoriels de la [Documentation de Recherche cognitive Azure](https://docs.microsoft.com/azure/search/).

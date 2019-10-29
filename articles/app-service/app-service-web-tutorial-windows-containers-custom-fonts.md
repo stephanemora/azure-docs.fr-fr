@@ -10,15 +10,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 10/22/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f44c7a66b6d8fe7ed6ad114ea176c84351ac6493
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6f9005b0e73e60bf479d0d3c059c301668f3b848
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071519"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787341"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrer une application ASP.NET vers Azure App Service à l’aide d’un conteneur Windows (préversion)
 
@@ -90,6 +90,10 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 _InstallFont.ps1_ se trouve dans le projet **CustomFontSample**. Il s’agit d’un script simple qui installe la police. Une version plus complexe du script se trouve dans le [centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
+> [!NOTE]
+> Pour tester le conteneur Windows localement, assurez-vous que Docker est démarré sur votre ordinateur local.
+>
+
 ## <a name="publish-to-azure-container-registry"></a>Publier sur Azure Container Registry
 
 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) peut stocker vos images pour les déploiements de conteneur. Vous pouvez configurer App Service pour utiliser des images hébergées dans Azure Container Registry.
@@ -135,27 +139,34 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Dans le menu de gauche, sélectionnez **Créer une ressource** > **Web** > **Web App pour conteneurs**.
 
-### <a name="configure-the-new-web-app"></a>Configurer la nouvelle application web
+### <a name="configure-app-basics"></a>Configurer les informations de base des applications
 
-Dans l’interface de création, configurez les paramètres selon le tableau suivant :
+Dans l’onglet **Informations de base**, configurez les paramètres selon le tableau suivant, puis cliquez sur **Suivant : Docker**.
 
 | Paramètre  | Valeur suggérée | Pour plus d’informations |
 | ----------------- | ------------ | ----|
-|**Nom de l’application**| Tapez un nom unique. | L’URL de l’application web est `http://<app_name>.azurewebsites.net`, où `<app_name>` est le nom de votre application. |
-|**Groupe de ressources**| Sélectionnez **Utiliser l’existant**, puis tapez **myResourceGroup**. |  |
-|**SE**| Windows (préversion) | |
+|**Abonnement**| Vérifiez que l’abonnement approprié est sélectionné. |  |
+|**Groupe de ressources**| Sélectionnez **Créer**, tapez **myResourceGroup** et cliquez sur **OK**. |  |
+|**Nom**| Tapez un nom unique. | L’URL de l’application web est `http://<app-name>.azurewebsites.net`, où `<app-name>` est le nom de votre application. |
+|**Publier**| Conteneur Docker | |
+|**Système d’exploitation**| Windows | |
+|**Région**| Europe Ouest | |
+|**Plan Windows**| Sélectionnez **Créer**, tapez **myAppServicePlan** et cliquez sur **OK**. | |
 
-### <a name="configure-app-service-plan"></a>Configurer le plan App Service
+L’onglet **Informations de base** doit se présenter comme suit :
 
-Cliquez sur **Plan App Service/Emplacement** > **Créer**. Nommez le nouveau plan, sélectionnez **Europe Ouest** comme emplacement et cliquez sur **OK**.
+![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-service-plan.png)
+### <a name="configure-windows-container"></a>Configurer un conteneur Windows
 
-### <a name="configure-container"></a>Configurer le conteneur
+Dans l’onglet **Docker**, configurez votre conteneur Windows personnalisé comme indiqué dans le tableau suivant, puis sélectionnez **Vérifier + créer**.
 
-Cliquez sur **Configurer le conteneur** > **Azure Container Registry**. Sélectionnez le registre, l’image et l’étiquette que vous avez créés précédemment dans [Publier sur Azure Container Registry](#publish-to-azure-container-registry), puis cliquez sur **OK**.
-
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-container.png)
+| Paramètre  | Valeur suggérée |
+| ----------------- | ------------ |
+|**Source d’image**| Azure Container Registry |
+|**Registre**| Sélectionnez [le registre que vous avez créé précédemment](#publish-to-azure-container-registry). |
+|**Image**| customfontsample |
+|**Tag**| latest |
 
 ### <a name="complete-app-creation"></a>Créer l’application
 
@@ -183,9 +194,9 @@ Attendez quelques minutes et réessayez, jusqu’à obtenir la page d’accueil 
 
 ## <a name="see-container-start-up-logs"></a>Consulter les journaux d’activité de démarrage du conteneur
 
-Le chargement du conteneur Windows peut prendre un certain temps. Pour afficher la progression, accédez à l’URL suivante en remplaçant *\<app_name >* par le nom de votre application.
+Le chargement du conteneur Windows peut prendre un certain temps. Pour afficher la progression, accédez à l’URL suivante en remplaçant *\<app-name>* par le nom de votre application.
 ```
-https://<app_name>.scm.azurewebsites.net/api/logstream
+https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
 
 Les journaux d’activité en continu ressemblent à ceci :

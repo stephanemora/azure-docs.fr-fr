@@ -1,30 +1,29 @@
 ---
-title: 'Tutoriel REST : Indexation de données semi-structurées dans des objets blob JSON - Recherche Azure'
-description: Apprenez à indexer et à rechercher des objets blob Azure JSON semi-structurés à l’aide des API REST Recherche Azure et Postman.
-author: HeidiSteen
+title: 'Tutoriel REST : Indexation de données semi-structurées dans des objets blob JSON'
+titleSuffix: Azure Cognitive Search
+description: Apprenez à indexer et à rechercher des objets blob Azure JSON semi-structurés à l’aide des API REST de la recherche cognitive Azure et Postman.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: cb9c97efd62a56ad0eac49956f11fb422a448194
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647853"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794287"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutoriel REST : Indexer et rechercher des données semi-structurées (objets blob JSON) dans la Recherche Azure
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>Tutoriel REST : Indexer et rechercher des données semi-structurées (objets blob JSON) dans la recherche cognitive Azure
 
-Recherche Azure peut indexer des tableaux et documents JSON dans le stockage d’objets blob Azure à l’aide d’un [indexeur](search-indexer-overview.md) qui sait comment lire des données semi-structurées. Les données semi-structurées contiennent des balises ou des marquages qui séparent le contenu au sein des données. Elles séparent les données non structurées, qui doivent être indexées entièrement, des données formellement structurées qui respectent un modèle de données (tel qu’un schéma de base de données relationnelle), qui peuvent être indexées par champ.
+La recherche cognitive Azure peut indexer des tableaux et documents JSON dans le stockage d’objets blob Azure à l’aide d’un [indexeur](search-indexer-overview.md) qui sait comment lire des données semi-structurées. Les données semi-structurées contiennent des balises ou des marquages qui séparent le contenu au sein des données. Elles séparent les données non structurées, qui doivent être indexées entièrement, des données formellement structurées qui respectent un modèle de données (tel qu’un schéma de base de données relationnelle), qui peuvent être indexées par champ.
 
-Dans ce tutoriel, vous allez utiliser les [API REST Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/) et un client REST pour effectuer les tâches suivantes :
+Dans ce tutoriel, vous allez utiliser les [API REST de la recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/) et un client REST pour effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Configurer une source de données de Recherche Azure pour un conteneur d’objets blob Azure
-> * Créer un index Recherche Azure où stocker le contenu de recherche
+> * Configurer une source de données de recherche cognitive Azure pour un conteneur d’objets blob Azure
+> * Créer un index de recherche cognitive Azure où stocker le contenu pouvant faire l’objet d’une recherche
 > * Configurer et exécuter un indexeur pour lire le conteneur et extraire le contenu de recherche à partir du stockage d’objets blob Azure
 > * Effectuer une recherche dans l’index que vous venez de créer
 
@@ -32,17 +31,17 @@ Dans ce tutoriel, vous allez utiliser les [API REST Recherche Azure](https://doc
 
 Voici les services, outils et données utilisés dans ce guide de démarrage rapide. 
 
-[Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel. 
+[Créez un service de recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel. 
 
 [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données.
 
-L’[application de bureau Postman](https://www.getpostman.com/) permet d’envoyer des requêtes au service Recherche Azure.
+[Application de bureau Postman](https://www.getpostman.com/) pour envoyer des requêtes à la recherche cognitive Azure.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contient les données utilisées dans ce tutoriel. Téléchargez et décompressez ce fichier dans son propre dossier. Les données proviennent de [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converties au format JSON pour ce tutoriel.
 
 ## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
+Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la recherche cognitive Azure à votre abonnement, procédez comme suit pour obtenir les informations nécessaires :
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
@@ -64,13 +63,13 @@ Toutes les demandes nécessitent une clé API sur chaque demande envoyée à vot
 
 1. Accédez au dossier contenant les exemples de fichiers. Sélectionnez-les tous, puis cliquez sur **Charger**.
 
-   ![Charger les fichiers](media/search-semi-structured-data/clinicalupload.png "Charger les fichiers")
+   ![Charger des fichiers](media/search-semi-structured-data/clinicalupload.png "Charger des fichiers")
 
 Une fois le chargement terminé, les fichiers doivent apparaître dans leur propre sous-dossier au sein du conteneur de données.
 
 ## <a name="set-up-postman"></a>Configurer Postman
 
-Démarrez Postman et paramétrez une requête HTTP. Si vous ne connaissez pas bien cet outil, consultez [Explorer les API REST de la Recherche Azure avec Postman](search-get-started-postman.md).
+Démarrez Postman et paramétrez une requête HTTP. Si vous ne connaissez pas bien cet outil, consultez [Explorer les API REST de la recherche cognitive Azure avec Postman](search-get-started-postman.md).
 
 La méthode de demande pour chaque appel de ce tutoriel est **POST**. Les clés d’en-tête sont « Content-type » et « api-key ». Les valeurs des clés d’en-tête sont, respectivement, « application/json » et votre « clé d’administration » (la clé d’administration est un espace réservé pour votre clé de recherche primaire). Le corps est l’endroit où vous ajoutez le contenu réel de votre appel. Selon le client que vous utilisez, il existe différentes façons de créer votre requête. Nous vous présentons ici les étapes de création de base.
 
@@ -84,7 +83,7 @@ Exécutez les trois appels d’API suivants à partir de votre client REST.
 
 ## <a name="create-a-data-source"></a>Création d'une source de données
 
-L’[API de création de source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crée un objet Recherche Azure qui spécifie les données à indexer.
+L’[API de création de source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source) crée un objet de recherche cognitive Azure qui spécifie les données à indexer.
 
 Le point de terminaison de cet appel est `https://[service name].search.windows.net/datasources?api-version=2019-05-06`. Remplacez `[service name]` par le nom de votre service de recherche. 
 
@@ -127,7 +126,7 @@ La réponse doit ressembler à ce qui suit :
 
 ## <a name="create-an-index"></a>Création d'un index
     
-Le deuxième appel est celui de l’[API de création d’index](https://docs.microsoft.com/rest/api/searchservice/create-indexer), qui permet de créer un index Recherche Azure pour stocker toutes les données pouvant faire l’objet de recherches. Un index spécifie tous les paramètres et leurs attributs.
+Le deuxième appel est celui de l’[API de création d’index](https://docs.microsoft.com/rest/api/searchservice/create-indexer), qui permet de créer un index de recherche cognitive Azure pour stocker toutes les données pouvant faire l’objet de recherches. Un index spécifie tous les paramètres et leurs attributs.
 
 L’URL pour cet appel est `https://[service name].search.windows.net/indexes?api-version=2019-05-06`. Remplacez `[service name]` par le nom de votre service de recherche.
 
@@ -286,11 +285,11 @@ Le paramètre `$filter` fonctionne uniquement avec des métadonnées qui ont ét
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
+Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service de recherche cognitive Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service de recherche cognitive Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Il existe plusieurs approches et plusieurs options pour l’indexation d’objets blob JSON. Votre prochaine étape consiste à passer en revue et à tester les diverses options pour déterminer ce qui fonctionne le mieux pour votre scénario.
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour indexer des objets blob JSON avec l’indexeur d’objets blob Recherche Azure](search-howto-index-json-blobs.md)
+> [Guide pratique pour indexer des objets blob JSON avec l’indexeur d’objets blob de recherche cognitive Azure](search-howto-index-json-blobs.md)

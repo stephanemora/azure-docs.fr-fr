@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 69b3827bbb53a5f989f3bdec0d5c4ea6035130f0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433327"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592304"
 ---
 # <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
@@ -30,12 +30,10 @@ Azure Spring Cloud améliore l’expérience de diagnostic des applications pour
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Quels sont les plans de service offerts par Azure Spring Cloud ?
 
-Azure Spring Cloud offre un seul plan de service pendant la période de préversion.
+Azure Spring Cloud offre un seul plan de service pendant la période de préversion.  Un déploiement Spring Cloud contient 16 cœurs de processeurs virtuels et 32 Go de mémoire.  La limite supérieure de chaque instance de microservice dans un déploiement est de 4 cœurs de processeurs virtuels avec 8 Go de mémoire.
 
 Ressource | Montant
 ------- | -------
-Processeurs virtuels | 4
-Mémoire | 8 Go
 Instances d’application par application Spring | 20
 Nombre total d’instances d’application par instance du service Azure Spring Cloud | 50*
 Instances du service Azure Spring Cloud par région et par abonnement | 2*

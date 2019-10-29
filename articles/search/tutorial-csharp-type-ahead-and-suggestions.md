@@ -1,22 +1,23 @@
 ---
-title: Tutoriel C# sur l’auto-complétion et les suggestions - Recherche Azure
-description: Ce tutoriel s’appuie sur le projet « Pagination des résultats de la recherche - Recherche Azure » pour ajouter l’auto-complétion et des suggestions. L’objectif est une expérience utilisateur plus riche. Découvrez comment combiner une liste déroulante de suggestions avec l’auto-complétion inline.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Tutoriel C# sur l’auto-complétion et les suggestions
+titleSuffix: Azure Cognitive Search
+description: Ce tutoriel s’appuie sur le projet « Pagination des résultats de la recherche - Recherche cognitive Azure » pour y ajouter l’auto-complétion et des suggestions. L’objectif est une expérience utilisateur plus riche. Découvrez comment combiner une liste déroulante de suggestions avec l’auto-complétion inline.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434657"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786499"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>Tutoriel C# : Ajouter l’auto-complétion et des suggestions - Recherche Azure
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>Tutoriel C# : Ajouter l’auto-complétion et des suggestions - Recherche cognitive Azure
 
-Découvrez comment implémenter l’auto-complétion et les suggestions quand un utilisateur commence à taper dans la zone de recherche. Dans ce tutoriel, nous allons montrer les résultats d’auto-complétion et les résultats de suggestions séparément, puis illustrer une méthode permettant de les combiner pour créer une expérience utilisateur plus riche. Il suffit à l’utilisateur d’appuyer sur deux ou trois touches pour obtenir tous les résultats disponibles. Ce tutoriel repose sur le projet de pagination créé dans le [Tutoriel C#  : Pagination des résultats de la recherche - Recherche Azure](tutorial-csharp-paging.md).
+Découvrez comment implémenter l’auto-complétion et les suggestions quand un utilisateur commence à taper dans la zone de recherche. Dans ce tutoriel, nous allons montrer les résultats d’auto-complétion et les résultats de suggestions séparément, puis illustrer une méthode permettant de les combiner pour créer une expérience utilisateur plus riche. Il suffit à l’utilisateur d’appuyer sur deux ou trois touches pour obtenir tous les résultats disponibles. Ce tutoriel repose sur le projet de pagination créé dans le [Tutoriel C#  : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -29,7 +30,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
-Disposer pleinement du projet [Tutoriel C# : Pagination des résultats de la recherche - Recherche Azure](tutorial-csharp-paging.md). Ce projet peut être votre propre version, effectuée dans le tutoriel précédent, ou vous pouvez l’installer à partir de GitHub : [Créer votre première application](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Disposer pleinement du projet [Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure](tutorial-csharp-paging.md). Ce projet peut être votre propre version, effectuée dans le tutoriel précédent, ou vous pouvez l’installer à partir de GitHub : [Créer votre première application](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="add-suggestions"></a>Ajouter des suggestions
 
@@ -146,7 +147,7 @@ La fonction d’auto-complétion appelée dans le script ci-dessus n’est pas q
  
     ![Saisie de « pa » avec fuzzy défini sur true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Si cela vous intéresse, la [Syntaxe des requêtes Lucene dans Recherche Azure](https://docs.microsoft.com/azure/search/query-lucene-syntax) décrit la logique utilisée dans les recherches approximatives.
+    Si cela vous intéresse, la [Syntaxe des requêtes Lucene dans Recherche cognitive Azure](https://docs.microsoft.com/azure/search/query-lucene-syntax) décrit la logique utilisée dans les recherches approximatives.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Mettre en évidence les suggestions
 
@@ -255,7 +256,7 @@ Une autre variante, qui diffère légèrement des suggestions, est l’auto-comp
 
 ## <a name="combine-autocompletion-and-suggestions"></a>Combiner l’auto-complétion et les suggestions
 
-La combinaison de l’auto-complétion et des suggestions est l’option la plus complexe et fournit probablement la meilleure expérience utilisateur. Nous voulons afficher, conjointement avec le texte en cours de frappe, le premier choix de Recherche Azure pour compléter le texte automatiquement. De plus, nous voulons proposer une plage de suggestions sous forme de liste déroulante.
+La combinaison de l’auto-complétion et des suggestions est l’option la plus complexe et fournit probablement la meilleure expérience utilisateur. Nous voulons afficher, conjointement avec le texte en cours de frappe, le premier choix de Recherche cognitive Azure pour compléter le texte automatiquement. De plus, nous voulons proposer une plage de suggestions sous forme de liste déroulante.
 
 Il existe des bibliothèques qui offrent cette fonctionnalité, souvent appelée « auto-complétion inline » ou nom similaire. Toutefois, nous allons implémenter cette fonctionnalité en mode natif afin que vous puissiez voir ce qui se passe. Dans cet exemple, nous allons d’abord nous pencher sur le contrôleur.
 
@@ -464,6 +465,6 @@ Retenez les points importants suivants de ce projet :
 Dans le tutoriel suivant, nous abordons une autre façon d’améliorer l’expérience utilisateur, consistant à utiliser des facettes pour affiner les recherches au moyen d’un simple clic.
 
 > [!div class="nextstepaction"]
-> [Tutoriel C# : Utiliser des facettes pour faciliter la navigation - Recherche Azure](tutorial-csharp-facets.md)
+> [Tutoriel C# : Utiliser des facettes pour faciliter la navigation - Recherche cognitive Azure](tutorial-csharp-facets.md)
 
 
