@@ -1,22 +1,23 @@
 ---
-title: Tutoriel C# sur la pagination des résultats de la recherche - Recherche Azure
-description: Ce tutoriel s’appuie sur le projet « Créer votre première application - Recherche Azure » et aborde deux types de pagination. Le premier utilise une plage de boutons de numéro de page ainsi que des boutons de première page, de page suivante, de page précédente et de dernière page. Le deuxième système de pagination utilise un défilement infini, déclenché par le déplacement d’une barre de défilement verticale jusqu’à sa limite inférieure.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: Tutoriel C# sur la pagination des résultats de la recherche
+titleSuffix: Azure Cognitive Search
+description: Ce tutoriel s’appuie sur le projet « Créer votre première application - Recherche cognitive Azure », avec le choix de deux types de pagination. Le premier utilise une plage de boutons de numéro de page ainsi que des boutons de première page, de page suivante, de page précédente et de dernière page. Le deuxième système de pagination utilise un défilement infini, déclenché par le déplacement d’une barre de défilement verticale jusqu’à sa limite inférieure.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 7e6c433168b73c6b58d13d4698bed55d7c18ec58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 935e6d43cf77d94b485d55eb4bc5eb517bf802a0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434617"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794001"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-search"></a>Tutoriel C# : Pagination des résultats de la recherche - Recherche Azure
+# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>Tutoriel C# : Pagination des résultats de la recherche - Recherche cognitive Azure
 
-Découvrez comment implémenter deux systèmes de pagination différents, le premier basé sur des numéros de page et le second sur un défilement infini. Les deux systèmes de pagination sont largement utilisés, et le choix de l’un ou de l’autre dépend de l’expérience utilisateur que vous souhaitez associer aux résultats. Ce tutoriel intègre les systèmes de pagination au projet créé dans le [Tutoriel C#  : Créer votre première application - Recherche Azure](tutorial-csharp-create-first-app.md).
+Découvrez comment implémenter deux systèmes de pagination différents, le premier basé sur des numéros de page et le second sur un défilement infini. Les deux systèmes de pagination sont largement utilisés, et le choix de l’un ou de l’autre dépend de l’expérience utilisateur que vous souhaitez associer aux résultats. Ce tutoriel intègre les systèmes de pagination au projet créé dans le [Tutoriel C#  : Créer votre première application - Recherche cognitive Azure](tutorial-csharp-create-first-app.md).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -27,7 +28,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
-Disposer pleinement du projet [Tutoriel C# : Créer votre première application - Recherche Azure](tutorial-csharp-create-first-app.md). Ce projet peut être votre propre version, ou vous pouvez l’installer à partir de GitHub : [Créer votre première application](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Disposer pleinement du projet [Tutoriel C# : Créer votre première application - Recherche cognitive Azure](tutorial-csharp-create-first-app.md). Ce projet peut être votre propre version ou vous pouvez l’installer à partir de GitHub : [Créer votre première application](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="extend-your-app-with-numbered-paging"></a>Étendre votre application avec une pagination numérotée
 
@@ -361,7 +362,7 @@ Si ce n’est déjà fait, ouvrez la solution de page de recherche de base.
     ```
 
     > [!Note]
-    > La définition d’**IncludeTotalResultCount** sur true entraîne une légère diminution des performances, car ce total doit être calculé par Recherche Azure. Avec des jeux de données complexes, un avertissement s’affiche, indiquant que la valeur retournée est une _approximation_. Dans le cas de nos données d’hôtel, la valeur sera précise.
+    > La définition d’**IncludeTotalResultCount** sur true entraîne une légère diminution des performances, car ce total doit être calculé par Recherche cognitive Azure. Avec des jeux de données complexes, un avertissement s’affiche, indiquant que la valeur retournée est une _approximation_. Dans le cas de nos données d’hôtel, la valeur sera précise.
 
 ### <a name="compile-and-run-the-app"></a>Compiler et exécuter l’application
 
@@ -474,7 +475,7 @@ Seules trois actions doivent être envoyées au contrôleur : la première exé
 
 1. Ouvrez le fichier du contrôleur Home et supprimez la méthode **RunQueryAsync** du tutoriel d’origine.
 
-2. Remplacez l’action **Index(model)** par le code suivant. Il gère désormais le champ **paging** quand il est Null ou défini sur « next », et gère l’appel à Recherche Azure.
+2. Remplacez l’action **Index(model)** par le code suivant. Il gère désormais le champ **paging** quand il est Null ou défini sur « next », et gère l’appel à Recherche cognitive Azure.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -600,4 +601,4 @@ Retenez les points importants suivants de ce projet :
 La pagination est essentielle pour les recherches sur Internet. La pagination ayant été bien couverte, l’étape suivante consiste à améliorer l’expérience utilisateur en ajoutant des recherches avec auto-complétion.
 
 > [!div class="nextstepaction"]
-> [Tutoriel C# : Ajouter l’auto-complétion et des suggestions - Recherche Azure](tutorial-csharp-type-ahead-and-suggestions.md)
+> [Tutoriel C# : Ajouter l’auto-complétion et des suggestions - Recherche cognitive Azure](tutorial-csharp-type-ahead-and-suggestions.md)

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 0249867a6af16505a692e7090639807ed3d239c9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030809"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550318"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Linux à l’aide du portail Azure
 
@@ -77,7 +77,7 @@ Quelques minutes sont nécessaires pour le déploiement de votre machine virtuel
 
 1. Dans l’écran Chiffrement, sous **Disques à chiffrer**, choisissez **Disques OS et de données**.
 1. Sous **Paramètres de chiffrement**, cliquez sur « Sélectionner un coffre de clés et une clé pour le chiffrement ».
-1. Dans la barre latérale de droite, sélectionnez le nom du coffre de clés que vous avez créé précédemment comme valeur pour *Coffre de clés**, puis cliquez sur **Sélectionner**.
+1. Dans la barre latérale de droite, sélectionnez le nom du coffre de clés créé en tant que valeur pour **Coffre de clés**, puis cliquez sur **Sélectionner**.
 
     ![sélection dans Disques et Chiffrement](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. En haut de l’écran Chiffrement, cliquez sur « Enregistrer ». Un message s’affiche pour vous avertir que la machine virtuelle va redémarrer. Cliquez sur **Oui**.

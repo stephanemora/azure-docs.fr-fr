@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: b69000e251bb71bc08ea97b24a7422daf2cd89e4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813817"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529231"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Didacticiel : Développer un module IoT Edge en C pour les appareils Windows
 
@@ -92,7 +92,7 @@ Créez un modèle de solution C que vous pouvez personnaliser avec votre propre 
 
    ![Configurer votre projet pour l’appareil cible, le type de module et le registre de conteneurs](./media/tutorial-c-module-windows/add-application-and-module.png)
 
-5. Sélectionnez **OK** pour appliquer vos modifications. 
+5. Sélectionnez **Ajouter** pour créer le projet. 
 
 ### <a name="add-your-registry-credentials"></a>Ajouter les informations d’identification de votre registre
 

@@ -1,5 +1,5 @@
 ---
-title: 'Exemple de script Azure PowerShell : obtenir un groupe de ressources managé et redimensionner des machines virtuelles | Microsoft Docs'
+title: Obtenir un groupe de ressources managé et redimensionner des machines virtuelles - Azure PowerShell
 description: Fournit un exemple de script Azure PowerShell qui récupère un groupe de ressources managées pour une application managée Azure. Le script redimensionne les machines virtuelles.
 services: managed-applications
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: f36ed42e0b7f8e4d1e5b092d2a14fd0cd8178ee0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: f11f9b56a8a17330fac3fb50bfd5f560357463e7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330121"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529422"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>Obtenir des ressources dans un groupe de ressources managé et redimensionner des machines virtuelles avec PowerShell
 

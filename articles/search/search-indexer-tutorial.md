@@ -1,27 +1,27 @@
 ---
-title: 'Tutoriel C# : Indexer les données de bases de données Azure SQL - Recherche Azure'
-description: Exemple de code C# montrant comment se connecter à Azure SQL Database, extraire des données pouvant faire l’objet de recherches et charger ces données dans un index Recherche Azure.
-author: HeidiSteen
+title: 'Tutoriel C# : Indexer les données de bases de données Azure SQL'
+titleSuffix: Azure Cognitive Search
+description: Exemple de code C# montrant comment se connecter à Azure SQL Database, extraire des données pouvant faire l’objet de recherches et charger ces données dans un index Recherche cognitive Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: d83db424ee6e9a009353ca568232b38260883a4c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327179"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793604"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutoriel C# : Analyser une base de données Azure SQL à l’aide d’indexeurs Recherche Azure
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-cognitive-search-indexers"></a>Tutoriel C# : Analyser une base de données Azure SQL à l’aide d’indexeurs Recherche cognitive Azure
 
-Découvrez comment configurer un indexeur pour extraire des données pouvant faire l’objet d’une recherche à partir d’un exemple de base de données Azure SQL. [Les indexeurs](search-indexer-overview.md) sont un composant de Recherche Azure qui analyse les sources de données externes tout en alimentant un [index de recherche](search-what-is-an-index.md) avec le contenu. De tous les indexeurs, l’indexeur correspondant à Azure SQL Database est le plus couramment utilisé. 
+Découvrez comment configurer un indexeur pour extraire des données pouvant faire l’objet d’une recherche à partir d’un exemple de base de données Azure SQL. [Les indexeurs](search-indexer-overview.md) sont un composant de Recherche cognitive Azure qui analyse les sources de données externes tout en alimentant un [index de recherche](search-what-is-an-index.md) avec le contenu. De tous les indexeurs, l’indexeur correspondant à Azure SQL Database est le plus couramment utilisé. 
 
 Il est utile de maîtriser la configuration de l’indexeur dans la mesure où cela simplifie la quantité de code à écrire et à gérer. Au lieu de préparer et d’envoyer un jeu de données conformes au schéma JSON, vous pouvez attacher un indexeur à une source de données, faire en sorte que l’indexeur extrait des données et les insère dans un index, et vous pouvez également exécuter l’indexeur selon une planification périodique pour récupérer les modifications dans la source sous-jacente.
 
-Dans ce tutoriel, vous allez effectuer les tâches suivantes à l’aide des [bibliothèques de client .NET Recherche Azure](https://aka.ms/search-sdk) et d’une application console .NET Core :
+Dans ce tutoriel, vous allez effectuer les tâches suivantes en utilisant les [bibliothèques de client .NET Recherche cognitive Azure](https://aka.ms/search-sdk) et une application console .NET Core :
 
 > [!div class="checklist"]
 > * Ajouter des informations de service de recherche aux paramètres d’application
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Voici les services, outils et données utilisés dans ce guide de démarrage rapide. 
 
-[Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
+[Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) stocke la source de données externes utilisée par un indexeur. L’exemple de solution fournit un fichier de données SQL pour créer la table. Les étapes de création du service et de la base de données sont fournies dans ce tutoriel.
 
@@ -46,11 +46,11 @@ Voici les services, outils et données utilisés dans ce guide de démarrage rap
 [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) fournit l’exemple de solution situé dans le dépôt GitHub des exemples Azure. Téléchargez et extrayez la solution. Par défaut, les solutions sont en lecture seule. Cliquez avec le bouton droit sur la solution et désélectionnez l’attribut de lecture seule pour pouvoir modifier les fichiers.
 
 > [!Note]
-> Si vous utilisez le service Recherche Azure gratuit, vous êtes limité à trois index, trois indexeurs et trois sources de données. Ce didacticiel crée une occurrence de chaque élément. Assurez-vous de disposer de l’espace suffisant sur votre service pour accepter les nouvelles ressources.
+> Si vous utilisez le service Recherche cognitive Azure gratuit, vous êtes limité à trois index, trois indexeurs et trois sources de données. Ce didacticiel crée une occurrence de chaque élément. Assurez-vous de disposer de l’espace suffisant sur votre service pour accepter les nouvelles ressources.
 
 ## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
+Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté Recherche cognitive Azure à votre abonnement, effectuez ces étapes pour obtenir les informations nécessaires :
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
@@ -67,7 +67,7 @@ Les informations de connexion aux services requis sont spécifiées dans le fich
 
 1. Dans l’Explorateur de solutions, ouvrez **appsettings.json** pour pouvoir renseigner chaque paramètre.  
 
-Vous pouvez renseigner les deux premières entrées, à l’aide de l’URL et des clés d’administration de votre service Recherche Azure. Dans la mesure où le point de terminaison est `https://mydemo.search.windows.net`, le nom du service à fournir est `mydemo`.
+Vous pouvez renseigner les deux premières entrées maintenant, en utilisant l’URL et les clés d’administration de votre service Recherche cognitive Azure. Dans la mesure où le point de terminaison est `https://mydemo.search.windows.net`, le nom du service à fournir est `mydemo`.
 
 ```json
 {
@@ -81,7 +81,7 @@ La dernière entrée nécessite une base de données existante. Vous allez la cr
 
 ## <a name="prepare-sample-data"></a>Préparer l’exemple de données
 
-Au cours de cette étape, créez une source de données externe qu’un indexeur peut analyser. Vous pouvez utiliser le portail Azure et le fichier *hotels.sql* à partir de l’exemple pour créer le jeu de données dans Azure SQL Database. Recherche Azure utilise des ensembles de lignes aplatis, tel que celui généré à partir d’une vue ou d’une requête. Le fichier SQL de l’exemple de solution crée et remplit une table unique.
+Au cours de cette étape, créez une source de données externe qu’un indexeur peut analyser. Vous pouvez utiliser le portail Azure et le fichier *hotels.sql* à partir de l’exemple pour créer le jeu de données dans Azure SQL Database. Recherche cognitive Azure utilise des ensembles de lignes aplatis, comme celui généré à partir d’une vue ou d’une requête. Le fichier SQL de l’exemple de solution crée et remplit une table unique.
 
 L’exercice suivant suppose l’absence de serveur ou de base de données existante et vous invite à créer les deux lors de l’étape 2. Éventuellement, si vous disposez d’une ressource, vous pouvez y ajouter la table hôtels, en commençant à l’étape 4.
 
@@ -159,7 +159,7 @@ Dans ce didacticiel, l’indexeur extrait les données d’une source de donnée
 
 Le programme principal inclut une logique pour la création d’un client, d’un index, d’une source de données et d’un indexeur. Le code recherche et supprime les ressources existantes du même nom, en supposant que vous pouvez exécuter ce programme plusieurs fois.
 
-L’objet de source de données est configuré avec des paramètres spécifiques aux ressources de base de données SQL Azure, notamment [l’indexation incrémentielle](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows), pour tirer parti des [fonctionnalités de détection des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) d’Azure SQL. La base de données des hôtels de démonstration dans Azure SQL a une colonne « suppression réversible » nommée **IsDeleted**. Lorsque cette colonne est définie sur true dans la base de données, l’indexeur supprime le document correspondant à partir de l’index de recherche Azure.
+L’objet de source de données est configuré avec des paramètres spécifiques aux ressources de base de données SQL Azure, notamment [l’indexation incrémentielle](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows), pour tirer parti des [fonctionnalités de détection des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) d’Azure SQL. La base de données des hôtels de démonstration dans Azure SQL a une colonne « suppression réversible » nommée **IsDeleted**. Quand cette colonne est définie sur true dans la base de données, l’indexeur supprime le document correspondant dans l’index de Recherche cognitive Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -261,7 +261,7 @@ Tous les indexeurs, y compris celui que vous venez de créer par programme, sont
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Sur le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche Azure.
+Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche cognitive Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

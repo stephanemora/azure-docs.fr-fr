@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure CLI - Obtenir un groupe de ressources managé et redimensionner des machines virtuelles | Microsoft Docs
+title: Obtenir un groupe de ressources managé et redimensionner des machines virtuelles - Azure CLI
 description: Fournit un exemple de script Azure CLI qui récupère un groupe de ressources managées dans une application managée Azure. Le script redimensionne les machines virtuelles.
 services: managed-applications
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7218e2fd033614b5e9f77cca34a5db82e3571094
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ccf853f33eea054b450563747646f3d9ec560aa3
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330144"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528909"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Obtenir des ressources dans un groupe de ressources managé et redimensionner des machines virtuelles avec Azure CLI
 

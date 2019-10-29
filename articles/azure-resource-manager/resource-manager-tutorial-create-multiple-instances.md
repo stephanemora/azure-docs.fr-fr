@@ -1,5 +1,5 @@
 ---
-title: Créer plusieurs instances de ressources à l’aide d’Azure Resource Manager | Microsoft Docs
+title: Créer plusieurs instances de ressources - Azure Resource Manager
 description: Découvrez comment créer un modèle Azure Resource Manager pour déployer plusieurs instances de ressources Azure.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf2559b280a1c43269c0cf45d77ee98dcd5ee5a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388770"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528251"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Didacticiel : Créer plusieurs instances de ressources grâce à des modèles Resource Manager
 
@@ -64,7 +64,7 @@ Dans Visual Studio Code, effectuez les quatre modifications suivantes :
 ![Azure Resource Manager crée plusieurs instances](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. Ajoutez un élément `copy` à la définition de ressource du compte de stockage. Dans l’élément copy, vous indiquez le nombre d’itérations et une variable pour cette boucle. La valeur de décompte doit être un entier positif et ne pas dépasser 800.
-2. La fonction `copyIndex()` renvoie l’itération actuelle dans la boucle. Vous utilisez l’index en tant que préfixe du nom. `copyIndex()` est basé sur zéro. Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction copyIndex(). Par exemple, *copyIndex(1)*.
+2. La fonction `copyIndex()` renvoie l’itération actuelle dans la boucle. Vous utilisez l’index en tant que préfixe du nom. `copyIndex()` est basé sur zéro. Pour décaler la valeur d’index, vous pouvez transmettre une valeur dans la fonction copyIndex(). Par exemple, *copyIndex(1)* .
 3. Supprimez l’élément **variables** car il n’est plus utilisé.
 4. Supprimez l’élément **outputs**. Ce n'est plus nécessaire.
 

@@ -1,45 +1,46 @@
 ---
-title: 'Démarrage rapide : Créer un index de recherche à l’aide du portail Azure - Recherche Azure'
-description: Utilisez l’assistant Importer des données dans le portail Azure pour créer, charger et interroger votre premier index dans Azure Search.
+title: Créer un index de recherche dans le portail Azure
+titleSuffix: Azure Cognitive Search
+description: Utilisez l’Assistant Importation de données pour créer, charger et interroger votre premier index de recherche dans la Recherche cognitive Azure.
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 502177519c0e66baa7ae9c1de18a7b41bceb054a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936979"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791250"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Démarrage rapide : Créer un index Azure Search à l’aide du portail Azure
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Démarrage rapide : Créer un index Recherche cognitive Azure dans le portail Azure
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
+> * [Node.JS](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [C#](search-get-started-dotnet.md)
 
-Pour vous familiariser rapidement avec les concepts de Recherche Azure, essayez les outils intégrés dans le Portail Azure. Les assistants et les éditeurs n’offrent pas une totale parité avec l’environnement .NET et les API REST, mais vous pouvez démarrer rapidement en suivant une présentation sans code qui vous permet d’écrire des requêtes intéressantes sur un index en seulement quelques minutes.
+Utilisez le portail pour assimiler rapidement les concepts et écrire en quelques minutes des requêtes intéressantes qui ciblent un index.
 
 > [!div class="checklist"]
 > * Commencez par un exemple de jeu de données public gratuit hébergé sur Azure
-> * Exécutez l’Assistant **Importation de données** dans Recherche Azure pour charger des données et générer un index
+> * Exécutez l’Assistant **Importation de données** dans la Recherche cognitive Azure pour charger des données et générer un index
 > * Surveillez la progression de l’indexation dans le portail
 > * Affichez un index existant et les options disponibles pour le modifier
 > * Explorez la recherche en texte intégral, les filtres, les facettes, la recherche partielle et la recherche géographique avec **l’Explorateur de recherche**
 
-Si ces outils sont trop limités, vous pouvez suivre une [introduction à la programmation Recherche Azure basée sur le code dans .NET](search-howto-dotnet-sdk.md) ou utiliser [Postman pour effectuer des appels d’API REST](search-get-started-postman.md). Vous pouvez également visionner une démonstration de 6 minutes de la procédure décrite dans ce tutoriel à partir de la troisième minute environ de cette [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
+Si les outils sont trop limités, vous pouvez suivre une [Présentation basée sur du code de la programmation pour la Recherche cognitive Azure dans .NET](search-howto-dotnet-sdk.md), ou utiliser [Postman pour effectuer des appels d’API REST](search-get-started-postman.md). 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-[Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
+[Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
 ### <a name="check-for-space"></a>Vérifier l’espace disponible
 
@@ -57,7 +58,7 @@ Pour les besoins de ce tutoriel, nous utilisons un exemple de jeu de données in
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Étape 1 : démarrer l’Assistant Importation de données et créer une source de données
 
-1. Dans le tableau de bord du service Recherche Azure, cliquez sur **Importer des données** dans la barre de commandes pour créer et remplir un index de recherche.
+1. Dans le tableau de bord du service Recherche cognitive Azure, cliquez dans la barre de commandes sur **Importer des données** pour créer et remplir un index de recherche.
 
    ![Commande Importer des données](media/search-get-started-portal/import-data-cmd.png)
 
@@ -71,7 +72,7 @@ Pour les besoins de ce tutoriel, nous utilisons un exemple de jeu de données in
 
 ### <a name="step-2---skip-cognitive-skills"></a>Étape 2 : ignorer les compétences cognitives
 
-L’Assistant prend en charge la création d’un [pipeline de compétences cognitives](cognitive-search-concept-intro.md) permettant d’intégrer des algorithmes d’intelligence artificielle Cognitive Services dans l’indexation. 
+L’Assistant prend en charge la création d’un [pipeline d’enrichissement par intelligence artificielle](cognitive-search-concept-intro.md), qui permet d’incorporer les algorithmes d’IA Cognitive Services dans l’indexation. 
 
 Nous allons pour le moment ignorer cette étape et passer directement à l’étape de **personnalisation de l’index cible**.
 
@@ -125,13 +126,13 @@ Il faut parfois plusieurs minutes au portail pour actualiser la page, mais l’i
 
 ## <a name="view-the-index"></a>Afficher l’index
 
-La page principale du service fournit des liens vers les ressources créées dans votre service Recherche Azure.  Pour voir l’index que vous venez de créer, cliquez sur **Index** dans la liste des liens. 
+La page principale du service fournit des liens vers les ressources créées dans votre service Recherche cognitive Azure.  Pour voir l’index que vous venez de créer, cliquez sur **Index** dans la liste des liens. 
 
    ![Liste des index dans le tableau de bord du service](media/search-get-started-portal/indexes-list.png)
 
 Dans cette liste, vous pouvez cliquer sur l’index *hotels-sample* que vous venez de créer pour voir le schéma de l’index. Ajoutez éventuellement de nouveaux champs. 
 
-L’onglet **Champs** montre le schéma d’index. Faites défiler la liste vers le bas pour entrer un nouveau champ. Dans la plupart des cas, vous ne pouvez pas modifier les champs existants. Les champs existants ont une représentation physique dans Recherche Azure et ne sont donc pas modifiables, pas même dans le code. Pour modifier considérablement un champ existant, créez un nouvel index en supprimant l’original.
+L’onglet **Champs** montre le schéma d’index. Faites défiler la liste vers le bas pour entrer un nouveau champ. Dans la plupart des cas, vous ne pouvez pas modifier les champs existants. Les champs existants ont une représentation physique dans la Recherche cognitive Azure et ne sont donc pas modifiables, pas même dans du code. Pour modifier considérablement un champ existant, créez un nouvel index en supprimant l’original.
 
    ![définition de l’index d’exemples](media/search-get-started-portal/sample-index-def.png)
 
@@ -146,7 +147,7 @@ Vous devriez maintenant avoir un index de recherche prêt à lancer des requête
 L’**Explorateur de recherche** est uniquement équipé pour gérer des [demandes d’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), mais il accepte à la fois une syntaxe de [requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) et celle de l’[analyseur complet de requêtes Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), ainsi que tous les paramètres de recherche disponibles dans des opérations d’[API REST de recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
-> La procédure qui suit fait l’objet d’une démonstration à 6 min 08 s dans la [vidéo de présentation du service Recherche Azure](https://channel9.msdn.com/Events/Connect/2016/138).
+> Les étapes suivantes font l’objet d’une démonstration à 6:08 dans la [vidéo de présentation de la Recherche cognitive Azure](https://channel9.msdn.com/Events/Connect/2016/138).
 >
 
 1. Cliquez sur **Explorateur de recherche** dans la barre de commandes.
@@ -181,7 +182,7 @@ Vous pouvez entrer soit des termes et expressions, de la même manière que dans
 
 * Le paramètre **$count=true** récupère une valeur indiquant le nombre total de documents retournés. Cette valeur s’affiche en haut des résultats de recherche. Vous pouvez vérifier les requêtes de filtre en surveillant les modifications signalées par **$count=true**. Des petits nombres indiquent que votre filtre fonctionne.
 
-* La chaîne **$top=10** retourne les 10 documents les mieux classés parmi tous les documents. Par défaut, le service Recherche Azure renvoie les 50 meilleures correspondances. Vous pouvez augmenter ou diminuer ce nombre par le biais du paramètre **$top**.
+* La chaîne **$top=10** retourne les 10 documents les mieux classés parmi tous les documents. Par défaut, la Recherche cognitive Azure retourne les 50 meilleures correspondances. Vous pouvez augmenter ou diminuer ce nombre par le biais du paramètre **$top**.
 
 ### <a name="filter-query"></a>Filtrer la requête
 
@@ -200,7 +201,7 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exemple (par facettes avec une étendue réduite) : `search=*&facet=Category&$top=2`
 
 * **search=** * est une recherche vide. Les recherches vides portent sur tous les éléments. L’un des motifs possibles de l’exécution d’une requête vide est l’application de filtres ou de facettes au jeu complet de documents. Par exemple, vous souhaitez obtenir une structure de navigation par facettes constituée de tous les hôtels de l’index.
-* **facet** renvoie une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas, les catégories sont basées sur un champ nommé *Catégorie*. Le service Recherche Azure ne propose aucune fonction d’agrégation, mais vous pouvez bénéficier d’une fonction quasiment comparable par le biais du paramètre `facet`, qui renvoie un nombre de documents dans chaque catégorie.
+* **facet** renvoie une structure de navigation que vous pouvez transmettre à un contrôle d’interface utilisateur. Il renvoie des catégories ainsi qu’un nombre. Dans ce cas, les catégories sont basées sur un champ nommé *Catégorie*. Il n’existe pas d’agrégation dans la Recherche cognitive Azure, mais vous pouvez bénéficier d’une fonctionnalité quasiment comparable via `facet`, qui retourne un nombre de documents dans chaque catégorie.
 
 * **$top=2** renvoie deux documents, illustrant ainsi la possibilité d’utiliser `top` pour réduire ou augmenter les résultats.
 
@@ -210,7 +211,7 @@ Les filtres de facettes sont inclus dans les demandes de recherche. Vous pouvez 
 
 * Seuls les champs filtrables peuvent être désignés comme étant à facettes. Les résultats ne peuvent renvoyer que les champs récupérables.
 
-* Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple, « 3 étoiles », « 4 étoiles », etc.), consultez [Implémentation d’une navigation par facettes dans Recherche Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* Le champ *Évaluation* est un champ à virgule flottante et double précision, et le regroupement se fera par valeur précise. Pour plus d’informations sur le regroupement par intervalle (par exemple « 3 étoiles », « 4 étoiles », etc.), consultez [Guide pratique pour implémenter une navigation par facettes dans la Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
 
 
 ### <a name="highlight-query"></a>Mettre en surbrillance les termes de recherche
@@ -225,7 +226,7 @@ La mise en surbrillance des correspondances fait référence au formatage du tex
 
 * La recherche en texte intégral reconnaît les variations de base au niveau du format des mots. Dans ce cas, en réponse au mot clé de recherche « beaches », les résultats de recherche contiennent le mot « beach » mis en surbrillance pour les hôtels qui ont ce mot dans leurs champs de recherche. Les résultats peuvent afficher différentes formes du même mot grâce à l’exécution d’une analyse linguistique. 
 
-* Le service Recherche Azure prend en charge 56 analyseurs Lucene et Microsoft. Par défaut, le service Recherche Azure utilise l’analyseur Lucene standard.
+* La Recherche cognitive Azure prend en charge 56 analyseurs Lucene et Microsoft. Par défaut, la Recherche cognitive Azure utilise l’analyseur Lucene standard.
 
 ### <a name="fuzzy-search"></a> Essayer la recherche partielle
 
@@ -241,9 +242,9 @@ Cet exemple retourne désormais les documents qui contiennent des correspondance
 
 Lorsque l’élément **queryType** n’est pas spécifié, l’analyseur de requêtes simples par défaut est utilisé. L’analyseur de requêtes simples fonctionne plus rapidement, mais si vous avez besoin d’utiliser des recherches partielles, des expressions régulières, des recherches de proximité ou d’autres types de requêtes avancées, vous devrez recourir à la syntaxe complète.
 
-La recherche partielle et la recherche par caractères génériques ont des conséquences sur les résultats de la recherche. L’analyse linguistique n’est pas effectuée sur ces formats de requête. Avant d’effectuer la recherche partielle et la recherche par caractères génériques, consultez [Fonctionnement de la recherche en texte intégral dans la Recherche Azure](search-lucene-query-architecture.md#stage-2-lexical-analysis) et recherchez la section sur les exceptions dans l’analyse lexicale.
+La recherche partielle et la recherche par caractères génériques ont des conséquences sur les résultats de la recherche. L’analyse linguistique n’est pas effectuée sur ces formats de requête. Avant d’utiliser la recherche partielle et la recherche par caractères génériques, consultez [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md#stage-2-lexical-analysis), puis recherchez la section sur les exceptions relatives à l’analyse lexicale.
 
-Pour plus d’informations sur les scénarios de requête autorisés par l’analyseur de requêtes complètes, consultez l’article [Lucene query syntax in Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) (Syntaxe de requête Lucene dans le service Recherche Azure).
+Pour plus d’informations sur les scénarios de requête permis par l’analyseur de requêtes complètes, consultez [Syntaxe de requête Lucene dans la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="geo-search"></a> Essayez la recherche géospatiale
 
@@ -257,7 +258,7 @@ La recherche géographique est utile si votre application de recherche dispose d
 
 ## <a name="takeaways"></a>Éléments importants à retenir
 
-Ce didacticiel fourni une brève introduction à l’utilisation de Recherche Azure à l’aide du Portail Azure.
+Ce tutoriel a fourni une brève présentation de la Recherche cognitive Azure à l’aide du portail Azure.
 
 Vous avez appris à créer un index de recherche à l’aide de l’Assistant **Importer des données**. Vous avez découvert les [indexeurs](search-indexer-overview.md), ainsi que le flux de travail de base pour la conception d’index, y compris les [modifications prises en charge pour un index publié](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
@@ -275,8 +276,8 @@ Si vous utilisez un service gratuit, n’oubliez pas que vous êtes limité à t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Recherche Azure, utilisez les outils de programmation :
+Vous pouvez en découvrir davantage sur la Recherche cognitive Azure à l’aide des outils programmatiques :
 
 * [Création d’un index à l’aide du Kit de développement logiciel .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [Création d’un index à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Création d’un index à l’aide de Postman ou Fiddler et des API REST Recherche Azure](search-get-started-postman.md)
+* [Créer un index à l’aide de Postman ou Fiddler et des API REST de la Recherche cognitive Azure](search-get-started-postman.md)

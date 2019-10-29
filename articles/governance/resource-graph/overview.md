@@ -3,15 +3,15 @@ title: Vue d’ensemble d’Azure Resource Graph
 description: Découvrez comment le service Azure Resource Graph permet d’exécuter des requêtes complexes sur des ressources à grande échelle.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/06/2019
+ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: bf54f1a96c6be7bbfb19770472752b3f958695c4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976813"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755888"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Vue d’ensemble du service Azure Resource Graph
 
@@ -34,7 +34,7 @@ Azure Resource Graph est un service Azure conçu pour étendre Gestion des resso
 
 Azure Resource Manager prend actuellement en charge les requêtes effectuées sur des champs de ressource de base, à savoir le nom de la ressource, l’ID, le type, le groupe de ressources, l’abonnement et l’emplacement. Resource Manager fournit également des fonctionnalités permettant d’appeler des fournisseurs de ressources individuels afin d’obtenir des propriétés détaillées sur une ressource à la fois.
 
-Avec Azure Resource Graph, vous pouvez accéder aux propriétés retournées par les fournisseurs de ressources sans appeler chaque fournisseur. Pour connaître les types de ressources pris en charge, recherchez la valeur **Oui** dans le tableau de la rubrique [Suppression de ressources Azure pour les déploiements en mode complet](../../azure-resource-manager/complete-mode-deletion.md). Un autre moyen de voir les types de ressource pris en charge consiste à utiliser le [Navigateur de schémas de l’Explorateur Azure Resource Graph](./first-query-portal.md#schema-browser).
+Avec Azure Resource Graph, vous pouvez accéder aux propriétés retournées par les fournisseurs de ressources sans appeler chaque fournisseur. Pour connaître les types de ressources pris en charge, recherchez la valeur **Oui** dans le tableau de la rubrique [Suppression de ressources Azure pour les déploiements en mode complet](../../azure-resource-manager/complete-mode-deletion.md). Des types de ressources supplémentaires sont disponibles dans les [tables Resource Graph](./concepts/query-language.md#resource-graph-tables) associées. Un autre moyen de voir les types de ressource pris en charge consiste à utiliser le [Navigateur de schémas de l’Explorateur Azure Resource Graph](./first-query-portal.md#schema-browser).
 
 Azure Resource Graph vous permet :
 
@@ -45,6 +45,9 @@ Azure Resource Graph vous permet :
 
 Lorsqu’une ressource Azure est mise à jour, Resource Manager avertit Resource Graph de cette modification.
 Resource Graph met alors à jour sa base de données. Resource Graph effectue également une _analyse complète_ régulière. Cette analyse garantit que les données Resource Graph sont à jour en cas de notifications manquantes ou lorsqu'une ressource est mise à jour en dehors de Resource Manager.
+
+> [!NOTE]
+> Resource Graph utilise `GET` sur l’API autre que la préversion la plus récente de chaque fournisseur de ressources pour collecter des propriétés et des valeurs. Par conséquent, la propriété attendue peut ne pas être disponible. Dans certains cas, la version d’API utilisée a été remplacée pour fournir des propriétés plus courantes ou largement employées dans les résultats. Pour obtenir la liste complète dans votre environnement, consultez l’exemple [Afficher la version d’API pour chaque type de ressource](./samples/advanced.md#apiversion).
 
 ## <a name="the-query-language"></a>Langage de requête
 

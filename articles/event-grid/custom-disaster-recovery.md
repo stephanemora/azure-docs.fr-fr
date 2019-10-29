@@ -1,18 +1,18 @@
 ---
-title: Créer votre propre système de reprise d’activité pour les rubriques personnalisées dans Azure Event Grid | Microsoft Docs
-description: Survivre aux pannes régionales pour maintenir la connexion d’Azure Event Grid
+title: Reprise d’activité pour les rubriques personnalisées dans Event Grid
+description: Découvrez comment survivre aux pannes régionales pour maintenir la connexion d’Azure Event Grid.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305077"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790275"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Créer votre propre système de reprise d’activité pour les rubriques personnalisées dans Event Grid
 La récupération d’urgence se concentre sur la récupération des fonctionnalités des applications en cas de perte grave. Ce tutoriel vous aide à configurer votre architecture de gestion des événements en vue d’une reprise d’activité, si le service Event Grid devient non sain dans une région.

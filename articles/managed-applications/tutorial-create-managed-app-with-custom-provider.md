@@ -1,5 +1,5 @@
 ---
-title: Créer une application managée Azure avec des actions et des ressources personnalisées
+title: Application managée Azure avec des actions et des ressources personnalisées
 description: Ce tutoriel explique comment créer une application managée Azure avec un fournisseur personnalisé Azure.
 services: managed-applications
 ms.service: managed-applications
@@ -7,14 +7,14 @@ ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
-ms.openlocfilehash: 3dd0887114156956b55f554d0265e3ca2b9b10ab
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: f70bb768dae3de80f85ffc49558b9ef51d2fce49
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336104"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529203"
 ---
-# <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutoriel : Créer une application managée avec des actions et des ressources personnalisées
+# <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Didacticiel : Créer une application managée avec des actions et des ressources personnalisées
 
 Dans ce tutoriel, vous allez créer votre propre application managée avec des actions et des ressources personnalisées. L’application managée contient une action personnalisée dans la page `Overview`, un type de ressource personnalisé affiché sous la forme d’un élément de menu distinct dans `Table of Content`, et une action contextuelle personnalisée dans la page des ressources personnalisées.
 
@@ -126,7 +126,7 @@ Dans ce tutoriel, vous allez créer un type de ressource `users`, une action per
 
 L’exemple *mainTemplate.json* complet se trouve dans [Référence : Artefact de modèle de déploiement](reference-main-template-artifact.md).
 
-## <a name="view-definition-artifact"></a>Artefact de définition de vue
+## <a name="view-definition-artifact"></a>Afficher un artefact de définition
 
 Pour définir une interface utilisateur qui comprend des actions personnalisées et des ressources personnalisées dans votre application managée, vous devez créer un artefact **viewDefinition.json**. Pour plus d’informations sur les artefacts de définition de vue, consultez [Artefact de définition de vue dans Applications managées Azure](concepts-view-definition.md).
 

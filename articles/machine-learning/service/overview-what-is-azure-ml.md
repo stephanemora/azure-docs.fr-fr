@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 08/05/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a70b1c9d3ac888f0f77cf0f6e9ca37bc6cd4324
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c845966c86659c0ff983bf33c492a67dd99275f0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999933"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692963"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -38,9 +38,9 @@ Explorez et préparez des données, entraînez et testez des modèles, puis dép
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="what-can-i-do-with-azure-machine-learning"></a>Que faire avec Azure Machine Learning ?
+## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Que faire avec Azure Machine Learning ?
 
-Utilisez le <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">kit SDK Python Azure Machine Learning</a> avec des packages Python open source ou utilisez l’[interface visuelle (préversion)](ui-tutorial-automobile-price-train-score.md) pour générer et entraîner vous-même des modèles Machine Learning et Deep Learning extrêmement précis dans un espace de travail Azure Machine Learning.
+Utilisez le <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">kit SDK Python Azure Machine Learning</a> avec des packages Python open source ou utilisez l’[interface visuelle (préversion)](ui-tutorial-automobile-price-train-score.md) pour générer et entraîner vous-même des modèles Machine Learning et des modèles de deep learning extrêmement précis dans un espace de travail du service Azure Machine Learning.
 
 Vous pouvez choisir parmi les nombreux composants de machine learning disponibles dans les packages Python open source, comme <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a> et <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -54,7 +54,7 @@ Vous pouvez aussi [automatiser l’entraînement et l’optimisation de modèle]
 
 ### <a name="ui-based-low-code-experience"></a>Expérience d’interface utilisateur à faible niveau de codage
 
-Pour l’entraînement sans code, essayez :
+Pour un entraînement et un déploiement sans code, essayez :
 
 + Création d’[expériences de ML automatisé](tutorial-first-experiment-automated-ml.md) dans l’interface facile à utiliser.
 + L’[interface visuelle pour l’expérimentation par glisser-déplacer](ui-tutorial-automobile-price-train-score.md).
@@ -90,10 +90,15 @@ Voici une comparaison rapide.
 || Machine Learning Studio | Azure Machine Learning :<br/>Interface visuelle|
 |---| --- | --- |
 || Disponibilité générale (GA) | En préversion|
+|Interface de glisser-déposer| OUI | OUI|
+|Expérience| Mise à l’échelle (limite de données d’entraînement de 10 Go) | Mise à l’échelle avec cible de calcul|
 |Modules pour l’interface| Divers | Jeu initial de modules courants|
-|Cibles de calcul d’entraînement| Cible de calcul propriétaire, prise en charge CPU uniquement| Prend en charge le calcul Azure Machine Learning, GPU ou CPU<br/>(Autres calculs pris en charge dans le SDK)|
-|Cibles de calcul de déploiement| Format de service web propriétaire, non personnalisable | Options de sécurité d’entreprise et Azure Kubernetes Service. <br/>([Autres calculs](how-to-deploy-and-where.md) pris en charge dans le SDK) |
-|Entraînement de modèle automatisé et optimisation des hyperparamètres | Non | Pas encore dans l’interface visuelle. <br/> (Pris en charge dans le SDK et sur le portail Azure/sur la page d’accueil de l’espace de travail.) |
+|Cibles de calcul d’entraînement| Cible de calcul propriétaire, processeur uniquement|Calcul AML (GPU/processeur)<br/> Machines virtuelles Notebook |
+|Inférence des cibles de calcul| Format de service web propriétaire, non personnalisable | Azure Kubernetes Service (inférence en temps réel) <br/>Calcul AML (inférence par lots) |
+|Pipeline ML| Non pris en charge | Création de pipeline <br/> Pipeline publié <br/> Point de terminaison de pipeline <br/> [En savoir plus sur le pipeline ML](concept-ml-pipelines.md)|
+|Opérations ML| Gestion et déploiement des modèles de base | Déploiement configurable, gestion de versions des modèles et pipelines|
+|Modèle| Format propriétaire. Ne peut pas être utilisé en dehors de Studio | Format standard, différent, dépend du travail d’entraînement|
+|Entraînement de modèle automatisé et optimisation des hyperparamètres | Non | Pas encore dans l’interface visuelle. <br/> (Pris en charge dans le SDK Python et dans la page d’accueil de l’espace de travail.) |
 
 Essayer l’interface visuelle (préversion) avec le [Didacticiel : Prédire le prix de voitures à l’aide de l’interface visuelle](ui-tutorial-automobile-price-train-score.md).
 

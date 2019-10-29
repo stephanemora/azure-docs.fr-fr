@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser Python et TensorFlow dans Azure Functions pour produire des inférences Machine Learning | Microsoft Docs'
+title: 'Didacticiel : Utiliser Python et TensorFlow dans Azure Functions pour produire des inférences Machine Learning | Microsoft Docs'
 description: Ce tutoriel montre comment appliquer des modèles Machine Learning TensorFlow dans Azure Functions
 services: functions
 author: anthonychu
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: abc7302ee59103a9cbab156b95a41b77eb95d474
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729156"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677885"
 ---
-# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutoriel : Appliquer des modèles Machine Learning dans Azure Functions avec Python et TensorFlow
+# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Didacticiel : Appliquer des modèles Machine Learning dans Azure Functions avec Python et TensorFlow
 
 Cet article explique comment Azure Functions permet d’utiliser Python et TensorFlow avec un modèle Machine Learning pour classifier une image en fonction de son contenu.
 
@@ -54,7 +54,7 @@ Le dépôt contient quelques dossiers.
 
 - *start* :  il s’agit de votre dossier de travail pour ce tutoriel.
 - *end* : il s’agit du résultat final et de l’implémentation complète de votre référence.
-- *resources* : contient le modèle Machine Learning et les bibliothèques d’assistance.
+- *Ressources* : contient le modèle Machine Learning et les bibliothèques d’assistance.
 - *frontend* : site web qui appelle l’application de fonction.
 
 ## <a name="create-and-activate-a-python-virtual-environment"></a>Créer et activer un environnement virtuel Python
@@ -140,7 +140,7 @@ Vous allez utiliser un modèle TensorFlow prégénéré, qui a été entraîné 
 > [!NOTE]
 > Si vous souhaitez créer votre propre niveau gratuit du service Custom Vision, vous pouvez suivre les [instructions dans l’exemple de dépôt de projet](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-Le modèle se compose de deux fichiers présents dans le dossier *<REPOSITORY_ROOT>/resources/model* : *model.db* et *labels.txt*. Copiez-les dans le dossier de la fonction *classify*.
+Le modèle se compose de deux fichiers présents dans le dossier *<REPOSITORY_ROOT>/resources/model* : *model.pb* et *labels.txt*. Copiez-les dans le dossier de la fonction *classify*.
 
 #### <a name="linux-and-macos"></a>Linux et macOS :
 
@@ -179,7 +179,7 @@ Vérifiez que *classify* contient à présent un fichier nommé *predict.py*.
 La bibliothèque d’assistance comporte certaines dépendances qui doivent être installées. Ouvrez *start/requirements.txt* dans votre éditeur et ajoutez les dépendances suivantes au fichier.
 
 ```txt
-tensorflow
+tensorflow==1.15
 Pillow
 requests
 ```

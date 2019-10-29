@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créer et automatiser votre premier workflow avec Azure Logic Apps'
-description: Créez votre première application logique pour automatiser des tâches, des processus et des workflow à l’aide d’Azure Logic Apps. Créez des applications logiques pour des scénarios d’intégration des systèmes et des Applications d’Entreprise (IAE) pour vos systèmes et services cloud.
+title: Créer et automatiser votre premier workflow - Azure Logic Apps
+description: 'Démarrage rapide : Créer votre première tâche ou premier workflow automatisé avec Azure Logic Apps pour des solutions d’intégration des systèmes et d’intégration des applications de l’entreprise'
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: c85b3e3ced661eb36d9cb1eb0ae443a5ab21a913
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029420"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679145"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Démarrage rapide : Créer votre premier workflow automatisé avec Azure Logic Apps - Portail Azure
 

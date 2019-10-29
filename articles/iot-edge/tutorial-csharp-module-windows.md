@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88ff026ea56e5f41b3b124c2d5594822ffeb6830
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286686"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529287"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Didacticiel : Développer un module IoT Edge en C# pour les appareils Windows
 
@@ -84,7 +84,7 @@ Azure IoT Edge Tools fournit des modèles de projet pour tous les langages de mo
 
    ![Configurer votre projet pour l’appareil cible, le type de module et le registre de conteneurs](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. Sélectionnez **OK** pour appliquer vos modifications. 
+5. Sélectionnez **Ajouter** pour créer le projet. 
 
 ### <a name="add-your-registry-credentials"></a>Ajouter les informations d’identification de votre registre
 

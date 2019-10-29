@@ -1,22 +1,23 @@
 ---
-title: 'Démarrage rapide : Créer un index de recherche en Python à l’aide des API REST - Recherche Azure'
-description: Explique comment créer un index, charger des données et exécuter des requêtes à l’aide de Python, de Jupyter Notebooks et d’une API REST Recherche Azure.
-ms.date: 09/10/2019
+title: 'Démarrage rapide : Créer un index de recherche en Python à l’aide des API REST'
+titleSuffix: Azure Cognitive Search
+description: Explique comment créer un index, charger des données et exécuter des requêtes en Python à l’aide de notebooks Jupyter et de l’API REST de la Recherche cognitive Azure.
 author: heidisteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.openlocfilehash: 273cd690c56ef01b4fd38398aaef85570dd758a2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: c663fae47de1e161314aa3bf2fdb9966ae80d3c6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881557"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792262"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Démarrage rapide : Créer un index de Recherche Azure en Python à l’aide de notebooks Jupyter
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Démarrage rapide : Créer un index Recherche cognitive Azure en Python à l’aide de notebooks Jupyter
+
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
@@ -25,7 +26,7 @@ ms.locfileid: "70881557"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Générez un notebook Jupyter qui crée, charge et interroge un index de Recherche Azure en utilisant Python et les [API REST de Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article décrit la procédure à suivre pour créer un notebook. Vous pouvez [également télécharger et exécuter un notebook Jupyter Python complet](https://github.com/Azure-Samples/azure-search-python-samples).
+Générez un notebook Jupyter qui crée, charge et interroge un index Recherche cognitive Azure en Python à l’aide des [API REST de la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article décrit la procédure à suivre pour créer un notebook. Vous pouvez [également télécharger et exécuter un notebook Jupyter Python complet](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -35,23 +36,23 @@ Les services et outils suivants sont indispensables dans ce guide de démarrage 
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), qui fournit des notebooks Python 3.x et Jupyter.
 
-+ [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser le niveau gratuit pour ce démarrage rapide. 
++ [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser le niveau gratuit pour ce démarrage rapide. 
 
 ## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
-Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté votre abonnement à la fonction Recherche Azure, procédez comme suit pour obtenir les informations nécessaires :
+Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur chaque demande. Un service de recherche est créé avec les deux. Ainsi, si vous avez ajouté la Recherche cognitive Azure à votre abonnement, effectuez ce qui suit pour obtenir les informations nécessaires :
 
 1. [Connectez-vous au portail Azure](https://portal.azure.com/), puis dans la page **Vue d’ensemble** du service de recherche, récupérez l’URL. Voici un exemple de point de terminaison : `https://mydemo.search.windows.net`.
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
-## <a name="connect-to-azure-search"></a>Se connecter à la Recherche Azure
+## <a name="connect-to-azure-cognitive-search"></a>Se connecter à la Recherche cognitive Azure
 
-Dans cette tâche, démarrez un notebook Jupyter et vérifiez que vous pouvez vous connecter à Recherche Azure. Pour ce faire, demandez une liste d’index de votre service. Sur Windows avec Anaconda3, vous pouvez utiliser Anaconda Navigator pour lancer un notebook.
+Dans cette tâche, démarrez un notebook Jupyter, puis vérifiez que vous pouvez vous connecter à la Recherche cognitive Azure. Pour ce faire, demandez une liste d’index de votre service. Sur Windows avec Anaconda3, vous pouvez utiliser Anaconda Navigator pour lancer un notebook.
 
 1. Créez un notebook Python3.
 
@@ -85,7 +86,7 @@ Dans cette tâche, démarrez un notebook Jupyter et vérifiez que vous pouvez vo
 
 1. Exécutez chaque étape. Si des index existent, la réponse contient la liste des noms d’index. Dans la capture d’écran ci-dessous, le service a déjà un index azureblob et un index realestate-us-sample.
 
-   ![Script Python dans un notebook Jupyter avec des requêtes HTTP à Recherche Azure](media/search-get-started-python/connect-azure-search.png "Script Python dans un notebook Jupyter avec des requêtes HTTP à Recherche Azure")
+   ![Script Python dans le notebook Jupyter avec des requêtes HTTP pour la Recherche cognitive Azure](media/search-get-started-python/connect-azure-search.png "Script Python dans le notebook Jupyter avec des requêtes HTTP pour la Recherche cognitive Azure")
 
    En revanche, une collection d’index vide retourne cette réponse : `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
@@ -138,7 +139,7 @@ Cet index est nommé « hotels-quickstart » et contient les définitions de c
 
    La réponse inclut la représentation JSON du schéma. La capture d’écran suivante présente uniquement une partie de la réponse.
 
-    ![Demande de création d’index](media/search-get-started-python/create-index.png "Demande de création d’index")
+    ![Requête de création d’un index](media/search-get-started-python/create-index.png "Requête de création d’un index")
 
 > [!Tip]
 > Une autre manière de vérifier la création d’index consiste à consulter la liste Index dans le portail.
@@ -251,7 +252,7 @@ Pour envoyer (push) des documents, utilisez une requête HTTP POST au point de t
 
 Cette étape vous montre comment interroger un index à l’aide de l’[API REST Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-1. Dans une cellule, fournir une expression de requête qui exécute une recherche vide (recherche=*), retournant une liste non classée (résultat de la recherche=1.0) de documents arbitraires. Par défaut, Recherche Azure renvoie 50 correspondances à la fois. Telle qu’elle est structurée, cette requête renvoie la structure et les valeurs d’un document entier. Ajoutez $count=true pour obtenir le nombre de tous les documents dans les résultats.
+1. Dans une cellule, fournir une expression de requête qui exécute une recherche vide (recherche=*), retournant une liste non classée (résultat de la recherche=1.0) de documents arbitraires. Par défaut, la Recherche cognitive Azure retourne 50 correspondances à la fois. Telle qu’elle est structurée, cette requête renvoie la structure et les valeurs d’un document entier. Ajoutez $count=true pour obtenir le nombre de tous les documents dans les résultats.
 
    ```python
    searchstring = '&search=*&$count=true'

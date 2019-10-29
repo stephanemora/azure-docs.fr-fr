@@ -1,23 +1,24 @@
 ---
-title: Voir une base de connaissances avec l’Explorateur Stockage - Recherche Azure
-description: Visualisez et analysez une base de connaissances Recherche Azure avec l’Explorateur Stockage du portail Azure.
+title: Voir une base de connaissances avec l’Explorateur Stockage
+titleSuffix: Azure Cognitive Search
+description: Visualisez et analysez une base de connaissances Recherche cognitive Azure avec l’Explorateur Stockage du portail Azure.
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265599"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789971"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Voir une base de connaissances avec l’Explorateur Stockage
 
 > [!Note]
-> La base de connaissances est en préversion et ne doit pas être utilisée en production. L’[API REST Recherche Azure version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
+> La base de connaissances est en préversion et ne doit pas être utilisée en production. L’[API REST Recherche cognitive Azure version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 >
 Dans cet article, vous allez apprendre à connecter et explorer une base de connaissances à l’aide de l’Explorateur Stockage dans le portail Azure. Pour créer l’exemple de base de connaissances utilisé dans cette procédure pas à pas, consultez [Créer une base de connaissances dans le portail Azure](knowledge-store-create-portal.md).
 
@@ -37,15 +38,15 @@ Dans cet article, vous allez apprendre à connecter et explorer une base de conn
 
 Sélectionnez une table pour voir les données enrichies, notamment les phrases clés, les scores de sentiment, les données d’emplacement de latitude et de longitude, etc.
 
-   ![Voir les tables dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Voir les tables dans l’Explorateur Stockage")
+   ![Afficher des tables dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Afficher des tables dans l’Explorateur Stockage")
 
 Pour changer le type de données d’une valeur de table ou pour changer des valeurs individuelles dans votre table, cliquez sur **Modifier**. Quand vous changez le type de données d’une colonne dans une ligne de table, il s’applique à toutes les lignes.
 
-   ![Modifier la table dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Modifier la table dans l’Explorateur Stockage")
+   ![Modifier une table dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Modifier une table dans l’Explorateur Stockage")
 
 Pour exécuter des requêtes, cliquez sur **Requête** dans la barre de commandes, puis entrez vos conditions.  
 
-   ![Interroger la table dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Interroger la table dans l’Explorateur Stockage")
+   ![Interroger une table dans l’Explorateur Stockage](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Interroger une table dans l’Explorateur Stockage")
 
 ## <a name="clean-up"></a>Nettoyer
 

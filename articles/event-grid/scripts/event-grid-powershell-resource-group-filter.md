@@ -1,22 +1,22 @@
 ---
-title: Exemple de script Azure PowerShell - S’abonner à un groupe de ressources et filtrer par ressource | Microsoft Docs
-description: Exemple de script Azure PowerShell - S’abonner à un groupe de ressources et filtrer par ressource
+title: Azure PowerShell - S’abonner à un groupe de ressources
+description: Exemple de script Azure Event Grid et Azure PowerShell - S’abonner à un groupe de ressources et filtrer par ressource
 services: event-grid
 documentationcenter: na
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: 069762659560d1eb60ecf28267ecfa0e80a7f6e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/22/2019
+ms.author: spelluru
+ms.openlocfilehash: 222bf6fb9297afda038b38d3fb528711ad03a3ca
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117115"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790734"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>S’inscrire aux événements d’un groupe de ressources et filtrer pour trouver une ressource avec PowerShell
 

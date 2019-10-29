@@ -1,31 +1,28 @@
 ---
-title: Fonctionnalités et syntaxe prises en charge de l’API Azure Cosmos DB pour MongoDB (version 3.2)
-description: Découvrez les fonctionnalités et la syntaxe prises en charge de l’API Azure Cosmos DB pour MongoDB (version 3.2).
+title: Fonctionnalités et syntaxe prises en charge de l’API Azure Cosmos DB pour MongoDB (version 3.6)
+description: Découvrez les fonctionnalités et la syntaxe prises en charge de l’API Azure Cosmos DB pour MongoDB (version 3.6).
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
+ms.openlocfilehash: 12311fa476d069d2c866fac82ed2bac25ce88ef4
 ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754997"
+ms.locfileid: "72758348"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.2) : fonctionnalités et syntaxe prises en charge
+# <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.6) : fonctionnalités et syntaxe prises en charge
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez communiquer avec l’API Azure Cosmos DB pour MongoDB par le biais de n’importe quel [pilote](https://docs.mongodb.org/ecosystem/drivers) du client open source MongoDB. L’API Azure Cosmos DB pour MongoDB permet d’utiliser les pilotes clients existants en adhérant au [protocole Wire](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) MongoDB.
 
 À l’aide de l’API Azure Cosmos DB pour MongoDB, vous pouvez profiter des avantages de MongoDB que vous connaissez déjà, ainsi que de toutes les fonctionnalités d’entreprise fournies par Cosmos DB : [distribution globale](distribute-data-globally.md), [partitionnement automatique](partition-data.md), garanties de disponibilité et latence, indexation automatique de tous les champs, chiffrement au repos, sauvegardes et bien plus encore.
 
-> [!NOTE]
-> Cet article concerne l’API Azure Cosmos DB pour MongoDB 3.2. Pour la version MongoDB 3.6, consultez [Fonctionnalités et syntaxe prises en charge de MongoDB 3.6](mongodb-feature-support-36.md).
-
 ## <a name="protocol-support"></a>Prise en charge du protocole
 
-Tous les nouveaux comptes de l’API Azure Cosmos DB pour MongoDB sont compatibles avec la version **3.6** du serveur MongoDB. Cet article porte sur MongoDB version 3.2. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les pilotes clients comprenant ces protocoles doivent pouvoir se connecter à l’API Azure Cosmos DB pour MongoDB.
+L’API Azure Cosmos DB pour MongoDB est compatible avec la version **3.6** du serveur MongoDB par défaut pour les nouveaux comptes. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les pilotes clients comprenant ces protocoles doivent pouvoir se connecter à l’API Azure Cosmos DB pour MongoDB.
 
 ## <a name="query-language-support"></a>Prise en charge du langage de requêtes
 
@@ -54,6 +51,7 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 ### <a name="administration-commands"></a>Commandes d’administration
 
 - dropDatabase
+- listDatabases
 - listCollections
 - drop
 - create
@@ -63,6 +61,7 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 - dropIndexes
 - ConnectionStatus
 - reIndex
+- killCursors
 
 ### <a name="diagnostics-commands"></a>Commandes de diagnostic
 
@@ -76,8 +75,6 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 <a name="aggregation-pipeline"/>
 
 ## <a name="aggregation-pipelinea"></a>Pipeline d’agrégation</a>
-
-Cosmos DB prend en charge le pipeline d’agrégation pour MongoDB 3.2 en préversion publique. Consultez le [blog Azure](https://aka.ms/mongodb-aggregation) pour obtenir des instructions sur l’obtention de la préversion publique.
 
 ### <a name="aggregation-commands"></a>Commandes d’agrégation
 
@@ -99,6 +96,8 @@ Cosmos DB prend en charge le pipeline d’agrégation pour MongoDB 3.2 en prév
 - $out
 - $count
 - $addFields
+- $redact
+- $replaceRoot
 
 ### <a name="aggregation-expressions"></a>Expressions d’agrégation
 
@@ -196,14 +195,10 @@ Cosmos DB prend en charge le pipeline d’agrégation pour MongoDB 3.2 en prév
 
 ## <a name="aggregation-accumulators"></a>Accumulateurs d’agrégation
 
-- $sum
-- $avg
-- $first
-- $last
-- $max
-- $min
-- $push
-- $addToSet
+Cosmos DB prend en charge tous les accumulateurs MongoDB version 3.6, à l’exception des suivants :
+
+- $stdDevPop
+- $stdDevSamp
 
 ## <a name="operators"></a>Operators
 
@@ -274,7 +269,7 @@ L’opérateur à barre « | » agit comme une fonction « OR », la requête ``
 - $addToSet
 - $pop
 - $pullAll
-- $pull (Remarque : l’opérateur $pull avec une condition n’est pas pris en charge)
+- $pull
 - $pushAll
 - $push
 - $each
@@ -311,7 +306,7 @@ Lorsque vous utilisez l’opération `findOneAndUpdate`, les opérations de tri 
 Operator | Exemples | Notes
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
+$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` |
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
 $text |  | Non pris en charge. Utilisez plutôt $regex.
@@ -332,9 +327,7 @@ Cursor.Sort() | ```cursor.sort({ "Elevation": -1 })``` | Les documents sans clé
 
 ## <a name="unique-indexes"></a>Index uniques
 
-Cosmos DB indexe tous les champs dans les documents qui sont écrits dans la base de données par défaut. Les index uniques garantissent qu’un champ spécifique ne présente pas de valeurs en double dans tous les documents d’une collection. Cette approche est semblable à la façon dont l’unicité est conservée sur la clé `_id` par défaut. Vous pouvez créer des index personnalisés dans Cosmos DB à l’aide de la commande createIndex, y compris la contrainte « unique ».
-
-Les index uniques sont disponibles pour tous les comptes Cosmos à l’aide de l’API Azure Cosmos DB pour MongoDB.
+Les index uniques garantissent qu’un champ spécifique ne présente pas de valeurs en double dans une collection de tous les documents. Cette approche est semblable à la façon dont l’unicité est conservée sur la clé « _id » par défaut. Vous pouvez créer des index personnalisés dans Cosmos DB à l’aide de la commande createIndex, y compris la contrainte « unique ».
 
 ## <a name="time-to-live-ttl"></a>Durée de vie (TTL)
 
@@ -354,7 +347,11 @@ Certaines applications utilisent un élément [Write Concern](https://docs.mongo
 
 ## <a name="sharding"></a>Partitionnement
 
-Azure Cosmos DB prend en charge le partitionnement automatique côté serveur. Il gère automatiquement la création, le positionnement et l’équilibrage de partitions. Azure Cosmos DB ne prend pas en charge les commandes de partitionnement manuelles, ce qui signifie que vous n’avez pas besoin d’appeler de commandes, comme shardCollection, addShard, balancerStart, moveChunk, etc. Vous devez uniquement spécifier la clé de partition au moment de créer les conteneurs ou d’interroger les données.
+Azure Cosmos DB prend en charge le partitionnement automatique côté serveur. Il gère automatiquement la création, le positionnement et l’équilibrage de partitions. Azure Cosmos DB ne prend pas en charge les commandes de partitionnement manuel, ce qui signifie que vous n’avez pas besoin d’appeler de commandes comme addShard, balancerStart, moveChunk, etc. Vous devez uniquement spécifier la clé de partition au moment de créer les conteneurs ou d’interroger les données.
+
+## <a name="sessions"></a>Sessions
+
+Azure Cosmos DB ne prend pas encore en charge les commandes de sessions côté serveur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

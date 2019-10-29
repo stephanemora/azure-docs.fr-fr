@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/12/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122226"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597259"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Didacticiel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -91,7 +91,7 @@ Ce référentiel est appelé *remote repository* (référentiel distant). Chacun
 
     Remplacez **[YourAccountName]** (NomDeVotreCompte) par le nom de votre compte GitHub, puis remplacez **[YourGitHubRepositoryName]** (NomDeVotreRéférentielGitHub) par le nom de du référentiel que vous avez créé lors de la procédure précédente.
 
-    Voici un exemple de ce que vous devez voir :
+    La capture d’écran suivante présente un exemple.
 
     ![Azure Resource Manager, Azure DevOps, Azure Pipelines, créer un référentiel GitHub, Bash](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
@@ -183,9 +183,11 @@ Pour créer un pipeline avec une étape pour déployer un modèle :
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -200,14 +202,16 @@ Pour créer un pipeline avec une étape pour déployer un modèle :
 
     Effectuez les modifications suivantes :
 
-    * **azureSubscription** (AbonnementAzure) : mettez à jour cette valeur avec la connexion au service créée dans la procédure précédente.
+    * **deloymentScope** : sélectionnez l’étendue du déploiement à l’aide des options `Management Group`, `Subscription` et `Resource Group`. Dans ce tutoriel, choisissez **Groupe de ressources**. Pour en savoir plus sur les étendues, consultez [Étendues de déploiement](./resource-group-template-deploy-rest.md#deployment-scope).
+    * **ConnectedServiceName** : spécifiez le nom de la connexion au service que vous avez créée précédemment.
+    * **SubscriptionName** :  spécifiez l’ID de l’abonnement cible.
     * **action** : l’action **Create Or Update Resource Group** (Créer ou mettre à jour le groupe des ressources) effectue 2 actions : d’abord, il crée un groupe de ressources si un nouveau nom de groupe de ressources est fourni. Ensuite, il déploie le modèle spécifié.
     * **resourceGroupName** (NomDuGroupeDesRessources) : spécifiez un nouveau nom pour le groupe des ressources. Par exemple, **AzureRmPipeline-rg**.
     * **location** (emplacement) : spécifiez l’emplacement du groupe des ressources.
     * **templateLocation** (EmplacementDuModèle) : si vous spécifiez **Linked artifact** (Artefact lié), la tâche recherche le fichier de modèle directement à partir du référentiel connecté.
     * **csmFile** est le chemin d’accès au fichier du modèle. Vous n’avez pas besoin de spécifier un fichier de paramètres pour le modèle, car tous les paramètres définis dans le modèle ont des valeurs par défaut.
 
-    Pour en savoir plus sur la tâche, veuillez consulter [Tâche de déploiement de groupe de ressources Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+    Pour plus d’informations sur la tâche, consultez [Tâche Déploiement de groupe de ressources Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) et [Tâche Déploiement de modèle Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 1. Sélectionnez **Enregistrer et exécuter**.
 1. Sélectionnez de nouveau **Save and run** (Enregistrer et exécuter). Une copie du fichier YAML est enregistrée dans le référentiel connecté. Vous pouvez voir le fichier YAML en accédant à votre référentiel.
 1. Vérifiez que le pipeline est exécuté avec succès.

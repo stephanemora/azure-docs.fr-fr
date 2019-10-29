@@ -1,92 +1,91 @@
 ---
-title: Créer une base de connaissances dans le portail Azure - Recherche Azure
-description: Créez une base de connaissances Recherche Azure pour les enrichissements persistants du pipeline de recherche cognitive, à l’aide de l’Assistant Importation de données du portail Azure.
+title: Créer une base de connaissances dans le portail Azure
+titleSuffix: Azure Cognitive Search
+description: Utilisez l’Assistant Importation de données pour créer une base de connaissances où conserver le contenu enrichi. Connectez-vous à une base de connaissances pour l’analyse à partir d’autres applications, ou envoyez du contenu enrichi aux processus en aval.
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
+manager: nitinme
 ms.author: v-lilei
-ms.openlocfilehash: fb979a7ff4144694aecad0985c5bce9be2de05bd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: d714e913d5e03233ed3ffcaaebca6eb989a56bd7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265194"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790033"
 ---
-# <a name="create-an-azure-search-knowledge-store-in-the-azure-portal"></a>Créer une base de connaissances Recherche Azure dans le portail Azure
+# <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Démarrage rapide : Créer une base de connaissances Recherche cognitive Azure dans le portail Azure
 
 > [!Note]
-> La base de connaissances est en préversion et ne doit pas être utilisée en production. L’[API REST Recherche Azure version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
+> La base de connaissances est en préversion et ne doit pas être utilisée en production. Le portail Azure et l’[API REST Recherche version 2019-05-06-Preview](search-api-preview.md) fournissent tous les deux cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 >
 
-La base de connaissances est une fonctionnalité du service Recherche Azure. Elle permet de conserver la sortie d’un pipeline enrichi par IA (intelligence artificielle) pour une analyse future ou tout autre traitement en aval. Un pipeline enrichi par IA accepte des fichiers image ou des fichiers texte non structurés, les indexe à l’aide du service Recherche Azure, applique des enrichissements par IA à partir de Cognitive Services (par exemple l’analyse d’images et le traitement du langage naturel), puis enregistre les résultats au sein d’une base de connaissances dans Stockage Azure. Vous pouvez ensuite utiliser des outils tels que Power BI ou l’Explorateur Stockage pour explorer la base de connaissances.
+La base de connaissances est une fonctionnalité de la Recherche cognitive Azure qui conserve la sortie d’un pipeline de compétences cognitives en vue d’analyses ultérieures ou d’un traitement en aval. 
 
-Dans cet article, vous allez utiliser l’Assistant Importation de données du portail Azure pour ingérer, indexer et appliquer des enrichissements par IA à un ensemble d’avis sur des hôtels. Les avis sur les hôtels sont importés dans Stockage Blob Azure, et les résultats sont enregistrés en tant que base de connaissances dans Stockage Table Azure.
+Un pipeline accepte les images et le texte non structuré comme contenu brut, applique l’intelligence artificielle à Cognitive Services (par exemple, pour le traitement des images et du langage naturel) et crée du contenu enrichi (nouvelles structures et informations) en sortie. L’un des artefacts physiques créés par un pipeline est une [base de connaissances](knowledge-store-concept-intro.md), à laquelle vous pouvez accéder par le biais d’outils pour analyser et explorer le contenu.
 
-Une fois que vous avez créé la base de connaissances, vous pouvez apprendre à y accéder à l’aide de l’Explorateur Stockage ou de Power BI.
+Dans ce guide de démarrage rapide, vous combinez des services et des données dans le cloud Azure pour créer une base de connaissances. Une fois que tout est prêt, vous exécutez l’Assistant **Importation de données** dans le portail pour tout récupérer. Vous affichez ensuite le contenu d’origine et le contenu généré par l’intelligence artificielle dans le portail (avec l’[Explorateur Stockage](knowledge-store-view-storage-explorer.md)).
 
-## <a name="prerequisites"></a>Prérequis
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-+ [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
+## <a name="create-services-and-load-data"></a>Créer des services et charger des données
 
-+ [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données et la base de connaissances. Votre compte de stockage doit utiliser le même emplacement (par exemple US-WE) que votre service Recherche Azure. De plus, le *Type de compte* doit être *StorageV2 (v2 à usage général)* (par défaut) ou *Stockage (v1 à usage général)* .
+Ce guide de démarrage rapide utilise la Recherche cognitive Azure, le Stockage Blob Azure et [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) pour l’intelligence artificielle. 
 
-## <a name="load-the-data"></a>Chargement des données
+Étant donné que la charge de travail est très petite, Cognitive Services est mis en arrière-plan pour traiter gratuitement jusqu’à 20 transactions par jour quand il est appelé à partir de la Recherche cognitive Azure. Tant que vous utilisez les exemples de données que nous fournissons, vous pouvez ignorer les étapes de création ou d’attachement d’une ressource Cognitive Services.
 
-Chargez le fichier CSV d’avis sur les hôtels dans Stockage Blob Azure afin de le rendre accessible à un indexeur Recherche Azure et pour qu’il soit alimenté via le pipeline d’enrichissement par IA.
+1. [Téléchargez le fichier HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Ce fichier CSV contient des données d’avis d’hôtel (issues de Kaggle.com). Il rassemble 19 commentaires de clients relatifs à un seul hôtel. 
 
-### <a name="create-an-azure-blob-container-with-the-data"></a>Créer un conteneur d’objets blob Azure avec les données
+1. [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) ou [recherchez un compte existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) dans votre abonnement actuel. Vous utilisez le stockage Azure pour le contenu brut à importer, mais aussi pour la base de connaissances qui est le résultat final.
 
-1. [Téléchargez les données d’avis sur les hôtels enregistrées dans un fichier CSV (HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Ces données proviennent de Kaggle.com et contiennent des commentaires de clients sur les hôtels.
-1. [Connectez-vous au portail Azure](https://portal.azure.com), puis accédez à votre compte de stockage Azure.
-1. [Créez un conteneur d’objets blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Pour ce faire, dans la barre de navigation de gauche correspondant à votre compte de stockage, cliquez sur **Objets blob**, puis sur **+ Conteneur** dans la barre de commandes.
-1. Pour le **Nom** du nouveau conteneur, entrez `hotel-reviews`.
-1. Sélectionnez un **Niveau d’accès public**. Nous avons utilisé la valeur par défaut.
-1. Cliquez sur **OK** pour créer le conteneur d’objets blob Azure.
-1. Ouvrez le nouveau conteneur `hotels-review`, cliquez sur **Charger**, puis sélectionnez le fichier **HotelReviews-Free.csv** que vous avez téléchargé à la première étape.
+   Votre compte doit remplir ces deux exigences :
+
+   + Il doit être dans la même région que la Recherche cognitive Azure. 
+   
+   + Il doit être de type StorageV2 (V2 universel). 
+
+1. Ouvrez les pages des services Blob et créez un conteneur.  
+
+1. Cliquez sur **Télécharger**.
 
     ![Charger les données](media/knowledge-store-create-portal/upload-command-bar.png "Charger les avis sur les hôtels")
 
-1. Cliquez sur **Charger** pour importer le fichier CSV dans Stockage Blob Azure. Le nouveau conteneur s’affiche.
+1. Sélectionnez le fichier **HotelReviews-Free.csv** que vous avez téléchargé à la première étape.
 
-    ![Créer le conteneur d’objets blob Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Créer le conteneur d’objets blob Azure")
+    ![Créer le conteneur d’objets Blob Azure](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Créer le conteneur d’objets Blob Azure")
 
-### <a name="get-the-azure-storage-account-connection-string"></a>Obtenir la chaîne de connexion du compte Stockage Azure
+1. Vous avez presque terminé avec cette ressource, mais avant de quitter ces pages, ouvrez la page **Clés d’accès** à partir du lien correspondant dans le volet de navigation de gauche. Obtenez une chaîne de connexion pour récupérer les données du Stockage Blob. Une chaîne de connexion ressemble à l’exemple suivant : `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. Dans le portail, accédez à votre compte Stockage Azure.
-1. Dans la colonne de navigation de gauche du service, cliquez sur **Clés d’accès**.
-1. Sous **clé 1**, copiez et enregistrez la *Chaîne de connexion*. La chaîne commence par `DefaultEndpointsProtocol=https`. Votre nom et votre clé de compte de stockage sont incorporés dans la chaîne. Gardez cette chaîne à portée de main. Vous en aurez besoin au cours des prochaines étapes.
+1. [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans le même abonnement. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide.
 
-## <a name="create-and-run-ai-enrichments"></a>Créer et exécuter des enrichissements par intelligence artificielle
+Vous êtes maintenant prêt à passer à l’Assistant Importation de données.
 
-Utilisez l’Assistant Importation de données pour créer la base de connaissances. Vous allez créer une source de données, choisir des enrichissements, configurer une base de connaissances et un index, puis les exécuter.
+## <a name="run-the-import-data-wizard"></a>Exécuter l’Assistant Importation de données
 
-### <a name="start-the-import-data-wizard"></a>Démarrer l’Assistant Importer des données
+Dans la page Vue d’ensemble du service de recherche, cliquez sur **Importer des données** dans la barre de commandes pour créer une base de connaissances en quatre étapes.
 
-1. Dans le portail Azure, [Recherchez votre service de recherche](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+  ![Commande Importer des données](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
-1. Dans la barre de commandes, cliquez sur **Importer des données** pour démarrer l’Assistant Importation.
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
 
-### <a name="connect-to-your-data-import-data-wizard"></a>Se connecter aux données (Assistant Importation de données)
-
-Dans cette étape de l’Assistant, vous allez créer une source de données à partir du blob Azure et des données relatives aux hôtels.
-
-1. Dans la liste **Source de données**, sélectionnez **Stockage Blob Azure**.
+1. Dans **Se connecter à vos données**, choisissez **Stockage Blob Azure**, puis sélectionnez le compte et le conteneur que vous avez créés. 
 1. Pour **Nom**, entrez `hotel-reviews-ds`.
 1. Pour **Mode d’analyse**, sélectionnez **Texte délimité**, puis cochez la case **La première ligne contient l’en-tête**. Vérifiez que le **Caractère délimiteur** est une virgule (,).
 1. Entrez la **Chaîne de connexion** du service de stockage, que vous avez enregistrée à une étape précédente.
 1. Pour **Nom du conteneur**, entrez `hotel-reviews`.
-1. Cliquez sur **Suivant : Ajouter la recherche cognitive (facultatif)** .
+1. Cliquez sur **Suivant : Ajouter l’enrichissement par IA (facultatif)** .
 
-      ![Créer un objet source de données](media/knowledge-store-create-portal/hotel-reviews-ds.png "Créer un objet source de données")
+      ![Créer un objet de source de données](media/knowledge-store-create-portal/hotel-reviews-ds.png "Créer un objet de source de données")
 
-## <a name="add-cognitive-search-import-data-wizard"></a>Ajouter une recherche cognitive (Assistant Importation de données)
+1. Passez à la page suivante.
 
-Dans cette étape de l’Assistant, vous allez créer un ensemble de compétences par enrichissement des compétences cognitives. Les compétences que nous utilisons dans cet exemple vont extraire des phrases clés et détecter le langage ainsi que les sentiments. Ces enrichissements vont être « projetés » dans une base de connaissances en tant que tables Azure.
+### <a name="step-2-add-cognitive-skills"></a>Étape 2 : Ajouter des compétences cognitives
+
+Dans cette étape de l’Assistant, vous allez créer un ensemble de compétences par enrichissement des compétences cognitives. Les compétences que nous utilisons dans cet exemple vont extraire des phrases clés et détecter le langage ainsi que les sentiments. Dans une étape ultérieure, ces enrichissements seront « projetés » dans une base de connaissances en tant que tables Azure.
 
 1. Développez **Attacher Cognitive Services**. **Gratuit (enrichissements limités)** est sélectionné par défaut. Vous pouvez utiliser cette ressource, car le nombre d’enregistrements dans HotelReviews-Free.csv est de 19, et cette ressource gratuite autorise jusqu’à 20 transactions par jour.
-1. Développez **Ajouter des enrichissements**.
+1. Développez **Ajouter des compétences cognitives**.
 1. Pour **Nom de l’ensemble de compétences**, entrez `hotel-reviews-ss`.
 1. Pour **Champ de données source**, sélectionnez **reviews_text*.
 1. Pour **Niveau de précision d’enrichissement**, sélectionnez **Pages (segments de 5 000 caractères)**
@@ -106,9 +105,9 @@ Dans cette étape de l’Assistant, vous allez créer un ensemble de compétence
 
     ![Configurer la base de connaissances](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurer la base de connaissances")
 
-1. Cliquez sur **Suivant : Personnaliser l’index cible**.
+1. Passez à la page suivante.
 
-### <a name="import-data-import-data-wizard"></a>Importer des données (Assistant Importation de données)
+### <a name="step-3-configure-the-index"></a>Étape 3 : Configurer l’index
 
 Dans cette étape de l’Assistant, vous allez configurer un index pour d’éventuelles requêtes de recherche en texte intégral. L’Assistant va échantillonner votre source de données pour en déduire des champs et des types de données. Il vous suffit de sélectionner les attributs correspondant au comportement souhaité. Par exemple, l’attribut **Récupérable** permet au service de recherche de retourner une valeur de champ, alors que l’attribut **Possibilité de recherche** active la recherche en texte intégral sur le champ.
 
@@ -122,9 +121,9 @@ Dans cette étape de l’Assistant, vous allez configurer un index pour d’éve
 
     ![Configurer un index](media/knowledge-store-create-portal/hotel-reviews-idx.png "Configurer un index")
 
-1. Cliquez sur **Suivant : Créer un indexeur**.
+1. Passez à la page suivante.
 
-### <a name="create-an-indexer"></a>Créer un indexeur
+### <a name="step-4-configure-the-indexer"></a>Étape 4 : Configurer l’indexeur
 
 Dans cette étape de l’Assistant, vous allez configurer un indexeur qui doit rassembler la source de données, l’ensemble de compétences et l’index que vous avez définis dans les étapes précédentes de l’Assistant.
 
@@ -132,22 +131,21 @@ Dans cette étape de l’Assistant, vous allez configurer un indexeur qui doit r
 1. Pour **Planification**, conservez la valeur par défaut **Une fois**.
 1. Cliquez sur **Envoyer** pour exécuter l’indexeur. Les opérations d’extraction de données, d’indexation et d’application des compétences cognitives se produisent toutes à cette étape.
 
-### <a name="monitor-the-notifications-queue-for-status"></a>Superviser l’état de la file d’attente des notifications
+## <a name="monitor-status"></a>Superviser l’état
 
-1. Dans le portail Azure, supervisez le journal d’activité Notifications, et recherchez un lien d’état **Notification Recherche Azure** cliquable. L’exécution peut prendre plusieurs minutes.
+L’indexation des compétences cognitives prend plus de temps que l’indexation standard basée sur du texte. L’Assistant doit ouvrir la liste de l’indexeur sur la page Vue d’ensemble afin que vous puissiez suivre la progression. Pour une navigation automatique, accédez à la page Vue d’ensemble et cliquez sur **Indexeurs**.
+
+Dans le portail Azure, vous pouvez aussi superviser le journal d’activité Notifications, et rechercher un lien d’état **Notification Recherche cognitive Azure** cliquable. L’exécution peut prendre plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois que vous avez enrichi vos données à l’aide de Cognitive Services et que vous avez projeté les résultats dans une base de connaissances, vous pouvez utiliser l’Explorateur Stockage ou Power BI pour explorer votre jeu de données enrichi.
 
-Pour apprendre à explorer cette base de connaissances à l’aide de l’Explorateur Stockage, consultez la procédure pas à pas suivante.
+Vous pouvez afficher le contenu dans l’Explorateur Stockage, ou aller un peu plus loin avec Power BI pour obtenir des insights par le biais de la visualisation.
 
 > [!div class="nextstepaction"]
-> [Voir avec l’Explorateur Stockage](knowledge-store-view-storage-explorer.md)
+> [Afficher avec l’Explorateur Stockage](knowledge-store-view-storage-explorer.md)
+> [Se connecter à Power BI](knowledge-store-connect-power-bi.md)
 
-Pour apprendre à connecter cette base de connaissances à Power BI, consultez la procédure pas à pas suivante.
-
-> [!div class="nextstepaction"]
-> [Connexion avec Power BI](knowledge-store-connect-power-bi.md)
-
-Si vous souhaitez répéter cet exercice ou essayer une autre procédure pas à pas d’enrichissement par IA, supprimez l’indexeur *hotel-reviews-idxr*. La suppression de l’indexeur réinitialise le compteur de transactions quotidiennes gratuites à zéro.
+> [!Tip]
+> Si vous souhaitez répéter cet exercice ou essayer une autre procédure pas à pas d’enrichissement par IA, supprimez l’indexeur *hotel-reviews-idxr*. La suppression de l’indexeur réinitialise le compteur des transactions quotidiennes gratuites à zéro pour le traitement par Cognitive Services.

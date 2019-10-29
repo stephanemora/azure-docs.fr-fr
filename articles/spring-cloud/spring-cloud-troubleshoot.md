@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: ebb960085691206b096090813636ef56366e6536
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: ee51841046962a6896b4c16e651f85ff761a69fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038358"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592480"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Guide de dépannage pour les problèmes courants
 
@@ -146,6 +146,49 @@ Si vous migrez une solution existante basée sur Spring Cloud vers Azure, vérif
 Vous pouvez également consulter les journaux du client _Service Registry_ dans _Azure Log Analytics_. Pour plus de détails, consultez [Analyser les journaux et les métriques avec les paramètres de diagnostic](diagnostic-services.md).
 
 Consultez [cet article](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) pour bien démarrer avec _Azure Log Analytics_. Interrogez les journaux à l’aide du [langage de requête Kusto](https://docs.microsoft.com/azure/kusto/query/).
+
+### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Je souhaite inspecter les variables d’environnement de mon application
+
+Les variables d’environnement informent le framework Azure Spring Cloud et permettent de vérifier qu’Azure comprend où et comment configurer les services qui composent votre application.  La vérification de l’exactitude des variables d’environnement est une première étape nécessaire à la résolution des problèmes potentiels.  Vous pouvez utiliser le point de terminaison Spring Boot Actuator pour passer en revue vos variables d’environnement.  
+
+> [!WARNING]
+> Cette procédure expose vos variables d’environnement à l’aide de votre point de terminaison de test.  N’allez pas plus loin si votre point de terminaison de test est public, ou si vous avez affecté un nom de domaine à votre application.
+
+1. Accédez à cette URL : `https://<your application test endpoint>/actuator/health`.  
+    - Une réponse similaire à `{"status":"UP"}` indique que le point de terminaison a été activé.
+    - Si la réponse est négative, incluez la dépendance suivante dans votre `POM.xml` :
+
+        ```xml
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+        ```
+
+1. Une fois le point de terminaison Spring Boot Actuator activé, accédez au portail Azure, puis recherchez la page de configuration de votre application.  Ajoutez une variable d’environnement nommée `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value `*`. 
+
+1. Redémarrez votre application.
+
+1. Accédez à `https://<the test endpoint of your app>/actuator/env` et examinez la réponse.  Il doit se présenter comme suit :
+
+    ```json
+    {
+        "activeProfiles": [],
+        "propertySources": {,
+            "name": "server.ports",
+            "properties": {
+                "local.server.port": {
+                    "value": 1025
+                }
+            }
+        }
+    }
+    ```
+
+Recherchez le nœud enfant nommé `systemEnvironment`.  Ce nœud contient les variables d’environnement de votre application.
+
+> [!IMPORTANT]
+> N’oubliez pas d’inverser l’exposition de vos variables d’environnement avant de rendre votre application publique.  Accédez au portail Azure, recherchez la page de configuration de votre application, puis supprimez la variable d’environnement suivante : `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
 
 ### <a name="i-cannot-find-metrics-or-logs-for-my-application"></a>Impossible de trouver des métriques ou des journaux pour mon application
 

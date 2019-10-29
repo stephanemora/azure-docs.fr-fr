@@ -1,5 +1,5 @@
 ---
-title: Créer et déployer un modèle Azure Resource Manager avec IntelliJ IDEA | Microsoft Docs
+title: Déployer un modèle Azure Resource Manager - IntelliJ IDEA
 description: Découvrez comment créer votre premier modèle Azure Resource Manager à l’aide d’IntelliJ IDEA et comment le déployer.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 137a87ad0314fad08f9af0eb567e1d31032ddcb9
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169441"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533650"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Démarrage rapide : Créer et déployer des modèles Azure Resource Manager avec IntelliJ IDEA
 

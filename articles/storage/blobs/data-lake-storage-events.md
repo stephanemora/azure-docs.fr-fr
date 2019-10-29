@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71326988"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Didacticiel : Implémenter le modèle de capture de lac de données pour mettre à jour une table Delta Databricks
@@ -55,7 +55,7 @@ Tout d’abord, créez un fichier CSV qui décrit une commande client, puis char
 
 1. Ouvrez l’Explorateur de stockage Azure. Accédez à votre compte de stockage, puis, dans la section **Conteneurs d’objets blob**, créez un conteneur nommé **data**.
 
-   ![dossier data](./media/data-lake-storage-events/data-container.png "dossier data")
+   ![Dossier de données](./media/data-lake-storage-events/data-container.png "Dossier de données")
 
    Pour plus d’informations sur l’utilisation de l’Explorateur Stockage, consultez [Utiliser l’Explorateur Stockage Azure pour gérer les données dans un compte Azure Data Lake Storage Gen2](data-lake-storage-explorer.md).
 
@@ -243,7 +243,7 @@ Créez un travail qui exécute le notebook que vous avez créé précédemment. 
 
 3. Donnez un nom au travail, puis sélectionnez le classeur `upsert-order-data`.
 
-   ![Créer un travail](./media/data-lake-storage-events/create-spark-job.png "Créer un travail")
+   ![Créer un travail](./media/data-lake-storage-events/create-spark-job.png "Création d’un travail")
 
 ## <a name="create-an-azure-function"></a>Création d’une fonction Azure
 
@@ -383,7 +383,7 @@ Dans cette section, vous allez créer un abonnement Event Grid qui appelle la fo
 
    La table retournée présente l’enregistrement le plus récent.
 
-   ![Enregistrement le plus récent apparaissant dans la table](./media/data-lake-storage-events/final_query.png "Enregistrement le plus récent apparaissant dans la table")
+   ![L’enregistrement le plus récent apparaît dans la table](./media/data-lake-storage-events/final_query.png "L’enregistrement le plus récent apparaît dans la table")
 
 6. Pour mettre à jour cet enregistrement, créez un fichier nommé `customer-order-update.csv`, collez les informations suivantes dans ce fichier, puis enregistrez-le sur votre ordinateur local.
 
@@ -404,7 +404,7 @@ Dans cette section, vous allez créer un abonnement Event Grid qui appelle la fo
 
    La table retournée présente l’enregistrement mis à jour.
 
-   ![Enregistrement mis à jour présenté dans la table](./media/data-lake-storage-events/final_query-2.png "Enregistrement mis à jour présenté dans la table")
+   ![L’enregistrement mis à jour apparaît dans la table](./media/data-lake-storage-events/final_query-2.png "L’enregistrement mis à jour apparaît dans la table")
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

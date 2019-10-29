@@ -1,43 +1,43 @@
 ---
-title: Présentation de la base de connaissances (préversion) - Recherche Azure
-description: Envoyez des documents enrichis vers Stockage Azure afin de pouvoir consulter, remodeler et utiliser des documents enrichis dans Recherche Azure et dans d'autres applications.
-manager: nitinme
+title: Présentation de la base de connaissances (préversion)
+titleSuffix: Azure Cognitive Search
+description: Envoyez des documents enrichis dans le stockage Azure afin de pouvoir consulter, remodeler et utiliser des documents enrichis dans la Recherche cognitive Azure et dans d’autres applications.
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: overview
-ms.date: 08/02/2019
+manager: nitinme
 ms.author: heidist
-ms.openlocfilehash: ec0bf6002d8e90b41c2eed3c21f53e38f0fbbe8f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 82f8606f4b4201833667347d3ed16fdd73f70a36
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265215"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790365"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>Qu'est-ce que la base de connaissances de Recherche Azure ?
+# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Présentation des bases de connaissances dans la Recherche cognitive Azure
 
 > [!Note]
 > La base de connaissances est en préversion et n’a pas été conçue pour la production. L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’y a pas de prise en charge de .NET SDK pour l’instant.
 >
 
-La base de connaissances est une fonctionnalité de Recherche Azure qui enregistre les métadonnées et documents enrichis créés par un pipeline d'indexation basé sur l'IA [(recherche cognitive)](cognitive-search-concept-intro.md). Un document enrichi est la sortie d’un pipeline, créée à partir d’un contenu qui a été extrait, structuré et analysé à l’aide de ressources de Cognitive Services. Dans un pipeline basé sur l’IA standard, les documents enrichis sont temporaires, utilisés uniquement pendant l’indexation, puis ignorés. Avec la base de connaissances, les documents sont enregistrés en vue d’une évaluation et d’une exploration ultérieures, et peuvent potentiellement devenir des entrées dans une charge de travail de science des données en aval. 
+La base de connaissances est une fonctionnalité de la Recherche cognitive Azure. Elle permet de conserver la sortie d’un [pipeline d’enrichissement de l’IA](cognitive-search-concept-intro.md) pour une analyse future ou tout autre traitement en aval. Un *document enrichi* est la sortie d’un pipeline, créée à partir d’un contenu qui a été extrait, structuré et analysé à l’aide de processus IA. Dans un pipeline IA standard, les documents enrichis sont temporaires, utilisés uniquement pendant l’indexation, puis ignorés. Avec la base de connaissances, les documents enrichis sont conservés. 
 
-Si vous avez déjà eu recours à la recherche cognitive par le passé, vous savez que des ensembles de compétences sont utilisés pour déplacer un document dans le cadre d'une séquence d'enrichissements. Le résultat peut être un index Recherche Azure ou (nouveauté de cette préversion) des projections d'une base de connaissances. Les deux sorties, l’index de recherche et la base de connaissances, sont physiquement distincte. Elles partagent le même contenu, mais sont stockés et utilisées de manières très différentes.
+Si vous avez utilisé des compétences cognitives avec la Recherche cognitive Azure par le passé, vous savez déjà que des *ensembles de compétences* permettent de déplacer un document dans le cadre d’une séquence d’enrichissements. Le résultat peut être un index de recherche ou (nouveauté de cette préversion) des projections d’une base de connaissances. Les deux sorties, l’index de recherche et la base de connaissances, partagent le même contenu, mais sont stockées et utilisées de manières très différentes.
 
-Physiquement, une base de connaissances est un compte de Stockage Azure, en tant que Stockage Table Azure, que Stockage Bob Azure, ou les deux, en fonction de la façon dont vous configurez le pipeline. Tout outil ou processus pouvant se connecter au Stockage Azure peut utiliser le contenu d’un magasin de connaissances.
+Physiquement, une base de connaissances représente un [stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), soit le stockage Table Azure, soit le stockage Blob Azure, ou les deux. Tout outil ou processus pouvant se connecter au Stockage Azure peut utiliser le contenu d’un magasin de connaissances.
 
-Les projections vous permettent de structurer des données dans une base de connaissances. Par exemple, des projections vous permettent de choisir si la sortie est enregistrée en tant qu’objet blob unique ou collection de tables associées. Un moyen simple d’afficher le contenu d’une base de connaissances consiste à utiliser l’[explorateur stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) intégré pour Stockage Azure.
+![Diagramme de base de connaissances au sein d’un pipeline](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Diagramme de base de connaissances au sein d’un pipeline")
 
-![Diagramme de base de connaissances au sein d'un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramme de base de connaissances au sein d'un pipeline")
+Les projections vous permettent de structurer des données dans une base de connaissances. Par exemple, des projections vous permettent de choisir si la sortie est enregistrée en tant qu’objet blob unique ou collection de tables associées. 
 
-Pour utiliser la base de connaissances, ajoutez un élément `knowledgeStore` à un ensemble de compétences qui définit des opérations par étapes dans un pipeline d'indexation. Pendant l’exécution, la Recherche Azure crée un espace sur votre compte de stockage Azure et projette les documents enrichis avec la définition créée dans le pipeline.
+Pour utiliser la base de connaissances, ajoutez un élément `knowledgeStore` à un ensemble de compétences qui définit des opérations par étapes dans un pipeline d'indexation. Pendant l’exécution, la Recherche cognitive Azure crée un espace dans votre compte de stockage Azure et projette les documents enrichis en tant qu’objets blob ou dans des tables, en fonction de votre configuration.
 
 ## <a name="benefits-of-knowledge-store"></a>Avantages de la base de connaissances
 
 Une base de connaissances vous fournit une structure, un contexte et un contenu réel, glanés à partir de fichiers de données non structurés et semi-structurés, tels que des objets blob, des fichiers image ayant fait l'objet d'une analyse, ou même des données structurées transformées en nouveaux formulaires. Une [procédure pas à pas](knowledge-store-howto.md) conçue pour cette préversion montre comment un document JSON dense est partitionné en sous-structures, reconstitué en nouvelles structures et mis à disposition pour des processus situés en aval, comme des charges de travail liées au Machine Learning et à la science des données.
 
-Bien qu'il soit utile de voir ce qu'un pipeline d'indexation basé sur l'IA peut produire, le vrai pouvoir de la base de connaissances réside dans sa capacité à remodeler les données. Vous pouvez commencer avec un ensemble de compétences de base, puis procéder à une itération sur celui-ci afin d'ajouter des niveaux de structure croissants, que vous pouvez ensuite combiner en nouvelles structures, utilisables dans des applications autres que Recherche Azure.
+Bien qu’il soit utile de voir ce qu’un pipeline d’enrichissement de l’IA peut produire, le vrai pouvoir de la base de connaissances réside dans sa capacité à remodeler les données. Vous pouvez commencer avec un ensemble de compétences de base, puis procéder à une itération sur celui-ci afin d’ajouter des niveaux de structure croissants, que vous pouvez ensuite combiner en nouvelles structures, utilisables dans des applications autres que la Recherche cognitive Azure.
 
 La base de connaissances vous offre notamment les avantages suivants :
 
@@ -45,24 +45,31 @@ La base de connaissances vous offre notamment les avantages suivants :
 
 + Affinez un pipeline d'indexation IA lors des étapes de débogage et de la définition des ensembles de compétences. Une base de connaissances vous présente le produit de la définition d'un ensemble de compétences dans un pipeline d'indexation IA. Vous pouvez utiliser ces résultats afin de concevoir un ensemble de compétences plus performant car vous voyez exactement à quoi ressemblent les enrichissements. Vous pouvez utiliser l'[Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) de Stockage Azure pour afficher le contenu d'une base de connaissances.
 
-+ Modelez les données pour les transformer en nouveaux formulaires. Le remodelage est codifié en ensembles de compétences, mais le fait est qu'un ensemble de compétences peut désormais fournir cette capacité. La [compétence Modélisateur](cognitive-search-skill-shaper.md) de Recherche Azure a été étendue pour s'adapter à cette tâche. Le remodelage vous permet de définir une projection alignée sur l'utilisation que vous prévoyez de faire des données tout en préservant les relations.
++ Modelez les données pour les transformer en nouveaux formulaires. Le remodelage est codifié en ensembles de compétences, mais le fait est qu'un ensemble de compétences peut désormais fournir cette capacité. La [compétence Modélisateur](cognitive-search-skill-shaper.md) de la Recherche cognitive Azure a été étendue pour s’adapter à cette tâche. Le remodelage vous permet de définir une projection alignée sur l'utilisation que vous prévoyez de faire des données tout en préservant les relations.
 
 > [!Note]
-> L'indexation basée sur l'IA à l'aide de Cognitive Services n'est pas un domaine familier pour vous ? Recherche Azure s'intègre aux fonctionnalités de vision et de langage de Cognitive Services pour extraire et enrichir les données sources à l'aide de la reconnaissance optique de caractères sur des fichiers image, de la reconnaissance d'entités et de l'extraction d'expressions clés à partir de fichiers texte et autres. Pour plus d'informations, consultez [Qu'est-ce que la recherche cognitive ?](cognitive-search-concept-intro.md).
+> L’enrichissement de l’IA à l’aide de Cognitive Services n’est pas un domaine familier pour vous ? La Recherche cognitive Azure s’intègre aux fonctionnalités de vision et de langage de Cognitive Services pour extraire et enrichir les données sources à l’aide de la reconnaissance optique de caractères sur des fichiers image, de la reconnaissance d’entités et de l’extraction d’expressions clés à partir de fichiers texte et autres. Pour plus d’informations, consultez [Enrichissement de l’IA dans la Recherche cognitive Azure](cognitive-search-concept-intro.md).
 
-## <a name="create-a-knowledge-store"></a>Créer une base de connaissances
+## <a name="creating-a-knowledge-store"></a>Création d’une base de connaissances
 
-Une base de connaissances fait partie de la définition d'un ensemble de compétences. Dans cette préversion, sa création requiert l'API REST, avec `api-version=2019-05-06-Preview` ou l'Assistant **Importation de données** du portail.
+Une base de connaissances fait partie d’un [ensemble de compétences](cognitive-search-working-with-skillsets.md) qui, à son tour, fait partie d’un [indexeur](search-indexer-overview.md). 
 
-Le document JSON suivant spécifie une `knowledgeStore`, qui fait partie d'un ensemble de compétences appelé par un indexeur (non affiché). La spécification des projections dans la `knowledgeStore` détermine si des tables ou des objets sont créés dans Stockage Azure.
+Dans cette préversion, vous pouvez créer une base de connaissances avec l’API REST et `api-version=2019-05-06-Preview`, ou via l’Assistant **Importation de données** du portail.
 
-Si vous avez déjà eu recours à l'indexation basée sur l'IA, la définition de l'ensemble de compétences détermine la création, l'organisation et la substance de chaque document enrichi.
+### <a name="json-representation-of-a-knowledge-store"></a>Représentation JSON d’une base de connaissances
+
+Le document JSON suivant spécifie une `knowledgeStore`, qui fait partie d'un ensemble de compétences appelé par un indexeur (non affiché). Si vous connaissez déjà l’enrichissement de l’IA, un ensemble de compétences détermine la création, l’organisation et la substance de chaque document enrichi. Un ensemble de compétences doit contenir au moins une compétence, très probablement une compétence Modélisateur si vous modulez des structures de données.
+
+Une `knowledgeStore` se compose d’une connexion et de projections. 
+
++ La connexion cible un compte de stockage dans la même région que Recherche Azure. 
+
++ Les projections sont des paires tables-objets. Les `Tables` définissent l’expression physique des documents enrichis dans le stockage Table Azure. Les `Objects` définissent les objets physiques dans le stockage Blob Azure.
 
 ```json
 {
   "name": "my-new-skillset",
-  "description": 
-  "Example showing knowledgeStore placement, supported in api-version=2019-05-06-Preview. You need at least one skill, most likely a Shaper skill if you are modulating data structures.",
+  "description": "Example showing knowledgeStore placement in a skillset.",
   "skills":
   [
     {
@@ -124,15 +131,9 @@ Si vous avez déjà eu recours à l'indexation basée sur l'IA, la définition d
 }
 ```
 
-## <a name="components-backing-a-knowledge-store"></a>Composants soutenant une base de connaissances
+### <a name="sources-of-data-for-a-knowledge-store"></a>Sources de données d’une base de connaissances
 
-Pour créer une base de connaissances, vous avez besoin des services et artefacts suivants.
-
-### <a name="1---source-data"></a>1 - Source de données
-
-Les données ou documents que vous souhaitez enrichir doivent être disponibles dans une source de données Azure prise en charge par les indexeurs Recherche Azure : 
-
-* [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+Si une base de connaissances est la sortie d’un pipeline d’enrichissement de l’IA, quelles sont les entrées ? Les données d’origine que vous souhaitez extraire, enrichir et finalement enregistrer dans une base de connaissances peuvent provenir de n’importe quelle source de données Azure prise en charge par les indexeurs de recherche : 
 
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -140,56 +141,24 @@ Les données ou documents que vous souhaitez enrichir doivent être disponibles 
 
 * [Stockage Table Azure](search-howto-indexing-azure-tables.md)
 
-### <a name="2---azure-search-service"></a>2 - Service Recherche Azure
+* [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-Vous avez également besoin d'un service Recherche Azure et de l'API REST afin de créer et de configurer les objets utilisés pour l'enrichissement des données. L'API REST à utiliser pour créer une base de connaissances est `api-version=2019-05-06-Preview`.
+Les indexeurs et les ensembles de compétences que vous créez permettent d’extraire et d’enrichir ou de transformer ce contenu dans le cadre d’une charge de travail d’indexation, puis d’enregistrer les résultats dans une base de connaissances.
 
-Recherche Azure fournit la fonctionnalité d'indexation, et des indexeurs sont utilisés pour piloter l'ensemble du processus de bout en bout, ce qui permet de conserver et d'enrichir les documents dans Stockage Azure. Les indexeurs utilisent une source de données, un index et un ensemble de compétences, qui sont tous nécessaires à la création et à l'alimentation d'une base de connaissances.
+### <a name="rest-apis-used-in-creation-of-a-knowledge-store"></a>API REST utilisées dans la création d’une base de connaissances
+
+Seules deux API ont les extensions requises pour la création d’une base de connaissances (Créer un ensemble de compétences et Créer un indexeur). D’autres API sont utilisées en l’état.
 
 | Object | API REST | Description |
 |--------|----------|-------------|
 | source de données | [Créer une source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Ressource identifiant une source de données Azure externe qui fournit les données sources utilisées pour créer des documents enrichis.  |
-| ensemble de compétences | [Créer un ensemble de compétences (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Ressource coordonnant l'utilisation de [compétences intégrées](cognitive-search-predefined-skills.md) et de [compétences cognitives personnalisées](cognitive-search-custom-skill-interface.md) utilisées dans un pipeline d'enrichissement lors de l'indexation. |
-| index | [Création d'index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Un schéma exprimant un index Recherche Azure. Des champs dans l’index sont mappés à des champs dans les données sources ou à des champs créés lors de la phase d’enrichissement (par exemple, un champ pour les noms de l’organisation créé par la reconnaissance d’entité). |
+| ensemble de compétences | [Créer un ensemble de compétences (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Ressource coordonnant l'utilisation de [compétences intégrées](cognitive-search-predefined-skills.md) et de [compétences cognitives personnalisées](cognitive-search-custom-skill-interface.md) utilisées dans un pipeline d'enrichissement lors de l'indexation. Un ensemble de compétences a une définition de `knowledgeStore` en tant qu’élément enfant. |
+| index | [Création d'index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Schéma exprimant un index de recherche. Des champs dans l’index sont mappés à des champs dans les données sources ou à des champs créés lors de la phase d’enrichissement (par exemple, un champ pour les noms de l’organisation créé par la reconnaissance d’entité). |
 | indexeur | [Créer un indexeur (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Une ressource définissant les composants utilisés lors de l’indexation : notamment une source de données, un ensemble de compétences, des associations de champs à partir de structures de données sources et intermédiaires pour cibler l’index, et l’index lui-même. L’exécution de l’index est le déclencheur de l’ingestion des données et de l’enrichissement. La sortie est un index de recherche basé sur le schéma d'index, alimenté avec des données sources et enrichi par des ensembles de compétences.  |
 
-### <a name="3---cognitive-services"></a>3 - Cognitive Services
+### <a name="physical-composition-of-a-knowledge-store"></a>Composition physique d’une base de connaissances
 
-Les enrichissements spécifiés dans un ensemble de compétences sont soit personnalisés soit basés sur les fonctionnalités de langage et de Vision par ordinateur de Cognitive Services. La fonctionnalité Cognitive Services est utilisée lors de l'indexation, via votre ensemble de compétences. Un ensemble de compétences est une composition de compétences, qui sont liées à des fonctionnalités spécifiques de langage et de vision par ordinateur. Pour intégrer Cognitive Services, vous devez [joindre une ressource Cognitive Services](cognitive-search-attach-cognitive-services.md) à un ensemble de compétences.
-
-### <a name="4---storage-account"></a>4 - Compte de stockage
-
-Sous votre compte de Stockage Azure, la Recherche Azure crée un conteneur d’objets blob, des tables, ou les deux, en fonction de la manière dont vous configurez les projections avec l’ensemble de compétences. Si vos données proviennent du Stockage Blob ou du Stockage Table Azure, vous êtes déjà configuré et vous pouvez réutiliser le compte de stockage. Sinon, vous devez créer un compte de stockage Azure. Les tables et les objets de Stockage Azure contiennent les documents enrichis créés par le pipeline d'indexation basé sur l'IA.
-
-Le compte de stockage est spécifié dans l'ensemble de compétences. Dans `api-version=2019-05-06-Preview`, la définition d'un ensemble de compétences comprend une définition de la base de connaissances pour vous permettre de fournir les informations de compte.
-
-<a name="tools-and-apps"></a>
-
-### <a name="5---access-and-consume"></a>5 - Accès et utilisation
-
-Une fois les enrichissements disponibles dans le stockage, n'importe quel outil ou technologie capable de se connecter à Stockage Blob ou Table Azure peut être utilisé pour explorer, analyser ou utiliser le contenu. La liste suivante est un début :
-
-+ L'[Explorateur Stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) permet d'afficher la structure et le contenu des documents enrichis. Considérez-le comme votre outil de référence pour afficher le contenu de la base de connaissances.
-
-+ [Power BI avec Power Query](https://support.office.com/article/connect-to-microsoft-azure-blob-storage-power-query-f8165faa-4589-47b1-86b6-7015b330d13e) permet de formuler des requêtes en langage naturel. Vous pouvez aussi utiliser les outils de génération d'états et d'analyse si vous disposez de données numériques.
-
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) permet d'effectuer d'autres manipulations.
-
-+ L'index Recherche Azure permet d'effectuer des recherches en texte intégral dans le contenu que vous avez indexé à l'aide de la [recherche cognitive](cognitive-search-concept-intro.md).
-
-## <a name="document-persistence"></a>Persistance de document
-
-Sur le compte de stockage, les enrichissements peuvent être exprimés sous forme de tables dans Stockage Table Azure ou sous forme d'objets dans Stockage Blob Azure. Rappelons qu'une fois stockés, les enrichissements peuvent être utilisés comme source pour charger des données dans d'autres bases de données et outils.
-
-+ Le stockage Table permet d'obtenir une représentation tabulaire des données, en tenant compte des schémas. Si vous souhaitez remodeler ou recombiner différemment des éléments, le stockage Table vous confère la granularité nécessaire.
-
-+ Le stockage Blob crée une représentation JSON complète de chaque document. Vous pouvez utiliser les deux options de stockage au sein d'un même ensemble de compétences pour bénéficier d'une gamme complète d'expressions.
-
-+ Recherche Azure conserve le contenu d'un index. Si votre scénario n'est pas lié à une recherche, par exemple si votre objectif est d'effectuer une analyse dans un autre outil, vous pouvez supprimer l'index créé par le pipeline. Mais vous pouvez également conserver l'index et utiliser un outil intégré tel que l'[Explorateur de recherche](search-explorer.md) en troisième position (après l'Explorateur Stockage et votre application d'analyse) pour interagir avec votre contenu.  
-
-## <a name="inside-a-knowledge-store"></a>À l'intérieur d'une base de connaissances
-
- Une *projection* définit le schéma et la structure des enrichissements correspondant à l'utilisation prévue. Vous pouvez définir plusieurs projections si vous disposez d’applications qui consomment les données dans différents formats et sous différents formes. 
+ Une *projection*, qui est un élément d’une définition de `knowledgeStore`, articule le schéma et la structure de la sortie afin qu’elle corresponde à l’usage prévu. Vous pouvez définir plusieurs projections si vous disposez d’applications qui consomment les données dans différents formats et sous différents formes. 
 
 Les projections peuvent être articulées sous forme d’objets ou de tables :
 
@@ -200,6 +169,19 @@ Les projections peuvent être articulées sous forme d’objets ou de tables :
 Vous pouvez créer différentes projections dans une base de connaissances afin de répondre aux besoins de divers groupes de votre organisation. Un développeur peut avoir besoin d'accéder à l'intégralité de la représentation JSON d'un document enrichi, tandis que les scientifiques ou les analystes des données peuvent préférer les structures de données granulaires ou modulaires modelées par votre ensemble de compétences.
 
 Par exemple, si l'un des objectifs du processus d'enrichissement est également de créer un jeu de données pour former un modèle, la projection des données dans le magasin d'objets peut permettre d'utiliser les données de vos pipelines de science des données. Sinon, si vous souhaitez créer un tableau de bord Power BI rapide basé sur les documents enrichis, la projection tabulaire peut être efficace.
+
+<a name="tools-and-apps"></a>
+
+## <a name="connecting-with-tools-and-apps"></a>Connexion à l’aide d’outils et d’applications
+
+Une fois les enrichissements disponibles dans le stockage, n'importe quel outil ou technologie capable de se connecter à Stockage Blob ou Table Azure peut être utilisé pour explorer, analyser ou utiliser le contenu. La liste suivante est un début :
+
++ L'[Explorateur Stockage](knowledge-store-view-storage-explorer.md) permet d'afficher la structure et le contenu des documents enrichis. Considérez-le comme votre outil de référence pour afficher le contenu de la base de connaissances.
+
++ [Power BI](knowledge-store-connect-power-bi.md) pour les outils de création de rapports et d’analyse si vous avez des données numériques.
+
++ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) permet d'effectuer d'autres manipulations.
+
 
 <!---
 ## Data lifecycle and billing
@@ -231,29 +213,28 @@ Although Azure Search creates and updates structures and content in Azure storag
 
 -->
 
-## <a name="where-do-i-start"></a>Par où commencer ?
+<!-- ## Where do I start?
 
-Pour l'apprentissage, nous vous recommandons le service gratuit. Notez toutefois que le nombre de transactions gratuites est limité à 20 documents par jour et par abonnement.
+We recommend the Free service for learning purposes, but be aware that the number of free transactions is limited to 20 documents per day, per subscription.
 
-Lorsque vous utilisez plusieurs services, créez tous vos services dans la même région pour optimiser les performances et réduire les coûts. Vous n'êtes pas facturé pour la bande passante des données entrantes ou sortantes qui vont vers un autre service de la même région.
+When using multiple services, create all of your services in the same region for best performance and to minimize costs. You are not charged for bandwidth for inbound data or outbound data that goes to another service in the same region.
 
-**Étape 1 : [Créer une ressource Recherche Azure](search-create-service-portal.md)** 
+**Step 1: [Create an Azure Cognitive Search resource](search-create-service-portal.md)** 
 
-**Étape 2 : [Créer un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
+**Step 2: [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
 
-**Étape 3 : [Créer une ressource Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
+**Step 3: [Create a Cognitive Services resource](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)** 
 
-**Étape 4 : [Prise en main du portail](cognitive-search-quickstart-blob.md) - ou - [Bien démarrer avec les exemples de données en utilisant REST et Postman](knowledge-store-howto.md)** 
+**Step 4: [Get started with the portal](cognitive-search-quickstart-blob.md) - or - [Get started with sample data using REST and Postman](knowledge-store-howto.md)** 
 
-Vous pouvez utiliser REST `api-version=2019-05-06-Preview` pour créer un pipeline basé sur l'IA qui inclut la base de connaissances. Dans la dernière API de la préversion, l'objet Ensemble de compétences fournit la définition `knowledgeStore`.
-
-## <a name="takeaways"></a>Éléments importants à retenir
-
-La base de connaissances offre toutes sortes d'avantages, notamment la possibilité d'utiliser les documents enrichis dans des scénarios autres que la recherche, le contrôle des coûts et la gestion de la dérive dans le cadre de votre processus d'enrichissement. Ces fonctionnalités peuvent toutes être utilisées en ajoutant un compte de stockage à votre ensemble de compétences et en utilisant le langage d'expression mis à jour, comme décrit dans [Prise en main de la base de connaissances](knowledge-store-howto.md). 
+You can use REST `api-version=2019-05-06-Preview` to construct an AI-based pipeline that includes knowledge store. In the newest preview API, the Skillset object provides the `knowledgeStore` definition. -->
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L'approche la plus simple pour créer des documents enrichis consiste à utiliser l'Assistant **Importation de données**.
+La base de connaissances offre la persistance de documents enrichis, utile lors de la conception d’un ensemble de compétences, ou la création de structures et de contenu pour une consommation par les applications clientes qui peuvent accéder à un compte de stockage Azure.
+
+L’approche la plus simple pour créer des documents enrichis consiste à utiliser l’Assistant **Importation de données**, mais vous pouvez également utiliser Postman et l’API REST, ce qui est plus utile si vous souhaitez des insights sur la façon dont les objets sont créés et référencés.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données](cognitive-search-quickstart-blob.md)
+> [Créer une base de connaissances à l’aide du portail](knowledge-store-create-portal.md)
+> [Créer une base de connaissances à l’aide de Postman et de l’API REST](knowledge-store-create-rest.md)

@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383530"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595530"
 ---
 # <a name="dynamic-packaging"></a>l’empaquetage dynamique
 
@@ -98,7 +98,7 @@ Pour plus d’informations sur le streaming en direct dans Media Services v3, co
 L’empaquetage dynamique prend en charge les fichiers MP4 contenant de la vidéo encodée avec [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 ou hvc1).
 
 > [!NOTE]
-> Des résolutions allant jusqu’à 4K et des fréquences d’images allant jusqu’à 60 images/seconde ont été testées avec l’empaquetage dynamique. L’[encodeur Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) prend en charge l’encodage en H.265, via les API v2 existantes. Pour toute question à ce sujet, veuillez contacter amshelp@microsoft.com. 
+> Des résolutions allant jusqu’à 4K et des fréquences d’images allant jusqu’à 60 images/seconde ont été testées avec l’empaquetage dynamique. L’[encodeur Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) prend en charge l’encodage en H.265, via les API v2 existantes.
 
 ## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Codecs audio pris en charge par l’empaquetage dynamique
 
@@ -124,7 +124,7 @@ L’empaquetage dynamique prend en charge plusieurs pistes audio avec DASH ou HL
 L’empaquetage dynamique ne prend pas en charge les fichiers qui contiennent des données audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (il s’agit d’un codec existant).
 
 > [!NOTE]
-> L’[encodeur Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) prend en charge l’encodage en Dolby Digital Plus, via les API v2 existantes. Pour toute question à ce sujet, veuillez contacter amshelp@microsoft.com. 
+> L’[encodeur Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) prend en charge l’encodage en Dolby Digital Plus, via les API v2 existantes. 
 
 ## <a name="manifests"></a>Manifestes 
  
@@ -272,6 +272,10 @@ Le *chiffrement dynamique* permet de chiffrer dynamiquement votre contenu en dir
 ## <a name="more-information"></a>Plus d’informations
 
 Consultez [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
+
+## <a name="need-help"></a>Vous avez besoin d’aide ?
+
+Vous pouvez ouvrir un ticket de support en accédant à [Nouvelle demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

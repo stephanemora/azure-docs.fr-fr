@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676551"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597902"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
 
@@ -76,8 +76,8 @@ Votre infrastructure doit contenir les éléments suivants pour prendre en charg
 * Un annuaire Windows Server Active Directory synchronisé avec Azure Active Directory. Celui-ci peut être activé par le biais de :
   * Azure AD Connect
   * Services de domaine Azure AD
-  >[!NOTE]
-  >Windows Virtual Desktop prend en charge seulement les utilisateurs Azure AD Domain Services qui proviennent d’Azure Active Directory. Les utilisateurs provenant de Windows Server AD ne sont pas pris en charge pour le moment.
+     >[!NOTE]
+     >Si vous utilisez Azure AD Domain Services, vos utilisateurs doivent provenir d’Azure Active Directory. L’utilisation d’Azure AD Domain Services avec des utilisateurs provenant de Windows Server AD n’est pas prise en charge pour le moment.
 * Un abonnement Azure contenant un réseau virtuel qui contient ou est connecté à l’annuaire Windows Server Active Directory
   
 Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doivent :

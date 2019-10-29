@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/22/2019
+ms.date: 10/21/2019
 ms.author: juliako
-ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055303"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750251"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Didacticiel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
 
@@ -62,11 +62,9 @@ Cloner un référentiel GitHub contenant les fichiers de collection et d’envir
 
 ## <a name="configure-postman"></a>Configurer Postman
 
-Cette section configure le Postman.
-
 ### <a name="configure-the-environment"></a>Configurer l’environnement 
 
-1. Ouvrez **Postman**.
+1. Ouvrez l’application **Postman**.
 2. Sur la droite de l’écran, sélectionnez l’option **Gérer environnement**.
 
     ![Gérer environnement](./media/develop-with-postman/postman-import-env.png)
@@ -96,18 +94,19 @@ Cette section configure le Postman.
 Dans cette section, nous enverrons des requêtes qui sont pertinentes pour le codage et la création d’URL afin de vous permettre de diffuser votre fichier. Plus précisément, les requêtes suivantes sont envoyées :
 
 1. Obtenir un jeton Azure AD pour l’authentification du principal du service
+1. Démarrer un point de terminaison de streaming
 2. Créer une ressource de sortie
-3. Créer une **transformation**
-4. Créer un **travail**
-5. Créer un **localisateur de streaming**
-6. Lister les chemins du **localisateur de streaming**
+3. Créer une transformation
+4. Création d’un travail
+5. Créer un localisateur de streaming
+6. Lister les chemins du localisateur de streaming
 
 > [!Note]
 >  Ce tutoriel suppose que vous créez toutes les ressources avec des noms uniques.  
 
 ### <a name="get-azure-ad-token"></a>Obtenir un jeton Azure AD 
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « Étape 1 : Obtenir le jeton d’authentification AAD ».
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Étape 1 : Obtenir le jeton d’authentification AAD ».
 2. Ensuite, sélectionnez « obtenir un jeton Azure AD pour l’authentification du principal du service ».
 3. Appuyez sur **Envoyer**.
 
@@ -121,11 +120,38 @@ Dans cette section, nous enverrons des requêtes qui sont pertinentes pour le co
 
     ![Obtenir le jeton AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+
+### <a name="start-a-streaming-endpoint"></a>Démarrer un point de terminaison de streaming
+
+Pour activer le streaming, vous devez d’abord démarrer le [point de terminaison de streaming](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) à partir duquel vous souhaitez diffuser la vidéo.
+
+> [!NOTE]
+> Vous êtes facturé uniquement lorsque votre point de terminaison de streaming est en cours d’exécution.
+
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Streaming and Live » (Streaming et direct).
+2. Ensuite, sélectionnez « Start StreamingEndpoint » (Démarrer StreamingEndpoint).
+3. Appuyez sur **Envoyer**.
+
+    * L’opération **POST** suivante est envoyée :
+
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * Si la demande aboutit, `Status: 202 Accepted` est retourné.
+
+        Cet état signifie que la demande a été validée pour être traitée ; toutefois, le traitement n’a pas été effectué. Vous pouvez interroger l’état de l’opération en fonction de la valeur dans l’en-tête de réponse `Azure-AsyncOperation`.
+
+        Par exemple, l’opération GET suivante retourne l’état de votre opération :
+        
+        `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        L’article [Suivre les opérations asynchrones Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) explique en détail comment suivre l’état des opérations asynchrones Azure à l’aide des valeurs retournées dans la réponse.
+
 ### <a name="create-an-output-asset"></a>Créer une ressource de sortie
 
 La [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie stocke le résultat de votre travail d’encodage. 
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « Ressource ».
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Assets » (Ressources).
 2. Ensuite, sélectionnez « Créer ou mettre à jour une ressource ».
 3. Appuyez sur **Envoyer**.
 
@@ -156,7 +182,7 @@ Vous pouvez utiliser un préréglage EncoderNamedPreset intégré ou des préré
 > [!Note]
 > Lorsque vous créez une [transformation](https://docs.microsoft.com/rest/api/media/transforms), vous devez tout d’abord vérifier s’il en existe déjà une à l’aide de la méthode **Get**. Ce tutoriel suppose que vous créez la transformation avec un nom unique.
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « Encodage et analyse ».
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Encoding and Analysis » (Encodage et analyse).
 2. Sélectionnez ensuite « Créer transformation ».
 3. Appuyez sur **Envoyer**.
 
@@ -191,7 +217,7 @@ Un [travail](https://docs.microsoft.com/rest/api/media/jobs) est la requête ré
 
 Dans cet exemple, l’entrée du travail est basée sur une URL HTTPS ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « Encodage et analyse ».
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Encoding and Analysis » (Encodage et analyse).
 2. Ensuite, sélectionnez « Créer ou mettre à jour un travail ».
 3. Appuyez sur **Envoyer**.
 
@@ -243,7 +269,7 @@ Lors de la création d’un élément [Streaming Locator](https://docs.microsoft
 
 Votre compte Media Services a un quota en matière de nombre d’entrées de **stratégie de streaming**. Vous ne devez pas créer une **stratégie de streaming** pour chaque **localisateur de streaming**.
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « Stratégies de diffusion en continu ».
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Streaming Policies » (Stratégies de streaming).
 2. Ensuite, sélectionnez « Créer un localisateur de diffusion en continu ».
 3. Appuyez sur **Envoyer**.
 
@@ -269,7 +295,7 @@ Votre compte Media Services a un quota en matière de nombre d’entrées de **s
 
 Maintenant que le [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) a été créé, vous pouvez obtenir les URL de streaming.
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « Stratégies de diffusion en continu ».
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Streaming Policies » (Stratégies de streaming).
 2. Ensuite, sélectionnez « Répertorier les chemin d’accès ».
 3. Appuyez sur **Envoyer**.
 
