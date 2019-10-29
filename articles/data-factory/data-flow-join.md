@@ -1,77 +1,127 @@
 ---
-title: Transformation de jointure (Join) de Data Flow d’Azure Data Factory
-description: Transformation de jointure (Join) de Data Flow d’Azure Data Factory
+title: Transformation de jointure dans le flux de données de mappage Azure Data Factory | Microsoft Docs
+description: Combiner les données de deux sources de données à l’aide de la transformation de jointure dans le flux de données de mappage Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/07/2019
-ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 10/17/2019
+ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387236"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597020"
 ---
-# <a name="mapping-data-flow-join-transformation"></a>Mappage de la transformation de jointure (Join) de Data Flow
+# <a name="join-transformation-in-mapping-data-flow"></a>Transformation de jointure dans le flux de données de mappage
 
-
-
-Utilisez la transformation de jointure (Join) pour combiner les données de deux tables dans votre Data Flow. Cliquez sur la transformation qui sera la relation de gauche et ajoutez une transformation de jointure (Join) à partir de la boîte à outils. Dans la transformation de jointure (Join), vous allez sélectionner un autre flux de données à partir de votre flux de données pour qu’il devienne la relation de droite.
-
-![Transformation de jointure (Join)](media/data-flow/join.png "Join")
+Utilisez la transformation de jointure pour combiner des données de deux sources ou flux dans un flux de données de mappage. Le flux de sortie inclut toutes les colonnes des deux sources correspondantes en fonction d’une condition de jointure. 
 
 ## <a name="join-types"></a>Types de jointure
 
-La sélection du type de jointure est obligatoire pour la transformation de jointure (Join).
+Le mappage de flux de données prend actuellement en charge cinq types de jointures différents.
 
 ### <a name="inner-join"></a>Jointure interne (Inner)
 
-La jointure interne (Inner) passe uniquement dans les lignes qui correspondent aux conditions de colonne des deux tables.
+La jointure interne génère uniquement les lignes possédant des valeurs correspondantes dans les deux tables.
 
 ### <a name="left-outer"></a>Externe gauche
 
-Toutes les lignes du flux de gauche ne respectant pas la condition de jointure sont transmises, et les colonnes de sortie de l’autre table sont définies sur NULL en plus de toutes les lignes retournées par la jointure interne.
+La jointure externe gauche renvoie toutes les lignes du flux de données gauche et les enregistrements correspondants du flux de droite. Si une ligne du flux de gauche n’a pas de correspondance, les colonnes de sortie du flux de droite ont pour valeur NULL. La sortie contient les lignes renvoyées par la jointure interne ainsi que les lignes sans correspondance du flux de gauche.
 
 ### <a name="right-outer"></a>Externe droite
 
-Toutes les lignes du flux de droite ne respectant pas la condition de jointure sont transmises, et les colonnes de sortie qui correspondent à l’autre table sont définies sur NULL en plus de toutes les lignes retournées par la jointure interne.
+La jointure externe gauche renvoie toutes les lignes du flux de données droite et les enregistrements correspondants du flux de gauche. Si une ligne du flux de droite n’a pas de correspondance, les colonnes de sortie du flux de droite ont pour valeur NULL. La sortie contient les lignes renvoyées par la jointure interne ainsi que les lignes sans correspondance du flux de droite.
 
 ### <a name="full-outer"></a>Externe entière
 
-L’opération Externe entière génère toutes les colonnes et lignes des deux côtés avec des valeurs NULL pour les colonnes qui sont absentes dans l’autre table.
+La jointure externe complète génère toutes les colonnes et les lignes des deux côtés avec des valeurs NULL pour les colonnes sans correspondance.
 
 ### <a name="cross-join"></a>Jointure croisée
 
-Indiquez le produit croisé des deux flux avec une expression. Vous pouvez utiliser cette opération pour créer des conditions de jointure personnalisées.
+La jointure croisée génère le produit croisé des deux flux en fonction d’une condition. Si vous utilisez une condition qui n’est pas une égalité, spécifiez une expression personnalisée comme condition de jointure croisée. Le flux de sortie correspond à toutes les lignes qui répondent à la condition de jointure. Pour créer un produit cartésien qui génère chaque combinaison de ligne, spécifiez `true()` comme condition de jointure.
 
-## <a name="specify-join-conditions"></a>Spécifier les conditions de jointure
+## <a name="configuration"></a>Configuration
 
-La condition Jointure gauche provient du flux de données connecté à gauche de la jointure. La condition Jointure droite correspond au deuxième flux de données connecté à votre Jointure en bas, correspondant à un connecteur direct vers un autre flux ou à une référence à un autre flux.
+1. Dans la liste déroulante **Flux de droite**, choisissez le flux de données que vous joignez.
+1. Sélectionner votre **Type de jointure**
+1. Choisissez les colonnes clés pour lesquelles vous souhaitez faire correspondre la condition de jointure. Par défaut, le flux de données recherche l’équivalence entre une colonne d’un flux et une colonne de l’autre flux. Pour effectuer une comparaison à l’aide d’une valeur calculée, pointez sur la liste déroulante de la colonne, puis sélectionnez **Colonne calculée**.
 
-Vous devez entrer au moins 1 (1..n) conditions de jointure. Ils peut s’agit de champs qui sont référencés directement, sélectionnés à partir du menu déroulant, ou d’expressions.
+![Transformation de jointure (Join)](media/data-flow/join.png "Join")
 
-## <a name="join-performance-optimizations"></a>Optimisation des performances de jointure
+## <a name="optimizing-join-performance"></a>Optimisation des performances de jointure
 
-Contrairement à la jointure de fusion (Merge) dans les outils tels que SSIS, la jointure dans ADF Data Flow n’est pas une opération de jointure de fusion obligatoire. Par conséquent, les clés de jointure n’ont pas besoin d’être triées en premier lieu. L’opération de jointure se produira en fonction de l’opération de jointure optimale dans Spark : Jointure de diffusion / côté mappage :
+Contrairement à la jointure de fusion dans les outils tels que SSIS, la transformation de jointure n’est pas une opération de jointure de fusion obligatoire. Les clés de jointure ne nécessitent pas de tri. L’opération de jointure se produit en fonction de l’opération de jointure optimale dans Spark : soit la jointure de diffusion, soit la jointure côté mappage.
 
 ![Optimisation de la transformation de jointure (Join)](media/data-flow/joinoptimize.png "Optimisation de la jointure")
 
-Si votre jeu de données peut tenir dans la mémoire de nœud Worker, nous pouvons optimiser vos performances de jointure. Vous pouvez également spécifier le partitionnement de vos données dans l’opération de jointure (Join) pour créer des jeux de données qui s’adaptent mieux à la mémoire par worker.
+Si l’un des flux de données, voire les deux, s’intègrent à la mémoire du nœud worker, optimisez vos performances en activant **Diffuser** sous l’onglet Optimiser. Vous pouvez également repartitionner vos données sur l’opération de jointure afin qu’elles s’adaptent mieux à la mémoire par Worker.
 
 ## <a name="self-join"></a>Jointure réflexive
 
-Vous pouvez obtenir des conditions de jointure réflexive dans ADF Data Flow à l’aide de la transformation de sélection (Select) pour appliquer un alias à un flux existant. Tout d’abord, créez une « nouvelle branche » à partir d’un flux, puis ajoutez une instruction Select pour appliquer un alias à l’intégralité du flux d’origine.
+Pour joindre automatiquement un flux de données à lui-même, associez un alias à un flux existant à l’aide d’une transformation Select. Créez une branche en cliquant sur l’icône plus (+) en regard d’une transformation et en sélectionnant **Nouvelle branche**. Ajoutez une transformation SELECT pour créer un alias du flux d’origine. Ajoutez une transformation de jointure et choisissez le flux d’origine comme **flux de gauche** et la transformation SELECT comme **flux de droite**.
 
 ![Jointure réflexive](media/data-flow/selfjoin.png "Jointure réflexive")
 
-Dans le diagramme ci-dessus, la transformation de sélection (Select) se trouve en haut. Cette opération se contente d’applique l’alias « OrigSourceBatting » au flux d’origine. Dans la transformation de jointure (Join) mise en évidence en dessous, vous pouvez voir que nous utilisons ce flux d’alias de sélection (Select) en tant que jointure de droite, ce qui nous permet de faire référence à la même clé du côté gauche et du côté droit de la jointure interne (Inner).
+## <a name="testing-join-conditions"></a>Test des conditions de jointure
 
-## <a name="composite-and-custom-keys"></a>Clés composites et clés personnalisées
+Lorsque vous testez les transformations de jointure avec l’aperçu des données en mode débogage, utilisez un jeu de données connues peu volumineux. Lors de l’échantillonnage de lignes à partir d’un jeu de données volumineux, vous ne pouvez pas prédire quelles lignes et quelles clés seront lues dans le cadre du test. Le résultat n’est pas déterministe, ce qui signifie que vos conditions de jointure peuvent ne renvoyer aucun résultat.
 
-Vous pouvez créer des clés composites et des clés personnalisées à la volée dans la transformation de jointure. Ajoutez des lignes pour les colonnes de jointure supplémentaires avec le signe plus (+) en regard de chaque ligne de relation. Ou bien calculez une nouvelle valeur de clé dans le Générateur d’expressions pour une valeur de jointure à la volée.
+## <a name="data-flow-script"></a>Script de flux de données
+
+### <a name="syntax"></a>Syntaxe
+
+```
+<leftStream>, <rightStream>
+    join(
+        <conditionalExpression>,
+        joinType: { 'inner'> | 'outer' | 'left_outer' | 'right_outer' | 'cross' }
+        broadcast: { 'none' | 'left' | 'right' | 'both' }
+    ) ~> <joinTransformationName>
+```
+
+### <a name="inner-join-example"></a>Exemple de jointure interne
+
+L’exemple ci-dessous illustre une transformation de jointure nommée `JoinMatchedData`, qui utilise le flux de gauche `TripData` et le flux de droite `TripFare`.  La condition de jointure est l’expression `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` qui retourne true si les colonnes `hack_license`, `medallion`, `vendor_id` et `pickup_datetime` de chaque flux correspondent. Le `joinType` est `'inner'`. Nous activons la diffusion uniquement dans le flux de gauche afin que `broadcast` ait pour valeur `'left'`.
+
+Dans l’expérience utilisateur Data Factory, cette transformation ressemble à l’image ci-dessous :
+
+![Exemple de jointure](media/data-flow/join-script1.png "Exemple de jointure")
+
+Le script de flux de données pour cette transformation se trouve dans l’extrait de code ci-dessous :
+
+```
+TripData, TripFare
+    join(
+        hack_license == { hack_license}
+        && TripData@medallion == TripFare@medallion
+        && vendor_id == { vendor_id}
+        && pickup_datetime == { pickup_datetime},
+        joinType:'inner',
+        broadcast: 'left'
+    )~> JoinMatchedData
+```
+
+### <a name="cross-join-example"></a>Exemple de jointure croisée
+
+L’exemple ci-dessous illustre une transformation de jointure nommée `CartesianProduct`, qui utilise le flux de gauche `TripData` et le flux de droite `TripFare`. Cette transformation prend deux flux et retourne le produit cartésien de leurs lignes. La condition de jointure est `true()`, car elle génère un produit cartésien complet. Le `joinType` dans `cross`. Nous activons la diffusion uniquement dans le flux de gauche afin que `broadcast` ait pour valeur `'left'`.
+
+Dans l’expérience utilisateur Data Factory, cette transformation ressemble à l’image ci-dessous :
+
+![Exemple de jointure](media/data-flow/join-script2.png "Exemple de jointure")
+
+Le script de flux de données pour cette transformation se trouve dans l’extrait de code ci-dessous :
+
+```
+TripData, TripFare
+    join(
+        true(),
+        joinType:'cross',
+        broadcast: 'left'
+    )~> CartesianProduct
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir joint les données, vous pouvez [créer de nouvelles colonnes](data-flow-derived-column.md) et [réceptionner vos données dans un magasin de données de destination](data-flow-sink.md).
+Après avoir joint les données, créez une [colonne dérivée](data-flow-derived-column.md) et [réceptionnez](data-flow-sink.md) vos données dans un magasin de données de destination.

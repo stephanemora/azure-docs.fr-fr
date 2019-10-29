@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512363"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756167"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Inscrire une machine virtuelle SQL Server dans Azure auprès du fournisseur de ressources de machine virtuelle SQL
 
@@ -203,7 +203,7 @@ Vous pouvez afficher le mode actuel de votre agent SQL Server IaaS à l’aide d
      $sqlvm.Properties.sqlManagement
   ```
 
-Machines virtuelles SQL Server sur lesquelles l’extension IaaS en mode *léger* est installée, vous pouvez opérer une mise à niveau vers le mode _complet_ via le Portail Azure. Les machines virtuelles SQL Server en mode _No-Agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Pour passer à une version antérieure, vous devez obligatoirement supprimer la ressource du fournisseur de ressources de machine virtuelle SQL à l’aide du portail Azure, puis vous inscrire à nouveau auprès du fournisseur de ressources de machine virtuelle SQL. 
+Machines virtuelles SQL Server sur lesquelles l’extension IaaS en mode *léger* est installée, vous pouvez opérer une mise à niveau vers le mode _complet_ via le Portail Azure. Les machines virtuelles SQL Server en mode _No-Agent_ peuvent passer en mode _complet_ une fois que le système d’exploitation est mis à niveau vers Windows 2008 R2 et versions ultérieures. Pour passer à une version antérieure, vous devez obligatoirement [annuler l’inscription](#unregister-vm-from-resource-provider) de la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL en supprimant la ressource de machine virtuelle SQL, puis vous inscrire à nouveau auprès du fournisseur de ressources de machine virtuelle SQL. 
 
 Pour mettre à niveau l’agent en mode complet : 
 
@@ -281,6 +281,49 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 ---
 
+## <a name="unregister-vm-from-resource-provider"></a>Annuler l’inscription de la machine virtuelle auprès du fournisseur de ressources 
+
+Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL, supprimez la *ressource* de machine virtuelle SQL à l’aide du Portail Azure ou de l’interface de ligne de commande Azure. La suppression de la *ressource* de machine virtuelle SQL n’entraîne pas la suppression de la machine virtuelle SQL Server proprement dite. Toutefois, suivez attentivement les étapes, car il est possible de supprimer par inadvertance la machine virtuelle lors de la tentative de suppression de la *ressource*. 
+
+L’annulation de l’inscription de la machine virtuelle SQL auprès du fournisseur de ressources de machine virtuelle SQL est nécessaire pour passer du mode de gestion complet à un mode de gestion de niveau inférieur. 
+
+### <a name="azure-portal"></a>Portail Azure
+
+Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fournisseur de ressources à l’aide du Portail Azure, procédez comme suit :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez à la ressource de machine virtuelle SQL Server. 
+  
+   ![Ressource Machines virtuelles SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+
+1. Sélectionnez **Supprimer**. 
+
+   ![Supprimer le fournisseur de ressources de machine virtuelle SQL](media/virtual-machines-windows-sql-register-with-rp/delete-sql-vm-resource-provider.png)
+
+1. Saisissez le nom de la machine virtuelle SQL et **désactivez la case à cocher en regard de celle-ci**.
+
+   ![Supprimer le fournisseur de ressources de machine virtuelle SQL](media/virtual-machines-windows-sql-register-with-rp/confirm-delete-of-resource-uncheck-box.png)
+
+   >[!WARNING]
+   > Si vous ne désactivez pas la case à cocher en regard du nom de la machine virtuelle, vous *supprimez entièrement* celle-ci. Désactivez la case à cocher pour annuler l’inscription de la machine virtuelle SQL Server du fournisseur de ressources *sans supprimer la machine virtuelle proprement dite*. 
+
+1. Sélectionnez **Supprimer** pour confirmer la suppression de la *ressource* de la machine virtuelle SQL et non pas la machine virtuelle SQL Server. 
+
+
+### <a name="azure-cli"></a>D’Azure CLI 
+
+Pour annuler l’inscription de votre machine virtuelle SQL Server auprès du fournisseur de ressources à l’aide de la ligne de commande Azure, utilisez la commande [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete). Cela supprimera la *ressource* de machine virtuelle SQL Server mais ne supprimera pas la machine virtuelle. 
+
+
+```azurecli-interactive
+   az sql vm delete 
+     --name <SQL VM resource name> |
+     --resource-group <Resource group name> |
+     --yes 
+```
+
+
+
 ## <a name="remarks"></a>Remarques
 
 - Le fournisseur de ressources de machine virtuelle SQL prend uniquement en charge les machines virtuelles SQL Server déployées via Azure Resource Manager. Les machines virtuelles SQL Server déployées via le modèle classique ne sont pas prises en charge. 
@@ -353,7 +396,7 @@ Oui. La mise à niveau du mode de gestion de léger à complet est prise en char
 
 Non. La rétrogradation du mode de gestion de l’extension IaaS SQL Server n’est pas prise en charge. Le mode de gestion SQL ne peut pas être rétrogradé du mode complet vers le mode léger ou sans agent, ni du mode léger vers le mode sans agent. 
 
-Pour changer le mode de gestion à partir de la gestion complète : supprimez la ressource Microsoft.SqlVirtualMachine, puis réinscrivez la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL.
+Pour changer le mode de gérabilité à partir de la gérabilité complète, [annulez l’inscription](#unregister-vm-from-resource-provider) de la machine virtuelle SQL Server auprès du fournisseur de ressources SQL Server en supprimant la *ressource* SQL Server et en réinscrivant la machine virtuelle SQL Server auprès du fournisseur de ressources de machine virtuelle SQL avec un mode d’administration différent.
 
 **Puis-je m’inscrire auprès du fournisseur de ressources de machine virtuelle SQL à partir du portail Azure ?**
 

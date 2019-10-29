@@ -130,8 +130,6 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
-    - name: Documentation de référence de l’API
-      href: 'https://go.microsoft.com/fwlink/?linkid=2109131'
     - name: Demandes de données client
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Navigateurs pris en charge

@@ -1,20 +1,19 @@
 ---
-title: Compétence Détection de la langue de la recherche cognitive - Recherche Azure
-description: Évalue le texte non structuré et, pour chaque enregistrement, retourne un identificateur de langue avec un score indiquant la puissance de l’analyse dans un pipeline d’enrichissement Recherche Azure.
-services: search
+title: Compétence cognitive Détection de la langue
+titleSuffix: Azure Cognitive Search
+description: Évalue le texte non structuré et, pour chaque enregistrement, retourne un identificateur de langue avec un score indiquant la puissance de l’analyse dans un pipeline d’enrichissement par IA dans Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: fe21477865b5bbad65f5e4639e8df253f12dc1b6
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e3ec9ea9cfbae314297c5b59f6a07bcebaef6a5c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265423"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791960"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Compétence cognitive Détection de la langue
 
@@ -25,9 +24,9 @@ Cette fonctionnalité est particulièrement utile lorsqu’il est nécessaire d�
 La détection de la langue s’appuie sur les bibliothèques de traitement en langage naturel de Bing, qui dépassent le nombre de [langues et régions prises en charge](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support) répertoriées pour le service Analyse de texte. La liste exacte des langues n’est pas publiée, mais inclut toutes les langues courantes, ainsi que les variantes, dialectes et certaines langues régionales et culturelles. Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, vous pouvez [essayer l’API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) pour voir si elle retourne un code. La réponse pour les langues qui ne peuvent pas être détectées est `unknown`.
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
+> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  

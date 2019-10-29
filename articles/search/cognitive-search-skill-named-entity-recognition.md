@@ -1,20 +1,19 @@
 ---
-title: Compétence Reconnaissance d’entités nommées de la recherche cognitive - Recherche Azure
-description: Extrait les entités nommées de personne, de lieu et d’organisation du texte dans un pipeline de recherche cognitive Recherche Azure.
-services: search
+title: Compétence cognitive Reconnaissance d’entités nommées
+titleSuffix: Azure Cognitive Search
+description: Extrait les entités nommées de personne, de lieu et d’organisation du texte dans un pipeline d’enrichissement par IA dans Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: b152d5a48d49e78818602e7f66574937bebce2ac
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 127155e492b556ce1ce02b67cf0b0846b99ebcd4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265762"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791949"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités nommées
 
@@ -24,9 +23,9 @@ La compétence **Reconnaissance d’entités nommées** extrait les entités nom
 > La compétence de reconnaissance des entités nommées est désormais remplacée par [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). La prise en charge a pris fin le 15 février 2019 et l’API a été supprimée du produit le 2 mai 2019. Suivez les recommandations de la page [Compétences de recherche cognitive déconseillées](cognitive-search-skill-deprecated.md) pour migrer vers une compétence prise en charge.
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
+> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  

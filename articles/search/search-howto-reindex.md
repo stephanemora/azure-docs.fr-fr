@@ -1,26 +1,25 @@
 ---
-title: Régénérer un index Recherche Azure ou actualiser du contenu pouvant faire l’objet d’une recherche - Recherche Azure
-description: Ajoutez de nouveaux éléments, mettez à jour des documents ou des éléments existants, ou supprimez des documents obsolètes via une régénération complète ou une indexation incrémentielle partielle visant à actualiser un index Recherche Azure.
-services: search
-author: HeidiSteen
+title: Regénérer un index Recherche cognitive Azure
+titleSuffix: Azure Cognitive Search
+description: Ajoutez de nouveaux éléments, mettez à jour des documents ou des éléments existants, ou supprimez des documents obsolètes via une régénération complète ou une indexation incrémentielle partielle visant à actualiser un index Recherche cognitive Azure.
 manager: nitinme
-ms.service: search
-ms.topic: conceptual
-ms.date: 02/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 26a751924985f94a7d7d12a382d4e6654f36ea48
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719846"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793704"
 ---
-# <a name="how-to-rebuild-an-azure-search-index"></a>Comment régénérer un index Recherche Azure
+# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Guide pratique pour régénérer un index Recherche cognitive Azure
 
-Cet article explique comment regénerer un index Recherche Azure et les circonstances dans lesquelles les regénérations sont nécessaires, et il contient des recommandations pour atténuer l’impact des regénérations sur les demandes des requêtes en cours.
+Cet article explique comment regénerer un index Recherche cognitive Azure et les circonstances dans lesquelles les regénérations sont nécessaires, et il contient des suggestions pour atténuer l’impact des regénérations sur les demandes des requêtes en cours.
 
-Une *regénération* fait référence à la suppression et à la recréation des structures de données physiques associées à un index, notamment tous les index inversés basés sur un champ. Dans la Recherche Azure, vous ne pouvez pas supprimer et recréer des champs un par un. Pour regénerer un index, la totalité du stockage des champs doit être supprimé, recréé sur la base d’un schéma d’index existant ou révisé, puis à nouveau rempli avec les données envoyées à l’index ou extraites de sources externes. Il est courant de régénérer les index pendant le développement, mais il peut également être nécessaire de les régénérer au niveau de la production pour prendre en compte des modifications structurelles, comme l’ajout de types complexes ou l’ajout de champs à des suggesteurs.
+Une *regénération* fait référence à la suppression et à la recréation des structures de données physiques associées à un index, notamment tous les index inversés basés sur un champ. Dans Recherche cognitive Azure, vous ne pouvez pas supprimer et recréer des champs un par un. Pour regénerer un index, la totalité du stockage des champs doit être supprimé, recréé sur la base d’un schéma d’index existant ou révisé, puis à nouveau rempli avec les données envoyées à l’index ou extraites de sources externes. Il est courant de régénérer les index pendant le développement, mais il peut également être nécessaire de les régénérer au niveau de la production pour prendre en compte des modifications structurelles, comme l’ajout de types complexes ou l’ajout de champs à des suggesteurs.
 
 Contrairement aux regénérations, qui placent un index hors connexion, *l’actualisation des données* s’exécute comme tâche d’arrière-plan. Vous pouvez ajouter, supprimer et remplacer des documents avec une interruption minimale pour les charges de travail de requêtes, bien que l’exécution des requêtes soit alors généralement plus longue. Pour plus d’informations sur la mise à jour du contenu des index, consultez [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
@@ -33,7 +32,7 @@ Contrairement aux regénérations, qui placent un index hors connexion, *l’act
 | Mettre à jour ou supprimer une définition d’analyseur dans un index | Il n’est pas possible de supprimer ou de modifier une configuration d’analyseur existante (analyseur, générateur de jetons, filtre de jetons ou filtre de caractères) dans l’index, à moins de régénérer la totalité de l’index. |
 | Ajouter un champ à un suggesteur | Pour pouvoir ajouter un champ existant à une construction [Suggesteurs](index-add-suggesters.md), il faut régénérer l’index. |
 | Supprimer un champ | Pour supprimer physiquement toutes les traces d’un champ, vous devez regénerer l’index. Quand une régénération immédiate n’est pas réalisable, il est possible de modifier le code de l’application en désactivant l’accès au champ « supprimé ». Physiquement, le contenu et la définition du champ restent dans l’index jusqu’à la régénération suivante, lors de laquelle est appliqué un schéma omettant le champ en question. |
-| Changer de niveau | Si vous avez besoin de davantage de capacité, il n’y a pas de mise à niveau sur place dans le portail Azure. Vous devez créer un service et regénérer entièrement les index sur le nouveau service. Pour faciliter l’automatisation de ce processus, vous pouvez utiliser l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). Cette application va sauvegarder votre index dans une série de fichiers JSON, puis recréer l’index dans un service de recherche que vous spécifiez.|
+| Changer de niveau | Si vous avez besoin de davantage de capacité, il n’y a pas de mise à niveau sur place dans le portail Azure. Vous devez créer un service et regénérer entièrement les index sur le nouveau service. Pour faciliter l’automatisation de ce processus, vous pouvez utiliser l’exemple de code **index-backup-restore** dans cet [exemple de dépôt .NET Recherche cognitive Azure](https://github.com/Azure-Samples/azure-search-dotnet-samples). Cette application va sauvegarder votre index dans une série de fichiers JSON, puis recréer l’index dans un service de recherche que vous spécifiez.|
 
 Toutes les autres modifications peuvent être effectuées sans impact sur les structures physiques existantes. Plus précisément, les modifications suivantes n’exigent *pas* de régénération d’index :
 
@@ -45,11 +44,11 @@ Toutes les autres modifications peuvent être effectuées sans impact sur les st
 + Ajouter, mettre à jour ou supprimer des paramètres CORS
 + Ajouter, mettre à jour ou supprimer des synonymMaps
 
-Quand vous ajoutez un nouveau champ, les documents indexés existants reçoivent une valeur null pour le nouveau champ. Lors de l’actualisation suivante des données, les valeurs provenant des données sources externes remplacent les valeurs null ajoutées par Recherche Azure. Pour plus d’informations sur la mise à jour du contenu des index, consultez [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Quand vous ajoutez un nouveau champ, les documents indexés existants reçoivent une valeur null pour le nouveau champ. Lors de l’actualisation suivante des données, les valeurs provenant des données sources externes remplacent les valeurs null ajoutées par Recherche cognitive Azure. Pour plus d’informations sur la mise à jour du contenu des index, consultez [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 ## <a name="partial-or-incremental-indexing"></a>Indexation incrémentielle ou partielle
 
-Dans Recherche Azure, vous ne pouvez pas contrôler l’indexation au niveau d’un champ, en choisissant de supprimer ou de recréer des champs spécifiques. De même, il n’existe pas de mécanisme intégré pour [l’indexation de documents en fonction de critères](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Toutes vos exigences quant à une indexation pilotée par des critères doivent être satisfaites via du code personnalisé.
+Dans Recherche cognitive Azure, vous ne pouvez pas contrôler l’indexation au niveau d’un champ, en choisissant de supprimer ou de recréer des champs spécifiques. De même, il n’existe pas de mécanisme intégré pour [l’indexation de documents en fonction de critères](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Toutes vos exigences quant à une indexation pilotée par des critères doivent être satisfaites via du code personnalisé.
 
 Une chose facile à faire est cependant d’*actualiser des documents* dans un index. Pour de nombreuses solutions de recherche, les données sources externes sont volatiles, et la synchronisation entre les données sources et un index de recherche est une pratique courante. Dans le code, appelez l’opération [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) ou l’[équivalent .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.indexesoperationsextensions.createorupdate?view=azure-dotnet) pour mettre à jour le contenu de l’index, ou pour ajouter des valeurs pour un nouveau champ.
 
@@ -79,7 +78,7 @@ Le workflow suivant est orienté vers l’API REST, mais il s’applique égalem
 
 3. Dans le corps de la demande, indiquez un schéma d’index avec les définitions des champs modifiés. Le corps de la demande contient le schéma d’index, ainsi que des constructions pour les profils de scoring, les analyseurs, les générateurs de suggestions et les options CORS. Les spécifications des schémas sont documentées dans [Créer un index](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
-4. Envoyez une demande [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour régénérer l’expression physique de l’index sur la Recherche Azure. 
+4. Envoyez une requête [Mettre à jour l’index](https://docs.microsoft.com/rest/api/searchservice/update-index) pour regénérer l’expression physique de l’index sur Recherche cognitive Azure. 
 
 5. [Chargez l’index avec des documents ](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) d’une source externe.
 
@@ -88,7 +87,7 @@ Quand vous créez l’index, du stockage physique est alloué pour chaque champ 
 Quand vous chargez l’index, l’index inversé de chaque champ est rempli avec tous les mots uniques tokenisés de chaque document, avec un mappage aux ID des documents correspondants. Par exemple, lors de l’indexation d’un jeu de données avec des hôtels, un index inversé créé pour un champ Ville peut contenir des termes pour Seattle, Portland, etc. L’ID des documents qui incluent « Seattle » ou « Portland » dans le champ Ville figure à côté du terme. Lors d’une opération [Ajouter, mettre à jour ou supprimer](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents), les termes et la liste des ID de document sont mis à jour en conséquence.
 
 > [!NOTE]
-> Si vous avez des exigences strictes dans le cadre d’un contrat SLA, vous pouvez envisager de provisionner un nouveau service spécifiquement pour ce travail, le développement et l’indexation se produisant dans une isolation complète d’un index de production. Un service distinct s’exécute sur son propre matériel, éliminant toute possibilité de contention des ressources. Une fois le développement terminé, vous laissez le nouvel index en place et vous redirigez les requêtes vers le nouveau point de terminaison et le nouvel index, ou bien vous exécutez le code terminé pour publier un index revu sur votre service Recherche Azure d’origine. Il n’existe actuellement aucun mécanisme pour déplacer un index prêt à l’emploi vers un autre service.
+> Si vous avez des exigences strictes dans le cadre d’un contrat SLA, vous pouvez envisager de provisionner un nouveau service spécifiquement pour ce travail, le développement et l’indexation se produisant dans une isolation complète d’un index de production. Un service distinct s’exécute sur son propre matériel, éliminant toute possibilité de contention des ressources. Une fois le développement terminé, vous laissez le nouvel index en place et vous redirigez les requêtes vers le nouveau point de terminaison et le nouvel index, ou bien vous exécutez le code terminé pour publier un index revu sur votre service Recherche cognitive Azure d’origine. Il n’existe actuellement aucun mécanisme pour déplacer un index prêt à l’emploi vers un autre service.
 
 ## <a name="view-updates"></a>Voir les mises à jour
 
@@ -103,4 +102,4 @@ Vous pouvez commencer à interroger un index dès que le premier document est ch
 + [Indexeur Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Indexeur Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)
 + [Indexeur Stockage Table Azure](search-howto-indexing-azure-tables.md)
-+ [Sécurité dans Recherche Azure](search-security-overview.md)
++ [Sécurité dans Recherche cognitive Azure](search-security-overview.md)

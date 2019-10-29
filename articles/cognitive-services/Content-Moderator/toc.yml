@@ -12,11 +12,7 @@
     - name: Utilisation du kit de développement logiciel (SDK) client
       items:
         - name: Utilisation du kit de développement logiciel (SDK) .NET
-          items:
-            - name: Analyser le contenu d’une image
-              href: image-moderation-quickstart-dotnet.md
-            - name: Analyser le contenu d’un texte
-              href: text-moderation-quickstart-dotnet.md
+          href: dotnet-sdk-quickstart.md
         - name: Utilisation du Kit de développement logiciel (SDK) Python
           href: python-sdk-quickstart.md
         - name: Utilisation du Kit de développement logiciel (SDK) Java
@@ -69,8 +65,6 @@
           href: Review-Tool-User-Guide/Review-Moderated-Images.md
         - name: API REST
           href: try-review-api-review.md
-        - name: Kit de développement logiciel (SDK) .NET
-          href: moderation-reviews-quickstart-dotnet.md
         - name: Révisions de vidéos (.NET)
           href: video-reviews-quickstart-dotnet.md
         - name: Révisions de transcriptions de vidéo (.NET)

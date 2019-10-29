@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5d69e29c83bcbe433b800d6877ba1c7440eceedc
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387983"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597119"
 ---
 # <a name="monitor-data-flows"></a>Superviser les flux de données
 
@@ -47,6 +47,11 @@ Quand votre flux de données est exécuté dans Spark, Azure Data Factory déter
   * Calculée : Vous utilisez la colonne pour le traitement conditionnel ou à l’intérieur d’une expression dans votre flux de données, mais les données n’arrivent pas dans le récepteur.
   * Dérivée : La colonne est une nouvelle colonne que vous avez générée dans votre flux. Autrement dit, elle n’était pas présente dans la source.
   * Mappée : La colonne provient de la source et vous la mappez à un champ du récepteur.
+  * État du flux de données : État actuel de l’exécution
+  * Heure de démarrage du cluster : Durée d’acquisition de l’environnement de calcul JIT Spark pour l’exécution de votre flux de données
+  * Nombre de transformations : Nombre d’étapes de transformation exécutées dans votre flux
+  
+![Supervision du flux de données Acit](media/data-flow/monitornew.png "Supervision du flux de données - Nouveau")  
   
 ## <a name="monitor-icons"></a>Icônes Superviser
 

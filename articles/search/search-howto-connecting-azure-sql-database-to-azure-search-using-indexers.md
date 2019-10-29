@@ -1,29 +1,28 @@
 ---
-title: Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs - Recherche Azure
-description: Découvrez comment analyser des données dans Azure SQL Database à l’aide d’indexeurs pour la recherche en texte intégral dans Recherche Azure. Cet article traite des connexions, de la configuration des indexeurs et de l’ingestion des données.
-ms.date: 05/02/2019
-author: mgottein
+title: Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs
+titleSuffix: Azure Cognitive Search
+description: Importez des données dans Azure SQL Database à l’aide d’indexeurs pour la recherche en texte intégral dans Recherche cognitive Azure. Cet article traite des connexions, de la configuration des indexeurs et de l’ingestion des données.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 4ed218fdc1c6580e9b92364d123b081a1f34b441
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: 012f555f3837086946eb4581dadc74011a3acc09
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656231"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792190"
 ---
-# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-cognitive-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche cognitive Azure
 
-Avant d’interroger un [index Recherche Azure](search-what-is-an-index.md), vous devez le remplir avec vos données. Si les données se trouvent dans une base de données Azure SQL Database, un **indexeur Recherche Azure pour Azure SQL Database** (ou **indexeur Azure SQL**) peut automatiser le processus d’indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
+Avant d’interroger un [index Recherche cognitive Azure](search-what-is-an-index.md), vous devez le remplir avec vos données. Si les données se trouvent dans une base de données Azure SQL Database, un **indexeur Recherche cognitive Azure pour Azure SQL Database** (ou **indexeur Azure SQL**) peut automatiser le processus d’indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
 
 Cet article décrit l’utilisation des [indexeurs](search-indexer-overview.md), mais aussi les fonctionnalités propres aux bases de données Azure SQL (par exemple, le suivi intégré des modifications). 
 
-En plus des bases de données Azure SQL, Recherche Azure fournit des indexeurs pour [Azure Cosmos DB](search-howto-index-cosmosdb.md), le [stockage blob Azure](search-howto-indexing-azure-blob-storage.md) et le [stockage de table Azure](search-howto-indexing-azure-tables.md). Pour obtenir de l’aide concernant d’autres sources de données, indiquez vos souhaits sur le [forum Recherche Azure](https://feedback.azure.com/forums/263029-azure-search/).
+En plus des bases de données Azure SQL, Recherche cognitive Azure fournit des indexeurs pour [Azure Cosmos DB](search-howto-index-cosmosdb.md), le [stockage blob Azure](search-howto-indexing-azure-blob-storage.md) et le [stockage de table Azure](search-howto-indexing-azure-tables.md). Pour obtenir de l’aide concernant d’autres sources de données, indiquez vos souhaits sur le [forum Recherche cognitive Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexeurs et sources de données
 
@@ -40,8 +39,8 @@ Un indexeur unique peut utiliser une seule table ou une seule vue, mais vous pou
 Vous pouvez installer et configurer un indexeur SQL Azure avec les outils suivants :
 
 * Assistant Importation de données sur le [Portail Azure](https://portal.azure.com)
-* [Kit de développement logiciel .NET (SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) de la Recherche Azure
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) de la Recherche Azure
+* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) de Recherche cognitive Azure
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) de Recherche cognitive Azure
 
 Dans cet article, nous allons utiliser l’API REST pour créer des **indexeurs** et des **sources de données**.
 
@@ -51,12 +50,12 @@ Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur A
 | Critères | Détails |
 |----------|---------|
 | Les données proviennent d’une seule table ou d’une seule vue | Si les données sont disséminées entre plusieurs tables, vous pouvez créer une vue unique des données. Toutefois, si vous utilisez une vue, vous ne pourrez plus utiliser la fonction intégrée de détection des modifications de SQL Server pour actualiser un index avec des modifications incrémentielles. Pour plus d’informations, consultez la section [Capture des lignes modifiées et supprimées](#CaptureChangedRows) ci-dessous. |
-| Les types de données sont compatibles | Mais certains types SQL ne sont pas pris en charge dans les index Recherche Azure. Pour obtenir une liste, consultez [Mappage des types de données](#TypeMapping). |
+| Les types de données sont compatibles | Mais certains types SQL ne sont pas pris en charge dans les index Recherche cognitive Azure. Pour obtenir une liste, consultez [Mappage des types de données](#TypeMapping). |
 | La synchronisation de données en temps réel n’est pas requise | Un indexeur peut réindexer votre table toutes les cinq minutes au maximum. Si vos données changent fréquemment et si les modifications doivent être intégrées dans l’index en quelques secondes ou quelques minutes, nous vous recommandons d’utiliser l’[API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) ou le [SDK .NET](search-import-data-dotnet.md) pour émettre directement les lignes mises à jour. |
-| Une indexation incrémentielle est possible | Si vous avez un jeu de données important et si vous comptez exécuter l’indexeur selon une planification, Recherche Azure doit être en mesure d’identifier efficacement les lignes nouvelles, modifiées ou supprimées. L’indexation non incrémentielle n’est autorisée que si vous effectuez une indexation à la demande (non planifiée) ou une indexation de moins de 100 000 lignes. Pour plus d’informations, consultez la section [Capture des lignes modifiées et supprimées](#CaptureChangedRows) ci-dessous. |
+| Une indexation incrémentielle est possible | Si vous avez un jeu de données important et si vous comptez exécuter l’indexeur selon une planification, Recherche cognitive Azure doit être en mesure d’identifier efficacement les lignes nouvelles, modifiées ou supprimées. L’indexation non incrémentielle n’est autorisée que si vous effectuez une indexation à la demande (non planifiée) ou une indexation de moins de 100 000 lignes. Pour plus d’informations, consultez la section [Capture des lignes modifiées et supprimées](#CaptureChangedRows) ci-dessous. |
 
 > [!NOTE] 
-> Recherche Azure ne prend en charge que l’authentification SQL Server. Si vous avez besoin de prise en charge pour l’authentification du mot de passe Azure Active Directory, veuillez voter pour cette [suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
+> Recherche cognitive Azure ne prend en charge que l’authentification SQL Server. Si vous avez besoin de prise en charge pour l’authentification du mot de passe Azure Active Directory, veuillez voter pour cette [suggestion UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/33595465-support-azure-active-directory-password-authentica).
 
 ## <a name="create-an-azure-sql-indexer"></a>Créer un indexeur Azure SQL
 
@@ -77,7 +76,7 @@ Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur A
 
    Vous pouvez obtenir la chaîne de connexion auprès du [portail Azure](https://portal.azure.com). Utilisez l’option `ADO.NET connection string`.
 
-2. Créez l’index Recherche Azure cible si vous n’en avez pas encore. Pour créer un index, utilisez le [portail](https://portal.azure.com) ou l’[API Créer un index](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Vérifiez que le schéma de votre index cible est compatible avec le schéma de la table source. Consultez [Mappage entre les types de données SQL et les types de données de Recherche Azure](#TypeMapping).
+2. Créez l’index Recherche cognitive Azure cible si vous n’en avez pas encore. Pour créer un index, utilisez le [portail](https://portal.azure.com) ou l’[API Créer un index](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Vérifiez que le schéma de votre index cible est compatible avec le schéma de la table source. Consultez [Mappage entre les types de données SQL et les types de données de Recherche cognitive Azure](#TypeMapping).
 
 3. Créez l’indexeur en lui attribuant un nom et en référençant les sources de données sources et cibles :
 
@@ -158,16 +157,16 @@ Vous pouvez également configurer l'indexeur pour qu’il s’exécute à interv
 
 Le paramètre **interval** est obligatoire. Il correspond à la durée entre le début de deux exécutions consécutives de l’indexeur. L'intervalle minimal autorisé est de 5 minutes, l'intervalle maximal autorisé est d'une journée. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Le modèle est le suivant : `P(nD)(T(nH)(nM))`. Exemples : `PT15M` toutes les 15 minutes, `PT2H` toutes les deux heures.
 
-Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour Azure Search](search-howto-schedule-indexers.md).
+Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
 <a name="CaptureChangedRows"></a>
 
 ## <a name="capture-new-changed-and-deleted-rows"></a>Capturer des lignes nouvelles, modifiées et supprimées
 
-La Recherche Azure utilise **l’indexation incrémentielle** pour éviter d’avoir à réindexer toute la table ou toute la vue à chaque exécution d’un indexeur. Recherche Azure fournit deux stratégies de détection des modifications pour la prise en charge de l’indexation incrémentielle. 
+La Recherche cognitive Azure utilise **l’indexation incrémentielle** pour éviter d’avoir à réindexer toute la table ou toute la vue à chaque exécution d’un indexeur. Recherche cognitive Azure fournit deux stratégies de détection des modifications pour la prise en charge de l’indexation incrémentielle. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Stratégie de suivi intégré des modifications SQL
-Si votre base de données SQL prend en charge le [suivi des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), nous recommandons d'utiliser la **stratégie de suivi intégré des modifications SQL**. Il s’agit de la stratégie la plus efficace. De plus, elle permet à la Recherche Azure d’identifier les lignes supprimées, sans avoir à ajouter une colonne « suppression réversible » explicite à votre table.
+Si votre base de données SQL prend en charge le [suivi des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), nous recommandons d'utiliser la **stratégie de suivi intégré des modifications SQL**. Il s’agit de la stratégie la plus efficace. De plus, elle permet à la Recherche cognitive Azure d’identifier les lignes supprimées, sans avoir à ajouter une colonne « suppression réversible » explicite à votre table.
 
 #### <a name="requirements"></a>Configuration requise 
 
@@ -252,7 +251,7 @@ Vous pouvez également désactiver la clause `ORDER BY [High Water Mark Column]`
 ### <a name="soft-delete-column-deletion-detection-policy"></a>Stratégie de détection des colonnes à suppression réversible
 Lorsque des lignes sont supprimées de la table source, vous devez également supprimer ces lignes de l'index de recherche. Si vous utilisez la stratégie de suivi intégré des modifications SQL, cette opération est prise en charge à votre place. Mais la stratégie de suivi des modifications de limite supérieure ne vous est d’aucune aide pour les lignes supprimées. Que faire, alors ?
 
-Si des lignes sont physiquement supprimées de la table, la Recherche Azure n’a aucun moyen de déduire la présence d’enregistrements qui n’existent plus.  Toutefois, vous pouvez utiliser la technique de la « suppression réversible » pour supprimer des lignes logiquement sans les supprimer de la table. Ajoutez une colonne à votre table ou votre vue et marquez les lignes comme supprimées à l’aide de cette colonne.
+Si des lignes sont physiquement supprimées de la table, Recherche cognitive Azure n’a aucun moyen de déduire la présence d’enregistrements qui n’existent plus.  Toutefois, vous pouvez utiliser la technique de la « suppression réversible » pour supprimer des lignes logiquement sans les supprimer de la table. Ajoutez une colonne à votre table ou votre vue et marquez les lignes comme supprimées à l’aide de cette colonne.
 
 Lorsque vous utilisez la technique de suppression réversible, vous pouvez spécifier cette stratégie réversible comme suit lors de la création ou de la mise à jour de la source de données :
 
@@ -269,14 +268,14 @@ Lorsque vous utilisez la technique de suppression réversible, vous pouvez spéc
 
 <a name="TypeMapping"></a>
 
-## <a name="mapping-between-sql-and-azure-search-data-types"></a>Mappage entre les types de données SQL et Recherche Azure
+## <a name="mapping-between-sql-and-azure-cognitive-search-data-types"></a>Mappage entre les types de données SQL et Recherche cognitive Azure
 | Type de données SQL | Types de champs d'index cible autorisés | Notes |
 | --- | --- | --- |
 | bit |Edm.Boolean, Edm.String | |
 | int, smallint, tinyint |Edm.Int32, Edm.Int64, Edm.String | |
 | bigint |Edm.Int64, Edm.String | |
 | real, float |Edm.Double, Edm.String | |
-| smallmoney, money decimal numeric |Edm.String |Azure Search ne prend pas en charge la conversion de types décimaux en Edm.Double, car elle entraîne une perte de précision |
+| smallmoney, money decimal numeric |Edm.String |Recherche cognitive Azure ne prend pas en charge la conversion de types décimaux en Edm.Double, car elle entraîne une perte de précision |
 | char, nchar, varchar, nvarchar |Edm.String<br/>Collection(Edm.String) |Une chaîne SQL peut être utilisée pour remplir un champ Collection(Edm.String) si la chaîne représente un tableau JSON de chaînes : `["red", "white", "blue"]` |
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
@@ -304,11 +303,11 @@ Ces paramètres sont utilisés dans l’objet `parameters.configuration`, dans l
 
 **Q : Puis-je utiliser l’indexeur SQL Azure avec des bases de données SQL exécutées sur des machines virtuelles IaaS dans Azure ?**
 
-Oui. Toutefois, vous devez autoriser votre service de recherche à se connecter à votre base de données. Pour plus d’informations, consultez l’article [Configurer une connexion d’un indexeur de Recherche Azure à SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+Oui. Toutefois, vous devez autoriser votre service de recherche à se connecter à votre base de données. Pour plus d’informations, consultez l’article [Configurer une connexion d’un indexeur de Recherche cognitive Azure à SQL Server sur une machine virtuelle Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 **Q : Puis-je utiliser l’indexeur Azure SQL avec des bases de données SQL exécutées localement ?**
 
-Pas directement. La connexion directe n’est pas prise en charge, ni recommandée, car elle vous oblige à ouvrir vos bases de données au trafic Internet. Les clients ont réussi à l’aide de technologies de pont telles qu’Azure Data Factory. Pour plus d’informations, consultez [Envoyer des données à un index Recherche Azure à l’aide d’Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
+Pas directement. La connexion directe n’est pas prise en charge, ni recommandée, car elle vous oblige à ouvrir vos bases de données au trafic Internet. Les clients ont réussi à l’aide de technologies de pont telles qu’Azure Data Factory. Pour plus d’informations, consultez [Envoyer des données à un index Recherche cognitive Azure à l’aide d’Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
 
 **Q : Puis-je utiliser l’indexeur Azure SQL avec des bases de données autres que SQL Server exécutées en IaaS sur Azure ?**
 
@@ -326,7 +325,7 @@ Oui. L’indexeur s'exécute sur un des nœuds de votre service de recherche, et
 
 Cela dépend. Pour l’indexation intégrale d’une table ou d’une vue, vous pouvez utiliser un réplica secondaire. 
 
-Pour l’indexation incrémentielle, la Recherche Azure prend en charge deux stratégies de détection des modifications : le suivi des modifications intégré SQL et la limite supérieure.
+Pour l’indexation incrémentielle, Recherche cognitive Azure prend en charge deux stratégies de détection des modifications : le suivi des modifications intégré SQL et la limite supérieure.
 
 Sur les réplicas en lecture seule, la base de données SQL ne prend pas en charge le suivi des modifications intégré. Par conséquent, vous devez utiliser la stratégie de limite supérieure. 
 
@@ -340,6 +339,6 @@ Si vous essayez d’utiliser rowversion sur un réplica en lecture seule, l’er
 
 Cela n’est pas recommandé. Seule la colonne **rowversion** permet une synchronisation fiable des données. Toutefois, en fonction de votre logique d’application, cette opération peut être sécurisée si :
 
-+ Vous pouvez vous assurer que pendant l’exécution de l’indexeur, aucune transaction n’est en attente sur la table en cours d’indexation (par exemple, toutes les mises à jour de la table s’effectuent de manière planifiée par lot, et la planification de l’indexeur Recherche Azure est définie de manière à éviter tout chevauchement avec la planification de la mise à jour de la table).  
++ Vous pouvez vous assurer que pendant l’exécution de l’indexeur, aucune transaction n’est en attente sur la table en cours d’indexation (par exemple, toutes les mises à jour de la table s’effectuent de manière planifiée par lot, et la planification de l’indexeur Recherche cognitive Azure est définie de manière à éviter tout chevauchement avec la planification de la mise à jour de la table).  
 
 + Vous procédez régulièrement à une réindexation complète pour sélectionner toutes les lignes manquantes. 

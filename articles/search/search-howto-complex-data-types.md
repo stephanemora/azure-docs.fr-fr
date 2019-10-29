@@ -1,29 +1,28 @@
 ---
-title: Modélisation de types de données complexes - Recherche Azure
-description: Les structures de données imbriquées ou hiérarchiques peuvent être modélisées dans un index Recherche Azure à l’aide de types de données ComplexType et Collections.
-author: brjohnstmsft
+title: Comment modéliser les types de données complexes
+titleSuffix: Azure Cognitive Search
+description: Les structures de données imbriquées ou hiérarchiques peuvent être modélisées dans un index Recherche cognitive Azure à l’aide de types de données ComplexType et Collections.
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.custom: seodec2018
-ms.openlocfilehash: b9c9b35adc0dde032723c3c60adedf5b2e7b4cb6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: af68f232c893259747e6ed106eced70fd8b89351
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183199"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792227"
 ---
-# <a name="how-to-model-complex-data-types-in-azure-search"></a>Modélisation de types de données complexes dans Recherche Azure
+# <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Modélisation de types de données complexes dans Recherche cognitive Azure
 
-Les jeux de données externes utilisés pour remplir un index Recherche Azure peuvent avoir différentes formes. Ils incluent parfois des sous-structures hiérarchiques ou imbriquées. Des exemples incluent les adresses multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de types de données *complexes*, *composées*, *composites* or *agrégées*. Le terme utilisé par Recherche Azure pour ce concept est **type complexe**. In Recherche Azure, les types complexes sont modélisés à l’aide de **champs complexes**. Un champ complexe est un champ qui contient des enfants (sous-champs) qui peuvent être des données de n’importe quel type, notamment d’autres types complexes. Ceci fonctionne d’une manière similaire aux types de données structurées dans un langage de programmation.
+Les jeux de données externes utilisés pour remplir un index Recherche cognitive Azure peuvent avoir différentes formes. Ils incluent parfois des sous-structures hiérarchiques ou imbriquées. Des exemples incluent les adresses multiples pour un même client, les couleurs et les tailles multiples pour une même référence, les auteurs multiples pour un même livre, etc. En termes de modélisation, ces structures peuvent être désignées sous le nom de types de données *complexes*, *composées*, *composites* or *agrégées*. Le terme utilisé par Recherche cognitive Azure pour ce concept est **type complexe**. Dans Recherche cognitive Azure, les types complexes sont modélisés à l’aide de **champs complexes**. Un champ complexe est un champ qui contient des enfants (sous-champs) qui peuvent être des données de n’importe quel type, notamment d’autres types complexes. Ceci fonctionne d’une manière similaire aux types de données structurées dans un langage de programmation.
 
 Les champs complexes représentent un objet unique dans le document ou un tableau d’objets, selon le type de données. Les champs de type `Edm.ComplexType` représentent des objets uniques, alors que des champs de type `Collection(Edm.ComplexType)` représentent des tableaux d’objets.
 
-Recherche Azure prend nativement en charge les types et les collections complexes. Ces types vous permettent de modéliser presque n’importe quelle structure JSON dans un index Recherche Azure. Dans les versions précédentes d’API de Recherche Azure, seuls les jeux de lignes aplaties ont pu être importés. Dans la version la plus récente, votre index peut mieux correspondre aux données sources. En d’autres termes, si vos données sources contiennent des types complexes, votre index peut également contenir des types complexes.
+Recherche cognitive Azure prend nativement en charge les types et les collections complexes. Ces types vous permettent de modéliser presque n’importe quelle structure JSON dans un index Recherche cognitive Azure. Dans les versions précédentes d’API de Recherche cognitive Azure, seuls les jeux de lignes aplaties ont pu être importés. Dans la version la plus récente, votre index peut mieux correspondre aux données sources. En d’autres termes, si vos données sources contiennent des types complexes, votre index peut également contenir des types complexes.
 
 Pour commencer, nous vous recommandons le [jeu de données d’hôtels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), que vous pouvez charger dans l’Assistant **Importer des données** du portail Azure. L’Assistant détecte les types complexes dans la source et suggère un schéma d’index basé sur les structures détectées.
 
@@ -68,7 +67,7 @@ Comme avec n’importe quelle définition d’index, vous pouvez utiliser le por
 L’exemple suivant montre un schéma d’index JSON avec des champs simples, des collections et des types complexes. Notez qu’au sein d’un type complexe, chaque sous-champ a un type et peut avoir des attributs, comme c’est le cas pour les champs de niveau supérieur. Le schéma correspond à l’exemple de données ci-dessus. `Address` est un champ complexe qui n’est pas une collection (un hôtel a une adresse). `Rooms` est un champ de collection complexe (un hôtel a plusieurs chambres).
 
 <!---
-For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
+For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Cognitive Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
 
 Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with knowledge store](knowledge-store-howto.md).
 -->
@@ -120,7 +119,7 @@ Les requêtes sont plus nuancées lorsque vous avez plusieurs termes et opérate
 
     search=Address/City:Portland AND Address/State:OR
 
-Des requêtes de ce type sont *sans corrélation* pour la recherche en texte intégral, contrairement aux filtres. Dans les filtres, les requêtes relatives aux sous-champs d’une collection complexe sont corrélés à l’aide de variables de portée dans [`any` ou `all`](search-query-odata-collection-operators.md). La requête Lucene ci-dessus retourne des documents contenant « Portland, Maine » et « Portland, Oregon », ainsi que d’autres villes d’Oregon. C’est dû au fait que chaque clause s’applique à toutes les valeurs de son champ dans le document entier. Il n’existe donc pas de concept de « sous-élément actuel ». Pour plus d’informations à ce sujet, consultez [Présentation de filtres de collection OData dans Recherche Azure](search-query-understand-collection-filters.md).
+Des requêtes de ce type sont *sans corrélation* pour la recherche en texte intégral, contrairement aux filtres. Dans les filtres, les requêtes relatives aux sous-champs d’une collection complexe sont corrélés à l’aide de variables de portée dans [`any` ou `all`](search-query-odata-collection-operators.md). La requête Lucene ci-dessus retourne des documents contenant « Portland, Maine » et « Portland, Oregon », ainsi que d’autres villes d’Oregon. C’est dû au fait que chaque clause s’applique à toutes les valeurs de son champ dans le document entier. Il n’existe donc pas de concept de « sous-élément actuel ». Pour plus d’informations à ce sujet, consultez [Présentation de filtres de collection OData dans Recherche cognitive Azure](search-query-understand-collection-filters.md).
 
 ## <a name="selecting-complex-fields"></a>Sélection de champs complexes
 

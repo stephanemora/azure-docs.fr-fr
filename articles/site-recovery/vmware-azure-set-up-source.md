@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 075f86b24e2915d9689db8097889a830bade74c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf1ff4dfba105b6c90ab949217453e1db82d109d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723424"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791775"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Configurer l’environnement source pour la réplication VMware vers Azure
 
-Cet article décrit la procédure de configuration de votre environnement local de manière à répliquer des machines virtuelles VMware vers Azure. Il comprend des étapes pour la sélection de votre scénario de réplication, la configuration d’un ordinateur local en tant que le serveur de configuration Site Recovery et la détection automatique des machines virtuelles locales. 
+Cet article décrit la procédure de configuration de votre environnement local de manière à répliquer des machines virtuelles VMware vers Azure. L’article comprend des étapes pour la sélection de votre scénario de réplication, la configuration d’un ordinateur local en tant que le serveur de configuration Site Recovery et la détection automatique des machines virtuelles locales.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,7 +40,7 @@ Cet article suppose que vous avez déjà effectué les opérations suivantes :
 Vous pouvez configurer le serveur de configuration comme une machine virtuelle VMware locale par le biais d’un modèle OVA (Open Virtualization Application). [En savoir plus](concepts-vmware-to-azure-architecture.md) sur les composants qui vont être installés sur la machine virtuelle VMware.
 
 1. Prenez connaissance des [conditions préalables](vmware-azure-deploy-configuration-server.md#prerequisites) pour le déploiement du serveur de configuration.
-2. [Vérifiez les chiffres de capacité](vmware-azure-deploy-configuration-server.md#capacity-planning) pour le déploiement.
+2. [Vérifiez les chiffres de capacité](vmware-azure-deploy-configuration-server.md#sizing-and-capacity-requirements) pour le déploiement.
 3. [Téléchargez](vmware-azure-deploy-configuration-server.md#download-the-template) et [importez](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) le modèle OVA pour configurer une machine virtuelle VMware locale qui exécute le serveur de configuration. La licence fournie avec le modèle est une licence d’évaluation valide pendant 180 jours. Passée cette période, le client devra activer les fenêtres avec une licence payante.
 4. Activez la machine virtuelle VMware et [inscrivez-la](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) dans le coffre Recovery Services.
 
@@ -69,7 +69,7 @@ Excluez les dossiers suivants du logiciel antivirus pour une réplication sans h
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - Répertoire d'installation du serveur ASR. Par exemple :  E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - Répertoire d’installation serveur de Site Recovery. Par exemple :  E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>Si un logiciel antivirus est actif sur le serveur de processus/la cible maître scale-out
 
@@ -81,7 +81,7 @@ Excluez les dossiers suivants du logiciel antivirus
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. Répertoire d’installation du serveur de processus à charge équilibrée ASR, par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery
+7. Répertoire d’installation du serveur de processus à charge équilibrée Azure Site Recovery, par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,22 +1,21 @@
 ---
-title: Compétence de fusion de texte de la recherche cognitive - Recherche Azure
-description: Fusionne en un seul champ consolidé du texte issu d’une collection de champs. Utilisez cette compétence cognitive dans un pipeline d’enrichissement Recherche Azure.
-services: search
+title: Compétence cognitive Fusion de texte
+titleSuffix: Azure Cognitive Search
+description: Fusionne en un seul champ consolidé du texte issu d’une collection de champs. Utilisez cette compétence cognitive dans un pipeline d’enrichissement par IA dans Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e88fcc13d97d92cf9b35616ecb7d71c2d24db1f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265273"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791837"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Compétence cognitive Fusion de texte
+#   <a name="text-merge-cognitive-skill"></a>Compétence cognitive Fusion de texte
 
 La compétence **Fusion de texte** consolide en un champ unique du texte issu d’une collection de champs. 
 

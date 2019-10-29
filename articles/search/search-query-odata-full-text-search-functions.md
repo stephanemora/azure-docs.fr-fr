@@ -1,13 +1,13 @@
 ---
-title: Informations de référence sur la fonction de recherche en texte intégral OData - Recherche Azure
-description: Fonctions de recherche en texte intégral OData, search.ismatch et search.ismatchscoring dans les requêtes de Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Informations de référence sur la fonction de recherche en texte intégral OData
+titleSuffix: Azure Cognitive Search
+description: Fonctions de recherche en texte intégral OData, search.ismatch et search.ismatchscoring dans les requêtes de Recherche cognitive Azure.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: c3b28c8799b09ddfe008df8539709c5a704ac6b4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 06eb29f2f3245d3f4fd047fb86b2b57fb1f0989e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648009"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793348"
 ---
-# <a name="odata-full-text-search-functions-in-azure-search---searchismatch-and-searchismatchscoring"></a>Fonctions de recherche en texte intégral OData dans Recherche Azure- `search.ismatch` et `search.ismatchscoring`
+# <a name="odata-full-text-search-functions-in-azure-cognitive-search---searchismatch-and-searchismatchscoring"></a>Fonctions de recherche en texte intégral OData dans Recherche cognitive Azure- `search.ismatch` et `search.ismatchscoring`
 
-Recherche Azure prend en charge la recherche en texte intégral dans le contexte d’[expressions de filtre OData](query-odata-filter-orderby-syntax.md) via les fonctions `search.ismatch` et `search.ismatchscoring`. Ces fonctions permettent de combiner la recherche en texte intégral avec le filtrage booléen strict qui est impossible avec l’utilisation du paramètre `search` de niveau supérieur de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Recherche cognitive Azure prend en charge la recherche en texte intégral dans le contexte d’[expressions de filtre OData](query-odata-filter-orderby-syntax.md) via les fonctions `search.ismatch` et `search.ismatchscoring`. Ces fonctions permettent de combiner la recherche en texte intégral avec le filtrage booléen strict qui est impossible avec l’utilisation du paramètre `search` de niveau supérieur de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 > [!NOTE]
 > Les fonctions `search.ismatch` et `search.ismatchscoring` sont uniquement prises en charge dans les filtres de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents). Elles ne sont pas prises en charge dans les API [Suggest](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete).
@@ -54,10 +54,10 @@ search_mode ::= "'any'" | "'all'"
 Un diagramme de syntaxe interactif est également disponible :
 
 > [!div class="nextstepaction"]
-> [Diagramme de syntaxe OData pour Recherche Azure](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
+> [Diagramme de syntaxe OData pour Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#search_is_match_call)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 ### <a name="searchismatch"></a>search.ismatch
 
@@ -81,7 +81,7 @@ Tous les paramètres ci-dessus sont équivalents aux [paramètres de la requête
 La fonction `search.ismatch` renvoie une valeur de type `Edm.Boolean`, qui vous permet de la composer avec d’autres sous-expressions de filtre à l’aide des [opérateurs logiques](search-query-odata-logical-operators.md) booléens.
 
 > [!NOTE]
-> Recherche Azure ne prend pas en charge l’utilisation de `search.ismatch` ou `search.ismatchscoring` à l’intérieur des expressions lambda. Cela signifie qu’il n’est pas possible d’écrire des filtres sur les collections d’objets qui peuvent mettre en corrélation les correspondances de recherche en texte intégral avec des correspondances de filtre strict sur le même objet. Pour plus d’informations sur cette restriction et pour obtenir des exemples, consultez [Résolution des problèmes de filtres de collection dans Recherche Azure](search-query-troubleshoot-collection-filters.md). Pour en savoir plus sur la raison de l’existence de cette restriction, consultez [Présentation des filtres de collection dans Recherche Azure](search-query-understand-collection-filters.md).
+> Recherche cognitive Azure ne prend pas en charge l’utilisation de `search.ismatch` ou `search.ismatchscoring` à l’intérieur des expressions lambda. Cela signifie qu’il n’est pas possible d’écrire des filtres sur les collections d’objets qui peuvent mettre en corrélation les correspondances de recherche en texte intégral avec des correspondances de filtre strict sur le même objet. Pour plus d’informations sur cette restriction et pour obtenir des exemples, consultez [Résolution des problèmes de filtres de collection dans Recherche cognitive Azure](search-query-troubleshoot-collection-filters.md). Pour en savoir plus sur la raison de l’existence de cette restriction, consultez [Présentation des filtres de collection dans Recherche cognitive Azure](search-query-understand-collection-filters.md).
 
 
 ### <a name="searchismatchscoring"></a>Search.ismatchscoring
@@ -120,7 +120,7 @@ Rechercher les documents où les termes « hotel » et « airport » sont distan
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Filtres dans Recherche Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtres dans Recherche cognitive Azure](search-filters.md)
+- [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
