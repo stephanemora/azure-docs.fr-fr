@@ -62,22 +62,31 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Utilisation d'Azure PowerShell
           href: virtual-machines-windows-ps-sql-create.md
-    - name: S’inscrire auprès du fournisseur de ressources
-      href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: Changer de modèle de licence
-      href: virtual-machines-windows-sql-ahb.md
-    - name: Changer d’édition
-      href: virtual-machines-windows-sql-change-edition.md
+    - name: S’inscrire auprès de SQL VM RP
+      displayName: 'resource provider, registration'
+      items:
+        - name: Machine virtuelle unique
+          href: virtual-machines-windows-sql-register-with-resource-provider.md
+        - name: Inscrire en bloc plusieurs machines virtuelles
+          href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
+    - name: gérer
+      items:
+        - name: Modèle de licence
+          displayName: 'ahb, ahub, payg, change, modify, update'
+          href: virtual-machines-windows-sql-ahb.md
+        - name: Édition
+          displayName: 'change, modify, update'
+          href: virtual-machines-windows-sql-change-edition.md
+        - name: Stockage Azure pour la sauvegarde et la restauration
+          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: Migrer
       items:
-        - name: Migrer une base de données SQL Server
+        - name: Base de données SQL Server vers machine virtuelle
           href: virtual-machines-windows-migrate-sql.md
         - name: Machine virtuelle vers une nouvelle région
           href: virtual-machines-windows-sql-move-different-region.md
     - name: Configurer la haute disponibilité
       items:
-        - name: Utiliser le Stockage Azure pour la sauvegarde et la restauration
-          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
         - name: Groupe de disponibilité Always On
           items:
             - name: Interface CLI des machines virtuelles SQL Azure

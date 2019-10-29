@@ -1,96 +1,114 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentation sur l'API Face
+### YamlMime:Landing
+title: Documentation Visage
+summary: L’API Face basée sur le cloud offre aux développeurs un accès à des algorithmes avancés de reconnaissance faciale. Les algorithmes de reconnaissance faciale Microsoft permettent la détection des attributs du visage et la reconnaissance faciale. Découvrez comment analyser le contenu de différentes façons avec nos démarrages rapides, tutoriels et exemples.
 metadata:
-  title: 'Documentation de l’API Face - Guides de démarrage rapide, tutoriels, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs'
-  description: Découvrez comment utiliser l’API Face pour détecter et identifier les visages sur les images et retourner des informations les concernant. Ces tutoriels vous montrent comment créer des applications qui utilisent l’API.
+  title: Documentation de l’API Visage - Guides de démarrage rapide, tutoriels, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs
+  description: L’API Face basée sur le cloud offre aux développeurs un accès à des algorithmes avancés de reconnaissance faciale. Les algorithmes de reconnaissance faciale Microsoft permettent la détection des attributs du visage et la reconnaissance faciale. Découvrez comment analyser le contenu de différentes façons avec nos démarrages rapides, tutoriels et exemples.
   services: cognitive-services
-  author: PatrickFarley
-  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: face-api
   ms.topic: landing-page
-  ms.date: 12/20/2018
-  ms.author: nitinme
-abstract:
-  description: 'L’API Face basée sur le cloud offre aux développeurs un accès à des algorithmes avancés de reconnaissance faciale. Les algorithmes de reconnaissance faciale Microsoft permettent la détection des attributs du visage et la reconnaissance faciale. Découvrez comment analyser le contenu de différentes façons avec nos démarrages rapides, tutoriels et exemples.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/face/overview
-            html: <p>Découvrez l’API Face.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: "Qu’est-ce que l’API Face\_?"
-          - href: /azure/cognitive-services/face/face-api-how-to-topics/howtodetectfacesinimage
-            html: <p>Découvrez comment détecter les visages dans une image.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Détecter les visages dans les images
-          - href: /azure/cognitive-services/face/face-how-to-install-containers
-            html: <p>Découvrez comment utiliser l’API Face dans des conteneurs.</p>
-            image:
-              src: ../media/index/i_tasks.svg
-            title: Utiliser l’API Face dans des conteneurs
-  - title: "Démarrages en 5\_minutes"
-    items:
-      - type: paragraph
-        text: "Analysez des images, générez des miniatures et extrayez du texte à partir d’une image à l’aide de\_:"
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_Csharp.svg
-            text: 'C&#35;'
-            href: QuickStarts/CSharp
-          - image:
-              src: media/index/logo_java.svg
-            text: Java
-            href: QuickStarts/Java
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: QuickStarts/node
-          - image:
-              src: media/index/logo_python.svg
-            text: Python
-            href: QuickStarts/Python
-          - image:
-              src: media/index/logo_go.svg
-            text: Go
-            href: QuickStarts/Go
-  - title: Didacticiels pas à pas
-    items:
-      - type: paragraph
-        text: 'Découvrez comment développer des applications avec l’API Face:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Détecter et cadrer des visages dans une image sur Windows</a></li>
-          - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Détecter et cadrer des visages dans une image sur Android</a></li>
-  - title: Exemples
-    items:
-      - type: paragraph
-        text: 'Retrouvez des exemples pour l’API Face:'
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=Relevance">Exemples de code</a>'
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: <p><a href="APIReference">API Face</a></p>
-          - title: Kits SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest">Node</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: Interface de ligne de commande
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Interface de ligne de commande Azure</a></p>'
+  author: PatrickFarley
+  ms.author: pafarley
+  ms.date: 10/24/2019
+  ms.openlocfilehash: e7dabc3104f925f602fe5806e04f9da7f438c310
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72935743"
+landingContent:
+- title: À propos de l’API Visage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est ce que le l’API Visage ?
+      url: Overview.md
+- title: Détecter des visages
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Détection des visages
+      url: concepts/face-detection.md
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/csharp-sdk.md
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/python-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Spécifier un modèle de détection des visages
+      url: Face-API-How-to-Topics/specify-detection-model.md
+- title: Reconnaître des visages
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Reconnaissance faciale
+      url: concepts/face-recognition.md
+  - linkListType: quickstart
+    links:
+    - text: Utilisation du kit de développement logiciel (SDK) .NET
+      url: quickstarts/csharp-sdk.md
+    - text: Utilisation du Kit de développement logiciel (SDK) Python
+      url: quickstarts/python-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: Spécifier un modèle de reconnaissance faciale
+      url: Face-API-How-to-Topics/specify-recognition-model.md
+- title: Utiliser des rectangles autour des visages
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Afficher les données faciales dans une application WPF
+      url: Tutorials/FaceAPIinCSharpTutorial.md
+    - text: Afficher les données faciales dans une application Android
+      url: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+  - linkListType: how-to-guide
+    links:
+    - text: Utiliser l’attribut HeadPose
+      url: Face-API-How-to-Topics/how-to-use-headpose.md
+- title: Utiliser des conteneurs
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Installer et exécuter des conteneurs
+      url: face-how-to-install-containers.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurer des conteneurs
+      url: face-resource-container-config.md
+  - linkListType: deploy
+    links:
+    - text: Utiliser des instances de conteneur
+      url: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: API Visage v1.0
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236
+    - text: Kit de développement logiciel (SDK) .NET
+      url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet
+    - text: Kit de développement logiciel (SDK) Python
+      url: https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-face/?view=azure-python
+    - text: Kit de développement logiciel (SDK) Java
+      url: https://docs.microsoft.com/en-us/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable
+    - text: Kit de développement logiciel (SDK) Node.js
+      url: https://docs.microsoft.com/en-us/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest
+    - text: Kit de développement logiciel (SDK) Go
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
+    - text: Kit de développement logiciel (SDK) iOS
+      url: https://github.com/Microsoft/Cognitive-Face-iOS
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Interface de ligne de commande Azure (CLI)
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Aide et commentaires
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://cognitive.uservoice.com/forums/430315-face-api
+    - text: Stack Overflow
+      url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

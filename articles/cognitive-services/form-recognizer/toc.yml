@@ -23,6 +23,10 @@
               href: quickstarts/python-receipts.md
     - name: Utilisation du kit de développement logiciel (SDK) .NET
       href: quickstarts/dotnet-sdk.md
+- name: Tutoriels
+  items:
+    - name: Utiliser Form Recognizer avec Logic Apps
+      href: tutorial-form-recognizer-with-logic-apps.md
 - name: Guides pratiques
   items:
     - name: Créer un jeu de données d’entraînement

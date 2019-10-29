@@ -42,6 +42,8 @@
           items:
             - name: Déléguer aux créateurs de catalogues
               href: entitlement-management-delegate-catalog.md
+            - name: Ajouter une organisation connectée
+              href: entitlement-management-organization.md
             - name: Gouverner l’accès pour les utilisateurs externes
               href: entitlement-management-external-users.md
             - name: Afficher les rapports et les journaux

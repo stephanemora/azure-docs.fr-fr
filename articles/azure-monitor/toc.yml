@@ -36,7 +36,7 @@
           href: log-query/get-started-portal.md
         - name: Requêtes dans les journaux
           href: log-query/get-started-queries.md
-        - name: Visualiser les données de journal
+        - name: Tableau de bord avec des données de journal
           href: learn/tutorial-logs-dashboards.md
         - name: Alerter sur les données de journal
           href: learn/tutorial-response.md
@@ -50,7 +50,7 @@
           href: learn/tutorial-alert.md
         - name: Comprendre les utilisateurs d’applications
           href: learn/tutorial-users.md
-        - name: Créer des tableaux de bord personnalisés
+        - name: Tableau de bord avec des données d’application
           href: learn/tutorial-app-dashboards.md
     - name: Archiver les métriques et données de journal de la plateforme
       href: learn/tutorial-archive-data.md
@@ -889,7 +889,11 @@
         - name: Workbooks
           href: app/usage-workbooks.md
         - name: Tableaux de bord
-          href: app/app-insights-dashboards.md
+          items:
+            - name: Tableau de bord utilisant des données de journal
+              href: learn/tutorial-logs-dashboards.md
+            - name: Tableau de bord utilisant des données d’application
+              href: learn/tutorial-app-dashboards.md
         - name: Envoyer des données vers Grafana
           href: platform/grafana-plugin.md
     - name: Génération d’alertes
@@ -1098,10 +1102,8 @@
           href: platform/metrics-supported.md
         - name: Mesures prises en charge pour les alertes plus récentes
           href: platform/alerts-metric-near-real-time.md
-    - name: Journaux de diagnostic
-      items:
-        - name: 'Services de journaux de diagnostic, catégories et schémas'
-          href: platform/diagnostic-logs-schema.md
+    - name: 'Services de journaux de ressource, catégories et schémas'
+      href: platform/diagnostic-logs-schema.md
     - name: D’Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights (préversion)
@@ -1110,9 +1112,11 @@
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
+        - name: 'Alertes, métriques, journal d’activité, mise à l’échelle automatique'
+          href: /powershell/module/az.monitor
         - name: Application Insights
           href: /powershell/module/az.applicationinsights
-        - name: Journaux d’activité
+        - name: Log Analytics
           href: /powershell/module/az.operationalinsights
     - name: API REST
       items:

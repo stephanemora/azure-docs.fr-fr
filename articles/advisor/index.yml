@@ -1,45 +1,45 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Documentation Azure Advisor
+summary: Azure Advisor analyse votre configuration Azure et recommande des changements pour optimiser les déploiements, accroître la sécurité et réduire les coûts.
 metadata:
-  title: Documentation Azure Advisor | Microsoft Docs
-  description: null
+  title: Documentation Azure Advisor
+  description: Azure Advisor est un conseiller personnalisé basé dans le cloud qui décrit les meilleures pratiques à suivre pour optimiser vos déploiements Azure. Il analyse les données de télémétrie d’utilisation et la configuration de vos ressources. Il recommande ensuite des solutions pour améliorer les performances, la sécurité et la haute disponibilité de vos ressources tout en réduisant vos dépenses Azure globales.
   services: advisor
-  author: rboucher
-  layout: LandingPage
   ms.service: advisor
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
-  ms.date: 02/01/2019
+  author: rboucher
   ms.author: robb
-abstract:
-  description: 'Azure Advisor est un conseiller personnalisé basé dans le cloud qui décrit les meilleures pratiques à suivre pour optimiser vos déploiements Azure. Il analyse les données de télémétrie d’utilisation et la configuration de vos ressources. Il recommande ensuite des solutions pour améliorer les performances, la sécurité et la haute disponibilité de vos ressources tout en réduisant vos dépenses Azure globales.'
-sections:
-  - title: null
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: En savoir plus sur Azure Advisor
-            href: /azure/advisor/advisor-overview
-            image:
-              src: media/index/advisor.svg
-              href: /azure/advisor/advisor-overview
-          - title: Prise en main d’Azure Advisor
-            href: /azure/advisor/advisor-get-started
-            image:
-              src: media/index/get-started.svg
-              href: /azure/advisor/advisor-get-started
-  - title: Informations de référence
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: "<p><a href=\"https://docs.microsoft.com/rest/api/advisor/\">Référence d’API\_REST</a></p>"
-          - title: Ligne de commande
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest">CLI (Common Language Interface)</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0">Azure PowerShell</a></p>'
+  ms.date: 10/16/2019
+  ms.openlocfilehash: d0a5dc66a752e49dd32cd742e3856d7edac0d879
+  ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72963975"
+landingContent:
+- title: À propos d’Azure Advisor
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: En savoir plus sur Azure Advisor
+      url: advisor-overview.md
+  - linkListType: video
+    links:
+    - text: Vidéos Azure Advisor
+      url: https://azure.microsoft.com/resources/videos/index/?services=advisor
+- title: Prise en main
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Prise en main d’Azure Advisor
+      url: advisor-get-started.md
+- title: Informations de référence
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: CLI (Common Language Interface)
+      url: /cli/azure/advisor?view=azure-cli-latest
+    - text: PowerShell
+      url: /powershell/module/az.advisor/?view=azps-1.2.0"
+    - text: API REST
+      url: /rest/api/advisor/

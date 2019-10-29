@@ -1,0 +1,118 @@
+- name: Documentation Azure IoT Central pour la santé
+  href: index.yml
+- name: Vue d'ensemble
+  items:
+    - name: Création de solutions de santé avec Azure IoT Central
+      href: overview-iot-central-healthcare.md
+- name: Tutoriels
+  items:
+    - name: Créer une application de suivi continu des patients
+      href: tutorial-continuous-patient-monitoring.md
+- name: Concepts
+  items:
+    - name: Architecture du suivi continu des patients
+      href: concept-continuous-patient-monitoring-architecture.md
+    - name: Connectivité
+      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+- name: Guides pratiques
+  items:
+    - name: Créer un tableau de bord de triage des données de santé
+      href: howto-health-data-triage.md
+    - name: Connecter des appareils
+      items:
+        - name: Préparer et connecter un kit de développement IoT MXChip
+          href: ../core/howto-connect-devkit-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: "Préparer et connecter un Rigado Cascade\_500"
+          href: ../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Superviser la connectivité des appareils à l’aide d’Azure CLI
+          href: ../core/howto-monitor-devices-azure-cli-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: Gérer des appareils
+      items:
+        - name: Gestion de vos appareils
+          href: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Exécuter une tâche
+          href: ../core/howto-run-a-job.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Utiliser des groupes d’appareils
+          href: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Modèle d’appareil de version
+          href: ../core/howto-version-device-template-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: Supervision et analytique
+      items:
+        - name: Analyser les données de votre appareil
+          href: ../core/howto-create-analytics-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Créer des webhooks sur des règles
+          href: ../core/howto-create-webhooks-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: Actions et extensibilité
+      items:
+        - name: Configurer l’exportation de données continue
+          href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Créer des règles personnalisées
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Créer une analytique personnalisée avec Databricks
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Créer une analytique personnalisée avec Databricks
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: Administration
+      items:
+        - name: Changer les paramètres d’application
+          href: ../core/howto-administer-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Exporter votre application
+          href: ../core/howto-use-app-templates-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Gérer des utilisateurs et des rôles
+          href: ../core/howto-manage-users-roles-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Gérer votre facture
+          href: ../core/howto-view-bill-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Personnaliser l’interface utilisateur de l’application
+          href: ../core/howto-customize-ui-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Ajouter des vignettes à votre tableau de bord
+          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Gérer à partir du portail Azure
+          href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Gérer à partir d’Azure CLI
+          href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Gérer à partir d’Azure PowerShell
+          href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Gérer à partir du portail CSP
+          href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: Personnalisation
+      items:
+        - name: Créer des tableaux de bord personnels Azure IoT Central
+          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Gérer vos préférences personnelles
+          href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Activer ou désactiver les conversations en direct
+          href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+- name: Rubriques connexes
+  items:
+    - name: Services de plateforme
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT Plug-and-Play
+          href: /azure/iot-pnp
+        - name: Service IoT Hub Device Provisioning
+          href: /azure/iot-dps
+        - name: Location Based Services
+          href: /azure/location-based-services
+        - name: Kits de développement logiciel (SDK) IoT Service
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: IoT Edge
+      items:
+        - name: "Azure IoT\_Edge"
+          href: /azure/iot-edge
+        - name: Kits de développement logiciel (SDK) IoT Device
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Ressources
+  items:
+    - name: Demandes de données client
+      href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: Navigateurs pris en charge
+      href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: Documentation de référence de l’API
+      href: 'https://go.microsoft.com/fwlink/?linkid=2109131'
+    - name: API Azure pour FHIR
+      href: 'https://docs.microsoft.com/azure/healthcare-apis/'
+    - name: Conception de solutions d’intégrité sécurisées
+      href: 'https://docs.microsoft.com/azure/security/fundamentals/health-care-solution'
