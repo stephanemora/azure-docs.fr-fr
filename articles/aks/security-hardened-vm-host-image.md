@@ -36,7 +36,7 @@ Vous trouverez ci-dessous un résumé du travail de durcissement de la sécurit�
 
 AKS-Engine ne promeut ni n’adhère à aucune norme de sécurité spécifique pour l’instant, mais les ID d’audit CIS (Center for Internet Security) sont fournis pour des raisons pratiques, le cas échéant. 
 
-## <a name="whats-configured"></a>Sur quoi porte la configuration ?
+## <a name="whats-configured"></a>Quelle est la configuration ?
 
 | CIS  | Description d’audit| 
 |---|---|
@@ -77,15 +77,15 @@ AKS-Engine ne promeut ni n’adhère à aucune norme de sécurité spécifique p
 |5.4.4 |Vérifier que le masque umask d’utilisateur par défaut est 027 ou plus restrictif |
 |5.6 |Vérifier que l’accès à la commande su est restreint|
 
-## <a name="additional-notes"></a>Remarques supplémentaires
+## <a name="additional-notes"></a>Remarques complémentaires
  
 * Pour réduire encore la surface d’attaque, certains pilotes de module de noyau inutiles ont été désactivés dans le système d’exploitation. 
 
 * Le système d’exploitation avec une sécurité durcie n’est PAS pris en charge en dehors de la plateforme AKS. 
 
-## <a name="next-steps"></a>Étapes suivantes  
+## <a name="next-steps"></a>Prochaines étapes  
 
-Pour plus d’informations sur la sécurité AKS, consultez les articles suivants : 
+Pour plus d’informations sur la sécurité AKS, vous pouvez consulter les articles suivants : 
 
 [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
 
