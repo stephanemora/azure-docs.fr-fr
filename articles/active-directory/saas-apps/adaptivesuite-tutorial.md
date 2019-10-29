@@ -17,10 +17,10 @@ ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70213621"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Didacticiel : Intégrer Adaptive Insights à Azure Active Directory
@@ -104,15 +104,15 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 2. Accédez à **Administration**.
 
-    ![Administrateur](./media/adaptivesuite-tutorial/ic805644.png "Administrateur")
+    ![Administrateur](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
 3. Dans la section **Utilisateurs et rôles**, cliquez sur **Gérer les paramètres d’authentification unique SAML**.
 
-    ![Gérer les paramètres d’authentification unique de SAML](./media/adaptivesuite-tutorial/ic805645.png "Gérer les paramètres d’authentification unique de SAML")
+    ![Gérer les paramètres d’authentification unique SAML](./media/adaptivesuite-tutorial/ic805645.png "Manage SAML SSO Settings")
 
 4. Dans la page **SAML SSO Settings** , procédez comme suit :
 
-    ![Paramètres d’authentification unique de SAML](./media/adaptivesuite-tutorial/ic805646.png "Paramètres d’authentification unique de SAML")
+    ![Paramètres d’authentification unique SAML](./media/adaptivesuite-tutorial/ic805646.png "SAML SSO Settings")
 
     a. Dans la zone de texte **Identity provider name** , attribuez un nom à votre configuration.
 
@@ -178,7 +178,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Adaptive Insights, v
 
 2. Accédez à **Administration**.
 
-   ![Administrateur](./media/adaptivesuite-tutorial/IC805644.png "Administrateur")
+   ![Administrateur](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
 3. Dans la section **Utilisateurs et rôles**, cliquez sur **Utilisateurs**.
 
@@ -186,7 +186,7 @@ Pour permettre aux utilisateurs Azure AD de se connecter à Adaptive Insights, v
 
 4. Dans la section **New User**, procédez comme suit :
 
-   ![Envoyer](./media/adaptivesuite-tutorial/IC805649.png "Envoyer")
+   ![Envoyer](./media/adaptivesuite-tutorial/IC805649.png "Submit")
 
    a. Tapez les informations correspondant à **Nom**, **Nom d’utilisateur**, **E-mail**, **Mot de passe** d’un utilisateur Azure Active Directory valide que vous voulez provisionner dans les zones de texte associées.
 

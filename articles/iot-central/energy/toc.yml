@@ -17,7 +17,9 @@
     - name: Architecture d’application pour panneaux solaires
       href: concept-iot-central-solar-panel-app.md
     - name: Connectivité
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+      href: ../core/overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: Présentation des modèles d’application
+      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
 - name: Guides pratiques
   items:
     - name: Connecter des appareils
@@ -50,8 +52,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Créer des règles personnalisées
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
-        - name: Créer une analytique personnalisée avec Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Créer une analytique personnalisée avec Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Administration

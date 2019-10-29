@@ -17,10 +17,10 @@ ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a63872680d28664c6d5a7ff109f6de72817173d5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68989646"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Didacticiel : Intégrer Aha! à Azure Active Directory
@@ -134,7 +134,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     ![Extension My apps](common/install-myappssecure-extension.png)
 
-2. Après avoir ajouté l’extension au navigateur, cliquer sur **Configurer Aha!** vous redirige vers l’application Aha!. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Aha!. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 8.
+2. Après avoir ajouté l’extension au navigateur, cliquer sur **Configurer Aha!** vous redirige vers l’application application Aha!. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Aha!. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 8.
 
     ![Configuration](common/setup-sso.png)
 
@@ -150,15 +150,15 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 6. Cliquez sur **Security and single sign-on**.
 
-    ![Sécurité et authentification unique](./media/aha-tutorial/IC798952.png "Sécurité et authentification unique")
+    ![Sécurité et authentification unique](./media/aha-tutorial/IC798952.png "Security and single sign-on")
 
 7. Dans la section **Single Sign-On**, pour **Identity Provider**, sélectionnez **SAML2.0**.
 
-    ![Sécurité et authentification unique](./media/aha-tutorial/IC798953.png "Sécurité et authentification unique")
+    ![Sécurité et authentification unique](./media/aha-tutorial/IC798953.png "Security and single sign-on")
 
 8. Dans la page de configuration **Single Sign on** , procédez comme suit :
 
-    ![Authentification unique](./media/aha-tutorial/IC798954.png "Authentification unique")
+    ![Authentification unique](./media/aha-tutorial/IC798954.png "Single Sign on")
 
     a. Dans la zone de texte **Name** , tapez le nom de votre configuration.
 

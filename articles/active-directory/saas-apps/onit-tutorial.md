@@ -17,10 +17,10 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164238"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Onit
@@ -141,7 +141,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 3. Cliquez sur **Edit Corporation**.
    
-    ![Modifier l’entreprise](./media/onit-tutorial/IC791175.png "Modifier l’entreprise")
+    ![Edit Corporation](./media/onit-tutorial/IC791175.png "Edit Corporation")
    
 4. Cliquez sur l’onglet **Security** .
     
@@ -149,7 +149,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 5. Sous l’onglet **Security** , procédez comme suit :
 
-    ![Authentification unique](./media/onit-tutorial/IC791177.png "Authentification unique")
+    ![Authentification unique](./media/onit-tutorial/IC791177.png "Single Sign on")
 
     a. Comme **Authentication Strategy**, sélectionnez **Single Sign On and Password**.
     

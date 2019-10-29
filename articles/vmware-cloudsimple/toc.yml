@@ -22,7 +22,7 @@
           href: quickstart-create-vmware-virtual-machine.md
     - name: Concepts
       items:
-        - name: de diffusion en continu
+        - name: Service
           href: cloudsimple-service.md
         - name: Nœuds
           href: cloudsimple-node.md

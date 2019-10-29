@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: d23fc94fba9a9b750f2977fd9c5d8297e4da8d5c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825921"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler One
@@ -177,7 +177,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler One, effectuez
 
 5. Dans la fenêtre **Modifier les paramètres SAML**, procédez comme suit, puis cliquez sur Enregistrer.  
             
-    ![Gérer les utilisateurs et l’authentification](./media/zscaler-one-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
+    ![Gérer les utilisateurs et l’authentification](./media/zscaler-one-tutorial/ic800208.png "Manage Users & Authentication")
     
     a. Dans la zone de texte **URL du portail SAML**, collez l'**URL de connexion** que vous avez copiée sur le portail Azure.
 
@@ -214,7 +214,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler One, effectuez
 
 3. Cliquez sur l’onglet **Connexions** .   
   
-     ![Connexions](./media/zscaler-one-tutorial/ic769493.png "Connexions")
+     ![Connexions](./media/zscaler-one-tutorial/ic769493.png "connexions")
 
 4. Cliquez sur **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres réseau**.
 
@@ -309,5 +309,5 @@ Le fait de cliquer sur la vignette Zscaler One dans le panneau d’accès doit v
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

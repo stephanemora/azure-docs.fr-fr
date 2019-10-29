@@ -17,10 +17,10 @@ ms.date: 08/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69891978"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Workday
@@ -155,7 +155,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 3. Dans la section **Redirection URLs** , procédez comme suit :
 
-    ![URL de redirection](./media/workday-tutorial/IC7829581.png "URL de redirection")
+    ![URL de redirection](./media/workday-tutorial/IC7829581.png "Redirection URLs")
 
     a. Cliquez sur le **signe plus**pour ajouter une ligne.
 
@@ -172,7 +172,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 4. Dans la section **SAML Setup** , procédez comme suit :
 
-    ![Configuration de SAML](./media/workday-tutorial/IC782926.png "Configuration de SAML")
+    ![Configuration SAML](./media/workday-tutorial/IC782926.png "SAML Setup")
 
     a.  Sélectionnez **Enable SAML Authentication**.
 
@@ -180,13 +180,13 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 5. Dans la section **SAML Identity Providers** (Fournisseurs d’identité SAML), effectuez les étapes suivantes :
 
-    ![Fournisseurs d’identité SAML](./media/workday-tutorial/IC7829271.png "Fournisseurs d’identité SAML")
+    ![Fournisseurs d’identité SAML](./media/workday-tutorial/IC7829271.png "Fournisseurs d’identité SAML")
 
     a. Dans la zone de texte **Identity Provider Name** (Nom du fournisseur d’identité), entrez le nom d’un fournisseur (par exemple : *SPInitiatedSSO*).
 
     b. Dans le portail Azure, dans la fenêtre **Set up Workday** (Configurer Workday), copiez la valeur de **Identificateur Azure AD**, puis collez-la dans la zone de texte **Émetteur**.
 
-    ![Fournisseurs d’identité SAML](./media/workday-tutorial/IC7829272.png "Fournisseurs d’identité SAML")
+    ![Fournisseurs d’identité SAML](./media/workday-tutorial/IC7829272.png "Fournisseurs d’identité SAML")
 
     c. Dans le portail Azure, dans la fenêtre **Set up Workday** (Configurer Workday), copiez l’**URL de déconnexion**, puis collez-la dans la zone de texte **Logout Response URL** (URL de réponse de déconnexion).
 
@@ -196,11 +196,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     f. Cliquez sur **Certificat de clé publique du fournisseur d’identité**, puis sur **Créer**.
 
-    ![Créer](./media/workday-tutorial/IC782928.png "créer")
+    ![Créer](./media/workday-tutorial/IC782928.png "Créer")
 
     g. Cliquez sur **Créer la clé publique x509**.
 
-    ![Créer](./media/workday-tutorial/IC782929.png "créer")
+    ![Créer](./media/workday-tutorial/IC782929.png "Créer")
 
 6. Dans la section **Afficher la clé publique x509** , procédez comme suit :
 
@@ -225,7 +225,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 7. Procédez comme suit :
 
-    ![Configuration SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuration SSO")
+    ![Configuration de l’authentification unique](./media/workday-tutorial/WorkdaySSOConfiguratio.png "Configuration SSO")
 
     a.  Dans la zone de texte **ID fournisseur de services**, tapez **http://www.workday.com** .
 
@@ -233,7 +233,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     c. Comme **Méthode de signature de la demande d’authentification**, sélectionnez **SHA256**.
 
-    ![Méthode de signature de demande la d’authentification](./media/workday-tutorial/WorkdaySSOConfiguration.png "Méthode de signature de la demande d’authentification") 
+    ![Méthode de signature de la demande d’authentification](./media/workday-tutorial/WorkdaySSOConfiguration.png "Méthode de signature de la demande d’authentification") 
 
     d. Cliquez sur **OK**.
 

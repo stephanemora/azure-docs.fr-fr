@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d637b01eb9e4d1664def9eb537b810603eea18ea
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4767f43171e8576fcf35ba7304c48b05b85745c4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598815"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553574"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Didacticiel : déployer une application Service Fabric sur un cluster dans Azure
 
@@ -46,6 +46,9 @@ Avant de commencer ce tutoriel :
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Installez Visual Studio 2019](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 * [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md).
+
+> [!NOTE]
+> Un compte gratuit peut ne pas répondre aux besoins nécessaires pour créer une machine virtuelle, ce qui empêche le suivi du tutoriel.
 
 ## <a name="download-the-voting-sample-application"></a>Télécharger l’exemple d’application de vote
 

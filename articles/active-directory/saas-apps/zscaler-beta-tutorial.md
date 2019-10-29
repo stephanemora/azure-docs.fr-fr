@@ -17,10 +17,10 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943290"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Didacticiel : Intégration d’Azure Active Directory à Zscaler Beta
@@ -177,7 +177,7 @@ Pour configurer l’authentification unique Azure AD avec Zscaler Beta, effectue
 
 5. Dans la fenêtre **Edit SAML** (Modifier SAML), effectuez les étapes suivantes : 
             
-    ![Gérer les utilisateurs et l’authentification](./media/zscaler-beta-tutorial/ic800208.png "Gérer les utilisateurs et l’authentification")
+    ![Gérer les utilisateurs et l’authentification](./media/zscaler-beta-tutorial/ic800208.png "Manage Users & Authentication")
     
     a. Dans la zone **SAML Portal URL** (URL du portail SAML), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
@@ -214,7 +214,7 @@ Pour configurer les paramètres de proxy dans Internet Explorer, effectuez les 
 
 3. Sélectionnez l’onglet **Connexions** . 
   
-     ![Onglet Connexions](./media/zscaler-beta-tutorial/ic769493.png "Connexions")
+     ![Onglet Connexions](./media/zscaler-beta-tutorial/ic769493.png "connexions")
 
 4. Sélectionnez **Paramètres réseau** pour ouvrir la boîte de dialogue **Paramètres du réseau local**.
 
@@ -256,7 +256,7 @@ Créez un utilisateur de test appelé Britta Simon dans le portail Azure.
 
     c. Cochez la case **Afficher le mot de passe**. Notez la valeur affichée dans la zone **Mot de passe**.
 
-    d. Sélectionnez **Créer**.
+    d. Sélectionnez **Create** (Créer).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
@@ -307,5 +307,5 @@ Quand vous cliquez sur la vignette Zscaler Beta dans le volet d’accès, vous 
 
 - [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

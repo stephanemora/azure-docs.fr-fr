@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce7f40c300a86acd101d1b38cfef4b2af91c4085
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4238033f94fe8bfdc677c9eb623a2eab3cdf371c
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772669"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532925"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-surveymonkey-enterprise"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à SurveyMonkey Enterprise
 
@@ -45,6 +45,9 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * SurveyMonkey Enterprise prend en charge l’authentification unique lancée par le **fournisseur d’identité**.
+
+> [!NOTE]
+> L’identificateur de cette application étant une valeur de chaîne fixe, une seule instance peut être configurée dans un locataire.
 
 ## <a name="adding-surveymonkey-enterprise-from-the-gallery"></a>Ajout de SurveyMonkey Enterprise à partir de la galerie
 
@@ -81,6 +84,18 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la section **Configuration SAML de base**, l’application est préconfigurée et les URL nécessaires sont déjà préremplies avec Azure. L’utilisateur doit enregistrer la configuration en cliquant sur le bouton **Enregistrer**.
+
+1. Votre application SurveyMonkey s’attend à recevoir les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
+
+    ![image](common/edit-attribute.png)
+
+6. En plus de ce qui précède, l’application SurveyMonkey s’attend à ce que quelques attributs supplémentaires soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
+
+    | Nom | Attribut source|
+    | ---------------| --------------- |
+    | Email | user.mail |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération** et sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
@@ -126,7 +141,7 @@ Pour configurer l’authentification unique côté **SurveyMonkey Enterprise**, 
 
 ### <a name="create-surveymonkey-enterprise-test-user"></a>Créer un utilisateur de test SurveyMonkey Enterprise
 
-Dans cette section, vous allez créer un utilisateur appelé B.Simon dans SurveyMonkey Enterprise. Collaborez avec l’ [équipe du support technique de SurveyMonkey Enterprise](mailto:support@selerix.com) pour ajouter les utilisateurs à la plateforme SurveyMonkey Enterprise. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Il n’est pas nécessaire de créer un utilisateur de test dans SurveyMonkey Enterprise. Les comptes d’utilisateur seront provisionnés, si l’utilisateur choisit de créer un nouveau compte, en fonction de l’assertion SAML. Votre SurveyMonkey Enterprise Customer Success Manager fournira les étapes nécessaires pour effectuer ce processus une fois que vos métadonnées Azure auront été ajoutées à la configuration de SurveyMonkey Enterprise et qu’elles seront prêtes à être validées.
 
 ## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 

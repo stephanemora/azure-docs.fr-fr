@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Didacticiel : Intégration d’Azure Active Directory avec PolicyStat
@@ -162,15 +162,15 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
 2. Cliquez sur l’onglet **Admin**, puis sur **Single Sign-On Configuration** dans le volet de navigation de gauche.
    
-    ![Menu administrateur](./media/policystat-tutorial/ic808633.png "Menu administrateur")
+    ![Menu Administrateur](./media/policystat-tutorial/ic808633.png "Menu Administrateur")
 
 3. Dans la section **Setup**, sélectionnez **Enable Single Sign-on Integration**.
    
-    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808634.png "Configuration de l’authentification unique")
+    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808634.png "Single Sign-On Configuration")
 
 4. Cliquez sur **Configure Attributes**, puis, dans la section **Configure Attributes**, procédez comme suit :
    
-    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808635.png "Configuration de l’authentification unique")
+    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808635.png "Single Sign-On Configuration")
    
     a. Dans la zone de texte **Username Attribute**, entrez **uid**.
 
@@ -184,7 +184,7 @@ Pour configurer l’authentification unique Azure AD avec PolicyStat, effectuez 
 
 5. Cliquez sur **Your IDP Metadata**, puis, dans la section **Your IDP Metadata**, procédez comme suit :
    
-    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808636.png "Configuration de l’authentification unique")
+    ![Configuration de l’authentification unique](./media/policystat-tutorial/ic808636.png "Single Sign-On Configuration")
    
     a. Ouvrez votre fichier de métadonnées téléchargé, copiez son contenu, puis collez-le dans la zone de texte **Your Identity Provider Metadata**.
 
@@ -259,5 +259,5 @@ Quand vous cliquez sur la vignette PolicyStat dans le volet d’accès, vous dev
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

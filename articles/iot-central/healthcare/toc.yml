@@ -13,7 +13,9 @@
     - name: Architecture du suivi continu des patients
       href: concept-continuous-patient-monitoring-architecture.md
     - name: Connectivité
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+      href: ../core/overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+    - name: Présentation des modèles d’application
+      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: Guides pratiques
   items:
     - name: Créer un tableau de bord de triage des données de santé
@@ -48,8 +50,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Créer des règles personnalisées
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Créer une analytique personnalisée avec Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Créer une analytique personnalisée avec Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Administration
