@@ -6,14 +6,12 @@
       href: overview-iot-central-government.md
 - name: Tutoriels
   items:
-    - name: Analytique dans le magasin - Paiement
-      items:
-        - name: Créer une application connectée de gestion des déchets
-          href: tutorial-connected-waste-management.md
-        - name: Créer une application de suivi de la consommation d’eau
-          href: tutorial-water-consumption-monitoring.md
-        - name: Créer une application de suivi de la qualité de l’eau
-          href: tutorial-water-quality-monitoring.md
+    - name: Créer une application connectée de gestion des déchets
+      href: tutorial-connected-waste-management.md
+    - name: Créer une application de suivi de la consommation d’eau
+      href: tutorial-water-consumption-monitoring.md
+    - name: Créer une application de suivi de la qualité de l’eau
+      href: tutorial-water-quality-monitoring.md
 - name: Concepts
   items:
     - name: Architecture de référence d’une solution connectée de suivi des déchets
@@ -22,10 +20,10 @@
       href: concepts-waterconsumptionmonitoring-architecture.md
     - name: Architecture de référence d’une solution de suivi de la qualité de l’eau
       href: concepts-waterqualitymonitoring-architecture.md
-    - name: Connectivité
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
 - name: Guides pratiques
   items:
+    - name: "Connecter votre application avec Dynamics\_365 Field Services"
+      href: how-to-configure-connected-field-services.md
     - name: Connecter des appareils
       items:
         - name: Préparer et connecter un kit de développement IoT MXChip
@@ -56,8 +54,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Créer des règles personnalisées
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: Créer une analytique personnalisée avec Databricks
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Créer une analytique personnalisée avec Databricks
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Administration
@@ -114,8 +110,6 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
-    - name: Documentation de référence de l’API
-      href: 'https://go.microsoft.com/fwlink/?linkid=2109131'
     - name: Demandes de données client
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: Navigateurs pris en charge
