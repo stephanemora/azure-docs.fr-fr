@@ -37,6 +37,9 @@
         - name: Bien démarrer avec Azure Databricks
           href: /azure/databricks/getting-started/quick-start
           maintainContext: true
+        - name: Vue d’ensemble des données
+          href: /azure/databricks/getting-started/data
+          maintainContext: true
         - name: Concepts d’Azure Databricks
           href: /azure/databricks/getting-started/concepts
           maintainContext: true
@@ -72,6 +75,425 @@
         - name: Navigateurs pris en charge
           href: /azure/databricks/getting-started/supported-browsers
           maintainContext: true
+    - name: Runtimes Databricks
+      items:
+        - name: Vue d’ensemble des runtimes
+          href: /azure/databricks/runtime/index
+          maintainContext: true
+        - name: Runtime Databricks
+          href: /azure/databricks/runtime/dbr
+          maintainContext: true
+        - name: Databricks Runtime avec Conda
+          href: /azure/databricks/runtime/conda
+          maintainContext: true
+        - name: Databricks Runtime pour le machine learning
+          href: /azure/databricks/runtime/mlruntime
+          maintainContext: true
+        - name: Databricks Runtime pour Genomics
+          href: /azure/databricks/runtime/genomicsruntime
+          maintainContext: true
+        - name: Databricks Light
+          href: /azure/databricks/runtime/light
+          maintainContext: true
+    - name: Espace de travail
+      items:
+        - name: Explorer l’espace de travail Databricks
+          href: /azure/databricks/workspace/index
+          maintainContext: true
+        - name: Ressources d’espace de travail
+          href: /azure/databricks/workspace/workspace-assets
+          maintainContext: true
+        - name: Utiliser des objets d’espace de travail
+          href: /azure/databricks/workspace/workspace-objects
+          maintainContext: true
+        - name: 'Obtenir les identificateurs d’espace de travail, de cluster, de notebook et de travail'
+          href: /azure/databricks/workspace/workspace-details
+          maintainContext: true
+    - name: Clusters
+      items:
+        - name: Vue d’ensemble des clusters
+          href: /azure/databricks/clusters/index
+          maintainContext: true
+        - name: Créer un cluster
+          href: /azure/databricks/clusters/create
+          maintainContext: true
+        - name: Gérer des clusters
+          href: /azure/databricks/clusters/clusters-manage
+          maintainContext: true
+        - name: Configurer des clusters
+          href: /azure/databricks/clusters/configure
+          maintainContext: true
+        - name: Initialiser des nœuds de cluster
+          href: /azure/databricks/clusters/init-scripts
+          maintainContext: true
+        - name: Conteneurs personnalisés
+          href: /azure/databricks/clusters/custom-containers
+          maintainContext: true
+        - name: Clusters compatibles GPU
+          href: /azure/databricks/clusters/gpu
+          maintainContext: true
+        - name: Pools
+          items:
+            - name: Vue d’ensemble des pools
+              href: /azure/databricks/clusters/instance-pools/index
+              maintainContext: true
+            - name: Afficher les pools
+              href: /azure/databricks/clusters/instance-pools/display
+              maintainContext: true
+            - name: Créer un pool
+              href: /azure/databricks/clusters/instance-pools/create
+              maintainContext: true
+            - name: Configurer un pool
+              href: /azure/databricks/clusters/instance-pools/configure
+              maintainContext: true
+            - name: Modifier un pool
+              href: /azure/databricks/clusters/instance-pools/edit
+              maintainContext: true
+            - name: Supprimer un pool
+              href: /azure/databricks/clusters/instance-pools/delete
+              maintainContext: true
+            - name: Utiliser un pool
+              href: /azure/databricks/clusters/instance-pools/cluster-instance-pool
+              maintainContext: true
+    - name: Notebooks
+      items:
+        - name: Vue d’ensemble des notebooks
+          href: /azure/databricks/notebooks/index
+          maintainContext: true
+        - name: Gérer des notebooks
+          href: /azure/databricks/notebooks/notebooks-manage
+          maintainContext: true
+        - name: Utiliser des notebooks
+          href: /azure/databricks/notebooks/notebooks-use
+          maintainContext: true
+        - name: Gestion de versions
+          items:
+            - name: Gestion de versions avec Azure DevOps
+              href: /azure/databricks/notebooks/azure-devops-services-version-control
+              maintainContext: true
+            - name: Gestion de versions avec Bitbucket Cloud
+              href: /azure/databricks/notebooks/bitbucket-cloud-version-control
+              maintainContext: true
+            - name: Gestion de versions avec GitHub
+              href: /azure/databricks/notebooks/github-version-control
+              maintainContext: true
+        - name: Visualisations
+          items:
+            - name: Visualiser les données
+              href: /azure/databricks/notebooks/visualizations/index
+              maintainContext: true
+            - name: Migrer les graphiques en courbes dépréciés
+              href: /azure/databricks/notebooks/visualizations/migrate-charts
+              maintainContext: true
+            - name: Immersion dans la visualisation dans Python
+              href: /azure/databricks/notebooks/visualizations/charts-and-graphs-python
+              maintainContext: true
+            - name: Immersion dans la visualisation dans Scala
+              href: /azure/databricks/notebooks/visualizations/charts-and-graphs-scala
+              maintainContext: true
+            - name: 'HTML, D3 et SVG dans les notebooks'
+              href: /azure/databricks/notebooks/visualizations/html-d3-and-svg
+              maintainContext: true
+            - name: Bokeh dans les notebooks Python
+              href: /azure/databricks/notebooks/visualizations/bokeh
+              maintainContext: true
+            - name: Matplotlib et ggplot dans les notebooks Python
+              href: /azure/databricks/notebooks/visualizations/matplotlib-and-ggplot
+              maintainContext: true
+            - name: htmlwidgets dans les notebooks R
+              href: /azure/databricks/notebooks/visualizations/htmlwidgets
+              maintainContext: true
+            - name: Plotly dans les notebooks Python et R
+              href: /azure/databricks/notebooks/visualizations/plotly
+              maintainContext: true
+        - name: Tableaux de bord
+          href: /azure/databricks/notebooks/dashboards
+          maintainContext: true
+        - name: Widgets
+          href: /azure/databricks/notebooks/widgets
+          maintainContext: true
+        - name: Workflows des notebooks
+          href: /azure/databricks/notebooks/notebook-workflows
+          maintainContext: true
+        - name: Cellules de package
+          href: /azure/databricks/notebooks/package-cells
+          maintainContext: true
+    - name: Tâches
+      href: /azure/databricks/jobs
+      maintainContext: true
+    - name: Bibliothèques
+      href: /azure/databricks/libraries
+      maintainContext: true
+    - name: Données
+      items:
+        - name: Système de fichiers Databricks
+          href: /azure/databricks/data/databricks-file-system
+          maintainContext: true
+        - name: Bases de données et tables
+          href: /azure/databricks/data/tables
+          maintainContext: true
+        - name: Metastores
+          items:
+            - name: Metastore Hive externe
+              href: /azure/databricks/data/metastores/external-hive-metastore
+              maintainContext: true
+        - name: Sources de données
+          items:
+            - name: Bases de données SQL avec JDBC
+              href: /azure/databricks/data/data-sources/sql-databases
+              maintainContext: true
+            - name: Azure SQL Database avec le connecteur Apache Spark
+              href: /azure/databricks/data/data-sources/sql-databases-azure
+              maintainContext: true
+            - name: Stockage des objets blob
+              href: /azure/databricks/data/data-sources/azure/azure-storage
+              maintainContext: true
+            - name: Azure Data Lake Storage Gen2
+              href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
+              maintainContext: true
+            - name: Azure Data Lake Storage
+              href: /azure/databricks/data/data-sources/azure/azure-datalake
+              maintainContext: true
+            - name: Passage à Azure Data Lake Storage
+              href: /azure/databricks/data/data-sources/azure/adls-passthrough
+              maintainContext: true
+            - name: Cosmos DB
+              href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
+              maintainContext: true
+            - name: SQL Data Warehouse
+              href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
+              maintainContext: true
+            - name: Fichiers binaires
+              href: /azure/databricks/data/data-sources/binary-file
+              maintainContext: true
+            - name: Cassandra
+              href: /azure/databricks/data/data-sources/cassandra
+              maintainContext: true
+            - name: Couchbase
+              href: /azure/databricks/data/data-sources/couchbase
+              maintainContext: true
+            - name: Recherche élastique
+              href: /azure/databricks/data/data-sources/elasticsearch
+              maintainContext: true
+            - name: Images
+              href: /azure/databricks/data/data-sources/image
+              maintainContext: true
+            - name: Tables Hive
+              href: /azure/databricks/data/data-sources/hive-tables
+              maintainContext: true
+            - name: Expérience MLflow
+              href: /azure/databricks/data/data-sources/mlflow-experiment
+              maintainContext: true
+            - name: MongoDb
+              href: /azure/databricks/data/data-sources/mongodb
+              maintainContext: true
+            - name: Neo4j
+              href: /azure/databricks/data/data-sources/neo4j
+              maintainContext: true
+            - name: Fichiers Avro
+              href: /azure/databricks/data/data-sources/read-avro
+              maintainContext: true
+            - name: Fichiers CSV
+              href: /azure/databricks/data/data-sources/read-csv
+              maintainContext: true
+            - name: Fichiers JSON
+              href: /azure/databricks/data/data-sources/read-json
+              maintainContext: true
+            - name: Fichiers compressés LZO
+              href: /azure/databricks/data/data-sources/read-lzo
+              maintainContext: true
+            - name: Fichiers Parquet
+              href: /azure/databricks/data/data-sources/read-parquet
+              maintainContext: true
+            - name: Redis
+              href: /azure/databricks/data/data-sources/redis
+              maintainContext: true
+            - name: Série chronologique Riak
+              href: /azure/databricks/data/data-sources/riak-ts
+              maintainContext: true
+            - name: Snowflake
+              href: /azure/databricks/data/data-sources/snowflake
+              maintainContext: true
+            - name: Fichiers ZIP
+              href: /azure/databricks/data/data-sources/zip-files
+              maintainContext: true
+        - name: FileStore
+          href: /azure/databricks/data/filestore
+          maintainContext: true
+    - name: Outils décisionnels
+      items:
+        - name: Connecter des outils BI
+          href: /azure/databricks/bi/jdbc-odbc-bi
+          maintainContext: true
+        - name: Tableau
+          href: /azure/databricks/bi/tableau
+          maintainContext: true
+        - name: Power BI
+          href: /azure/databricks/bi/power-bi
+          maintainContext: true
+        - name: Alteryx
+          href: /azure/databricks/bi/alteryx
+          maintainContext: true
+        - name: Looker
+          href: /azure/databricks/bi/looker
+          maintainContext: true
+        - name: SQL Workbench/J
+          href: /azure/databricks/bi/workbenchj
+          maintainContext: true
+    - name: Delta Lake
+      items:
+        - name: Présentation de Delta Lake
+          href: /azure/databricks/delta/delta-intro
+          maintainContext: true
+        - name: Bien démarrer avec Delta Lake
+          href: /azure/databricks/delta/quick-start
+          maintainContext: true
+        - name: Notebooks d’introduction
+          href: /azure/databricks/delta/intro-notebooks
+          maintainContext: true
+        - name: Lectures et écritures par lots sur des tables
+          href: /azure/databricks/delta/delta-batch
+          maintainContext: true
+        - name: Lectures et écritures en streaming sur des tables
+          href: /azure/databricks/delta/delta-streaming
+          maintainContext: true
+        - name: 'Suppression, mise à jour et fusion de tables'
+          href: /azure/databricks/delta/delta-update
+          maintainContext: true
+        - name: Commandes utilitaires sur les tables
+          href: /azure/databricks/delta/delta-utility
+          maintainContext: true
+        - name: Informations de référence sur l’API Delta Lake
+          href: /azure/databricks/delta/delta-apidoc
+          maintainContext: true
+        - name: Contrôle d’accès concurrentiel
+          href: /azure/databricks/delta/concurrency-control
+          maintainContext: true
+        - name: Optimisations
+          items:
+            - name: Vue d’ensemble des optimisations
+              href: /azure/databricks/delta/optimizations/index
+              maintainContext: true
+            - name: Optimiser les performances avec la gestion des fichiers
+              href: /azure/databricks/delta/optimizations/file-mgmt
+              maintainContext: true
+            - name: Optimisation automatique
+              href: /azure/databricks/delta/optimizations/auto-optimize
+              maintainContext: true
+            - name: Optimiser les performances avec la mise en cache
+              href: /azure/databricks/delta/optimizations/delta-cache
+              maintainContext: true
+            - name: Niveaux d'isolement
+              href: /azure/databricks/delta/optimizations/isolation-level
+              maintainContext: true
+            - name: Répliquer des tables MySQL dans des tables Delta Lake
+              href: /azure/databricks/delta/optimizations/mysql-delta
+              maintainContext: true
+            - name: Optimiser les performances de jointure
+              items:
+                - name: Vue d’ensemble de l’optimisation des performances de jointure
+                  href: /azure/databricks/delta/join-performance/index
+                  maintainContext: true
+                - name: Optimisation de la jointure de plages
+                  href: /azure/databricks/delta/join-performance/range-join
+                  maintainContext: true
+                - name: Optimisation de la jointure de données asymétriques
+                  href: /azure/databricks/delta/join-performance/skew-join
+                  maintainContext: true
+            - name: Transformation de données optimisée
+              items:
+                - name: Vue d’ensemble de la transformation de données optimisée
+                  href: /azure/databricks/delta/data-transformation/index
+                  maintainContext: true
+                - name: Fonctions d’ordre supérieur
+                  href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
+                  maintainContext: true
+                - name: Transformer des types de données complexes
+                  href: /azure/databricks/delta/data-transformation/complex-types
+                  maintainContext: true
+            - name: Bonnes pratiques
+              href: /azure/databricks/delta/best-practices
+              maintainContext: true
+            - name: Gestion des versions des tables
+              href: /azure/databricks/delta/optimizations/versioning
+              maintainContext: true
+            - name: Exemples d’optimisation
+              href: /azure/databricks/delta/optimizations/optimization-examples
+              maintainContext: true
+        - name: Questions fréquentes (FAQ)
+          href: /azure/databricks/delta/delta-faq
+          maintainContext: true
+        - name: Autres ressources Delta
+          href: /azure/databricks/delta/delta-resources
+          maintainContext: true
+    - name: DataFrames et jeux de données
+      items:
+        - name: Vue d’ensemble des DataFrames et des jeux de données
+          href: /azure/databricks/spark/latest/dataframes-datasets/index
+          maintainContext: true
+        - name: Présentation des DataFrames Python
+          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-python
+          maintainContext: true
+        - name: Présentation des DataFrames Scala
+          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-scala
+          maintainContext: true
+        - name: Présentation des jeux de données
+          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-datasets
+          maintainContext: true
+        - name: Données complexes et imbriquées
+          href: /azure/databricks/spark/latest/dataframes-datasets/complex-nested-data
+          maintainContext: true
+        - name: Agrégateurs
+          href: /azure/databricks/spark/latest/dataframes-datasets/aggregators
+          maintainContext: true
+    - name: Structured Streaming
+      items:
+        - name: Vue d’ensemble de Structured streaming
+          href: /azure/databricks/spark/latest/structured-streaming/index
+          maintainContext: true
+        - name: Notebooks d’introduction
+          href: /azure/databricks/spark/latest/structured-streaming/demo-notebooks
+          maintainContext: true
+        - name: Sources et récepteurs de données en streaming
+          items:
+            - name: Vue d’ensemble des sources et des récepteurs
+              href: /azure/databricks/spark/latest/structured-streaming/data-sources
+              maintainContext: true
+            - name: Apache Kafka
+              href: /azure/databricks/spark/latest/structured-streaming/kafka
+              maintainContext: true
+            - name: Hubs d'événements Azure
+              href: /azure/databricks/spark/latest/structured-streaming/streaming-event-hubs
+              maintainContext: true
+            - name: Tables Delta Lake
+              href: /azure/databricks/spark/latest/structured-streaming/delta
+              maintainContext: true
+            - name: Lire et écrire des données Avro en streaming avec des DataFrames
+              href: /azure/databricks/spark/latest/structured-streaming/avro-dataframe
+              maintainContext: true
+            - name: Écrire dans des récepteurs de données arbitraires
+              href: /azure/databricks/spark/latest/structured-streaming/foreach
+              maintainContext: true
+            - name: Stockage Blob Azure optimisé avec Stockage file d’attente Azure
+              href: /azure/databricks/spark/latest/structured-streaming/aqs
+              maintainContext: true
+        - name: Structured Streaming en production
+          href: /azure/databricks/spark/latest/structured-streaming/production
+          maintainContext: true
+        - name: Exemples de streaming
+          href: /azure/databricks/spark/latest/structured-streaming/examples
+          maintainContext: true
+        - name: Spark Streaming (hérité)
+          items:
+            - name: Vue d’ensemble de Spark Streaming (hérité)
+              href: /azure/databricks/spark/latest/rdd-streaming/index
+              maintainContext: true
+            - name: Déboguer des applications Spark Streaming
+              href: /azure/databricks/spark/latest/rdd-streaming/debugging-streaming-applications
+              maintainContext: true
+            - name: Bonnes pratiques pour le développement d’applications de streaming
+              href: /azure/databricks/spark/latest/rdd-streaming/developing-streaming-applications
+              maintainContext: true
     - name: SQL
       items:
         - name: Vue d’ensemble de SQL
@@ -273,422 +695,6 @@
         - name: RStudio sur Azure Databricks
           href: /azure/databricks/spark/latest/sparkr/rstudio
           maintainContext: true
-    - name: Runtimes Databricks
-      items:
-        - name: Vue d’ensemble des runtimes
-          href: /azure/databricks/runtime/index
-          maintainContext: true
-        - name: Runtime Databricks
-          href: /azure/databricks/runtime/dbr
-          maintainContext: true
-        - name: Databricks Runtime avec Conda
-          href: /azure/databricks/runtime/conda
-          maintainContext: true
-        - name: Databricks Runtime pour le machine learning
-          href: /azure/databricks/runtime/mlruntime
-          maintainContext: true
-        - name: Databricks Runtime pour la santé et les sciences de la vie
-          href: /azure/databricks/runtime/hlsruntime
-          maintainContext: true
-        - name: Databricks Light
-          href: /azure/databricks/runtime/light
-          maintainContext: true
-    - name: Espace de travail
-      items:
-        - name: Explorer l’espace de travail Databricks
-          href: /azure/databricks/workspace/index
-          maintainContext: true
-        - name: 'Obtenir les identificateurs d’espace de travail, de cluster, de notebook et de travail'
-          href: /azure/databricks/workspace/workspace-details
-          maintainContext: true
-        - name: Utiliser des objets d’espace de travail
-          href: /azure/databricks/workspace/workspace-objects
-          maintainContext: true
-    - name: Clusters
-      items:
-        - name: Vue d’ensemble des clusters
-          href: /azure/databricks/clusters/index
-          maintainContext: true
-        - name: Gérer des clusters
-          href: /azure/databricks/clusters/clusters-manage
-          maintainContext: true
-        - name: Créer un cluster
-          href: /azure/databricks/clusters/create
-          maintainContext: true
-        - name: Configurer des clusters
-          href: /azure/databricks/clusters/configure
-          maintainContext: true
-        - name: Initialiser des nœuds de cluster
-          href: /azure/databricks/clusters/init-scripts
-          maintainContext: true
-        - name: Conteneurs personnalisés
-          href: /azure/databricks/clusters/custom-containers
-          maintainContext: true
-        - name: Clusters compatibles GPU
-          href: /azure/databricks/clusters/gpu
-          maintainContext: true
-        - name: Pools
-          items:
-            - name: Vue d’ensemble des pools
-              href: /azure/databricks/clusters/instance-pools/index
-              maintainContext: true
-            - name: Afficher les pools
-              href: /azure/databricks/clusters/instance-pools/display
-              maintainContext: true
-            - name: Créer un pool
-              href: /azure/databricks/clusters/instance-pools/create
-              maintainContext: true
-            - name: Configurer un pool
-              href: /azure/databricks/clusters/instance-pools/configure
-              maintainContext: true
-            - name: Modifier un pool
-              href: /azure/databricks/clusters/instance-pools/edit
-              maintainContext: true
-            - name: Supprimer un pool
-              href: /azure/databricks/clusters/instance-pools/delete
-              maintainContext: true
-            - name: Utiliser un pool
-              href: /azure/databricks/clusters/instance-pools/cluster-instance-pool
-              maintainContext: true
-    - name: Notebooks
-      items:
-        - name: Vue d’ensemble des notebooks
-          href: /azure/databricks/notebooks/index
-          maintainContext: true
-        - name: Utiliser des notebooks
-          href: /azure/databricks/notebooks/notebooks-use
-          maintainContext: true
-        - name: Gérer des notebooks
-          href: /azure/databricks/notebooks/notebooks-manage
-          maintainContext: true
-        - name: Gestion de versions
-          items:
-            - name: Gestion de versions avec Azure DevOps
-              href: /azure/databricks/notebooks/azure-devops-services-version-control
-              maintainContext: true
-            - name: Gestion de versions avec Bitbucket Cloud
-              href: /azure/databricks/notebooks/bitbucket-cloud-version-control
-              maintainContext: true
-            - name: Gestion de versions avec GitHub
-              href: /azure/databricks/notebooks/github-version-control
-              maintainContext: true
-        - name: Visualisations
-          items:
-            - name: Visualiser les données
-              href: /azure/databricks/notebooks/visualizations/index
-              maintainContext: true
-            - name: Migrer les graphiques en courbes dépréciés
-              href: /azure/databricks/notebooks/visualizations/migrate-charts
-              maintainContext: true
-            - name: Immersion dans la visualisation dans Python
-              href: /azure/databricks/notebooks/visualizations/charts-and-graphs-python
-              maintainContext: true
-            - name: Immersion dans la visualisation dans Scala
-              href: /azure/databricks/notebooks/visualizations/charts-and-graphs-scala
-              maintainContext: true
-            - name: 'HTML, D3 et SVG dans les notebooks'
-              href: /azure/databricks/notebooks/visualizations/html-d3-and-svg
-              maintainContext: true
-            - name: Bokeh dans les notebooks Python
-              href: /azure/databricks/notebooks/visualizations/bokeh
-              maintainContext: true
-            - name: Matplotlib et ggplot dans les notebooks Python
-              href: /azure/databricks/notebooks/visualizations/matplotlib-and-ggplot
-              maintainContext: true
-            - name: htmlwidgets dans les notebooks R
-              href: /azure/databricks/notebooks/visualizations/htmlwidgets
-              maintainContext: true
-            - name: Plotly dans les notebooks Python et R
-              href: /azure/databricks/notebooks/visualizations/plotly
-              maintainContext: true
-        - name: Tableaux de bord
-          href: /azure/databricks/notebooks/dashboards
-          maintainContext: true
-        - name: Widgets d’entrée
-          href: /azure/databricks/notebooks/widgets
-          maintainContext: true
-        - name: Implémenter des workflows de notebook
-          href: /azure/databricks/notebooks/notebook-workflows
-          maintainContext: true
-        - name: Cellules de package
-          href: /azure/databricks/notebooks/package-cells
-          maintainContext: true
-    - name: Utiliser des travaux Azure Databricks
-      href: /azure/databricks/jobs
-      maintainContext: true
-    - name: Utiliser des bibliothèques Azure Databricks
-      href: /azure/databricks/libraries
-      maintainContext: true
-    - name: Données
-      items:
-        - name: Système de fichiers Databricks
-          href: /azure/databricks/data/databricks-file-system
-          maintainContext: true
-        - name: Accéder aux données
-          href: /azure/databricks/data/access-data
-          maintainContext: true
-        - name: Utiliser des bases de données et des tables
-          href: /azure/databricks/data/tables
-          maintainContext: true
-        - name: FileStore
-          href: /azure/databricks/data/filestore
-          maintainContext: true
-        - name: Sources de données
-          items:
-            - name: Fichiers binaires
-              href: /azure/databricks/data/data-sources/binary-file
-              maintainContext: true
-            - name: Cassandra
-              href: /azure/databricks/data/data-sources/cassandra
-              maintainContext: true
-            - name: Couchbase
-              href: /azure/databricks/data/data-sources/couchbase
-              maintainContext: true
-            - name: Recherche élastique
-              href: /azure/databricks/data/data-sources/elasticsearch
-              maintainContext: true
-            - name: Images
-              href: /azure/databricks/data/data-sources/image
-              maintainContext: true
-            - name: Importer des tables Hive
-              href: /azure/databricks/data/data-sources/importing-hive-tables
-              maintainContext: true
-            - name: Expérience MLflow
-              href: /azure/databricks/data/data-sources/mlflow-experiment
-              maintainContext: true
-            - name: MongoDb
-              href: /azure/databricks/data/data-sources/mongodb
-              maintainContext: true
-            - name: Neo4j
-              href: /azure/databricks/data/data-sources/neo4j
-              maintainContext: true
-            - name: Fichiers Avro
-              href: /azure/databricks/data/data-sources/read-avro
-              maintainContext: true
-            - name: Fichiers CSV
-              href: /azure/databricks/data/data-sources/read-csv
-              maintainContext: true
-            - name: Fichiers JSON
-              href: /azure/databricks/data/data-sources/read-json
-              maintainContext: true
-            - name: Fichiers compressés LZO
-              href: /azure/databricks/data/data-sources/read-lzo
-              maintainContext: true
-            - name: Fichiers Parquet
-              href: /azure/databricks/data/data-sources/read-parquet
-              maintainContext: true
-            - name: Redis
-              href: /azure/databricks/data/data-sources/redis
-              maintainContext: true
-            - name: Série chronologique Riak
-              href: /azure/databricks/data/data-sources/riak-ts
-              maintainContext: true
-            - name: Snowflake
-              href: /azure/databricks/data/data-sources/snowflake
-              maintainContext: true
-            - name: Azure SQL Database
-              href: /azure/databricks/data/data-sources/sql-databases-azure
-              maintainContext: true
-            - name: Bases de données SQL
-              href: /azure/databricks/data/data-sources/sql-databases
-              maintainContext: true
-            - name: Fichiers ZIP
-              href: /azure/databricks/data/data-sources/zip-files
-              maintainContext: true
-            - name: Passage à Azure Data Lake Storage
-              href: /azure/databricks/data/data-sources/azure/adls-passthrough
-              maintainContext: true
-            - name: Azure Data Lake Storage Gen2
-              href: /azure/databricks/data/data-sources/azure/azure-datalake-gen2
-              maintainContext: true
-            - name: Azure Data Lake Storage
-              href: /azure/databricks/data/data-sources/azure/azure-datalake
-              maintainContext: true
-            - name: Stockage Azure
-              href: /azure/databricks/data/data-sources/azure/azure-storage
-              maintainContext: true
-            - name: Connecteur Cosmos DB
-              href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
-              maintainContext: true
-            - name: SQL Data Warehouse
-              href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
-              maintainContext: true
-        - name: Metastores
-          items:
-            - name: Metastore Hive externe
-              href: /azure/databricks/data/metastores/external-hive-metastore
-              maintainContext: true
-    - name: Outils décisionnels
-      items:
-        - name: Connecter des outils BI
-          href: /azure/databricks/bi/jdbc-odbc-bi
-          maintainContext: true
-        - name: Tableau
-          href: /azure/databricks/bi/tableau
-          maintainContext: true
-        - name: Power BI
-          href: /azure/databricks/bi/power-bi
-          maintainContext: true
-        - name: Alteryx
-          href: /azure/databricks/bi/alteryx
-          maintainContext: true
-        - name: Looker
-          href: /azure/databricks/bi/looker
-          maintainContext: true
-        - name: SQL Workbench/J
-          href: /azure/databricks/bi/workbenchj
-          maintainContext: true
-    - name: Delta Lake
-      items:
-        - name: Présentation de Delta Lake
-          href: /azure/databricks/delta/delta-intro
-          maintainContext: true
-        - name: Bien démarrer avec Delta Lake
-          href: /azure/databricks/delta/quick-start
-          maintainContext: true
-        - name: Notebooks d’introduction
-          href: /azure/databricks/delta/intro-notebooks
-          maintainContext: true
-        - name: Lectures et écritures par lots sur des tables
-          href: /azure/databricks/delta/delta-batch
-          maintainContext: true
-        - name: Lectures et écritures en streaming sur des tables
-          href: /azure/databricks/delta/delta-streaming
-          maintainContext: true
-        - name: 'Suppression, mise à jour et fusion de tables'
-          href: /azure/databricks/delta/delta-update
-          maintainContext: true
-        - name: Commandes utilitaires sur les tables
-          href: /azure/databricks/delta/delta-utility
-          maintainContext: true
-        - name: Informations de référence sur l’API Delta Lake
-          href: /azure/databricks/delta/delta-apidoc
-          maintainContext: true
-        - name: Contrôle d’accès concurrentiel
-          href: /azure/databricks/delta/concurrency-control
-          maintainContext: true
-        - name: Optimisations
-          items:
-            - name: Vue d’ensemble des optimisations
-              href: /azure/databricks/delta/optimizations/index
-              maintainContext: true
-            - name: Optimiser les performances avec la gestion des fichiers
-              href: /azure/databricks/delta/optimizations/file-mgmt
-              maintainContext: true
-            - name: Optimisation automatique
-              href: /azure/databricks/delta/optimizations/auto-optimize
-              maintainContext: true
-            - name: Optimiser les performances avec la mise en cache
-              href: /azure/databricks/delta/optimizations/delta-cache
-              maintainContext: true
-            - name: Niveaux d'isolement
-              href: /azure/databricks/delta/optimizations/isolation-level
-              maintainContext: true
-            - name: Répliquer des tables MySQL dans des tables Delta Lake
-              href: /azure/databricks/delta/optimizations/mysql-delta
-              maintainContext: true
-            - name: Optimiser les performances de jointure
-              items:
-                - name: Vue d’ensemble de l’optimisation des performances de jointure
-                  href: /azure/databricks/delta/join-performance/index
-                  maintainContext: true
-                - name: Optimisation de la jointure de plages
-                  href: /azure/databricks/delta/join-performance/range-join
-                  maintainContext: true
-                - name: Optimisation de la jointure de données asymétriques
-                  href: /azure/databricks/delta/join-performance/skew-join
-                  maintainContext: true
-            - name: Transformation de données optimisée
-              items:
-                - name: Vue d’ensemble de la transformation de données optimisée
-                  href: /azure/databricks/delta/data-transformation/index
-                  maintainContext: true
-                - name: Fonctions d’ordre supérieur
-                  href: /azure/databricks/delta/data-transformation/higher-order-lambda-functions
-                  maintainContext: true
-                - name: Transformer des types de données complexes
-                  href: /azure/databricks/delta/data-transformation/complex-types
-                  maintainContext: true
-            - name: Gestion des versions des tables
-              href: /azure/databricks/delta/optimizations/versioning
-              maintainContext: true
-            - name: Exemples d’optimisation
-              href: /azure/databricks/delta/optimizations/optimization-examples
-              maintainContext: true
-        - name: Questions fréquentes (FAQ)
-          href: /azure/databricks/delta/delta-faq
-          maintainContext: true
-        - name: Autres ressources Delta
-          href: /azure/databricks/delta/delta-resources
-          maintainContext: true
-    - name: DataFrames et jeux de données
-      items:
-        - name: Vue d’ensemble des DataFrames et des jeux de données
-          href: /azure/databricks/spark/latest/dataframes-datasets/index
-          maintainContext: true
-        - name: Présentation des DataFrames Python
-          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-python
-          maintainContext: true
-        - name: Présentation des DataFrames Scala
-          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-scala
-          maintainContext: true
-        - name: Présentation des jeux de données
-          href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-datasets
-          maintainContext: true
-        - name: Données complexes et imbriquées
-          href: /azure/databricks/spark/latest/dataframes-datasets/complex-nested-data
-          maintainContext: true
-        - name: Agrégateurs
-          href: /azure/databricks/spark/latest/dataframes-datasets/aggregators
-          maintainContext: true
-    - name: Structured Streaming
-      items:
-        - name: Vue d’ensemble de Structured streaming
-          href: /azure/databricks/spark/latest/structured-streaming/index
-          maintainContext: true
-        - name: Notebooks d’introduction
-          href: /azure/databricks/spark/latest/structured-streaming/demo-notebooks
-          maintainContext: true
-        - name: Sources et récepteurs de données en streaming
-          items:
-            - name: Vue d’ensemble des sources et des récepteurs
-              href: /azure/databricks/spark/latest/structured-streaming/data-sources
-              maintainContext: true
-            - name: Apache Kafka
-              href: /azure/databricks/spark/latest/structured-streaming/kafka
-              maintainContext: true
-            - name: Hubs d'événements Azure
-              href: /azure/databricks/spark/latest/structured-streaming/streaming-event-hubs
-              maintainContext: true
-            - name: Tables Delta Lake
-              href: /azure/databricks/spark/latest/structured-streaming/delta
-              maintainContext: true
-            - name: Lire et écrire des données Avro en streaming avec des DataFrames
-              href: /azure/databricks/spark/latest/structured-streaming/avro-dataframe
-              maintainContext: true
-            - name: Écrire dans des récepteurs de données arbitraires
-              href: /azure/databricks/spark/latest/structured-streaming/foreach
-              maintainContext: true
-            - name: Stockage Blob Azure optimisé avec Stockage file d’attente Azure
-              href: /azure/databricks/spark/latest/structured-streaming/aqs
-              maintainContext: true
-        - name: Structured Streaming en production
-          href: /azure/databricks/spark/latest/structured-streaming/production
-          maintainContext: true
-        - name: Exemples de streaming
-          href: /azure/databricks/spark/latest/structured-streaming/examples
-          maintainContext: true
-        - name: Spark Streaming (hérité)
-          items:
-            - name: Vue d’ensemble de Spark Streaming (hérité)
-              href: /azure/databricks/spark/latest/rdd-streaming/index
-              maintainContext: true
-            - name: Déboguer des applications Spark Streaming
-              href: /azure/databricks/spark/latest/rdd-streaming/debugging-streaming-applications
-              maintainContext: true
-            - name: Bonnes pratiques pour le développement d’applications de streaming
-              href: /azure/databricks/spark/latest/rdd-streaming/developing-streaming-applications
-              maintainContext: true
     - name: Apprentissage automatique
       items:
         - name: Vue d’ensemble du machine learning
@@ -708,7 +714,7 @@
             - name: Exemple MLib avancé
               href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
               maintainContext: true
-        - name: AutoML
+        - name: ML automatisé
           items:
             - name: Hyperopt
               items:
@@ -823,21 +829,6 @@
         - name: Bien démarrer avec MLflow
           href: /azure/databricks/applications/mlflow/quick-start
           maintainContext: true
-        - name: Suivre les exécutions d’entraînement de machine learning
-          href: /azure/databricks/applications/mlflow/tracking
-          maintainContext: true
-        - name: Accès au suivi en externe
-          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
-          maintainContext: true
-        - name: 'Enregistrer, charger et déployer des modèles'
-          href: /azure/databricks/applications/mlflow/models
-          maintainContext: true
-        - name: Reproduire des exécutions avec des projets MLflow
-          href: /azure/databricks/applications/mlflow/projects
-          maintainContext: true
-        - name: Exemples de modèles MLflow
-          href: /azure/databricks/applications/mlflow/model-examples
-          maintainContext: true
         - name: Bien démarrer avec MLflow Java et Scala
           href: /azure/databricks/applications/mlflow/quick-start-java-scala
           maintainContext: true
@@ -847,8 +838,23 @@
         - name: Bien démarrer avec MLflow R
           href: /azure/databricks/applications/mlflow/quick-start-r
           maintainContext: true
+        - name: Suivre les exécutions d’entraînement de machine learning
+          href: /azure/databricks/applications/mlflow/tracking
+          maintainContext: true
         - name: Exemples de suivi MLflow
           href: /azure/databricks/applications/mlflow/tracking-examples
+          maintainContext: true
+        - name: Accès au suivi en externe
+          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
+          maintainContext: true
+        - name: 'Enregistrer, charger et déployer des modèles'
+          href: /azure/databricks/applications/mlflow/models
+          maintainContext: true
+        - name: Exemples de modèles MLflow
+          href: /azure/databricks/applications/mlflow/model-examples
+          maintainContext: true
+        - name: Reproduire des exécutions avec des projets MLflow
+          href: /azure/databricks/applications/mlflow/projects
           maintainContext: true
     - name: Analyse des graphes
       items:
@@ -937,10 +943,13 @@
             - name: Bibliothèques de statistiques Python
               href: /azure/databricks/applications/genomics/tertiary/pandas-udf
               maintainContext: true
+            - name: SAIGE
+              href: /azure/databricks/applications/genomics/tertiary/saige
+              maintainContext: true
             - name: "Hail\_0.2"
               href: /azure/databricks/applications/genomics/tertiary/hail
               maintainContext: true
-    - name: Guides de migration
+    - name: Migration
       items:
         - name: Migrer des charges de travail de production
           href: /azure/databricks/migration/production
@@ -951,7 +960,7 @@
         - name: Migrer des charges de travail vers Delta Lake
           href: /azure/databricks/delta/porting
           maintainContext: true
-    - name: Sécurité
+    - name: Sécurité et confidentialité
       items:
         - name: Présentation de la sécurité
           href: /azure/databricks/security/index
@@ -976,9 +985,6 @@
             - name: Exemple de workflow de secrets
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
-    - name: Déléguer l’authentification à des services tiers
-      href: /azure/databricks/delegated-auth
-      maintainContext: true
     - name: Administration
       items:
         - name: Vue d’ensemble de l’administration
@@ -1136,6 +1142,9 @@
             - name: Arrêt inattendu du cluster
               href: /azure/databricks/kb/clusters/termination-reasons
               maintainContext: true
+            - name: L’interface utilisateur Apache Spark affiche moins que la mémoire totale du nœud
+              href: /azure/databricks/kb/clusters/spark-shows-less-memory
+              maintainContext: true
         - name: Gestion des données
           items:
             - name: Ajouter à un DataFrame
@@ -1227,6 +1236,9 @@
               maintainContext: true
             - name: Supprimer une table Delta Lake managée
               href: /azure/databricks/kb/delta/drop-delta-table
+              maintainContext: true
+            - name: La requête UPDATE échoue avec IllegalStateException
+              href: /azure/databricks/kb/delta/update-query-fails
               maintainContext: true
         - name: Outils de développeur
           items:
@@ -1358,6 +1370,14 @@
             - name: Impossible d’exécuter un notebook après l’annulation de la cellule de streaming
               href: /azure/databricks/kb/notebooks/streaming-notebook-stuck
               maintainContext: true
+            - name: Résoudre les problèmes de la commande d’annulation
+              href: /azure/databricks/kb/notebooks/troubleshoot-cancel-command
+              maintainContext: true
+        - name: Sécurité et autorisations
+          items:
+            - name: Échec de la création d’une table avec levée d’une exception de sécurité
+              href: /azure/databricks/kb/security/table-create-security-exception
+              maintainContext: true
         - name: Python
           items:
             - name: Créer un cluster avec Anaconda
@@ -1420,8 +1440,8 @@
             - name: Table ou vue introuvable
               href: /azure/databricks/kb/sql/global-temp-view-not-found
               maintainContext: true
-            - name: Diffusion en continu
-              items: null
+        - name: Diffusion en continu
+          items:
             - name: Récupération après changement du répertoire de point de contrôle ou de sortie
               href: /azure/databricks/kb/streaming/file-sink-streaming
               maintainContext: true
@@ -1436,7 +1456,7 @@
     - name: Outils de développeur
       items:
         - name: Databricks Connect
-          href: /azure/databricks/dev-tools/db-connect
+          href: /azure/databricks/dev-tools/databricks-connect
           maintainContext: true
         - name: Gérer les dépendances dans les pipelines de données
           href: /azure/databricks/dev-tools/data-pipelines
@@ -1486,14 +1506,14 @@
             - name: Espace de travail
               href: /azure/databricks/dev-tools/api/latest/workspace
               maintainContext: true
-        - name: Chaîne de version du runtime pour les appels d’API REST
-          href: /azure/databricks/dev-tools/api/latest/runtime-version-string
-          maintainContext: true
+            - name: Chaîne de version du runtime pour les appels d’API REST
+              href: /azure/databricks/dev-tools/api/latest/runtime-version-string
+              maintainContext: true
         - name: "API REST\_1.2"
           href: /azure/databricks/dev-tools/api/1.2/index
           maintainContext: true
     - name: Databricks Utilities
-      href: /azure/databricks/dev-tools/dbutils
+      href: /azure/databricks/dev-tools/databricks-utils
       maintainContext: true
     - name: Interface CLI Databricks
       href: /azure/databricks/dev-tools/databricks-cli
@@ -1503,10 +1523,8 @@
       maintainContext: true
     - name: API REST Azure Databricks
       href: /azure/databricks//rest/api/databricks
-      maintainContext: true
     - name: Modèle Resource Manager
       href: /azure/databricks//azure/templates/microsoft.databricks/workspaces
-      maintainContext: true
 - name: Ressources
   items:
     - name: Notes de publication
@@ -1515,6 +1533,9 @@
           items:
             - name: Notes de publication de la plateforme
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: "Octobre\_2019"
+              href: /azure/databricks/release-notes/product/2019/october
               maintainContext: true
             - name: "Septembre\_2019"
               href: /azure/databricks/release-notes/product/2019/september
@@ -1683,7 +1704,6 @@
           maintainContext: true
     - name: Guide du développeur R
       href: /azure/machine-learning/r-developers-guide
-      maintainContext: true
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Tarifs

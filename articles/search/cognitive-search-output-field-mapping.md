@@ -1,21 +1,21 @@
 ---
-title: Mapper des champs d’entrée enrichis avec la recherche cognitive sur des champs de sortie - Recherche Azure
-description: Extrayez et enrichissez des champs de données sources, puis mappez-les à des champs de sortie dans un index Recherche Azure.
+title: Mapper des champs d’entrée enrichis par IA à des champs de sortie
+titleSuffix: Azure Cognitive Search
+description: Extrayez et enrichissez des champs de données sources, puis mappez-les à des champs de sortie dans un index de Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 4ceb8e6290e3e7f4fb552db13c97558db1c8c97e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 77f378f4e0c4a8e4827523e244f7b18c2a9ba336
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265502"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792120"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Guide pratique pour mapper des champs enrichis sur un index pouvant faire l’objet d’une recherche
+# <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Guide pratique pour mapper des champs enrichis par IA sur un index pouvant faire l’objet d’une recherche
 
 Dans cet article, vous allez apprendre à mapper des champs d’entrée enrichis sur des champs de sortie dans un index pouvant faire l’objet d’une recherche. Une fois que vous avez [défini un ensemble de compétences](cognitive-search-defining-skillset.md), vous devez mapper les champs de sortie de n’importe quelle compétence qui fournit directement des valeurs sur un champ donné dans votre index de recherche. Les mappages de champs sont requis pour le déplacement du contenu depuis les documents enrichis vers l’index.
 
@@ -72,4 +72,4 @@ Le chemin dans un sourceFieldName peut représenter un élément ou plusieurs é
 ## <a name="next-steps"></a>Étapes suivantes
 Une fois que vous avez mappé les champs enrichis sur des champs pouvant faire l’objet d’une recherche, vous pouvez définir les attributs de chacun des champs pouvant faire l’objet d’une recherche [dans le cadre de la définition de l’index](search-what-is-an-index.md).
 
-Pour en savoir plus sur le mappage de champs, consultez [Mappages de champs dans les indexeurs Recherche Azure](search-indexer-field-mappings.md).
+Pour en savoir plus sur le mappage de champs, consultez [Mappages de champs dans les indexeurs de Recherche cognitive Azure](search-indexer-field-mappings.md).

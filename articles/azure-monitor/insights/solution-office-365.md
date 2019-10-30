@@ -1,23 +1,18 @@
 ---
 title: Solution de gestion Office 365 dans Azure | Microsoft Docs
 description: Cet article donne des informations sur la configuration et l’utilisation de la solution Office 365 dans Azure.  Il inclut une description détaillée des enregistrements d’Office 365 créés dans Azure Monitor.
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/13/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.date: 08/13/2019
+ms.openlocfilehash: 84af0484ed9fb792bef6bbbe9c53395b569acb3c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061586"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793866"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -74,7 +69,10 @@ Dans votre abonnement Office 365 :
 
 - Nom d’utilisateur : adresse e-mail d’un compte Administrateur.
 - ID de locataire : ID unique de l’abonnement à Office 365.
-- ID client : chaîne de 16 caractères qui représente le client Office 365.
+
+Les informations suivantes doivent être collectées lors de la création et de la configuration de l’application Office 365 dans Azure Active Directory :
+
+- ID d’application (client) : chaîne de 16 caractères qui représente le client Office 365.
 - Clé secrète client : chaîne chiffrée nécessaire à l’authentification.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Créer une application Office 365 dans Azure Active Directory
@@ -92,6 +90,9 @@ La première étape consiste à créer une application dans Azure Active Directo
 1. Cliquez sur **Inscrire** et vérifiez les informations de l’application.
 
     ![Application inscrite](media/solution-office-365/registered-app.png)
+
+1. Enregistrez l’ID d’application (client) ainsi que le reste des informations qui ont été collectées avant.
+
 
 ### <a name="configure-application-for-office-365"></a>Configurer l’application pour Office 365
 
@@ -122,7 +123,7 @@ La première étape consiste à créer une application dans Azure Active Directo
     ![Clés](media/solution-office-365/secret.png)
  
 1. Tapez une **Description** et une **Durée** pour la nouvelle clé.
-1. Cliquez sur **Ajouter**, puis copiez la **valeur** générée.
+1. Cliquez sur **Ajouter**, puis enregistrez la **Valeur** qui a été générée comme clé secrète client, ainsi que le reste des informations qui ont été collectées avant.
 
     ![Clés](media/solution-office-365/keys.png)
 
@@ -193,7 +194,12 @@ Pour activer le compte d’administration pour la première fois, vous devez fou
     
     ![Consentement de l’administrateur](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> Vous pouvez être redirigé vers une page qui n’existe pas. Considérez-le comme un succès.
+
 ### <a name="subscribe-to-log-analytics-workspace"></a>S’abonner à l’espace de travail Log Analytics
+
+La dernière étape consiste à abonner l’application à votre espace de travail Log Analytics. Vous utiliserez ici aussi un script PowerShell.
 
 La dernière étape consiste à abonner l’application à votre espace de travail Log Analytics. Vous utiliserez ici aussi un script PowerShell.
 
@@ -241,18 +247,20 @@ La dernière étape consiste à abonner l’application à votre espace de trava
                     $authority = "https://login.windows.net/$adTenant";
                     $ARMResource ="https://management.azure.com/";break} 
                     }
-    
+
     Function RESTAPI-Auth { 
-    
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
     
@@ -276,7 +284,7 @@ La dernière étape consiste à abonner l’application à votre espace de trava
     
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     
@@ -320,7 +328,7 @@ La dernière étape consiste à abonner l’application à votre espace de trava
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
     

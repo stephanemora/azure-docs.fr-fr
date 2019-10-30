@@ -1,26 +1,25 @@
 ---
-title: Traiter et extraire du texte depuis des images dans la recherche cognitive - Recherche Azure
-description: Traitez et extrayez du texte et d’autres informations d’images dans des pipelines de recherche cognitive dans Recherche Azure.
-services: search
+title: Traiter et extraire du texte d’images dans un pipeline d’enrichissement
+titleSuffix: Azure Cognitive Search
+description: Traitez et extrayez du texte et d’autres informations d’images dans des pipelines Recherche cognitive Azure.
 manager: nitinme
-author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
-ms.openlocfilehash: c1fd5c4e5a3ac054a85bdcc11d95bc3c338ee3c2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265865"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787734"
 ---
-#  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios de recherche cognitive
+# <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios d’enrichissement de l’IA
 
-La recherche cognitive intègre plusieurs fonctionnalités pour l’utilisation d’images et de fichiers image. Pendant le décodage d’un document, vous pouvez utiliser le paramètre *imageAction* pour extraire du texte de photos ou d’images contenant du texte alphanumérique, tel que le mot « STOP » dans le panneau de signalisation d’arrêt. D’autres scénarios incluent la génération d’une représentation textuelle d’une image, telle que « pissenlit » pour une photo de pissenlit ou la couleur « jaune ». Vous pouvez également extraire des métadonnées de l’image, telles que sa taille.
+La Recherche cognitive Azure intègre plusieurs fonctionnalités pour l’utilisation d’images et de fichiers image. Pendant le décodage d’un document, vous pouvez utiliser le paramètre *imageAction* pour extraire du texte de photos ou d’images contenant du texte alphanumérique, tel que le mot « STOP » dans le panneau de signalisation d’arrêt. D’autres scénarios incluent la génération d’une représentation textuelle d’une image, telle que « pissenlit » pour une photo de pissenlit ou la couleur « jaune ». Vous pouvez également extraire des métadonnées de l’image, telles que sa taille.
 
-Cet article couvre plus en détail le traitement d’image et fournit des conseils pour l’utilisation d’images dans un pipeline de recherche cognitive.
+Cet article couvre plus en détail le traitement d’image et fournit des conseils pour l’utilisation d’images dans un pipeline d’enrichissement de l’IA.
 
 <a name="get-normalized-images"></a>
 

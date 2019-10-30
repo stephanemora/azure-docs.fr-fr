@@ -1,22 +1,23 @@
 ---
-title: Limites de service pour les niveaux tarifaires et les références SKU - Recherche Azure
-description: Limites de service permettant de planifier la capacité et limites maximales des requêtes et réponses de la Recherche Azure.
-author: HeidiSteen
+title: Limites de service pour les niveaux tarifaires et les références SKU
+titleSuffix: Azure Cognitive Search
+description: Limites de service permettant de planifier la capacité et limites maximales des requêtes et réponses de la Recherche cognitive Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947777"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793575"
 ---
-# <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
-Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [approvisionnez le service Recherche Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
+# <a name="service-limits-in-azure-cognitive-search"></a>Limites de service de la Recherche cognitive Azure
+
+Les limites maximales du stockage, des charges de travail et des quantités d’index, de documents et autres objets varient selon que vous [approvisionnez le service Recherche cognitive Azure](search-create-service-portal.md) avec les niveaux tarifaires **Gratuit**, **De base**, **Standard** ou **Stockage optimisé**.
 
 + **Gratuit** est un service partagé multi-locataire qui est fourni avec votre abonnement Azure. Les requêtes d’indexation et d’interrogation s’exécutent sur les réplicas et les partitions utilisés par d’autres locataires.
 
@@ -68,11 +69,11 @@ Pour savoir si votre service a un nombre limité de documents, consultez la vign
 
   ![Mosaïque Utilisation](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup> Même s’il n’existe aucune limite de nombre de documents spécifique d’une référence SKU, chaque index reste soumis à une limite maximale de sécurité pour garantir la stabilité du service. Cette limite provient de Lucene. Chaque document Azure Search est indexé en interne en tant qu’un ou plusieurs documents Lucene. Le nombre de documents Lucene par document de recherche Azure dépend du nombre total d’éléments dans les champs de collection complexes. Chaque élément est indexé en tant que document Lucene distinct. Par exemple, un document comportant 3 éléments dans un champ de collection complexe est indexé en tant que 4 documents Lucene : 1 pour le document et 3 pour les éléments. Le nombre maximal de documents Lucene est approximativement de 25 milliards par index.
+<sup>1</sup> Même s’il n’existe aucune limite de nombre de documents spécifique d’une référence SKU, chaque index reste soumis à une limite maximale de sécurité pour garantir la stabilité du service. Cette limite provient de Lucene. Chaque document Recherche cognitive Azure est indexé en interne en tant qu’un ou plusieurs documents Lucene. Le nombre de documents Lucene par document de recherche dépend du nombre total d’éléments dans les champs de collection complexes. Chaque élément est indexé en tant que document Lucene distinct. Par exemple, un document comportant 3 éléments dans un champ de collection complexe est indexé en tant que 4 documents Lucene : 1 pour le document et 3 pour les éléments. Le nombre maximal de documents Lucene est approximativement de 25 milliards par index.
 
 ### <a name="regions-previously-having-document-limits"></a>Régions précédemment sujettes à des limites de nombre de documents
 
-Si le portail indique une limite de nombre de documents, soit votre service a été créé avant fin 2017, soit il a été créé sur un centre de données utilisant des clusters de moindre capacité pour l’hébergement des services Recherche Azure :
+Si le portail indique une limite de nombre de documents, soit votre service a été créé avant fin 2017, soit il a été créé sur un centre de données utilisant des clusters de moindre capacité pour l’hébergement des services Recherche cognitive Azure :
 
 + Australie Est
 + Asie Est
@@ -140,13 +141,13 @@ Le nombre maximal de mappages de synonymes autorisé varie en fonction du niveau
 
 Les estimations du nombre de requêtes par seconde doivent être développées indépendamment par chaque client. La taille et la complexité des index et des requêtes ainsi que la quantité de trafic sont les principaux facteurs qui déterminent le nombre de requêtes par seconde. Si ces facteurs sont inconnus, il est impossible d’établir des estimations significatives.
 
-Les estimations sont plus prévisibles si elles sont calculées sur des services qui s’exécutent sur des ressources dédiées (niveaux De base et Standard). Vous pouvez mieux estimer les requêtes par seconde, car vous contrôlez davantage de paramètres. Pour obtenir de l’aide sur la manière d’aborder les estimations, consultez [Performances et optimisation de Recherche Azure](search-performance-optimization.md).
+Les estimations sont plus prévisibles si elles sont calculées sur des services qui s’exécutent sur des ressources dédiées (niveaux De base et Standard). Vous pouvez mieux estimer les requêtes par seconde, car vous contrôlez davantage de paramètres. Pour obtenir de l’aide sur la manière d’aborder les estimations, consultez [Performances et optimisation de Recherche cognitive Azure](search-performance-optimization.md).
 
 Pour les niveaux Stockage optimisé, attendez-vous à un plus faible débit des requêtes et à une latence plus élevée que les niveaux Standard.  La méthodologie pour estimer les performances des requêtes est la même que pour les niveaux Standard.
 
-## <a name="data-limits-cognitive-search"></a>Limites de données (recherche cognitive)
+## <a name="data-limits-ai-enrichment"></a>Limites de données (enrichissement de l’IA)
 
-Un [pipeline de recherche cognitive](cognitive-search-concept-intro.md) qui effectue des appels à une ressource Analyse de texte pour la [reconnaissance d’entité](cognitive-search-skill-entity-recognition.md), l’[extraction d’expressions clés](cognitive-search-skill-keyphrases.md), l’[analyse des sentiments](cognitive-search-skill-sentiment.md) et la [détection de la langue](cognitive-search-skill-language-detection.md) est soumis à des limites de données. La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
+Un [pipeline d’enrichissement de l’IA](cognitive-search-concept-intro.md) qui effectue des appels à une ressource Analyse de texte pour la [reconnaissance d’entité](cognitive-search-skill-entity-recognition.md), l’[extraction d’expressions clés](cognitive-search-skill-keyphrases.md), l’[analyse des sentiments](cognitive-search-skill-sentiment.md) et la [détection de la langue](cognitive-search-skill-language-detection.md) est soumis à des limites de données. La taille maximale d’un enregistrement doit être de 50 000 caractères telle que mesurée par [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Si vous avez besoin de découper vos données avant de les envoyer à l’Analyseur des sentiments, utilisez la [compétence Fractionnement du texte](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limites de la limitation
 
@@ -167,7 +168,7 @@ Limites de taux de requêtes statiques pour les opérations liées à un index 
 * 32 champs maximum dans la clause $orderby
 * La taille maximale des termes de recherche du texte encodé en UTF-8 est de 32 766 octets (32 Ko moins 2 octets)
 
-<sup>1</sup> Dans la Recherche Azure, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)).
+<sup>1</sup> Dans la Recherche cognitive Azure, le corps d’une requête est soumis à une limite supérieure de 16 Mo. Cela signifie qu’une limite pratique est imposée au contenu des champs individuels ou des collections qui ne font pas l’objet de limites théoriques (pour plus d’informations sur la composition et les restrictions des champs, consultez [Types de données pris en charge](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)).
 
 ## <a name="api-response-limits"></a>Limites de réponse d’API
 * 1 000 documents maximum retournés par page de résultats de recherche

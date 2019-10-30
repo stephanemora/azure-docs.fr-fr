@@ -1,13 +1,13 @@
 ---
-title: Informations de référence sur la syntaxe select OData - Recherche Azure
-description: Informations de référence sur le langage OData pour la syntaxe select dans les requêtes de Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: Référence Select OData
+titleSuffix: Azure Cognitive Search
+description: Informations de référence sur le langage OData pour la syntaxe Select dans les requêtes de Recherche cognitive Azure.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64e9ad75d88f595ab5def6fe8b63fee9407ae0fe
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647874"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793243"
 ---
-# <a name="odata-select-syntax-in-azure-search"></a>Syntaxe $select OData dans Recherche Azure
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Syntaxe OData $select dans la Recherche cognitive Azure
 
- Vous pouvez utiliser le paramètre [ **$select** OData](query-odata-filter-orderby-syntax.md) pour choisir les champs à inclure dans les résultats de recherche à partir de Recherche Azure. Cet article décrit la syntaxe de **$select** en détail. Pour plus d’informations sur l’utilisation de **$select** lors de la présentation des résultats de recherche, consultez [Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure](search-pagination-page-layout.md).
+ Vous pouvez utiliser le paramètre [ **$select** OData](query-odata-filter-orderby-syntax.md) pour choisir les champs à inclure dans les résultats de recherche à partir de la Recherche cognitive Azure. Cet article décrit la syntaxe de **$select** en détail. Pour plus d’informations sur l’utilisation de **$select** lors de la présentation des résultats de recherche, consultez [Guide pratique pour utiliser les résultats de la recherche dans la Recherche cognitive Azure](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -45,10 +45,10 @@ field_path ::= identifier('/'identifier)*
 Un diagramme de syntaxe interactif est également disponible :
 
 > [!div class="nextstepaction"]
-> [Diagramme de syntaxe OData pour Recherche Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 Le paramètre **$select** se présente sous deux formes :
 
@@ -110,7 +110,7 @@ Le résultat peut ressembler à cet exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure](search-pagination-page-layout.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Guide pratique pour utiliser les résultats de la recherche dans la Recherche cognitive Azure](search-pagination-page-layout.md)
+- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

@@ -1,24 +1,23 @@
 ---
-title: Compétence de recherche cognitive conditionnelle (Recherche Azure) | Microsoft Docs
-description: La compétence conditionnelle permet le filtrage, la création de valeurs par défaut et la fusion de valeurs.
-services: search
+title: Compétence cognitive conditionnelle
+titleSuffix: Azure Cognitive Search
+description: La compétence conditionnelle dans la Recherche cognitive Azure permet de filtrer, de créer des valeurs par défaut et de fusionner des valeurs dans une définition d’ensemble de compétences.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/01/2019
 ms.author: luisca
-ms.openlocfilehash: ea6113b96e2acf70a877e170651be3daa578e518
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: b5f1fc7f877854dd06fbbe09ff82e47208fa12d0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265811"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792043"
 ---
-#   <a name="conditional-skill"></a>Compétence conditionnelle
+# <a name="conditional-cognitive-skill"></a>Compétence cognitive conditionnelle
 
-La *compétence conditionnelle* permet des scénarios de Recherche Azure qui nécessitent une opération booléenne pour déterminer les données à affecter à une sortie. Ces scénarios incluent le filtrage, l’attribution d’une valeur par défaut et la fusion de données selon une condition.
+La compétence **conditionnelle** permet des scénarios de Recherche cognitive Azure qui nécessitent une opération booléenne pour déterminer les données à affecter à une sortie. Ces scénarios incluent le filtrage, l’attribution d’une valeur par défaut et la fusion de données selon une condition.
 
 Le pseudo-code suivant illustre ce que réalise la compétence conditionnelle :
 

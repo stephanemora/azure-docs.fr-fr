@@ -1,24 +1,23 @@
 ---
-title: Importer des données dans un index de recherche à l’aide du portail Azure - Recherche Azure
+title: Importer des données dans un index de recherche à l’aide du Portail Azure
+titleSuffix: Azure Cognitive Search
 description: Découvrez comment utiliser l’Assistant Importer des données dans le portail Azure pour explorer des données Azure à partir de Cosmos DB, de Stockage Blob, de Stockage Table, de SQL Database et de SQL Server sur des machines virtuelles Azure.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 6b4ae076ba08af5514caa09a2e8027a1cbc909dc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936903"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793678"
 ---
-# <a name="import-data-wizard-for-azure-search"></a>Assistant Importation de données pour Recherche Azure
+# <a name="import-data-wizard-for-azure-cognitive-search"></a>Assistant Importation de données pour la Recherche cognitive Azure
 
-Le tableau de bord Recherche Azure du portail Azure propose un Assistant **Importation des données** destiné au prototypage et au chargement d’un index. Cet article s’intéresse aux avantages et aux limitations de l’utilisation de l’Assistant, aux entrées et sorties et à certains aspects liés à l’utilisation. Pour obtenir des conseils pratiques concernant l’utilisation de l’Assistant avec les exemples de données intégrés, consultez le guide de démarrage rapide [Créer un index Recherche Azure à partir du portail Azure](search-get-started-portal.md).
+Le tableau de bord Recherche cognitive Azure du Portail Azure propose un Assistant **Importation des données** destiné au prototypage et au chargement d’un index. Cet article s’intéresse aux avantages et aux limitations de l’utilisation de l’Assistant, aux entrées et sorties et à certains aspects liés à l’utilisation. Pour obtenir des conseils pratiques concernant l’utilisation de l’Assistant avec les exemples de données intégrés, consultez le guide de démarrage rapide [Créer un index Recherche cognitive Azure à partir du Portail Azure](search-get-started-portal.md).
 
 Cet Assistant effectue les opérations suivantes :
 
@@ -34,7 +33,7 @@ L’Assistant génère un certain nombre d’objets qui sont enregistrés dans v
 
 ## <a name="advantages-and-limitations"></a>Avantages et limitations
 
-Avant d’écrire du code, vous pouvez utiliser l’Assistant à des fins de prototypage et de test de preuve de concept. L’Assistant se connecte à des sources de données externes, échantillonne les données pour créer un index initial, puis importe les données sous forme de documents JSON dans un index dans Recherche Azure. 
+Avant d’écrire du code, vous pouvez utiliser l’Assistant à des fins de prototypage et de test de preuve de concept. L’Assistant se connecte à des sources de données externes, échantillonne les données pour créer un index initial, puis importe les données sous forme de documents JSON dans un index dans la Recherche cognitive Azure. 
 
 L’échantillonnage est le processus par lequel un schéma d’index est déduit et présente quelques limitations. Quand la source de données est créée, l’Assistant choisit un échantillon de documents pour identifier les colonnes qui font partie de la source de données. Tous les fichiers ne sont pas lus, car l’opération pourrait durer des heures avec les sources de données très volumineuses. À partir d’une sélection de documents, les métadonnées sources, comme le nom ou le type de champ, sont utilisées pour créer une collection de champs dans un schéma d’index. Selon la complexité des données sources, vous devrez peut-être modifier le schéma initial dans un souci de précision, ou l’étendre à des fins d’exhaustivité. Vous pouvez faire en sorte que vos modifications soient incorporées dans la page de définition de l’index.
 
@@ -56,7 +55,7 @@ En bref, les limitations connues sont les suivantes :
 
 ## <a name="data-source-input"></a>Entrée de source de données
 
-L’Assistant **Importation des données** se connecte à une source de données externe en utilisant la logique interne fournie par les indexeurs Recherche Azure, qui sont capables d’échantillonner la source, lire les métadonnées, décrypter les documents pour en lire le contenu et la structure et sérialiser le contenu sous forme de JSON pour une importation ultérieure dans Recherche Azure.
+L’Assistant **Importation des données** se connecte à une source de données externe en utilisant la logique interne fournie par les indexeurs Recherche cognitive Azure, qui sont capables d’échantillonner la source, lire les métadonnées, décrypter les documents pour en lire le contenu et la structure et sérialiser le contenu sous forme de JSON pour une importation ultérieure dans la Recherche cognitive Azure.
 
 Vous ne pouvez importer des données qu’à partir d’une seule table, d’une vue de base de données ou d’une structure de données équivalente, mais la structure peut inclure des sous-structures hiérarchiques ou imbriquées. Pour plus d’informations, consultez [How to model complex types](search-howto-complex-data-types.md) (Modélisation des types complexes).
 
@@ -64,10 +63,10 @@ Vous devez créer cette table ou vue unique avant d’exécuter l’Assistant et
 
 |  Sélection | Description |
 | ---------- | ----------- |
-| **Source de données existante** |Si des indexeurs sont déjà définis dans votre service de recherche, il existe peut-être une définition de source de données que vous pouvez réutiliser. Dans Recherche Azure, les objets de source de données sont uniquement utilisés par les indexeurs. Vous pouvez créer un objet de source de données par programmation ou via l’Assistant **Importation des données**, puis le réutiliser si nécessaire.|
-| **Exemples**| Recherche Azure intègre deux exemples de sources de données qui sont utilisées dans des tutoriels et autres guides de démarrage rapide : une base de données immobilières SQL et une base d’hôtels toutes deux hébergées dans Cosmos DB. Pour consulter une procédure pas à pas basée sur l’exemple Hotels, reportez-vous au guide de démarrage rapide [Créer un index sur le portail Azure](search-get-started-portal.md). |
+| **Source de données existante** |Si des indexeurs sont déjà définis dans votre service de recherche, il existe peut-être une définition de source de données que vous pouvez réutiliser. Dans la Recherche cognitive Azure, les objets de source de données sont uniquement utilisés par les indexeurs. Vous pouvez créer un objet de source de données par programmation ou via l’Assistant **Importation des données**, puis le réutiliser si nécessaire.|
+| **Exemples**| La Recherche cognitive Azure intègre deux exemples de sources de données qui sont utilisées dans des tutoriels et autres guides de démarrage rapide : une base de données immobilières SQL et une base d’hôtels toutes deux hébergées dans Cosmos DB. Pour consulter une procédure pas à pas basée sur l’exemple Hotels, reportez-vous au guide de démarrage rapide [Créer un index sur le portail Azure](search-get-started-portal.md). |
 | [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Le nom du service, les informations d’identification d’un utilisateur de base de données avec autorisation de lecture, ainsi que le nom de la base de données peuvent être spécifiés sur la page ou par le biais d’une chaîne de connexion ADO.NET. Choisissez l’option de chaîne de connexion permettant d’afficher ou de personnaliser les propriétés. <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante.|
-| **SQL Server dans les machines virtuelles Azure** |Spécifiez un nom de service complet, un ID d’utilisateur et un mot de passe, ainsi qu’une base de données pour la chaîne de connexion. Afin d’utiliser cette source de données, vous devez avoir préalablement installé un certificat dans le magasin local pour chiffrer la connexion. Pour obtenir des instructions, reportez-vous à [Connexion de machines virtuelles SQL à Recherche Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
+| **SQL Server dans les machines virtuelles Azure** |Spécifiez un nom de service complet, un ID d’utilisateur et un mot de passe, ainsi qu’une base de données pour la chaîne de connexion. Afin d’utiliser cette source de données, vous devez avoir préalablement installé un certificat dans le magasin local pour chiffrer la connexion. Pour obtenir des instructions, reportez-vous à [Connexion de machines virtuelles SQL à la Recherche cognitive Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>La table ou la vue qui fournit l’ensemble de lignes doit être spécifiée sur la page. Cette option s’affiche une fois que la connexion aboutit : vous pouvez alors faire votre choix dans une liste déroulante. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|La configuration requise inclut le compte, la base de données et la collection. Tous les documents de la collection seront inclus dans l’index. Vous pouvez définir une requête pour aplatir ou filtrer l’ensemble de lignes, ou laisser la requête vide. Aucune requête n’est nécessaire dans cet Assistant.|
 | [**Stockage Blob Azure**](search-howto-indexing-azure-blob-storage.md) |La configuration requise inclut le compte de stockage et un conteneur. Si les noms d’objets blob suivent une convention d’affectation de noms virtuelle à des fins de regroupement, vous pouvez indiquer la partie de répertoire virtuel du nom comme dossier sous le conteneur. Consultez la page [Indexation de Stockage Blob](search-howto-indexing-azure-blob-storage.md) pour plus d’informations. |
 | [**Stockage Table Azure**](search-howto-indexing-azure-tables.md) |La configuration requise inclut le compte de stockage et un nom de table. Vous pouvez également spécifier une requête pour extraire un sous-ensemble des tables. Consultez la page [Indexation de Stockage Table](search-howto-indexing-azure-tables.md) pour plus d’informations. |
@@ -92,9 +91,9 @@ L’Assistant Importation des données se démarre à partir de la barre de comm
 
 2. En haut de la page de présentation du service, cliquez sur **Importer des données**.
 
-   ![Commande Importer des données dans le portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importation de données")
+   ![Commande Importer des données dans le Portail](./media/search-import-data-portal/import-data-cmd2.png "Démarrer l’Assistant Importer des données")
 
-Vous pouvez aussi lancer l’**Importation des données** à partir d’autres services Azure, dont Azure Cosmos DB, Azure SQL Database et Stockage Blob Azure. Recherchez **Ajouter Recherche Azure** dans le volet de navigation de gauche de la page de présentation du service.
+Vous pouvez aussi lancer l’**Importation des données** à partir d’autres services Azure, dont Azure Cosmos DB, Azure SQL Database et Stockage Blob Azure. Recherchez **Ajouter Recherche cognitive Azure** dans le volet de navigation de gauche de la page de présentation du service.
 
 <a name="index-definition"></a>
 
@@ -104,7 +103,7 @@ L’Assistant génère un index incomplet qui sera rempli avec les documents obt
 
 1. La liste des champs est-elle complète ? Ajoutez de nouveaux champs qui ont échappé à l’échantillonnage et supprimez ceux qui n’apportent rien à une expérience de recherche ou qui ne seront pas utilisés dans une [expression de filtre](search-query-odata-filter.md) ou un [profil de scoring](index-add-scoring-profiles.md).
 
-1. Le type de données convient-il pour les données entrantes ? Recherche Azure prend en charge les [types de données EDM (Entity Data Model)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Pour les données Azure SQL, il existe un [tableau de mappages](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) qui présente les valeurs équivalentes. Pour plus d’informations, consultez [Mappages et transformations de champs](search-indexer-field-mappings.md).
+1. Le type de données convient-il pour les données entrantes ? La Recherche cognitive Azure prend en charge les [types de données EDM (Entity Data Model)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Pour les données Azure SQL, il existe un [tableau de mappages](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) qui présente les valeurs équivalentes. Pour plus d’informations, consultez [Mappages et transformations de champs](search-indexer-field-mappings.md).
 
 1. Avez-vous un champ qui peut faire office de *clé* ? Ce champ doit être Edm.string et doit identifier un document de manière unique. Dans le cas des données relationnelles, elles peuvent être mappées à une clé primaire. Pour les objets blob, il peut s’agir de `metadata-storage-path`. Si des valeurs de champ comportent des espaces ou des tirets, vous devez définir l’option **Clé d’encodage en base-64** dans l’étape **Créer un indexeur**, sous **Options avancées**, pour supprimer le vérification de la validation pour ces caractères.
 
@@ -134,4 +133,4 @@ L’Assistant génère un index incomplet qui sera rempli avec les documents obt
 La meilleure façon de comprendre les avantages et les limitations de l’Assistant est de le parcourir pas à pas. Le guide de démarrage rapide suivant vous guide à chaque étape.
 
 > [!div class="nextstepaction"]
-> [Créer un index Recherche Azure à partir du portail Azure](search-get-started-portal.md)
+> [Créer un index Recherche cognitive Azure à l’aide du Portail Azure](search-get-started-portal.md)

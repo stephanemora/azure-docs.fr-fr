@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 650e45ca9092b9c81b2127eb995a0297745410a4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b452fccf2ae0915592420bdda3a47fef43eba9a8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244140"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72788695"
 ---
 # <a name="expressroute-encryption"></a>Chiffrement ExpressRoute
  
@@ -31,7 +31,7 @@ Non. Si MACsec est activé et que les clés ne correspondent pas, vous perdez la
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>L’activation de MACsec sur ExpressRoute Direct dégrade-t-elle les performances du réseau ?
 Le chiffrement/déchiffrement MACsec s’effectue au niveau du matériel sur les routeurs que nous utilisons. Il n’y a pas d’impact sur les performances de notre côté. Toutefois, vérifiez auprès du fournisseur du service réseau si MACsec a un impact sur les performances pour les appareils que vous utilisez.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>Quelles sont les suites de chiffrement prises en charge pour le chiffrement ?
-Nous prenons en charge les suites AES128(GCM–AES–128) et AES256(GCM–AES–256).
+Nous prenons en charge AES128 et AES256.
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Questions fréquentes sur le chiffrement de bout en bout d’IPsec
 IPsec est une [norme IETF](https://tools.ietf.org/html/rfc6071). Cette technologie chiffre les données au niveau des adresses IP (Internet Protocol) ou de la couche réseau 3. Vous pouvez utiliser IPsec pour chiffrer une connexion de bout en bout entre votre réseau local et votre réseau virtuel (VNET) sur Azure. Consultez d’autres questions fréquentes ci-après.

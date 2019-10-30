@@ -1,31 +1,31 @@
 ---
-title: Connexion d’une machine virtuelle SQL Azure pour l’indexation de recherche - Recherche Azure
-description: Activer les connexions chiffrées et configurer le pare-feu pour autoriser les connexions à SQL Server sur une machine virtuelle Azure à partir d’un indexeur sur Azure Search.
-author: HeidiSteen
+title: Connexion d’une machine virtuelle SQL Azure pour l’indexation de recherche
+titleSuffix: Azure Cognitive Search
+description: Activer les connexions chiffrées et configurer le pare-feu pour autoriser les connexions à SQL Server sur une machine virtuelle Azure à partir d’un indexeur sur la Recherche cognitive Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 02/04/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 7629750da8f58c2c62f15102b60b5b562689f087
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 57bea41d95b8859af55be777b17189861a445a12
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656714"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792144"
 ---
-# <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurer une connexion à partir d’un indexeur Azure Search à SQL Server sur une machine virtuelle Azure
-Comme indiqué dans [Connexion d’Azure SQL Database à Recherche Azure à l’aide d’indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la création d’indexeurs dans **SQL Server sur des machines virtuelles Azure** (ou des **machines virtuelles Azure SQL** pour faire plus court) est prise en charge par le service Recherche Azure, mais il existe quelques conditions préalables liées à la sécurité qu’il faut résoudre en premier. 
+# <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurer une connexion d’un indexeur de Recherche cognitive Azure à SQL Server sur une machine virtuelle Azure
 
-Les connexions entre Recherche Azure et SQL Server sur une machine virtuelle constituent des connexions Internet publiques. Toutes les mesures de sécurité que vous suivriez normalement pour ces connexions s'appliquent également ici :
+Comme indiqué dans [Connexion d’Azure SQL Database à Recherche cognitive Azure à l’aide d’indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), la création d’indexeurs dans **SQL Server sur des machines virtuelles Azure** (ou des **machines virtuelles Azure SQL** pour faire plus court) est prise en charge par le service Recherche cognitive Azure, mais il existe quelques conditions préalables liées à la sécurité qu’il faut résoudre en premier. 
+
+Les connexions entre la Recherche cognitive Azure et SQL Server sur une machine virtuelle constituent des connexions Internet publiques. Toutes les mesures de sécurité que vous suivriez normalement pour ces connexions s'appliquent également ici :
 
 + Obtenez un certificat auprès d'un [fournisseur d'autorité de certification](https://en.wikipedia.org/wiki/Certificate_authority#Providers) pour le nom de domaine complet de l'instance SQL Server de la machine virtuelle Azure.
 + Installez le certificat sur la machine virtuelle, puis activez et configurez les connexions chiffrées sur la machine virtuelle en suivant les instructions de cet article.
 
 ## <a name="enable-encrypted-connections"></a>Activer des connexions chiffrées
-Le service Recherche Azure requiert un canal chiffré pour toutes les demandes d’indexeur via une connexion internet publique. Cette section répertorie les étapes pour y parvenir.
+Le service Recherche cognitive Azure requiert un canal chiffré pour toutes les demandes d’indexeur via une connexion internet publique. Cette section répertorie les étapes pour y parvenir.
 
 1. Vérifiez les propriétés du certificat pour vous assurer que le nom du sujet est le nom de domaine complet (FQDN) de la machine virtuelle Azure. Vous pouvez utiliser un outil tel que CertUtils ou le composant logiciel enfichable Certificats pour afficher les propriétés. Vous pouvez obtenir le nom de domaine complet à partir de la section Essentials du panneau du service de la machine virtuelle dans le champ **Adresse IP publique/Étiquette du nom DNS** dans le [portail Azure](https://portal.azure.com/).
    
@@ -50,7 +50,7 @@ Le service Recherche Azure requiert un canal chiffré pour toutes les demandes d
 4. Redémarrez le service SQL Server.
 
 ## <a name="configure-sql-server-connectivity-in-the-vm"></a>Configurer la connectivité SQL Server dans la machine virtuelle
-Après avoir configuré la connexion chiffrée requise par Azure Search, vous devez réaliser des étapes de configuration supplémentaires intrinsèques à SQL Server sur les machines virtuelles Azure. Si vous ne l’avez pas déjà fait, l’étape suivante consiste à terminer la configuration en utilisant l’un de ces articles :
+Après avoir configuré la connexion chiffrée requise par la Recherche cognitive Azure, vous devez réaliser des étapes de configuration supplémentaires intrinsèques à SQL Server sur les machines virtuelles Azure. Si vous ne l’avez pas déjà fait, l’étape suivante consiste à terminer la configuration en utilisant l’un de ces articles :
 
 * Pour une machine virtuelle **Resource Manager** , consultez l’article [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../virtual-machines/windows/sql/virtual-machines-windows-sql-connect.md)(Se connecter à une machine virtuelle SQL Server sur Azure à l’aide de Resource Manager). 
 * Pour une machine virtuelle **classique** , consultez [Connexion à une machine virtuelle sur Azure Classic](../virtual-machines/windows/classic/sql-connect.md).
@@ -58,9 +58,9 @@ Après avoir configuré la connexion chiffrée requise par Azure Search, vous de
 En particulier, examinez la section de chaque article pour la « connexion via internet ».
 
 ## <a name="configure-the-network-security-group-nsg"></a>Configurer le groupe de sécurité réseau
-Il n’est pas inhabituel de configurer le groupe de sécurité réseau et le point de terminaison correspondant ou la liste de contrôle d’accès Azure correspondant(e) pour rendre votre machine virtuelle Azure accessible à d’autres parties. Vous avez sans doute déjà effectué cela pour permettre à votre propre logique d’application de se connecter à votre machine virtuelle SQL Azure. C’est la même chose pour une connexion d’Azure Search à votre machine virtuelle SQL Azure. 
+Il n’est pas inhabituel de configurer le groupe de sécurité réseau et le point de terminaison correspondant ou la liste de contrôle d’accès Azure correspondant(e) pour rendre votre machine virtuelle Azure accessible à d’autres parties. Vous avez sans doute déjà effectué cela pour permettre à votre propre logique d’application de se connecter à votre machine virtuelle SQL Azure. C’est la même chose pour une connexion de la Recherche cognitive Azure à votre machine virtuelle SQL Azure. 
 
-Les liens ci-dessous fournissent des instructions sur la configuration du groupe de sécurité réseau pour les déploiements de machines virtuelles. Utilisez ces instructions pour faire figurer un point de terminaison Recherche Azure dans la liste de contrôle d’accès en fonction de son adresse IP.
+Les liens ci-dessous fournissent des instructions sur la configuration du groupe de sécurité réseau pour les déploiements de machines virtuelles. Utilisez ces instructions pour faire figurer un point de terminaison Recherche cognitive Azure dans la liste de contrôle d’accès en fonction de son adresse IP.
 
 > [!NOTE]
 > Pour obtenir des informations générales, consultez [Présentation du groupe de sécurité réseau](../virtual-network/security-overview.md)
@@ -78,15 +78,15 @@ Nous vous recommandons fortement de restreindre l’accès à l’adresse IP de 
 #### <a name="managing-ip-address-fluctuations"></a>Gestion des fluctuations d’adresse IP
 Si votre service de recherche n’a qu’une seule unité de recherche (autrement dit, un réplica et une partition), l’adresse IP change lors d’un redémarrage du service de routine, ce qui invalide une liste de contrôle d’accès existante avec votre adresse IP du service de recherche.
 
-Pour éviter l’erreur de connectivité qui s’ensuit, utilisez plusieurs réplicas et une partition dans Azure Search. Cela augmente le coût, mais permet également de résoudre le problème d’adresse IP. Dans Azure Search, les adresses IP ne changent pas lorsque vous avez plusieurs unités de recherche.
+Pour éviter l’erreur de connectivité qui s’ensuit, utilisez plusieurs réplicas et une partition dans la Recherche cognitive Azure. Cela augmente le coût, mais permet également de résoudre le problème d’adresse IP. Dans la Recherche cognitive Azure, les adresses IP ne changent pas lorsque vous avez plusieurs unités de recherche.
 
 Une deuxième approche consiste à autoriser l’échec de la connexion et de reconfigurer les listes de contrôle d’accès dans le groupe de sécurité réseau. En moyenne, vous pouvez vous attendre à ce que les adresses IP soient modifiées à quelques semaines d’intervalle. Pour les clients qui procèdent à une indexation contrôlée de manière irrégulière, cette approche peut être viable.
 
 Une troisième approche viable (mais pas particulièrement sécurisée) consiste à spécifier la plage d’adresses IP de la région Azure où votre service de recherche est configuré. La liste des plages d’adresses IP à partir desquelles les adresses IP publiques sont allouées à des ressources Azure est publiée dans [Plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). 
 
-#### <a name="include-the-azure-search-portal-ip-addresses"></a>Inclure les adresses IP du portail Azure Search
-Si vous utilisez le portail Azure pour créer un indexeur, la logique du portail Azure Search doit également pouvoir accéder à votre machine virtuelle SQL Azure lors de la création. Exécutez la commande ping sur `stamp2.search.ext.azure.com`pour trouver les adresses IP du portail Azure Search.
+#### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Inclure les adresses IP du portail de la Recherche cognitive Azure
+Si vous utilisez le Portail Azure pour créer un indexeur, la logique du portail de la Recherche cognitive Azure doit également pouvoir accéder à votre machine virtuelle SQL Azure lors de la création. Exécutez la commande ping sur `stamp2.search.ext.azure.com`pour trouver les adresses IP du portail de la Recherche cognitive Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Une fois la configuration résolue, vous pouvez maintenant spécifier un serveur SQL Server sur une machine virtuelle Azure comme source de données pour un indexeur Azure Search. Pour plus d’informations, consultez [Connexion d’Azure SQL Database à Recherche Azure à l’aide d’indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
+Une fois la configuration résolue, vous pouvez maintenant spécifier un serveur SQL Server sur une machine virtuelle Azure comme source de données pour un indexeur de la Recherche cognitive Azure. Pour plus d’informations, consultez [Connexion d’Azure SQL Database à la Recherche cognitive Azure à l’aide d’indexeurs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
 

@@ -1,20 +1,19 @@
 ---
-title: Compétence Traduction de texte de la recherche cognitive - Recherche Azure
-description: Évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée dans un pipeline d’enrichissement Recherche Azure.
-services: search
+title: Compétence cognitive Traduction de texte
+titleSuffix: Azure Cognitive Search
+description: Évalue le texte et, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure.
 manager: nitinme
 author: careyjmac
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 06/25/2019
 ms.author: chalton
-ms.openlocfilehash: ddfb35cbfcfbc262f3eff0de67f5cedfc31ea27e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c2405fe67b39e016e64efb1b36cc551a00a338fc
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265710"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791853"
 ---
 #   <a name="text-translation-cognitive-skill"></a>Compétence cognitive Traduction de texte
 
@@ -22,12 +21,12 @@ La compétence **Traduction de texte** évalue le texte et, pour chaque enregist
 
 Cette fonctionnalité est utile si vous vous attendez à ce que vos documents ne soient pas tous dans la même langue, auquel cas vous pouvez normaliser le texte dans une seule langue avant l’indexation de la recherche en le traduisant.  Elle est également utile dans les cas d’usage de localisation, où vous pouvez avoir besoin de copies du même texte dans plusieurs langues.
 
-L’[API de traduction de texte Translator Text v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) est un service cognitif non régional, ce qui signifie que vos données ne sont pas conservées dans la même région que votre ressource Recherche Azure ou Cognitive Services associée.
+L’[API Traduction de texte Translator Text v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference) est un service cognitif non régional, ce qui signifie que vos données ne sont pas conservées dans la même région que votre ressource Recherche cognitive Azure ou Cognitive Services associée.
 
 > [!NOTE]
-> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
+> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont décrits dans la [page de tarification de la Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.TranslationSkill

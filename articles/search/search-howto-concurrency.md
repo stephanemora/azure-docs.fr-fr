@@ -1,27 +1,26 @@
 ---
-title: Guide pratique pour gérer les écritures simultanées dans les ressources - Recherche Azure
-description: Utilisez l’accès concurrentiel optimiste pour éviter les collisions entre des mises à jour ou des suppressions d’index, d’indexeurs et de sources de données Recherche Azure.
-author: HeidiSteen
+title: Guide pratique pour gérer les écritures simultanées dans les ressources
+titleSuffix: Azure Cognitive Search
+description: Utilisez l’accès concurrentiel optimiste pour éviter les collisions entre des mises à jour ou des suppressions d’index, d’indexeurs et de sources de données de la Recherche cognitive Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/21/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 67f2dad016d3958dc10ba87e785d31694a1c94f5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: edfb2fe5cc37a00335ca7b5be851a88825b03eb1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656724"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792216"
 ---
-# <a name="how-to-manage-concurrency-in-azure-search"></a>Gestion de l’accès concurrentiel dans Recherche Azure
+# <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Gestion de l’accès concurrentiel dans la Recherche cognitive Azure
 
-Lors de la gestion de ressources Recherche Azure telles que des index et des sources de données, il est important de mettre à jour les ressources en toute sécurité, surtout si elles sont accessibles simultanément par différents composants de votre application. Lorsque deux clients mettent à jour une ressource en même temps sans coordination, cela peut créer des conditions de concurrence. Pour éviter ce problème, Recherche Azure offre un *modèle d’accès concurrentiel optimiste*. Aucun verrou n’est appliqué aux ressources. Au lieu de cela, chaque ressource présente une étiquette d’entité (ETag) qui identifie la version de la ressource afin que vous puissiez élaborer des requêtes sans risquer de remplacements accidentels.
+Lors de la gestion de ressources de la Recherche cognitive Azure telles que des index et des sources de données, il est important de mettre à jour les ressources en toute sécurité, surtout si elles sont accessibles simultanément par différents composants de votre application. Lorsque deux clients mettent à jour une ressource en même temps sans coordination, cela peut créer des conditions de concurrence. Pour éviter ce problème, la Recherche cognitive Azure offre un *modèle d’accès concurrentiel optimiste*. Aucun verrou n’est appliqué aux ressources. Au lieu de cela, chaque ressource présente une étiquette d’entité (ETag) qui identifie la version de la ressource afin que vous puissiez élaborer des requêtes sans risquer de remplacements accidentels.
 
 > [!Tip]
-> Le code conceptuel de cet [exemple de solution C#](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) illustre le fonctionnement du contrôle d’accès concurrentiel dans Recherche Azure. Le code crée des conditions qui appellent le contrôle d’accès concurrentiel. La lecture du [fragment de code ci-dessous](#samplecode) est probablement suffisante pour la plupart des développeurs, mais si vous souhaitez l’exécuter, modifiez le fichier appsettings.json pour y ajouter le nom du service et une clé API d’administration. Pour une URL de service `http://myservice.search.windows.net`, le nom du service est `myservice`.
+> Le code conceptuel de cet [exemple de solution C#](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetETagsExplainer) illustre le fonctionnement du contrôle d’accès concurrentiel dans la Recherche cognitive Azure. Le code crée des conditions qui appellent le contrôle d’accès concurrentiel. La lecture du [fragment de code ci-dessous](#samplecode) est probablement suffisante pour la plupart des développeurs, mais si vous souhaitez l’exécuter, modifiez le fichier appsettings.json pour y ajouter le nom du service et une clé API d’administration. Pour une URL de service `http://myservice.search.windows.net`, le nom du service est `myservice`.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -51,7 +50,7 @@ Le code suivant illustre les contrôles accessCondition pour les opérations de 
     class Program
     {
         // This sample shows how ETags work by performing conditional updates and deletes
-        // on an Azure Search index.
+        // on an Azure Cognitive Search index.
         static void Main(string[] args)
         {
             IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile("appsettings.json");
@@ -62,14 +61,14 @@ Le code suivant illustre les contrôles accessCondition pour les opérations de 
             Console.WriteLine("Deleting index...\n");
             DeleteTestIndexIfExists(serviceClient);
 
-            // Every top-level resource in Azure Search has an associated ETag that keeps track of which version
+            // Every top-level resource in Azure Cognitive Search has an associated ETag that keeps track of which version
             // of the resource you're working on. When you first create a resource such as an index, its ETag is
             // empty.
             Index index = DefineTestIndex();
             Console.WriteLine(
                 $"Test index hasn't been created yet, so its ETag should be blank. ETag: '{index.ETag}'");
 
-            // Once the resource exists in Azure Search, its ETag will be populated. Make sure to use the object
+            // Once the resource exists in Azure Cognitive Search, its ETag will be populated. Make sure to use the object
             // returned by the SearchServiceClient! Otherwise, you will still have the old object with the
             // blank ETag.
             Console.WriteLine("Creating index...\n");
@@ -129,9 +128,9 @@ Le code suivant illustre les contrôles accessCondition pour les opérations de 
             serviceClient.Indexes.Delete("test", accessCondition: AccessCondition.GenerateIfExistsCondition());
 
             // This is slightly better than using the Exists method since it makes only one round trip to
-            // Azure Search instead of potentially two. It also avoids an extra Delete request in cases where
+            // Azure Cognitive Search instead of potentially two. It also avoids an extra Delete request in cases where
             // the resource is deleted concurrently, but this doesn't matter much since resource deletion in
-            // Azure Search is idempotent.
+            // Azure Cognitive Search is idempotent.
 
             // And we're done! Bye!
             Console.WriteLine("Complete.  Press any key to end application...\n");
@@ -170,7 +169,7 @@ Le code suivant illustre les contrôles accessCondition pour les opérations de 
 
 Un modèle de conception pour l’implémentation de l’accès concurrentiel optimiste doit inclure une boucle qui effectue une nouvelle tentative de contrôle de la condition d’accès, un test de la condition d’accès et récupère éventuellement une ressource mise à jour avant d’essayer de réappliquer les modifications.
 
-Cet extrait de code illustre l’ajout d’une ressource synonymMap à un index existant. Ce code est tiré de l’[exemple C# des synonymes pour la Recherche Azure](search-synonyms-tutorial-sdk.md).
+Cet extrait de code illustre l’ajout d’une ressource synonymMap à un index existant. Ce code est tiré de l’[exemple C# des synonymes pour la Recherche cognitive Azure](search-synonyms-tutorial-sdk.md).
 
 L’extrait de code obtient l’index « hotel », vérifie la version de l’objet pour une opération de mise à jour, lève une exception si la condition échoue, puis retente l’opération (jusqu’à trois fois), en commençant par extraire l’index du serveur pour obtenir sa dernière version.
 

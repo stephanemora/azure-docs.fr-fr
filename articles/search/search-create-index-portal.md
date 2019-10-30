@@ -1,23 +1,23 @@
 ---
-title: Création d’un index Azure Search dans le portail Azure - Recherche Azure
-description: Découvrez comment créer un index pour Recherche Azure à l’aide d’un concepteur d’index intégré du portail.
+title: Créer un index Recherche cognitive Azure dans le Portail Azure
+titleSuffix: Azure Cognitive Search
+description: Découvrez comment créer un index pour Recherche cognitive Azure à l’aide d’un concepteur d’index intégré du portail.
 manager: nitinme
-author: heidisteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9340b9c058ba780b8d74587f21c1b9fbe59576d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937262"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792459"
 ---
-# <a name="create-an-azure-search-index-in-the-portal"></a>Créer un index de Recherche Azure dans le portail
+# <a name="create-an-azure-cognitive-search-index-in-the-portal"></a>Créer un index Recherche cognitive Azure dans le portail
 
-Recherche Azure inclut un concepteur d’index intégré dans le portail, très utile pour des prototypes ou pour créer un [index de recherche](search-what-is-an-index.md) hébergé sur votre service Recherche Azure. L’outil est utilisé pour la construction de schéma. Lorsque vous enregistrez la définition, un index vide devient entièrement exprimé dans Recherche Azure. C’est à vous qu’il appartient de le charger ou non avec du contenu pouvant faire l’objet de recherches.
+Recherche cognitive Azure inclut un concepteur d’index intégré dans le portail, très utile pour des prototypes ou pour créer un [index de recherche](search-what-is-an-index.md) hébergé sur votre service Recherche cognitive Azure. L’outil est utilisé pour la construction de schéma. Lorsque vous enregistrez la définition, un index vide devient entièrement exprimé dans Recherche cognitive Azure. C’est à vous qu’il appartient de le charger ou non avec du contenu pouvant faire l’objet de recherches.
 
 Le concepteur d’index est une approche parmi d’autres pour la création d’un index. Vous pouvez aussi créer et charger un index à l’aide de l’[Assistant Importation des données](search-get-started-portal.md). L’Assistant fonctionne uniquement avec les index qu’il crée lui-même. Vous pouvez également créer un index par programmation à l’aide des API [.NET](search-create-index-dotnet.md) ou [REST](search-create-index-rest-api.md).
 
@@ -27,9 +27,9 @@ Le concepteur d’index est une approche parmi d’autres pour la création d’
 
 2. Cliquez sur le lien **Ajouter un index** de la barre de commandes en haut de la page.
 
-   ![Lien Ajouter un index dans la barre de commandes](media/search-create-index-portal/add-index.png "Lien Ajouter un index dans la barre de commandes")
+   ![Ajouter un lien d’index dans la barre de commandes](media/search-create-index-portal/add-index.png "Ajouter un lien d’index dans la barre de commandes")
 
-3. Nommez votre index Azure Search. Les noms d’index sont référencés dans les opérations d’indexation et de requête. Le nom de l’index est ensuite intégré dans l’URL de point de terminaison utilisé pour les connexions à l’index, et il est utilisé pour l’envoi de requêtes HTTP dans l’API REST Azure Search.
+3. Nommez votre index Recherche cognitive Azure. Les noms d’index sont référencés dans les opérations d’indexation et de requête. Le nom de l’index est ensuite intégré dans l’URL de point de terminaison utilisé pour les connexions à l’index, et il est utilisé pour l’envoi de requêtes HTTP dans l’API REST Recherche cognitive Azure.
 
    * Le nom doit commencer par une lettre.
    * N’utilisez que des lettres minuscules, chiffres ou tirets (« - »).
@@ -43,13 +43,13 @@ La composition de l’index inclut une *collection de champs* qui définit les d
 
 1. Si les données entrantes sont hiérarchiques par nature, votre schéma doit inclure des [types complexes](search-howto-complex-data-types.md) pour représenter les structures imbriquées. L’exemple de jeu de données intégré, Hotels, illustre des types complexes utilisant une adresse (contenant plusieurs sous-champs) qui entretient une relation un-à-un avec chaque hôtel, et une collection complexe Rooms, où plusieurs chambres sont associées à chaque hôtel. 
 
-1. Spécifiez un champ *clé* de type Edm.String. Chaque index Azure Search doit obligatoirement comporter un champ clé de type chaîne. Les valeurs de ce champ doivent identifier chaque document de façon unique. Par défaut, le champ est nommé *id*, mais vous pouvez le renommer tant que la chaîne est conforme aux [règles d’affectation de noms](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Par exemple, si votre collection de champs comprend *hotel-id*, vous pouvez choisir cela pour votre clé. 
+1. Spécifiez un champ *clé* de type Edm.String. Chaque index Recherche cognitive Azure doit obligatoirement comporter un champ clé de type chaîne. Les valeurs de ce champ doivent identifier chaque document de façon unique. Par défaut, le champ est nommé *id*, mais vous pouvez le renommer tant que la chaîne est conforme aux [règles d’affectation de noms](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Par exemple, si votre collection de champs comprend *hotel-id*, vous pouvez choisir cela pour votre clé. 
 
 1. Définissez des attributs sur chaque champ. Le concepteur d’index exclut tous les attributs qui sont invalides pour le type de données, mais ne suggère pas ce qu’il faut inclure. Passez en revue les directives de la section suivante pour comprendre le rôle des attributs.
 
-    La documentation de l’API Azure Search inclut des exemples de code utilisant un index *hotels* simple. Dans la capture d’écran ci-dessous, vous pouvez voir la définition de l’index, qui inclut l’analyseur de langue française spécifié lors de la définition de l’index, que vous pouvez recréer comme vous entraîner dans le portail.
+    La documentation de l’API Recherche cognitive Azure inclut des exemples de code utilisant un index *hotels* simple. Dans la capture d’écran ci-dessous, vous pouvez voir la définition de l’index, qui inclut l’analyseur de langue française spécifié lors de la définition de l’index, que vous pouvez recréer comme vous entraîner dans le portail.
 
-    ![Index de la démonstration Hotels](media/search-create-index-portal/field-definitions.png "Index de la démonstration Hotels")
+    ![Index de démonstration hotels](media/search-create-index-portal/field-definitions.png "Index de démonstration hotels")
 
 1. Lorsque vous avez terminé, cliquez sur **Créer** pour enregistrer et créer l’index.
 
@@ -76,7 +76,7 @@ Les attributs d’un champ déterminent son utilisation, par exemple s’il est 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir créé un index Azure Search, vous pouvez passer à l’étape suivante : [charger des données interrogeables dans l’index](search-what-is-data-import.md).
+Après avoir créé un index Recherche cognitive Azure, vous pouvez passer à l’étape suivante : [charger des données interrogeables dans l’index](search-what-is-data-import.md).
 
 Sinon, vous pouvez étudier les [index de manière plus approfondie](search-what-is-an-index.md). Outre la collection de champs, un index spécifie également des analyseurs, des générateurs de suggestions, des profils de score et des paramètres CORS. Le portail comprend des onglets permettant de définir les éléments les plus courants : les champs, les analyseurs et les générateurs de suggestions. Pour créer ou modifier d’autres éléments, vous pouvez utiliser l’API REST ou le kit de développement logiciel (SDK) .NET.
 

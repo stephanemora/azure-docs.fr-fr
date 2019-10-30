@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/30/2019
-ms.author: kevin
+ms.date: 10/21/2019
+ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 90544e182eb25f53232cee9a4dd0c05bd25508a3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 1cf6444b155830326f4876d2d65bcdaa5923fc35
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988473"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72788815"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
 
@@ -25,11 +25,11 @@ Apprenez à utiliser la sauvegarde et la restauration dans Azure SQL Data Wareho
 
 Une *capture instantanée d’entrepôt de données* crée un point de restauration que vous pouvez utiliser pour récupérer ou copier votre entrepôt de données dans un état antérieur.  Comme SQL Data Warehouse est un système distribué, une capture instantanée d’entrepôt de données est constituée de nombreux fichiers qui sont stockés dans le stockage Azure. Les captures instantanées capturent les changements incrémentiels à partir des données stockées dans votre entrepôt de données.
 
-Une *restauration d’entrepôt de données* est un nouvel entrepôt de données créé à partir d’un point de restauration d’un entrepôt de données existant ou supprimé. La restauration de votre entrepôt de données est une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elle recrée vos données après des corruptions et des suppressions accidentelles. Un entrepôt de données est également un mécanisme puissant pour créer des copies de votre entrepôt de données à des fins de test ou de développement.  Les taux de restauration SQL Data Warehouse peuvent varier en fonction de la taille de la base de données et de l’emplacement des entrepôts de données source et cible. En moyenne, dans la même région, les restaurations prennent généralement une vingtaine de minutes. 
+Une *restauration d’entrepôt de données* est un nouvel entrepôt de données créé à partir d’un point de restauration d’un entrepôt de données existant ou supprimé. La restauration de votre entrepôt de données est une partie essentielle de toute stratégie de continuité d’activité ou de récupération d’urgence, dans la mesure où elle recrée vos données après des corruptions et des suppressions accidentelles. Un entrepôt de données est également un mécanisme puissant pour créer des copies de votre entrepôt de données à des fins de test ou de développement.  Les taux de restauration SQL Data Warehouse peuvent varier en fonction de la taille de la base de données et de l’emplacement des entrepôts de données source et cible. 
 
 ## <a name="automatic-restore-points"></a>Points de restauration automatiques
 
-Les captures instantanées sont une fonctionnalité intégrée du service qui crée des points de restauration. Il n’est pas nécessaire de l’activer. Les points de restauration automatiques ne peuvent actuellement pas être supprimés par les utilisateurs dans les emplacements où le service utilise ces points de restauration pour conserver les contrats SLA pour la récupération.
+Les captures instantanées sont une fonctionnalité intégrée du service qui crée des points de restauration. Il n’est pas nécessaire de l’activer. Toutefois, l’entrepôt de données doit être dans un état actif pour permettre la création de points de restauration. Si l’entrepôt de données est fréquemment suspendu, les points de restauration automatiques peuvent ne pas être créés. Veillez donc à créer un point de restauration défini par l’utilisateur avant de suspendre l’entrepôt de données. Les points de restauration automatiques ne peuvent actuellement pas être supprimés par les utilisateurs étant donné que le service utilise ces points de restauration pour conserver les contrats SLA pour la récupération.
 
 SQL Data Warehouse prend des captures instantanées de votre entrepôt de données pendant la journée en créant des points de restauration qui sont disponibles pendant sept jours. Cette période de conservation ne peut pas être modifiée. SQL Data Warehouse prend en charge un objectif de point de récupération (RPO) de huit heures. Vous pouvez restaurer votre entrepôt de données dans la région primaire à partir de n’importe quelle capture instantanée prise au cours des sept derniers jours.
 
@@ -61,7 +61,7 @@ La section suivante contient plus d’informations sur les périodes de rétenti
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Rétention des captures instantanées lorsqu’un entrepôt de données est supprimé
 
-Lorsque vous supprimez un entrepôt de données, SQL Data Warehouse crée une capture instantanée finale et l’enregistre pendant sept jours. Vous pouvez restaurer l’entrepôt de données au point de restauration final créé lors de la suppression.
+Lorsque vous supprimez un entrepôt de données, SQL Data Warehouse crée une capture instantanée finale et l’enregistre pendant sept jours. Vous pouvez restaurer l’entrepôt de données au point de restauration final créé lors de la suppression. Si l’entrepôt de données est supprimé à l’état suspendu, aucun instantané n’est pris. Dans ce scénario, veillez à créer un point de restauration défini par l’utilisateur avant de supprimer l’entrepôt de données.
 
 > [!IMPORTANT]
 > Si vous supprimez une instance SQL Server logique, toutes les bases de données qui appartiennent à l’instance sont également supprimées, sans pouvoir être récupérées. Vous ne pouvez pas restaurer un serveur supprimé.
@@ -69,8 +69,6 @@ Lorsque vous supprimez un entrepôt de données, SQL Data Warehouse crée une ca
 ## <a name="geo-backups-and-disaster-recovery"></a>Sauvegardes de géoréplication et récupération d’urgence
 
 SQL Data Warehouse effectue une géosauvegarde une fois par jour vers un [centre de données couplé](../best-practices-availability-paired-regions.md). Le RPO pour une géo-restauration est de 24 heures. Vous pouvez restaurer la géo-sauvegarde sur un serveur dans n’importe quelle autre région où SQL Data Warehouse est pris en charge. Une géosauvegarde vous garantit de pouvoir restaurer un entrepôt de données dans le cas où vous ne pouvez pas accéder aux points de restauration de votre région primaire.
-
-Les géosauvegardes sont activées par défaut. Si votre entrepôt de données est de type Gen1, vous pouvez les [désactiver](/powershell/module/az.sql/set-azsqldatabasegeobackuppolicy) si vous le souhaitez. Vous ne pouvez pas désactiver les géosauvegardes pour Gen2, car la protection des données est une garantie intégrée.
 
 > [!NOTE]
 > Si vous avez besoin d’un objectif de point de récupération (RPO) plus court pour les géosauvegardes, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données se trouvant dans une autre région. Une fois la restauration effectuée, vous retrouvez l’entrepôt de données en ligne que vous pouvez mettre en pause indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage aux tarifs du Stockage Premium Azure. Si vous avez besoin d’une copie active de l’entrepôt de données, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
@@ -83,7 +81,7 @@ Le coût total de votre entrepôt de données principal et de sept jours de chan
 
 Si vous utilisez le stockage géoredondant, vous payez des frais de stockage distincts. Le stockage géoredondant est facturé au prix standard du stockage géoredondant avec accès en lecture (RA-GRS).
 
-Pour plus d’informations sur la tarification de SQL Data Warehouse, consultez la section correspondante. La sortie des données ne vous est pas facturée lors de la restauration dans différentes régions.
+Pour plus d’informations sur la tarification de SQL Data Warehouse, consultez [SQL Data Warehouse Tarification](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). La sortie des données ne vous est pas facturée lors de la restauration dans différentes régions.
 
 ## <a name="restoring-from-restore-points"></a>Restauration à partir de points de restauration
 

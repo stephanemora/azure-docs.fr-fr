@@ -1,13 +1,13 @@
 ---
-title: Informations de référence sur les opérateurs de collection OData - Recherche Azure
-description: Opérateurs de collection OData, any et all et expressions lambda dans les requêtes de Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Informations de référence sur les opérateurs de collection OData
+titleSuffix: Azure Cognitive Search
+description: Opérateurs de collection OData, any et all et expressions lambda dans les requêtes de la Recherche cognitive Azure.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e057d0b57162d10aab13d8b1f77e0eaddca2ec2a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: fdb250a844b70cef4f6941debbb1fa7450874932
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647637"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793399"
 ---
-# <a name="odata-collection-operators-in-azure-search---any-and-all"></a>Opérateurs de collection OData dans Recherche Azure - `any` et `all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Opérateurs de collection OData dans la Recherche cognitive Azure - `any` et `all`
 
-Lorsque vous écrivez une [expression de filtre OData](query-odata-filter-orderby-syntax.md) à utiliser avec Recherche Azure, il est souvent utile de filtrer sur les champs de la collection. Vous pouvez y parvenir à l’aide des opérateurs `any` et `all`.
+Lorsque vous écrivez une [expression de filtre OData](query-odata-filter-orderby-syntax.md) à utiliser avec la Recherche cognitive Azure, il est souvent utile de filtrer sur les champs de la collection. Vous pouvez y parvenir à l’aide des opérateurs `any` et `all`.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -48,10 +48,10 @@ lambda_expression ::= identifier ':' boolean_expression
 Un diagramme de syntaxe interactif est également disponible :
 
 > [!div class="nextstepaction"]
-> [Diagramme de syntaxe OData pour Recherche Azure](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
+> [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 Il existe trois formes d’expression qui filtrent les collections.
 
@@ -88,13 +88,13 @@ Correspondance des documents où pour toutes les salles, le champ `rooms/ameniti
 
 Toutes les fonctionnalités d’expressions de filtre ne sont pas disponibles dans le corps d’une expression lambda. Les restrictions diffèrent selon le type de données du champ de la collection que vous souhaitez filtrer. Le tableau suivant récapitule les restrictions :
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
-Pour plus d’informations sur ces restrictions et pour obtenir des exemples, consultez [Résolution des problèmes de filtres de collection dans Recherche Azure](search-query-troubleshoot-collection-filters.md). Pour en savoir plus sur la raison de l’existence de ces restrictions, consultez [Présentation des filtres de collection dans Recherche Azure](search-query-understand-collection-filters.md).
+Pour plus d’informations sur ces restrictions et pour obtenir des exemples, consultez [Résolution des problèmes de filtres de collection dans la Recherche cognitive Azure](search-query-troubleshoot-collection-filters.md). Pour en savoir plus sur la raison de l’existence de ces restrictions, consultez [Présentation des filtres de collection dans la Recherche cognitive Azure](search-query-understand-collection-filters.md).
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Filtres dans Recherche Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtres dans la Recherche cognitive Azure](search-filters.md)
+- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

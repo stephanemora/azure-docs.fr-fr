@@ -1,26 +1,25 @@
 ---
-title: Créer une définition et des concepts d’index – Recherche Azure
-description: Introduction aux termes et aux concepts des index dans la Recherche Azure, y compris les composants et la structure physique.
-author: HeidiSteen
+title: Créer une définition et des concepts d’index
+titleSuffix: Azure Cognitive Search
+description: Introduction aux termes et aux concepts des index dans la Recherche cognitive Azure, y compris les composants et la structure physique.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.custom: seodec2018
-ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: 30fffa6264411238c3ff0a5e829e1567c00f4f97
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647371"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794211"
 ---
-# <a name="create-a-basic-index-in-azure-search"></a>Créer un index de base dans la Recherche Azure
+# <a name="create-a-basic-index-in-azure-cognitive-search"></a>Créer un index de base dans la Recherche cognitive Azure
 
-Dans Recherche Azure, un *index* est une banque permanente de *documents* et d'autres éléments utilisés pour la recherche filtrée et en texte intégral sur un service Recherche Azure. Conceptuellement, un document correspond à une unité de données pouvant faire l’objet d’une recherche dans un index. Par exemple, un détaillant de commerce électronique peut posséder un document pour chaque article qu’il vend, un organisme d’information peut posséder un document par article, et ainsi de suite. Pour comparer avec des éléments de base de données plus familiers, d’un point de vue conceptuel, un *index* est similaire à une *table*, et les *documents* équivalent plus ou moins aux *lignes* d’une table.
+Dans la Recherche cognitive Azure, un *index* est une banque permanente de *documents* et d'autres éléments utilisés pour la recherche filtrée et en texte intégral sur un service Recherche cognitive Azure. Conceptuellement, un document correspond à une unité de données pouvant faire l’objet d’une recherche dans un index. Par exemple, un détaillant de commerce électronique peut posséder un document pour chaque article qu’il vend, un organisme d’information peut posséder un document par article, et ainsi de suite. Pour comparer avec des éléments de base de données plus familiers, d’un point de vue conceptuel, un *index* est similaire à une *table*, et les *documents* équivalent plus ou moins aux *lignes* d’une table.
 
-Lorsque vous ajoutez ou chargez un index, la Recherche Azure crée des structures physiques basées sur le schéma fourni. Par exemple, si l’un des champs de votre index est marqué comme utilisable dans une requête, un index inversé est créé pour ce champ. Lorsque vous ajouterez ou chargerez des documents, ou que vous soumettrez des requêtes de recherche à la Recherche Azure, vous enverrez les demandes à un index spécifique de votre service de recherche. Le processus consistant à charger des champs ayant valeur de documents se nomme *indexation* ou ingestion des données.
+Lorsque vous ajoutez ou chargez un index, la Recherche cognitive Azure crée des structures physiques basées sur le schéma fourni. Par exemple, si l’un des champs de votre index est marqué comme utilisable dans une requête, un index inversé est créé pour ce champ. Lorsque vous ajouterez ou chargerez des documents, ou que vous soumettrez des requêtes de recherche à la Recherche cognitive Azure, vous enverrez les demandes à un index spécifique de votre service de recherche. Le processus consistant à charger des champs ayant valeur de documents se nomme *indexation* ou ingestion des données.
 
 Vous pouvez créer un index avec le portail, [l’API REST](search-create-index-rest-api.md) ou le [Kit SDK .NET](search-create-index-dotnet.md).
 
@@ -32,7 +31,7 @@ Avant de parvenir à une conception d’index satisfaisante, il convient d’eff
 
 2. Si vous ne pouvez pas utiliser **Importation de données**, vous pouvez toujours [créer un index initial sur le portail](search-create-index-portal.md), ajouter des champs, des types de données, puis affecter des attributs à l’aide des contrôles de la page **Ajouter un index**. Le portail présente les attributs disponibles en fonction des types de données. Si vous débutez dans la conception d’index, cela vous sera utile.
 
-   ![Page Ajouter un index présentant les attributs par type de données](media/search-create-index-portal/field-attributes.png "Page Ajouter un index présenter les attributs par type de données")
+   ![Ajouter une page d’index avec les attributs par type de données](media/search-create-index-portal/field-attributes.png "Ajouter une page d’index avec les attributs par type de données")
   
    Quand vous cliquez sur **Créer**, toutes les structures physiques supportant votre index sont créées dans votre service de recherche.
 
@@ -40,7 +39,7 @@ Avant de parvenir à une conception d’index satisfaisante, il convient d’eff
 
    À ce stade, vous passez à une approche basée sur le code. Le portail ne se prête pas bien à l’itération dans le sens où vous ne pouvez pas modifier un index qui a déjà été créé. En revanche, vous pouvez utiliser Postman et REST pour les tâches restantes.
 
-4. [Chargez votre index avec des données](search-what-is-data-import.md). Recherche Azure accepte les documents JSON. Pour charger vos données par programmation, vous pouvez utiliser Postman avec des documents JSON dans la charge utile de demande. S’il n’est pas facilement d’exprimer vos données au format JSON, cette étape sera la plus fastidieuse.
+4. [Chargez votre index avec des données](search-what-is-data-import.md). La Recherche cognitive Azure accepte les documents JSON. Pour charger vos données par programmation, vous pouvez utiliser Postman avec des documents JSON dans la charge utile de demande. S’il n’est pas facilement d’exprimer vos données au format JSON, cette étape sera la plus fastidieuse.
 
 5. Interrogez votre index, examinez les résultats et continuez d’itérer sur le schéma d’index jusqu’à ce que vous commenciez à obtenir les résultats attendus. Pour interroger votre index, vous pouvez utiliser l’[**Explorateur de recherche**](search-explorer.md) ou Postman.
 
@@ -52,7 +51,7 @@ Pour une conception itérative, il est recommandé de privilégier une approche 
 
 ## <a name="components-of-an-index"></a>Composants d’un index
 
-Schématiquement, un index Recherche Azure se compose des éléments suivants. 
+Schématiquement, un index Recherche cognitive Azure se compose des éléments suivants. 
 
 La [*collection de champs*](#fields-collection) correspond généralement à la majeure partie de l’index, dans laquelle chaque champ est nommé, tapé et pourvu de comportements autorisés qui déterminent son utilisation. Il existe d’autres éléments, comme les [suggesteurs](#suggesters), les [profils de score](#scoring-profiles), les [analyseurs](#analyzers) avec les composants pour prendre en charge la personnalisation et les options [CORS](#cors) et [clé de chiffrement](#encryption-key).
 
@@ -157,7 +156,7 @@ Lorsque vous définissez votre schéma, vous devez spécifier le nom, le type et
 | *Edm.DateTimeOffset* |Valeurs de date et heure représentées au format OData V4 (par exemple, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Point représentant un emplacement géographique de la planète. |
 
-Pour plus d’informations sur les types de données pris en charge par le service Recherche Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
+Pour plus d’informations sur les types de données pris en charge par le service Recherche cognitive Azure, consultez [cet article](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types).
 
 ### <a name="index-attributes"></a>Attributs d’index
 
@@ -183,14 +182,14 @@ Les attributs que vous sélectionnez ont un impact sur le stockage. La capture d
 
 L’index est basé sur la source de données de l’[l’exemple intégré real estate](search-get-started-portal.md), que vous pouvez indexer et interroger sur le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
 
-![Taille d’index en fonction de la sélection d’attributs](./media/search-what-is-an-index/realestate-index-size.png "Taille d’index en fonction de la sélection d’attributs")
+![Taille de l’index en fonction de la sélection de l’attribut](./media/search-what-is-an-index/realestate-index-size.png "Taille de l’index en fonction de la sélection de l’attribut")
 
 Bien que ces variantes d’index soient artificielles, nous pouvons nous y reporter pour nous faire une idée de la façon dont les attributs affectent le stockage. Le paramètre **retrievable** fait-il croître l’index ? Non. L’ajout de champs à un **suggesteur** fait-il croître l’index ? Oui.
 
 Les index qui prennent en charge le filtrage et le tri sont en proportion plus volumineux que les index qui prennent en charge uniquement la recherche en texte intégral. La raison en est que le filtrage et le tri portent sur les correspondances exactes. De ce fait, les documents sont stockés intacts. En revanche, les champs pouvant faire l’objet d’une recherche en texte intégral ou approximative utilisent des index inversés, qui sont remplis avec des termes assortis de jetons qui occupent moins d’espace que les documents entiers.
 
 > [!Note]
-> L’architecture de stockage est considérée comme un détail d’implémentation de Recherche Azure et est susceptible d’évoluer sans préavis. Il n’est pas garanti que le comportement actuel persistera dans l’avenir.
+> L’architecture de stockage est considérée comme un détail d’implémentation de Recherche cognitive Azure et est susceptible d’évoluer sans préavis. Il n’est pas garanti que le comportement actuel persistera dans l’avenir.
 
 ## <a name="suggesters"></a>Générateurs de suggestions
 Un suggesteur est une section du schéma qui définit quels champs d’un index sont utilisés pour prendre en charge l’autocomplétion et les requêtes prédictives dans les recherches. En général, les chaînes de recherche partielle sont envoyées à l’[API REST Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) pendant que l’utilisateur tape une requête de recherche, et l’API retourne un ensemble d’expressions suggérées. 
@@ -205,7 +204,7 @@ Un profil de score par défaut fonctionne en arrière-plan pour calculer un scor
 
 ## <a name="analyzers"></a>Analyseurs
 
-L’élément analyseurs définit le nom de l’analyseur linguistique à utiliser pour le champ. Pour plus d’informations sur les différents analyseurs disponibles, consultez [Ajout d’analyseurs à un index Recherche Azure](search-analyzers.md). Les analyseurs peuvent être utilisés uniquement avec les champs pouvant faire l’objet d’une recherche. Une fois que l’analyseur est affecté à un champ, il ne peut plus être modifié, à moins de regénérer l’index.
+L’élément analyseurs définit le nom de l’analyseur linguistique à utiliser pour le champ. Pour plus d’informations sur les différents analyseurs disponibles, consultez [Ajout d’analyseurs à un index Recherche cognitive Azure](search-analyzers.md). Les analyseurs peuvent être utilisés uniquement avec les champs pouvant faire l’objet d’une recherche. Une fois que l’analyseur est affecté à un champ, il ne peut plus être modifié, à moins de regénérer l’index.
 
 ## <a name="cors"></a>CORS
 
@@ -221,7 +220,7 @@ Les options suivantes peuvent être définies pour CORS :
 
 ## <a name="encryption-key"></a>Clé de chiffrement
 
-Si tous les index de recherche Azure sont chiffrés par défaut à l’aide de clés gérées par Microsoft, il est possible de configurer les index pour qu’ils soient chiffrés avec **clés gérées par le client** dans Key Vault. Pour plus d’informations, voir [Gérer les clés de chiffrement dans Recherche Azure](search-security-manage-encryption-keys.md).
+Si tous les index de Recherche cognitive Azure sont chiffrés par défaut à l’aide de clés gérées par Microsoft, il est possible de configurer les index pour qu’ils soient chiffrés avec **clés gérées par le client** dans Key Vault. Pour en savoir plus, consultez [Gérer les clés de chiffrement dans la Recherche cognitive Azure](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

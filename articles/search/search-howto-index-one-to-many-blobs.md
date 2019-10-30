@@ -1,34 +1,32 @@
 ---
-title: Indexer des objets blob contenant plusieurs documents d’index de recherche à partir de l’indexeur d’objets blob Azure pour la recherche en texte intégral - Recherche Azure
-description: Analyser les objets blob Azure à la recherche de contenu textuel à l’aide de l’indexeur d’objets blob de la Recherche Azure. Chaque objet blob peut contenir un ou plusieurs documents d’index de Recherche Azure.
-ms.date: 05/02/2019
-author: arv100kri
+title: Indexer un blob en plusieurs documents d’index de recherche à partir de l’indexeur d’objets blob Azure pour la recherche en texte intégral
+description: Analysez les objets blob Azure à la recherche de contenu textuel à l’aide de l’indexeur d’objets blob de la Recherche cognitive Azure. Chaque objet blob peut contenir un ou plusieurs documents d’index de recherche.
 manager: nitinme
+author: arv100kri
 ms.author: arjagann
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seofeb2018
-ms.openlocfilehash: 2c2a17d006f65854a89b9fac1818fcec420c07dc
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: ec7796f19df8d58831b442adeae02b54223799c1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182307"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793727"
 ---
-# <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexation d’objets blob produisant plusieurs documents de recherche
+# <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexation d’objets blob pour produire plusieurs documents de recherche
 Par défaut, un indexeur d’objets blob traite le contenu d’un objet blob comme un document de recherche unique. Certaines valeurs **parsingMode** prennent en charge les scénarios où un objet blob individuel peut entraîner plusieurs documents de recherche. Les différents types de **parsingMode** qui permettent à un indexeur d’extraire plusieurs documents de recherche à partir d’un objet blob sont les suivants :
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
 
 ## <a name="one-to-many-document-key"></a>Clé de document de type un-à-plusieurs
-Chaque document qui s’affiche dans un index de la Recherche Azure est identifié par une clé de document. 
+Chaque document qui s’affiche dans un index de la Recherche cognitive Azure est identifié par une clé de document. 
 
-En l’absence de mode d’analyse et de mappage explicite pour le champ de clé dans l’index, la Recherche Azure [mappe](search-indexer-field-mappings.md) automatiquement la propriété `metadata_storage_path` en guise de clé. Ce mappage garantit que chaque objet blob apparaît sous la forme d’un document de recherche distinct.
+En l’absence de mode d’analyse et de mappage explicite pour le champ de clé dans l’index, la Recherche cognitive Azure [mappe](search-indexer-field-mappings.md) automatiquement la propriété `metadata_storage_path` en guise de clé. Ce mappage garantit que chaque objet blob apparaît sous la forme d’un document de recherche distinct.
 
-Lorsque vous utilisez un des modes d’analyse répertoriées ci-dessus, un objet blob correspond à « plusieurs » documents de recherche, et la clé de document repose uniquement sur des métadonnées d’objets blob non adaptées. Pour contourner cette contrainte, la Recherche Azure est capable de générer une clé de document de type « un-à-plusieurs » pour chaque entité extraite à partir d’un objet blob. Cette propriété est nommée `AzureSearch_DocumentKey` et ajoutée à chaque entité extraite à partir de l’objet blob. La valeur de cette propriété est garantie unique pour chaque entité _parmi les objets blob_, et les entités seront affichées sous forme de documents de recherche distincts.
+Lorsque vous utilisez un des modes d’analyse répertoriées ci-dessus, un objet blob correspond à « plusieurs » documents de recherche, et la clé de document repose uniquement sur des métadonnées d’objets blob non adaptées. Pour contourner cette contrainte, la Recherche cognitive Azure est capable de générer une clé de document de type « un-à-plusieurs » pour chaque entité extraite à partir d’un objet blob. Cette propriété est nommée `AzureSearch_DocumentKey` et ajoutée à chaque entité extraite à partir de l’objet blob. La valeur de cette propriété est garantie unique pour chaque entité _parmi les objets blob_, et les entités seront affichées sous forme de documents de recherche distincts.
 
 Par défaut, en l’absence de mappage explicite pour le champ d’index de clé, le champ `AzureSearch_DocumentKey` est mappé à celui-ci, à l’aide de la fonction de mappage de champs `base64Encode`.
 
@@ -59,7 +57,7 @@ Lorsque vous créez un indexeur et définissez **parsingMode** sur `jsonLines` (
         "mappingFunction": { "name" : "base64Encode" }
     }
 
-Cette configuration produit un index de Recherche Azure contenant les informations suivantes (ID codé en base64 raccourci par souci de concision).
+Cette configuration produit un index de Recherche cognitive Azure contenant les informations suivantes (ID codé en base64 raccourci par souci de concision)
 
 | id | température | pression | timestamp |
 |----|-------------|----------|-----------|
@@ -98,12 +96,10 @@ Si vous ne souhaitez pas configurer un mappage de champs explicite, assurez-vous
 > [!NOTE]
 > L’approche utilisée par `AzureSearch_DocumentKey`, visant à assurer l’unicité des entités extraites, est susceptible de changer. Par conséquent, ne vous fiez pas à sa valeur pour les besoins de votre application.
 
-## <a name="see-also"></a>Voir aussi
+## <a name="next-steps"></a>Étapes suivantes
 
-+ [Indexeurs dans Recherche Azure](search-indexer-overview.md)
-+ [Indexation de Stockage Blob Azure avec Recherche Azure](search-howto-index-json-blobs.md)
-+ [Indexation d’objets blob CSV avec l’indexeur d’objets blob Recherche Azure](search-howto-index-csv-blobs.md)
-+ [Indexation d’objets blob JSON avec un indexeur d’objets blob Recherche Azure](search-howto-index-json-blobs.md)
+Si vous n’êtes pas déjà familiarisé avec la structure et le flux de travail de base de l’indexation d’objets BLOB, vous devez passer en revue [Indexation du stockage d’objets blob Azure avec la Recherche cognitive Azure](search-howto-index-json-blobs.md) en premier. Pour plus d’informations sur les modes d’analyse pour les différents types de contenu blob, consultez les articles suivants.
 
-## <a name="NextSteps"></a>Étapes suivantes
-* Pour en savoir plus sur la Recherche Azure, consultez la [page du service Recherche](https://azure.microsoft.com/services/search/).
+> [!div class="nextstepaction"]
+> [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md)
+> [Indexation d’objets blob JSON](search-howto-index-json-blobs.md)

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 42e1e283736d8a1e3d4ece33c861185df2d72da7
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250095"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791818"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gérer le serveur de configuration pour la récupération d’urgence de machines virtuelles VMware
 
@@ -21,12 +21,16 @@ Quand vous utilisez [Azure Site Recovery](site-recovery-overview.md) pour la rep
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## <a name="update-windows-license"></a>Mettre à jour la licence Windows
+
+La licence fournie avec le modèle OVF est une licence d’évaluation valide 180 jours. Pour une utilisation ininterrompue, vous devez activer Windows avec une licence achetée. La mise à jour de licence peut être effectuée à l’aide d’une clé autonome ou d’une clé KMS standard. Vous trouverez des conseils sur la [ligne de commande Windows DISM pour exécuter le système d’exploitation](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). Pour obtenir des clés, reportez-vous à [Configurer un client KMS](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
+
 ## <a name="access-configuration-server"></a>Accéder au serveur de configuration
 
 Vous pouvez accéder au serveur de configuration comme suit :
 
 * Connectez-vous à la machine virtuelle où il est déployé et lancez le **gestionnaire de configuration Azure Site Recovery** en utilisant le raccourci Bureau.
-* Vous pouvez aussi accéder au serveur de configuration à distance depuis https://*ConfigurationServerName*/:44315/ . Connectez-vous avec des informations d'identification d'administrateur.
+* Vous pouvez aussi accéder au serveur de configuration à distance depuis https://*ConfigurationServerName*/:44315/. Connectez-vous avec des informations d'identification d'administrateur.
 
 ## <a name="modify-vmware-server-settings"></a>Modifier les paramètres du serveur VMware
 
@@ -290,11 +294,7 @@ Pour les déploiements de serveurs de configuration effectués avant mai 2016, l
 1. Dans le portail Azure, accédez à **Coffre Recovery Services** > **Gérer** > **Infrastructure Site Recovery** > **Pour les machines VMware et physiques** > **Serveurs de configuration**.
 2. Cliquez sur le serveur de configuration que vous souhaitez actualiser.
 3. Dans le panneau avec les détails du serveur de configuration choisi, cliquez sur **Plus** > **Actualiser le serveur**.
-4. Surveillez la progression du travail sous **Coffre Recovery Services** > **Surveillance** > **Travaux Site Recovery**.
-
-## <a name="update-windows-license"></a>Mettre à jour la licence Windows
-
-La licence fournie avec le modèle OVF est une licence d’évaluation valide 180 jours. Pour une utilisation ininterrompue, vous devez activer Windows avec une licence achetée.
+4. Suivez la progression du travail sous **Coffre Recovery Services** > **Surveillance** > **Travaux Site Recovery**.
 
 ## <a name="failback-requirements"></a>Conditions requises pour la restauration automatique
 

@@ -1,23 +1,23 @@
 ---
-title: Résoudre les problèmes courants des indexeurs de recherche - Recherche Azure
-description: Résolvez les problèmes courants liés aux indexeurs dans la Recherche Azure, notamment les erreurs de connexion aux sources de données, de pare-feu et de documents manquants.
-author: mgottein
+title: Résoudre les problèmes courants des indexeurs de recherche
+titleSuffix: Azure Cognitive Search
+description: Résolvez les problèmes courants liés aux indexeurs dans la Recherche cognitive Azure, notamment les erreurs de connexion aux sources de données, de pare-feu et de documents manquants.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: mgottein
 ms.author: magottei
-ms.openlocfilehash: 4692be287e9b38cf116107d2e7c1043f23a6b34b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c5a16d957f1e0414f92d0cc03442d88d438e4c92
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640597"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793623"
 ---
-# <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche Azure
+# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche cognitive Azure
 
-Les indexeurs peuvent rencontrer un certain nombre de problèmes lors de l’indexation des données dans la Recherche Azure. Voici les principales catégories de défaillances :
+Les indexeurs peuvent rencontrer un certain nombre de problèmes lors de l’indexation des données dans la Recherche cognitive Azure. Voici les principales catégories de défaillances :
 
 * [Connexion à une source de données](#data-source-connection-errors)
 * [Traitement de documents](#document-processing-errors)
@@ -29,7 +29,7 @@ Les indexeurs peuvent rencontrer un certain nombre de problèmes lors de l’ind
 
 #### <a name="storage-account-firewall"></a>Pare-feu du compte de stockage
 
-Le Stockage Azure fournit un pare-feu configurable. Par défaut, le pare-feu est désactivé pour que la Recherche Azure puisse se connecter à votre compte de stockage.
+Le Stockage Azure fournit un pare-feu configurable. Par défaut, le pare-feu est désactivé pour que la Recherche cognitive Azure puisse se connecter à votre compte de stockage.
 
 Il n’y a pas de message d’erreur spécifique lorsqu’il est activé. En règle générale, les erreurs de pare-feu sont de ce type : `The remote server returned an error: (403) Forbidden`.
 
@@ -43,13 +43,13 @@ Vous trouverez l’adresse IP de votre service de recherche en effectuant un tes
 
 #### <a name="indexing-isnt-enabled"></a>L’indexation n’est pas activée
 
-La Recherche Azure comporte une dépendance implicite vis-à-vis de l’indexation Cosmos DB. Si l’indexation automatique est désactivée dans Cosmos DB, la Recherche Azure renvoie un état réussi, mais ne parvient pas à indexer le contenu du conteneur. Pour savoir comment vérifier les paramètres et activer l’indexation, voir [Gérer l’indexation dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
+La Recherche cognitive Azure comporte une dépendance implicite vis-à-vis de l’indexation Cosmos DB. Si l’indexation automatique est désactivée dans Cosmos DB, la Recherche cognitive Azure renvoie un état réussi, mais ne parvient pas à indexer le contenu du conteneur. Pour savoir comment vérifier les paramètres et activer l’indexation, voir [Gérer l’indexation dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
 ## <a name="document-processing-errors"></a>Erreurs de traitement de documents
 
 ### <a name="unprocessable-or-unsupported-documents"></a>Documents non exploitables ou non pris en charge
 
-L’indexeur d’objets blob [précise quels formats de documents sont pris en charge explicitement](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Il peut arriver qu’un conteneur de stockage blob contienne des documents non pris en charge ou bien problématiques. Pour ne pas avoir à arrêter votre indexeur sur ces documents, vous pouvez [modifier les options de configuration](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) :
+L’indexeur d’objets blob [précise quels formats de documents sont pris en charge explicitement](search-howto-indexing-azure-blob-storage.md#SupportedFormats). Il peut arriver qu’un conteneur de stockage blob contienne des documents non pris en charge ou bien problématiques. Pour ne pas avoir à arrêter votre indexeur sur ces documents, vous pouvez [modifier les options de configuration](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) :
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -89,5 +89,5 @@ Les indexeurs recherchent des documents dans une [source de données](https://do
 * Le document n’a pas été indexé. Consultez le portail pour une exécution réussie de l’indexeur.
 * Le document a été mis à jour après l’exécution de l’indexeur. Si votre indexeur suit une [planification](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), il s’exécutera à nouveau et trouvera le document.
 * La [requête](https://docs.microsoft.com/rest/api/searchservice/create-data-source#request-body-syntax) spécifiée dans la source de données exclut le document. Les indexeurs ne peuvent pas indexer de documents qui ne font pas partie de la source de données.
-* Des [mappages de champs](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou la [recherche cognitive](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) ont modifié le document, qui n’a pas l’aspect prévu.
+* Des [mappages de champs](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) ou l’[enrichissement de l’IA](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) ont modifié le document, qui n’a pas l’aspect prévu.
 * Utilisez [l’API Recherche de document](https://docs.microsoft.com/rest/api/searchservice/lookup-document) pour trouver votre document.

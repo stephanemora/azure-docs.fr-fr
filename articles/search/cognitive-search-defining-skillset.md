@@ -1,25 +1,25 @@
 ---
-title: Créer un jeu de compétences dans un pipeline de recherche cognitive - Recherche Azure
-description: Définissez des étapes d’extraction des données, de traitement du langage naturel ou d’analyse de l’image pour enrichir et extraire des informations structurées à partir de vos données pour les utiliser dans Recherche Azure.
+title: Créer un ensemble de compétences dans un pipeline d'enrichissement
+titleSuffix: Azure Cognitive Search
+description: Définissez des étapes d’extraction des données, de traitement du langage naturel ou d’analyse de l’image pour enrichir et extraire des informations structurées à partir de vos données pour les utiliser dans la Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265526"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787464"
 ---
-# <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Création d’un jeu de compétences dans un pipeline d’enrichissement
+# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Comment créer un ensemble de compétences dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure 
 
-La recherche cognitive extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans Recherche Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Un ensemble de qualifications peut contenir des [qualifications prédéfinies](cognitive-search-predefined-skills.md) ou des qualifications personnalisées (pour plus d’informations, consultez [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md).
+L’enrichissement de l’IA extrait et enrichit les données pour qu’elles puissent faire l’objet de recherches dans la Recherche cognitive Azure. Nous appelons les étapes d’extraction et d’enrichissement *compétences cognitives*. Elles sont combinées en un *jeu de compétences* référencé pendant l’indexation. Un ensemble de qualifications peut contenir des [qualifications prédéfinies](cognitive-search-predefined-skills.md) ou des qualifications personnalisées (pour plus d’informations, consultez [Exemple : Création d’une compétence personnalisée dans un pipeline d’enrichissement de l’intelligence artificielle](cognitive-search-create-custom-skill-example.md) pour plus d’informations).
 
-Dans cet article, vous allez découvrir comment créer un pipeline d’enrichissement pour les compétences que vous souhaitez utiliser. Un jeu de compétences est attaché à un [indexeur](search-indexer-overview.md) Recherche Azure. Une partie de la conception du pipeline, traitée dans cet article, constitue le jeu de compétences proprement dit. 
+Dans cet article, vous allez découvrir comment créer un pipeline d’enrichissement pour les compétences que vous souhaitez utiliser. Un ensemble de compétences est attaché à un [indexeur](search-indexer-overview.md) de Recherche cognitive Azure. Une partie de la conception du pipeline, traitée dans cet article, constitue le jeu de compétences proprement dit. 
 
 > [!NOTE]
 > Une autre partie de la conception du pipeline spécifie un indexeur, décrit dans [l’étape suivante](#next-step). Une définition d’indexeur inclut une référence au jeu de compétences, ainsi que les mappages de champs utilisés pour la connexion des entrées aux sorties dans l’index cible.
@@ -45,10 +45,10 @@ Le diagramme suivant illustre un pipeline d’enrichissement hypothétique :
 ![Un pipeline d’enrichissement hypothétique](media/cognitive-search-defining-skillset/sample-skillset.png "Un pipeline d’enrichissement hypothétique")
 
 
-Une fois que vous avez une idée assez claire de ce que vous souhaitez inclure dans le pipeline, vous pouvez représenter le jeu de compétences qui correspond à ces étapes. Au niveau fonctionnel, le jeu de compétences est représenté lorsque vous chargez la définition de l’indexeur dans Recherche Azure. Pour en savoir plus sur le chargement de l’indexeur, consultez la [documentation relative à l’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Une fois que vous avez une idée assez claire de ce que vous souhaitez inclure dans le pipeline, vous pouvez représenter le jeu de compétences qui correspond à ces étapes. Au niveau fonctionnel, le jeu de compétences est représenté lorsque vous chargez la définition de l’indexeur dans la Recherche cognitive Azure. Pour en savoir plus sur le chargement de l’indexeur, consultez la [documentation relative à l’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
-Dans le diagramme, l’étape de *décodage de document* a lieu automatiquement. Recherche Azure sait comment ouvrir des fichiers connus, et crée un champ de *contenu* dont le texte est extrait à partir de chaque document. Les cases blanches sont des enrichisseurs intégrés, et la case « Recherche d’entités Bing » en pointillé représente un enrichisseur personnalisé que vous créez. Comme illustré sur le diagramme, le jeu de compétences contient trois compétences.
+Dans le diagramme, l’étape de *décodage de document* a lieu automatiquement. La Recherche cognitive Azure sait comment ouvrir des fichiers connus, et crée un champ de *contenu* dont le texte est extrait à partir de chaque document. Les cases blanches sont des enrichisseurs intégrés, et la case « Recherche d’entités Bing » en pointillé représente un enrichisseur personnalisé que vous créez. Comme illustré sur le diagramme, le jeu de compétences contient trois compétences.
 
 ## <a name="skillset-definition-in-rest"></a>Définition du jeu de compétences dans REST
 
@@ -243,11 +243,11 @@ Un résultat probable serait une structure générée semblable à l’illustrat
 
 ![Exemple de structure de sortie](media/cognitive-search-defining-skillset/enriched-doc.png "Exemple de structure de sortie")
 
-Jusqu’à présent, cette structure est interne uniquement, en mémoire seulement et utilisée uniquement dans les index Recherche Azure. L’ajout d’une base de connaissances vous permet d’enregistrer les enrichissements mis en forme pour une utilisation hors de la recherche.
+Jusqu’à présent, cette structure est interne uniquement, en mémoire seulement et utilisée uniquement dans les index de Recherche cognitive Azure. L’ajout d’une base de connaissances vous permet d’enregistrer les enrichissements mis en forme pour une utilisation hors de la recherche.
 
 ## <a name="add-a-knowledge-store"></a>Ajouter une base de connaissances
 
-La [base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité d’évaluation de Recherche Azure destinée à l’enregistrement de vos documents enrichis. La base de connaissances que vous créez à l’aide d’un compte de stockage Azure est le référentiel dans lequel vos données enrichies résident. 
+La [base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité d’évaluation de Recherche cognitive Azure destinée à l’enregistrement de vos documents enrichis. La base de connaissances que vous créez à l’aide d’un compte de stockage Azure est le référentiel dans lequel vos données enrichies résident. 
 
 Une définition de la base de connaissances est ajoutée à un ensemble de compétences. Pour obtenir une procédure pas à pas de l’ensemble du processus, consultez [Prise en main de la base de connaissances](knowledge-store-howto.md).
 

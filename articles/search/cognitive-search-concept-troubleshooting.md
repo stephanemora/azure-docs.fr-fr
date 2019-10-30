@@ -1,26 +1,25 @@
 ---
-title: Conseils de dépannage pour la recherche cognitive - Recherche Azure
-description: Conseils et résolution des problèmes pour la configuration de pipelines de recherche cognitive dans Recherche Azure.
-services: search
+title: Conseils de dépannage pour l’enrichissement de l’IA
+titleSuffix: Azure Cognitive Search
+description: Conseils et résolution des problèmes pour la configuration des pipelines d’enrichissement de l’IA dans la Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 02/02/2019
 ms.author: luisca
-ms.openlocfilehash: ee54d560ae1a294467e4520063153566d2c3b0a2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 485dd47e035f03a8e20ded4c8a424f1658f5246a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265842"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787699"
 ---
-# <a name="troubleshooting-tips-for-cognitive-search"></a>Conseils de dépannage pour la recherche cognitive
+# <a name="troubleshooting-tips-for-ai-enrichment-in-azure-cognitive-search"></a>Conseils de résolution des problèmes pour l’enrichissement de l’IA dans la Recherche cognitive Azure
 
-Cet article contient une liste de conseils et astuces destinés à vous permettre d’aller de l’avant lorsque vous commencez à utiliser les fonctionnalités de recherche cognitive dans Recherche Azure. 
+Cet article contient une liste de conseils et astuces destinés à vous permettre d’aller de l’avant lorsque vous commencez à utiliser les fonctionnalités d’enrichissement de l’IA dans la Recherche cognitive Azure. 
 
-Si ce n’est déjà fait, suivez le [Tutoriel : Appeler des API de recherche cognitive](cognitive-search-quickstart-blob.md) pour apprendre à appliquer des enrichissements de recherche cognitive à une source de données Blob.
+Si ce n’est déjà fait, suivez le [Tutoriel : Appeler des API d’enrichissement de l’IA](cognitive-search-quickstart-blob.md) pour apprendre à appliquer des enrichissements de l’IA à une source de données Blob.
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>Conseil 1 : commencez avec un petit jeu de données
 La meilleure façon de détecter rapidement des problèmes consiste à augmenter la vitesse à laquelle vous pouvez résoudre ceux-ci. La meilleure façon de réduire le temps d’indexation consiste à diminuer le nombre de documents à indexer. 
@@ -31,7 +30,7 @@ Exécutez votre exemple de document via le pipeline de bout en bout et vérifiez
 
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Conseil 2 : assurez-vous que les informations d’identification de la source de données sont correctes
 La connexion de source de données n’est pas validée tant que vous ne définissez pas un indexeur qui l’utilise. Si vous rencontrez des erreurs signalant que l’indexeur ne peut pas accéder aux données, vérifiez les points suivants :
-- Votre chaîne de connexion est correcte. En particulier lorsque vous créez des jetons SAP, veillez à utiliser le format attendu par Recherche Azure. Pour découvrir les différents formats pris en charge, voir la section [Comment spécifier des informations d’identification](
+- Votre chaîne de connexion est correcte. En particulier lorsque vous créez des jetons SAP, veillez à utiliser le format attendu par la Recherche cognitive Azure. Pour découvrir les différents formats pris en charge, voir la section [Comment spécifier des informations d’identification](
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials).
 - Le nom de votre conteneur dans l’indexeur est correct.
 
@@ -92,7 +91,7 @@ L’analyse d’image nécessite une grande capacité de calcul, même pour des 
 
 Le temps d’exécution maximal varie selon le niveau : de quelques minutes pour le niveau Gratuit, à une durée d’indexation de 24 heures pour les niveaux facturables. Si le traitement n’aboutit pas dans un délai de 24 heures pour un traitement à la demande, passez à une planification telle que l’indexeur reprenne le traitement là où il l’a laissé. 
 
-Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de la planification, consultez [Étape 3 : Créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou consultez [Guide pratique pour planifier des indexeurs pour Recherche Azure](search-howto-schedule-indexers.md).
+Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de la planification, consultez [Étape 3 : Créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou consultez [Guide pratique pour planifier des indexeurs pour la Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
 > [!NOTE]
 > Si un indexeur est défini sur une certaine planification, mais échoue à plusieurs reprises sur le même document chaque fois qu’il s’exécute, l’indexeur commence à s’exécuter à un intervalle moins fréquent (jusqu’à un maximum d’au moins une fois toutes les 24 heures) jusqu’à ce qu’il progresse correctement à nouveau.  Si vous pensez avoir résolu le problème qui provoquait le blocage de l’indexeur à un moment donné, vous pouvez effectuer une exécution à la demande de l’indexeur, et en cas de progression, l’indexeur reprend son intervalle de planification défini.
@@ -105,8 +104,8 @@ Pour une [indexation parallèle](search-howto-large-index.md), placez vos donné
 Pour plus d’informations, voir [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Voir aussi
-+ [Démarrage rapide : Créer un pipeline de recherche cognitive dans le portail](cognitive-search-quickstart-blob.md)
-+ [Tutoriel : Découvrir les API REST de la recherche cognitive](cognitive-search-tutorial-blob.md)
++ [Démarrage rapide : Créer un pipeline d’enrichissement de l’IA dans le portail](cognitive-search-quickstart-blob.md)
++ [Tutoriel : Découvrir les API REST d’enrichissement de l’IA](cognitive-search-tutorial-blob.md)
 + [Spécification des informations d’identification de la source de données](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [Indexation de jeux de données volumineux](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)

@@ -1,38 +1,38 @@
 ---
-title: Contenu de l’index du stockage de tables Azure pour la recherche en texte intégral - Recherche Azure
-description: Découvrez comment indexer les données stockées dans Stockage Table Azure avec un indexeur Recherche Azure.
-ms.date: 05/02/2019
-author: mgottein
+title: Contenu de l’index du stockage de tables Azure pour la recherche en texte intégral
+titleSuffix: Azure Cognitive Search
+description: Découvrez comment indexer les données stockées dans Stockage Table Azure avec un indexeur Recherche cognitive Azure.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: dffb0a41dbf33cd86014115b089036d69a8e4718
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: ae99145178fba8e204267546dc1cedf42df412eb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648186"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793748"
 ---
-# <a name="index-azure-table-storage-with-azure-search"></a>Indexer le stockage de tables Azure avec Azure Search
-Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure.
+# <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Comment indexer des tables à partir du stockage de tables Azure avec la Recherche cognitive Azure
+
+Cet article montre comment utiliser la Recherche cognitive Azure pour indexer les données stockées dans le stockage de tables Azure.
 
 ## <a name="set-up-azure-table-storage-indexing"></a>Configurer l’indexation du stockage de tables Azure
 
 Vous pouvez configurer un indexeur de stockage de tables Azure à l’aide des ressources suivantes :
 
 * [Portail Azure](https://ms.portal.azure.com)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de la Recherche Azure
-* [Kit de développement logiciel .NET (SDK)](https://aka.ms/search-sdk) de la Recherche Azure
+* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
+* [Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk) de Recherche cognitive Azure
 
 Ici, nous vous présentons le flux à l’aide de l’API REST. 
 
 ### <a name="step-1-create-a-datasource"></a>Étape 1 : Créer une source de données
 
-Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à Azure Search d’identifier efficacement les changements dans les données.
+Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui permettent à la Recherche cognitive Azure d’identifier efficacement les changements dans les données.
 
 Pour l’indexation des tables, la source de données doit avoir les propriétés suivantes :
 
@@ -115,15 +115,15 @@ Cet indexeur s’exécute toutes les deux heures. (L’intervalle de planificati
 
 Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour Azure Search](search-howto-schedule-indexers.md).
+Pour plus d’informations sur la définition des planifications de l’indexeur, consultez [Comment planifier des indexeurs pour la Recherche cognitive Azure](search-howto-schedule-indexers.md).
 
 ## <a name="deal-with-different-field-names"></a>Gérer différents noms de champs
-Les noms de champ figurant dans votre index existant diffèrent parfois des noms de propriétés dans votre table. Dans ce cas, vous pouvez utiliser les mappages de champs pour mapper les noms de propriété de la table aux noms de champ de votre index de recherche. Pour en savoir plus sur les mappages de champs, consultez [Les mappages de champs de l’indexeur Azure Search comblent les différences entre les sources de données et les index de recherche](search-indexer-field-mappings.md).
+Les noms de champ figurant dans votre index existant diffèrent parfois des noms de propriétés dans votre table. Dans ce cas, vous pouvez utiliser les mappages de champs pour mapper les noms de propriété de la table aux noms de champ de votre index de recherche. Pour en savoir plus sur les mappages de champs, consultez [Les mappages de champs de l’indexeur de la Recherche cognitive Azure comblent les différences entre les sources de données et les index de recherche](search-indexer-field-mappings.md).
 
 ## <a name="handle-document-keys"></a>Gérer les clés de document
-Dans Azure Search, la clé de document identifie un document de manière unique. Chaque index de recherche doit comporter exactement un champ de clé de type `Edm.String`. Ce champ de clé est nécessaire pour chaque document ajouté à l’index (il constitue en fait le seul champ obligatoire).
+Dans la Recherche cognitive Azure, la clé de document identifie un document de manière unique. Chaque index de recherche doit comporter exactement un champ de clé de type `Edm.String`. Ce champ de clé est nécessaire pour chaque document ajouté à l’index (il constitue en fait le seul champ obligatoire).
 
-Puisque les lignes d’une table ont une clé composée, Azure Search génère un champ synthétique appelé `Key` qui est une concaténation des valeurs de la clé de partition et de la clé de ligne. Par exemple, si la valeur PartitionKey d’une ligne est `PK1` et que RowKey est `RK1`, alors la valeur du champ `Key` est `PK1RK1`.
+Puisque les lignes d’une table ont une clé composée, la Recherche cognitive Azure génère un champ synthétique appelé `Key` qui est une concaténation des valeurs de la clé de partition et de la clé de ligne. Par exemple, si la valeur PartitionKey d’une ligne est `PK1` et que RowKey est `RK1`, alors la valeur du champ `Key` est `PK1RK1`.
 
 > [!NOTE]
 > La valeur `Key` peut contenir des caractères non valides dans les clés de document, par exemple des tirets. Vous pouvez traiter les caractères non valides à l’aide de la `base64Encode` [fonction de mappage de champ](search-indexer-field-mappings.md#base64EncodeFunction). Si vous procédez ainsi, n’oubliez pas d’utiliser également l’encodage Base64 sécurisé pour les URL lorsque vous transmettez des clés de document dans des appels d’API tels que Recherche.
@@ -150,7 +150,7 @@ Pour indiquer que certains documents doivent être supprimés de l’index, vous
 <a name="Performance"></a>
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
 
-Par défaut, la Azure Search utilise le filtre de requête suivant : `Timestamp >= HighWaterMarkValue`. Dans la mesure où les tables Azure n’ont pas d’index secondaire sur le champ `Timestamp`, ce type de requête nécessite une analyse de table complète et est donc lente pour les tables volumineuses.
+Par défaut, la Recherche cognitive Azure utilise le filtre de requête suivant : `Timestamp >= HighWaterMarkValue`. Dans la mesure où les tables Azure n’ont pas d’index secondaire sur le champ `Timestamp`, ce type de requête nécessite une analyse de table complète et est donc lente pour les tables volumineuses.
 
 
 Voici deux approches possibles pour améliorer les performances d’indexation de table. Ces deux approches s’appuient sur l’utilisation de partitions de table : 
@@ -166,5 +166,5 @@ Voici deux approches possibles pour améliorer les performances d’indexation d
     - Avec cette approche, si vous avez besoin de déclencher une réindexation complète, vous devez réinitialiser la requête de source de données en plus de la réinitialisation de l’indexeur. 
 
 
-## <a name="help-us-make-azure-search-better"></a>Aidez-nous à améliorer Azure Search
+## <a name="help-us-make-azure-cognitive-search-better"></a>Aidez-nous à améliorer la Recherche cognitive Azure
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, n’hésitez pas les proposer sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
