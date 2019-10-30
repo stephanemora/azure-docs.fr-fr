@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 895425232dabc78650b6ee7ed035048471084237
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030543"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793894"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -108,6 +108,8 @@ Une expérience de série chronologique automatisée est traitée comme un probl
 Apprenez-en davantage et découvrez un exemple de [Machine Learning automatisé pour la prévision de série chronologique](how-to-auto-train-forecast.md). Ou consultez le [notebook sur la demande d’énergie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) pour obtenir des exemples de code détaillés de la configuration de prévision avancée, à savoir :
 
 * détection et personnalisation de congé
+* série chronologique et apprenants DNN (Auto-ARIMA, Prophet, ForecastTCN)
+* prise en charge de plusieurs modèles via le regroupement
 * validation croisée d’origine
 * décalages configurables
 * caractéristiques des agrégations des fenêtres dynamiques
