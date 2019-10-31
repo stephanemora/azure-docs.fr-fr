@@ -5,7 +5,7 @@
   items:
     - name: Présentation de la gouvernance des identités
       href: identity-governance-overview.md
-    - name: Présentation de la gestion des droits d’utilisation (Préversion)
+    - name: Présentation de la gestion des droits d’utilisation
       href: entitlement-management-overview.md
     - name: Que sont les révisions d’accès ?
       href: access-reviews-overview.md

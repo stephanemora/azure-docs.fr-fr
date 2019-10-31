@@ -47,6 +47,17 @@
           href: ./samples/cis-azure-1.1.0/index.md
         - name: Correspondances des recommandations
           href: ./samples/cis-azure-1.1.0/control-mapping.md
+    - name: FedRAMP Niveau modéré
+      items:
+        - name: Vue d'ensemble
+          displayName: 'standards, fedramp, moderate'
+          href: ./samples/fedramp-m/index.md
+        - name: Correspondance des contrôles
+          displayName: 'standards, fedramp, moderate'
+          href: ./samples/fedramp-m/control-mapping.md
+        - name: Étapes de déploiement
+          displayName: 'standards, fedramp, moderate'
+          href: ./samples/fedramp-m/deploy.md
     - name: IRS 1075
       items:
         - name: Vue d'ensemble
