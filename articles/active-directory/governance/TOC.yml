@@ -68,7 +68,7 @@
               href: entitlement-management-access-package-request-policy.md
             - name: Changer les paramètres de cycle de vie
               href: entitlement-management-access-package-lifecycle-policy.md
-            - name: Voir et gérer les demandes
+            - name: Afficher les requêtes
               href: entitlement-management-access-package-requests.md
             - name: 'Voir, ajouter et supprimer des affectations'
               href: entitlement-management-access-package-assignments.md

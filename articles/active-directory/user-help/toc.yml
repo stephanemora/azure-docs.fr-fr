@@ -29,7 +29,7 @@
     - name: Se connecter pour réinitialiser un mot de passe
       href: active-directory-passwords-reset-register.md
     - name: Réinitialiser votre mot de passe
-      href: user-help-reset-password.md
+      href: active-directory-passwords-update-your-own-password.md
 - name: Aide relative à l’application Microsoft Authenticator
   items:
     - name: Vue d'ensemble
