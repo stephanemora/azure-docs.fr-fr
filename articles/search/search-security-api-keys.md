@@ -1,23 +1,21 @@
 ---
-title: Créer, gérer et sécuriser des clés API d’administration et de requête - Recherche Azure
-description: Les clés API contrôlent l’accès au point de terminaison de service. Les clés d’administration accordent un accès en écriture. Les clés de requête peuvent être créées pour l’accès en lecture seule.
-author: HeidiSteen
+title: Créer, gérer et sécuriser des clés API d’administration et de requête
+titleSuffix: Azure Cognitive Search
+description: Une clé API contrôle l’accès au point de terminaison de service. Les clés d’administration accordent un accès en écriture. Les clés de requête peuvent être créées pour l’accès en lecture seule.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: a148ccccd156b0bf637a134758b3a1c8b9db70a7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 68a17b8b3587077222a9ed2057927c8f16253c1e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647900"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794373"
 ---
-# <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Créer et gérer des clés API pour un service Recherche Azure
+# <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Créer et gérer des clés API pour un service Recherche cognitive Azure
 
 Toutes les demandes adressées à un service de recherche ont besoin d’une clé API en lecture seule générée spécialement pour votre service. Cette clé API constitue le seul mécanisme d’authentification de l’accès au point de terminaison de votre service de recherche et doit être incluse dans chaque demande. Dans les [solutions REST](search-get-started-postman.md), la clé API est généralement spécifiée dans un en-tête de demande. Dans les [solutions .NET](search-howto-dotnet-sdk.md#core-scenarios), une clé est souvent spécifiée sous forme de paramètre de configuration, puis transmise en tant que [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (clé d’administration) ou de [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (clé de requête) sur [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
 
@@ -39,7 +37,7 @@ Deux types de clés sont utilisés pour accéder à votre service de recherche 
  Visuellement, il n’existe aucune distinction entre une clé d’administration et une clé de requête. Les deux clés sont des chaînes composées de 32 caractères alphanumériques générés de façon aléatoire. Si vous n’êtes pas sûr du type de clé spécifié dans votre application, vous pouvez [vérifier les valeurs de clé dans le portail](https://portal.azure.com) ou utiliser l’[API REST](https://docs.microsoft.com/rest/api/searchmanagement/) pour retourner la valeur et le type de clé.  
 
 > [!NOTE]  
->  L’insertion de données sensibles comme une `api-key` dans l’URI de requête est considérée comme une pratique peu sécurisée. C’est pourquoi Recherche Azure accepte uniquement une clé de requête sous forme de `api-key` dans la chaîne de requête, et il est conseillé de procéder autrement, sauf si le contenu de l'index doit être accessible au public. En règle générale, nous vous recommandons de transmettre votre `api-key` en tant qu'en-tête de demande.  
+>  L’insertion de données sensibles comme une `api-key` dans l’URI de requête est considérée comme une pratique peu sécurisée. C’est pourquoi Recherche cognitive Azure accepte uniquement une clé de requête sous forme de `api-key` dans la chaîne de requête, et il est conseillé de procéder autrement, sauf si le contenu de l'index doit être accessible au public. En règle générale, nous vous recommandons de transmettre votre `api-key` en tant qu'en-tête de demande.  
 
 ## <a name="find-existing-keys"></a>Rechercher des clés existantes
 
@@ -66,7 +64,7 @@ Il est essentiel de restreindre l'accès et les opérations dans les application
    ![Créer ou utiliser une clé de requête](media/search-security-overview/create-query-key.png) 
 
 > [!Note]
-> Vous trouverez un exemple de code illustrant l'utilisation de la clé de requête dans [Interroger un index Recherche Azure en C#](search-query-dotnet.md).
+> Vous trouverez un exemple de code illustrant l'utilisation de la clé de requête dans [Interroger un index Recherche cognitive Azure en C#](search-query-dotnet.md).
 
 <a name="regenerate-admin-keys"></a>
 
@@ -97,6 +95,6 @@ Les membres ayant les rôles suivants peuvent afficher et régénérer les clés
 
 ## <a name="see-also"></a>Voir aussi
 
-+ [Contrôle d’accès en fonction du rôle dans la Recherche Azure](search-security-rbac.md)
++ [Contrôle d’accès en fonction du rôle dans Recherche cognitive Azure](search-security-rbac.md)
 + [Gestion à l’aide de PowerShell](search-manage-powershell.md) 
 + [Article sur les performances et l’optimisation](search-performance-optimization.md)

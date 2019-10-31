@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: 2f6f865f019b8b2a403865db4e59a7e86f59e509
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331058"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791799"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotéger et effectuer une reprise automatique des machines vers un site local après le basculement vers Azure
 
@@ -34,6 +34,7 @@ Si vous avez utilisé un modèle pour créer vos machines virtuelles, assurez-vo
 - Si un serveur vCenter gère les machines virtuelles vers lesquelles vous allez effectuer une restauration automatique, veillez à disposer des [autorisations nécessaires](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) pour la détection des machines virtuelles sur les serveurs vCenter.
 - Supprimez les captures instantanées sur le serveur cible maître avant la reprotection. Si des captures instantanées sont présentes sur le serveur cible maître local ou sur la machine virtuelle, la reprotection échoue. Les captures instantanées sur la machine virtuelle sont fusionnées automatiquement lors d’un travail de reprotection.
 - Toutes les machines virtuelles d’un groupe de réplication doivent avoir le même type de système d’exploitation (toutes Windows ou toutes Linux). Actuellement, les groupes de réplication avec des systèmes d’exploitation mixtes ne sont pas pris en charge pour la reprotection et la restauration automatique vers un site local. C’est parce que le serveur cible maître doit avoir le même système d’exploitation que la machine virtuelle. Toutes les machines virtuelles d’un groupe de réplication doivent avoir le même serveur cible maître. 
+- La cible principale doit avoir la même version de système d’exploitation que les éléments répliqués ou une version supérieure.
 - Un serveur de configuration est requis en local lorsque vous effectuez une restauration automatique. Lors de la restauration automatique, la machine virtuelle doit exister dans la base de données du serveur de configuration. Sinon, la restauration automatique échoue. Veillez à effectuer des sauvegardes régulières de votre serveur de configuration. En cas d’incident, restaurez le serveur avec la même adresse IP pour que la restauration automatique réussisse. 
 - La reprotection et la restauration nécessitent un VPN de site à site (S2S) ou le peering privé ExpressRoute pour répliquer des données. Spécifiez le réseau de sorte que les machines virtuelles basculées dans Azure puissent atteindre (avec une requête ping) le serveur de configuration local. Vous devez déployer un serveur de processus dans le réseau Azure de la ou des machines virtuelles basculées. Ce serveur de processus doit également pouvoir communiquer avec le serveur de configuration local et le serveur cible maître.
 - Si les adresses IP des éléments répliqués ont été conservées lors du basculement, la connectivité S2S ou ExpressRoute doit être établie entre les machines virtuelles Azure et la carte réseau de restauration automatique du serveur de configuration. Notez que la conservation des adresses IP nécessite que le serveur de configuration dispose de deux cartes réseau : une pour la connectivité des machines source et une pour la connectivité de la restauration automatique Azure. Cela permet d’éviter le chevauchement des plages d’adresses de sous-réseau des machines virtuelles source et basculées.

@@ -6,15 +6,15 @@ author: lenadroid
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 647cb0573922bb53232dbce3f3a7a2557553d47d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: c4fca9b8f4c8a01124074396985b1ec3f1c896c6
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263894"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675146"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Exécution de tâches Apache Spark sur AKS
 
@@ -43,10 +43,16 @@ Créez un groupe de ressources pour le cluster.
 az group create --name mySparkCluster --location eastus
 ```
 
-Créez le cluster AKS avec des nœuds dont la taille est `Standard_D3_v2`.
+Créer un principal de service pour le cluster. Après sa création, vous aurez besoin de l’appId et du mot de passe du principal du service pour la commande suivante.
 
 ```azurecli
-az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2
+az ad sp create-for-rbac --name SparkSP
+```
+
+Créez le cluster AKS avec des nœuds de taille `Standard_D3_v2` et les valeurs de l’appId et du mot de passe transmises en tant que paramètres du principal du service et de la clé secrète client.
+
+```azurecli
+az aks create --resource-group mySparkCluster --name mySparkCluster --node-vm-size Standard_D3_v2 --generate-ssh-keys --service-principal <APPID> --client-secret <PASSWORD>
 ```
 
 Connectez-vous au cluster AKS.
@@ -64,7 +70,7 @@ Avant d’exécuter des travaux Spark sur un cluster AKS, vous devez générer l
 Clonez le dépôt de projet Spark sur votre système de développement.
 
 ```bash
-git clone -b branch-2.3 https://github.com/apache/spark
+git clone -b branch-2.4 https://github.com/apache/spark
 ```
 
 Passez au répertoire du dépôt cloné et enregistrez le chemin de la source Spark dans une variable.
@@ -136,7 +142,7 @@ Exécutez les commandes suivantes pour ajouter un plug-in SBT, ce qui permet d�
 
 ```bash
 touch project/assembly.sbt
-echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.6")' >> project/assembly.sbt
+echo 'addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.10")' >> project/assembly.sbt
 ```
 
 Exécutez ces commandes pour copier l’exemple de code dans le projet nouvellement créé et ajouter toutes les dépendances nécessaires.
@@ -151,7 +157,7 @@ cat <<EOT >> build.sbt
 libraryDependencies += "org.apache.spark" %% "spark-sql" % "2.3.0" % "provided"
 EOT
 
-sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11",/' build.sbt
+sed -ie 's/scalaVersion.*/scalaVersion := "2.11.11"/' build.sbt
 sed -ie 's/name.*/name := "SparkPi",/' build.sbt
 ```
 
@@ -214,6 +220,13 @@ Revenez à la racine du dépôt Spark.
 cd $sparkdir
 ```
 
+Créez un compte de service qui dispose des autorisations suffisantes pour l’exécution d’une tâche.
+
+```bash
+kubectl create serviceaccount spark
+kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
+```
+
 Envoyez le travail à l’aide de `spark-submit`.
 
 ```bash
@@ -223,6 +236,7 @@ Envoyez le travail à l’aide de `spark-submit`.
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
+  --conf spark.kubernetes.authenticate.driver.serviceAccountName=spark \
   --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```

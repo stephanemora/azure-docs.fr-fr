@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/17/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 096c5f06c53f1e93a0c661f856ab112236c0ec60
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: c475bfc6179f3604ed6b83cafc75d34f4359513f
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373546"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532840"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
@@ -39,6 +39,20 @@ Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. S
 
 ---
 
+## <a name="october-2019"></a>Octobre 2019
+
+### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Dépréciation de l’API identityRiskEvent pour la détection des risques par Azure AD Identity Protection  
+
+**Type :** Modification planifiée  
+**Catégorie de service :** Identity Protection  
+**Fonctionnalité de produit :** Protection et sécurité des identités
+
+Suite aux commentaires des développeurs, les abonnés à Azure AD Premium P2 peuvent désormais effectuer des requêtes complexes sur les données de détection des risques d’Azure AD Identity Protection à l’aide de la nouvelle API riskDetection pour Microsoft Graph. La version bêta de l’API [identityRiskEvent](https://docs.microsoft.com/en-us/graph/api/resources/identityriskevent?view=graph-rest-beta) existante cessera de renvoyer des données vers le **10 janvier 2020**. Si votre organisation utilise l’API identityRiskEvent, vous devez passer à la nouvelle API riskDetection.
+
+Pour plus d’informations sur la nouvelle API riskDetection, consultez la [Documentation de référence sur l’API de détection des risques](https://aka.ms/RiskDetectionsAPI).
+
+---
+
 ## <a name="september-2019"></a>Septembre 2019
 
 ### <a name="deprecation-of-the-power-bi-content-packs"></a>Dépréciation des packs de contenu Power BI
@@ -50,6 +64,8 @@ Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement. S
 Power BI déprécie les packs de contenu de sa boutique, et à partir du **1er octobre 2019** , nous ne prendrons plus en charge le pack de contenu Azure AD Power BI. Les clients qui utilisent actuellement le pack de contenu peuvent continuer à l’utiliser, même si les API sous-jacentes sont des versions plus anciennes. En guise d’alternative à ce pack de contenu, vous pouvez utiliser des classeurs Azure AD (reposant sur Log Analytics) pour obtenir des informations sur les services liés à Azure AD.
 
 Pour plus d’informations sur les classeurs, découvrez [comment utiliser des classeurs Azure Monitor pour créer des rapports Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Pour plus d’informations sur la dépréciation des packs de contenu, consultez le billet de blog [Annonce de la disponibilité générale des applications de modèle Power BI](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/).
+
+---
 
 ### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>Mon profil change de nom et s’intègre à la page du compte Microsoft Office
 

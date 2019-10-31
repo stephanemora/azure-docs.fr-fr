@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 26f1360d4ecd336d44f4fc03aabfa9a2c540e781
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387061"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785961"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -180,25 +180,24 @@ Vous pouvez utiliser la construction `@coalesce` dans les expressions pour gére
 
 ## <a name="mapping-data-flows"></a>Mappage des flux de données
 
-### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>Quelle version de Data Factory dois-je utiliser pour créer des flux de données ?
-Utilisez la version Data Factory V2 pour créer des flux de données.
+### <a name="which-data-factory-version-do-i-use-to-create-mapping-data-flows"></a>Quelle version de Data Factory dois-je utiliser pour créer des flux de données de mappage ?
+Utilisez la version V2 de Data Factory pour créer des flux de données de mappage.
   
 ### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>J’étais un client de préversion privée qui utilisait des flux de données, et j’ai utilisé la préversion Data Factory V2 pour les flux de données.
 Cette version est désormais obsolète. Utilisez Data Factory V2 pour les flux de données.
   
 ### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>Qu’est-ce qui a changé entre la préversion privée et la préversion publique limitée en ce qui concerne les flux de données ?
-Vous ne serez plus obligé d’apporter vos propres clusters Azure Databricks. Data Factory gèrera la création et la destruction des clusters. Les jeux de données d’objets blob et les jeux de données Azure Data Lake Storage Gen2 sont divisés en jeux de données Apache Parquet et à texte délimité. Vous pouvez toujours utiliser Data Lake Storage Gen2 et le stockage d’objets blob pour stocker ces fichiers. Utilisez le service lié approprié pour ces moteurs de stockage.
+Vous ne serez plus obligé d’apporter vos propres clusters Azure Databricks. Data Factory gère la création et la destruction du cluster lors de l’exécution de flux de données de mappage. Les jeux de données d’objets blob et les jeux de données Azure Data Lake Storage Gen2 sont divisés en jeux de données Apache Parquet et à texte délimité. Vous pouvez toujours utiliser Data Lake Storage Gen2 et le stockage d’objets blob pour stocker ces fichiers. Utilisez le service lié approprié pour ces moteurs de stockage.
 
 ### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>Puis-je migrer mes fabriques en préversion privée vers Data Factory V2 ?
 
-Oui. [Suivez les instructions](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
+Oui. [Suivez ces instructions](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>J’ai besoin d’aide pour dépanner ma logique de flux de données. Quelles informations dois-je fournir pour obtenir une aide ?
 
-Quand Microsoft fournit une aide ou une assistance au dépannage des flux de données, veuillez indiquer le plan du code DSL. Pour ce faire, procédez comme suit :
+Quand Microsoft fournit une aide ou une assistance au dépannage pour des flux de données, veuillez indiquer le script flux de données. Pour ce faire, procédez comme suit :
 
-1. Dans le concepteur de flux de données, sélectionnez **Code** dans l’angle supérieur droit. Ceci affichera le code JSON modifiable pour le flux de données.
-2. En mode Code, sélectionnez **Plan** dans l’angle supérieur droit. Ce bouton permet de basculer du JSON au plan de script DSL mis en forme en lecture seule.
+1. Dans le canevas de flux de données, sélectionnez **Script** dans l’angle supérieur droit. Ceci affichera le script de flux de données modifiable.
 3. Copiez et collez ce script ou enregistrez-le dans un fichier texte.
 
 ### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Comment accéder à des données à l’aide des 80 autres types de jeux de données dans Data Factory ?

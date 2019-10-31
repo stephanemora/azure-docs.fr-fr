@@ -1,37 +1,35 @@
 ---
-title: Synonymes pour une extension de requête sur un index de recherche - Recherche Azure
-description: Créer une carte de synonymes pour élargir l’étendue d’une requête de recherche sur un index de Recherche Azure. L’étendue est élargie pour inclure des termes équivalents que vous fournissez dans une liste.
-author: brjohnstmsft
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+title: Synonymes pour une extension de requête sur un index de recherche
+titleSuffix: Azure Cognitive Search
+description: Créer une carte de synonymes pour élargir l’étendue d’une requête de recherche sur un index de Recherche cognitive Azure. L’étendue est élargie pour inclure des termes équivalents que vous fournissez dans une liste.
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331176"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794220"
 ---
-# <a name="synonyms-in-azure-search"></a>Synonymes dans Recherche Azure
+# <a name="synonyms-in-azure-cognitive-search"></a>Synonymes dans Recherche cognitive Azure
 
 Dans les moteurs de recherche, les synonymes associent des termes équivalents qui élargissent implicitement l’étendue d’une requête, sans que l’utilisateur ait à fournir le terme. Par exemple, si l’on considère le terme « chien » et les associations de synonymes « canin » et « chiot », tous les documents contenant « chien », « canin » ou « chiot » seront pris en compte dans la requête.
 
-Dans Azure Search, l’expansion des synonymes est effectuée au moment de la requête. Vous pouvez ajouter des cartes de synonymes à un service sans interrompre les opérations existantes. Vous pouvez ajouter une propriété **synonymMaps** à une définition de champ sans avoir à reconstruire l’index.
+Dans Recherche cognitive Azure, l’expansion des synonymes est effectuée au moment de la requête. Vous pouvez ajouter des cartes de synonymes à un service sans interrompre les opérations existantes. Vous pouvez ajouter une propriété **synonymMaps** à une définition de champ sans avoir à reconstruire l’index.
 
 ## <a name="create-synonyms"></a>Créer des synonymes
 
-Le portail ne prend pas en charge la création de synonymes, mais vous pouvez utiliser l’API REST ou le kit SDK .NET. Pour prendre en main REST, nous vous recommandons d'[utiliser Postman](search-get-started-postman.md) et la formulation de requêtes à l'aide de cette API : [Créer des cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Pour les développeurs C#, vous pouvez commencer avec [Ajouter des synonymes dans Recherche Azure à l’aide de C#](search-synonyms-tutorial-sdk.md).
+Le portail ne prend pas en charge la création de synonymes, mais vous pouvez utiliser l’API REST ou le kit SDK .NET. Pour prendre en main REST, nous vous recommandons d'[utiliser Postman](search-get-started-postman.md) et la formulation de requêtes à l'aide de cette API : [Créer des cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Pour les développeurs C#, vous pouvez commencer par [Ajouter des synonymes dans Recherche cognitive Azure à l’aide de C#](search-synonyms-tutorial-sdk.md).
 
 En outre, si vous utilisez des [clés gérée par le client](search-security-manage-encryption-keys.md) pour le chiffrement au repos côté service, vous pouvez appliquer cette protection au contenu de votre carte de synonymes.
 
 ## <a name="use-synonyms"></a>Utiliser des synonymes
 
-Dans Azure Search, la prise en charge des synonymes repose sur des cartes de synonymes que vous définissez et chargez sur votre service. Ces cartes constituent des ressources indépendantes (telles que des index ou des sources de données) et peuvent être utilisées par n’importe quel champ de recherche dans un index de votre service de recherche.
+Dans Recherche cognitive Azure, la prise en charge des synonymes repose sur des cartes de synonymes que vous définissez et chargez sur votre service. Ces cartes constituent des ressources indépendantes (telles que des index ou des sources de données) et peuvent être utilisées par n’importe quel champ de recherche dans un index de votre service de recherche.
 
 Les cartes de synonymes et les index sont gérés de manière indépendante. Une fois que vous définissez une carte de synonymes et la téléchargez sur votre service, vous pouvez activer la fonctionnalité de synonyme sur un champ en ajoutant une nouvelle propriété nommée **synonymMaps** dans la définition du champ. La création, la mise à jour et la suppression d’une carte de synonymes constituent des opérations qui s’appliquent au document entier, ce qui signifie que vous ne peut pas créer, mettre à jour ou supprimer des parties de la carte de synonyme de façon incrémentielle. Même la mise à jour d’une seule entrée nécessite un rechargement.
 

@@ -1,24 +1,23 @@
 ---
-title: Filtres de sécurité pour le filtrage des résultats - Recherche Azure
-description: Contrôle d’accès au contenu Recherche Azure à l’aide de filtres de sécurité et d’identités d’utilisateur.
-ms.service: search
-ms.topic: conceptual
-services: search
-ms.date: 05/02/2019
+title: Filtres de sécurité pour le filtrage des résultats
+titleSuffix: Azure Cognitive Search
+description: Contrôle d’accès au contenu de Recherche cognitive Azure à l’aide de filtres de sécurité et d’identités d’utilisateur.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
-ms.custom: seodec2018
-ms.openlocfilehash: 4d1ffa5b29a56d32a4f6a8ccf40f5bafd27795e6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 24f168f68a60ebb0408b7f1c367039ea5caea6d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186498"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794276"
 ---
-# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche Azure
+# <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtres de sécurité pour le filtrage des résultats dans Recherche cognitive Azure
 
-Vous pouvez appliquer des filtres de sécurité pour filtrer les résultats de recherche dans Recherche Azure en fonction de l’identité de l’utilisateur. Cette expérience de recherche compare généralement l’identité de la personne qui lance la recherche à un champ contenant les principaux qui disposent d’autorisations d’accès au document. Quand une correspondance est trouvée, l’utilisateur ou le principal (comme un groupe ou un rôle) a accès à ce document.
+Vous pouvez appliquer des filtres de sécurité pour filtrer les résultats de recherche dans Recherche cognitive Azure en fonction de l’identité de l’utilisateur. Cette expérience de recherche compare généralement l’identité de la personne qui lance la recherche à un champ contenant les principaux qui disposent d’autorisations d’accès au document. Quand une correspondance est trouvée, l’utilisateur ou le principal (comme un groupe ou un rôle) a accès à ce document.
 
 Pour mettre en place le filtrage de sécurité, une méthode consiste à utiliser une disjonction complexe d’expressions d’égalité. Par exemple : `Id eq 'id1' or Id eq 'id2'`, etc. Cette approche est sujette aux erreurs et difficile à gérer. De plus, si la liste contient des centaines voire des milliers de valeurs, elle ralentit le temps de réponse de plusieurs secondes. 
 
@@ -35,7 +34,7 @@ Cet article explique les étapes à suivre pour mettre en place le filtrage de s
 
 ## <a name="prerequisites"></a>Prérequis
 
-Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) et de l’[index Recherche Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
+Cet article part du principe que vous disposez d’un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), du [service Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-create-service-portal) et de l’[index Recherche cognitive Azure](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
 ## <a name="create-security-field"></a>Créer le champ de sécurité
 
@@ -113,7 +112,7 @@ Pour obtenir des informations détaillées sur l’ajout ou la mise à jour de d
 
 Pour filtrer des documents en fonction de l’accès de `group_ids`, vous devez émettre une requête de recherche avec un filtre `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, où « group_id1, group_id2,... » sont les groupes auxquels l’émetteur de la requête de recherche appartient.
 Ce filtre correspond à tous les documents dont le champ `group_ids` contient l’un des identificateurs donnés.
-Pour obtenir des informations détaillées sur la recherche de documents à l’aide de Recherche Azure, lisez [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Pour obtenir des informations détaillées sur la recherche de documents à l’aide de Recherche cognitive Azure, lisez [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Notez que cet exemple montre comment lancer une recherche dans des documents à l’aide d’une requête POST.
 
 Émettez la requête HTTP POST :
@@ -152,10 +151,10 @@ Vous devez obtenir les documents où `group_ids` contient « group_id1 » ou �
 ```
 ## <a name="conclusion"></a>Conclusion
 
-Vous venez de voir comment filtrer des résultats en fonction de l’identité de l’utilisateur et de la fonction `search.in()` de Recherche Azure. Vous pouvez utiliser cette fonction pour passer les identificateurs de principal de l'utilisateur demandeur et les mettre en correspondance avec les identificateurs de principal associés à chaque document cible. Quand une requête de recherche est traitée, la fonction `search.in` exclut les résultats de la recherche inaccessibles en lecture aux principaux de l’utilisateur. Les identificateurs de principal peuvent représenter des groupes de sécurité, des rôles ou même la propre identité de l’utilisateur.
+Vous venez de voir comment filtrer des résultats en fonction de l’identité de l’utilisateur et de la fonction `search.in()` de Recherche cognitive Azure. Vous pouvez utiliser cette fonction pour passer les identificateurs de principal de l'utilisateur demandeur et les mettre en correspondance avec les identificateurs de principal associés à chaque document cible. Quand une requête de recherche est traitée, la fonction `search.in` exclut les résultats de la recherche inaccessibles en lecture aux principaux de l’utilisateur. Les identificateurs de principal peuvent représenter des groupes de sécurité, des rôles ou même la propre identité de l’utilisateur.
  
 ## <a name="see-also"></a>Voir aussi
 
-+ [Contrôle d’accès à Active Directory basé sur l’identité à l’aide des filtres Recherche Azure](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtres dans Recherche Azure](search-filters.md)
-+ [Sécurité des données et contrôle d’accès aux opérations Recherche Azure](search-security-overview.md)
++ [Contrôle d’accès à Active Directory basé sur l’identité à l’aide des filtres Recherche cognitive Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtres dans Recherche cognitive Azure](search-filters.md)
++ [Sécurité des données et contrôle d'accès dans les opérations de Recherche cognitive Azure](search-security-overview.md)

@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb424866a681316af23e9d2bba28a8da8c3a6f78
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 56e5fb986431ec47a34b81491bc61b4c38a24e31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286805"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592887"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -49,10 +49,15 @@ Les rôles d’administrateur disponibles sont les suivants :
 
 ### <a name="application-administratorapplication-administrator-permissions"></a>[Administrateur d’application](#application-administrator-permissions)
 
-Les utilisateurs dans ce rôle peuvent créer et gérer tous les aspects des applications d’entreprise, des inscriptions d’application et des paramètres de proxy d’application. Ce rôle permet également de donner son consentement pour des autorisations déléguées et des autorisations d’application, sauf pour Microsoft Graph et Azure AD Graph. Les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
+Les utilisateurs dans ce rôle peuvent créer et gérer tous les aspects des applications d’entreprise, des inscriptions d’application et des paramètres de proxy d’application. Notez que les utilisateurs affectés à ce rôle ne sont pas ajoutés en tant que propriétaires lorsque des inscriptions d’applications ou des applications d’entreprise sont créées.
 
 > [!IMPORTANT]
 > Ce rôle permet de gérer des informations d’identification d’application. Les utilisateurs auxquels ce rôle a été attribué peuvent ajouter des informations d’identification à une application et les utiliser pour emprunter l’identité de l’application. Si l’identité de l’application a obtenu l’accès à Azure Active Directory, comme la possibilité de créer ou de mettre à jour un utilisateur ou d’autres objets, un utilisateur auquel ce rôle a été attribué peut effectuer ces actions tout en se faisant passer pour l’application. Cette capacité à emprunter l’identité de l’application peut correspondre une élévation de privilèges que l’utilisateur réalise dans ses attributions de rôle au sein d’Azure AD. Il est important de comprendre que l’affectation d’un utilisateur au rôle Administrateur d’applications lui donne la possibilité d’emprunter l’identité d’une application.
+
+Ce rôle permet également de _donner son consentement_ pour des autorisations déléguées et des autorisations d’application, à l’exception des autorisations pour Microsoft Graph et Azure AD Graph.
+
+> [!IMPORTANT]
+> Cette exception signifie que vous pouvez toujours accepter les autorisations pour _d’autres applications_ (par exemple, les applications tierces ou les applications que vous avez inscrites), mais pas les autorisations sur Azure AD proprement dit. Vous pouvez toujours _demander_ ces autorisations dans le cadre de l’inscription de l’application, mais l’_octroi_ de ces autorisations (c’est-à-dire le consentement) requiert un administrateur Azure AD. Cela signifie qu’un utilisateur malveillant ne peut pas élever facilement ses autorisations, par exemple en créant une application capable d’écrire dans le répertoire entier et en lui donnant son consentement, puis, par le biais de des autorisations de cette application, en s’élevant lui-même pour devenir administrateur global.
 
 ### <a name="application-developerapplication-developer-permissions"></a>[Développeur d’applications](#application-developer-permissions)
 
@@ -219,12 +224,14 @@ Les utilisateurs affectés à ce rôle peuvent lire les paramètres et les infor
 > [!NOTE]
 > Le rôle de lecteur général comporte des restrictions pour le moment.
 >
->* Centre d’administration SharePoint : le centre d’administration SharePoint ne prend pas en charge le rôle de lecteur général. Vous ne voyez pas « SharePoint » dans le volet gauche sous les centres d’administration dans le [centre d’administration Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage) et l’accès vous est refusé quand vous essayez d’atteindre *https://{nom de l’organisation Azure AD}-admin.sharepoint.com*.
+>* Centre d’administration SharePoint : le centre d’administration SharePoint ne prend pas en charge le rôle de lecteur général. Vous ne verrez pas « SharePoint » dans le volet gauche sous Centres d’administration dans le [Centre d’administration Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>* [Centre d’administration OneDrive](https://admin.onedrive.com/) : le Centre d’administration OneDrive ne prend pas en charge le rôle de lecteur général.
 >* [Portail Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) : Le lecteur général ne peut pas lire le mode de provisionnement d’une application d’entreprise.
 >* [Centre d’administration M365](https://admin.microsoft.com/Adminportal/Home#/homepage) : Le lecteur général ne peut pas lire les demandes du Customer Lockbox. L’onglet **Demandes du Customer Lockbox** ne figure pas sous **Support** dans le volet gauche du centre d’administration M365.
 >* [Centre de sécurité M365](https://security.microsoft.com/homepage) : Le lecteur général ne peut pas lire les étiquettes de confidentialité et de rétention. Les onglets **Étiquettes de confidentialité**, **Étiquettes de rétention** et **Analyse des étiquettes** ne figurent pas dans le volet gauche du centre de sécurité M365.
 >* [Centre d’administration Teams](https://admin.teams.microsoft.com) : Le lecteur général ne peut pas lire le **cycle de vie Teams**, les **analyses et rapports**, la **gestion des appareils téléphoniques IP** et le **catalogue d’applications**.
 >* [Privileged Access Management (PAM) ](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) ne prend pas en charge le rôle de lecteur général.
+>* [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) : le lecteur général est pris en charge uniquement pour la [création centralisée de rapports](https://docs.microsoft.com/azure/information-protection/reports-aip) et lorsque votre locataire n’est pas sur la [plateforme d’étiquetage unifiée](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > Ces fonctionnalités sont actuellement en cours de développement.
 >

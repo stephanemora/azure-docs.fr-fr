@@ -1,24 +1,24 @@
 ---
-title: Superviser l’utilisation des ressources et les métriques de requêtes pour un service de recherche - Recherche Azure
-description: Activer la journalisation, obtenir des métriques d’activité des requêtes, l’utilisation des ressources et d’autres données système à partir d’un service Recherche Azure.
-author: HeidiSteen
+title: Superviser l’utilisation des ressources et les métriques des requêtes
+titleSuffix: Azure Cognitive Search
+description: Activer la journalisation, obtenir des métriques d’activité des requêtes, l’utilisation des ressources et d’autres données système à partir d’un service Recherche cognitive Azure.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/16/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331208"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793481"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans Recherche cognitive Azure
 
-Dans la page Vue d’ensemble de votre service Recherche Azure, vous pouvez voir les données système relatives à l’utilisation des ressources, aux métriques des requêtes et au quota disponible pour créer des index, des indexeurs et des sources de données supplémentaires. Vous pouvez également utiliser le portail pour configurer l’analytique des journaux d’activité ou une autre ressource utilisée pour la collecte des données persistantes. 
+Dans la page Vue d’ensemble de votre service Recherche cognitive Azure, vous pouvez voir les données système relatives à l’utilisation des ressources, aux métriques des requêtes et au quota disponible pour créer des index, des indexeurs et des sources de données supplémentaires. Vous pouvez également utiliser le portail pour configurer l’analytique des journaux d’activité ou une autre ressource utilisée pour la collecte des données persistantes. 
 
 La configuration de journaux d’activité est utile pour les autodiagnostics et la conservation de l’historique opérationnel. En interne, les journaux d’activité existent sur le back-end pendant une courte période, suffisante pour l’investigation et l’analyse si vous émettez un ticket de support. Si vous voulez contrôler les informations des journaux et y accéder, vous devez configurer l’une des solutions décrites dans cet article.
 
@@ -30,8 +30,8 @@ Les sections **Utilisation** et **Supervision** intégrées à la page Vue d’e
 
 L’onglet **Utilisation** affiche la disponibilité des ressources par rapport aux [limites](search-limits-quotas-capacity.md) actuelles. L’illustration suivante concerne le service gratuit, qui est limité à 3 objets de chaque type et à 50 Mo de stockage. Un service De base ou Standard a des limites plus élevées. De plus, si vous augmentez le nombre de partitions, le stockage maximal augmente proportionnellement.
 
-![État de l’utilisation par rapport aux limites effectives](./media/search-monitor-usage/usage-tab.png
- "État de l’utilisation par rapport aux limites effectives")
+![État d’utilisation par rapport aux limites effectives](./media/search-monitor-usage/usage-tab.png
+ "État d’utilisation par rapport aux limites effectives")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Nombre de requêtes par seconde (RPS) et autres métriques
 
@@ -40,7 +40,7 @@ La *Latence de recherche* est la durée nécessaire au service de recherche pour
 
 Ces valeurs sont approximatives et sont destinées à vous donner une idée générale de l’efficacité avec laquelle votre système traite les requêtes. Le nombre de requêtes par seconde réel peut être supérieur ou inférieur au nombre indiqué dans le portail.
 
-![Activité Nombre de requêtes par seconde](./media/search-monitor-usage/monitoring-tab.png "Activité Nombre de requêtes par seconde")
+![Requêtes par seconde d’activité](./media/search-monitor-usage/monitoring-tab.png "Requêtes par seconde d’activité")
 
 ## <a name="activity-logs"></a>Journaux d’activité
 
@@ -52,7 +52,7 @@ Pour les tâches intégrées au service, comme la création d’un index ou la s
 
 ## <a name="add-on-monitoring-solutions"></a>Solutions de supervision de module complémentaire
 
-La Recherche Azure ne stocke pas de données qui ne figurent pas dans les objets qu’elle gère, ce qui signifie que les données de journal doivent être stockées en externe. Vous pouvez configurer n’importe laquelle des ressources ci-dessous si vous voulez conserver les données de journal. 
+Recherche cognitive Azure ne stocke pas de données qui ne figurent pas dans les objets qu’elle gère, ce qui signifie que les données de journal doivent être stockées en externe. Vous pouvez configurer n’importe laquelle des ressources ci-dessous si vous voulez conserver les données de journal. 
 
 Le tableau suivant compare les options de stockage des journaux d’activité et d’ajout d’une supervision des opérations de service et des charges de travail de requêtes par le biais d’Application Insights.
 
@@ -64,17 +64,17 @@ Le tableau suivant compare les options de stockage des journaux d’activité et
 
 Les journaux Azure Monitor et le Stockage Blob sont tous les deux disponibles sous la forme d’un service gratuit pour vous permettre de l’essayer sans frais pendant la durée de vie de votre abonnement Azure. L’inscription à Application Insights et son utilisation sont gratuits tant que la taille de données d’application n’excède pas certaines limites. (Pour plus d’informations, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/monitor/).)
 
-La section suivante vous guide tout au long des étapes d’activation et d’utilisation du Stockage Blob Azure pour collecter des données de journal créées par les opérations Recherche Azure et y accéder.
+La section suivante vous guide tout au long des étapes d’activation et d’utilisation du Stockage Blob Azure pour collecter des données de journal créées par les opérations Recherche cognitive Azure et y accéder.
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 
-La journalisation pour l’indexation et les charges de travail de requêtes est désactivée par défaut et dépend des solutions de module complémentaire pour l’infrastructure de journalisation et le stockage externe à long terme. En soi, les seules données persistantes dans la Recherche Azure sont les objets qu’elle crée et gère. Les journaux d’activité doivent donc être stockés ailleurs.
+La journalisation pour l’indexation et les charges de travail de requêtes est désactivée par défaut et dépend des solutions de module complémentaire pour l’infrastructure de journalisation et le stockage externe à long terme. En soi, les seules données persistantes dans Recherche cognitive Azure sont les objets qu’elle crée et gère. Les journaux d’activité doivent donc être stockés ailleurs.
 
 Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stocker des événements journalisés et des données de métriques.
 
-1. [Créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) si vous n’en avez pas déjà un. Vous pouvez le placer dans le même groupe de ressources que la Recherche Azure pour simplifier le nettoyage ultérieur si vous voulez supprimer toutes les ressources utilisées dans cet exercice.
+1. [Créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) si vous n’en avez pas déjà un. Vous pouvez le placer dans le même groupe de ressources que la Recherche cognitive Azure pour simplifier le nettoyage ultérieur si vous voulez supprimer toutes les ressources utilisées dans cet exercice.
 
-   Votre compte de stockage doit exister dans la même région que la Recherche Azure.
+   Votre compte de stockage doit exister dans la même région que Recherche cognitive Azure.
 
 2. Ouvrez la page Vue d’ensemble de votre service de recherche. Dans le volet de navigation de gauche, faites défiler l’écran vers le bas jusqu’à **Supervision**, puis cliquez sur **Activer la supervision**.
 
@@ -84,7 +84,7 @@ Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stock
 
    Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Les conteneurs et les objets blob sont créés au besoin lors de l’exportation des données de journal.
 
-   ![Configurer une archive de stockage d’objets blob](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurer une archive de stockage d’objets blob")
+   ![Configurer l’archive de stockage Blob](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurer l’archive de stockage Blob")
 
 4. Enregistrez le profil.
 
@@ -158,14 +158,14 @@ Vous pouvez utiliser n’importe quel éditeur JSON pour voir le fichier journal
 
 1. Dans le portail Azure, ouvrez votre compte de stockage. 
 
-2. Dans le volet de navigation de gauche, cliquez sur **Objets blob**. **insights-logs-operationlogs** et **insights-metrics-pt1m** doivent s’afficher. Ces conteneurs sont créés par Recherche Azure quand les données de journal sont exportées vers le Stockage Blob.
+2. Dans le volet de navigation de gauche, cliquez sur **Objets blob**. **insights-logs-operationlogs** et **insights-metrics-pt1m** doivent s’afficher. Ces conteneurs sont créés par Recherche cognitive Azure quand les données de journal sont exportées vers le stockage Blob.
 
 3. Faites défiler l’arborescence des dossiers vers le bas jusqu’à atteindre le fichier .json.  Utilisez le menu contextuel pour télécharger le fichier.
 
 Une fois le fichier téléchargé, ouvrez-le dans un éditeur JSON pour en voir le contenu.
 
 ## <a name="use-system-apis"></a>Utiliser des API système
-L’API REST de Recherche Azure et le SDK .NET fournissent tous les deux un accès programmatique aux métriques de service, aux informations sur les index et l’indexeur ainsi qu’aux décomptes de documents.
+L’API REST de Recherche cognitive Azure et le kit de développement logiciel (SDK) .NET fournissent tous les deux un accès programmatique aux métriques de service, aux informations sur les index et l’indexeur ainsi qu’aux décomptes de documents.
 
 * [Obtenir les statistiques des services](/rest/api/searchservice/get-service-statistics)
 * [Obtention de statistiques d’index](/rest/api/searchservice/get-index-statistics)

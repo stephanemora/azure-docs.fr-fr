@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1024b529bd099c70b870fe8b059d4982f04e40
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 66e583a75f7103a7cccf560d537e440ba47cae5a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389555"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596333"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -75,7 +75,7 @@ La première étape de la planification consiste à examiner l’environnement e
 
 La jonction Azure AD Hybride n'est pas prise en charge si votre environnement se compose d’une seule forêt AD synchronisant les données d’identité sur plusieurs locataires Azure AD.
 
-La jonction Azure AD Hybride n'est pas prise en charge avec l'infrastructure VDI (Virtual Desktop Infrastructure).
+Si votre environnement utilise l’infrastructure VDI (Virtual Desktop Infrastructure), consultez [Identité d’appareil et la virtualisation des services de Bureau](https://docs.microsoft.com/en-us/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
 La jonction Azure AD Hybride est prise en charge pour les modules TPM 2.0 compatibles FIPS, mais pas pour les modules TPM 1.2. Si vos appareils sont dotés de modules TPM 1.2 compatibles FIPS, vous devez les désactiver avant de procéder à la jonction Azure AD Hybride. Microsoft ne propose aucun outil permettant de désactiver le mode FIPS pour les modules TPM car il dépend du fabricant de ces modules. Pour obtenir de l'aide, contactez votre fabricant OEM. À partir de la version 1903 de Windows 10, les modules TPM 1.2 ne sont pas utilisés pour les jonctions Azure AD hybrides, et les appareils dotés de ces TPM seront considérés comme n'ayant pas de TPM.
 

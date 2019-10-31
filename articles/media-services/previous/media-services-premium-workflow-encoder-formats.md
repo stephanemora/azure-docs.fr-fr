@@ -14,18 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015039"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792589"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Codecs et formats de Media Encoder Premium Workflow
 
 > [!NOTE]
-> Pour des questions relatives à l’encodeur premium, envoyez un e-mail à mepd@microsoft.com.
-> 
 > Le processeur multimédia Media Encoder Premium Workflow présenté dans cette rubrique n’est pas disponible en Chine. 
 
 Ce document contient la liste des codecs et formats de fichiers d’entrée et de sortie pris en charge par la version préliminaire publique de l’encodeur **Media Encoder Premium Workflow** .
@@ -100,8 +98,6 @@ La section suivante répertorie les codecs et les formats de fichiers pris en ch
 * Création de miniatures JPEG
 * HEVC (H.265 ; 8 et 10 bits, Profil Main et Main 10)
 
-  La prise en charge pour HDR 10 est disponible dans certains scénarios, contactez mepd@microsoft.com pour plus d’informations
-
 
 ### <a name="output-audio-codecs"></a>Codecs audio de sortie
 
@@ -141,6 +137,9 @@ En sortie, les options suivantes sont disponibles :
 
 Si votre vidéo d’entrée ne contient pas de sous-titres, l’élément multimédia de sortie actif comportera toujours un fichier TTML vide. 
 
+## <a name="need-help"></a>Vous avez besoin d’aide ?
+
+Vous pouvez ouvrir un ticket de support en accédant à [Nouvelle demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

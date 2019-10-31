@@ -10,18 +10,38 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: f51b9c3032518fb66215126c5a8bf26ab9b59526
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: afad2648ec73b02d4e06ad55f850a518d2488f68
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331567"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756054"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
 Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obtenir le contenu complet de la référence SDK, consultez la page de référence du [**SDK principal pour Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) d’Azure Machine Learning. 
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+## <a name="2019-10-21"></a>2019-10-21
+
+### <a name="visual-interface-preview"></a>Interface visuelle (préversion)
+
++ L’interface visuelle Azure Machine Learning (préversion) a été repensée pour s’exécuter sur [les pipelines Azure Machine Learning](concept-ml-pipelines.md). Les pipelines (auparavant appelés expériences) créés dans l’interface visuelle sont désormais entièrement intégrés à l’expérience de base Azure Machine Learning.
+  + Expérience de gestion unifiée avec des ressources de kit de développement logiciel (SDK)
+  + Contrôle de version et suivi des modèles d’interface visuels, des pipelines et des points de terminaison 
+  + Interface utilisateur repensée
+  + Ajout du déploiement par inférence de lots
+  + Ajout de la prise en charge d’Azure Kubernetes service (AKS) pour l’inférence des cibles de calcul
+  + Nouveau flux de travail de création de pipeline au niveau de Python
+  + Nouvelle [page de destination](https://ml.azure.com) pour les outils de création visuelle
+
++ **Nouveaux modules**
+  + Appliquer une opération mathématique
+  + Appliquer une transformation SQL
+  + Limiter les valeurs
+  + Totaliser les données
+  + Importer à partir de la base de données SQL  
 
 ## <a name="2019-10-14"></a>2019-10-14
 
@@ -67,6 +87,7 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
   + **azureml-train-automl**
     + L’exécution parente n’est plus en échec en cas d’échec de l’itération du programme d’installation, car l’orchestration s’en charge déjà.
     + Ajout de la prise en charge de local-docker et local-conda pour les expériences AutoML
+
 
 ## <a name="2019-10-08"></a>2019-10-08
 
@@ -883,7 +904,7 @@ Remarque : Le kit de développement logiciel (SDK) de préparation des données
 
  + **Modifications**
    + Le package azureml-tensorboard remplace azureml-contrib-tensorboard.
-   + Avec cette version, vous pouvez configurer un compte d’utilisateur sur votre cluster de calcul géré (amlcompute), lors de sa création. Cela est possible en passant ces propriétés dans la configuration de l’approvisionnement. Vous pouvez trouver plus d’informations dans la [documentation sur la référence du kit de développement logiciel (SDK)](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remotelogin-port-public-access--notspecified--).
+   + Avec cette version, vous pouvez configurer un compte d’utilisateur sur votre cluster de calcul géré (amlcompute), lors de sa création. Cela est possible en passant ces propriétés dans la configuration de l’approvisionnement. Vous pouvez trouver plus d’informations dans la [documentation sur la référence du kit de développement logiciel (SDK)](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning v1.0.17
 

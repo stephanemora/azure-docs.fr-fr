@@ -1,28 +1,27 @@
 ---
-title: Choisir un niveau tarifaire ou une référence SKU pour le service Recherche Azure | Recherche Azure
-description: 'Le service Recherche Azure peut être approvisionné dans les références SKU suivantes : Gratuit, De base et Standard, sachant que la référence Standard est disponible en différentes configurations de ressources et différents niveaux de capacité.'
-services: search
-author: HeidiSteen
+title: Choisir un niveau tarifaire ou une référence SKU pendant l’approvisionnement du service de recherche
+titleSuffix: Azure Cognitive Search
+description: 'Le service Recherche cognitive Azure peut être approvisionné dans les références SKU suivantes : Gratuit, De base et Standard, sachant que la référence Standard est disponible en différentes configurations de ressources et différents niveaux de capacité.'
 manager: nitinme
-tags: ''
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/15/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 249ce8e51ff61bac5d418d9e173ec2caed24e0e5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331190"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794248"
 ---
-# <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
+# <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Choisir un niveau tarifaire pour Recherche cognitive Azure
 
-Lorsque vous créez un service Recherche Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui sont fixes pendant toute la durée de vie du service. Les niveaux disponibles sont : Gratuit, De base, Standard et À stockage optimisé. Les niveaux Standard et À stockage optimisé sont proposés dans diverses configurations et capacités.
+Lorsque vous créez un service Recherche cognitive Azure, une [ressource est créée](search-create-service-portal.md) à un niveau tarifaire ou une référence SKU qui sont fixes pendant toute la durée de vie du service. Les niveaux disponibles sont : Gratuit, De base, Standard et À stockage optimisé. Les niveaux Standard et À stockage optimisé sont proposés dans diverses configurations et capacités.
 
 La plupart des clients commencent par le niveau Gratuit qui leur permet d’évaluer le service. Une fois l’évaluation terminée, il est courant de créer un deuxième service à l’un des niveaux supérieurs pour les déploiements de développement et de production.
 
-Bien que tous les niveaux, y compris le niveau Gratuit, offrent généralement la parité des fonctionnalités, des charges de travail plus importantes peuvent nécessiter des niveaux supérieurs. Par exemple, [l’enrichissement de l’IA avec Cognitive Services](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est restreint.
+Bien que tous les niveaux, y compris le niveau Gratuit, offrent généralement la parité des fonctionnalités, des charges de travail plus importantes peuvent nécessiter des niveaux supérieurs. Par exemple, [l’enrichissement de l’IA](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est restreint.
 
 > [!NOTE] 
 > Les [indexeurs](search-indexer-overview.md), qui ne sont pas disponibles sur S3 HD, constituent une exception à la parité des fonctionnalités.
@@ -41,17 +40,17 @@ Le niveau que vous sélectionnez détermine le taux facturable. La capture d’�
 
 Le niveau **Gratuit** crée un service de recherche limité sur un cluster, partagé avec d’autres abonnés. Vous pouvez accomplir de petits projets, dont des démarrages rapides et des didacticiels, mais vous ne pouvez pas mettre à l’échelle le service ou exécuter des charges de travail conséquentes. Les niveau **De base** et **Standard** sont les niveaux facturables les plus utilisés, **Standard** étant le niveau par défaut.
 
-![Niveaux tarifaires de Recherche Azure](media/search-sku-tier/tiers.png "Niveaux tarifaires de Recherche Azure")
+![Niveaux tarifaires de Recherche cognitive Azure](media/search-sku-tier/tiers.png "Niveaux tarifaires de Recherche cognitive Azure")
 
 Certains niveaux sont optimisés pour certains types de travaux. Par exemple, le niveau **Standard 3 High Density (S3 HD)** est un *mode d’hébergement* pour S3, où le matériel sous-jacent est optimisé pour un grand nombre d’index plus petits, qui est destiné aux scénarios d’architecture mutualisée. Le niveau S3 HD présente les mêmes frais à l’unité que S3, mais le matériel est optimisé pour les lectures de fichiers rapides sur un grand nombre d’index plus petits.
 
 Les niveaux **À stockage optimisé** offrent une capacité de stockage plus importante et à moindre coût par To que les niveaux Standard. Le principal compromis impliqué par ces niveaux réside dans une latence de requête plus élevée, ce que vous devez valider pour vos exigences applicatives spécifiques.  Pour plus d’informations sur les considérations en matière de performances de ce niveau, consultez l’article [Considérations sur les performances et l’optimisation](search-performance-optimization.md).
 
-Des informations complémentaires sur les différents niveaux sont disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/search/), dans l’article [Service limits in Azure Search](search-limits-quotas-capacity.md) (Limites du service Recherche Azure), ainsi que sur la page du portail lorsque vous approvisionnez un service.
+Des informations complémentaires sur les différents niveaux sont disponibles sur la [page de tarification](https://azure.microsoft.com/pricing/details/search/), dans l’article [Service limits in Azure Search](search-limits-quotas-capacity.md) (Limites du service Recherche cognitive Azure), ainsi que sur la page du portail lorsque vous approvisionnez un service.
 
 ## <a name="billable-events"></a>Événements facturables
 
-Une solution reposant sur Recherche Azure peut occasionner des coûts de l’une des manières suivantes :
+Une solution reposant sur Recherche cognitive Azure peut occasionner des coûts de l’une des manières suivantes :
 
 + Coût de base du service avec une configuration minimale (créer un service)
 + Coût incrémentiel lors de la montée en puissance (ajout de réplicas ou de partitions)
@@ -60,7 +59,7 @@ Une solution reposant sur Recherche Azure peut occasionner des coûts de l’une
 
 ### <a name="service-costs"></a>Coûts de service
 
-Contrairement à des machines virtuelles ou à d’autres ressources qui peuvent être « mises en pause » pour éviter des frais, un service Recherche Azure est toujours disponible sur du matériel dédié à votre usage exclusif. En tant que telle, la création d’un service est un événement facturable qui commence lorsque vous créez le service et se termine lorsque vous le supprimez. 
+Contrairement à des machines virtuelles ou à d’autres ressources qui peuvent être « mises en pause » pour éviter des frais, un service Recherche cognitive Azure est toujours disponible sur du matériel dédié à votre usage exclusif. En tant que telle, la création d’un service est un événement facturable qui commence lorsque vous créez le service et se termine lorsque vous le supprimez. 
 
 Le coût minimal est la première unité de recherche (une réplique x une partition) au tarif facturable. Ces frais minimaux sont fixes pendant toute la durée de vie du service, car il est impossible d’exécuter le service sur une configuration inférieure à cette dernière. Au-delà des frais minimaux, vous pouvez ajouter des réplicas et des partitions indépendants les uns des autres. Les augmentations incrémentielles de capacité via des réplicas et partitions augmentent votre facture selon la formule suivante : [ (réplicas x partitions x tarif) ](#search-units), où le tarif facturé dépendant du niveau de tarification sélectionné.
 
@@ -68,21 +67,21 @@ Lorsque vous estimez le coût d’une solution de recherche, gardez à l’espri
 
 ### <a name="bandwidth-charges"></a>Frais liés à la bande passante
 
-L’utilisation [d’indexeurs Recherche Azure](search-indexer-overview.md) peut avoir une incidence sur la facturation, selon l’emplacement de vos services. Vous pouvez éliminer totalement les frais de sortie de données si vous créez le service Recherche Azure dans la même région que vos données. Voici quelques informations issues de la [page de tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) :
+L’utilisation [d’indexeurs Recherche cognitive Azure](search-indexer-overview.md) peut avoir une incidence sur la facturation, selon l’emplacement de vos services. Vous pouvez éliminer totalement les frais de sortie de données si vous créez le service Recherche cognitive Azure dans la même région que vos données. Voici quelques informations issues de la [page de tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/) :
 
-+ Microsoft ne facture aucune donnée entrante dans un quelconque service Azure, ni aucune donnée sortante du service Recherche Azure.
++ Microsoft ne facture aucune donnée entrante dans un quelconque service Azure, ni aucune donnée sortante du service Recherche cognitive Azure.
 + Dans les solutions multiservice, il n’existe aucuns frais pour les données qui transitent par le réseau lorsque tous les services se trouvent dans la même région.
 
-Des frais s’appliquent pour les données sortantes si les services sont situés dans des régions différentes. Ces frais ne figurent pas sur votre facture Recherche Azure. Ils sont mentionnés ici, car si vous utilisez des données ou des indexeurs IA pour extraire les données de différentes régions, les coûts associés apparaîtront sur votre facture globale.
+Des frais s’appliquent pour les données sortantes si les services sont situés dans des régions différentes. Ces frais ne figurent pas sur votre facture Recherche cognitive Azure. Ils sont mentionnés ici, car si vous utilisez des données ou des indexeurs IA pour extraire les données de différentes régions, les coûts associés apparaîtront sur votre facture globale.
 
-### <a name="cognitive-search-ai-enrichment-with-cognitive-services"></a>Enrichissement de l’intelligence artificielle de la recherche cognitive avec Cognitive Services
+### <a name="ai-enrichment-with-cognitive-services"></a>Enrichissement de l’IA avec Cognitive Services
 
-Pour [l’enrichissement de l’IA avec Cognitive Services](cognitive-search-concept-intro.md), prévoyez d’[attacher une ressource Azure Cognitive Services facturable](cognitive-search-attach-cognitive-services.md) dans la même région que le service Recherche Azure, au niveau tarifaire S0 pour le traitement du paiement à l’utilisation. L’attachement de Cognitive Services n’entraîne aucun coût fixe. Vous payez uniquement pour le traitement dont vous avez besoin.
+Pour [l’enrichissement de l’IA](cognitive-search-concept-intro.md), prévoyez d’[attacher une ressource Azure Cognitive Services facturable](cognitive-search-attach-cognitive-services.md) dans la même région que le service Recherche cognitive Azure, au niveau tarifaire S0 pour le traitement du paiement à l’utilisation. L’attachement de Cognitive Services n’entraîne aucun coût fixe. Vous payez uniquement pour le traitement dont vous avez besoin.
 
 | Opération | Impact sur la facturation |
 |-----------|----------------|
 | Craquage de document, extraction de texte | Gratuit |
-| Craquage de document, extraction d’image | Facturée en fonction du nombre d’images extraites de vos documents. Dans une [configuration d’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** est le paramètre qui déclenche l’extraction d’images. Si **imageAction** est défini sur « none » (valeur par défaut), l’extraction d’images ne vous sera pas facturée. Le tarif de l’extraction d’image est mentionné sur la page des [détails de tarification](https://azure.microsoft.com/pricing/details/search/) du service Recherche Azure.|
+| Craquage de document, extraction d’image | Facturée en fonction du nombre d’images extraites de vos documents. Dans une [configuration d’indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** est le paramètre qui déclenche l’extraction d’images. Si **imageAction** est défini sur « none » (valeur par défaut), l’extraction d’images ne vous sera pas facturée. Le tarif de l’extraction d’image est mentionné sur la page des [détails de tarification](https://azure.microsoft.com/pricing/details/search/) du service Recherche cognitive Azure.|
 | [Compétences cognitives prédéfinies](cognitive-search-predefined-skills.md) | Facturées au même tarif que si vous aviez exécuté la tâche directement avec Cognitive Services. |
 | Compétences personnalisées | Une compétence personnalisée est une fonctionnalité que vous fournissez. Le coût d’utilisation d’une compétence personnalisée dépend entièrement du fait qu’un code personnalisé appelle d’autres services mesurés. |
 
@@ -90,7 +89,7 @@ Pour [l’enrichissement de l’IA avec Cognitive Services](cognitive-search-con
 
 ## <a name="billing-formula-r-x-p--su"></a>Formule de facturation (R x P = SU)
 
-La notion de facturation la plus importante à saisir pour les opérations du service Recherche Azure est *l’Unité Recherche* (SU, Search Unit). Comme Recherche Azure dépend à la fois des réplicas et des partitions pour l’indexation et les requêtes, facturer uniquement par rapport à l’un ou à l’autre n’aurait aucun sens. Au lieu de cela, la facturation est basée sur un composite de ces deux facteurs.
+La notion de facturation la plus importante à comprendre pour les opérations du service Recherche cognitive Azure est *l’Unité Recherche* (SU, Search Unit). Comme Recherche cognitive Azure dépend à la fois des réplicas et des partitions pour l’indexation et les requêtes, facturer uniquement par rapport à l’un ou à l’autre n’aurait aucun sens. Au lieu de cela, la facturation est basée sur un composite de ces deux facteurs.
 
 L’Unité Recherche est le produit des *réplicas* et des *partitions* utilisés par un service : **(R x P = SU)** .
 
@@ -106,17 +105,17 @@ Outre les suggestions suivantes, voir [Facturation et gestion des coûts](https:
 
 - Créez toutes les ressources dans la même région ou dans le moins de régions possible afin de réduire ou d’éliminer les coûts liés à la bande passante.
 
-- Regroupez tous les services dans un seul groupe de ressources, tel que Recherche Azure, Cognitive Services et tout autre service Azure utilisé dans votre solution. Dans le portail Azure, recherchez le groupe de ressources et utilisez les commandes **Cost Management** pour obtenir des informations sur les dépenses réelles et prévues.
+- Regroupez tous les services dans un seul groupe de ressources, tel que Recherche cognitive Azure, Cognitive Services et tout autre service Azure utilisé dans votre solution. Dans le portail Azure, recherchez le groupe de ressources et utilisez les commandes **Cost Management** pour obtenir des informations sur les dépenses réelles et prévues.
 
 - Envisagez d’utiliser Application web Azure pour votre application frontale afin que les demandes et réponses restent dans les limites du centre de données.
 
-- Montez en puissance pour les opérations gourmandes en ressources, telles que l’indexation, puis réajustez à la baisse les charges de travail de requête régulières. Commencez avec la configuration minimale pour Recherche Azure (une unité de stockage composée d’une partition et un réplica), puis surveillez l’activité de l’utilisateur pour identifier des modèles d’utilisation qui indiqueraient un besoin de capacité supplémentaires. Si un modèle est prévisible, vous pouvez peut-être synchroniser l’échelle avec l’activité (vous devez écrire du code pour automatiser ce comportement).
+- Montez en puissance pour les opérations gourmandes en ressources, telles que l’indexation, puis réajustez à la baisse les charges de travail de requête régulières. Commencez avec la configuration minimale pour Recherche cognitive Azure (une unité de stockage composée d’une partition et un réplica), puis surveillez l’activité de l’utilisateur pour identifier des modèles d’utilisation qui indiqueraient un besoin de capacité supplémentaires. Si un modèle est prévisible, vous pouvez peut-être synchroniser l’échelle avec l’activité (vous devez écrire du code pour automatiser ce comportement).
 
 Vous ne pouvez pas arrêter un service de recherche en vue de réduire votre facture. Les ressources dédiées sont toujours opérationnelles et sont allouées pour votre usage exclusif pendant pour la durée de vie de votre service. En ce qui concerne le service lui-même, le seul moyen de réduire votre facture consiste à réduire le nombre de réplicas et de partitions à un niveau offrant garantissant encore des performances acceptables et la [conformité au SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), ou à créer un service de niveau inférieur (les taux horaires du niveau S1 sont inférieurs à ceux des niveaux S2 ou S3). En supposant que vous approvisionniez votre service à la limite inférieure de vos prévisions de charge, si vous dépassez le service, vous pouvez créer un second service de niveau supérieur, régénérer vos index sur ce second service, puis supprimer le premier.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Comment évaluer les besoins en capacité
 
-Dans Recherche Azure, la capacité est structurée sous forme de *réplicas* et de *partitions*.
+Dans Recherche cognitive Azure, la capacité est structurée sous forme de *réplicas* et de *partitions*.
 
 + Les réplicas sont des instances du service de recherche. Chaque réplica héberge une copie à charge équilibrée d’un index. Par exemple, un service avec six réplicas comporte six copies de chaque index chargé dans le service.
 
@@ -161,7 +160,7 @@ La capacité et les coûts d’exécution du service vont de pair. Les niveaux i
 
 Ce sont généralement les exigences métier qui imposent le nombre d’index dont vous aurez besoin. Par exemple, vous devrez peut-être disposer d’un index global pour un référentiel de documents volumineux. Ou vous pourrez avoir besoin de plusieurs index basés sur la région, l’application ou le créneau commercial.
 
-Pour déterminer la taille d’un index, vous devez en [créer un](search-create-index-portal.md). La structure de données du service Recherche Azure constitue principalement une structure [d’index inversé](https://en.wikipedia.org/wiki/Inverted_index), dont les caractéristiques diffèrent de celles des données sources. Dans le cas d’un index inversé, la taille et la complexité sont déterminées par le contenu, et non nécessairement par la quantité de données qui l’alimentent. Une source de données volumineuse avec un haut niveau de redondance peut générer un index plus restreint qu’un jeu de données plus modeste présentant un contenu extrêmement variable. Il est donc généralement impossible de déduire la taille de l’index d’après celle du jeu de données d’origine.
+Pour déterminer la taille d’un index, vous devez en [créer un](search-create-index-portal.md). La structure de données du service Recherche cognitive Azure constitue principalement une structure [d’index inversé](https://en.wikipedia.org/wiki/Inverted_index), dont les caractéristiques diffèrent de celles des données sources. Dans le cas d’un index inversé, la taille et la complexité sont déterminées par le contenu, et non nécessairement par la quantité de données qui l’alimentent. Une source de données volumineuse avec un haut niveau de redondance peut générer un index plus restreint qu’un jeu de données plus modeste présentant un contenu extrêmement variable. Il est donc généralement impossible de déduire la taille de l’index d’après celle du jeu de données d’origine.
 
 > [!NOTE] 
 > Même si l’estimation des besoins futurs en matière d’index et de stockage semble très approximative, elle en vaut la peine. Si la capacité d’un niveau se révèle insuffisante, vous devrez approvisionner un nouveau service à un niveau supérieur, puis [recharger vos index](search-howto-reindex.md). Un service ne peut faire l’objet d’aucune mise à niveau sur place d’une référence SKU vers une autre.
@@ -196,7 +195,7 @@ Des ressources dédiées peuvent prendre en charge un échantillonnage et des te
 Le nombre d’index et la taille se révèlent tout aussi importants pour votre analyse. En effet, les limites maximales sont atteintes en cas d’utilisation totale du stockage (partitions) ou des limites maximales relatives aux ressources (index, indexeurs et ainsi de suite), selon ce qui se produit en premier. Le portail vous aide à effectuer le suivi de ces deux facteurs en affichant l’utilisation actuelle et les limites maximales côte à côte dans la page de présentation.
 
 > [!NOTE]
-> La présence de données superflues dans les documents peut entraîner une augmentation des exigences de stockage. Dans l’idéal, les documents contiennent uniquement les données dont vous avez besoin pour l’expérience de recherche. Les données binaires ne sont pas utilisables dans une requête et doivent être stockées séparément (par exemple dans un stockage Table Azure ou Blob Azure). Un champ doit ensuite être ajouté dans l’index pour conserver une référence URL aux données externes. La taille maximale d’un document individuel est de 16 Mo (ou moins si vous chargez en bloc plusieurs documents dans une seule requête). Pour plus d’informations, consultez [Limites de service d’Azure Search](search-limits-quotas-capacity.md).
+> La présence de données superflues dans les documents peut entraîner une augmentation des exigences de stockage. Dans l’idéal, les documents contiennent uniquement les données dont vous avez besoin pour l’expérience de recherche. Les données binaires ne sont pas utilisables dans une requête et doivent être stockées séparément (par exemple dans un stockage Table Azure ou Blob Azure). Un champ doit ensuite être ajouté dans l’index pour conserver une référence URL aux données externes. La taille maximale d’un document individuel est de 16 Mo (ou moins si vous chargez en bloc plusieurs documents dans une seule requête). Pour plus d’informations, consultez [Limites de service dans Recherche cognitive Azure](search-limits-quotas-capacity.md).
 >
 
 **Considérations relatives au volume de requêtes**
@@ -205,7 +204,7 @@ Le nombre de requêtes par seconde est une métrique importante lors du réglage
 
 Les niveaux Standard peuvent assurer un équilibre entre le nombre de réplicas et le nombre de partitions. Vous pouvez accélérer l’exécution des requêtes en ajoutant des réplicas pour l’équilibrage de charge ou ajouter des partitions à des fins de traitement parallèle. Vous pouvez ensuite régler les performances une fois le service approvisionné.
 
-Si vous prévoyez des volumes de requêtes élevés et soutenus dès le début, vous devez envisager d’adopter des niveaux Standard plus élevés, qui s’appuient sur du matériel plus puissant. Si ces volumes de requêtes ne surviennent pas, vous pouvez alors mettre des partitions et des réplicas hors connexion, ou même passer à un service de niveau inférieur. Pour plus d’informations sur la façon de calculer le débit de requête, consultez [Performances et optimisation de Recherche Azure](search-performance-optimization.md).
+Si vous prévoyez des volumes de requêtes élevés et soutenus dès le début, vous devez envisager d’adopter des niveaux Standard plus élevés, qui s’appuient sur du matériel plus puissant. Si ces volumes de requêtes ne surviennent pas, vous pouvez alors mettre des partitions et des réplicas hors connexion, ou même passer à un service de niveau inférieur. Pour plus d’informations sur la façon de calculer le débit de requête, consultez [Performances et optimisation de Recherche cognitive Azure](search-performance-optimization.md).
 
 Les niveaux À stockage optimisé sont utiles pour les charges de travail de données intensives, car ils prennent en charge un stockage d’index total disponible plus important dans les cas où les exigences en matière de latence des requêtes sont moins essentielles. Vous devez toujours utiliser des réplicas supplémentaires pour l’équilibrage de charge, ainsi que des partitions supplémentaires à des fins de traitement parallèle. Vous pouvez ensuite régler les performances une fois le service approvisionné.
 
@@ -221,7 +220,7 @@ Le niveau Gratuit et les fonctionnalités d’évaluation ne fournissent pas de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Commencez avec un niveau Gratuit et créez un index initial à l’aide d’un sous-ensemble de vos données afin de bien comprendre ses caractéristiques. La structure de données du service Recherche Azure est une structure d’index inversé. Le contenu détermine la taille et la complexité d’un index inversé. Souvenez-vous que le contenu hautement redondant a tendance à générer un index plus petit que le contenu très irrégulier. Par conséquent, les exigences en matière de stockage d’index sont déterminées par les caractéristiques du contenu, et non par la taille du jeu de données.
+Commencez avec un niveau Gratuit et créez un index initial à l’aide d’un sous-ensemble de vos données afin de bien comprendre ses caractéristiques. La structure de données du service Recherche cognitive Azure est une structure d’index inversé. Le contenu détermine la taille et la complexité d’un index inversé. Souvenez-vous que le contenu hautement redondant a tendance à générer un index plus petit que le contenu très irrégulier. Par conséquent, les exigences en matière de stockage d’index sont déterminées par les caractéristiques du contenu, et non par la taille du jeu de données.
 
 Après avoir effectué une estimation initiale de la taille de votre index, [approvisionnez un service facturable](search-create-service-portal.md) sur l’un des niveaux présentés dans cet article : De base, Standard ou À stockage optimisé. Assouplissez les contraintes artificielles sur le dimensionnement des données et [régénérez votre index](search-howto-reindex.md) afin d’y inclure toutes les données que vous souhaitez rendre utilisables dans une requête.
 

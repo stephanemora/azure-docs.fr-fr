@@ -1,27 +1,28 @@
 ---
-title: Utiliser des ensembles de compétences - Recherche Azure
-description: Les ensembles de compétences sont l’endroit où vous créez un pipeline d’enrichissement par intelligence artificielle dans la recherche cognitive. Bien comprendre les principaux concepts et le fonctionnement des ensembles de compétences vous permettra de créer des ensembles de compétences simples ou complexes
-manager: eladz
+title: Utiliser des ensembles de compétences
+titleSuffix: Azure Cognitive Search
+description: Les ensembles de compétences consistent à créer un pipeline d’enrichissement de l’IA dans Recherche cognitive Azure. Découvrez les concepts et détails importants relatifs à la composition d’ensembles de compétences.
+manager: nitinme
 author: vkurpad
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/05/2019
 ms.author: vikurpad
-ms.openlocfilehash: f75e6dece376076d4aa5e33497aff7e4f9f56857
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265696"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790170"
 ---
-# <a name="working-with-skillsets"></a>Utiliser des ensembles de compétences
-Cet article est destiné aux développeurs qui souhaitent approfondir leurs connaissances sur le fonctionnement du pipeline d’enrichissement et suppose que vous avez des notions de base sur les concepts du processus de recherche cognitive. Si vous débutez avec la recherche cognitive, commencez par lire les articles suivants :
-+ [Qu’est-ce que la « recherche cognitive » dans Recherche Azure ?](cognitive-search-concept-intro.md)
-+ [Qu’est-ce que la base de connaissances de Recherche Azure ?](knowledge-store-concept-intro.md)
+# <a name="working-with-skillsets-in-azure-cognitive-search"></a>Utilisation d’ensembles de compétences dans Recherche cognitive Azure
+
+Cet article est destiné aux développeurs qui souhaitent approfondir leurs connaissances sur le fonctionnement du pipeline d’enrichissement et suppose que vous avez des notions de base sur les concepts du processus d’enrichissement de l’IA. Si ce concept est nouveau pour vous, commencez par :
++ [Enrichissement de l’IA dans Recherche cognitive Azure](cognitive-search-concept-intro.md)
++ [Base de connaissances (préversion)](knowledge-store-concept-intro.md)
 
 ## <a name="specify-the-skillset"></a>Spécifier l’ensemble de compétences
-Un ensemble de compétences est une ressource réutilisable dans Recherche Azure qui spécifie une collection de compétences cognitives servant à analyser, transformer et enrichir du texte ou des images durant l’indexation. Vous pouvez créer un ensemble de compétences pour ensuite attacher des enrichissements de texte et d’image dans la phase d’ingestion des données, en extrayant et en générant de nouvelles informations et structures à partir du contenu brut.
+Un ensemble de compétences est une ressource réutilisable dans Recherche cognitive Azure qui spécifie une collection de compétences cognitives servant à analyser, transformer et enrichir du texte ou des images durant l’indexation. Vous pouvez créer un ensemble de compétences pour ensuite attacher des enrichissements de texte et d’image dans la phase d’ingestion des données, en extrayant et en générant de nouvelles informations et structures à partir du contenu brut.
 
 Un ensemble de compétences a trois propriétés :
 
@@ -36,7 +37,7 @@ Les ensembles de compétences sont créés dans JSON. Vous pouvez créer des ens
 ### <a name="enrichment-tree"></a>Arborescence d’enrichissements
 
 Pour comprendre de quelle manière un ensemble de compétences enrichit progressivement un document, commençons par regarder à quoi le document ressemble avant tout enrichissement. La sortie du craquage du document varie selon la source de données et le mode d’analyse spécifique qui ont été sélectionnés. C’est également l’état du document à partir duquel les [mappages de champs](search-indexer-field-mappings.md) peuvent extraire le contenu lors de l’ajout de données à l’index de recherche.
-![Diagramme de base de connaissances au sein d'un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramme de base de connaissances au sein d'un pipeline")
+![Diagramme de base de connaissances au sein d’un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KDiagramme de base de connaissances au sein d’un pipeline)
 
 Une fois qu’un document se trouve dans le pipeline d’enrichissement, il est représenté sous la forme d’une arborescence du contenu et des enrichissements associés. Cette arborescence est instanciée en tant que sortie du craquage du document. Le format de l’arborescence d’enrichissements permet au pipeline d’enrichissement d’attacher des métadonnées même à des types de données primitifs ; ce n’est pas un objet JSON valide, mais il peut être projeté dans un format JSON valide. Le tableau suivant indique l’état d’un document qui entre dans le pipeline d’enrichissement :
 
@@ -70,7 +71,7 @@ Chaque compétence demande un contexte. Un contexte détermine :
 
 La projection est le processus qui consiste à sélectionner les nœuds de l’arborescence d’enrichissements à enregistrer dans la base de connaissances. Les projections sont des formes personnalisées du document (contenu et enrichissements) qui peuvent être générées en sortie sous forme de projections de tables ou d’objets. Pour en savoir plus sur l’utilisation des projections, consultez [Utilisation de projections](knowledge-store-projection-overview.md).
 
-![Options de mappage des champs](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Options de mappage des champs pour le pipeline d’enrichissement")
+![Options de mappage de champs](./media/cognitive-search-working-with-skillsets/field-mapping-options.png "Options de mappage de champs pour le pipeline d’enrichissement")
 
 Le diagramme ci-dessus montre le sélecteur à utiliser en fonction de l’endroit où vous vous trouvez dans le pipeline d’enrichissement.
 
@@ -86,7 +87,7 @@ Examinons maintenant l’ensemble de compétences des avis sur les hôtels. Vous
 
 ### <a name="skill-1-split-skill"></a>Compétence n° 1 : Division 
 
-![arborescence d’enrichissements après le craquage du document](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Arborescence d’enrichissements après le craquage du document et avant l’exécution de la compétence")
+![arborescence d’enrichissement après le craquage de document](media/cognitive-search-working-with-skillsets/enrichment-tree-doc-cracking.png "Arborescence d’enrichissement après le craquage de document et avant l’exécution de la compétence")
 
 Avec le contexte de compétence ```"/document/reviews_text"```, cette compétence s’exécute une fois pour `reviews_text`. La sortie de la compétence est une liste où `reviews_text` est segmenté en 5 000 séquences de caractères. La sortie de la compétence de division est nommée `pages` et elle est ajoutée à l’arborescence d’enrichissements. Avec `targetName`, vous pouvez renommer une sortie de compétence avant de l’ajouter à l’arborescence d’enrichissements.
 
@@ -95,11 +96,11 @@ L’arborescence d’enrichissements comporte maintenant un nouveau nœud, situ�
 
 Le nœud racine de tous les enrichissements est `"/document"`. Quand vous utilisez des indexeurs d’objets blob, le nœud `"/document"` contient les nœuds enfants `"/document/content"` et `"/document/normalized_images"`. Si vous utilisez des données CSV, comme dans cet exemple, les noms de colonne sont mappés aux nœuds figurant sous `"/document"`. Pour accéder à un enrichissement qui a été ajouté à un nœud par une compétence, vous devez indiquer le chemin complet de l’enrichissement. Par exemple, si vous souhaitez utiliser le texte du nœud ```pages``` comme entrée dans une autre compétence, vous devez spécifier le chemin de cette façon : ```"/document/reviews_text/pages/*"```.
  
- ![arborescence d’enrichissements après la compétence n° 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Arborescence d’enrichissements après l’exécution de la compétence n° 1")
+ ![arborescence d’enrichissement après la compétence n° 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "L’arborescence d’enrichissement après la compétence n° 1 s’exécute")
 
 ### <a name="skill-2-language-detection"></a>Compétence n° 2 : Détection de la langue
  La compétence de détection de la langue est la troisième compétence (compétence n° 3) définie dans l’ensemble de compétences, mais c’est la compétence suivante à exécuter. Comme elle n’est pas bloquée dans l’attente d’entrées, elle s’exécute parallèlement à la compétence précédente. À l’instar de la compétence de division qui l’a précédée, la compétence de détection de la langue est également appelée une fois pour chaque document. L’arborescence d’enrichissements comporte désormais un nouveau nœud pour la langue.
- ![arborescence d’enrichissements après la compétence n° 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Arborescence d’enrichissements après l’exécution de la compétence n° 2")
+ ![arborescence d’enrichissement après la compétence n° 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "EnL’arborescence d’enrichissement après la compétence n° 2 s’exécute
  
  ### <a name="skill-3-key-phrases-skill"></a>Compétence n° 3 : Expressions clés 
 
@@ -107,13 +108,13 @@ Avec le contexte ```/document/reviews_text/pages/*```, la compétence des expres
 
  Vous pouvez maintenant examiner le reste des compétences dans l’ensemble de compétences et regarder comment l’arborescence des enrichissements continue de croître à l’exécution de chaque compétence. Certaines compétences, telles que la compétence de fusion et la compétence de modélisation, créent également des nœuds, mais utilisent uniquement les données de nœuds existants et ne créent pas d’enrichissements supplémentaires.
 
-![arborescence d’enrichissements après toutes les compétences](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Arborescence d’enrichissements après l’exécution de toutes les compétences")
+![arborescence d’enrichissement après toutes les compétences](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Arborescence d’enrichissement après toutes les compétences")
 
 Les couleurs des connecteurs dans l’arborescence ci-dessus indiquent que les enrichissements ont été créés par différentes compétences, c’est-à-dire que les nœuds devront être traités individuellement et qu’ils ne feront pas partie de l’objet retourné lors de la sélection du nœud parent.
 
 ## <a name="save-enrichments-in-a-knowledge-store"></a>Enregistrer les enrichissements dans une base de connaissances 
 
-Les ensembles de compétences définissent également une base de connaissances dans laquelle vos documents enrichis peuvent être projetés sous forme de tables ou d’objets. Pour enregistrer les données enrichies dans la base de connaissances, vous définissez un ensemble de projections du document enrichi. Pour en savoir plus sur la base de connaissances, consultez [Qu’est-ce que la base de connaissances de Recherche Azure ?](knowledge-store-concept-intro.md)
+Les ensembles de compétences définissent également une base de connaissances dans laquelle vos documents enrichis peuvent être projetés sous forme de tables ou d’objets. Pour enregistrer les données enrichies dans la base de connaissances, vous définissez un ensemble de projections du document enrichi. Pour en savoir plus sur la base de connaissances, consultez [Vue d’ensemble de la base de connaissances](knowledge-store-concept-intro.md)
 
 ### <a name="slicing-projections"></a>Découpage de projections
 

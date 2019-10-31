@@ -4,7 +4,7 @@ description: Cet article fournit une vue d’ensemble des principales fonctionna
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 4aca2a4495d4b6c3669982b2e7757b7252d70f6a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 6c01df071f263f7080f6c89b539d9a40aeff282f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828556"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792620"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Vue d’ensemble de la sécurité des machines virtuelles Azure
 Cet article fournit une vue d’ensemble des principales fonctionnalités de sécurité Azure pouvant être utilisées avec les machines virtuelles.
@@ -45,22 +45,10 @@ Microsoft Antimalware pour Azure Cloud Services et Machines virtuelles offre une
 
 Microsoft Antimalware est une solution d’agent unique pour les applications et les environnements client. Elle est conçue pour s’exécuter en arrière-plan sans intervention humaine. Vous pouvez déployer la protection en fonction des besoins de vos charges de travail d’application, avec une configuration de base sécurisée par défaut ou une configuration personnalisée avancée, y compris pour la surveillance anti-programmes malveillants.
 
-Lorsque vous déployez et activez Microsoft Antimalware pour Azure, les fonctionnalités essentielles suivantes sont disponibles :
-
-* **Protection en temps réel** : Surveille l’activité dans les Services cloud et sur les machines virtuelles pour détecter et bloquer l’exécution de logiciels malveillants.
-* **Analyse planifiée** : Effectue périodiquement une analyse ciblée pour détecter les logiciels malveillants, notamment les programmes en cours d’exécution.
-* **Correction de logiciels malveillants** : Prend automatiquement des mesures sur les programmes malveillants détectés, notamment la suppression ou la mise en quarantaine des fichiers malveillants et le nettoyage des entrées de registre malveillantes.
-* **Mises à jour de signatures** : Installe automatiquement les dernières signatures de protection (définitions de virus) pour garantir que la protection est à jour d’après une fréquence prédéfinie.
-* **Mises à jour du logiciel anti-programme malveillant pour le moteur** : Met automatiquement à jour le moteur Microsoft Antimalware pour Azure.
-* **Mises à jour du logiciel anti-programme malveillant pour la plateforme** : Met automatiquement à jour la plateforme Microsoft Antimalware pour Azure.
-* **Protection active** : Rapporte des métadonnées de télémétrie sur Azure relatives aux menaces détectées et aux ressources suspectes pour garantir une réponse rapide. Permet de fournir de signature synchrone en temps réel via le système Microsoft Active Protection System (MAPS).
-* **Exemples de création de rapport** : Crée et fournit des exemples de rapports au service Microsoft Antimalware pour Azure afin de contribuer à l’amélioration du service et permettre la résolution des problèmes.
-* **Exclusions** : Permet aux administrateurs d’applications et de services de configurer certains fichiers, processus et lecteurs pour les exclure de la protection et de l’analyse, pour des raisons de performances entre autres.
-* **Collecte d’événements du logiciel anti-programme malveillant** : Enregistre l’intégrité du service anti-programme malveillant, les activités suspectes et les mesures de correction appliquées dans le journal des événements du système d’exploitation et les rassemble dans votre compte de stockage Azure.
+En savoir plus sur [Microsoft Antimalware pour Azure](antimalware.md) et les fonctionnalités de base disponibles.
 
 Pour en savoir plus sur les logiciels anti-programme malveillant pour protéger vos machines virtuelles :
 
-* [Microsoft Antimalware pour Azure Cloud Services et les machines virtuelles](antimalware.md)
 * [Déploiement de solutions anti-programmes malveillants sur des machines virtuelles Azure (en anglais)](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Installation et configuration de Trend Micro Deep Security comme service sur une machine virtuelle Windows](/azure/virtual-machines/windows/classic/install-trend)
 * [Installation et configuration de Symantec Endpoint Protection sur une machine virtuelle Windows](/azure/virtual-machines/windows/classic/install-symantec)
@@ -179,3 +167,7 @@ En savoir plus :
 
 * [Présentation de l’informatique confidentielle Azure](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Informatique confidentielle Azure](https://azure.microsoft.com/blog/azure-confidential-computing/)  
+
+## <a name="next-steps"></a>Étapes suivantes
+
+En savoir plus sur les [meilleures pratiques en matière de sécurité](iaas.md) pour les machines virtuelles et les systèmes d’exploitation.

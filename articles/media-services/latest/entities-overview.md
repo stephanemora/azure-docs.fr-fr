@@ -12,21 +12,21 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ed509ac8fea43a9c011bbbf76c1dc433cd78d43c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298955"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693305"
 ---
-# <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
+# <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
 Cette rubrique décrit les options de requête OData et la prise en charge de la pagination disponibles dans la liste des entités Azure Media Services V3.
 
 ## <a name="considerations"></a>Considérations
 
-* Les propriétés d’entités de type DateHeure sont toujours au format UTC.
-* L’espace blanc dans la chaîne de requête doit être encodé en URL avant l’envoi d’une demande.
+* Les propriétés d’entités de type `Datetime` sont toujours au format UTC.
+* Vous devez encoder l’espace blanc dans la chaîne de requête en URL avant d’envoyer votre demande.
 
 ## <a name="comparison-operators"></a>Opérateurs de comparaison
 
@@ -34,21 +34,21 @@ Vous pouvez utiliser les opérateurs suivants pour comparer un champ à une vale
 
 Opérateurs d’égalité :
 
-- `eq`: teste si un champ est **égal à** une valeur constante
-- `ne`: teste si un champ n’est **pas égal à** une valeur constante
+- `eq`: teste si un champ est *égal à* une valeur constante.
+- `ne`: teste si un champ n’est *pas égal à* une valeur constante.
 
 Opérateurs de plage :
 
-- `gt`: teste si un champ est **supérieur à** une valeur constante
-- `lt`: teste si un champ est **inférieur à** une valeur constante
-- `ge`: teste si un champ est **supérieur ou égal à** une valeur constante
-- `le`: teste si un champ est **inférieur ou égal à** une valeur constante
+- `gt`: teste si un champ est *supérieur à* une valeur constante.
+- `lt`: teste si un champ est *inférieur à* une valeur constante.
+- `ge`: teste si un champ est *supérieur ou égal à* une valeur constante. value
+- `le`: teste si un champ est *inférieur ou égal à* une valeur constante.
 
 ## <a name="filter"></a>Filtrer
 
-**$filter** - Utiliser le filtre pour fournir un paramètre de filtre OData afin de rechercher uniquement les objets qui vous intéressent.
+Utiliser `$filter` pour fournir un paramètre de filtre OData afin de rechercher uniquement les objets qui vous intéressent.
 
-L’exemple REST suivant filtre sur le paramètre alternateId d’une ressource :
+L’exemple REST suivant filtre sur la valeur `alternateId` d’une ressource :
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01&$filter=properties/alternateId%20eq%20'unique identifier'
@@ -63,30 +63,30 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Trier par
 
-**$orderby**  - À utiliser pour trier les objets retournés par le paramètre spécifié. Par exemple :    
+Utiliser `$orderby` pour trier les objets retournés par le paramètre spécifié. Par exemple :    
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-Pour trier les résultats par ordre croissant ou décroissant, ajoutez `asc` ou `desc` au nom du champ, en les séparant par un espace. Par exemple : `$orderby properties/created desc`.
+Pour trier les résultats par ordre croissant ou décroissant, ajoutez `asc` ou `desc` au nom du champ, en les séparant par un espace. Par exemple : `$orderby properties/created desc`.
 
 ## <a name="skip-token"></a>Jeton d’évitement
 
-**$skiptoken** - Si une réponse de requête contient un grand nombre d’éléments, le service retourne une valeur de jeton d’évitement (`@odata.nextLink`) pour obtenir la page de résultats suivante. Celle-ci peut être utilisés pour parcourir le jeu de résultats entier.
+Si une réponse de requête contient un grand nombre d’éléments, le service retourne une valeur `$skiptoken` (`@odata.nextLink`) pour obtenir la page de résultats suivante. Utilisez-la pour parcourir tout le jeu de résultats.
 
-Dans Media Services v3, vous ne pouvez pas configurer la taille de page. La taille de page varie selon le type d’entité. Pour plus d’informations, veuillez lire les sections suivantes.
+Dans Media Services v3, vous ne pouvez pas configurer la taille de la page. La taille de la page varie en fonction du type d’entité. Lisez les sections individuelles qui suivent pour plus d’informations.
 
-Si des entités sont créées ou supprimées pendant la pagination de la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée). 
+Si des entités sont créées ou supprimées pendant que vous paginez la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée). 
 
 > [!TIP]
 > Vous devez toujours utiliser `nextLink` pour énumérer la collection et ne pas dépendre d’une taille de page particulière.
 >
-> `nextLink` est présent uniquement s’il existe plus d’une page d’entités.
+> La valeur `nextLink` est présente uniquement s’il y a plus d’une page d’entités.
 
-Prenons l’exemple suivant où $skiptoken est utilisé. Veillez à remplacer *amstestaccount* par le nom de votre compte et à définir la valeur *api-version* avec la version la plus récente.
+Prenons l’exemple suivant où la valeur `$skiptoken` est utilisée. Veillez à remplacer *amstestaccount* par le nom de votre compte et à définir la valeur *api-version* avec la version la plus récente.
 
-Si vous demandez une liste d’actifs multimédias comme suit :
+Si vous demandez une liste de ressources comme celle-ci :
 
 ```
 GET  https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01 HTTP/1.1
@@ -94,7 +94,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-Vous devez obtenir une réponse similaire à celle-ci :
+Vous recevrez une réponse similaire à celle-ci :
 
 ```
 HTTP/1.1 200 OK
@@ -136,7 +136,7 @@ while (currentPage.NextPageLink != null)
 
 ## <a name="using-logical-operators-to-combine-query-options"></a>Utilisation d’opérateurs logiques pour combiner des options de requête
 
-Media Services v3 prend en charge les opérateurs logiques ’ou’ et ’et’. 
+Media Services v3 prend en charge les opérateurs logiques **OU** et **ET**. 
 
 L’exemple REST suivant vérifie l’état de la tâche :
 
@@ -153,7 +153,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 ## <a name="filtering-and-ordering-options-of-entities"></a>Filtrage et classement des options des entités
 
-Le tableau suivant montre comment les options de filtrage et de classement peuvent être appliquées à des entités différentes :
+Le tableau suivant montre comment appliquer les options de filtrage et de classement à des entités différentes :
 
 |Nom de l’entité|Nom de la propriété|Filtrer|Ordre|
 |---|---|---|---|

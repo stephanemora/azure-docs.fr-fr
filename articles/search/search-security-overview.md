@@ -1,30 +1,29 @@
 ---
-title: Sécurité et confidentialité - Recherche Azure
-description: Recherche Azure est compatible avec SOC 2, HIPAA et les autres certifications. La connexion et le chiffrement des données, l’authentification ainsi que l’identité et l’accès à travers des ID de sécurité utilisateur et de groupe dans les filtres de Recherche Azure.
-author: HeidiSteen
+title: Sécurité et confidentialité des données
+titleSuffix: Azure Cognitive Search
+description: Recherche cognitive Azure est compatible avec SOC 2, HIPAA et les autres certifications. Connexion et chiffrement des données, authentification ainsi qu’identité et accès via des ID de sécurité utilisateur et de groupe dans les expressions de filtres.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 3a6ac7ff22c04bff5948193c163a7071cf2c2ff5
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2e509535473fa50fd3150965e1513e056ead18a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320393"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794345"
 ---
-# <a name="security-and-data-privacy-in-azure-search"></a>Sécurité et confidentialité dans Recherche Azure
+# <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Sécurité et confidentialité des données dans Recherche cognitive Azure
 
-Des fonctions complètes de sécurité et des contrôles d’accès sont intégrés à Recherche Azure pour s’assurer que le contenu privé reste inchangé. Cet article énumère les fonctionnalités de sécurité et la conformité aux normes intégrées à Recherche Azure.
+Des fonctions complètes de sécurité et des contrôles d’accès sont intégrés à Recherche cognitive Azure pour s’assurer que le contenu privé reste inchangé. Cet article énumère les fonctionnalités de sécurité et la conformité aux normes intégrées à Recherche cognitive Azure.
 
-L’architecture de sécurité de Recherche Azure inclut la sécurité physique, les transmissions chiffrées, le stockage chiffré et la conformité aux normes à l’échelle de la plateforme. Sur le plan opérationnel, Recherche Azure accepte uniquement les demandes authentifiées. Le cas échéant, vous pouvez ajouter des contrôles d’accès par utilisateur au contenu par le biais de filtres de sécurité. Cet article traite de la sécurité au niveau de chaque couche, en se centrant principalement sur la façon dont les données et les opérations sont sécurisées dans Recherche Azure.
+L’architecture de sécurité de Recherche cognitive Azure inclut la sécurité physique, les transmissions chiffrées, le stockage chiffré et la conformité aux normes à l’échelle de la plateforme. Sur le plan opérationnel, Recherche cognitive Azure accepte uniquement les demandes authentifiées. Le cas échéant, vous pouvez ajouter des contrôles d’accès par utilisateur au contenu par le biais de filtres de sécurité. Cet article traite de la sécurité au niveau de chaque couche, en se centrant principalement sur la façon dont les données et les opérations sont sécurisées dans Recherche cognitive Azure.
 
 ## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Conformité aux normes : ISO 27001, SOC 2, HIPAA
 
-Recherche Azure est certifiée pour les normes suivantes, comme [annoncé en juin 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/) :
+Recherche cognitive Azure est certifiée pour les normes suivantes, comme [annoncé en juin 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/) :
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [Conformité à la norme SOC 2 Type 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Pour accéder au rapport complet sur la conformité d’[Azure et d’Azure Government à SOC 2 de type II](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
@@ -38,17 +37,17 @@ La conformité aux normes s’applique aux fonctionnalités généralement dispo
 
 ## <a name="encrypted-transmission-and-storage"></a>Stockage et transmission chiffrés
 
-Le chiffrement s’étend dans tout le pipeline d’indexation : des connexions aux données indexées stockées dans Recherche Azure, en passant par la transmission.
+Le chiffrement s’étend à tout le pipeline d’indexation : des connexions aux données indexées stockées dans Recherche cognitive Azure, en passant par la transmission.
 
 | Calque de sécurité | Description |
 |----------------|-------------|
-| Chiffrement en transit <br>(HTTPS/SSL/TLS) | Recherche Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. <br/><br/>Toutes les interactions client-service de Recherche Azure sont compatibles SSL/TLS 1.2.  Veillez à utiliser TLSv1.2 pour les connexions SSL à votre service.|
-| Chiffrement au repos <br>Clés gérées par Microsoft | Le chiffrement est entièrement internalisé dans le processus d’indexation, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).<br><br>En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.<br><br> Le chiffrement est interne à Recherche Azure, tandis que les certificats et les clés de chiffrement sont gérés en interne par Microsoft et appliqués universellement. Vous ne pouvez pas activer ou désactiver le chiffrement, gérer ou substituer vos propres clés, ni afficher les paramètres de chiffrement dans le portail ou par programme.<br><br>Le chiffrement au repos a été annoncé le 24 janvier 2018 et s’applique à tous les niveaux de service, y compris au niveau gratuit, dans toutes les régions. Pour un chiffrement complet, les index créés avant cette date doivent être supprimés et recréés afin que le chiffrement soit effectué. Dans le cas contraire, seules les nouvelles données ajoutées après le 24 janvier sont chiffrées.|
-| Chiffrement au repos <br>Clés gérées par le client | Le chiffrement avec des clés gérées par le client est une fonctionnalité en **préversion** qui n’est pas disponible dans les services gratuits. Pour les services payants, elle n’est disponible que pour les services de recherche créés à partir de janvier 2019, utilisant la dernière version de l’api en préversion (api-version=2019-05-06-Preview).<br><br>Les index de recherche et cartes de synonymes Azure peuvent désormais être chiffrés au repos à l’aide de clés gérées par le client dans Azure Key Vault. Pour plus d’informations, voir [Gérer les clés de chiffrement dans Recherche Azure](search-security-manage-encryption-keys.md).<br>Cette fonctionnalité ne remplace pas la fonctionnalité de chiffrement au repos par défaut, mais la complète.<br>L’activation de cette fonctionnalité a pour effet d’augmenter la taille de l’index et dégrader les performances des requêtes. Sur la base des observations effectuées à ce jour, vous pouvez vous attendre à une augmentation de 30 à 60 % des temps de requête, même si les performances réelles varient en fonction de la définition d’index et des types de requêtes. En raison de cet incidence sur les performances, nous vous recommandons de n’activer cette fonctionnalité que sur les index qui en ont réellement besoin.
+| Chiffrement en transit <br>(HTTPS/SSL/TLS) | Recherche cognitive Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. <br/><br/>Toutes les interactions client-service de Recherche cognitive Azure sont compatibles SSL/TLS 1.2.  Veillez à utiliser TLSv1.2 pour les connexions SSL à votre service.|
+| Chiffrement au repos <br>Clés gérées par Microsoft | Le chiffrement est entièrement internalisé dans le processus d’indexation, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).<br><br>En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.<br><br> Le chiffrement est interne à Recherche cognitive Azure, tandis que les certificats et les clés de chiffrement sont gérés en interne par Microsoft et appliqués universellement. Vous ne pouvez pas activer ou désactiver le chiffrement, gérer ou substituer vos propres clés, ni afficher les paramètres de chiffrement dans le portail ou par programme.<br><br>Le chiffrement au repos a été annoncé le 24 janvier 2018 et s’applique à tous les niveaux de service, y compris au niveau gratuit, dans toutes les régions. Pour un chiffrement complet, les index créés avant cette date doivent être supprimés et recréés afin que le chiffrement soit effectué. Dans le cas contraire, seules les nouvelles données ajoutées après le 24 janvier sont chiffrées.|
+| Chiffrement au repos <br>Clés gérées par le client | Le chiffrement avec des clés gérées par le client est une fonctionnalité en **préversion** qui n’est pas disponible dans les services gratuits. Pour les services payants, elle n’est disponible que pour les services de recherche créés à partir de janvier 2019, utilisant la dernière version de l’api en préversion (api-version=2019-05-06-Preview).<br><br>Les index et les cartes de synonymes Recherche cognitive Azure peuvent désormais être chiffrés au repos à l’aide de clés gérées par le client dans Azure Key Vault. Pour en savoir plus, consultez [Gérer les clés de chiffrement dans Recherche cognitive Azure](search-security-manage-encryption-keys.md).<br>Cette fonctionnalité ne remplace pas la fonctionnalité de chiffrement au repos par défaut, mais la complète.<br>L’activation de cette fonctionnalité a pour effet d’augmenter la taille de l’index et dégrader les performances des requêtes. Sur la base des observations effectuées à ce jour, vous pouvez vous attendre à une augmentation de 30 à 60 % des temps de requête, même si les performances réelles varient en fonction de la définition d’index et des types de requêtes. En raison de cet incidence sur les performances, nous vous recommandons de n’activer cette fonctionnalité que sur les index qui en ont réellement besoin.
 
 ## <a name="azure-wide-user-access-controls"></a>Contrôles d’accès utilisateur à l’échelle d’Azure
 
-Plusieurs mécanismes de sécurité sont disponibles dans Azure et, de ce fait, automatiquement disponibles pour les ressources Recherche Azure que vous créez.
+Plusieurs mécanismes de sécurité sont disponibles dans Azure et, de ce fait, automatiquement disponibles pour les ressources Recherche cognitive Azure que vous créez.
 
 + [Verrous au niveau des abonnements ou des ressources pour empêcher la suppression](../azure-resource-manager/resource-group-lock-resources.md)
 + [Contrôle d'accès en fonction du rôle (RBAC) pour contrôler l’accès aux informations et aux opérations d’administration](../role-based-access-control/overview.md)
@@ -59,7 +58,7 @@ Tous les services Azure prennent en charge les contrôles d’accès en fonction
 
 ## <a name="service-access-and-authentication"></a>Accès au service et authentification
 
-Alors que le service Recherche Azure hérite des fonctions de sécurité de la plateforme Azure, il fournit également sa propre authentification basée sur clé. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. 
+Alors que le service Recherche cognitive Azure hérite des fonctions de sécurité de la plateforme Azure, il fournit également sa propre authentification basée sur clé. Une clé API est une chaîne composée de nombres et de lettres générée de manière aléatoire. Le type de clé (admin ou requête) détermine le niveau d’accès. La soumission d’une clé valide est considérée comme la preuve que la requête provient d’une entité approuvée. 
 
 Il existe deux niveaux d’accès à votre service de recherche, activés par deux types de clés :
 
@@ -74,17 +73,17 @@ L’authentification est requise à chaque requête, chaque requête étant comp
 
 ## <a name="index-access"></a>Accès aux index
 
-Dans Recherche Azure, les index individuels ne sont pas des objets sécurisables. En effet, l’accès aux index est déterminé au niveau de la couche de service (accès en lecture ou en écriture) et du contexte d’une opération.
+Dans Recherche cognitive Azure, les index individuels ne sont pas des objets sécurisables. En effet, l’accès aux index est déterminé au niveau de la couche de service (accès en lecture ou en écriture) et du contexte d’une opération.
 
 Pour l’accès de l’utilisateur final, vous pouvez structurer les demandes de requête pour établir la connexion à l’aide d’une clé de requête, qui configure toutes les demandes en mode de lecture seule et qui inclut l’index spécifique utilisé par votre application. Dans une demande de requête, il est impossible de joindre des index ou d’accéder simultanément à plusieurs index. Ainsi, toutes les demandes ciblent un index unique par définition. Par conséquent, la structure de la demande de requête proprement dite (une clé plus un index unique cible) définit la limite de sécurité.
 
-Il n’existe aucune différence entre l’accès administrateur et l’accès développeur aux index : tous deux doivent disposer d’un accès en écriture pour pouvoir créer, supprimer et mettre à jour des objets gérés par le service. Toute personne disposant d’une clé d’administration pour votre service peut lire, modifier ou supprimer un index de ce service. En ce qui concerne la protection contre la suppression accidentelle ou malveillante d’index, votre contrôle de code source en interne pour les ressources de code est la solution appropriée pour annuler des suppressions ou des modifications d’index indésirables. Recherche Azure dispose d’un système de basculement dans le cluster pour garantir sa disponibilité, mais il ne stocke pas et n’exécute pas le code propriétaire que vous avez utilisé pour créer ou charger des index.
+Il n’existe aucune différence entre l’accès administrateur et l’accès développeur aux index : tous deux doivent disposer d’un accès en écriture pour pouvoir créer, supprimer et mettre à jour des objets gérés par le service. Toute personne disposant d’une clé d’administration pour votre service peut lire, modifier ou supprimer un index de ce service. En ce qui concerne la protection contre la suppression accidentelle ou malveillante d’index, votre contrôle de code source en interne pour les ressources de code est la solution appropriée pour annuler des suppressions ou des modifications d’index indésirables. Recherche cognitive Azure dispose d’un système de basculement dans le cluster pour garantir sa disponibilité, mais il ne stocke pas et n’exécute pas le code propriétaire que vous avez utilisé pour créer ou charger des index.
 
-Pour les solutions d’architecture mutualisée qui nécessitent des limites de sécurité au niveau des index, ces solutions incluent généralement un niveau intermédiaire, que les clients utilisent pour gérer l’isolation des index. Pour plus d’informations sur les cas d’usage d’architecture mutualisée, consultez [Modèles de conception pour les applications SaaS mutualisées et Recherche Azure](search-modeling-multitenant-saas-applications.md).
+Pour les solutions d’architecture mutualisée qui nécessitent des limites de sécurité au niveau des index, ces solutions incluent généralement un niveau intermédiaire, que les clients utilisent pour gérer l’isolation des index. Pour plus d’informations sur les cas d’usage d’architecture mutualisée, consultez [Modèles de conception pour les applications SaaS mutualisées et Recherche cognitive Azure](search-modeling-multitenant-saas-applications.md).
 
 ## <a name="admin-access"></a>Accès administrateur
 
-L’[accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) détermine si vous avez accès aux contrôles sur le service et son contenu. Si vous êtes propriétaire ou contributeur d’un service de Recherche Azure, vous pouvez utiliser le portail ou le module **Az.Search** PowerShell pour créer, mettre à jour ou supprimer des objets sur le service. Vous pouvez également utiliser l’[API REST de gestion de Recherche Azure](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+L’[accès en fonction du rôle (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) détermine si vous avez accès aux contrôles sur le service et son contenu. Si vous êtes propriétaire ou contributeur d’un service de Recherche cognitive Azure, vous pouvez utiliser le portail ou le module **Az.Search** PowerShell pour créer, mettre à jour ou supprimer des objets sur le service. Vous pouvez également utiliser l’[API REST de gestion de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
 ## <a name="user-access"></a>Accès utilisateur
 
@@ -99,7 +98,7 @@ Si vous avez besoin d’un contrôle granulaire, par utilisateur, sur le contenu
 
 ## <a name="table-permissioned-operations"></a>Tableau : opérations autorisées
 
-Le tableau suivant récapitule les opérations autorisées dans Recherche Azure, en indiquant la clé qui déverrouille l’accès à une opération particulière.
+Le tableau suivant récapitule les opérations autorisées dans Recherche cognitive Azure, en indiquant la clé qui déverrouille l’accès à une opération particulière.
 
 | Opération | Autorisations |
 |-----------|-------------------------|
@@ -123,6 +122,6 @@ Les centres de données Microsoft fournissent une sécurité physique de pointe 
 
 + [Bien démarrer avec .NET (décrit l’utilisation d’une clé d’administration pour créer un index)](search-create-index-dotnet.md)
 + [Bien démarrer avec REST (décrit l’utilisation d’une clé d’administration pour créer un index)](search-create-index-rest-api.md)
-+ [Contrôle d’accès basé sur l’identité à l’aide des filtres Recherche Azure](search-security-trimming-for-azure-search.md)
-+ [Contrôle d’accès à Active Directory basé sur l’identité à l’aide des filtres Recherche Azure](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filtres dans Recherche Azure](search-filters.md)
++ [Contrôle d’accès basé sur l’identité à l’aide des filtres Recherche cognitive Azure](search-security-trimming-for-azure-search.md)
++ [Contrôle d’accès à Active Directory basé sur l’identité à l’aide des filtres Recherche cognitive Azure](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtres dans Recherche cognitive Azure](search-filters.md)

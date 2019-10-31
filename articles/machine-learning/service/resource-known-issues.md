@@ -11,16 +11,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286554"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675648"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problèmes connus et dépannage d’Azure Machine Learning
 
 Cet article vous permet de rechercher et de corriger les erreurs ou les défaillances rencontrées lors de l’utilisation d’Azure Machine Learning.
+
+## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Mise à niveau de SR-IOV à venir vers les ordinateurs NCv3 dans AmlCompute
+
+Azure Compute mettra à jour les références SKU de NCv3 à partir du début du mois de novembre pour prendre en charge toutes les implémentations et versions MPI, ainsi que les verbes RDMA pour les machines virtuelles équipées d’InfiniBand. Cela nécessitera un bref temps d’arrêt : [en savoir plus sur la mise à niveau de SR-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+
+En tant que client de l’offre AmlCompute (offre de calcul managée) d’Azure Machine Learning, vous n’êtes pas obligé d’apporter des modifications pour l’instant. En fonction de la [planification de mise à jour](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) vous devez planifier une brève interruption de votre formation. Le service est chargé de mettre à jour les images de machine virtuelle sur vos nœuds de cluster et de faire monter automatiquement en puissance votre cluster (scale up). Une fois la mise à niveau terminée, vous pourrez peut-être, en plus d’obtenir une bande passante InfiniBand supérieure, des latences inférieures et de meilleures performances des applications distribuées, utiliser toutes les autres distributions MPI (comme OpenMPI avec Pytorch).
 
 ## <a name="visual-interface-issues"></a>Problèmes concernant l’interface visuelle
 
@@ -130,7 +136,7 @@ Si ces étapes ne résolvent pas le problème, essayez de redémarrer le cluster
 
 Si vous voyez une erreur `FailToSendFeather` lors de la lecture de données sur le cluster Azure Databricks, reportez-vous aux solutions suivantes :
 
-* Effectuez une mise à niveau du package `azureml-sdk[automl_databricks]` vers la dernière version.
+* Effectuez une mise à niveau du package `azureml-sdk[automl]` vers la dernière version.
 * Ajoutez la version 1.1.8 ou une version supérieure de `azure-dataprep`.
 * Ajoutez la version 0.11 ou une version supérieure de `pyarrow`.
 

@@ -1,22 +1,21 @@
 ---
-title: Définir les rôles RBAC pour un accès administratif à Azure dans le portail - Recherche Azure
-description: Contrôle d’accès en fonction du rôle (RBAC) sur le portail Azure pour le contrôle et la délégation de tâches d’administration dans le cadre de gestion de Recherche Azure.
-author: HeidiSteen
+title: Définir les rôles RBAC pour un accès administratif à Azure dans le portail
+titleSuffix: Azure Cognitive Search
+description: Contrôle d’accès en fonction du rôle (RBAC) sur le portail Azure pour le contrôle et la délégation de tâches d’administration dans le cadre de la gestion de Recherche cognitive Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 04/05/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 924d2529e3477c299d4a90c076fe9e6c8faf11f3
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 321aabb26d5929f7587dd61e7d4059701f7ad526
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647409"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794319"
 ---
-# <a name="set-rbac-roles-for-administrative-access"></a>Définir des rôles RBAC pour l’accès des administrateurs
+# <a name="set-rbac-roles-for-administrative-access-to-azure-cognitive-search"></a>Définir des rôles RBAC pour l’accès des administrateurs à Recherche cognitive Azure
 
 Azure offre un [modèle d’autorisation par rôle global](../role-based-access-control/role-assignments-portal.md) pour tous les services gérés via le portail ou les API Resource Manager. Les rôles Propriétaire, Contributeur et Lecteur définissent le niveau *d’administration des services* pour les utilisateurs, les groupes et les principaux de sécurité Active Directory assignés à chaque rôle. 
 
@@ -25,7 +24,7 @@ Azure offre un [modèle d’autorisation par rôle global](../role-based-access-
 
 ## <a name="management-tasks-by-role"></a>Tâches de gestion par rôle
 
-Pour Recherche Azure, les rôles sont associés à des niveaux d’autorisation qui prennent en charge les tâches de gestion suivantes :
+Pour Recherche cognitive Azure, les rôles sont associés à des niveaux d’autorisation qui prennent en charge les tâches de gestion suivantes :
 
 | Role | Tâche |
 | --- | --- |
@@ -39,5 +38,5 @@ Les rôles n’accordent pas de droits d’accès au point de terminaison de ser
 ## <a name="see-also"></a>Voir aussi
 
 + [Gestion à l’aide de PowerShell](search-manage-powershell.md) 
-+ [Performances et optimisation dans Recherche Azure](search-performance-optimization.md)
++ [Performances et optimisation dans Recherche cognitive Azure](search-performance-optimization.md)
 + [Découvrir le contrôle d’accès en fonction du rôle dans le portail Azure](../role-based-access-control/overview.md).

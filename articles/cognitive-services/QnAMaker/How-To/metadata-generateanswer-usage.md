@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: a63b6773a7546f8add0b2f2ab6280801e90bccca
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8f00ffeff4eb353fa70aa7df60b14c97d4b8e724
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248633"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554862"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenir une réponse avec l’API GenerateAnswer et des métadonnées
 
@@ -83,6 +83,7 @@ Un exemple de corps JSON ressemble à ceci :
     "top": 6,
     "isTest": true,
     "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
@@ -91,6 +92,8 @@ Un exemple de corps JSON ressemble à ceci :
     "userId": "sd53lsY="
 }
 ```
+
+En savoir plus sur [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
 Le JSON précédent a demandé uniquement des réponses à 30 % ou plus par rapport au score de seuil. 
 

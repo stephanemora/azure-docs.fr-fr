@@ -1,7 +1,7 @@
 ---
-title: 'Régression linéaire : référence sur le module'
+title: 'Régression linéaire : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Régression linéaire dans Azure Machine Learning service pour créer un modèle de régression linéaire à utiliser dans une expérience.
+description: Découvrez comment utiliser le module Régression linéaire dans Azure Machine Learning service pour créer un modèle de régression linéaire à utiliser dans un pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 506f37a2e01f428ccadc0368bd2efb6b58c9106c
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128690"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693713"
 ---
 # <a name="linear-regression-module"></a>Module Régression linéaire
-Cet article décrit un module de l’interface visuelle (en préversion) pour Azure Machine Learning service.
+Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning Service.
 
-Ce module permet de créer un modèle de régression linéaire utilisable dans une expérience.  Une régression linéaire tente d’établir une relation linéaire entre une ou plusieurs variables indépendantes et un résultat numérique ou une variable dépendante. 
+Utilisez ce module pour créer un modèle de régression linéaire à utiliser dans un pipeline.  Une régression linéaire tente d’établir une relation linéaire entre une ou plusieurs variables indépendantes et un résultat numérique ou une variable dépendante. 
 
 Ce module vous permet de définir une méthode de régression linéaire, puis d’effectuer l’apprentissage d’un modèle à l’aide d’un jeu de données étiqueté. Le modèle ainsi formé permet ensuite d’effectuer des prédictions.
 
@@ -63,9 +63,9 @@ Ce module prend en charge deux méthodes d’ajustement d’un modèle de régre
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a> Créer un modèle de régression utilisant les moindres carrés ordinaires
 
-1. Ajoutez le module **Linear Regression Model** (Modèle de régression linéaire) à votre expérience dans l’interface.
+1. Ajoutez le module **Modèle de régression linéaire** à votre pipeline dans l’interface.
 
-    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialize Model** (Initialiser un modèle), développez **Regression** (Régression), puis faites glisser le module **Linear Regression Model** (Modèle de régression linéaire) vers votre expérience.
+    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialiser un modèle**, développez **Régression**, puis faites glisser le module **Modèle de régression linéaire** vers votre pipeline.
 
 2. Dans le volet **Properties** (Propriétés), dans la liste déroulante **Solution method** (Méthode de la solution), sélectionnez **Ordinary Least Squares** (Moindres carrés ordinaires). Cette option spécifie la méthode de calcul utilisée pour déterminer la ligne de régression.
 
@@ -79,12 +79,12 @@ Ce module prend en charge deux méthodes d’ajustement d’un modèle de régre
 
 5. Pour **Random number seed** (Valeur initiale aléatoire), vous pouvez taper une valeur pour amorcer le générateur de nombres aléatoires que le modèle utilise.
 
-    L’utilisation d’une valeur de départ est utile si vous souhaitez conserver les mêmes résultats entre les différentes exécutions de la même expérience. Autrement, par défaut, une valeur de l’horloge système est utilisée.
+    L’utilisation d’une valeur de départ est utile si vous souhaitez conserver les mêmes résultats entre les différentes exécutions du même pipeline. Autrement, par défaut, une valeur de l’horloge système est utilisée.
 
 
-7. Ajoutez le module [Train Model](./train-model.md) (Entraîner le modèle) à votre expérience, puis connectez un jeu de données étiqueté.
+7. Ajoutez le module [Entraîner le modèle](./train-model.md) à votre pipeline, puis connectez un jeu de données étiqueté.
 
-8. Exécutez l’expérience.
+8. Exécuter le pipeline.
 
 ## <a name="results-for-ordinary-least-squares-model"></a>Résultats de modèle de moindres carrés ordinaires
 
@@ -97,9 +97,9 @@ Une fois l’apprentissage terminé :
 
 ## <a name="bkmk_GradientDescent"></a> Créer un modèle de régression utilisant la descente de gradient en ligne
 
-1. Ajoutez le module **Linear Regression Model** (Modèle de régression linéaire) à votre expérience dans l’interface.
+1. Ajoutez le module **Modèle de régression linéaire** à votre pipeline dans l’interface.
 
-    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialize Model** (Initialiser un modèle), développez **Regression** (Régression), puis faites glisser le module **Linear Regression Model** (Modèle de régression linéaire) vers votre expérience
+    Ce module figure dans la catégorie **Machine Learning**. Développez **Initialiser un modèle**, développez **Régression**, puis faites glisser le module **Modèle de régression linéaire** vers votre pipeline
 
 2. Dans le volet **Properties** (Propriétés), dans la liste déroulante **Solution method** (Méthode de la solution), sélectionnez **Online Gradient Descent** (Descente de gradient en ligne) comme méthode de calcul pour déterminer la ligne de régression.
 
@@ -125,14 +125,14 @@ Une fois l’apprentissage terminé :
 
 9. Sélectionnez l’option **Decrease learning rate** (Réduire le taux d’apprentissage) si vous voulez que le taux d’apprentissage décroisse à mesure que les itérations progressent.  
 
-10. Pour **Random number seed** (Valeur initiale aléatoire), vous pouvez taper une valeur pour amorcer le générateur de nombres aléatoires que le modèle utilise. L’utilisation d’une valeur de départ est utile si vous souhaitez conserver les mêmes résultats entre les différentes exécutions de la même expérience.
+10. Pour **Random number seed** (Valeur initiale aléatoire), vous pouvez taper une valeur pour amorcer le générateur de nombres aléatoires que le modèle utilise. L’utilisation d’une valeur de départ est utile si vous souhaitez conserver les mêmes résultats entre les différentes exécutions du même pipeline.
 
 
 12. Ajoutez un jeu de données étiqueté et l’un des modules d’apprentissage.
 
     Si vous n’utilisez pas de balayage de paramètre, utilisez le module [Train Model](train-model.md) (Entraîner le modèle).
 
-13. Exécutez l’expérience.
+13. Exécuter le pipeline.
 
 ## <a name="results-for-online-gradient-descent"></a>Résultats pour la descente de gradient en ligne
 

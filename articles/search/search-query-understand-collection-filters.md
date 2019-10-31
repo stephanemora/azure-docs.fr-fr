@@ -1,13 +1,13 @@
 ---
-title: Présentation des filtres de collection OData - Recherche Azure
-description: Présentation de la façon dont des filtres de collection OData fonctionnent dans les requêtes Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Présentation des filtres de collection OData
+titleSuffix: Azure Cognitive Search
+description: Présentation de la façon dont des filtres de collection OData fonctionnent dans les requêtes Recherche cognitive Azure.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,30 +19,30 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5c3a0205f5a9ac5115e78f1bc11f70b2c50a9714
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 9a57e1d16b13d822b6f5b541a7f838b0dd3a69ad
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647424"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794390"
 ---
-# <a name="understanding-odata-collection-filters-in-azure-search"></a>Présentation des filtres de collection OData dans la Recherche Azure
+# <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Présentation des filtres de collection OData dans Recherche cognitive Azure
 
-Pour appliquer un [filtre](query-odata-filter-orderby-syntax.md) sur des champs de collection dans la Recherche Azure, vous pouvez utiliser [les opérateurs `any` et `all`](search-query-odata-collection-operators.md) avec des **expressions lambda**. Les expressions lambda sont des expressions booléennes qui font référence à une **variable de portée**. Les opérateurs `any` et `all` sont analogues à une boucle `for` dans la plupart des langages de programmation, avec la variable de portée jouant le rôle de variable de boucle et l’expression lambda en tant que corps de la boucle. La variable de portée prend la valeur « actuelle » de la collection pendant l’itération de la boucle.
+Pour appliquer un [filtre](query-odata-filter-orderby-syntax.md) sur des champs de collection dans Recherche cognitive Azure, vous pouvez utiliser les opérateurs [`any` et `all`](search-query-odata-collection-operators.md) avec des **expressions lambda**. Les expressions lambda sont des expressions booléennes qui font référence à une **variable de portée**. Les opérateurs `any` et `all` sont analogues à une boucle `for` dans la plupart des langages de programmation, avec la variable de portée jouant le rôle de variable de boucle et l’expression lambda en tant que corps de la boucle. La variable de portée prend la valeur « actuelle » de la collection pendant l’itération de la boucle.
 
-Du moins, c’est ainsi qu’elle fonctionne sur le plan conceptuel. En réalité, la Recherche Azure implémente les filtres d’une manière très différente du fonctionnement des boucles `for`. Dans l’idéal, cette différence est invisible pour vous, mais elle ne l’est pas dans certaines situations. Le résultat final est qu’il existe des règles que vous devez suivre lors de l’écriture d’expressions lambda.
+Du moins, c’est ainsi qu’elle fonctionne sur le plan conceptuel. En réalité, Recherche cognitive Azure implémente les filtres d’une manière très différente du fonctionnement des boucles `for`. Dans l’idéal, cette différence est invisible pour vous, mais elle ne l’est pas dans certaines situations. Le résultat final est qu’il existe des règles que vous devez suivre lors de l’écriture d’expressions lambda.
 
-Cet article explique pourquoi les règles applicables aux filtres de collection existent en explorant la façon dont la Recherche Azure Search exécute ces filtres. Si vous écrivez des filtres avancés avec des expressions lambda complexes, cet article peut vous être utile pour améliorer votre compréhension des possibilités offertes par les filtres et pourquoi.
+Cet article explique pourquoi les règles applicables aux filtres de collection existent en explorant la façon dont Recherche cognitive Azure Search exécute ces filtres. Si vous écrivez des filtres avancés avec des expressions lambda complexes, cet article peut vous être utile pour améliorer votre compréhension des possibilités offertes par les filtres et pourquoi.
 
-Pour plus d’informations sur ce que sont les règles applicables aux filtres de collection, notamment des exemples, consultez [Résolution des problèmes liés aux filtres de collection OData dans la Recherche Azure](search-query-troubleshoot-collection-filters.md).
+Pour plus d’informations sur ce que sont les règles applicables aux filtres de collection, notamment des exemples, consultez [Résolution des problèmes liés aux filtres de collection OData dans Recherche cognitive Azure](search-query-troubleshoot-collection-filters.md).
 
 ## <a name="why-collection-filters-are-limited"></a>Raisons de la limitation des filtres de collection
 
 Il existe trois raisons sous-jacentes pour lesquelles toutes les fonctionnalités de filtre ne sont pas prises en charge pour tous les types de collections :
 
 1. Seuls certains opérateurs sont pris en charge pour certains types de données. Par exemple, cela n’a aucun sens de comparer les valeurs booléennes `true` et `false` à l’aide de `lt`, `gt`, etc.
-1. La Recherche Azure ne prend pas en charge la **recherche corrélée** sur des champs de type `Collection(Edm.ComplexType)`.
-1. La Recherche Azure utilise des index inversés pour exécuter des filtres sur tous les types de données, dont les collections.
+1. Recherche cognitive Azure ne prend pas en charge la **recherche corrélée** sur des champs de type `Collection(Edm.ComplexType)`.
+1. Recherche cognitive Azure utilise des index inversés pour exécuter des filtres sur tous les types de données, dont les collections.
 
 La première raison est simplement une conséquence de la façon dont le langage OData et le système de type EDM sont définis. Les deux dernières sont expliquées de façon plus détaillée dans le reste de cet article.
 
@@ -106,11 +106,11 @@ Façon dont `Rooms/Description` est stocké pour la recherche en texte intégral
 Par conséquent, contrairement au filtre ci-dessus, qui dit : « Trouver une correspondance avec les documents où une chambre a un `Type` égal à « Deluxe Room » (Chambre de luxe) et où **cette même chambre** a un `BaseRate` (Tarif de base) inférieur à 100 », la requête de recherche indique « Trouver une correspondance avec les documents où `Rooms/Type` (Chambres/Type) contient le terme « deluxe » (de luxe) et où `Rooms/Description` (Chambres/Description) contient l’expression « city view » (vue sur la ville). Il n’existe aucun concept de chambres individuelles dont les champs peuvent être mis en corrélation dans ce dernier cas.
 
 > [!NOTE]
-> Si vous voulez voir la prise en charge de la recherche corrélée ajoutée à la Recherche Azure, votez pour [cet élément User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
+> Si vous voulez voir la prise en charge de la recherche corrélée ajoutée à Recherche cognitive Azure, votez pour [cet élément User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections).
 
 ## <a name="inverted-indexes-and-collections"></a>Index inversés et collections
 
-Vous avez peut-être remarqué qu’il existe beaucoup moins de restrictions concernant les expressions lambda sur les collections complexes que pour les collections simples comme `Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)`, etc. En fait, la Recherche Azure stocke les collections complexes en tant que collections réelles de sous-documents, tandis que les collections simples ne sont pas du tout stockées en tant que collections.
+Vous avez peut-être remarqué qu’il existe beaucoup moins de restrictions concernant les expressions lambda sur les collections complexes que pour les collections simples comme `Collection(Edm.Int32)`, `Collection(Edm.GeographyPoint)`, etc. En fait, Recherche cognitive Azure stocke les collections complexes en tant que collections réelles de sous-documents, tandis que les collections simples ne sont pas du tout stockées en tant que collections.
 
 Par exemple, considérez un champ de collection de chaînes filtrable comme `seasons` dans un index destiné à un détaillant en ligne. Certains documents chargés dans cet index peuvent se présenter comme suit :
 
@@ -145,7 +145,7 @@ Les valeurs du champ `seasons` sont stockées dans une structure appelée **inde
 | fall | 1, 2 |
 | winter | 2, 3 |
 
-Cette structure de données est conçue pour répondre très rapidement à une question : Dans quels documents un terme donné apparaît-il ? Réponse à cette question équivaut davantage à un contrôle d’égalité simple qu’à une boucle sur une collection. En fait, c’est la raison pour laquelle, pour les collections de chaînes, la Recherche Azure autorise uniquement `eq` comme opérateur de comparaison dans une expression lambda pour `any`.
+Cette structure de données est conçue pour répondre très rapidement à une question : Dans quels documents un terme donné apparaît-il ? Réponse à cette question équivaut davantage à un contrôle d’égalité simple qu’à une boucle sur une collection. En fait, c’est la raison pour laquelle, pour les collections de chaînes, Recherche cognitive Azure autorise uniquement `eq` comme opérateur de comparaison dans une expression lambda pour `any`.
 
 En partant de l’égalité, nous allons ensuite voir comment il est possible de combiner plusieurs contrôles d’égalité sur la même variable de plage avec `or`. Cela fonctionne grâce à l’algèbre et à [la propriété distributive des quantificateurs](https://en.wikipedia.org/wiki/Existential_quantification#Negation). Cette expression :
 
@@ -174,7 +174,7 @@ C’est pourquoi il est possible d’utiliser `all` avec `ne` et `and`.
 >
 > Les règles inverses s’appliquent pour `all`.
 
-Un plus large choix d’expressions sont autorisées lors du filtrage sur des collections de types de données qui prennent en charge les opérateurs `lt`, `gt`, `le` et `ge`, comme `Collection(Edm.Int32)` par exemple. Plus précisément, vous pouvez utiliser `and` ainsi que `or` dans `any`, à condition que les expressions de comparaison sous-jacentes soient combinées en **comparaisons de plages** à l’aide de `and`, qui sont ensuite combinées à l’aide de `or`. Cette structure d’expressions booléennes est appelée [forme disjonctive normale (FND)](https://en.wikipedia.org/wiki/Disjunctive_normal_form), également appelée « ORs de ANDs ». À l’inverse, les expressions lambda pour `all` pour ces types de données doivent être en [forme normale conjonctive (FNC)](https://en.wikipedia.org/wiki/Conjunctive_normal_form), également appelée « ANDs de ORs ». La Recherche Azure permet de telles comparaisons de plages car elle peut les exécuter efficacement à l’aide d’index inversés, tout comme elle peut effectuer une recherche de termes rapide pour les chaînes.
+Un plus large choix d’expressions sont autorisées lors du filtrage sur des collections de types de données qui prennent en charge les opérateurs `lt`, `gt`, `le` et `ge`, comme `Collection(Edm.Int32)` par exemple. Plus précisément, vous pouvez utiliser `and` ainsi que `or` dans `any`, à condition que les expressions de comparaison sous-jacentes soient combinées en **comparaisons de plages** à l’aide de `and`, qui sont ensuite combinées à l’aide de `or`. Cette structure d’expressions booléennes est appelée [forme disjonctive normale (FND)](https://en.wikipedia.org/wiki/Disjunctive_normal_form), également appelée « ORs de ANDs ». À l’inverse, les expressions lambda pour `all` pour ces types de données doivent être en [forme normale conjonctive (FNC)](https://en.wikipedia.org/wiki/Conjunctive_normal_form), également appelée « ANDs de ORs ». Recherche cognitive Azure permet de telles comparaisons de plages car elle peut les exécuter efficacement à l’aide d’index inversés, tout comme elle peut effectuer une recherche de termes rapide pour les chaînes.
 
 En résumé, voici les règles générales concernant ce qui est autorisé dans une expression lambda :
 
@@ -188,8 +188,8 @@ Pour obtenir des exemples spécifiques des types de filtres qui sont autorisés 
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Résolution de problèmes liés aux filtres de collection OData dans la Recherche Azure](search-query-troubleshoot-collection-filters.md)
-- [Filtres dans Recherche Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Résolution de problèmes liés aux filtres de collection OData dans Recherche cognitive Azure](search-query-troubleshoot-collection-filters.md)
+- [Filtres dans Recherche cognitive Azure](search-filters.md)
+- [Vue d’ensemble du langage d’expression OData pour Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
