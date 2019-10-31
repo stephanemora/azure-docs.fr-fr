@@ -1,21 +1,21 @@
 ---
 title: Modération de texte - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Utilisez la modération du texte pour détecter le texte indésirable, les informations d’identification personnelle (PII) et les listes de termes personnalisées.
+description: Utilisez la modération de texte pour détecter un texte indésirable, des données à caractère personnel et des listes de termes personnalisées.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: c5127d0f16a12840cda735d1682cb578266441fe
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564381"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757249"
 ---
 # <a name="learn-text-moderation-concepts"></a>Familiarisez-vous avec les concepts de modération de texte
 
@@ -78,7 +78,7 @@ L’extrait suivant de l’extrait de code JSON présente un exemple de sortie :
 
 ## <a name="personal-data"></a>Données à caractère personnel
 
-La fonctionnalité PII détecte la présence potentielle des informations suivantes :
+La fonctionnalité de données à caractère personnel détecte la présence potentielle des informations suivantes :
 
 - Adresse de messagerie
 - Adresse postale aux États-Unis
@@ -89,51 +89,68 @@ La fonctionnalité PII détecte la présence potentielle des informations suivan
 
 L’exemple suivant illustre une réponse :
 
-    "PII": {
-        "Email": [{
-            "Detected": "abcdef@abcd.com",
-            "SubType": "Regular",
-            "Text": "abcdef@abcd.com",
-            "Index": 32
-            }],
-        "IPA": [{
-            "SubType": "IPV4",
-            "Text": "255.255.255.255",
-            "Index": 72
-            }],
-        "Phone": [{
-            "CountryCode": "US",
-            "Text": "6657789887",
-            "Index": 56
-            }, {
-            "CountryCode": "US",
-            "Text": "870 608 4000",
-            "Index": 212
-            }, {
-            "CountryCode": "UK",
-            "Text": "+44 870 608 4000",
-            "Index": 208
-            }, {
-            "CountryCode": "UK",
-            "Text": "0344 800 2400",
-            "Index": 228
-            }, {
-            "CountryCode": "UK",
-            "Text": "0800 820 3300",
-            "Index": 245
-            }],
-        "Address": [{
-            "Text": "1 Microsoft Way, Redmond, WA 98052",
-            "Index": 89
-            }],
-        "SSN": [{
-            "Text": "999999999",
-            "Index": 56
-            }, {
-            "Text": "999-99-9999",
-            "Index": 267
-            }]
-        }
+```json
+"PII":{ 
+  "Email":[ 
+    { 
+      "Detected":"abcdef@abcd.com",
+      "SubType":"Regular",
+      "Text":"abcdef@abcd.com",
+      "Index":32
+    }
+  ],
+  "IPA":[ 
+    { 
+      "SubType":"IPV4",
+      "Text":"255.255.255.255",
+      "Index":72
+    }
+  ],
+  "Phone":[ 
+    { 
+      "CountryCode":"US",
+      "Text":"6657789887",
+      "Index":56
+    },
+    { 
+      "CountryCode":"US",
+      "Text":"870 608 4000",
+      "Index":212
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"+44 870 608 4000",
+      "Index":208
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0344 800 2400",
+      "Index":228
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0800 820 3300",
+      "Index":245
+    }
+  ],
+  "Address":[ 
+    { 
+      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Index":89
+    }
+  ],
+  "SSN":[ 
+    { 
+      "Text":"999999999",
+      "Index":56
+    },
+    { 
+      "Text":"999-99-9999",
+      "Index":267
+    }
+  ]
+}
+```
 
 ## <a name="auto-correction"></a>Correction automatique
 

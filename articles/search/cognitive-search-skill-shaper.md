@@ -1,22 +1,21 @@
 ---
-title: Compétence de recherche cognitive Modélisation - Recherche Azure
-description: Extrayez des métadonnées et des informations structurées à partir de données non structurées pour les modeler en type complexe dans un pipeline d’enrichissement Recherche Azure.
-services: search
+title: Compétence cognitive Modélisation
+titleSuffix: Azure Cognitive Search
+description: Extrayez des métadonnées et des informations structurées à partir de données non structurées pour les modeler en type complexe dans un pipeline d’enrichissement dans Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84814c317a945fd22ada580dcc3f64ed2adcff7c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265349"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791875"
 ---
-#   <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
+# <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
 La compétence **Modélisation** regroupe plusieurs entrées dans un [type complexe](search-howto-complex-data-types.md) qui peut être référencé plus tard dans le pipeline d’enrichissement. La compétence **Modélisation** vous permet essentiellement de créer une structure, de définir le nom des membres de cette structure et d’assigner des valeurs à chaque membre. Parmi les exemples de champs regroupés utiles dans les scénarios de recherche, citons la combinaison d’un nom et d’un prénom dans une seule structure, d’une ville et d’un état dans une seule structure, ou du nom et d’une date de naissance dans une seule structure pour établir une identité unique.
 
@@ -32,7 +31,7 @@ Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Scénario 1 : types complexes
 
-Considérez un scénario dans lequel vous souhaitez créer une structure appelée *analyzedText* dotée de deux membres : *text* et *sentiment*. Dans un index Recherche Azure, un champ en plusieurs parties pouvant faire l’objet d’une recherche est appelé un *type complexe* et il est souvent créé lorsque les données sources présentent une structure complexe correspondante qui mappe à ce champ.
+Considérez un scénario dans lequel vous souhaitez créer une structure appelée *analyzedText* dotée de deux membres : *text* et *sentiment*. Dans un index, un champ en plusieurs parties pouvant faire l’objet d’une recherche est appelé un *type complexe* et il est souvent créé lorsque les données sources présentent une structure complexe correspondante qui mappe à ce champ.
 
 Toutefois, une autre approche de la création de types complexes consiste à utiliser la compétence **Modélisation**. Lorsque vous incluez cette compétence dans un ensemble de compétences, les opérations en mémoire pendant le traitement de l’ensemble de compétences peuvent sortir des formes de données avec des structures imbriquées, qui peuvent alors être mappées à un type complexe dans votre index. 
 
@@ -110,7 +109,7 @@ Un document JSON entrant fournissant des données d’entrée exploitables pour 
 
 ### <a name="skill-output"></a>Sortie de la compétence
 
-La compétence **Modélisation** génère un nouvel élément appelé *analyzedText* avec les éléments combinés *text* et *sentiment*. Cette sortie est conforme au schéma d’index. Elle est importée et indexée dans un index Recherche Azure.
+La compétence **Modélisation** génère un nouvel élément appelé *analyzedText* avec les éléments combinés *text* et *sentiment*. Cette sortie est conforme au schéma d’index. Elle est importée et indexée dans un index Recherche cognitive Azure.
 
 ```json
 {
@@ -252,5 +251,5 @@ Dans ce cas, le **modélisateur** crée un type complexe. Cette structure existe
 + [Compétences prédéfinies](cognitive-search-predefined-skills.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [How to use complex types](search-howto-complex-data-types.md) (Comment utiliser les types complexes)
-+ [Vue d’ensemble de la base de connaissances](knowledge-store-concept-intro.md)
++ [Base de connaissances (préversion)](knowledge-store-concept-intro.md)
 + [Prise en main de la Base de connaissances](knowledge-store-howto.md)

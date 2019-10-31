@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e26cf5ede2c8884719152b6d35f1b41eb092eda6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 72874e7b96e2ec8909a325b5ae598b900ebe8079
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071797"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791893"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Connexions hybrides d’Azure App Service #
 
@@ -38,7 +38,7 @@ Grâce aux deux connexions liées, votre application inclut un tunnel TCP vers u
 Lorsque votre application effectue une requête DNS qui correspond à un point de terminaison de connexion hybride configuré, le trafic TCP sortant est redirigé via la connexion hybride.  
 
 > [!NOTE]
-> Cela signifie que vous devez toujours utiliser un nom DNS pour votre connexion hybride. Certains logiciels clients n’effectuent une recherche DNS que si le point de terminaison utilise une adresse IP à la place.
+> Cela signifie que vous devez toujours utiliser un nom DNS pour votre connexion hybride. Certains logiciels clients n’effectuent une recherche DNS que si le point de terminaison utilise une adresse IP à la place. 
 >
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Avantages d’une connexion hybride App Service ###
@@ -62,6 +62,9 @@ Ce que vous ne pouvez pas faire avec les connexions hybrides, notamment :
 - Accéder à des services TCP qui utilisent des ports dynamiques tels que le mode FTP passif ou le mode passif étendu.
 - Prendre en charge LDAP, car cela peut utiliser UDP.
 - Prendre en charge Active Directory, car vous ne pouvez pas effectuer la jonction de domaine avec un rôle de travail App Service.
+
+### <a name="prerequisites"></a>Prérequis ###
+ - Un service d’application Windows est requis. Il n’est disponible que dans Windows.  
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Ajouter et créer des connexions hybrides dans votre application ##
 

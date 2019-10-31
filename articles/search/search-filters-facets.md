@@ -1,24 +1,23 @@
 ---
-title: Filtres de facette pour la navigation de recherche dans les applications - Recherche Azure
-description: Effectuez un filtrage selon des critères par identité de sécurité d’utilisateur, emplacement géographique ou valeurs numériques pour réduire les résultats de recherche des requêtes effectuées dans Recherche Azure, service de recherche dans le cloud hébergé sur Microsoft Azure.
-author: HeidiSteen
+title: Filtres de facette pour la navigation de recherche dans les applications
+titleSuffix: Azure Cognitive Search
+description: Effectuez un filtrage selon des critères par identité de sécurité d’utilisateur, emplacement géographique ou valeurs numériques pour réduire les résultats de recherche des requêtes effectuées dans la Recherche cognitive Azure, un service de recherche dans le cloud hébergé sur Microsoft Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 5/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: a2fe29cf1d7c183aa62e6b86a4b29479d1f34ff8
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649888"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792895"
 ---
-# <a name="how-to-build-a-facet-filter-in-azure-search"></a>Comment créer un filtre de facette dans la Recherche Azure 
+# <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Comment créer un filtre de facette dans la Recherche cognitive Azure 
 
-La navigation par facettes est utilisée pour le filtrage autonome sur les résultats d’une requête dans une application de recherche, dans le cadre de laquelle votre application propose des contrôles d’interface utilisateur permettant de limiter une recherche à des groupes de documents (par exemple, des catégories de marques) ; la Recherche Azure fournit la structure de données sur laquelle reposera l’opération. Dans cet article, nous passerons rapidement en revue les étapes de base de la procédure de création d’une structure de navigation par facettes, sur laquelle sera basée l’expérience de recherche que vous souhaitez proposer. 
+La navigation par facettes est utilisée pour le filtrage autonome sur les résultats d’une requête dans une application de recherche, dans le cadre de laquelle votre application propose des contrôles d’interface utilisateur permettant de limiter une recherche à des groupes de documents (par exemple, des catégories ou des marques) ; la Recherche cognitive Azure fournit la structure de données sur laquelle reposera l’opération. Dans cet article, nous passerons rapidement en revue les étapes de base de la procédure de création d’une structure de navigation par facettes, sur laquelle sera basée l’expérience de recherche que vous souhaitez proposer. 
 
 > [!div class="checklist"]
 > * Choisissez des champs pour le filtrage et la création de facettes
@@ -31,7 +30,7 @@ Les facettes sont dynamiques et renvoyées sur une requête. Les réponses assoc
 
   ![](./media/search-filters-facets/facet-nav.png)
 
-Vous découvrez ce type de navigation et souhaitez en savoir plus ? Consultez la section [Implémentation de la navigation à facettes dans la Recherche Azure](search-faceted-navigation.md).
+Vous découvrez ce type de navigation et souhaitez en savoir plus ? Consultez [Implémentation de la navigation par facettes dans la Recherche cognitive Azure](search-faceted-navigation.md).
 
 ## <a name="choose-fields"></a>Choisir des champs
 
@@ -78,7 +77,7 @@ Les attributs d’index qui contrôlent l’utilisation d’un champ sont ajout�
 ```
 
 > [!Note]
-> Cette définition d’index est copiée à partir de la section relative à la [création d’un index de Recherche Azure à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Il est identique, à l’exception de légères différences dans les définitions de champ. Les attributs `filterable` et `facetable` sont ajoutés de manière explicite sur les champs `category`, `tags`, `parkingIncluded`, `smokingAllowed`, et `rating`. Dans la pratique, `filterable` et `facetable` seraient activés par défaut sur ces champs lorsque vous utilisez l’API REST. Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, ces attributs doivent être activés explicitement.
+> Cette définition d’index est copiée à partir de la section relative à la [création d’un index de Recherche cognitive Azure à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Il est identique, à l’exception de légères différences dans les définitions de champ. Les attributs `filterable` et `facetable` sont ajoutés de manière explicite sur les champs `category`, `tags`, `parkingIncluded`, `smokingAllowed`, et `rating`. Dans la pratique, `filterable` et `facetable` seraient activés par défaut sur ces champs lorsque vous utilisez l’API REST. Lorsque vous utilisez le Kit de développement logiciel (SDK) .NET, ces attributs doivent être activés explicitement.
 
 ## <a name="build-and-load-an-index"></a>Créer et charger un index
 
@@ -118,12 +117,12 @@ Si vous souhaitez initialiser une page sur laquelle des facettes sont définies,
 
 ### <a name="preserve-a-facet-navigation-structure-asynchronously-of-filtered-results"></a>Conserver une structure de navigation par facettes de manière asynchrone par rapport aux résultats filtrés
 
-L’une des difficultés liées à la navigation par facettes dans la Recherche Azure est le fait que les facettes existent uniquement pour les résultats actuels. Dans la pratique, il est courant de conserver un ensemble statique de facettes, afin que l’utilisateur puisse naviguer dans l’ordre inverse, en suivant les étapes déjà parcourues pour explorer les autres chemins d’accès via le contenu de la recherche. 
+L’une des difficultés liées à la navigation par facettes dans la Recherche cognitive Azure est le fait que les facettes existent uniquement pour les résultats actuels. Dans la pratique, il est courant de conserver un ensemble statique de facettes, afin que l’utilisateur puisse naviguer dans l’ordre inverse, en suivant les étapes déjà parcourues pour explorer les autres chemins d’accès via le contenu de la recherche. 
 
 Il s’agit d’un cas d’usage courant, mais non fourni de manière prête à l’emploi par la structure de navigation par facettes. Les développeurs qui veulent utiliser des facettes statiques contournent cette limitation en émettant deux requêtes filtrées, l’une dont la portée se limite aux résultats et l’autre, qui permet de créer une liste statique de facettes pour la navigation.
 
 ## <a name="see-also"></a>Voir aussi
 
-+ [Filtres dans Recherche Azure](search-filters.md)
++ [Filtres dans la Recherche cognitive Azure](search-filters.md)
 + [Création d’une API REST d’index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents)

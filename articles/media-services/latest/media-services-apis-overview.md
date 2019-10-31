@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 574b1591669cc32ce30677cad5158e13b944486f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025639"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750203"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Développement avec des API Media Services v3
 
@@ -107,6 +107,8 @@ Media Services propose les opérations de longue durée suivantes :
 * [Mettre à l’échelle un StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
 En cas de soumission réussie d’une longue opération, vous recevez un message « 202 accepté » et devez interroger la fin de l’opération à l’aide de l’ID d’opération retourné.
+
+L’article [Suivre les opérations asynchrones Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) explique en détail comment suivre l’état des opérations asynchrones Azure à l’aide des valeurs retournées dans la réponse.
 
 Une seule opération de longue durée est prise en charge pour un événement en direct donné ou l’une de ses sorties en temps réel associées. Une fois démarrée, une opération de longue durée doit se terminer avant de commencer une opération de longue durée ultérieure sur le même LiveEvent ou sur les sorties en temps réel associées. Pour les événements en direct avec plusieurs sorties en temps réel, vous devez attendre la fin de l’exécution d’une opération de longue durée sur une sortie en temps réel avant de déclencher une opération de longue durée sur une autre sortie en temps réel. 
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
 ms.openlocfilehash: ac0109ff8c5dd7f6013acefbe5ee08a13494cb77
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71001762"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gérer les ressources du cluster Apache Spark dans Azure HDInsight 
@@ -71,7 +71,7 @@ Les trois paramètres de configuration peuvent être configurés au niveau du cl
 ### <a name="change-the-parameters-using-ambari-ui"></a>Modifier les paramètres à l’aide de l’interface utilisateur d’Ambari
 1. À partir de l’interface utilisateur d’Ambari, cliquez sur **Spark**, puis sur **Configs (Configurations)** , puis développez **Custom spark-defaults (Personnaliser les valeurs Spark par défaut)** .
 
-    ![Définir des paramètres à l’aide d’Ambari (personnalisé)](./media/apache-spark-resource-manager/set-parameters-using-ambari.png "Définir des paramètres à l’aide d’Ambari (personnalisé)")
+    ![Définir des paramètres personnalisés à l’aide d’Ambari](./media/apache-spark-resource-manager/set-parameters-using-ambari.png "Définir des paramètres personnalisés à l’aide d’Ambari")
 2. Les valeurs par défaut conviennent si vous souhaitez exécuter simultanément quatre applications Spark sur le cluster. Vous pouvez modifier ces valeurs dans l’interface utilisateur, comme indiqué dans la capture d’écran suivante :
 
     ![Définir des paramètres à l’aide d’Ambari](./media/apache-spark-resource-manager/set-executor-parameters.png "Définir des paramètres à l’aide d’Ambari")
@@ -110,7 +110,7 @@ Le serveur Thrift Spark utilise l’allocation d’exécuteur dynamique de Spark
     ![Configurer le serveur Thrift Spark](./media/apache-spark-resource-manager/spark-thrift-server-1.png "Configurer le serveur Thrift Spark")
 * Développez la catégorie **Custom spark-thrift-sparkconf** pour mettre à jour le paramètre `spark.executor.cores`.
 
-    ![Configurer le paramètre du serveur Thrift Spark](./media/apache-spark-resource-manager/spark-thrift-server-2.png "Configurer le paramètre du serveur Thrift Spark")
+    ![Configurer les paramètres du serveur Thrift Spark](./media/apache-spark-resource-manager/spark-thrift-server-2.png "Configurer les paramètres du serveur Thrift Spark")
 
 ### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Modifier la mémoire du pilote du serveur Spark Thrift
 La mémoire du pilote du serveur Spark Thrift est configurée sur 25 % de la taille de la mémoire RAM du nœud principal, sous réserve que la taille totale de la mémoire RAM du nœud principal soit supérieure à 14 Go. Vous pouvez utiliser l’interface utilisateur d’Ambari pour modifier la configuration de la mémoire du pilote, comme indiqué dans la capture d’écran suivante :
@@ -142,16 +142,16 @@ Lancez l’interface utilisateur web d’Ambari comme indiqué au début de l’
 ## <a name="monitor-resources"></a>Surveiller les ressources
 Lancez l’interface utilisateur Yarn comme indiqué au début de l’article. Dans la table des mesures de Cluster située en haut de l’écran, vérifiez les valeurs des colonnes **Mémoire utilisée** et **Mémoire totale**. Si les deux valeurs sont proches, le nombre de ressources ne sera peut-être pas suffisant pour démarrer l’application suivante. Cela s’applique également aux colonnes **VCores utilisés** et **Total des VCores**. En outre, dans la vue principale, si une application est restée dans l’état **ACCEPTÉ** et n’est pas passée à l’état **EN COURS D’EXÉCUTION** ou **Échec**. Cela peut également indiquer que le nombre de ressources est insuffisant pour démarrer.
 
-![Limite des ressources](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Limite des ressources")
+![Limite de ressources](./media/apache-spark-resource-manager/apache-ambari-resource-limit.png "Limite de ressources")
 
 ## <a name="kill-running-applications"></a>Arrêter les applications en cours d’exécution
 1. Dans l’interface utilisateur Yarn, dans le volet gauche, cliquez sur **En cours d’exécution**. Dans la liste des applications en cours d’exécution, déterminez l’application à arrêter, puis cliquez sur l’**ID**.
 
-    ![Arrêter App1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Arrêter App1")
+    ![Arrêter une application1](./media/apache-spark-resource-manager/apache-ambari-kill-app1.png "Arrêter une application1")
 
 2. Cliquez sur **Arrêter l’application** dans le coin supérieur droit, puis cliquez sur **OK**.
 
-    ![Arrêter App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Arrêter App2")
+    ![Arrêter une application2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Arrêter une application2")
 
 ## <a name="see-also"></a>Voir aussi
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](apache-spark-job-debugging.md)

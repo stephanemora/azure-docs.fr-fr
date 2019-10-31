@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962665"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752357"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Vos avantages sur la place de marché commerciale
 
@@ -60,7 +60,10 @@ Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Récompenses de la Place de marché pour les partenaires de transaction
 
-Lorsque vous oubliez votre offre sur la place de marché Azure ou dans Microsoft AppSource, vous pouvez accéder à des avantages supplémentaires à mesure que vous augmentez vos transactions de ventes facturées sur la place de marché commerciale. 
+Lorsque vous publiez votre offre négociable sur la Place de marché Azure ou dans Microsoft AppSource, vous pouvez accéder à des avantages supplémentaires à mesure que vous augmentez vos transactions de ventes facturées ou sièges vendus sur la place de marché commerciale. 
+
+>[!Note]
+>Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS avec des intégrations à Microsoft Teams, Office, Outlook ou SharePoint) et les avantages doivent être utilisés avant le 30 juin 2020.
 
 Ces avantages sont conçus pour vous aider dans vos activités de marketing, de ventes et techniques. Ils vous aident donc à obtenir davantage de visiteurs, à recevoir plus de prospects et à convertir davantage d’entreprises.
 
@@ -71,6 +74,8 @@ Tous les partenaires qui disposent d’une offre publiée peuvent travailler ave
 ![Avantages commerciaux](./media/marketplace-publishers-guide/sales-benefit.png)
 
 ![Avantages techniques](./media/marketplace-publishers-guide/technical-benefit.png)
+
+\* Le seuil des sièges vendus s’applique uniquement aux applications Microsoft 365 (applications SaaS avec des intégrations à Microsoft Teams, Office, Outlook ou SharePoint) et les avantages doivent être utilisés avant le 30 juin 2020.
 
 Vous trouverez une description détaillée de tous ces avantages dans le [Jeu du programme de récompenses de la place de marché](https://aka.ms/marketplacerewards).
 

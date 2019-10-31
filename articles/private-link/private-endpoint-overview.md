@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937376"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592378"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -121,7 +121,7 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 
 |Limitation |Description |Atténuation  |
 |---------|---------|---------|
-|Les règles de groupe de sécurité réseau ne s’appliquent pas à Private Endpoint    |Le groupe de sécurité réseau n’est pas pris en charge sur Private Endpoint. Si les sous-réseaux contenant Private Endpoint peuvent être associés à un groupe de sécurité réseau, les règles ne sont pas effectives sur le trafic traité par Private Endpoint. Vous devez [désactiver l’application des stratégies réseau](disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau.   | Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source.        |
+|Les règles de groupe de sécurité réseau et les routes définies par l’utilisateur ne s’appliquent pas au point de terminaison privé.    |Le groupe de sécurité réseau n’est pas pris en charge sur Private Endpoint. Si les sous-réseaux contenant Private Endpoint peuvent être associés à un groupe de sécurité réseau, les règles ne sont pas effectives sur le trafic traité par Private Endpoint. Vous devez [désactiver l’application des stratégies réseau](disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau. Les routes sur un sous-réseau client, quel qu’il soit, utiliseront un préfixe /32. La modification du comportement de routage par défaut nécessite une UDR similaire.  | Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source. Déployez des routes individuelles avec le préfixe /32 pour remplacer les routes de points de terminaison privés.        |
 |Vous ne pouvez pas créer Private Endpoint dans des sous-réseaux activés pour un point de terminaison de service ou des charges de travail spécialisées    |Vous ne pouvez pas déployer Private Endpoint dans des sous-réseaux activés pour des points de terminaison de service ou des sous-réseaux délégués à des charges de travail spécialisées|  Créez un sous-réseau distinct pour déployer Private Endpoint.        |
 |Private Endpoint ne peut être mappé qu’à un service Private Link (appartenant à un client) se trouvant dans la même région    |   La connexion à un service Private Link (votre propre service) à partir d’une autre région n’est pas prise en charge       |  Pour la version préliminaire, vous devez déployer votre service Private Link dans la même région.        |
 |  Un réseau virtuel appairé avec uniquement des points de terminaison privés n’est pas pris en charge   |   Quand la connexion à des points de terminaison privés sur un réseau virtuel appairé sans aucune autre charge de travail n’est pas prise en charge       | Déployez une machine virtuelle unique sur le réseau virtuel appairé pour activer la connectivité. |

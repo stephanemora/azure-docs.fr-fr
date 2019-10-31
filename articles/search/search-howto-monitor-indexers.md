@@ -1,25 +1,24 @@
 ---
-title: Comment surveiller l’état et les résultats d’un indexeur – Recherche Azure
-description: Surveillez l’état, la progression et les résultats des indexeurs Recherche Azure dans le Portail Azure (en utilisant l’API REST) ou le SDK .NET.
-ms.date: 06/28/2019
-author: RobDixon22
+title: Comment surveiller l’état et les résultats d’un indexeur
+titleSuffix: Azure Cognitive Search
+description: Surveillez l’état, la progression et les résultats des indexeurs Recherche cognitive Azure dans le portail Azure (en utilisant l’API REST) ou le SDK .NET.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 6a8eaca029767e1d6bce4bc8ce22ce5523be26d8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186599"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793803"
 ---
-# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Comment surveiller l’état et les résultats d’un indexeur Recherche Azure
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Comment surveiller l’état et les résultats d’un indexeur Recherche cognitive Azure
 
-Recherche Azure fournit des informations sur l’état et le suivi des exécutions actuelles et historiques de chaque indexeur.
+Recherche cognitive Azure fournit des informations sur l’état et le suivi des exécutions actuelles et historiques de chaque indexeur.
 
 La surveillance de l’indexeur est utile lorsque vous souhaitez :
 
@@ -27,7 +26,7 @@ La surveillance de l’indexeur est utile lorsque vous souhaitez :
 * Passer en revue les résultats de l’exécution en cours ou précédente de l’indexeur.
 * Identifier les erreurs de l’indexeur de niveau supérieur et les erreurs ou avertissements concernant l’indexation de documents individuels.
 
-## <a name="find-indexer-status-and-history-details"></a>Rechercher l’état et les informations historiques des indexeurs
+## <a name="get-status-and-history"></a>Obtenir l’état et l’historique
 
 Vous pouvez accéder aux informations de surveillance de l’indexeur de différentes manières, notamment :
 
@@ -45,7 +44,7 @@ L’exécution des indexeurs qui traitent de grands volumes de données peut êt
 
 <a name="portal"></a>
 
-## <a name="monitor-indexers-in-the-portal"></a>Surveiller les indexeurs dans le portail
+## <a name="monitor-using-the-portal"></a>Surveiller à l’aide du portail
 
 L’état actuel de tous vos indexeurs figure dans la liste **Indexeurs** de la page Vue d’ensemble de votre service de recherche.
 
@@ -75,11 +74,11 @@ Si vous rencontrez des problèmes spécifiques au document pendant l’exécutio
 
 Les avertissements sont courants avec certains types d’indexeurs et n’indiquent pas toujours un problème. Par exemple, les indexeurs qui utilisent des services cognitifs peuvent signaler des avertissements lorsque les fichiers image ou PDF ne contiennent pas de texte à traiter.
 
-Pour plus d’informations sur l’analyse des erreurs et des avertissements de l’indexeur, consultez [Résoudre les problèmes courants des indexeurs dans la Recherche Azure](search-indexer-troubleshooting.md).
+Pour plus d’informations sur l’analyse des erreurs et des avertissements de l’indexeur, consultez [Résoudre les problèmes courants des indexeurs dans Recherche cognitive Azure](search-indexer-troubleshooting.md).
 
 <a name="restapi"></a>
 
-## <a name="monitor-indexers-using-the-rest-api"></a>Surveiller des indexeurs à l’aide de l’API REST
+## <a name="monitor-using-rest-apis"></a>Surveiller à l’aide d’API REST
 
 Vous pouvez récupérer l’état et l’historique d’exécution d’un indexeur à l’aide de la [commande Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) :
 
@@ -126,9 +125,9 @@ Pour plus d’informations sur les codes d’état et les données de surveillan
 
 <a name="dotnetsdk"></a>
 
-## <a name="monitor-indexers-using-the-net-sdk"></a>Surveiller des indexeurs à l’aide du SDK .NET
+## <a name="monitor-using-the-net-sdk"></a>Surveiller à l’aide du Kit de développement logiciel (SDK) .NET
 
-Vous pouvez configurer la planification d’un indexeur à l’aide du kit de développement logiciel (SDK) .NET Recherche Azure. Pour ce faire, ajoutez la propriété **schedule** lors de la création ou de la mise à jour d’un indexeur.
+Vous pouvez configurer la planification d’un indexeur à l’aide du Kit de développement logiciel (SDK) .NET Recherche cognitive Azure. Pour ce faire, ajoutez la propriété **schedule** lors de la création ou de la mise à jour d’un indexeur.
 
 L’exemple C# suivant écrit des informations sur l’état d’un indexeur et les résultats de son exécution la plus récente (ou en cours) à la console.
 

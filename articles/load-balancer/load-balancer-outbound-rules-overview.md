@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: 39a23fa277d7bb389098674556b65b1b13676ead
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 9fc9eb347e97fe6ab57b3e30651e4ea77a4ce9c8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305577"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790244"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
 
@@ -69,9 +69,9 @@ Dans l’API version « 2018-07-01 », une définition de règle de trafic sorta
 
 Une règle de trafic sortant peut être utilisée avec une seule adresse IP publique, mais les règles de trafic sortant facilitent la configuration de la mise à l’échelle de la NAT de trafic sortant. Vous pouvez utiliser plusieurs adresses IP pour vos scénarios à grande échelle et utiliser des règles de trafic sortant afin de limiter les risques [d’épuisement de ports SNAT](load-balancer-outbound-connections.md#snatexhaust).  
 
-Chaque adresse IP supplémentaire fournie par un serveur frontal met à disposition 51 200 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT. Alors que les règles d’équilibrage de charge ou les règles NAT de trafic entrant ont un seul frontend, la règle de trafic sortant étend la notion de frontend et permet l’utilisation de plusieurs frontends par règle.  Avec plusieurs frontends par règle, le nombre de ports SNAT disponibles est multiplié avec chaque adresse IP publique, ce qui rend possible la prise en charge de scénarios à grande échelle.
+Chaque adresse IP supplémentaire fournie par un frontend met à disposition 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT. Alors que les règles d’équilibrage de charge ou les règles NAT de trafic entrant ont un seul frontend, la règle de trafic sortant étend la notion de frontend et permet l’utilisation de plusieurs frontends par règle.  Avec plusieurs frontends par règle, le nombre de ports SNAT disponibles est multiplié avec chaque adresse IP publique, ce qui rend possible la prise en charge de scénarios à grande échelle.
 
-De plus, vous pouvez utiliser un [préfixe d’adresse IP publique](https://aka.ms/lbpublicipprefix) directement avec une règle de trafic sortant.  L’utilisation d’un préfixe d’adresse IP publique simplifie la mise à l’échelle et la mise sur liste verte des flux provenant de votre déploiement Azure. Vous pouvez configurer une configuration IP frontend au sein de la ressource Load Balancer pour référencer directement un préfixe d’adresse IP publique.  De cette manière, Load Balancer conserve un contrôle exclusif sur le préfixe d’adresse IP publique, et la règle de trafic sortant utilise automatiquement toutes les adresses IP publiques contenues dans le préfixe d’adresse IP publique pour les connexions sortantes.  Chacune des adresses IP dans la plage du préfixe d’adresse IP publique fournit 51 200 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT.   
+De plus, vous pouvez utiliser un [préfixe d’adresse IP publique](https://aka.ms/lbpublicipprefix) directement avec une règle de trafic sortant.  L’utilisation d’un préfixe d’adresse IP publique simplifie la mise à l’échelle et la mise sur liste verte des flux provenant de votre déploiement Azure. Vous pouvez configurer une configuration IP frontend au sein de la ressource Load Balancer pour référencer directement un préfixe d’adresse IP publique.  De cette manière, Load Balancer conserve un contrôle exclusif sur le préfixe d’adresse IP publique, et la règle de trafic sortant utilise automatiquement toutes les adresses IP publiques contenues dans le préfixe d’adresse IP publique pour les connexions sortantes.  Chacune des adresses IP dans la plage du préfixe d’adresse IP publique fournit 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT.   
 
 Avec cette option, vous ne pouvez pas créer des ressources d’adresse IP publique de manière individuelle à partir du préfixe d’adresse IP publique, car la règle de trafic sortant doit avoir un contrôle total sur le préfixe d’adresse IP publique.  Si vous souhaitez un contrôle plus précis, créez une ressource d’adresse IP publique individuelle à partir du préfixe d’adresse IP publique et assignez plusieurs adresses IP publiques individuellement au frontend d’une règle de trafic sortant.
 
@@ -84,7 +84,7 @@ Utilisez le paramètre suivant pour allouer 10 000 ports SNAT par machine virtue
 
           "allocatedOutboundPorts": 10000
 
-Chaque adresse IP publique de tous les serveurs frontaux d’une règle de trafic sortant fournit jusqu’à 51 200 ports éphémères en tant que ports SNAT.  Load Balancer alloue des ports SNAT par multiples de huit. Si vous indiquez une valeur non divisible par huit, l’opération de configuration est rejetée.  Si vous essayez d’allouer plus de ports SNAT qu’il n’y a de ports disponibles par rapport au nombre d’adresses IP publiques, l’opération de configuration est rejetée.  Par exemple, si vous allouez 10 000 ports par machine virtuelle et que sept machines virtuelles d'un pool principal partagent la même adresse IP publique, la configuration est rejetée (7 x 10 000 ports SNAT > 51 200 ports SNAT).  Dans ce scénario, vous devrez donc ajouter des adresses IP publiques supplémentaires sur le frontend de la règle de trafic sortant.
+Chaque adresse IP publique de tous les frontends d’une règle de trafic sortant fournit jusqu’à 64 000 ports éphémères en tant que ports SNAT.  Load Balancer alloue des ports SNAT par multiples de huit. Si vous indiquez une valeur non divisible par huit, l’opération de configuration est rejetée.  Si vous essayez d’allouer plus de ports SNAT qu’il n’y a de ports disponibles par rapport au nombre d’adresses IP publiques, l’opération de configuration est rejetée.  Par exemple, si vous allouez 10 000 ports par machine virtuelle et que sept machines virtuelles d’un pool principal partagent la même adresse IP publique, la configuration est rejetée (7 x 10 000 ports SNAT > 64 000 ports SNAT).  Dans ce scénario, vous devrez donc ajouter des adresses IP publiques supplémentaires sur le frontend de la règle de trafic sortant.
 
 Vous pouvez revenir à une [allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports) en spécifiant 0 comme nombre de ports.
 
@@ -162,7 +162,7 @@ Si vous ne souhaitez pas utiliser la règle d’équilibrage de charge pour le t
 
 Vous pouvez utiliser des règles de trafic sortant pour paramétrer [l’allocation de ports SNAT automatique en fonction de la taille du pool backend](load-balancer-outbound-connections.md#preallocatedports).
 
-Par exemple, si vous avez deux machines virtuelles qui partagent une seule adresse IP publique pour la NAT de trafic sortant, vous pouvez augmenter le nombre de ports SNAT alloués (1 024 ports par défaut) en cas d’épuisement des ports SNAT. Chaque adresse IP publique peut fournir jusqu’à 51 200 ports éphémères.  Si vous configurez une règle de trafic sortant avec une seule adresse IP publique de serveur frontal, vous pouvez distribuer un total de 51 200 ports SNAT sur les machines virtuelles du pool principal.  Pour deux machines virtuelles, un maximum de 25 600 ports SNAT peut être alloué avec une règle de trafic sortant (2 x 25 600 = 51 200).
+Par exemple, si vous avez deux machines virtuelles qui partagent une seule adresse IP publique pour la NAT de trafic sortant, vous pouvez augmenter le nombre de ports SNAT alloués (1 024 ports par défaut) en cas d’épuisement des ports SNAT. Chaque adresse IP publique peut fournir jusqu’à 64 000 ports éphémères.  Si vous configurez une règle de trafic sortant avec une seule adresse IP publique frontend, vous pouvez distribuer un total de 64 000 ports SNAT sur les machines virtuelles du pool backend.  Pour deux machines virtuelles, un maximum de 32 000 ports SNAT peut être alloué avec une règle de trafic sortant (2 x 32 000 = 64 000).
 
 Consultez l’article [Connexions sortantes](load-balancer-outbound-connections.md) et la section sur l’allocation et l’utilisation des ports [SNAT](load-balancer-outbound-connections.md#snat).
 
@@ -204,7 +204,7 @@ Lorsque vous utilisez un équilibreur de charge standard interne, la NAT de traf
 
 ## <a name="limitations"></a>Limites
 
-- Le nombre maximal de ports éphémères utilisables par adresse IP de serveur frontal est de 51 200.
+- Le nombre maximal de ports éphémères utilisables par adresse IP frontend est de 64 000.
 - Le délai d’inactivité défini pour un flux sortant doit être compris entre 4 et 120 minutes (240 à 7 200 secondes).
 - L’équilibreur de charge ne prend pas en charge ICMP pour la NAT de trafic sortant.
 - Le portail ne permet pas de configurer ni d’afficher les règles de trafic sortant.  Utilisez plutôt des modèles, l’API REST, Az CLI 2.0 ou PowerShell.

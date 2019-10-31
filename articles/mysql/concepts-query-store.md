@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: bac270dc0d49c0eaa8c01b030256aa9bb597db80
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/17/2019
+ms.openlocfilehash: 40718cdb12cbc46bf0587dfdc657ee06c090061b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029869"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598240"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Surveiller les performances d’Azure Database pour MySQL avec Magasin de données des requêtes
 
@@ -70,6 +70,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 ```
 
 ## <a name="finding-wait-queries"></a>Recherche de requêtes d’attente
+
+> [!NOTE]
+> Les statistiques d’attente ne doivent pas être activées pendant les heures de pic de charges de travail ou être activées indéfiniment pour les charges de travail sensibles. <br>Pour les charges de travail dont l’exécution implique une utilisation élevée du processeur ou qui sont exécutées sur des serveurs configurés avec des vCores inférieurs, activez les statistiques d’attente avec prudence. Elles ne doivent pas être activées indéfiniment. 
 
 Les types d’événements d’attente combinent différents événements d’attente dans des compartiments par similarité. Le Magasin des requêtes fournit le type d’événement d’attente, le nom d’événement d’attente spécifique et la requête en question. Pouvoir mettre en corrélation ces informations d’attente avec les statistiques d’exécution de requête vous permet de mieux comprendre ce qui contribue aux caractéristiques de performances des requêtes.
 

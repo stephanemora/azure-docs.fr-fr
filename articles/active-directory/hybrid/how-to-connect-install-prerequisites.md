@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0392a40ef948d96e613da9127629f52b02deb97
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: b2db8d5881b5847adca4fffb72c0a678e1ec550c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655820"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596329"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -151,7 +151,7 @@ Azure AD Connect repose sur Microsoft PowerShell et le .NET Framework 4.5.1. Cet
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Activer TLS 1.2 pour Azure AD Connect
 Avant la version 1.1.614.0, Azure AD Connect utilise TLS 1.0 par défaut pour le chiffrement de la communication entre le serveur de moteur de synchronisation et Azure AD. Vous pouvez modifier ce comportement en configurant les applications .NET pour qu’elles utilisent TLS 1.2 par défaut sur le serveur. Vous trouverez plus d’informations sur TLS 1.2 dans [l’Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358).
 
-1. TLS 1.2 ne peut pas être activé sur les versions Windows Server 2008 R2 ou ultérieures. Vérifiez que le correctif .NET 4.5.1 est installé pour votre système d’exploitation. Consultez [l’Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Il est possible que cette version du correctif ou une version ultérieure soit déjà installée sur votre serveur.
+1. TLS 1.2 ne peut pas être activé sur les versions Windows Server 2008 R2 ou antérieures. Vérifiez que le correctif .NET 4.5.1 est installé pour votre système d’exploitation. Consultez [l’Avis de sécurité Microsoft 2960358](https://technet.microsoft.com/security/advisory/2960358). Il est possible que cette version du correctif ou une version ultérieure soit déjà installée sur votre serveur.
 2. Si vous utilisez Windows Server 2008 R2, vérifiez que TLS 1.2 est activé. Sur le serveur Windows Server 2012 et les versions ultérieures, TLS 1.2 doit déjà être activé.
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]

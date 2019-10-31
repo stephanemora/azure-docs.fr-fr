@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: f6323501fc0078677c4c0e2cd0e43a15583df29b
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3e6af57840cf60516aba994a6b5728bfb7b35f09
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513988"
+ms.locfileid: "72553528"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Optimisation des performances avec la mise en cache des jeux de résultats  
 Lorsque la mise en cache du jeu de résultats est activée, Azure SQL Data Warehouse met automatiquement en cache les résultats de la requête dans la base de données utilisateur ce qui permet de les utiliser de façon répétée.  Ainsi, les exécutions de requêtes suivantes obtiennent les résultats directement à partir du cache persistant de sorte que le recalcul n’est pas nécessaire.   La mise en cache des jeux de résultats améliore les performances des requêtes et réduit l’utilisation des ressources de calcul.  De plus, les requêtes qui recourent au cache du jeu de résultats n’utilisent pas d’emplacements de concurrence et ne sont donc pas prises en compte pour l’application des limites de concurrence existantes. Pour des raisons de sécurité, les utilisateurs ne peuvent accéder aux résultats mis en cache que s’ils ont les mêmes autorisations d’accès aux données que les utilisateurs qui créent les résultats mis en cache.  
@@ -34,11 +34,10 @@ Lorsque la mise en cache du jeu de résultats est activée, Azure SQL Data Wareh
 Une fois la mise en cache du jeu de résultats activée pour une base de données, les résultats sont mis en cache pour toutes les requêtes jusqu’à ce que le cache soit plein, à l’exception des requêtes suivantes :
 - Requêtes utilisant des fonctions non déterministes telles que DateTime.Now()
 - Requêtes utilisant des fonctions définies par l’utilisateur
+- Requêtes utilisant des tables avec une sécurité au niveau des lignes ou une sécurité au niveau des colonnes activée
 - Requêtes qui retournent des données avec une taille de ligne supérieure à 64 Ko
 
 Les requêtes avec de grands jeux de résultats (de plus de 1 million de lignes, par exemple) peuvent être ralenties lors de la première exécution, au moment de la création du cache des résultats.
-
-La sécurité au niveau des lignes n’est pas prise en charge par la mise en cache du jeu de résultats.  
 
 ## <a name="when-cached-results-are-used"></a>Quand les résultats mis en cache sont utilisés
 

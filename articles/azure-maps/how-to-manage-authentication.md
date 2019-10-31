@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 2f4a3d791e6b5d6ff20c09408d1a0bf5995c32fd
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67837814"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756557"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 
@@ -103,3 +103,8 @@ Pour en apprendre davantage sur l’authentification Azure AD et le kit SDK web 
 Découvrez comment afficher les métriques d’utilisation des API pour votre compte Azure Maps :
 > [!div class="nextstepaction"] 
 > [Afficher les métriques d’utilisation](how-to-view-api-usage.md)
+
+Pour obtenir une liste d’exemples montrant comment intégrer AAD (Azure Active Directory) à Azure Maps, consultez :
+
+> [!div class="nextstepaction"]
+> [Exemples d’authentification AAD](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

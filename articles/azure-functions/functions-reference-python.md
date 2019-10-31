@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243280"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674943"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -398,22 +398,15 @@ pip install -r requirements.txt
 
 Avant de procéder à la publication, vérifiez que toutes les dépendances sont listées dans le fichier *requirements.txt*, situé à la racine de votre répertoire de projet. Azure Functions peut [créer à distance](functions-deployment-technologies.md#remote-build) ces dépendances.
 
-Les dossiers et fichiers projet qui sont exclus de la publication, y compris le dossier d’environnement virtuel, sont listés dans le fichier .funcignore.  
+Les dossiers et fichiers projet qui sont exclus de la publication, y compris le dossier d’environnement virtuel, sont listés dans le fichier .funcignore. 
 
-Pour déployer sur Azure et effectuer une build distante, utilisez la commande suivante :
+[Azure Functions Core Tools](functions-run-local.md#v2) et l’[extension Azure Functions pour VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) effectueront une build distante par défaut. Par exemple, utilisez la commande suivante :
 
 ```bash
-func azure functionapp publish <app name> --build remote
+func azure functionapp publish <app name>
 ```
 
-Si vous n’utilisez pas une build distante et utilisez un package qui demande un compilateur et ne prend pas en charge l’installation de nombreuses roues compatibles Linux de PyPI, la publication sur Azure sans générer de build localement échoue avec l’erreur suivante :
-
-```
-There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
-The terminal process terminated with exit code: 1
-```
-
-Pour générer une build localement et configurer les binaires nécessaires, [installez Docker](https://docs.docker.com/install/) sur votre ordinateur local et exécutez la commande suivante afin d’utiliser [Azure Functions Core Tools](functions-run-local.md#v2) (func) pour la publication. Veillez à remplacer `<app name>` par le nom de votre application de fonction dans Azure. 
+Si vous souhaitez générer votre application localement au lieu de le faire sur Azure, [installez Docker](https://docs.docker.com/install/) sur votre machine locale et exécutez la commande suivante afin d’utiliser [Azure Functions Core Tools](functions-run-local.md#v2) (func) pour la publication. Veillez à remplacer `<app name>` par le nom de votre application de fonction dans Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

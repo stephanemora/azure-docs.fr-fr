@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 3d9826e3eae2a60b217df1406d26d83c78fbdefb
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "67673336"
 ---
 Pour créer un réseau virtuel dans le modèle de déploiement Resource Manager à l’aide du portail Azure, suivez les étapes ci-dessous. Les captures d’écran sont fournies à titre d’exemple. Assurez-vous de remplacer ces valeurs par les vôtres. Pour plus d’informations sur l’utilisation des réseaux virtuels, voir [Présentation du réseau virtuel](../articles/virtual-network/virtual-networks-overview.md).
@@ -25,13 +25,13 @@ Pour créer un réseau virtuel dans le modèle de déploiement Resource Manager 
 1. Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
 2. Cliquez sur **+** Dans le champ **Rechercher dans le marketplace**, tapez « réseau virtuel ». Localisez **Réseau virtuel** dans la liste renvoyée et cliquez pour ouvrir la page **Réseau virtuel**.
 
-   ![Page Localiser les ressources du réseau virtuel](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/newvnetportal700.png "Page Localiser les ressources du réseau virtuel")
+   ![Localiser la page de ressource Réseau virtuel](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/newvnetportal700.png "Localiser la page de ressource de réseau virtuel")
 3. En bas de la page Réseau virtuel, à partir de la liste **Sélectionner un modèle de déploiement**, choisissez **Gestionnaire des ressources** puis cliquez sur **Créer**.
 
-   ![Sélectionnez le Gestionnaire de ressources](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/resourcemanager250.png "Sélectionner le Gestionnaire de ressources")
+   ![Sélectionner Resource Manager](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/resourcemanager250.png "Sélectionner Resource Manager")
 4. Sur la page **Créer un réseau virtuel**, configurez les paramètres du réseau virtuel. Lorsque vous renseignez les champs, le point d’exclamation rouge se transforme en coche verte si les caractères saisis dans le champ sont valides. Il se peut que certaines valeurs soient renseignées automatiquement. Dans ce cas, remplacez ces valeurs par les vôtres. La page **Créer un réseau virtuel** ressemble à l’exemple suivant :
 
-   ![Validation du champ](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/vnetp2s.png "Validation du champ")
+   ![Validation de champ](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/vnetp2s.png "Validation du champ")
 5. **Nom** : Entrez le nom de votre réseau virtuel.
 6. **Espace d’adressage** : entrez l’espace d’adressage. Si vous avez plusieurs espaces d’adressage à ajouter, ajoutez le premier espace d’adressage. Vous pourrez ajouter des espaces d’adressage supplémentaires plus tard, après avoir créé le réseau virtuel.
 7. **Abonnement**: Vérifiez que l’abonnement listé est correct. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
@@ -43,4 +43,4 @@ Pour créer un réseau virtuel dans le modèle de déploiement Resource Manager 
     ![Épingler au tableau de bord](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/pintodashboard150.png "Épingler au tableau de bord")
 12. Après avoir cliqué sur **Créer**, vous verrez une vignette apparaître sur votre tableau de bord. Celle-ci indique la progression de votre réseau virtuel. La vignette change lorsque le réseau virtuel est créé.
 
-    ![Mosaïque de création du réseau virtuel](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/deploying150.png "Mosaïque de création du réseau virtuel")
+    ![Vignette de création du réseau virtuel](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/deploying150.png "Mosaïque de création du réseau virtuel")

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: e9bc5c876da6bd2be1b22b389b819e51330b2e50
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: adbc21c3e963a98a8482de0c26bf5e257f43013e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595462"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675450"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Appairage et alignement des phrases dans des documents parallèles
 
@@ -30,16 +30,21 @@ Si vous savez que vous avez des documents parallèles, vous pouvez remplacer l�
 
 Pour de meilleurs résultats, assurez-vous d’avoir une phrase par ligne dans vos fichiers. Évitez d’avoir des caractères de saut de ligne au sein d’une phrase, car cela entraîne des alignements médiocres.
 
-## <a name="suggested-minimum-number-of-extracted-and-aligned-sentences"></a>Nombre minimum suggéré de phrases extraites et alignées
+## <a name="suggested-minimum-number-of-sentences"></a>Nombre minimal de phrases suggéré
 
-Pour qu’un apprentissage réussisse, le tableau ci-dessous indique le nombre minimum de phrases extraites et de phrases alignées nécessaires dans chaque jeu de données. Le nombre minimum suggéré de phrases extraites est beaucoup plus élevé que le nombre minimum suggéré de phrases alignées pour tenir compte du fait que l’alignement des phrases risque de ne pas pouvoir aligner toutes les phrases extraites avec succès.
+Pour qu’un entraînement réussisse, le tableau ci-dessous indique le nombre minimal de phrases nécessaires dans chaque type de document. Cette limitation est un filet de sécurité qui garantit que vos phrases parallèles contiendront suffisamment de vocabulaire unique pour entraîner correctement un modèle de traduction. La règle générale est qu’avoir plus de phrases parallèles dans le domaine d’une qualité égale à celle des traductions humaines doit produire des modèles de qualité supérieure.
 
-| Jeu de données   | Nombre minimum de phrases extraites suggéré | Nombre minimum de phrases alignées suggéré | Nombre maximum de phrases alignées |
-|------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Formation   | 10 000                                     | 2 000                                    | Pas de limite supérieure                 |
-| Réglage     | 2 000                                      | 500                                      | 2 500                          |
-| Test    | 2 000                                      | 500                                      | 2 500                          |
-| Dictionnaire | 0                                          | 0                                        | Pas de limite supérieure                 |
+| Type du document   | Nombre minimal de phrases suggéré | Nombre maximal de phrases |
+|------------|--------------------------------------------|--------------------------------|
+| Entrainement   | 10 000                                     | Pas de limite supérieure                 |
+| Réglage     | 5 000                                      | 2 500                          |
+| Test    | 5 000                                      | 2 500                          |
+| Dictionnaire | 0                                          | Pas de limite supérieure                 |
+
+> [!NOTE]
+> - L’entraînement ne commencera pas et échouera si le nombre minimal de 10 000 phrases d’entraînement n’est pas atteint. 
+> - Le réglage et le test sont facultatifs. Si vous ne les fournissez pas, le système supprime un pourcentage approprié de l’entraînement à utiliser pour la validation et le test. 
+> - Il est possible d’entraîner un modèle en n’utilisant que des données de dictionnaire. Reportez-vous à [Qu’est-ce qu’un dictionnaire ?](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 3bcc511ec6ad8a246c2b1b3a33eb59043a45830e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8707aa55c1126af6a7fb2812d4c7314f031209d0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60784705"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597479"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Forum aux Questions sur Azure Databricks
 
@@ -27,14 +27,14 @@ Oui. Vous pouvez utiliser Azure Key Vault pour stocker les clés/secrets à util
 ## <a name="can-i-use-azure-virtual-networks-with-databricks"></a>Puis-je utiliser les réseaux virtuels Azure avec Databricks ?
 Oui. Vous pouvez utiliser un réseau virtuel Azure (VNET) avec Azure Databricks. Pour plus d’informations, consultez [Deploying Azure Databricks in your Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html) (Déploiement d’Azure Databricks dans votre réseau virtuel Azure).
 
-## <a name="how-do-i-access-azure-data-lake-store-from-a-notebook"></a>Comment accéder à Azure Data Lake Store à partir d’un ordinateur portable ? 
+## <a name="how-do-i-access-azure-data-lake-storage-from-a-notebook"></a>Comment accéder à Azure Data Lake Storage à partir d’un notebook ? 
 
 Procédez comme suit :
 1. Dans Azure Active Directory (Azure AD), approvisionnez un principal de service et enregistrez sa clé.
-1. Attribuez les autorisations nécessaires au principal de service dans Data Lake Store.
-1. Pour accéder à un fichier dans Data Lake Store, utilisez les informations d’identification du principal de service dans Notebook.
+1. Attribuez les autorisations nécessaires au principal de service dans Data Lake Storage.
+1. Pour accéder à un fichier dans Data Lake Storage, utilisez les informations d’identification du principal de service dans Notebook.
 
-Pour plus d’informations, consultez [Utiliser Data Lake Store avec Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
+Pour plus d’informations, consultez [Utiliser Azure Data Lake Storage avec Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html).
 
 ## <a name="fix-common-problems"></a>Correction des problèmes courants
 

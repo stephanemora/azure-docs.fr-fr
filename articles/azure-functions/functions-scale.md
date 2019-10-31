@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180104"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550643"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -78,11 +78,12 @@ Quand vous utilisez le plan Premium, les instances de l’hôte Azure Functions 
 
 Vous trouverez plus d’informations sur la configuration de ces options dans la [documentation sur le plan Premium d’Azure Functions](functions-premium-plan.md).
 
-Au lieu d’une facturation en fonction des exécutions et de la mémoire consommée, la facturation pour le plan Premium se base sur le nombre de cœurs-seconde, la durée d’exécution et la mémoire utilisée sur les instances nécessaires et réservées.  Au moins une instance doit être chaude en permanence. Cela signifie qu’il existe un coût mensuel fixe par plan actif, quel que soit le nombre d’exécutions.
+Au lieu d’une facturation en fonction des exécutions et de la mémoire consommée, la facturation du plan Premium se base sur le nombre de cœurs-seconde et la mémoire utilisée sur les instances nécessaires et préparées. Au moins une instance doit être chaude en permanence par plan. Cela signifie qu’il existe un coût mensuel minimum par plan actif, quel que soit le nombre d’exécutions. Gardez à l’esprit que toutes les applications de fonction d’un plan Premium partagent des instances actives et préparées.
 
 Envisagez le plan Premium d’Azure Functions dans les situations suivantes :
 
 * Vos applications de fonction s’exécutent en continu ou presque.
+* Vous disposez d’un grand nombre d’exécutions de petite taille et avez une facture d’exécution élevée, mais également une facture de Go par seconde dans le plan Consommation.
 * Vous avez besoin de plus d’options de mémoire ou de processeur que celles qui sont proposées dans le plan Consommation.
 * Votre code exige une [durée d’exécution supérieure à celle qui est autorisée](#timeout) dans le plan Consommation.
 * Vous avez besoin des fonctionnalités qui sont uniquement disponibles dans le plan Premium, notamment la connectivité des réseaux virtuels/VPN.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428080"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783777"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -347,6 +347,10 @@ Les éléments suivants sont précédés de :
 
 ### <a name="pacemaker-configuration"></a>Configuration Pacemaker
 
+> [!IMPORTANT]
+> Des tests récents ont révélé des cas où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à ne gérer qu’une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
+> Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions fournies dans [Renforcement de la détection dans Azure Load-Balancer](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessitera un bref temps d’arrêt.  
+
 **[1]** Configuration Pacemaker spécifique à HADR IBM Db2 :
 <pre><code># Put Pacemaker into maintenance mode
 sudo crm configure property maintenance-mode=true
@@ -371,7 +375,7 @@ sudo crm configure primitive rsc_ip_db2ptr_<b>PTR</b> IPaddr2 \
 
 # Configure probe port for Azure load Balancer
 sudo crm configure primitive rsc_nc_db2ptr_<b>PTR</b> anything \
-        params binfile="/usr/bin/nc" cmdline_options="-l -k <b>62500</b>" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>62500</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout="20s" interval="10" depth="0"
 
 sudo crm configure group g_ip_db2ptr_<b>PTR</b> rsc_ip_db2ptr_<b>PTR</b> rsc_nc_db2ptr_<b>PTR</b>

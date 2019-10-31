@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 93681062b325756f720f6fe8280ee6b874fea284
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072254"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modèles Problème dans Gestion des API Azure
@@ -35,7 +35,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 ##  <a name="IssueList"></a> Liste des problèmes  
  Le modèle **Liste des problèmes** vous permet de personnaliser le corps de la page répertoriant une liste de problèmes dans le portail des développeurs.  
   
- ![Liste des problèmes dans le portail des développeurs](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Liste des problèmes APIM dans le portail des développeurs")  
+ ![Liste des problèmes du portail des développeurs](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Liste des problèmes APIM du portail des développeurs")  
   
 ### <a name="default-template"></a>Modèle par défaut  
   

@@ -1,6 +1,6 @@
 ---
-title: Planifier des tâches récurrentes avec le déclencheur Fenêtre glissante – Azure Logic Apps
-description: Planifier et exécuter des tâches et des flux de travail automatisés et récurrents avec le déclencheur Fenêtre glissante dans Azure Logic Apps
+title: Planifier des tâches pour gérer les données contiguës - Azure Logic Apps
+description: Créer et exécuter des tâches récurrentes qui gèrent les données contiguës à l’aide de fenêtres glissantes dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: deli, klam, LADocs
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 44944955019fcf81fb0d296592577e2b00a15928
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0312d9480d00d4430cd5d42dc22ef9dac005ee2e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66299501"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679062"
 ---
-# <a name="create-schedule-and-run-recurring-tasks-and-workflows-with-the-sliding-window-trigger-in-azure-logic-apps"></a>Créer, planifier et exécuter des tâches et des flux de travail récurrents avec le déclencheur Fenêtre glissante dans Azure Logic Apps
+# <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Planifier et exécuter des tâches pour les données contiguës à l’aide du déclencheur Fenêtre glissante dans Azure Logic Apps
 
-Pour exécuter régulièrement des tâches, processus ou travaux devant gérer des données dans des segments continus, vous pouvez démarrer votre flux de travail d’application logique avec le déclencheur **Fenêtre coulissante – Planification**. Vous pouvez définir une date et une heure, ainsi qu’un fuseau horaire, pour démarrer le flux de travail, et une récurrence pour la répétition de ce flux de travail. Si des périodicités sont manquantes pour une raison quelconque, ce déclencheur les traite. Par exemple, lors de la synchronisation de données entre votre base de données et le stockage de sauvegarde, utilisez le déclencheur Fenêtre glissante afin que les données soient synchronisées sans que cela génère des écarts. Pour plus d’informations sur les déclencheurs et actions de Planification intégrés, voir [Planifier et exécuter des tâches et des workflows automatisés et récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+Pour exécuter régulièrement des tâches, processus ou travaux devant gérer des données dans des blocs contigus, vous pouvez démarrer votre workflow d’application logique avec le déclencheur **Fenêtre glissante**. Vous pouvez définir une date et une heure, ainsi qu’un fuseau horaire, pour démarrer le flux de travail, et une récurrence pour la répétition de ce flux de travail. Si des périodicités sont manquantes pour une raison quelconque, ce déclencheur les traite. Par exemple, lors de la synchronisation de données entre votre base de données et le stockage de sauvegarde, utilisez le déclencheur Fenêtre glissante afin que les données soient synchronisées sans que cela génère des écarts. Pour plus d’informations sur les déclencheurs et actions de Planification intégrés, voir [Planifier et exécuter des tâches et des workflows automatisés et récurrents avec Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 Voici quelques modèles que ce déclencheur prend en charge :
 
@@ -53,7 +53,7 @@ Pour connaître les différences entre ce déclencheur et le déclencheur Pério
 
    | Propriété | Obligatoire | Nom JSON | Type | Description |
    |----------|----------|-----------|------|-------------|
-   | **Intervalle** | OUI | interval | Entier | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. Les intervalles minimaux et maximaux sont les suivants : <p>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Heure », la périodicité est toutes les 6 heures. |
+   | **Intervalle** | OUI | interval | Integer | Nombre entier positif qui décrit la fréquence à laquelle le flux de travail s’exécute en fonction de la fréquence. Les intervalles minimaux et maximaux sont les suivants : <p>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Heure », la périodicité est toutes les 6 heures. |
    | **Fréquence** | OUI | frequency | Chaîne | Unité de temps à utiliser pour la récurrence : **Seconde**, **Minute** ou **Heure** |
    ||||||
 

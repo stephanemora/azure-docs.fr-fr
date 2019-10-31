@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960574"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679849"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installer et utiliser l’explorateur Azure IoT
 
@@ -81,19 +81,25 @@ Dans la page de liste **Appareils**, sélectionnez une valeur dans la colonne **
 
 ### <a name="device"></a>Appareil
 
-Cette section inclut les onglets **Identité d’appareil**, **Jumeau d’appareil** et **Données de télémétrie**.
+Cette section comprend les onglets **Identité d’appareil**, **Jumeau d’appareil**, **Données de télémétrie**, **Méthode directe** et **Messages appareil-à-cloud**.
 
 - Vous pouvez voir et mettre à jour les informations d’[identité d’appareil](../iot-hub/iot-hub-devguide-identity-registry.md) sous l’onglet **Identité d’appareil**.
 - Vous pouvez accéder aux informations sur le [jumeau d’appareil](../iot-hub/iot-hub-devguide-device-twins.md) sous l’onglet **Jumeau d’appareil**.
 - Si un appareil est connecté et envoie activement des données, vous pouvez voir les données de [télémétrie](../iot-hub/iot-hub-devguide-messages-read-builtin.md) sous l’onglet **Données de télémétrie**.
+- Vous pouvez appeler une [méthode directe](../iot-hub/iot-hub-devguide-direct-methods.md) sur l’appareil sous l’onglet **Méthode directe**.
+- Vous pouvez envoyer un [message cloud-à-appareil](../iot-hub/iot-hub-devguide-messages-c2d.md) sous l’onglet **Messages appareil-à-cloud**.
 
 ### <a name="digital-twin"></a>Jumeau numérique
 
-Vous pouvez utiliser l’outil pour afficher une instance de jumeau numérique de l’appareil. Pour un appareil IoT Plug-and-Play, toutes les interfaces associées au modèle de capacité de l’appareil sont affichées dans cet article. Sélectionnez une interface pour développer ses primitives [IoT Plug-and-Play](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL) correspondantes.
+Vous pouvez utiliser l’outil pour afficher une instance de jumeau numérique de l’appareil. Pour un appareil IoT Plug-and-Play, toutes les interfaces associées au modèle de capacité de l’appareil sont affichées dans cette section de l’outil. Sélectionnez une interface pour développer ses primitives [IoT Plug-and-Play](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL) correspondantes.
+
+### <a name="interface"></a>Interface
+
+Dans la page **Interface**, vous pouvez voir la définition JSON de l’interface.
 
 #### <a name="properties"></a>properties
 
-Vous pouvez afficher les propriétés en lecture seule définies dans une interface sur la page **Propriétés**. Vous pouvez mettre à jour les propriétés inscriptibles définies dans une interface sur la page **Propriétés inscriptibles**.
+Vous pouvez voir les propriétés en lecture seule définies dans une interface dans la page **Propriétés non inscriptibles**. Vous pouvez mettre à jour les propriétés inscriptibles définies dans une interface dans la page **Propriétés inscriptibles** :
 
 1. Accédez à la page **Propriétés inscriptibles**.
 1. Cliquez sur la propriété que vous souhaitez mettre à jour.

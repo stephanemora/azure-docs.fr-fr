@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: a919ccd2a23acf6e1bd04cda8a5dd18782ff31b0
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: d81647e8d09d8f10827e8eb6038363db73395c1e
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315975"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596924"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Comment configurer le clustering pour le niveau Premium de Cache Azure pour Redis
 Le Cache Azure pour Redis offre différents types de caches permettant de choisir parmi plusieurs tailles et fonctionnalités de caches, notamment les fonctionnalités de niveau Premium telles que le clustering, la persistance et la prise en charge du réseau virtuel. Cet article explique comment configurer le clustering dans une instance de niveau Premium de Cache Azure pour Redis.
@@ -124,9 +124,9 @@ Pour accéder à un exemple de code relatif à l’utilisation du clustering et 
 La plus grande taille de cache Premium est 120 Go. Vous pouvez créer jusqu’à 10 partitions, ce qui donne une taille maximale de 1,2 To. Si vous avez besoin d’une plus grande taille, vous pouvez en [faire la demande](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Pour plus d’informations, consultez [Tarification du Cache Azure pour Redis](https://azure.microsoft.com/pricing/details/cache/).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>Tous les clients Redis prennent-ils en charge le clustering ?
-À l’heure actuelle, les clients ne prennent pas tous en charge le clustering Redis. StackExchange.Redis est l’un de ceux qui le prennent en charge. Pour plus d’informations sur d’autres clients, consultez la section [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Manipulation du cluster) du [didacticiel sur le cluster Redis](https://redis.io/topics/cluster-tutorial). 
+Les clients ne prennent pas tous en charge le clustering Redis ! Consultez la documentation de votre bibliothèque pour vérifier que vous utilisez une bibliothèque et une version qui prennent en charge le clustering. StackExchange.Redis est une bibliothèque dont les récentes versions prennent en charge le clustering. Pour plus d’informations sur d’autres clients, consultez la section [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) (Manipulation du cluster) du [didacticiel sur le cluster Redis](https://redis.io/topics/cluster-tutorial). 
 
-Le protocole de clustering Redis requiert que chaque client se connecte à chaque partition directement en mode de clustering. Si vous essayez d’utiliser un client qui ne prend pas en charge le clustering, vous obtiendrez probablement un grand nombre [d’exceptions de redirection MOVED](https://redis.io/topics/cluster-spec#moved-redirection).
+Le protocole de clustering Redis nécessite que chaque client se connecte directement à chaque partition en mode clustering et qu’il définisse de nouvelles réponses d’erreur telles que « MOVED » et « CROSSSLOTS ». Toute tentative d’utilisation d’un client qui ne prend pas en charge le clustering avec un cache en mode cluster peut entraîner un grand nombre d’[exceptions de redirection MOVED](https://redis.io/topics/cluster-spec#moved-redirection) ou tout simplement endommager votre application si vous effectuez des demandes à plusieurs clés entre emplacements.
 
 > [!NOTE]
 > Si vous utilisez StackExchange.Redis comme client, assurez-vous d'utiliser la dernière version de [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 ou une version ultérieure pour que le clustering fonctionne correctement. Si vous rencontrez des problèmes avec les exceptions MOVE, consultez la [section consacrée aux exceptions MOVE](#move-exceptions) pour plus d’informations.
@@ -150,7 +150,10 @@ Sans SSL, utilisez les commandes suivantes.
 Avec SSL, remplacez `1300N` par `1500N`.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Puis-je configurer le clustering pour un cache créé précédemment ?
-Actuellement, vous pouvez activer le clustering uniquement quand vous créez un cache. Vous pouvez modifier la taille du cluster une fois le cache créé, mais vous ne pouvez pas ajouter un clustering à un cache de niveau Premium ou supprimer le clustering d’un cache de niveau Premium une fois le cache créé. Un cache de niveau Premium avec clustering activé et une seule partition est différent d'un cache de niveau Premium de la même taille mais sans clustering.
+Oui. Vérifiez d’abord que votre cache est de niveau Premium (mettez-le à l’échelle si ce n’est pas le cas). Vous devriez alors voir les options de configuration du cluster, en particulier une option permettant d’activer un cluster. Vous pouvez changer la taille du cluster une fois le cache créé ou après l’activation initiale du clustering.
+
+   >[!IMPORTANT]
+   >Vous ne pouvez pas annuler l’activation du clustering. Un cache avec clustering activé et une seule partition se comporte *différemment* d’un cache de la même taille mais *sans* clustering.
 
 ### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache"></a>Puis-je configurer le clustering pour un cache De base ou Standard ?
 Le clustering est disponible uniquement pour les caches de niveau Premium.

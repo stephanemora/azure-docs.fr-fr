@@ -1,13 +1,13 @@
 ---
-title: Résolution des problèmes de filtres de collection OData - Recherche Azure
-description: Résolution des problèmes d’erreurs de filtres de collection OData dans les requêtes Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Résolution des problèmes de filtres de collection OData
+titleSuffix: Azure Cognitive Search
+description: Résolution des erreurs liées aux filtres de collection OData dans les requêtes de Recherche cognitive Azure.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fbd43cc13d3b7377668aad2fadc874ae47422ee1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647951"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793190"
 ---
-# <a name="troubleshooting-odata-collection-filters-in-azure-search"></a>Résolution de problèmes liés aux filtres de collection OData dans la Recherche Azure
+# <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Résolution de problèmes liés aux filtres de collection OData dans la Recherche cognitive Azure
 
-Pour appliquer un [filtre](query-odata-filter-orderby-syntax.md) sur des champs de collection dans la Recherche Azure, vous pouvez utiliser les opérateurs [`any` et `all`](search-query-odata-collection-operators.md) avec des **expressions lambda**. Une expression lambda est un sous-filtre qui est appliqué à chaque élément d’une collection.
+Pour appliquer un [filtre](query-odata-filter-orderby-syntax.md) sur des champs de collection dans la Recherche cognitive Azure, vous pouvez utiliser les [opérateurs `any` et `all`](search-query-odata-collection-operators.md) avec des **expressions lambda**. Une expression lambda est un sous-filtre qui est appliqué à chaque élément d’une collection.
 
 Toutes les fonctionnalités des expressions de filtre ne sont pas disponibles dans une expression lambda. Les fonctionnalités diffèrent selon le type de données du champ de la collection que vous souhaitez filtrer. Cela peut entraîner une erreur si vous essayez d’utiliser une fonctionnalité dans une expression lambda qui n’est pas prise en charge dans ce contexte. Si vous rencontrez de telles erreurs lors de la tentative d’écriture d’un filtre complexe sur des champs de collection, cet article vous aidera à résoudre le problème.
 
@@ -64,7 +64,7 @@ Les règles d’écriture de filtres de collection valides sont différentes pou
 Dans les expressions lambda pour les collections de chaînes, les seuls opérateurs de comparaison pouvant être utilisés sont `eq` et `ne`.
 
 > [!NOTE]
-> Recherche Azure ne prend pas en charge les opérateurs `lt`/`le`/`gt`/`ge` pour les chaînes, ni dans ni en dehors d’une expression lambda.
+> La Recherche cognitive Azure ne prend pas en charge les opérateurs `lt`/`le`/`gt`/`ge` pour les chaînes, qu’ils soient inclus ou non dans une expression lambda.
 
 Le corps d’un `any` peut uniquement tester l’égalité, tandis que le corps d’un `all` peut uniquement tester l’inégalité.
 
@@ -125,7 +125,7 @@ Comme les collections de chaînes, les collections `Edm.GeographyPoint` ont des 
 - Dans le corps d’un `all`, la fonction `geo.intersects` doit être négative. Dans le corps d’un `any`, la fonction `geo.intersects` doit être négative.
 - Dans le corps d’un `any`, des expressions géospatiales peuvent être combinées à l’aide de `or`. Dans le corps d’un `all`, ces expressions peuvent être combinées à l’aide de `and`.
 
-Les limitations ci-dessus existent pour des raisons similaires à la limitation d’égalités/d’inégalités sur les collections de chaînes. Consultez [Présentation de filtres de collection OData dans Recherche Azure](search-query-understand-collection-filters.md) pour en savoir plus sur ces raisons.
+Les limitations ci-dessus existent pour des raisons similaires à la limitation d’égalités/d’inégalités sur les collections de chaînes. Consultez [Présentation des filtres de collection OData dans la Recherche cognitive Azure](search-query-understand-collection-filters.md) pour en savoir plus sur ces raisons.
 
 Voici quelques exemples de filtres autorisés sur `Edm.GeographyPoint` :
 
@@ -197,7 +197,7 @@ Toutefois, il existe des limitations sur la façon dont ces expressions de compa
 
 Les expressions lambda sur des collections complexes prennent en charge une syntaxe beaucoup plus flexible que les expressions lambda sur des collections de types primitifs. Dans une telle construction lambda, vous pouvez utiliser n’importe quelle construction de filtre que vous pouvez également utiliser ailleurs, à deux exceptions près seulement.
 
-Tout d’abord, les fonctions `search.ismatch` et `search.ismatchscoring` ne sont pas prises en charge dans les expressions lambda. Pour plus d’informations, consultez [Présentation de filtres de collection OData dans Recherche Azure](search-query-understand-collection-filters.md).
+Tout d’abord, les fonctions `search.ismatch` et `search.ismatchscoring` ne sont pas prises en charge dans les expressions lambda. Pour plus d’informations, consultez [Présentation des filtres de collection OData dans la Recherche cognitive Azure](search-query-understand-collection-filters.md).
 
 Ensuite, il n’est pas permis de faire référence à des champs qui ne sont pas *liés* à la variable de portée (appelée  *variables libres*). Voyons par exemple les deux expressions de filtres OData équivalentes suivantes :
 
@@ -217,16 +217,16 @@ Cette limitation ne devrait pas être un problème dans la pratique, car il est 
 
 Le tableau suivant récapitule les règles de construction de filtres valides pour chaque type de données de collection.
 
-[!INCLUDE [Limitations on OData lambda expressions in Azure Search](../../includes/search-query-odata-lambda-limitations.md)]
+[!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
 Pour obtenir des exemples montrant comment construire des filtres valides pour chaque cas, consultez [Comment écrire des filtres de collection valides](#bkmk_examples).
 
-Si vous écrivez souvent des filtres et que comprendre les principes fondamentaux des règles vous serait plus utile que de simplement les mémoriser, consultez [Présentation des filtres de collection OData dans Recherche Azure](search-query-understand-collection-filters.md).
+Si vous écrivez souvent des filtres et qu’il vous serait plus utile de comprendre les principes fondamentaux des règles plutôt que simplement les mémoriser, consultez [Présentation des filtres de collection OData dans la Recherche cognitive Azure](search-query-understand-collection-filters.md).
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Présentation des filtres de collection OData dans Recherche Azure](search-query-understand-collection-filters.md)
-- [Filtres dans Recherche Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Présentation des filtres de collection OData dans la Recherche cognitive Azure](search-query-understand-collection-filters.md)
+- [Filtres dans la Recherche cognitive Azure](search-filters.md)
+- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

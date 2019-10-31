@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: f468b2afce1609de126859546a72544ba403424e
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838888"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674962"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -63,7 +63,7 @@ Quand vous changez l’un de vos déclencheurs, l’infrastructure Functions doi
 Azure Functions peut créer automatiquement les builds sur le code qu’il reçoit après les déploiements zip. Ces builds se comportent de façon légèrement différente selon que votre application s’exécute sur Windows ou Linux. Les builds distantes ne sont pas exécutées quand une application a été précédemment configurée en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour savoir comment utiliser la build distante, accédez à [Zip Deploy](#zip-deploy).
 
 > [!NOTE]
-> Si vous rencontrez des problèmes avec la build distante, cela peut être dû au fait que votre application a été créée avant la mise à disposition de la fonctionnalité (1er août 2019). Essayez de créer une nouvelle application Azure Functions.
+> Si vous rencontrez des problèmes avec la build distante, cela peut être dû au fait que votre application a été créée avant la mise à disposition de la fonctionnalité (1er août 2019). Essayez de créer une application de fonction ou d’exécuter `az functionapp update -g <RESOURCE_GROUP_NAME> -n <APP_NAME>` pour mettre à jour votre application de fonction. Cette commande peut nécessiter deux tentatives avant d’aboutir.
 
 #### <a name="remote-build-on-windows"></a>Build distante sur Windows
 
@@ -71,19 +71,18 @@ Toutes les applications de fonction s’exécutant sur Windows ont une petite ap
 
 Quand une application est déployée sur Windows, les commandes spécifiques au langage, comme `dotnet restore` (C#) ou `npm install` (JavaScript), sont exécutées.
 
-#### <a name="remote-build-on-linux-preview"></a>Build distante sur Linux (préversion)
+#### <a name="remote-build-on-linux"></a>Build distante sur Linux
 
-Pour activer la build distante sur Linux, vous devez définir les [paramètres d’application](functions-how-to-use-azure-function-app-settings.md#settings) suivants :
+Pour activer la build distante sur Linux, les [paramètres d’application](functions-how-to-use-azure-function-app-settings.md#settings) suivants doivent être définis :
 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Lorsque les applications sont créées à distance sur Linux, elles s’[exécutent à partir du package de déploiement](run-functions-from-deployment-package.md).
+Par défaut, [Azure Functions Core Tools](functions-run-local.md) et l’[extension Azure Functions pour Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) effectuent des builds distantes lors du déploiement sur Linux. Pour cette raison, les deux outils créent automatiquement ces paramètres pour vous dans Azure. 
 
-> [!NOTE]
-> Le plan de build distante sur Linux dédié (App Service) est actuellement uniquement pris en charge pour Node.js et Python.
+Lorsque les applications sont créées à distance sur Linux, elles s’[exécutent à partir du package de déploiement](run-functions-from-deployment-package.md). 
 
-##### <a name="consumption-preview-plan"></a>Plan Consommation (préversion)
+##### <a name="consumption-plan"></a>Plan de consommation
 
 Les applications de fonction Linux qui s’exécutent dans le plan Consommation ne disposent pas de site SCM/Kudu, ce qui limite les options de déploiement. Toutefois, les applications de fonction sur Linux exécutées dans le plan Consommation prennent en charge les builds distantes.
 
@@ -103,21 +102,13 @@ Vous pouvez utiliser une URL de package externe pour référencer un fichier de 
 >
 >Si vous employez le Stockage Blob Azure, utilisez un conteneur privé associé à une [signature d’accès partagé](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) pour permettre à Functions d’accéder au package. Chaque fois que l’application redémarre, elle extrait une copie du contenu. Votre référence doit être valide pendant la durée de vie de l’application.
 
->__Quand l’utiliser ?__ L’URL de package externe est la seule méthode de déploiement prise en charge quand Azure Functions est exécuté sur Linux dans le plan de consommation (préversion), si l’utilisateur ne souhaite pas qu’une build distante soit effectuée. Si vous mettez à jour le fichier de package référencé par une application de fonction, vous devez [synchroniser manuellement les déclencheurs](#trigger-syncing) pour indiquer à Azure que votre application a été modifiée.
+>__Quand l’utiliser ?__ Si l’utilisateur ne souhaite pas qu’une [build distante](#remote-build) soit effectuée, l’URL de package externe est la seule méthode de déploiement prise en charge quand Azure Functions est exécuté sur Linux dans le plan Consommation (préversion). Si vous mettez à jour le fichier de package référencé par une application de fonction, vous devez [synchroniser manuellement les déclencheurs](#trigger-syncing) pour indiquer à Azure que votre application a été modifiée.
 
 ### <a name="zip-deploy"></a>Zip Deploy
 
 Utilisez Zip Deploy pour envoyer (push) un fichier .zip contenant votre application de fonction sur Azure. Si vous le souhaitez, vous pouvez configurer votre application pour qu’elle utilise le mode [Exécuter à partir du package](run-functions-from-deployment-package.md) ou spécifier qu’une [build distante](#remote-build) est effectuée.
 
->__Comment l’utiliser ?__ Effectuez le déploiement à l’aide de votre outil client habituel : [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) ou [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Pour déployer manuellement un fichier .zip sur votre application de fonction, suivez les instructions dans [Déployer à partir d’un fichier .zip ou d’une URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
-
-Pour effectuer un déploiement zip avec une [build distante](#remote-build), utilisez la commande [Core Tools](functions-run-local.md) suivante :
-
-```bash
-func azure functionapp publish <app name> --build remote
-```
-
-Vous pouvez également demander à VS Code d’effectuer une build distante lors du déploiement en ajoutant l’indicateur azureFunctions.scmDoBuildDuringDeployment. Pour savoir comment ajouter un indicateur à VS Code, lisez les instructions du [Wiki Azure Functions Extension](https://github.com/microsoft/vscode-azurefunctions/wiki).
+>__Comment l’utiliser ?__ Effectuez le déploiement à l’aide de votre outil client habituel : [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), la solution [Azure Functions Core Tools](functions-run-local.md) ou l’interface [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Par défaut, ces outils utilisent le déploiement zip et [exécutent à partir du package](run-functions-from-deployment-package.md). Core Tools et l’extension Visual Studio Code activent la [build distante](#remote-build) lors du déploiement sur Linux. Pour déployer manuellement un fichier .zip sur votre application de fonction, suivez les instructions dans [Déployer à partir d’un fichier .zip ou d’une URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 >Quand vous effectuez le déploiement à l’aide de Zip Deploy, vous pouvez définir votre application pour qu’elle s’exécute en mode [Exécuter à partir du package](run-functions-from-deployment-package.md). Pour utiliser le mode Exécuter à partir du package, affectez au paramètre d’application `WEBSITE_RUN_FROM_PACKAGE` la valeur `1`. Nous vous recommandons le déploiement zip. Il accélère les temps de chargement de vos applications, et il s’agit de la méthode par défaut pour VS Code, Visual Studio et Azure CLI. 
 

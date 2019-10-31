@@ -1,26 +1,21 @@
 ---
 title: Exporter vers SQL à partir d’Application Insights | Microsoft Docs
 description: Exportez de façon continue les données Application Insights vers SQL à l’aide de Stream Analytics.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48903032-2c99-4987-9948-d6e4559b4a63
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/11/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/11/2017
+ms.openlocfilehash: 41efcbc7b70395302858638a9f44f3cbba27bf9a
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65872704"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678263"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Procédure pas à pas : exporter vers SQL à partir d’Application Insights à l’aide de Stream Analytics
-Cet article explique comment déplacer vos données de télémétrie à partir d’[Azure Application Insights][start] vers une base de données Azure SQL à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+Cet article explique comment déplacer vos données de télémétrie d’[Azure Application Insights][start] vers une base de données Azure SQL à l’aide de l’[Exportation continue][export] et d’[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
 L’exportation continue déplace vos données de télémétrie vers le stockage Azure au format JSON. Nous analyserons les objets JSON à l’aide d’Azure Stream Analytics et créerons des lignes dans une table de base de données.
 
@@ -82,7 +77,7 @@ Comme l’exportation continue génère toujours des données vers un compte de 
 Les événements sont écrits dans des fichiers blob au format JSON. Chaque fichier peut contenir un ou plusieurs événements. Donc, nous devons lire les données d’événement et filtrer les champs voulus. Nous pourrions effectuer toutes sortes d’opérations avec les données, mais notre objectif aujourd’hui est d’utiliser Stream Analytics pour déplacer les données vers une base de données SQL. Cette action va simplifier l’exécution d’un grand nombre de requêtes intéressantes.
 
 ## <a name="create-an-azure-sql-database"></a>Création d’une base de données Azure SQL
-Là encore, à partir de votre abonnement dans le [portail Azure][portal], créez la base de données (et un serveur si ce n’est déjà fait) dans laquelle vous allez écrire les données.
+Là encore, à partir de votre abonnement dans le [portail Azure][portal], créez la base de données (et un serveur, à moins que vous n’en ayez déjà un) où vous allez écrire les données.
 
 ![Nouveau, Données, SQL](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 

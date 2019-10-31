@@ -1,17 +1,17 @@
 ---
-title: Exporter le modèle Azure Resource Manager à l’aide du portail Azure
+title: Exporter un modèle Resource Manager – Portail Azure
 description: Utilisez le portail Azure pour exporter un modèle Azure Resource Manager à partir de ressources de votre abonnement.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 0605e24590fa2d702a1385429a7808a7e1226809
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300411"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532347"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Export d’une ressource unique ou de plusieurs ressources vers un modèle dans le portail Azure
 

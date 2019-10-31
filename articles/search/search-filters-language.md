@@ -1,25 +1,23 @@
 ---
-title: Filtres de langage pour contenu multilingue dans un index de recherche - Recherche Azure
+title: Filtres de langage pour contenu multilingue dans un index de recherche
+titleSuffix: Azure Cognitive Search
 description: Critères de filtre pour prendre en charge la recherche multilingue et l’exécution de requêtes selon des champs spécifiques à une langue.
-author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 10/23/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 1eced868b180a916355d6f9fbfc8cd47a5d7d6e2
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 2762ce42f0d3f5829682e0910c452746a65ef2f3
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649860"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792883"
 ---
-# <a name="how-to-filter-by-language-in-azure-search"></a>Comment filtrer par langue dans Recherche Azure 
+# <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Comment filtrer par langue dans la Recherche cognitive Azure 
 
-Une condition requise dans une application de recherche multilingue est la possibilité d’effectuer une recherche et de récupérer les résultats dans la langue de l’utilisateur. Dans Recherche Azure, une manière de remplir les conditions de langue d’une application multilingue consiste à créer une série de champs dédiés au stockage de chaînes dans une langue spécifique, puis à limiter la recherche en texte intégral à ces seuls champs au moment de la requête.
+Une condition requise dans une application de recherche multilingue est la possibilité d’effectuer une recherche et de récupérer les résultats dans la langue de l’utilisateur. Dans la Recherche cognitive Azure, une manière de remplir les conditions de langue d’une application multilingue consiste à créer une série de champs dédiés au stockage de chaînes dans une langue spécifique, puis à limiter la recherche en texte intégral à ces seuls champs au moment de la requête.
 
 Des paramètres de requête appliqués à la demande sont utilisés pour déterminer l’étendue de l’opération de recherche, puis écarter les résultats de tous les champs qui ne fournissent pas de contenu compatible avec l’expérience de recherche que vous souhaitez offrir.
 
@@ -28,11 +26,11 @@ Des paramètres de requête appliqués à la demande sont utilisés pour déterm
 | **searchFields** | Limite la recherche en texte intégral à la liste des champs nommés. |
 | **$select** | Réduit la réponse pour inclure uniquement les champs que vous spécifiez. Par défaut, tous les champs récupérables sont retournés. Le paramètre **$select** vous permet de choisir les champs à retourner. |
 
-Le succès de cette technique dépend de l’intégrité du contenu des champs. Recherche Azure ne convertit pas les chaînes et n’effectue pas de détection de la langue. Il vous appartient de vous assurer que les champs contiennent les chaînes que vous attendez.
+Le succès de cette technique dépend de l’intégrité du contenu des champs. La Recherche cognitive Azure ne convertit pas les chaînes et n’effectue pas de détection de la langue. Il vous appartient de vous assurer que les champs contiennent les chaînes que vous attendez.
 
 ## <a name="define-fields-for-content-in-different-languages"></a>Définir des champs de contenu dans différentes langues
 
-Dans Recherche Azure, les requêtes ciblent un index unique. Les développeurs qui souhaitent fournir des chaînes spécifiques d’une langue dans une expérience de recherche unique définissent généralement des champs dédiés pour stocker les valeurs : un champ pour les chaînes en français, un autre pour les chaînes en anglais, et ainsi de suite. 
+Dans la Recherche cognitive Azure, les requêtes ciblent un index unique. Les développeurs qui souhaitent fournir des chaînes spécifiques d’une langue dans une expérience de recherche unique définissent généralement des champs dédiés pour stocker les valeurs : un champ pour les chaînes en français, un autre pour les chaînes en anglais, et ainsi de suite. 
 
 Dans nos exemples, y compris l’[exemple d’immobilier](search-get-started-portal.md) ci-dessous, il se peut que vous ayez vu des définitions de champ semblables à la capture d’écran suivante. Vous pouvez constater que l’exemple présente les assignations de l’analyseur de langue pour les champs de cet index. Les champs qui contiennent des chaînes produisent de meilleurs résultats en lien avec une recherche en texte intégral quand ils sont associés à un analyseur conçu pour traiter les règles linguistiques de la langue cible.
 
@@ -64,8 +62,8 @@ parameters =
 
 ## <a name="see-also"></a>Voir aussi
 
-+ [Filtres dans Recherche Azure](search-filters.md)
++ [Filtres dans la Recherche cognitive Azure](search-filters.md)
 + [Analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support)
-+ [Fonctionnement de la recherche en texte intégral dans la Recherche Azure](search-lucene-query-architecture.md)
++ [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
 + [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

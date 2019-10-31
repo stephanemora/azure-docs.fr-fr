@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/02/2019
+ms.date: 10/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 984284fa185d4d8454b1689a62ca9e08c342e33b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2fec017f80758dbcf2a155c3535b9a3e028e4bd9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195116"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592695"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -65,6 +65,9 @@ Effectuez les étapes suivantes pour élever l’accès d’un administrateur g�
 
    Quand vous définissez la bascule sur **Non**, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
 
+    > [!NOTE]
+    > Si vous utilisez [Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), la désactivation de l’attribution de rôle ne définit pas cette bascule sur **Non**. Si vous souhaitez conserver l’accès avec privilèges minimum, nous vous recommandons de définir cette bascule sur **Non** avant de désactiver l’attribution de rôle.
+    
 1. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 
    Ce paramètre n’est pas une propriété globale et s’applique uniquement à l’utilisateur connecté. Vous ne pouvez pas élever l’accès pour tous les membres du rôle Administrateur général.

@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e61b804c20063e87c19df4484291f81fdbb03a7b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67177444"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72600925"
 ---
 >[!NOTE]
 >Pour les ressources qui ne sont pas corrigées, ouvrez un ticket de support pour demander une augmentation des quotas. Ne créez pas d’autres comptes Azure Media Services pour obtenir des limites supérieures.
@@ -52,7 +52,7 @@ ms.locfileid: "67177444"
 
 <sup>7</sup> La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans le stockage Blob Azure. Des limites supplémentaires sont applicables dans Media Services en fonction des tailles de machine virtuelle utilisées par le service. La limite de taille s’applique aux fichiers que vous chargez et également aux fichiers qui sont générés suite au traitement (encodage ou analyse) par Media Services. Si votre fichier source est supérieur à 260 Go, votre travail échouera probablement. 
 
-Le tableau suivant indique les limites pour les unités réservées Multimédia S1, S2 et S3. Si votre fichier source dépasse la limite définie dans le tableau, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez obligatoirement utiliser des unités réservées Multimédia S3 afin d’obtenir les performances nécessaires. Si vous avez du contenu 4K qui dépasse la limite de 260 Go sur les unités réservées Multimédia S3, contactez-nous à l’adresse amshelp@microsoft.com afin d’identifier des solutions d’atténuation potentielles permettant de prendre en charge votre scénario.
+Le tableau suivant indique les limites pour les unités réservées Multimédia S1, S2 et S3. Si votre fichier source dépasse la limite définie dans le tableau, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez obligatoirement utiliser des unités réservées Multimédia S3 afin d’obtenir les performances nécessaires. Si vous avez un contenu 4K d’une taille supérieure à la limite de 260 Go des unités réservées Multimédia S3, ouvrez un ticket de support.
 
 |Types d’unités réservées Multimédia   |Taille maximale en entrée (Go)|
 |---|---|

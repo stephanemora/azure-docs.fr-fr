@@ -1,19 +1,19 @@
 ---
-title: 'Exemple : Création d’une qualification cognitive personnalisée avec l’API Recherche d’entités Bing – Recherche Azure'
-description: Présente l’utilisation du service Recherche d’entités Bing dans une qualification personnalisée mappée à un pipeline d’indexation de recherche cognitive dans Recherche Azure.
+title: 'Exemple : Création d’une compétence cognitive personnalisée avec l’API Recherche d’entités Bing'
+titleSuffix: Azure Cognitive Search
+description: Présente l’utilisation du service Recherche d’entités Bing dans une compétence personnalisée mappée à un pipeline d’indexation IA dans Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: d76a250cc3554b086501899376cb411346a4251c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266330"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784934"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemple : Créer une qualification personnalisée à l’aide de l’API Recherche d’entités Bing
 
@@ -69,7 +69,7 @@ namespace SampleSkills
 {
     /// <summary>
     /// Sample custom skill that wraps the Bing entity search API to connect it with a 
-    /// cognitive search pipeline.
+    /// AI enrichment pipeline.
     /// </summary>
     public static class BingEntitySearch
     {
@@ -313,7 +313,7 @@ namespace SampleSkills
 
 Veillez à entrer votre propre valeur de *clé* dans la constante `key`en fonction de la clé que vous avez obtenue lors de l’inscription à l’API Recherche d’entités Bing.
 
-Cet exemple inclut tous le code nécessaire dans un fichier unique pour plus de commodité. Vous pouvez trouver une version légèrement plus structurée de cette qualification dans le [référentiel des qualifications puissantes](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+Cet exemple inclut tous le code nécessaire dans un fichier unique pour plus de commodité. Vous pouvez trouver une version légèrement plus structurée de cette compétence, ainsi que d’autres exemples de compétences personnalisées, dans le [dépôt des super compétences](https://aka.ms/entity-search-power-skill).
 
 Vous pouvez bien sûr renommer le fichier de `Function1.cs` en `BingEntitySearch.cs`.
 
@@ -478,6 +478,7 @@ Ici, nous comptons sur le fait que la [compétence de reconnaissance d’entité
 ## <a name="next-steps"></a>Étapes suivantes
 Félicitations ! Vous avez créé votre premier enrichisseur personnalisé. Vous pouvez maintenant suivre le même schéma pour ajouter vos propres fonctionnalités personnalisées. 
 
++ [Super compétences : dépôt de compétences personnalisées](https://aka.ms/powerskills)
 + [Ajouter une compétence personnalisée à un pipeline de recherche cognitive](cognitive-search-custom-skill-interface.md)
 + [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
 + [Créer un jeu de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

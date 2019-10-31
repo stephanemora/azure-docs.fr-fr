@@ -1,26 +1,26 @@
 ---
-title: Architecture du moteur de recherche en texte intégral (Lucene) - Recherche Azure
-description: Explication des concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à la recherche Azure.
+title: Requête en texte intégral et architecture du moteur d’indexation (Lucene)
+titleSuffix: Azure Cognitive Search
+description: Aborde les concepts de traitement des requêtes et d’extraction de documents Lucene pour la recherche en texte intégral, liée à Recherche cognitive Azure.
 manager: nitinme
 author: yahnoosh
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
 ms.author: jlembicz
-ms.openlocfilehash: d377d6180f3d2d64f183ed574add3e7307e34fc3
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d46d0309b3d2ffb638016e88ba022e49009eedf2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186543"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793550"
 ---
-# <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
+# <a name="how-full-text-search-works-in-azure-cognitive-search"></a>Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure
 
-Cet article est destiné aux développeurs qui ont besoin d’une compréhension approfondie du fonctionnement de la recherche en texte intégral Lucene dans la recherche Azure. Pour les requêtes de texte, la recherche Azure. fournit en toute transparence les résultats attendus dans la plupart des scénarios, mais il se peut que vous obteniez un résultat « étrange » dans certains cas. Dans ce cas, le fait d’avoir une connaissance des quatre phases d’exécution des requêtes Lucene (analyse des requêtes, analyse lexicale, mise en correspondance des documents et notation) peut vous permettre d’identifier les modifications spécifiques des paramètres de requête ou de la configuration d’index qui permettront d’obtenir le résultat souhaité. 
+Cet article est destiné aux développeurs qui ont besoin d’une compréhension approfondie du fonctionnement de la recherche en texte intégral Lucene dans la Recherche cognitive Azure. Pour les requêtes de texte, la Recherche cognitive Azure. fournit en toute transparence les résultats attendus dans la plupart des scénarios, mais il se peut que vous obteniez un résultat « étrange » dans certains cas. Dans ce cas, le fait d’avoir une connaissance des quatre phases d’exécution des requêtes Lucene (analyse des requêtes, analyse lexicale, mise en correspondance des documents et notation) peut vous permettre d’identifier les modifications spécifiques des paramètres de requête ou de la configuration d’index qui permettront d’obtenir le résultat souhaité. 
 
 > [!Note] 
-> La recherche Azure utilise Lucene pour la recherche en texte intégral, mais l’intégration Lucene n’est pas exhaustive. Nous exposons et étendons la fonctionnalité Lucene de façon sélective pour activer les scénarios importants dans la recherche Azure. 
+> La Recherche cognitive Azure utilise Lucene pour la recherche en texte intégral, mais l’intégration Lucene n’est pas exhaustive. Nous exposons et étendons la fonctionnalité Lucene de façon sélective pour activer les scénarios importants dans la Recherche cognitive Azure. 
 
 ## <a name="architecture-overview-and-diagram"></a>Présentation et diagramme de l’architecture
 
@@ -35,7 +35,7 @@ Après retraitement, l’exécution des requêtes comporte quatre étapes :
 
 Le diagramme ci-dessous illustre les composants utilisés pour traiter une demande de recherche. 
 
- ![Diagramme d’architecture de requête Lucene dans la recherche Azure][1]
+ ![Diagramme d’architecture de requête Lucene dans la Recherche cognitive Azure][1]
 
 
 | Composants clés | Description fonctionnelle | 
@@ -49,7 +49,7 @@ Le diagramme ci-dessous illustre les composants utilisés pour traiter une deman
 
 Une requête de recherche est une spécification complète de ce qui doit être renvoyé dans un jeu de résultats. Dans sa forme la plus simple, il s’agit d’une requête vide sans aucun critère. Un exemple plus réaliste inclut des paramètres, plusieurs termes de requête, peut-être limités à certains champs, avec éventuellement une expression de filtre et des règles de classement.  
 
-L’exemple suivant est une requête de recherche que vous pourriez envoyer à la recherche Azure à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
+L’exemple suivant est une requête de recherche que vous pourriez envoyer à la Recherche cognitive Azure à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2019-05-06
@@ -96,7 +96,7 @@ L’analyseur de requêtes restructure les sous-requêtes en une *arborescence d
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Analyseurs pris en charge : Lucene simple et complet 
 
- La recherche Azure expose deux langages de requête différents, `simple` (valeur par défaut) et `full`. En définissant le paramètre `queryType` avec votre requête de recherche, vous indiquez à l’analyseur de requêtes le langage de requête choisi afin qu’il sache comment interpréter les opérateurs et la syntaxe. Le [langage de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) est intuitif et robuste, généralement adapté à l’interprétation de l’entrée d’utilisateur telle quelle, sans traitement côté client. Il prend en charge les opérateurs de requête courants des moteurs de recherche web. Le [langage de requête complet Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que vous pouvez obtenir en définissant `queryType=full`, étend le langage de requête simple par défaut en y ajoutant la prise en charge de plusieurs opérateurs et types de requête, tels que les caractères génériques, et les requêtes partielles, d’expression régulière et portant sur des champs. Par exemple, une expression régulière envoyée en syntaxe de requête simple serait interprétée en tant que chaîne de requête et pas en tant qu’expression. L’exemple de requête de cet article utilise le langage de requête complet Lucene.
+ La Recherche cognitive Azure expose deux langages de requête différents, `simple` (valeur par défaut) et `full`. En définissant le paramètre `queryType` avec votre requête de recherche, vous indiquez à l’analyseur de requêtes le langage de requête choisi afin qu’il sache comment interpréter les opérateurs et la syntaxe. Le [langage de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) est intuitif et robuste, généralement adapté à l’interprétation de l’entrée d’utilisateur telle quelle, sans traitement côté client. Il prend en charge les opérateurs de requête courants des moteurs de recherche web. Le [langage de requête complet Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), que vous pouvez obtenir en définissant `queryType=full`, étend le langage de requête simple par défaut en y ajoutant la prise en charge de plusieurs opérateurs et types de requête, tels que les caractères génériques, et les requêtes partielles, d’expression régulière et portant sur des champs. Par exemple, une expression régulière envoyée en syntaxe de requête simple serait interprétée en tant que chaîne de requête et pas en tant qu’expression. L’exemple de requête de cet article utilise le langage de requête complet Lucene.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Impact du mode de recherche sur l’Analyseur 
 
@@ -137,7 +137,7 @@ La forme la plus courante d’analyse lexicale est *l’analyse linguistique* qu
 * Diviser un mot composite en composants 
 * Convertir en minuscules un mot en majuscules 
 
-Toutes ces opérations ont tendance à gommer les différences entre l’entrée de texte fournie par l’utilisateur et les termes stockés dans l’index. Ces opérations vont au-delà du traitement de texte et nécessitent une connaissance approfondie du langage lui-même. Pour ajouter cette couche de sensibilisation linguistique, la recherche Azure prend en charge une longue liste [d’analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support) Lucene et Microsoft.
+Toutes ces opérations ont tendance à gommer les différences entre l’entrée de texte fournie par l’utilisateur et les termes stockés dans l’index. Ces opérations vont au-delà du traitement de texte et nécessitent une connaissance approfondie du langage lui-même. Pour ajouter cette couche de sensibilisation linguistique, la Recherche cognitive Azure prend en charge une longue liste [d’analyseurs de langage](https://docs.microsoft.com/rest/api/searchservice/language-support) Lucene et Microsoft.
 
 > [!Note]
 > Les exigences d’analyse peuvent être minimales ou élaborées, selon votre scénario. Vous pouvez contrôler la complexité de l’analyse lexicale en sélectionnant l’un des analyseurs prédéfinis ou en créant votre propre [analyseur personnalisé](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Les analyseurs sont limités aux champs pouvant faire l’objet d’une recherche et sont spécifiés dans le cadre d’une définition de champ. Cela vous permet de faire varier l’analyse lexicale en fonction du champ. L’analyseur Lucene *standard* est utilisé si aucun autre analyseur n’est spécifié.
@@ -245,7 +245,7 @@ Pour produire les termes d’un index inversé, le moteur de recherche effectue 
 Il est commun, mais pas obligatoire, d’utiliser les mêmes analyseurs pour les opérations de recherche et d’indexation afin que les termes de requête ressemblent davantage aux termes de l’index.
 
 > [!Note]
-> La recherche Azure vous permet de spécifier différents analyseurs pour l’indexation et la recherche via les paramètres de champ supplémentaires `indexAnalyzer` et `searchAnalyzer`. Par défaut, l’analyseur défini avec la propriété `analyzer` est utilisé pour l’indexation et la recherche.  
+> La Recherche cognitive Azure vous permet de spécifier différents analyseurs pour l’indexation et la recherche via les paramètres de champ supplémentaires `indexAnalyzer` et `searchAnalyzer`. Par défaut, l’analyseur défini avec la propriété `analyzer` est utilisé pour l’indexation et la recherche.  
 
 **Index inversé pour les documents d’exemple**
 
@@ -309,7 +309,7 @@ Pendant l’exécution de la requête, les requêtes individuelles sont exécut�
 + La requête PhraseQuery, « vue mer », recherche les termes « mer » et « vue » et vérifie la proximité des termes dans le document d’origine. Les documents 1, 2 et 3 correspondent à cette requête dans le champ Description. Le document 4 contient le terme mer dans le titre, mais n’est pas considéré comme une correspondance, puisque nous recherchons l’expression « vue mer » plutôt que des mots individuels. 
 
 > [!Note]
-> Une requête de recherche est exécutée indépendamment sur tous les champs pouvant faire l’objet d’une recherche dans l’index de recherche Azure, sauf si vous limitez les champs définis avec le paramètre `searchFields`, comme illustré dans l’exemple de requête de recherche. Les documents qui correspondent à l’un des champs sélectionnés sont renvoyés. 
+> Une requête de recherche est exécutée indépendamment sur tous les champs pouvant faire l’objet d’une recherche dans l’index de Recherche cognitive Azure, sauf si vous limitez les champs définis avec le paramètre `searchFields`, comme illustré dans l’exemple de requête de recherche. Les documents qui correspondent à l’un des champs sélectionnés sont renvoyés. 
 
 Dans l’ensemble, pour la requête en question, les documents qui correspondent sont les documents 1, 2, 3. 
 
@@ -357,7 +357,7 @@ L’exemple suivant illustre l’importance de ce facteur. Les recherches avec c
 
 ### <a name="score-tuning"></a>Paramétrage du score
 
-Il existe deux façons de régler les scores de pertinence dans la recherche Azure :
+Il existe deux façons de régler les scores de pertinence dans la Recherche cognitive Azure :
 
 1. Les **profils de score** promeuvent les documents dans la liste ordonnée des résultats en fonction d’un ensemble de règles. Dans notre exemple, nous pourrions considérer que les documents correspondant au champ Titre sont plus pertinents que les documents correspondant au champ Description. En outre, si notre index comporte un champ Prix pour chaque hôtel, nous aurions pu promouvoir les documents avec un prix inférieur. Pour plus d’informations, voir [Ajouter des profils de notation à un index de recherche.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
 2. La **promotion de termes** (disponible uniquement dans la syntaxe de requête complète Lucene) fournit un opérateur de promotion `^` qui peut être appliqué à d’autres parties de l’arborescence de requête. Dans notre exemple, au lieu de rechercher le préfixe *air condition*\*, on peut rechercher le terme exact *air condition* ou le préfixe, mais les documents qui correspondent au terme exact sont mieux classés lorsqu’on applique la promotion à la requête de terme : *air condition^2||air condition*\*. En savoir plus sur la [promotion de termes](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
@@ -365,7 +365,7 @@ Il existe deux façons de régler les scores de pertinence dans la recherche Azu
 
 ### <a name="scoring-in-a-distributed-index"></a>Notation dans un index distribué
 
-Tous les index dans la recherche Azure sont automatiquement divisés en plusieurs partitions, ce qui nous permet de distribuer rapidement l’index entre plusieurs nœuds pendant la mise à l’échelle du service (inférieure ou supérieure). Lorsqu’une requête de recherche est émise, elle est émise sur chaque partition indépendamment. Les résultats de chaque partition sont ensuite fusionnés et classés par notation (si aucun autre classement n’est défini). Il est important de savoir que la fonction de notation compare la fréquence de terme de requête à la fréquence inverse de documents dans tous les documents de la partition, et pas dans toutes les partitions.
+Tous les index dans la Recherche cognitive Azure sont automatiquement divisés en plusieurs partitions, ce qui nous permet de distribuer rapidement l’index entre plusieurs nœuds pendant la mise à l’échelle du service (inférieure ou supérieure). Lorsqu’une requête de recherche est émise, elle est émise sur chaque partition indépendamment. Les résultats de chaque partition sont ensuite fusionnés et classés par notation (si aucun autre classement n’est défini). Il est important de savoir que la fonction de notation compare la fréquence de terme de requête à la fréquence inverse de documents dans tous les documents de la partition, et pas dans toutes les partitions.
 
 Cela signifie qu’un score de pertinence *peut* être différent pour des documents identiques s’ils résident sur différentes partitions. Heureusement, ces différences ont tendance à disparaître à mesure que le nombre de documents dans l’index augmente et ce, grâce à une distribution des termes plus homogène. Il est impossible de deviner sur quelle partition un document sera placé. Toutefois, si la clé de document ne change pas, celui-ci sera toujours affecté à la même partition.
 
@@ -377,7 +377,7 @@ La réussite des moteurs de recherche Internet a suscité des attentes en termes
 
 D’un point de vue technique, la recherche en texte intégral est très complexe, nécessitant une analyse linguistique sophistiquée et une approche systématique du traitement de manière à distiller, développer et transformer les termes de requête pour renvoyer un résultat correspondant. Étant donné la complexité inhérente, de nombreux facteurs peuvent affecter le résultat d’une requête. Pour cette raison, prenez le temps nécessaire pour comprendre le fonctionnement de la recherche en texte intégral si vous essayez d’analyser des résultats inattendus.  
 
-Cet article a présenté la recherche en texte intégral dans le contexte de la recherche Azure. Nous espérons qu’il vous a donné les bases nécessaires pour connaître les causes potentielles des problèmes les plus courants en matière de requête, ainsi que leurs résolutions. 
+Cet article a présenté la recherche en texte intégral dans le contexte de la Recherche cognitive Azure. Nous espérons qu’il vous a donné les bases nécessaires pour connaître les causes potentielles des problèmes les plus courants en matière de requête, ainsi que leurs résolutions. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

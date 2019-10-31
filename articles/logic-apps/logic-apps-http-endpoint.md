@@ -1,6 +1,6 @@
 ---
-title: Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP - Azure Logic Apps
-description: Configurer des points de terminaison HTTP pour appeler, déclencher ou imbriquer des workflows pour Azure Logic Apps
+title: Appeler, déclencher ou imbriquer des applications logiques - Azure Logic Apps
+description: Configurer des points de terminaison HTTP pour appeler, déclencher ou imbriquer des workflows d’application logique dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.workload: integration
@@ -12,14 +12,14 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: f93e90ef442740e4fb17f166023fbe3d5f0bae66
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: eb8451272ecb5bc7b9a7c670545170cd74621883
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875948"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680321"
 ---
-# <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP dans Azure Logic Apps
+# <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Appeler, déclencher ou imbriquer des applications logiques à l’aide de points de terminaison HTTP dans Azure Logic Apps
 
 Vous pouvez exposer en mode natif les points de terminaison HTTP synchrones en tant que déclencheurs sur des applications logiques, afin que vous puissiez déclencher ou appeler vos applications logiques via une URL. Vous pouvez également imbriquer des workflows dans vos applications logiques à l’aide d’un modèle de points de terminaison pouvant être appelés.
 
@@ -38,7 +38,7 @@ Pour créer des points de terminaison HTTP, vous pouvez ajouter ces déclencheur
 
 Pour créer un point de terminaison HTTP, ajoutez un déclencheur qui peut recevoir des requêtes entrantes.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure"). Accédez à votre application logique et ouvrez le Concepteur d’application logique.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com "Portail Azure"). Accédez à votre application logique et ouvrez le Concepteur d’application logique.
 
 2. Ajoutez un déclencheur qui permet à votre application logique de recevoir des requêtes entrantes. Par exemple, ajoutez le déclencheur **Requête** à votre application logique.
 
@@ -287,7 +287,7 @@ R : Oui, les points de terminaison HTTP prennent en charge une configuration plu
 
 * [Modification de la méthode de la requête](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Modification des segments d’URL de la requête](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
-* Configuration de vos domaines Gestion des API dans le [portail Azure](https://portal.azure.com/ "portail Azure")
+* Configuration de vos domaines Gestion des API dans le [portail Azure](https://portal.azure.com/ "Portail Azure")
 * Configuration d’une stratégie pour vérifier l’authentification de base
 
 #### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>Q : Qu’est-ce qui a changé suite à la migration du schéma à partir de la préversion du 1er décembre 2014 ?

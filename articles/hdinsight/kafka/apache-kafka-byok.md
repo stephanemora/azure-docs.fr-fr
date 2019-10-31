@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ba49944011546db45d25cc87c2c4b93c8b99502a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71122680"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Apporter sa propre clé pour Apache Kafka sur Azure HDInsight
@@ -81,11 +81,11 @@ Pour créer un cluster Kafka avec BYOK activé, nous procéderons comme suit :
 
         c. Définissez **Autorisations de clé** sur **Obtenir**, **Ne pas inclure la clé** et **Inclure la clé**.
 
-        ![Définir des autorisations de clé pour Azure Key Vault - Stratégie d’accès 1](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Définir des autorisations de clé pour Azure Key Vault - Stratégie d’accès 1")
+        ![Définir les autorisations de clé pour la stratégie d’accès Azure Key Vault1](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Définir les autorisations de clé pour la stratégie d’accès Azure Key Vault1")
 
         d. Définissez **Autorisations du secret** sur **Obtenir**, **Définir** et **Supprimer**.
 
-        ![Définir des autorisations de clé pour Azure Key Vault - Stratégie d’accès 2](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Définir des autorisations de clé pour Azure Key Vault - Stratégie d’accès 2")
+        ![Définir les autorisations de clé pour la stratégie d’accès Azure Key Vault2](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Définir les autorisations de clé pour la stratégie d’accès Azure Key Vault2")
 
         e. Cliquez sur **Save**(Enregistrer). 
 

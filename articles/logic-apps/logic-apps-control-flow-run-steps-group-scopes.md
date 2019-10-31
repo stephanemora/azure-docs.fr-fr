@@ -1,23 +1,22 @@
 ---
-title: Ajouter des étendues exécutant des actions en fonction en fonction de l’état du groupe – Azure Logic Apps | Microsoft Docs
-description: Comment créer des étendues qui exécutent des actions de workflow en fonction de l’état d’action du groupe dans Azure Logic Apps
+title: Regrouper et exécuter des actions par étendue - Azure Logic Apps
+description: Créer des actions d’étendue qui s’exécutent en fonction de l’état du groupe dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0f53d1dbcd5b8bbbe38ffe3dd9ba62087ed3432
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685407"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680017"
 ---
-# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Exécuter des actions de workflow en fonction de l’état du groupe avec des étendues dans Azure Logic Apps
+# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Exécuter des actions en fonction de l’état du groupe à l’aide d’étendues dans Azure Logic Apps
 
 Pour exécuter des actions uniquement après l’échec ou la réussite d’un groupe d’actions, placez ce groupe dans une *étendue*. Cette structure est utile lorsque vous souhaitez organiser les actions en tant que groupe logique, évaluer l’état de ce groupe et effectuer des actions qui sont basées sur l’état de l’étendue. Une fois que toutes les actions d’une étendue ont été exécutées, l’étendue récupère également son propre état. Par exemple, vous pouvez utiliser des étendues lorsque vous souhaitez implémenter la [gestion des erreurs et des exceptions](../logic-apps/logic-apps-exception-handling.md#scopes). 
 

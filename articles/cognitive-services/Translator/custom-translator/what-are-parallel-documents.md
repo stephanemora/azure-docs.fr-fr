@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595446"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675463"
 ---
 # <a name="what-are-parallel-documents"></a>Que sont des documents parallèles ?
 
@@ -23,7 +23,7 @@ Peu importe quelle langue est marquée comme « source » et quelle langue est
 
 ## <a name="requirements"></a>Configuration requise
 
-Vous aurez besoin d’un minimum de 10 000 phrases parallèles uniques pour entraîner un système. Vous pouvez ajouter en permanence plus de contenu parallèle et relancer l’apprentissage afin d’améliorer la qualité de votre système de traduction. Cette approche fait partie des meilleures pratiques.
+Vous aurez besoin d’un minimum de 10 000 phrases parallèles et alignées uniques pour entraîner un système. Cette limitation est un filet de sécurité qui garantit que vos phrases parallèles contiennent suffisamment de vocabulaire unique pour entraîner correctement un modèle de traduction. Une bonne pratique consiste à ajouter en permanence plus de contenu parallèle et à répéter l’entraînement afin d’améliorer la qualité de votre système de traduction. Consultez [Alignement de phrases](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
 Microsoft exige que les documents chargés dans le Custom Translator respectent les droits d’auteur et la propriété intellectuelle d’un tiers. Pour plus d’informations, veuillez consulter les [conditions d’utilisation](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Le chargement d’un document à l’aide du portail ne transfère pas les droits de propriété intellectuelle du document lui-même.

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096227"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755413"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plan Azure Functions Premium (préversion)
 
@@ -106,26 +106,34 @@ Vous trouverez ci-dessous les régions prenant actuellement en charge la préver
 
 |Région| Windows | Linux |
 |--| -- | -- |
+|Australie Centre| ✔* | |
+|Australie Centre 2| ✔* | |
 |Australie Est| ✔ | |
-|Sud-Australie Est | ✔ | ✔ |
-|Centre du Canada| ✔ |  |
+|Australie Sud-est | ✔ | ✔ |
+|Brésil Sud| ✔** |  |
+|Canada Centre| ✔ |  |
 |USA Centre| ✔ |  |
 |Asie Est| ✔ |  |
-|USA Est | | ✔ |
+|USA Est | ✔ | ✔ |
 |USA Est 2| ✔ |  |
 |France Centre| ✔ |  |
-|Japon Est|  | ✔ |
-|OuJapon Est| ✔ | |
-|Centre de la Corée| ✔ |  |
-|Centre-Nord des États-Unis| ✔ |  |
+|Japon Est| ✔ | ✔ |
+|Japon Ouest| ✔ | |
+|Corée Centre| ✔ |  |
+|USA Centre Nord| ✔ |  |
 |Europe Nord| ✔ | ✔ |
-|États-Unis - partie centrale méridionale| ✔ |  |
+|USA Centre Sud| ✔ |  |
 |Inde Sud | ✔ | |
 |Asie Sud-Est| ✔ | ✔ |
-|Ouest du Royaume-Uni| ✔ |  |
+|Royaume-Uni Sud| ✔ | |
+|Royaume-Uni Ouest| ✔ |  |
 |Europe Ouest| ✔ | ✔ |
 |Inde Ouest| ✔ |  |
 |USA Ouest| ✔ | ✔ |
+
+\* Scale-out maximal limité à 20 instances
+
+\** Scale-out maximal limité à 60 instances
 
 ## <a name="known-issues"></a>Problèmes connus
 

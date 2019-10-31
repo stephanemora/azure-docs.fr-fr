@@ -1,29 +1,29 @@
 ---
-title: Implémentation de la navigation à facettes dans une hiérarchie de catégorie - Recherche Azure
-description: Ajoutez la navigation à facettes aux applications qui s'intègrent à Recherche Azure, un service de recherche cloud hébergé sur Microsoft Azure.
-author: HeidiSteen
+title: Implémentation de la navigation par facettes dans une hiérarchie de catégorie
+titleSuffix: Azure Cognitive Search
+description: Ajoutez la navigation par facettes aux applications qui s’intègrent à la Recherche cognitive Azure, un service de recherche cloud hébergé sur Microsoft Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 8e325abf1f58458d2fa035c8c8f081173efb0e65
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: f1847eae1ee7db90f36072e2e832bd6fec9c2caa
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649889"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792925"
 ---
-# <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search
+# <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Implémentation de la navigation par facettes dans la Recherche cognitive Azure
+
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Le terme « navigation à facettes » peut vous sembler peu familier, mais vous l’avez très certainement déjà utilisé. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.
 
- ![Démonstration du portail de recrutement Recherche Azure](media/search-faceted-navigation/azure-search-faceting-example.png "Démonstration du portail de recrutement Recherche Azure")
+ ![Démonstration du portail de recrutement de la Recherche cognitive Azure](media/search-faceted-navigation/azure-search-faceting-example.png "Démonstration du portail de recrutement de la Recherche cognitive Azure")
 
 La navigation à facettes constitue un autre point d’entrée pour la recherche. Elle offre une alternative pratique à la saisie manuelle d’expressions de recherche complexes. Les facettes peuvent vous aider à trouver ce que vous recherchez, tout en vous assurant d’obtenir au moins un résultat. En tant que développeur, les facettes vous permettent d’exposer les critères de recherche les plus utiles pour naviguer dans votre index de recherche. Dans les applications de vente au détail en ligne, la navigation à facettes repose souvent sur les marques, les catégories (chaussures pour enfants), la taille, le prix, la popularité et les évaluations. 
 
-L’implémentation de la navigation par facettes varie en fonction des technologies de recherche. Dans Recherche Azure, la navigation à facettes est créée au moment de la requête, à l’aide de champs précédemment attribués dans votre schéma.
+L’implémentation de la navigation par facettes varie en fonction des technologies de recherche. Dans la Recherche cognitive Azure, la navigation par facettes est créée au moment de la requête, à l’aide de champs précédemment attribués dans votre schéma.
 
 -   Dans les requêtes créées par votre application, une requête doit envoyer des *paramètres de requête de facette* afin de recevoir les valeurs de filtre de facette disponibles pour ce jeu de résultats du document.
 
@@ -34,7 +34,7 @@ Dans le développement de votre application, l’écriture du code qui construit
 ## <a name="sample-code-and-demo"></a>Exemple de code et démonstration
 Cet article prend l’exemple d’un portail de recrutement. L’exemple est implémenté en tant qu’application ASP.NET MVC.
 
--   Consultez et testez la démonstration en ligne sur la [démonstration du portail de recrutement Recherche Azure](https://azjobsdemo.azurewebsites.net/).
+-   Consultez et testez la [démonstration en ligne du portail de recrutement de la Recherche cognitive Azure](https://azjobsdemo.azurewebsites.net/).
 
 -   Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -47,13 +47,13 @@ L'expérience de recherche pour la navigation à facettes est itérative. Donc, 
 
 Le point de départ est une page d'application qui offre une navigation à facettes, généralement placée sur la périphérie. La navigation à facettes est souvent présentée sous forme d'arborescence avec des cases à cocher pour chaque valeur ou du texte interactif. 
 
-1. Une requête envoyée à Azure Search spécifie la structure de la navigation à facettes par le biais d'un ou plusieurs paramètres de requête de facette. Par exemple, la requête peut inclure `facet=Rating`, éventuellement avec une option `:values` ou `:sort` pour affiner la présentation.
+1. Une requête envoyée à la Recherche cognitive Azure spécifie la structure de la navigation par facettes par le biais d’un ou plusieurs paramètres de requête de facette. Par exemple, la requête peut inclure `facet=Rating`, éventuellement avec une option `:values` ou `:sort` pour affiner la présentation.
 2. La couche de présentation renvoie une page de recherche qui fournit une navigation à facettes, à l'aide des facettes spécifiées dans la requête.
 3. Face à une structure de navigation à facettes qui inclut le paramètre Évaluation, vous cliquez sur « 4 » pour indiquer que seuls les produits dotés d’une évaluation minimale de 4 doivent être affichés. 
 4. En réponse, l'application envoie une requête qui inclut `$filter=Rating ge 4` 
 5. La couche de présentation met à jour la page en affichant un jeu de résultats réduit, contenant uniquement les éléments qui répondent aux nouveaux critères (dans ce cas, les produits avec une évaluation de 4 et supérieure).
 
-Une facette est un paramètre de requête, mais ne la confondez pas avec l'entrée de requête. Elle n'est jamais utilisée comme critère de sélection dans une requête. Considérez plutôt les paramètres de requête de facette comme des entrées de la structure de navigation qui est renvoyée dans la réponse. Pour chaque paramètre de requête de facette que vous fournissez, Recherche Azure évalue le nombre de documents dans les résultats partiels pour chaque valeur de la facette.
+Une facette est un paramètre de requête, mais ne la confondez pas avec l'entrée de requête. Elle n'est jamais utilisée comme critère de sélection dans une requête. Considérez plutôt les paramètres de requête de facette comme des entrées de la structure de navigation qui est renvoyée dans la réponse. Pour chaque paramètre de requête de facette que vous fournissez, la Recherche cognitive Azure évalue le nombre de documents dans les résultats partiels pour chaque valeur de la facette.
 
 Notez le `$filter` à l'étape 4. Ce filtre constitue un aspect important de la navigation à facettes. Bien que les facettes et les filtres soient indépendants dans l’API, vous avez besoin des deux pour fournir l’expérience attendue. 
 
@@ -63,7 +63,7 @@ Dans le code d’application, le modèle consiste à utiliser les paramètres de
 
 ### <a name="query-basics"></a>Principes de base des requêtes
 
-Dans Azure Search, une requête est spécifiée par le biais d'un ou de plusieurs paramètres de requête (consultez [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir une description de chacun d'eux). Aucun des paramètres de requête n'est requis, mais vous devez en avoir au moins un pour qu'une requête soit valide.
+Dans la Recherche cognitive Azure, une requête est spécifiée par le biais d’un ou de plusieurs paramètres de requête (consultez [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir une description de chacun d’eux). Aucun des paramètres de requête n'est requis, mais vous devez en avoir au moins un pour qu'une requête soit valide.
 
 La précision, interprétée comme la possibilité de filtrer les résultats non pertinents, s’effectue par le biais d’une ou de ces deux expressions :
 
@@ -89,17 +89,17 @@ Dans les applications qui incluent la navigation à facettes, veillez à ce que 
 <a name="howtobuildit"></a>
 
 ## <a name="build-a-faceted-navigation-app"></a>Créer une application de navigation à facettes
-Vous implémentez la navigation à facettes avec Recherche Azure dans le code d’application qui vous permet de créer la requête de recherche. La navigation à facettes repose sur les éléments de schéma que vous avez définis précédemment.
+Vous implémentez la navigation par facettes avec la Recherche cognitive Azure dans le code d’application qui vous permet de créer la requête de recherche. La navigation à facettes repose sur les éléments de schéma que vous avez définis précédemment.
 
 L'attribut d'index `Facetable [true|false]` , prédéfini sur votre index de recherche, est défini sur des champs sélectionnés pour activer ou désactiver leur utilisation dans une structure de navigation à facettes. Sans `"Facetable" = true`, un champ ne peut pas être utilisé dans la navigation à facettes.
 
-La couche de présentation dans votre code fournit l'expérience utilisateur. Elle doit répertorier les éléments constitutifs de la navigation à facettes, comme l'étiquette, les valeurs, les cases à cocher et le décompte. L'API REST Azure Search est indépendante de la plateforme. Vous pouvez donc utiliser la langue et la plateforme que vous souhaitez. L'important est d'inclure des éléments d'interface utilisateur qui prennent en charge l'actualisation incrémentielle, avec l'état de l'interface utilisateur mis à jour lorsque chaque facette supplémentaire est sélectionnée. 
+La couche de présentation dans votre code fournit l'expérience utilisateur. Elle doit répertorier les éléments constitutifs de la navigation à facettes, comme l'étiquette, les valeurs, les cases à cocher et le décompte. L’API REST de Recherche cognitive Azure est indépendante de la plateforme. Vous pouvez donc utiliser la langue et la plateforme que vous souhaitez. L'important est d'inclure des éléments d'interface utilisateur qui prennent en charge l'actualisation incrémentielle, avec l'état de l'interface utilisateur mis à jour lorsque chaque facette supplémentaire est sélectionnée. 
 
 Au moment de la requête, votre code d'application crée une requête qui inclut `facet=[string]`, un paramètre de requête qui fournit le champ sur lequel baser la facette. Une requête peut avoir plusieurs facettes, comme `&facet=color&facet=category&facet=rating`, chaque facette étant séparée par un caractère d'esperluette (&).
 
 Le code d'application doit également construire une expression `$filter` pour gérer les événements de clic dans la navigation à facettes. Un `$filter` réduit les résultats de la recherche, à l'aide de la valeur de facette comme critère de filtre.
 
-Recherche Azure renvoie les résultats de la recherche en fonction du ou des mots que vous avez saisis, ainsi que les mises à jour de la structure de la navigation à facettes. Dans Azure Search, la navigation à facettes est une construction à niveau unique, avec des valeurs de facettes et des décomptes des résultats trouvés pour chaque.
+La Recherche cognitive Azure retourne les résultats de la recherche en fonction du ou des mots que vous avez saisis ainsi que les mises à jour de la structure de la navigation par facettes. Dans la Recherche cognitive Azure, la navigation par facettes est une construction à niveau unique, avec des valeurs de facettes et des décomptes des résultats trouvés pour chaque.
 
 Dans les sections suivantes, nous allons étudier comment générer chaque partie.
 
@@ -167,7 +167,7 @@ Le fait de travailler à partir de la couche de présentation peut vous aider à
 
 En termes de navigation à facettes, votre page Web ou d'application affiche la structure de navigation à facettes, détecte une entrée utilisateur sur la page et insère les éléments modifiés. 
 
-Pour les applications Web, la méthode AJAX est en général utilisée dans la couche de présentation, car elle vous permet d'actualiser les modifications incrémentielles. Vous pouvez également utiliser ASP.NET MVC ou toute autre plateforme de visualisation qui peut se connecter à un service Azure Search par le biais de HTTP. L’exemple d’application référencé dans cet article (**Démonstration du portail de recrutement Recherche Azure**) est une application ASP.NET MVC.
+Pour les applications Web, la méthode AJAX est en général utilisée dans la couche de présentation, car elle vous permet d'actualiser les modifications incrémentielles. Vous pouvez également utiliser ASP.NET MVC ou toute autre plateforme de visualisation qui peut se connecter à un service Recherche cognitive Azure par le biais de HTTP. L’exemple d’application référencé dans cet article (**Démonstration du portail de recrutement de la Recherche cognitive Azure**) est une application ASP.NET MVC.
 
 Dans l’exemple fourni, la navigation à facettes est intégrée dans la page de résultats. L’exemple suivant, extrait du fichier `index.cshtml` de l’exemple d’application, montre la structure HTML statique correspondant à l’affichage de la navigation à facettes sur la page des résultats de la recherche. La liste de facettes est créée ou recréée dynamiquement lorsque vous envoyez un terme de recherche, ou lorsque vous activez ou désactivez une facette.
 
@@ -230,7 +230,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Un paramètre de requête à facettes est défini sur un champ et, selon le type de données, peut être davantage paramétré par une liste délimitée par des virgules qui inclut `count:<integer>`, `sort:<>`, `interval:<integer>` et `values:<list>`. Une liste de valeurs est prise en charge pour les données numériques lors de la définition de plages. Consultez [Rechercher des documents (API Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir des détails sur l'utilisation.
+Un paramètre de requête à facettes est défini sur un champ et, selon le type de données, peut être davantage paramétré par une liste délimitée par des virgules qui inclut `count:<integer>`, `sort:<>`, `interval:<integer>` et `values:<list>`. Une liste de valeurs est prise en charge pour les données numériques lors de la définition de plages. Consultez [Rechercher des documents (API de Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour obtenir des détails sur l’utilisation.
 
 En plus des facettes, la requête formulée par votre application doit également créer des filtres pour limiter le jeu de documents candidats basés sur une sélection de valeur de facette. Pour un magasin de vélos, la navigation à facettes fournit des indications aux questions du type *Quels sont les couleurs, fabricants et types de vélos disponibles ?* . Le filtrage permet de répondre à des questions du type *Quels sont les vélos de type VTT et de couleur rouge dans cette gamme de prix ?* . Lorsque vous cliquez sur « Rouge » pour indiquer que seuls les produits de couleur rouge doivent s’afficher, la requête suivante envoyée par l’application inclut `$filter=Color eq ‘Red’`.
 
@@ -260,7 +260,7 @@ Pour les valeurs de type Numérique et DateHeure uniquement, vous pouvez défini
 
 **Par défaut, vous ne pouvez avoir qu’un seul niveau de navigation par facettes** 
 
-Comme mentionné, il n'existe aucune prise en charge directe de l'imbrication des facettes dans une hiérarchie. Par défaut, la navigation à facettes dans Recherche Azure ne prend en charge qu’un seul niveau de filtres. Toutefois, des solutions de contournement existent. Vous pouvez encoder une structure hiérarchique de facette dans une `Collection(Edm.String)` avec un point d'entrée par hiérarchie. L’implémentation de cette solution de contournement n’est pas abordée dans cet article. 
+Comme mentionné, il n'existe aucune prise en charge directe de l'imbrication des facettes dans une hiérarchie. Par défaut, la navigation par facettes dans la Recherche cognitive Azure ne prend en charge qu’un seul niveau de filtres. Toutefois, des solutions de contournement existent. Vous pouvez encoder une structure hiérarchique de facette dans une `Collection(Edm.String)` avec un point d'entrée par hiérarchie. L’implémentation de cette solution de contournement n’est pas abordée dans cet article. 
 
 ### <a name="querying-tips"></a>Conseils d’interrogation
 **Validation des champs**
@@ -302,7 +302,7 @@ Pour chaque champ à facettes dans l'arborescence de navigation, il existe une l
 Notez la différence entre les résultats de la recherche et les résultats de la facette. Les résultats de la recherche sont tous les documents qui correspondent à la requête. Les résultats de la facette sont les correspondances pour chaque valeur de facette. Dans l’exemple, les résultats de la recherche incluent des noms de villes qui ne se trouvent pas dans la liste de classification de la facette (5, dans notre exemple). Les résultats filtrés par le biais de la navigation à facettes deviennent visibles lorsque vous effacez les facettes ou choisissez d’autres facettes en plus de Ville. 
 
 > [!NOTE]
-> Traiter de `count` lorsqu'il existe plus d'un type peut prêter à confusion. Le tableau suivant offre un bref résumé de l'utilisation du terme dans l'API Azure Search, un exemple de code et la documentation. 
+> Traiter de `count` lorsqu'il existe plus d'un type peut prêter à confusion. Le tableau suivant offre un bref résumé de l’utilisation du terme dans l’API de Recherche cognitive Azure, un exemple de code et la documentation. 
 
 * `@colorFacet.count`<br/>
   Dans le code de présentation, un paramètre de décompte doit s’afficher sur la facette. Il est utilisé pour afficher le nombre de résultats de la facette. Dans les résultats de la facette, le décompte indique le nombre de documents qui correspondent au terme ou à la plage de la facette.
@@ -317,7 +317,7 @@ Lorsque vous ajoutez un filtre à une requête à facettes, il se peut que vous 
 
 **Vérifier que les nombres de facettes sont exacts**
 
-Dans certaines circonstances, il est possible que les décomptes de facettes ne correspondent pas aux jeux de résultats (consultez [Navigation à facettes dans Azure Search (publication du forum)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+Dans certaines circonstances, il est possible que les décomptes de facettes ne correspondent pas aux jeux de résultats (consultez [Navigation par facettes dans la Recherche cognitive Azure (publication du forum)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
 
 Les décomptes de facettes peuvent être erronés en raison de l'architecture de partitionnement. Chaque index de recherche a plusieurs partitions et chacune d’elles indique les N premières facettes par décompte de document, qui est ensuite combiné en un résultat unique. Si certaines partitions ont beaucoup de valeurs correspondantes, tandis que d’autres en ont moins, il est possible que certaines valeurs de facettes soient manquantes ou sous-comptabilisées dans les résultats.
 
@@ -326,14 +326,14 @@ Ce comportement peut changer à tout moment, mais si vous rencontrez ce problèm
 ### <a name="user-interface-tips"></a>Conseils sur l’interface utilisateur
 **Ajouter des étiquettes pour chaque champ dans la navigation à facettes**
 
-Les étiquettes sont généralement définies dans le code HTML ou le formulaire (`index.cshtml` dans l’exemple d’application). Il n’existe aucune API dans Recherche Azure pour les étiquettes de navigation à facettes ou tout autre type de métadonnées.
+Les étiquettes sont généralement définies dans le code HTML ou le formulaire (`index.cshtml` dans l’exemple d’application). Il n’existe aucune API dans la Recherche cognitive Azure pour les étiquettes de navigation par facettes ou tout autre type de métadonnées.
 
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtrer sur une plage de valeurs
-L’utilisation de facettes sur des plages de valeurs est une condition d’application de recherche courante. Les plages sont prises en charge pour les données numériques et les valeurs DateHeure. Vous pouvez en savoir plus sur chaque approche dans [Rechercher des documents (API Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+L’utilisation de facettes sur des plages de valeurs est une condition d’application de recherche courante. Les plages sont prises en charge pour les données numériques et les valeurs DateHeure. Vous pouvez en savoir plus sur chaque approche en consultant [Rechercher des documents (API de Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
-Azure Search simplifie la création de plage en fournissant deux approches pour calculer une plage. Pour les deux approches, Azure Search crée les plages appropriées avec les entrées que vous avez fournies. Par exemple, si vous spécifiez des valeurs de plage de 10|20|30, Recherche Azure crée automatiquement les plages 0-10, 10-20, 20-30. Votre application peut éventuellement supprimer les intervalles vides. 
+La Recherche cognitive Azure simplifie la création de plage en fournissant deux approches pour calculer une plage. Pour les deux approches, la Recherche cognitive Azure crée les plages appropriées avec les entrées que vous avez fournies. Par exemple, si vous spécifiez des valeurs de plage de 10|20|30, Recherche Azure crée automatiquement les plages 0-10, 10-20, 20-30. Votre application peut éventuellement supprimer les intervalles vides. 
 
 **Approche 1 : Utiliser le paramètre d’intervalle**  
 Pour définir les facettes de prix par incréments de 10 $, vous devez spécifier :`&facet=price,interval:10`
@@ -347,7 +347,7 @@ Pour spécifier une plage de facette comme celle de la capture d’écran préc�
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
-Chaque plage est créée avec 0 comme point de départ, une valeur de la liste comme point de terminaison, puis la plage précédente en moins pour créer des intervalles discrets. Recherche Azure effectue cette opération dans le cadre de la navigation à facettes. Vous n'avez pas à écrire du code pour structurer chaque intervalle.
+Chaque plage est créée avec 0 comme point de départ, une valeur de la liste comme point de terminaison, puis la plage précédente en moins pour créer des intervalles discrets. La Recherche cognitive Azure effectue cette opération dans le cadre de la navigation par facettes. Vous n'avez pas à écrire du code pour structurer chaque intervalle.
 
 ### <a name="build-a-filter-for-a-range"></a>Créer un filtre pour une plage
 Pour filtrer les documents en fonction d’une plage que vous avez sélectionnée, vous pouvez utiliser les opérateurs de filtre `"ge"` et `"lt"` dans une expression en deux parties qui définit les points de terminaison de la plage. Par exemple, si vous choisissez la plage 10-25 pour un champ `listPrice`, le filtre sera `$filter=listPrice ge 10 and listPrice lt 25`. Dans l’exemple de code, l’expression de filtre utilise les paramètres **priceFrom** et **priceTo** pour définir les points de terminaison. 
@@ -359,19 +359,19 @@ Pour filtrer les documents en fonction d’une plage que vous avez sélectionné
 ## <a name="filter-based-on-distance"></a>Filtrer en fonction de la distance
 Il est courant de voir des filtres qui vous aident à choisir un magasin, un restaurant ou une destination en fonction de sa proximité à votre emplacement actuel. Ce type de filtre peut ressembler à la navigation à facettes, mais c’est tout simplement un filtre. Nous le mentionnons ici pour ceux d'entre vous qui recherchent spécifiquement des conseils d'implémentation pour ce problème de conception particulier.
 
-Il existe deux fonctions géospatiales dans la Recherche Azure, **geo.distance** et **geo.intersects**.
+Il existe deux fonctions géospatiales dans la Recherche cognitive Azure, **geo.distance** et **geo.intersects**.
 
 * La fonction **geo.distance** renvoie la distance en kilomètres entre deux points. L’un est un champ et l’autre est une constante considérée comme une partie du filtre. 
 * La fonction **geo.intersects** renvoie true si un point donné se trouve dans un polygone donné. Le point est un champ et le polygone est spécifié sous forme de liste constante de coordonnées en tant que partie du filtre.
 
-Vous trouverez des exemples de filtres dans [Syntaxe d'expression OData (Azure Search)](query-odata-filter-orderby-syntax.md).
+Vous trouverez des exemples de filtres dans [Syntaxe d’expression OData (Recherche cognitive Azure)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 
 ## <a name="try-the-demo"></a>Essayer la démonstration
-La démonstration du portail de recrutement Recherche Azure contient les exemples référencés dans cet article.
+La démonstration du portail de recrutement de la Recherche cognitive Azure contient les exemples référencés dans cet article.
 
--   Consultez et testez la démonstration en ligne sur la [démonstration du portail de recrutement Recherche Azure](https://azjobsdemo.azurewebsites.net/).
+-   Consultez et testez la [démonstration en ligne du portail de recrutement de la Recherche cognitive Azure](https://azjobsdemo.azurewebsites.net/).
 
 -   Téléchargez le code à partir du [référentiel Azure-Samples sur GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -396,7 +396,7 @@ Lorsque vous utilisez les résultats de la recherche, observez les modifications
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>En savoir plus
-Regardez la [Présentation approfondie de la Recherche Azure](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). À 45:25 sur la vidéo, vous trouverez une démonstration sur la façon d'implémenter des facettes.
+Regardez la [vidéo de présentation approfondie de la Recherche cognitive Azure](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). À 45:25 sur la vidéo, vous trouverez une démonstration sur la façon d'implémenter des facettes.
 
 Pour plus d'informations sur les principes de conception pour la navigation à facettes, nous vous recommandons les liens suivants :
 

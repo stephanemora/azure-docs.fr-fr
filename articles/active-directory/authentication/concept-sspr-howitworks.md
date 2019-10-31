@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c31867f4de0e49e2c82733dc859f17ba060bdaa
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9fcac058a510b8b7fed5b3967bbbf439dd4c0f71
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69561332"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786730"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : Réinitialisation de mot de passe en libre-service Azure AD
 
@@ -96,6 +96,12 @@ Les utilisateurs n’auront pas la possibilité d’inscrire leur application mo
 
 > [!WARNING]
 > Vous devez activer la fonction [Inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion publique)](concept-registration-mfa-sspr-converged.md) pour permettre aux utilisateurs de bénéficier de la nouvelle expérience sur [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!IMPORTANT]
+> L’application d’authentification ne peut pas être sélectionnée comme seule méthode d’authentification lors de la configuration d’une stratégie à 1 porte. De même, l’application d’authentification et seulement une méthode supplémentaire ne peuvent pas être sélectionnées lors de la configuration d’une stratégie à 2 portes.
+> Ainsi, lors de la configuration des stratégies SSPR qui englobent l’application d’authentification en tant que méthode, il faut au moins une méthode supplémentaire sélectionnée lors de la configuration d’une stratégie à 1 porte, et au moins deux méthodes supplémentaires sélectionnées lors de la configuration d’une stratégie à 2 portes.
+> La raison de cette exigence est due au fait que l’expérience d’inscription SSPR actuelle ne comporte pas l’option d’inscription de l’application d’authentification. L’option permettant d’inscrire l’application d’authentification est incluse dans la nouvelle [Inscription convergée pour la réinitialisation de mot de passe en libre-service et Azure Multi-Factor Authentication (préversion publique)](concept-registration-mfa-sspr-converged.md).
+> Autoriser des stratégies qui utilisent uniquement l’application d’authentification (pour les stratégies à 1 porte), ou l’application d’authentification et seulement une méthode supplémentaire (pour les stratégies à 2 portes) peut aller jusqu’à empêcher l’inscription des utilisateurs pour SSPR, tant qu’ils ne sont pas configurés pour utiliser la nouvelle expérience d’inscription.
 
 ### <a name="change-authentication-methods"></a>Changer les méthodes d’authentification
 

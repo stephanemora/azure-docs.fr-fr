@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.openlocfilehash: 687fde2e203ed471e2f0164f1f4a670de4afc74e
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71677080"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
@@ -48,7 +48,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec les modèle
 
 1. Sélectionnez **1 De base**. Entrez ensuite les informations ci-dessous.
 
-    ![HDInsight - Créer un cluster, volet De base](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-basics.png "Création d’un cluster dans le portail Azure")
+    ![HDInsight - Créer un cluster - Informations de base](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-basics.png "Création d’un cluster dans le portail Azure")
 
     * Entrez le **nom du cluster**. Ce nom doit être globalement unique.
 
@@ -79,7 +79,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec les modèle
 
 1. Dans **3 Stockage**, spécifiez si vous voulez utiliser Stockage Azure ou Azure Data Lake Storage comme stockage par défaut. Pour plus d’informations, consultez le tableau suivant.
 
-     ![HDInsight - Créer un cluster, stockage](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Création d’un cluster dans le portail Azure")
+     ![HDInsight - Créer un cluster - Stockage](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Création d’un cluster dans le portail Azure")
 
      | Stockage                                      | Description |
      |----------------------------------------------|-------------|
@@ -98,7 +98,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec les modèle
 
 1. **5 Taille de cluster** affiche des informations sur les nœuds qui sont utilisés pour ce cluster. Définissez le nombre de nœuds de travail dont vous avez besoin pour le cluster. Le coût estimé de l’exécution du cluster est également affiché.
 
-    ![HDInsight - Créer un cluster, nœuds](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-nodes.png "Spécifier le nombre de nœuds de cluster")
+    ![HDInsight - Créer un cluster - Nœuds](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-nodes.png "Spécifier le nombre de nœuds de cluster")
 
    > [!IMPORTANT]  
    > Si vous envisagez d’utiliser plus de 32 nœuds worker, sélectionnez une taille de nœud principal avec au moins huit cœurs et 14 Go de RAM. Planifiez la taille des nœuds lors de la phase de création du cluster ou adaptez leur taille après avoir créé le cluster.
@@ -113,14 +113,14 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec les modèle
 
 1. Dans **7 Résumé**, vérifiez toutes les informations que vous avez entrées précédemment. Sélectionnez ensuite **Créer**.
 
-     ![HDInsight - Créer un cluster, résumé](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-summary.png "Spécifier le nombre de nœuds de cluster")
+     ![HDInsight - Créer un cluster - Résumé](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-summary.png "Spécifier le nombre de nœuds de cluster")
     
     > [!NOTE]  
     > La création du cluster prend un certain temps (en règle générale, environ 20 minutes). Surveillez les **Notifications** pour contrôler le processus de provisionnement.
 
 1. Quand vous avez terminé le processus de création, sélectionnez **Accéder à la ressource** dans la notification **Le déploiement a été effectué**. La fenêtre de cluster fournit les informations suivantes.
 
-    ![HDI - Vue d’ensemble des clusters dans le portail Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Propriétés de cluster")
+    ![HDI - Vue d’ensemble des clusters dans le portail Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-completed.png "Propriétés du cluster")
 
     Voici une description des icônes présentes dans la fenêtre :
 

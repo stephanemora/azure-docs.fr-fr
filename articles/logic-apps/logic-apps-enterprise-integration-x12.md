@@ -1,5 +1,5 @@
 ---
-title: Messages X12 pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs
+title: Messages X12 pour l’intégration B2B - Azure Logic Apps
 description: Échanger des messages X12 au format EDI dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.date: 01/31/2017
-ms.openlocfilehash: f06e213dbae31c9d7c4e212d605cc962aba71d2d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bc5c458240925af1fdd74ebc9b2d4c3db71fb05
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728744"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679997"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages X12 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -36,7 +35,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-x12-agreement"></a>Créer un contrat X12
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure"). 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com "Portail Azure"). 
 
 2. Dans le menu principal Azure, sélectionnez **Tous les services**. 
    Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.  
@@ -302,5 +301,5 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 Consultez les [détails sur Swagger](/connectors/x12/). 
 
 ## <a name="learn-more"></a>En savoir plus
-* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
+* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
 

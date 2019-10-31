@@ -1,13 +1,13 @@
 ---
-title: Ordre OData par référence - Recherche Azure
-description: Informations de référence sur le langage OData pour la syntaxe de la clause Order by dans les requêtes de Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: Ordre OData par référence
+titleSuffix: Azure Cognitive Search
+description: Informations de référence sur le langage OData pour la syntaxe de tri par dans les requêtes de Recherche cognitive Azure.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8ee44549931100a1affa5e2bb9e5cda904c05ed1
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: e3ca19b5696b9a7ad9b68b180313753a5c9de912
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647535"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793298"
 ---
-# <a name="odata-orderby-syntax-in-azure-search"></a>Syntaxe OData $orderby dans Recherche Azure
+# <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Syntaxe OData $orderby dans Recherche cognitive Azure
 
- Vous pouvez utiliser le paramètre [OData **$orderby**](query-odata-filter-orderby-syntax.md) pour appliquer un ordre de tri personnalisé pour les résultats de recherche dans Recherche Azure. Cet article décrit la syntaxe de **$orderby** en détail. Pour plus d’informations sur l’utilisation de **$orderby** lors de la présentation des résultats de recherche, consultez [Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure](search-pagination-page-layout.md).
+ Vous pouvez utiliser le [paramètre OData **$orderby**](query-odata-filter-orderby-syntax.md) pour appliquer un ordre de tri personnalisé pour les résultats de recherche dans Recherche cognitive Azure. Cet article décrit la syntaxe de **$orderby** en détail. Pour plus d’informations sur l’utilisation de **$orderby** lors de la présentation des résultats de recherche, consultez [Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -42,13 +42,13 @@ order_by_clause ::= (field_path | sortable_function) ('asc' | 'desc')?
 sortable_function ::= geo_distance_call | 'search.score()'
 ```
 
-Un diagramme de syntaxe interactif est également disponible :
+Un diagramme de syntaxe interactif est également disponible :
 
 > [!div class="nextstepaction"]
-> [Diagramme de syntaxe OData pour Recherche Azure](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
+> [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#order_by_clause)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 Chaque clause possède des critères de tri, éventuellement suivis d’un ordre de tri (`asc` pour l’ordre croissant ou `desc` pour l’ordre décroissant). Si vous ne spécifiez pas d’ordre, la valeur par défaut est croissant. Le critère de tri peut être le trajet d’un champ `sortable`, ou un appel à pour les fonctions [`geo.distance`](search-query-odata-geo-spatial-functions.md) ou [`search.score`](search-query-odata-search-score-function.md).
 
@@ -80,7 +80,7 @@ Trier les hôtels par ordre décroissant sur search.score et l’évaluation, pu
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure](search-pagination-page-layout.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Guide pratique pour utiliser les résultats de la recherche dans la Recherche cognitive Azure](search-pagination-page-layout.md)
+- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

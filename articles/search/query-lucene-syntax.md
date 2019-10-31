@@ -1,13 +1,13 @@
 ---
-title: Syntaxe des requêtes Lucene - Recherche Azure
-description: Informations de référence sur la syntaxe Lucene complète, telle qu’elle est utilisée avec Recherche Azure.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
+title: Syntaxe de requête Lucene
+titleSuffix: Azure Cognitive Search
+description: Informations de référence sur la syntaxe Lucene complète, telle qu’elle est utilisée avec la Recherche cognitive Azure.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,15 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: d667588cea5902700c225dd7b597d8f03d93d200
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650043"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786285"
 ---
-# <a name="lucene-query-syntax-in-azure-search"></a>Syntaxe des requêtes Lucene dans Recherche Azure
-Vous pouvez écrire des requêtes sur Recherche Azure en utilisant la syntaxe riche en fonctionnalités de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières en sont quelques exemples. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans Recherche Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites dans Recherche Azure via des expressions `$filter`. 
+# <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Syntaxe de requête Lucene dans la Recherche cognitive Azure
+
+Vous pouvez écrire des requêtes sur la Recherche cognitive Azure en utilisant la syntaxe riche en fonctionnalités de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières en sont quelques exemples. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans la Recherche cognitive Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites dans la Recherche cognitive Azure à l’aide d’expressions `$filter`. 
 
 ## <a name="how-to-invoke-full-parsing"></a>Comment appeler l’analyse complète
 
@@ -56,10 +57,10 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 }
 ```
 
-Pour d’autres exemples, consultez [Exemples de syntaxe de requête Lucene pour créer des requêtes dans Recherche Azure](search-query-lucene-examples.md). Pour plus d’informations sur la spécification de tous les paramètres des requêtes, consultez [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Pour obtenir d’autres exemples, consultez [Exemples de syntaxe de requête Lucene pour créer des requêtes dans la Recherche cognitive Azure](search-query-lucene-examples.md). Pour plus d’informations sur la spécification de tous les paramètres des requêtes, consultez [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
->  Recherche Azure prend également en charge une [syntaxe de requête simple](query-simple-syntax.md) : il s’agit d’un langage de requête simple et robuste qui peut être utilisé pour la recherche directe de mots clés.  
+>  La Recherche cognitive Azure prend également en charge une [syntaxe de requête simple](query-simple-syntax.md) : il s’agit d’un langage de requête simple et robuste qui peut être utilisé pour la recherche directe de mots clés.  
 
 ##  <a name="bkmk_syntax"></a> Principes de base de la syntaxe  
  Les principes de base suivants de la syntaxe s’appliquent à toutes les requêtes qui utilisent la syntaxe Lucene.  
@@ -83,7 +84,7 @@ L’exemple ci-dessus concerne le tilde (~), mais le même principe s’applique
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Encodage de caractères dangereux et réservés dans les URL
 
- Vérifiez que tous les caractères dangereux et réservés dans une URL sont encodés. Par exemple, « # » est un caractère dangereux, car c’est un identificateur de fragment/ancre dans une URL. Le caractère doit être encodé en `%23` s’il est utilisé dans une URL. « & » et « = » sont des exemples de caractères réservés, car ils délimitent les paramètres et spécifient des valeurs dans Recherche Azure. Pour plus d’informations, consultez [RFC1738 : Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt).
+ Vérifiez que tous les caractères dangereux et réservés dans une URL sont encodés. Par exemple, « # » est un caractère dangereux, car c’est un identificateur de fragment/ancre dans une URL. Le caractère doit être encodé en `%23` s’il est utilisé dans une URL. « & » et « = » sont des exemples de caractères réservés, car ils délimitent les paramètres et spécifient des valeurs dans la Recherche cognitive Azure. Pour plus d’informations, consultez [RFC1738 : Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt).
 
  Les caractères dangereux sont ``" ` < > # % { } | \ ^ ~ [ ]``. Les caractères réservés sont `; / ? : @ = + &`.
 
@@ -93,7 +94,7 @@ L’exemple ci-dessus concerne le tilde (~), mais le même principe s’applique
 Le regroupement de champs est similaire, mais il délimite le regroupement à un seul champ. Par exemple, `hotelAmenities:(gym+(wifi||pool))` recherche « gym » et « wifi », ou « gym » et « pool », dans le champ « hotelAmenities ».  
 
 ### <a name="searchmode-parameter-considerations"></a>Considérations relatives au paramètre SearchMode  
- L’impact de `searchMode` sur les requêtes, comme décrit dans [Syntaxe des requêtes simples dans Recherche Azure](query-simple-syntax.md), s’applique également à la syntaxe de requête Lucene. Ainsi, `searchMode` en combinaison avec des opérateurs NOT peut entraîner des résultats de requête qui peuvent sembler étrange si vous ne comprenez pas bien les implications de la façon dont vous définissez le paramètre. Si vous conservez la valeur par défaut, `searchMode=any`, et que vous utilisez un opérateur NOT, l’opération est considérée comme une action OR : ainsi, « New York » NOT « Seattle » retourne toutes les villes qui ne sont pas Seattle.  
+ L’impact de `searchMode` sur les requêtes, comme décrit dans [Syntaxe de requête simple dans la Recherche cognitive Azure](query-simple-syntax.md), s’applique également à la syntaxe de requête Lucene. Ainsi, `searchMode` en combinaison avec des opérateurs NOT peut entraîner des résultats de requête qui peuvent sembler étrange si vous ne comprenez pas bien les implications de la façon dont vous définissez le paramètre. Si vous conservez la valeur par défaut, `searchMode=any`, et que vous utilisez un opérateur NOT, l’opération est considérée comme une action OR : ainsi, « New York » NOT « Seattle » retourne toutes les villes qui ne sont pas Seattle.  
 
 ##  <a name="bkmk_boolean"></a> Opérateurs booléens (AND, OR, NOT) 
  Spécifiez toujours les opérateurs booléens de texte (AND, OR, NOT) tout en majuscules.  
@@ -116,10 +117,10 @@ L’utilisation de `searchMode=any` augmente le rappel des requêtes en incluant
 L’utilisation de `searchMode=all` augmente la précision des requêtes en incluant moins de résultats, et par défaut, « - » est interprété comme « AND NOT ». Par exemple, `wifi -luxury` établit une correspondance avec les documents qui contiennent le terme `wifi` et ne contiennent pas le terme `luxury`. Il s’agit sans doute d’un comportement plus intuitif pour l’opérateur -. Ainsi, vous pouvez préférer `searchMode=all` à `searchMode=any` si vous voulez optimiser les recherches pour la précision au lieu du rappel *et* si vos utilisateurs utilisent fréquemment l’opérateur `-` dans les recherches.
 
 ##  <a name="bkmk_querysizelimits"></a> Limite de taille des requêtes  
- Il existe une limite à la taille des requêtes que vous pouvez envoyer à Recherche Azure. Plus précisément, vous pouvez avoir au maximum 1 024 clauses (des expressions séparées par AND, OR, etc.). Il existe également une limite d’environ 32 Ko pour la taille d’un terme individuel dans une requête. Si votre application génère des requêtes de recherche par programmation, nous vous recommandons de la concevoir de façon à ce qu’elle ne génère pas des requêtes d’une taille illimitée.  
+ Il existe une limite à la taille des requêtes que vous pouvez envoyer à la Recherche cognitive Azure. Plus précisément, vous pouvez avoir au maximum 1 024 clauses (des expressions séparées par AND, OR, etc.). Il existe également une limite d’environ 32 Ko pour la taille d’un terme individuel dans une requête. Si votre application génère des requêtes de recherche par programmation, nous vous recommandons de la concevoir de façon à ce qu’elle ne génère pas des requêtes d’une taille illimitée.  
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières
- Recherche Azure utilise sur un scoring basé sur la fréquence ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) pour les requêtes de texte. Cependant, pour les requêtes avec des caractères génériques et des expressions régulières où l’étendue des termes est potentiellement vaste, le facteur de fréquence est ignoré pour empêcher que le classement soit faussé par les correspondances avec des termes plus rares. Toutes les correspondances sont traitées de façon égale pour les recherches avec des caractères génériques et avec des expressions régulières.
+ La Recherche cognitive Azure utilise un scoring basé sur la fréquence ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) pour les requêtes de texte. Cependant, pour les requêtes avec des caractères génériques et des expressions régulières où l’étendue des termes est potentiellement vaste, le facteur de fréquence est ignoré pour empêcher que le classement soit faussé par les correspondances avec des termes plus rares. Toutes les correspondances sont traitées de façon égale pour les recherches avec des caractères génériques et avec des expressions régulières.
 
 ##  <a name="bkmk_fields"></a> Recherche par champ  
 Vous pouvez définir une opération de recherche par champ avec la syntaxe `fieldName:searchExpression`, où l’expression de recherche peut être un mot ou une phrase, ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :  
@@ -172,4 +173,4 @@ L’exemple suivant permet d’illustrer les différences entre les deux. Suppos
 
 + [Recherche dans des documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [Syntaxe des expressions OData pour les filtres et le tri](query-odata-filter-orderby-syntax.md)   
-+ [Syntaxe des requêtes simples dans Recherche Azure](query-simple-syntax.md)   
++ [Syntaxe de requête simple dans la Recherche cognitive Azure](query-simple-syntax.md)   

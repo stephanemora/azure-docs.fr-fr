@@ -1,10 +1,9 @@
 ---
-title: Utilisation des files d’attente Azure Service Bus dans Node.js - azure/service-bus | Microsoft Docs
-description: Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js.
+title: Guide pratique pour utiliser des files d’attente azure/service-bus dans Node.js
+description: Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js à l’aide du package azure/service-bus.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 10/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 7aacefde9c037fcce64d9256e35082eb04e0a2f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58049855cc27d51134b9f76a773f32f49c6381b6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988351"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790308"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Comment utiliser les files d’attente Service Bus avec Node.js et le package azure/service-bus
 > [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
@@ -109,7 +108,7 @@ L’interaction avec une file d’attente Service Bus commence par l’instancia
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const queueClient = sbClient.createQueueClient(queueName);
-      const receiver = queueClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = queueClient.createReceiver(ReceiveMode.receiveAndDelete);
       try {
         const messages = await receiver.receiveMessages(10)
         console.log("Received messages:");

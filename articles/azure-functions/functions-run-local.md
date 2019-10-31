@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 45bc55141c9f338ae2f69cf4ccefae3d2492b239
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 28502c49c0eebce84ffd5aa376e7b20bd52213c0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336934"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674981"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -441,7 +441,7 @@ Pour publier votre code local dans une application de fonction sur Azure, utilis
 func azure functionapp publish <FunctionAppName>
 ```
 
-Cette commande publie du contenu vers une application de fonction existante dans Azure. Vous obtiendrez une erreur si vous tentez de publier sur une application `<FunctionAppName>` qui n’existe pas dans votre abonnement. Pour découvrir comment créer une application de fonction à partir de l’invite de commandes ou d’une fenêtre de terminal à l’aide d’Azure CLI, consultez [Créer une application de fonction pour une exécution sans serveur](./scripts/functions-cli-create-serverless.md). Par défaut, cette commande déploie votre application pour l’[exécuter à partir du package de déploiement](run-functions-from-deployment-package.md). Pour désactiver ce mode de déploiement recommandé, utilisez l'option `--nozip`.
+Cette commande publie du contenu vers une application de fonction existante dans Azure. Vous obtiendrez une erreur si vous tentez de publier sur une application `<FunctionAppName>` qui n’existe pas dans votre abonnement. Pour découvrir comment créer une application de fonction à partir de l’invite de commandes ou d’une fenêtre de terminal à l’aide d’Azure CLI, consultez [Créer une application de fonction pour une exécution sans serveur](./scripts/functions-cli-create-serverless.md). Par défaut, cette commande utilise la [build distante](functions-deployment-technologies.md#remote-build) et déploie votre application pour [une exécution à partir du package de déploiement](run-functions-from-deployment-package.md). Pour désactiver ce mode de déploiement recommandé, utilisez l'option `--nozip`.
 
 >[!IMPORTANT]
 > Lorsque vous créez une application de fonction dans le portail Azure, elle utilise par défaut la version 2.x du runtime de Function. Pour que l’application de fonction utilise la version 1.x du runtime, suivez les instructions dans [Exécution sur la version 1.x](functions-versions.md#creating-1x-apps).
@@ -463,6 +463,7 @@ Les options de publication suivantes sont uniquement prises en charge dans la ve
 | **`--list-included-files`** | Affiche une liste de fichiers publiés basée sur le fichier .funcignore. |
 | **`--nozip`** | Désactive le mode par défaut `Run-From-Package`. |
 | **`--build-native-deps`** | Ignore la création du dossier .wheels dossier lors de la publication des applications de fonction python. |
+| **`--build [-b]`** | Exécute l’action de génération lors du déploiement dans une application de fonction Linux. (accepte : distante, locale) |
 | **`--additional-packages`** | Liste des packages à installer lors de la création des dépendances natives. Par exemple : `python3-dev libevent-dev`. |
 | **`--force`** | Ignorez la vérification de prépublication dans certains scénarios. |
 | **`--csx`** | Publiez un projet de Script C# (.csx). |

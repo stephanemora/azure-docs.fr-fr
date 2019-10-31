@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 626f446c18acf1f07f458fb1b4238f182546e479
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265101"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596930"
 ---
 # <a name="my-first-python-runbook"></a>Mon premier runbook Python
 
@@ -205,6 +205,30 @@ Entrez le nom du groupe de ressources comme valeur du premier paramètre, et le 
 ![Entrer des valeurs de paramètres](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
 Cliquez sur **OK** pour démarrer le Runbook. Le Runbook s’exécute et démarre la machine virtuelle que vous avez spécifiée.
+
+## <a name="error-handling-in-python"></a>Gestion des erreurs dans Python
+
+Vous pouvez également utiliser les conventions suivantes pour récupérer différents flux à partir de vos runbooks Python, notamment les flux **AVERTISSEMENT**, **ERREUR** et **DÉBOGAGE**.
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+L’exemple suivant illustre cette Convention utilisée dans un bloc `try...except`.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> **Sys.stderr** n’est pas pris en charge dans Azure Automation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

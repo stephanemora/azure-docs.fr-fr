@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 71c1d1eb91654ea169330715be6bcf2b94207a27
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 569ac844a971970c22f5cc0a511545020fe802c5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099042"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791687"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -362,6 +362,10 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 1. **[1]** Créer une ressource IP virtuelle et la sonde d’intégrité pour l’instance ASCS
 
+   > [!IMPORTANT]
+   > Des tests récents ont révélé des cas où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à ne gérer qu’une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
+   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions fournies dans [Renforcement de la détection dans Azure Load-Balancer](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessitera un bref temps d’arrêt.  
+
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive fs_<b>NW1</b>_ASCS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCS' directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='nfs4' \
@@ -374,7 +378,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
@@ -427,10 +431,10 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>02</b>" \
+    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>02</b>,backlog=10,fork,reuseaddr /dev/null" \
     op monitor timeout=20s interval=10 depth=0
    
-   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
    # Do you still want to commit (y/n)? y
    
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS

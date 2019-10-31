@@ -1,23 +1,19 @@
 ---
 title: Corrélation de télémétrie dans Azure Application Insights | Microsoft Docs
 description: Corrélation de télémétrie dans Application Insights
-services: application-insights
-documentationcenter: .net
-author: lgayhardt
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.author: lagayhar
-ms.openlocfilehash: fe52fe51b347b232e03bad943906413b90c853c0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338183"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755372"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -218,6 +214,82 @@ La [spécification du modèle de données OpenTracing](https://opentracing.io/) 
 Pour plus d’informations, consultez le [Modèle de données de télémétrie d’Application Insights](../../azure-monitor/app/data-model.md). 
 
 Pour obtenir des définitions des concepts OpenTracing, consultez les pages [specification](https://github.com/opentracing/specification/blob/master/specification.md) et [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) relatives à OpenTracing.
+
+## <a name="telemetry-correlation-in-opencensus-python"></a>Corrélation de télémétrie dans OpenCensus Python
+
+OpenCensus Python respecte les spécifications de modèle de données `OpenTracing` décrites ci-dessus. Il prend également en charge le [contexte de trace W3C](https://w3c.github.io/trace-context/) sans nécessiter de configuration.
+
+### <a name="incoming-request-correlation"></a>Corrélation de requêtes entrantes
+
+OpenCensus Python met en corrélation les en-têtes de contexte de trace W3C des requêtes entrantes aux intervalles générés à partir des requêtes elles-mêmes. OpenCensus effectue cette opération automatiquement en s’intégrant avec les frameworks d’application web populaires tels que `flask`, `django` et `pyramid`. Les en-têtes de contexte de trace W3C doivent simplement être renseignés avec le [format approprié](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), puis envoyés avec la requête. Vous trouverez ci-dessous un exemple d’application `flask` à des fins de démonstration.
+
+```python
+from flask import Flask
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.ext.flask.flask_middleware import FlaskMiddleware
+from opencensus.trace.samplers import ProbabilitySampler
+
+app = Flask(__name__)
+middleware = FlaskMiddleware(
+    app,
+    exporter=AzureExporter(),
+    sampler=ProbabilitySampler(rate=1.0),
+)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+if __name__ == '__main__':
+    app.run(host='localhost', port=8080, threaded=True)
+```
+
+Ceci permet d’exécuter un exemple d’application `flask` sur votre machine locale, en écoutant le port `8080`. Pour corréler le contexte de trace, nous envoyons une requête au point de terminaison. Dans cet exemple, nous pouvons utiliser une commande `curl`.
+```
+curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
+```
+En examinant le [format de l’en-tête de contexte de trace](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format), nous obtenons les informations suivantes : `version`: `00`
+`trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736`
+`parent-id/span-id`: `00f067aa0ba902b7`
+`trace-flags`: `01`
+
+Si nous examinons l’entrée de requête envoyée à Azure Monitor, nous pouvons voir des champs renseignés à l’aide des informations d’en-tête de trace.
+
+![Capture d’écran de télémétrie de requête dans les journaux (Analytics) montrant les champs d’en-tête de trace mis en surbrillance en rouge](./media/opencensus-python/0011-correlation.png)
+
+Le champ `id` est au format `<trace-id>.<span-id>`, où `trace-id` provient de l’en-tête de trace passé dans la requête, et où `span-id` est un tableau de 8 octets généré pour cette étendue. 
+
+Le champ `operation_ParentId` est au format `<trace-id>.<parent-id>`, où `trace-id` et `parent-id` sont extraits de l’en-tête de trace passé dans la requête.
+
+### <a name="logs-correlation"></a>Corrélation des journaux
+
+OpenCensus Python permet la corrélation des journaux par enrichissement des enregistrements de journal avec l’ID de trace, l’ID d’étendue et l’indicateur d’échantillonnage. Pour ce faire, installez l’[intégration de la journalisation](https://pypi.org/project/opencensus-ext-logging/) OpenCensus. Les attributs suivants vont être ajoutés aux `LogRecord`s Python : `traceId`, `spanId` et `traceSampled`. Notez que cela prend effet uniquement pour les journaliseurs créés après l’intégration.
+Vous trouverez ci-dessous l’exemple d’application correspondant.
+
+```python
+import logging
+
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import AlwaysOnSampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['logging'])
+logging.basicConfig(format='%(asctime)s traceId=%(traceId)s spanId=%(spanId)s %(message)s')
+tracer = Tracer(sampler=AlwaysOnSampler())
+
+logger = logging.getLogger(__name__)
+logger.warning('Before the span')
+with tracer.span(name='hello'):
+    logger.warning('In the span')
+logger.warning('After the span')
+```
+Quand ce code s’exécute, nous obtenons ce qui suit dans la console :
+```
+2019-10-17 11:25:59,382 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 Before the span
+2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
+2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
+```
+Notez la présence d’un spanId pour le message de journal situé dans l’intervalle. Il est identique au spanId qui appartient à l’intervalle nommé `hello`.
 
 ## <a name="telemetry-correlation-in-net"></a>Corrélation de télémétrie dans .NET
 

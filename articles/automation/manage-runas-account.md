@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 318a9c2df7902ae89a731ca45b24b8bb6241faa1
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498390"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690878"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -43,7 +43,7 @@ Il existe deux types de comptes d’identification :
 
 ## <a name="permissions"></a> Autorisations pour configurer des comptes d’identification
 
-Pour créer ou mettre à jour un compte d’identification, vous devez disposer d’autorisations et de privilèges spécifiques. Un administrateur général dans Azure Active Directory et le Propriétaire d’un abonnement peuvent exécuter toutes les tâches. Dans une situation où les responsabilités sont partagées, le tableau suivant montre une liste des tâches, le cmdlet équivalent et les autorisations nécessaires :
+Pour créer ou mettre à jour un compte d’identification, vous devez disposer d’autorisations et de privilèges spécifiques. Un administrateur d’application dans Azure Active Directory et un propriétaire dans un abonnement peuvent effectuer toutes les tâches. Dans une situation où les responsabilités sont partagées, le tableau suivant montre une liste des tâches, le cmdlet équivalent et les autorisations nécessaires :
 
 |Tâche|Applet de commande  |Autorisations minimales  |Où vous définissez les autorisations|
 |---|---------|---------|---|
@@ -424,7 +424,7 @@ $roleDefinition | Set-AzureRMRoleDefinition
 
 Pour déterminer si le principal du service utilisé par votre compte d’identification se trouve dans le rôle **Collaborateur** ou dans une définition de rôle personnalisée, accédez à votre compte Automation et sous **Paramètres du compte**, sélectionnez **Comptes d’identification** > **Compte d’identification Azure**. Sous **Rôle**, vous trouverez la définition de rôle en cours d’utilisation.
 
-[![](media/manage-runas-account/verify-role.png "Vérifier le rôle du compte d’identification")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
 Pour déterminer la définition de rôle utilisée par les comptes d’identification Automation pour plusieurs abonnements ou comptes Automation, vous pouvez utiliser le script [Check-AutomationRunAsAccountRoleAssignments.ps1](https://aka.ms/AA5hug5) dans PowerShell Gallery.
 

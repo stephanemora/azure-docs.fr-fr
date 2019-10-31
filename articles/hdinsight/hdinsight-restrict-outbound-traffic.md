@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 070365c79e14b80c50c70aa3277a6eddd9286a37
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018740"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789807"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>Configurer le trafic réseau sortant pour les clusters Azure HDInsight à l’aide du pare-feu (préversion)
 
@@ -139,7 +139,7 @@ Les itinéraires doivent être créés pour le trafic des applications afin d’
 
 Si vos applications ont d’autres dépendances, celles-ci doivent être ajoutées à votre pare-feu Azure. Créez des règles d’application pour autoriser le trafic HTTP/HTTPS et des règles de réseau pour tout le reste.
 
-## <a name="logging"></a>Journalisation
+## <a name="logging-and-scale"></a>Journalisation et mise à l’échelle
 
 Le pare-feu Azure peut envoyer des journaux à plusieurs systèmes de stockage différents. Pour obtenir des instructions sur la configuration de la journalisation de votre pare-feu, suivez les étapes décrites dans l’article [Didacticiel : superviser les journaux du Pare-feu Azure et les métriques](../firewall/tutorial-diagnostics.md).
 
@@ -151,8 +151,12 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 L’intégration de votre pare-feu Azure à des journaux d’activité Azure Monitor est utile quand vous préparez une application sans connaître toutes ses dépendances. Pour en savoir plus sur les journaux d’activité Azure Monitor, consultez [Analyser les données de journal d’activité dans Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
+Pour en savoir plus sur les limites de mise à l’échelle du Pare-feu Azure et demander une augmentation, consultez [ce document](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) ou reportez-vous au [FAQ](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq). 
+
 ## <a name="access-to-the-cluster"></a>Accès au cluster
-Après avoir correctement configuré le pare-feu, vous pouvez utiliser le point de terminaison interne (`https://<clustername>-int.azurehdinsight.net`) pour accéder à l’API Ambari à partir du réseau virtuel. Pour utiliser le point de terminaison public (`https://<clustername>.azurehdinsight.net`) ou ssh (`<clustername>-ssh.azurehdinsight.net`), assurez-vous que vous avez les bons itinéraires dans la table de routage et que les règles NSG sont bien configurées pour éviter le problème de routage asymétrique expliqué [ici](https://docs.microsoft.com/azure/firewall/integrate-lb).
+Après avoir correctement configuré le pare-feu, vous pouvez utiliser le point de terminaison interne (`https://<clustername>-int.azurehdinsight.net`) pour accéder à l’API Ambari à partir du réseau virtuel. 
+
+Pour utiliser le point de terminaison public (`https://<clustername>.azurehdinsight.net`) ou ssh (`<clustername>-ssh.azurehdinsight.net`), assurez-vous que vous avez les bons itinéraires dans la table de routage et de règles appropriées pour éviter le problème de routage asymétrique expliqué [ici](https://docs.microsoft.com/azure/firewall/integrate-lb). Plus précisément, dans ce cas, vous devez autoriser l’adresse IP du client dans les règles NSG entrantes et l’ajouter à la table de routage définie par l’utilisateur avec le tronçon suivant défini comme `internet`. Si la configuration est incorrecte, une erreur de délai d’expiration s’affiche.
 
 ## <a name="configure-another-network-virtual-appliance"></a>Configurer une autre appliance virtuelle réseau
 

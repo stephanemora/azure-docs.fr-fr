@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 09/14/2019
-ms.openlocfilehash: 0465dcba5130f3b2dc5c615c884bfa0d3b138eb7
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.date: 10/10/2019
+ms.openlocfilehash: f5136084530c48815fd6a9f9e25b7358df00af07
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514929"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692524"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Présentation des pipelines Azure Machine Learning
 
@@ -112,6 +112,14 @@ Dans le [Kit de développement logiciel (SDK) Azure Machine Learning Python ](ht
 Un pipeline Azure ML est associé à un espace de travail Azure Machine Learning et une étape de pipeline est associée à une cible de calcul disponible dans cet espace de travail. Pour plus d’informations, consultez [Créer et gérer des espaces de travail Azure Machine Learning dans le Portail Azure](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) ou [Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ?](https://docs.microsoft.com/azure/machine-learning/service/concept-compute-target).
 
 Dans Azure Machine Learning, une cible de calcul est l’environnement dans lequel une phase ML se produit. L’environnement logiciel peut être une machine virtuelle distante, Capacité de calcul Azure Machine Learning, Azure Databricks, Azure Batch, etc. L’environnement matériel peut également varier considérablement, en fonction de la prise en charge de la GPU, de la mémoire, du stockage, etc. Vous pouvez spécifier la cible de calcul pour chaque étape, ce qui vous donne un contrôle affiné sur les coûts. Vous pouvez utiliser des ressources plus ou moins puissantes pour l’action spécifique, le volume de données et les besoins de performances de votre projet. 
+
+## <a name="how-do-i-build-pipelines-using-the-azure-machine-learning-visual-interface"></a>Comment créer des pipelines à l’aide de l’interface visuelle Azure Machine Learning ?
+
+Les développeurs qui préfèrent une aire de conception visuelle peuvent utiliser l’interface visuelle Azure Machine Learning pour créer des pipelines. Vous pouvez accéder à cet outil à partir de la sélection **Interface visuelle** sur la page d’accueil de votre espace de travail.  L’interface visuelle vous permet de glisser-déplacer des étapes sur l’aire de conception. Pour un développement rapide, vous pouvez utiliser des modules existants dans le spectre des tâches ML. Les modules existants couvrent tout, de la transformation des données au déploiement, en passant par la sélection de l’algorithme et par la formation. Vous pouvez également créer un pipeline entièrement personnalisé en combinant vos propres étapes définies dans les scripts Python.
+
+Lorsque vous concevez visuellement des pipelines, les entrées et sorties d’une étape sont visibles. Vous pouvez faire glisser et déposer des connexions de données, ce qui vous permet de comprendre et de modifier rapidement le flux de données de votre pipeline.
+ 
+![Exemple d’interface visuelle Azure Machine Learning](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ### <a name="understanding-the-execution-graph"></a>Fonctionnement du graphique d’exécution
 

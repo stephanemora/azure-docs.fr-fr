@@ -1,6 +1,6 @@
 ---
-title: Superviser les messages B2B avec les journaux Azure Monitor - Azure Logic Apps | Microsoft Docs
-description: Superviser les messages AS2, X12 et EDIFACT pour des comptes d’intégration et Azure Logic Apps, et configurer la journalisation des diagnostics avec les journaux Azure Monitor
+title: Superviser les messages B2B avec Azure Monitor - Azure Logic Apps
+description: Configurez la journalisation des diagnostics pour les messages AS2, X12 et EDIFACT dans Azure Logic Apps à l’aide d’Azure Monitor
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: a4a7f951d34455f2e333f2c11e30d24efdfd22c1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261202"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680203"
 ---
-# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Superviser les messages B2B avec les journaux Azure Monitor dans Azure Logic Apps
+# <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>Configurer la journalisation des diagnostics pour les messages B2B dans Azure Logic Apps à l’aide de Azure Monitor
 
 Après avoir configuré la communication B2B entre les partenaires commerciaux dans votre compte d’intégration, les partenaires peuvent échanger des messages entre eux. Pour vérifier que cette communication fonctionne comme prévu, vous pouvez superviser les messages AS2, X12 et EDIFACT, et configurer la journalisation des diagnostics pour votre compte d’intégration avec les [journaux Azure Monitor](../log-analytics/log-analytics-overview.md). Ce service surveille vos environnements cloud et local vous aide à maintenir leur disponibilité et leurs performances, et collecte des détails d’exécution et des événements pour un débogage enrichi. Vous pouvez également utiliser ces données avec d’autres services, tels que Stockage Azure et Azure Event Hubs.
 

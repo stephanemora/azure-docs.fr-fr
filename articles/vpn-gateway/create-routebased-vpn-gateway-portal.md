@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: cherylmc
 ms.openlocfilehash: 3ab662a4f06b2d73ab0dab52f562398fee23686c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266523"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
@@ -45,7 +45,7 @@ Dans cette étape, vous créez la passerelle de réseau virtuel de votre réseau
 
 2. Dans la liste des appareils, cliquez sur **VNet1GW** pour afficher des informations supplémentaires.
 
-   ![Affichage de la passerelle VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Affichage de la passerelle VPN")
+   ![Afficher la passerelle VPN](./media/create-routebased-vpn-gateway-portal/view-gateway.png "Afficher la passerelle VPN")
 
 ## <a name="next-steps"></a>Étapes suivantes
 

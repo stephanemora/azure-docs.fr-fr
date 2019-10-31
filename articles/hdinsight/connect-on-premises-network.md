@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2019
-ms.openlocfilehash: ad43af0f6f9bd8d5d78cef78b26345436169c0fd
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/16/2019
+ms.openlocfilehash: 97725099e82c5edb05447d97b47f352c440bd8e8
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034129"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529300"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connecter HDInsight à votre réseau local
 
@@ -45,8 +45,8 @@ Dans le schéma suivant, les lignes vertes correspondent à des demandes de ress
 ## <a name="prerequisites"></a>Prérequis
 
 * Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](./hdinsight-hadoop-linux-use-ssh-unix.md).
-* Si vous utilisez PowerShell, vous avez besoin du [module AZ](https://docs.microsoft.com/powershell/azure/overview).
-* Si vous voulez utiliser Azure CLI et que vous ne l’avez pas encore installé, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Si vous utilisez PowerShell, vous aurez besoin du [module AZ](https://docs.microsoft.com/powershell/azure/overview).
+* Si vous voulez utiliser Azure CLI et que vous ne l’avez pas encore installé, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-virtual-network-configuration"></a>Créer la configuration du réseau virtuel
 
@@ -103,6 +103,7 @@ Ces étapes utilisent le [portail Azure](https://portal.azure.com) pour créer u
 5. Sous l’onglet **Vérifier + créer**, sélectionnez **Créer** pour créer la machine virtuelle.
 
 ### <a name="review-ip-addresses"></a>Passer en revue les adresses IP
+
 Une fois la machine virtuelle créée, vous recevrez une notification **Déploiement réussi** avec un bouton **Accéder à la ressource**.  Sélectionnez **Accéder à la ressource** pour accéder à votre nouvelle machine virtuelle.  À partir de la vue par défaut de votre nouvelle machine virtuelle, effectuez les étapes suivantes pour identifier les adresses IP associées :
 
 1. Sous **Paramètres**, sélectionnez **Propriétés**.
@@ -237,7 +238,7 @@ Pour configurer le réseau virtuel afin d’utiliser le serveur DNS personnalis�
 
 3. Dans la vue par défaut, sous **Paramètres**, sélectionnez **Serveurs DNS**.  
 
-4. Sélectionnez __Personnalisé__, puis entrez l’**adresse IP privée** du serveur DNS personnalisé.   
+4. Sélectionnez __Personnalisé__, puis entrez l’**adresse IP privée** du serveur DNS personnalisé.
 
 5. Sélectionnez __Enregistrer__.  <br />  
 
@@ -279,8 +280,8 @@ Vous pouvez utiliser des groupes de sécurité réseau (NSG) ou des routages dé
 
 2. Pour les adresses IP identifiées à l’étape 1, autorisez le trafic entrant à partir de ces adresses.
 
-   * Si vous utilisez __NSG__ : autorisez le trafic __entrant__ sur le port __443__ pour les adresses IP.
-   * Si vous utilisez __UDR__ : définissez le type __Tronçon suivant__ de la route sur __Internet__ pour les adresses IP.
+   * Si vous utilisez l’option __NSG__ : autorisez le trafic __entrant__ sur le port __443__ pour les adresses IP.
+   * Si vous utilisez l’option __UDR__ : définissez le type __Tronçon suivant__ de la route sur __Internet__ pour les adresses IP.
 
 Pour un exemple d’utilisation d’Azure PowerShell ou d’Azure CLI afin de créer des groupes de sécurité réseau, consultez [Étendre HDInsight avec des réseaux virtuels Azure](hdinsight-create-virtual-network.md#hdinsight-nsg).
 

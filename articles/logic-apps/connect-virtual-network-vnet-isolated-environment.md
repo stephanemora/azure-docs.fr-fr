@@ -1,6 +1,6 @@
 ---
-title: Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps via un environnement de service d’intégration (ISE)
-description: Créer un environnement de service d’intégration (ISE, Integration Service Environment) afin que les applications logiques et les comptes d’intégration puissent accéder aux réseaux virtuels Azure, tout en restant privés et isolés de l’environnement Azure public ou « mondial »
+title: Se connecter à des réseaux virtuels Azure avec un environnement de service d’intégration (ISE) - Azure Logic Apps
+description: Créez un environnement de service d’intégration (ISE) pouvant accéder aux réseaux virtuels Azure à partir d’Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 15e1f1c4c8757ca55ec27659a4ca11b1729aebc2
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 4c4eb5a6cb7527bcb3eb21beebb8063b0bd021d3
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701948"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680476"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -49,6 +49,8 @@ Cet article vous explique comment effectuer ces tâches :
   * Votre réseau virtuel doit comporter quatre sous-réseaux *vides* pour la création et le déploiement de ressources dans votre ISE. Vous pouvez créer ces sous-réseaux à l’avance, ou attendre de créer votre ISE où vous pouvez créer vos sous-réseaux simultanément. En savoir plus sur [exigences des sous-réseaux](#create-subnet).
 
   * Les noms des sous-réseaux doivent commencer par un caractère alphabétique ou un trait de soulignement, et les caractères suivants sont interdits : `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
+  
+  * Si vous souhaitez déployer l’environnement ISE par le biais d’un modèle Azure Resource Manager, assurez-vous d’abord de déléguer un sous-réseau vide à Microsoft.Logic/integrationServiceEnvironment. Vous n’avez pas besoin de procéder à cette délégation quand vous effectuez le déploiement par le biais du portail Azure.
 
   * Assurez-vous que votre réseau virtuel [mette à disposition ces ports](#ports) pour permettre le bon fonctionnement et l'accessibilité de votre ISE.
 
@@ -89,13 +91,13 @@ Le tableau suivant désigne les ports de votre réseau virtuel utilisés par vot
 | Communication interne aux sous-réseaux | Trafic entrant et sortant | 80, 443 | VirtualNetwork | VirtualNetwork | Pour les communications entre sous-réseaux |
 | Communication vers Azure Logic Apps | Trafic entrant | 443 | Points de terminaison d’accès interne : <br>VirtualNetwork <p><p>Points de terminaison d’accès externe : <br>Internet <p><p>**Remarque**: Ces points de terminaison font référence au paramètre du point de terminaison [sélectionné lors de la création de votre ISE](#create-environment). Pour plus d’informations, consultez l’article [Accès au point de terminaison](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | L’adresse IP de l’ordinateur ou du service qui appelle n’importe quel déclencheur de requête ou webhook qui existe dans votre application logique. Fermer ou bloquer ce port empêche les appels HTTP vers Logic Apps avec les déclencheurs de requête. |
 | Historique des exécutions d’une application logique | Trafic entrant | 443 | Points de terminaison d’accès interne : <br>VirtualNetwork <p><p>Points de terminaison d’accès externe : <br>Internet <p><p>**Remarque**: Ces points de terminaison font référence au paramètre du point de terminaison [sélectionné lors de la création de votre ISE](#create-environment). Pour plus d’informations, consultez l’article [Accès au point de terminaison](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | L’adresse IP de l’ordinateur à partir duquel vous affichez l’historique des exécutions de l’application logique. Bien que la fermeture ou le blocage de ce port ne vous empêche pas d’afficher l’historique des exécutions, vous ne pouvez pas afficher les entrées et sorties pour chaque étape dans cet historique des exécutions. |
-| Gestion des connexions | Règle de trafic sortant | 443 | VirtualNetwork  | Internet | |
+| Gestion des connexions | Règle de trafic sortant | 443 | VirtualNetwork  | AppService | |
 | Publier des journaux de diagnostic et métriques | Règle de trafic sortant | 443 | VirtualNetwork  | AzureMonitor | |
 | Communication à partir d’Azure Traffic Manager | Trafic entrant | 443 | AzureTrafficManager | VirtualNetwork | |
 | Concepteur Logic Apps - Propriétés dynamiques | Trafic entrant | 454 | Internet | VirtualNetwork | Les demandes proviennent des [adresses IP de point de terminaison d’accès entrantes de Logic Apps cette région](../logic-apps/logic-apps-limits-and-config.md#inbound). |
 | Dépendance de gestion App Service | Trafic entrant | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | Déploiement du connecteur | Trafic entrant | 454 | AzureConnectors | VirtualNetwork | Nécessaire pour le déploiement et la mise à jour des connecteurs. La fermeture ou le blocage de ce port entraîne l’échec des déploiements de l’ISE et empêche les correctifs ou mises à jour du connecteur. |
-| Déploiement de la stratégie de connecteur | Trafic entrant | 3443 | Internet | VirtualNetwork | Nécessaire pour le déploiement et la mise à jour des connecteurs. La fermeture ou le blocage de ce port entraîne l’échec des déploiements de l’ISE et empêche les correctifs ou mises à jour du connecteur. |
+| Déploiement de la stratégie de connecteur | Trafic entrant | 3443 | AppService | VirtualNetwork | Nécessaire pour le déploiement et la mise à jour des connecteurs. La fermeture ou le blocage de ce port entraîne l’échec des déploiements de l’ISE et empêche les correctifs ou mises à jour du connecteur. |
 | Dépendance Azure SQL | Règle de trafic sortant | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Règle de trafic sortant | 1886 | VirtualNetwork | AzureMonitor | Pour publier l’état d’intégrité sur Resource Health |
 | Gestion des API - Point de terminaison de gestion | Trafic entrant | 3443 | APIManagement | VirtualNetwork | |

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511016"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784826"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -416,7 +416,10 @@ Oui. Vous pouvez spécifier TCP comme protocole de surveillance et Traffic Manag
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Quelles réponses spécifiques du point de terminaison sont requises lorsque la surveillance TCP est utilisée ?
 
-Lorsque la surveillance TCP est utilisée, Traffic Manager démarre une connexion TCP en trois temps en envoyant une requête SYN au point de terminaison au niveau du port spécifié. Puis, il attend pendant un délai défini (spécifié dans les paramètres de délai d’expiration) une réponse du point de terminaison. Si le point de terminaison répond à la requête SYN par une réponse SYN-ACK dans le délai d’expiration spécifié dans les paramètres de surveillance, ce point de terminaison est considéré comme intègre. Si la réponse SYN-ACK est reçue, Traffic Manager réinitialise la connexion en répondant par un RST.
+Lorsque la surveillance TCP est utilisée, Traffic Manager démarre une connexion TCP en trois temps en envoyant une requête SYN au point de terminaison au niveau du port spécifié. Puis, il attend une réponse SYN-ACK du point de terminaison pendant un délai défini (spécifié dans les paramètres de délai d’expiration).
+
+- Si une réponse SYN-ACK est reçue dans le délai d’expiration spécifié dans les paramètres de supervision, ce point de terminaison est considéré comme intègre. Une réponse FIN ou FIN-ACK est attendue de Traffic Manager quand il termine régulièrement un socket.
+- Si une réponse SYN-ACK est reçue après le délai d’attente spécifié, Traffic Manager répond par un RST pour réinitialiser la connexion.
 
 ### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>À quelle vitesse Traffic Manager éloigne-t-il mes utilisateurs d’un point de terminaison défectueux ?
 

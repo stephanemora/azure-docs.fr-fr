@@ -1,6 +1,6 @@
 ---
-title: Référence des types d’actions et de déclencheurs pour le langage de définition du flux de travail - Azure Logic Apps
-description: Guide de référence des types d’actions et de déclencheurs pour le langage de définition du flux de travail dans Azure Logic Apps
+title: Référence du schéma des types d’actions et de déclencheurs - Azure Logic Apps
+description: Guide de référence du schéma des types d’actions et de déclencheurs pour le langage de définition du workflow dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -9,14 +9,14 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: 3311ca3665083ec8c71f48b28e7195aa8c14f13d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9bee329953a1f39720b054ed90e1d56c6743862e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350677"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679873"
 ---
-# <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition du flux de travail dans Azure Logic Apps
+# <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
 Ce document de référence décrit les types généraux utilisés pour identifier les déclencheurs et les actions dans la définition de flux de travail sous-jacente de votre application logique, qui est décrite et validée par le [langage de définition du flux de travail](../logic-apps/logic-apps-workflow-definition-language.md).
 Pour rechercher des déclencheurs et des actions de connecteur spécifiques que vous pouvez utiliser dans vos applications logiques, consultez la liste figurant sous la [présentation des connecteurs](https://docs.microsoft.com/connectors/).

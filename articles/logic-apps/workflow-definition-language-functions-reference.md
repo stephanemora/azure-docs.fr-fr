@@ -1,6 +1,6 @@
 ---
-title: 'Référence de fonctions du langage de définition de flux de travail : Azure Logic Apps et Microsoft Flow'
-description: Guide de référence de fonctions dans les expressions créées à l’aide du langage de définition de flux de travail pour Azure Logic Apps et Microsoft Flow
+title: Guide de référence pour les fonctions dans les expressions - Azure Logic Apps
+description: Guide de référence sur les fonctions dans les expressions pour Azure Logic Apps et Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/23/2019
-ms.openlocfilehash: 484e2776d96d9beaca703f93b22c51299ccf63a7
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: d16df46ada2254f5bfc671db55e82fc89ef450b6
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208405"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679042"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Référence de fonctions du langage de définition de flux de travail dans Azure Logic Apps et Microsoft Flow
+# <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-microsoft-flow"></a>Guide de référence sur l’utilisation de fonctions dans les expressions pour Azure Logic Apps et Microsoft Flow
 
 Pour les définitions de flux de travail dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), certaines [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) obtiennent leurs valeurs à partir d’actions runtime qui peuvent ne pas encore exister au début de l’exécution de votre flux de travail. Pour référencer ou traiter ces valeurs dans ces expressions, vous pouvez faire appel à des *fonctions* fournies par le [Langage de définition de workflow](../logic-apps/logic-apps-workflow-definition-language.md). 
 

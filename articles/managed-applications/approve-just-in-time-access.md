@@ -1,17 +1,17 @@
 ---
-title: Configurer et approuver l’accès juste à temps pour les applications managées Azure
+title: Approuver l’accès juste à temps - Application managée Azure
 description: Décrit comment les consommateurs d’applications managées Azure approuvent les demandes d’accès juste à temps à une application managée.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: 55fbf7292ab894cad3de3de9e96ddc96fe0b79b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd5c3f21b1a4b71d129ccbebeaa7ee66274a672f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481713"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529128"
 ---
 # <a name="configure-and-approve-just-in-time-access-for-azure-managed-applications"></a>Configurer et approuver l’accès juste à temps pour les applications managées Azure
 
@@ -38,7 +38,7 @@ Le présent article porte sur les mesures prises par les consommateurs pour perm
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-1. Recherchez une entrée de Place de marché pour une application managée avec JAT activé. Sélectionnez **Créer**.
+1. Recherchez une entrée de Place de marché pour une application managée avec JAT activé. Sélectionnez **Create** (Créer).
 
 1. Tout en fournissant des valeurs pour la nouvelle application managée, l’étape **Configuration JAT**vous permet d’activer ou de désactiver l’accès JAT pour l’application managée. Sélectionnez **Oui** pour **Activer l’accès JAT**. Cette option est sélectionnée par défaut pour les applications managées qui sont définies avec JAT activé sur la Place de marché.
 

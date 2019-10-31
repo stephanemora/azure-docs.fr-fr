@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: f5ce8a237bc2ba7fe15acfcd6afa0edcda7ef713
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d2d26e8cb8a3b1ee7720424aea701ca063ecc9f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589662"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596456"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Meilleures pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus
 
@@ -129,7 +129,7 @@ La [lecture anticipée](service-bus-prefetch.md) permet au client de la file d�
 
 Lorsqu’un message est lu par anticipation, le service le verrouille. Ainsi, le message lu par anticipation ne peut pas être reçu par un autre destinataire. Si le destinataire ne peut pas terminer le message avant expiration du verrouillage, le message devient disponible pour les autres destinataires. La copie lue par anticipation du message reste dans le cache. Le destinataire qui consomme la copie mise en cache expirée reçoit une exception lorsqu’il essaie de terminer le message. Par défaut, le verrouillage du message expire au bout de 60 secondes. Cette valeur peut être étendue à 5 minutes. Pour empêcher la consommation des messages arrivés à expiration, la taille du cache doit toujours être inférieure au nombre de messages qui peuvent être utilisés par un client au sein de l’intervalle de délai d’expiration de verrouillage.
 
-Lorsque vous utilisez l’expiration de verrouillage par défaut (60 secondes), il est judicieux d’attribuer à [PrefetchCount][SubscriptionClient.PrefetchCount] une valeur correspondant à 20 fois la vitesse de traitement de l’ensemble des destinataires présents dans la structure. Par exemple, une structure crée 10 destinataires, et chaque destinataire peut traiter jusqu’à 10 messages par seconde. Le nombre de lectures anticipées ne doit pas dépasser 20 X 3 X 10 = 600. Par défaut, [PrefetchCount][QueueClient.PrefetchCount] est définie sur 0, ce qui signifie qu’aucun message supplémentaire n’est récupéré à partir du service.
+Lorsque vous utilisez l’expiration de verrouillage par défaut (60 secondes), il est judicieux d’attribuer à [PrefetchCount][SubscriptionClient.PrefetchCount] une valeur correspondant à 20 fois la vitesse de traitement de l’ensemble des destinataires présents dans la structure. Par exemple, une structure crée 10 destinataires, et chaque destinataire peut traiter jusqu’à 10 messages par seconde. Le nombre de lectures anticipées ne doit pas dépasser 20 X 3 X 10 = 600. Par défaut, [PrefetchCount][QueueClient.PrefetchCount] est défini sur 0, ce qui signifie qu’aucun message supplémentaire n’est récupéré à partir du service.
 
 La lecture anticipée de messages augmente le débit global d’un abonnement ou une file d’attente, car elle permet de réduire le nombre total d’opérations de messagerie, ou les allers-retours. La lecture anticipée du premier message, cependant, prend plus de temps (en raison de la taille du message accrue). La réception de message avec lecture anticipée sera plus rapide, car ces messages ont déjà été téléchargés par le client.
 
@@ -152,7 +152,7 @@ Quelques difficultés surviennent lors d’une approche gourmande (par exemple, 
 
 ## <a name="multiple-queues"></a>Files d’attente multiples
 
-Si la charge prévue ne peut pas être gérée par une seule file d’attente ou rubrique partitionnée, vous devez utiliser plusieurs entités de messagerie. Lorsque vous utilisez plusieurs entités, créez un client dédié pour chacune d’elles au lieu d’utiliser le même client pour toutes les entités.
+Si la charge prévue ne peut pas être gérée par une seule file d’attente ou rubrique, vous devez utiliser plusieurs entités de messagerie. Lorsque vous utilisez plusieurs entités, créez un client dédié pour chacune d’elles au lieu d’utiliser le même client pour toutes les entités.
 
 ## <a name="development-and-testing-features"></a>Fonctionnalités de développement et de test
 
@@ -174,7 +174,6 @@ Objectif : Maximiser le débit d’une file d’attente unique. Le nombre d’ex
 * Définissez l’intervalle de mise en lot sur 50 ms pour réduire le nombre de transmissions de protocole client Service Bus. Si plusieurs expéditeurs sont utilisés, augmentez l’intervalle de traitement par lot à 100 ms.
 * Désactivez l’accès au magasin par lot. Cet accès augmente la cadence à laquelle les messages peuvent être écrits dans la file d’attente.
 * Définissez le nombre de lectures anticipées à 20 fois la vitesse de traitement maximale de la totalité des destinataires d’une structure. Cela réduit le nombre de transmissions de protocole client Service Bus.
-* Utilisez une file d’attente partitionnée pour améliorer les performances et la disponibilité.
 
 ### <a name="multiple-high-throughput-queues"></a>Plusieurs files d’attente haut débit
 
@@ -190,7 +189,6 @@ Objectif : Réduire la latence de bout en bout d’une file d’attente ou d’u
 * Désactiver l’accès au magasin par lot. Le service écrit immédiatement le message pour le magasin.
 * Si vous utilisez un seul client, définissez le nombre de lectures anticipées à 20 fois la vitesse de traitement du destinataire. Si plusieurs messages arrivent à la file d’attente en même temps, le protocole client Service Bus les transmet tous simultanément. Lorsque le client reçoit le message suivant, ce message est déjà dans le cache local. Le cache doit être de petite taille.
 * Si vous utilisez plusieurs clients, définissez le nombre de lectures anticipées sur 0. Ainsi, le deuxième client peut recevoir le deuxième message alors que le premier client traite toujours le premier message.
-* Utilisez une file d’attente partitionnée pour améliorer les performances et la disponibilité.
 
 ### <a name="queue-with-a-large-number-of-senders"></a>File d’attente comportant un grand nombre d’expéditeurs
 
@@ -205,7 +203,6 @@ Pour maximiser le débit, procédez comme suit :
 * Utilisez la valeur par défaut de l’intervalle de 20 ms pour réduire le nombre de transmissions de protocole client Service Bus.
 * Désactivez l’accès au magasin par lot. Cet accès augmente la cadence à laquelle les messages peuvent être écrits dans la file d’attente ou la rubrique.
 * Définissez le nombre de lectures anticipées à 20 fois la vitesse de traitement maximale de la totalité des destinataires d’une structure. Cela réduit le nombre de transmissions de protocole client Service Bus.
-* Utilisez une file d’attente partitionnée pour améliorer les performances et la disponibilité.
 
 ### <a name="queue-with-a-large-number-of-receivers"></a>File d’attente comportant un grand nombre de destinataires
 
@@ -219,7 +216,6 @@ Pour maximiser le débit, procédez comme suit :
 * Les récepteurs peuvent utiliser des opérations synchronisées ou asynchrones. Étant donné la vitesse de réception modérée d’un destinataire individuel, le traitement côté client de la demande complète n’affecte pas le débit du destinataire.
 * Désactivez l’accès au magasin par lot. Cet accès réduit la charge globale de l’entité. Cette opération réduit également la cadence générale à laquelle les messages peuvent être écrits dans la file d’attente ou la rubrique.
 * Définir le nombre de lectures anticipées sur une valeur faible (par exemple, PrefetchCount = 10). Cela empêche les destinataires de rester oisifs pendant que d’autres mettent en cache un grand nombre de messages.
-* Utilisez une file d’attente partitionnée pour améliorer les performances et la disponibilité.
 
 ### <a name="topic-with-a-small-number-of-subscriptions"></a>Rubrique comportant un petit nombre d’abonnements
 
@@ -233,7 +229,6 @@ Pour maximiser le débit, procédez comme suit :
 * Utilisez la valeur par défaut de l’intervalle de 20 ms pour réduire le nombre de transmissions de protocole client Service Bus.
 * Désactivez l’accès au magasin par lot. Cet accès augmente la cadence à laquelle les messages peuvent être écrits dans la rubrique.
 * Définissez le nombre de lectures anticipées à 20 fois la vitesse de traitement maximale de la totalité des destinataires d’une structure. Cela réduit le nombre de transmissions de protocole client Service Bus.
-* Utilisez une rubrique partitionnée pour améliorer les performances et la disponibilité.
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>Rubrique comportant un grand nombre d’abonnements
 
@@ -247,11 +242,6 @@ Pour maximiser le débit, procédez comme suit :
 * Utilisez la valeur par défaut de l’intervalle de 20 ms pour réduire le nombre de transmissions de protocole client Service Bus.
 * Désactivez l’accès au magasin par lot. Cet accès augmente la cadence à laquelle les messages peuvent être écrits dans la rubrique.
 * Définissez le nombre de lectures anticipées à 20 fois la vitesse de réception prévue en secondes. Cela réduit le nombre de transmissions de protocole client Service Bus.
-* Utilisez une rubrique partitionnée pour améliorer les performances et la disponibilité.
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Pour en savoir plus sur l’optimisation des performances Service Bus, consultez [Entités de messagerie partitionnées][Partitioned messaging entities].
 
 [QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender

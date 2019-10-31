@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.openlocfilehash: d934568f09e62ad8c1b472583cbfee79d2c837f6
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936857"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
@@ -46,7 +46,7 @@ Si vous choisissez de sécuriser votre compte de stockage à l’aide des restri
 
 Le schéma suivant résume l’architecture de stockage HDInsight relative au Stockage Azure :
 
-![Les clusters Hadoop utilisent l’API HDFS pour accéder aux données et les stocker dans le stockage d’objets blob](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Architecture de stockage HDInsight")
+![Les clusters Hadoop utilisent l’API HDFS pour accéder aux données et les stocker dans le stockage Blob](./media/hdinsight-hadoop-use-blob-storage/storage-architecture.png "Architecture de stockage HDInsight")
 
 HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Vous pouvez accéder à ce système de fichiers en utilisant l'URI complet, par exemple :
 

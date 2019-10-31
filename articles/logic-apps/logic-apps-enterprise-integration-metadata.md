@@ -1,5 +1,5 @@
 ---
-title: Gestion des métadonnées d’artefact de compte d’intégration - Azure Logic Apps | Microsoft Docs
+title: Gestion des métadonnées d’artefact de compte d’intégration - Azure Logic Apps
 description: Ajouter et obtenir des métadonnées d’artefact à partir de comptes d’intégration dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
-ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8e2daf1de9223766c8cec835f7718007a8cf309
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60846135"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679977"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gérer des métadonnées d’artefact à partir de comptes d’intégration avec Azure Logic Apps et Enterprise Integration Pack
 

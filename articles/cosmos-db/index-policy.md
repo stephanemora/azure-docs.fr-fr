@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: thweiss
-ms.openlocfilehash: 944c05a28eb33c659bf4aaa600985530122f8d3e
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 886d17098259ddbb78698a3c1280f797e370c714
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000321"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597155"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -120,7 +120,7 @@ Lorsque vous définissez un index composite, vous spécifiez :
 - l’ordre (croissant ou décroissant).
 
 > [!NOTE]
-> Lors de l’ajout d’un index composite, comme avec d’autres types d’index, les requêtes peuvent retourner des résultats incohérents au fur et à mesure que l’index est mis à jour.
+> Quand vous ajoutez un index composite, la requête utilise les index de plage existants jusqu’à ce que ce que l’ajout de ce nouvel index soit terminé. Ainsi, quand vous ajoutez un index composite, il se peut que vous ne perceviez pas immédiatement les améliorations de performances. Il est possible de suivre la progression de la transformation d’index [avec un des kits de développement logiciel (SDK)](how-to-manage-indexing-policy.md).
 
 ### <a name="order-by-queries-on-multiple-properties"></a>Requêtes ORDER BY sur plusieurs propriétés :
 
@@ -238,7 +238,7 @@ Les considérations suivantes sont utilisées lors de la création d’index com
 La stratégie d’indexation d’un conteneur peut être mise à jour à tout moment [à l’aide du portail Azure ou de l’un des kit de développement logiciel (SDK) pris en charge](how-to-manage-indexing-policy.md). Une mise à jour de la stratégie d’indexation déclenche une transformation de l’ancien index vers le nouveau, qui est effectuée en ligne et localement (aucun espace de stockage supplémentaire n’est consommé pendant l’opération). L’index de l’ancienne stratégie est transformé efficacement en nouvelle stratégie, sans affecter la disponibilité d’écriture ou le débit approvisionné sur le conteneur. La transformation d’index est une opération asynchrone. Le temps nécessaire pour l’effectuer dépend du débit approvisionné, du nombre d’éléments et de leur taille.
 
 > [!NOTE]
-> Pendant la réindexation, il est possible que les requêtes ne retournent pas tous les résultats correspondants et elles ne retourneront pas d’erreurs. Cela signifie que les résultats de la requête ne seront peut-être pas cohérentes avant la fin de la transformation de l’index. Il est possible de suivre la progression de la transformation d’index [avec un des kits de développement logiciel (SDK)](how-to-manage-indexing-policy.md).
+> Pendant l’ajout d’un index de plage ou spatial, il est possible que les requêtes ne retournent pas tous les résultats correspondants, et ce, sans retourner d’erreurs. Cela signifie que les résultats de la requête ne seront peut-être pas cohérentes avant la fin de la transformation de l’index. Il est possible de suivre la progression de la transformation d’index [avec un des kits de développement logiciel (SDK)](how-to-manage-indexing-policy.md).
 
 Si le mode d’indexation de la nouvelle stratégie est défini sur Cohérent, aucune autre modification de la stratégie d’indexation ne peut être appliquée pendant la transformation de l’index. Une transformation d’index en cours d’exécution peut être annulée en définissant le mode de la stratégie d’indexation sur Aucun (ce qui supprime immédiatement l’index).
 

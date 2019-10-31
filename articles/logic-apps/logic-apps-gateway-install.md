@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
-ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.date: 10/18/2019
+ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309853"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675683"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -31,17 +31,21 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+* Un compte et un abonnement Azure. Si vous n’avez pas de compte Azure avec un abonnement, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-  * Vous devez utiliser le même compte Azure pour installer et administrer la passerelle. Lors de l’installation, vous utilisez ce compte Azure pour associer la passerelle sur votre ordinateur à un abonnement Azure. Plus tard, vous utilisez le même compte lors de la création d’une ressource Azure dans le portail Azure pour l’installation de votre passerelle. 
+  * Vous devez utiliser le même compte Azure pour installer et administrer la passerelle sur votre ordinateur local.
+
+    Pendant l’installation de la passerelle, vous vous connectez avec votre compte Azure, qui relie l’installation de votre passerelle à votre compte Azure et uniquement à ce compte. Plus tard, dans le portail Azure, vous devez utiliser le même compte Azure pour créer une ressource de passerelle Azure qui inscrit et revendique l’installation de votre passerelle. Dans Azure Logic Apps, les déclencheurs et les actions locaux utilisent ensuite la ressource de passerelle pour se connecter aux sources de données locales.
+
+    > [!NOTE]
+    > Vous ne pouvez lier qu’une seule installation de passerelle et une seule ressource de passerelle Azure l’une à l’autre. Vous ne pouvez pas lier la même installation de passerelle à plusieurs comptes Azure ou ressources de passerelle Azure. Toutefois, un compte Azure peut être lié à plusieurs installations de passerelle et ressources de passerelle Azure. Dans un déclencheur ou une action locale, vous pouvez choisir parmi vos différents abonnements Azure, puis sélectionner une ressource de passerelle associée.
 
   * Vous devez vous connecter avec un compte professionnel ou scolaire, également appelé compte d’*organisation*, qui se présente comme ceci : `username@contoso.com`. Vous ne pouvez pas utiliser des comptes Azure B2B (invité) ou des comptes Microsoft personnels, comme @hotmail.com ou @outlook.com.
 
     > [!TIP]
     > Si vous avez souscrit une offre Office 365 sans fournir votre adresse e-mail professionnelle, votre adresse de connexion peut se présenter comme ceci : `username@domain.onmicrosoft.com`. Votre compte est stocké au sein d’un locataire dans Azure Active Directory (Azure AD). Dans la plupart des cas, le nom d’utilisateur principal (UPN) de votre compte Azure AD est identique à votre adresse e-mail.
     >
-    > Pour utiliser un [abonnement standard Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) associé à un compte Microsoft, commencez par [créer un locataire dans Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) ou utilisez l’annuaire par défaut. Ajoutez un utilisateur avec un mot de passe au répertoire, puis donnez-lui accès à votre abonnement. 
-    > Vous pourrez alors vous connecter au cours de l’installation de la passerelle avec ce nom d’utilisateur et ce mot de passe.
+    > Pour utiliser un [abonnement Standard Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) lié à un compte Microsoft, commencez par [créer un locataire dans Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) ou utilisez l’annuaire par défaut. Ajoutez un utilisateur avec un mot de passe à l’annuaire, puis donnez-lui accès à votre abonnement Azure. Vous pourrez alors vous connecter au cours de l’installation de la passerelle avec ce nom d’utilisateur et ce mot de passe.
 
 * Voici la configuration requise pour votre ordinateur local :
 
@@ -75,7 +79,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
   * La passerelle a deux modes : le mode standard et le mode personnel, qui s’applique seulement à Power BI. Vous ne pouvez pas avoir plusieurs passerelles s’exécutant dans le même mode sur le même ordinateur.
 
-  * Azure Logic Apps prend en charge les opérations d’écriture, notamment les insertions et les mises à jour, par le biais de la passerelle. Toutefois, ces opérations ont des [limites quant à la taille de leur charge utile](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * Azure Logic Apps prend en charge les opérations de lecture et d’écriture par le biais de la passerelle. Toutefois, ces opérations ont des [limites quant à la taille de leur charge utile](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -95,11 +99,11 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
    ![Passer en revue les conditions requises et accepter les conditions d’utilisation](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. Une fois la passerelle installée avec succès, fournissez l’adresse e-mail pour votre compte d’organisation, puis choisissez **Se connecter**, par exemple :
+1. Une fois la passerelle installée avec succès, fournissez l’adresse e-mail pour votre compte Azure, puis choisissez **Se connecter**, par exemple :
 
    ![Connectez-vous avec un compte professionnel ou scolaire](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   Vous êtes maintenant connecté à votre compte.
+   L’installation de votre passerelle ne peut être liée qu’à un seul compte Azure.
 
 1. Sélectionnez **Inscrivez une nouvelle passerelle sur cet ordinateur** > **Suivant**. Cette étape inscrit l’installation de votre passerelle auprès du [service cloud de passerelle](#gateway-cloud-service).
 
@@ -155,7 +159,7 @@ La passerelle de données locale dépend d’[Azure Service bus](../service-bus-
 
 Pour éviter les points de défaillance uniques pour l’accès aux données locales, vous pouvez avoir plusieurs installations de passerelle (mode standard uniquement) avec chacune sur un ordinateur différent, et les configurer en tant que cluster ou en tant que groupe. Ainsi, si la passerelle principale n’est pas disponible, les demandes de données sont routées vers la deuxième passerelle, etc. Comme vous ne pouvez installer qu’une seule passerelle standard sur un ordinateur, vous devez installer chaque passerelle supplémentaire qui se trouve dans le cluster sur un autre ordinateur. Tous les connecteurs qui fonctionnent avec la passerelle de données locale prennent en charge la haute disponibilité.
 
-* Vous devez déjà disposer d’au moins une passerelle d’installation dans le même abonnement Azure servant de passerelle principale et de clé de récupération pour cette installation.
+* Vous devez déjà disposer d’au moins une passerelle d’installation avec le même compte Azure servant de passerelle principale et de clé de récupération pour cette installation.
 
 * Votre passerelle principale doit fonctionner sous la mise à jour de passerelle datant de novembre 2017 ou une version plus récente.
 
@@ -235,19 +239,19 @@ Ces étapes décrivent ce qu’il se produit quand vous interagissez avec un él
 
 Des informations d’identification stockées sont utilisées pour la connexion de la passerelle aux sources de données locales. Quel que soit l’utilisateur, la passerelle utilise les informations d’identification stockées pour se connecter. Il peut y avoir des exceptions d’authentification pour des services spécifiques, tels que DirectQuery et LiveConnect pour Analysis Services dans Power BI.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Les services de cloud computing Microsoft utilisent [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) pour authentifier les utilisateurs. Un locataire Azure AD contient des noms d’utilisateur et des groupes de sécurité. En règle générale, l’adresse e-mail que vous utilisez pour la connexion est celle du nom d’utilisateur principal (UPN) de votre compte.
+Les services de cloud computing Microsoft utilisent [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) pour authentifier les utilisateurs. Un locataire Azure AD contient des noms d’utilisateur et des groupes de sécurité. En règle générale, l’adresse e-mail que vous utilisez pour la connexion est celle du nom d’utilisateur principal (UPN) de votre compte.
 
 ### <a name="what-is-my-upn"></a>Qu’est-ce que mon UPN ?
 
 Si vous n’êtes pas administrateur de domaine, vous ne connaissez peut-être pas votre UPN. Pour trouver l’UPN de votre compte, exécutez la commande `whoami /upn` à partir de votre station de travail. Le résultat qui ressemble à une adresse e-mail est l’UPN de votre compte de domaine local.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-active-directory"></a>Synchroniser un Active Directory local avec Azure Active Directory
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Synchroniser un annuaire Active Directory local avec Azure AD
 
-L’UPN de vos comptes Active Directory locaux doit être identique à celui des comptes Azure AD. Par conséquent, assurez-vous que chaque compte Active Directory local correspond à votre compte Azure AD. Les services cloud ne connaissent que des comptes faisant partie d’Azure AD. Vous n’avez donc pas besoin d’ajouter de compte à votre Active Directory local. Si le compte n’existe pas dans Azure AD, vous ne pouvez pas l’utiliser. 
+L’UPN de vos comptes Active Directory locaux doit être identique à celui des comptes Azure AD. Par conséquent, assurez-vous que chaque compte Active Directory local correspond à votre compte Azure AD. Les services cloud ne connaissent que des comptes faisant partie d’Azure AD. Vous n’avez donc pas besoin d’ajouter de compte à votre Active Directory local. Si le compte n’existe pas dans Azure AD, vous ne pouvez pas l’utiliser.
 
-Voici comment faire correspondre vos comptes Active Directory locaux avec Azure AD. 
+Voici comment faire correspondre vos comptes Active Directory locaux avec Azure AD.
 
 * Ajoutez des comptes manuellement à Azure AD.
 

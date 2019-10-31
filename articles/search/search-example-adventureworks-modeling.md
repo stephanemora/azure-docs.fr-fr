@@ -1,23 +1,23 @@
 ---
-title: 'Exemple : Modéliser la base de données d’inventaire AdventureWorks - Recherche Azure'
-description: Découvrez comment modéliser des données relationnelles, en les transformant en un jeu de données aplati, pour l’indexation et la recherche en texte intégral dans Recherche Azure.
+title: 'Exemple : Modéliser la base de données d’inventaire AdventureWorks'
+titleSuffix: Azure Cognitive Search
+description: Découvrez comment modéliser des données relationnelles, en les transformant en un jeu de données aplati, pour l’indexation et la recherche en texte intégral dans la Recherche cognitive Azure.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
-ms.openlocfilehash: c25dd34460e7e92bb20913f5b812044623dd38e3
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70274033"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792990"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-search"></a>Exemple : Modéliser la base de données d’inventaire AdventureWorks pour la Recherche Azure
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exemple : Modéliser la base de données d’inventaire AdventureWorks pour la Recherche cognitive Azure
 
-Recherche Azure accepte un ensemble de lignes aplati comme entrées du [pipeline d’indexation (ingestion des données)](search-what-is-an-index.md). Si vos données sources proviennent d’une base de données relationnelle SQL Server, cet article montre une approche de la création d’un ensemble de lignes aplati avant l’indexation, en utilisant l’exemple de base de données AdventureWorks comme exemple.
+La Recherche cognitive Azure accepte un ensemble de lignes aplati comme entrées du [pipeline d’indexation (ingestion des données)](search-what-is-an-index.md). Si vos données sources proviennent d’une base de données relationnelle SQL Server, cet article montre une approche de la création d’un ensemble de lignes aplati avant l’indexation, en utilisant l’exemple de base de données AdventureWorks comme exemple.
 
 ## <a name="about-adventureworks"></a>À propos d’AdventureWorks
 
@@ -35,7 +35,7 @@ L’objectif de cet exemple est la combinaison de toutes ces données en un ense
 
 L’approche naïve consisterait à indexer toutes les lignes de la table Product (jointe le cas échéant) car la table Product contient les informations les plus spécifiques. Toutefois, cette approche exposerait l’index de recherche à des doublons identifiés dans un jeu de résultats. Par exemple, le modèle Road-650 est disponible dans deux couleurs et six tailles. Une requête pour « road bikes » (vélos de route) serait alors dominée par douze instances du même modèle, différenciées uniquement par la taille et la couleur. Les six autres modèles spécifiques pour la route seraient relégués au Royaume des ténèbres de la recherche : la deuxième page.
 
-  ![Liste des produits](./media/search-example-adventureworks/products-list.png "Liste de produits")
+  ![Liste de produits](./media/search-example-adventureworks/products-list.png "Liste de produits")
  
 Notez que le modèle Road-650 a douze options. Les lignes d’entités de type un-à-plusieurs sont mieux représentées sous la forme de champs à valeurs multiples ou de champs à valeurs pré-agrégées dans l’index de recherche.
 
@@ -43,13 +43,13 @@ La résolution de ce problème n’est pas aussi simple que de déplacer l’ind
 
 ## <a name="use-a-collection-data-type"></a>Utiliser un type de données Collection
 
-La « bonne approche » consiste à utiliser une fonctionnalité de schéma de recherche qui n’a pas de parallèle direct dans le modèle de base de données : **Collection(Edm.String)** . Cette construction est définie dans le schéma d’index de Recherche Azure. Un type de données Collection est utilisé quand vous devez représenter une liste de chaînes individuelles plutôt qu’une (seule) chaîne très longue. Si vous avez des tags ou des mots clés, vous devez utiliser un type de données Collection pour ce champ.
+La « bonne approche » consiste à utiliser une fonctionnalité de schéma de recherche qui n’a pas de parallèle direct dans le modèle de base de données : **Collection(Edm.String)** . Cette construction est définie dans le schéma d’index de la Recherche cognitive Azure. Un type de données Collection est utilisé quand vous devez représenter une liste de chaînes individuelles plutôt qu’une (seule) chaîne très longue. Si vous avez des tags ou des mots clés, vous devez utiliser un type de données Collection pour ce champ.
 
 En définissant des champs d’index à valeurs multiples de **Collection(Edm.String)** pour « color » (couleur), « size » (taille) et « image », les informations auxiliaires sont conservées pour les facettes et le filtrage sans polluer l’index avec des entrées en double. De même, appliquez des fonctions d’agrégation aux champs Product numériques, en indexant **minListPrice** au lieu de chaque produit unique **listPrice**.
 
 Pour un index avec ces structures, une recherche de « mountain bikes » (vélos tout terrain) afficherait des modèles de vélos distincts, tout en conservant les métadonnées importantes comme la couleur, la taille et le prix le plus bas. La capture d’écran suivante fournit une illustration.
 
-  ![Exemple de recherche de vélo tout-terrain](./media/search-example-adventureworks/mountain-bikes-visual.png "Exemple de recherche de vélo tout-terrain")
+  ![Exemple de recherche de VTT](./media/search-example-adventureworks/mountain-bikes-visual.png "Exemple de recherche de VTT")
 
 ## <a name="use-script-for-data-manipulation"></a>Utiliser un script pour la manipulation des données
 
@@ -163,4 +163,4 @@ WHERE
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Exemple : Taxonomies de facettes à plusieurs niveaux dans Recherche Azure](search-example-adventureworks-multilevel-faceting.md)
+> [Exemple : Taxonomies de facettes à plusieurs niveaux dans la Recherche cognitive Azure](search-example-adventureworks-multilevel-faceting.md)

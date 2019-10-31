@@ -1,35 +1,34 @@
 ---
-title: Mappages de champs pour une indexation automatisée à l’aide d’indexeurs - Recherche Azure
-description: Configurez les mappages de champs de l’indexeur Recherche Azure pour tenir compte des différences dans les noms de champs et les représentations des données.
-ms.date: 05/02/2019
-author: mgottein
+title: Mappages de champs pour une indexation automatisée à l’aide d’indexeurs
+titleSuffix: Azure Cognitive Search
+description: Configurez des mappages de champs d’un indexeur vers un compte pour détecter des différences de noms de champs et de représentations des données.
 manager: nitinme
+author: mgottein
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: b64f6dcecb26e35689ad6f569ade6c7862f06f1a
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 11/04/2019
+ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648139"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786971"
 ---
-# <a name="field-mappings-and-transformations-using-azure-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs de la fonction Recherche Azure
+# <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mappages de champs et transformations à l’aide d’indexeurs Recherche cognitive Azure
 
-Lorsque vous utilisez des indexeurs Recherche Azure, il se peut que les données d’entrée ne correspondent pas tout à fait au schéma de votre index cible. Dans ce cas, vous pouvez utiliser des **mappages de champs** pour remodeler vos données pendant le processus d’indexation.
+Lorsque vous utilisez des indexeurs Recherche cognitive Azure, il se peut que les données d’entrée ne correspondent pas tout à fait au schéma de votre index cible. Dans ce cas, vous pouvez utiliser des **mappages de champs** pour remodeler vos données pendant le processus d’indexation.
 
 Quelques situations où les mappages de champs sont utiles :
 
-* Votre source de données a un champ appelé `_id`, mais la Recherche Azure n’autorise pas les noms de champs commençant par un trait de soulignement. Un mappage de champ vous permet de renommer un champ.
+* Votre source de données a un champ appelé `_id`, mais la Recherche cognitive Azure n’autorise pas les noms de champs commençant par un trait de soulignement. Un mappage de champ vous permet de renommer un champ.
 * Vous souhaitez remplir plusieurs champs de l’index à partir des données de la même source de données. Par exemple, vous souhaiterez peut-être appliquer différents analyseurs à ces champs.
 * Vous voulez remplir un champ d’index avec des données provenant de plusieurs sources de données, lesquelles utilisent des noms de champs différents.
 * Vous avez besoin d’encoder ou de décoder vos données en Base64. Les mappages de champs prennent en charge plusieurs **fonctions de mappage**, y compris les fonctions d’encodage et de décodage en Base64.
 
 > [!NOTE]
-> Le mappage de champ des indexeurs de la Recherche Azure fournit un moyen simple pour mapper des champs de données à des champs d’index, avec quelques options pour la conversion de données. Les données plus complexes devront peut-être être prétraitées pour être converties dans un format facile à indexer.
+> Le mappage de champ des indexeurs de la Recherche cognitive Azure fournit un moyen simple pour mapper des champs de données à des champs d’index, avec quelques options pour la conversion de données. Les données plus complexes devront peut-être être prétraitées pour être converties dans un format facile à indexer.
 >
 > Microsoft Azure Data Factory est une solution puissante, basée sur le cloud, qui permet d’importer et de transformer des données. Vous pouvez également écrire du code pour transformer les données sources avant l’indexation. Pour obtenir des exemples de code, voir [Modèle de données relationnelles](search-example-adventureworks-modeling.md) et [Modèle de facettes multiniveaux](search-example-adventureworks-multilevel-faceting.md).
 >
@@ -124,7 +123,7 @@ Exécute l’encodage Base64 *sécurisé pour les URL* de la chaîne d'entrée. 
 
 #### <a name="example---document-key-lookup"></a>Exemple de recherche d’une clé de document
 
-Seuls les caractères sécurisés pour les URL peuvent apparaître dans une clé de document Recherche Azure (car les clients doivent pouvoir traiter le document à l’aide de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si le champ source de votre clé contient des caractères non sécurisés pour les URL, vous pouvez utiliser la fonction `base64Encode` pour les convertir au moment de l’indexation.
+Seuls les caractères sécurisés pour les URL peuvent apparaître dans une clé de document Recherche cognitive Azure (car les clients doivent pouvoir traiter le document à l’aide de l’[API de recherche](https://docs.microsoft.com/rest/api/searchservice/lookup-document)). Si le champ source de votre clé contient des caractères non sécurisés pour les URL, vous pouvez utiliser la fonction `base64Encode` pour les convertir au moment de l’indexation.
 
 Une fois que vous avez récupéré la clé encodée au moment de la recherche, vous pouvez utiliser la fonction `base64Decode` pour obtenir la valeur de clé d’origine, et l’utiliser pour récupérer le document source.
 
@@ -143,7 +142,7 @@ Une fois que vous avez récupéré la clé encodée au moment de la recherche, v
 
 Si vous n’incluez aucune propriété de paramètre pour votre fonction de mappage, la valeur par défaut est `{"useHttpServerUtilityUrlTokenEncode" : true}`.
 
-La fonction Recherche Azure prend en charge deux encodages Base64. Vous devez utiliser les mêmes paramètres lors de l’encodage et du décodage du même champ. Pour décider quels paramètres utiliser, consultez les [options relatives à l’encodage base64](#base64details).
+Recherche cognitive Azure prend en charge deux encodages en Base64. Vous devez utiliser les mêmes paramètres lors de l’encodage et du décodage du même champ. Pour décider quels paramètres utiliser, consultez les [options relatives à l’encodage base64](#base64details).
 
 <a name="base64DecodeFunction"></a>
 
@@ -170,17 +169,17 @@ Votre source de données peut contenir des chaînes encodées en Base64, telles 
 
 Si vous n’incluez aucune propriété de paramètre, la valeur par défaut est `{"useHttpServerUtilityUrlTokenEncode" : true}`.
 
-La fonction Recherche Azure prend en charge deux encodages Base64. Vous devez utiliser les mêmes paramètres lors de l’encodage et du décodage du même champ. Pour décider quels paramètres utiliser, reportez-vous aux [options relatives à l’encodage base64](#base64details).
+Recherche cognitive Azure prend en charge deux encodages en Base64. Vous devez utiliser les mêmes paramètres lors de l’encodage et du décodage du même champ. Pour décider quels paramètres utiliser, reportez-vous aux [options relatives à l’encodage base64](#base64details).
 
 <a name="base64details"></a>
 
 #### <a name="base64-encoding-options"></a>Options d’encodage en Base64
 
-La fonction Recherche Azure prend en charge deux encodages en Base64 : l’encodage de **jetons d’URL HttpServerUtility**, et l’encodage **Base64 sécurisé pour les URL sans remplissage**. Une chaîne encodée en Base64 lors de l’indexation devra être décodée avec les mêmes options de d’encodage, faute de quoi le résultat ne correspondra pas à la version d’origine.
+Recherche cognitive Azure prend en charge deux encodages en Base64 : l’encodage de **jetons d’URL HttpServerUtility**, et l’encodage **Base64 sécurisé pour les URL sans remplissage**. Une chaîne encodée en Base64 lors de l’indexation devra être décodée avec les mêmes options de d’encodage, faute de quoi le résultat ne correspondra pas à la version d’origine.
 
 Si les paramètres `useHttpServerUtilityUrlTokenEncode` ou `useHttpServerUtilityUrlTokenDecode` d’encodage et de décodage, respectivement, sont définis sur `true`, `base64Encode` se comporte comme [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) et `base64Decode` se comporte comme [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Si vous n’utilisez pas le composant .NET Framework complet (par exemple, vous utilisez .NET Core ou une autre infrastructure) pour produire les valeurs de clé afin d’émuler le comportement de Recherche Azure, vous devez définir `useHttpServerUtilityUrlTokenEncode` et `useHttpServerUtilityUrlTokenDecode` sur `false`. Selon la bibliothèque que vous utilisez, les fonctions d’encodage et de décodage en Base64 peuvent différer de celles utilisées par la fonction Recherche Azure.
+Si vous n’utilisez pas le composant .NET Framework complet (par exemple, vous utilisez .NET Core ou une autre infrastructure) pour produire les valeurs de clé afin d’émuler le comportement de Recherche cognitive Azure, vous devez définir `useHttpServerUtilityUrlTokenEncode` et `useHttpServerUtilityUrlTokenDecode` sur `false`. Selon la bibliothèque que vous utilisez, les fonctions d’encodage et de décodage en Base64 peuvent différer de celles utilisées par Recherche cognitive Azure.
 
 Le tableau suivant compare les différents encodages base64 de la chaîne `00>00?00`. Pour déterminer quel traitement supplémentaire s’avère nécessaire (le cas échéant) pour vos fonctions base64, appliquez votre fonction d’encodage de bibliothèque à la chaîne `00>00?00` et comparez le résultat obtenu au résultat attendu `MDA-MDA_MDA`.
 
@@ -233,7 +232,7 @@ Par exemple, si la chaîne d’entrée est `["red", "white", "blue"]`, le champ 
 
 #### <a name="example---populate-collection-from-relational-data"></a>Exemple : remplissage d’une collection avec des données relationnelles
 
-Microsoft Azure SQL Database n’inclut aucun type de données intégré qui se mappe naturellement aux champs `Collection(Edm.String)` dans Recherche Azure. Pour remplir les champs de la collection de chaînes, vous pouvez prétraiter votre source de données en tant que tableau de chaînes JSON, puis utiliser la fonction de mappage `jsonArrayToStringCollection`.
+Microsoft Azure SQL Database n’inclut aucun type de données intégré qui se mappe naturellement aux champs `Collection(Edm.String)` dans Recherche cognitive Azure. Pour remplir les champs de la collection de chaînes, vous pouvez prétraiter votre source de données en tant que tableau de chaînes JSON, puis utiliser la fonction de mappage `jsonArrayToStringCollection`.
 
 ```JSON
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 49416f38-fcc7-476f-a55e-d67f3f9c1d34
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d3601fd8c32c70cf828cd08fada71258ec8fa5d4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0ccfb00c4b45a2a29ccab74362a4296cdcd7cae
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812673"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595715"
 ---
 # <a name="adjust-quotas-and-limits-in-azure-data-lake-analytics"></a>Ajuster les quotas et limites dans Azure Data Lake Analytics
 
@@ -24,7 +24,7 @@ Découvrez comment ajuster et augmenter les quotas et limites dans les comptes A
 
 **Nombre maximal de comptes ADLA par abonnement et par région :**  5.
 
-Lorsque vous essayez de créer le sixième compte ADLA, le message d’erreur suivant s’affiche : « Vous avez atteint le nombre maximal de comptes Data Lake Analytics autorisés (5) dans (zone) sous l’abonnement (nom). » 
+Lorsque vous essayez de créer le sixième compte ADLA, le message d’erreur suivant s’affiche : « Vous avez atteint le nombre maximal de comptes Data Lake Analytics autorisés (5) dans (zone) sous l’abonnement (nom). »
 
 Si vous souhaitez aller au-delà de cette limite, vous pouvez essayer ces options :
 * choisissez une autre région le cas échéant
@@ -32,16 +32,18 @@ Si vous souhaitez aller au-delà de cette limite, vous pouvez essayer ces option
 
 ## <a name="default-adla-account-limits"></a>Limites par compte ADLA par défaut
 
-**Nombre maximal d’unités Analytique par compte :** 32
+**Nombre maximal d’unités Analytique par compte :** 250, par défaut : 32
 
 Il s’agit du nombre maximal d’unités Analytics pouvant s’exécuter simultanément dans votre compte. Si le nombre total d’unités Analytics exécutées dans l’ensemble des tâches dépasse cette limite, les tâches les plus récentes sont automatiquement placées dans la file d’attente. Par exemple :
 
 * Si une seule tâche est exécutée avec 32 unités Analytics, lorsque vous envoyez une deuxième tâche, celle-ci est placée dans la file d’attente jusqu’à ce que la première tâche soit terminée.
 * Si vous avez déjà quatre tâches en cours d’exécution et que chacune utilise 8 unités Analytics, lorsque vous envoyez une cinquième tâche nécessitant 8 unités Analytics, celle-ci est placée dans la file d’attente jusqu’à ce que les 8 unités Analytics soient disponibles.
 
-**Nombre maximal d’unités Analytique par travail :** 32
+    ![Page limites et quota d’Azure Data Lake Analytics](./media/data-lake-analytics-quota-limits/adjust-quota-limits.png)
 
-Il s’agit du nombre maximal par défaut d’unités Analytics pouvant être assignées à chaque tâche individuelle dans votre compte. Les tâches auxquelles est assigné un nombre supérieur à cette limite sont rejetées, à moins que l’expéditeur soit concerné par une stratégie de calcul (limite d’envoi de travaux) qui lui accorde davantage d’unités Analytics par tâche. La limite supérieure de cette valeur correspond à la limite d’unités Analytics pour le compte.
+**Nombre maximal d’unités Analytique par travail :** 250, par défaut : 32
+
+Il s’agit du nombre maximal d’unités Analytics pouvant être assignées à chaque tâche dans votre compte. Les tâches auxquelles est assigné un nombre supérieur à cette limite sont rejetées, à moins que l’expéditeur soit concerné par une stratégie de calcul (limite d’envoi de travaux) qui lui accorde davantage d’unités Analytics par tâche. La limite supérieure de cette valeur correspond à la limite d’unités Analytics pour le compte.
 
 **Nombre maximal de travaux U-SQL simultanés par compte :** 20
 

@@ -1,13 +1,13 @@
 ---
-title: Informations de référence sur la fonction géospatiale OData - Recherche Azure
-description: 'Il existe deux fonctions géospatiales OData dans les requêtes Recherche Azure : geo.distance et geo.intersects.'
-ms.date: 09/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Informations de référence sur la fonction géospatiale OData
+titleSuffix: Azure Cognitive Search
+description: 'Il existe deux fonctions géospatiales OData dans les requêtes Recherche cognitive Azure : geo.distance et geo.intersects.'
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,21 +19,21 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 03220786c65ab510a632252b20d593cd96a90494
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 09034423e16c652cf6994b38f8d92574abc0ce55
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003448"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793331"
 ---
-# <a name="odata-geo-spatial-functions-in-azure-search---geodistance-and-geointersects"></a>Fonctions géospatiales OData dans Recherche Azure - `geo.distance` et `geo.intersects`
+# <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Fonctions géospatiales OData dans Recherche cognitive Azure - `geo.distance` et `geo.intersects`
 
-Recherche Azure prend en charge les requêtes géospatiales dans les [expressions de filtre OData](query-odata-filter-orderby-syntax.md) via les fonctions `geo.distance` et `geo.intersects`. La fonction `geo.distance` renvoie la distance en kilomètres entre deux points, l’un étant un champ ou une variable de portée et l’autre une constante passée comme partie du filtre. La fonction `geo.intersects` renvoie `true` si un point donné se trouve dans un polygone donné, où le point est un champ ou une variable de portée et où le polygone est spécifié sous la forme d’une constante passée comme partie du filtre.
+Recherche cognitive Azure prend en charge les requêtes géospatiales dans les [expressions de filtre OData](query-odata-filter-orderby-syntax.md) via les fonctions `geo.distance` et `geo.intersects`. La fonction `geo.distance` renvoie la distance en kilomètres entre deux points, l’un étant un champ ou une variable de portée et l’autre une constante passée comme partie du filtre. La fonction `geo.intersects` renvoie `true` si un point donné se trouve dans un polygone donné, où le point est un champ ou une variable de portée et où le polygone est spécifié sous la forme d’une constante passée comme partie du filtre.
 
 La fonction `geo.distance` peut également être utilisée dans le paramètre [ **$orderby** ](search-query-odata-orderby.md) pour trier les résultats de recherche par distance à partir d’un point donné. La syntaxe pour `geo.distance` dans **$orderby** est la même que dans **$filter**. Lors de l’utilisation de `geo.distance` dans **$orderby**, le champ auquel elle s’applique doit être de type `Edm.GeographyPoint` et être aussi **triable**.
 
 > [!NOTE]
-> Si vous spécifiez `geo.distance` dans le paramètre **$orderby**, le champ que vous passez à la fonction doit contenir un seul point géographique. Autrement dit, il doit être de type `Edm.GeographyPoint` et pas de type `Collection(Edm.GeographyPoint)`. Le tri sur les champs de collection n’est pas possible dans la Recherche Azure.
+> Si vous spécifiez `geo.distance` dans le paramètre **$orderby**, le champ que vous passez à la fonction doit contenir un seul point géographique. Autrement dit, il doit être de type `Edm.GeographyPoint` et pas de type `Collection(Edm.GeographyPoint)`. Le tri sur les champs de collection n’est pas possible dans Recherche cognitive Azure.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -64,10 +64,10 @@ lon_lat_list ::= lon_lat(',' lon_lat)*
 Un diagramme de syntaxe interactif est également disponible :
 
 > [!div class="nextstepaction"]
-> [Diagramme de syntaxe OData pour Recherche Azure](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
+> [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#geo_distance_call)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 ### <a name="geodistance"></a>geo.distance
 
@@ -90,11 +90,11 @@ Le polygone est une surface en deux dimensions stockée sous la forme d’une s�
 
 Pour de nombreuses bibliothèques de requêtes géospatiales, la formulation d’une requête incluant le 180e méridien (près de la ligne de changement de date) est hors limites ou nécessite une solution de contournement, comme diviser le polygone en deux parties, une de chaque côté du méridien.
 
-Dans Recherche Azure, les requêtes géospatiales incluant une longitude de 180 degrés fonctionnent normalement si la forme de la requête est rectangulaire et que vos coordonnées s’alignent sur une disposition en grille le long de la longitude et de la latitude (par exemple `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'`). Sinon, pour les formes non rectangulaires ou non alignées, envisagez l’approche par division du polygone.  
+Dans Recherche cognitive Azure, les requêtes géospatiales incluant une longitude de 180 degrés fonctionnent normalement si la forme de la requête est rectangulaire et que vos coordonnées s’alignent sur une disposition en grille le long de la longitude et de la latitude (par exemple `geo.intersects(location, geography'POLYGON((179 65, 179 66, -179 66, -179 65, 179 65))'`). Sinon, pour les formes non rectangulaires ou non alignées, envisagez l’approche par division du polygone.  
 
 ### <a name="geo-spatial-functions-and-null"></a>Fonctions géospatiales et `null`
 
-Comme tous les autres champs qui ne sont pas des collections dans Recherche Azure, les champs de type `Edm.GeographyPoint` peuvent contenir des valeurs `null`. Lorsque Recherche Azure évalue `geo.intersects` pour un champ qui est `null`, le résultat sera toujours `false`. Le comportement de `geo.distance` dans ce cas dépend du contexte :
+Comme tous les autres champs qui ne sont pas des collections dans Recherche cognitive Azure, les champs de type `Edm.GeographyPoint` peuvent contenir des valeurs `null`. Lorsque Recherche cognitive Azure évalue `geo.intersects` pour un champ qui est `null`, le résultat sera toujours `false`. Le comportement de `geo.distance` dans ce cas dépend du contexte :
 
 - Dans les filtres, la valeur `geo.distance` d’un champ `null` donne le résultat `null`. Cela signifie que le document ne correspond pas, car `null` comparé à n’importe quelle valeur non null a pour résultat `false`.
 - Lors du tri des résultats à l’aide de **$orderby**, la valeur `geo.distance` d’un champ `null` donne pour résultat la distance maximale possible. Les documents comportant un tel champ auront un niveau de tri inférieur par rapport aux autres lorsque le sens de tri `asc` est utilisé (par défaut) et supérieur à tous les autres utilisateurs lorsque le sens est `desc`.
@@ -123,7 +123,7 @@ Trier les hôtels par ordre décroissant sur `search.score` et `rating`, puis pa
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Filtres dans Recherche Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtres dans la Recherche cognitive Azure](search-filters.md)
+- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

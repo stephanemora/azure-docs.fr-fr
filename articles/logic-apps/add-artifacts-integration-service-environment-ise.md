@@ -1,6 +1,6 @@
 ---
-title: Ajouter des artefacts à des environnements de service d’intégration dans Azure Logic Apps
-description: Ajoutez des applications logiques, des connecteurs personnalisés et des comptes d’intégration à votre environnement de service d’intégration pour accéder aux réseaux virtuels Azure tout en les maintenant privés et isolés de l’environnement Azure public ou « mondial »
+title: Ajouter des artefacts à un environnement de service d’intégration - Azure Logic Apps
+description: Ajoutez des applications logiques, des comptes d’intégration et des connecteurs personnalisés à votre environnement de service d’intégration pour accéder aux réseaux virtuels Azure.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6327f0c14b46ceaadbf7adaa58a70c32b39b7c2a
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 266c942adb62b187d39d2eac4a47455482bfadaa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960486"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680527"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajoutez des artefacts à votre environnement de service d’intégration dans Azure Logic Apps
 

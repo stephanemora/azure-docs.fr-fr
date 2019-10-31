@@ -1,5 +1,5 @@
 ---
-title: Obtenir plus de données, d'éléments ou d'enregistrements à l'aide de la pagination - Azure Logic Apps
+title: Obtenir plus d’éléments ou d’enregistrements à l’aide de la pagination - Azure Logic Apps
 description: Configurer la pagination de manière à dépasser la limite de taille de page par défaut pour les actions de connecteur dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: 2d1bcf2cf83fab106f79120c3caacc424f839836
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e86600312490c77ed492cb28a359add0fed90596
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64476540"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679893"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Obtenir plus de données, d'éléments ou d'enregistrements à l'aide de la pagination dans Azure Logic Apps
 

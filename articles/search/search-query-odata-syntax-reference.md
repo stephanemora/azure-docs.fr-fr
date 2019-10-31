@@ -1,13 +1,13 @@
 ---
-title: Informations de référence sur la syntaxe d’expression OData - Recherche Azure
-description: Caractéristiques de la grammaire et de la syntaxe formelles pour les expressions OData dans les requêtes Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Informations de référence sur la syntaxe d’expression OData
+titleSuffix: Azure Cognitive Search
+description: Caractéristiques de la grammaire et de la syntaxe formelles pour les expressions OData dans les requêtes de Recherche cognitive Azure.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,22 +19,22 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5d7e6456cd6a6648ff2ca38ecbb4f2de5479d7c9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647491"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793236"
 ---
-# <a name="odata-expression-syntax-reference-for-azure-search"></a>Informations de référence sur la syntaxe d’expression OData pour Recherche Azure
+# <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure
 
-Recherche Azure utilise les [expressions OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) en tant que paramètres dans l’ensemble de l’API. En règle générale, les expressions OData sont utilisées pour les paramètres `$orderby` et `$filter`. Ces expressions peuvent être complexes et contenir plusieurs clauses, fonctions et opérateurs. Toutefois, les expressions OData, telles que les chemins d’accès de propriété, sont utilisées dans de nombreuses parties de l’API REST de Recherche Azure, y compris lorsqu’elles sont simples. Par exemple, les expressions de chemin d’accès sont utilisées pour faire référence à des sous-champs de champs complexes dans l’ensemble de l’API. C’est notamment le cas lors du référencement de sous-champs dans un [suggesteur](index-add-suggesters.md), une [fonction de scoring](index-add-scoring-profiles.md), le paramètre `$select` ainsi que dans les [recherches par champ dans les requêtes Lucene](query-lucene-syntax.md).
+La Recherche cognitive Azure utilise les [expressions OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) comme paramètres dans l’ensemble de l’API. En règle générale, les expressions OData sont utilisées pour les paramètres `$orderby` et `$filter`. Ces expressions peuvent être complexes et contenir plusieurs clauses, fonctions et opérateurs. Toutefois, les expressions OData telles que les chemins de propriété sont utilisées dans de nombreuses parties de l’API REST de Recherche cognitive Azure, y compris quand elles sont simples. Par exemple, les expressions de chemin d’accès sont utilisées pour faire référence à des sous-champs de champs complexes dans l’ensemble de l’API. C’est notamment le cas lors du référencement de sous-champs dans un [suggesteur](index-add-suggesters.md), une [fonction de scoring](index-add-scoring-profiles.md), le paramètre `$select` ainsi que dans les [recherches par champ dans les requêtes Lucene](query-lucene-syntax.md).
 
 Cet article décrit toutes ces formes d’expressions OData qui utilisent une grammaire formelle. Il existe également un [diagramme interactif](#syntax-diagram) permettant de faciliter l’exploration visuelle de la grammaire.
 
 ## <a name="formal-grammar"></a>Grammaire formelle
 
-Nous pouvons décrire le sous-ensemble du langage OData pris en charge par Recherche Azure à l’aide d’une grammaire EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form), ou Forme de Backus-Naur étendue). Les règles sont triées dans l’ordre « décroissant », en commençant par les expressions plus complexes qui sont ensuite décomposées en expressions plus primitives. Les règles de grammaire qui correspondent aux paramètres spécifiques de l’API REST de Recherche Azure sont situées dans la partie supérieure :
+Nous pouvons décrire le sous-ensemble du langage OData pris en charge par la Recherche cognitive Azure à l’aide d’une grammaire EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form), ou Forme de Backus-Naur étendue). Les règles sont triées dans l’ordre « décroissant », en commençant par les expressions plus complexes qui sont ensuite décomposées en expressions plus primitives. Les règles de grammaire qui correspondent aux paramètres spécifiques de l’API REST de Recherche cognitive Azure sont situées dans la partie supérieure :
 
 - [`$filter`](search-query-odata-filter.md) : défini par la règle `filter_expression`.
 - [`$orderby`](search-query-odata-orderby.md) : défini par la règle `order_by_expression`.
@@ -209,14 +209,14 @@ search_mode ::= "'any'" | "'all'"
 
 ## <a name="syntax-diagram"></a>Diagramme de syntaxe
 
-Pour explorer visuellement la grammaire du langage OData pris en charge par Recherche Azure, essayez le diagramme de syntaxe interactive :
+Pour explorer visuellement la grammaire du langage OData pris en charge par la Recherche cognitive Azure, vous pouvez vous aider du diagramme de syntaxe interactif :
 
 > [!div class="nextstepaction"]
-> [Diagramme de syntaxe OData pour Recherche Azure](https://azuresearch.github.io/odata-syntax-diagram/)
+> [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/)
 
 ## <a name="see-also"></a>Voir aussi  
 
-- [Filtres dans Recherche Azure](search-filters.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtres dans la Recherche cognitive Azure](search-filters.md)
+- [Rechercher des documents &#40;API REST de Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 - [Syntaxe de requête Lucene](query-lucene-syntax.md)
-- [Syntaxe des requêtes simples dans Recherche Azure](query-simple-syntax.md)
+- [Syntaxe de requête simple dans la Recherche cognitive Azure](query-simple-syntax.md)

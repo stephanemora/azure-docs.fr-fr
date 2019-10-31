@@ -1,6 +1,6 @@
 ---
-title: Solution Azure VMware de CloudSimple
-description: Portail de documentation pour la solution Azure VMware par CloudSimple.
+title: Azure VMware Solution by CloudSimple
+description: Portail de documentation pour  Azure VMware Solution by CloudSimple .
 author: sharaths-cs
 ms.author: b-mashar
 ms.date: 08/20/2019
@@ -15,16 +15,16 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 08/22/2019
 ms.locfileid: "69972736"
 ---
-# <a name="azure-vmware-solution-by-cloudsimple"></a>Solution Azure VMware de CloudSimple
+# <a name="azure-vmware-solution-by-cloudsimple"></a>Azure VMware Solution by CloudSimple
 
-Bienvenue sur le portail tout-en-un conçu pour vous aider avec la solution Azure VMware par CloudSimple.
+Bienvenue sur le portail tout-en-un conçu pour vous aider avec Azure VMware Solution by CloudSimple
 Le site de documentation vous permet d’en savoir plus sur les sujets suivants :
 
 ## <a name="overview"></a>Vue d'ensemble
 
-Apprenez-en davantage sur la solution Azure VMware par CloudSimple.
+Apprenez-en davantage sur Azure VMware Solution by CloudSimple
 
-* Découvrez les fonctionnalités, avantages et scénarios d’usage en consultant [En quoi consiste la solution Azure VMware de CloudSimple ?](cloudsimple-vmware-solutions-overview.md).
+* Découvrez les fonctionnalités, avantages et scénarios d’usage en consultant [En quoi consiste  Azure VMware Solution by CloudSimple ?](cloudsimple-vmware-solutions-overview.md).
 * Passez en revue les [concepts clés pour l’administration](key-concepts.md).
 
 ## <a name="quickstart"></a>Démarrage rapide
@@ -39,10 +39,10 @@ Découvrez comment commencer à utiliser la solution.
 
 Apprenez-en davantage sur les concepts suivants.
 
-* Un [service CloudSimple](cloudsimple-service.md) (également appelé « Solution Azure VMware par CloudSimple - Service »). Cette ressource doit être créée une fois par région.
-* Achetez de la capacité pour votre environnement en créant une ou plusieurs ressources de [nœud CloudSimple](cloudsimple-node.md). Ces ressources sont également appelées « Solution Azure VMware par CloudSimple - Nœud ».
+* Un [service CloudSimple](cloudsimple-service.md) (également appelé «  Azure VMware Solution by CloudSimple - Service »). Cette ressource doit être créée une fois par région.
+* Achetez de la capacité pour votre environnement en créant une ou plusieurs ressources de [nœud CloudSimple](cloudsimple-node.md). Ces ressources sont également appelées «  Azure VMware Solution by CloudSimple - Nœud ».
 * Initialisez et configurez votre environnement VMware à l’aide des [clouds privés](cloudsimple-private-cloud.md).
-* Unifiez la gestion à l’aide de [machines virtuelles CloudSimple](cloudsimple-virtual-machines.md) (également appelées « Solution Azure VMware par CloudSimple - Machine virtuelle »).
+* Unifiez la gestion à l’aide de [machines virtuelles CloudSimple](cloudsimple-virtual-machines.md) (également appelées «  Azure VMware Solution by CloudSimple - Machine virtuelle »).
 * Concevez le réseau sous-jacent à l’aide de [réseaux VLAN/sous-réseaux](cloudsimple-vlans-subnets.md).
 * Segmentez et sécurisez le réseau sous-jacent à l’aide de la ressource de [table de pare-feu](cloudsimple-firewall-tables.md).
 * Bénéficiez d’un accès sécurisé à vos environnements VMware sur le réseau WAN à l’aide de [passerelles VPN](cloudsimple-vpn-gateways.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: c49200dba33d4a3b9ad1f582841adb04c2dd1c41
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7be0cfbe538d06da617049ac74cba60ff1b713e6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099559"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791708"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuration de Pacemaker sur SUSE Linux Enterprise Server dans Azure
 
@@ -318,6 +318,11 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 1. **[A]** Mettre à jour SLES
 
    <pre><code>sudo zypper update
+   </code></pre>
+
+1. **[A]** Installer le composant nécessaire pour les ressources de cluster
+
+   <pre><code>sudo zypper in socat
    </code></pre>
 
 1. **[A]** Configurer le système d’exploitation

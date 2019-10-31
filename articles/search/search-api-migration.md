@@ -1,41 +1,41 @@
 ---
-title: Mettre à niveau vers la version la plus récente de l’API REST du service Recherche Azure – Recherche Azure
-description: Passez en revue les différences entre les versions des API et découvrez ce que vous devez faire pour migrer le code existant vers la dernière version de l’API REST du service Recherche Azure.
-author: brjohnstmsft
+title: Effectuer une mise à niveau vers la version la plus récente de l’API REST du service Recherche cognitive Azure
+titleSuffix: Azure Cognitive Search
+description: Passez en revue les différences entre les versions des API et découvrez ce que vous devez faire pour migrer le code existant vers la dernière version de l’API REST du service Recherche cognitive Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: brjohnstmsft
 ms.author: brjohnst
-ms.openlocfilehash: 6c1f7fdb1f349c9e31ba63d79a9b9e26ea9f09da
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a9bffb41cce030b7a63e600e5ffaf65130261b4c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182383"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791153"
 ---
-# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Mettre à niveau vers la version la plus récente de l’API REST du service Recherche Azure
-Si vous utilisez une version antérieure de [l’API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/), cet article vous aidera à mettre à niveau votre application pour utiliser la toute dernière version de l’API (2019-05-06).
+# <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Effectuer une mise à niveau vers la version la plus récente de l’API REST du service Recherche cognitive Azure
+
+Si vous utilisez une version antérieure de l’[API REST du service Recherche](https://docs.microsoft.com/rest/api/searchservice/), cet article vous aide à mettre à niveau votre application pour utiliser la toute dernière version de l’API en disponibilité générale (2019-05-06).
 
 La version 2019-05-06 de l’API REST contient des modifications des versions antérieures. Ces modifications sont, pour la plupart, à compatibilité descendante. La modification de votre code est donc facilitée, selon la version que vous utilisiez précédemment. La section [Procédure de mise à niveau](#UpgradeSteps) décrit les modifications de code nécessaires pour utiliser les nouvelles fonctionnalités.
 
 > [!NOTE]
-> Une instance de service Recherche Azure prend en charge toute une gamme de versions de l’API REST, y compris les plus récentes. Vous pouvez continuer à utiliser ces versions d’API, mais nous vous recommandons de migrer votre code vers la dernière version. Vous pourrez ainsi accéder aux nouvelles fonctionnalités.
+> Une instance de service Recherche cognitive Azure prend en charge toute une gamme de versions de l’API REST, y compris les versions antérieures. Vous pouvez continuer à utiliser ces versions d’API, mais nous vous recommandons de migrer votre code vers la dernière version. Vous pourrez ainsi accéder aux nouvelles fonctionnalités.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-2019-05-06"></a>Nouveautés de la version 2019-05-06
-La version 2019-05-06 est la version la plus récente généralement disponible de l’API REST du service Recherche Azure. Plusieurs fonctionnalités ont été mises à la disposition générale dans le cadre de cette version de l’API, notamment les fonctionnalités suivantes :
+La version 2019-05-06 est la version la plus récente de l’API REST en disponibilité générale. Plusieurs fonctionnalités ont été mises à la disposition générale dans le cadre de cette version de l’API, notamment les fonctionnalités suivantes :
 
 * [L’autocomplétion](index-add-suggesters.md) est une fonctionnalité prédictive qui complète une entrée de terme partiellement saisie.
 
-* Les [types complexes](search-howto-complex-data-types.md) assurent la prise en charge native des données d’objet structurées dans un index Recherche Azure.
+* Les [types complexes](search-howto-complex-data-types.md) assurent la prise en charge native des données d’objet structurées dans un index de recherche.
 
 * Les [modes d’analyse JsonLines](search-howto-index-json-blobs.md), inclus dans l’indexation des objets Blob Azure, créent un document de recherche par entité JSON, séparé par un saut de ligne.
 
-* La [recherche cognitive](cognitive-search-concept-intro.md) assure une indexation qui tire parti des moteurs d’enrichissement IA de Cognitive Services.
+* L’[enrichissement par IA](cognitive-search-concept-intro.md) assure une indexation qui tire parti des moteurs d’enrichissement IA de Cognitive Services.
 
 Plusieurs nouvelles versions de fonctionnalités d’évaluation coïncident avec cette mise à la disposition générale. Pour consulter la liste des nouvelles fonctionnalités d’évaluation, reportez-vous à [Search REST api-version 2019-05-06-Preview](search-api-preview.md) (Version de l’API REST Recherche 2019-05-06-Preview).
 
@@ -53,7 +53,7 @@ La structure d’erreur pour l’exécution de l’indexeur comportait précéde
 
 ### <a name="indexer-data-source-api-no-longer-returns-connection-strings"></a>L’API de source de données de l’indexeur ne renvoie plus de chaînes de connexion.
 
-À partir des versions d’API 2019-05-06 et 2019-05-06-Preview, l’API de source de données ne renvoie plus de chaînes de connexion dans la réponse d’une opération REST, quelle qu’elle soit. Dans les versions d’API précédentes, pour les sources de données créées à l’aide de POST, le service Recherche Azure retournait **201**, suivi de la réponse OData, qui contenait la chaîne de connexion en texte brut.
+À partir des versions d’API 2019-05-06 et 2019-05-06-Preview, l’API de source de données ne renvoie plus de chaînes de connexion dans la réponse d’une opération REST, quelle qu’elle soit. Dans les versions d’API précédentes, pour les sources de données créées à l’aide de POST, la Recherche cognitive Azure retournait **201**, suivi de la réponse OData, qui contenait la chaîne de connexion en texte brut.
 
 ### <a name="named-entity-recognition-cognitive-skill-is-now-discontinued"></a>La compétence cognitive Reconnaissance d’entité nommée n’est plus proposée.
 
@@ -90,7 +90,7 @@ Si votre code utilise des types complexes avec d’anciennes versions d’API en
 
 + Il existe une nouvelle limite dans la version d’API 2019-05-06 concernant le nombre d’éléments de collections complexes par document. Si vous avez créé des index avec des documents qui dépassent ces limites à l’aide de versions d’API en préversion, toute tentative de réindexation de ces données à l’aide de la version d’API 2019-05-06 échouera. Si tel est votre cas, vous devrez réduire le nombre d’éléments de collections complexes par document avant de réindexer les données.
 
-Pour plus d’informations, consultez [Service limits for Azure Search](search-limits-quotas-capacity.md) (Limites de service pour Recherche Azure).
+Pour plus d’informations, consultez [Limites de service de la Recherche cognitive Azure](search-limits-quotas-capacity.md).
 
 ### <a name="how-to-upgrade-an-old-complex-type-structure"></a>Comment mettre à niveau une ancienne structure de type complexe
 
@@ -144,7 +144,7 @@ Vous pouvez mettre à jour des index « plats » vers le nouveau format en proc�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez la documentation de référence relative à l’API REST du service Recherche Azure. Si vous rencontrez des problèmes, sollicitez notre aide sur [StackOverflow](https://stackoverflow.com/) ou [contactez le support](https://azure.microsoft.com/support/community/?product=search).
+Consultez la documentation de référence relative à l’API REST du service Recherche. Si vous rencontrez des problèmes, sollicitez notre aide sur [StackOverflow](https://stackoverflow.com/) ou [contactez le support](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Référence de l’API REST du service Recherche](https://docs.microsoft.com/rest/api/searchservice/)

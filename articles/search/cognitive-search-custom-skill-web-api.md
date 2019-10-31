@@ -1,24 +1,23 @@
 ---
-title: Compétence de recherche cognitive personnalisée - Recherche Azure
-description: Étendre les fonctionnalités des compétences de recherche cognitive en appelant des API web
-services: search
+title: Compétence API web personnalisée dans un pipeline d’enrichissement
+titleSuffix: Azure Cognitive Search
+description: Étendez les fonctionnalités des ensembles de compétences de Recherche cognitive Azure en appelant des API web. Utilisez la compétence API web personnalisée pour intégrer votre code personnalisé.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266323"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784902"
 ---
-# <a name="custom-web-api-skill"></a>Compétence API web personnalisée
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Compétence API web personnalisée dans un pipeline d’enrichissement de Recherche cognitive Azure
 
-La compétence **API web personnalisée** vous permet d’étendre la recherche cognitive en appelant un point de terminaison d’API web qui fournit des opérations personnalisées. Tout comme les compétences intégrées, une compétence **API web personnalisée** a des entrées et des sorties. Selon les entrées, votre API web reçoit une charge utile JSON pendant l’exécution de l’indexeur et génère une charge utile JSON en réponse, ainsi qu’un code d’état de réussite. La réponse est censée avoir les sorties spécifiées par votre compétence personnalisée. Toute autre réponse est considérée comme une erreur et aucun enrichissement n’est effectué.
+La compétence **API web personnalisée** vous permet d’étendre l’enrichissement par IA en appelant un point de terminaison d’API web qui fournit des opérations personnalisées. Tout comme les compétences intégrées, une compétence **API web personnalisée** a des entrées et des sorties. Selon les entrées, votre API web reçoit une charge utile JSON pendant l’exécution de l’indexeur et génère une charge utile JSON en réponse, ainsi qu’un code d’état de réussite. La réponse est censée avoir les sorties spécifiées par votre compétence personnalisée. Toute autre réponse est considérée comme une erreur et aucun enrichissement n’est effectué.
 
 La structure des charges utiles JSON est décrite plus bas dans ce document.
 
@@ -202,6 +201,7 @@ Quand l’API web n’est pas disponible ou retourne une erreur HTTP, une erreur
 
 ## <a name="see-also"></a>Voir aussi
 
++ [Page sur les super compétences (dépôt de compétences personnalisées)](https://aka.ms/powerskills)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
-+ [Ajouter une compétence personnalisée à la recherche cognitive](cognitive-search-custom-skill-interface.md)
-+ [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md)
++ [Ajouter une compétence personnalisée à un pipeline d’enrichissement par IA](cognitive-search-custom-skill-interface.md)
++ [Exemple : Création d’une compétence personnalisée pour l’enrichissement par IA (cognitive-search-create-custom-skill-example.md)

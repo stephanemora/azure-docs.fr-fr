@@ -1,31 +1,29 @@
 ---
-title: Guide pratique pour utiliser les résultats de la recherche – Recherche Azure
-description: Structurez et triez les résultats de recherche, récupérez le nombre de documents et ajoutez la navigation du contenu aux résultats de recherche dans la Recherche Azure.
-author: HeidiSteen
+title: Guide pratique pour utiliser les résultats de la recherche
+titleSuffix: Azure Cognitive Search
+description: Structurez et triez les résultats de recherche, récupérez le nombre de documents et ajoutez la navigation du contenu aux résultats de recherche dans Recherche cognitive Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: ''
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 9fa2baf64dbb35d85c55635d7522075d61bfc17d
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 31af550d4f499b4b4440a27037dc210bfdf0cb6f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647704"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793448"
 ---
-# <a name="how-to-work-with-search-results-in-azure-search"></a>Guide pratique pour utiliser les résultats de la recherche dans la Recherche Azure
-Cet article explique comment implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation. Les options de page qui fournissent des données ou des informations aux résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées au service Recherche Azure. 
+# <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
+Cet article explique comment implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation. Les options de page qui fournissent des données ou des informations aux résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées au service Recherche cognitive Azure. 
 
 Dans l’API REST, les demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de la nature de la demande et de la formulation de la réponse. Dans le kit SDK .NET, l’API équivalente est la classe [DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Plusieurs exemples de code comportent une interface frontale web, qui se trouve ici : [Application de démonstration New York City Jobs](https://azjobsdemo.azurewebsites.net/) et [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Pour plus d’informations sur la syntaxe des demandes, consultez [REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice).
+> Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Pour plus d’informations sur la syntaxe des demandes, consultez [API REST de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice).
 >
 
 ## <a name="total-hits-and-page-counts"></a>Nombre total de résultats et nombre de pages
@@ -34,7 +32,7 @@ L’affichage du nombre total des résultats d’une requête et la présentatio
 
 ![][1]
 
-Dans Azure Search, vous utilisez les paramètres `$count`, `$top` et `$skip` pour renvoyer ces valeurs. L’exemple suivant illustre un exemple de demande du nombre total de correspondances sur un index nommé « online-catalog », retourné sous la forme `@odata.count` :
+Dans Recherche cognitive Azure, vous utilisez les paramètres `$count`, `$top` et `$skip` pour renvoyer ces valeurs. L’exemple suivant illustre un exemple de demande du nombre total de correspondances sur un index nommé « online-catalog », retourné sous la forme `@odata.count` :
 
     GET /indexes/online-catalog/docs?$count=true
 
@@ -56,7 +54,7 @@ Vous souhaiterez peut-être afficher une miniature, un sous-ensemble de champs e
 
  ![][2]
 
-Dans Recherche Azure, vous pouvez utiliser pour cela `$select` et une [requête d’API Recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Dans Recherche cognitive Azure, vous pouvez utiliser `$select` et une [requête d’API Recherche](https://docs.microsoft.com/rest/api/searchservice/search-documents) pour implémenter cette expérience.
 
 Pour renvoyer un sous-ensemble de champs relatif à une disposition en mosaïque :
 
@@ -74,7 +72,7 @@ Les données sont souvent triées par défaut en fonction de la pertinence, mais
 
  ![][3]
 
-Dans la Recherche Azure, le tri repose sur l’expression `$orderby` pour tous les champs indexés comme étant `"Sortable": true.`. Une clause `$orderby` est une expression OData. Pour plus d’informations sur la syntaxe, voir [Syntaxe des expressions OData pour les filtres et les clauses order by](query-odata-filter-orderby-syntax.md).
+Dans Recherche cognitive Azure, le tri repose sur l’expression `$orderby` pour tous les champs indexés comme étant `"Sortable": true.`. Une clause `$orderby` est une expression OData. Pour plus d’informations sur la syntaxe, voir [Syntaxe des expressions OData pour les filtres et les clauses order by](query-odata-filter-orderby-syntax.md).
 
 La pertinence est clairement liée aux profils de score. Vous pouvez utiliser le score par défaut, qui repose sur l’analyse de texte et les statistiques pour ordonner tous les résultats : dans ce cas, les documents présentant des correspondances plus nombreuses ou plus fortes affichent un score plus élevé.
 
@@ -92,7 +90,7 @@ Vous pouvez créer la méthode qui accepte l’option de tri sélectionnée comm
 
 ## <a name="faceted-navigation"></a>Navigation à facettes
 
-Les options de navigation de recherche sont communes à toutes les pages de résultats et se trouvent souvent sur le côté ou en haut de la page. Dans Azure Search, la navigation à facettes permet une recherche autonome en fonction de filtres prédéfinis. Consultez [Navigation à facettes dans Azure Search](search-faceted-navigation.md) pour en savoir plus.
+Les options de navigation de recherche sont communes à toutes les pages de résultats et se trouvent souvent sur le côté ou en haut de la page. Dans Recherche cognitive Azure, la navigation à facettes permet une recherche autonome en fonction de filtres prédéfinis. Pour en savoir plus, consultez [Navigation à facettes dans Recherche cognitive Azure](search-faceted-navigation.md).
 
 ## <a name="filters-at-the-page-level"></a>Filtres au niveau de la page
 
@@ -102,14 +100,14 @@ Vous pouvez envoyer un filtre avec ou sans expression de recherche. Par exemple,
 
     GET /indexes/online-catalog/docs?$filter=brandname eq 'Microsoft' and category eq 'Games'
 
-Consultez [Recherche de documents (API Recherche Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pour en savoir plus sur les expressions `$filter`.
+Pour en savoir plus sur les expressions `$filter`, consultez [Recherche de documents (API Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
 ## <a name="see-also"></a>Voir aussi
 
-- [API REST de service Azure Search](https://docs.microsoft.com/rest/api/searchservice)
+- [API REST Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice)
 - [Opérations d’index](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 - [Opérations de document](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-- [Navigation à facettes dans Azure Search](search-faceted-navigation.md)
+- [Navigation par facettes dans Recherche cognitive Azure](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

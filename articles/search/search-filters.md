@@ -1,24 +1,23 @@
 ---
-title: Filtres d’étendue des résultats de recherche dans un index - Recherche Azure
-description: Filtrez par identité de sécurité d’utilisateur, langue, emplacement géographique ou valeurs numériques pour réduire les résultats de recherche des requêtes effectuées dans Recherche Azure, service de recherche dans le cloud hébergé sur Microsoft Azure.
-author: HeidiSteen
+title: Filtres pour limiter les résultats de recherche dans un index
+titleSuffix: Azure Cognitive Search
+description: Filtrez par identité de sécurité d’utilisateur, langue, emplacement géographique ou valeurs numériques pour réduire les résultats de recherche des requêtes dans la Recherche cognitive Azure, un service de recherche dans le cloud hébergé sur Microsoft Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 06/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 49af6f1f535df098aa45cccd7e2d629ff6ccef50
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7dd289005e91323010cfa2a0298c351b3e757d1d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69649847"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792859"
 ---
-# <a name="filters-in-azure-search"></a>Filtres dans Recherche Azure 
+# <a name="filters-in-azure-cognitive-search"></a>Filtres dans la Recherche cognitive Azure 
 
-Un *filtre* établit des critères pour la sélection des documents sur lesquels doit porter une requête de Recherche Azure. Une recherche non filtrée inclut tous les documents figurant dans l’index. Un filtre détermine l’étendue d’une requête de recherche en limitant celle-ci à un sous-ensemble de documents. Par exemple, un filtre peut restreindre une recherche en texte intégral à des produits d’une marque ou d’une couleur spécifiques, commercialisés à des niveaux de prix supérieurs à un seuil défini.
+Un *filtre* établit des critères pour la sélection des documents sur lesquels doit porter une requête de Recherche cognitive Azure. Une recherche non filtrée inclut tous les documents figurant dans l’index. Un filtre détermine l’étendue d’une requête de recherche en limitant celle-ci à un sous-ensemble de documents. Par exemple, un filtre peut restreindre une recherche en texte intégral à des produits d’une marque ou d’une couleur spécifiques, commercialisés à des niveaux de prix supérieurs à un seuil défini.
 
 Certaines expériences de recherche imposent des exigences de filtre dans le cadre de leur implémentation, mais vous pouvez utiliser des filtres à chaque fois que vous souhaitez limiter la recherche à l’aide de critères *basés sur des valeurs* (par exemple, en définissant l’étendue de la recherche sur le type de produit « livres » de la catégorie « non-fiction » publiés par « Simon & Schuster »).
 
@@ -63,7 +62,7 @@ Le filtrage se produit en même temps que la recherche. Il permet de qualifier l
 
 ## <a name="defining-filters"></a>Définition des filtres
 
-Les filtres sont des expressions OData, articulées à l’aide d’un [sous-ensemble de la syntaxe OData V4 prise en charge dans Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
+Les filtres sont des expressions OData articulées à l’aide d’un [sous-ensemble de la syntaxe OData V4 prise en charge dans la Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 Vous pouvez spécifier un filtre pour chaque opération de **recherche**, mais le filtre lui-même peut inclure plusieurs champs, plusieurs critères et, si vous utilisez une fonction **ismatch**, plusieurs expressions de recherche en texte intégral. Dans une expression de filtre comportant plusieurs parties, vous pouvez spécifier des prédicats dans n’importe quel ordre (soumis aux règles de précédence de l’opérateur). Vous n’obtenez aucun gain sensible des performances si vous tentez de réorganiser les prédicats dans une séquence particulière.
 
@@ -148,7 +147,7 @@ Dans le Kit de développement logiciel (SDK) .NET, la propriété filterable (fi
 
 ### <a name="making-an-existing-field-filterable"></a>Rendre filtrable un champ existant
 
-Vous ne pouvez pas modifier des champs existants pour les rendre filtrables. À la place, vous devez ajouter un nouveau champ ou régénérer l’index. Pour plus d’informations sur la régénération d’un index ou comment remplir à nouveau des champs, consultez [Comment régénérer un index Recherche Azure](search-howto-reindex.md).
+Vous ne pouvez pas modifier des champs existants pour les rendre filtrables. À la place, vous devez ajouter un nouveau champ ou régénérer l’index. Pour plus d’informations sur la regénération d’un index ou la façon de remplir à nouveau des champs, consultez [Comment regénérer un index de Recherche cognitive Azure](search-howto-reindex.md).
 
 ## <a name="text-filter-fundamentals"></a>Notions de base concernant les filtres de texte
 
@@ -199,7 +198,7 @@ Pour utiliser d’autres exemples, voir [Syntaxe d’expression de filtre OData 
 
 ## <a name="see-also"></a>Voir aussi
 
-+ [Fonctionnement de la recherche en texte intégral dans la Recherche Azure](search-lucene-query-architecture.md)
++ [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
 + [API REST de recherche de documents](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 + [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Syntaxe de requête Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

@@ -1,17 +1,17 @@
 ---
-title: Activer et demander l’accès juste à temps pour les applications managées Azure
+title: Demander l’accès juste à temps - Applications managées Azure
 description: Décrit comment les éditeurs d’applications managées Azure demander l'accès juste à temps à une application managée.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: 0d595d4c96e9f87f1c8eece5d47bf4c8cdd58d7c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: fdd1dcf5ab6b58a91534a465a8c92c10de0d2097
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574982"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528957"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Activer et demander l’accès juste à temps pour les applications managées Azure
 
