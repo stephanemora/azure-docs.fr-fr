@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177718"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792839"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -29,15 +29,15 @@ Sauvegarde Azure fournit [des fonctionnalités intégrées de supervision et d�
 ## <a name="using-log-analytics-workspace"></a>Utilisation d’un espace de travail Log Analytics
 
 > [!NOTE]
-> Des données provenant de sauvegardes de machines virtuelles Azure, de l’agent Sauvegarde Azure, de System Center Data Protection Manager, de sauvegardes SQL dans des machines virtuelles Azure et de sauvegardes de partage de fichiers Azure sont injectées dans l’espace de travail Log Analytics via des paramètres de diagnostic. 
+> Des données provenant de sauvegardes de machines virtuelles Azure, de l’agent Sauvegarde Azure, de System Center Data Protection Manager, de sauvegardes SQL dans des machines virtuelles Azure et de sauvegardes de partage de fichiers Azure sont injectées dans l’espace de travail Log Analytics via des paramètres de diagnostic. La prise en charge du serveur de sauvegarde Microsoft Azure (MABS, Microsoft Azure Backup Server) sera bientôt disponible.
 
-Pour superviser/générer des rapports à grande échelle, vous avez besoin des fonctionnalités de deux services Azure. *Les paramètres de diagnostic* envoient des données provenant de plusieurs ressources Azure Resource Manager vers une autre ressource. *Log Analytics* génère des alertes personnalisées où vous pouvez utiliser des groupes d’actions pour définir d’autres canaux de notification. 
+Pour superviser/générer des rapports à grande échelle, vous avez besoin des fonctionnalités de deux services Azure. *Les paramètres de diagnostic* envoient des données provenant de plusieurs ressources Azure Resource Manager vers une autre ressource. *Log Analytics* génère des alertes personnalisées où vous pouvez utiliser des groupes d’actions pour définir d’autres canaux de notification.
 
 Les sections suivantes expliquent comment utiliser Log Analytics pour superviser Sauvegarde Azure à grande échelle.
 
 ### <a name="configure-diagnostic-settings"></a>Configurer les paramètres de diagnostic
 
-Des ressources Azure Resource Manager comme le coffre Recovery Services, enregistrent des informations sur les opérations planifiées et sur les opérations déclenchées par l’utilisateur au titre de données de diagnostic. 
+Des ressources Azure Resource Manager comme le coffre Recovery Services, enregistrent des informations sur les opérations planifiées et sur les opérations déclenchées par l’utilisateur au titre de données de diagnostic.
 
 Dans la section Supervision, sélectionnez **Paramètres de diagnostic** et spécifiez la cible pour les données de diagnostic du coffre Recovery Services.
 
@@ -66,21 +66,21 @@ Une fois le modèle déployé, la solution pour la supervision et la création d
 
 Lorsque vous sélectionnez l’une des vignettes de vue d’ensemble, vous pouvez afficher des informations supplémentaires. Voici quelques-uns des rapports qui s’affichent :
 
-* Travaux de sauvegarde (sans journal)
+- Travaux de sauvegarde (sans journal)
 
    ![Graphiques Log Analytics pour les travaux de sauvegarde](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* Alertes à partir de la sauvegarde des ressources Azure
+- Alertes à partir de la sauvegarde des ressources Azure
 
    ![Graphiques Log Analytics pour les travaux de restauration](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
 De même, en cliquant sur les autres vignettes, vous pouvez voir des rapports sur les travaux de restauration, le stockage cloud, les éléments de sauvegarde, les alertes provenant de la sauvegarde des ressources locales et les travaux de sauvegarde de journal.
- 
+
 Ces graphiques sont fournis avec le modèle. Vous pouvez modifier les graphiques ou en ajouter si nécessaire.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Créer des alertes avec Log Analytics
 
-Dans Azure Monitor, vous pouvez créer vos propres alertes dans un espace de travail Log Analytics. Dans l’espace de travail, vous utilisez des *groupes d’actions Azure* pour sélectionner votre mécanisme de notification préféré. 
+Dans Azure Monitor, vous pouvez créer vos propres alertes dans un espace de travail Log Analytics. Dans l’espace de travail, vous utilisez des *groupes d’actions Azure* pour sélectionner votre mécanisme de notification préféré.
 
 > [!IMPORTANT]
 > Pour plus d’informations sur le coût de création de cette requête, consultez [Tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -115,7 +115,7 @@ Pour plus d’informations, consultez [Créer, afficher et gérer les alertes de
 
 Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénarios de base sur lesquels vous pouvez créer des alertes. Vous pouvez également modifier les requêtes pour obtenir les données pour lesquelles vous voulez recevoir des alertes. Collez les exemples de requêtes Kusto suivants dans la page **Journaux**, puis créez des alertes sur les requêtes :
 
-* Tous les travaux de sauvegarde réussis
+- Tous les travaux de sauvegarde réussis
 
     ````Kusto
     AzureDiagnostics
@@ -124,8 +124,8 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Completed"
     ````
-    
-* Tous les travaux de sauvegarde ayant échoué
+
+- Tous les travaux de sauvegarde ayant échoué
 
     ````Kusto
     AzureDiagnostics
@@ -134,8 +134,8 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Failed"
     ````
-    
-* Tous les travaux de sauvegarde de machines virtuelles Azure réussis
+
+- Tous les travaux de sauvegarde de machines virtuelles Azure réussis
 
     ````Kusto
     AzureDiagnostics
@@ -158,7 +158,7 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     | project-away Resource
     ````
 
-* Tous les travaux de sauvegarde de journal SQL réussis
+- Tous les travaux de sauvegarde de journal SQL réussis
 
     ````Kusto
     AzureDiagnostics
@@ -181,7 +181,7 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
     | project-away Resource
     ````
 
-* Tous les travaux de l’agent Sauvegarde Azure réussis
+- Tous les travaux de l’agent Sauvegarde Azure réussis
 
     ````Kusto
     AzureDiagnostics
@@ -223,7 +223,7 @@ Les données de diagnostic provenant du coffre sont injectées dans l’espace d
 Vous pouvez aussi utiliser des journaux d’activité pour obtenir des notifications pour des événements comme la réussite des sauvegardes. Pour commencer, suivez ces étapes :
 
 1. Connectez-vous au portail Azure.
-1. Ouvrez le coffre Recovery Services approprié. 
+1. Ouvrez le coffre Recovery Services approprié.
 1. Dans les propriétés du coffre, ouvrez la section **Journal d’activité**.
 
 Pour identifier le journal approprié et créer une alerte :
@@ -233,7 +233,7 @@ Pour identifier le journal approprié et créer une alerte :
    ![Filtrage pour rechercher des journaux d’activité pour les sauvegardes de machines virtuelles Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
 1. Sélectionnez le nom de l’opération pour voir les détails correspondants.
-1. Sélectionnez **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle**. 
+1. Sélectionnez **Nouvelle règle d’alerte** pour ouvrir la page **Créer une règle**.
 1. Créez une alerte en suivant les étapes de [Créer, afficher et gérer des alertes de journal d’activité avec Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![Nouvelle règle d’alerte](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
@@ -247,7 +247,7 @@ Vous pouvez voir toutes les alertes créées à partir des journaux d’activit�
 Même si vous pouvez recevoir des notifications via des journaux d’activité, nous vous recommandons vivement d’utiliser Log Analytics plutôt que des journaux d’activité pour la supervision à grande échelle. Voici pourquoi :
 
 - **Scénarios limités** : Les notifications via des journaux d’activité s’appliquent seulement aux sauvegardes de machines virtuelles Azure. Les notifications doivent être configurées pour chaque coffre Recovery Services.
-- **Ajustement de la définition** : L’activité de sauvegarde planifiée ne correspond pas à la définition la plus récente des journaux d’activité. Au lieu de cela, elle s’aligne sur les [journaux de diagnostic](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Cet alignement entraîne des effets inattendus quand les données qui transitent via le canal du journal d’activité changent.
+- **Ajustement de la définition** : L’activité de sauvegarde planifiée ne correspond pas à la définition la plus récente des journaux d’activité. Au lieu de cela, elle s’aligne sur les [journaux de ressources](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Cet alignement entraîne des effets inattendus quand les données qui transitent via le canal du journal d’activité changent.
 - **Problèmes avec le canal du journal d’activité** : Dans les coffres Recovery Services, les journaux d’activité qui sont injectés depuis Sauvegarde Azure suivent un nouveau modèle. Malheureusement, ce changement affecte la génération des journaux d’activité dans Azure Government, Azure Allemagne et Azure Chine 21Vianet. Si les utilisateurs de ces services cloud créent ou configurent des alertes à partir de journaux d’activité dans Azure Monitor, les alertes ne sont pas déclenchées. De plus, dans toutes les régions publiques Azure, si un utilisateur [collecte des journaux d’activité Recovery Services dans un espace de travail Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), ces journaux n’apparaissent pas.
 
 Utilisez un espace de travail Log Analytics pour la supervision et la génération d’alertes à grande échelle pour toutes vos charges de travail protégées par Sauvegarde Azure.

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 87c438403934df34a02678c805d3622956654b4e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 5d2608d1c374fadac18cebc093ce50ef93f9656a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172054"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597386"
 ---
 Ce tableau présente les liaisons qui sont prises en charge dans les deux versions majeures du runtime Azure Functions.
 
@@ -36,4 +36,4 @@ Ce tableau présente les liaisons qui sont prises en charge dans les deux versio
 | [Minuteur](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> Dans 2.x, toutes les liaisons à l’exception de HTTP et du minuteur doivent être inscrites. Consultez [Inscrire des extensions de liaison](../articles/azure-functions/functions-bindings-register.md).
+<sup>1</sup> Dans le runtime de la version 2.x, toutes les liaisons à l’exception de HTTP et du minuteur doivent être inscrites. Consultez [Inscrire des extensions de liaison](../articles/azure-functions/functions-bindings-register.md). Toutes les liaisons 2.x prises en charge sont aussi prises en charge dans la version 3.x, sauf indication contraire.   

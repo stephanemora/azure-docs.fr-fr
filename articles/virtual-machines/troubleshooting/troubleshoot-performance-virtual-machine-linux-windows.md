@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170297"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790820"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Résolution de problèmes de performances génériques pour une machine virtuelle Azure exécutant Linux ou Windows
 
-Cet article décrit comment résoudre les problèmes de performances génériques des machines virtuelles en supervisant et en observant les goulots d’étranglement. Il offre des solutions possibles aux problèmes pouvant survenir.
+Cet article décrit comment résoudre les problèmes de performances génériques des machines virtuelles en supervisant et en observant les goulots d’étranglement. Il offre des solutions possibles aux problèmes pouvant survenir. Outre la supervision, vous pouvez utiliser Perfinsights qui peut fournir un rapport avec les bonnes pratiques suggérées et les goulots d’étranglement clés concernant les E/S, le processeur et la mémoire. PerfInsights est disponible à la fois pour les machines virtuelles [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) et [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) dans Azure.
+
+Cet article vous guide dans l’utilisation de la supervision pour diagnostiquer les goulots d’étranglement de performances.
 
 ## <a name="enabling-monitoring"></a>Activation de la surveillance
 
@@ -34,32 +36,55 @@ Pour superviser la machine virtuelle invitée, utilisez la fonctionnalité de su
  
 ### <a name="enable-vm-diagnostics-through-microsoft-azure-portal"></a>Activer les diagnostics de machine virtuelle à l’aide du portail Microsoft Azure
 
-Pour activer les diagnostics de machine virtuelle, accédez à la machine virtuelle, cliquez sur **Paramètres**, puis cliquez sur **Diagnostics**.
+Pour activer les diagnostics de machine virtuelle :
 
-![Cliquer sur Paramètres, puis sur Diagnostics](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
- 
+1. Accédez à la machine virtuelle.
+2. Cliquez sur **Paramètres de diagnostic**.
+3. Sélectionnez le compte de stockage et cliquez sur **Activer la supervision d’invités**.
+
+   ![Cliquer sur Paramètres, puis sur Diagnostics](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+
+Vous pouvez cocher le compte de stockage utilisé pour l’installation des diagnostics sous l’onglet **Agent**, dans **Paramètres de diagnostic**.
+
+![Cocher le compte de stockage](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
+
 ### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>Activer les diagnostics de compte de stockage à l’aide du portail Azure
 
-Tout d’abord, identifiez le ou les comptes de stockage que votre machine virtuelle utilise en sélectionnant la machine virtuelle. Cliquez sur **Paramètres**, puis sur **Disques** :
+Le stockage est un niveau très important lorsque nous avons l’intention d’analyser les performances d’E/S d’une machine virtuelle dans Azure. Pour obtenir des métriques liées au stockage, nous devons activer les diagnostics en tant qu’étape supplémentaire. Cela peut également être activé si nous souhaitons uniquement analyser les compteurs liés au stockage.
 
-![Cliquer sur Paramètres, puis sur Disques](media/troubleshoot-performance-virtual-machine-linux-windows/3-storage-disks-disks-selection.png)
+1. Identifiez le ou les comptes de stockage que votre machine virtuelle utilise en sélectionnant la machine virtuelle. Cliquez sur **Paramètres**, puis sur **Disques** :
 
-Dans le portail, accédez au compte de stockage (ou aux comptes de stockage) de la machine virtuelle et suivez les étapes ci-dessous :
+   ![Cliquer sur Paramètres, puis sur Disques](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-![Sélectionner les métriques de blob](media/troubleshoot-performance-virtual-machine-linux-windows/4-select-blob-metrics.png)
- 
-1. Sélectionnez **Tous les paramètres**.
-2. Activez les diagnostics.
-3. Sélectionnez les *métriques de *blob** * et définissez la conservation sur **30** jours.
-4. Enregistrez les modifications.
+2. Dans le portail, accédez au compte de stockage (ou aux comptes de stockage) de la machine virtuelle et suivez les étapes ci-dessous :
+
+   1. Cliquez sur Vue d’ensemble pour le compte de stockage que vous avez trouvé à l’étape précédente.
+   2. Les métriques par défaut sont affichées. 
+
+    ![Mesures par défaut](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+
+3. Cliquez sur l’une des métriques pour afficher un autre panneau avec davantage d’options de configuration et d’ajout de métriques.
+
+   ![Ajouter des métriques](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
+
+Pour configurer ces options :
+
+1.  Sélectionnez **Métriques**.
+2.  Sélectionnez la **ressource** (compte de stockage).
+3.  Sélectionnez l’**espace de noms**.
+4.  Sélectionnez la **métrique**.
+5.  Sélectionnez le type d’**agrégation**.
+6.  Vous pouvez épingler cette vue dans le tableau de bord.
 
 ## <a name="observing-bottlenecks"></a>Observation des goulots d’étranglement
+
+Après avoir terminé le processus d’installation initial pour les métriques nécessaires et activé les diagnostics pour la machine virtuelle et le compte de stockage associé, nous pouvons passer à la phase d’analyse.
 
 ### <a name="accessing-the-monitoring"></a>Accès à la supervision
 
 Sélectionnez la machine virtuelle Azure que vous souhaitez examiner, puis sélectionnez **Supervision**.
 
-![Sélectionnez Surveillance.](media/troubleshoot-performance-virtual-machine-linux-windows/5-observe-monitoring.png)
+![Sélectionnez Surveillance.](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### <a name="timelines-of-observation"></a>Intervalle de temps d’observation
 
@@ -67,7 +92,7 @@ Passez en revue vos données pour détecter la présence de goulots d’étrangl
 
 ### <a name="check-for-cpu-bottleneck"></a>Vérifier la présence d’un goulot d’étranglement au niveau du processeur
 
-![Vérifier la présence d’un goulot d’étranglement au niveau du processeur](media/troubleshoot-performance-virtual-machine-linux-windows/6-cpu-bottleneck-time-range.png)
+![Vérifier la présence d’un goulot d’étranglement au niveau du processeur](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
 1. Modifiez le graphe.
 2. Définissez l’intervalle de temps.
@@ -94,6 +119,8 @@ Si votre application ou votre processus ne s’exécute pas au niveau de perform
 * Essayez de comprendre le problème : localisez l’application/le processus concerné et procédez à la résolution du problème en conséquence.
 
 Si vous avez augmenté la taille de la machine virtuelle et que le processeur fonctionne toujours à 95 %, déterminez si ce paramètre améliore les performances ou le débit de l’application de façon à offrir un niveau acceptable. Si ce n’est pas le cas, procédez à la résolution du problème au niveau de l’application/du processus concerné.
+
+Vous pouvez utiliser Perfinsights pour [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) afin d’analyser le processus qui pilote la consommation du processeur. 
 
 ## <a name="check-for-memory-bottleneck"></a>Vérifier la présence d’un goulot d’étranglement au niveau de la mémoire
 
@@ -124,9 +151,13 @@ Pour résoudre les problèmes d’utilisation élevée de la mémoire, effectuez
 
 Si, après une mise à niveau vers une machine virtuelle plus grande, vous constatez toujours une augmentation régulière et constante jusqu’à 100 %, identifiez l’application/le processus concerné et procédez à la résolution du problème.
 
+Vous pouvez utiliser Perfinsights pour [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) afin d’analyser le processus qui pilote la consommation de mémoire. 
+
 ## <a name="check-for-disk-bottleneck"></a>Vérifier la présence d’un goulot d’étranglement au niveau du disque
 
 Pour vérifier le sous-système de stockage de la machine virtuelle, vérifiez les diagnostics au niveau de la machine virtuelle Azure. Utilisez pour cela les compteurs fournis dans les diagnostics de machine virtuelle et les diagnostics de compte de stockage.
+
+Dans le cas d’une résolution des problèmes spécifique aux machines virtuelles, vous pouvez utiliser Perfinsights pour [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), ce qui peut aider à analyser quel processus pilote les E/S. 
 
 Notez que nous ne proposons pas de compteurs pour les comptes de stockage redondants interzones et Premium. En cas de problème lié à ces compteurs, ouvrez un cas de support.
 
@@ -134,7 +165,7 @@ Notez que nous ne proposons pas de compteurs pour les comptes de stockage redond
 
 Pour utiliser les éléments ci-dessous, accédez au compte de stockage associé à la machine virtuelle dans le portail :
 
-![Visualisation des diagnostics de compte de stockage dans la fonctionnalité de supervision](media/troubleshoot-performance-virtual-machine-linux-windows/7-virtual-machine-storage-account.png)
+![Visualisation des diagnostics de compte de stockage dans la fonctionnalité de supervision](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
 1. Modifiez le graphe de supervision.
 2. Définissez l’intervalle de temps.
@@ -151,7 +182,7 @@ Pour chaque vérification ci-dessous, recherchez les principales tendances quand
 
 Si vous constatez une baisse de la disponibilité, cela peut indiquer un problème avec la plateforme. Vérifiez l’[état Azure](https://azure.microsoft.com/status/). Si aucun problème n’y est indiqué, ouvrez une nouvelle demande de support.
 
-#### <a name="check-for-azure-storage-timeout---add-the-storage-account-metrics"></a>Vérifier le délai d’expiration de stockage Azure - Ajouter les métriques de compte de stockage :
+#### <a name="check-for-azure-storage-timeout---add-the-storage-account-metrics"></a>Vérifier le délai d’expiration de stockage Azure – Ajouter les métriques de compte de stockage :
 
 * ClientTimeoutError
 * ServerTimeOutError
@@ -175,6 +206,10 @@ Cette métrique ne vous permet pas d’identifier le blob à l’origine de la l
 
 Pour déterminer si vous atteignez la limite d’IOPS, accédez aux diagnostics de compte de stockage et vérifiez la métrique TotalRequests pour voir si sa valeur approche 20 000. Déterminez si le modèle a subi un changement, si vous voyez la limite pour la première fois ou si cette limite se présente à un moment spécifique.
 
+Avec les nouvelles offres de disque sous le stockage standard, les limites de débit et IOPS peuvent différer, mais la limite cumulée du compte de stockage standard est de 20 000 IOPS (le stockage Premium a des limites différentes au niveau du compte ou du disque). Apprenez-en plus sur les différentes offres de disque de stockage standard et les limites par disque :
+
+* [Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+
 #### <a name="references"></a>Références
 
 * [Objectifs de scalabilité pour les disques de machines virtuelles](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
@@ -187,7 +222,9 @@ Comparez les valeurs TotalIngress et TotalEgress aux limites d’entrée et de s
 
 Vérifiez les limites de débit des disques durs virtuels attachés à la machine virtuelle. Ajoutez les métriques de machine virtuelle de lecture et écriture sur disque.
 
-Chaque disque dur virtuel peut prendre en charge un débit jusqu’à 60 Mbits/s (les IOPS par disque dur virtuel ne sont pas présentées). Examinez les données pour voir si vous atteignez les limites du débit combiné (en Mbits/s) du ou des disques durs virtuels au niveau de la machine virtuelle à l’aide des métriques de lecture et écriture sur disque, puis optimisez la configuration du stockage de la machine virtuelle pour porter la capacité au-delà des limites d’un seul disque dur virtuel.
+Les nouvelles offres de disque sous le stockage standard ont des limites de débit et IOPS différentes (les IOPS ne sont pas exposées par disque dur virtuel). Examinez les données pour voir si vous atteignez les limites du débit combiné (en Mbits/s) du ou des disques durs virtuels au niveau de la machine virtuelle à l’aide des métriques de lecture et écriture sur disque, puis optimisez la configuration du stockage de la machine virtuelle pour porter la capacité au-delà des limites d’un seul disque dur virtuel. Apprenez-en plus sur les différentes offres de disque de stockage standard et les limites par disque :
+
+* [Cibles de scalabilité et de performance des disques de machine virtuelle sur Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Solution en cas d’utilisation/latence élevée du disque
 

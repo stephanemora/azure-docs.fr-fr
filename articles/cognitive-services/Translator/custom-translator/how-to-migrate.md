@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cd821ad8fce813d269ace8fb4945cb796c2ae758
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 9c97eaef30a08123605ed4c01810745e312d6aa0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595743"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675501"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrer un espace de travail et des projets Microsoft Hub vers Custom Translator
 
@@ -26,8 +26,8 @@ Les actions suivantes sont effectuées pendant la migration :
 * Les entraînements migrés qui ne se trouvent pas dans l’état déployé sont placés dans l’état de migration provisoire. Vous pouvez dans cet état entraîner un modèle avec la définition migrée, mais des frais normaux d’entraînement sont appliqués.
 * Vous pouvez à tout moment accéder au score BLEU migré à partir de l’entraînement Hub dans la page TrainingDetails du modèle sous le titre « Bleu score in MT Hub ».
 
-> [!Note]
-> Pour une formation réussie, Custom Translator nécessite au moins 10 000 phrases extraites uniques. Custom Translator ne peut pas effectuer l’apprentissage avec moins du [minimum suggéré](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences).
+> [!Note] 
+> Pour une formation réussie, Custom Translator nécessite au moins 10 000 phrases extraites uniques. Custom Translator ne peut pas effectuer l’apprentissage avec moins du [minimum suggéré](sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 ## <a name="find-custom-translator-workspace-id"></a>Rechercher l’ID de l’espace de travail Custom Translator
 

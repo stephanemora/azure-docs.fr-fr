@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: bde68a70ac047433e86b7e06bc5f4a56bdd28595
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028509"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595342"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -71,6 +71,28 @@ Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiemen
 
 S'il vous faut augmenter l’échelle de votre modèle, contactez le [support Speech](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text).
 
+Pour augmenter la concurrence pour un modèle personnalisé, nous avons besoin des informations suivantes :
+
+- Région dans laquelle le modèle est déployé.
+- ID de point de terminaison du modèle déployé.
+
+Pour augmenter la concurrence pour un modèle de base, nous avons besoin des informations suivantes :
+
+- La région de votre service,
+
+et
+
+- un jeton d’accès pour votre abonnement (voir [ici](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+
+or
+
+- l’ID de ressource de votre abonnement :
+  - Accédez à https://portal.azure.com,
+  - sélectionnez `Cognitive Services` dans la zone de recherche,
+  - parmi les services affichés, sélectionnez le service vocal pour lequel vous souhaitez augmenter la concurrence,
+  - affichez les propriétés de ce service,
+  - copiez le `Resource ID` complet.
+
 **Q : Puis-je télécharger mon modèle et l’exécuter localement ?**
 
 **R** : Il n’est pas possible de télécharger et d’exécuter des modèles localement.
@@ -94,7 +116,7 @@ S'il vous faut augmenter l’échelle de votre modèle, contactez le [support Sp
 
 **Q : Quelle est la limite de taille d’un jeu de données, et pourquoi ?**
 
-**R** : La limite de taille actuelle d’un jeu de données est de 2 Go. Cette limite découle de la restriction de taille de fichier pour le chargement HTTP. 
+**R** : La limite de taille actuelle d’un jeu de données est de 2 Go. Cette limite découle de la restriction de taille de fichier pour le chargement HTTP.
 
 **Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?** 
 

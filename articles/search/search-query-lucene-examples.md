@@ -1,25 +1,24 @@
 ---
-title: Utiliser la syntaxe de requête Lucene complète - Recherche Azure
-description: Syntaxe de requête Lucene pour la recherche approximative, la recherche de proximité, l’amélioration de termes, la recherche d’expressions régulières et la recherche par caractères génériques dans le service Recherche Azure.
-author: HeidiSteen
+title: Utiliser la syntaxe de requête Lucene complète
+titleSuffix: Azure Cognitive Search
+description: Syntaxe de requête Lucene pour la recherche approximative, la recherche de proximité, l’amélioration de termes, la recherche d’expressions régulières et la recherche par caractères génériques dans le service Recherche cognitive Azure.
 manager: nitinme
-tags: Lucene query analyzer syntax
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: fcfc668022d0d8fc74258657bb93642aec49bd08
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+tags: Lucene query analyzer syntax
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 745be21c2a7a09a09fdbbfd57a305d09a4fac3ed
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178161"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793446"
 ---
-# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>Utiliser la syntaxe de recherche Lucene « complète » (requêtes avancées dans Recherche Azure)
+# <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utiliser la syntaxe de recherche Lucene « complète » (requêtes avancées dans Recherche cognitive Azure)
 
-Lors de la construction de requêtes pour Recherche Azure, vous pouvez remplacer l’[analyseur de requêtes simple](query-simple-syntax.md) par défaut par l’[analyseur de requêtes Lucene dans Recherche Azure](query-lucene-syntax.md), plus vaste, afin de formuler des définitions de requêtes spécialisées et avancées. 
+Lors de la construction de requêtes pour Recherche cognitive Azure, vous pouvez remplacer l’[analyseur de requêtes simple](query-simple-syntax.md) par défaut par l’[analyseur de requêtes Lucene dans Recherche cognitive Azure](query-lucene-syntax.md), plus vaste, afin de formuler des définitions de requêtes spécialisées et avancées. 
 
 L’analyseur Lucene prend en charge des constructions de requêtes complexes, telles que des requêtes portant sur des champs, la recherche approximative et par caractères génériques, la recherche de proximité, la promotion de termes et la recherche d’expression régulière. Cette fonctionnalité plus puissante nécessite des capacités de traitement supplémentaires et peut donc entraîner des temps d’exécution un peu plus longs. Dans cet article, vous pouvez parcourir des exemples décrivant les opérations de requête disponibles lors de l’utilisation de la syntaxe complète.
 
@@ -29,7 +28,7 @@ L’analyseur Lucene prend en charge des constructions de requêtes complexes, t
 
 ## <a name="formulate-requests-in-postman"></a>Formuler des requêtes dans Postman
 
-Les exemples suivants utilisent un index de recherche NYC Jobs composé de postes à pourvoir sur la base d’un jeu de données fourni par l’initiative [City of New York OpenData](https://opendata.cityofnewyork.us/). Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index se trouve sur un service de bac à sable fourni par Microsoft, ce qui signifie que vous n’avez pas besoin d’abonnement Azure ni de Recherche Azure pour essayer ces requêtes.
+Les exemples suivants utilisent un index de recherche NYC Jobs composé de postes à pourvoir sur la base d’un jeu de données fourni par l’initiative [City of New York OpenData](https://opendata.cityofnewyork.us/). Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index se trouve sur un service de bac à sable fourni par Microsoft, ce qui signifie que vous n’avez pas besoin d’abonnement Azure ni de Recherche cognitive Azure pour essayer ces requêtes.
 
 En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émettre la requête HTTP sur GET. Pour plus d’informations, consultez l’article indiquant comment [explorer avec les clients REST](search-get-started-postman.md).
 
@@ -45,13 +44,13 @@ Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réut
 
 ### <a name="set-the-request-url"></a>Définir l’URL de requête
 
-La requête est une commande GET accompagnée d’une URL contenant le point de terminaison Recherche Azure et la chaîne de recherche.
+La requête est une commande GET accompagnée d’une URL contenant le point de terminaison de Recherche cognitive Azure et la chaîne de recherche.
 
   ![En-tête de demande Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 L’URL est composée des éléments suivants :
 
-+ **`https://azs-playground.search.windows.net/`** est un service de recherche de bac à sable tenu à jour par l’équipe de développement Recherche Azure. 
++ **`https://azs-playground.search.windows.net/`** est un service de recherche de bac à sable tenu à jour par l’équipe de développement de Recherche cognitive Azure. 
 + **`indexes/nycjobs/`** est l’index NYC Jobs dans la collection d’index de ce service. Le nom du service et l’index sont tous deux obligatoires dans la requête.
 + **`docs`** est la collection de documents contenant tout le contenu disponible pour la recherche. La clé d’API de requête fournie dans l’en-tête de requête fonctionne uniquement sur les opérations de lecture ciblant la collection de documents.
 + **`api-version=2019-05-06`** définit la version de l’API, qui est un paramètre requis dans chaque requête.
@@ -148,7 +147,7 @@ Vous pouvez définir une opération de recherche par champ avec la syntaxe **fie
 
 Veillez à placer les chaînes entre guillemets si vous souhaitez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux emplacements distincts sont recherchés dans le champ `state`. Vérifiez également que l’opérateur est en majuscules, comme c’est le cas ici avec NOT et AND.
 
-Le champ spécifié dans **fieldName:searchExpression** doit être un champ pouvant faire l’objet d’une recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST du service Azure Search)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+Le champ spécifié dans **fieldName:searchExpression** doit être un champ pouvant faire l’objet d’une recherche. Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index (API REST Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!NOTE]
 > Dans l’exemple ci-dessus, nous n’avons pas eu besoin d’utiliser le paramètre `searchFields` car chaque partie de la requête comporte un nom de champ explicitement spécifié. Cependant, vous pouvez toujours utiliser le paramètre `searchFields` si vous voulez exécuter une requête où certaines parties sont limitées à un champ spécifique, et le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` ne correspondrait à `senior NOT junior` qu'au niveau du champ `business_title`, alors qu'elle correspondrait au champ « externe » avec le champ `posting_type`. Le nom du champ fourni dans **fieldName:searchExpression** a toujours priorité sur le paramètre `searchFields`, c'est pourquoi dans cet exemple, nous n'avons pas besoin d'inclure `business_title` dans le paramètre `searchFields`.
@@ -285,12 +284,12 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez de spécifier l’Analyseur de requêtes Lucene dans votre code. Les liens suivants expliquent comment configurer des requêtes de recherche pour .NET et l’API REST. Ces liens utilisent la syntaxe simple par défaut. Vous devrez donc appliquer ce que vous avez appris dans cet article pour spécifier le **queryType**.
 
-* [Interroger un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-query-dotnet.md)
-* [Interroger votre index Azure Search à l’aide de l’API REST](search-create-index-rest-api.md)
+* [Interroger un index à l’aide du SDK .NET](search-query-dotnet.md)
+* [Interroger un index à l’aide de l’API REST](search-create-index-rest-api.md)
 
 Vous trouverez des informations de référence supplémentaires sur la syntaxe et sur l’architecture de requête, ainsi que des exemples, en cliquant sur les liens suivants :
 
 + [Exemples de requête de syntaxe simple](search-query-simple-examples.md)
-+ [Fonctionnement de la recherche en texte intégral dans la Recherche Azure](search-lucene-query-architecture.md)
++ [Fonctionnement de la recherche en texte intégral dans Recherche cognitive Azure](search-lucene-query-architecture.md)
 + [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Syntaxe de requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)

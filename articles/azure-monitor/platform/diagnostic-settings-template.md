@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262968"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597286"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Créer un paramètre de diagnostic dans Azure à l’aide d’un modèle Resource Manager
 Les [journaux de plateforme](platform-logs-overview.md) dans Azure fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent. Cet article fournit des détails sur l’utilisation d’un [modèle Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) dans le cadre de la configuration de paramètres de diagnostic pour collecter les journaux de plateforme vers différentes destinations. Cela vous permet de démarrer automatiquement la collecte des journaux de plateforme lors de la création d’une ressource.
@@ -23,7 +23,7 @@ Les [journaux de plateforme](platform-logs-overview.md) dans Azure fournissent d
 Pour créer des paramètres de diagnostic, vous devez modifier deux sections du modèle Resource Manager. Les sections de cette procédure sont décrites dans les sections suivantes.
 
 ### <a name="parameters"></a>parameters
-En fonction des destinations du paramétrage de diagnostic, ajoutez des paramètres à l’objet blob des paramètres blob pour le nom du compte de stockage, l’ID de la règle d'autorisation du hub d'événement et l’ID de l'espace de travail Log Analytics.
+En fonction des [destinations](diagnostic-settings.md#destinations) du paramétrage de diagnostic, ajoutez des paramètres à l’objet blob des paramètres blob pour le nom du compte de stockage, l’ID de la règle d’autorisation du hub d’événements et l’ID de l’espace de travail Log Analytics.
    
 ```json
 "settingName": {
@@ -53,13 +53,13 @@ En fonction des destinations du paramétrage de diagnostic, ajoutez des paramèt
 "workspaceId":{
   "type": "string",
   "metadata": {
-    "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
+    "description": "Azure Resource ID of the Log Analytics workspace to which logs will be sent."
   }
 }
 ```
 
 ### <a name="resources"></a>Ressources
-Ajouter une ressource de type `[resource namespace]/providers/diagnosticSettings` dans le tableau de ressources de la ressource pour laquelle vous créez le paramètre de diagnostic. La section Propriétés obéit au format décrit dans Paramètres de diagnostic - Créer ou mettre à jour. Ajoutez la propriété `metrics` pour collecter des mesures de ressources sur les mêmes destinations si la [ressource prend en charge les métriques](metrics-supported.md).
+Ajouter une ressource de type `[resource namespace]/providers/diagnosticSettings` dans le tableau de ressources de la ressource pour laquelle vous créez le paramètre de diagnostic. La section Propriétés obéit au format décrit dans [Paramètres de diagnostic - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ajoutez la propriété `metrics` pour collecter des mesures de ressources sur les mêmes destinations si la [ressource prend en charge les métriques](metrics-supported.md).
    
 ```json
 "resources": [

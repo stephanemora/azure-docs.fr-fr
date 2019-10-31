@@ -1,6 +1,6 @@
 ---
-title: Appeler ou déclencher des applications logiques avec Azure Functions et Azure Service Bus
-description: Créer des fonctions Azure qui appellent ou déclenchent des applications logiques à l’aide d’Azure Service Bus
+title: Appeler des applications logiques avec Azure Functions - Azure Logic Apps
+description: Créer des fonctions Azure qui appellent ou déclenchent des applications logiques en écoutant Azure Service Bus
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,14 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 06/04/2019
-ms.openlocfilehash: 3d4f642ae25a179ea2c3241240996da774cd8c23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494954"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680138"
 ---
 # <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Appeler ou déclencher des applications logiques à l’aide d’Azure Functions et d’Azure Service Bus
 

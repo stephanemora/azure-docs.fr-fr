@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 3718b79562ec05383b9881a1a97cc5bcc5e04258
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075455"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596901"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Récupération d’urgence régionale pour les clusters Azure Databricks
 
@@ -21,7 +21,7 @@ Cet article décrit une architecture de récupération d’urgence utile pour le
 
 ## <a name="azure-databricks-architecture"></a>Architecture Azure Databricks
 
-À haut niveau, lorsque vous créez un espace de travail Azure Databricks sur le Portail Azure, une [appliance managée](../managed-applications/overview.md) est déployée sous forme de ressource Azure dans votre abonnement, dans la région Azure choisie (par exemple, USA Ouest). Ce déploiement s’effectue dans un [Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) avec un [Groupe de sécurité réseau](../virtual-network/manage-network-security-group.md) et un compte de Stockage Azure, disponible dans votre abonnement. Le réseau virtuel assure la sécurité au niveau du périmètre de l’espace de travail Databricks ; il est protégé au moyen du groupe de sécurité réseau. Dans l’espace de travail, vous pouvez créer des clusters Databricks en indiquant le type de machine virtuelle travail/pilote et la version du runtime Databricks. Les données persistantes sont disponibles dans votre compte de stockage, qui peut être le Stockage Blob Azure ou Azure Data Lake Store. Une fois le cluster créé, vous pouvez exécuter des travaux par le biais de notebooks, d’API REST et de points de terminaison ODBC/JDBC en les attachant à un cluster spécifique.
+À haut niveau, lorsque vous créez un espace de travail Azure Databricks sur le Portail Azure, une [appliance managée](../managed-applications/overview.md) est déployée sous forme de ressource Azure dans votre abonnement, dans la région Azure choisie (par exemple, USA Ouest). Ce déploiement s’effectue dans un [Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) avec un [Groupe de sécurité réseau](../virtual-network/manage-network-security-group.md) et un compte de Stockage Azure, disponible dans votre abonnement. Le réseau virtuel assure la sécurité au niveau du périmètre de l’espace de travail Databricks ; il est protégé au moyen du groupe de sécurité réseau. Dans l’espace de travail, vous pouvez créer des clusters Databricks en indiquant le type de machine virtuelle travail/pilote et la version du runtime Databricks. Les données persistantes sont disponibles dans votre compte de stockage, qui peut être du Stockage Blob Azure ou d’Azure Data Lake Storage. Une fois le cluster créé, vous pouvez exécuter des travaux par le biais de notebooks, d’API REST et de points de terminaison ODBC/JDBC en les attachant à un cluster spécifique.
 
 Le plan de contrôle Databricks gère et surveille l’environnement de l’espace de travail Databricks. Toutes les opérations de gestion, comme la création d’un cluster, seront lancées à partir du plan de contrôle. Toutes les métadonnées, comme les travaux planifiés, sont stockées dans une base de données Azure avec géoréplication pour la tolérance de panne.
 
@@ -284,9 +284,9 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
    Il n’existe actuellement aucun moyen de migrer directement les bibliothèques d’un espace de travail à un autre. Réinstallez-les manuellement dans le nouvel espace de travail. Il est possible d’automatiser l’opération à l’aide d’une combinaison entre [l’interface CLI DBFS](https://github.com/databricks/databricks-cli#dbfs-cli-examples) pour charger des bibliothèques personnalisées dans l’espace de travail et [l’interface CLI Bibliothèques](https://github.com/databricks/databricks-cli#libraries-cli).
 
-8. **Migrez les montages Azure Data Lake Store et Stockage Blob Azure.**
+8. **Migrez les montages Azure Data Lake Storage et Stockage Blob Azure.**
 
-   Remontez manuellement tous les points de montage [Stockage Blob Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) et [Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) à l’aide d’une solution basée sur notebook. Les ressources de stockage auront été montées dans l’espace de travail principal, et cette opération doit être répétée dans l’espace de travail secondaire. Il n’existe aucune API externe pour les montages.
+   Remontez manuellement tous les points de montage [Stockage Blob Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) et [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) à l’aide d’une solution basée sur des notebooks. Les ressources de stockage auront été montées dans l’espace de travail principal, et cette opération doit être répétée dans l’espace de travail secondaire. Il n’existe aucune API externe pour les montages.
 
 9. **Migrez les scripts d’initialisation de clusters.**
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f24b9c6ce2aeb318040b61c29d7e14c01886c46
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70073307"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modèles Profil utilisateur dans Gestion des API Azure
@@ -186,7 +186,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 ##  <a name="Subscriptions"></a> Abonnements  
  Le modèle **Abonnements** vous permet de personnaliser la section Abonnements de la page Profil utilisateur dans le portail des développeurs.  
   
- ![Page d’abonnement utilisateur](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Page d’abonnement utilisateur APIM")  
+ ![Page Abonnement utilisateur](./media/api-management-user-profile-templates/APIM-User-Subscription-Page.png "Page Abonnement utilisateur APIM")  
   
 ### <a name="default-template"></a>Modèle par défaut  
   
@@ -407,7 +407,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 ##  <a name="Applications"></a> Applications  
  Le modèle **Applications** vous permet de personnaliser la section Abonnements de la page Profil utilisateur dans le portail des développeurs.  
   
- ![Page Applications du compte d’utilisateur](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "APIM Applications du compte d’utilisateur APIM")  
+ ![Page Applications du compte d’utilisateur](./media/api-management-user-profile-templates/APIM-User-Account-Applications-Page.png "Page Applications du compte d’utilisateur APIM")  
   
 ### <a name="default-template"></a>Modèle par défaut  
   
@@ -570,7 +570,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 ##  <a name="UpdateAccountInfo"></a> Mettre à jour les informations du compte  
  Le modèle **Mettre à jour les informations du compte** vous permet de personnaliser la page **Mettre à jour les informations du compte** dans le portail des développeurs.  
   
- ![Modèles de page Mettre à jour les informations du compte dans le portail des développeurs](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modèles de page Mettre à jour les informations du compte dans le portail des développeurs APIM")  
+ ![Modèles du portail des développeurs - Page Informations du compte d’utilisateur](./media/api-management-user-profile-templates/APIM-User-Account-Info-Page-Developer-Portal-Templates.png "Modèles du portail des développeurs - Page Informations du compte d’utilisateur APIM")  
   
 ### <a name="default-template"></a>Modèle par défaut  
   

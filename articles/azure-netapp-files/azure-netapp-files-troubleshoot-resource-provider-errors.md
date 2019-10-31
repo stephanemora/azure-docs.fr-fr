@@ -13,14 +13,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: f417d83a67f2f3afa33a83a56a72d0d82c64ab0d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 62e67d4965444df0e731b4387808ed3b89e4673a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67850002"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597208"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Corriger les erreurs du fournisseur de ressources Azure NetApp Files 
 
@@ -364,7 +364,7 @@ Laissez la propriété de nom vide ou laissez-la utiliser la même valeur que la
 
 ***Type de protocole {value} inconnu***
 
-Cette erreur se produit quand vous créez un volume avec un type de protocole inconnu.  Les valeurs valides sont « NFSv3 » et « CIFS ».
+Cette erreur se produit quand vous créez un volume avec un type de protocole inconnu.  Les valeurs valides sont « NFSv3 », « NFSv4 » et « CIFS ».
 
 * Cause :   
 Vous essayez de définir une valeur non valide dans la propriété `protocolType` du volume.

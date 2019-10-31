@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 600577ebf05a8bc89dbec35d3b3ee5162aa246e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7565ce24199dd8f86f756f01f66aa79e764a1a12
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64872728"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752133"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Couches messagerie Service Bus Premium et Standard
 
@@ -69,6 +69,31 @@ L’utilisation du processeur et de la mémoire est suivie et vous est présent�
 - Transparence sur le fonctionnement interne du système
 - Capacité des ressources achetées.
 - Planification de la capacité vous décider de monter en puissance ou non.
+
+## <a name="messaging-unit---how-many-are-needed"></a>Unité de messagerie – Combien sont nécessaires ?
+
+Lors du provisionnement d’un espace de noms Azure Service Bus Premium, le nombre d’unités de messagerie allouées doit être spécifié. Ces unités de messagerie sont des ressources dédiées qui sont allouées à l’espace de noms.
+
+Le nombre d’unités de messagerie allouées à l’espace de noms Service Bus Premium peut être **ajusté dynamiquement** pour prendre en compte la variation (augmentation ou diminution) des charges de travail.
+
+Un certain nombre de facteurs doivent être pris en compte pour déterminer le nombre d’unités de messagerie pour votre architecture :
+
+- Commencez par ***1 ou 2 unités de messagerie*** allouées à votre espace de noms.
+- Étudiez les métriques d’utilisation du processeur dans les [métriques d’utilisation des ressources](service-bus-metrics-azure-monitor.md#resource-usage-metrics) pour votre espace de noms.
+    - Si l’utilisation du processeur est ***inférieure à 20 %***, vous pourrez peut-être ***réduire*** le nombre d’unités de messagerie allouées à votre espace de noms.
+    - Si l’utilisation du processeur est ***supérieure à 70 %***, votre application profitera d’une ***augmentation*** du nombre d’unités de messagerie allouées à votre espace de noms.
+
+Le processus de mise à l’échelle des ressources allouées à des espaces de noms Service Bus peut être automatisé à l’aide des [runbooks Azure Automation](../automation/automation-quickstart-create-runbook.md).
+
+> [!NOTE]
+> La **mise à l’échelle** des ressources allouées à l’espace de noms peut être préemptive ou réactive.
+>
+>  * **Préemptive** : si une charge de travail supplémentaire est attendue (en raison de la saisonnalité ou des tendances), vous pouvez allouer plus d’unités de messagerie à l’espace de noms avant la hausse des charges de travail.
+>
+>  * **Réactive** : si des charges de travail supplémentaires sont identifiées en examinant les métriques d’utilisation des ressources, des ressources supplémentaires peuvent être allouées à l’espace de noms pour incorporer la hausse de la demande.
+>
+> Les compteurs de facturation pour Service Bus sont horaires. Dans le cas d’un scale-up, vous payez uniquement pour les ressources supplémentaires pendant les heures où celles-ci sont utilisées.
+>
 
 ## <a name="get-started-with-premium-messaging"></a>Prise en main de Premium Messaging
 

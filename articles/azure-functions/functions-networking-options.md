@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170654"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690826"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -33,11 +33,11 @@ Vous pouvez héberger des applications de fonction de deux façons :
 
 |                |[Plan Consommation](functions-scale.md#consumption-plan)|[Plan Premium (préversion)](functions-scale.md#premium-plan)|[Plan App Service](functions-scale.md#app-service-plan)|[Environnement App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Restrictions d'adresses IP entrantes et accès privé aux sites](#inbound-ip-restrictions)|✅ Oui|✅ Oui|✅ Oui|✅ Oui|
-|[Intégration du réseau virtuel](#virtual-network-integration)|❌Non|✅ Oui (Zones géographiques)|✅ Oui (Zones géographiques et Passerelle)|✅ Oui|
-|[Déclencheurs de réseau virtuel (non HTTP)](#virtual-network-triggers-non-http)|❌Non| ❌Non|✅ Oui|✅ Oui|
-|[connexions hybrides](#hybrid-connections)|❌Non|❌Non|✅ Oui|✅ Oui|
-|[Restrictions d’adresse IP sortantes](#outbound-ip-restrictions)|❌Non| ❌Non|❌Non|✅ Oui|
+|[Restrictions d'adresses IP entrantes et accès privé aux sites](#inbound-ip-restrictions)|✅Oui|✅Oui|✅Oui|✅Oui|
+|[Intégration du réseau virtuel](#virtual-network-integration)|❌Non|✅Oui (Zones géographiques)|✅Oui (Zones géographiques et Passerelle)|✅Oui|
+|[Déclencheurs de réseau virtuel (non HTTP)](#virtual-network-triggers-non-http)|❌Non| ❌Non|✅Oui|✅Oui|
+|[connexions hybrides](#hybrid-connections)|❌Non|✅Oui|✅Oui|✅Oui|
+|[Restrictions d’adresse IP sortantes](#outbound-ip-restrictions)|❌Non| ❌Non|❌Non|✅Oui|
 
 
 ## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrantes
@@ -52,7 +52,7 @@ Pour en savoir plus, consultez [Restrictions d’accès statique Azure App Servi
 ## <a name="private-site-access"></a>Accès aux sites privés
 
 L’accès aux sites privés fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. 
-* L’accès aux sites privés est disponible dans les plans [Premium](./functions-premium-plan.md), [Consommation](functions-scale.md#consumption-plan) et [App Service](functions-scale.md#app-service-plan) quand des **points de terminaison de service** sont configurés. 
+* L’accès aux sites privés est disponible dans les plans [Premium](./functions-premium-plan.md), [Consommation], (functions-scale.md#consumption-plan) et [App Service](functions-scale.md#app-service-plan) quand des **points de terminaison de service** sont configurés. 
     * Les points de terminaison de service peuvent être configurés pour chaque application, sous Fonctionnalités de la plateforme > Mise en réseau > Configurer des restrictions d’accès > Ajouter une règle. Les réseaux virtuels peuvent maintenant être sélectionnés en tant que « type » d’une règle.
     * Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
         * N'oubliez pas qu'avec les points de terminaison de service, votre fonction dispose toujours d'un accès sortant complet à Internet, même si l'intégration au réseau virtuel est configurée.
@@ -102,12 +102,20 @@ Dans Functions, l'intégration au réseau virtuel utilise une infrastructure par
 
 Pour en savoir plus sur l'utilisation de l'intégration au réseau virtuel, consultez [Intégrer une application de fonction à un réseau virtuel Azure](functions-create-vnet.md).
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restriction de votre compte de stockage à un réseau virtuel
+## <a name="connecting-to-service-endpoint-secured-resources"></a>Connexion à des ressources sécurisées de point de terminaison de service
 
 > [!note] 
-> Une fois que vous avez configuré des restrictions d’accès sur votre compte de stockage, il peut s’écouler jusqu’à 12 heures avant qu’il ne soit disponible. Pendant ce temps, votre application est complètement hors connexion.
+> Une fois que vous avez configuré des restrictions d’accès sur la ressource en aval, il peut momentanément s’écouler jusqu’à 12 heures avant que les nouveaux points de terminaison de service ne soient disponibles pour votre application de fonction. Pendant ce temps, la ressource sera complètement inaccessible pour votre application.
 
-Afin de fournir un niveau de sécurité plus élevé, vous pouvez limiter le compte de stockage de votre application à un réseau virtuel. Vous devez ensuite intégrer votre site à ce réseau virtuel pour accéder à votre compte de stockage. Cette configuration est prise en charge sur tous les plans qui prennent en charge l’intégration du réseau virtuel.
+Afin d’offrir un niveau de sécurité supérieur, vous pouvez restreindre un nombre de services Azure sur un réseau virtuel en utilisant des points de terminaison de service. Vous devez ensuite intégrer votre application de fonction à ce réseau virtuel pour accéder à la ressource. Cette configuration est prise en charge sur tous les plans qui prennent en charge l’intégration du réseau virtuel.
+
+[Apprenez-en davantage sur les points de terminaison de service de réseau virtuel ici.](../virtual-network/virtual-network-service-endpoints-overview.md)
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restriction de votre compte de stockage à un réseau virtuel
+Quand vous créez une application de fonction, vous devez créer un compte de stockage Azure à usage général qui prend en charge le stockage Blob, File d’attente et Table, ou établir un lien vers un compte de ce type. Il n’est actuellement pas possible d’utiliser des restrictions de réseau virtuel sur ce compte. La configuration d’un point de terminaison de service de réseau virtuel sur le compte de stockage que vous utilisez pour votre application de fonction entraînera l’arrêt de votre application.
+
+[Apprenez-en davantage sur les exigences liées aux comptes de stockage ici.](./functions-create-function-app-portal.md#storage-account-requirements
+) 
 
 ## <a name="virtual-network-triggers-non-http"></a>Déclencheurs de réseau virtuel (non HTTP)
 
@@ -119,11 +127,11 @@ Consultez la [liste de tous les déclencheurs non HTTP](./functions-triggers-bin
 
 ## <a name="hybrid-connections"></a>les connexions hybrides
 
-[Connexions hybrides](../service-bus-relay/relay-hybrid-connections-protocol.md) est une fonctionnalité d’Azure Relay que vous pouvez utiliser pour accéder aux ressources d’application dans d’autres réseaux. Elles permettent d’accéder depuis votre application à un point de terminaison d’application. Vous ne pouvez pas l’utiliser pour accéder à votre application. Les connexions hybrides sont disponibles pour les fonctions exécutées dans [plan App Service](functions-scale.md#app-service-plan) et un [Azure App Service Environment](../app-service/environment/intro.md).
+[Connexions hybrides](../service-bus-relay/relay-hybrid-connections-protocol.md) est une fonctionnalité d’Azure Relay que vous pouvez utiliser pour accéder aux ressources d’application dans d’autres réseaux. Elles permettent d’accéder depuis votre application à un point de terminaison d’application. Vous ne pouvez pas l’utiliser pour accéder à votre application. Connexions hybrides est disponible pour les fonctions exécutées dans tous les plans, sauf le plan Consommation.
 
 Utilisée dans Azure Functions, chaque connexion hybride correspond à une combinaison d’hôte et de port TCP unique. Cela signifie que le point de terminaison de connexion hybride peut se trouver sur un quelconque système d’exploitation et toute application tant que vous accédez à un port d’écoute TCP. La fonctionnalité Connexions hybrides ne détecte pas et ne prend pas en compte le protocole d’application ou les ressources auxquels vous accédez. Elle fournit simplement un accès réseau.
 
-Pour en savoir plus, consultez la [documentation App Service pour les connexions hybrides](../app-service/app-service-hybrid-connections.md), qui prend en charge les fonctions dans un plan App Service.
+Pour en savoir plus, consultez la [documentation App Service sur les connexions hybrides](../app-service/app-service-hybrid-connections.md), qui prend en charge Functions en suivant les mêmes étapes de configuration.
 
 ## <a name="outbound-ip-restrictions"></a>Restrictions d’adresse IP sortantes
 

@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 10/19/2019
 ms.author: victorh
-ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130221"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596776"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -154,7 +154,7 @@ Le pare-feu Azure est constitué de plusieurs nœuds back-end dans une configura
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Une limite de caractères s'applique-t-elle aux noms des pare-feu ?
 
-Oui. Le nom d'un pare-feu est limité à 50 caractères.
+Oui. Le nom d’un pare-feu est limité à 50 caractères.
 
 ## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Pourquoi le service Pare-feu Azure impose-t-il une taille de sous-réseau de /26 ?
 
@@ -163,6 +163,14 @@ Le Pare-feu Azure doit approvisionner davantage de machines virtuelles au fil de
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>La taille du sous-réseau du pare-feu doit-elle changer au fil de la mise à l'échelle du service ?
 
 Non. Un sous-réseau de /26 suffit au Pare-feu Azure.
+
+## <a name="how-can-i-increase-my-firewall-throughput"></a>Comment puis-je augmenter le débit de mon pare-feu ?
+
+La capacité de débit initiale du Pare-feu Azure est de 2,5 à 3 Gbits/s. À l’heure actuelle, le scale-out est basé uniquement sur l’utilisation du processeur. Dans certains cas, un pare-feu avec uniquement des règles de réseau ne subira pas de scale-up pour augmenter le débit, car les règles de réseau n’ont pas d’impact significatif sur l’utilisation du processeur. Si vous avez besoin d’un débit plus élevé pour votre pare-feu, contactez le support technique afin d’augmenter la capacité de débit initiale de votre pare-feu.
+
+## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Combien de temps le scale-out du Pare-feu Azure prend-il ?
+
+Actuellement, le scale-out du Pare-feu Azure prend entre cinq et sept minutes. Si vous avez des rafales nécessitant une mise à l’échelle automatique plus rapide, contactez le support technique afin d’augmenter la capacité de débit initiale de votre pare-feu.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Le Pare-feu Azure autorise-t-il l’accès à Active Directory par défaut ?
 

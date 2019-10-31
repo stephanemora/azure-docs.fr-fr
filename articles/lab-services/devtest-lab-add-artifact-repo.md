@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5d7665cbfdf855e194f61910f0c8ee2bce5469b1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1555eb4e48a0cf43a38aa811e20ffbbed8ee87a9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311710"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755814"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 
@@ -65,7 +65,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
    1. Entrez une **Description** pour le jeton.
    2. Dans la liste **Expire dans**, sélectionnez **180 jours**.
    3. Dans la liste **Comptes**, sélectionnez **Tous les comptes accessibles**.
-   4. Sélectionnez l’option **Toutes les étendues**.
+   4. Sélectionnez l’option **Lecture seule**.
    5. Sélectionnez **Créer le jeton**.
 9. Le nouveau jeton apparaît dans la liste **Jetons d’accès personnels**. Sélectionnez **Copier le jeton**puis enregistrez la valeur du jeton pour utilisation ultérieure.
 10. Passez à la section [Connecter votre laboratoire au référentiel](#connect-your-lab-to-the-repository).

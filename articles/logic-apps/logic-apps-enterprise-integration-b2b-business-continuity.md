@@ -1,6 +1,6 @@
 ---
-title: Reprise d’activité pour des comptes d’intégration B2B - Azure Logic Apps | Microsoft Docs
-description: Se préparer pour la reprise d’activité entre des régions dans Azure Logic Apps
+title: Reprise d’activité pour des comptes d’intégration - Azure Logic Apps
+description: Configurer la reprise d’activité entre des régions pour des comptes d’intégration dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 321bfb673bab748176d75db7bcf21d76ddf0c819
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967746"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680393"
 ---
-# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Reprise d’activité entre des régions pour des comptes d’intégration B2B dans Azure Logic Apps
+# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurer la reprise d’activité entre des régions pour des comptes d’intégration dans Azure Logic Apps
 
 Les charges de travail B2B impliquent des transactions monétaires telles que des commandes et des factures. Pour les entreprises, une récupération rapide est essentielle pour respecter les SLA de niveau entreprise convenus avec leurs partenaires lors d’un sinistre. Cet article montre comment créer un plan de continuité des activités pour les charges de travail B2B. 
 

@@ -1,5 +1,5 @@
 ---
-title: 'Scenario serverless : créer un tableau de bord des insights client avec des services Azure | Microsoft Docs'
+title: Créer un tableau de bord d’insights client - Azure Logic Apps
 description: Gérer des retours d’expérience client, des données de médias sociaux, etc., en générant un tableau de bord client avec Azure Logic Apps et Azure Functions
 services: logic-apps
 ms.service: logic-apps
@@ -7,17 +7,16 @@ ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164860"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680107"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
 Azure offre des outils [serverless](https://azure.microsoft.com/solutions/serverless/) qui permettent de générer et d’héberger rapidement des applications dans le cloud, sans avoir à réfléchir à l’infrastructure. Dans ce tutoriel, vous pouvez créer un tableau de bord qui se déclenche lors de retours d’expérience client, analyse le retour avec le Machine Learning et publie des insights dans une source telle que Power BI ou Azure Data Lake.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 810e03988fb900325794ea1c1a825c07824b3b08
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201632"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755632"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -41,15 +41,13 @@ Les sections suivantes répertorient les systèmes d’exploitation serveur pris
 
 ### Systèmes d’exploitation de serveur Windows <a name="os-windows"></a>
 
-* Windows Server 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-
-> [!NOTE]
-> L’intégration avec Microsoft Defender - PACM prend en charge uniquement Windows Server 2012 R2 et Windows Server 2016.
+[!div class="mx-tableFixed"]
+|OS|Pris en charge par Azure Security Center|Prise en charge de l’intégration avec Microsoft Defender ATP|
+|---|---|---|
+|Windows Server 2019|✔|X|
+|Windows Server 2016|✔|✔|
+|Windows Server 2012 R2|✔|✔|
+|Windows Server 2008 R2|✔|✔|
 
 Pour en savoir plus sur les fonctionnalités prises en charge pour les systèmes d’exploitation Windows, voir les [fonctionnalités de machine virtuelle/serveur prises en charge](security-center-services.md##vm-server-features).
 

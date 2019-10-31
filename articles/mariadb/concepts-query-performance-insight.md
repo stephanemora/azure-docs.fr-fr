@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 709428d420c7d5f725d1b7df85e4860aec765b48
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: b1007080c907eecc940b57184954c793b85f5eec
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950657"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595632"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Query Performance Insight dans Azure Database for MariaDB
 
@@ -59,7 +59,7 @@ Vous pouvez cliquer et faire glisser dans le graphique pour réduire l’afficha
 ### <a name="wait-statistics"></a>Statistiques d’attente 
 
 > [!NOTE]
-> Les statistiques d’attente sont destinées à la résolution des problèmes de performances des requêtes. Nous vous recommandons de ne les activer qu’à des fins de résolution des problèmes.
+> Les statistiques d’attente sont destinées à la résolution des problèmes de performances des requêtes. Nous vous recommandons de ne les activer qu’à des fins de résolution des problèmes. <br>Si le portail Azure indique le message d’erreur « *En raison du problème rencontré pour « Microsoft.DBforMariaDB », il est impossible de répondre à la demande. Si ce problème persiste ou est inattendu, contactez le support avec ces informations.*  ». quand vous visualisez les statistiques d’attente, utilisez une période plus courte.
 
 Les statistiques d’attente fournissent une vue des événements d’attente qui se produisent pendant l’exécution d’une requête spécifique. Pour en savoir plus sur les types d’événements d’attente, consultez la [documentation du moteur MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

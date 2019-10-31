@@ -5,20 +5,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 253f42080d7c0eab2f7b3cfc5de3d4462f63c738
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: ece49ff749a3b51e2fd4982f2df2726c57c6bf3d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673413"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785206"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Suppression réversible pour objets blob de Stockage Azure
+
 Le Stockage Azure offre désormais une fonctionnalité de suppression réversible pour les objets blob, qui vous permet de récupérer plus facilement vos données en cas de modification ou de suppression malencontreuses de celles-ci par une application ou un autre utilisateur du compte de stockage.
 
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+## <a name="how-soft-delete-works"></a>Fonctionnement de la suppression réversible
+
 Quand elle est activée, la suppression réversible vous permet d’enregistrer et de récupérer vos données en cas de suppression d’objets blob ou d’instantanés d’objets blob. Cette protection s’étend aux données d’objet blob effacées à la suite d’un remplacement.
 
 Lorsque les données sont supprimées, elle passent par un état transitoire de suppression réversible au lieu d’être supprimées définitivement. Quand la suppression réversible est activée, lorsque vous remplacez des données, un instantané de l’objet blob supprimé de manière réversible est généré pour enregistrer l’état des données remplacées. Les objets supprimés de manière réversible sont invisibles, sauf s’ils sont répertoriés de façon explicite. Vous pouvez configurer la durée pendant laquelle les données supprimées de manière réversible seront récupérables avant leur expiration définitive.
@@ -26,6 +28,7 @@ Lorsque les données sont supprimées, elle passent par un état transitoire de 
 La suppression réversible étant rétrocompatible, il est inutile d’apporter des modifications à vos applications pour tirer parti des protections qu’offre cette fonctionnalité. Toutefois, la fonctionnalité de [récupération des données](#recovery) introduit une nouvelle API de **rétablissement d’objet blob supprimé**.
 
 ### <a name="configuration-settings"></a>Paramètres de configuration
+
 Lorsque vous créez un compte, la suppression réversible est désactivée par défaut. Elle est également désactivée par défaut pour les comptes de stockage existants. Vous pouvez activer ou désactiver la fonctionnalité à tout moment pendant la durée de vie d’un compte de stockage.
 
 Vous pouvez toujours accéder aux données supprimées de manière réversible pour les récupérer lorsque la fonctionnalité est désactivée, pour autant que les données supprimées de manière réversible aient été enregistrées pendant que la fonctionnalité était activée. Lorsque vous activez la suppression réversible, vous devez également configurer la période de rétention.
@@ -35,6 +38,7 @@ La période de rétention indique la durée pendant laquelle les données suppri
 Vous pouvez modifier la période de rétention de suppression réversible à tout moment. Une mise à jour de la période de rétention s’applique uniquement aux données supprimées par la suite. Les données supprimées antérieurement expireront à l’issue de la période de rétention qui était configurée lors de leur suppression. Une tentative de suppression d’un objet supprimé de manière réversible n’affecte pas son délai d’expiration.
 
 ### <a name="saving-deleted-data"></a>Enregistrement de données supprimées
+
 La suppression réversible préserve vos données dans les nombreux cas où les objets blob ou instantanés d’objets blob sont supprimés ou remplacés.
 
 Quand un objet blob est remplacé à l’aide d’une des commandes **Put Blob**, **Put Block**, **Put Block List** ou **Copy Blob**, un instantané de l’état de l’objet blob avant l’opération d’écriture est généré automatiquement. Cet instantané étant supprimé de manière réversible, il est invisible, sauf si les objets supprimés de manière réversible sont répertoriés explicitement. Pour savoir comment répertorier des objets supprimés de manière réversible, voir la section [Récupération](#recovery).
@@ -85,9 +89,10 @@ Le tableau suivant indique le comportement attendu quand la suppression réversi
 Il est important de noter que l’appel de la commande « Put Page » pour remplacer ou effacer des plages de pages dans un objet blob de pages n’a pas pour effet de générer automatiquement des instantanés. Les disques de machine virtuelle s’appuient sur des objets blob de pages et utilisent la commande **Put Page** pour écrire des données.
 
 ### <a name="recovery"></a>Récupération
-Pour faciliter la récupération des données supprimées, nous avons introduit la nouvelle API « Undelete Blob ». L’appel de l’API Undelete sur un objet blob de base supprimé de manière réversible a pour effet de restaurer comme actifs cet objet blob ainsi que tous les instantanés d’objets blob supprimés de manière réversible qui y sont associés. L’appel de l’API Undelete sur un objet blob de base actif a pour effet de restaurer comme actifs tous les instantanés d’objets blob supprimés de manière réversible qui y sont associés. Quand des instantanés sont restaurés comme actifs, ils ressemblent à des instantanés générés par l’utilisateur et ne remplacent pas l’objet blob de base.
 
-Pour restaurer un objet blob en instantané d’objet blob supprimé de manière réversible, vous pouvez appeler la commande **Undelete Blob** sur l’objet blob de base. Ensuite, vous pouvez copier l’instantané sur l’objet blob ainsi activé. Vous pouvez également copier l’instantané vers un nouvel objet blob.
+L’appel de l’opération [Undelete Blob](/rest/api/storageservices/undelete-blob) sur un objet blob de base supprimé de manière réversible a pour effet de restaurer comme actifs cet objet blob et tous les instantanés supprimés de manière réversible qui lui sont associés. L’appel de l’opération `Undelete Blob` sur un objet blob de base actif a pour effet de restaurer comme actifs tous les instantanés supprimés de manière réversible qui lui sont associés. Quand des instantanés sont restaurés comme actifs, ils ressemblent à des instantanés générés par l’utilisateur et ne remplacent pas l’objet blob de base.
+
+Pour restaurer un objet blob en instantané supprimé de manière réversible, vous pouvez appeler `Undelete Blob` sur l’objet blob de base. Ensuite, vous pouvez copier l’instantané sur l’objet blob ainsi activé. Vous pouvez également copier l’instantané vers un nouvel objet blob.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
@@ -96,7 +101,8 @@ Pour restaurer un objet blob en instantané d’objet blob supprimé de manière
 Pour afficher les objets blob et instantanés d’objets blob supprimés de manière réversible, vous pouvez inclure des données supprimées dans la commande **List Blobs**. Vous pouvez afficher uniquement les objets blob de base supprimés de manière réversible ou inclure les instantanés d’objets blob supprimés. Pour toutes les données supprimées de manière réversible, vous pouvez afficher l’heure de leur suppression, ainsi que le nombre de jours avant leur expiration définitive.
 
 ### <a name="example"></a>Exemples
-Voici la sortie de console d’un script .NET qui charge, remplace, crée un instantané, supprime et restaure un objet blob nommé « HelloWorld » quand la suppression réversible est activée :
+
+Voici la sortie de console d’un script .NET qui charge, remplace, crée un instantané, supprime et restaure un objet blob nommé *HelloWorld* quand la suppression réversible est activée :
 
 ```bash
 Upload:
@@ -131,16 +137,21 @@ Copy a snapshot over the base blob:
 Pour obtenir un pointeur vers l’application qui a produit cette sortie, voir la section [Étapes suivantes](#next-steps).
 
 ## <a name="pricing-and-billing"></a>Tarification et facturation
+
 Toutes les données supprimées de manière réversible sont facturées au même tarif que des données actives. Vous ne serez pas facturé pour des données supprimées définitivement à l’issue de la période de rétention configurée. Pour plus de détails sur les instantanés et la manière dont ils augmentent les coûts, voir [Présentation des frais liés aux instantanés](storage-blob-snapshots.md).
 
-Vous ne serez pas facturé pour les transactions associées à la génération automatique d’instantanés. Vous serez facturé pour les transactions **Undelete Blob** au taux des « Opérations d’écriture ».
+Vous ne serez pas facturé pour les transactions associées à la génération automatique d’instantanés. Les transactions **Undelete Blob** vous seront facturées au taux des opérations d’écriture.
 
 Pour plus de détails sur les prix du Stockage Blob Azure en général, voir la [page relative aux tarifs de Stockage Blob Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Lorsque vous activez initialement la suppression réversible, nous vous recommandons d’utiliser une courte période de rétention pour mieux comprendre l’impact de cette fonctionnalité sur votre facture.
 
-## <a name="quickstart"></a>Démarrage rapide
+## <a name="get-started"></a>Prise en main
+
+Les étapes suivantes montrent comment prendre en main la suppression réversible.
+
 ### <a name="azure-portal"></a>Portail Azure
+
 Pour activer la suppression réversible, accédez à l’option **Suppression réversible** sous **Service Blob**. Cliquez ensuite sur **Activé**, puis entrez le nombre de jours pendant lesquels vous souhaitez retenir les données supprimées de manière réversible.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
@@ -187,6 +198,7 @@ $MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
 ```
 
 Pour récupérer des objets blob supprimés accidentellement, appelez la commande Undelete sur ceux-ci. N’oubliez pas que l’appel de la commande **Undelete Blob** sur les objets blob tant actifs que supprimés de manière réversible, a pour effet de restaurer comme actifs tous les instantanés d’objets blob supprimés de manière réversible. L’exemple suivant appelle la commande Undelete sur tous les objets blob, tant actifs que supprimés de manière réversible, figurant dans un conteneur :
+
 ```powershell
 # Create a context by specifying storage account name and key
 $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
@@ -206,6 +218,7 @@ Pour rechercher la stratégie actuelle de conservation de suppression réversibl
 ```
 
 ### <a name="azure-cli"></a>D’Azure CLI 
+
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
 
 ```azurecli-interactive
@@ -218,7 +231,8 @@ Pour vérifier si la suppression réversible est activée, utilisez la commande 
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-### <a name="python-client-library"></a>Bibliothèque cliente Python
+### <a name="python-client-library"></a>Bibliothèque de client Python
+
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
 
 ```python
@@ -236,6 +250,7 @@ block_blob_service.set_blob_service_properties(
 ```
 
 ### <a name="net-client-library"></a>Bibliothèque de client .NET
+
 Pour activer la suppression réversible, mettez à jour les propriétés du service du client d’un objet blob :
 
 ```csharp
@@ -277,49 +292,65 @@ blockBlob.StartCopy(copySource);
 ```
 
 ## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Existe-t-il des considérations spéciales pour l’utilisation de la suppression réversible ?
-S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez atténuer ces comportements en stockant les données fréquemment remplacées dans un compte de stockage distinct avec la suppression réversible désactivée. 
+
+S’il existe une possibilité de modification ou de suppression accidentelles de vos données par une application ou un autre utilisateur du compte de stockage, nous vous recommandons d’activer la suppression réversible. L’activation de la suppression réversible pour les données fréquemment remplacées peut entraîner une augmentation des frais en termes de capacité de stockage, ainsi qu’une latence plus élevée lors de la classification des objets blob. Vous pouvez réduire ce coût supplémentaire en stockant les données fréquemment remplacées dans un compte de stockage distinct où la suppression réversible est désactivée. 
 
 ## <a name="faq"></a>Forum Aux Questions
-**Pour quels types de stockages puis-je utiliser la suppression réversible ?**  
+
+### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Pour quels services de stockage puis-je utiliser la suppression réversible ?
+
 Actuellement, la suppression réversible est disponible uniquement pour le stockage d’objets blob.
 
-**La suppression réversible est-elle disponible pour tous les types de comptes de stockage ?**  
-Oui, la suppression réversible est disponible pour les comptes de stockage d’objets blob, ainsi que pour les objets blob figurant dans des comptes de stockage (GPv1 et GPv2) à usage général. Cela s’applique aux comptes Standard et Premium. La suppression réversible n’est pas disponible pour les disques managés.
+### <a name="is-soft-delete-available-for-all-storage-account-types"></a>La suppression réversible est-elle disponible pour tous les types de compte de stockage ?
 
-**La suppression réversible est-elle disponible pour tous les niveaux de stockage ?**  
+Oui, la suppression réversible est disponible pour les comptes de stockage d’objets blob, ainsi que pour les objets blob figurant dans des comptes de stockage (GPv1 et GPv2) à usage général. Les types de compte de stockage standard et premium sont pris en charge. La suppression réversible est disponible pour les disques non managés, qui sont des objets blob de pages en arrière-plan. La suppression réversible n’est pas disponible pour les disques managés.
+
+### <a name="is-soft-delete-available-for-all-storage-tiers"></a>La suppression réversible est-elle disponible pour tous les niveaux de stockage ?
+
 Oui, la suppression réversible est disponible pour tous les niveaux de stockage : chaud, froid et archive. Toutefois, la suppression réversible n’offre de protection contre le remplacement pour les objets blob au niveau archive.
 
-**Puis-je utiliser l’API de niveau objet Blob défini pour différencier des objets Blob avec des instantanés supprimés de manière réversible ?**  
+### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Puis-je utiliser l’API de définition d’un niveau d’objet blob pour différencier les objets blob des instantanés supprimés de manière réversible ?
+
 Oui. Les instantanés supprimés de manière réversible restent dans le niveau d’origine, mais l’objet blob de base est déplacé dans le nouveau niveau. 
 
-**Les comptes de stockage Premium sont limités à 100 suppressions réversibles par instantané d’objet blob. Les instantanés d’objets blob supprimés de manière réversible sont-ils pris en compte par rapport à cette limite ?**  
+### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>Les comptes de stockage Premium sont limités à 100 instantanés par objet blob. Les instantanés d’objets blob supprimés de manière réversible sont-ils pris en compte par rapport à cette limite ?
+
 Non, ils ne le sont pas.
 
-**Puis-je activer la suppression réversible pour des comptes de stockage existants ?**  
+### <a name="can-i-turn-on-soft-delete-for-existing-storage-accounts"></a>Puis-je activer la suppression réversible pour des comptes de stockage existants ?
+
 Oui, la suppression réversible est configurable pour des comptes de stockage tant existants que nouveaux.
 
-**Si je supprime un compte ou un conteneur entiers alors que la suppression réversible est activée, les objets blob associés sont-ils tous enregistrés ?**  
-Non, si vous supprimez un compte ou un conteneur entiers, tous les objets blob associés sont supprimés définitivement. Pour savoir comment protéger un compte de stockage contre des suppressions accidentelles, voir l’article sur Azure Resource Manager intitulé [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/resource-group-lock-resources.md).
+### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Si je supprime un compte ou un conteneur entier alors que la suppression réversible est activée, les objets blob associés sont-ils tous enregistrés ?
 
-**Puis-je afficher les métriques de capacité pour des données supprimées ?**  
-Les données supprimées de manière réversible sont incluses dans la capacité totale de votre compte de stockage. Pour plus d’informations sur le suivi et l’analyse de la capacité de stockage, voir l’article [Storage Analytics](../common/storage-analytics.md).
+Non, si vous supprimez un compte ou un conteneur entiers, tous les objets blob associés sont supprimés définitivement. Pour plus d’informations sur la protection d’un compte de stockage contre les suppressions accidentelles, consultez [Verrouiller les ressources pour empêcher les modifications inattendues](../../azure-resource-manager/resource-group-lock-resources.md).
 
-**Si je désactive la suppression réversible, pourrai-je toujours accéder aux données supprimées de manière réversible ?**  
+### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Puis-je afficher les métriques de capacité de données supprimées ?
+
+Les données supprimées de manière réversible sont incluses dans la capacité totale de votre compte de stockage. Pour plus d’informations sur le suivi et l’analyse de la capacité de stockage, consultez [Storage Analytics](../common/storage-analytics.md).
+
+### <a name="if-i-turn-off-soft-delete-will-i-still-be-able-to-access-soft-deleted-data"></a>Si je désactive la suppression réversible, pourrai-je toujours accéder aux données supprimées de manière réversible ?
+
 Oui, vous pourrez toujours accéder aux données supprimées de manière réversible non expirées, ainsi que les récupérer, même si la suppression réversible est désactivée.
 
-**Puis-je lire et copier les instantanés supprimés de manière réversible de mon objet blob ?**  
+### <a name="can-i-read-and-copy-out-soft-deleted-snapshots-of-my-blob"></a>Puis-je lire et copier les instantanés supprimés de manière réversible de mon objet blob ?  
+
 Oui, mais vous devez commencer par appeler la commande Undelete sur l’objet blob.
 
-**La suppression réversible est-elle disponible pour tous les types d’objets blob ?**  
-Oui, la suppression réversible est disponible pour les objets blob de blocs, d’ajouts et de pages.
+### <a name="is-soft-delete-available-for-all-blob-types"></a>La suppression réversible est-elle disponible pour tous les types d’objets blob ?
 
-**La suppression réversible est-elle disponible pour les disques de machine virtuelle ?**  
-La suppression réversible est disponible pour les disques non managés Standard et Premium. La suppression réversible vous permettra de récupérer uniquement des données supprimées par les commandes **Delete Blob**, **Put Blob**, **Put Block List**, **Put Block** et **Copy Blob**. Les données remplacées par un appel de la commande **Put Page** ne sont pas récupérables.
+Oui, la suppression réversible est disponible pour les objets blob de blocs, d’ajout et de pages.
 
-**Dois-je modifier mes applications existantes pour utiliser la suppression réversible ?**  
-Vous pouvez tirer parti de la suppression réversible, quelle que soit la version d’API que vous utilisez. Toutefois, pour répertorier et récupérer des objets blob et instantanés d’objets blob supprimés de manière réversible, vous devez utiliser la version 2017-07-29 de l’[API REST des services de stockage](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou une version supérieure. En général, nous recommandons toujours d’utiliser la version la plus récente, que vous utilisiez cette fonctionnalité ou non.
+### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>La suppression réversible est-elle disponible pour les disques de machine virtuelle ?  
+
+La suppression réversible est disponible pour les disques non managés Standard et Premium, qui sont des objets blob de pages en arrière-plan. La suppression réversible vous permettra de récupérer uniquement des données supprimées par les opérations **Delete Blob**, **Put Blob**, **Put Block List**, **Put Block** et **Copy Blob**. Les données remplacées par un appel de la commande **Put Page** ne sont pas récupérables.
+
+### <a name="do-i-need-to-change-my-existing-applications-to-use-soft-delete"></a>Dois-je modifier mes applications existantes pour utiliser la suppression réversible ?
+
+Vous pouvez tirer parti de la suppression réversible, quelle que soit la version d’API que vous utilisez. Toutefois, pour répertorier et récupérer des objets blob et instantanés d’objets blob supprimés de manière réversible, vous devez utiliser la version 2017-07-29 de l’[API REST des services de stockage](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou une version supérieure. Microsoft recommande de toujours utiliser la dernière version de l’API de stockage Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Exemple de code .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [API REST du service Blob](/rest/api/storageservices/blob-service-rest-api)
 * [Réplication Azure Storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

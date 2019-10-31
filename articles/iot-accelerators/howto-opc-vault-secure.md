@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: b5c886625c944e2f5501859e78506ca89ec3d765
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71203694"
 ---
 # <a name="use-the-opc-vault-certificate-management-service"></a>Utiliser le service de gestion de certificats OPC Vault
@@ -40,7 +40,7 @@ Si vous ne l’avez pas encore fait, créez le certificat de l’autorité de ce
 2. Accédez à **Register New** (Inscrire nouveau). Pour un inscrire une application, un utilisateur doit disposer au moins du rôle Rédacteur.
 2. Le formulaire d’entrée suit les conventions de nommage d’OPC UA. Par exemple, dans la capture d’écran suivante, les paramètres de l’exemple [Serveur de référence OPC UA](https://github.com/OPCFoundation/UA-.NETStandard/tree/master/SampleApplications/Workshop/Reference) de la pile .NET Standard sont présentés :
 
-   ![Capture d’écran de l’inscription du serveur de référence UA](media/howto-opc-vault-secure/reference-server-registration.png "Inscription du serveur de référence UA")
+   ![Capture d’écran de l’inscription de serveur de référence UA](media/howto-opc-vault-secure/reference-server-registration.png "Inscription de serveur de référence UA")
 
 5. Sélectionnez **Register** pour inscrire l’application dans la base de données d’application de service de certificats. Le workflow guide l’utilisateur directement vers l’étape suivante destinée à demander un certificat signé pour l’application.
 
@@ -53,19 +53,19 @@ Sécurisez votre application OPC UA en émettant un certificat signé basé sur 
 1. Accédez à **Applications**.
 3. Sélectionnez **New Request** (Nouvelle demande) pour une application listée.
 
-   ![Capture d’écran d’une demande de nouveau certificat](media/howto-opc-vault-secure/request-new-certificate.png "Demande de nouveau certificat")
+   ![Capture d’écran d’une demande de nouveau certificat](media/howto-opc-vault-secure/request-new-certificate.png "Demander un nouveau certificat")
 
 3. Sélectionnez **Request new KeyPair and Certificate** (Demander une nouvelle paire de clés et un nouveau certificat) pour demander une clé privée et un nouveau certificat signé avec la clé publique pour votre application.
 
-   ![Capture d’écran de génération d’une nouvelle paire de clés et d’un nouveau certificat](media/howto-opc-vault-secure/generate-new-key-pair.png "Génération d’une nouvelle paire de clés")
+   ![Capture d’écran de génération d’une nouvelle paire de clés et d’un nouveau certificat](media/howto-opc-vault-secure/generate-new-key-pair.png "Générer une nouvelle paire de clés")
 
 4. Complétez le formulaire avec un sujet et les noms de domaine. Pour la clé privée, choisissez PEM ou PFX avec mot de passe. Sélectionnez **Generate New KeyPair** (Générer une nouvelle paire de clés) pour créer la demande de certificat.
 
-   ![Capture d’écran d’affichage des détails de la demande de certificat](media/howto-opc-vault-secure/approve-reject.png "Approbation du certificat")
+   ![Capture d’écran d’affichage des détails de la demande de certificat](media/howto-opc-vault-secure/approve-reject.png "Approuver un certificat")
 
 5. L’approbation exige que l’utilisateur possède le rôle Approbateur et des autorisations de signature dans Azure Key Vault. Dans le workflow classique, les rôles Approbateur et Demandeur doivent être attribués à des utilisateurs distincts. Sélectionnez **Approve** (Approuver) ou **Reject** (Rejeter) pour lancer ou annuler la création effective de la paire de clés et l’opération de signature. La nouvelle paire de clés est créée et stockée de manière sécurisé dans Azure Key Vault jusqu’à ce qu’elle soit téléchargée par le demandeur de certificat. Le certificat obtenu avec la clé publique est signé par l’autorité de certification. Ces opérations peuvent prendre quelques secondes.
 
-   ![Capture d’écran d’affichage des détails d’une demande de certificat, avec message d’approbation au bas](media/howto-opc-vault-secure/view-key-pair.png "Affichage d’une paire de clés")
+   ![Capture d’écran d’affichage des détails d’une demande de certificat, avec message d’approbation au bas](media/howto-opc-vault-secure/view-key-pair.png "Afficher une paire de clés")
 
 7. La clé privée (PFX ou PEM) et le certificat (DER) obtenus peuvent être téléchargés à partir de là au format sélectionné en tant que téléchargement de fichiers binaires. Une version encodée en base64 est aussi disponible, par exemple, pour copier et coller le certificat dans une ligne de commande ou une entrée de texte. 
 8. Après avoir téléchargé et stocké de manière sécurisée la clé privée, vous pouvez sélectionner **Delete Private Key** (Supprimer la clé privée). Le certificat avec la clé publique reste disponible pour une utilisation ultérieure.
@@ -78,19 +78,19 @@ Sécurisez votre application OPC UA en émettant un certificat signé basé sur 
 1. Accédez à **Applications**.
 3. Sélectionnez **New Request** (Nouvelle demande) pour une application listée.
 
-   ![Capture d’écran d’une demande de nouveau certificat](media/howto-opc-vault-secure/request-new-certificate.png "Demande de nouveau certificat")
+   ![Capture d’écran d’une demande de nouveau certificat](media/howto-opc-vault-secure/request-new-certificate.png "Demander un nouveau certificat")
 
 3. Sélectionnez **Request new Certificate with Signing Request** (Demander un nouveau certificat avec demande de signature) pour demander un nouveau certificat signé pour votre application.
 
-   ![Capture d’écran de génération d’un nouveau certificat](media/howto-opc-vault-secure/generate-new-certificate.png "Génération d’un nouveau certificat")
+   ![Capture d’écran de génération d’un nouveau certificat](media/howto-opc-vault-secure/generate-new-certificate.png "Générer un nouveau certificat")
 
 4. Chargez la demande de signature de certificat (CSR) en sélectionnant un fichier local ou en collant une demande de signature de certificat encodée en base64 dans le formulaire. Sélectionnez **Generate New Certificate** (Générer un nouveau certificat).
 
-   ![Capture d’écran d’affichage des détails de la demande de certificat](media/howto-opc-vault-secure/approve-reject-csr.png "Approbation d’une demande de signature de certificat")
+   ![Capture d’écran d’affichage des détails de la demande de certificat](media/howto-opc-vault-secure/approve-reject-csr.png "Approuver une demande de signature de certificat")
 
 5. L’approbation exige que l’utilisateur possède le rôle Approbateur et des autorisations de signature dans Azure Key Vault. Sélectionnez **Approve** (Approuver) ou **Reject** (Rejeter) pour lancer ou annuler la l’opération de signature effective. Le certificat obtenu avec la clé publique est signé par l’autorité de certification. Cette opération peut prendre quelques secondes.
 
-   ![Capture d’écran d’affichage des détails d’une demande de certificat, avec message d’approbation au bas](media/howto-opc-vault-secure/view-cert-csr.png "Affichage du certificat")
+   ![Capture d’écran d’affichage des détails d’une demande de certificat, avec message d’approbation au bas](media/howto-opc-vault-secure/view-cert-csr.png "Afficher un certificat")
 
 6. Le certificat (DER) obtenu peut être téléchargé à partir de là en tant que fichier binaire. Une version encodée en base64 est aussi disponible, par exemple, pour copier et coller le certificat dans une ligne de commande ou une entrée de texte. 
 10. Après avoir téléchargé et stocké de manière sécurisée le certificat, vous pouvez sélectionner **Delete Certificate** (Supprimer le certificat).

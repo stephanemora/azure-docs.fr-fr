@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f5694e18d5743118e2b6e73708dd3acb17151198
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874938"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750318"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Bande passante réseau des machines virtuelles
 
@@ -54,13 +54,13 @@ Le transfert de données entre les points de terminaison nécessite la création
 
 ## <a name="flow-limits-and-recommendations"></a>Limites de flux et recommandations
 
-Aujourd'hui, la pile de mise en réseau Azure prend en charge 250 000 flux de réseau au total, avec un bon niveau de performance pour les machines virtuelles ayant plus de 8 cœurs d’UC et 100 000 flux au total, avec un bon niveau de performance pour les machines virtuelles ayant moins de 8 cœurs d’UC. Au-delà de cette limite, le niveau de performance du réseau se dégrade normalement en cas de flux supplémentaires jusqu’à une limite inconditionnelle de 1 million de flux au total, à savoir respectivement 500 000 d’entrée et de sortie, après quoi les flux supplémentaires sont supprimés.
+Aujourd'hui, la pile de mise en réseau Azure prend en charge 250 000 flux de réseau au total, avec un bon niveau de performance pour les machines virtuelles ayant plus de 8 cœurs d’UC et 100 000 flux au total, avec un bon niveau de performance pour les machines virtuelles ayant moins de 8 cœurs d’UC. Au-delà de cette limite, le niveau de performance du réseau se dégrade normalement en cas de flux supplémentaires jusqu’à une limite inconditionnelle de 500 000 flux au total, à savoir respectivement 250 000 flux entrants et 250 000 flux sortants, après quoi les flux supplémentaires sont supprimés.
 
 ||Machines virtuelles avec < 8 cœurs d’UC|Machines virtuelles avec plus de 8 cœurs d’UC|
 |---|---|---|
 |<b>Bon niveau de performance</b>|100 000 flux |250 000 flux|
 |<b>Performances dégradées</b>|Plus de 100 000 flux|Plus de 250 000 flux|
-|<b>Limite de flux</b>|1 million de flux|1 million de flux|
+|<b>Limite de flux</b>|500 000 flux|500 000 flux|
 
 Des métriques permettant de suivre le nombre de flux réseau et le taux de création des flux sur votre machine virtuelle ou sur des instances de VMSS sont disponibles dans [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines).
 

@@ -1,23 +1,22 @@
 ---
-title: Mise à niveau vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 3 - Recherche Azure
+title: Effectuer une mise à niveau vers la version 3 du SDK .NET Recherche Azure
+titleSuffix: Azure Cognitive Search
 description: Migrez le code vers le SDK .NET de la Recherche Azure version 3 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: cab0da93bbea117c216969faf2f1e194e16d675f
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: fcad05749892e3a652e110a7e351450bffaca6f2
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183221"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792979"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3
+# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>Effectuer une mise à niveau vers la version 3 du SDK .NET Recherche Azure
 
 <!--- DETAILS in the word doc
 cosmosdb

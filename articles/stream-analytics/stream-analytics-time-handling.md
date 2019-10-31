@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: c8517d4754d10b61f7ee4c8075830860e1d22864
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 10d300638f95fe275a23dfbc239f8f961f46b127
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172991"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598018"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Comprendre la gestion du temps dans Azure Stream Analytics
 
@@ -208,7 +208,7 @@ Dans cette illustration, les tolérances utilisées sont les suivantes :
 
    4. Quand le sixième événement (device3) est traité, l’heure d’arrivée (12:17) et l’heure de l’événement (12:12) se trouvent en dessous du niveau limite. L’heure de l’événement est ajustée par rapport au niveau limite (12:17).
 
-   5. Quand le neuvième événement (device3) est traité, l’heure d’arrivée (12:27) est postérieure de 6 minutes à l’heure de l’événement (12:21). La stratégie d’arrivée tardive est appliquée. L’heure de l’événement est ajustée (12:22), laquelle se situe au-dessus de la limite (12:21), et aucun ajustement supplémentaire n’est appliqué.
+   5. Quand le douzième événement (device3) est traité, l’heure d’arrivée (12:27) est postérieure de 6 minutes à l’heure de l’événement (12:21). La stratégie d’arrivée tardive est appliquée. L’heure de l’événement est ajustée (12:22), laquelle se situe au-dessus de la limite (12:21), et aucun ajustement supplémentaire n’est appliqué.
 
 2. Deuxième illustration de la progression de la limite sans stratégie d’arrivée précoce :
 

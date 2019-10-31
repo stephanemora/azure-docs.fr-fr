@@ -2,22 +2,22 @@
 title: Planification de la capacité de cluster dans Azure HDInsight
 description: Identifiez les principales questions relatives à la planification de la capacité et des performances d’un cluster Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.author: hrasheed
-ms.openlocfilehash: 64de4078fb529140859f1d4ff2e973fd081a5400
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 10/15/2019
+ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916557"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529156"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
-Avant de déployer un cluster HDInsight, planifiez la capacité de cluster souhaitée en déterminant les performances et la mise à l’échelle requises. Cette planification aide à optimiser les coûts et accroît la facilité d’utilisation. Certaines décisions en matière de capacité du cluster ne peuvent pas être changées après le déploiement. Si les paramètres de performances changent, vous pouvez démonter et recréer un cluster sans perdre les données stockées.
+Avant de déployer un cluster HDInsight, planifiez la capacité de cluster souhaitée en déterminant les performances et la mise à l’échelle requises. Cette planification aide à optimiser les coûts et accroît la facilité d’utilisation. Certaines décisions relatives à la capacité du cluster ne peuvent pas être changées après le déploiement. Si les paramètres de performances changent, vous pouvez démonter et recréer un cluster sans perdre les données stockées.
 
 Les principales questions à se poser pour la planification de la capacité sont les suivantes :
 
@@ -31,13 +31,13 @@ Les principales questions à se poser pour la planification de la capacité sont
 
 La région Azure détermine où votre cluster est physiquement mis en service. Pour réduire la latence de lecture et d’écriture, le cluster doit être proche de vos données.
 
-HDInsight est disponible dans de nombreuses régions Azure. Pour rechercher la région la plus proche, regardez l’entrée *HDInsight* sous *Analytique* dans [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
+HDInsight est disponible dans de nombreuses régions Azure. Pour trouver la région la plus proche, consultez [Disponibilité des produits par région](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/).
 
 ## <a name="choose-storage-location-and-size"></a>Choisir la taille et l’emplacement de stockage
 
 ### <a name="location-of-default-storage"></a>Emplacement du stockage par défaut
 
-Le stockage par défaut (soit un compte Stockage Azure, soit Azure Data Lake Storage) doit être au même emplacement que votre cluster. Le stockage Azure est disponible à tous les emplacements. Data Lake Storage Gen 1 est disponible dans certaines régions. Consultez la disponibilité actuelle de Data Lake Storage sous *Stockage* dans [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
+Le stockage par défaut (soit un compte Stockage Azure, soit Azure Data Lake Storage) doit être au même emplacement que votre cluster. Le stockage Azure est disponible à tous les emplacements. Data Lake Storage Gen1 est disponible dans certaines régions. Consultez la [disponibilité actuelle de Data Lake Storage](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage).
 
 ### <a name="location-of-existing-data"></a>Emplacement des données existantes
 
@@ -53,7 +53,7 @@ Un cluster peut accéder à une combinaison de différents comptes de stockage. 
 
 * Quand la quantité de données est susceptible de dépasser la capacité de stockage d’un conteneur de stockage d’objets blob.
 * Quand le taux d’accès au conteneur d’objets blob peut dépasser le seuil où la limitation se produit.
-* Quand vous souhaitez rendre des données que vous avez déjà chargées vers un conteneur d’objets blob accessible au cluster.
+* Quand vous souhaitez rendre accessibles au cluster des données déjà chargées dans un conteneur d’objets blob.
 * Quand vous souhaitez isoler différentes parties du stockage pour des raisons de sécurité ou pour simplifier l’administration.
 
 Pour un cluster à 48 nœuds, nous recommandons 4 à 8 comptes de stockage. Bien que le stockage total actuel puisse être suffisant, chaque compte de stockage fournit une bande passante réseau supplémentaire pour les nœuds de calcul. Quand vous avez plusieurs comptes de stockage, utilisez un nom aléatoire pour chaque compte de stockage, sans préfixe. L’objectif de l’attribution aléatoire des noms est de réduire le risque de goulot d’étranglement de stockage (limitation) ou les défaillances en mode commun parmi tous les comptes. Pour de meilleures performances, utilisez un seul conteneur par compte de stockage.
@@ -66,7 +66,7 @@ Le type de cluster détermine la charge de travail pour laquelle votre cluster H
 
 Chaque type de cluster a un ensemble de types de nœuds, et chaque type de nœud a des options spécifiques pour la taille et le type de machine virtuelle.
 
-Pour déterminer la taille de cluster optimale pour votre application, vous pouvez évaluer la capacité de cluster et augmenter la taille comme indiqué. Vous pouvez par exemple utiliser une charge de travail simulée ou une *requête canary*. Avec la charge simulée, vous exécutez vos charges de travail attendues sur différentes tailles de cluster, en augmentant progressivement la taille jusqu’à obtenir les performances souhaitées. Vous pouvez insérer une requête canary régulièrement parmi les autres requêtes de production pour montrer si le cluster a suffisamment de ressources.
+Pour déterminer la taille de cluster optimale pour votre application, vous pouvez évaluer la capacité de cluster et augmenter la taille comme indiqué. Vous pouvez par exemple utiliser une charge de travail simulée ou une *requête canary*. Avec la charge simulée, vous exécutez vos charges de travail attendues sur différentes tailles de cluster, en augmentant progressivement la taille jusqu’à obtenir les performances souhaitées. Vous pouvez insérer régulièrement une requête canary parmi les autres requêtes de production pour voir si le cluster a suffisamment de ressources.
 
 La taille et le type de machine virtuelle sont déterminés par la puissance de traitement de l’UC, la taille de la RAM et la latence du réseau :
 
@@ -74,7 +74,7 @@ La taille et le type de machine virtuelle sont déterminés par la puissance de 
 
 * RAM : la taille de machine virtuelle détermine également la quantité de RAM disponible sur la machine virtuelle. Pour les charges de travail qui stockent des données en mémoire pour le traitement, au lieu de lire à partir du disque, vérifiez que vos nœuds worker disposent de suffisamment de mémoire pour stocker les données.
 
-* Réseau : pour la plupart des types de clusters, les données traitées par le cluster ne sont pas sur le disque local, mais dans un service de stockage externe comme Data Lake Storage ou Stockage Azure. Prenez en compte le débit et la bande passante réseau entre la machine virtuelle du nœud et le service de stockage. La bande passante accessible à une machine virtuelle augmente généralement avec la taille. Pour plus d’informations, consultez [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+* Réseau : pour la plupart des types de clusters, les données traitées par le cluster ne se trouvent pas sur le disque local, mais dans un service de stockage externe comme Data Lake Storage ou Stockage Azure. Prenez en compte le débit et la bande passante réseau entre la machine virtuelle du nœud et le service de stockage. La bande passante accessible à une machine virtuelle augmente généralement avec la taille. Pour plus d’informations, consultez [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
 
 ## <a name="choose-the-cluster-scale"></a>Choix de l’échelle du cluster
 
@@ -95,7 +95,6 @@ Vous êtes facturé pour la durée de vie d’un cluster. Si vous avez besoin qu
 ### <a name="isolate-cluster-job-errors"></a>Isoler les erreurs de travaux de cluster
 
 Parfois, des erreurs peuvent se produire à cause de l’exécution en parallèle de plusieurs composants de mappage et de réduction sur un cluster à plusieurs nœuds. Pour isoler le problème, essayez d’effectuer des tests distribués en exécutant simultanément plusieurs travaux sur un cluster à nœud worker unique, puis développez cette approche pour exécuter plusieurs travaux simultanément sur des clusters qui contiennent plusieurs nœuds. Pour créer un cluster HDInsight à nœud unique dans Azure, utilisez l’option *Personnalisé (taille, paramètres, applications)* et utilisez la valeur 1 pour *Nombre de nœuds Worker* dans la section **Taille du cluster** lors du provisionnement d’un nouveau cluster dans le portail.
-
 
 ## <a name="quotas"></a>Quotas
 

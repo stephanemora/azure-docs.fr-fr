@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266181"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Améliorer les performances des charges de travail Apache Spark à l’aide d’Azure HDInsight IO Cache
@@ -41,7 +41,7 @@ Azure HDInsight IO Cache est désactivé par défaut dans la préversion. IO Cac
 
 1. Sélectionnez **Actions** et **Activer**.
 
-    ![Activation du service IO Cache dans Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Activation du service IO Cache dans Ambari")
+    ![Activation du service Cache d’E/S dans Ambari](./media/apache-spark-improve-performance-iocache/ambariui-enable-iocache.png "Activation du service Cache d’E/S dans Ambari")
 
 1. Confirmez le redémarrage de tous les services affectés sur le cluster.
 
@@ -56,7 +56,7 @@ Vous pourrez rencontrer des erreurs d’espace disque lors de l’exécution des
 
 1. Sélectionnez les onglets **Configurations** et **Avancé**.
 
-    ![Modifier la configuration avancée de HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Modifier la configuration avancée de HDFS")
+    ![Modifier la configuration avancée HDFS](./media/apache-spark-improve-performance-iocache/ambariui-hdfs-service-configs-advanced.png "Modifier la configuration avancée HDFS")
 
 1. Faites défiler la page vers le bas et développez la zone **Configuration core-site personnalisée**.
 
@@ -64,13 +64,13 @@ Vous pourrez rencontrer des erreurs d’espace disque lors de l’exécution des
 
 1. Modifiez la valeur définie dans la zone.
 
-    ![Modifier le pourcentage de remplissage IO Cache](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Modifier le pourcentage de remplissage IO Cache")
+    ![Pourcentage de remplissage du cache d’E/S](./media/apache-spark-improve-performance-iocache/ambariui-cache-data-fullness-percentage-property.png "Pourcentage de remplissage du cache d’E/S")
 
 1. Sélectionnez **Enregistrer** dans le coin supérieur droit.
 
 1. Sélectionnez **Redémarrer** > **Redémarrer tous les éléments affectés**.
 
-    ![Apache Ambari : Redémarrer tous les éléments affectés](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Redémarrer tous les éléments affectés")
+    ![Apache Ambari - Redémarrer tous les éléments affectés](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Redémarrer tous les éléments affectés")
 
 1. Sélectionnez **Confirmer le redémarrage**.
 

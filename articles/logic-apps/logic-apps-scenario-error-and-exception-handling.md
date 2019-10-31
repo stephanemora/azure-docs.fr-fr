@@ -1,6 +1,6 @@
 ---
-title: Scénario de gestion des exceptions et de journalisation des erreurs Azure Logic Apps | Microsoft Docs
-description: Voici un cas d’usage réel sur la gestion avancée des exceptions et la journalisation des erreurs dans Azure Logic Apps
+title: Scénario de gestion des exceptions et de journalisation des erreurs Azure Logic Apps
+description: Cas d’usage et scénario réels sur la gestion avancée des exceptions et la journalisation des erreurs dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,12 +10,12 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7930d487d367ee19b869becae5017f80ea1df8cb
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385466"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680158"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
@@ -36,7 +36,7 @@ Le projet comportait deux exigences principales :
 * La possibilité de visualiser les erreurs susceptibles de se produire dans le flux de travail.
 
 > [!TIP]
-> Pour une vidéo générale sur ce projet, consultez la page [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Groupe d’utilisateurs d’intégration").
+> Pour une vidéo détaillée sur ce projet, consultez [Groupe d’utilisateurs d’intégration](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Groupe d’utilisateurs d’intégration").
 
 ## <a name="how-we-solved-the-problem"></a>Comment nous avons résolu le problème
 
@@ -479,7 +479,7 @@ L’expression de l’exemple de code ci-dessus vérifie que l’état de l’en
 
 ### <a name="source-code"></a>Code source
 
-Le code source de l’application API de gestion des exceptions Logic Apps est disponible dans ce [référentiel GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gestion des exceptions Logic Apps").
+Le code source de l’application API de gestion des exceptions Logic Apps est disponible dans ce [dépôt GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gestion des exceptions d’application logique").
 
 ## <a name="next-steps"></a>Étapes suivantes
 

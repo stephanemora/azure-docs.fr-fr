@@ -1,23 +1,22 @@
 ---
-title: Mise à niveau vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 9 - Recherche Azure
+title: Effectuer une mise à niveau vers la version 9 du SDK .NET Recherche Azure
+titleSuffix: Azure Cognitive Search
 description: Migrez le code vers le SDK .NET Recherche Azure version 9 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 32908ab209cbe05a0acf9da896e1e1fb11e6f5dd
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: fcc70267754f7e66f29dd1b855d3efb8b814e78b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183240"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793014"
 ---
-# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Mettre à niveau vers la version 9 du SDK .NET Recherche Azure
+# <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Effectuer une mise à niveau vers la version 9 du SDK .NET Recherche Azure
 
 Si vous utilisez la version 7.0-preview ou une version antérieure du [SDK .NET Recherche Azure](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 9.
 
@@ -38,7 +37,7 @@ La version 9 du SDK .NET Recherche Azure contient de nombreuses modifications pa
 ## <a name="whats-new-in-version-9"></a>Nouveautés de la version 9
 La version 9 du SDK .NET Recherche Azure cible la dernière version en disponibilité générale de l’API REST Recherche Azure, spécifiquement 2019-05-06. Cela permet d’utiliser de nouvelles fonctionnalités de Recherche Azure à partir d’une application .NET, notamment les suivantes :
 
-* La [recherche cognitive](cognitive-search-concept-intro.md) est une fonctionnalité IA du service Recherche Azure, utilisée pour extraire du texte à partir d’images, d’objets blob et d’autres sources de données non structurées. Elle enrichit le contenu pour faciliter les recherches dans un index Recherche Azure.
+* L’[enrichissement par IA](cognitive-search-concept-intro.md) est la capacité à extraire du texte à partir d’images, d’objets blob et d’autres sources de données non structurées pour enrichir le contenu et ainsi faciliter les recherches dans un index de Recherche Azure.
 * La prise en charge de [types complexes](search-howto-complex-data-types.md) vous permet de modéliser presque n’importe quelle structure JSON imbriquée dans un index Recherche Azure.
 * La fonctionnalité [Autocomplétion](search-autocomplete-tutorial.md) fournit une alternative à l’API **Suggestion** pour implémenter le comportement de recherche au cours de la frappe. L’autocomplétion « termine » le mot ou l’expression que l’utilisateur est en train de taper.
 * Le [mode d’analyse JsonLines](search-howto-index-json-blobs.md), inclus dans l’indexation des objets Blob Azure, crée un document de recherche par entité JSON, séparé par un saut de ligne.

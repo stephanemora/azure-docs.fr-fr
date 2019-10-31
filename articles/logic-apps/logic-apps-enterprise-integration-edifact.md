@@ -1,5 +1,5 @@
 ---
-title: Messages EDIFACT pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs
+title: Messages EDIFACT pour l’intégration B2B - Azure Logic Apps
 description: Échanger des messages EDIFACT au format EDI dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 42197f8bf08ae1f36c531c220ebbf78484a5946e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684446"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680347"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages EDIFACT dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
@@ -38,7 +37,7 @@ Une fois que vous avez [créé un compte d’intégration](../logic-apps/logic-a
 
 ## <a name="create-an-edifact-agreement"></a>Créer un contrat EDIFACT 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com "portail Azure"). 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com "Portail Azure"). 
 
 2. Dans le menu principal Azure, sélectionnez **Tous les services**. Dans la zone de recherche, entrez « intégration », puis sélectionnez **Comptes d’intégration**.
 
@@ -246,5 +245,5 @@ Une nouvelle ligne de validation est automatiquement ajoutée dès que la ligne 
 Pour afficher les détails Swagger du connecteur EDIFACT, voir [EDIFACT](/connectors/edifact/).
 
 ## <a name="learn-more"></a>En savoir plus
-* [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")  
+* [En savoir plus sur Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")  
 

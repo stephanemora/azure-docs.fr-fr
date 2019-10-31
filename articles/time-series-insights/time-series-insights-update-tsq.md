@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b7d041b678ccf2a476afc6d0744f6971349677e
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 0b2f89a846747eaf78c60077372b48802506731e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034866"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553371"
 ---
 # <a name="data-querying"></a>Interrogation de données
 
@@ -25,7 +25,7 @@ Trois catégories principales d’API sont disponibles dans Time Series Insights
 
 * **API d’environnement** : requêtes sur l’environnement Time Series Insights proprement dit. Exemples : la liste des environnements auxquels l’appelant a accès, les métadonnées de l’environnement.
 
-* **API modèle-requête de série chronologique (TSM-Q)** : opérations de création, de lecture, de mise à jour et de suppression sur les métadonnées stockées dans la partie environnement du modèle de série chronologique. Exemples : instances, types et hiérarchies.
+* **API modèle-requête de série chronologique (TSM-Q)** : opérations CRUD (création, lecture, mise à jour et suppression) sur les métadonnées stockées dans la partie environnement du modèle de série chronologique. Exemples : instances, types et hiérarchies.
 
 * **API de requête de série chronologique (TSQ)** : récupération des données d’événements au fil de leur enregistrement à partir du fournisseur de source. Ces API peuvent effectuer des opérations de transformation, de combinaison et de calculs sur des données de série chronologique.
 

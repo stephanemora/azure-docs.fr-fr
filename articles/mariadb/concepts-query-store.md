@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 10/17/2019
+ms.openlocfilehash: ab543ee8e379b89aaa9a1133bb75387ed9904002
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166232"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598391"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Surveiller les performances de Azure Database for MariaDB avec Magasin de données des requêtes
 
@@ -70,6 +70,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 ```
 
 ## <a name="finding-wait-queries"></a>Recherche de requêtes d’attente
+
+> [!NOTE]
+> Les statistiques d’attente ne doivent pas être activées pendant les heures de pic de charges de travail ou être activées indéfiniment pour les charges de travail sensibles. <br>Pour les charges de travail s’exécutant avec une utilisation élevée du processeur ou sur des serveurs configurés avec des vCores inférieurs, activez les statistiques d’attente avec prudence. Elles ne doivent pas être activées indéfiniment. 
 
 Les types d’événements d’attente combinent différents événements d’attente dans des compartiments par similarité. Le Magasin des requêtes fournit le type d’événement d’attente, le nom d’événement d’attente spécifique et la requête en question. Pouvoir mettre en corrélation ces informations d’attente avec les statistiques d’exécution de requête vous permet de mieux comprendre ce qui contribue aux caractéristiques de performances des requêtes.
 

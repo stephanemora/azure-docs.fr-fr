@@ -15,12 +15,12 @@ ms.date: 08/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: eb7c2cb4a20c89f3a54f23e354d56e5dc3711ef0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 158222c256e3efc7ca87d7a3781ca68e1c4307b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967101"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750187"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure
 
@@ -54,7 +54,7 @@ Cet article répond aux questions fréquentes sur le contrôle d’accès en fon
 - Si vous obtenez l’erreur d’autorisations « Le client avec l’ID d’objet n’est pas autorisé à effectuer l’action sur l’étendue (code : AuthorizationFailed) » lorsque vous tentez de créer une ressource, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation d’écriture sur la ressource au niveau de l’étendue sélectionnée. Par exemple, pour gérer les machines virtuelles dans un groupe de ressources, vous devez disposer du rôle [Contributeur de machines virtuelles](built-in-roles.md#virtual-machine-contributor) sur le groupe de ressources (ou l’étendue parente). Afin d’obtenir la liste des autorisations pour chaque rôle intégré, consultez [Rôles intégrés pour les ressources Azure](built-in-roles.md).
 - Si vous obtenez l’erreur d’autorisations « Vous n’êtes pas autorisé à créer une demande de support » quand vous tentez de créer ou de mettre à jour un ticket de support, vérifiez que vous êtes actuellement connecté avec un utilisateur disposant d’un rôle qui a l’autorisation `Microsoft.Support/supportTickets/write`, comme [Collaborateur de la demande de support](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-without-a-security-principal"></a>Attributions de rôles sans principal de sécurité
+## <a name="role-assignments-with-unknown-security-principal"></a>Attributions de rôles avec un principal de sécurité inconnu
 
 Quand vous listez vos attributions de rôles à l’aide d’Azure PowerShell, vous pouvez voir des attributions avec un `DisplayName` vide et un `ObjectType` défini sur Unknown (Inconnu). Par exemple, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) retourne une attribution de rôle similaire à ce qui suit :
 

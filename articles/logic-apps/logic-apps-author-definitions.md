@@ -1,21 +1,20 @@
 ---
-title: Créer, modifier ou étendre JSON pour des définitions d’application logique - Azure Logic Apps | Microsoft Docs
-description: Créer et étendre JSON pour les définitions d’applications logiques dans Azure Logic Apps
+title: Créer, modifier ou étendre des définitions d’applications logiques - Azure Logic Apps
+description: Guide pratique pour écrire, modifier et étendre des définitions JSON d’applications logiques dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, jehollan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: a96cc56c85db6726bf2cdaff72904e76ecbaf087
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 03203a5fdb6d61ed95e96581a7e4a979c911cd02
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164650"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680023"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Créer, modifier ou étendre JSON pour les définitions d’applications logiques dans Azure Logic Apps
 

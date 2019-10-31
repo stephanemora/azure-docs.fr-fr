@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a0d8f7cdace8d3e810dfcda6e54df5823840307c
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a1707740d673ea49a4b4494f5d2e6a5753982090
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034333"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553416"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>Visualiser des données dans l’explorateur (préversion)
 
@@ -155,7 +155,7 @@ Lorsque vous utilisez la préversion d’Azure Time Series Insights, vous sélec
 
 ## <a name="navigation-panel"></a>Volet de navigation
 
-Le volet de navigation de la préversion de Time Series Insights s’affiche en haut de votre application de Time Series Insights. Il offre les fonctionnalités suivantes.
+Le volet de navigation de la préversion de Time Series Insights s’affiche en haut de votre application de Time Series Insights. Il offre les fonctionnalités suivantes :
 
 ### <a name="current-session-share-link-control"></a>Contrôle de lien de partage de session en cours
 
@@ -201,7 +201,7 @@ Cette section s’applique uniquement aux environnements S1/S2 existants qui ten
 
 Le panneau de l’éditeur de termes Time Series Insights (préversion) accepte les paramètres suivants :
 
-**Where** : la clause Where vous permet de filtrer rapidement vos événements à l’aide de l’ensemble d’opérandes répertoriées dans le tableau ci-dessous. Si vous effectuez une recherche en sélectionnant un opérande, le prédicat est automatiquement mis à jour selon cette recherche. Les types d’opérandes pris en charge comprennent les suivants :
+**Where** : la clause Where vous permet de filtrer rapidement vos événements à l’aide de l’ensemble d’opérandes répertoriées dans le tableau ci-dessous. Si vous effectuez une recherche en sélectionnant un opérande, le prédicat est automatiquement mis à jour selon cette recherche. Les types d’opérandes pris en charge comprennent les suivants :
 
 | Opération | Types pris en charge   | Notes |
 | --- | --- | --- |

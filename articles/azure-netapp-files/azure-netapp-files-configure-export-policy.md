@@ -12,22 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086151"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674930"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurer une stratégie d’exportation pour un volume NFS
 
-Si vous le souhaitez, vous pouvez configurer une stratégie d’exportation pour contrôler l’accès à un volume Azure NetApp Files. La stratégie d’exportation est prise en charge uniquement pour les volumes NFS. 
+Si vous le souhaitez, vous pouvez configurer une stratégie d’exportation pour contrôler l’accès à un volume Azure NetApp Files. La stratégie d’exportation d’Azure NetApp Files prend en charge les volumes NFS uniquement.  Les systèmes NFSv3 et NFSv4 sont pris en charge. 
 
 ## <a name="steps"></a>Étapes 
 
-1.  Cliquez sur le panneau **Create Export Policy** (Créer une stratégie d’exportation) à partir du panneau de gestion de volumes. 
+1.  Cliquez sur **Exporter la stratégie** dans le volet de navigation d’Azure NetApp Files. 
 
 2.  Renseignez les champs suivants pour créer une règle de stratégie d’exportation :   
     *  **Index**   
@@ -44,10 +44,6 @@ Si vous le souhaitez, vous pouvez configurer une stratégie d’exportation pour
         * Aucun accès 
         * Lecture et écriture
         * Lecture seule
-
-    * **Protocoles**   
-        Spécifiez le protocole à utiliser pour la stratégie d’exportation.   
-        La stratégie d’exportation Azure NetApp Files prend uniquement en charge le protocole NFSv3.
 
     ![Exporter la stratégie](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

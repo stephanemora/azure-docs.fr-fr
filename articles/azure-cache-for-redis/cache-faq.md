@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: 42d0d7dcc4e10e6f9bfad02a68f3ec176b8a7fb4
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 5ccbfb75edc7fa0eabf5e647169ed2d3771326d8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315989"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785834"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ sur le cache Azure pour Redis
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques concernant le Cache Azure pour Redis.
@@ -73,7 +73,7 @@ Les Forums aux questions suivants couvrent les concepts de base, et les question
 * [Considérations relatives aux performances de connexion](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>Forum aux questions sur la surveillance et le dépannage
-Le Forum aux questions de cette section couvre des questions courantes liées à la surveillance et au dépannage. Pour plus d’informations sur la surveillance et le dépannage de vos instances du Cache Azure pour Redis, voir [Surveillance du Cache Azure pour Redis](cache-how-to-monitor.md) et [Résolution des problèmes du Cache Azure pour Redis](cache-how-to-troubleshoot.md).
+Le Forum aux questions de cette section couvre des questions courantes liées à la surveillance et au dépannage. Pour plus d’informations sur la supervision et le dépannage de vos instances du Cache Azure pour Redis, consultez [Surveillance du Cache Azure pour Redis](cache-how-to-monitor.md) et les différents guides de dépannage.
 
 * [Comment surveiller l’intégrité et les performances de mon cache ?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 * [Pourquoi est-ce que je reçois des erreurs d’expiration du délai ?](#why-am-i-seeing-timeouts)
@@ -178,7 +178,7 @@ Pour plus d’informations sur les éléments à prendre en compte lors de l’u
 - [Cloud Azure Chine 21Vianet - Cache Azure pour Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
-Pour plus d’informations sur l’utilisation du Cache Azure pour Redis avec PowerShell dans le cloud Azure Government, le cloud Azure Chine 21Vianet et Microsoft Azure Allemagne, consultez [Comment se connecter aux autres clouds - Cache Azure pour Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+Pour plus d’informations sur l’utilisation du Cache Azure pour Redis avec PowerShell dans le cloud Azure Government, le cloud Azure Chine 21Vianet et Microsoft Azure Allemagne, consultez [Comment se connecter aux autres clouds - Cache Azure pour Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
@@ -197,6 +197,7 @@ Généralement, les valeurs par défaut du client sont suffisantes. Vous pouvez 
   * Pour ConnectRetry et ConnectTimeout, la recommandation générale consiste à effectuer un Fail-fast, puis à réessayer. Cela dépend de votre charge de travail et de combien de temps en moyenne votre client prend pour émettre une commande Redis et recevoir une réponse.
   * Laissez StackExchange.Redis se reconnecter automatiquement au lieu de vérifier l’état de la connexion et de vous reconnecter vous-même. **Évitez d’utiliser la propriété ConnectionMultiplexer.IsConnected**.
   * Effet boule de neige : vous pouvez parfois rencontrer un problème, vous réessayez, mais le problème ne fait que grossir et n’est jamais résolu. Dans ce cas, envisagez d’utiliser un algorithme de nouvelle tentative d’interruption exponentiel, comme décrit dans l’article [Conseils généraux sur les nouvelles tentatives](../best-practices-retry-general.md), publié par le groupe Microsoft Patterns & Practices.
+  
 * **Valeurs de délai d’expiration**
   * Réfléchissez à votre charge de travail et définissez les valeurs en conséquence. Si vous stockez des valeurs élevées, définissez le délai sur une valeur plus élevée.
   * Définissez `AbortOnConnectFail` sur False et laissez StackExchange.Redis se reconnecter pour vous.
@@ -443,7 +444,7 @@ Ces outils vous permettent de surveiller l’intégrité de vos instances Cache 
 <a name="cache-timeouts"></a>
 
 ### <a name="why-am-i-seeing-timeouts"></a>Pourquoi est-ce que je reçois des erreurs d’expiration du délai ?
-L’expiration du délai se produit dans le client que vous utilisez pour communiquer avec Redis. Lorsqu’une commande est envoyée au serveur Redis, elle est placée dans la file d’attente, puis le serveur Redis la récupère et l’exécute. Toutefois, le client peut expirer pendant ce processus. Si c’est le cas, une exception est levée côté appelant. Pour plus d’informations sur la résolution des problèmes de délai d’attente, voir [Résolution des problèmes côté client](cache-how-to-troubleshoot.md#client-side-troubleshooting) et [Exceptions au délai d’expiration de StackExchange.Redis](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+L’expiration du délai se produit dans le client que vous utilisez pour communiquer avec Redis. Lorsqu’une commande est envoyée au serveur Redis, elle est placée dans la file d’attente, puis le serveur Redis la récupère et l’exécute. Toutefois, le client peut expirer pendant ce processus. Si c’est le cas, une exception est levée côté appelant. Pour plus d’informations sur la résolution des problèmes de délai d’attente, consultez [Résolution des problèmes côté client](cache-troubleshoot-client.md) et [Exceptions au délai d’expiration de StackExchange.Redis](cache-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
 

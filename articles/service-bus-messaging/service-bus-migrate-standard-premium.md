@@ -1,10 +1,9 @@
 ---
-title: Migrer des espaces de noms Standard Service Bus existants vers le niveau Premium| Microsoft Docs
+title: Migrer les espaces de noms Azure Service Bus Standard vers Premium
 description: Guide pour permettre la migration d’espaces de noms Standard Service Bus Azure existants vers le niveau Premium
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: darosa
 editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 610c3aa486b48b2d29df48d98e93b37cfec4854c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69611923"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790378"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrer des espaces de noms Standard Service Bus existants vers le niveau Premium
 Auparavant, Azure Service Bus offrait des espaces de noms uniquement pour le niveau Standard. Les espaces de noms sont des configurations multi-locataires optimisées pour les environnements à faible débit et les environnements de développement. Le niveau Premium offre des ressources dédiées par espace de noms pour une latence prévisible et un débit accru à un prix fixe. Le niveau Premium est optimisé pour les environnements à haut débit et de production qui nécessitent des fonctionnalités d’entreprise supplémentaires.
@@ -115,7 +114,7 @@ La migration à l’aide du portail Azure suit le même flux logique que la migr
    1. Une fois la synchronisation terminée, sélectionnez **Suivant** en bas de la page.
 
 1. Examinez les changements sur la page Résumé. Sélectionnez **Terminer la migration** pour changer d'espace de noms et terminer la migration.
-    ![Changer d'espace de noms - changer de menu][].  
+    ![Changer d'espace de noms - changer de menu][]  
     La page de confirmation s'affiche lorsque la migration est terminée.
     ![Changer d'espace de noms - réussite][]
 

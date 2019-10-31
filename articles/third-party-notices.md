@@ -1,16 +1,17 @@
 ---
 title: Mentions légales
+description: Mentions légales relatives à la documentation Azure
 author: SyntaxC4
 ms.author: cfowler
 ms.service: azure
 ms.topic: conceptual
 ms.date: 03/08/2019
-ms.openlocfilehash: 14f78c9c7e5f43fb28557933b9a89cfb5c2cb5db
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b68d521ba3ec678dad49273f0bd2fdfa5ceabee1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543882"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750425"
 ---
 # <a name="legal-notices"></a>Mentions légales
 

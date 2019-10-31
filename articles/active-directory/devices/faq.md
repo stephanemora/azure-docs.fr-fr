@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6b1782b9822877850f7c223dd80eed008ef706
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 8d44b868f2ea92c2d7bb8d7139822112a8545045
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193193"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787460"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -132,12 +132,12 @@ Pour savoir comment remédier à cela, lisez la section ci-dessous.
 
 ### <a name="q-why-are-there-devices-marked-as-pending-under-the-registered-column-in-the-azure-portal"></a>Q : Pourquoi des appareils sont-ils marqués « en attente » dans la colonne INSCRITS du portail Azure ?
 
-**R** :  « En attente » informe que l’appareil n’est pas inscrit. Cet état indique qu’un appareil a été synchronisé à l’aide d’Azure AD Connect à partir d’AD local et est prêt pour l’inscription de l’appareil. Le TYPE DE JOINTURE de ces appareils est défini sur « Azure AD Hybride joint ». Découvrez comment [planifier l’implémentation de la jointure Azure Active Directory hybride](hybrid-azuread-join-plan.md).
+**R** :  En attente indique que l’appareil n’est pas inscrit. Cet état indique qu’un appareil a été synchronisé à l’aide d’Azure AD Connect à partir d’un AD local et est prêt pour l’inscription de l’appareil. Le TYPE DE JOINTURE de ces appareils est défini sur « Joint à une version hybride d’Azure AD ». Découvrez comment [planifier l’implémentation de la jointure Azure Active Directory hybride](hybrid-azuread-join-plan.md).
 
 >[!NOTE]
 >Un appareil peut également passer d’un état inscrit à « en attente » :
->* s’il est d’abord supprimé d’Azure AD et resynchronisé à partir d’Active Directory local.
->* s’il est supprimé d’une étendue de synchronisation sur Azure AD Connect, puis rajouté.
+>* Si un appareil est supprimé d’Azure AD puis resynchronisé à partir d’un Active Directory local.
+>* S’il est supprimé d’une étendue de synchronisation sur Azure AD Connect, puis rajouté.
 >
 >Dans les deux cas, vous devez réinscrire l’appareil manuellement sur chacun de ces appareils. Pour vérifier si l’appareil a déjà été inscrit, vous pouvez [résoudre les problèmes liés aux appareils à l’aide de la commande dsregcmd](troubleshoot-device-dsregcmd.md).
 

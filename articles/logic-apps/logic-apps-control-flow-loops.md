@@ -1,21 +1,20 @@
 ---
-title: Ajouter des boucles qui répètent des actions ou des tableaux de processus – Azure Logic Apps | Microsoft Docs
-description: Comment créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
+title: Ajouter des boucles aux actions de répétition - Azure Logic Apps
+description: Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-manager: jeconnoc
-ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 01/05/2019
+ms.openlocfilehash: 31885749a7194a94a403e5c156220b3fceab951d
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683959"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680447"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -196,7 +195,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
    | Propriété | Valeur | Description |
    | -------- | ----- | ----------- |
    | **Nom** | Limite | Nom de votre variable | 
-   | **Type** | Entier | Type de données de votre variable | 
+   | **Type** | Integer | Type de données de votre variable | 
    | **Valeur** | 0 | Valeur de départ de votre variable | 
    |||| 
 
@@ -237,7 +236,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
       | Propriété | Valeur | Description |
       | -------- | ----- | ----------- | 
       | **To** | *\<adresse e-mail\@domaine>* | Adresse e-mail du destinataire. Pour effectuer le test, utilisez votre propre adresse e-mail. | 
-      | **Objet** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
+      | **Subject** | La valeur actuelle de la variable « Limite » est **Limite** | Spécifiez l’objet du message électronique. Pour cet exemple, assurez-vous d’inclure la variable **Limite**. | 
       | **Corps** | <*email-content*> | Spécifiez le contenu du message électronique à envoyer. Pour cet exemple, écrivez ce que vous voulez. | 
       |||| 
 

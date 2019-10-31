@@ -1,13 +1,13 @@
 ---
-title: Informations de référence sur les opérateurs logiques OData - Recherche Azure
-description: Opérateurs logiques OData, et, ou, et pas, dans les requêtes Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Informations de référence sur les opérateurs logiques OData
+titleSuffix: Azure Cognitive Search
+description: Opérateurs logiques OData, et, ou, et pas, dans les requêtes de Recherche cognitive Azure.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: bf4939a40a2fdf1c8fc6cf97beca0184b1604c98
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4e016047d66e49f17c08d4b92a1c865f4b63e39b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647993"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793324"
 ---
-# <a name="odata-logical-operators-in-azure-search---and-or-not"></a>Opérateurs logiques OData dans Recherche Azure - `and`, `or`, `not`
+# <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Opérateurs logiques OData dans Recherche cognitive Azure - `and`, `or`, `not`
 
-Les [expressions de filtre OData](query-odata-filter-orderby-syntax.md) dans Recherche Azure sont des expressions booléennes qui s’évaluent à `true` ou `false`. Vous pouvez écrire un filtre complexe en rédigeant une série de [filtres plus simples](search-query-odata-comparison-operators.md) et en les composant des opérateurs logiques de l’[algèbre booléen](https://en.wikipedia.org/wiki/Boolean_algebra) :
+Les [expressions de filtre OData](query-odata-filter-orderby-syntax.md) dans Recherche cognitive Azure sont des expressions booléennes qui s’évaluent à `true` ou `false`. Vous pouvez écrire un filtre complexe en rédigeant une série de [filtres plus simples](search-query-odata-comparison-operators.md) et en les composant des opérateurs logiques de l’[algèbre booléen](https://en.wikipedia.org/wiki/Boolean_algebra) :
 
 - `and`: Un opérateur binaire qui s’évalue à `true` si ses sous-expressions droites et gauches s’évaluent à `true`.
 - `or`: Un opérateur binaire qui s’évalue à `true` si l’une de ses sous-expressions droite ou gauche s’évaluent à `true`.
@@ -51,10 +51,10 @@ logical_expression ::=
 Un diagramme de syntaxe interactif est également disponible :
 
 > [!div class="nextstepaction"]
-> [Diagramme de syntaxe OData pour Recherche Azure](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
+> [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#logical_expression)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 Il s’agit de deux formes d’expressions logiques : binaire (`and`/`or`), où il y a deux sous-expressions, et unaire (`not`), où il n’y en a qu’une. Les sous-expressions peuvent être des expressions booléennes de toutes sortes :
 
@@ -66,7 +66,7 @@ Il s’agit de deux formes d’expressions logiques : binaire (`and`/`or`), où 
 - Autres expressions logiques construites à l’aide de `and`, `or` et `not`.
 
 > [!IMPORTANT]
-> Il y a certaines situations où tous les types de sous-expressions peuvent être utilisés avec `and`/`or`, particulièrement dans des expressions lambda. Consultez [Opérateurs de collection OData dans Recherche Azure](search-query-odata-collection-operators.md#limitations) pour en savoir plus.
+> Il y a certaines situations où tous les types de sous-expressions peuvent être utilisés avec `and`/`or`, particulièrement dans des expressions lambda. Consultez [Opérateurs de collection OData dans Recherche cognitive Azure](search-query-odata-collection-operators.md#limitations) pour en savoir plus.
 
 ### <a name="logical-operators-and-null"></a>Opérateurs logiques et `null`
 
@@ -109,7 +109,7 @@ Correspondance des documents pour les hôtels à Vancouver, au Canada, qui compr
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Filtres dans Recherche Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtres dans la Recherche cognitive Azure](search-filters.md)
+- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

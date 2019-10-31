@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2017
+ms.date: 10/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ef64a43cbed7f033a938351506b7f78142ff044c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097617"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791288"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Contrôle de version dans l’extension Fonctions durables (Azure Functions)
 
@@ -24,11 +24,11 @@ Au cours du cycle de vie d’une application, des fonctions seront nécessaireme
 
 Il existe plusieurs exemples de modifications avec rupture. Cet article aborde les plus fréquents. Elles partagent toutes un point commun : les orchestrations de fonctions, tant nouvelles qu’existantes, sont affectées par les modifications apportées au code de la fonction.
 
-### <a name="changing-activity-function-signatures"></a>Modification des signatures des fonctions d’activité
+### <a name="changing-activity-or-entity-function-signatures"></a>Modification des signatures des fonctions d’activité ou d’entité
 
-Une modification de signature est une opération consistant à changer le nom, l’entrée et la sortie d’une fonction. Si cette modification est apportée à une fonction d’activité, elle peut décomposer la fonction d’orchestrateur qui dépend d’elle. Si vous mettez à jour la fonction d’orchestrateur de manière à intégrer cette modification, vous risquez de décomposer les instances en cours.
+Une modification de signature est une opération consistant à changer le nom, l’entrée et la sortie d’une fonction. Si cette modification est apportée à une fonction d’activité ou d’entité, elle peut décomposer une fonction d’orchestrateur qui dépend d’elle. Si vous mettez à jour la fonction d’orchestrateur de manière à intégrer cette modification, vous risquez de décomposer les instances en cours.
 
-Par exemple, supposons que vous disposiez de la fonction suivante.
+Par exemple, supposons que vous disposiez de la fonction d’orchestrateur suivante.
 
 ```csharp
 [FunctionName("FooBar")]
@@ -85,7 +85,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-Cette modification ajoute un nouvel appel de fonction au paramètre **SendNotification**, entre **Foo** et **Bar**. Aucune modification de signature n’est effectuée. Le problème survient lorsqu’une instance existante reprend à partir de l’appel à **bar**. Lors de la réexécution, si l’appel d’origine à **Foo** renvoie `true`, la réexécution de l’orchestrateur effectue l’appel dans **SendNotification**, qui n’est pas dans son historique d’exécution. De ce fait, l’infrastructure de tâche durable échoue en générant une exception `NonDeterministicOrchestrationException`, car elle a rencontré un appel à **SendNotification** alors qu’elle attendait un appel envoyé à **Bar**.
+Cette modification ajoute un nouvel appel de fonction au paramètre **SendNotification**, entre **Foo** et **Bar**. Aucune modification de signature n’est effectuée. Le problème survient lorsqu’une instance existante reprend à partir de l’appel à **bar**. Lors de la réexécution, si l’appel d’origine à **Foo** renvoie `true`, la réexécution de l’orchestrateur effectue l’appel dans **SendNotification**, qui n’est pas dans son historique d’exécution. De ce fait, l’infrastructure de tâche durable échoue en générant une exception `NonDeterministicOrchestrationException`, car elle a rencontré un appel à **SendNotification** alors qu’elle attendait un appel envoyé à **Bar**. Le même type de problème peut survenir lors de l’ajout d’appels à des API « durables », y compris `CreateTimer`, `WaitForExternalEvent`, etc.
 
 ## <a name="mitigation-strategies"></a>Stratégies d’atténuation
 
@@ -112,9 +112,9 @@ Une autre option consiste à arrêter toutes les instances en cours. Pour cela, 
 
 La méthode la plus sûre pour assurer un déploiement sécurisé des modifications consiste à les installer côte à côte avec les versions plus anciennes. Pour cela, utilisez l’une des techniques suivantes :
 
-* Déployez toutes les mises à jour en tant que nouvelles fonctions (nouveau nom).
-* Déployez toutes les mises à jour en tant que nouvelle application de fonction, en utilisant un autre compte de stockage.
-* Déployez une nouvelle copie de l’application de fonction, en utilisant un nom de `TaskHub` à jour. Il s’agit de la technique recommandée.
+* Déployer toutes les mises à jour en tant que nouvelles fonctions, en laissant les fonctions existantes telles quelles. Cette solution peut s’avérer compliqué, car les appelants des nouvelles versions de la fonction doivent être aussi mis à jour en suivant les mêmes consignes.
+* Déployer toutes les mises à jour en tant que nouvelle application de fonction, en utilisant un autre compte de stockage.
+* Déployer une nouvelle copie de l’application de fonction avec le même compte de stockage, mais en utilisant un nom `taskHub` mis à jour. Il s’agit de la technique recommandée.
 
 ### <a name="how-to-change-task-hub-name"></a>Comment modifier le nom du hub de tâches
 
@@ -125,18 +125,28 @@ Le hub de tâches peut être configuré dans le fichier *host.json*, comme suit�
 ```json
 {
     "durableTask": {
-        "HubName": "MyTaskHubV2"
+        "hubName": "MyTaskHubV2"
     }
 }
 ```
 
 #### <a name="functions-2x"></a>Functions 2.x
 
-La valeur par défaut est `DurableFunctionsHub`.
+```json
+{
+    "extensions": {
+        "durableTask": {
+            "hubName": "MyTaskHubV2"
+        }
+    }
+}
+```
 
-Toutes les entités de stockage Azure sont nommées en fonction de la valeur de configuration de l’élément `HubName`. En donnant au hub de tâches un nouveau nom, vous vous assurez qu’une table d’historique et des files d’attente distinctes sont créées pour la nouvelle version de votre application.
+La valeur par défaut de Durable Functions v1.x est `DurableFunctionsHub`. À compter de Durable Functions v2.0, le nom du hub de tâches par défaut est identique au nom de l’application de fonction dans Azure, ou à `TestHubName` en cas d’exécution en dehors d’Azure.
 
-Nous vous recommandons de déployer la nouvelle version de l’application de fonction vers un nouvel [emplacement de déploiement](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/). Les emplacements de déploiement vous permettent d’exécuter plusieurs instances de votre application de fonction et ce, en parallèle avec l’une d’elles seulement, en tant qu’emplacement de *production*. Lorsque vous êtes prêt à exposer la nouvelle logique d’orchestration dans l’infrastructure existante, cette opération peut s’avérer aussi simple que l’échange d’une nouvelle version dans l’emplacement de production.
+Toutes les entités de stockage Azure sont nommées en fonction de la valeur de configuration de l’élément `hubName`. En donnant au hub de tâches un nouveau nom, vous vous assurez qu’une table d’historique et des files d’attente distinctes sont créées pour la nouvelle version de votre application. L’application de fonction, par contre, arrête le traitement des événements pour les orchestrations ou les entités créées sous le précédent nom du hub de tâches.
+
+Nous vous recommandons de déployer la nouvelle version de l’application de fonction vers un nouvel [emplacement de déploiement](../functions-deployment-slots.md). Les emplacements de déploiement vous permettent d’exécuter plusieurs instances de votre application de fonction et ce, en parallèle avec l’une d’elles seulement, en tant qu’emplacement de *production*. Lorsque vous êtes prêt à exposer la nouvelle logique d’orchestration dans l’infrastructure existante, cette opération peut s’avérer aussi simple que l’échange d’une nouvelle version dans l’emplacement de production.
 
 > [!NOTE]
 > Cette stratégie est d’autant plus efficace lorsque vous utilisez des déclencheurs Webhook et HTTP pour les fonctions d’orchestrateur. Pour les déclencheurs autres que HTTP, tels que les files d’attente ou les hubs d’événements, la définition du déclencheur doit [dériver d’un paramètre d’application](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings) mis à jour dans le cadre de l’opération d’échange.

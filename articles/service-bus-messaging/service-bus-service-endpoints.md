@@ -1,22 +1,21 @@
 ---
-title: Points de terminaison de service de réseau virtuel et règles de réseau virtuel dans Azure Service Bus | Microsoft Docs
+title: Points de terminaison de service de réseau virtuel – Azure Service Bus
 description: Ajoutez un point de terminaison de service Microsoft.ServiceBus à un réseau virtuel.
 services: service-bus
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 0801469d586e6f2d6514927cdc7b894900a3aa35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f32a67dc6d3b3f869afaa532403c05b218588552
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471959"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786380"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Service Bus
 
@@ -62,7 +61,7 @@ Vos solutions cloud sensibles en matière de sécurité accèdent donc aux fonct
 
 Les *règles de réseau virtuel* sont une fonctionnalité de sécurité de pare-feu. Elles permettent de contrôler si votre serveur Azure Service Bus doit accepter ou non les connexions d’un sous-réseau de réseau virtuel particulier.
 
-La liaison d’un espace de noms Service Bus à un réseau virtuel est un processus en deux étapes. Vous devez d’abord créer un **point de terminaison de service de réseau virtuel** sur un sous-réseau de réseau virtuel et l’activer pour « Microsoft.ServiceBus », comme expliqué dans la [vue d’ensemble des points de terminaison de service] [vnet-sep]. Après avoir ajouté le point de terminaison de service, liez-le à l’espace de noms Service Bus au moyen d’une *règle de réseau virtuel*.
+La liaison d’un espace de noms Service Bus à un réseau virtuel est un processus en deux étapes. Vous devez d’abord créer un **point de terminaison de service de réseau virtuel** sur un sous-réseau de réseau virtuel et l’activer pour « Microsoft.ServiceBus », comme expliqué dans la [présentation des points de terminaison de service][vnet-sep]. Après avoir ajouté le point de terminaison de service, liez-le à l’espace de noms Service Bus au moyen d’une *règle de réseau virtuel*.
 
 La règle de réseau virtuel est une association de l’espace de noms Service Bus et d’un sous-réseau de réseau virtuel. Une fois la règle en place, toutes les charges de travail liées au sous-réseau sont autorisées à accéder à l’espace de noms Service Bus. Service Bus n’établit jamais de connexions sortantes, ne nécessite aucun accès et ne se voit donc jamais accorder l’accès à votre sous-réseau quand cette règle est activée.
 

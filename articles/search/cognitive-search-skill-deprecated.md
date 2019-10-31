@@ -1,27 +1,26 @@
 ---
-title: Compétences cognitives déconseillées - Recherche Azure
-description: Cette page contient la liste des compétences cognitives de recherche qui sont considérées comme déconseillées et qui ne seront pas prises en charge dans un avenir proche.
-services: search
+title: Compétences cognitives déconseillées
+titleSuffix: Azure Cognitive Search
+description: Cette page contient la liste des compétences cognitives qui sont considérées comme déconseillées et qui ne seront pas prises en charge dans un avenir proche dans les ensembles de compétences de Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e78852ec8b92f1a9e37a4dbcbbcb371c0ac0f97
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 5f3587e4398be28cbaa2372be720258196bb48ff
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265433"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792033"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>Compétences de recherche cognitive déconseillées
+# <a name="deprecated-cognitive-skills-in-azure-cognitive-search"></a>Compétences cognitives déconseillées dans Recherche cognitive Azure
 
 Ce document décrit les compétences cognitives qui sont considérées comme déconseillées. Utilisez le guide suivant pour le contenu :
 
 * Nom de la compétence : nom de la compétence qui sera déconseillée, il est mappé sur l’attribut @odata.type.
-* Dernière version de l’API disponible : dernière version de l’API publique de recherche Azure via laquelle les compétences contenant la compétence déconseillée correspondante peut être créée/mise à jour.
+* Dernière version de l’API disponible : Dernière version de l’API publique Recherche cognitive Azure via laquelle des ensembles de compétences contenant la compétence déconseillée correspondante peuvent être créés/mis à jour.
 * Fin de la prise en charge : dernier jour après lequel la compétence correspondante est considérée non prise en charge. Les compétences créées précédemment doivent continuer à fonctionner, mais il est recommandé aux utilisateurs de migrer hors d’une compétence déconseillée.
 * Recommandations : chemin de migration vers l’avant pour utiliser une compétence prise en charge. Il est conseillé aux utilisateurs de suivre ces suggestions pour continuer à bénéficier du support technique.
 

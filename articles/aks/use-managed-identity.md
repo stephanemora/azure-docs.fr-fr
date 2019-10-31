@@ -8,80 +8,91 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
-ms.openlocfilehash: a5717d8ee44e4d2e086a6e7bc1b7c3d0deb614c8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 77655f08350419f0d102c9927b3e09b87edba341
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827540"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592873"
 ---
 # <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>Préversion - Utiliser les identités managées dans Azure Kubernetes Service
 
-Actuellement, les utilisateurs doivent fournir un principal de service, à défaut de quoi AKS s'en charge pour permettre au cluster AKS (plus précisément, le fournisseur cloud Kubernetes) de créer des ressources supplémentaires, telles que des équilibreurs de charge et des disques managés dans Azure. Les principaux de service sont généralement accompagnés d'une date d’expiration. Lorsqu'il atteint un certain état, le principal de service doit être renouvelé pour permettre le bon fonctionnement des clusters. Gérer les principaux de service n'est pas une mince affaire. Les identités managées correspondent essentiellement à un wrapper autour des principaux de services, ce qui simplifie leur gestion. Pour plus d'informations, consultez l'article traitant des [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Actuellement, un cluster Azure Kubernetes Service ou AKS (plus précisément, le fournisseur cloud Kubernetes) nécessite un *principal de service* pour créer des ressources supplémentaires telles que des équilibreurs de charge et des disques managés dans Azure. Soit vous fournissez un principal de service, soit AKS en crée un en votre nom. Les principaux de service ont généralement une date d’expiration. Les clusters finissent par atteindre un état dans lequel le principal de service doit être renouvelé pour que le cluster continue de fonctionner. Gérer les principaux de service n'est pas une mince affaire.
 
-AKS crée deux identités managées, une identité managée affectée par le système et une identité affectée par l’utilisateur. Le fournisseur de cloud Kubernetes utilise une identité managée affectée par le système afin de créer des ressources Azure pour le compte de l’utilisateur. Le cycle de vie de cette identité managée affectée par le système est lié à celui du cluster, et la suppression du cluster entraîne la suppression de l'identité. AKS crée également une identité managée affectée par l'utilisateur utilisée dans le cluster pour autoriser AKS à accéder aux enregistrements de contrôle d'accès, kubelet pour obtenir les métadonnées d’Azure, etc.
+Les *identités managées* correspondent essentiellement à un wrapper autour des principaux de service, ce qui simplifie leur gestion. Pour en savoir plus, découvrez les [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-Dans cette préversion, un principal de service reste nécessaire. Il est utilisé à des fins d'autorisation des modules complémentaires tels que la surveillance, le nœud virtuel, la stratégie Azure et le routage d’applications HTTP. Nous travaillons actuellement sur la suppression de la dépendance des modules complémentaires sur le SPN et, à terme, l'exigence liée au SPN dans AKS sera complètement supprimée.
+AKS crée deux identités managées :
+
+- **Identité managée affectée par le système** : identité utilisée par le fournisseur de cloud Kubernetes pour créer des ressources Azure au nom de l’utilisateur. Le cycle de vie de l’identité affectée par le système est lié à celui du cluster. L’identité est supprimée en même temps que le cluster.
+- **Identité managée affectée par l’utilisateur** : identité utilisée pour l’autorisation dans le cluster. Par exemple, l’identité affectée par l’utilisateur sert à autoriser AKS à utiliser des enregistrements de contrôle d’accès (ACR) ou à autoriser le kubelet à obtenir des métadonnées d’Azure.
+
+Dans cette préversion, un principal de service reste nécessaire. Il est utilisé à des fins d’autorisation de modules complémentaires tels que la supervision, les nœuds virtuels, Azure Policy et le routage d’applications HTTP. Des travaux sont en cours pour supprimer la dépendance des modules complémentaires au nom de principal du service (SPN). L’objectif est de supprimer entièrement la nécessité d’avoir un SPN dans AKS.
 
 > [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
+> Les fonctionnalités d’évaluation AKS sont disponibles en libre-service et font l’objet d’un abonnement. Les préversions sont fournies « en l’état » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service et de la garantie limitée. Les préversions AKS sont partiellement couvertes par le service clientèle dans la mesure du possible. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour plus d’informations, consultez les articles de support suivants :
 >
-> * [Stratégies de support AKS](support-policies.md)
-> * [FAQ du support Azure](faq.md)
+> - [Stratégies de support AKS](support-policies.md)
+> - [FAQ du support Azure](faq.md)
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Vous devez disposer des éléments suivants :
+Les ressources suivantes doivent être installées :
 
-* Le logiciel Azure CLI version 2.0.70 ou ultérieure doit également être installé, ainsi que l’extension aks-preview 0.4.14
+- Azure CLI version 2.0.70 ou ultérieure
+- Extension aks-preview 0.4.14
 
-## <a name="install-latest-aks-cli-preview-extension"></a>Installer la dernière extension de la préversion d’AKS CLI
-
-Vous avez besoin de l’extension **aks-preview 0.4.14** ou version ultérieure.
+Pour installer l’extension aks-preview 0.4.14 ou ultérieure, utilisez les commandes Azure CLI suivantes :
 
 ```azurecli
-az extension update --name aks-preview 
+az extension update --name aks-preview
 az extension list
 ```
 
 > [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
+> Une fois que vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez pas actuellement la désinscrire. Quand vous activez des fonctionnalités d’évaluation, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés par la suite dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez plutôt un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
 
 ```azurecli-interactive
 az feature register --name MSIPreview --namespace Microsoft.ContainerService
 ```
 
-Quelques minutes peuvent être nécessaires pour que l’état s’affiche *Inscrit*. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list][az-feature-list] :
+Quelques minutes peuvent être nécessaires pour que l’état **Inscrit** s’affiche. Vous pouvez vérifier l’état de l’inscription à l’aide de la commande [az feature list](https://docs.microsoft.com/en-us/cli/azure/feature?view=azure-cli-latest#az-feature-list) :
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MSIPreview')].{Name:name,State:properties.state}"
 ```
 
-Une fois l'état inscrit, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
+Quand l’état indique Inscrit, actualisez l’inscription du fournisseur de ressources `Microsoft.ContainerService` à l’aide de la commande [az provider register](https://docs.microsoft.com/en-us/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
 
-## <a name="create-an-aks-cluster-with-managed-identity"></a>Créer un cluster AKS avec identité managée
+## <a name="create-an-aks-cluster-with-managed-identities"></a>Créer un cluster AKS avec des identités managées
 
-Vous pouvez désormais créer un cluster AKS avec des identités managées à l’aide de la commande CLI suivante
+Vous pouvez désormais créer un cluster AKS avec des identités managées à l’aide des commandes CLI suivantes.
+
+Commencez par créer un groupe de ressources Azure :
+
 ```azurecli-interactive
 # Create an Azure resource group
 az group create --name myResourceGroup --location westus2
 ```
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+Créez ensuite un cluster AKS :
+
 ```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
 ```
 
-## <a name="get-credentials-to-access-the-cluster"></a>Obtenir les informations d'identification pour accéder au cluster
+Obtenez enfin les informations d’identification pour accéder au cluster :
+
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
 ```
-Après avoir consacré quelques minutes à la création du cluster, vous pouvez déployer vos charges de travail d’application et interagir avec cette dernière comme vous le faisiez avec les clusters AKS basés sur le principal de service. 
+
+La création du cluster prend quelques minutes. Vous pouvez ensuite déployer vos charges de travail d’application sur le nouveau cluster et interagir avec celui-ci comme vous le faisiez avec les clusters AKS basés sur le principal de service.
 
 > [!IMPORTANT]
-> * Les clusters AKS avec identités managées peuvent uniquement être activés lors de la création du cluster.
-> * Les clusters AKS existants ne peuvent pas être mis à jour/mis à niveau pour activer les identités managées.
+>
+> - Les clusters AKS avec des identités managées ne peuvent être activés que pendant la création du cluster.
+> - Il est impossible de mettre à jour ou de mettre à niveau des clusters AKS existants pour activer des identités managées.

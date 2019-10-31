@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7d7e69e8ad0c5b14ac7ed8b941a7949f4f675812
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6aee9edaf3c594a2e7083416726da8e57bbf5c6b
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176766"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529135"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Contrôles de sécurité pour Azure Virtual Machine Scale Sets
 
@@ -50,9 +50,9 @@ Cet article décrit les contrôles de sécurité intégrés dans Azure Virtual M
 
 | Contrôle de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Chiffrement côté serveur au repos : Clés managées par Microsoft | OUI | Consultez [Comment chiffrer une machine virtuelle Linux dans Azure](/azure/virtual-machines/linux/disk-encryption-linux) et [Chiffrer des disques virtuels sur une machine virtuelle Windows](/azure/virtual-machines/windows/encrypt-disks). |
+| Chiffrement côté serveur au repos : Clés managées par Microsoft | OUI | Consultez [Azure Disk Encryption pour les groupes de machines virtuelles identiques](disk-encryption-overview.md). |
 | Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| OUI | Le service Machines virtuelles Azure prend en charge [ExpressRoute](/azure/expressroute) et le chiffrement de réseau virtuel. Consultez [Chiffrement en transit sur des machines virtuelles](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
-| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | OUI | Les clés gérées par le client sont un scénario de chiffrement Azure pris en charge ; consultez [Vue d’ensemble du chiffrement Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | OUI | Les clés gérées par le client sont un scénario de chiffrement Azure pris en charge ; consultez [Azure Disk Encryption pour les groupes de machines virtuelles identiques](disk-encryption-overview.md)|
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |
 | Appels d’API chiffrés| OUI | Par le biais de HTTPS et de SSL. |
 

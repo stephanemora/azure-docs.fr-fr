@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71180735"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Apache Zeppelin avec un cluster Apache Spark sur HDInsight
@@ -36,13 +36,13 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 
 2. Créer un nouveau bloc-notes. Dans le volet d'en-tête, accédez à **Bloc-notes** > **Créer une note**.
 
-    ![Créer un nouveau bloc-notes Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Créer un nouveau bloc-notes Zeppelin")
+    ![Créer un notebook Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "Créer un nouveau bloc-notes Zeppelin")
 
     Entrez un nom pour le bloc-notes, puis sélectionnez **Créer une note**.
 
 3. Vérifiez que l'en-tête du bloc-notes indique un état connecté. Il est indiqué par un point vert dans le coin supérieur droit.
 
-    ![État du bloc-notes Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "État du bloc-notes Zeppelin")
+    ![État du notebook Zeppelin](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "État du bloc-notes Zeppelin")
 
 4. Chargez un exemple de données dans une table temporaire. Lorsque vous créez un cluster Spark dans HDInsight, l'exemple de fichier de données `hvac.csv` est copié sur le compte de stockage associé, sous `\HdiSamples\SensorSampleData\hvac`.
 
@@ -92,7 +92,7 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 
 6. Sélectionnez l'icône **Graphique à barres** pour modifier l'affichage.  **paramètres**, qui apparaît une fois que vous avez sélectionné **Graphique à barres**, vous permet de choisir les **Clés** et les **Valeurs**.  La capture d’écran qui suit présente le résultat.
 
-    ![Exécuter une instruction Spark SQL à l’aide du bloc-notes1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes1")
+    ![Exécuter une instruction Spark SQL à l’aide du notebook1](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "Exécuter une instruction Spark SQL à l’aide du notebook1")
 
 7. Vous pouvez également exécuter des instructions Spark SQL à l’aide de variables dans la requête. L'extrait suivant montre comment définir la variable `Temp` dans la requête avec les valeurs d'interrogation possibles. Lors de la première exécution de la requête, une liste déroulante est automatiquement renseignée avec les valeurs que vous avez spécifiées pour la variable.
 
@@ -110,7 +110,7 @@ Les clusters HDInsight Spark incluent des blocs-notes [Apache Zeppelin](https://
 
      La capture d’écran qui suit présente le résultat.
 
-     ![Exécuter une instruction Spark SQL à l’aide du bloc-notes2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Exécuter une instruction Spark SQL à l’aide du bloc-notes2")
+     ![Exécuter une instruction Spark SQL à l’aide du notebook2](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "Exécuter une instruction Spark SQL à l’aide du notebook2")
 
 9. Redémarrez l’interpréteur Livy pour quitter l’application. Pour ce faire, ouvrez les paramètres de l'interpréteur en sélectionnant le nom de l'utilisateur connecté dans le coin supérieur droit, puis sélectionnez **Interpréteur**.  
 
@@ -145,7 +145,7 @@ Dans cet article, vous allez apprendre à utiliser le package [spark-csv](https:
    
     b. À partir du référentiel, rassemblez les valeurs pour **GroupId**, **ArtifactId** et **Version**.
    
-    ![Utiliser des packages externes avec le bloc-notes Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Utiliser des packages externes avec le bloc-notes Jupyter")
+    ![Utiliser des packages externes avec les notebooks Jupyter](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Utiliser des packages externes avec les blocs-notes Jupyter")
    
     c. Concaténez les trois valeurs séparées par deux-points ( **:** ).
    
@@ -154,7 +154,7 @@ Dans cet article, vous allez apprendre à utiliser le package [spark-csv](https:
 ## <a name="where-are-the-zeppelin-notebooks-saved"></a>Où les blocs-notes Zeppelin sont-ils enregistrés ?
 Les blocs-notes Zeppelin sont enregistrés dans les nœuds principaux du cluster. Par conséquent, si vous supprimez le cluster, les blocs-notes seront aussi supprimés. Si vous souhaitez conserver vos blocs-notes pour une utilisation ultérieure sur les autres clusters, vous devez les exporter après avoir terminé l’exécution des tâches. Pour exporter un bloc-notes, sélectionnez l'icône **Exporter** comme illustré sur l'image ci-dessous.
 
-![Télécharger le bloc-notes](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Télécharger le bloc-notes")
+![Télécharger le notebook](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "Télécharger le notebook")
 
 Cela permet d’enregistrer le bloc-notes en tant que fichier JSON dans l’emplacement de téléchargement.
 
@@ -195,7 +195,7 @@ Dans ce cas, vous devez effectuer les étapes suivantes avant de commencer à ex
 
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)
-* [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](apache-spark-job-debugging.md)
 
 [hdinsight-versions]: hdinsight-component-versioning.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 36f26808b94893990ceec65e114b11113dbafd6f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 72549a2df3490344987567d1e62c65f76f151097
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177481"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693261"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -96,7 +96,7 @@ Vous pouvez utiliser différents types de journaux d’activité dans Azure pour
 
 * **Journal d’activité** : vous pouvez utiliser le [Journal d’activité Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anciennement journaux d’activité des opérations et journaux d’audit) pour voir toutes les opérations soumises à votre abonnement Azure, ainsi que leur état. Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
 * **Journal d’accès** : Vous pouvez utiliser ce journal pour voir les modèles d’accès Application Gateway et analyser les informations importantes. Ceci comprend l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour et les octets d’entrée et de sortie. Un journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance Application Gateway. L’instance de la passerelle Application Gateway est identifiée par la propriété instanceId.
-* **Journaux de performances** : vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances de chaque instance, notamment le nombre total de requêtes traitées, le débit en octets, le nombre total de requêtes présentées, le nombre de requêtes ayant échoué, le nombre d’instances du serveur principal intègres et défectueuses. Le journal des performances est collecté toutes les 60 secondes.
+* **Journaux de performances** : vous pouvez utiliser ce journal pour afficher les performances des instances de la passerelle Application Gateway. Ce journal capture des informations sur les performances de chaque instance, notamment le nombre total de requêtes traitées, le débit en octets, le nombre total de requêtes présentées, le nombre de requêtes ayant échoué, le nombre d’instances du serveur principal intègres et défectueuses. Le journal des performances est collecté toutes les 60 secondes. Le journal des performances est uniquement disponible pour la référence SKU v1. S’il s’agit de la référence SKU v2, utilisez les [Métriques](application-gateway-metrics.md) pour les données de performances.
 * **Journal du pare-feu** : vous pouvez utiliser ce journal pour afficher les requêtes consignées via le mode de détection ou de prévention d’une passerelle Application Gateway configuré avec un pare-feu d’applications web.
 
 > [!NOTE]
@@ -252,7 +252,7 @@ Pour Application Gateway et WAF v2, les journaux contiennent un peu plus d’inf
 
 ### <a name="performance-log"></a>Journal des performances
 
-Le journal des performances n’est généré que si vous l’avez activé sur chaque instance Application Gateway, comme détaillé dans les étapes précédentes. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Les données du journal des performances sont générées par intervalles d’1 minute. Les données suivantes sont enregistrées :
+Le journal des performances n’est généré que si vous l’avez activé sur chaque instance Application Gateway, comme détaillé dans les étapes précédentes. Les données sont stockées dans le compte de stockage spécifié lors de l’activation de la journalisation. Les données du journal des performances sont générées par intervalles d’1 minute. Il est disponible uniquement pour la référence SKU v1. S’il s’agit de la référence SKU v2, utilisez les [Métriques](application-gateway-metrics.md) pour les données de performances. Les données suivantes sont enregistrées :
 
 
 |Valeur  |Description  |

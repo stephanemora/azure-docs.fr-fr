@@ -1,23 +1,22 @@
 ---
-title: Mise à niveau vers le Kit de développement logiciel (SDK) .NET Recherche Azure version 5 - Recherche Azure
+title: Effectuer une mise à niveau vers la version 5 du SDK .NET Recherche Azure
+titleSuffix: Azure Cognitive Search
 description: Migrez le code vers le SDK .NET Recherche Azure version 5 à partir de versions antérieures. Découvrez les nouveautés et les modifications de code nécessaires.
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: c64d13e4bcad11ef729f34ee71b7c7461a507fc7
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.date: 11/04/2019
+ms.openlocfilehash: bb0cd191ba7e5939c55d11b484ed7a2c422f8c6d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70183247"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793037"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Mise à niveau vers la version 5 du SDK .NET Recherche Azure
+# <a name="upgrade-to-azure-search-net-sdk-version-5"></a>Effectuer une mise à niveau vers la version 5 du SDK .NET Recherche Azure
 
 Si vous utilisez la version 4.0-preview ou une version antérieure du [SDK .NET Recherche Azure](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 5.
 

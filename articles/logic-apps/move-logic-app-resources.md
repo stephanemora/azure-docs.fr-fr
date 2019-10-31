@@ -1,5 +1,5 @@
 ---
-title: Déplacer des ressources d’application logique entre des abonnements, des groupes de ressources ou des régions – Azure Logic Apps
+title: Déplacer des applications logiques entre des abonnements, des groupes de ressources ou des régions - Azure Logic Apps
 description: Migrer des applications logiques ou des comptes d’intégration vers d’autres abonnements Azure, des groupes de ressources ou des emplacements (régions)
 services: logic-apps
 ms.service: logic-apps
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e7c201004be6c4d39f482cc288824cba74e302cb
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737299"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679109"
 ---
-# <a name="migrate-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Migrer des ressources d’application logique vers d’autres abonnements Azure, des groupes de ressources ou des régions
+# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Déplacer des ressources d’application logique vers d’autres abonnements Azure, des groupes de ressources ou des régions
 
 Pour déplacer votre application logique ou les ressources associées vers un autre abonnement, groupe de ressources ou région Azure, vous disposez de différentes méthodes pour effectuer ces tâches, telles que les Portail Azure, les Azure PowerShell, les Azure CLI et l’API REST. Avant de déplacer des ressources, passez en revue les considérations suivantes : 
 

@@ -1,6 +1,6 @@
 ---
-title: Messages XML pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs
-description: Traiter, valider, transformer et enrichir des messages XML pour des solutions B2B dans Azure Logic Apps avec Enterprise Integration Pack
+title: Messages XML et fichiers plats - Azure Logic Apps
+description: Traiter, valider et transformer des messages XML dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,30 +8,34 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.openlocfilehash: a75ac9773072423c13eef85ecad29c632c13d024
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 730adf3e6ef3ddab5a8b0e927f94ffe3725358f4
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996562"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679904"
 ---
 # <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>Messages XML et fichiers plats dans Azure Logic Apps avec Enterprise Integration Pack
 
-Les applications logiques vous permettent de traiter les messages XML envoyés et reçus. Cette fonctionnalité est incluse dans Enterprise Integration Pack. Pour les utilisateurs de BizTalk Server, Enterprise Integration Pack offre des capacités similaires pour transformer et valider des messages, utiliser des fichiers plats et même XPath pour enrichir ou extraire des propriétés spécifiques d’un message. 
+Dans [Azure Logic Apps](logic-apps-overview.md), vous pouvez traiter les messages XML que vous envoyez et recevez à l’aide d’Enterprise Integration Pack. Si vous utilisiez BizTalk Server, Enterprise Integration Pack fournit des capacités similaires pour transformer et valider des messages, utiliser des fichiers plats et même XPath pour enrichir ou extraire des propriétés spécifiques d’un message. Si vous découvrez cet environnement, ces fonctionnalités étendent les possibilités de traitement des messages dans le workflow de votre application logique. Par exemple, dans un scénario d’entreprise à entreprise (B2B) où vous travaillez avec des schémas XML spécifiques, vous pouvez utiliser Enterprise Integration Pack pour améliorer la façon dont votre entreprise traite ces messages.
 
-Pour les utilisateurs qui découvrent cet environnement, ces fonctionnalités étendent les possibilités de traitement des messages au sein de votre flux de travail. Par exemple, dans un scénario d’entreprise à entreprise où vous travaillez avec des schémas XML spécifiques, vous pouvez utiliser Enterprise Integration Pack pour améliorer la façon dont votre entreprise traite ces messages. 
+Par exemple, Enterprise Integration Pack comprend les fonctionnalités suivantes :
 
-Enterprise Integration Pack inclut les éléments suivants : 
+* [Validation XML](logic-apps-enterprise-integration-xml-validation.md) : valider un message XML entrant ou sortant par rapport à un schéma spécifique.
 
-* [Validation XML](logic-apps-enterprise-integration-xml-validation.md "En savoir plus sur la validation de messages XML") : permet de valider un message XML entrant ou sortant par rapport à un schéma spécifique.
-* [Transformation XML](../logic-apps/logic-apps-enterprise-integration-transform.md "En savoir plus sur les transformations et les mappages de message XML") : permet de convertir un message XML basé sur vos exigences ou celles d’un partenaire.
-* [Encodage et décodage de fichier plat](logic-apps-enterprise-integration-flatfile.md "En savoir plus sur l’encodage/décodage de fichier plat") : permet de coder ou décoder un fichier plat. Par exemple, SAP accepte et envoie des fichiers IDOC dans un format de fichier plat. De nombreuses plates-formes d’intégration créent des messages XML, y compris Logic Apps. Vous pouvez donc créer une application logique qui utilise l’encodeur de fichier plat afin de « convertir » des fichiers XML en fichiers plats. 
-* [XPath](https://msdn.microsoft.com/library/mt643789.aspx) : permet d’enrichir un message et d’extraire des propriétés spécifiques du message. Les propriétés extraites peuvent ensuite servir à acheminer le message vers une destination ou un point de terminaison intermédiaire.
+* [Transformation XML](logic-apps-enterprise-integration-transform.md) : convertir ou personnaliser un message XML en fonction de vos exigences ou de celles d’un partenaire en utilisant des mappages.
 
-## <a name="try-it-out"></a>Faites un essai
+* [Encodage de fichier plat et décodage de fichier plat](logic-apps-enterprise-integration-flatfile.md) : encoder ou décoder un fichier plat.
+
+  Par exemple, SAP accepte et envoie des fichiers IDOC dans un format de fichier plat. De nombreuses plates-formes d’intégration créent des messages XML, y compris Logic Apps. Vous pouvez donc créer une application logique qui utilise l’encodeur de fichier plat afin de « convertir » des fichiers XML en fichiers plats.
+
+* [XPath](workflow-definition-language-functions-reference.md#xpath) : enrichir un message et extraire des propriétés spécifiques du message. Les propriétés extraites peuvent ensuite servir à acheminer le message vers une destination ou un point de terminaison intermédiaire.
+
+## <a name="sample"></a>Exemple
+
 [Déployez une application logique pleinement opérationnelle](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (exemple GitHub) à l’aide des fonctionnalités XML d’Azure Logic Apps.
 
-## <a name="learn-more"></a>En savoir plus
-[En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")
+## <a name="next-steps"></a>Étapes suivantes
+
+En savoir plus sur [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

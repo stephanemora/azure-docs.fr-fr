@@ -1,13 +1,13 @@
 ---
-title: Informations de référence sur les opérateurs de comparaison OData - Recherche Azure
-description: Opérateurs de comparaison OData (eq, ne, gt, lt, ge, le) dans les requêtes de Recherche Azure.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
+title: Informations de référence sur les opérateurs de comparaison OData
+titleSuffix: Azure Cognitive Search
+description: Opérateurs de comparaison OData (eq, ne, gt, lt, ge, le) dans les requêtes de Recherche cognitive Azure.
+manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-manager: nitinme
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bd8b05fd874e05e5e59042d461f4a4286c81e4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 068e2ec822f0a292ac83b3e48049830eb77b49f6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648057"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793386"
 ---
-# <a name="odata-comparison-operators-in-azure-search---eq-ne-gt-lt-ge-and-le"></a>Opérateurs de comparaison OData dans Recherche Azure : `eq`, `ne`, `gt`, `lt`, `ge`, `le`
+# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Opérateurs de comparaison OData dans Recherche cognitive Azure : `eq`, `ne`, `gt`, `lt`, `ge`, `le`
 
-L’opération la plus basique dans une [expression de filtre OData](query-odata-filter-orderby-syntax.md) dans Recherche Azure consiste à comparer un champ à une valeur donnée. Deux types de comparaison sont possibles : la comparaison d’égalité et la comparaison de plages. Vous pouvez utiliser les opérateurs suivants pour comparer un champ à une valeur constante :
+L’opération la plus basique dans une [expression de filtre OData](query-odata-filter-orderby-syntax.md) dans Recherche cognitive Azure consiste à comparer un champ à une valeur donnée. Deux types de comparaison sont possibles : la comparaison d’égalité et la comparaison de plages. Vous pouvez utiliser les opérateurs suivants pour comparer un champ à une valeur constante :
 
 Opérateurs d’égalité :
 
@@ -66,10 +66,10 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 Un diagramme de syntaxe interactif est également disponible :
 
 > [!div class="nextstepaction"]
-> [Diagramme de syntaxe OData pour Recherche Azure](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
+> [Diagramme de syntaxe OData pour la Recherche cognitive Azure](https://azuresearch.github.io/odata-syntax-diagram/#comparison_expression)
 
 > [!NOTE]
-> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
+> Consultez [Informations de référence sur la syntaxe d’expression OData pour Recherche cognitive Azure](search-query-odata-syntax-reference.md) pour l’extension EBNF complète.
 
 Il existe deux formes d’expressions de comparaison. La seule différence entre eux est si la constante apparaît sur la gauche ou la droite de l’opérateur. L’expression de l’autre côté de l’opérateur doit être une **variable** ou un appel de fonction. Une variable peut être un nom de champ ou une variable de portée dans le cadre d’une [expression lambda](search-query-odata-collection-operators.md).
 
@@ -89,7 +89,7 @@ Les types de données des deux côtés d’un opérateur de comparaison doivent 
 | `Edm.Int32` | `Edm.Int64` | n/a |
 | `Edm.Int32` | `Edm.Int32` | n/a |
 
-Pour les comparaisons qui ne sont pas autorisées, notamment la comparaison d’un champ de type `Edm.Int64` à `NaN`, l’API REST Recherche Azure renvoie une erreur « HTTP 400 : demande incorrecte ».
+Pour les comparaisons qui ne sont pas autorisées, notamment la comparaison d’un champ de type `Edm.Int64` à `NaN`, l’API REST Recherche cognitive Azure renvoie une erreur « HTTP 400 : demande incorrecte ».
 
 > [!IMPORTANT]
 > Même si les comparaisons de types numériques sont flexibles, nous vous recommandons vivement d’écrire des comparaisons dans des filtres afin que la valeur constante soit du même type de données que la variable ou la fonction à laquelle elle est comparée. Cela est particulièrement important lorsque des valeurs à virgule flottante et entières sont mélangées, car les conversions implicites peuvent entraîner une perte de précision.
@@ -98,7 +98,7 @@ Pour les comparaisons qui ne sont pas autorisées, notamment la comparaison d’
 
 ### <a name="special-cases-for-null-and-nan"></a>Cas particuliers pour `null` et `NaN`
 
-Lorsque vous utilisez des opérateurs de comparaison, il est important de se rappeler que tous les champs qui ne sont pas des collections dans Recherche Azure peuvent potentiellement être `null`. Le tableau suivant répertorie tous les résultats possibles pour une expression de comparaison où chaque côté peut être `null` :
+Lorsque vous utilisez des opérateurs de comparaison, il est important de se rappeler que tous les champs qui ne sont pas des collections dans Recherche cognitive Azure peuvent potentiellement être `null`. Le tableau suivant répertorie tous les résultats possibles pour une expression de comparaison où chaque côté peut être `null` :
 
 | Operator | Résultat lorsque seul le champ ou la variable est `null` | Résultat lorsque seule la constante est `null` | Résultat lorsque le champ/la variable et la constante sont `null` |
 | --- | --- | --- | --- |
@@ -111,7 +111,7 @@ Lorsque vous utilisez des opérateurs de comparaison, il est important de se rap
 
 En résumé, `null` est uniquement égal à lui-même et n’est pas inférieur ou supérieur à toute autre valeur.
 
-Si votre index comporte des champs de type `Edm.Double` et que vous chargez des valeurs `NaN` sur ces champs, vous devez en tenir compte lors de l’écriture des filtres. Recherche Azure implémente la norme IEEE 754 pour la gestion des valeurs `NaN`. Les comparaisons avec ces valeurs produisent des résultats non évidents, comme indiqué dans le tableau suivant.
+Si votre index comporte des champs de type `Edm.Double` et que vous chargez des valeurs `NaN` sur ces champs, vous devez en tenir compte lors de l’écriture des filtres. Recherche cognitive Azure implémente la norme IEEE 754 pour la gestion des valeurs `NaN`. Les comparaisons avec ces valeurs produisent des résultats non évidents, comme indiqué dans le tableau suivant.
 
 | Operator | Résultat lorsqu’au moins un opérande est `NaN` |
 | --- | --- |
@@ -156,7 +156,7 @@ Correspondance des documents pour les hôtels comprenant au moins une chambre de
 
 ## <a name="next-steps"></a>Étapes suivantes  
 
-- [Filtres dans Recherche Azure](search-filters.md)
-- [Vue d’ensemble du langage d’expression OData pour Recherche Azure](query-odata-filter-orderby-syntax.md)
-- [Informations de référence sur la syntaxe d’expression OData pour Recherche Azure](search-query-odata-syntax-reference.md)
-- [Rechercher des documents &#40;API REST du service Recherche Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filtres dans la Recherche cognitive Azure](search-filters.md)
+- [Vue d’ensemble du langage d’expression OData pour la Recherche cognitive Azure](query-odata-filter-orderby-syntax.md)
+- [Informations de référence sur la syntaxe d’expression OData pour la Recherche cognitive Azure](search-query-odata-syntax-reference.md)
+- [Rechercher des documents &#40;API REST de la Recherche cognitive Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

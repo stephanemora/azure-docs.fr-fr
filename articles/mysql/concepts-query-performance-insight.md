@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: f6c74582760d77ae4318739c74f77d0bcd0501fe
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 10/17/2019
+ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950358"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595485"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Query Performance Insight dans Azure Database pour MySQL
 
@@ -59,7 +59,7 @@ Vous pouvez cliquer et faire glisser dans le graphique pour réduire l’afficha
 ### <a name="wait-statistics"></a>Statistiques d’attente
 
 > [!NOTE]
-> Les statistiques d’attente sont destinées à la résolution des problèmes de performances des requêtes. Nous vous recommandons de ne les activer qu’à des fins de résolution des problèmes.
+> Les statistiques d’attente sont destinées à la résolution des problèmes de performances des requêtes. Nous vous recommandons de ne les activer qu’à des fins de résolution des problèmes. <br>Si le portail Azure indique le message d’erreur « *En raison du problème rencontré pour « Microsoft.DBforMySQL », il est impossible de répondre à la demande. Si ce problème persiste ou est inattendu, contactez le support avec ces informations.*  » quand vous visualisez les statistiques d’attente, utilisez une période plus courte.
 
 Les statistiques d’attente fournissent une vue des événements d’attente qui se produisent pendant l’exécution d’une requête spécifique. Pour en savoir plus sur les types d’événements d’attente, consultez la [documentation du moteur MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 

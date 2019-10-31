@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 297c6a51c1f902cf7b5843b2dd47b658ebc705fd
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: ef9674165533ef3e4887bba68507344406ca128c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981004"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755941"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Guide pratique pour gérer les affectations avec PowerShell
 
@@ -42,7 +42,7 @@ Le module Blueprints pour PowerShell est **Az.Blueprint**.
    > [!NOTE]
    > Si **Az.Accounts** est déjà installé, il peut être nécessaire d’utiliser `-AllowClobber` pour forcer l’installation.
 
-1. Vérifiez que le module a été importé et que sa version est correcte (0.2.5) :
+1. Vérifiez que le module a été importé et que sa version est correcte (0.2.6) :
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported Az.Blueprint module

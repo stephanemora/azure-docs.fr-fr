@@ -1,35 +1,30 @@
 ---
 title: Configuration d’alertes dans Azure Application Insights | Microsoft Docs
 description: Tenez-vous informé des temps de réponse lents, des exceptions et des autres changements de performances ou d’utilisation de votre application web.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.reviewer: lagayhar
-ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 01/23/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/23/2019
+ms.reviewer: lagayhar
+ms.openlocfilehash: a21e2676d1b03472c58e2f95095a1a59d00b16be
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60693143"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678402"
 ---
 # <a name="set-alerts-in-application-insights"></a>Configuration d’alertes dans Application Insights
-[Azure Application Insights][start] peut vous signaler les modifications des métriques de performances ou d’utilisation de votre application web. 
+[Azure Application Insights][start] peut vous signaler les changements qui se produisent au niveau des métriques de performances ou des métriques d’utilisation de votre application web. 
 
-Application Insights analyse votre application en direct sur un [large éventail de plateformes][platforms] pour vous aider à diagnostiquer les problèmes de performances et comprendre les schémas d’utilisation.
+Application Insights supervise votre application en production sur un [large éventail de plateformes][platforms] pour vous aider à diagnostiquer les problèmes de performances et à comprendre les modèles d’utilisation.
 
 Il existe plusieurs types d’alertes :
 
 * Les [**alertes de métrique**](../../azure-monitor/platform/alerts-metric-overview.md) indiquent quand une métrique dépasse une valeur seuil pendant une certaine période, comme les temps de réponse, le nombre d’exceptions, l’utilisation du processeur ou les affichages de page.
 * Les [**alertes de journal** ](../../azure-monitor/platform/alerts-unified-log.md) sont utilisées pour décrire les alertes lors desquelles le signal d'alerte repose sur une requête Kusto personnalisée.
-* Les [**tests web**][availability] indiquent quand votre site est indisponible sur Internet ou répond lentement. [En savoir plus][availability].
+* Les [**tests web**][availability] vous indiquent à quel moment votre site est indisponible sur Internet, ou à quel moment il répond lentement. [Plus d’informations][availability]
 * Les [**diagnostics proactifs**](../../azure-monitor/app/proactive-diagnostics.md) sont configurés automatiquement pour vous informer des modèles de performances exceptionnelles.
 
 ## <a name="set-a-metric-alert"></a>Définir une alerte métrique
@@ -47,7 +42,7 @@ Ouvrez l'onglet des règles d’alerte, puis utilisez le bouton Ajouter.
 
 *Je ne vois pas apparaître le bouton Ajouter une alerte.*
 
-* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Consultez l'onglet Access Control. [En savoir plus sur le contrôle d’accès][roles].
+* Utilisez-vous un compte professionnel ? Vous pouvez définir des alertes si vous avez un accès propriétaire ou collaborateur à cette ressource d’application. Consultez l'onglet Access Control. [Découvrez le contrôle d’accès][roles].
 
 > [!NOTE]
 > Dans le panneau Alertes, vous pouvez constater qu’une alerte est déjà configurée : [Diagnostics proactifs](../../azure-monitor/app/proactive-failure-diagnostics.md). Cette alerte automatique surveille une métrique spécifique : le taux d’échec des demandes. Sauf si vous décidez de désactiver l’alerte proactive, vous n’avez pas besoin de définir votre propre alerte pour les taux d’échec des demandes.
@@ -84,7 +79,7 @@ Cela dépend de votre application. Pour commencer, il est préférable de ne pas
 
 Les alertes les plus appréciées sont les suivantes :
 
-* Les [mesures de navigateur][client], surtout les **temps de chargement des pages** de navigateur, sont efficaces pour les applications web. Si votre page contient de nombreux scripts, vous devez rechercher d’éventuelles **exceptions du navigateur**. Pour obtenir ces métriques et alertes, vous devez configurer la [surveillance de page web][client].
+* Les [métriques de navigateur][client], en particulier les **temps de chargement des pages** de navigateur, sont très utiles pour les applications web. Si votre page contient de nombreux scripts, vous devez rechercher d’éventuelles **exceptions du navigateur**. Pour obtenir ces métriques et alertes, vous devez configurer la [supervision de pages web][client].
 * Le **temps de réponse de serveur** pour le côté serveur des applications web. Outre la définition des alertes, gardez un œil sur cette métrique pour voir si elle varie de façon importante avec un taux de demandes élevé. Une telle variation peut indiquer que votre application manque de ressources. 
 * **Exceptions du serveur** - pour les afficher, vous devrez peut-être effectuer une [installation supplémentaire](../../azure-monitor/app/asp-net-exceptions.md).
 

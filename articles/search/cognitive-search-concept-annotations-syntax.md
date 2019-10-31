@@ -1,22 +1,21 @@
 ---
-title: Référencer les entrées et sorties dans les pipelines de recherche cognitive - Recherche Azure
-description: Cet article explique la syntaxe d’annotation et la manière de référencer une annotation dans les entrées et sorties d’un jeu de compétences dans un pipeline de recherche cognitive dans Recherche Azure.
-services: search
+title: Référencer des entrées et sorties dans un pipeline d’enrichissement de l’IA
+titleSuffix: Azure Cognitive Search
+description: Cet article explique la syntaxe d’annotation et la manière de référencer une annotation dans les entrées et sorties d’un jeu de compétences dans un pipeline d’enrichissement de l’IA dans Recherche cognitive Azure.
 manager: nitinme
-author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: LuisCabrer
 ms.author: luisca
-ms.openlocfilehash: 40559744f0650c64afb1dc63c38f56efaa0219d7
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265535"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787776"
 ---
-# <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences de recherche cognitive
+# <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences Recherche cognitive Azure
 
 Cet article vous permet de découvrir comment référencer des annotations dans des définitions de compétences, en utilisant des exemples pour illustrer différents scénarios. À mesure que le contenu d’un document traverse un jeu de compétences, il s’enrichit d’annotations. Ces annotations peuvent être utilisées comme entrées pour un enrichissement supplémentaire en aval, ou mappées à un champ de sortie dans un index. 
  

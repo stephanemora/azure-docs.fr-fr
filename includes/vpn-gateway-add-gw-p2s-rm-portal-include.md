@@ -9,10 +9,10 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9ce9fa29a29559a1eaaff6173737159f11aa83d8
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71268888"
 ---
 1. Dans le portail, sur le côté gauche, cliquez sur **+Créer une ressource**, puis entrez « passerelle de réseau virtuel » dans la recherche. Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Dans la page **Passerelle de réseau virtuel**, cliquez sur **Créer**. La page **Créer une passerelle de réseau virtuel** s’ouvre.

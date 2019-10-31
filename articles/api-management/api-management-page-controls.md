@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
 ms.openlocfilehash: b720d64f5b0a5f66375083b7854658aa754db150
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072300"
 ---
 # <a name="azure-api-management-page-controls"></a>Contrôles de page Gestion des API Azure
@@ -48,7 +48,7 @@ Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modè
 ##  <a name="app-actions"></a> app-actions  
  Le contrôle `app-actions` fournit une interface utilisateur pour interagir avec les applications sur la page de profil utilisateur dans le portail des développeurs.  
   
- ![contrôle app-actions](./media/api-management-page-controls/APIM-app-actions-control.png "contrôle app-actions APIM")  
+ ![contrôle app&#45;actions](./media/api-management-page-controls/APIM-app-actions-control.png "contrôle APIM app-actions")  
   
 ### <a name="usage"></a>Usage  
   
@@ -70,7 +70,7 @@ Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modè
 ##  <a name="basic-signin"></a> basic-signin  
  Le contrôle `basic-signin` fournit un contrôle pour la collecte des informations de connexion utilisateur dans la page de connexion du portail des développeurs.  
   
- ![contrôle basic-signin](./media/api-management-page-controls/APIM-basic-signin-control.png "contrôle basic-signin APIM")  
+ ![contrôle basic&#45;signin](./media/api-management-page-controls/APIM-basic-signin-control.png "contrôle APIM basic-signin")  
   
 ### <a name="usage"></a>Usage  
   
@@ -89,7 +89,7 @@ Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modè
 ##  <a name="paging-control"></a> paging-control  
  Le contrôle `paging-control` fournit des fonctionnalités de pagination sur les pages du portail des développeurs qui affichent une liste d’éléments.  
   
- ![paging-control](./media/api-management-page-controls/APIM-paging-control.png "paging-control APIM")  
+ ![contrôle paging](./media/api-management-page-controls/APIM-paging-control.png "contrôle APIM paging")  
   
 ### <a name="usage"></a>Usage  
   
@@ -112,7 +112,7 @@ Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modè
 ##  <a name="providers"></a> providers  
  Le contrôle `providers` fournit un contrôle pour la sélection des fournisseurs d’authentification sur la page de connexion du portail des développeurs.  
   
- ![contrôle providers](./media/api-management-page-controls/APIM-providers-control.png "contrôle providers APIM")  
+ ![contrôle providers](./media/api-management-page-controls/APIM-providers-control.png "contrôle APIM providers")  
   
 ### <a name="usage"></a>Usage  
   
@@ -131,7 +131,7 @@ Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modè
 ##  <a name="search-control"></a> search-control  
  Le contrôle `search-control` fournit des fonctionnalités de recherche sur les pages du portail des développeurs affichant une liste d’éléments.  
   
- ![search-control](./media/api-management-page-controls/APIM-search-control.png "search-control APIM")  
+ ![contrôle search](./media/api-management-page-controls/APIM-search-control.png "contrôle APIM search")  
   
 ### <a name="usage"></a>Usage  
   
@@ -152,7 +152,7 @@ Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modè
 ##  <a name="sign-up"></a> sign-up  
  Le contrôle `sign-up` fournit un contrôle pour la collecte des informations de profil utilisateur sur la page d’inscription du portail des développeurs.  
   
- ![sign-up](./media/api-management-page-controls/APIM-sign-up-control.png "sign-up APIM")  
+ ![contrôle sign&#45;up](./media/api-management-page-controls/APIM-sign-up-control.png "contrôle APIM sign-up")  
   
 ### <a name="usage"></a>Usage  
   
@@ -171,7 +171,7 @@ Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modè
 ##  <a name="subscribe-button"></a> subscribe-button  
  `subscribe-button` fournit un contrôle pour abonner un utilisateur à un produit.  
   
- ![contrôle subscribe-button](./media/api-management-page-controls/APIM-subscribe-button-control.png "contrôle subscribe-button APIM")  
+ ![contrôle subscribe&#45;button](./media/api-management-page-controls/APIM-subscribe-button-control.png "contrôle APIM subscribe-button")  
   
 ### <a name="usage"></a>Usage  
   
@@ -190,7 +190,7 @@ Pour utiliser un contrôle, placez-le à l’emplacement souhaité dans le modè
 ##  <a name="subscription-cancel"></a> subscription-cancel  
  Le contrôle `subscription-cancel` fournit un contrôle pour annuler l’abonnement à un produit sur la page de profil utilisateur du portail des développeurs.  
   
- ![contrôle subscription-cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "contrôle subscription-cancel APIM")  
+ ![contrôle subscription&#45;cancel](./media/api-management-page-controls/APIM-subscription-cancel-control.png "contrôle APIM subscription-cancel")  
   
 ### <a name="usage"></a>Usage  
   

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035114"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595368"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Réglage des performances avec un index columstore cluster ordonné  
 
@@ -119,12 +119,12 @@ Voici un exemple de distribution de table à index columnstore cluster ordonné 
 ## <a name="create-ordered-cci-on-large-tables"></a>Créer un index columnstore cluster ordonné sur des tables volumineuses
 La création d’un index columnstore cluster ordonné est une opération hors connexion.  Pour des tables sans partitions, les données ne sont pas accessibles aux utilisateurs tant que le processus de création de l’index columnstore cluster ordonné n’est pas terminé.   Pour des tables partitionnées, dans la mesure où le moteur crée la partition d’index columnstore cluster ordonné par partition, les utilisateurs peuvent quand même accéder aux données dans les partitions pour lesquelles la création de l’index columnstore cluster ordonné n’est pas en cours.   Vous pouvez utiliser cette option pour minimiser le temps d’arrêt lors de la création d’un index columnstore cluster ordonné sur des tables volumineuses : 
 
-1.  Créez des partitions sur la grande table cible (appelée Table A).
-2.  Créez une table d’index columnstore cluster ordonné vide (appelée Table B) avec la même table et le même schéma de partition que Table A.
+1.  Créez des partitions sur la grande table cible (appelée Table_A).
+2.  Créez une table d’index columnstore cluster ordonné vide (appelée Table_B) avec la même table et le même schéma de partition que Table A.
 3.  Faites passer une partition de Table A à Table B.
-4.  Exécutez ALTER INDEX <index_columnstore_cluster_ordonné> REBUILD PARTITION = <ID_partition> sur Table B pour reconstruire la partition.  
-5.  Répétez les étapes 3 et 4 pour chaque partition de Table A.
-6.  Une fois que toutes les partitions sont passées de Table A à Table B et ont été reconstruites, supprimez Table A, puis renommez Table B en l’appelant Table A. 
+4.  Exécutez ALTER INDEX <index_columnstore_cluster_ordonné> ON <Table_B> REBUILD PARTITION = <ID_partition> sur Table B pour reconstruire la partition.  
+5.  Répétez les étapes 3 et 4 pour chaque partition de Table_A.
+6.  Une fois que toutes les partitions sont passées de Table_A à Table_B et ont été reconstruites, supprimez Table_A, puis renommez Table_B en l’appelant Table_A. 
 
 ## <a name="examples"></a>Exemples
 
