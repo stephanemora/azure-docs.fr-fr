@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 4b426fbc1d1b3eeed2321f86bb51c9c5d705adb4
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: c8d6e949722e291eab4ac45f6abb610acfa10d68
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035613"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532390"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connecter Operations Manager à Azure Monitor
 
@@ -34,7 +34,7 @@ L'intégration à System Center Operations Manager enrichit votre stratégie d'o
 
 Les agents relevant du groupe d'administration Operations Manager collectent les données de vos serveurs en fonction des [sources de données Log Analytics](agent-data-sources.md) et des solutions que vous avez activées dans votre espace de travail. Selon les solutions activées, leurs données sont soit envoyées directement au service depuis un serveur de gestion Operations Manager, soit envoyées directement de l'agent vers un espace de travail Log Analytics, en raison du volume de données collectées sur le système géré par l'agent. Le serveur d’administration transfère directement les données au service. Celles-ci ne sont jamais écrites dans la base de données opérationnelle ou de l’entrepôt de données. Lorsqu'un serveur de gestion perd la connexion avec Azure Monitor, il met les données en cache localement jusqu'à ce que la communication soit rétablie. Si le serveur d'administration est hors connexion pour cause de maintenance planifiée ou d'interruption imprévue, un autre serveur du groupe d'administration assure la connectivité avec Azure Monitor.  
 
-Le diagramme suivant représente la connexion entre les serveurs et agents d'administration d'un groupe d'administration System Center Operations Manager et Azure Monitor, notamment la direction et les ports.   
+Le diagramme suivant représente la connexion entre les serveurs et agents d'administration d'un groupe d'administration System Center Operations Manager et Azure Monitor, notamment la direction et les ports.
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
@@ -65,7 +65,7 @@ Avant de commencer, passez en revue les exigences suivantes.
 >[!NOTE]
 >Les dernières modifications apportées aux API Azure empêchent les clients de pouvoir configurer pour la première fois l'intégration entre leur groupe d'administration et Azure Monitor. Pour les clients qui ont déjà intégré leur groupe d’administration avec le service, vous n’êtes pas affecté, sauf si vous devez reconfigurer votre connexion existante.  
 >Un nouveau pack d’administration a été publié pour les versions suivantes d’Operations Manager :
-> - Pour System Center Operations Manager 2019, le pack d’administration est fourni avec la build Operations Manager.
+> - Pour System Center Operations Manager 2019, ce pack d’administration est inclus avec le média source et installé lors de l’installation d’un nouveau groupe d’administration ou pendant une mise à niveau.
 >- Le pack d’administration Operations Manager 1801 s’applique également à Operations Manager 1807.
 >- Pour System Center Operations Manager 1801, téléchargez le pack d'administration [ici](https://www.microsoft.com/download/details.aspx?id=57173).
 >- Pour System Center Operations Manager 2016, téléchargez le pack d'administration [ici](https://www.microsoft.com/download/details.aspx?id=57172).  
@@ -74,7 +74,7 @@ Avant de commencer, passez en revue les exigences suivantes.
 
 ### <a name="network"></a>Réseau
 
-Les informations ci-dessous répertorient les données de configuration de proxy et de pare-feu requises pour permettre à l'agent Operations Manager, aux serveurs d'administration et à la console Operations de communiquer avec Azure Monitor. Le trafic provenant de chaque composant sort de votre réseau et se dirige vers Azure Monitor.   
+Les informations ci-dessous répertorient les données de configuration de proxy et de pare-feu requises pour permettre à l'agent Operations Manager, aux serveurs d'administration et à la console Operations de communiquer avec Azure Monitor. Le trafic provenant de chaque composant sort de votre réseau et se dirige vers Azure Monitor.
 
 |Ressource | Numéro de port| Ignorer l’inspection HTTP|  
 |---------|------|-----------------------|  

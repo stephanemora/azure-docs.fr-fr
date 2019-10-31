@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
 ms.openlocfilehash: 35c696e47c0a01c2cdb4d91db5a654208f2196e2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71257264"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-ffiec-financial-services"></a>Blueprint de sécurité et de conformité Azure : Analytique pour les services financiers FFIEC
@@ -41,7 +41,7 @@ Pour renforcer la sécurité, toutes les ressources dans cette solution sont gé
 
 Azure SQL Database est généralement géré par le biais de la suite d’outils SQL Server Management Studio (SSMS), qui s’exécute à partir d’une machine locale configurée pour accéder à Azure SQL Database par l’intermédiaire d’une connexion VPN ou ExpressRoute sécurisée. **Microsoft recommande de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le groupe de ressources de l’architecture de référence**.
 
-![Diagramme de l’architecture de référence d’analytique pour le FFIEC](images/ffiec-analytics-architecture.png "Diagramme de l’architecture de référence d’analytique pour le FFIEC")
+![Analytics pour le diagramme d’architecture de référence FFIEC](images/ffiec-analytics-architecture.png "Analytics pour le diagramme d’architecture de référence FFIEC")
 
 Cette solution utilise les services Azure suivants. Les informations détaillées concernant l’architecture de déploiement figurent à la section [Architecture de déploiement](#deployment-architecture).
 
@@ -167,7 +167,7 @@ Cette architecture intègre également les [solutions de supervision](../../moni
 
 Le diagramme de flux de données de cette architecture de référence figure ci-dessous et est également disponible en [téléchargement](https://aka.ms/ffiec-analytics-tm). Ce modèle peut aider les clients à comprendre les points de risque potentiel de l’infrastructure du système lors de l’apport de modifications.
 
-![Modèle de risque d’analytique pour le FFIEC](images/ffiec-analytics-threat-model.png "Modèle de risque d’analytique pour le FFIEC")
+![Analytics pour le modèle de menaces FFIEC](images/ffiec-analytics-threat-model.png "Analytics pour le modèle de menaces FFIEC")
 
 ## <a name="compliance-documentation"></a>Documentation sur la conformité
 

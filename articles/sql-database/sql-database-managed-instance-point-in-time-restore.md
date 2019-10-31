@@ -1,6 +1,6 @@
 ---
 title: Instance managée SQL Database - Limite de restauration dans le temps | Microsoft Docs
-description: Comment restaurer une base de données dans une instance managée SQL à un point antérieur dans le temps.
+description: Restaurer une base de données SQL dans une instance gérée à un point antérieur dans le temps.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,78 +11,67 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 67f13d16dcf6bbe4fa13fe3a6e78d3e4d61e1999
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 61249d8ac21c3bb698deb92e5f46a8998205ced9
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861996"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529666"
 ---
-# <a name="restore-a-sql-managed-instance-database-to-a-previous-point-in-time"></a>Restaurer une base de données d’instance managée SQL à un point antérieur dans le temps
+# <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurer une base de données SQL dans une instance gérée à un point antérieur dans le temps
 
-La limite de restauration dans le temps (PITR) vous permet de créer une base de données en tant que copie d’une autre base de données à un moment donné dans le passé. Cet article explique comment effectuer une restauration dans le temps d’une base de données dans une instance managée.
+Utilisez la limite de restauration dans le temps (PITR) pour créer une base de données en tant que copie d’une autre base de données à un moment donné dans le passé. Cet article explique comment effectuer une limite de restauration dans le temps d’une base de données dans une instance gérée Azure SQL Database.
 
-La limite de restauration dans le temps peut être utilisée dans les scénarios de récupération, comme les incidents provoqués par des erreurs, les données chargées de manière incorrecte, la suppression des données critiques et d’autres problèmes, ainsi qu’à des fins de test ou d’audit. Selon les paramètres de votre base de données, les fichiers de sauvegarde sont conservés pendant une période comprise entre 7 et 35 jours.
+La limite de restauration dans le temps est utile dans les scénarios de récupération, tels que les incidents provoqués par des erreurs, les données chargées de façon incorrecte ou la suppression de données cruciales. Vous pouvez également l’utiliser simplement à des fins de test ou d’audit. Les fichiers de sauvegarde sont conservés pendant une période comprise entre 7 et 35 jours, en fonction des paramètres de votre base de données.
 
-La limite de restauration dans le temps peut être utilisée pour :
+La limite de restauration dans le temps peut :
 
 - Restaurer une base de données à partir d’une base de données existante.
 - Restaurer une base de données à partir d’une base de données supprimée.
 
-En outre, avec une instance managée, la limite de restauration dans le temps peut être utilisée pour : 
+En outre, pour une instance gérée, la limite de restauration dans le temps peut également :
 
 - Restaurer une base de données dans la même instance managée.
 - Restaurer une base de données vers une autre instance managée.
 
-
 > [!NOTE]
-> La limite de restauration dans le temps d’une instance managée entière n’est pas possible. Ce qui est possible et expliqué dans cet article, c’est une limite de restauration dans le temps d’une base de données hébergée sur une instance managée.
-
+> La limite de restauration dans le temps d’une instance managée entière n’est pas possible. Cet explique uniquement ce qui est possible : une limite de restauration dans le temps d’une base de données hébergée sur une instance gérée.
 
 ## <a name="limitations"></a>Limites
 
-Lors de la restauration vers une autre instance managée, les deux instances doivent se trouver dans le même abonnement et la même région. Les restaurations inter-régions et inter-abonnements ne sont actuellement pas prises en charge.
+Lorsque vous restaurez d’une instance gérée vers une autre, les deux instances doivent se trouver dans le même abonnement et la même région. La restauration inter-régions et inter-abonnements ne sont actuellement pas prises en charge.
 
 > [!WARNING]
-> Soyez attentif à la taille de stockage de votre instance managée : en fonction de la taille de la restauration des données, vous risquez de manquer de stockage d’instance. S’il n’y a pas assez d’espace pour les données restaurées, utilisez une autre approche.
+> Tenez compte de la taille de stockage de votre instance gérée. Selon la taille des données à restaurer, vous risquez de manquer de stockage d’instance. S’il n’y a pas assez d’espace pour les données restaurées, utilisez une approche différente.
 
-Le tableau suivant présente les scénarios de récupération jusqu’à une date et heure pour une instance managée :
+Le tableau suivant présente les scénarios de limite de restauration dans le temps pour une instance gérée :
 
-|           |Restaurer une BD existante| Restaurer une BD existante|Restaurer une BD supprimée| Restaurer une BD supprimée|
+|           |Restaurer la base de données existante sur la même instance gérée| Restaurer la base de données existante sur une autre instance gérée|Restaurer la base de données déposée sur la même instance gérée|Restaurer la base de données déposée sur une autre instance gérée|
 |:----------|:----------|:----------|:----------|:----------|
-|Destination| Même MI|Autre MI |Même MI|Autre MI |
-|Portail Azure| OUI|Non |Non|Non|
-|D’Azure CLI|OUI |OUI |Non|Non|
-|PowerShell| OUI|OUI |OUI|OUI|
+|**Portail Azure**| OUI|Non |Non|Non|
+|**Interface de ligne de commande Azure**|OUI |OUI |Non|Non|
+|**PowerShell**| OUI|OUI |OUI|OUI|
 
+## <a name="restore-an-existing-database"></a>Restaurer une base de données existante
 
-## <a name="restore-existing-database"></a>Restaurer une base de données existante
-
-Restaurez une base de données existante sur la même instance à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Restaurez une base de données sur une autre instance à l’aide de PowerShell ou d’Azure CLI en spécifiant les propriétés du groupe de ressources et de l’instance managée cibles. Si ces paramètres ne sont pas spécifiés, la base de données sera restaurée par défaut sur l’instance existante. La restauration vers une autre instance n’est pas prise en charge actuellement par le portail Azure. 
+Restaurez une base de données existante sur la même instance à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Pour restaurer une base de données sur une autre instance, utilisez PowerShell ou Azure CLI en spécifiant les propriétés du groupe de ressources et de l’instance gérée cibles. Si vous spécifiez pas ces paramètres, la base de données sera restaurée par défaut sur l’instance existante. Le portail Azure ne prend pas actuellement en charge la restauration vers une autre instance.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). 
-1. Accédez à votre instance managée et sélectionnez la base de données à restaurer. 
-1. Sélectionnez **Restaurer** dans la page de la base de données. 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+2. Accédez à votre instance gérée et sélectionnez la base de données à restaurer.
+3. Sélectionnez **Restaurer** dans la page de la base de données :
 
-    ![Restaurer une base de données existante](media/sql-database-managed-instance-point-in-time-restore/restore-database-to-mi.png)
+    ![Restaurer une base de données à l’aide du portail Azure](media/sql-database-managed-instance-point-in-time-restore/restore-database-to-mi.png)
 
-1. Dans la page **Restaurer**, sélectionnez le point pour la date et l’heure dans l’historique auquel restaurer la base de données.
-1. Sélectionnez **Confirmer** pour restaurer votre base de données. Cela démarre le processus de restauration, qui crée une nouvelle base de données et est rempli avec les données de la base de données d’origine au point voulu dans le temps. Pour plus d’informations sur le temps de récupération, consultez [temps de récupération](sql-database-recovery-using-backups.md#recovery-time). 
-
-1. Recherchez une instance managée
-1. Sélectionnez la base de données à restaurer
-1. Dans l’écran de la base de données, cliquez sur l’action Restaurer
-1. Dans l’écran Restaurer, sélectionnez la date et l’heure du point de l’historique vers lequel vous restaurez la base de données.
-1. Après confirmation, le processus de restauration démarre et, selon la taille de la base de données, la nouvelle base de données est créée et remplie avec les données de la base de données d’origine au point voulu dans le temps. Pour la durée du processus de restauration, consultez l’article sur la récupération à l’aide de sauvegardes.
-
+4. Dans la page **Restaurer**, sélectionnez le point pour la date et l’heure auquel restaurer la base de données.
+5. Sélectionnez **Confirmer** pour restaurer votre base de données. Cette action démarre le processus de restauration qui crée une nouvelle base de données et est rempli avec les données de la base de données d’origine au point spécifié dans le temps. Pour plus d’informations sur le processus de récupération, consultez [Heure de récupération](sql-database-recovery-using-backups.md#recovery-time).
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Si Azure PowerShell n’est pas encore installé, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Pour restaurer la base de données à l’aide de PowerShell, mettez à jour les paramètres avec vos valeurs et exécutez la commande suivante :
+Pour restaurer la base de données à l’aide de PowerShell, spécifiez vos valeurs pour les paramètres de la commande suivante. Exécutez ensuite la commande :
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -91,19 +80,19 @@ $managedInstanceName = "<Managed instance name>"
 $databaseName = "<Source-database>"
 $pointInTime = "2018-06-27T08:51:39.3882806Z"
 $targetDatabase = "<Name of new database to be created>"
- 
+
 Get-AzSubscription -SubscriptionId $subscriptionId
 Select-AzSubscription -SubscriptionId $subscriptionId
- 
+
 Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -ResourceGroupName $resourceGroupName `
-                               -InstanceName $managedInstanceName `
-                               -Name $databaseName `
-                               -PointInTime $pointInTime `
-                               -TargetInstanceDatabaseName $targetDatabase `
+                              -InstanceName $managedInstanceName `
+                              -Name $databaseName `
+                              -PointInTime $pointInTime `
+                              -TargetInstanceDatabaseName $targetDatabase `
 ```
 
-Pour restaurer la base de données vers une autre instance managée, définissez le nom du groupe de ressources cible et le nom de l’instance managée cible.  
+Pour restaurer la base de données vers une autre instance gérée, spécifiez également le nom du groupe de ressources et le nom de l’instance gérée cibles :  
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target managed instance>"
@@ -121,21 +110,18 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 Pour plus d’informations, consultez [.Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-
 # <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 Si Azure CLI n’est pas encore installé, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Pour restaurer la base de données à l’aide d’Azure CLI, mettez à jour les paramètres avec vos valeurs et exécutez la commande suivante :
-
+Pour restaurer la base de données à l’aide d’Azure CLI, spécifiez vos valeurs pour les paramètres de la commande suivante. Exécutez ensuite la commande :
 
 ```azurecli-interactive
 az sql midb restore -g mygroupname --mi myinstancename |
 -n mymanageddbname --dest-name targetmidbname --time "2018-05-20T05:34:22"
 ```
 
-
-Pour restaurer la base de données vers une autre instance managée, définissez le nom du groupe de ressources cible et le nom de l’instance managée cible.  
+Pour restaurer la base de données vers une autre instance gérée, spécifiez également le nom du groupe de ressources et le nom de l’instance gérée cibles :  
 
 ```azurecli-interactive
 az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
@@ -144,15 +130,15 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-Pour obtenir une explication détaillée des paramètres disponibles, consultez [CLI instance managée](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore). 
+Pour obtenir une explication détaillée des paramètres disponibles, consultez la [documentation CLI pour la restauration d’une base de données dans une instance gérée](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
-## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée. 
- 
-La restauration d’une base de données supprimée ne peut être effectuée qu’avec PowerShell. La base de données peut être restaurée sur la même instance ou sur une autre instance. 
+## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
 
-Pour restaurer une base de données supprimée à l’aide de PowerShell, mettez à jour les paramètres avec vos valeurs et exécutez la commande suivante :
+La restauration d’une base de données supprimée ne peut être effectuée qu’en utilisant PowerShell. La base de données peut être restaurée sur la même instance ou sur une autre instance.
+
+Pour restaurer la base de données supprimée à l’aide de PowerShell, spécifiez vos valeurs pour les paramètres de la commande suivante. Exécutez ensuite la commande :
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -173,9 +159,7 @@ $properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $poi
 $properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
 ```
 
-Pour restaurer la base de données supprimée sur une autre instance, modifiez le nom du groupe de ressources et le nom de l’instance managée.
-
-Le paramètre d’emplacement doit correspondre à l’emplacement du groupe de ressources et de l’instance managée.
+Pour restaurer la base de données supprimée sur une autre instance, modifiez le nom du groupe de ressources et le nom de l’instance gérée. Vérifiez également que le paramètre d’emplacement correspond à l’emplacement du groupe de ressources et de l’instance gérée.
 
 ```powershell-interactive
 $resourceGroupName = "<Second resource group name>"
@@ -190,39 +174,38 @@ New-AzResource -Location $location -Properties $properties `
         -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
 ```
 
-## <a name="overwrite-existing-database"></a>Remplacer une base de données existante 
- 
-Pour remplacer une base de données existante, vous devez également effectuer les opérations suivantes :
+## <a name="overwrite-an-existing-database"></a>Remplacer une base de données existante
 
-1. SUPPRIMEZ la base de données existante que vous souhaitez remplacer.
-1. Renommez la base de données restaurée jusqu’à une date et heure par le nom de la base de données qui a été supprimée. 
+Pour remplacer une base de données existante, vous devez :
 
+1. Déposez la base de données existante que vous souhaitez remplacer.
+2. Renommez la base de données restaurée dans le temps par le nom de la base de données qui a été déposée.
 
-### <a name="drop-original-database"></a>SUPPRIMER la base de données d’origine 
- 
-La suppression de la base de données peut être effectuée à l’aide du portail Azure, de PowerShell ou d’Azure CLI. 
+### <a name="drop-the-original-database"></a>Déposer la base de données d’origine
 
-Vous pouvez également supprimer la base de données en vous connectant directement à l’instance managée, en lançant SQL Server Management Studio (SSMS) et en exécutant la commande Transact-SQL (T-SQL) ci-dessous.
+Vous pouvez déposer une base de données à l’aide du portail Azure, de PowerShell ou de Azure CLI.
+
+Vous pouvez également déposer la base de données en vous connectant directement à l’instance gérée, en lançant SQL Server Management Studio (SSMS) et en exécutant la commande Transact-SQL (T-SQL) suivant :
 
 ```sql
 DROP DATABASE WorldWideImporters;
 ```
 
-Utilisez l’une des méthodes suivantes pour vous connecter à votre base de données d’instance managée : 
+Utilisez l’une des méthodes suivantes pour vous connecter à votre base de données d’instance gérée :
 
-- [Machine virtuelle SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [SSMS/Azure Data Studio via une machine virtuelle Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point à site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Point de terminaison public](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
-Dans le portail Azure, sélectionnez la base de données à partir de l’instance managée et sélectionnez **Supprimer**.
+Dans le portail Azure, sélectionnez la base de données à partir de l’instance gérée et sélectionnez **Supprimer**.
 
-   ![Restaurer une base de données existante](media/sql-database-managed-instance-point-in-time-restore/delete-database-from-mi.png)
+   ![Supprimer une base de données à l’aide du portail Azure](media/sql-database-managed-instance-point-in-time-restore/delete-database-from-mi.png)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilisez la commande PowerShell suivante pour supprimer une base de données existante d’une instance managée : 
+Utilisez la commande PowerShell suivante pour supprimer une base de données existante d’une instance managée :
 
 ```powershell
 $resourceGroupName = "<Resource group name>"
@@ -234,7 +217,7 @@ Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceN
 
 # <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
-Utilisez la commande Azure CLI suivante pour supprimer une base de données existante d’une instance managée : 
+Utilisez la commande Azure CLI suivante pour supprimer une base de données existante d’une instance managée :
 
 ```azurecli-interactive
 az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
@@ -242,23 +225,20 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 
 ---
 
+### <a name="alter-the-new-database-name-to-match-the-original-database-name"></a>Modifier le nouveau nom de base de données pour qu’il corresponde au nom de la base de données d’origine
 
-### <a name="alter-new-database-name-to-original"></a>MODIFIER le nom de la nouvelle base de données pour le remplacer par le nom d’origine
-
-Connectez-vous directement à l’instance managée, lancez SQL Server Management Studio, puis exécutez la requête Transact-SQL (T-SQL) suivante pour remplacer le nom de la base de données restaurée par celui de la base de données supprimée que vous souhaitiez remplacer. 
-
+Connectez-vous directement à l’instance gérée et démarrez SQL Server Management Studio. Vous pouvez alors exécuter la requête Transact-SQL (T-SQL) suivante. La requête remplacera le nom de la base de données restaurée par celui de la base de données déposée que vous envisagez de remplacer.
 
 ```sql
 ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
+Utilisez l’une des méthodes suivantes pour vous connecter à votre base de données d’instance gérée :
 
-Utilisez l’une des méthodes suivantes pour vous connecter à votre base de données d’instance managée : 
-
-- [Machine virtuelle SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [Machine virtuelle Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point à site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Point de terminaison public](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [conservation à long terme](sql-database-long-term-retention.md) et les [sauvegardes automatisées](sql-database-automated-backups.md). 
+En savoir plus sur les [sauvegardes automatisées](sql-database-automated-backups.md).

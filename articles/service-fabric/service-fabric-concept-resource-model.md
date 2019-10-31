@@ -5,14 +5,14 @@ services: service-fabric
 author: athinanthny
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390094"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752317"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Qu’est-ce qu’un modèle de ressource d’application Service Fabric ?
 Le déploiement d’applications Service Fabric dans votre cluster Service Fabric par le biais d’Azure Resource Manager est recommandé. Cette méthode permet de décrire les applications et les services au format JSON et de les déployer dans le même modèle Resource Manager que votre cluster. Au lieu de déployer et de gérer des applications via PowerShell ou Azure CLI, il n’est pas nécessaire d’attendre que le cluster soit prêt. Le processus d’inscription, d’approvisionnement et de déploiement d’applications peut s’effectuer en une seule étape. Il est recommandé de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez les [meilleures pratiques](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -41,8 +41,14 @@ Le déploiement d’une application à partir d’un modèle Resource Manager n�
 ![Créez un compte de stockage.][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>Configurer un compte de stockage 
-Une fois le compte de stockage créé, vous devez créer un conteneur blob dans lequel les applications peuvent être indexées. Dans le Portail Azure, accédez au compte de stockage pour stocker vos applications. Sélectionnez le panneau **Blobs**, puis cliquez sur le bouton **Ajouter un conteneur**. Ajoutez un nouveau conteneur avec un niveau d’accès public blob.
-   
+Une fois le compte de stockage créé, vous devez créer un conteneur blob dans lequel les applications peuvent être indexées. Dans le Portail Azure, accédez au compte de stockage pour stocker vos applications. Sélectionnez le panneau **Blobs**, puis cliquez sur le bouton **Ajouter un conteneur**. Les ressources de votre cluster peuvent être sécurisées en définissant le niveau d’accès public sur privé. L’accès peut être accordé de plusieurs façons :
+* [Autoriser l’accès aux blobs et aux files d’attente avec Azure Active Directory](../storage/common/storage-auth-aad-app.md)
+* [Octroyer l’accès aux données d’objet blob et de file d’attente Azure avec RBAC dans le Portail Azure](../storage/common/storage-auth-aad-rbac-portal.md)
+* [Déléguer l’accès avec une signature d’accès partagé (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ Pour cet exemple, nous allons continuer à utiliser l’accès en lecture anonyme pour les blobs.
+
 ![Créer un blob][CreateBlob]
 
 ### <a name="stage-application-in-a-storage-account"></a>Indexer une application dans un compte de stockage

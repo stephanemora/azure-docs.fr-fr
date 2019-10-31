@@ -1,7 +1,7 @@
 ---
-title: 'Exporter des données : informations de référence sur les modules'
+title: 'Exporter des données : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Exporter les données dans le service Azure Machine Learning pour enregistrer les résultats, les données intermédiaires et les données de travail de vos expériences dans les destinations de stockage cloud en dehors d’Azure Machine Learning.
+description: Découvrez comment utiliser le module Exporter les données dans Azure Machine Learning service pour enregistrer les résultats, les données intermédiaires et les données de travail de vos pipelines dans les destinations de stockage cloud en dehors d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: a4fb539f4c86d27813b60964794fc1f398d3f2a4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b7b4b9de1e91279243e35f1b71f1ef6d2244e9e0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128775"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693716"
 ---
 # <a name="export-data-module"></a>Module Exporter les données
 
-Cet article décrit un module de l’interface visuelle (préversion) du service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning Service.
 
-Utilisez ce module pour enregistrer les résultats, les données intermédiaires et les données de travail de vos expériences dans les destinations de stockage cloud en dehors d’Azure Machine Learning.
+Utilisez ce module pour enregistrer les résultats, les données intermédiaires et les données de travail de vos pipelines dans les destinations de stockage cloud en dehors d’Azure Machine Learning.
 
 Ce module prend en charge l’exportation ou de l’enregistrement de vos données dans les services de données cloud suivants :
 
@@ -30,7 +30,7 @@ Ce module prend en charge l’exportation ou de l’enregistrement de vos donné
   
 ## <a name="how-to-configure-export-data"></a>Configuration de l’exportation des données
 
-1. Ajoutez le module **Exporter des données** à votre expérience dans l’interface. Ce module figure dans la catégorie **Entrée et sortie**.
+1. Ajoutez le module **Exporter des données** à votre pipeline dans l’interface. Ce module figure dans la catégorie **Entrée et sortie**.
 
 2. Connectez **Exporter des données** au module qui contient les données à exporter.
 
@@ -51,13 +51,13 @@ Ce module prend en charge l’exportation ou de l’enregistrement de vos donné
 
         Les formats de fichier CSV et TSV sont pris en charge.
 
-    3. Pour les comptes privés, choisissez **Compte**, puis indiquez le nom du compte et la clé du compte, afin que l’expérience puisse écrire dans le compte de stockage.
+    3. Pour les comptes privés, choisissez **Compte**, puis indiquez le nom du compte et la clé du compte, afin que le pipeline puisse écrire dans le compte de stockage.
 
          - **Nom du compte** : saisissez ou collez le nom du compte dans lequel vous souhaitez enregistrer les données. Par exemple, si l’URL complète du compte de stockage est `http://myshared.blob.core.windows.net`, vous devez saisir `myshared`.
 
         - **Clé du compte** : collez la clé d’accès de stockage associée au compte.
 
-        -  **Chemin d’accès au conteneur, répertoire ou Blob** : saisissez le nom de l’objet blob où les données exportées seront stockées. Par exemple, pour enregistrer les résultats de votre expérience dans un nouvel objet blob nommé **results01.csv** du conteneur **prédictions** dans un compte nommé **mymldata**, l’URL complète de l’objet blob serait `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
+        -  **Chemin d’accès au conteneur, répertoire ou Blob** : saisissez le nom de l’objet blob où les données exportées seront stockées. Par exemple, pour enregistrer les résultats de votre pipeline dans un nouveau blob nommé **results01.csv** du conteneur **prédictions** dans un compte nommé **mymldata**, l’URL complète du blob serait `http://mymldata.blob.core.windows.net/predictions/results01.csv`.
 
             Par conséquent, dans le champ **Chemin d’accès au conteneur, répertoire ou Blob**, vous devez spécifier le nom du conteneur et de l’objet blob comme suit : `predictions/results01.csv`
 
@@ -73,9 +73,9 @@ Ce module prend en charge l’exportation ou de l’enregistrement de vos donné
         - **TSV** : le format TSV (valeurs séparées par des tabulations) est compatible avec de nombreux outils d’apprentissage automatique. Pour exporter les en-têtes de colonnes avec les données, sélectionnez l’option **Write blob header row** (Écrire la ligne d’en-tête d’objet blob).  
 
  
-    5. **Utiliser les résultats mis en cache** : sélectionnez cette option si vous souhaitez éviter de réécrire les résultats dans le fichier blob chaque fois que vous exécutez l’expérience. Si aucune autre modification n’est apportée aux paramètres du module, l’expérience écrit les résultats uniquement lors de la première exécution du module, ou lorsque des données sont modifiées.
+    5. **Utiliser les résultats mis en cache** : sélectionnez cette option si vous souhaitez éviter de réécrire les résultats dans le fichier blob chaque fois que vous exécutez le pipeline. Si aucune autre modification n’est apportée aux paramètres du module, le pipeline écrit les résultats uniquement lors de la première exécution du module ou lorsque des données sont modifiées.
 
-    6. Exécutez l’expérience.
+    6. Exécuter le pipeline.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

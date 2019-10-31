@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: c9d6bc8802b54e970fe863ed6a7283f01c947916
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2919c7a2fa3a8912de0272af5131583988184704
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066858"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755532"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Présentation des diagnostics Azure App Service
 
@@ -92,17 +92,17 @@ Les Outils de diagnostics incluent des outils de diagnostic plus avancés qui vo
 
 ### <a name="proactive-cpu-monitoring"></a>Surveillance proactive de l’UC
 
-La surveillance proactive de l’UC vous offre un moyen simple et proactif pour intervenir lorsque votre application ou le processus enfant de votre application consomme des ressources d’UC de façon intensive. Vous pouvez définir vos propres règles de seuil d’UC pour atténuer temporairement un problème d’utilisation intensive de l’UC jusqu’à ce que la véritable cause du problème inattendu soit identifiée.
+La surveillance proactive de l’UC vous offre un moyen simple et proactif pour intervenir lorsque votre application ou le processus enfant de votre application consomme des ressources d’UC de façon intensive. Vous pouvez définir vos propres règles de seuil d’UC pour atténuer temporairement un problème d’utilisation intensive de l’UC jusqu’à ce que la véritable cause du problème inattendu soit identifiée. Pour plus d’informations, consultez [Atténuer vos problèmes d’UC avant qu’ils ne se produisent](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html).
 
 ![Surveillance proactive de l’UC](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
 ### <a name="auto-healing-and-proactive-auto-healing"></a>Réparation automatique et réparation automatique proactive
 
-La réparation automatique est une action d’atténuation que vous pouvez entreprendre quand votre application présente un comportement inattendu. Vous pouvez définir vos propres règles selon le nombre de demandes, la lenteur des demandes, la limite de mémoire et le code d’état HTTP pour déclencher des actions d’atténuation. Utilisez l’outil pour atténuer temporairement les effets d’un comportement inattendu jusqu’à ce que vous trouviez la cause racine.
+La réparation automatique est une action d’atténuation que vous pouvez entreprendre quand votre application présente un comportement inattendu. Vous pouvez définir vos propres règles selon le nombre de demandes, la lenteur des demandes, la limite de mémoire et le code d’état HTTP pour déclencher des actions d’atténuation. Utilisez l’outil pour atténuer temporairement les effets d’un comportement inattendu jusqu’à ce que vous trouviez la cause racine. Pour plus d’informations, consultez [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
 ![Réparation automatique](./media/app-service-diagnostics/auto-healing-10.png)
 
-Comme la supervision proactive du processeur, la réparation automatique proactive constitue une solution idéale pour atténuer un comportement inattendu de votre application. La réparation automatique proactive redémarre votre application quand App Service détermine que votre application est dans un état irrécupérable. Pour plus d’informations, consultez [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Comme la supervision proactive du processeur, la réparation automatique proactive constitue une solution idéale pour atténuer un comportement inattendu de votre application. La réparation automatique proactive redémarre votre application quand App Service détermine que votre application est dans un état irrécupérable. Pour plus d’informations, consultez [Présentation de la répartition automatique proactive](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html).
 
 ## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Navigateur et analyse des modifications (uniquement pour les applications Windows)
 

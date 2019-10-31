@@ -12,12 +12,12 @@ author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 8abffdf443e26c03c38c12a3947a47a94157c9da
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: d16267e104d753770dc40ce99b0f56e5c749b2d0
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609623"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752164"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Résoudre les problèmes de gestion du runtime d’intégration SSIS dans Azure Data Factory
 
@@ -105,7 +105,7 @@ Cette erreur signifie que l’exécution du script d’installation personnalis�
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-Cette erreur signifie que le délai d’exécution du script d’installation personnalisée a expiré. Vérifiez que votre conteneur d’objets blob contient uniquement les fichiers nécessaires à l’installation personnalisée. Vous devez également vérifier les journaux d’exécution de l’installation personnalisée dans votre conteneur d’objets blob. Le délai maximal pour l’installation personnalisée est actuellement de 45 minutes. Ce délai inclut le temps nécessaire au téléchargement de tous les fichiers de votre conteneur, ainsi que le temps nécessaire à leur installation sur le runtime d’intégration SSIS. Si un délai plus long est nécessaire, envoyez-nous un ticket de support.
+Cette erreur signifie que le délai d’exécution du script d’installation personnalisée a expiré. Assurez-vous que votre script peut être exécuté en mode silencieux et qu’aucune entrée interactive n’est nécessaire et assurez-vous que votre conteneur blob contient uniquement les fichiers d’installation personnalisée nécessaires. Il est recommandé de commencer par tester le script sur l’ordinateur local. Vous devez également vérifier les journaux d’exécution de l’installation personnalisée dans votre conteneur d’objets blob. Le délai maximal pour l’installation personnalisée est actuellement de 45 minutes. Ce délai inclut le temps nécessaire au téléchargement de tous les fichiers de votre conteneur, ainsi que le temps nécessaire à leur installation sur le runtime d’intégration SSIS. Si un délai plus long est nécessaire, envoyez-nous un ticket de support.
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 

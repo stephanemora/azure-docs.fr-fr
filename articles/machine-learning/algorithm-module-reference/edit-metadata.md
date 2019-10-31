@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 642b2a038ec434584c8af6dd72d58810e136ed57
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128864"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693830"
 ---
 # <a name="edit-metadata-module"></a>Module Modifier les métadonnées
 
@@ -40,7 +40,7 @@ Les modifications de métadonnées standard peuvent être les suivantes :
   
 ## <a name="configure-edit-metadata"></a>Configurer le module Modifier les métadonnées
   
-1. Dans Azure Machine Learning, ajoutez le module Modifier les métadonnées à votre expérience et connectez le jeu de données à mettre à jour. Le jeu de données se trouve dans **Transformation des données**, dans la catégorie **Manipulation**.
+1. Dans Azure Machine Learning, ajoutez le module Modifier les métadonnées à votre pipeline et connectez le jeu de données à mettre à jour. Le jeu de données se trouve dans **Transformation des données**, dans la catégorie **Manipulation**.
   
 1. Sélectionnez **Lancer le sélecteur de colonne** et choisissez la colonne ou l’ensemble de colonnes à utiliser. Vous pouvez sélectionner des colonnes individuellement par nom ou index, ou vous pouvez choisir un groupe de colonnes par type.  
   
@@ -94,7 +94,7 @@ Les modifications de métadonnées standard peuvent être les suivantes :
   
     + Toutes les colonnes sélectionnées doivent être renommées. Vous ne pouvez pas omettre ni ignorer des colonnes.  
   
-1. Exécutez l’expérience.  
+1. Exécuter le pipeline.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

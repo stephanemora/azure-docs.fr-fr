@@ -1,7 +1,7 @@
 ---
 title: 'Importer à partir du Stockage Blob Azure : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Cette rubrique décrit comment utiliser le module Importer du module de stockage Blob Azure dans le service Azure Machine Learning pour lire les données de Azure Blob Storage, pour pouvoir utiliser les données dans une expérience d'apprentissage automatique.
+description: Cette rubrique décrit comment utiliser le module Importer du Stockage Blob Azure dans Azure Machine Learning service pour lire les données du stockage blob Azure et pouvoir utiliser les données dans un pipeline de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: fea64070c496379351bb75f2a38aba9b4db70dcd
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f8d23bfbee6d3665d770d8cbbcb9440827a88e8e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128722"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693734"
 ---
 # <a name="import-from-azure-blob-storage-module"></a>Importer à partir du module de stockage Blob Azure
 
-Cet article décrit un module de l’interface visuelle (préversion) pour le service Azure Machine Learning.
+Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning Service.
 
-Utilisez ce module pour lire les données à partir du stockage Blob Azure, afin que vous puissiez utiliser les données dans une expérience d’apprentissage.  
+Utilisez ce module pour lire les données à partir du stockage blob Azure, afin que vous puissiez utiliser les données dans un pipeline de Machine Learning.  
 
 Le service Blob Azure sert à stocker de grandes quantités de données, y compris des données binaires. Vous pouvez accéder aux objets Blob Azure à partir de n’importe où, à l’aide du HTTP ou du HTTPS. L’authentification peut être nécessaire en fonction du type de stockage d’objets Blob. 
 
@@ -38,7 +38,7 @@ Nous vous recommandons vivement de profiler vos données avant l’importation, 
 
 Les étapes suivantes décrivent la configuration manuelle de la source d’importation.
 
-1. Ajoutez le module **Importer des données** à votre expérience. Vous trouverez ce module dans l’interface, dans la catégorie **Data Input and Output** (Entrée et sortie de données)
+1. Ajoutez le module **Importer des données** à votre pipeline. Vous trouverez ce module dans l’interface, dans la catégorie **Data Input and Output** (Entrée et sortie de données)
 
 2. Pour **Source de données**, sélectionnez **Stockage Blob Azure**.
 
@@ -77,7 +77,7 @@ Les étapes suivantes décrivent la configuration manuelle de la source d’impo
     Vous ne pouvez pas utiliser de caractères génériques dans les noms de conteneur. Si vous avez besoin d’importer des fichiers à partir de plusieurs conteneurs, utilisez une instance distincte du module **Importer des données** pour chaque conteneur et, puis fusionner les jeux de données à l’aide du module [Add Rows](./add-rows.md) (Ajouter des lignes).
 
     > [!NOTE]
-    > Si vous avez sélectionné l’option, **Utiliser des résultats mis en cache**, les modifications que vous apportez aux fichiers dans le conteneur ne déclenchent pas une actualisation des données dans l’expérience.
+    > Si vous avez sélectionné l’option, **Utiliser des résultats mis en cache**, les modifications que vous apportez aux fichiers dans le conteneur ne déclenchent pas une actualisation des données dans le pipeline.
 
 7. Pour le **format du fichier Blob**, sélectionnez une option qui indique le format des données qui sont stockées dans l’objet blob, afin qu’Azure Machine Learning puisse traiter les données de manière appropriée. Les formats suivants sont pris en charge :
 
@@ -93,7 +93,7 @@ Les étapes suivantes décrivent la configuration manuelle de la source d’impo
 
    
 
-8. Exécutez l’expérience.
+8. Exécuter le pipeline.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -4,23 +4,22 @@ description: Découvrez comment migrer sans temps d’arrêt vers Azure App Serv
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 703a151f801f65b968ecf93eaa97640c22a71bd2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5f11173c7b7f7396a8cf5cda4b9c8975cd7bb38e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073087"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679809"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrer un nom DNS actif vers Azure App Service
 
@@ -129,6 +128,12 @@ Pour l’exemple de domaine racine `contoso.com`, remappez l’enregistrement A 
 Enregistrez vos paramètres.
 
 Les requêtes DNS doivent commencer à trouver votre application App Service immédiatement après la propagation DNS.
+
+## <a name="active-domain-in-azure"></a>Domaine actif dans Azure
+
+Vous pouvez migrer un domaine personnalisé actif dans Azure, entre des abonnements ou au sein d’un même abonnement. Toutefois, une telle migration sans temps d’arrêt nécessite que l’application source et l’application cible reçoivent le même domaine personnalisé à un moment donné. Par conséquent, vous devez vous assurer que les deux applications ne sont pas déployées sur la même unité de déploiement (en interne appelée espace web). Un nom de domaine ne peut être attribué qu’à une seule application dans chaque unité de déploiement.
+
+Vous pouvez trouver l’unité de déploiement de votre application en examinant le nom de domaine de l’URL FTP/S`<deployment-unit>.ftp.azurewebsites.windows.net`. Vérifiez et assurez-vous que l’unité de déploiement est différente entre l’application source et l’application cible. L’unité de déploiement d’une application est déterminée par le [plan App Service](overview-hosting-plans.md) à l’intérieur. Elle est sélectionnée de façon aléatoire par Azure lorsque vous créez le plan et ne peut pas être modifiée. Azure s’assure uniquement que deux plans se trouvent dans la même unité de déploiement lorsque vous [les créer dans le même groupe de ressources *et* la même région](app-service-plan-manage.md#create-an-app-service-plan), mais n’a pas de logique pour s’assurer que les plans se trouvent dans des unités de déploiement différentes. La seule façon de créer un plan dans une autre unité de déploiement consiste à continuer à créer un plan dans un nouveau groupe de ressources ou une nouvelle région jusqu’à ce que vous obteniez une unité de déploiement différente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

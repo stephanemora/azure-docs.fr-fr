@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972664"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595315"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Créer une ressource Cognitive Services avec Azure CLI
 
@@ -74,8 +74,15 @@ az group create \
 
 Lorsque vous créez une nouvelle ressource, vous devez connaître le « type » du service que vous souhaitez utiliser, ainsi que le [niveau tarifaire](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou référence SKU) souhaité. Ces informations et d’autres vous serviront de paramètres lors de la création de la ressource.
 
+### <a name="multi-service"></a>Multiservice
+
+| de diffusion en continu                    | Type                      |
+|----------------------------|---------------------------|
+| Plusieurs services. Pour plus d’informations, consultez la page sur la [tarification](https://azure.microsoft.com/pricing/details/cognitive-services/).            | `CognitiveServices`     |
+
+
 > [!NOTE]
-> De nombreux services cognitifs ont un niveau gratuit, que vous pouvez utiliser pour tester le service. Pour utiliser le niveau gratuit, utilisez `F0` en tant que référence SKU de votre ressource.
+> De nombreux Cognitive Services ci-dessous ont un niveau gratuit que vous pouvez utiliser pour tester le service. Pour utiliser le niveau gratuit, utilisez `F0` en tant que référence SKU de votre ressource.
 
 ### <a name="vision"></a>Vision
 

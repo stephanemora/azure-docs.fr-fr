@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 2e9008d039f014c95d473f3197b48651bdaa5a45
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: 1f4760713eccd612014f6b75a1623dd9ad0c8c0f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019321"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595506"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Migrer de Windows Azure Media Encoder vers Media Encoder Standard
 
@@ -64,7 +64,7 @@ ITask task = job.Tasks.AddNew("My encoding task",
 
 ### <a name="advanced-scenarios"></a>Scénarios avancés 
 
-Si vous avez créé vos propres valeurs d'encodage prédéfinies pour WAME à l'aide de son schéma, il existe un [schéma équivalent pour Media Encoder Standard](media-services-mes-schema.md). Si vous avez des questions sur le mappage des anciens paramètres avec le nouvel encodeur, contactez-nous via mailto:amshelp@microsoft.com.  
+Si vous avez créé vos propres valeurs d'encodage prédéfinies pour WAME à l'aide de son schéma, il existe un [schéma équivalent pour Media Encoder Standard](media-services-mes-schema.md).
 
 ## <a name="known-differences"></a>Différences connues 
 
@@ -73,6 +73,10 @@ Plus robuste et plus fiable que l'encodeur WAME hérité, Media Encoder Standard
 * Media Encoder Standard génère des fichiers de sortie basés sur une convention d'affectation de noms différente de celle de WAME.
 * Media Encoder Standard génère des artefacts tels que des fichiers contenant les [métadonnées des fichiers d'entrée](media-services-input-metadata-schema.md) et les [métadonnées des fichiers de sortie](media-services-output-metadata-schema.md).
 * Comme indiqué sur la [page des tarifs](https://azure.microsoft.com/pricing/details/media-services/#encoding) (en particulier dans la section FAQ), lorsque vous encodez des vidéos à l'aide de Media Encoder Standard, vous êtes facturé en fonction de la durée des fichiers de sortie produits. Avec WAME, vous seriez facturé en fonction de la taille des fichiers vidéo d'entrée et de sortie.
+
+## <a name="need-help"></a>Vous avez besoin d’aide ?
+
+Vous pouvez ouvrir un ticket de support en accédant à [Nouvelle demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

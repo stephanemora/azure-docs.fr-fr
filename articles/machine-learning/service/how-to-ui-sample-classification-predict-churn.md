@@ -1,7 +1,7 @@
 ---
 title: 'Exemple n°5 d’interface visuelle : Classification pour prédire l’évolution, l’appétence et la vente incitative'
 titleSuffix: Azure Machine Learning
-description: Cet exemple d’expérience d’interface visuelle montre la prédiction de l’évolution, une tâche courante pour la gestion de la relation client (CRM) par le classifieur binaire.
+description: Cet l’échantillon de pipeline d’interface visuelle montre la prédiction de l’attribution, une tâche courante pour la gestion de la relation client (CRM) par le classifieur binaire.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,45 +9,45 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: 260d94ddf2572979e819ee89dfcbd315ef3c4769
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 82639779dde08bb1f71fb75dba62038dbf34d1b6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131244"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693549"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Exemple 5 - Classification : Prédire l’évolution, l’appétence et la vente incitative 
 
-Apprenez à créer une expérience d’apprentissage automatique complexe à l’aide de l’interface visuelle, sans écrire une seule ligne de code.
+Découvrez comment générer un pipeline de Machine Learning complexe à l’aide de l’interface visuelle, sans écrire une seule ligne de code.
 
-Cette expérience entraîne trois classifieurs **Arbre de décision optimisé à deux classes** pour prédire les tâches courantes pour les systèmes de Gestion de la relation client (CRM) : l’évolution, l’appétence et la vente incitative. Les valeurs de données et les étiquettes sont réparties entre plusieurs sources de données et cryptées pour anonymiser les informations client. Toutefois, nous pouvons toujours utiliser l’interface visuelle pour combiner les jeux de données et entraîner un modèle à l’aide des valeurs cryptées.
+Ce pipeline effectue l'apprentissage de classifieurs **Arbre de décision optimisé à deux classes** ou trois pour prédire les tâches courantes pour les systèmes de Gestion de la relation client (CRM) : l’attribution, l’appétence et la vente incitative. Les valeurs de données et les étiquettes sont réparties entre plusieurs sources de données et cryptées pour anonymiser les informations client. Toutefois, nous pouvons toujours utiliser l’interface visuelle pour combiner les jeux de données et effectuer l'apprentissage d’un modèle à l’aide des valeurs cryptées.
 
 Étant donné que vous essayez de répondre à la question « Lequel ? », il s’agit ici d’un problème de classification. Toutefois, vous pouvez appliquer la même logique de ce projet pour résoudre n’importe quel autre type de problème d’apprentissage automatique : régression, classification, clustering, etc.
 
-Voici le graphique complet associé à cette expérience :
+Voici le graphique complet associé à ce pipeline :
 
-![Graphique de l’expérience](./media/how-to-ui-sample-classification-predict-churn/experiment-graph.png)
+![Graphique de pipeline](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Sélectionnez le bouton **Ouvrir** pour accéder à l’exemple d’expérience 5.
+4. Sélectionnez le bouton **Ouvrir** pour l’échantillon de pipeline 5.
 
-    ![Ouvrir l’expérience](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
+    ![Ouvrir le pipeline](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
 
 ## <a name="data"></a>Données
 
-Les données utilisées pour cette expérience proviennent du KDD Cup 2009. Elles représentent 50 000 lignes et 230 colonnes de caractéristiques. La tâche consiste à prédire l’évolution, l’appétence et la vente incitative des clients qui utilisent ces fonctionnalités. Pour plus d’informations sur les données et la tâche, consultez le [site web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+Les données utilisées pour ce pipeline proviennent du KDD Cup 2009. Elles représentent 50 000 lignes et 230 colonnes de caractéristiques. La tâche consiste à prédire l’évolution, l’appétence et la vente incitative des clients qui utilisent ces fonctionnalités. Pour plus d’informations sur les données et la tâche, consultez le [site web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
-## <a name="experiment-summary"></a>Résumé de l’expérience
+## <a name="pipeline-summary"></a>Résumé du pipeline
 
-Cet exemple d’expérience d’interface visuelle montre la prédiction de l’évolution, de l’appétence et de la vente incitative, une tâche courante pour la gestion de la relation client (CRM) par le classifieur binaire.
+Cet échantillon de pipeline d’interface visuelle montre la prédiction de l’attrition, de l’appétence et de la vente incitative, une tâche commune pour la gestion de la relation client (CRM) par le classifieur binaire.
 
-Tout d’abord, effectuez un traitement de données simple.
+Tout d’abord, quelques exemples de traitement de données simples.
 
-- Le jeu de données brutes contient un grand nombre de valeurs manquantes. Utilisez le module **Nettoyage des données manquantes** pour remplacer les valeurs manquantes par 0.
+- Le jeu de données brutes a de nombreuses valeurs manquantes. Utilisez le module **Nettoyage des données manquantes** pour remplacer les valeurs manquantes par 0.
 
     ![Nettoyer le jeu de données](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
 
@@ -57,7 +57,7 @@ Tout d’abord, effectuez un traitement de données simple.
 
 - Utilisez le module **Fractionner les données** pour diviser le jeu de données d’origine en deux jeux de données distincts pour l’entraînement et le test.
 
-    Utilisez ensuite le classifieur binaire Arbre de décision optimisé avec les paramètres par défaut pour générer les modèles de prédiction. Générez un modèle par tâche, autrement dit, un seul modèle chacun pour prédire la vente incitative, l’appétence et l’évolution.
+- Utilisez ensuite le classifieur binaire Arbre de décision optimisé avec les paramètres par défaut pour générer les modèles de prédiction. Générez un modèle par tâche, autrement dit, un seul modèle chacun pour prédire la vente incitative, l’appétence et l’évolution.
 
 ## <a name="results"></a>Résultats
 
@@ -80,3 +80,4 @@ Explorez les autres exemples disponibles pour l’interface visuelle :
 - [Exemple 3 - Classification : prédire le risque de crédit](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemple 6 - Classification : Prédire les retards de vols](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exemple 7 - Classification de texte : Revues de livres](how-to-ui-sample-text-classification.md)

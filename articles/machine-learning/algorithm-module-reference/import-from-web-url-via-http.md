@@ -1,7 +1,7 @@
 ---
 title: 'Importer à partir d’une URL web via HTTP : Informations de référence sur les modules'
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Importer à partir d’une URL web via HTTP dans Azure Machine Learning service pour lire les données d’une page web publique à utiliser dans une expérience d’apprentissage automatique.
+description: Découvrez comment utiliser le module Importer à partir d’une URL web via HTTP dans Azure Machine Learning service pour lire les données d’une page web publique à utiliser dans un pipeline de Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 59b8e2e73b9904a503c16d8891e5a5bd771fc87f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e2521dabdab8e9365019f35514f2d8d235c9c014
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128752"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693132"
 ---
 # <a name="import-from-web-url-via-http-module"></a>Module Importer à partir d’une URL web via HTTP
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
+Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning Service.
 
-Utilisez ce module pour lire les données d’une page web publique et l’utiliser dans une expérience d’apprentissage automatique.
+Utilisez ce module pour lire des données d’une page web publique à utiliser dans un pipeline de Machine Learning.
 
 Les restrictions suivantes s’appliquent aux données publiées sur une page web :
 
@@ -31,7 +31,7 @@ Deux méthodes permettent d’obtenir des données : utilisez l’Assistant pour
 
 ## <a name="use-the-data-import-wizard"></a>Utiliser l’Assistant Importation de données
 
-1. Ajoutez le module **Importer des données** à votre expérience. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) de l’interface.
+1. Ajoutez le module **Importer des données** à votre pipeline. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) de l’interface.
 
 2. Cliquez sur **Launch Import Data Wizard** (Lancer l’Assistant Importation de données) et sélectionnez URL web via HTTP.
 
@@ -45,7 +45,7 @@ Pour modifier une connexion de données existante, redémarrez l’Assistant. L�
 
 Les étapes suivantes décrivent la configuration manuelle de la source d’importation.
 
-1. Ajoutez le module [Importer des données](import-data.md) à votre expérience. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) de l’interface.
+1. Ajoutez le module [Importer des données](import-data.md) à votre pipeline. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) de l’interface.
 
 2. Pour **Source de données**, sélectionnez **Web URL via HTTP** (URL web via HTTP).
 
@@ -63,13 +63,13 @@ Les étapes suivantes décrivent la configuration manuelle de la source d’impo
 
 5. Si les données sont au format CSV ou TSV, utilisez l’option **Le fichier a une ligne d’en-tête**  pour indiquer si la source de données inclut une ligne d’en-tête. La ligne d’en-tête permet d’attribuer des noms de colonne.
 
-6. Sélectionnez les options **Use cached results** (Utiliser les résultats mis en cache) si vous ne pensez pas que les données changeront beaucoup ou si vous souhaitez éviter de recharger les données à chaque exécution de l’expérience.
+6. Sélectionnez les options **Utiliser les résultats mis en cache** si vous ne pensez pas que les données changeront beaucoup ou si vous souhaitez éviter de recharger les données à chaque exécution de pipeline.
 
-    Lorsque cette option est sélectionnée, l’expérience charge les données à la première exécution du module, et utilise par la suite une version mise en cache du jeu de données.
+    Lorsque cette option est sélectionnée, le pipeline charge les données à la première exécution du module et utilise par la suite une version mise en cache du jeu de données.
 
-    Si vous souhaitez recharger le jeu de données sur chaque itération du jeu de données d’expérience, désélectionnez l’option **Use cached results** (Utiliser les résultats mis en cache). Les résultats sont également rechargés si des modifications sont apportées aux paramètres de l’option [Importer des données](import-data.md).
+    Si vous souhaitez recharger le jeu de données sur chaque itération du jeu de données du pipeline, décochez l’option **Utiliser les résultats mis en cache**. Les résultats sont également rechargés si des modifications sont apportées aux paramètres de l’option [Importer des données](import-data.md).
 
-7. Exécutez l’expérience.
+7. Exécuter le pipeline.
 
 ## <a name="results"></a>Résultats
 

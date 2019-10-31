@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: d51bc48944204b4c7c50790949927849869f26fc
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d31329d6d45fd9f137bd6d57a638915e0833ee4a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128634"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692756"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Module de régression logistique multiclasse
 
@@ -34,9 +34,9 @@ Dans une régression logistique multiclasse, le classifieur permet de prédire p
 
 ## <a name="configure-a-multiclass-logistic-regression"></a>Configurer une régression logistique multiclasse
 
-1. Ajoutez le module **Régression logistique multiclasse** à l’expérience.
+1. Ajoutez le module **Régression logistique multiclasse** au pipeline.
 
-2. Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).
+2. Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.
 
     + **Paramètre unique** : sélectionnez cette option si vous savez comment vous voulez configurer le modèle, et fournissez un ensemble spécifique de valeurs en tant qu’arguments.
 
@@ -52,13 +52,13 @@ Dans une régression logistique multiclasse, le classifieur permet de prédire p
 
      Différentes combinaisons linéaires de termes L1 et L2 ont été imaginées pour les modèles de régression logistique, comme la [régularisation de réseau élastique](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. **Random number seed** (Valeur de départ aléatoire) : saisissez une valeur entière à utiliser comme valeur initiale pour l’algorithme si vous souhaitez que les résultats puissent se répéter à chaque exécution. Sinon, une valeur d’horloge système est utilisée comme valeur initiale, ce qui peut générer des résultats légèrement différents dans les diverses exécutions d’une même expérience.
+6. **Random number seed** (Valeur de départ aléatoire) : saisissez une valeur entière à utiliser comme valeur initiale pour l’algorithme si vous souhaitez que les résultats puissent se répéter à chaque exécution. Sinon, une valeur d’horloge système est utilisée comme valeur initiale, ce qui peut générer des résultats légèrement différents dans les diverses exécutions du même pipeline.
 
 8. Connectez un jeu de données étiqueté, ainsi que l’un des modules d’apprentissage :
 
-    + Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Paramètre unique**, utilisez le module [Train Model](./train-model.md) (Entraîner le modèle).
+    + Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](./train-model.md).
 
-9. Exécutez l’expérience.
+9. Exécuter le pipeline.
 
 ## <a name="results"></a>Résultats
 

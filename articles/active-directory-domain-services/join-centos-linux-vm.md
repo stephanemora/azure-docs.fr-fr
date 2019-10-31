@@ -1,5 +1,5 @@
 ---
-title: Joindre une machine virtuelle CentOS à Azure AD Domain Services | Microsoft Docs'
+title: Rejoindre une machine virtuelle CentOS à Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment configurer une machine virtuelle Linux CentOS et comment la joindre à un domaine managé Azure AD Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 2b10866adb1615b31446388fa0e9d0dabffd13da
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 24d9bb72e52fba9bb4e4dc3256e650cf68e3963f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268689"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755728"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle Linux CentOS à un domaine managé Azure AD Domain Services
 

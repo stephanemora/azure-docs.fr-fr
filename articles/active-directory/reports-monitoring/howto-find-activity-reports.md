@@ -15,10 +15,10 @@ ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70127388"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
@@ -33,7 +33,7 @@ Le rapport de journaux d’audit regroupe plusieurs rapports en lien avec les ac
 2. Sélectionnez votre annuaire en haut à droite de l'écran, puis sélectionnez le panneau **Azure Active Directory** à partir du volet de navigation de gauche.
 3. Sélectionnez **Journaux d’audit** dans la section **Activité** du panneau Azure Active Directory. 
 
-    ![Journaux d’audit](./media/howto-find-activity-reports/482.png "Journaux d’activité d’Audit")
+    ![Journaux d’audit](./media/howto-find-activity-reports/482.png "Journaux d’audit")
 
 Le rapport de journaux d’audit regroupe les rapports suivants :
 
@@ -99,14 +99,14 @@ Pour accéder au rapport de connexions :
 2. Sélectionnez votre annuaire en haut à droite de l'écran, puis sélectionnez le panneau **Azure Active Directory** à partir du volet de navigation de gauche.
 3. Sélectionnez **Connexions** dans la section **Activité** du panneau Azure Active Directory. 
 
-    ![Vue Connexions](./media/howto-find-activity-reports/483.png "Vue Connexions")
+    ![Affichage des connexions](./media/howto-find-activity-reports/483.png "Affichage des connexions")
 
 
 ### <a name="filtering-on-application-name"></a>Filtrage sur le nom de l’application
 
 Vous pouvez utiliser le rapport de connexions pour afficher des détails sur l’utilisation d'une application, en filtrant sur le nom d’utilisateur ou sur le nom de l’application.
 
-![Page Filtrer les événements de connexion](./media/howto-find-activity-reports/07.png "Page Filtrer les événements de connexion")
+![page Filtrer les événements de connexion](./media/howto-find-activity-reports/07.png "Page Filtrer les événements de connexion")
 
 ## <a name="security-reports"></a>Rapports de sécurité
 

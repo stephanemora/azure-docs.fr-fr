@@ -1,5 +1,5 @@
 ---
-title: Joindre une machine virtuelle Ubuntu à Azure AD Domain Services | Microsoft Docs'
+title: Rejoindre une machine virtuelle Ubuntu à Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment configurer une machine virtuelle Ubuntu Linux et comment la joindre à un domaine managé Azure AD Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: e92327323f632f6b922e3eb948df75bb3666e2a9
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 9fb41b08cb29a68b39fb416b4b7b7bcce9e821dd
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075378"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754347"
 ---
 # <a name="join-an-ubuntu-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle Ubuntu Linux à un domaine managé Azure AD Domain Services
 

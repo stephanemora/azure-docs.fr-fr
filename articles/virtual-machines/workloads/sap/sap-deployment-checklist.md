@@ -16,10 +16,10 @@ ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71672949"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure
@@ -128,7 +128,7 @@ Nous vous recommandons de configurer et de valider une solution complète HADR e
             - Oracle Linux 7.5. Si vous utilisez le noyau RHCKL, la version 3.10.0-862.13.1. EL7 est requise. Si vous utilisez le noyau Oracle UEK, la version 5 est requise.
         - Testez et évaluez la latence du réseau entre les machines virtuelles de la couche Application SAP et celles de la couche SGBD, conformément aux notes de support SAP [n° 500235](https://launchpad.support.sap.com/#/notes/500235) et [n° 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Évaluez les résultats par rapport aux indications de latence du réseau de la [note de support SAP n° 1100926](https://launchpad.support.sap.com/#/notes/1100926/E). La latence du réseau doit être modérée ou bonne. Des exceptions s’appliquent au trafic entre les machines virtuelles et les grandes instances HANA, comme indiqué dans la documentation disponible dans [cet article](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance).
         - Assurez-vous que les déploiements ILB sont configurés pour utiliser le retour direct du serveur. Ce paramètre réduira la latence lorsque des ILB Azure sont utilisés pour les configurations à haute disponibilité sur la couche SGBD.
-        - Si vous utilisez Azure Load Balancer avec des systèmes d’exploitation invité Linux, vérifiez que le paramètre réseau Linux **net.ipv4.tcp_timestamps** a la valeur **0**. Cette recommandation est incompatible avec les recommandations des anciennes versions de la note SAP n° 2382421. La note SAP mise à jour indique que ce paramètre doit être défini sur **0** pour fonctionner avec les équilibreurs de charge Azure.
+        - Si vous utilisez Azure Load Balancer avec des systèmes d’exploitation invité Linux, vérifiez que le paramètre réseau Linux **net.ipv4.tcp_timestamps** a la valeur **0**. Cette suggestion est incompatible avec les suggestions des anciennes versions de la [note SAP n° 2382421](https://launchpad.support.sap.com/#/notes/2382421). La note SAP mise à jour indique que ce paramètre doit être défini sur **0** pour fonctionner avec les équilibreurs de charge Azure.
         - Envisagez d’utiliser des [groupes de placement de proximité Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) pour bénéficier d’une latence réseau optimale. Pour plus d’informations, consultez [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md).
    4. Déploiements de haute disponibilité et de récupération d’urgence.
         - Si vous déployez la couche Application SAP sans définir de zone de disponibilité Azure spécifique, assurez-vous que toutes les machines virtuelles qui exécutent des instances de dialogue SAP ou des instances intergiciel d’un système SAP unique sont déployées dans un [groupe à haute disponibilité](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).

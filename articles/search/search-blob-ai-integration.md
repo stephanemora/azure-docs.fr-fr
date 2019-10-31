@@ -1,21 +1,21 @@
 ---
-title: Utiliser l’IA pour comprendre les données blob
+title: Utiliser l’IA pour comprendre les données de stockage blob
 titleSuffix: Azure Search
 description: Ajoutez des fonctionnalités de traitement sémantique en langage naturel et d’analyse d’images aux objets blob Azure en utilisant un pipeline d’enrichissement par IA dans Recherche Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5f65667ac8ffacdd12e57ae0d46e25c586624a31
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434039"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792468"
 ---
-# <a name="use-ai-to-understand-blob-data"></a>Utiliser l’IA pour comprendre les données blob
+# <a name="use-ai-to-understand-blob-storage-data"></a>Utiliser l’IA pour comprendre les données de stockage blob
 
 Dans Stockage Blob Azure, les données sont souvent constituées de divers contenus non structurés comme des images, du texte long, des fichiers PDF et des documents Office. En utilisant les fonctionnalités d’IA dans Recherche Azure, vous pouvez arriver à comprendre et à extraire des informations précieuses des objets blob, et ce de différentes manières. Voici des exemples d’application de l’IA au contenu d’objets blob :
 
@@ -40,7 +40,7 @@ La sortie est toujours un index Recherche Azure, utilisé pour la recherche, l�
 
 Au milieu se trouve l’architecture du pipeline proprement dite. Le pipeline est basé sur la fonctionnalité d’*indexeur*, à laquelle vous pouvez affecter un *ensemble de compétences*, qui se compose d’une ou plusieurs *compétences* fournissant l’IA. L’objectif du pipeline est de produire des *documents enrichis* : le contenu brut de départ se dote d’une structure, d’un contexte et d’informations supplémentaires à mesure qu’il avance dans le pipeline. Les documents enrichis sont consommés pendant l’indexation pour créer des index inversés et d’autres structures utilisées dans la recherche en texte intégral ou l’exploration et l’analytique.
 
-## <a name="start-with-services-and-data"></a>Commencer avec les services et les données
+## <a name="start-with-services"></a>Commencer avec les services
 
 Vous avez besoin de Recherche Azure et de Stockage Blob Azure. Dans Stockage Blob, vous avez besoin d’un conteneur qui fournit le contenu source.
 
@@ -68,7 +68,7 @@ L’enrichissement par AI s’appuie sur certains modules qui recherchent des mo
 
 Dans Recherche Azure, les *compétences* sont les composants individuels du traitement de l’IA que vous pouvez utiliser de façon autonome ou en association avec d’autres compétences. 
 
-+ Les compétences intégrées sont adossées à Cognitive Services, l’analyse d’images reposant sur Vision par ordinateur et le traitement en langage naturel sur Analyse de texte. Vous pouvez consulter la liste complète des compétences intégrées dans [Compétences prédéfinies pour l’enrichissement de contenu](cognitive-search-predefined-skills.md).
++ Les compétences intégrées sont adossées à Cognitive Services, l’analyse d’images reposant sur Vision par ordinateur et le traitement en langage naturel sur Analyse de texte. Pour obtenir la liste complète, consultez [Compétences intégrées pour l’enrichissement de contenu](cognitive-search-predefined-skills.md).
 
 + Les compétences personnalisées correspondent à du code personnalisé, encapsulé dans la [définition d’une interface](cognitive-search-custom-skill-interface.md) qui permet une intégration dans le pipeline. Dans les solutions des clients, il est courant d’utiliser les deux, les compétences personnalisées fournissant des modules d’IA open source, tiers ou internes.
 
@@ -112,7 +112,8 @@ Un document enrichi à la fin du pipeline est différent de sa version d’entr�
 
 L’enrichissement par IA offre bien plus de possibilités, qui permettent d’exploiter au mieux les données contenues dans Stockage Azure. Vous pouvez notamment combiner les services Cognitive Services de différentes manières ou créer des compétences personnalisées s’il n’existe pas de service cognitif pour le scénario. Pour en savoir plus, suivez les liens ci-dessous.
 
-> [!div class="nextstepaction"]
-> [Vue d’ensemble de l’enrichissement par IA ](cognitive-search-concept-intro.md) 
-> [Créer un ensemble de compétences](cognitive-search-defining-skillset.md)
-> [Mapper des nœuds dans une arborescence d’annotations](cognitive-search-output-field-mapping.md)
++ [Charger, télécharger et répertorier des blobs à l’aide du portail Azure (Stockage blob Azure)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Configurer un indexeur blob (Recherche Azure)](search-howto-indexing-azure-blob-storage.md) 
++ [Vue d’ensemble de l’enrichissement de l’IA (Recherche Azure)](cognitive-search-concept-intro.md) 
++ [Créer un ensemble de compétences (Recherche Azure)](cognitive-search-defining-skillset.md)
++ [Mapper des nœuds dans une arborescence d’annotation (Recherche Azure)](cognitive-search-output-field-mapping.md)

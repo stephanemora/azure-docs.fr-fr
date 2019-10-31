@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 504224ae586e18fc5bf9294b537e730da37a2423
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c77ebbe8569ffd221fadb5b98a54fc26d0d70893
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128564"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692712"
 ---
 # <a name="normalize-data-module"></a>Module Normaliser des données
 
@@ -32,7 +32,7 @@ Ce module offre plusieurs options pour transformer des données numériques :
 
 - Vous pouvez modifier toutes les valeurs pour appliquer une échelle de 0 à 1, ou les transformer en les représentant sous forme de rangs centiles plutôt que sous forme de valeurs absolues.
 - Vous pouvez appliquer la normalisation à une ou plusieurs colonnes d'un jeu de données.
-- Si vous devez réitérer l'expérience ou appliquer les mêmes étapes de normalisation à d'autres données, vous pouvez enregistrer ces étapes sous forme de transformation de normalisation et appliquer celle-ci à d'autres jeux de données dotés du même schéma.
+- Si vous devez réitérer le pipeline ou appliquer les mêmes étapes de normalisation à d'autres données, vous pouvez enregistrer ces étapes sous forme de transformation de normalisation et appliquer celle-ci à d'autres jeux de données dotés du même schéma.
 
 > [!WARNING]
 > Avant de former un modèle, certains algorithmes exigent une normalisation des données. D'autres effectuent leur propre mise à l'échelle ou normalisation des données. Par conséquent, lorsque vous choisissez un algorithme de Machine Learning pour un modèle prédictif, examinez bien ses exigences en termes de données avant d'appliquer la normalisation aux données d'apprentissage.
@@ -41,7 +41,7 @@ Ce module offre plusieurs options pour transformer des données numériques :
 
 Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à la fois. Par conséquent, la même méthode de normalisation est appliquée à toutes les colonnes que vous sélectionnez. Pour utiliser différentes méthodes de normalisation, utilisez une deuxième instance du module **Normaliser des données**.
 
-1. Ajoutez le module **Normaliser des données** à votre expérience. Vous le trouverez dans Azure Machine Learning, sous **Transformation de données**, dans la catégorie **Mise à l'échelle et réduction**.
+1. Ajoutez le module **Normaliser des données** à votre pipeline. Vous le trouverez dans Azure Machine Learning, sous **Transformation de données**, dans la catégorie **Mise à l'échelle et réduction**.
 
 2. Connectez un jeu de données contenant au moins une colonne de tous les nombres.
 
@@ -72,9 +72,9 @@ Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à l
       
       Les valeurs de la colonne sont transformées à l'aide de la formule suivante :  
   
-      ![normalisation à l'aide de la fonction MinMax](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
+      ![normalisation à l'aide de la fonction min&#45;max](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
   
-    - **Logistic** : les valeurs de la colonne sont transformées à l'aide de la formule suivante :
+    - **Logistic** : Les valeurs de la colonne sont transformées à l'aide de la formule suivante :
 
       ![formule de normalisation par fonction logistique](media/module/aml-normalization-logistic.png "AML_normalization-logistic")  
   
@@ -82,7 +82,7 @@ Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à l
   
       Les valeurs de la colonne sont transformées à l'aide de la formule suivante :
   
-      ![formule de distribution log-normale](media/module/aml-normalization-lognormal.png "AML_normalization-lognormal")
+      ![distribution &#45;normal de la formule](media/module/aml-normalization-lognormal.png "AML_normalization-lognormal")
     
       Ici, μ et σ correspondent aux paramètres de la distribution, calculés empiriquement à partir des données sous forme d'estimations de la probabilité maximale, pour chaque colonne séparément.  
   
@@ -92,7 +92,7 @@ Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à l
     
       ![normalisation à l'aide de la fonction tanh](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
-6. Exécutez l'expérience, ou double-cliquez sur le module **Normaliser des données** et sélectionnez **Exécuter la sélection**. 
+6. Exécutez le pipeline ou double-cliquez sur le module **Normaliser des données** et sélectionnez **Exécuter la sélection**. 
 
 ## <a name="results"></a>Résultats
 

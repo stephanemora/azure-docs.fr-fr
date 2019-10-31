@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 477b4e51c49a558aed0e5623a3821fa9b8d9eabd
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c2e368b9c12d8ab673e5b8808632501de448b9a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622362"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755767"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurer la connexion pour une organisation Azure Active Directory spécifique dans Azure Active Directory B2C
 
@@ -47,11 +48,11 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spé
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurer Azure AD en tant que fournisseur d’identité
 
-1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez le filtre **Répertoire et abonnement** dans le menu du haut, puis choisissez le répertoire contenant votre locataire Azure AD B2C.
+1. Veillez à bien utiliser le répertoire qui contient le locataire Azure AD B2C. Sélectionnez le filtre **Annuaire + abonnement** dans le menu du haut, puis choisissez l’annuaire qui contient votre locataire Azure AD B2C.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
-1. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Nouveau fournisseur OpenID Connect**.
+1. Sélectionnez **Fournisseurs d’identité**, puis **Nouveau fournisseur OpenID Connect**.
 1. Saisissez un **Nom**. Par exemple, entrez *Contoso Azure AD*.
-1. Pour **URL des métadonnées**, entrez l’URL suivante en remplaçant `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD :
+1. Dans **URL des métadonnées**, entrez l’URL suivante en remplaçant `your-AD-tenant-domain` par le nom de domaine de votre locataire Azure AD :
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
@@ -59,9 +60,11 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spé
 
     Par exemple : `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
 
-1. Pour **ID client**, entrez l’ID d’application que vous avez enregistré précédemment.
-1. Pour **Clé secrète client**, entrez la clé secrète client que vous avez enregistrée précédemment.
-1. Conservez les valeurs par défaut d’**Étendue**, de **Type de réponse** et de **Mode de réponse**.
+    **Ne pas** utiliser le point de terminaison de métadonnées Azure AD v 2.0, par exemple `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. Cela génère une erreur similaire à `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.onmicrosoft.com'` lors de la tentative de connexion.
+
+1. Dans **ID client**, entrez l’ID d’application que vous avez enregistré précédemment.
+1. Dans **Clé secrète client**, entrez la clé secrète client que vous avez enregistrée précédemment.
+1. Conservez les valeurs par défaut dans **Étendue**, **Type de réponse** et **Mode de réponse**.
 1. (Facultatif) Entrez une valeur pour **Domain_hint**. Par exemple, *ContosoAD*. Il s’agit de la valeur à utiliser quand vous faites référence à ce fournisseur d’identité à l’aide de *domain_hint* dans la requête.
 1. Sous **Mappage des revendications du fournisseur d’identité**, entrez les valeurs de mappage des revendications suivantes :
 

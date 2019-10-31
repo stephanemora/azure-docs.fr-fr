@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b8bb3285aecb6aff399606e6263f014027a86581
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128888"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693175"
 ---
 # <a name="decision-forest-regression-module"></a>Module Régression de forêt d’arbres de décision
 
@@ -42,7 +42,7 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Comment configurer le modèle de régression de forêt de décision
 
-1. Ajoutez le module **Régression de forêt d’arbres de décision** à l’expérience. Vous pouvez rechercher le module dans l’interface sous **Machine Learning**, **Initialiser le modèle** et **Régression**.
+1. Ajoutez le module **Régression de forêt de décision** au pipeline. Vous pouvez rechercher le module dans l’interface sous **Machine Learning**, **Initialiser le modèle** et **Régression**.
 
 2. Ouvrez les propriétés du module et, pour **Méthode de rééchantillonnage**, choisissez la méthode utilisée pour créer des arbres individuels.  Vous pouvez choisir **l’ensachage** ou la **réplication**.
 
@@ -82,7 +82,7 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
 
    
 
-10. Exécutez l’expérience.
+10. Exécuter le pipeline.
 
 ### <a name="results"></a>Résultats
 
@@ -92,7 +92,7 @@ Une fois la formation terminée :
 
 + Pour afficher les règles de chaque nœud, cliquez sur chaque arbre et descendez dans la hiérarchie des fractionnements.
 
-+ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit de la souris sur la sortie du module de formation et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Cette copie du modèle n’est pas mise à jour lors des exécutions consécutives de l’expérience. 
++ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit de la souris sur la sortie du module de formation et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Cette copie du modèle n’est pas mise à jour lors des exécutions consécutives du pipeline. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -38,6 +38,8 @@
       href: spring-cloud-quotas.md
     - name: Présentation des métriques dans Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
+    - name: Planifier la reprise d’activité après sinistre
+      href: disaster-recovery.md
 - name: Guides pratiques
   items:
     - name: 'Guide pratique pour démarrer, arrêter et supprimer une application Azure Spring Cloud'

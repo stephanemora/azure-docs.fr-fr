@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: a65e8224b00bb592d6e0e42abdd304cf325d4412
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128931"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693217"
 ---
 # <a name="clean-missing-data-module"></a>Module de nettoyage des données manquantes
 
@@ -50,7 +50,7 @@ Ce module vous permet de définir une opération de nettoyage. Vous pouvez égal
 
 Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./clean-missing-data.md) à un jeu de données, la même opération de nettoyage est appliquée à toutes les colonnes que vous sélectionnez. Par conséquent, si vous avez besoin de nettoyer des colonnes différentes à l’aide de différentes méthodes, utilisez des instances distinctes du module.
 
-1.  Ajoutez le module [Nettoyage des données manquantes](./clean-missing-data.md) à votre expérience et connectez le jeu de données qui a des valeurs manquantes.  
+1.  Ajoutez le module [Nettoyer des données manquantes](./clean-missing-data.md) à votre pipeline et connectez le jeu de données qui a des valeurs manquantes.  
   
 2.  Pour **Colonnes à nettoyer**, choisissez les colonnes qui contiennent des valeurs manquantes et que vous souhaitez modifier. Vous pouvez choisir plusieurs colonnes, mais vous devez utiliser la même méthode de remplacement dans toutes les colonnes sélectionnées. Par conséquent, en général, vous devez nettoyer les colonnes de type chaîne et les colonnes numériques séparément.
 
@@ -63,7 +63,7 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
 
     3. Pour **Inclure**, sélectionnez **Type de colonne** dans la liste déroulante, puis sélectionnez **Numérique**, ou un type numérique plus spécifique. 
   
-    N’importe quelle méthode de nettoyage ou de remplacement que vous choisissez doit être applicable à **toutes** les colonnes sélectionnées. Si les données dans n’importe quelle colonne sont incompatibles avec l’opération spécifiée, le module renvoie une erreur et arrête l’expérience.
+    N’importe quelle méthode de nettoyage ou de remplacement que vous choisissez doit être applicable à **toutes** les colonnes sélectionnées. Si les données dans n’importe quelle colonne sont incompatibles avec l’opération spécifiée, le module renvoie une erreur et arrête le pipeline.
   
 3.  Pour **rapport minimal des valeurs manquantes**, spécifiez le nombre minimal de valeurs manquantes requis pour l’opération à effectuer.  
   
@@ -113,7 +113,7 @@ Chaque fois que vous appliquez le module [Nettoyage des données manquantes](./c
   
 7. **Générer une colonne d’indicateur de valeur manquante** : Sélectionnez cette option si vous souhaitez générer des indications concernant le fait que les valeurs de la colonne correspondent aux critères du nettoyage de valeurs manquantes. Cette option est particulièrement utile lorsque vous mettez en place une nouvelle opération de nettoyage et que vous souhaitez vous assurer qu’il fonctionne comme prévu.
   
-8. Exécutez l’expérience.
+8. Exécuter le pipeline.
 
 ### <a name="results"></a>Résultats
 
@@ -129,11 +129,11 @@ Le module renvoie deux sorties :
 
 Si vous devez répéter les opérations de nettoyage souvent, nous vous recommandons d’enregistrer votre recette pour le nettoyage des données comme une *transformation*, pour le réutiliser avec le même jeu de données. L’enregistrement d’une transformation de nettoyage est particulièrement utile si vous devez réimporter et nettoyer fréquemment des données ayant le même schéma.  
       
-1.  Ajoutez le module [Appliquer une transformation](./apply-transformation.md) à votre expérience.  
+1.  Ajoutez le module [Appliquer une transformation](./apply-transformation.md) à votre pipeline.  
   
 2.  Ajoutez le jeu de données que vous souhaitez nettoyer et connectez le jeu de données au port d’entrée droit.  
   
-3.  Développez le groupe **Transformations** dans le volet gauche de l’interface. Recherchez la transformation enregistrée et la faire glisser vers l’expérience.  
+3.  Développez le groupe **Transformations** dans le volet gauche de l’interface. Recherchez la transformation enregistrée et faites-la glisser vers le pipeline.  
   
 4.  Connectez la transformation enregistrée au port d’entrée gauche de [Appliquer une transformation](./apply-transformation.md). 
 
@@ -141,7 +141,7 @@ Si vous devez répéter les opérations de nettoyage souvent, nous vous recomman
 
     Toutefois, supposons que vous avez créé une transformation sur un sous-ensemble de colonnes numériques. Vous pouvez appliquer cette transformation pour un jeu de données des types de colonne mixtes sans déclencher d’erreur, car les valeurs manquantes sont modifiés uniquement dans les colonnes numériques correspondantes.
 
-6.  Exécutez l’expérience.  
+6.  Exécuter le pipeline.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

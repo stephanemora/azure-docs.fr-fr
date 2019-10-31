@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308462"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675725"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services
 
@@ -47,11 +47,9 @@ Cloner un référentiel GitHub contenant les fichiers de collection et d’envir
 
 ## <a name="configure-postman"></a>Configurer Postman
 
-Cette section configure le Postman.
-
 ### <a name="configure-the-environment"></a>Configurer l’environnement 
 
-1. Ouvrez **Postman**.
+1. Ouvrez l’application **Postman**.
 2. Sur la droite de l’écran, sélectionnez l’option **Gérer environnement**.
 
     ![Gérer environnement](./media/develop-with-postman/postman-import-env.png)
@@ -80,7 +78,7 @@ Cette section configure le Postman.
 
 Avant de commencer à manipuler des ressources AMS v3, vous devez obtenir et définir le jeton Azure AD pour l’authentification de principal du service.
 
-1. Dans la fenêtre de gauche de Postman, sélectionnez « Étape 1 : Obtenir le jeton d’authentification AAD ».
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Étape 1 : Obtenir le jeton d’authentification AAD ».
 2. Ensuite, sélectionnez « obtenir un jeton Azure AD pour l’authentification du principal du service ».
 3. Appuyez sur **Envoyer**.
 

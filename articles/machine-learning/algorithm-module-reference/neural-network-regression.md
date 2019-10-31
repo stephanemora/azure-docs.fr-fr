@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 93f27458a2571b2e26a090c06b01d8abe3e79c2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128587"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692731"
 ---
 # <a name="neural-network-regression-module"></a>Module Régression de réseau neuronal
 
@@ -52,7 +52,7 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
 
 ##  <a name="bkmk_DefaultArchitecture"></a> Créer un modèle de réseau neuronal à l’aide de l’architecture par défaut
   
-1.  Ajoutez le module **Régression de réseau neuronal** à votre expérience dans l’interface. Vous le trouverez sous **Machine Learning**, **Initialiser**, dans la catégorie **Régression**. 
+1.  Ajoutez le module **Régression de réseau neuronal** à votre pipeline dans l’interface. Vous le trouverez sous **Machine Learning**, **Initialiser**, dans la catégorie **Régression**. 
   
 2. Indiquez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
@@ -76,16 +76,16 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
 
 8.  Pour **The momentum** (La dynamique), saisissez une valeur à appliquer pendant l’apprentissage sous forme de pondération sur les nœuds des itérations précédentes.
 
-10. Sélectionnez l’option **Shuffle examples** (Exemples de lecture aléatoire) pour modifier l’ordre des cas entre les itérations. Si vous désélectionnez cette option, les cas sont traités exactement dans le même ordre chaque fois que vous exécutez l’expérience.
+10. Sélectionnez l’option **Shuffle examples** (Exemples de lecture aléatoire) pour modifier l’ordre des cas entre les itérations. Si vous désélectionnez cette option, les cas sont traités exactement dans le même ordre chaque fois que vous exécutez le pipeline.
   
-11. Pour **Valeur de départ numérique aléatoire**, vous pouvez éventuellement saisir une valeur initiale à utiliser. La spécification d’une valeur initiale est utile lorsque vous souhaitez garantir la répétabilité entre les exécutions de la même expérience.
+11. Pour **Valeur de départ numérique aléatoire**, vous pouvez éventuellement saisir une valeur initiale à utiliser. La spécification d’une valeur de départ est utile lorsque vous souhaitez garantir la répétabilité entre les exécutions du même pipeline.
   
-13. Connectez un jeu de données d’apprentissage à l’un des [modules de formation](module-reference.md) : 
+13. Connectez un jeu de données d’apprentissage à l’un des [modules de formation](module-reference.md) : 
   
     -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez [Train Model](./train-model.md) (Entraîner le modèle).  
   
    
-14. Exécutez l’expérience.  
+14. Exécuter le pipeline.  
 
 ## <a name="results"></a>Résultats
 
@@ -93,7 +93,7 @@ Une fois la formation terminée :
 
 + Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de la formation et d’autres paramètres du réseau neuronal, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.  
 
-+ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives de la même expérience.
++ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives du même pipeline.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

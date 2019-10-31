@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 08b551e766632949db350478fa8d3725906c8af8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f9717c39388c85ced889744722899b78a5df8453
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128443"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693690"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
@@ -43,7 +43,7 @@ Dans Azure Machine Learning, la création et l’utilisation d’un modèle Mach
   
 1.  Dans Azure Machine Learning, configurez un modèle de classification ou de régression.
     
-2. Ajoutez le module **Train Model** (Entraîner le modèle) à l’expérience.  Ce module figure dans la catégorie **Machine Learning**. Développez la section **Former**, puis faites glisser le module **Train Model** (Entraîner le modèle) dans votre expérience.
+2. Ajoutez le module **Effectuer l'apprentissage du modèle** au pipeline.  Ce module figure dans la catégorie **Machine Learning**. Développez la section **Effectuer l'apprentissage**, puis faites glisser le module **Effectuer l'apprentissage du modèle** dans votre pipeline.
   
 3.  Sous l’entrée de gauche, joignez le modèle non formé. Joignez le jeu de données d’apprentissage à l’entrée droite du module **Train Model** (Entraîner le modèle).
 
@@ -62,16 +62,16 @@ Dans Azure Machine Learning, la création et l’utilisation d’un modèle Mach
     > [!TIP] 
     > Si vous avez des difficultés à utiliser le sélecteur de colonne, consultez l’article [Sélectionner des colonnes dans le jeu de données](./select-columns-in-dataset.md) pour obtenir des conseils. Il décrit quelques scénarios courants et fournit des conseils pour utiliser les options **WITH RULES** (Avec règles) et **BY NAME** (Par nom).
   
-5.  Exécutez l’expérience. Si vous avez une grande quantité de données, cela peut prendre un certain temps.
+5.  Exécuter le pipeline. Si vous avez une grande quantité de données, cela peut prendre un certain temps.
 
 ## <a name="bkmk_results"></a> Résultats
 
 Une fois le modèle formé :
 
 + Pour afficher les paramètres et pondérations de fonctionnalités du modèle, cliquez avec le bouton droit sur la sortie, puis sélectionnez **Visualiser**.
-+ Pour utiliser le modèle dans d’autres expériences, cliquez avec le bouton droit sur le modèle et sélectionnez **Enregistrer le modèle**. Tapez le nom du modèle. 
++ Pour utiliser le modèle dans d’autres Pipelines, cliquez avec le bouton de droite sur le modèle et sélectionnez **Enregistrer le modèle**. Tapez le nom du modèle. 
 
-    Le modèle est enregistré en tant qu’instantané non mis à jour par les exécutions répétées de l’expérience.
+    Le modèle est enregistré en tant qu’instantané non mis à jour par les exécutions répétées du pipeline.
 + Afin d’utiliser le modèle pour la prédiction de nouvelles valeurs, connectez-le au module [Score Model](./score-model.md) (Noter le modèle) avec les nouvelles données d’entrée.
 
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 630f8f7d4561ed6e7e9f943f4b3b123daeee4d67
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cbb1249b529fde1368bfaff0c6c251c93fa6c309
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129020"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693856"
 ---
 # <a name="add-columns-module"></a>Module Ajouter des colonnes
 
@@ -25,7 +25,7 @@ Utilisez ce module pour concaténer 2 jeux de données. Vous combinez toutes le
 
 
 ## <a name="how-to-configure-add-columns"></a>Comment configurer Ajouter des colonnes
-1. Ajoutez le module **Ajouter des colonnes** à votre expérience.
+1. Ajoutez le module **Ajouter des colonnes** à votre pipeline.
 
 2. Connectez les 2 jeux de données à concaténer. Si vous souhaitez combiner plus de 2 jeux de données, vous pouvez chaîner plusieurs combinaisons du module **Ajouter des colonnes**.
 
@@ -33,10 +33,10 @@ Utilisez ce module pour concaténer 2 jeux de données. Vous combinez toutes le
 
     - Vous ne pouvez pas choisir des colonnes individuelles à ajouter. Toutes les colonnes de chaque jeu de données sont concaténées lorsque vous utilisez le module **Ajouter des colonnes**. Par conséquent, si vous souhaitez ajouter uniquement un sous-ensemble de colonnes, utilisez Sélectionner des colonnes dans le jeu de données pour créer un jeu de données contenant les colonnes de votre choix.
 
-3. Exécutez l’expérience.
+3. Exécuter le pipeline.
 
 ### <a name="results"></a>Résultats
-Après l’exécution de l’expérience :
+Une fois le pipeline exécuté :
 
 - Pour afficher les premières lignes du nouveau jeu de données, cliquez sur la sortie du module **Ajouter des colonnes**, puis sélectionnez Visualiser.
 

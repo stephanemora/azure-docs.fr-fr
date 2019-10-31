@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983502"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
@@ -60,7 +60,7 @@ Les journaux d’approvisionnement fournissent des réponses aux questions suiva
 
 Vous pouvez accéder aux journaux d’approvisionnement en sélectionnant **Provisionner des journaux** dans la section **Surveillance** du panneau **Azure Active Directory** dans le [Portail Azure](https://portal.azure.com). L’affichage de certains enregistrements d’approvisionnement dans le portail peut prendre jusqu’à deux heures.
 
-![Approvisionnement des journaux](./media/concept-provisioning-logs/access-provisioning-logs.png "Approvisionnement des journaux")
+![Journaux d’approvisionnement](./media/concept-provisioning-logs/access-provisioning-logs.png "Journaux d’approvisionnement")
 
 
 Un journal d’approvisionnement comporte un affichage de liste par défaut qui indique :
@@ -85,7 +85,7 @@ Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des c
 
 Sélectionnez un élément dans la vue sous forme de liste pour obtenir des informations plus détaillées.
 
-![Informations détaillées](./media/concept-provisioning-logs/steps.png "Filtre")
+![Informations détaillées](./media/concept-provisioning-logs/steps.png "Filtrer")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrer les activités d’approvisionnement
@@ -100,7 +100,7 @@ Pour limiter les données transmises à un niveau qui vous convient, vous pouvez
 - Date
 
 
-![Filtre](./media/concept-provisioning-logs/filter.png "Filtre")
+![Filter](./media/concept-provisioning-logs/filter.png "Filtrer")
 
 Le filtre **Identité** vous permet de spécifier le nom ou l’identité qui vous intéresse. Cette identité peut être un utilisateur, un groupe, un rôle ou un autre objet. Vous pouvez effectuer une recherche par nom ou ID de l’objet. L’ID varie selon le scénario. Par exemple, lors de l’approvisionnement d’un objet d’Azure AD vers SalesForce, l’ID source est l’ID d’objet de l’utilisateur dans Azure AD, tandis qu’IDCible est l’ID de l’utilisateur dans Salesforce. Lors de l’approvisionnement de Workday vers Active Directory, l’ID source est l’ID employé du travailleur Workday. Notez qu’il se peut que le nom de l’utilisateur ne soit pas toujours présent dans la colonne d’identité. Il y aura toujours un ID. 
 
@@ -161,7 +161,7 @@ Les détails sont regroupés en fonction des catégories suivantes :
 - Résumé
 
 
-![Onglets de ](./media/concept-provisioning-logs/provisioning-tabs.png "filtre")
+![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Onglets")
 
 
 
@@ -176,7 +176,7 @@ L’onglet **Étapes** présente les étapes nécessaires pour approvisionner un
 
 
 
-![Filtre](./media/concept-provisioning-logs/steps.png "Filtre")
+![Filter](./media/concept-provisioning-logs/steps.png "Filtrer")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Résolution des problèmes et recommandations

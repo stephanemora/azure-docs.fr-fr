@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: pafarley
-ms.openlocfilehash: 31b8dfc234ac99d6f04061d6596e3dc8113e8d0f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 06735240729fb2bfd21b87f592e143e9ceabb390
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213827"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753485"
 ---
 # <a name="label-images-faster-with-suggested-tags"></a>Étiqueter les images plus rapidement en utilisant des suggestions d’étiquettes
 
@@ -27,8 +27,7 @@ Quand vous étiquetez des images pour un modèle Custom Vision, le service utili
 
 Gardez à l’esprit les limitations suivantes :
 
-* Réservez les demandes de suggestions d’étiquettes aux images dont le contenu a déjà été entraîné une fois. Ne sollicitez pas de suggestions pour une nouvelle étiquette dont vous commencez à peine l’entraînement.
-* Les suggestions d’étiquettes ne peuvent être appliquées qu’à des images non étiquetées ; vous ne pouvez pas obtenir de suggestions d’étiquettes supplémentaires pour une image déjà balisée.
+* Vous n’avez qu’à demander des étiquettes suggérées pour les images dont le contenu a déjà subi un apprentissage une fois. Ne sollicitez pas de suggestions pour une nouvelle étiquette dont vous commencez à peine l’entraînement.
 
 > [!IMPORTANT]
 > La fonctionnalité de suggestion d’étiquettes s’appuie sur le même [modèle de prix](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) que les prédictions normales. La première fois que vous déclenchez les suggestions d’étiquettes pour un ensemble d’images, vous êtes facturé comme si vous appeliez des prédictions. Après quoi, le service stocke les résultats pour les images sélectionnées dans une base de données pendant 30 jours, et vous pouvez y accéder gratuitement à tout moment au cours de cette période. Passé ce délai de 30 jours, vous êtes facturé si vous demandez à nouveau ces suggestions d’étiquettes.

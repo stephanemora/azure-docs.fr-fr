@@ -1,5 +1,5 @@
 ---
-title: Introduire le lancement de l’intégration de l’intégrité dans Azure Deployment Manager
+title: Lancement de l’intégration de l’intégrité - Manager de déploiement Azure
 description: Explique comment déployer un service sur plusieurs régions avec Azure Deployment Manager. Montre des pratiques de déploiement sécurisé consistant à vérifier la stabilité d’un déploiement avant sa propagation à toutes les régions.
 services: azure-resource-manager
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
-ms.openlocfilehash: 0c6d32f06e30bd85c12967ce4b15a053bb505ab7
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 72ddc900a892e6391d6b54046ac6f3a42358526f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594303"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528563"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduire le lancement de l’intégration de l’intégrité dans Azure Deployment Manager (préversion publique)
 

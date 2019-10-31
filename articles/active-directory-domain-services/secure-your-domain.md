@@ -1,5 +1,5 @@
 ---
-title: Sécuriser Azure AD Domain Services | Microsoft Docs'
+title: Sécuriser Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment désactiver les chiffrements faibles, les anciens protocoles et la synchronisation de hachage de mot de passe pour un domaine managé Azure Active Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/09/2019
 ms.author: iainfou
-ms.openlocfilehash: db086c56c9f16f4691efaade03571bf8a36c6444
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6d60663e345f297246a423e1b4e7a4fb45f352a5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842630"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754334"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Désactiver les chiffrements faibles et la synchronisation de hachage de mot de passe pour sécuriser un domaine managé Azure AD Domain Services
 

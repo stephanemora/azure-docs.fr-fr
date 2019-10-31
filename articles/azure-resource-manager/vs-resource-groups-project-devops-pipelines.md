@@ -4,14 +4,14 @@ description: Décrit la configuration de l’intégration continue dans Azure Pi
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: ae896fa0820fbd25ed3f2d29c89fbcd56e7fd6f5
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982457"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597512"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Intégrer des modèles Azure Resource Manager avec Azure Pipelines
 
@@ -71,7 +71,7 @@ steps:
   inputs:
     azureSubscription: 'demo-deploy-sp'
     ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' 
+    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
     azurePowerShellVersion: LatestVersion
 ```
 
@@ -139,7 +139,7 @@ Vous pouvez sélectionner le pipeline en cours d’exécution pour afficher plus
 
 ## <a name="copy-and-deploy-tasks"></a>Tâches de copie et de déploiement
 
-Cette section montre comment configurer le déploiement continu à l’aide de deux tâches pour indexer les artefacts et déployer le modèle. 
+Cette section montre comment configurer le déploiement continu à l’aide de deux tâches pour indexer les artefacts et déployer le modèle.
 
 Le YAML suivant montre la [tâche de copie de fichiers Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
 
@@ -176,33 +176,43 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-Le YAML suivant montre la [tâche déploiement de groupe de ressources Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops) :
+Le YAML suivant montre la [tâche de déploiement du modèle Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) :
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
   displayName: 'Deploy template'
   inputs:
-    azureSubscription: 'demo-deploy-sp'
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: 'demo-deploy-sp'
+    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'centralus'
+    location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
     csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    deploymentMode: 'Incremental'
 ```
 
-Il existe plusieurs parties de cette tâche à réviser pour votre environnement. Pour `azureSubscription`, indiquez le nom de la connexion de service créée.
+Il existe plusieurs parties de cette tâche à réviser pour votre environnement.
 
-```yaml
-azureSubscription: '<your-connection-name>'
-```
+- `deploymentScope`: Sélectionnez l’étendue du déploiement à l’aide des options : `Management Group`, `Subscription` et `Resource Group`. Utilisez **Groupe de ressources** dans cette présentation. Pour en savoir plus sur les étendues, consultez [Étendues de déploiement](./resource-group-template-deploy-rest.md#deployment-scope).
 
-Pour `resourceGroupName` et `location`, indiquez le nom et l’emplacement du groupe de ressources au sein duquel vous souhaitez faire le déploiement. La tâche crée le groupe de ressources s’il n’existe pas.
+- `ConnectedServiceName`: Indiquez le nom de la connexion de service créée.
 
-```yaml
-resourceGroupName: '<resource-group-name>'
-location: '<location>'
-```
+    ```yaml
+    ConnectedServiceName: '<your-connection-name>'
+    ```
+
+- `subscriptionName`: Spécifiez l’ID de l’abonnement cible. Cette propriété s’applique uniquement à l’étendue de déploiement du groupe de ressources et du déploiement de l’abonnement.
+
+- `resourceGroupName` et `location` : indiquez le nom et l’emplacement du groupe de ressources au sein duquel vous souhaitez faire le déploiement. La tâche crée le groupe de ressources s’il n’existe pas.
+
+    ```yaml
+    resourceGroupName: '<resource-group-name>'
+    location: '<location>'
+    ```
 
 La tâche de déploiement se lie à un modèle nommé `WebSite.json` et un fichier de paramètres nommé WebSite.parameters.json. Utilisez les noms de votre modèle et de vos fichiers de paramètres.
 
@@ -226,16 +236,20 @@ Maintenant que vous comprenez comment créer la tâche, passons en revue les ét
        outputStorageUri: 'artifactsLocation'
        outputStorageContainerSasToken: 'artifactsLocationSasToken'
        sasTokenTimeOutInMinutes: '240'
-   - task: AzureResourceGroupDeployment@2
-     displayName: 'Deploy template'
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       resourceGroupName: demogroup
-       location: 'centralus'
-       templateLocation: 'URL of the file'
-       csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-       csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-       overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    - task: AzureResourceGroupDeployment@2
+      displayName: 'Deploy template'
+      inputs:
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: 'demo-deploy-sp'
+        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'demogroup'
+        location: 'Central US'
+        templateLocation: 'URL of the file'
+        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+        deploymentMode: 'Incremental'
    ```
 
 1. Sélectionnez **Enregistrer**.

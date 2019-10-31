@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: bwren
-ms.openlocfilehash: affefa96d6e38a88c994938115ddf44bcf8bd36d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: c9fdd0c530ca34305aa3a9197c3bb938d4fb9f1f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695068"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528704"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor
 Le [journal d’activité Azure](activity-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. Cet article explique comment collecter le journal d’activité dans un espace de travail Log Analytics et utiliser la [solution de supervision](../insights/solutions.md) Activity Log Analytics, qui fournit des requêtes et des vues pour analyser ces données. 
@@ -31,7 +31,7 @@ Connecter le journal d’activité à un espace de travail Log Analytics offre l
 - Utiliser les [requêtes de journal](../log-query/log-query-overview.md) pour effectuer des analyses complexes et obtenir des informations détaillées sur les entrées du journal d’activité.
 
 ## <a name="connect-to-log-analytics-workspace"></a>Se connecter à l’espace de travail Log Analytics
-Un journal d’activité peut être connecté à un seul espace de travail, mais un seul espace de travail peut être connecté au journal d’activité de plusieurs abonnements dans le même locataire Azure. Pour une collecte dans plusieurs locataires, consultez [Collecter les journaux d’activité Azure de différents abonnements dans un espace de travail Log Analytics dans différents locataires Azure Active Directory](activity-log-collect-tenants.md).
+Un seul espace de travail peut être connecté au journal d’activité de plusieurs abonnements dans le même abonné Azure. Pour une collecte dans plusieurs locataires, consultez [Collecter les journaux d’activité Azure de différents abonnements dans un espace de travail Log Analytics dans différents locataires Azure Active Directory](activity-log-collect-tenants.md).
 
 > [!IMPORTANT]
 > Une erreur peut se produire lors de la procédure suivante si les fournisseurs de ressources Microsoft.OperationalInsights et Microsoft.OperationsManagement ne sont pas inscrits pour votre abonnement. Consultez [Fournisseurs et types de ressources Azure](../../azure-resource-manager/resource-manager-supported-services.md) pour inscrire ces fournisseurs.

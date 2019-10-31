@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
 ms.openlocfilehash: 9b0478b3e72a759186d7d18ce6f7a885a1098d4b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71259502"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-uk-nhs"></a>Blueprint de sécurité et de conformité Azure : Application web IaaS pour le service national de santé (NHS) du Royaume-Uni
@@ -33,7 +33,7 @@ Pour renforcer la sécurité, toutes les ressources dans cette solution sont gé
 
 Un hôte bastion de gestion fournit une connexion sécurisée permettant aux administrateurs d’accéder aux ressources déployées. **Microsoft recommande de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le sous-réseau de l’architecture de référence.**
 
-![Diagramme de l’architecture de référence Application web IaaS pour UK NHS](images/uknhs-iaaswa-architecture.png?raw=true "Diagramme de l’architecture de référence Application web IaaS pour UK NHS")
+![Application web IaaS pour le diagramme d’architecture de référence UK NHS](images/uknhs-iaaswa-architecture.png?raw=true "Application web IaaS pour le diagramme d’architecture de référence UK NHS")
 
 Cette solution utilise les services Azure suivants. Les informations détaillées concernant l’architecture de déploiement se trouvent dans la section [Architecture de déploiement](#deployment-architecture).
 
@@ -193,7 +193,7 @@ Cette architecture intègre également les [solutions de supervision](../../moni
 
 Le diagramme de flux de données de cette architecture de référence figure ci-dessous et est également disponible en [téléchargement](https://aka.ms/uknhs-iaaswa-tm). Ce modèle peut aider les clients à comprendre les points de risque potentiel de l’infrastructure du système lors de l’apport de modifications.
 
-![Modèle de menace Application web IaaS pour UK NHS](images/uknhs-iaaswa-threat-model.png?raw=true "Modèle de menace Application web IaaS pour UK NHS")
+![Application web IaaS pour le modèle de menaces UK NHS](images/uknhs-iaaswa-threat-model.png?raw=true "Application web IaaS pour le modèle de menaces UK NHS")
 
 ## <a name="compliance-documentation"></a>Documentation sur la conformité
 

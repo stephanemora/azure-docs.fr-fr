@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 11394f692765cc1df5db0eb5c0dd06425026505d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 00891122015bb3e6adb500b6f6c30fa031161b92
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092641"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597999"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Azure Disk Encryption pour Windows (Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -28,17 +28,11 @@ Azure Disk Encryption s’appuie sur BitLocker pour fournir un chiffrement de di
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour obtenir la liste complète des conditions requises, consultez la page de [Prérequis pour Azure Disk Encryption](
-../../security/azure-security-disk-encryption-prerequisites.md).
+Pour obtenir la liste complète des conditions préalables requises, consultez [Azure Disk Encryption pour les machines virtuelles Linux](../linux/disk-encryption-overview.md), en particulier les sections suivantes :
 
-### <a name="operating-system"></a>Système d’exploitation
-
-Pour obtenir la liste des versions de Windows actuellement prises en charge, consultez [Prérequis pour Azure Disk Encryption](../../security/azure-security-disk-encryption-prerequisites.md).
-
-### <a name="internet-connectivity"></a>Connectivité Internet
-
-Azure Disk Encryption doit être connecté à Internet pour accéder à Active Directory, à Key Vault, au stockage et aux points de terminaison de gestion des packages.  Pour plus d’informations sur les paramètres de sécurité réseau, consultez [Prérequis pour Azure Disk Encryption](
-../../security/azure-security-disk-encryption-prerequisites.md).
+- [Azure Disk Encryption pour les machines virtuelles Linux](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Exigences réseau](../windows/disk-encryption-overview.md#networking-requirements)
+- [Exigences de stratégies de groupe](../windows/disk-encryption-overview.md#group-policy-requirements)
 
 ## <a name="extension-schemata"></a>Schémas d’extension
 

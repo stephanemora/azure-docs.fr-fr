@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f0ad3cc6f506efdc0579f7b8949c41b539ade6a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8f38a7b7086e5023eb63e94363301ac5277f7e7c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128366"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693600"
 ---
 # <a name="two-class-neural-network-module"></a>Module Two-Class Neural Network (Réseau neuronal à deux classes)
 
@@ -38,7 +38,7 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
   
 ## <a name="how-to-configure"></a>Comment configurer
 
-1.  Ajoutez le module **Two-Class Neural Network** (Réseau neuronal à deux classes) à votre expérience. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser**, dans la catégorie **Classification**.  
+1.  Ajoutez le module **Réseau neuronal à deux classes** à votre pipeline. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser**, dans la catégorie **Classification**.  
   
 2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
@@ -66,17 +66,17 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
 
 8.  Pour **The momentum** (La dynamique), spécifiez une pondération à appliquer pendant l’apprentissage aux nœuds des itérations précédentes.  
 
-10. Sélectionnez l’option **Shuffle examples** (Réorganiser les exemples de façon aléatoire) pour réorganiser les cas entre les itérations de façon aléatoire. Si vous désélectionnez cette option, les cas sont traités exactement dans le même ordre chaque fois que vous exécutez l’expérience.
+10. Sélectionnez l’option **Shuffle examples** (Réorganiser les exemples de façon aléatoire) pour réorganiser les cas entre les itérations de façon aléatoire. Si vous désélectionnez cette option, les cas sont traités exactement dans le même ordre chaque fois que vous exécutez le pipeline.
   
 11. Pour **Random number seed** (Valeur initiale aléatoire), tapez une valeur à utiliser comme valeur initiale.
   
-     La spécification d’une valeur initiale est utile lorsque vous souhaitez garantir la répétabilité entre les exécutions de la même expérience.  Sinon, une valeur d’horloge système est utilisée comme valeur initiale, ce qui peut entraîner des résultats légèrement différents chaque fois que vous exécutez l’expérience.
+     La spécification d’une valeur de départ est utile lorsque vous souhaitez garantir la répétabilité entre les exécutions du même pipeline.  Sinon, une valeur d’horloge système est utilisée comme valeur de départ, ce qui peut entraîner des résultats légèrement différents chaque fois que vous exécutez le pipeline.
   
-13. Ajoutez un jeu de données avec balises à l’expérience, et connectez l’un des [modules de formation](module-reference.md).  
+13. Ajoutez un jeu de données avec balises au pipeline, puis connectez l’un des [modules de formation](module-reference.md).  
   
-    -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez le module [Train Model](train-model.md) (Entraîner le modèle).  
+    -   Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](train-model.md).  
   
-14. Exécutez l’expérience.
+14. Exécuter le pipeline.
 
 ## <a name="results"></a>Résultats
 
@@ -84,7 +84,7 @@ Une fois la formation terminée :
 
 + Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de la formation et d’autres paramètres du réseau neuronal, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.  
 
-+ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives de la même expérience.
++ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives du même pipeline.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 5fdb822a445e8a62cd36e6dd05aa218b9b41ce9e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128735"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693091"
 ---
 # <a name="join-data"></a>Joindre des données
 
@@ -24,7 +24,7 @@ Cet article décrit comment utiliser le module **Joindre des données** dans l�
 
 Pour joindre deux jeux de données, ces derniers doivent être liés par une colonne clé. Les clés composites utilisant plusieurs colonnes sont également prises en charge. 
 
-1. Ajoutez les jeux de données que vous souhaitez combiner, puis faites glisser le module **Joindre des données** dans votre expérience. 
+1. Ajoutez les jeux de données que vous souhaitez combiner, puis faites glisser le module **Joindre des données** dans votre pipeline. 
 
     Vous pouvez rechercher le module dans la catégorie **Transformation des données**, sous **Manipulation**.
 
@@ -62,7 +62,7 @@ Pour joindre deux jeux de données, ces derniers doivent être liés par une col
     * Sélectionnez cette option pour afficher les clés des deux tables d’entrée.
     * Désélectionnez-la pour retourner uniquement les colonnes clés issues de l’entrée de gauche.
 
-1. Exécutez l’expérience ou sélectionnez le module Joindre des données, puis sélectionnez **Exécuter la sélection** pour effectuer la jointure.
+1. Exécutez e pipeline ou sélectionnez le module Joindre des données, puis sélectionnez **Exécuter la sélection** pour effectuer la jointure.
 
 1. Pour afficher les résultats, cliquez avec le bouton droit sur **Joindre des données** > **Jeu de données des résultats** > **Visualiser**.
 

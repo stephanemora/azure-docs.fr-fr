@@ -3,7 +3,7 @@ title: Gérer les espaces de travail Log Analytics dans Azure Monitor | Microsof
 description: Vous pouvez gérer l’accès aux données stockées dans un espace de travail Log Analytics dans Azure Monitor à l’aide d’autorisations au niveau de la ressource, de l’espace de travail ou de la table. Cet article explique comment procéder.
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.author: magoedte
-ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 10/22/2019
+ms.author: bwren
+ms.openlocfilehash: 3b8f5cb2d5c8e7ff80d32b288c041b4f153bf526
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329412"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787501"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -148,7 +148,7 @@ Le rôle Lecteur Log Analytics inclut les actions Azure suivantes :
 
 Les membres du rôle *Contributeur Log Analytics* peuvent effectuer les opérations suivantes :
 
-* Lecture de toutes les données de supervision autorisées pour le rôle Lecteur Log Analytics
+* Comprend tous les privilèges du *rôle lecteur de Log Analytics*, ce qui permet à l’utilisateur de lire toutes les données d’analyse
 * Création et configuration des comptes Automation
 * Ajout et suppression de solutions de gestion
 
@@ -187,7 +187,7 @@ Utilisez ces rôles pour accorder aux utilisateurs l’accès à différentes é
 * Groupe de ressources : accès à tous les espaces de travail du groupe de ressources
 * Ressource : accès uniquement à l’espace de travail spécifié
 
-Vous devez effectuer des affectations au niveau de la ressource (espace de travail) afin d’assurer un contrôle d’accès précis.  Pour créer des rôles avec les autorisations spécifiques nécessaires, utilisez des [rôles personnalisés](../../role-based-access-control/custom-roles.md).
+Nous vous recommandons d’effectuer des attributions au niveau de la ressource (espace de travail) afin d’assurer un contrôle d’accès précis. Pour créer des rôles avec les autorisations spécifiques nécessaires, utilisez des [rôles personnalisés](../../role-based-access-control/custom-roles.md).
 
 ### <a name="resource-permissions"></a>Autorisations de ressource
 
@@ -198,7 +198,7 @@ Quand les utilisateurs interrogent les journaux à partir d’un espace de trava
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemples :<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacité d’afficher toutes les données de journal pour la ressource.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Possibilité de configurer les paramètres de diagnostic pour autoriser la configuration des journaux pour cette ressource. |
 
-L’autorisation `/read` est généralement accordée à partir d’un rôle disposant d’autorisations _\*/read ou_  _\*_ tel que les rôles prédéfinis [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et [Contributeur](../../role-based-access-control/built-in-roles.md#contributor). Notez que les rôles personnalisés qui incluent des actions spécifiques ou des rôles intégrés dédiés peuvent ne pas inclure cette autorisation.
+L’autorisation `/read` est généralement accordée à partir d’un rôle disposant d’autorisations _\*/read ou_  _\*_ tel que les rôles prédéfinis [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et [Contributeur](../../role-based-access-control/built-in-roles.md#contributor). Les rôles personnalisés qui incluent des actions spécifiques ou des rôles intégrés dédiés peuvent ne pas inclure cette autorisation.
 
 Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez créer différents contrôles d’accès pour différentes tables.
 
@@ -224,7 +224,7 @@ Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez 
 
     * Accordez aux utilisateurs les autorisations d’accès suivantes à leurs ressources : `Microsoft.Insights/logs/*/read`.
 
-    * Ajoutez la non-action suivante pour empêcher les utilisateurs de lire le type SecurityEvent : `Microsoft.Insights/logs/SecurityEvent/read`. La non-action doit avoir le même rôle personnalisé que l’action qui fournit l’autorisation de lecture (`Microsoft.Insights/logs/*/read`). Si l’utilisateur hérite de l’action de lecture d’un autre rôle attribué à cette ressource, à l’abonnement ou au groupe de ressources, il pourra lire tous les types de journaux. C’est également le cas s’il hérite de l’action `*/read` associée au rôle Lecteur ou Contributeur, par exemple.
+    * Ajoutez la non-action suivante pour empêcher les utilisateurs de lire le type SecurityEvent : `Microsoft.Insights/logs/SecurityEvent/read`. La non-action doit avoir le même rôle personnalisé que l’action qui fournit l’autorisation de lecture (`Microsoft.Insights/logs/*/read`). Si l’utilisateur hérite de l’action de lecture d’un autre rôle attribué à cette ressource, à l’abonnement ou au groupe de ressources, il pourra lire tous les types de journaux. C’est également le cas s’ils héritent de l’action `*/read` associée au rôle Lecteur ou Contributeur, par exemple.
 
 4. Pour accorder à un utilisateur l’accès aux données de journal à partir de ses ressources et l’accès en lecture à l’ensemble des infos d’identification Azure AD et des données de journal de la solution Update Management à partir de l’espace de travail, effectuez les étapes suivantes :
 
@@ -259,20 +259,24 @@ Par exemple, pour créer un rôle ayant accès aux tables _Heartbeat_ et _AzureA
 
 ```
 "Actions":  [
-              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
-              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+    "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
   ],
 ```
 
 Pour créer un rôle ayant accès uniquement à la table _SecurityBaseline_, créez un rôle personnalisé à l’aide des actions suivantes :
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
-    ],
-    "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+],
+"NotActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
 ```
 
 ### <a name="custom-logs"></a>Journaux d’activité personnalisés
@@ -282,9 +286,11 @@ Pour créer un rôle ayant accès uniquement à la table _SecurityBaseline_, cr�
  Vous ne pouvez pas accorder ou refuser l’accès à des journaux personnalisés spécifiques, mais vous pouvez accorder ou refuser l’accès à la totalité d’entre eux. Pour créer un rôle ayant accès à tous les journaux personnalisés, créez un rôle personnalisé à l’aide des actions suivantes :
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+],
 ```
 
 ### <a name="considerations"></a>Considérations
@@ -293,7 +299,7 @@ Pour créer un rôle ayant accès uniquement à la table _SecurityBaseline_, cr�
 * Si un utilisateur se voit accorder un accès par table mais aucune autre autorisation, il peut accéder aux données de journal à partir de l’API, mais pas du portail Azure. Pour fournir l’accès à partir du portail Azure, utilisez le Lecteur Log Analytics comme rôle de base.
 * Les administrateurs de l’abonnement ont accès à tous les types de données indépendamment des autres paramètres d’autorisation.
 * Les propriétaires d’espace de travail sont traités comme tout autre utilisateur pour le contrôle d’accès par table.
-* Nous vous conseillons d’attribuer des rôles à des groupes de sécurité plutôt qu’à des utilisateurs individuels afin de réduire le nombre d’affectations. En outre, cette approche facilite l’utilisation des outils de gestion de groupe existants pour configurer et vérifier l’accès.
+* Nous vous conseillons d’attribuer des rôles à des groupes de sécurité plutôt qu’à des utilisateurs individuels afin de réduire le nombre d’attributions. En outre, cette approche facilite l’utilisation des outils de gestion de groupe existants pour configurer et vérifier l’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

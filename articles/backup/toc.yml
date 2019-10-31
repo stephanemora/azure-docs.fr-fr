@@ -232,6 +232,8 @@
           href: backup-azure-restore-windows-server.md
         - name: Restaurer l’état du système Windows Server
           href: backup-azure-restore-system-state.md
+        - name: Gérer la sauvegarde des fichiers et dossiers Windows Server
+          href: backup-azure-manage-mars.md
     - name: Coffre Recovery Services
       items:
         - name: Vue d’ensemble des coffres Recovery Services

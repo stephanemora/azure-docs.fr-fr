@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: f44be7556b6d741df93faeeab1dbdfc15bc8ebfd
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8170022a3ee4b4b65e8da0d9e5a2f8464675d08f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211804"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528111"
 ---
 # <a name="security-controls-for-azure-backup"></a>Contrôles de sécurité pour la Sauvegarde Azure
 
-Cet article décrit les contrôles de sécurité intégrés à la Sauvegarde Azure. 
+Cet article décrit les contrôles de sécurité intégrés à la Sauvegarde Azure.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
@@ -34,7 +34,7 @@ Cet article décrit les contrôles de sécurité intégrés à la Sauvegarde Azu
 
 | Contrôle de sécurité | Oui/Non | Notes| | Documentation
 |---|---|--|
-| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | Log Analytics est pris en charge via des journaux de diagnostic. Pour plus d’informations, consultez [Superviser les charges de travail protégées de Sauvegarde Azure à l’aide de Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | Log Analytics est pris en charge via des journaux de ressources. Pour plus d’informations, consultez [Superviser les charges de travail protégées de Sauvegarde Azure à l’aide de Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
 | Journalisation et audit du plan de gestion et de contrôle| OUI | Toutes les actions déclenchées par le client à partir du portail Azure sont consignées dans des journaux d’activité. |  |
 | Journalisation et audit du plan de données| Non | Le plan de données de Sauvegarde Azure n’est pas accessible directement.  |  |
 

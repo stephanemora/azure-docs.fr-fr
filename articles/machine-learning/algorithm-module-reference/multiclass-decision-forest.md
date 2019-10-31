@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b56f08dfd1a14ffedffb612bb8974086ee08ede7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 80d8fc886ec62cf6abea7620f0c5763b619b5de4
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128616"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692781"
 ---
 # <a name="multiclass-decision-forest-module"></a>Module Forêt d’arbres de décision multiclasse
 
@@ -41,7 +41,7 @@ Le classifieur de forêt d’arbres de décision dans Azure Machine Learning est
 
 
 
-1. Ajoutez le module **Forêt d’arbres de décision multiclasse** à votre environnement dans l’interface. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser le modèle** et **Classification**.
+1. Ajoutez le module **Forêt de décision multiclasse** à votre pipeline dans l’interface. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser le modèle** et **Classification**.
 
 2. Double-cliquez sur le module pour ouvrir le volet **Propriétés**.
 
@@ -74,9 +74,9 @@ Le classifieur de forêt d’arbres de décision dans Azure Machine Learning est
 
 10. Connectez un jeu de données étiqueté et l’un des modules de formation :
 
-    + Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Effectuer l’apprentissage du modèle](./train-model.md).
+    + Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](./train-model.md).
 
-11. Exécutez l’expérience.
+11. Exécuter le pipeline.
 
 ## <a name="results"></a>Résultats
 

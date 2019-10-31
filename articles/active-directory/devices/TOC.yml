@@ -49,6 +49,8 @@
       href: manage-stale-devices.md
     - name: Activer Enterprise State Roaming
       href: enterprise-state-roaming-enable.md
+    - name: Machines virtuelles Windows Azure et Azure AD
+      href: howto-vm-sign-in-azure-ad-windows.md
     - name: Infrastructure de bureau virtuel
       href: howto-device-identity-virtual-desktop-infrastructure.md
     - name: Déployer des stations de travail gérées par Azure

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: f560923b0a5457ac5fd03c7f76fc4315c6ca08e8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 369974e52cb3585e4333b6033573b433e0a1a41a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128425"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693642"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Module Perceptron moyenné à deux classes
 
@@ -32,9 +32,9 @@ Les modèles Perceptron les plus simples sont adaptés à l’apprentissage des 
 
 ## <a name="how-to-configure-two-class-averaged-perceptron"></a>Comment configurer Perceptron moyenné à deux classes
 
-1.  Ajoutez le module **Perceptron moyenné à deux classes** à votre essai.  
+1.  Ajoutez le module **Perceptron moyenné à deux classes** à votre pipeline.  
 
-2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
+2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.  
   
     -   **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, fournissez un ensemble spécifique de valeurs en tant qu’arguments.
   
@@ -46,7 +46,7 @@ Les modèles Perceptron les plus simples sont adaptés à l’apprentissage des 
   
      L’arrêt précoce offre une meilleure généralisation, la plupart du temps. L’augmentation du nombre d’itérations améliore l’ajustement, mais présente un risque de surajustement.
   
-5.  Pour **Valeur de départ numérique aléatoire**, vous pouvez éventuellement saisir un entier comme valeur initiale. L’utilisation d’un seed est recommandée si vous souhaitez garantir la reproductibilité de l’essai au cours des exécutions.  
+5.  Pour **Valeur de départ numérique aléatoire**, vous pouvez éventuellement saisir un entier comme valeur initiale. L’utilisation d’un seed est recommandée si vous souhaitez garantir la reproductibilité du pipeline au cours des exécutions.  
   
 1.  Connecter un jeu de données d’apprentissage à l’un des modules de formation :
   

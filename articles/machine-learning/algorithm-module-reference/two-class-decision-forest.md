@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 37a2ce77e438145219df9cb553d1881626e8a2c6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 243f1774069f048d0e8a1ce11e3ac42e4e73f58b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128395"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693616"
 ---
 # <a name="two-class-decision-forest-module"></a>Module Forêt d’arbres décisionnels à deux classes
 
@@ -49,7 +49,7 @@ Pour plus d’informations, voir [Arbres de décision](https://go.microsoft.com/
 
 ## <a name="how-to-configure"></a>Comment configurer
   
-1.  Ajoutez le module **Forêt d’arbres décisionnels à deux classes** à votre expérience dans Azure Machine Learning, puis ouvrez le volet **Propriétés** du module. 
+1.  Ajoutez le module **Forêt d’arbres décisionnels à deux classes** à votre pipeline dans Azure Machine Learning, puis ouvrez le volet **Propriétés** du module. 
 
     Vous trouverez le module sous **Machine Learning**. Développez **Initialiser**, puis **Classification**.  
   
@@ -97,9 +97,9 @@ Une fois l’apprentissage terminé :
   
     Cliquez sur chaque arbre pour explorer les fractionnements et afficher les règles de chaque nœud.
 
-+ Pour enregistrer un instantané du modèle, cliquez avec le bouton droit sur la sortie **Modèle entraîné** et sélectionnez **Enregistrer le modèle**. Le modèle enregistré n’est pas mis à jour lors des différentes exécutions de l’expérience.
++ Pour enregistrer un instantané du modèle, cliquez avec le bouton droit sur la sortie **Modèle entraîné** et sélectionnez **Enregistrer le modèle**. Le modèle enregistré n’est pas mis à jour lors des différentes exécutions du pipeline.
 
-+ Pour utiliser le modèle à des fins de scoring, ajoutez le module **Noter le modèle** à une expérience.
++ Pour utiliser le modèle à des fins de scoring, ajoutez le module **Modèle de scoring** à un pipeline.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

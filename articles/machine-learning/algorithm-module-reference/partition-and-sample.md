@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 79cd6fe9156a785d82e303007d02ce58506dcfcf
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fcbf9fae3306c43613ef0b67a79c9c0b53f6b923
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128548"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693753"
 ---
 # <a name="partition-and-sample-module"></a>Module Partition et échantillon
 
@@ -38,7 +38,7 @@ L’échantillonnage est un outil important dans l’apprentissage automatique, 
 
 - Créer un plus petit jeu de données à des fins de test. 
 
-    Si vous avez une grande quantité de données, vous souhaiterez peut-être utiliser uniquement les premières *n* lignes lors de la configuration de l’expérience, puis utiliser le jeu de données complet lors de la création de votre modèle. Vous pouvez également utiliser l’échantillonnage pour créer un jeu de données plus petit pour une utilisation en développement.
+    Si vous avez une grande quantité de données, vous souhaiterez peut-être utiliser uniquement les *n* premières lignes lors de la configuration du pipeline, puis utiliser le jeu de données complet lors de la génération de votre modèle. Vous pouvez également utiliser l’échantillonnage pour créer un jeu de données plus petit pour une utilisation en développement.
 
 ## <a name="configure-partition-and-sample"></a>Configurer le module Partition et échantillon
 
@@ -51,9 +51,9 @@ Ce module prend en charge plusieurs méthodes permettant de diviser vos données
 
 ### <a name="get-top-n-rows-from-a-dataset"></a>Récupérer les N PREMIÈRES lignes d’un jeu de données
 
-Utilisez ce mode pour récupérer uniquement les *n* premières lignes. Cette option est utile si vous souhaitez tester une expérience sur un petit nombre de lignes et si vous n’avez pas besoin que les données soient équilibrées ou échantillonnées.
+Utilisez ce mode pour récupérer uniquement les *n* premières lignes. Cette option est utile si vous souhaitez tester un pipeline sur un petit nombre de lignes et si vous n’avez pas besoin que les données soient équilibrées ni échantillonnées.
 
-1. Ajoutez le module **Partition et échantillon** à votre expérience dans l’interface et connectez le jeu de données.  
+1. Ajoutez le module **Partition et échantillon** à votre pipeline dans l’interface et connectez le jeu de données.  
 
 2. **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage) : définissez cette option sur **Principal**.
 
@@ -61,7 +61,7 @@ Utilisez ce mode pour récupérer uniquement les *n* premières lignes. Cette op
 
     Le nombre de lignes que vous spécifiez doit être un entier non négatif. Si le nombre de lignes sélectionnées est supérieur au nombre de lignes du jeu de données, l’intégralité du jeu de données est renvoyée.
 
-4. Exécutez l’expérience.
+4. Exécuter le pipeline.
 
 Le module génère un jeu de données unique contenant uniquement le nombre de lignes spécifié. Les lignes sont toujours lues à partir du haut du jeu de données.
 
@@ -69,7 +69,7 @@ Le module génère un jeu de données unique contenant uniquement le nombre de l
 
 Cette option prend en charge l’échantillonnage aléatoire simple ou l’échantillonnage aléatoire stratifié. Elle est utile si vous souhaitez créer un jeu de données d’échantillon représentatif plus petit à des fins de test.
 
-1. Ajoutez le module **Partition et échantillon** à votre expérience et connectez le jeu de données.
+1. Ajoutez le module **Partition et échantillon** à votre pipeline et connectez le jeu de données.
 
 2. **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage) : définissez cette option sur **Échantillonnage**.
 
@@ -81,7 +81,7 @@ Cette option prend en charge l’échantillonnage aléatoire simple ou l’écha
 
 4. **Random seed for sampling** (Valeur de départ aléatoire pour l’échantillonnage) : Si vous le souhaitez, indiquez un entier à utiliser comme valeur de départ.
 
-    Cette option est importante si vous souhaitez que les lignes soient divisées de la même façon à chaque fois. La valeur par défaut est 0, ce qui signifie qu’une valeur de départ est générée en fonction de l’horloge système. Cela peut entraîner des résultats légèrement différents chaque fois que vous exécutez l’expérience.
+    Cette option est importante si vous souhaitez que les lignes soient divisées de la même façon à chaque fois. La valeur par défaut est 0, ce qui signifie qu’une valeur de départ est générée en fonction de l’horloge système. Cela peut entraîner des résultats légèrement différents chaque fois que vous exécutez le pipeline.
 
 5. **Stratified split for sampling** (Fractionnement stratifié pour l’échantillonnage) : Sélectionnez cette option s’il est important que les lignes du jeu de données soient divisées uniformément par colonne clé avant l’échantillonnage.
 
@@ -94,7 +94,7 @@ Cette option prend en charge l’échantillonnage aléatoire simple ou l’écha
     3. Chaque groupe est ajouté sélectivement au jeu de données de sortie pour respecter le rapport spécifié.
 
 
-6. Exécutez l’expérience.
+6. Exécuter le pipeline.
 
     Avec cette option, le module génère un jeu de données unique contenant un échantillon représentatif des données. La partie restante, c’est-à-dire la partie non échantillonnée du jeu de données, n’est pas générée. 
 
@@ -102,7 +102,7 @@ Cette option prend en charge l’échantillonnage aléatoire simple ou l’écha
 
 Utilisez cette option lorsque vous souhaitez diviser le jeu de données en sous-ensembles de données. Cette option est également utile lorsque vous souhaitez créer un nombre de plis personnalisé pour la validation croisée, ou pour fractionner des lignes en plusieurs groupes.
 
-1. Ajoutez le module **Partition et échantillon** à votre expérience et connectez le jeu de données.
+1. Ajoutez le module **Partition et échantillon** à votre pipeline et connectez le jeu de données.
 
 2. Pour **Partition or sample mode** (Mode de partitionnement ou d’échantillonnage), sélectionnez **Assign to Folds** (Attribuer à des plis).
 
@@ -128,11 +128,11 @@ Utilisez cette option lorsque vous souhaitez diviser le jeu de données en sous-
 
         - Si vous entrez des nombres dont le total est**inférieur à 1**, une partition supplémentaire est créée pour héberger les lignes restantes. Par exemple, si vous tapez les valeurs .2 et .3, une troisième partition est créée pour héberger les 50 % restants de toutes les lignes.
 
-        - Si vous entrez des nombres dont le total est**supérieur à 1**, une erreur est générée lorsque vous exécutez l’expérience.
+        - Si vous entrez des nombres dont le total est **supérieur à 1**, une erreur est générée lorsque vous exécutez le pipeline.
 
-7. **Stratified split** (Fractionnement stratifié) : sélectionnez cette option si vous souhaitez que les lignes soient stratifiées lors du fractionnement, puis choisissez la _colonne de strate_.
+7. **Fractionnement stratifié** : sélectionnez cette option si vous souhaitez que les lignes soient stratifiées lors du fractionnement, puis choisissez la _colonne de strate_.
 
-8. Exécutez l’expérience.
+8. Exécuter le pipeline.
 
     Avec cette option, le module génère plusieurs jeux de données, partitionnés suivant les règles que vous avez spécifiées.
 
@@ -140,7 +140,7 @@ Utilisez cette option lorsque vous souhaitez diviser le jeu de données en sous-
 
 Cette option est utilisée lorsque vous avez divisé un jeu de données en plusieurs partitions et que vous voulez charger chaque partition tour à tour pour traitement ou analyse plus approfondi.
 
-1. Ajoutez le module **Partition et échantillon** à l’expérience.
+1. Ajoutez le module **Partition et échantillon** au pipeline.
 
 2. Connectez-la à la sortie d’une instance précédente du module **Partition et échantillon**. Cette instance doit avoir utilisé l’option **Assign to Folds** (Attribuer à des plis) pour générer un certain nombre de partitions.
 
@@ -158,7 +158,7 @@ Cette option est utilisée lorsque vous avez divisé un jeu de données en plusi
 
     [![Partition et échantillon](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
-5. Exécutez l’expérience.
+5. Exécuter le pipeline.
 
     Avec cette option, le module génère un jeu de données unique contenant seulement les lignes attribuées à ce pli.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/11/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 099bca7483100da1a4ee2f8f10057c416ad145b0
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: a9a837d8a486e10ea2a62be69b889e657b1dbc05
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67841434"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72600940"
 ---
 Vous allez appliquer des balises à vos ressources Azure en fournissant des métadonnées pour les organiser de façon logique par catégories. Chaque balise se compose d’une paire nom-valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
 
@@ -30,3 +30,6 @@ Les limites suivantes s’appliquent aux balises :
 * Les ressources d’un groupe de ressources n’héritent pas des balises appliquées à ce groupe de ressources.
 * Les balises ne peuvent pas être appliquées à des ressources classiques comme les Services cloud.
 * Les noms de balise ne peuvent pas contenir ces caractères : `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Actuellement les zones Azure DNS et les services Traffic Manager n’autorisent pas non plus l’utilisation des espaces dans la balise. 

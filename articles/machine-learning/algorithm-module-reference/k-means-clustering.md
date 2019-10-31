@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 7de2978fee80cf3acd078ef8ee5f235fab21713e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128696"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693111"
 ---
 # <a name="module-k-means-clustering"></a>Module : Clustering k-moyennes
 
@@ -28,7 +28,7 @@ K-moyennes est l’un des algorithmes *non supervisé* les plus simples et les p
 
 Pour créer un modèle de clustering, vous devez :
 
-* Ajouter ce module à votre expérience.
+* Ajouter ce module à votre pipeline.
 * Connecter un jeu de données.
 * Définir des paramètres, tels que le nombre de clusters prévus, la mesure de la distance à utiliser pour créer les clusters et ainsi de suite. 
   
@@ -54,7 +54,7 @@ Lorsqu’il traite les données d’apprentissage, l’algorithme k-moyennes com
 
 ## <a name="configure-the-k-means-clustering-module"></a>Configurer le module de Clustering k-moyennes
   
-1.  Ajoutez le module **Clustering k-moyennes** à votre expérience.  
+1.  Ajoutez le module **Clustering k-moyennes** à votre pipeline.  
   
 2.  Pour spécifier le mode d’apprentissage du modèle, sélectionnez l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
@@ -119,7 +119,7 @@ Si vous avez utilisé le module [Train Clustering Model](train-clustering-model.
 
 2. Sélectionnez **Trained model** (Modèle formé), puis **Save as Trained Model** (Enregistrer en tant que modèle formé).
 
-Le modèle enregistré représente les données d’apprentissage au moment où vous avez enregistré le modèle. Si vous mettez à jour ultérieurement les données d’apprentissage utilisées dans l’expérience, le modèle enregistré n’est pas mis à jour. 
+Le modèle enregistré représente les données d’apprentissage au moment où vous avez enregistré le modèle. Si vous mettez à jour ultérieurement les données de formation utilisées dans le pipeline, le modèle enregistré n’est pas mis à jour. 
 
 #### <a name="see-the-clustering-result-dataset"></a>Consulter le jeu de données de résultat du clustering 
 

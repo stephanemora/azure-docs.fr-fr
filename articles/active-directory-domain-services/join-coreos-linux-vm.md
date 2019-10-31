@@ -1,5 +1,5 @@
 ---
-title: Joindre une machine virtuelle CoreOS à Azure AD Domain Services | Microsoft Docs'
+title: Joindre une machine virtuelle CoreOS à Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment configurer une machine virtuelle CoreOS et comment la joindre à un domaine managé Azure AD Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/14/2019
 ms.author: iainfou
-ms.openlocfilehash: c0c298a9aa0b9d46ec2c7510cdb5c3ba1c8c84af
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4cdc2fff05270a296d9c4c9151f73cadeb2a1cfc
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075549"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754392"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Joindre une machine virtuelle CoreOS à un domaine managé Azure AD Domain Services
 

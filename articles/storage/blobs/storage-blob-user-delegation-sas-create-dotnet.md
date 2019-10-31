@@ -5,85 +5,54 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 59de768e75a88d7cfa5b68fa306d0e83f1aa0ba3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: c75a13a20c1dbb222db69145e24838deb111fb66
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671330"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595214"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec .NET (préversion)
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Cet article explique comment utiliser les informations d’identification Azure Active Directory (Azure AD) pour créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec la [bibliothèque cliente de Stockage Azure pour .NET](https://www.nuget.org/packages/Azure.Storage.Blobs).
+Cet article explique comment utiliser les informations d’identification Azure Active Directory (Azure AD) pour créer une SAP de délégation d’utilisateur pour un conteneur ou un blob avec la bibliothèque de client de Stockage Azure pour .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
+## <a name="authenticate-with-the-azure-identity-library-preview"></a>S’authentifier avec la bibliothèque d’identité Azure (version préliminaire)
+
+La bibliothèque de client d’identité Azure pour .NET (version préliminaire) authentifie un principal de sécurité. Lorsque votre code s’exécute dans Azure, le principal de sécurité est une identité managée pour les ressources Azure.
+
+Lorsque votre code s’exécute dans l’environnement de développement, l’authentification peut être gérée automatiquement ou nécessiter une connexion du navigateur, selon les outils que vous utilisez. Microsoft Visual Studio prend en charge l’authentification unique (SSO), afin que le compte d’utilisateur actif Azure AD soit automatiquement utilisé pour l’authentification. Pour plus d’informations sur l’authentification unique, consultez [Authentification unique aux applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
+
+D’autres outils de développement peuvent vous inviter à vous connecter via un navigateur web. Vous pouvez également utiliser un principal de service pour vous authentifier à partir de l’environnement de développement. Pour plus d’informations, consultez [Créer une identité pour une application Azure dans le portail](../../active-directory/develop/howto-create-service-principal-portal.md).
+
+Après l’authentification, la bibliothèque de client d’identité Azure obtient des informations d’identification de jeton. Ces informations d’identification de jeton sont ensuite encapsulées dans l’objet client de service que vous créez pour effectuer des opérations sur le stockage Azure. La bibliothèque la gère en toute transparence en obtenant les informations d’identification de jeton appropriées.
+
+Pour plus d’informations sur la bibliothèque cliente Azure Identity, consultez [Bibliothèque cliente Azure Identity pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+
+## <a name="assign-rbac-roles-for-access-to-data"></a>Attribuer des rôles RBAC pour l’accès aux données
+
+Lorsqu’un principal de sécurité Azure AD tente d’accéder aux données blob, ce principal de sécurité doit avoir des autorisations sur la ressource. Que le principal de sécurité soit une identité managée dans Azure ou un compte d’utilisateur Azure AD exécutant du code dans l’environnement de développement, un rôle RBAC qui accorde l’accès aux données blob dans le stockage Azure doit être affecté au principal de sécurité. Pour plus d’informations sur l’attribution d’autorisations via RBAC, consultez la section intitulée **Attribuer des rôles RBAC pour les droits d’accès** dans [Autoriser l’accès aux blobs et files d’attente Azure à l’aide d’Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+
 ## <a name="install-the-preview-packages"></a>Installer le packages de la préversion
 
-Les exemples de cet article utilisent la dernière préversion de la bibliothèque cliente de Stockage Azure pour le stockage d’objets blob. Pour installer le package de la préversion, exécutez la commande suivante dans la console du gestionnaire de package NuGet :
+Les exemples de cet article utilisent la dernière préversion de la [bibliothèque de client du Stockage Azure pour le stockage blob](https://www.nuget.org/packages/Azure.Storage.Blobs). Pour installer le package de la préversion, exécutez la commande suivante dans la console du gestionnaire de package NuGet :
 
-```
+```powershell
 Install-Package Azure.Storage.Blobs -IncludePrerelease
 ```
 
-Les exemples de cet article utilisent également la dernière préversion de la [bibliothèque cliente Azure Identity pour .NET](https://www.nuget.org/packages/Azure.Identity/) pour s’authentifier avec des informations d’identification Azure AD. La bibliothèque cliente Azure Identity authentifie un principal de sécurité. Le principal de sécurité authentifié peut ensuite créer la SAP de délégation d’utilisateur. Pour plus d’informations sur la bibliothèque cliente Azure Identity, consultez [Bibliothèque cliente Azure Identity pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+Les exemples de cet article utilisent également la dernière préversion de la [bibliothèque cliente Azure Identity pour .NET](https://www.nuget.org/packages/Azure.Identity/) pour s’authentifier avec des informations d’identification Azure AD. Pour installer le package de la préversion, exécutez la commande suivante dans la console du gestionnaire de package NuGet :
 
-```
+```powershell
 Install-Package Azure.Identity -IncludePrerelease
 ```
-
-## <a name="create-a-service-principal"></a>Créer un principal du service
-
-Pour vous authentifier avec des informations d’identification Azure AD via la bibliothèque cliente Azure Identity, utilisez un principal du service ou une identité managée comme principal de sécurité, selon l’emplacement d’exécution de votre code. Si votre code s’exécute dans un environnement de développement, utilisez un principal du service à des fins de test. Si votre code s’exécute dans Azure, utilisez une identité managée. Cet article suppose que vous exécutez du code à partir de l’environnement de développement, et montre comment utiliser un principal du service pour créer la SAP de délégation d’utilisateur.
-
-Pour créer un principal du service avec Azure CLI et attribuer un rôle RBAC, appelez la commande [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Fournissez un rôle d’accès aux données de Stockage Azure à attribuer au nouveau principal du service. Le rôle doit inclure l’action **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Pour plus d’informations sur les rôles intégrés fournis pour le Stockage Azure, consultez [Rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
-
-Indiquez également l’étendue de l’attribution de rôle. Le principal du service crée la clé de délégation d’utilisateur, qui est une opération effectuée au niveau du compte de stockage, de sorte que l’attribution de rôle soit limitée au niveau du compte de stockage, du groupe de ressources ou de l’abonnement. Pour plus d’informations sur les autorisations RBAC pour la création d’une SAP de délégation d’utilisateur, consultez la section **Affecter des autorisations avec RBAC** dans [Créer une SAP de délégation d’utilisateur (API REST)](/rest/api/storageservices/create-user-delegation-sas).
-
-Si vous ne disposez pas des autorisations suffisantes pour attribuer un rôle au principal du service, vous devrez peut-être demander au propriétaire du compte ou à l’administrateur d’effectuer l’attribution de rôle.
-
-L’exemple suivant utilise Azure CLI pour créer un principal du service et lui attribuer le rôle de **lecteur de données d’objets blob de stockage** avec une étendue de compte
-
-```azurecli-interactive
-az ad sp create-for-rbac \
-    --name <service-principal> \
-    --role "Storage Blob Data Reader" \
-    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
-```
-
-La commande `az ad sp create-for-rbac` retourne une liste de propriétés de principal du service au format JSON. Copiez ces valeurs pour pouvoir les utiliser afin de créer les variables d’environnement nécessaires à l’étape suivante.
-
-```json
-{
-    "appId": "generated-app-ID",
-    "displayName": "service-principal-name",
-    "name": "http://service-principal-uri",
-    "password": "generated-password",
-    "tenant": "tenant-ID"
-}
-```
-
-> [!IMPORTANT]
-> La propagation des attributions de rôles RBAC peut prendre plusieurs minutes.
-
-## <a name="set-environment-variables"></a>Définition des variables d'environnement
-
-La bibliothèque cliente Azure Identity lit les valeurs de trois variables d’environnement au moment de l’exécution pour authentifier le principal du service. Le tableau suivant indique la valeur à définir pour chaque variable d’environnement.
-
-|Variable d’environnement|Valeur
-|-|-
-|`AZURE_CLIENT_ID`|ID de l’application pour le principal du service
-|`AZURE_TENANT_ID`|ID de locataire Azure AD du principal du service
-|`AZURE_CLIENT_SECRET`|Mot de passe généré pour le principal du service
-
-> [!IMPORTANT]
-> Après avoir défini les variables d’environnement, fermez et rouvrez votre fenêtre de console. Si vous utilisez Visual Studio ou un autre environnement de développement, vous devrez peut-être redémarrer l’environnement de développement afin qu’il enregistre les nouvelles variables d’environnement.
 
 ## <a name="add-using-directives"></a>Ajouter des directives d’utilisation
 
@@ -100,11 +69,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## <a name="authenticate-the-service-principal"></a>Authentifier le principal du service
+## <a name="get-an-authenticated-token-credential"></a>Obtenir des informations d’identification d’un jeton authentifié
 
-Pour authentifier le principal du service, créez une instance de la classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential). Le constructeur `DefaultAzureCredential` lit les variables d’environnement que vous avez créées précédemment.
+Pour obtenir les informations d’identification d’un jeton que votre code peut utiliser pour autoriser les requêtes au stockage Azure, créez une instance de la classe [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
 
-L’extrait de code suivant montre comment obtenir les informations d’identification authentifiées et comment les utiliser pour créer un client de service pour le Stockage d’objets blob
+L’extrait de code suivant montre comment obtenir les informations d’identification d’un jeton authentifié et comment les utiliser pour créer un client de service pour le stockage blob :
 
 ```csharp
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);

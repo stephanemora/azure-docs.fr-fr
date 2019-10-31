@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01fb3325bed889911c79a4f828afa27b86d746db
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128800"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693764"
 ---
 # <a name="execute-r-script"></a>Exécuter un script R
 
-Cet article décrit comment utiliser le module **Exécuter un script R** pour exécuter du code R dans votre expérience d’interface visuelle.
+Cet article décrit comment utiliser le module **Exécuter un script R** pour exécuter du code R dans votre pipeline d’interface visuelle.
 
 R vous permet d’exécuter des tâches qui ne sont actuellement pas prises en charge par les modules existants, telles que : 
 - Créer des transformations de données personnalisées
@@ -75,7 +75,7 @@ Le module **Exécuter un script R** contient un exemple de code que vous pouvez
 
 Les jeux de données stockés dans l’interface visuelle sont automatiquement convertis en trame de données R quand ils sont chargés avec ce module.
 
-1.  Ajoutez le module **Exécuter un script R** à votre expérience.
+1.  Ajoutez le module **Exécuter un script R** à votre pipeline.
 
   
 
@@ -119,11 +119,11 @@ azureml_main <- function(dataframe1, dataframe2){
     > Les données passées au module **Execute R Script** sont référencées en `dataframe1` et `dataframe2`, ce qui est différent de Azure Machine Learning Studio (référence Studio comme `dataset1`, `dataset2`). Vérifiez que les données d’entrée sont référencées correctement dans votre script.  
  
     > [!NOTE]
-    >  Il est possible que vous deviez apporter des modifications mineures au code R existant pour qu’il s’exécute dans une expérience d’interface visuelle. Par exemple, les données d’entrée que vous fournissez au format CSV doivent être explicitement converties en un jeu de données avant de pouvoir les utiliser dans votre code. Les types de données et de colonnes utilisés dans le langage R diffèrent également à certains égards des types de données et de colonnes utilisés dans l’interface visuelle.
+    >  Il est possible que vous deviez apporter des modifications mineures au code R existant pour qu’il s’exécute dans un pipeline d’interface visuelle. Par exemple, les données d’entrée que vous fournissez au format CSV doivent être explicitement converties en un jeu de données avant de pouvoir les utiliser dans votre code. Les types de données et de colonnes utilisés dans le langage R diffèrent également à certains égards des types de données et de colonnes utilisés dans l’interface visuelle.
 
 1.  **Valeur de départ aléatoire** : Tapez une valeur à utiliser dans l’environnement R en tant que valeur de départ aléatoire. Ce paramètre revient à appeler `set.seed(value)` dans le code R.  
 
-1. Exécutez l’expérience.  
+1. Exécuter le pipeline.  
 
 ## <a name="results"></a>Résultats
 
@@ -133,7 +133,7 @@ Les erreurs et messages standard de R sont retournés dans le journal du module
 
 ## <a name="sample-scripts"></a>Exemples de scripts
 
-Il existe de nombreuses façons d’étendre votre expérience à l’aide d’un script R personnalisé.  Cette section fournit un exemple de code pour les tâches courantes.
+Il existe de nombreuses façons d’étendre votre pipeline à l’aide d’un script R personnalisé.  Cette section fournit un exemple de code pour les tâches courantes.
 
 
 ### <a name="add-r-script-as-an-input"></a>Ajouter un script R en tant qu’entrée
@@ -146,7 +146,7 @@ Le module **Exécuter un script R** prend en charge des fichiers de script R a
 
 1.  Connectez le jeu de données au port d’entrée **ScriptBundle**.
 
-1. Tous les fichiers qui sont contenus dans le fichier ZIP sont disponibles pendant la durée d’exécution de l’expérience. 
+1. Tous les fichiers qui sont contenus dans le fichier ZIP sont disponibles pendant la durée d’exécution du pipeline. 
 
     Si le fichier de script groupé est contenu dans une structure de répertoires, la structure est conservée. Toutefois, vous devez modifier votre code pour ajouter le répertoire **./ScriptBundle** au chemin.
 
@@ -221,7 +221,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 Vous pouvez passer des objets R entre des instances du module **Exécuter un script R** en utilisant le mécanisme de sérialisation interne. Cet exemple suppose que vous souhaitez déplacer l’objet R nommé `A` entre deux modules **Exécuter un script R**.
 
-1. Ajoutez le premier module **Exécuter un script R** à votre expérience et tapez le code suivant dans la zone de texte **Script R** pour créer un objet sérialisé `A` comme colonne dans la table de données de sortie du module :  
+1. Ajoutez le premier module **Exécuter un script R** à votre pipeline et tapez le code suivant dans la zone de texte **Script R** pour créer un objet sérialisé `A` comme colonne dans la table de données de sortie du module :  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){

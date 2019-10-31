@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b16e745de277d5aa262f1e1624df22f97d0cf29c
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128536"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693678"
 ---
 # <a name="remove-duplicate-rows-module"></a>Module Supprimer les lignes en double
 
@@ -51,7 +51,7 @@ Lorsque vous exécutez le module, il crée un jeu de données candidat et envoie
 
 ## <a name="how-to-use-remove-duplicate-rows"></a>Suppression des lignes en double
 
-1. Ajoutez le module à votre expérience. Le module **Supprimer les lignes en double** se trouve sous **Transformation de données**, **Manipulation**.  
+1. Ajouter le module à votre pipeline. Le module **Supprimer les lignes en double** se trouve sous **Transformation de données**, **Manipulation**.  
 
 2. Connectez le jeu de données dans lequel rechercher les lignes en double.
 
@@ -69,7 +69,7 @@ Lorsque vous exécutez le module, il crée un jeu de données candidat et envoie
     + Si cette option est sélectionnée, la première ligne est renvoyée, et les autres sont ignorées. 
     + Si vous désélectionnez cette option, la dernière ligne en double est conservée dans les résultats, et les autres sont ignorées. 
 
-5. Exécutez l’expérience.
+5. Exécuter le pipeline.
 
 6. Pour passer en revue les résultats, cliquez sur le module avec le bouton droit de la souris, sélectionnez **Jeu de données de résultats**, puis cliquez sur **Visualiser**. 
 

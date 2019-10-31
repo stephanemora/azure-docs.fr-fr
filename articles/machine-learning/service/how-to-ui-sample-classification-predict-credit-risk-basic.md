@@ -9,46 +9,46 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: b9d5308a0b7d9249ea816bafb5c6cb7d9c5e5fd6
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 4649303b8ee643130b8e254f01bfffbe8ad9eb2b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131240"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693503"
 ---
 # <a name="sample-3---classification-predict-credit-risk"></a>Exemple 3 - Classification : Prédire le risque de crédit
 
-Découvrez comment créer un classifieur d’apprentissage automatique sans écrire une seule ligne de code à l’aide de l’interface visuelle. Cet exemple effectue l’apprentissage d’un **arbre de décision optimisé à deux classes** pour prédire le risque de crédit (élevé ou faible) selon les informations sur les demandes de crédit (historique de crédit, âge et nombre de cartes de crédit, par exemple).
+Découvrez comment créer un classifieur d’apprentissage automatique sans écrire une seule ligne de code à l’aide de l’interface visuelle. Cet l’échantillon de pipeline est un **arbre de décision optimisé à deux classes** pour prédire le risque de crédit (élevé ou faible) selon les informations sur les applications de crédit (historique de crédit, âge et nombre de cartes de crédit, par exemple).
 
 Comme cela répond à la question « Lequel ?», il s’agit d’un problème de classification. Toutefois, vous pouvez appliquer le même processus fondamental pour résoudre n’importe quel type de problème d’apprentissage automatique : régression, classification, clustering, etc.
 
-Voici le graphe final de l’expérience pour cet exemple :
+Voici le graphique final du pipeline pour cet échantillon :
 
-![Graphique de l’expérience](media/how-to-ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
+![Graphique du pipeline](media/how-to-ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Sélectionnez le bouton **Ouvrir** pour accéder à l’exemple d’expérience 3 :
+4. Sélectionnez le bouton **Ouvrir** pour l’échantillon de pipeline 3 :
 
-    ![Ouvrir l’expérience](media/how-to-ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
+    ![Ouvrir le pipeline](media/how-to-ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
 
 ## <a name="related-sample"></a>Exemple associé
 
-[L’exemple 4 - Classification : Prédire le risque de crédit (sensible au coût)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md) fournit une expérience avancée qui résout le même problème que celui faisant l’objet de cette expérience. Il montre comment effectuer une classification *sensible au coût* à l’aide un module **Exécuter le Script Python** et compare les performances des deux algorithmes de classification binaires. Vous pouvez vous y reporter si vous souhaitez en savoir plus sur la création de pipelines de classification.
+[Exemple 4 - Classification : Prédiction du risque de crédit (sensible au coût)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md) fournit un pipeline avancé qui résout le même problème que cet échantillon. Il montre comment effectuer une classification *sensible au coût* à l’aide un module **Exécuter le Script Python** et compare les performances des deux algorithmes de classification binaires. Vous pouvez vous y reporter si vous souhaitez en savoir plus sur la création de pipelines de classification.
+
 
 ## <a name="data"></a>Données
 
-L’exemple utilise le jeu de données German Credit Card (Carte de crédit allemande) issu du référentiel UC Irvine.
-Le jeu de données contient 1 000 exemples avec 20 caractéristiques et 1 étiquette. Chaque exemple représente une personne. Les caractéristiques incluent des caractéristiques numériques et catégorielles. Consultez le [site web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) pour connaître la signification des caractéristiques catégorielles. La dernière colonne est l’étiquette, qui désigne le risque de crédit et a uniquement deux valeurs possibles : risque de crédit élevé = 2 et risque de crédit faible = 1.
+L’exemple utilise le jeu de données German Credit Card (Carte de crédit allemande) issu du référentiel UC Irvine. Il contient 1 000 échantillons avec 20 fonctionnalités et 1 étiquette. Chaque exemple représente une personne. Les caractéristiques incluent des caractéristiques numériques et catégorielles. Consultez le [site web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) pour connaître la signification des caractéristiques catégorielles. La dernière colonne est l’étiquette, qui désigne le risque de crédit et a uniquement deux valeurs possibles : risque de crédit élevé = 2 et risque de crédit faible = 1.
 
-## <a name="experiment-summary"></a>Résumé de l’expérience
+## <a name="pipeline-summary"></a>Résumé du pipeline
 
-Effectuez les étapes suivantes pour créer l’expérience :
+Effectuez les étapes suivantes pour créer le pipeline :
 
-1. Faites glisser le module du jeu de données German Credit Card UCI Data (Données UCI de carte de crédit allemande) dans le canevas de l’expérience.
+1. Faites glisser le module du jeu de données Données UCI de cartes de crédit allemandes dans le canevas du pipeline.
 1. Ajoutez un module **Modifier les métadonnées**, qui permet d’ajouter des noms explicites pour chaque colonne.
 1. Ajoutez un module **Split Data** (Fractionner les données) pour créer les jeux de formation et de test. Définissez la fraction de lignes dans le premier jeu de données de sortie sur 0.7. Ce paramètre spécifie que 70 % des données seront sorties sur le port gauche du module et le reste sur le port droit. Nous utilisons le jeu de données de gauche pour la formation et celui de droite pour le test.
 1. Ajoutez un module **Two-Class Boosted Decision Tree** (Arbre de décision optimisé à deux classes) pour initialiser un classifieur d’arbre de décision optimisé.
@@ -75,3 +75,4 @@ Explorez les autres exemples disponibles pour l’interface visuelle :
 - [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemple 5 - Classification : Prédire l’évolution](how-to-ui-sample-classification-predict-churn.md)
 - [Exemple 6 - Classification : Prédire les retards de vols](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exemple 7 - Classification de texte : Revues de livres](how-to-ui-sample-text-classification.md)

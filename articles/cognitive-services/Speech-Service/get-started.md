@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 41d12013ec7eaa4e2aae59e1b366cc511a41f749
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.custom: seodec18, seo-javascript-october2019
+ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535112"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527593"
 ---
 # <a name="try-speech-services-for-free"></a>Essayer les services Speech gratuitement
 
@@ -36,15 +36,15 @@ Pour vous inscrire pour un essai gratuit de 30 jours :
 
 1. Sélectionnez l’onglet **API Reconnaissance vocale**.
 
-   ![Onglet Services vocaux](media/index/try-speech-api-free-trial1.png)
+   ![API Microsoft Speech - Onglet Services Speech](media/index/cognitive-services-speech-api-tab.png)
 
 1. Sous **Services Speech**, sélectionnez **Obtenir une clé API**.
 
-   ![Clé API](media/index/try-speech-api-free-trial2.png)
+   ![API Microsoft Speech - Obtenir une clé API](media/index/speech-api-get-api-key.png)
 
 1. Acceptez les conditions et sélectionnez vos paramètres régionaux dans le menu déroulant.
 
-   ![J’accepte les conditions](media/index/try-speech-api-free-trial3.png)
+   ![API Microsoft Speech - Accepter les conditions](media/index/speech-api-agree-to-terms.png)
 
 1. Connectez-vous à l’aide de votre compte Microsoft, Facebook, LinkedIn ou GitHub.
 
@@ -73,17 +73,17 @@ Pour ajouter une ressource des services Speech (niveau gratuit ou payant) à vot
 
 1. Sélectionnez **Créer une ressource** en haut à gauche du portail.
 
-    ![Créer une ressource](media/index/try-speech-api-create-speech1.png)
+    ![API Microsoft Speech - Créer une ressource](media/index/speech-api-create-resource.png)
 
 1. Dans la fenêtre **Nouveau**, recherchez **Speech**.
 
 1. Dans les résultats de la recherche, sélectionnez **Speech**.
 
-    ![Sélectionnez Speech](media/index/try-speech-api-create-speech2.png)
+    ![API Microsoft Speech - Sélectionner un Speech](media/index/speech-api-select-speech.png)
 
 1. Sous **Speech**, sélectionnez le bouton **Créer**.
 
-    ![Sélectionnez le bouton Créer](media/index/try-speech-api-create-speech3.png)
+    ![API Microsoft Speech - Créer un bouton](media/index/speech-api-create-button.png)
 
 1. Sous **Créer**, entrez :
 
@@ -95,11 +95,11 @@ Pour ajouter une ressource des services Speech (niveau gratuit ou payant) à vot
    * Pour accéder facilement à votre abonnement à l’avenir, cochez la case **Épingler au tableau de bord**.
    * Sélectionnez **Créer**.
 
-     ![Sélectionnez le bouton Créer](media/index/try-speech-api-create-speech4.png)
+     ![API Microsoft Speech - Sélectionner Créer](media/index/speech-api-select-create.png)
 
      La création et le déploiement de votre nouvelle ressource Speech prennent quelques instants. Sélectionnez **Démarrage rapide** pour afficher des informations sur votre nouvelle ressource.
 
-     ![Panneau Démarrage rapide](media/index/try-speech-api-create-speech5.png)
+     ![API Microsoft Speech - Déployer la ressource](media/index/speech-api-deploy-resource.png)
 
 1. Sous **Démarrage rapide**, sélectionnez le lien **Clés** sous l’étape 1 pour afficher vos clés d’abonnement. Chaque abonnement dispose de deux clés ; vous pouvez utiliser l’une ou l’autre dans votre application. Sélectionnez le bouton en regard de chaque clé pour la copier dans le Presse-papiers et la coller dans votre code.
 

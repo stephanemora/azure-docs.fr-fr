@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 818b8627decd5ee7db711abc417f71c83e32b6c0
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7020bf529fa635d74959a9dac071aa6e2b134c5b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128381"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692620"
 ---
 # <a name="two-class-logistic-regression-module"></a>Module de régression logistique à deux classes
 
@@ -36,9 +36,9 @@ Pour entraîner ce modèle, vous devez fournir un jeu de données qui contient u
 
 Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs possibles « Oui » ou « Non ». Ou bien, elle peut être [Risque de crédit], avec les valeurs possibles « Élevé » ou « Faible ». 
   
-1.  Ajouter le module de **régression logistique à deux classes** à votre expérience.  
+1.  Ajouter le module **Régression logistique à deux classes** à votre pipeline.  
   
-2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
+2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.  
   
     -   **Paramètre unique** : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.  
   
@@ -67,14 +67,14 @@ Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs poss
   
      Ce paramètre d’optimisation limite la quantité de mémoire utilisée pour calculer l’étape suivante et la direction. Lorsque vous spécifiez moins de mémoire, l’apprentissage est plus rapide mais moins précis.  
   
-6.  Pour la **valeur initiale aléatoire**, saisissez une valeur entière. Il est important de définir une valeur de départ si vous souhaitez obtenir des résultats reproductibles sur plusieurs exécutions de la même expérience.  
+6.  Pour la **valeur initiale aléatoire**, saisissez une valeur entière. Il est important de définir une valeur de départ si vous souhaitez obtenir des résultats reproductibles sur plusieurs exécutions du même pipeline.  
   
   
-8. Ajoutez un jeu de données avec balises à l’expérience, puis connectez l’un des [modules de formation](module-reference.md).  
+8. Ajoutez un jeu de données avec balises au pipeline, puis connectez l’un des [modules de formation](module-reference.md).  
   
-    -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez le module [Train Model](./train-model.md) (Entraîner le modèle).  
+    -   Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](./train-model.md).  
   
-9. Exécutez l’expérience.  
+9. Exécuter le pipeline.  
   
 ## <a name="results"></a>Résultats
 

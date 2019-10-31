@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 23f5c638146472b72078e76745e557b6babe7a49
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c58e66070f137f9c5d713a45682afac5f30bbd1e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128303"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692606"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Module Two-Class Support Vector Machine (Machine à vecteurs de support à deux classes)
 
@@ -38,9 +38,9 @@ Pour la prédiction, l’algorithme SVM attribue les nouveaux exemples dans une 
 
 Pour ce type de modèle, il est recommandé de normaliser le jeu de données avant de l’utiliser pour effectuer l’apprentissage du classifieur.
   
-1.  Ajoutez le module **Two-Class Support Vector Machine** (Machine à vecteurs de support à deux classes) à votre expérience.  
+1.  Ajoutez le module **Machine à vecteurs de support à deux classes** à votre pipeline.  
   
-2.  Spécifiez la méthode d’apprentissage que vous souhaitez appliquer au modèle en configurant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
+2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.  
   
     -   **Paramètre unique** : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.  
 
@@ -64,10 +64,10 @@ Pour ce type de modèle, il est recommandé de normaliser le jeu de données ava
   
 9. Connectez un jeu de données étiqueté et l’un des [modules de formation](module-reference.md) :
   
-    -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez le module [Train Model](train-model.md) (Entraîner le modèle).
+    -   Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](train-model.md).
   
 
-10. Exécutez l’expérience.
+10. Exécuter le pipeline.
 
 ## <a name="results"></a>Résultats
 

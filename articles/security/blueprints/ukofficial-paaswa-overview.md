@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
 ms.openlocfilehash: 1f6eeea85a348bb8e88a387fa0fc6bed55e41a5e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71262781"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint de sécurité et de conformité Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
@@ -45,7 +45,7 @@ Pour déployer ce blueprint, vous avez besoin d’un abonnement Azure. Si vous n
 
 Ce blueprint fournit une solution d’hébergement d’applications web dans un environnement cloud Azure qui prend en charge les charges de travail « UK OFFICIAL ». L’architecture fournit un environnement sécurisé qui tire parti des fonctionnalités PaaS d’Azure. Dans l’environnement, deux applications web App Service sont déployées (une pour les utilisateurs publics et l’autre pour les utilisateurs de back office) avec un niveau d’application d’API pour fournir les services métier au frontend web. Une base de données Azure SQL est déployée comme magasin de données relationnelles managé pour l’application. La connectivité à ces composants depuis l’extérieur de la plateforme et entre tous ces composants est chiffrée via TLS 1.2 pour la confidentialité des données pendant le transport, avec un accès authentifié par Azure Active Directory.
 
-![Diagramme de l’architecture de référence Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »](images/ukofficial-paaswa-architecture.png?raw=true "Diagramme de l’architecture de référence Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »")
+![Hébergement d’applications web PaaS pour le diagramme d’architecture de référence des charges de travail UK OFFICIAL](images/ukofficial-paaswa-architecture.png?raw=true "Hébergement d’applications web PaaS pour le diagramme d’architecture de référence des charges de travail UK OFFICIAL")
 
 Dans le cadre de l’architecture de déploiement, un provisionnement de stockage sécurisé, une surveillance et une journalisation, une gestion de la sécurité unifiée et une protection avancée contre les menaces, ainsi que des fonctionnalités de gestion, sont également déployés, de façon à garantir que les clients ont tous les outils nécessaires pour sécuriser et surveiller leur environnement pour cette solution.
 
@@ -201,7 +201,7 @@ Le [Journal d’activité Azure](https://docs.microsoft.com/azure/azure-monitor/
 
 Le diagramme de flux de données de cette architecture de référence figure ci-dessous et est également disponible en [téléchargement](https://aka.ms/ukofficial-paaswa-tm). Ce modèle peut aider les clients à comprendre les points de risque potentiel de l’infrastructure du système lors de l’apport de modifications.
 
-![Hébergement d’applications PaaS Web pour le modèle de menaces des charges de travail « UK OFFICIAL »](images/ukofficial-paaswa-threat-model.png?raw=true "Hébergement d’applications PaaS Web pour le modèle de menaces des charges de travail « UK OFFICIAL »")
+![Hébergement d’applications web PaaS pour le modèle de menaces des charges de travail UK OFFICIAL](images/ukofficial-paaswa-threat-model.png?raw=true "Hébergement d’applications web PaaS pour le modèle de menaces des charges de travail UK OFFICIAL")
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Documentation sur la conformité aux principes de sécurité cloud NCSC
 

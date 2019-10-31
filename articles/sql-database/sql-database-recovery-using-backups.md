@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: f316f77d0f4ca3132a2ae77d807e2dd66ba62a43
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b858776d8309be94a0dd64f994a9e34e589d3c49
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71846275"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750458"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Récupérer une base de données Azure SQL à l’aide des sauvegardes de bases de données automatisées
 
-Par défaut, les sauvegardes Azure SQL Database sont placées dans un espace de stockage d’objets blob géorépliqué. Les options suivantes sont disponibles pour la récupération des bases de données à l’aide des [sauvegardes de bases de données automatisées](sql-database-automated-backups.md) : Vous pouvez :
+Par défaut, les sauvegardes Azure SQL Database sont stockées dans un stockage blob géorépliqué (type de stockage RA-GRS). Les options suivantes sont disponibles pour la récupération des bases de données à l’aide des [sauvegardes de bases de données automatisées](sql-database-automated-backups.md) : Vous pouvez :
 
 - Créer une base de données sur le même serveur SQL Database, récupéré à un point spécifié dans le temps durant la période de conservation.
 - Créer une base de données sur le même serveur SQL Database, récupéré à l’heure de suppression s’il s’agit d’une base de données supprimée.
@@ -34,9 +34,6 @@ Si vous avez configuré la [conservation à long terme (LTR) des sauvegardes](sq
 
 Quand vous utilisez le niveau de service Standard ou Premium, la restauration de votre base de données peut entraîner un coût de stockage supplémentaire. Le coût supplémentaire s’applique si la taille maximale de la base de données restaurée est supérieure à la quantité de stockage incluse dans le niveau de service et de performance de la base de données cible. Pour les détails de la tarification du stockage supplémentaire, consultez la page [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en fixant la taille maximale de la base de données sur la quantité incluse.
 
-> [!NOTE]
-> Quand vous créez une [copie de base de données](sql-database-copy.md), vous utilisez des [sauvegardes de bases de données automatisées](sql-database-automated-backups.md).
-
 ## <a name="recovery-time"></a>Temps de récupération
 
 Le temps de récupération pour restaurer une base de données à l’aide des sauvegardes de bases de données automatisées est affecté par plusieurs facteurs :
@@ -46,11 +43,11 @@ Le temps de récupération pour restaurer une base de données à l’aide des s
 - Le nombre de journaux de transactions impliqués
 - La quantité d’activité devant être relue pour effectuer une récupération au point de restauration
 - La bande passante du réseau, si la restauration s’effectue dans une autre région
-- Le nombre de demandes de restauration simultanées en cours de traitement dans la région cible
+- le nombre de demandes de restauration simultanées en cours de traitement dans la région cible.
 
-Pour une base de données volumineuse ou très active, la restauration peut prendre plusieurs heures. En cas de panne prolongée dans une région, il est possible qu’un grand nombre de requêtes de géorestauration soient traitées par d’autres régions. S’il y a un grand nombre de requêtes, le temps de récupération des bases de données de cette région peut s’en trouver augmenté. La plupart des restaurations de bases de données s’effectuent au moins de 12 heures.
+Pour une base de données volumineuse ou très active, la restauration peut prendre plusieurs heures. En cas de panne prolongée dans une région, il est possible qu’un grand nombre de requêtes de géo-restauration soient lancées pour la récupération d’urgence. S’il y a un grand nombre de requêtes, le temps de récupération des bases de données individuelles peut s’en trouver augmenté. La plupart des restaurations de bases de données s’effectuent au moins de 12 heures.
 
-Pour un seul abonnement, le nombre de requêtes de restauration simultanées est limité.  Ces plafonds s’appliquent à toutes les combinaisons possibles de limites de restauration dans le temps, de géorestaurations et de restaurations issues d’une sauvegarde de conservation à long terme).
+Pour un seul abonnement, le nombre de requêtes de restauration simultanées est limité. Ces limitations s’appliquent à toutes les combinaisons de limites de restauration dans le temps, de géorestaurations et de restaurations issues d’une sauvegarde de conservation à long terme.
 
 | | **Nombre maximum de requêtes simultanées traitées** | **Nombre maximum de requêtes simultanées soumises** |
 | :--- | --: | --: |
@@ -61,13 +58,13 @@ Pour un seul abonnement, le nombre de requêtes de restauration simultanées est
 Il n’existe aucune méthode intégrée permettant de restaurer l’intégralité du serveur. Pour obtenir un exemple d’exécution de cette tâche, consultez [Azure SQL Database : Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Pour effectuer une récupération à l’aide de sauvegardes automatisées, vous devez avoir un rôle de contributeur SQL Server dans l’abonnement ou être le propriétaire de l’abonnement. Pour plus d’informations, consultez [RBAC : Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md). Vous pouvez effectuer une récupération en utilisant le portail Azure, PowerShell ou l’API REST. Vous ne pouvez pas utiliser Transact-SQL.
+> Pour effectuer une récupération à l’aide de sauvegardes automatisées, vous devez avoir un rôle de contributeur SQL Server dans l’abonnement ou être le propriétaire de l’abonnement. Pour plus d’informations, consultez [RBAC : pour les ressources Azure](../role-based-access-control/built-in-roles.md). Vous pouvez effectuer une récupération en utilisant le portail Azure, PowerShell ou l’API REST. Vous ne pouvez pas utiliser Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
 Pour restaurer une base de données autonome, mise en pool ou d’instance à un moment antérieur, vous pouvez utiliser le portail Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) ou l’[API REST](https://docs.microsoft.com/rest/api/sql/databases). La demande peut spécifier n’importe quel niveau de service ou taille de calcul pour la base de données restaurée. Assurez-vous d’avoir suffisamment de ressources sur le serveur vers lequel vous restaurez la base de données. Une fois terminée, la restauration crée une base de données sur le même serveur que la base de données d’origine. La base de données restaurée est facturée aux tarifs habituels, en fonction du niveau de service et de la taille de calcul. Aucun frais ne vous sera facturé jusqu’à ce que la restauration de la base de données soit terminée.
 
-En règle générale, vous restaurez une base de données à un point antérieur à des fins de récupération. Vous pouvez utiliser la base de données restaurée pour remplacer la base de données d’origine ou comme données sources afin de mettre à jour la base de données d’origine.
+En règle générale, vous restaurez une base de données à un point antérieur à des fins de récupération. Il est possible d’utiliser la base de données restaurée pour remplacer la base de données d’origine ou comme source de données afin de mettre à jour la base de données d’origine.
 
 - **Remplacement de la base de données**
 
@@ -132,7 +129,7 @@ Pour obtenir un exemple de script PowerShell montrant comment restaurer une base
 > [!TIP]
 > Pour restaurer par programmation une base de données supprimée, consultez [Exécution par programmation d’une récupération à l’aide des sauvegardes automatisées](sql-database-recovery-using-backups.md).
 
-## <a name="geo-restore"></a>Géorestauration
+## <a name="geo-restore"></a>Géo-restauration
 
 Vous pouvez restaurer une base de données SQL sur n’importe quel serveur dans n’importe quelle région Azure à partir de la dernière sauvegarde géo-répliquée. La géorestauration utilise une sauvegarde géorépliquée comme source. Vous pouvez demander une géorestauration même si la base de données ou le centre de données est inaccessible en raison d’une panne.
 
@@ -155,7 +152,7 @@ Pour géorestaurer une base de données SQL unique à partir du portail Azure da
 
     ![Capture d’écran des options de création de base de données SQL](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
-Terminez le processus de création de base de données. Quand vous créez la base de données Azure SQL unique, elle contient la sauvegarde de géorestauration restaurée.
+Terminez le processus de création d’une nouvelle base de données depuis la sauvegarde. Quand vous créez la base de données Azure SQL unique, elle contient la sauvegarde de géorestauration restaurée.
 
 #### <a name="managed-instance-database"></a>Base de données d’instance managée
 
@@ -185,7 +182,7 @@ Pour obtenir un script PowerShell qui illustre comment effectuer une géorestaur
 Vous ne pouvez pas effectuer une limite de restauration dans le temps sur une base de données géosecondaire. Vous ne pouvez le faire que sur une base de données primaire. Pour plus d’informations sur l’utilisation de la géorestauration pour la récupération suite à une panne, voir [Récupération après une panne](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> La géorestauration est la solution de reprise d’activité la plus basique de SQL Database. Elle s’appuie sur des sauvegardes géorépliquées créées automatiquement dont l’objectif de point de récupération (RPO) est égal à 1 heure et la durée estimée de récupération à 12 heures maximum. Elle ne garantit pas que la région cible aura la capacité de restaurer les bases de données après une panne régionale, car il se produira probablement un pic de demande. Si votre application utilise des bases de données relativement petites et qu’elle n’est pas vitale pour l’entreprise, la géorestauration est une solution de reprise d’activité adaptée. Pour les applications vitales pour l’entreprise qui utilisent de grosses bases de données et doivent assurer la continuité de l’activité, vous devez utiliser des [Groupes de basculement automatique](sql-database-auto-failover-group.md). Ils offrent un RPO et un objectif de délai de récupération beaucoup plus faibles, et la capacité est toujours garantie. Pour plus d’informations sur les choix de continuité d’activité, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
+> La géorestauration est la solution de reprise d’activité la plus basique de SQL Database. Elle s’appuie sur des sauvegardes géorépliquées créées automatiquement dont l’objectif de point de récupération (RPO) est égal à 1 heure et la durée estimée de récupération à 12 heures maximum. Elle ne garantit pas que la région cible aura la capacité de restaurer les bases de données après une panne régionale, car il se produira probablement un pic de demande. Si votre application utilise des bases de données relativement petites et qu’elle n’est pas vitale pour l’entreprise, la géorestauration est une solution de reprise d’activité adaptée. Pour les applications vitales pour l’entreprise qui utilisent de grosses bases de données et doivent assurer la continuité de l’activité, utilisez des [Groupes de basculement automatique](sql-database-auto-failover-group.md). Ils offrent un RPO et un objectif de délai de récupération beaucoup plus faibles, et la capacité est toujours garantie. Pour plus d’informations sur les choix de continuité d’activité, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 
 ## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>Exécution par programmation d’une récupération à l’aide des sauvegardes automatisées
 

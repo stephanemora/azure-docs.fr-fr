@@ -1,18 +1,18 @@
 ---
-title: Prise en charge des plateformes par les kits Azure IoT device SDK | Microsoft Docs
-description: Concepts - liste des plateformes prises en charge par les kits Azure IoT device SDK
+title: Prise en charge des plateformes par les Kits de développement logiciel (SDK) d’appareils Azure IoT | Microsoft Docs
+description: Concepts - liste des plateformes prises en charge par les Kits de développement logiciel (SDK) d’appareils Azure IoT
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 030ea87018e1a2d438e3e4d728af76e429efda08
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169017"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693332"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Prise en charge des plateformes par les kits Azure IoT device SDK
 
@@ -56,11 +56,13 @@ Le kit [Azure IoT Hub device SDK en C](https://github.com/Azure/azure-iot-sdk-c
 
 Le kit [Azure IoT Hub device SDK en Python](https://github.com/Azure/azure-iot-sdk-python) a été testé avec les configurations suivantes et les prend donc en charge.
 
-| OS                  | Compilateur                       |
-|---------------------|--------------------------------|
-| Linux               | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
-| MacOS High Sierra   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
-| Famille Windows 10   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
+| OS                  | Compilateur                          |
+|---------------------|-----------------------------------|
+| Linux               | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
+| MacOS High Sierra   | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
+| Famille Windows 10   | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
+
+\* Seule Python version 3.5.3 ou ultérieure prend en charge les API asynchrones, nous vous recommandons d’utiliser 3.7 ou une version ultérieure.
 
 ### <a name="net-sdk"></a>Kit de développement logiciel (SDK) .NET
 
@@ -70,6 +72,8 @@ Le kit [Azure IoT Hub device SDK en .NET (C#)](https://github.com/Azure/azure-io
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Références SKU Windows 10 Desktop et Server   | .NET Core 2.1, .NET Framework 4.5.1 ou .NET Framework 4.7 |
+
+Le kit de développement logiciel (SDK) .NET peut également être utilisé avec l’[agent Smart Device Azure](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) ou [un service NT personnalisé qui peut utiliser RPC pour communiquer avec les applications UWP](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
 ### <a name="nodejs-sdk"></a>Kit de développement logiciel (SDK) Node.js
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 43a398b091b282da6ede06796250cda17117dc18
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f046b41d02ac392d003a9ecd15f25b43e5449cd0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128515"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692675"
 ---
 # <a name="score-model-module"></a>Score Model module
 
@@ -24,13 +24,13 @@ Utilisez ce module pour générer des prédictions à l’aide d’un modèle de
 
 ## <a name="how-to-use"></a>Utilisation
 
-1. Ajoutez le module **Noter le modèle** à votre expérience.
+1. Ajoutez le module **Modèle de scoring** à votre pipeline.
 
 2. Joignez un modèle entraîné et un jeu de données contenant de nouvelles données d’entrée. 
 
     Les données doivent être dans un format compatible avec le type de modèle entraîné que vous utilisez. Le schéma du jeu de données d’entrée doit correspondre aussi généralement au schéma des données utilisées pour effectuer l’apprentissage du modèle.
 
-3. Exécutez l’expérience.
+3. Exécuter le pipeline.
 
 ## <a name="results"></a>Résultats
 
@@ -48,7 +48,7 @@ Le score, ou la valeur prédite, peut être indiqué dans différents formats en
 
 ## <a name="publish-scores-as-a-web-service"></a>Publier des scores en tant que service web
 
-Une utilisation courante du scoring consiste à retourner la sortie en tant que partie d’un service web prédictif. Pour plus d’informations, consultez ce didacticiel sur la création d’un service web basé sur une expérience dans Azure Machine Learning :
+Une utilisation courante du scoring consiste à retourner la sortie en tant que partie d’un service web prédictif. Pour plus d’informations, consultez ce didacticiel sur la création d’un service web basé sur un pipeline dans Azure Machine Learning :
 
 
 ## <a name="next-steps"></a>Étapes suivantes

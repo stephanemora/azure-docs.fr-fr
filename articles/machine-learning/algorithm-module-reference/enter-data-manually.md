@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: d7e6cede12f5a348f59db83b31b19c89266dfdf7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128840"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693158"
 ---
 # <a name="enter-data-manually-module"></a>Module Entrer des données manuellement
 
@@ -32,7 +32,7 @@ Ce module peut être utile dans des scénarios tels que les suivants :
 
 ## <a name="enter-data-manually"></a>Entrer des données manuellement 
   
-1.  Ajoutez le module [Entrer des données manuellement](./enter-data-manually.md) à votre expérience. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) d’Azure Machine Learning. 
+1.  Ajoutez le module [Entrer des données manuellement](./enter-data-manually.md) à votre pipeline. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) d’Azure Machine Learning. 
   
 2.  Pour **DataFormat**, sélectionnez l’une des options suivantes. Ces options déterminent comment les données que vous fournissez doivent être analysées. Les exigences relatives à chaque format sont considérablement différentes. Veillez par conséquent à lire les rubriques connexes.  
   

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: c6d7aabd41e9d0e872926adbbcb2d18332cb7d5e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128918"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693886"
 ---
 # <a name="create-python-model"></a>Créer un modèle Python
 
@@ -33,11 +33,11 @@ Après avoir créé le modèle, vous pouvez utiliser le module [Train Model](tra
 L’utilisation de ce module nécessite une connaissance intermédiaire ou approfondie de Python. Le module prend en charge l’utilisation de tout qui est inclus dans les packages Python déjà installés dans Azure Machine Learning. Consultez la liste des packages Python préinstallés dans le module [Execute Python Script](execute-python-script.md).
   
 
-Cet article explique comment utiliser le module **Create Python Model** avec une expérience simple. Voici le graphique de l’expérience.
+Cet article explique comment utiliser le module **Créer un modèle Python** avec un pipeline simple. Ci-dessous ce trouve le graphique du pipeline.
 
 ![create-python-model](./media/module/aml-create-python-model.png)
 
-1.  Cliquez sur **Create Python Model**, modifiez le script pour implémenter votre processus de modélisation ou de gestion des données. Vous pouvez baser le modèle sur tout apprenant inclus dans un package Python dans l’environnement Azure Machine Learning.
+1.  Cliquez sur **Créer un modèle Python**, modifiez le script pour implémenter votre processus de modélisation ou de gestion des données. Vous pouvez baser le modèle sur tout apprenant inclus dans un package Python dans l’environnement Azure Machine Learning.
 
 
     Voici un exemple de code de classifieur Naive Bayes à deux classes utilisant le package populaire *sklearn*.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 5f26dfbdd8d3ef094ed380b7bd00ab0169152502
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208164"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693833"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Module de régression d’arbre de décision boosté
 
@@ -52,7 +52,7 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Comment configurer une régression d’arbre de décision boosté
 
-1.  Ajoutez le module **Arbre de décision boosté** à votre expérience. Vous le trouverez sous **Machine Learning**, **Initialiser**, dans la catégorie **Régression**. 
+1.  Ajoutez le module **Arbre de décision optimisé** à votre pipeline. Vous le trouverez sous **Machine Learning**, **Initialiser**, dans la catégorie **Régression**. 
   
 2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
@@ -71,7 +71,7 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
 
 6. **Number of trees constructed** (Nombre d’arbres construits) : indiquez le nombre total d’arbres de décision à créer dans l’ensemble. En créant plusieurs arbres de décision, vous pouvez obtenir une meilleure couverture, mais cela augmente la durée d’apprentissage.
 
-    Cette valeur contrôle également le nombre d’arbres affichés lorsque vous examinez le modèle formé. Si vous souhaitez afficher ou imprimer un arbre unique, vous pouvez définir la valeur sur 1. Toutefois, un seul arbre est généré (celui avec le jeu de paramètres initial) et aucune itération n’est effectuée.
+    Cette valeur contrôle également le nombre d’arbres qui s’affichent dans la visualisation du modèle entraîné. Si vous souhaitez afficher ou imprimer un arbre unique, vous pouvez définir la valeur sur 1. Toutefois, un seul arbre est produit (celui avec le jeu de paramètres initial) et aucune itération n’est effectuée.
 
 7. **Random number seed** (Valeur de départ aléatoire) : saisissez un entier non négatif facultatif à utiliser comme la valeur de départ aléatoire. Spécifier une valeur de départ garantit la reproductibilité entre les exécutions qui ont les mêmes données et paramètres.
 
@@ -85,7 +85,7 @@ La méthode de boosting de gradient peut également servir pour les problèmes d
   
     
 
-10. Exécutez l’expérience.  
+10. Exécuter le pipeline.  
   
 ## <a name="results"></a>Résultats
 
@@ -96,8 +96,6 @@ Une fois l’apprentissage terminé :
      Cliquez sur chaque arbre pour explorer les fractionnements et afficher les règles de chaque nœud.  
 
 + Pour utiliser le modèle afin de calculer les scores, connectez-le au [modèle de score](./score-model.md), pour prédire des valeurs des nouveaux exemples d’entrée.
-
-+ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** dans le module d’apprentissage et sélectionnez **Enregistrer sous**. La copie du modèle formé que vous enregistrez n’est pas mise à jour lors des exécutions consécutives de l’expérience.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

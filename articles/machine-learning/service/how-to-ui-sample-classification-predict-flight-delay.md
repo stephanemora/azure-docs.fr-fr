@@ -9,42 +9,40 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
-ms.date: 07/02/2019
-ms.openlocfilehash: 257f6034df7d1974f3964c4d07ca96d17c7fe509
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 6e65075b309ed12505ce6fffadac12af3f16344b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131156"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692568"
 ---
 # <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemple 6 - Classification : Prédire les retards de vols avec R
 
-Cette expérience utilise des données historiques de vols et météo pour déterminer si un vol prévu risque d'être retardé de plus de 15 minutes.
+Ce pipeline utilise des données historiques de vols et météorologiques pour déterminer si un vol prévu risque d'être retardé de plus de 15 minutes. Ce problème peut être abordé en tant que problème de classification, prédisant deux classes : retardé ou à l'heure.
 
-Ce problème peut être abordé en tant que problème de classification, prédisant deux classes : vols retardés ou vols à l'heure. Pour créer un classifieur, ce modèle utilise un grand nombre d'échantillons issus de données de vol historiques.
+Voici le graphique final du pipeline pour cet échantillon :
 
-Voici le graphe final de l’expérience pour cet exemple :
-
-[![Graphique de l’expérience](media/how-to-ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graphique du pipeline](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Sélectionnez le bouton **Ouvrir** pour accéder à l’exemple d’expérience 6 :
+4. Sélectionnez le bouton **Ouvrir** pour l’échantillon de pipeline 6 :
 
-    ![Ouvrir l’expérience](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![Ouvrir le pipeline](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>Obtenir les données
 
-Cette expérience utilise le jeu de données **Données relatives aux vols retardés**. Il fait partie de la collection de données TranStats du ministère des transports des États-Unis. Le jeu de données contient les informations de retard de vol d'avril à octobre 2013. Avant d'être chargées dans l’interface visuelle, les données ont été traitées comme suit :
+Cet échantillon utilise le jeu de données **Données relatives aux vols retardés**. Il fait partie de la collection de données TranStats du ministère des transports des États-Unis. Le jeu de données contient les informations de retard de vol d'avril à octobre 2013. Le jeu de données a été pré-traité comme suit :
 
 * Elles ont été filtrées pour inclure les 70 aéroports les plus fréquentés des États-Unis.
-* Pour les vols annulés, elles ont été réétiquetées comme ayant un retard de plus de 15 minutes.
+* Pour les vols annulés et ré étiquetés comme ayant un retard de plus de 15 minutes.
 * Les vols déviés ont été supprimés.
 * 14 colonnes ont été sélectionnées.
 
-Pour compléter les données de vol, le **jeu de données météorologiques** est utilisé. Les données météorologiques contiennent les observations météorologiques terrestres de la NOAA, et représentent les observations issues des stations météo des aéroports, d'avril à octobre 2013. Avant d'être chargées dans l'interface visuelle Azure Machine Learning, elles ont été traitées comme suit :
+Pour compléter les données de vol, le **jeu de données météorologiques** est utilisé. Les données météorologiques contiennent les observations météorologiques terrestres de la NOAA et représentent les observations issues des stations météo des aéroports, couvrant la même période comme le jeu de données des vols. Il a été pré-traité comme suit :
 
 * Les identifiants des stations météo ont été alignés sur les identifiants des aéroports correspondants.
 * Les stations météo non associées à un des 70 aéroports sélectionnés ont été supprimées.
@@ -107,10 +105,9 @@ Pour générer un modèle, vous pouvez utiliser toutes les fonctionnalités disp
 Créez un modèle à l’aide du module **Régression logistique à deux classes** et effectuez son apprentissage sur le jeu de données d’apprentissage. 
 
 Le résultat du module **Effectuer l'apprentissage d'un modèle** est un modèle de classification formé qui permet de noter de nouveaux exemples pour effectuer des prédictions. Utilisez le jeu de test pour générer des scores à partir des modèles formés. Utilisez ensuite le module **Évaluer un modèle** pour analyser et comparer la qualité des modèles.
+Une fois l'expérience exécutée, vous pouvez afficher la sortie du module **Modèle de score** en cliquant sur le port de sortie et en sélectionnant **Visualiser**. La sortie inclut les étiquettes notées et les probabilités des étiquettes.
 
-Une fois l'expérience exécutée, vous pouvez afficher la sortie du module **Noter le modèle** en cliquant sur le port de sortie et en sélectionnant **Visualiser**. La sortie inclut les étiquettes notées et les probabilités des étiquettes.
-
-Enfin, pour tester la qualité des résultats, ajoutez le module **Évaluer le modèle** à la zone de dessin de l’expérience, puis connectez le port d’entrée de gauche à la sortie du module Noter le modèle. Exécutez l’expérience et affichez la sortie du module **Évaluer le modèle** en cliquant sur le port de sortie et en sélectionnant **Visualiser**.
+Enfin, pour tester la qualité des résultats, ajoutez le module **Évaluer le modèle** au canevas du pipeline, puis connectez le port d’entrée de gauche à la sortie du module Modèle de score. Exécutez le pipeline et affichez la sortie du module **Évaluer le modèle** en cliquant sur le port de sortie et en sélectionnant **Visualiser**.
 
 ## <a name="evaluate"></a>Évaluer
 Le modèle de régression logistique présente une valeur AUC de 0,631 sur le jeu de test.
@@ -126,3 +123,4 @@ Explorez les autres exemples disponibles pour l’interface visuelle :
 - [Exemple 3 - Classification : prédire le risque de crédit](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemple 5 - Classification : Prédire l’évolution](how-to-ui-sample-classification-predict-churn.md)
+- [Exemple 7 - Classification de texte : Revues de livres](how-to-ui-sample-text-classification.md)

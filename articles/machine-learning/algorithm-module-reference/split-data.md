@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 31612e10e7978e94f1ed467b5ffbecde40910ef9
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3fa6b61b1b1761756339d6a7f05c74eb4a968777
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128459"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692648"
 ---
 # <a name="split-data-module"></a>Module Fractionner les données
 
@@ -30,7 +30,7 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
 > Avant de choisir le mode de fractionnement, prenez connaissance de toutes les options afin de déterminer le type de fractionnement adapté à vos besoins.
 > Si vous modifiez le mode de fractionnement, toutes les autres options peuvent être réinitialisées.
 
-1. Ajoutez le module **Fractionner les données** à votre expérience dans l’interface. Ce module est disponible sous **Transformation des données**, dans la catégorie **Échantillonner et fractionner**.
+1. Ajoutez le module **Fractionner des données** à votre pipeline dans l’interface. Ce module est disponible sous **Transformation des données**, dans la catégorie **Échantillonner et fractionner**.
 
 2. **Mode de fractionnement** : Choisissez l'un des modes suivants, selon le type de données dont vous disposez et la manière dont vous souhaitez les diviser. Chaque mode de fractionnement s'accompagne de différentes options. Cliquez sur les rubriques suivantes pour obtenir des instructions détaillées et des exemples. 
 
@@ -45,7 +45,7 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
     - **Fractionnement Expression relative** :  Utilisez cette option si vous souhaitez appliquer une condition à une colonne numérique. Le nombre peut correspondre à un champ de date/heure, une colonne contenant un âge ou des montants en dollars, voire un pourcentage. Par exemple, vous souhaiterez peut-être diviser votre jeu de données en fonction du prix des éléments, grouper des personnes par tranches d'âge ou séparer les données par date.
 
 ### <a name="split-rows"></a>Fractionner les lignes
-1.  Ajoutez le module [Fractionner les données](./split-data.md) à votre expérience dans l’interface et connectez le jeu de données que vous souhaitez fractionner.
+1.  Ajoutez le module [Fractionner les données](./split-data.md) à votre pipeline dans l’interface et connectez le jeu de données que vous souhaitez fractionner.
   
 2.  Pour **Mode de fractionnement**, sélectionnez **Lignes fractionnées**. 
 
@@ -65,12 +65,12 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
 
     Avec un échantillonnage stratifié, les données sont divisées de manière à ce que chaque jeu de données de sortie obtienne approximativement le même pourcentage de chaque valeur cible. Par exemple, vous souhaiterez peut-être que vos jeux de formation et de test soient globalement équilibrés en termes de résultat ou autres, comme le sexe.
 
-7. Exécutez l’expérience.
+7. Exécuter le pipeline.
 
 
 ## <a name="regular-expression-split"></a>Fractionnement d’expression régulière
 
-1.  Ajoutez le module [Fractionner les données](./split-data.md) à votre expérience et connectez-le en tant qu’entrée au jeu de données que vous souhaitez fractionner.  
+1.  Ajoutez le module [Fractionner les données](./split-data.md) à votre pipeline et connectez-le en tant qu’entrée au jeu de données que vous souhaitez fractionner.  
   
 2.  Pour **Mode de fractionnement**, sélectionnez **Fractionnement Expression régulière**.
 
@@ -79,13 +79,13 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
    L’expression régulière doit respecter la syntaxe d’expression régulière Python.
 
 
-4. Exécutez l’expérience.
+4. Exécuter le pipeline.
 
     En fonction de l’expression régulière entrée, le jeu de données est divisé en deux ensembles de lignes : les lignes avec des valeurs correspondant à l’expression et les autres. 
 
 ## <a name="relative-expression-split"></a>Fractionnement Expression relative
 
-1. Ajoutez le module [Fractionner les données](./split-data.md) à votre expérience et connectez-le en tant qu’entrée au jeu de données que vous souhaitez fractionner.
+1. Ajoutez le module [Fractionner les données](./split-data.md) à votre pipeline et connectez-le en tant qu’entrée au jeu de données que vous souhaitez fractionner.
   
 2. Pour **Mode de fractionnement**, sélectionnez **Fractionnement Expression relative**.
   
@@ -108,7 +108,7 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
 
 
 
-4. Exécutez l’expérience.
+4. Exécuter le pipeline.
 
     L’expression divise le jeu de données en deux ensembles de lignes : les lignes avec des valeurs correspondant à la condition, et les autres.
 

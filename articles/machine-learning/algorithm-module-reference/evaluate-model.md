@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128846"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693803"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
@@ -44,7 +44,7 @@ Trois méthodes d’utilisation du module **Évaluer le modèle** sont possibles
 Pour évaluer un modèle, vous devez connecter un jeu de données qui contient un ensemble de colonnes d’entrée et de scores.  Si aucune autre donnée n’est disponible, vous pouvez utiliser votre jeu de données d’origine.
 
 1. Connectez la sortie du **jeu de données noté** du module [Scorer le modèle](./score-model.md) à l’entrée du module **Évaluer le modèle**. 
-2. Cliquez sur le module **Évaluer le modèle**, puis exécutez l’expérience pour générer les scores d’évaluation.
+2. Cliquez sur le module **Évaluer le modèle**, puis exécutez le pipeline pour générer les scores d’évaluation.
 
 ## <a name="use-testing-data"></a>Utiliser des données de test
 

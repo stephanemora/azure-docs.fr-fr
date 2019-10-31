@@ -1,7 +1,7 @@
 ---
 title: 'Exemple d’interface visuelle n°3 : régression pour évaluer les prix et comparer les algorithmes'
 titleSuffix: Azure Machine Learning
-description: Cet article vous montre comment créer une expérience d’apprentissage automatique complexe à l’aide de l’interface visuelle, sans écrire une seule ligne de code. Découvrez comment effectuer l’apprentissage de plusieurs modèles de régression et comment les comparer pour prédire le prix d’une voiture en fonction de fonctionnalités techniques
+description: Cet article vous montre comment générer un pipeline de Machine Learning complexe à l’aide de l’interface visuelle, sans écrire une seule ligne de code. Découvrez comment effectuer l’apprentissage de plusieurs modèles de régression et comment les comparer pour prédire le prix d’une voiture en fonction de fonctionnalités techniques
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,34 +10,34 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c40d76b87ca7437e25c567176b0309f08f3ca9f2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 651644eaae910792aac2144531d09afc4cde7153
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131132"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692787"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemple 2 - Régression : Algorithmes de prédiction de prix et de comparaison
 
-Apprenez à créer une expérience d’apprentissage automatique complexe à l’aide de l’interface visuelle, sans écrire une seule ligne de code. Cet exemple effectue l’apprentissage de plusieurs modèles de régression et les compare pour prédire le prix d’une voiture en fonction de fonctionnalités techniques. Nous allons fournir la logique pour les choix effectués dans cette expérience, pour que vous puissiez résoudre vos problèmes d’apprentissage automatique.
+Découvrez comment générer un pipeline de Machine Learning complexe à l’aide de l’interface visuelle, sans écrire une seule ligne de code. Cet exemple effectue l’apprentissage de plusieurs modèles de régression et les compare pour prédire le prix d’une voiture en fonction de fonctionnalités techniques. Nous allons fournir la logique pour les choix effectués dans ce pipeline, pour que vous puissiez résoudre vos propres problèmes de Machine Learning.
 
-Si vous n’êtes pas familiarisé avec l’apprentissage automatique, commencez par examiner l’[exemple de base](how-to-ui-sample-regression-predict-automobile-price-basic.md) de cette expérience.
+Si vous êtes débutant en Machine Learning, commencez par examiner la [version de base](how-to-ui-sample-regression-predict-automobile-price-basic.md) de ce pipeline.
 
-Voici le graphique complet associé à cette expérience :
+Voici le graphique complet associé à ce pipeline :
 
-[![Graphique de l’expérience](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graphique du pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Sélectionnez le bouton **Ouvrir** pour accéder à l’exemple d’expérience 2 :
+4. Sélectionnez le bouton **Ouvrir** pour l’échantillon de pipeline 2 :
 
-    ![Ouvrir l’expérience](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
+    ![Ouvrir le pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="experiment-summary"></a>Résumé de l’expérience
+## <a name="pipeline-summary"></a>Résumé du pipeline
 
-Pour générer l’expérience d’apprentissage automatique, effectuez les étapes suivantes :
+Pour générer le pipeline de Machine Learning, procédez comme suit :
 
 1. Obtention des données.
 1. Prétraitement des données.
@@ -60,11 +60,9 @@ Utilisez le module **Sélectionner des colonnes dans le jeu de données** pour e
 
 Les problèmes d’apprentissage automatique varient. Les tâches d’apprentissage automatique courantes incluent la classification, le clustering, la régression et les systèmes de recommandation, chacun d’eux pouvant nécessiter un algorithme différent. Votre choix de l’algorithme dépend souvent de la configuration requise pour le cas d’usage. Après avoir sélectionné un algorithme, vous devez ajuster ses paramètres pour effectuer l’apprentissage d’un modèle plus précis. Vous devez ensuite évaluer tous les modèles en fonction des métriques telles que la précision, l’intelligibilité et l’efficacité.
 
-Étant donné que l’objectif de cette expérience est de prédire le prix des voitures, et puisque la colonne d’étiquette (prix) contient des nombres réels, le fait d’opter pour un modèle de régression est judicieux. Si l’on considère que le nombre de fonctionnalités est relativement bas (inférieur à 100), et que celles-ci ne sont pas éparpillées, la limite de décision est susceptible d’être non linéaire.
+Étant donné que l’objectif de ce pipeline est de prédire le prix des voitures, et puisque la colonne d’étiquette (prix) contient des nombres réels, le fait d’opter pour un modèle de régression est judicieux. Si l’on considère que le nombre de fonctionnalités est relativement bas (inférieur à 100), et que celles-ci ne sont pas éparpillées, la limite de décision est susceptible d’être non linéaire.
 
-Étant donné que l’objectif de cette expérience est de prédire le prix des voitures, et puisque la colonne d’étiquette (prix) contient des nombres réels, le fait d’opter pour un modèle de régression est judicieux. En considérant que le nombre de fonctionnalités est relativement bas (inférieur à 100), et que celles-ci ne sont pas éparpillées, la limite de décision est susceptible d’être non linéaire.
-
-Pour comparer les performances de différents algorithmes, nous utilisons deux algorithmes non linéaires, **Régression d’arbre de décision optimisé** et **Régression de forêt d’arbres décisionnels**, pour générer des modèles. Les deux algorithmes ont des paramètres modifiables, mais cet exemple utilise les valeurs par défaut dans cette expérience.
+Pour comparer les performances de différents algorithmes, nous utilisons deux algorithmes non linéaires, **Régression d’arbre de décision optimisé** et **Régression de forêt d’arbres décisionnels**, pour générer des modèles. Les deux algorithmes ont des paramètres modifiables, mais cet échantillon utilise les valeurs par défaut dans ce pipeline.
 
 Utilisez le module **Fractionner les données** pour diviser de façon aléatoire les données d’entrée, afin que le jeu de données d’apprentissage contienne 70 % des données d’origine et que le jeu de données de test contienne 30 % des données d’origine.
 
@@ -74,7 +72,7 @@ Utilisez deux jeux de données choisies aléatoirement pour effectuer entraîner
 
 Une fois que le modèle est entraîné, utilisez les modules **Noter le modèle** et **Évaluer le modèle** pour générer des résultats de prédiction et évaluer les modèles. Le module **Noter le modèle** génère des prédictions pour le jeu de données de test à l’aide du modèle formé. Passez ensuite les scores au module **Évaluer le modèle** pour générer des métriques d’évaluation.
 
-Dans cette expérience, vous utilisez deux instances du module **Évaluer le modèle** pour comparer deux paires de modèles.
+Dans ce pipeline, vous utilisez deux instances du module **Évaluer le modèle** pour comparer deux paires de modèles.
 
 Tout d’abord, comparez deux algorithmes sur le jeu de données d’entraînement.
 Ensuite, comparez deux algorithmes sur le jeu de données de test.
@@ -100,3 +98,4 @@ Explorez les autres exemples disponibles pour l’interface visuelle :
 - [Exemple 4 - Classification : prédire le risque de crédit (sensible au coût)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemple 5 - Classification : Prédire l’évolution](how-to-ui-sample-classification-predict-churn.md)
 - [Exemple 6 - Classification : Prédire les retards de vols](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exemple 7 - Classification de texte : Revues de livres](how-to-ui-sample-text-classification.md)

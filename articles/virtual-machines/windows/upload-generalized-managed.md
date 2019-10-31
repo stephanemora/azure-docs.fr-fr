@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: be3ccfd0c562763d0968398ddb042dc5f07dbdcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6382a39e67805eb9bddb356a7b76205a82f3f7c2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101563"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553451"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 
@@ -56,67 +56,14 @@ Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge p
 6. Une fois l’opération Sysprep terminée, elle arrête la machine virtuelle. Ne redémarrez pas la machine virtuelle.
 
 
-## <a name="get-a-storage-account"></a>Obtenir un compte de stockage
-
-Vous devez avoir un compte de stockage dans Azure pour stocker l’image de la machine virtuelle chargée. Vous pouvez utiliser un compte de stockage existant ou en créer un. 
-
-Si vous prévoyez d’utiliser le disque dur virtuel pour créer un disque managé pour une machine virtuelle, l’emplacement du compte de stockage doit être le même que celui où vous allez créer la machine virtuelle.
-
-Pour afficher les comptes de stockage disponibles, entrez :
-
-```azurepowershell
-Get-AzStorageAccount | Format-Table
-```
-
 ## <a name="upload-the-vhd-to-your-storage-account"></a>Téléchargement du disque dur virtuel vers votre compte de stockage
 
-Utilisez la cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) pour charger le disque dur virtuel dans un conteneur de votre compte de stockage. Cet exemple charge le fichier *myVHD.vhd* à partir de *C:\Users\Public\Documents\Virtual hard disks\\* sur un compte de stockage nommé *mystorageaccount* dans le groupe de ressources *myResourceGroup*. Le fichier est placé dans le conteneur nommé *mycontainer* et le nouveau nom de fichier est *myUploadedVHD.vhd*.
-
-```powershell
-$rgName = "myResourceGroup"
-$urlOfUploadedImageVhd = "https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd"
-Add-AzVhd -ResourceGroupName $rgName -Destination $urlOfUploadedImageVhd `
-    -LocalFilePath "C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd"
-```
-
-
-Si l’opération réussit, vous obtenez une réponse semblable à celle-ci :
-
-```powershell
-MD5 hash is being calculated for the file C:\Users\Public\Documents\Virtual hard disks\myVHD.vhd.
-MD5 hash calculation is completed.
-Elapsed time for the operation: 00:03:35
-Creating new page blob of size 53687091712...
-Elapsed time for upload: 01:12:49
-
-LocalFilePath           DestinationUri
--------------           --------------
-C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontainer/myUploadedVHD.vhd
-```
-
-Selon votre connexion réseau et la taille de votre fichier de disque dur virtuel, l’exécution de cette commande peut prendre un certain temps.
-
-### <a name="other-options-for-uploading-a-vhd"></a>Autres options de téléchargement d’un disque dur virtuel
- 
-Vous pouvez également télécharger un disque dur virtuel sur votre compte de stockage en utilisant l’un des moyens suivants :
-
-- [AZCopy](https://aka.ms/downloadazcopy)
-- [API de copie d’un objet blob de stockage Azure](https://msdn.microsoft.com/library/azure/dd894037.aspx)
-- [Téléchargement d’objets blob dans Storage Explorer](https://azurestorageexplorer.codeplex.com/)
-- [Référence sur l’API REST du service Import/Export Storage](https://msdn.microsoft.com/library/dn529096.aspx)
--   Nous recommandons l’utilisation du service d’importation/exportation si l’estimation du temps de chargement dépasse 7 jours. Vous pouvez utiliser [DataTransferSpeedCalculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html) pour estimer le temps à partir de la taille des données et de l’unité de transfert. 
-    Le service Import/Export permet de copier sur un compte de stockage Standard. Vous devez effectuer une copie d’un compte de stockage Standard vers un compte de stockage Premium à l’aide d’un outil comme AzCopy.
-
-> [!IMPORTANT]
-> Si vous utilisez AzCopy pour charger votre disque dur virtuel sur Azure, veillez à définir [ **/BlobType:page**](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs#upload-a-file) avant d’exécuter le script de chargement. Si la destination est un objet blob et que cette option n’est pas spécifiée, AzCopy crée par défaut un objet blob de blocs.
-> 
-> 
-
+Vous pouvez désormais charger un disque dur virtuel directement dans un disque managé. Pour plus d’instructions, consultez [Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell](disks-upload-vhd-to-managed-disk-powershell.md).
 
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>Créer une image gérée à partir du disque dur virtuel téléchargé 
 
-Créez une image managée à partir de votre disque dur virtuel de système d’exploitation généralisé. Remplacez les valeurs suivantes par vos propres informations.
+Créez une image managée à partir de votre disque managé de système d’exploitation généralisé. Remplacez les valeurs suivantes par vos propres informations.
 
 
 Commencez par définir des paramètres :

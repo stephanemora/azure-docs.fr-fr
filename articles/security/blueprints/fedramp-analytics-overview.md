@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
 ms.openlocfilehash: 9850c5f064815315db6f85a931e7e175d605dcc1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71257588"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Blueprint de sécurité et de conformité Azure : Analytique pour FedRAMP
@@ -41,7 +41,7 @@ Pour renforcer la sécurité, cette architecture gère les ressources à l’aid
 
 Azure SQL Database est généralement géré par le biais de la suite d’outils SQL Server Management Studio (SSMS), qui s’exécute à partir d’une machine locale configurée pour accéder à Azure SQL Database par l’intermédiaire d’une connexion VPN ou ExpressRoute sécurisée. **Azure recommande de configurer une connexion VPN ou Azure ExpressRoute pour la gestion et l’importation de données dans le groupe de ressources de l’architecture de référence.**
 
-![Diagramme de l’architecture de référence en matière d’analytique des données pour FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Diagramme de l’architecture de référence en matière d’analytique des données pour FedRAMP")
+![Analytics pour le diagramme d’architecture de référence FedRAMP](images/fedramp-analytics-reference-architecture.png?raw=true "Analytics pour le diagramme d’architecture de référence FedRAMP")
 
 ### <a name="roles"></a>contrôleur
 Le plan d’analytique décrit un scénario avec trois types d’utilisateur généraux : l’utilisateur opérationnel, l’administrateur de données/SQL et l’ingénieur système. Le contrôle d’accès en fonction du rôle Azure (RBAC) permet d’implémenter une gestion des accès précise via des rôles personnalisés intégrés. Les ressources sont disponibles pour la configuration du [contrôle d’accès en fonction du rôle](../../role-based-access-control/role-assignments-portal.md) et pour la définition et l’implémentation de [rôles prédéfinis](../../role-based-access-control/built-in-roles.md).
@@ -71,7 +71,7 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 ## <a name="deployment-architecture"></a>Architecture de déploiement
 La section suivante décrit en détail les éléments de développement et d’implémentation.
 
-![texte de remplacement](images/fedramp-analytics-components.png?raw=true "Diagramme d’analytique des composants FedRAMP")
+![texte de remplacement](images/fedramp-analytics-components.png?raw=true "Analytics pour le diagramme des composants FedRAMP")
 
 **Azure Functions** : [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) regroupe des solutions pour l’exécution de petits segments de code dans le cloud en utilisant la plupart des langages de programmation. Les fonctions de cette solution s’intègrent avec Stockage Azure pour extraire automatiquement les données des clients dans le cloud, facilitant ainsi l’intégration à d’autres services Azure. Les fonctions, très évolutives, sont facturées uniquement lorsqu’elles sont exécutées.
 

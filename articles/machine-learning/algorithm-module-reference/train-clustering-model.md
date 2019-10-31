@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 4883b1420913eb4e5f3bd5f13a95e410370d9184
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128476"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693645"
 ---
 # <a name="train-clustering-model"></a>Entraîner un modèle de clustering
 
@@ -29,7 +29,7 @@ Le module prend un modèle de clustering non entraîné que vous avez déjà con
   
 ## <a name="how-to-use-train-clustering-model"></a>Entraînement d’un modèle de clustering  
   
-1.  Ajoutez le module **Train Clustering Model** (Entraîner un modèle de clustering) à votre expérience dans Studio. Vous trouverez ce module sous **Modules Machine Learning**, dans la catégorie **Entraîner**.  
+1.  Ajoutez le module **Effectuer l'apprentissage d’un modèle de clustering** à votre pipeline dans Studio. Vous trouverez ce module sous **Modules Machine Learning**, dans la catégorie **Entraîner**.  
   
 2. Ajouter le module [Clustering k-moyennes](k-means-clustering.md) ou un autre module personnalisé qui crée un modèle de clustering compatible, puis définissez les paramètres du modèle de clustering.  
     
@@ -43,7 +43,7 @@ Le module prend un modèle de clustering non entraîné que vous avez déjà con
 
     Si vous désélectionnez cette option, seuls les affectations de cluster sont générées. 
 
-7. Exécutez l’expérience, ou cliquez sur le module **Train Clustering Model** (Entraîner un modèle de clustering) et sélectionnez **Exécuter la sélection**.  
+7. Exécutez le pipeline ou cliquez sur le module **Effectuer l'apprentissage un modèle de clustering** et sélectionnez **Exécuter la sélection**.  
   
 ### <a name="results"></a>Résultats
 

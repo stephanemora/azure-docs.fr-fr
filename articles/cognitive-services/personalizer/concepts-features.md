@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989081"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756108"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
@@ -97,6 +97,13 @@ Les objets JSON peuvent inclure des objets JSON imbriqués et de simples valeurs
     ]
 }
 ```
+
+### <a name="restrictions-in-character-sets-for-namespaces"></a>Restrictions dans les jeux de caractères pour les espaces de noms
+
+La chaîne que vous utilisez pour nommer l’espace de noms doit respecter certaines restrictions : 
+* Elle ne peut pas être unicode.
+* Vous pouvez utiliser certains des symboles imprimables avec les codes < 256 pour les noms d’espaces de noms. 
+* Vous ne pouvez pas utiliser de symboles avec des codes < 32 (non imprimable), 32 (espace), 58 (deux-points), 124 (canal) et 126 à 140.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Comment rendre des ensembles de caractéristiques plus efficaces pour Personalizer
 

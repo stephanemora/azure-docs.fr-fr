@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: c77d1d1a66d3ee92f5ad3f2016d2160831fa3ad9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9b44db3e8ffc02d211f7f97404f0cdd8d319fe03
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299316"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597491"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Se connecter à des sources de données à partir d’Azure Databricks
 
@@ -31,9 +31,9 @@ La liste suivante indique les sources de données dans Azure que vous pouvez uti
 - [Base de données Azure SQL](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     Cette rubrique fournit l’API DataFrame pour la connexion aux bases de données SQL à l’aide de JDBC, et indique comment contrôler le parallélisme des lectures via l’interface JDBC. Elle contient également des exemples détaillés d’utilisation de l’API Scala et des exemples Python et Spark SQL abrégés.
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
+- [Azure Data Lake Storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
-    Cette rubrique contient des exemples d’utilisation du principal du service Azure Active Directory pour s’authentifier auprès de Data Lake Store. Elle fournit également des instructions pour accéder aux données dans Data Lake Store à partir d’Azure Databricks.
+    Ce lien contient des exemples d’utilisation du principal du service Azure Active Directory pour s’authentifier auprès d’Azure Data Lake Storage. Elle fournit également des instructions pour accéder aux données dans Azure Data Lake Storage à partir d’Azure Databricks.
 
 - [Stockage Blob Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html)
 

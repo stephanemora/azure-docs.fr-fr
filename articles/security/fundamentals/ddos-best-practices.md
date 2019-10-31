@@ -1,9 +1,9 @@
 ---
-title: 'Azure DDoS Protection : bonnes pratiques et architectures de référence | Microsoft Docs'
+title: Azure DDoS Protection - Concevoir des solutions résilientes | Microsoft Docs
 description: Découvrez comment utiliser les données de journalisation pour obtenir des informations détaillées sur votre application.
 services: security
 author: barclayn
-manager: barbkess
+manager: RKarlin
 editor: TomSh
 ms.assetid: ''
 ms.service: security
@@ -12,58 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: a5b4451a6d03cec8e100ed67c0ed9333e8a221de
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: ac36a4c59dbec8bf27850de1565e86b78643148a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727482"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595420"
 ---
-# <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection : Bonnes pratiques et architectures de référence
+# <a name="azure-ddos-protection---designing-resilient-solutions"></a>Azure DDoS Protection - Concevoir des solutions résilientes
 
 Cet article est destiné aux décideurs informatiques et aux équipes de sécurité. Il sous-tend que vous connaissez Azure, la mise en réseau et la sécurité.
-
-La conception d’applications capables de résister à des attaques par déni de service distribué (DDoS) nécessite un travail de planification et la prise en compte de divers modes d’échec. Cet article répertorie les bonnes pratiques à suivre pour concevoir des applications résistantes aux attaques DDoS dans Azure.
-
-## <a name="types-of-attacks"></a>Types d’attaques
-
-DDoS est un type d’attaque qui tente d’épuiser les ressources d’une application. Son objectif est d’affecter la disponibilité de l’application et sa capacité à gérer des demandes légitimes. Ces attaques de plus en plus sophistiquées gagnent en importance et en impact. Les attaques DDoS peuvent être ciblées sur n’importe quel point de terminaison qui est publiquement accessible via Internet.
-
-Azure fournit une protection contre les attaques DDoS. Cette protection est intégrée à la plateforme Azure par défaut sans frais additionnels. 
+DDoS est un type d’attaque qui tente d’épuiser les ressources d’une application. Son objectif est d’affecter la disponibilité de l’application et sa capacité à gérer des demandes légitimes. Ces attaques de plus en plus sophistiquées gagnent en importance et en impact. Les attaques DDoS peuvent être ciblées sur n’importe quel point de terminaison qui est publiquement accessible via Internet. La conception d’applications capables de résister à des attaques par déni de service distribué (DDoS) nécessite un travail de planification et la prise en compte de divers modes d’échec. Azure fournit une protection contre les attaques DDoS. Cette protection est intégrée à la plateforme Azure par défaut sans frais additionnels.
 
 Outre la protection DDoS de base sur la plateforme, [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/) fournit des fonctions d’atténuation DDoS avancées contre les attaques réseau. Cette solution s’adapte automatiquement pour protéger vos ressources Azure spécifiques. Vous pouvez facilement activer cette protection durant la création de réseaux virtuels. Vous pouvez également l’activer après la création ; aucun changement au niveau de l’application ou de la ressource ne s’impose.
 
 ![Rôle d’Azure DDoS Protection dans la protection des clients et d’un réseau virtuel face à un attaquant](./media/ddos-best-practices/image1.png)
 
-Les attaques DDoS peuvent être classées en trois catégories : les attaques volumétriques, les attaques de protocole et les attaques sur les ressources.
-
-### <a name="volumetric-attacks"></a>Attaques volumétriques
-
-Les attaques volumétriques sont les attaques DDoS les plus courantes. Les attaques volumétriques sont des agressions par force brute qui ciblent les couches réseau et transport. Elles tentent d’épuiser les ressources telles que les liens réseau. 
-
-Ces attaques exploitent souvent plusieurs systèmes infectés pour saturer les couches réseau de trafic apparemment légitime. Elles utilisent des protocoles de couche réseau tels qu’ICMP (Internet Control Message Protocol), UDP (User Datagram Protocol), TCP (Transmission Control Protocol), etc.
-
-Parmi les attaques DDoS les plus couramment utilisées au niveau de la couche réseau, citons la saturation TCP SYN, l’écho ICMP, la saturation UDP, DNS et l’amplification NTP. Ces attaques peuvent être utilisées non seulement pour perturber le service, mais aussi comme écran de fumée pour s’infiltrer dans un réseau de manière plus ciblée et plus néfaste. [L’exploit Memcached](https://www.wired.com/story/github-ddos-memcached/) qui a récemment affecté GitHub est un exemple d’attaque volumétrique. Cette attaque a pris pour cible le port UDP 11211 et a généré un volume de 1,35 To/s.
-
-### <a name="protocol-attacks"></a>Attaques de protocole
-
-Les attaques de protocole ciblent les protocoles d’application. Elles tentent d’épuiser toutes les ressources disponibles dans les périphériques d’infrastructure comme les pare-feu, les serveurs d’applications et les équilibreurs de charge. Les attaques de protocole utilisent des paquets mal formés ou contenant des anomalies de protocole. Voici comment elles opèrent : après l’envoi d’un grand nombre de requêtes ouvertes, les serveurs et autres périphériques de communication répondent et attendent un paquet en réponse. La cible tente de répondre aux requêtes ouvertes, provoquant tôt ou tard le plantage du système.
-
-L’exemple le plus courant d’une attaque DDoS basée sur le protocole est la saturation TCP SYN. Dans ce type d’attaque, une succession de requêtes TCP SYN tente de surcharger une cible. L’objectif est de bloquer la cible. L’attaque menée contre Dyn en 2016, en plus de viser la couche application, comprenait des saturations TCP SYN ciblant le port 53 des serveurs DNS de Dyn.
-
-### <a name="resource-attacks"></a>Attaques sur les ressources
-
-Les attaques sur les ressources ciblent la couche application. Elles déclenchent des processus back-end dans le but de surcharger un système. Les attaques sur les ressources génèrent un trafic d’apparence normale, mais qui achemine des requêtes nécessitant une utilisation intensive du processeur au serveur. Le volume de trafic nécessaire pour épuiser des ressources est inférieur à celui d’autres types d’attaques. Le trafic dans une attaque de ressource est indiscernable du trafic légitime, ce qui rend sa détection difficile. Les attaques sur les ressources concernent le plus souvent les services DNS et HTTP/HTTPS.
-
-## <a name="shared-responsibility-in-the-cloud"></a>Responsabilité partagée dans le cloud
-
-La mise en place d’une stratégie de défense approfondie aide à lutter contre des attaques de plus en plus variées et sophistiquées. La sécurité est une responsabilité partagée entre le client et Microsoft. C’est ce que Microsoft appelle un [modèle de responsabilité partagée](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/). La figure suivante illustre la répartition des responsabilités :
-
-![Responsabilités du client et d’Azure](./media/ddos-best-practices/image2.png)
-
-Grâce aux bonnes pratiques de Microsoft, les clients Azure peuvent créer des applications distribuées à l’échelle mondiale qui sont conçues et testées pour l’échec.
 
 ## <a name="fundamental-best-practices"></a>Bonnes pratiques de base
 
@@ -80,7 +46,7 @@ Il est extrêmement important que vous conceviez une application suffisamment r�
 
 ### <a name="design-for-scalability"></a>Conception dans l’optique de la scalabilité
 
-L’extensibilité correspond à la capacité d’un système à traiter une charge accrue. Vous devez concevoir vos applications de telle sorte qu’elles puissent être [mises à l’échelle horizontalement](/azure/architecture/guide/design-principles/scale-out) pour répondre à la demande d’une charge amplifiée, en particulier dans le cadre d’une attaque DDoS. Si votre application repose sur une seule instance unique d’un service, cela crée un point de défaillance unique. L’approvisionnement de plusieurs instances rend votre système plus résilient et plus évolutif.
+L’extensibilité correspond à la capacité d’un système à traiter une charge accrue. Concevez vos applications de sorte qu’elles puissent être [mises à l’échelle horizontalement](/azure/architecture/guide/design-principles/scale-out) pour répondre à la demande d’une charge amplifiée, en particulier dans le cadre d’une attaque DDoS. Si votre application repose sur une seule instance unique d’un service, cela crée un point de défaillance unique. L’approvisionnement de plusieurs instances rend votre système plus résilient et plus évolutif.
 
 Pour [Azure App Service](/azure/app-service/app-service-value-prop-what-is), sélectionnez un [plan App Service](/azure/app-service/overview-hosting-plans) qui offre plusieurs instances. Pour les Azure Cloud Services, configurez chacun de vos rôles de manière à utiliser [plusieurs instances](/azure/cloud-services/cloud-services-choose-me). Pour [Machines virtuelles Azure](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), vérifiez que votre architecture de machines virtuelles inclut plusieurs machines virtuelles et que chacune d’elles figure dans un [groupe à haute disponibilité](/azure/virtual-machines/virtual-machines-windows-manage-availability). Nous vous recommandons d’utiliser des [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) pour les fonctionnalités de mise à l’échelle automatique.
 
@@ -161,7 +127,7 @@ La planification et la préparation sont des étapes cruciales pour comprendre c
 
 Si vous disposez de DDoS Protection Standard, assurez-vous qu’il est activé sur le réseau virtuel des points de terminaison accessibles sur Internet. La configuration d’alertes DDoS vous permet d’être en permanence attentif aux attaques potentielles sur votre infrastructure. 
 
-Vous devez surveiller vos applications de manière indépendante. Vous devez comprendre le comportement normal d’une application. Préparez-vous à intervenir si l’application ne se comporte pas comme prévu durant une attaque DDoS.
+Surveillez vos applications de manière indépendante. Vous devez comprendre le comportement normal d’une application. Préparez-vous à intervenir si l’application ne se comporte pas comme prévu durant une attaque DDoS.
 
 #### <a name="testing-through-simulations"></a>Test à l’aide de simulations
 
@@ -193,7 +159,8 @@ En outre, Microsoft Digital Crimes Unit (DCU) met en place des stratégies offen
 
 ### <a name="risk-evaluation-of-your-azure-resources"></a>Évaluation des risques de vos ressources Azure
 
-Il est impératif de comprendre en permanence la portée des risques liés à une attaque DDoS. Demandez-vous régulièrement : 
+Il est impératif de comprendre en permanence la portée des risques liés à une attaque DDoS. Demandez-vous régulièrement :
+
 - Quelles nouvelles ressources Azure disponibles publiquement doivent être protégées ?
 
 - Existe-t-il un point de défaillance unique dans le service ? 
@@ -226,7 +193,7 @@ Azure DDoS Protection Standard identifie et atténue les attaques DDoS sans aucu
 
 - Un acteur menace de lancer une attaque DDoS sur vos ressources.
 
-- Si vous devez valider des adresses IP ou plage d’adresses IP à partir du service Protection DDos Standard Azure, un scénario courant consiste à ajouter l’adresse IP à la liste verte si le trafic est acheminé à partir d’un pare-feu d’applications web de cloud externe WAF vers Azure. 
+- Si vous devez autoriser la liste d’une adresse IP ou d’une plage d’adresses IP depuis une norme Azure DDoS Protection. Un scénario courant consiste à autoriser une liste d’adresses IP si le trafic est acheminé à partir d’un pare-feu d’applications web de cloud externe vers Azure. 
 
 Pour les attaques ayant un impact critique sur l’entreprise, créez un [ticket de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) avec un niveau de gravité A.
 
@@ -301,8 +268,8 @@ Pour plus d’informations sur cette architecture de référence, consultez la d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Azure DDoS Protection : page produit](https://azure.microsoft.com/services/ddos-protection/)
+* [Responsabilité partagée dans le cloud](shared-responsibility.md)
 
-* [Blog sur Azure DDoS Protection](https://aka.ms/ddosblog)
+* [Azure DDoS Protection : page produit](https://azure.microsoft.com/services/ddos-protection/)
 
 * [Documentation sur Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview)

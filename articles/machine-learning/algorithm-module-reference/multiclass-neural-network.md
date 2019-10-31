@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 44d1e7606efd5bc6d2286254dc4863728e3edbfd
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128601"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692724"
 ---
 # <a name="multiclass-neural-network-module"></a>Module Multiclass Neural Network (Réseau neuronal à multiclasse)
 
@@ -40,7 +40,7 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
 
 ## <a name="configure-multiclass-neural-network"></a>Configurer un réseau neuronal multiclasse
 
-1. Ajoutez le module **MultiClass Neural Network** (Réseau neuronal multiclasse) à votre expérience dans l’interface. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser**, dans la catégorie **Classification**.
+1. Ajoutez le module **Réseau neuronal multiclasse** à votre pipeline dans l’interface. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser**, dans la catégorie **Classification**.
 
 2. **Create trainer mode** (Créer un mode d’apprentissage) : Utilisez cette option pour spécifier comment vous voulez que le modèle soit entraîné :
 
@@ -73,9 +73,9 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
   
 11. **Shuffle examples** (Réorganiser les exemples de façon aléatoire) : sélectionnez cette option pour réorganiser les cas entre les itérations de façon aléatoire.
 
-    Si vous désélectionnez cette option, les cas sont traités exactement dans le même ordre chaque fois que vous exécutez l’expérience.
+    Si vous désélectionnez cette option, les cas sont traités exactement dans le même ordre chaque fois que vous exécutez le pipeline.
 
-12. **Random number seed** (Valeur de départ aléatoire) : Entrez une valeur à utiliser comme valeur de départ, si vous souhaitez garantir la répétabilité entre les exécutions de la même expérience.
+12. **Random number seed** (Valeur de départ aléatoire) : Entrez une valeur à utiliser comme valeur de départ, si vous souhaitez garantir la répétabilité entre les exécutions du même pipeline.
 
 14. Connectez un jeu de données d’apprentissage à l’un des [modules de formation](module-reference.md) : 
 
@@ -88,7 +88,7 @@ Une fois la formation terminée :
 
 - Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de la formation et d’autres paramètres du réseau neuronal, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.  
 
-- Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives de la même expérience.
+- Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives du même pipeline.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,7 +1,7 @@
 ---
 title: 'Exemple n°4 d’interface visuelle : Classification pour prédire le risque de crédit (sensible au coût)'
 titleSuffix: Azure Machine Learning
-description: Cet article vous montre comment créer une expérience d’apprentissage automatique complexe à l’aide de l’interface visuelle. Vous allez apprendre à implémenter des scripts Python personnalisés et à comparer plusieurs modèles, afin de choisir la meilleure option.
+description: Cet article vous montre comment générer un pipeline de Machine Learning complexe à l’aide de l’interface visuelle. Vous allez apprendre à implémenter des scripts Python personnalisés et à comparer plusieurs modèles, afin de choisir la meilleure option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,41 +9,41 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
-ms.openlocfilehash: c06da0fd325f6b79bc0e14c4e6a246497f86a900
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 7196e9522695a28a5560faa77860073bd08e25ee
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131236"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693516"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exemple 4 - Classification : Prédire le risque de crédit (sensible au coût)
 
-Cet article vous montre comment créer une expérience d’apprentissage automatique complexe à l’aide de l’interface visuelle. Vous allez apprendre à implémenter une logique personnalisée à l’aide de scripts Python et à comparer plusieurs modèles, afin de choisir la meilleure option.
+Cet article vous montre comment générer un pipeline de Machine Learning complexe à l’aide de l’interface visuelle. Vous allez apprendre à implémenter une logique personnalisée à l’aide de scripts Python et à comparer plusieurs modèles, afin de choisir la meilleure option.
 
 Cet exemple forme un classifieur à la prédiction des risques de crédit à l’aide d’informations sur les demandes de crédit (historique de crédit, âge et nombre de cartes de crédit, par exemple). Toutefois, vous pouvez appliquer les concepts de cet article pour gérer les difficultés liées à l’apprentissage automatique.
 
 Si vous n’êtes pas familiarisé avec l’apprentissage automatique, vous pouvez commencer par examiner [l’exemple de classifieur de base](how-to-ui-sample-classification-predict-credit-risk-basic.md).
 
-Voici le graphique complet associé à cette expérience :
+Voici le graphique complet associé à ce pipeline :
 
-[![Graphique de l’expérience](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graphique du pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Sélectionnez le bouton **Ouvrir** pour accéder à l’exemple d’expérience 4 :
+4. Sélectionnez le bouton **Ouvrir** pour l’échantillon de pipeline 4 :
 
-    ![Ouvrir l’expérience](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
+    ![Ouvrir le pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## <a name="data"></a>Données
 
-Cet exemple utilise le jeu de données German Credit Card (Carte de crédit allemande) issu du référentiel UC Irvine. Ce jeu de données contient 1 000 exemples associés à 20 caractéristiques et 1 étiquette. Chaque exemple représente une personne. Les 20 fonctionnalités incluent des caractéristiques numériques et classées par catégorie. Pour en savoir plus sur le jeu de données, consultez le [site web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). La dernière colonne est l’étiquette, qui désigne le risque de crédit et a uniquement deux valeurs possibles : risque de crédit élevé = 2 et risque de crédit faible = 1.
+Cet exemple utilise le jeu de données German Credit Card (Carte de crédit allemande) issu du référentiel UC Irvine. Il contient 1 000 échantillons avec 20 fonctionnalités et 1 étiquette. Chaque exemple représente une personne. Les 20 fonctionnalités incluent des caractéristiques numériques et classées par catégorie. Pour en savoir plus sur le jeu de données, consultez le [site web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). La dernière colonne est l’étiquette, qui désigne le risque de crédit et a uniquement deux valeurs possibles : risque de crédit élevé = 2 et risque de crédit faible = 1.
 
-## <a name="experiment-summary"></a>Résumé de l’expérience
+## <a name="pipeline-summary"></a>Résumé du pipeline
 
-Dans cette expérience, vous comparez deux approches différentes permettant de générer des modèles afin de résoudre ce problème :
+Dans ce pipeline, vous comparez deux approches différentes permettant de générer des modèles afin de résoudre ce problème :
 
 - Formation avec le jeu de données d’origine.
 - Formation avec un jeu de données répliqué.
@@ -52,9 +52,9 @@ En utilisant les deux approches, vous évaluez les modèles à l’aide d’un j
 
 Le coût d’une erreur de classification d’un risque de crédit faible en risque élevé est de 1, alors qu’il est de 5 dans le cas inverse (classification d’un risque de crédit élevé en risque faible). Nous utilisons un module **Exécuter un script Python** pour prendre en compte le coût de cette classification incorrecte.
 
-Voici le graphique de l’expérience :
+Voici le graphique du pipeline :
 
-[![Graphique de l’expérience](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graphique du pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="data-processing"></a>Traitement des données
 
@@ -108,11 +108,11 @@ Cet exemple utilise le workflow de science des données standard pour créer, en
 1. Utilisez l’option **Entraîner le modèle** pour appliquer l’algorithme aux données et créer le modèle réel.
 1. Utilisez l’option **Noter un modèle** pour créer des notes en utilisant les exemples de test.
 
-Le diagramme suivant montre une partie de cette expérience, dans laquelle les ensembles de formation d’origine et répliqués sont utilisés pour entraîner deux modèles Machine à vecteurs de support à deux classes différents. La fonction **Entraîner le modèle** est connectée à l’ensemble de formation, alors que la fonction **Noter un modèle** est connectée à l’ensemble de test.
+Le diagramme suivant montre une partie de ce pipeline, dans lequel les ensembles de formation d’origine et répliqués sont utilisés pour effectuer l'apprentissage de deux modèles SMV différents. La fonction **Entraîner le modèle** est connectée à l’ensemble de formation, alors que la fonction **Noter un modèle** est connectée à l’ensemble de test.
 
-![Graphique de l’expérience](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Graphique de pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-Au cours de l’étape d’évaluation de l’expérience, vous calculez la justesse de chacun des quatre modèles. Pour les besoins de cette expérience, vous utilisez la fonction **Évaluer le modèle** pour comparer les exemples présentant le même coût de classification incorrecte.
+Au cours de l’étape d’évaluation du pipeline, vous calculez la précision de chacun des quatre modèles. Pour ce pipeline, utilisez **Évaluer le modèle** pour comparer les exemples présentant le même coût de classification incorrecte.
 
 Le module **Évaluer le modèle** peut calculer les mesures de performances pour un maximum de deux modèles notés. Vous utilisez une seule instance du module **Évaluer le modèle** pour évaluer les deux modèles Machine à vecteurs de support à deux classes, et une autre instance du module **Évaluer le modèle** pour évaluer les deux modèles Arbre de décision optimisé à deux classes.
 
@@ -142,12 +142,14 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 ## <a name="results"></a>Résultats
 
-Pour afficher les résultats de l’expérience, vous pouvez cliquer sur la sortie de l’étape de visualisation du dernier module **Sélectionner des colonnes dans le jeu de données**.
+Pour afficher les résultats du pipeline, vous pouvez cliquer avec le bouton de droite sur la sortie Visualiser du dernier module **Sélectionner des colonnes dans le jeu de données**.
 
 ![Visualiser la sortie](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 La première colonne indique l’algorithme d’apprentissage automatique utilisé pour générer le modèle.
+
 La deuxième colonne inclut le type de l’ensemble de formation.
+
 La troisième colonne contient la valeur de précision, sensible au coût.
 
 À partir de ces résultats, vous pouvez voir que c’est le modèle créé avec le module **Machine à vecteurs de support à deux classes** et formé sur l’ensemble de données de formation répliqué qui offre le plus haut degré de précision.
@@ -165,3 +167,4 @@ Explorez les autres exemples disponibles pour l’interface visuelle :
 - [Exemple 3 - Classification : Prédire le risque de crédit](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemple 5 - Classification : Prédire l’évolution](how-to-ui-sample-classification-predict-churn.md)
 - [Exemple 6 - Classification : Prédire les retards de vols](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exemple 7 - Classification de texte : Revues de livres](how-to-ui-sample-text-classification.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: d1ff58611278f02d74f064f0536e5f6f77195fb2
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a02228593a9d8efc9fb363232da1cede3c80a8b3
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828878"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592531"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -27,8 +27,11 @@ ms.locfileid: "71828878"
 > [!IMPORTANT]
 > Depuis le 30 avril 2019, la version de Patch Orchestration Application (application d’orchestration des correctifs) 1.2.* n’est plus prise en charge. Veillez à mettre à niveau vers la dernière version.
 
+> [!NOTE]
+> L’obtention de [mises à niveau d’images de système d’exploitation automatiques sur votre groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) est la meilleure façon d’assurer la mise à jour corrective de votre système d’exploitation dans Azure. Le groupe de machines virtuelles identiques basé sur des mises à niveau d’images de système d’exploitation automatiques nécessitent une durabilité Silver ou supérieure sur un groupe identique.
+>
 
-L’obtention de [mises à niveau d’images de système d’exploitation automatiques sur votre groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) est la meilleure façon d’assurer la mise à jour corrective de votre système d’exploitation dans Azure. Patch Orchestration Application (POA) est un wrapper autour du service Gestionnaire des réparations Azure Service Fabric, qui permet la planification des correctifs de système d’exploitation basés sur la configuration pour les clusters non hébergés dans Azure. POA n’est pas obligatoire pour les clusters hébergés ailleurs que sur Azure, mais la planification de l’installation de correctifs par le domaine de mise à jour est nécessaire pour corriger les hôtes du cluster Service Fabric sans temps d’arrêt.
+ Patch Orchestration Application (POA) est un wrapper autour du service Gestionnaire des réparations Azure Service Fabric, qui permet la planification des correctifs de système d’exploitation basés sur la configuration pour les clusters non hébergés dans Azure. POA n’est pas obligatoire pour les clusters hébergés ailleurs que sur Azure, mais la planification de l’installation de correctifs par le domaine de mise à jour est nécessaire pour corriger les hôtes du cluster Service Fabric sans temps d’arrêt.
 
 POA est une application Service Fabric qui automatise les mises à jour correctives du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt.
 
