@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: de8f31a02b62164a8a6b099a90297a207aefae80
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5dae8c4da46c750f69057f33d593f5bb7396a99e
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240797"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882255"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Connecter des données depuis Azure AD Identity Protection
 
@@ -37,7 +37,7 @@ Vous pouvez diffuser des journaux en continu depuis [Azure AD Identity Protecti
 
 ## <a name="connect-to-azure-ad-identity-protection"></a>Connexion à Azure AD Identity Protection
 
-Si vous avez déjà Azure AD Identity Protection, assurez-vous qu’il est [activé sur votre réseau](../active-directory/identity-protection/enable.md).
+Si vous avez déjà Azure AD Identity Protection, assurez-vous qu’il est [activé sur votre réseau](../active-directory/identity-protection/overview-identity-protection.md).
 Si Azure AD Identity Protection est déployé et obtient des données, les données d’alerte peuvent facilement être diffusées en continu dans Azure Sentinel.
 
 

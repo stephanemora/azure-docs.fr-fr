@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 53c171df47dde58b264b354eea5ff1ccca9f5256
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ee4b2196240ceff1351b7ea310d9660ed613d075
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374726"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152067"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrer depuis des API Enterprise Agreement vers des API Microsoft Customer Agreement
 
@@ -352,15 +352,15 @@ Effectuez un autre appel GET vers l’emplacement. La réponse de l’appel GET 
 ```
 HTTP Status 200
 
-                                    {
-                            “id”: “providers/Microsoft.Consumption/operationresults/{operationId}”,
-                            “name”: {operationId},
-                           “type”: “Microsoft.Consumption/operationResults”,
-                           “properties” : {
-                                  “downloadUrl”: {urltoblob},
-                                  “vaildTill”: “Date”
+{
+  "id": "providers/Microsoft.Consumption/operationresults/{operationId}",
+  "name": {operationId},
+  "type": “Microsoft.Consumption/operationResults",
+  "properties" : {
+    "downloadUrl": {urltoblob},
+    "validTill": "Date"
+  }
 }
-                     }
 ```
 
 Le client peut également effectuer un appel GET pour `Azure-AsyncOperation`. Le point de terminaison retourne l’état de l’opération.

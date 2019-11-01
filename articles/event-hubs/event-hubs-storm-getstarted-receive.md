@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 75a96127c48186befc48b2240f78e49cd5914239
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343413"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800199"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Recevoir des événements d’Event Hubs avec Apache Storm
 
@@ -33,7 +33,7 @@ Avant de commencer avec le démarrage rapide, **créez un espace de noms Event H
 
 ## <a name="create-project-and-add-code"></a>Créer le projet et ajouter du code
 
-Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], fournie avec la commande « spout » Event Hubs déjà disponible.
+Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm] , fournie avec la commande « spout » Event Hubs déjà disponible.
 
 1. Suivez la procédure [Prise en main de Storm avec HDInsight](../hdinsight/storm/apache-storm-overview.md) pour créer un cluster HDInsight et le connecter par le biais du Bureau à distance.
 2. Copiez le fichier `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` dans votre environnement de développement local. Il contient la commande events-storm-spout.
@@ -245,14 +245,14 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d’ensemble des hubs d’événements][Event Hubs overview]
+* [Vue d’ensemble d’Event Hubs][Event Hubs overview]
 * [Créer un concentrateur d’événements](event-hubs-create.md)
 * [FAQ sur les hubs d’événements](event-hubs-faq.md)
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[exemple HDInsight Storm avec Event Hub]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[exemple HDInsight Storm avec Event Hub]: https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
 
 <!-- Images -->
 

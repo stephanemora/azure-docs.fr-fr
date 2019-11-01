@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 4a8a8d7f6004ac32aeb7ce2b8cbffeca9ddf0079
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f3b2a976dc6b2b9e91f046a7f69e3057a7af7d0e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595532"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816981"
 ---
 # <a name="create-a-new-dynamics-365-for-operations-offer"></a>Créer une nouvelle offre Dynamics 365 for Operations
 
@@ -102,7 +102,7 @@ Sélectionnez au minimum une et au maximum trois catégories. Elles serviront à
 
 ### <a name="industry"></a>Secteur d’activité
 
-Vous pouvez éventuellement sélectionner jusqu’à deux secteurs d’activité pour vous aider à classer votre offre dans la place de marché. Si votre offre n’est pas spécifique à un secteur d’activité, laissez cette section vide. Veillez à expliquer dans la description comment votre offre prend en charge les secteurs sélectionnés dans la description de l’offre. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Version de l’application
 

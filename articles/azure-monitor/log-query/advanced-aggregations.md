@@ -1,24 +1,18 @@
 ---
 title: Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 description: Décrit certaines des options d’agrégation les plus avancées disponibles pour les requêtes de journal Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: f34e71c4e15e3bb09676e366313e90a7261439e5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551751"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900439"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 
@@ -39,7 +33,7 @@ Event
 | summarize makelist(EventID) by Computer
 ```
 
-|Ordinateur|list_EventID|
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
 | computer2 | [326,105,302,301,300,102] |
@@ -56,7 +50,7 @@ Event
 | summarize makeset(EventID) by Computer
 ```
 
-|Ordinateur|list_EventID|
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
 | computer2 | [326,105,302,301,300,102] |
@@ -73,7 +67,7 @@ Heartbeat
 | project Computer, Solutions
 ```
 
-| Ordinateur | solutions | 
+| Computer | solutions | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
@@ -89,7 +83,7 @@ Heartbeat
 | mvexpand Solutions
 ```
 
-| Ordinateur | solutions | 
+| Computer | solutions | 
 |--------------|----------------------|
 | computer1 | "security" |
 | computer1 | "updates" |
@@ -128,7 +122,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| Catégorie | TimeGenerated | count_ |
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agent direct | 2017-06-06T17:00:00Z | 15 |
 | Agent direct | 2017-06-06T18:00:00Z | 60 |
@@ -144,7 +138,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| Catégorie | count_ | TimeGenerated |
+| Category | count_ | TimeGenerated |
 |---|---|---|
 | Agent direct | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -158,7 +152,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| Catégorie | TimeGenerated | count_ |
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agent direct | 2017-06-06T17:00:00Z | 15 |
 | Agent direct | 2017-06-06T18:00:00Z | 60 |

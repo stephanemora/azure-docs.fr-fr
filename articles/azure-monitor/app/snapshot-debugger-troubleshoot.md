@@ -1,23 +1,19 @@
 ---
 title: Résoudre les problèmes liés au Débogueur de capture instantanée Azure Application Insights | Microsoft Docs
 description: Cet article décrit les étapes de résolution des problèmes et donne des informations afin d’aider les développeurs qui rencontrent des difficultés à activer ou utiliser le Débogueur de capture instantanée Application Insights.
-services: application-insights
-documentationcenter: ''
-author: brahmnes
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 03/07/2019
+author: brahmnes
 ms.author: mbullwin
-ms.openlocfilehash: 25ccf20fc78a9ec00d4dfe23a60e824e96d12945
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 03/07/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: ec70f202a496ec368a483278994c7c5ccb24f40b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444547"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899828"
 ---
 # <a id="troubleshooting"></a> Résoudre les problèmes d’activation du Débogueur de capture instantanée Application Insights ou d’affichage d’instantanés
 Si vous avez activé le Débogueur de capture instantanée Application Insights pour votre application, mais que vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes. Il peut y avoir de nombreuses raisons différentes pour lesquelles les captures instantanées ne sont pas générées. Vous pouvez exécuter le contrôle d’intégrité de capture instantanée pour identifier certaines des causes courantes possibles.

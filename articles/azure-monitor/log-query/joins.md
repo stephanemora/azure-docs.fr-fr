@@ -1,24 +1,18 @@
 ---
 title: Utilisation de jointures dans les requêtes de journal Azure Monitor | Microsoft Docs
 description: Cet article comprend une leçon sur l'utilisation de jointures dans les requêtes de journal Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 2ea5b4e3af6591e6e25a863998baa7cecb3e29e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 08/16/2018
+ms.openlocfilehash: 526c359367271c69ccd461e4421c3223b00fbc36
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60520114"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900281"
 ---
 # <a name="joins-in-azure-monitor-log-queries"></a>Utilisation de jointures dans les requêtes de journal Azure Monitor
 

@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e4bb7622fe51c0cab4fc45e945e5bb07b1d32f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 69025dd70ffe88c1592cf656e956b3e78a97a5e7
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925838"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163901"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Didacticiel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
 
@@ -90,7 +90,7 @@ Dans cette requête, vous devez personnaliser les valeurs suivantes :
 +   `sku/family` - Spécifiez Gen5 pour choisir la génération du matériel pour le déploiement du serveur.
 +   `sku/name` -Spécifiez la valeur TierPrefix_family_capacity. Par exemple B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Pour comprendre les valeurs valides par région et par niveau, consultez la documentation sur les [niveaux tarifaires](./concepts-pricing-tiers.md).
 +   `resources/properties/virtualNetworkSubnetId` -Spécifiez l’identificateur Azure du sous-réseau de réseau virtuel dans lequel placer le serveur Azure MySQL. 
-+   `tags(optional)` -Spécifiez les balises facultatives comme paires clé/valeur que vous utiliseriez pour catégoriser les ressources pour la facturation, etc..
++   `tags(optional)` -Spécifiez les balises facultatives comme paires clé/valeur que vous utiliseriez pour catégoriser les ressources pour la facturation, etc.
 
 Si vous souhaitez créer un modèle Azure Resource Manager pour automatiser les déploiements Azure Database pour MySQL de votre organisation, nous vous recommandons de commencer par l’exemple de [modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mysql-with-vnet) dans la galerie GitHub Démarrage rapide Azure et de poursuivre à partir de là. 
 
@@ -105,7 +105,7 @@ Vous pouvez utiliser Azure Cloud Shell dans le navigateur ou installer Azure CLI
 
 ```azurecli-interactive
 az login
-az group create -n ExampleResourceGroup  -l “West US2”
+az group create -n ExampleResourceGroup  -l "West US2"
 az group deployment create -g $ ExampleResourceGroup   --template-file $ {templateloc} --parameters $ {parametersloc}
 ```
 

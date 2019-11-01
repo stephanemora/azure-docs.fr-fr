@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6074b799e992371d41de050f68690e450f008789
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726840"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933963"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>Surveiller et diagnostiquer le traitement de requêtes au niveau du proxy inverse
 
@@ -200,5 +200,5 @@ Voici quelques exemples sur la façon d’interpréter les journaux d’activit�
 ## <a name="next-steps"></a>Étapes suivantes
 * [Agrégation et collecte d’événements à l’aide de Diagnostics Azure pour Windows](service-fabric-diagnostics-event-aggregation-wad.md) pour activer la collecte des journaux dans les clusters Azure.
 * Pour afficher les événements Service Fabric dans Visual Studio, consultez [Surveiller et diagnostiquer localement](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-* Reportez-vous à [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) (Configurer le proxy inverse pour se connecter à des services sécurisés) pour obtenir des exemples de modèles Azure Resource Manager illustrant la configuration du proxy inverse sécurisé avec les différentes options de validation de certificat de service.
+* Reportez-vous à [Configure reverse proxy to connect to secure services](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) (Configurer le proxy inverse pour se connecter à des services sécurisés) pour obtenir des exemples de modèles Azure Resource Manager illustrant la configuration du proxy inverse sécurisé avec les différentes options de validation de certificat de service.
 * Consultez [Proxy inverse Service Fabric](service-fabric-reverseproxy.md) pour en savoir plus.

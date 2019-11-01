@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129059"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159724"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -442,17 +442,18 @@ Avant de pouvoir distribuer dans la galerie d’images, vous devez créer une ga
 
 ```json
 {
-     "type": "sharedImage",
-     "galleryImageId": “<resource ID>”,
-     "runOutputName": "<name>",
-     "artifactTags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
-     "replicationRegions": [
+    "type": "sharedImage",
+    "galleryImageId": "<resource ID>",
+    "runOutputName": "<name>",
+    "artifactTags": {
+        "<name>": "<value>",
+        "<name>": "<value>"
+    },
+    "replicationRegions": [
         "<region where the gallery is deployed>",
         "<region>"
-    ]}
+    ]
+}
 ``` 
 
 Propriétés de distribution de galeries d’images partagées :
@@ -470,14 +471,14 @@ Propriétés de distribution de galeries d’images partagées :
 Vous pouvez générer sur un disque dur virtuel. Vous pouvez ensuite copier le disque dur virtuel et l’utiliser pour publier sur la Place de marché Azure ou l’utiliser avec Azure Stack.  
 
 ```json
- { 
-     "type": "VHD",
-     "runOutputName": "<VHD name>",
-     "tags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
- }
+{ 
+    "type": "VHD",
+    "runOutputName": "<VHD name>",
+    "tags": {
+        "<name": "<value>",
+        "<name>": "<value>"
+    }
+}
 ```
  
 Système d’exploitation pris en charge : Windows et Linux

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 08/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 09f46b3d938e57f996a18f1558b587dcf9e410a8
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 4f06e423c6dcc561ef8e51c33f24cd9f88a681b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165371"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935892"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Visage pour .NET
 
@@ -29,7 +29,7 @@ Utilisez la bibliothèque de client Visage pour .NET afin d’effectuer les op�
 * [Identifier un visage](#identify-a-face)
 * [Prendre une capture instantanée pour la migration de données](#take-a-snapshot-for-data-migration)
 
-[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Exemples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
+[Documentation de référence](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.Face) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.5.0-preview.1) | [Exemples](https://docs.microsoft.com/samples/browse/?products=azure&term=face)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -103,7 +103,7 @@ Les classes et interfaces suivantes gèrent certaines des principales fonctionna
 |[FaceListOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet)|Cette classe gère les constructions **FaceList** stockées dans le cloud, comprenant un ensemble de visages assortis. |
 |[PersonGroupPersonExtensions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongrouppersonextensions?view=azure-dotnet)| Cette classe gère les constructions **Person** stockées dans le cloud, comprenant un ensemble de visages appartenant à une même personne.|
 |[PersonGroupOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet)| Cette classe gère les constructions **PersonGroup** stockées dans le cloud, comprenant un ensemble d’objets **Person** assortis. |
-|[ShapshotOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)|Cette classe gère la fonctionnalité de capture instantanée. Vous pouvez l’utiliser pour enregistrer temporairement toutes vos données Visage basées sur le cloud et migrer ces données vers un nouvel abonnement Azure. |
+|[ShapshotOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)|Cette classe gère la fonctionnalité de capture instantanée. Vous pouvez l’utiliser pour enregistrer temporairement toutes vos données de visage basées sur le cloud et migrer ces données vers un nouvel abonnement Azure. |
 
 ## <a name="code-examples"></a>Exemples de code
 
@@ -229,7 +229,7 @@ L’extrait de code suivant appelle l’opération d’identification et affiche
 
 La fonctionnalité de capture instantanée vous permet de déplacer vos données de visage enregistrées, comme un **PersonGroup** entraîné, vers un autre abonnement Visage Azure Cognitive Services. Vous pouvez utiliser cette fonctionnalité si, par exemple, vous avez créé un objet **PersonGroup** à l’aide d’un abonnement d’essai gratuit et que vous voulez le migrer cet objet vers un abonnement payant. Pour obtenir une vue d’ensemble de la fonctionnalité de capture instantanée, consultez [Migrer vos données de visage](../Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
-Dans cet exemple, vous allez migrer le **PersonGroup** que vous avez créé à l’étape [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group). Vous pouvez d’abord terminer cette section ou créer vos propres constructions de données de visage à migrer.
+Dans cet exemple, vous allez migrer le **PersonGroup** que vous avez créé à l’étape [Créer et entraîner un groupe de personnes](#create-and-train-a-person-group). Vous pouvez d’abord terminer cette section ou créer vos propres constructions de données Visage à migrer.
 
 ### <a name="set-up-target-subscription"></a>Configurer l’abonnement cible
 
@@ -261,7 +261,7 @@ Le reste des opérations de capture instantanée doivent s’effectuer dans une 
 
     [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_take_wait)]
 
-1. Utilisez ensuite l’opération d’**application** pour écrire vos données de Face dans votre abonnement cible. Cette méthode retourne également une valeur d’ID.
+1. Utilisez ensuite l’opération d’**application** pour écrire vos données de visage dans votre abonnement cible. Cette méthode retourne également une valeur d’ID.
 
     [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_apply)]
 
@@ -273,7 +273,7 @@ Le reste des opérations de capture instantanée doivent s’effectuer dans une 
 
     [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_snapshot_trycatch)]
 
-À ce stade, votre nouvel objet **PersonGroup** doit avoir les mêmes données que celui d’origine et doit être accessible à partir de votre nouvel abonnement (cible) Azure Face.
+À ce stade, votre nouvel objet **PersonGroup** doit avoir les mêmes données que celui d’origine et doit être accessible à partir de votre nouvel abonnement (cible) Visage Azure.
 
 ## <a name="run-the-application"></a>Exécution de l'application
 
@@ -304,7 +304,7 @@ Si vous avez migré des données à l’aide de la fonctionnalité de capture in
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque Face pour .NET afin d’effectuer des tâches de base. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
+Dans le cadre de ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque Visage pour .NET afin d’effectuer des tâches de base. Pour plus d’informations sur la bibliothèque, reportez-vous à la documentation de référence.
 
 > [!div class="nextstepaction"]
 > [Informations de référence sur l’API Visage (.NET)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)

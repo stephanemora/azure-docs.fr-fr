@@ -1,24 +1,18 @@
 ---
 title: Groupes d’ordinateurs dans les requêtes de journal Azure Monitor | Microsoft Docs
 description: Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des requêtes de journal portant sur un ensemble spécifique d’ordinateurs.  Cet article décrit les différentes méthodes applicables pour créer des groupes d’ordinateurs et explique comment les utiliser dans une requête de journal.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/05/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 02/05/2019
+ms.openlocfilehash: 9ef0f2810252b73921fc0a72f2e523262c760bab
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320687"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932659"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
 Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des [requêtes de journal](../log-query/log-query-overview.md) portant sur un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand le groupe est inclus dans une requête de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
@@ -57,7 +51,7 @@ Le tableau suivant décrit les propriétés qui définissent un groupe d’ordin
 |:---|:---|
 | Nom   | Nom de la requête à afficher sur le portail. |
 | Alias de fonction | Alias unique utilisé pour identifier le groupe d’ordinateurs dans une requête. |
-| Catégorie       | Catégorie servant à organiser les requêtes sur le portail. |
+| Category       | Catégorie servant à organiser les requêtes sur le portail. |
 
 
 ### <a name="active-directory"></a>Active Directory

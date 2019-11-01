@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: aca417ebbc6f9af80058ddece32842f38918ce60
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516669"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964758"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installer le runtime Azure IoT Edge sur des systèmes Linux Debian
 
@@ -167,7 +167,7 @@ Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d
 
 ### <a name="option-1-manual-provisioning"></a>Option 1 : Provisionnement manuel
 
-Pour provisionner manuellement un appareil, vous devez lui fournir une [chaîne de connexion d’appareil](how-to-register-device-portal.md) que vous pouvez créer en inscrivant un nouvel appareil dans votre hub IoT.
+Pour provisionner manuellement un appareil, vous devez lui fournir une [chaîne de connexion d’appareil](how-to-register-device.md#register-in-the-azure-portal) que vous pouvez créer en inscrivant un nouvel appareil dans votre hub IoT.
 
 Ouvrez le fichier de configuration.
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b472d36f17853549f2bfc773bdcb65faf0421b3f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718989"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102366"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fournir une authentification Key Vault avec une stratégie de contrôle d’accès
 
@@ -83,7 +83,7 @@ Vous pouvez ajouter plusieurs applications et utilisateurs à un groupe Azure A
 Pour rechercher l’objectId d’un groupe Azure AD avec Azure CLI, utilisez la commande [az ad group list](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list). En raison du grand nombre de groupes qui peuvent exister dans votre organisation, vous devez également fournir une chaîne de recherche au paramètre `--display-name`.
 
 ```azurecli-interactive
-az ad group list --displayname <search-string>
+az ad group list --display-name <search-string>
 ```
 L’objectId est retourné dans le JSON :
 
@@ -226,6 +226,6 @@ Enfin, accordez les autorisations de groupe AD à votre coffre de clés à l’a
 - [Sécurité d’Azure Key Vault : Gestion de l’identité et de l’accès](overview-security.md#identity-and-access-management)
 - [Fournir une authentification Key Vault avec une identité managée App Service](managed-identity.md)
 - [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)
-- [Sécuriser votre coffre de clés](key-vault-secure-your-key-vault.md).
+- [Sécuriser votre coffre de clés](key-vault-secure-your-key-vault.md)
 - [Guide du développeur Azure Key Vault](key-vault-developers-guide.md)
 - Passer en revue les [bonnes pratiques relatives à Azure Key Vault](key-vault-best-practices.md)

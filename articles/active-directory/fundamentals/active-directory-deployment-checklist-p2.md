@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b5678fb0edcecae9ffa6a3c27f3dc6334ecf505
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bc06931dd36c9ecd91ec1d748b9463f47f7afafc
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125344"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880583"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guide de déploiement des fonctionnalités d’Azure Active Directory
 
@@ -41,7 +41,7 @@ Des informations de licence supplémentaires sont disponibles dans les pages sui
 
 Dans cette étape, les administrateurs activent des fonctionnalités de sécurité de référence pour créer une base plus sécurisée et facile à utiliser dans Azure AD avant l’importation ou la création de comptes d’utilisateur normaux. Cette étape de base garantit une meilleure sécurité dès le départ et vous permet de présenter les nouveaux concepts une seule fois à vos utilisateurs finaux.
 
-| Tâche | Détails | Licence obligatoire |
+| Tâche | Detail | Licence obligatoire |
 | ---- | ------ | ---------------- |
 | [Désigner plusieurs administrateurs généraux](../users-groups-roles/directory-emergency-access.md) | Attribuez au moins deux comptes d’administrateur général permanents exclusivement cloud à utiliser en cas d’urgence. Ces comptes ne sont pas utilisés quotidiennement et doivent avoir des mots de passe longs et complexes. | Azure AD Gratuit |
 | [Utiliser des rôles d’administrateur non généraux si possible](../users-groups-roles/directory-assign-admin-roles.md) | Donnez à vos administrateurs uniquement l’accès dont ils ont besoin et uniquement aux zones auxquelles ils doivent accéder. Les administrateurs ne doivent pas nécessairement tous être des administrateurs généraux. | Azure AD Gratuit |
@@ -54,7 +54,7 @@ Dans cette étape, les administrateurs activent des fonctionnalités de sécurit
 | [Personnaliser le verrouillage intelligent d’Azure Active Directory](../authentication/howto-password-smart-lockout.md) | Arrêtez la réplication des verrouillages d’utilisateurs cloud sur les utilisateurs Active Directory locaux | |
 | [Activer le verrouillage intelligent extranet pour AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | Le verrouillage extranet AD FS protège contre les attaques par force brute visant à deviner les mots de passe, tout en permettant aux utilisateurs AD FS valides de continuer à utiliser leur compte. | |
 | [Déployer l’authentification multifacteur Azure AD à l’aide de stratégies d’accès conditionnel](../authentication/howto-mfa-getstarted.md) | Demandez aux utilisateurs d’utiliser la vérification en deux étapes quand ils accèdent à des applications sensibles à l’aide de stratégies d’accès conditionnel. | Azure AD Premium P1 |
-| [Activer Azure Active Directory Identity Protection](../identity-protection/enable.md) | Activez le suivi des connexions risquées et des informations d’identification compromises pour les utilisateurs de votre organisation. | Azure AD Premium P2 |
+| [Activer Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Activez le suivi des connexions risquées et des informations d’identification compromises pour les utilisateurs de votre organisation. | Azure AD Premium P2 |
 | [Utiliser les détections de risques pour déclencher l’authentification multifacteur et le changement du mot de passe](../authentication/tutorial-risk-based-sspr-mfa.md) | Activez une automatisation pour déclencher des événements comme l’authentification multifacteur, la réinitialisation du mot de passe et le blocage des connexions en fonction du risque. | Azure AD Premium P2 |
 | [Activer l’inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion)](../authentication/concept-registration-mfa-sspr-converged.md) | Autorisez vos utilisateurs à s’inscrire à partir d’une même expérience à Azure Multi-Factor Authentication et à la réinitialisation de mot de passe en libre-service. | Azure AD Premium P1 |
 
@@ -62,7 +62,7 @@ Dans cette étape, les administrateurs activent des fonctionnalités de sécurit
 
 À présent, nous renforçons les fondations posées à l’étape 1 en effectuant les actions suivantes : importer nos utilisateurs et activer la synchronisation, planifier l’accès invité et préparer la prise en charge de fonctionnalités supplémentaires.
 
-| Tâche | Détails | Licence obligatoire |
+| Tâche | Detail | Licence obligatoire |
 | ---- | ------ | ---------------- |
 | [Installer Azure AD Connect](../connect/active-directory-aadconnect-select-installation.md) | Préparez la synchronisation des utilisateurs de votre annuaire local existant dans le cloud. | Azure AD Gratuit |
 | [Implémenter la synchronisation de hachage du mot de passe](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md) | Synchronisez les hachages de mot de passe pour autoriser la réplication des changements de mot de passe, la détection et la correction de mot de passe incorrect et le signalement des informations d’identification ayant fait l’objet d’une fuite. | Azure AD Gratuit |
@@ -78,7 +78,7 @@ Dans cette étape, les administrateurs activent des fonctionnalités de sécurit
 
 Selon notre approche de renforcement des étapes précédentes, nous identifions les applications candidates pour la migration et l’intégration à Azure AD, et installons ces applications.
 
-| Tâche | Détails | Licence obligatoire |
+| Tâche | Detail | Licence obligatoire |
 | ---- | ------ | ---------------- |
 | Identifier vos applications | Identifiez les applications utilisées dans votre organisation : les applications locales, les applications SaaS dans le cloud et les autres applications métier. Déterminez si ces applications peuvent et doivent être gérées avec Azure AD. | Aucune licence obligatoire |
 | [Intégrer les applications SaaS prises en charge dans la galerie](../manage-apps/add-application-portal.md) | Azure AD a une galerie qui contient des milliers d’applications préintégrées. Certaines applications utilisées par votre organisation sont probablement dans la galerie, accessible directement à partir du portail Azure. | Azure AD Gratuit |
@@ -88,7 +88,7 @@ Selon notre approche de renforcement des étapes précédentes, nous identifions
 
 Dans l’étape 4, les administrateurs appliquent le principe du moindre privilège pour l’administration, les révisions de premier accès et l’automatisation des tâches courantes du cycle de vie utilisateur.
 
-| Tâche | Détails | Licence obligatoire |
+| Tâche | Detail | Licence obligatoire |
 | ---- | ------ | ---------------- |
 | [Appliquer l’utilisation de Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Supprimez les rôles d’administrateur des comptes d’utilisateur normaux de tous les jours. Autorisez les utilisateurs à utiliser leur rôle d’administrateur s’ils réussissent un contrôle d’authentification multifacteur, s’ils fournissent une justification professionnelle ou s’ils reçoivent l’approbation des approbateurs désignés. | Azure AD Premium P2 |
 | [Terminer une révision d’accès des rôles d’annuaire Azure AD dans PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Consultez vos équipes de sécurité et de direction pour créer une stratégie de révision d’accès afin d’examiner les accès administratifs en fonction des stratégies de votre organisation. | Azure AD Premium P2 |

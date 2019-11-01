@@ -1,24 +1,18 @@
 ---
 title: Collecter et analyser les journaux des événements Windows dans Azure Monitor | Microsoft Docs
 description: Décrit comment configurer la collecte des journaux d’événements Windows et par Azure Monitor et les détails des enregistrements créés.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cc81a8d8023d0724f4ecb71c157e8f575aa9edc8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 11/28/2018
+ms.openlocfilehash: dd8f1e0e79f85c5d91966bcba13052f297422e67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997472"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932407"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Sources de données de journal d’événements Windows dans Azure Monitor
 Les journaux d’événements Windows sont les [sources de données](agent-data-sources.md) les plus communément utilisées pour collecter des données à l’aide d’agents Windows puisque de nombreuses applications écrivent dans le journal d’événements Windows.  Vous pouvez collecter des événements à partir de journaux d’activité standard tels que Système et Application, ou spécifier des journaux d’activité personnalisés créés par les applications que vous souhaitez surveiller.

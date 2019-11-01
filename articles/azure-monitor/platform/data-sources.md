@@ -1,22 +1,18 @@
 ---
 title: Sources de données dans Azure Monitor | Microsoft Docs
 description: Décrit les données disponibles pour surveiller l’intégrité et les performances de vos ressources Azure, et des applications s’exécutant sur celles-ci.
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/23/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 164d1db1a80ef577792740f67a27a856a4ba4c3b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 05/23/2019
+ms.openlocfilehash: 7c03c0c649876143eaa75c98fa0c9001f2b24fbd
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972927"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932382"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -203,7 +199,7 @@ Outre les niveaux standard d’une application, vous devrez peut-être surveille
 ## <a name="other-services"></a>Autres services
 D'autres services Azure écrivent les données sur la plate-forme de données Azure Monitor. Ceci vous permet d'analyser les données collectées par ces services avec les données collectées par Azure Monitor et de bénéficier des mêmes outils d'analyse et de visualisation.
 
-| de diffusion en continu | Destination | Description | Informations de référence |
+| Service | Destination | Description | Informations de référence |
 |:---|:---|:---|:---|
 | [Centre de sécurité Azure](/azure/security-center/) | Journaux d’activité Azure Monitor | Azure Security Center stocke les données de sécurité qu'il collecte dans un espace de travail Log Analytics afin de les analyser avec d'autres données collectées par Azure Monitor.  | [Collecte de données dans Azure Security Center](../../security-center/security-center-enable-data-collection.md) |
 | [Azure Sentinel](/azure/sentinel/) | Journaux d’activité Azure Monitor | Azure Sentinel stocke dans un espace de travail Log Analytics les données de sécurité qu'il collecte de différentes source de données afin de les analyser avec d'autres données collectées par Azure Monitor.  | [Connecter des sources de données](/azure/sentinel/quickstart-onboard) |

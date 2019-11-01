@@ -13,12 +13,12 @@ caps.latest.revision: 55
 author: georgewallace
 ms.author: gwallace
 manager: gwallace
-ms.openlocfilehash: ac1cce61a9b9b22c079066147d6a318f778999db
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 4ecad6ffc1b57feb16583fd95525a456f6e315a5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945874"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162104"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Schéma WorkerRole de définition d’Azure Cloud Services
 Le rôle de travail Azure est un rôle utile pour le développement généralisé. Il peut également effectuer le traitement en arrière-plan pour un rôle Web.
@@ -64,10 +64,10 @@ Le format de base du fichier de définition de service contenant un rôle de tra
       </Environment>
       <EntryPoint>
          <NetFxEntryPoint assemblyName="<name-of-assembly-containing-entrypoint>" targetFrameworkVersion="<.net-framework-version>"/>
-         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]" "/>
+         <ProgramEntryPoint commandLine="<application>" setReadyOnProcessStart="[true|false]"/>
       </EntryPoint>
     </Runtime>
-    <Startup priority="<for-internal-use-only>”>
+    <Startup priority="<for-internal-use-only>">
       <Task commandLine="" executionContext="[limited|elevated]" taskType="[simple|foreground|background]">
         <Environment>
          <Variable name="<variable-name>" value="<variable-value>">

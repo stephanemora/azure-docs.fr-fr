@@ -6,19 +6,19 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 10/23/2019
 ms.author: dapine
-ms.openlocfilehash: 52d8e1355558b197b193a50c7cde571799541268
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ecb172aec37fdab21bed8373ac7484dc52a54829
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717177"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821979"
 ---
 ## <a name="create-a-luis-resource"></a>Créer une ressource LUIS
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Cliquez sur [Créer**Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS)
+1. Cliquez sur [Créer**Language Understanding**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
 1. Entrez tous les paramètres obligatoires :
 
     |Paramètre|Valeur|

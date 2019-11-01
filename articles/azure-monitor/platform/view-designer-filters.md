@@ -1,24 +1,18 @@
 ---
 title: Filtres dans les vues d’Azure Monitor | Microsoft Docs
 description: Un filtre dans une vue d’Azure Monitor permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/22/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/22/2018
+ms.openlocfilehash: 03950c7c87f659c5d1c032b5d3c1f74d136697c7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551728"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931986"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtres dans les vues d’Azure Monitor
 Un **filtre** dans une [vue d’Azure Monitor](view-designer.md) permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Par exemple, vous pouvez autoriser les utilisateurs de votre vue à filtrer l’affichage des données uniquement à partir d’un ordinateur ou d’un ensemble d’ordinateurs particulier.  Vous pouvez créer plusieurs filtres sur une seule et unique vue pour permettre aux utilisateurs d’effectuer un filtrage avec plusieurs propriétés.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
@@ -56,9 +50,9 @@ Le tableau suivant présente quelques exemples de filtres communs.
 
 | Nom du champ | Requêtes pour des valeurs | Tag |
 |:--|:--|:--|
-| Ordinateur   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Ordinateurs |
-| EventLevelName | Event &#124; distinct EventLevelName | Severity |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
+| Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Ordinateurs |
+| EventLevelName | Event &#124; distinct EventLevelName | severity |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | severity |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

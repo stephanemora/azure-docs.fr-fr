@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 42819749b019b4b1db77942e22e09ea31a137fe7
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 831d3a187a4388a429c6fabb1bb0e0ec6dd584cc
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813858"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800042"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Exemples de topologies et de composants Apache Storm pour Apache Storm sur HDInsight
 
@@ -26,7 +26,7 @@ Voici une liste d’exemples créés et gérés par Microsoft à utiliser avec [
 | [Développement de topologies basées sur Java pour Apache Storm dans HDInsight][5797064f] |Maven |Java |
 | [Développement de topologies C# pour Apache Storm dans HDInsight à l'aide de Visual Studio][16fce2d1] |Outils HDInsight pour Visual Studio |C#, Java |
 | [Traitement des événements Azure Event Hubs avec Apache Storm sur HDInsight (C#)][844d1d81] |Event Hubs |C# et Java |
-| [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
+| [Traitement des événements Azure Event Hubs avec Storm sur HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) |Event Hubs |Java |
 | [Traiter des données de capteurs de véhicules issues d’Event Hubs avec Apache Storm sur HDInsight][246ee964] |Event Hubs, Cosmos DB, Azure Storage Blob (WASB) |C#, Java |
 | [Extraction, transformation et chargement (ETL) à partir d’Azure Event Hubs dans Apache HBase, à l’aide d’Apache Storm sur HDInsight][b4b68194] |Event Hubs, HBase |C# |
 | [Modèle de projet de topologie Storm C# pour l’utilisation des services Azure à partir d’Apache Storm sur HDInsight][ce0c02a2] |Event Hubs, Cosmos DB, SQL Database, HBase, SignalR |C#, Java |

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e1be41c854e212a7b673d8c2dff42d7b9981fb4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 101d478d37055a08a5ced9113e070bf826613bd3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616128"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160779"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurer les informations de sécurité (préversion) pour utiliser une application d’authentification
 
@@ -148,6 +148,6 @@ Vous avez la possibilité de choisir la façon d’être contacté par votre org
 
 - Connectez-vous à l’aide de l’application Microsoft Authenticator en suivant les étapes décrites dans l’article [Se connecter à l’aide de la vérification en deux étapes ou des informations de sécurité](security-info-setup-signin.md).
 
-- Si vous avez perdu ou oublié votre mot de passe, réinitialisez-le à partir du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/), ou suivez les étapes de l’article [Réinitialiser votre mot de passe professionnel ou scolaire](user-help-reset-password.md).
+- Si vous avez perdu ou oublié votre mot de passe, réinitialisez-le à partir du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/), ou suivez les étapes de l’article [Réinitialiser votre mot de passe professionnel ou scolaire](active-directory-passwords-update-your-own-password.md).
 
 - Obtenez des conseils de dépannage et de l’aide pour les problèmes de connexion en consultant l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

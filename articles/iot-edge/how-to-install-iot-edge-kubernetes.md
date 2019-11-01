@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 66aca7be9a2df93d846d7e78bc64c93279afc2d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a453779ffe4ae20acf55510d0ac9f9483763af21
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160694"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964834"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Guide pratique pour installer IoT Edge sur Kubernetes (préversion)
 
@@ -62,7 +62,7 @@ Chacun des composants du déploiement de périphérie est limité à un espace d
     helm repo update
     ```
 
-1. [Créez un hub IoT](../iot-hub/iot-hub-create-through-portal.md), [inscrivez un appareil IoT Edge](how-to-register-device-portal.md) et notez sa chaîne de connexion.
+1. [Créez un hub IoT](../iot-hub/iot-hub-create-through-portal.md), [inscrivez un appareil IoT Edge](how-to-register-device.md) et notez sa chaîne de connexion.
 
 1. Installez iotedged et l’agent IoT Edge dans votre cluster.
 

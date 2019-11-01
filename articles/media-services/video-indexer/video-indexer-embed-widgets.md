@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71036628"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162616"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -253,7 +253,7 @@ Par exemple :
 
 Par défaut, le lecteur Video Indexer propose des sous-titres générés automatiquement, basés sur la transcription de la vidéo. La transcription est extraite de la vidéo dans la langue source sélectionnée lors du chargement de la vidéo.
 
-Si vous souhaitez effectuer l’incorporation dans une autre langue, vous pouvez ajouter `&captions=< Language | ”all” | “false” >` à l’URL de lecteur incorporée. Si vous souhaitez que les sous-titres soient proposés dans toutes les langues disponibles, utilisez la valeur `all`. Si vous souhaitez que les sous-titres soient affichés par défaut, vous pouvez transmettre `&showCaptions=true`.
+Si vous souhaitez effectuer l’incorporation dans une autre langue, vous pouvez ajouter `&captions=< Language | "all" | "false" >` à l’URL de lecteur incorporée. Si vous souhaitez que les sous-titres soient proposés dans toutes les langues disponibles, utilisez la valeur `all`. Si vous souhaitez que les sous-titres soient affichés par défaut, vous pouvez transmettre `&showCaptions=true`.
 
 L'URL incorporée se présentera comme suit : 
 

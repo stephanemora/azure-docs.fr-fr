@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 9376493cdd1a8a9790f4de8ee3769acf8dca5ade
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 16b75a98a5a42c9acf6d9a68330cbf8e005f7179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595569"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819797"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -101,7 +101,7 @@ Sélectionnez un minimum d’une catégorie et un maximum de trois catégories q
 
 ### <a name="industry"></a>Secteur d’activité
 
-Vous pouvez éventuellement sélectionner jusqu’à deux secteurs d’activité pour vous aider à classer votre offre dans la place de marché. Si votre offre n’est pas spécifique à un secteur d’activité, laissez cette section vide. Veillez à expliquer dans la description comment votre offre prend en charge les secteurs sélectionnés dans la description de l’offre. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Version de l’application
 

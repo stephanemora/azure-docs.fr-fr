@@ -1,24 +1,18 @@
 ---
 title: Utilisation d’un Stockage Blob pour IIS et d’un Stockage Table pour les événements dans Azure Monitor | Microsoft Docs
 description: Azure Monitor peut lire les journaux d’activité pour des services Azure qui écrivent des diagnostics dans un Stockage Table ou des journaux d’activité IIS écrits dans un Stockage Blob.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 04/12/2017
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/12/2017
+ms.openlocfilehash: 8f70ecc96269783c29c566fb89bd617f034316b1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244883"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932669"
 ---
 # <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Collecter les journaux de diagnostic Azure depuis le Stockage Azure
 

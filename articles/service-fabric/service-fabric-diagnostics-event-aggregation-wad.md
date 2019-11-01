@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 641f9150d1135f4f214038150b95b6691a37ecc0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 555a8a823526a51b045b4a0314ef7610bf728e5b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393330"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242977"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agrégation et collecte d’événements à l’aide de Diagnostics Azure pour Windows
 > [!div class="op_single_selector"]
@@ -165,6 +165,15 @@ Mettez ensuite à jour la section `VirtualMachineProfile` du fichier template.js
                     "DefaultEvents": {
                     "eventDestination": "ServiceFabricSystemEventTable"
                     }
+                },
+                {
+                    "provider": "02d06793-efeb-48c8-8f7f-09713309a810",
+                    "scheduledTransferLogLevelFilter": "Information",
+                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricSystemEventTable"
+                    }
                 }
                 ]
             }
@@ -261,6 +270,15 @@ Pour activer le **Canal opérationnel de base**, recommandé pour la journalisat
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"
+                }
+              },
+              {
+                "provider": "02d06793-efeb-48c8-8f7f-09713309a810",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                "eventDestination": "ServiceFabricSystemEventTable"
                 }
               }
             ]

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 56bc8934db86bb03446a6d2637bd54daaf2b5fb9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254747"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176315"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Comprendre Azure Policy pour Azure Kubernetes Service
 
@@ -164,7 +164,7 @@ Toutes les cinq minutes, le module complémentaire demande une analyse complèt
 
 La structure du langage Azure Policy pour la gestion d’AKS suit celle des stratégies existantes. L’effet _EnforceRegoPolicy_ est utilisé pour gérer vos clusters AKS et prend des propriétés _details_ propres à l’utilisation d’OPA et de GateKeeper. Pour plus d’informations et pour obtenir des exemples, consultez l’effet [EnforceRegoPolicy](effects.md#enforceregopolicy).
 
-Dans le cadre de la propriété _details.policy_ dans la définition de stratégie, Azure Policy transmet l’URI d’une stratégie rego au module complémentaire. Rego est le langage pris en charge par OPA et GateKeeper pour valider ou muter une requête au cluster Kubernetes. Grâce à la prise en charge d’une norme existante pour la gestion de Kubernetes, Azure Policy permet de réutiliser des règles existantes et de les jumeler avec Azure Policy afin de bénéficier d’une expérience de rapports de conformité du cloud unifiée. Pour plus d’informations, consultez [What is Rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
+Dans le cadre de la propriété _details.policy_ dans la définition de stratégie, Azure Policy transmet l’URI d’une stratégie rego au module complémentaire. Rego est le langage pris en charge par OPA et GateKeeper pour valider ou muter une requête au cluster Kubernetes. Grâce à la prise en charge d’une norme existante pour la gestion de Kubernetes, Azure Policy permet de réutiliser des règles existantes et de les jumeler avec Azure Policy afin de bénéficier d’une expérience de rapports de conformité du cloud unifiée. Pour plus d’informations, consultez [What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
 
 ## <a name="built-in-policies"></a>Stratégies prédéfinies
 

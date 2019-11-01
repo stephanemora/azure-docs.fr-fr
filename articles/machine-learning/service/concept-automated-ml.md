@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 895425232dabc78650b6ee7ed035048471084237
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 999f554bf4a2b9ddda83ee6398950cefb11d32aa
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793894"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929336"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -81,7 +81,7 @@ Dans chaque expérience de Machine Learning automatisé, vos données sont prét
 
 Dans chaque expérience de Machine Learning automatisé, vos données sont automatiquement mises à l’échelle et normalisées pour faciliter la bonne exécution des algorithmes.  Pendant l’apprentissage du modèle, l’une des techniques suivantes de mise à l’échelle ou de normalisation est appliquée à chaque modèle.
 
-|Mise à l’échelle&nbsp;et&normalisation| Description |
+|Mise à l’échelle&nbsp;et&&nbsp;normalisation| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Normaliser les fonctionnalités en supprimant la moyenne et en mettant à l’échelle de l’écart d’unité.  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transformer les fonctionnalités en les mettant à l’échelle des valeurs minimale et maximale de cette colonne.  |
@@ -95,9 +95,7 @@ Dans chaque expérience de Machine Learning automatisé, vos données sont autom
 
 Un prétraitement avancé et une personnalisation supplémentaires sont également disponibles, tels qu’une imputation de valeurs manquantes, un codage et des transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#preprocess). Activez ce paramètre avec :
 
-+ Portail Azure : en activant la case à cocher **Prétraiter** dans **Paramètres avancés** [avec ces étapes](how-to-create-portal-experiments.md).
-
-+ Kit de développement logiciel (SDK) Python : en spécifiant `"preprocess": True` pour la [`AutoMLConfig`classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Kit de développement logiciel (SDK) Python : en spécifiant `"feauturization": auto' / 'off' / FeaturizationConfig` pour la [`AutoMLConfig`classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Prévision de série chronologique

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: ccc2b574ea054a1b0ecf32a1e59691050fb66fcf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f6bd574c83d309ce6d6f54fdb1c7d23cb713420d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67177003"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182209"
 ---
 ## <a name="tagging-a-virtual-machine-through-templates"></a>Balisage d’une machine virtuelle via des modèles
 Voyons d’abord le balisage via des modèles. [Ce modèle](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) place des balises sur les ressources suivantes : Calcul (Machine virtuelle), Stockage (Compte de stockage) et Réseau (Adresse IP publique, Réseau virtuel et Interface réseau). Ce modèle est destiné à une machine virtuelle Windows, mais il peut être Aaapté pour les machines virtuelles Linux.
@@ -24,9 +24,9 @@ Ce modèle inclut les balises suivantes : *Département*, *Application* et *Cr�
 
 Comme vous pouvez le voir, les balises sont définies en tant que paires clé/valeur, séparées par un signe deux-points (:). Les balises doivent être définies dans ce format :
 
-        “tags”: {
-            “Key1” : ”Value1”,
-            “Key2” : “Value2”
+        "tags": {
+            "Key1" : "Value1",
+            "Key2" : "Value2"
         }
 
 Enregistrez le fichier de modèle après l’avoir modifié avec les balises de votre choix.

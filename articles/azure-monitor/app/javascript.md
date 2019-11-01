@@ -1,23 +1,18 @@
 ---
 title: Azure Application Insights pour les applications web JavaScript | Microsoft Docs
 description: Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/20/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: b49206c677e2f1b20c154ae0c9e358e8b2b0bbd8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 09/20/2019
+ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430197"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819382"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 

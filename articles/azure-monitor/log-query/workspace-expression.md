@@ -1,24 +1,18 @@
 ---
 title: Expression workspace() dans la requête de journal Azure Monitor | Microsoft Docs
 description: L’expression workspace est utilisée dans une requête de journal Azure Monitor dans le but de récupérer des données à partir d’un espace de travail spécifique du même groupe de ressources, d’un autre groupe de ressources ou d’un autre abonnement.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/10/2018
+ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60785674"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932852"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expression workspace() dans la requête de journal Azure Monitor
 
@@ -37,7 +31,7 @@ L’expression `workspace` est utilisée dans une requête Azure Monitor dans le
 |:---|:---|:---|
 | Nom de la ressource | Nom lisible de l’espace de travail (également appelé « nom du composant ») | workspace("contosoretail") |
 | Nom qualifié | Nom complet de l’espace de travail au format : « nom_abonnement/groupe_ressources/nom_composant » | workspace('Contoso/ContosoResource/ContosoWorkspace') |
-| ID | GUID de l’espace de travail | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
+| id | GUID de l’espace de travail | workspace("b438b3f6-912a-46d5-9db1-b42069242ab4") |
 | ID de la ressource Azure | Identificateur de la ressource Azure | workspace("/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail") |
 
 

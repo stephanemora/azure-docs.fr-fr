@@ -1,24 +1,18 @@
 ---
 title: Solution Capacity and Performance dans Azure Monitor | Microsoft Docs
 description: Utilisez la solution Capacity and Performance dans Azure Monitor pour vous aider à comprendre la capacité de vos serveurs Hyper-V.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/13/2017
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/13/2017
+ms.openlocfilehash: 8b130b800b53afadc40e0c9b9a2b730f24da396e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101912"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899060"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacity and Performance (déprécié)
 

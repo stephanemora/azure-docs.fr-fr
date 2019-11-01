@@ -8,17 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 875c2002d477a95b44ad1491cb716e2ef70697e7
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 830dc313ea321f74c495f46c7c2d4ea5f9d4e5b5
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954846"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968560"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure avec DPM
+
 Vous sauvegardez une batterie de serveurs SharePoint sur Microsoft Azure à l’aide de System Center Data Protection Manager (DPM) de la même façon que vous sauvegardez d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. DPM vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de temps de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour une conservation à long terme économique.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>Versions SharePoint prises en charge et scénarios de protection associés
+
 Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 
 | Charge de travail | Version | Déploiement de SharePoint | Type de déploiement de DPM | DPM - System Center 2012 R2 | Protection et récupération |
@@ -26,39 +28,49 @@ Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 | SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint déployé comme un serveur physique ou une machine virtuelle Hyper-V/VMware <br> -------------- <br> SQL AlwaysOn |Serveur physique ou machine virtuelle Hyper-V locale |Prend en charge la sauvegarde vers Azure à partir du correctif cumulatif 5 |Options de protection de la récupération de la batterie de serveurs SharePoint : batterie de serveurs de récupération, base de données, fichier ou élément de liste à partir de points de récupération de disque.  Récupération d’une batterie de serveurs et d’une base de données à partir de points de récupération Azure. |
 
 ## <a name="before-you-start"></a>Avant de commencer
+
 Quelques points doivent être confirmés avant de sauvegarder une batterie de serveurs SharePoint sur Azure.
 
 ### <a name="prerequisites"></a>Prérequis
+
 Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites-and-limitations) à l’utilisation de Microsoft Azure Backup pour protéger les charges de travail ont été remplies. Certaines tâches liées aux conditions préalables incluent : créer un coffre de sauvegarde, télécharger les informations d’identification du coffre, installer l’Agent Azure Backup et inscrire le serveur DPM/Azure Backup Server auprès du coffre.
 
 ### <a name="dpm-agent"></a>Agent DPM
+
 L’agent DPM doit être installé sur le serveur qui exécute SharePoint, les serveurs qui exécutent SQL et tous les serveurs qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). DPM n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.
 
 ### <a name="sharepoint-farm"></a>Batterie de serveurs SharePoint
+
 Pour chaque 10 millions d'éléments dans la batterie de serveurs, il doit y avoir au moins 2 Go d'espace sur le volume où figure le dossier DPM. Cet espace est nécessaire pour la génération du catalogue. Pour permettre à DPM de restaurer des éléments spécifiques (collections de sites, sites, listes, bibliothèques de documents, dossiers, documents et éléments de liste), la génération du catalogue crée une liste de toutes les URL contenues dans chaque base de données de contenu. Vous pouvez afficher la liste des URL dans le volet des éléments récupérables de la zone de tâches **Récupération** de la console administrateur DPM.
 
 ### <a name="sql-server"></a>SQL Server
+
 DPM s’exécute comme un compte système local. Pour sauvegarder les bases de données SQL Server, DPM nécessite les droits d’administrateur système sur ce compte pour le serveur qui exécute SQL Server. Définissez NT AUTHORITY\SYSTEM sur *sysadmin* sur le serveur qui exécute SQL Server avant de le sauvegarder.
 
 Si la batterie de serveurs SharePoint contient des bases de données SQL Server configurées avec des alias SQL Server, installez les composants clients SQL Server sur le serveur Web frontal que DPM protégera.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
+
 Bien que les performances dépendent de nombreux facteurs tels que la taille de la batterie de serveurs SharePoint, tenez compte du fait qu’un seul serveur DPM peut protéger une batterie de serveurs SharePoint de 25 To.
 
 ### <a name="dpm-update-rollup-5"></a>Correctif cumulatif DPM 5
+
 Pour commencer la protection d’une batterie de serveurs SharePoint sur Azure, vous devez installer le correctif cumulatif DPM 5 ou version ultérieure. Le correctif cumulatif 5 permet de protéger une batterie de serveurs SharePoint sur Azure si la batterie est configurée à l’aide de SQL AlwaysOn.
 Pour plus d’informations, consultez le billet de blog qui présente le [correctif cumulatif DPM 5](https://blogs.technet.com/b/dpm/archive/2015/02/11/update-rollup-5-for-system-center-2012-r2-data-protection-manager-is-now-available.aspx)
 
 ### <a name="whats-not-supported"></a>Ce qui n'est pas pris en charge
+
 * DPM qui protège une batterie de serveurs SharePoint ne protège pas les index de recherche ni les bases de données de service d’application. Vous devrez configurer la protection de ces bases de données séparément.
 * DPM ne fournit aucune sauvegarde des bases de données SQL Server SharePoint hébergées sur des partages de type SOFS (Scale out file server).
 
 ## <a name="configure-sharepoint-protection"></a>Configuration de la protection SharePoint
+
 Avant d’utiliser DPM pour protéger SharePoint, vous devez configurer le service SharePoint VSS Writer (service WSS Writer) à l’aide de **ConfigureSharePoint.exe**.
 
 Le fichier **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d’installation de DPM]\bin sur le serveur web frontal. Cet outil fournit l'agent de protection avec les informations d'identification pour la batterie de serveurs SharePoint. Vous l'exécutez sur un seul serveur Web frontal (WFE). Si vous avez plusieurs serveurs WFE, n’en sélectionnez qu’un lorsque vous configurez un groupe de protection.
 
 ### <a name="to-configure-the-sharepoint-vss-writer-service"></a>Configuration du service SharePoint VSS Writer
+
 1. Sur le serveur WFE, à l'invite de commandes, accédez à [Emplacement d'installation DPM]\bin\
 2. Entrez ConfigureSharePoint -EnableSharePointProtection
 3. Entrez les informations d'identification de l’administrateur de la batterie de serveurs. Ce compte doit être membre du groupe administrateur local sur le serveur Web frontal (WFE). Si l'administrateur de la batterie de serveurs n'est pas un administrateur local, accordez les autorisations suivantes sur le serveur Web frontal (WFE) :
@@ -71,9 +83,11 @@ Le fichier **ConfigureSharePoint.exe** se trouve dans le dossier [Chemin d’ins
 >
 
 ## <a name="back-up-a-sharepoint-farm-by-using-dpm"></a>Sauvegarde d’une batterie de serveurs SharePoint à l’aide de DPM
+
 Une fois que vous avez configuré DPM et la batterie de serveurs SharePoint comme expliqué ci-dessus, SharePoint peut être protégé par DPM.
 
 ### <a name="to-protect-a-sharepoint-farm"></a>Protection d’une batterie de serveurs SharePoint
+
 1. Dans l’onglet **Protection** de la console administrateur DPM, cliquez sur **Nouveau**.
     ![Onglet Nouvelle protection](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
 2. Dans la page **Sélectionner le type de groupe de protection** de l’Assistant **Créer un groupe de protection**, sélectionnez **Serveurs**, puis cliquez sur **Suivant**.
@@ -142,6 +156,7 @@ Une fois que vous avez configuré DPM et la batterie de serveurs SharePoint comm
     ![Résumé](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-dpm"></a>Restauration d’un élément SharePoint à partir du disque à l'aide de DPM
+
 Dans l'exemple ci-dessous, l’ *élément de récupération SharePoint* a été supprimé accidentellement et doit être récupéré.
 ![DPM SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
@@ -203,6 +218,7 @@ Dans l'exemple ci-dessous, l’ *élément de récupération SharePoint* a été
     >
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>Restauration d’une base de données SharePoint à partir d’Azure à l'aide de DPM
+
 1. Pour récupérer une base de données de contenu SharePoint, parcourez les différents points de récupération (comme indiqué ci-dessus), puis sélectionnez le point de récupération à restaurer.
 
     ![DPM SharePoint Protection8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
@@ -229,6 +245,7 @@ Dans l'exemple ci-dessous, l’ *élément de récupération SharePoint* a été
 5. À ce stade, suivez les étapes de récupération mentionnées précédemment dans cet article pour la récupération d’une base de données de contenu SharePoint à partir du disque.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour en savoir plus sur la protection DPM de SharePoint, consultez la [série de vidéos - Protection DPM de SharePoint](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
 * Consultez les [notes de publication pour System Center 2012 - Data Protection Manager](https://technet.microsoft.com/library/jj860415.aspx)
 * Consultez les [notes de publication pour Data Protection Manager dans System Center 2012 SP1](https://technet.microsoft.com/library/jj860394.aspx)

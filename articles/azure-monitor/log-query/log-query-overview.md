@@ -1,18 +1,18 @@
 ---
 title: Vue d’ensemble des requêtes de journal dans Azure Monitor | Microsoft Docs
 description: Repond aux questions fréquentes liées aux requêtes de journal et vous montre comment commencer à les utiliser.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 89633d77a6270b5c34cd9b4f52bc7286f84b1976
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.date: 06/19/2019
+ms.openlocfilehash: 08af0ff3121d6721c9f5c1457655c345f50f91e0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827306"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900266"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Vue d’ensemble des requêtes de journal dans Azure Monitor
 Les requêtes de journal vous aident à tirer pleinement parti de la valeur des données collectées dans les [journaux Azure Monitor](../platform/data-platform-logs.md). Un puissant langage de requête vous permet de joindre des données provenant de plusieurs tables, d’agréger des jeux de données volumineux et d’effectuer des opérations complexes avec un minimum de code. Vous pouvez répondre à pratiquement n’importe quelle question et effectuer n’importe quelle analyse tant que les données de soutien ont été collectées et que vous comprenez comment construire la bonne requête.

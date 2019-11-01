@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: c7257ec35f9a53f84edebd5e15b7144c49daf682
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 4acfe148e424d41308e310abd2a10e4e21133799
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514958"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900841"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil dans Node.js par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -44,9 +44,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
 
-*  **USA Centre**
-
-*  **EUAP USA Centre**
+  * USA Centre
+  * EUAP USA Centre
+  * Europe Nord
+  * Asie Sud-Est
 
 Pour exécuter l’application côté service dans le cadre de ce guide de démarrage rapide, vous avez besoin de Node.js version 10.x.x ou ultérieure sur votre ordinateur de développement.
 

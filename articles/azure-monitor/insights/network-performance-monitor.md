@@ -1,24 +1,18 @@
 ---
 title: Solution Network Performance Monitor dans Azure | Microsoft Docs
 description: Network Performance Monitor dans Azure vous aide à analyser les performances de vos réseaux, en temps quasi réel, afin de détecter et localiser d’éventuels goulots d’étranglement affectant les performances réseau.
-services: log-analytics
-documentationcenter: ''
-author: vinynigam
-manager: carmonm
-editor: ''
-ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/20/2018
+author: vinynigam
 ms.author: vinigam
-ms.openlocfilehash: 185bdd5f666da04238a575f3b7704baf10f5e281
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.date: 02/20/2018
+ms.openlocfilehash: 943f6cee70367d8a1ff0dc003d06e46b487e3a48
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303480"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898804"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 

@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor pour les fournisseurs de services | Microsoft Docs
 description: Azure Monitor permet aux fournisseurs de services gérés (MSP), aux grandes entreprises, aux éditeurs de logiciels indépendants (ISV) et aux fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client.
-services: log-analytics
-documentationcenter: ''
-author: MeirMen
-manager: jochan
-editor: ''
-ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/06/2019
+author: MeirMen
 ms.author: meirm
-ms.openlocfilehash: 971757a4778dd50be486bead0c50fd6b3a25002e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.date: 08/06/2019
+ms.openlocfilehash: b0f25d01421edd329b03d8f2b7e1aafaa2ba67d5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839277"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932063"
 ---
 # <a name="azure-monitor-for-service-providers"></a>Azure Monitor pour les fournisseurs de services
 Les espaces de travail Log Analytics dans Azure Monitor permettent aux fournisseurs de services managés (MSP), aux grandes entreprises, aux éditeurs de logiciels indépendants (ISV) et aux fournisseurs de service d’hébergement de gérer et de surveiller les serveurs situés dans l’infrastructure locale ou cloud d’un client. 

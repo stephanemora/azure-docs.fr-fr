@@ -1,24 +1,18 @@
 ---
 title: Résoudre les problèmes liés à l’agent Linux pour Azure Log Analytics | Microsoft Docs
 description: Décrit les symptômes, les causes et les solutions aux problèmes courants liés à l’agent Log Analytics pour Linux dans Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 11/13/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 732c93688dbc73cb5a4ce21e4669744be61c5925
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 11/13/2018
+ms.openlocfilehash: 5b828f62d5a8c7c518f3d28e92f52aac3b77f65c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299561"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932807"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 

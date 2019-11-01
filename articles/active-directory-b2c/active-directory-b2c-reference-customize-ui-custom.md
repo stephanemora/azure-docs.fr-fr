@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e4714de9868dbd540e2e662b22a22da6df6514b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509602"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147535"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personnaliser l’interface utilisateur d’un parcours utilisateur avec des stratégies personnalisées
 
@@ -43,7 +43,7 @@ Vous pouvez fournir autant de pages de contenu que vous le souhaitez en créant 
 > [!NOTE]
 > Pour des raisons de sécurité, l’utilisation de JavaScript est actuellement bloquée pour la personnalisation. 
 
-Dans chacun de vos modèles HTML5/CSS, vous fournissez un élément *d’ancrage*, qui correspond à l’élément `<div id=”api”>` requis dans le HTML ou la page de contenu, comme illustré ci-après. Azure AD B2C nécessite que toutes les pages de contenu aient cet élément div spécifique.
+Dans chacun de vos modèles HTML5/CSS, vous fournissez un élément *d’ancrage*, qui correspond à l’élément `<div id="api">` requis dans le HTML ou la page de contenu, comme illustré ci-après. Azure AD B2C nécessite que toutes les pages de contenu aient cet élément div spécifique.
 
 ```
 <!DOCTYPE html>

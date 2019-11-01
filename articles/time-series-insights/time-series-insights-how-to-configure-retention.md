@@ -3,20 +3,19 @@ title: Comment configurer la conservation des données dans votre environnement 
 description: Cet article explique comment configurer la conservation des données dans votre environnement Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bf6788bac7003bec0ccfc171d622cd9b28bf43e0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330886"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990059"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configuration de la conservation des données dans Time Series Insights
 

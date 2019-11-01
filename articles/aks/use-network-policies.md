@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169752"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928497"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
@@ -69,7 +69,11 @@ Pour voir les stratégies réseau en action, nous allons créer, puis développe
 * Autoriser le trafic en fonction des étiquettes de pod.
 * Autoriser le trafic en fonction de l’espace de noms.
 
-Commençons par créer un cluster AKS qui prend en charge les stratégies réseau. La fonctionnalité de stratégie réseau n’est activable qu’une fois le cluster créé. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant.
+Commençons par créer un cluster AKS qui prend en charge les stratégies réseau. 
+
+> [!IMPORTANT]
+>
+> La fonctionnalité de stratégie réseau n’est activable qu’une fois le cluster créé. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant.
 
 Pour utiliser une stratégie réseau Azure, vous devez utiliser le [plug-in Azure CNI][azure-cni] et définir vos propre réseau et sous-réseaux virtuels. Pour de plus amples informations sur la façon de planifier les plages de sous-réseau nécessaires, consultez [Configurer le réseau avancé][use-advanced-networking]. La stratégie réseau Calico peut être utilisée avec ce même plug-in Azure CNI ou avec le plug-in Kubenet CNI.
 

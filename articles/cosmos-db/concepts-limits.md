@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 45cf7b7d9383de467f72769465a3ad382fe9d589
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803396"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064043"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 
@@ -38,7 +38,7 @@ Une fois que vous avez créé un compte Azure Cosmos dans votre abonnement, vous
 
 Un conteneur Cosmos (ou une base de données de débit partagé) doit avoir un débit minimum de 400 unités de requête. À mesure que le conteneur croît, le débit minimal pris en charge dépend également des facteurs suivants :
 
-* Le débit minimal que vous pouvez définir sur un conteneur dépend du débit maximal déjà approvisionné sur le conteneur. Le service prend en charge la réduction du débit d’un conteneur jusqu’à 10 % du maximum provisionné. Par exemple, si votre débit a été porté à 10 000 RU, le plus petit débit provisionné possible serait de 1000 unités de requête.
+* Le débit minimal que vous pouvez définir sur un conteneur dépend du débit maximal déjà approvisionné sur le conteneur. Par exemple, si votre débit a été porté à 10 000 RU, le plus petit débit provisionné possible serait de 1000 unités de requête.
 * Le débit minimal sur une base de données de débit partagé dépend également du nombre total de conteneurs que vous avez créés dans une base de données de débit partagé, mesuré à 100 unités de requête par conteneur. Par exemple, si vous avez créé cinq conteneurs au sein d’une base de données de débit partagé, le débit doit être au moins de 500 unités de requête.
 
 Les débits actuel et minimal d’un conteneur ou d’une base de données peuvent être récupérés à partir du portail Azure ou des SDK. Pour plus d’informations, consultez [Provisionner le débit sur les conteneurs et les bases de données](set-throughput.md). 

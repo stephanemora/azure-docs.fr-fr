@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 7ff164b378ac6981fcb9686d6264b0bcf50cfafb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a01c95cbe9281c915e89572c07fcbc203193b962
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814693"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935494"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON dans Azure Data Factory
 
@@ -181,8 +181,13 @@ L’activité de copie peut détecter et analyser automatiquement les modèles d
     ]
     ```
 
+## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
+
+Découvrez plus de détails sur la [transformation de la source](data-flow-source.md) et la [transformation du récepteur](data-flow-sink.md) dans la section sur le mappage de flux de données.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble des activités de copie](copy-activity-overview.md)
+- [Mappage de flux de données](concepts-data-flow-overview.md)
 - [Activité de recherche](control-flow-lookup-activity.md)
 - [Activité GetMetadata](control-flow-get-metadata-activity.md)

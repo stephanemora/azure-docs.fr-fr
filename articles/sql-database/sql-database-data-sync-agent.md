@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: de7858be4ac4e392b4fb92cacf55882378ba9813
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568982"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177717"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Agent de synchronisation des données pour Azure SQL Data Sync
 
@@ -115,7 +115,7 @@ L’agent client ne fonctionne pas, même après l’annulation de sa désinstal
 - **Résolution**. Vous pouvez essayer les deux solutions suivantes :
 
     -   Utilisez services.msc afin de réentrer les informations d’identification pour l’agent client.
-    -   Désinstallez cet agent client, puis installez-en un nouveau. Téléchargez et installez l’agent client le plus récent à partir du [Centre de téléchargement](https://go.microsoft.com/fwlink/?linkid=221479).
+    -   Désinstallez cet agent client, puis installez-en un nouveau. Téléchargez et installez l’agent client le plus récent à partir du [Centre de téléchargement](https://www.microsoft.com/download/details.aspx?id=27693).
 
 ### <a name="agent-list"></a> Ma base de données n’est pas répertoriée dans la liste des agents.
 

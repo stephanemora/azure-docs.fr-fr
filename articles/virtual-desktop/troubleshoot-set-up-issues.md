@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 811fdd0b177e3a255ca91145e39005de1d2328ad
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e2d2da5e2c8c0236a4f42bc69a521891616df0d4
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676467"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163285"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -310,8 +310,8 @@ The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d2
 **Correctif :** L’utilisateur ayant créé le locataire Windows Virtual Desktop doit se connecter à Windows Virtual Desktop PowerShell et attribuer à l’utilisateur en question une attribution de rôle. Si vous exécutez les paramètres du modèle Azure Resource Manager GitHub, suivez les instructions ci-après en utilisant des commandes PowerShell :
 
 ```PowerShell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
-New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName “RDS Contributor” -SignInName <UPN>
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+New-RdsRoleAssignment -TenantName <Windows Virtual Desktop tenant name> -RoleDefinitionName "RDS Contributor" -SignInName <UPN>
 ```
 
 ### <a name="error-user-requires-azure-multi-factor-authentication-mfa"></a>Error: L’utilisateur nécessite une authentification multifacteur (MFA)

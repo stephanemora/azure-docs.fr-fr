@@ -1,24 +1,18 @@
 ---
 title: Inventaire des solutions de supervision dans Azure | Microsoft Docs
 description: Les solutions de monitoring d’Azure Monitor représentent une collection de règles logiques, de visualisation et d'acquisition de données qui fournissent des métriques reposant sur un domaine problématique en particulier.  Cet article fournit la liste des solutions de supervision de Microsoft et des détails sur leur méthode et leur fréquence de collecte de données.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 9398815ea75c0eacd99a6e40c569254fac671cbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2018
+ms.openlocfilehash: 6012a74c00b64c818434ea1744d86c6cf67dd463
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234032"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931334"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Inventaire et détails sur la collecte de données pour les solutions de supervision dans Azure
 Les [solutions de supervision](solutions.md) tirent parti des services Azure pour offrir des insights supplémentaires sur le fonctionnement d’une application ou d’un service en particulier. En règle générale, les solutions de monitoring collectent des données de journal et fournissent des requêtes et des vues permettant d’analyser ces données. Vous pouvez ajouter des solutions de monitoring à Azure Monitor pour toutes les applications et tous les services que vous utilisez. Ces solutions sont généralement disponibles gratuitement, mais elles collectent des données susceptibles d’occasionner des frais d’utilisation.

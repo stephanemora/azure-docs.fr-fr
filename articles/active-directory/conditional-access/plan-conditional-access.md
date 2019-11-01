@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fca84a71e1ede572e3889f973248db158115bec
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: 894530aa9624af18f2f33a061d5cde683e9f01be
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67655496"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880278"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procédure : Planifier votre déploiement d’accès conditionnel Azure Active Directory
 
@@ -24,7 +24,7 @@ La planification de votre déploiement d’accès conditionnel est essentielle p
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
-L’accès conditionnel est comme une infrastructure qui vous permet de contrôler l’accès aux applications et aux ressources de votre organisation, au lieu d’une fonctionnalité autonome. Par conséquent, certains paramètres d’accès conditionnel nécessitent la configuration de fonctionnalités supplémentaires. Par exemple, vous pouvez configurer une stratégie qui répond à un [niveau de risque de connexion](../identity-protection/howto-sign-in-risk-policy.md#what-is-the-sign-in-risk-policy) spécifique. Toutefois, une stratégie basée sur un niveau de risque de connexion nécessite l’activation d’[Azure Active Directory Identity Protection](../identity-protection/overview.md).
+L’accès conditionnel est comme une infrastructure qui vous permet de contrôler l’accès aux applications et aux ressources de votre organisation, au lieu d’une fonctionnalité autonome. Par conséquent, certains paramètres d’accès conditionnel nécessitent la configuration de fonctionnalités supplémentaires. Par exemple, vous pouvez configurer une stratégie qui répond à un [niveau de risque de connexion](../identity-protection/howto-identity-protection-configure-risk-policies.md) spécifique. Toutefois, une stratégie basée sur un niveau de risque de connexion nécessite l’activation d’[Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 
 Si des fonctionnalités supplémentaires sont nécessaires, vous devez peut-être également obtenir les licences associées. Par exemple, alors que l’accès conditionnel est une fonctionnalité d’Azure AD Premium P1, Identity Protection nécessite une licence Azure AD Premium P2.
 

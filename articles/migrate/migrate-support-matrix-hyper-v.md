@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 004010983b87c333adeb4b20abbe851581917a3a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937431"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802185"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration Hyper-V
 
@@ -28,8 +28,6 @@ Le tableau récapitule les scénarios pris en charge pour les machines virtuelle
 --- | ---
 **Évaluer des machines virtuelles Hyper-V en local** | [Configurez](tutorial-prepare-hyper-v.md) votre première évaluation.<br/><br/> [Exécutez](scale-hyper-v-assessment.md) une évaluation à grande échelle.
 **Migrer des machines virtuelles Hyper-V vers Azure** | [Testez](tutorial-migrate-hyper-v.md) une migration vers Azure.
-
-La migration de serveurs Hyper-V managés avec System Center Virtual Machine Manager (VMM) n’est pas prise en charge par la migration de serveur Azure Migrate.
 
 ## <a name="azure-migrate-projects"></a>Projets Azure Migrate
 

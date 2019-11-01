@@ -4,14 +4,14 @@ description: Ce document décrit les différentes options de migration de vos do
 author: bharathsreenivas
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 0a2423421c6dfda02646546a6e071c8c78396f2c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9111193bb441487b9e3c49bc9ee1a296d49f8a31
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170855"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882385"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Options de migration de vos données locales ou cloud vers Azure Cosmos DB
 
@@ -72,8 +72,4 @@ Pour les API autres que l’API SQL, l’API Mongo et l’API Cassandra, différ
 
 * Pour en savoir plus, essayez les exemples d'applications utilisant la bibliothèque d'Exécuteurs en bloc en [.NET](bulk-executor-dot-net.md) et [Java](bulk-executor-java.md). 
 * La bibliothèque d'Exécuteurs en bloc est intégrée au connecteur Spark Cosmos DB. Pour plus d'informations, consultez [Connecteur Spark Azure Cosmos DB](spark-connector.md).  
-* Pour contacter l’équipe Azure Cosmos DB en ouvrant un ticket de support sous le type de problème « Conseils généraux », sous-type de problème « Grandes (To+) migrations » pour obtenir une aide supplémentaire lors des migrations à grande échelle. 
-* Utilisez le [programme Cosmos DB Bootstrap](https://azurecosmosdb.github.io/CosmosBootstrap/) pour accélérer la création ou la migration de vos applications sur Azure Cosmos DB.
-
-> [!div class="nextstepaction"]
-> [Programme Cosmos DB Bootstrap](https://azurecosmosdb.github.io/CosmosBootstrap/)
+* Pour contacter l’équipe Azure Cosmos DB en ouvrant un ticket de support sous le type de problème « Conseils généraux », sous-type de problème « Grandes (To+) migrations » pour obtenir une aide supplémentaire lors des migrations à grande échelle.

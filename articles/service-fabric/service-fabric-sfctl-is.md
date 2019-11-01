@@ -3,22 +3,23 @@ title: 'CLI Azure Service Fabric : sfctl is | Microsoft Docs'
 description: Décrit les commandes sfctl is de l’interface de ligne de commande (CLI) Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 998a94350250402d4face64f64e12f32cf5b2a36
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 9a09d8c36fd282450767880a9ad144e1192dcd2e
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036484"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901584"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Interroge et envoie des commandes vers le service d’infrastructure.
@@ -41,7 +42,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 | --- | --- |
 | --command [Requis] | Texte de la commande à appeler. Le contenu de la commande dépend de l’infrastructure. |
 | --service-id | Identité du service d’infrastructure. <br><br> Il s’agit du nom complet du service d’infrastructure sans le schéma d’URI « fabric »\:. Ce paramètre est obligatoire uniquement pour les clusters pour lesquels plusieurs instances du service d’infrastructure s’exécutent. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -64,7 +65,7 @@ Pour les clusters pour lesquels une ou plusieurs instances du service d’infras
 | --- | --- |
 | --command [Requis] | Texte de la commande à appeler. Le contenu de la commande dépend de l’infrastructure. |
 | --service-id | Identité du service d’infrastructure. <br><br> Il s’agit du nom complet du service d’infrastructure sans le schéma d’URI « fabric »\:. Ce paramètre est obligatoire uniquement pour les clusters pour lesquels plusieurs instances du service d’infrastructure s’exécutent. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 

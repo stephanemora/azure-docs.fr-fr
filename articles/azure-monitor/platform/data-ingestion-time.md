@@ -1,23 +1,18 @@
 ---
 title: Durée d’ingestion de données de journal dans Azure Monitor | Microsoft Docs
 description: Explique les différents facteurs qui affectent la latence lors de la collecte de données de journal dans Azure Monitor.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: tysonn
-ms.service: log-analytics
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 5947c4c28736f8488ea0e48941214df42c6af72a
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 07/18/2019
+ms.openlocfilehash: 8b40d89920208eaf15e01b3519b667a77baf8671
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639499"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932582"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Durée d’ingestion de données de journal dans Azure Monitor
 Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données de journal soient disponibles une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.

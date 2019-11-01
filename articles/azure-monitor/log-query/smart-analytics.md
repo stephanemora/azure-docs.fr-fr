@@ -1,24 +1,18 @@
 ---
 title: Exemples d’analytique intelligente Log Analytics | Microsoft Docs
 description: Exemples qui utilisent des fonctions d’analytique intelligente dans Log Analytics pour effectuer une analyse de l’activité des utilisateurs.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/15/2019
 ms.author: bwren
-ms.openlocfilehash: f6617a504bbda666ce9ece018ccb0cf02635c360
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/15/2019
+ms.openlocfilehash: 08a93c10a4214696d67f95cb862654d095899630
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61425838"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932957"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Exemples d’analytique intelligente Log Analytics
 Cet article contient des exemples qui utilisent des fonctions d’analytique intelligente dans Log Analytics pour effectuer une analyse de l’activité des utilisateurs. Vous pouvez utiliser ces exemples pour analyser vos propres applications supervisées par Application Insights, ou utiliser les concepts de ces requêtes pour effectuer une analyse similaire sur d’autres données. 

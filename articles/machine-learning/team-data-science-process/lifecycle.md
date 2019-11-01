@@ -1,6 +1,6 @@
 ---
 title: Cycle de vie du processus TDSP
-description: Étapes nécessaires pour exécuter vos projets de science des données
+description: Le processus TDSP fournit un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 40d1af6e6258b5026853532f7963a76d4fc389db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00efe89314d4a1a5c3302e820b8609adf194aa59
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837882"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053239"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Cycle de vie du processus TDSP
 

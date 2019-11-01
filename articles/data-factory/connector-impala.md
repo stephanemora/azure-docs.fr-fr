@@ -1,5 +1,5 @@
 ---
-title: Copier des données d’Impala à l’aide d’Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données d’Impala à l’aide d’Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie pour copier des données d’Impala vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline de fabrique de données.
 services: data-factory
 documentationcenter: ''
@@ -12,19 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 4bebdbda8fbba10b3e8817d3958e75d39522538a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 54f46c09cfab64d53e8f5f503ca46004289f18c2
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092037"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935564"
 ---
-# <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Copier des données d’Impala à l’aide d’Azure Data Factory (préversion)
+# <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copier des données d’Impala à l’aide d’Azure Data Factory
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’Impala. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!IMPORTANT]
-> Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 

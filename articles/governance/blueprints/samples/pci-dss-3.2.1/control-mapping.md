@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 8c8dbc8534720189c40624cfda97ce09a612e453
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c1e04cb2bfd5ae532b556ed53d585aae90c312e6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297206"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163051"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -134,7 +134,7 @@ Vous venez de passer en revue le mappage des contrôles du blueprint PCI-DSS v3.
 > [Blueprint PCI-DSS v3.2.1 - Vue d'ensemble](./index.md)
 > [Blueprint PCI-DSS v3.2.1 - Déployer des étapes](./deploy.md)
 
-## <a name="addition-articles-about-blueprints-and-how-to-use-them"></a>Autres articles sur les blueprints et la manière de les utiliser :
+Autres articles sur les blueprints et la manière de les utiliser :
 
 - En savoir plus sur le [cycle de vie des blueprints](../../concepts/lifecycle.md)
 - Comprendre comment utiliser les [paramètres statiques et dynamiques](../../concepts/parameters.md).

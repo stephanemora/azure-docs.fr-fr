@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236364"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965667"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -48,7 +48,7 @@ Dans Azure Resource Manager, une [adresse IP publique](virtual-network-public-ip
 
 ### <a name="ip-address-version"></a>Version de l’adresse IP
 
-Les adresses IP publiques sont créées avec une adresse IPv4 et IPv6. Les adresses IPv6 publiques ne peuvent être assignées qu’à des équilibreurs de charge accessibles sur Internet.
+Les adresses IP publiques sont créées avec une adresse IPv4 et IPv6. 
 
 ### <a name="sku"></a>SKU
 
@@ -148,10 +148,6 @@ Dans le modèle de déploiement Azure Resource Manager, une adresse IP privée e
 * Interfaces réseau de machine virtuelle
 * Équilibreurs de charge interne (ILB)
 * Passerelles d’application
-
-### <a name="ip-address-version"></a>Version de l’adresse IP
-
-Les adresses IP privées sont créées avec une adresse IPv4 et IPv6. Les adresses IPv6 privées ne peuvent être assignées qu’à l’aide d’une méthode d’allocation dynamique. La communication entre adresses IPv6 privées sur un réseau virtuel est impossible. La communication au sein d’une adresse IPv6 privée est possible depuis Internet, via un équilibreur de charge accessible sur Internet. Pour en savoir plus, consultez [Créer un équilibreur de charge Internet avec IPv6](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cf384f29bcc82c80c94e1408f535c592b8b728cb
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 89fa06dda418f328b3bc07aada49aa347e35220a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285736"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182210"
 ---
 ## <a name="rootcert"></a>Créer un certificat racine auto-signé
 
@@ -58,7 +58,7 @@ Si vous créez des certificats clients supplémentaires ou que vous n’utilisez
 1. Identifiez le certificat racine auto-signé installé sur l’ordinateur. Cette applet de commande renvoie la liste des certificats installés sur votre ordinateur.
 
    ```powershell
-   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   Get-ChildItem -Path "Cert:\CurrentUser\My"
    ```
 2. Recherchez le nom du sujet dans la liste renvoyée, puis copiez l’empreinte qui se trouve à côté dans un fichier texte. Dans l’exemple suivant, il y a deux certificats. Le nom CN est le nom du certificat racine auto-signé à partir duquel vous souhaitez générer un certificat enfant. Dans ce cas, « P2SRootCert ».
 

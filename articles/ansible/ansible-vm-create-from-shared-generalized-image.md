@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 10/14/2019
-ms.openlocfilehash: 814be49c972e444f2a4e4a703501e88fa1272b89
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4b4190ddabe90af135ea64a8ba3d5905f23c457e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72391897"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808943"
 ---
 # <a name="tutorial-create-a-vm-or-virtual-machine-scale-set-from-the-azure-shared-image-gallery-using-ansible"></a>Didacticiel : Créer une machine virtuelle ou un groupe de machines virtuelles identiques à partir d’Azure Shared Image Gallery en utilisant Ansible
 
@@ -110,7 +110,7 @@ Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 ansible-playbook 00-prerequisites.yml
 ```
 
-Dans le [portail Azure](https://portol.azure.com), vérifiez le groupe de ressources que vous avez spécifié dans `vars.yml` pour voir la machine virtuelle et les différentes ressources que vous avez créées.
+Dans le [portail Azure](https://portal.azure.com), vérifiez le groupe de ressources que vous avez spécifié dans `vars.yml` pour voir la machine virtuelle et les différentes ressources que vous avez créées.
 
 ## <a name="generalize-the-vm-and-create-a-custom-image"></a>Généraliser la machine virtuelle et créer une image personnalisée
 

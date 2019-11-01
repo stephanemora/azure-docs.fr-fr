@@ -1,25 +1,19 @@
 ---
 title: Répondre aux événements avec les alertes Azure Log Analytics | Microsoft Docs
 description: Ce tutoriel vous aide à comprendre les alertes avec Log Analytics qui vous permettent d’identifier les informations importantes dans votre espace de travail, vous avertissent à un stade précoce de l’existence de problèmes ou appellent des actions pour tenter de les corriger.
-services: log-analytics
-documentationcenter: log-analytics
-author: MGoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 10/05/2018
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: 6521688e595230951e0753fd67c2bf9b02e0a6ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a30b7569c14aaccb40b357cc5acb82b0e32d2895
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102144"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894657"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Répondre aux événements avec les alertes Azure Monitor
 Les alertes dans Azure Monitor identifient des informations importantes dans votre référentiel Log Analytics. Elles sont créées par des règles d’alerte qui exécutent automatiquement des recherches dans les journaux à intervalles réguliers. Si les résultats de la recherche dans les journaux correspondent à des critères particuliers, un enregistrement d’alerte est créé et peut être configuré pour exécuter une réponse automatisée.  Ce didacticiel est la suite du didacticiel [Créer et partager des tableaux de bord de données Log Analytics](tutorial-logs-dashboards.md).   
@@ -50,7 +44,7 @@ Dans l’exemple suivant, vous créez une règle d’alerte de mesure de métriq
    c. Dans la section Déclencher l’alerte selon, sélectionnez **Violations consécutives** et dans la liste déroulante, sélectionnez **Supérieur à** et entrez la valeur 3.  
    d. Dans la section Évaluation basée sur, modifiez la valeur **période** à **30** minutes. La règle s’exécute toutes les cinq minutes et renvoie les enregistrements qui ont été créés dans les trente minutes précédant l’heure actuelle.  Paramétrer la période de temps sur une durée plus longue compense la latence potentielle des données et garantit que la requête retourne des données pour éviter un faux positif où l’alerte ne se déclenche jamais.  
 6. Cliquez sur **Terminé** pour terminer la règle d’alerte.<br><br> ![Configurer un signal d’alerte](./media/tutorial-response/alert-signal-logic-02.png)<br> 
-7. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte**, tel que **Pourcentage d’UC supérieur à 90 %**.  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.<br><br> ![Configuration des détails de l’alerte](./media/tutorial-response/alert-signal-logic-04.png)<br>
+7. Passons maintenant à la deuxième étape. Donnez un nom à votre alerte dans le champ **Nom de la règle d’alerte**, tel que **Pourcentage d’UC supérieur à 90 %** .  Spécifiez une **Description** détaillant les spécificités de l’alerte, puis sélectionnez **Critique (gravité 0)** pour la valeur de **Gravité** parmi les options fournies.<br><br> ![Configuration des détails de l’alerte](./media/tutorial-response/alert-signal-logic-04.png)<br>
 8. Pour activer immédiatement la règle d’alerte lors de la création, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.
 9. Pour la troisième et dernière étape, vous spécifiez un **Groupe d’actions**, ce qui garantit que les mêmes actions soient entreprises chaque fois qu’une alerte est déclenchée et peuvent être utilisées pour chaque règle que vous définissez.  Configurez un nouveau groupe d’actions avec les informations suivantes :  
    a. Sélectionnez **Nouveau groupe d’actions** et le volet **Ajouter un groupe action** s’affiche.  

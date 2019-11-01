@@ -1,23 +1,25 @@
 ---
-title: Créer une requête simple
-titleSuffix: Azure Cognitive Search
-description: Apprenez, à l’aide d’exemples, à exécuter des requêtes basées sur la syntaxe simple pour effectuer des recherches en texte intégral, filtrées, géographiques ou à facettes sur un index de Recherche cognitive Azure.
-manager: nitinme
+title: Créer une requête simple - Recherche Azure
+description: Apprenez, à l’aide d’exemples, à exécuter des requêtes basées sur la syntaxe simple pour effectuer des recherches en texte intégral, filtrées, géographiques ou à facettes sur un index de Recherche Azure.
 author: HeidiSteen
-ms.author: heidist
-ms.service: cognitive-search
+manager: nitinme
+tags: Simple query analyzer syntax
+services: search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 525c20f5b6e24811ab092a63fa84fe6ebbd7b618
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 09/20/2019
+ms.author: heidist
+ms.custom: seodec2018
+ms.openlocfilehash: 6f3f0e0b8b5098784359e7703c4a165654ff9894
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793206"
+ms.locfileid: "72808190"
 ---
-# <a name="create-a-simple-query-in-azure-cognitive-search"></a>Créer une requête simple dans la Recherche cognitive Azure
+# <a name="create-a-simple-query-in-azure-search"></a>Créer une requête simple dans Recherche Azure
 
-Dans la Recherche cognitive Azure, la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral sur un index. Cet analyseur rapide gère des scénarios courants, notamment la recherche en texte intégral, filtrée et à facettes ainsi que la recherche géographique. 
+Dans Recherche Azure, la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) appelle l’analyseur de requêtes par défaut pour l’exécution de requêtes de recherche en texte intégral sur un index. Cet analyseur rapide gère des scénarios courants, notamment la recherche en texte intégral, filtrée et à facettes ainsi que la recherche géographique. 
 
 Dans cet article, nous utilisons des exemples pour illustrer la syntaxe simple.
 
@@ -25,9 +27,9 @@ L’autre syntaxe de requête disponible est la syntaxe [Lucene complète](https
 
 ## <a name="formulate-requests-in-postman"></a>Formuler des requêtes dans Postman
 
-Les exemples suivants utilisent un index de recherche NYC Jobs composé de postes à pourvoir sur la base d’un jeu de données fourni par l’initiative [City of New York OpenData](https://nycopendata.socrata.com/). Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index se trouve sur un service de bac à sable fourni par Microsoft, ce qui signifie que vous n’avez pas besoin d’abonnement Azure ni de la Recherche cognitive Azure pour essayer ces requêtes.
+Les exemples suivants utilisent un index de recherche NYC Jobs composé de postes à pourvoir sur la base d’un jeu de données fourni par l’initiative [City of New York OpenData](https://nycopendata.socrata.com/). Ces données ne doivent pas être considérées comme étant à jour ou complètes. L’index se trouve sur un service de bac à sable fourni par Microsoft, ce qui signifie que vous n’avez pas besoin d’abonnement Azure ni de Recherche Azure pour essayer ces requêtes.
 
-En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émettre la requête HTTP sur GET. Pour plus d’informations, consultez [Démarrage rapide : Explorer les API REST de Recherche cognitive Azure avec Postman](search-get-started-postman.md).
+En revanche, vous avez besoin de Postman ou d’un outil équivalent pour émettre la requête HTTP sur GET. Pour plus d’informations, consultez [Démarrage rapide : Créer un index Recherche Azure dans Postman à l’aide des API REST](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Définir l’en-tête de requête
 
@@ -41,13 +43,13 @@ Une fois que vous avez spécifié l’en-tête de requête, vous pouvez le réut
 
 ### <a name="set-the-request-url"></a>Définir l’URL de requête
 
-La requête est une commande GET accompagnée d’une URL contenant le point de terminaison de Recherche cognitive Azure et la chaîne de recherche.
+La requête est une commande GET accompagnée d’une URL contenant le point de terminaison Recherche Azure et la chaîne de recherche.
 
   ![En-tête de demande Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 L’URL est composée des éléments suivants :
 
-+ **`https://azs-playground.search.windows.net/`** est un service de recherche de bac à sable tenu à jour par l’équipe de développement de Recherche cognitive Azure. 
++ **`https://azs-playground.search.windows.net/`** est un service de recherche de bac à sable tenu à jour par l’équipe de développement Recherche Azure. 
 + **`indexes/nycjobs/`** est l’index NYC Jobs dans la collection d’index de ce service. Le nom du service et l’index sont tous deux obligatoires dans la requête.
 + **`docs`** est la collection de documents contenant tout le contenu disponible pour la recherche. La clé d’API de requête fournie dans l’en-tête de requête fonctionne uniquement sur les opérations de lecture ciblant la collection de documents.
 + **`api-version=2019-05-06`** définit la version de l’API, qui est un paramètre requis dans chaque requête.
@@ -153,7 +155,7 @@ Pour plus d’informations sur la fonction, consultez la [description de la fonc
 
 Le filtrage de plage est pris en charge par le biais des expressions **`$filter`** pour n’importe quel type de données. Les exemples ci-après effectuent des recherches sur des champs numériques et de chaîne. 
 
-Les types de données sont importants dans les filtres de plage et fonctionnent mieux lorsque les données numériques se trouvent dans des champs numériques, et les données de chaîne dans des champs de chaîne. L’utilisation de données numériques dans les champs de chaîne n’est pas adaptée aux plages, car les chaînes numériques ne sont pas comparables dans la Recherche cognitive Azure. 
+Les types de données sont importants dans les filtres de plage et fonctionnent mieux lorsque les données numériques se trouvent dans des champs numériques, et les données de chaîne dans des champs de chaîne. L’utilisation de données numériques dans les champs de chaîne n’est pas adaptée aux plages, car les chaînes numériques ne sont pas comparables dans le service Recherche Azure. 
 
 Les exemples ci-après sont fournis au format POST à des fins de lisibilité (plage numérique, suivie d’une plage de texte) :
 
@@ -288,13 +290,13 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 ## <a name="next-steps"></a>Étapes suivantes
 Essayez de spécifier des requêtes dans votre code. Les liens suivants expliquent comment configurer des requêtes de recherche pour .NET et l’API REST à l’aide de la syntaxe simple par défaut.
 
-* [Interroger un index à l’aide du SDK .NET](search-query-dotnet.md)
-* [Interroger un index à l’aide de l’API REST](search-create-index-rest-api.md)
+* [Interroger un index Azure Search à l’aide du Kit de développement logiciel (SDK) .NET](search-query-dotnet.md)
+* [Interroger votre index Azure Search à l’aide de l’API REST](search-create-index-rest-api.md)
 
 Vous trouverez des informations de référence supplémentaires sur la syntaxe et sur l’architecture de requête, ainsi que des exemples, en cliquant sur les liens suivants :
 
 + [Exemples de syntaxe de requête Lucene pour créer des requêtes avancées](search-query-lucene-examples.md)
-+ [Fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md)
++ [Fonctionnement de la recherche en texte intégral dans la Recherche Azure](search-lucene-query-architecture.md)
 + [Syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
 + [Requête complète Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 + [Syntaxe de filtre (Filter) et de tri (Orderby)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)

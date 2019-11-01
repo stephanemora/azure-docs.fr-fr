@@ -1,24 +1,19 @@
 ---
 title: Résoudre les problèmes de vos tests de disponibilité Azure Application Insights | Microsoft Docs
 description: Résolvez des problèmes relatifs aux tests web dans Azure Application Insights. Recevez des alertes si un site web devient indisponible ou répond lentement.
-services: application-insights
-documentationcenter: ''
-author: lgayhardt
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
-ms.author: lagayhar
-ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 71c16fa005710bb5816ec69716573b79fcae620a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695036"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899544"
 ---
 # <a name="troubleshooting"></a>Résolution de problèmes
 
@@ -48,7 +43,7 @@ Cet article va vous aider à résoudre les problèmes courants qui peuvent se pr
 
 |Symptôme/message d’erreur| Causes possibles| Résolutions possibles |
 |----|---------|-----|
-|Le serveur a validé une violation de protocole. Section=ResponseHeader Detail=CR doit être suivi par LF | Cela se produit lorsque des en-têtes mal formés sont détectés. Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui viole la spécification HTTP. Application Insights applique cette spécification HTTP et fait échouer les réponses contenant des en-têtes mal formés.| a. Contactez le fournisseur CDN/de l’hôte du site web pour corriger les serveurs défectueux. <br> b. Si les demandes ayant échoué sont des ressources (par exemple, des fichiers de style, des images, des scripts), vous pouvez envisager de désactiver l’analyse des demandes dépendantes. Gardez à l’esprit que si vous procédez ainsi, vous perdrez la possibilité de superviser la disponibilité de ces fichiers.
+|Le serveur a valider une violation de protocole. Section=ResponseHeader Detail=CR doit être suivi par LF | Cela se produit lorsque des en-têtes mal formés sont détectés. Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui viole la spécification HTTP. Application Insights applique cette spécification HTTP et fait échouer les réponses contenant des en-têtes mal formés.| a. Contactez le fournisseur CDN/de l’hôte du site web pour corriger les serveurs défectueux. <br> b. Si les demandes ayant échoué sont des ressources (par exemple, des fichiers de style, des images, des scripts), vous pouvez envisager de désactiver l’analyse des demandes dépendantes. Gardez à l’esprit que si vous procédez ainsi, vous perdrez la possibilité de superviser la disponibilité de ces fichiers.
 
 > [!NOTE]
 > L’URL peut ne pas être en échec sur les navigateurs qui présentent une validation approximative des en-têtes HTTP. Consultez ce billet de blog pour obtenir une explication détaillée de ce problème : http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 222c893f06d9adf77f8a8124af18bc03c5d20bdf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478021"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821430"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
 
@@ -80,4 +80,4 @@ Le service Import/Export n’a pas de contrat de niveau de service mais, il s’
 
 * [Configurer l’outil WAImportExport](storage-import-export-tool-how-to.md)
 * [Transférer des données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
-* [Exemple d’API REST Azure Import Export](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
+* [Exemple d’API REST Azure Import Export](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

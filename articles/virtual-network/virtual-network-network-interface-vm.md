@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: kumud
-ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24f4b7435c2736527d033aa5ca7a65ad35a3a705
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701370"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73022182"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Ajouter ou supprimer des interfaces réseau pour des machines virtuelles
 
@@ -122,7 +122,6 @@ Vous pouvez afficher les interfaces réseau actuellement attachées à une machi
 - Si des interfaces réseau attachées à la même machine virtuelle peuvent être connectées à différents sous-réseaux d’un réseau virtuel, les interfaces réseau doivent toutes être connectées au même réseau virtuel.
 - Vous pouvez ajouter n’importe quelle adresse IP pour n’importe quelle configuration IP d’une interface réseau principale ou secondaire à un pool principal Azure Load Balancer. Auparavant, seule l’adresse IP principale de l’interface réseau principale pouvait être ajoutée à un pool principal. Pour en savoir plus sur les configurations et les adresses IP, consultez [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md).
 - La suppression d’une machine virtuelle n’a pas pour effet de supprimer les interfaces réseau qui y sont attachées. Lorsque vous supprimez une machine virtuelle, les interfaces réseau sont détachées de la machine virtuelle. Vous pouvez attacher les interfaces réseau à différentes machines virtuelles, ou les supprimer de celles-ci.
-- Si une adresse IPv6 privée est affectée à une interface réseau, vous devez ajouter (attacher) cette interface à une machine virtuelle lors de la création de la machine virtuelle. Vous ne pouvez pas ajouter une interface réseau à laquelle une adresse IPv6 est affectée à une machine virtuelle après la création de celle-ci. Si vous ajoutez une interface réseau à laquelle une adresse IPv6 privée est affectée lorsque vous créez une machine virtuelle, vous pouvez seulement ajouter cette interface réseau à la machine virtuelle, quel que soit le nombre d’interfaces réseau pris en charge par la taille de machine virtuelle. Consultez la section sur la [gestion des adresses IP des interfaces réseau](virtual-network-network-interface-addresses.md) pour en savoir plus sur l’attribution d’adresses IP à des interfaces réseau.
 - Comme pour IPv6, vous ne pouvez pas attacher une interface réseau pour laquelle la mise en réseau accélérée est activée à une machine virtuelle après la création de celle-ci. En outre, pour tirer parti de la mise en réseau accélérée, vous devez également effectuer certaines actions dans le système d’exploitation de la machine virtuelle. Pour plus d’informations sur la mise en réseau accélérée et d’autres contraintes liées à son utilisation, pour les machines virtuelles [Windows](create-vm-accelerated-networking-powershell.md) ou [Linux](create-vm-accelerated-networking-cli.md).
 
 ## <a name="next-steps"></a>Étapes suivantes

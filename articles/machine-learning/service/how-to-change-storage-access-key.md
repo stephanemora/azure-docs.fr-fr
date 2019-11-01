@@ -1,7 +1,7 @@
 ---
 title: Modifier les clés d’accès au compte de stockage
 titleSuffix: Azure Machine Learning
-description: Découvrez comment modifier les clés d’accès du compte Stockage Azure utilisé par votre espace de travail. Azure Machine Learning utilise un compte Stockage Azure pour stocker les données et les modèles. Quand vous regénérez la clé d’accès pour le compte de stockage, vous devez mettre à jour Azure Machine Learning de façon à utiliser les nouvelles clés.
+description: Découvrez comment modifier les clés d’accès du compte Stockage Azure utilisé par votre espace de travail. Azure Machine Learning utilise un compte Stockage Azure pour stocker les données et les modèles.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 77cafceee35f00a81b2e07b59f0f4a13146fd906
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034967"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063315"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Régénérer des clés d’accès de compte de stockage
 

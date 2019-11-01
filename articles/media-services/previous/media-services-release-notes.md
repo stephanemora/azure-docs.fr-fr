@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 7684acbd26848bbccb09416df44a9669965dcfe9
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f76a2eb098e2d96f617d19de089e56c7e8a497fd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720143"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162767"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -50,7 +50,7 @@ Pour obtenir des informations sur l’historique des versions de l’API REST, c
 
 ### <a name="deprecation-of-media-processors"></a>Dépréciation des processeurs multimédias
 
-Nous annonçons la dépréciation d’*Azure Media Indexer* et d’*Azure Media Indexer 2 Preview*. Le processeur multimédia [Azure Media Indexer](media-services-index-content.md) sera mis hors service le 1er octobre 2020. Les processeurs multimédias [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) seront mis hors service le 1er janvier 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ces processeurs multimédias hérités.
+Nous annonçons la dépréciation d’*Azure Media Indexer* et d’*Azure Media Indexer 2 Preview*. Le processeur multimédia [Azure Media Indexer](media-services-index-content.md) sera mis hors service le 1e octobre 2020. Les processeurs multimédias [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) seront mis hors service le 1e janvier 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ces processeurs multimédias hérités.
 
 Pour plus d’informations, consultez [Effectuer une migration depuis Azure Media Indexer et Azure Media Indexer 2 vers Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
@@ -455,13 +455,13 @@ Les applets de commande PowerShell Media Services suivantes sont désormais incl
     Par exemple : `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 
   
-    Par exemple : `New-AzureMediaServicesAccount -Name “MediaAccountName” -Location “Region” -StorageAccountName “StorageAccountName”`
+    Par exemple : `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
 * New-AzureMediaServicesKey 
   
-    Par exemple : `New-AzureMediaServicesKey -Name “MediaAccountName” -KeyType Secondary -Force`
+    Par exemple : `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
 * Remove-AzureMediaServicesAccount 
   
-    Par exemple : `Remove-AzureMediaServicesAccount -Name “MediaAccountName” -Force`
+    Par exemple : `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
 
 ## <a id="june_changes_13"></a>Version de juin 2013
 ### <a name="june_13_general_changes"></a>Modifications apportées à Media Services

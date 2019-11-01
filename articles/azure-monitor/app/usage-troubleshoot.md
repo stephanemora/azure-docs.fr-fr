@@ -1,24 +1,19 @@
 ---
 title: Résoudre les problèmes des outils d’analytique du comportement des utilisateurs dans Azure Application Insights
 description: 'Guide de résolution des problèmes : analyse de l’utilisation des sites et des applications avec Application Insights.'
-services: application-insights
-documentationcenter: ''
-author: NumberByColors
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.pm_owner: daviste;NumberByColors
-ms.author: daviste
-ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9222f4611f87869c1bacf3084035c0ab9322fa40
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371850"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899346"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Résoudre les problèmes des outils d’analytique du comportement des utilisateurs dans Application Insights
 Vous avez des questions concernant les [outils d’analytique du comportement des utilisateurs dans Application Insights](usage-overview.md) : [Utilisateurs, sessions, événements](usage-segmentation.md), [Entonnoirs](usage-funnels.md), [Flux d’utilisateurs](usage-flows.md), [Conservation](usage-retention.md) ou Cohortes ? Voici quelques réponses.

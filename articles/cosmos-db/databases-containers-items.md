@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0823b4b7e19bec9d8efc83dbb3996076425cb4f1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756882"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176936"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 
@@ -122,7 +122,7 @@ Chaque élément Azure Cosmos comprend des propriétés définies par le systèm
 |\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | OUI | Non | Non | Non | Non |
 |\_ts | Générée par le système | Horodatage de la dernière mise à jour de l’élément | OUI | Non | Non | Non | Non |
 |\_self | Générée par le système | URI adressable de l’élément | OUI | Non | Non | Non | Non |
-|id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur dans une partition logique. Si l’utilisateur ne spécifie pas d’ID, le système en génère un automatiquement. | OUI | OUI | OUI | OUI | OUI |
+|id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur dans une partition logique. | OUI | OUI | OUI | OUI | OUI |
 |Propriétés arbitraires définies par l’utilisateur | Défini par l’utilisateur | Propriétés définies par l’utilisateur représentées sous forme d’API native (notamment JSON, BSON et CQL) | OUI | OUI | OUI | OUI | OUI |
 
 > [!NOTE]

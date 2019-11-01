@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: c1f1f1b7448fb87135973a596017441ec02d8023
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338787"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102027"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
 
@@ -108,8 +108,6 @@ Un service d’émission de jeton de sécurité (STS) émet un JWT en tant que j
 * Les revendications, qui dépendent des exigences de l’activité concernant la protection du contenu
 * La vérification symétrique ou asymétrique pour vérifier la signature
 * La prise en charge de substitution de clé (si nécessaire)
-
-Vous pouvez vous servir de cet [outil STS](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) pour tester le service d’émission de jeton de sécurité. Il prend en charge les trois types de clés de vérification : symétrique, asymétrique ou Azure Active Directory (Azure AD) avec substitution de clé. 
 
 ## <a name="streaming-protocols-and-encryption-types"></a>Types de protocoles de diffusion en continu et de chiffrement
 

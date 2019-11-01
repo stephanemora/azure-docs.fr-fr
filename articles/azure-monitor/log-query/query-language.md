@@ -1,24 +1,18 @@
 ---
 title: Requêtes de journal Azure Monitor | Microsoft Docs
 description: Références à des ressources permettant d’apprendre à écrire des requêtes de journal dans Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 01/11/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/11/2019
+ms.openlocfilehash: 7c6530416f0eb6b822b6f5f3eb53f59aeae05d53
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65560848"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894347"
 ---
 # <a name="azure-monitor-log-queries"></a>Requêtes de journal Azure Monitor
 Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les requêtes de journal Azure Monitor utilisent une version du même langage de requête Kusto. La [documentation du langage de requête Kusto](/azure/kusto/query), qui rassemble toutes les informations sur ce langage, doit constituer votre principale référence lorsque vous écrivez des requêtes de journal Azure Monitor. Cette page comporte des liens vers d’autres ressources permettant d’apprendre à écrire des requêtes et de découvrir les différences avec l’implémentation Azure Monitor du langage.

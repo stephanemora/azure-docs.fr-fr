@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938719"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163258"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Créer un client d’auto-test pour prévalider une image de machine virtuelle Azure
 
@@ -46,8 +46,8 @@ L’API d’auto-test contient un point de terminaison unique qui prend en charg
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
-Request Header:  Content-Type: “application/json”
-Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
+Request Header:  Content-Type: "application/json"
+Authorization:   "Bearer xxxx-xxxx-xxxx-xxxxx"
 Request body:    The Request body parameters should use the following JSON format:
                  {
                    "DNSName":"XXXX.westus.cloudapp.azure.com",
@@ -68,7 +68,7 @@ Le tableau suivant décrit les champs de l’API.
 |  DNSName           |  Nom DNS de la machine virtuelle à tester    |
 |  Utilisateur              |  Nom d’utilisateur pour la connexion à la machine virtuelle         |
 |  Mot de passe          |  Mot de passe pour la connexion à la machine virtuelle          |
-|  SE                |  Système d’exploitation de la machine virtuelle : soit `Linux` ou `Windows`          |
+|  OS                |  Système d’exploitation de la machine virtuelle : soit `Linux` ou `Windows`          |
 |  PortNo            |  Numéro du port ouvert pour la connexion à la machine virtuelle. Le numéro de port est généralement `22` pour Linux et `5986` pour Windows.          |
 |  |  |
 
@@ -87,7 +87,7 @@ Pour appeler l’API dans PowerShell, effectuez les étapes suivantes :
 L’exemple de code suivant montre un appel PowerShell à l’API.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -201,7 +201,7 @@ Pour appeler l’API avec cURL, effectuez les étapes suivantes :
 
 ```
 CURL POST -H "Content-Type:application/json"
--H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
+-H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
 https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 ```
@@ -249,7 +249,7 @@ Utilisez les étapes suivantes pour inscrire l’application cliente.
    - **Type d’application** : sélectionnez **Application/API web**
    - **URL de connexion** : entrez « https:\//isvapp.azurewebsites.net/selftest-vm »
 
-4. Sélectionnez **Créer**.
+4. Sélectionnez **Create** (Créer).
 5. Sous **Inscriptions des applications** ou **Application inscrite** , copiez l’**ID de l’application**.
 
    ![Récupérer l’ID de l’application](./media/stclient-app-id.png)

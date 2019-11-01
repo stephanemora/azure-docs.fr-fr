@@ -11,22 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3624f4e859081e53ee27b6f8415eb3f9b5a2a5fa
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: d971ec3c7cd82d6e028d0f96c8f52b897cedc351
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785459"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175291"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Application web qui appelle des API web - Appeler une API web
 
 Maintenant que vous avez un jeton, vous pouvez appeler une API web protégée.
 
-## <a name="aspnet-core"></a>ASP.NET Core
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Voici un code simplifié de l’action de `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Ce code de temps a été ajouté, montrant comment appeler Microsoft Graph comme une API REST. L’URL de l’API Graph est fournie dans le fichier `appsettings.json` et lit une variable nommée `webOptions` :
 
@@ -86,6 +86,49 @@ public async Task<IActionResult> Profile()
 > Vous pouvez utiliser le même principe pour appeler une API web.
 >
 > La plupart des API web fournissent un Kit de développement logiciel (SDK) qui simplifie leur appel. C’est également le cas de Microsoft Graph. Dans l’article suivant, vous découvrirez où rechercher un didacticiel illustrant ces aspects.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```Java
+private String getUserInfoFromGraph(String accessToken) throws Exception {
+    // Microsoft Graph user endpoint
+    URL url = new URL("https://graph.microsoft.com/v1.0/me");
+
+    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+    // Set the appropriate header fields in the request header.
+    conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+    conn.setRequestProperty("Accept", "application/json");
+
+    String response = HttpClientHelper.getResponseStringFromConn(conn);
+
+    int responseCode = conn.getResponseCode();
+    if(responseCode != HttpURLConnection.HTTP_OK) {
+        throw new IOException(response);
+    }
+
+    JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
+    return responseObject.toString();
+}
+
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+@app.route("/graphcall")
+def graphcall():
+    token = _get_token_from_cache(app_config.SCOPE)
+    if not token:
+        return redirect(url_for("login"))
+    graph_data = requests.get(  # Use token to call downstream service
+        app_config.ENDPOINT,
+        headers={'Authorization': 'Bearer ' + token['access_token']},
+        ).json()
+    return render_template('display.html', result=graph_data)
+```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

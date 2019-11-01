@@ -1,23 +1,19 @@
 ---
 title: Diagnostics de transaction Azure Application Insights | Microsoft Docs
 description: Diagnostics de transaction de bout en bout Application Insights
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ed3713fe4a6c9403be13f444d0409af459a1e70
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783625"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899572"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 

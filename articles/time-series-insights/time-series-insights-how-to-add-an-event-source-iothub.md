@@ -3,7 +3,7 @@ title: Guide pratique pour ajouter une source d’événement de hub IoT à Azur
 description: Cet article décrit comment ajouter une source d’événement connectée à un IoT Hub à votre environnement Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: eaac2e3e2fc489b364729711da151c28cde86d6c
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: f9dd79bacf2d21e0c7e7681e5217d5e874b2b30e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274702"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991190"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement IoT Hub à votre environnement Time Series Insights
 

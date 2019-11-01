@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 3551d088c1d02715bf9ace09d7eb0048bc10111e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 542a0780c0525ee7ceddfd36c3a4f7c348d0574f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65473475"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930877"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>Connecter un appareil IoT DevKit à l’accélérateur de solution de supervision à distance
 
@@ -130,4 +130,4 @@ Vous avez appris à connecter un appareil DevKit à votre accélérateur de solu
 
 * [Vue d’ensemble des accélérateurs de solution Azure IoT](https://docs.microsoft.com/azure/iot-accelerators/)
 * [Personnaliser l’interface utilisateur](iot-accelerators-remote-monitoring-customize.md)
-* [Connecter IoT DevKit à votre application Azure IoT Central](../iot-central/howto-connect-devkit.md)
+* [Connecter IoT DevKit à votre application Azure IoT Central](../iot-central/core/howto-connect-devkit.md)

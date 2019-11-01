@@ -1,7 +1,7 @@
 ---
 title: Déployer des modèles avec une image de base Docker personnalisée
 titleSuffix: Azure Machine Learning
-description: Découvrez comment utiliser une image de base Docker personnalisée lors du déploiement de vos modèles Azure Machine Learning. Lors du déploiement d’un modèle formé, une image conteneur de base est déployée pour exécuter votre modèle à des fins d'inférence. Même si Azure Machine Learning fournit une image par défaut, vous pouvez également utiliser votre propre image de base.
+description: Découvrez comment utiliser une image de base Docker personnalisée lors du déploiement de vos modèles Azure Machine Learning. Même si Azure Machine Learning fournit une image par défaut, vous pouvez également utiliser votre propre image de base.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 84567b68c85a48d0fc02f6f6a4986d8092215a92
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 47387108de09c9b24471c4afc06a25fa0cbeca00
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326496"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053402"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
 

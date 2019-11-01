@@ -1,24 +1,18 @@
 ---
 title: Collecter des journaux d’activité personnalisés dans Azure Monitor | Microsoft Docs
 description: Azure Monitor peut collecter des événements dans des fichiers texte sur des ordinateurs Windows et Linux.  Cet article décrit comment définir un nouveau journal personnalisé et les détails des enregistrements qu’il crée dans Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 09/26/2019
+ms.openlocfilehash: 3bd40e9a266305ac94ed53806bf394891e89c125
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177616"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932507"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
 
@@ -30,7 +24,7 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 
 - Le journal doit comporter une seule entrée par ligne ou utiliser un horodatage correspondant à l’un des formats suivants au début de chaque entrée.
 
-    AAAA-MM-JJ HH:MM:SS <br>M/J/AAAA HH:MM:SS AM/PM<br>Mois JJ, AAAA HH:MM:SS<br />aaMMjj HH:mm:ss<br />jjMMaa HH:mm:ss<br />MMM j hh:mm:ss<br />jj/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-jjTHH:mm:ssK
+    AAAA-MM-JJ HH:MM:SS<br>M/J/AAAA HH:MM:SS AM/PM<br>Mois JJ, AAAA HH:MM:SS<br />aaMMjj HH:mm:ss<br />jjMMaa HH:mm:ss<br />MMM j hh:mm:ss<br />jj/MMM/aaaa:HH:mm:ss zzz<br />aaaa-MM-jjTHH:mm:ssK
 
 - Le fichier journal ne doit pas autoriser les journalisations circulaires ni la rotation des journaux, où de nouvelles entrées sont consignées.
 - Le fichier journal doit utiliser l’encodage ASCII ou UTF-8.  Les autres formats, par exemple UTF-16, ne sont pas pris en charge.
@@ -127,7 +121,7 @@ Les enregistrements de journal personnalisé sont caractérisés par le nom du j
 | Propriété | Description |
 |:--- |:--- |
 | TimeGenerated |Date et heure auxquelles l’enregistrement a été collecté par Azure Monitor.  Si le journal utilise un délimiteur basé sur l’heure, il s’agit de l’heure collectée à partir de l’entrée. |
-| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br>  Linux – Tous les agents Linux |
+| SourceSystem |Type d’agent auprès duquel l’enregistrement a été collecté. <br> Ops Manager : Agent Windows. Connexion directe ou System Center Operations Manager <br> Linux – Tous les agents Linux |
 | RawData |Texte complet de l’entrée collectée. Vous souhaiterez probablement [analyser ces données dans des propriétés individuelles](../log-query/parse-text.md). |
 | ManagementGroupName |Nom du groupe d’administration pour les agents System Center Operations Manage  Pour les autres agents, il s’agit d’AOI-\<workspace ID\> |
 

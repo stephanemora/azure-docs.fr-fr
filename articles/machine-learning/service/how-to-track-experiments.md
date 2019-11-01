@@ -3,8 +3,8 @@ title: Journaliser les expériences et métriques Machine Learning
 titleSuffix: Azure Machine Learning
 description: Surveillez vos expériences Azure Machine Learning et les métriques d'exécution pour améliorer le processus de création de modèle. Ajoutez la journalisation à votre script d'entraînement et affichez les résultats enregistrés d’une exécution.  Utilisez run.log, Run.start_logging ou ScriptRunConfig.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002703"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045201"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Surveiller les exécutions et les métriques des expériences Azure Machine Learning
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515711"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164051"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Didacticiel : Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure
 
@@ -54,7 +54,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |Groupe de ressources| Sélectionnez **Créer** et entrez *myResourceGroup*.|
     |Région| Sélectionnez **USA Est**.|
     |Nom|myVirtualNetwork1|
-    ![Configurer les paramètres de réseau virtuel de base] (
+   
 4. Dans la page **Adresses IP**, entrez 10.0.0.0/16 dans le champ **Espace d’adressage**. Cliquez sur le bouton **Ajouter un sous-réseau** situé dessous, puis entrez Subnet1 sous **Nom du sous-réseau** et 10.0.0.0/24 sous **Plage d’adresses de sous-réseau**.
    
 5. Effectuez à nouveau les étapes 1 à 3, avec les modifications suivantes :
@@ -147,7 +147,7 @@ La création des machines virtuelles peut prendre plusieurs minutes. Attendez qu
 6. Dans une étape ultérieure, un test ping sera utilisé pour communiquer avec la machine virtuelle *myVm2* depuis la machine virtuelle *myVm1*. Le test ping utilise le protocole ICMP, qui est interdit par le Pare-feu Windows par défaut. Sur la machine virtuelle *myVm1*, autorisez ICMP à travers le pare-feu Windows afin de pouvoir effectuer un test ping pour cette machine virtuelle à partir de *myVm2* lors d’une étape ultérieure, en utilisant PowerShell :
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
     
     Bien que ce test ping soit utilisé pour établir une communication entre les machines virtuelles, il n’est pas recommandé d’autoriser le protocole IMCP via le pare-feu Windows lors de déploiements de production.

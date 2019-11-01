@@ -1,24 +1,18 @@
 ---
 title: Utilisation de valeurs de date et d'heure dans les requêtes de journal Azure Monitor | Microsoft Docs
 description: Explique comment utiliser des données de date et d'heure dans les requêtes de journal Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 402511ba3c45e8bd12cb7f92ecd54f6084c8ada2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/16/2018
+ms.openlocfilehash: 6ff095d674a11d95ed4fd2d008c3e664dd595fef
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112355"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894214"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>Utilisation de valeurs de date et d'heure dans les requêtes de journal Azure Monitor
 
@@ -153,7 +147,7 @@ Event
 
 ## <a name="related-functions"></a>Fonctions connexes
 
-| Catégorie | Fonction |
+| Category | Fonction |
 |:---|:---|
 | Convertir les types de données | [todatetime](/azure/kusto/query/todatetimefunction)  [totimespan](/azure/kusto/query/totimespanfunction)  |
 | Arrondir la valeur à la taille de compartiment | [bin](/azure/kusto/query/binfunction) |

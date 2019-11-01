@@ -1,5 +1,6 @@
 ---
 title: Guide pratique pour créer une application capable de connecter n’importe quel utilisateur Azure AD
+titleSuffix: Microsoft identity platform
 description: Cet article montre comment créer une application mutualisée qui peut connecter un utilisateur à partir de tout client Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d53ed0c9a8ae63c2cb0ced635c6f0a8e8a3222fd
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 4f7f31e0254ad4963ce6946a108d84c97027f30b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67482740"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803941"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Activation Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 

@@ -3,22 +3,23 @@ title: CLI Azure Service Fabric - conteneur sfctl | Microsoft Docs
 description: Décrit les commandes du conteneur sfctl de l’interface CLI Azure Service Fabric.
 services: service-fabric
 documentationcenter: na
-author: Christina-Kang
+author: jeffj6123
 manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
+ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 12/06/2018
-ms.author: bikang
-ms.openlocfilehash: 0ce6cf7c627657cf757b0c1ef9aa22428c17a7e7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.date: 9/17/2019
+ms.author: jejarry
+ms.openlocfilehash: 13de6ff7b3e5a41eced5ca49a3af38fab60ba0a0
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036480"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901309"
 ---
 # <a name="sfctl-container"></a>sfctl container
 Exécutez des commandes relatives à un conteneur sur un nœud de cluster.
@@ -28,7 +29,7 @@ Exécutez des commandes relatives à un conteneur sur un nœud de cluster.
 |Commande|Description|
 | --- | --- |
 | invoke-api | Appelle l’API de conteneur sur un conteneur déployé sur un nœud Service Fabric pour le package de code donné. |
-| journaux d’activité | Permet d’obtenir les journaux d’activité du conteneur déployé sur un nœud Service Fabric pour le package de code donné. |
+| logs | Permet d’obtenir les journaux d’activité du conteneur déployé sur un nœud Service Fabric. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
 Appelle l’API de conteneur sur un conteneur déployé sur un nœud Service Fabric pour le package de code donné.
@@ -40,13 +41,13 @@ Appelle l’API de conteneur sur un conteneur déployé sur un nœud Service Fab
 | --application-id           [Requis] | Identité de l’application. <br><br> Il s’agit généralement du nom complet de l’application, sans le schéma d’URI « fabric\: ». À compter de la version 6.0, les noms hiérarchiques sont délimités par le caractère « \~ ». Par exemple, si l’application est nommée « fabric\:/myapp/app1 », son identité est « myapp\~app1 » dans les versions 6.0 et ultérieures, et « myapp/app1 » dans les versions précédentes. |
 | --code-package-instance-id [Requis] | ID qui identifie de façon unique une instance de package de code déployée sur un nœud Service Fabric. <br><br> Peut être récupéré par « service code-package-list ». |
 | --code-package-name        [Requis] | Nom de package de code spécifié dans un manifeste de service inscrit dans le cadre d’un type d’application dans un cluster Service Fabric. |
-| --container-api-uri-path   [Requis] | Chemin d’URI de l’API REST du conteneur. Utilisez « {id} » à la place du nom/ID de conteneur. |
+| --container-api-uri-path   [Requis] | Chemin d’URI de l’API REST du conteneur, utilisez '{ID}' à la place du nom/ID de conteneur. |
 | --node-name [Requis] | Nom du nœud. |
 | --service-manifest-name [Requis] | Nom d’un manifeste de service inscrit dans le cadre d’un type d’application dans un cluster Service Fabric. |
 | --container-api-body | Corps de la demande HTTP pour l’API REST de conteneur. |
 | --container-api-content-type | Type de contenu pour l’API REST de conteneur, par défaut 'application/json'. |
 | --container-api-http-verb | Verbe HTTP pour l’API REST de conteneur, par défaut GET. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -59,7 +60,7 @@ Appelle l’API de conteneur sur un conteneur déployé sur un nœud Service Fab
 | --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
 
 ## <a name="sfctl-container-logs"></a>journaux d’activité de conteneur sfctl
-Permet d’obtenir les journaux d’activité du conteneur déployé sur un nœud Service Fabric pour le package de code donné.
+Permet d’obtenir les journaux d’activité du conteneur déployé sur un nœud Service Fabric.
 
 ### <a name="arguments"></a>Arguments
 
@@ -71,7 +72,7 @@ Permet d’obtenir les journaux d’activité du conteneur déployé sur un nœu
 | --node-name [Requis] | Nom du nœud. |
 | --service-manifest-name [Requis] | Nom d’un manifeste de service inscrit dans le cadre d’un type d’application dans un cluster Service Fabric. |
 | --tail | Nombre de lignes à afficher à partir de la fin des journaux d’activité. La valeur par défaut est 100. « all » pour afficher les journaux d’activité complets. |
-| --timeout -t | Délai d’attente du serveur en secondes.  Valeur par défaut \: 60. |
+| --timeout -t | Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 

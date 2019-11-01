@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936844"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177366"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimiser les travaux Apache Spark dans Azure HDInsight
 
@@ -74,7 +74,7 @@ Spark fournit ses propres mécanismes de mise en cache native, que vous pouvez u
     * Ne fonctionne pas avec le partitionnement, mais ceci pourra changer dans les versions ultérieures de Spark
 
 * Mise en cache au niveau du stockage (recommandée)
-    * Peut être implémentée à l’aide de [Alluxio](https://www.alluxio.org/)
+    * Peut être implémentée à l’aide de [Alluxio](https://www.alluxio.io/)
     * Utilise la mise en cache en mémoire et SSD
 
 * HDFS local (recommandé)

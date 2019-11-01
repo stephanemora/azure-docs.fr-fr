@@ -1,24 +1,18 @@
 ---
 title: Différences propres au langage de requête de journal d'Azure Monitor | Microsoft Docs
 description: Informations de référence sur le langage de requête Kusto utilisé par Azure Monitor. Inclut les éléments supplémentaires spécifiques à Azure Monitor et les éléments non pris en charge dans les requêtes de journal Azure Monitor.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/13/2019
 ms.author: bwren
-ms.openlocfilehash: 9892b8884d901033a80fae4168f25da97edb5a68
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.date: 08/13/2019
+ms.openlocfilehash: 16a221c0530d65e11589ac272a8e032de0cd3d2b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990179"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933102"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Différences propres au langage de requête de journal d'Azure Monitor
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14146be73de309a7119f5c7b416c4e02f3bb4285
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383087"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160756"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Mettre à jour vos informations de profil et de compte à partir du portail Mes applications
 
@@ -86,7 +86,7 @@ Si vous souhaitez changer le mot de passe de votre compte professionnel ou scola
 Si vous avez oublié votre mot de passe, que vous n’en avez jamais obtenu du support de votre entreprise ou que votre compte a été verrouillé, vous pouvez réinitialiser votre mot de passe.
 
 >[!Important]
->Votre administrateur doit avoir activé cette fonctionnalité et vous devez vous y être inscrit pour l’utiliser. Pour savoir comment vous inscrire et réinitialiser votre mot de passe, consultez [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md) et [Réinitialiser votre mot de passe professionnel ou scolaire](user-help-reset-password.md).
+>Votre administrateur doit avoir activé cette fonctionnalité et vous devez vous y être inscrit pour l’utiliser. Pour savoir comment vous inscrire et réinitialiser votre mot de passe, consultez [S’inscrire à la réinitialisation de mot de passe en libre-service](active-directory-passwords-reset-register.md) et [Réinitialiser votre mot de passe professionnel ou scolaire](active-directory-passwords-update-your-own-password.md).
 
 ## <a name="change-your-security-verification-information"></a>Modifier vos informations de vérification de sécurité
 

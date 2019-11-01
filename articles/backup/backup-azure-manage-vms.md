@@ -1,5 +1,5 @@
 ---
-title: Gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure
+title: Gérer et surveiller les sauvegardes de machine virtuelle Azure avec le service Sauvegarde Azure
 description: Découvrez comment gérer et superviser les sauvegardes de machine virtuelle Azure à l’aide du service Sauvegarde Azure.
 ms.reviewer: sogup
 author: dcurwin
@@ -8,17 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 3781ac1be547f6733417c4f0cae9f3e8681ea9e8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029259"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969233"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gérer les sauvegardes de machines virtuelles Azure avec le service Sauvegarde Azure
 
 Cet article explique comment gérer des machines virtuelles qui sont sauvegardées à l’aide du [service Sauvegarde Azure](backup-overview.md). De plus, cet article récapitule les informations de sauvegarde que vous pouvez trouver sur le tableau de bord du coffre.
-
 
 Dans le portail Azure, le tableau de bord du coffre Recovery Services permet d’accéder à des informations sur le coffre, notamment :
 
@@ -77,11 +76,12 @@ Pour gérer une stratégie de sauvegarde :
      ![Choisir une stratégie de sauvegarde](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>Exécuter une sauvegarde à la demande
+
 Vous pouvez exécuter une sauvegarde à la demande d’une machine virtuelle une fois que vous avez configuré sa protection. Gardez à l’esprit les détails ci-après :
 
-- Si la sauvegarde initiale est en attente, la sauvegarde à la demande crée une copie complète de la machine virtuelle dans le coffre Recovery Services.
-- Si la sauvegarde initiale est terminée, une sauvegarde à la demande envoie au coffre Recovery Services uniquement les modifications par rapport à l’instantané précédent. Autrement dit, les sauvegardes ultérieures sont toujours incrémentielles.
-- La plage de conservation pour une sauvegarde à la demande correspond à la valeur de conservation que vous spécifiez quand vous déclenchez la sauvegarde.
+* Si la sauvegarde initiale est en attente, la sauvegarde à la demande crée une copie complète de la machine virtuelle dans le coffre Recovery Services.
+* Si la sauvegarde initiale est terminée, une sauvegarde à la demande envoie au coffre Recovery Services uniquement les modifications par rapport à l’instantané précédent. Autrement dit, les sauvegardes ultérieures sont toujours incrémentielles.
+* La plage de conservation pour une sauvegarde à la demande correspond à la valeur de conservation que vous spécifiez quand vous déclenchez la sauvegarde.
 
 Pour déclencher une sauvegarde à la demande :
 
@@ -147,32 +147,32 @@ Pour reprendre la protection d’une machine virtuelle :
 
 Il existe deux façons de supprimer les données de sauvegarde d’une machine virtuelle :
 
-- À partir du tableau de bord d’un élément du coffre, sélectionnez Arrêter la sauvegarde et suivez les instructions pour [Arrêter la protection et supprimer les données de sauvegarde](#stop-protection-and-delete-backup-data).
+* À partir du tableau de bord d’un élément du coffre, sélectionnez Arrêter la sauvegarde et suivez les instructions pour [Arrêter la protection et supprimer les données de sauvegarde](#stop-protection-and-delete-backup-data).
 
   ![Sélectionner Arrêter la sauvegarde](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
-- Dans le tableau de bord d’un élément du coffre, sélectionnez Supprimer les données de sauvegarde. Cette option est disponible si vous aviez choisi [Arrêter la protection et conserver les données de sauvegarde](#stop-protection-and-retain-backup-data) lors de la configuration de l’arrêt de la protection de la machine virtuelle.
+* Dans le tableau de bord d’un élément du coffre, sélectionnez Supprimer les données de sauvegarde. Cette option est disponible si vous aviez choisi [Arrêter la protection et conserver les données de sauvegarde](#stop-protection-and-retain-backup-data) lors de la configuration de l’arrêt de la protection de la machine virtuelle.
 
   ![Sélectionner l’option de suppression de la sauvegarde](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-  - Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Supprimer les données de sauvegarde**.
-  - Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
+  * Sur le [tableau de bord de l’élément de coffre](#view-vms-on-the-dashboard), sélectionnez **Supprimer les données de sauvegarde**.
+  * Tapez le nom de l’élément de sauvegarde pour confirmer la suppression des points de récupération.
 
     ![Supprimer les données de sauvegarde](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-  - Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
+  * Pour supprimer les données de sauvegarde relatives à l’élément, sélectionnez **Supprimer**. Un message de notification vous informe que les données de sauvegarde ont été supprimées.
 
   > [!NOTE]
   > Lorsque vous supprimez les données de sauvegarde, vous supprimez tous les points de récupération associés. Vous ne pouvez pas choisir des points de récupération spécifiques à supprimer.
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Élément de sauvegarde où la source de données primaire n’existe plus
 
-- Si les machines virtuelles Azure configurées pour la sauvegarde Azure sont supprimées ou déplacées sans arrêter la protection, les travaux de sauvegarde planifiés et à la demande (ad hoc) échouent avec l’erreur UserErrorVmNotFoundV2. La prévérification de sauvegarde apparaît comme étant critique uniquement pour les travaux de sauvegarde ad hoc qui ont échoué (les travaux planifiés qui ont échoué n’apparaissent pas). 
-- Ces éléments de sauvegarde restent actifs dans le système qui adhère à la stratégie de sauvegarde et de conservation définie par l’utilisateur. Les données sauvegardées pour ces machines virtuelles Azure sont conservées conformément à la stratégie de conservation. Les points de récupération qui ont expiré (à l’exception du dernier) sont nettoyés en fonction de la plage de conservation définie dans la stratégie de sauvegarde.
-- Il est recommandé aux utilisateurs de supprimer les éléments de sauvegarde dans lesquels la source de données principale n’existe plus afin d’éviter tout surcoût, si l’élément/les données de sauvegarde des ressources supprimées ne sont plus nécessaires, car le dernier point de récupération est conservé indéfiniment et l’utilisateur est facturé conformément aux tarifs de sauvegarde applicables.
-
+* Si les machines virtuelles Azure configurées pour la sauvegarde Azure sont supprimées ou déplacées sans arrêter la protection, les travaux de sauvegarde planifiés et à la demande (ad hoc) échouent avec l’erreur UserErrorVmNotFoundV2. La prévérification de sauvegarde apparaît comme étant critique uniquement pour les travaux de sauvegarde ad hoc qui ont échoué (les travaux planifiés qui ont échoué n’apparaissent pas).
+* Ces éléments de sauvegarde restent actifs dans le système qui adhère à la stratégie de sauvegarde et de conservation définie par l’utilisateur. Les données sauvegardées pour ces machines virtuelles Azure sont conservées conformément à la stratégie de conservation. Les points de récupération qui ont expiré (à l’exception du dernier) sont nettoyés en fonction de la plage de conservation définie dans la stratégie de sauvegarde.
+* Il est recommandé aux utilisateurs de supprimer les éléments de sauvegarde dans lesquels la source de données principale n’existe plus afin d’éviter tout surcoût, si l’élément/les données de sauvegarde des ressources supprimées ne sont plus nécessaires, car le dernier point de récupération est conservé indéfiniment et l’utilisateur est facturé conformément aux tarifs de sauvegarde applicables.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez comment [sauvegarder une machine virtuelle Azure à partir des paramètres de celle-ci](backup-azure-vms-first-look-arm.md).
-- Découvrez comment [restaurer des machines virtuelles](backup-azure-arm-restore-vms.md).
-- Découvrez comment [superviser des sauvegardes de machines virtuelles Azure](backup-azure-monitor-vms.md).
+
+* Découvrez comment [sauvegarder une machine virtuelle Azure à partir des paramètres de celle-ci](backup-azure-vms-first-look-arm.md).
+* Découvrez comment [restaurer des machines virtuelles](backup-azure-arm-restore-vms.md).
+* Découvrez comment [superviser des sauvegardes de machines virtuelles Azure](backup-azure-monitor-vms.md).

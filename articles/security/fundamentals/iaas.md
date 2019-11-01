@@ -4,7 +4,7 @@ description: " La migration des charges de travail vers Azure IaaS nous offre l�
 services: security
 documentationcenter: na
 author: barclayn
-manager: MBaldwin
+manager: rkarlin
 editor: TomSh
 ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/26/2019
+ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: fc1657be4dbff1acee186e3a85d9d1e772055f73
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fc72c59721a6f244806bf229ebded1e66341a04d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262738"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177695"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 Cet article décrit les meilleures pratiques en matière de sécurité pour les machines virtuelles et les systèmes d’exploitation.
@@ -28,13 +28,6 @@ Cet article décrit les meilleures pratiques en matière de sécurité pour les 
 Ces meilleures pratiques font l’objet d’un consensus et sont compatibles avec les capacités et fonctionnalités actuelles de la plateforme Azure. Les opinions et technologies évoluant au fil du temps, cet article sera mis à jour de façon à refléter ces changements.
 
 Dans la plupart des scénarios IaaS (Infrastructure en tant que service), les [machines virtuelles Azure](/azure/virtual-machines/) représentent la principale charge de travail pour les organisations qui utilisent l’informatique cloud. Cela est particulièrement vrai dans les [scénarios hybrides](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) où les organisations souhaitent migrer lentement les charges de travail vers le cloud. Dans ces cas, suivez les [considérations générales de sécurité pour IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx) et appliquez les meilleures pratiques de sécurité à toutes vos machines virtuelles.
-
-## <a name="shared-responsibility"></a>Responsabilité partagée
-Votre responsabilité en matière de sécurité dépend du type de service cloud. Le graphique suivant résume le partage de la responsabilité entre Microsoft et vous :
-
-![Domaines de responsabilité](./media/iaas/sec-cloudstack-new.png)
-
-Les exigences de sécurité dépendent de plusieurs facteurs, notamment du type de charge de travail. Aucune de ces meilleures pratiques ne peut à elle seule sécuriser vos systèmes. Comme toujours en matière de sécurité, vous devez choisir les options appropriées et voir comment les solutions peuvent se compléter mutuellement en remplissant les espaces laissés vides.
 
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Protéger les machines virtuelles à l’aide de l’authentification et du contrôle d’accès
 La première étape dans la protection de vos machines virtuelles consiste à vous assurer que seuls les utilisateurs autorisés peuvent configurer de nouvelles machines virtuelles et y accéder.
@@ -75,7 +68,7 @@ Si votre machine virtuelle exécute des applications critiques qui requièrent u
 Un groupe à haute disponibilité est un regroupement logique que vous pouvez utiliser dans Azure pour vous assurer que les ressources de machine virtuelle que vous y incluez sont isolées les unes des autres lors de leur déploiement dans un centre de données Azure. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. En cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et votre application globale reste disponible pour vos clients. Les groupes à haute disponibilité sont une fonctionnalité essentielle pour créer des solutions cloud fiables.
 
 ## <a name="protect-against-malware"></a>Se protéger des programmes malveillants
-Vous devez installer une solution de protection contre les programmes malveillants afin d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](antimalware.md) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection) ou [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
+Vous devez installer une solution de protection contre les programmes malveillants afin d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](antimalware.md) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/en-us/search?q=Windows+defender+endpoint+protection&rtc=1) ou [System Center Endpoint Protection](https://www.microsoft.com/en-us/search?q=System+Center+endpoint+protection&rtc=1)).
 
 Le logiciel Microsoft Antimalware inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, des exemples de création de rapport et la collecte d’événements d’exclusion. Pour les environnements hébergés séparément de votre environnement de production, vous pouvez utiliser une extension anti-programme malveillant pour protéger vos machines virtuelles et vos services cloud.
 

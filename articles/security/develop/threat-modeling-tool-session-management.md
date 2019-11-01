@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: fd7a12dca92a4b84ecd3a2c9644509a1dc705c35
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 5d9dc1595e3cc812ba060d958b6e981867500ae2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727855"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161513"
 ---
 # <a name="security-frame-session-management"></a>Infrastructure de sécurité : Gestion des sessions
 | Produit/Service | Article |
@@ -436,7 +436,7 @@ void Page_Init (object sender, EventArgs e) {
 ### <a name="example"></a>Exemples
 Définissez également la durée de vie du jeton de revendication SAML émis par ADFS sur 15 minutes en exécutant la commande PowerShell ci-après sur le serveur ADFS :
 ```csharp
-Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProviderName @(“Active Directory”) -TokenLifetime 15 -AlwaysRequireAuthentication $true
+Set-ADFSRelyingPartyTrust -TargetName "<RelyingPartyWebApp>" -ClaimsProviderName @("Active Directory") -TokenLifetime 15 -AlwaysRequireAuthentication $true
 ```
 
 ## <a id="proper-app-logout"></a>Implémenter une déconnexion appropriée de l’application

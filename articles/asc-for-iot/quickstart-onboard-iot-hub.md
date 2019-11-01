@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 67361c402bdbc82d5df01709dc962b59671cb2aa
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551594"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991400"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>Démarrage rapide : Intégrer le service Azure Security Center pour IoT dans IoT Hub
 
@@ -43,14 +43,8 @@ Cet article explique comment activer le service Azure Security Center pour IoT s
 Pour activer la sécurité sur votre hub IoT : 
 
 1. Ouvrez votre **hub IoT** dans le portail Azure. 
-1. Dans le menu **Sécurité**, cliquez sur **Sécuriser votre solution IoT**.
-1. Laissez l’option par défaut **Activer** sélectionnée. 
-1. Sélectionnez votre espace de travail Log Analytics.
-1. Fournissez les détails de votre espace de travail Log Analytics. 
-   - Choisissez d’activer la **collection de jumeaux** en laissant le bouton bascule de **collection de jumeaux** sur **Actif**.
-   - Choisissez de stocker les **événements bruts** en plus des types d’informations de stockage par défaut en sélectionnant **Stocker les événements bruts de sécurité d’appareil** dans Log Analytics. Laissez l’option **événement brut** **Activée**. 
-    
-1. Cliquez sur **Enregistrer**. 
+1. Dans le menu **Sécurité**, cliquez sur **Sécuriser votre solution IoT**.    
+
 
 Félicitations ! Vous avez activé Azure Security Center pour IoT sur votre IoT Hub. 
 

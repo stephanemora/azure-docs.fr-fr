@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811602"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162580"
 ---
 # <a name="u-sql-programmability-guide"></a>Guide de programmabilité U-SQL
 
@@ -1788,13 +1788,13 @@ Il s’agit d’un fichier TSV standard de valeurs délimitées par des tabulati
 L’applicateur défini par l’utilisateur peut être appelé en tant que nouvelle instance de l’objet applicateur :
 
 ```
-CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+CROSS APPLY new MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
 Ou par l’appel d’une méthode de fabrique de wrapper :
 
 ```csharp
-    CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+    CROSS APPLY MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
 ## <a name="use-user-defined-combiners"></a>Utiliser des combinateurs définis par l’utilisateur

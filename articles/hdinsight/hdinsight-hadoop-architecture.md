@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.openlocfilehash: 3767ea10d777a0ea7ad88a2ffa4793e866ffbe6c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 10/28/2019
+ms.openlocfilehash: 2da9e41323a308782dad509c628a3677ab0cd21f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091481"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162877"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Architecture Apache Hadoop dans HDInsight
 
@@ -24,20 +24,20 @@ ms.locfileid: "71091481"
 
 Cet article présente YARN et décrit comment il coordonne l’exécution des applications sur HDInsight.
 
-## <a name="apache-hadoop-yarn-basics"></a>Concepts de base d’Apache Hadoop YARN 
+## <a name="apache-hadoop-yarn-basics"></a>Concepts de base d’Apache Hadoop YARN
 
-YARN gouverne et orchestre le traitement des données dans Hadoop. YARN inclut deux services principaux qui s’exécutent en tant que processus sur des nœuds du cluster : 
+YARN gouverne et orchestre le traitement des données dans Hadoop. YARN inclut deux services principaux qui s’exécutent en tant que processus sur des nœuds du cluster :
 
-* ResourceManager 
+* ResourceManager
 * NodeManager
 
-ResourceManager accorde des ressources de calcul de cluster aux applications telles que les tâches MapReduce. ResourceManager accorde ces ressources en tant que conteneurs, où chaque conteneur est composé d’une allocation de cœurs de processeur et de mémoire RAM. Si vous avez combiné toutes les ressources disponibles dans un cluster, puis avez distribué les cœurs et la mémoire dans des blocs, chaque bloc de ressources est un conteneur. Comme chaque nœud du cluster peut héberger un certain nombre de conteneurs, le nombre de conteneurs disponibles du cluster est limité. L’allocation de ressources dans un conteneur est configurable. 
+ResourceManager accorde des ressources de calcul de cluster aux applications telles que les tâches MapReduce. ResourceManager accorde ces ressources en tant que conteneurs, où chaque conteneur est composé d’une allocation de cœurs de processeur et de mémoire RAM. Si vous avez combiné toutes les ressources disponibles dans un cluster, puis avez distribué les cœurs et la mémoire dans des blocs, chaque bloc de ressources est un conteneur. Comme chaque nœud du cluster peut héberger un certain nombre de conteneurs, le nombre de conteneurs disponibles du cluster est limité. L’allocation de ressources dans un conteneur est configurable.
 
-Quand une application MapReduce s’exécute sur un cluster, ResourceManager fournit à l’application les conteneurs dans lesquels elle doit s’exécuter. ResourceManager effectue le suivi de l’état de l’exécution des applications, de la capacité disponible sur le cluster et des applications au fur et à mesure qu’elles se terminent et libèrent leurs ressources. 
+Quand une application MapReduce s’exécute sur un cluster, ResourceManager fournit à l’application les conteneurs dans lesquels elle doit s’exécuter. ResourceManager effectue le suivi de l’état de l’exécution des applications, de la capacité disponible sur le cluster et des applications au fur et à mesure qu’elles se terminent et libèrent leurs ressources.
 
 ResourceManager exécute également un processus de serveur web qui fournit une interface utilisateur web pour superviser l’état des applications.
 
-Quand un utilisateur soumet une application MapReduce à exécuter sur le cluster, l’application est soumise à ResourceManager. À son tour, ResourceManager alloue un conteneur sur les nœuds NodeManager disponibles. Ces nœuds représentent l’emplacement où l’application s’exécute réellement. Le premier conteneur alloué exécute une application spéciale, appelée ApplicationMaster. Celle-ci se charge de l’acquisition des ressources, sous la forme de conteneurs suivants, nécessaires pour exécuter l’application soumise. ApplicationMaster examine les phases de l’application (par exemple, la phase de mappage et la phase de réduction), ainsi que les facteurs permettant de déterminer la quantité de données à traiter. ApplicationMaster demande ensuite (*négocie*) les ressources auprès de ResourceManager pour le compte de l’application. ResourceManager accorde à son tour des ressources à partir des NodeManagers dans le cluster à ApplicationMaster qui peut les utiliser pour exécuter l’application. 
+Quand un utilisateur soumet une application MapReduce à exécuter sur le cluster, l’application est soumise à ResourceManager. À son tour, ResourceManager alloue un conteneur sur les nœuds NodeManager disponibles. Ces nœuds représentent l’emplacement où l’application s’exécute réellement. Le premier conteneur alloué exécute une application spéciale, appelée ApplicationMaster. Celle-ci se charge de l’acquisition des ressources, sous la forme de conteneurs suivants, nécessaires pour exécuter l’application soumise. ApplicationMaster examine les phases de l’application (par exemple, la phase de mappage et la phase de réduction), ainsi que les facteurs permettant de déterminer la quantité de données à traiter. ApplicationMaster demande ensuite (*négocie*) les ressources auprès de ResourceManager pour le compte de l’application. ResourceManager accorde à son tour des ressources à partir des NodeManagers dans le cluster à ApplicationMaster qui peut les utiliser pour exécuter l’application.
 
 Les NodeManagers exécutent les tâches qui forment l’application, puis informent ApplicationMaster de leur progression et de leur l’état. ApplicationMaster informe à son tour ResourceManager de l’état de l’application. ResourceManager retourne les résultats au client.
 

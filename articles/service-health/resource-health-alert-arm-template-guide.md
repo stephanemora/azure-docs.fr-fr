@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 10a940e43b2ab4dff1b7c90aa7d6d274ddef82d9
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099012"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023916"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurer les alertes Resource Health à l’aide de modèles Resource Manager
 
@@ -180,12 +180,12 @@ Les alertes au niveau de l’abonnement ou du groupe de ressources peuvent prove
             "anyOf": [
                 {
                     "field": "resourceType",
-                    "equals": "Microsoft.Compute/virtualMachines",
+                    "equals": "MICROSOFT.COMPUTE/VIRTUALMACHINES",
                     "containsAny": null
                 },
                 {
                     "field": "resourceType",
-                    "equals": "Microsoft.Storage/storageAccounts",
+                    "equals": "MICROSOFT.STORAGE/STORAGEACCOUNTS",
                     "containsAny": null
                 },
                 ...
@@ -198,7 +198,7 @@ Les alertes au niveau de l’abonnement ou du groupe de ressources peuvent prove
 Ici, nous utilisons le wrapper `anyOf` pour mettre l’alerte Resource Health en correspondance avec les conditions que nous avons spécifiées, afin d’activer les alertes ciblant des types de ressources spécifiques.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>Paramétrage des événements Resource Health qui vous alertent
-Quand des ressources rencontrent un événement d’intégrité, elles peuvent passer par une série de phases représentant l’état de l’événement d’intégrité : `Active`, `InProgress`, `Updated` et `Resolved`.
+Quand des ressources rencontrent un événement d’intégrité, elles peuvent passer par une série de phases représentant l’état de l’événement d’intégrité : `Active`, `In Progress`, `Updated` et `Resolved`.
 
 Si vous souhaitez recevoir une notification uniquement quand une ressource n’est plus intègre, configurez l’alerte pour être averti uniquement quand `status` a la valeur `Active`. Toutefois, si vous voulez également être informé aux autres phases, vous pouvez les ajouter comme ceci :
 
@@ -214,7 +214,7 @@ Si vous souhaitez recevoir une notification uniquement quand une ressource n’e
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -409,7 +409,7 @@ En reprenant les différents paramétrages décrits dans la section précédente
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {

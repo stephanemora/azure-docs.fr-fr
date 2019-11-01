@@ -1,24 +1,18 @@
 ---
 title: Configurer des sources de données d’agent dans Azure Monitor | Microsoft Docs
 description: Les sources de données définissent les données de journal qu’Azure Monitor collecte auprès des agents et d’autres sources connectées.  Cet article décrit la façon dont Azure Monitor utilise les sources de données, explique en détail comment les configurer, et fournit un résumé des différentes sources de données disponibles.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: f4e86a3a7b6a0781ea6c020bd0afc9364b7132f7
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.date: 11/28/2018
+ms.openlocfilehash: f7960adca1c3665dbf8737cb10a898c58b1542ec
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839344"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932834"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Sources de données d’agent dans Azure Monitor
 Les données collectées par Azure Monitor à partir des agents dépendent des sources de données que vous configurez.  Les données provenant des agents sont stockées en tant que [données de journal](data-platform-logs.md) avec un ensemble d’enregistrements.  Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 999e545d49b11eef84d1a03401eb28cde36e82af
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65785936"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991368"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
@@ -127,7 +127,6 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
 | Palau                                               |                 |                |              |      ✓     |          ✓         |
 | Papouasie Nouvelle Guinée                                    |                 |                |              |      ✓     |          ✓         |
-| Îles Paracels                                     |                 |                |              |      ✓     |                    |
 | Philippines                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Île Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
@@ -135,7 +134,6 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 | Singapour                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Salomon (îles)                                     |                 |                |              |      ✓     |          ✓         |
 | Îles Kouriles                                     |        ✓        |                |              |      ✓     |          ✓         |
-| Îles Spratleys                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
 | Taïwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Thaïlande                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |

@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681539"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164008"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Didacticiel : Acheminer le trafic réseau avec une table de routage à l’aide du portail Azure
 
@@ -55,12 +55,12 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *myRouteTablePublic*. |
-    | Abonnement | Sélectionnez votre abonnement. |
-    | Groupe de ressources | Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez *OK*. |
-    | Lieu | Conservez la valeur par défaut **USA Est**.
+    | Subscription | Sélectionnez votre abonnement. |
+    | Resource group | Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez *OK*. |
+    | Location | Conservez la valeur par défaut **USA Est**.
     | Propagation d’itinéraire BGP | Conservez la valeur par défaut **Activé**. |
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 ## <a name="create-a-route"></a>Créer un itinéraire
 
@@ -68,7 +68,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 1. Quand **myRouteTablePublic** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 
-1. Dans **myRouteTablePublic**, sous **Paramètres**, sélectionnez **Itinéraires** > **+ Ajouter**.
+1. Dans **myRouteTablePublic**, sous **Paramètres**, sélectionnez **Itinéraires** >  **+ Ajouter**.
 
     ![Ajouter un itinéraire](./media/tutorial-create-route-table-portal/add-route.png)
 
@@ -97,9 +97,9 @@ Avant de pouvoir associer une table de routage à un sous-réseau, vous devez cr
     | ------- | ----- |
     | Nom | Entrez *myVirtualNetwork*. |
     | Espace d’adressage | Entrez *10.0.0.0/16*. |
-    | Abonnement | Sélectionnez votre abonnement. |
-    | Groupe de ressources | Sélectionnez ***Sélectionner*** > **myResourceGroup**. |
-    | Lieu | Conservez la valeur par défaut **USA Est**. |
+    | Subscription | Sélectionnez votre abonnement. |
+    | Resource group | Sélectionnez ***Sélectionner*** > **myResourceGroup**. |
+    | Location | Conservez la valeur par défaut **USA Est**. |
     | Sous-réseau - Nom | Entrez *Public*. |
     | Plage d’adresses du sous-réseau | Entrez *10.0.0.0/24*. |
 
@@ -111,7 +111,7 @@ Avant de pouvoir associer une table de routage à un sous-réseau, vous devez cr
 
 1. Quand la mention **myVirtualNetwork** apparaît dans les résultats de recherche, sélectionnez-la.
 
-1. Dans **myVirtualNetwork**, sous **Paramètres**, sélectionnez **Sous-réseaux** > **+ Sous-réseau**.
+1. Dans **myVirtualNetwork**, sous **Paramètres**, sélectionnez **Sous-réseaux** >  **+ Sous-réseau**.
 
     ![Ajouter un sous-réseau](./media/tutorial-create-route-table-portal/add-subnet.png)
 
@@ -154,14 +154,14 @@ Les NVA sont des machines virtuelles qui facilitent des fonctions réseau telles
     | Paramètre | Valeur |
     | ------- | ----- |
     | **DÉTAILS DU PROJET** | |
-    | Abonnement | Sélectionnez votre abonnement. |
-    | Groupe de ressources | Sélectionnez **myResourceGroup**. |
+    | Subscription | Sélectionnez votre abonnement. |
+    | Resource group | Sélectionnez **myResourceGroup**. |
     | **DÉTAILS DE L’INSTANCE** |  |
     | Nom de la machine virtuelle | Entrez *myVmNva*. |
     | Région | Sélectionnez **USA Est**. |
     | Options de disponibilité | Conservez la valeur par défaut **Aucune redondance d’infrastructure nécessaire**. |
     | Image | Conservez la valeur par défaut **Windows Server 2016 Datacenter**. |
-    | Taille | Conservez la valeur par défaut **Standard DS1 v2**. |
+    | Size | Conservez la valeur par défaut **Standard DS1 v2**. |
     | **COMPTE ADMINISTRATEUR** |  |
     | Nom d’utilisateur | Entrez un nom d’utilisateur de votre choix. |
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
@@ -182,7 +182,7 @@ Les NVA sont des machines virtuelles qui facilitent des fonctions réseau telles
     | Paramètre | Valeur |
     | ------- | ----- |
     | Réseau virtuel | Conservez la valeur par défaut **myVirtualNetwork**. |
-    | Sous-réseau | Sélectionnez **DMZ (10.0.2.0/24)**. |
+    | Subnet | Sélectionnez **DMZ (10.0.2.0/24)** . |
     | Adresse IP publique | Sélectionnez **Aucun**. Vous n’avez pas besoin d’une adresse IP publique. La machine virtuelle ne se connectera pas à Internet.|
 
 1. Conservez les autres valeurs par défaut et sélectionnez **Suivant : Gestion**.
@@ -194,9 +194,9 @@ Les NVA sont des machines virtuelles qui facilitent des fonctions réseau telles
     | Paramètre | Valeur |
     | ------- | ----- |
     | Nom | Entrez *mynvastorageaccount*. |
-    | Type de compte | Conservez la valeur par défaut **Stockage (usage général v1)**. |
+    | Type de compte | Conservez la valeur par défaut **Stockage (usage général v1)** . |
     | Performances | Conservez la valeur par défaut **Standard**. |
-    | Réplication | Conservez la valeur par défaut **Stockage localement redondant (LRS)**.
+    | Réplication | Conservez la valeur par défaut **Stockage localement redondant (LRS)** .
 
 1. Sélectionnez **OK**.
 
@@ -236,7 +236,7 @@ Suivez les étapes 1 à 12 de [Créer une NVA](#create-an-nva). Utilisez la plup
 | PARAMÈTRES DE BASE |  |
 | Nom de la machine virtuelle | Entrez *myVmPublic*. |
 | MISE EN RÉSEAU | |
-| Sous-réseau | Sélectionnez **Public (10.0.0.0/24)**. |
+| Subnet | Sélectionnez **Public (10.0.0.0/24)** . |
 | Adresse IP publique | Acceptez la valeur par défaut. |
 | Aucun port d’entrée public | Sélectionnez **Autoriser les ports sélectionnés**. |
 | Sélectionner des ports d’entrée | Sélectionnez **HTTP** et **RDP**. |
@@ -246,7 +246,7 @@ Suivez les étapes 1 à 12 de [Créer une NVA](#create-an-nva). Utilisez la plup
 | PARAMÈTRES DE BASE |  |
 | Nom de la machine virtuelle | Entrez *myVmPrivate*. |
 | MISE EN RÉSEAU | |
-| Sous-réseau | Sélectionnez **Privé (10.0.1.0/24)**. |
+| Subnet | Sélectionnez **Privé (10.0.1.0/24)** . |
 | Adresse IP publique | Acceptez la valeur par défaut. |
 | Aucun port d’entrée public | Sélectionnez **Autoriser les ports sélectionnés**. |
 | Sélectionner des ports d’entrée | Sélectionnez **HTTP** et **RDP**. |
@@ -265,7 +265,7 @@ Vous pouvez créer la machine virtuelle *myVmPrivate* pendant qu’Azure crée l
 
 1. Sélectionnez **Se connecter** pour créer une connexion Bureau à distance à la machine virtuelle *myVmPrivate*.
 
-1. Dans **Se connecter à la machine virtuelle**, sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) (*.rdp*) et le télécharge sur votre ordinateur.
+1. Dans **Se connecter à la machine virtuelle**, sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier de protocole RDP (Remote Desktop Protocol) ( *.rdp*) et le télécharge sur votre ordinateur.
 
 1. Ouvrez le fichier *.rdp* téléchargé.
 
@@ -290,7 +290,7 @@ Dans une étape ultérieure, vous utiliserez l’outil de traçage d’itinérai
 1. Entrez cette commande :
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     Vous utilisez le traçage d’itinéraire pour tester le routage dans ce didacticiel. Pour les environnements de production, nous ne recommandons pas d’autoriser le protocole ICMP (Internet Control Message Protocol) via le pare-feu Windows.
@@ -311,7 +311,7 @@ Vous avez [activé le transfert IP](#turn-on-ip-forwarding) pour l’interface r
     Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
     ```
 
-1. Redémarrez la machine virtuelle *myVmNva*. Dans la barre des tâches, sélectionnez le **bouton Démarrer** > **bouton d’alimentation**, **Autres (Planifié)** > **Continuer**.
+1. Redémarrez la machine virtuelle *myVmNva*. Dans la barre des tâches, sélectionnez le **bouton Démarrer** > **bouton d’alimentation**, **Autres (Planifié)**  > **Continuer**.
 
     Ceci déconnecte également la session Bureau à distance.
 
@@ -325,7 +325,7 @@ Vous avez [activé le transfert IP](#turn-on-ip-forwarding) pour l’interface r
 1. Activez le protocole ICMP (Internet Control Message Protocol) via le pare-feu Windows en entrant cette commande :
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## <a name="test-the-routing-of-network-traffic"></a>Tester le routage du trafic réseau

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/28/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29446f6f0a86a00cc92fe46211caddd22aaa4859
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5b4f5a26f240656911fb9627d273de8b69edff6a
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66112562"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809176"
 ---
 # <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Configurer une machine virtuelle avec des identités managées pour ressources Azure en utilisant un SDK Azure
 
@@ -44,7 +44,7 @@ Azure prend en charge plusieurs plates-formes de programmation via une série de
 | Java   | [Gérer un stockage à partir d’une machine virtuelle activée avec des identités managées pour ressources Azure](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
 | Node.js| [Créer une machine virtuelle avec une identité managée affectée par le système activée](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [Créer une machine virtuelle avec une identité managée affectée par le système activée](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [Créer une machine virtuelle Azure avec une identité affectée par le système activée](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| Ruby   | [Créer une machine virtuelle Azure avec une identité affectée par le système activée](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,23 +1,18 @@
 ---
 title: Compteurs de performances dans Application Insights | Microsoft Docs
 description: Surveillez les compteurs de performances système et .NET personnalisés dans Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/13/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: fa4e45416e83d933cd21fe482bcead14bfbcae22
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/13/2018
+ms.openlocfilehash: 229216ee873ade9418574141017aaf88235ba9e4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349929"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820697"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 

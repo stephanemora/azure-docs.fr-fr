@@ -1,24 +1,18 @@
 ---
 title: Solution Wire Data dans Azure Monitor | Microsoft Docs
 description: Les données de communication sont des données de performances et réseau consolidées provenant des ordinateurs avec des agents Log Analytics. Les données réseau sont associées à vos données de journaux pour vous aider à mettre les données en corrélation.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/03/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 4e1324bb90c0b92daf709b695a0a8b3af9161c2e
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 10/03/2018
+ms.openlocfilehash: 5e19c9bd47fe253f9a416b923ec0cb1748682842
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905429"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900585"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solution Wire Data 2.0 (préversion) dans Azure Monitor
 

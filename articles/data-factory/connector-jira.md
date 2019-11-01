@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Jira avec Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données de Jira avec Azure Data Factory | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Jira vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -10,21 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: c6cf30a8d4f750aa8e1c2b7531c4a604642e88b4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: c48533175d21475a1c42eddc9dc6123f8e4050fb
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092023"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935556"
 ---
-# <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copier des données de Jira à l’aide d’Azure Data Factory (préversion)
+# <a name="copy-data-from-jira-using-azure-data-factory"></a>Copier des données de Jira avec Azure Data Factory
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Jira. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
-
-> [!IMPORTANT]
-> Ce connecteur est actuellement en préversion. Essayez-le et envoyez-nous vos commentaires. Si vous souhaitez établir une dépendance sur les connecteurs en préversion dans votre solution, veuillez contacter le [support Azure](https://azure.microsoft.com/support/).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 

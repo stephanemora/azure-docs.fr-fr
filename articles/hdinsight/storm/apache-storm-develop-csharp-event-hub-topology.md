@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53399fbdeba44b184ef4e76c89affefd29dbc413
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 62d65a4f004494ac4ce4ecd3df0f091460028d8f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915316"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800053"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight (C#)
 
 Découvrez comment travailler avec Azure Event Hubs à partir [d’Apache Storm](https://storm.apache.org/) sur HDInsight. Ce document utilise une topologie C# Storm pour lire et écrire des données à partir d’Event Hubs.
 
 > [!NOTE]  
-> Pour la version Java de ce projet, voir [Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> Pour la version Java de ce projet, voir [Traiter des événements issus d’Azure Event Hubs avec Apache Storm sur HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 ## <a name="scpnet"></a>SCP.NET
 

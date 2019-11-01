@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcefb2d47b6862466b64b3568e1a530a2fdb8cb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964259"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161600"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Comment configurer ExpressRoute Direct
 
@@ -26,7 +26,7 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
 2. Répertoriez tous les emplacements où ExpressRoute Direct est pris en charge.
   
@@ -163,10 +163,10 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
    Links[0] correspondent au port principal et Links[1] au port secondaire.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **Exemple de sortie :**
@@ -218,7 +218,7 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
    Circuits                   : []
    ```
 
-   Utilisez la même procédure avec `AdminState = “Disabled”` pour désactiver les ports.
+   Utilisez la même procédure avec `AdminState = "Disabled"` pour désactiver les ports.
 
 ## <a name="circuit"></a>Créer un circuit
 

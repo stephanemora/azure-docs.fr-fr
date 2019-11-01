@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 057fa4dc9080ea0216765d89fa6f9d54c60ccec1
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 74f4e8750497fc1ae9875caeb60de65b5f6cd808
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422816"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72896037"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurer l’authentification unique SAML pour des applications non issues de la galerie
 
@@ -53,7 +53,7 @@ Si l’application n’a pas été ajoutée à votre locataire Azure AD, consult
     | Paramètre de la configuration SAML de base | Initiée par SP | Initiée par idP | Description |
     |:--|:--|:--|:--|
     | **Identificateur (ID d'entité)** | Requis pour certaines applications | Requis pour certaines applications | Identifie l’application de manière unique. Azure AD envoie l’identificateur à l’application en tant que paramètre Audience du jeton SAML. L’application est censée le valider. Cette valeur apparaît également en tant qu’ID d’entité dans les métadonnées SAML fournies par l’application. *Cette valeur correspond à l’élément **Émetteur** dans la demande SAML **AuthnRequest** envoyée par l’application.* |
-    | **URL de réponse** | Facultatif | Obligatoire | Spécifie l’adresse où l’application attend le jeton SAML. L’URL de réponse est aussi appelée URL ACS (Assertion Consumer Service). Vous pouvez utiliser les champs URL de réponse supplémentaires pour spécifier plusieurs URL de réponse. Par exemple, vous pourriez avoir besoin d'URL de réponse supplémentaires pour plusieurs sous-domaines. Ou, à des fins de test, vous pouvez spécifier simultanément plusieurs URL de réponse (hôte local et URL publiques). |
+    | **URL de réponse** | Obligatoire | Obligatoire | Spécifie l’adresse où l’application attend le jeton SAML. L’URL de réponse est aussi appelée URL ACS (Assertion Consumer Service). Vous pouvez utiliser les champs URL de réponse supplémentaires pour spécifier plusieurs URL de réponse. Par exemple, vous pourriez avoir besoin d'URL de réponse supplémentaires pour plusieurs sous-domaines. Ou, à des fins de test, vous pouvez spécifier simultanément plusieurs URL de réponse (hôte local et URL publiques). |
     | **URL d’authentification** | Obligatoire | Ne spécifiez pas | Lorsqu’un utilisateur ouvre cette URL, le fournisseur de services redirige vers Azure AD pour authentifier et connecter l’utilisateur. Azure AD utilise l’URL pour démarrer l’application à partir d’Office 365 ou du panneau d’accès Azure AD. Lorsqu’elle est vide, Azure AD effectue une authentification initiée par le fournisseur d'identité lorsqu’un utilisateur lance l’application à partir d’Office 365, du panneau d’accès Azure AD ou de l’URL d’authentification unique SSO Azure AD.|
     | **État de relais** | Facultatif | Facultatif | Indique à l’application où rediriger l’utilisateur une fois l’authentification terminée. En règle générale, la valeur est une URL valide pour l’application. Toutefois, certaines applications utilisent ce champ différemment. Pour plus d’informations, consultez le fournisseur de l’application.
     | **URL de déconnexion** | Facultatif | Facultatif | Utilisé pour renvoyer les réponses de déconnexion SAML à l’application.
@@ -163,4 +163,4 @@ Pour plus d’informations, voir [Guide pratique pour déboguer l’authentifica
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Affecter des utilisateurs et des groupes à l’application](methods-for-assigning-users-and-groups.md)
-- [Configurer l’approvisionnement automatique d’un compte utilisateur](configure-automatic-user-provisioning-portal.md)
+- [Configurer le provisionnement automatique d’un compte utilisateur](configure-automatic-user-provisioning-portal.md)

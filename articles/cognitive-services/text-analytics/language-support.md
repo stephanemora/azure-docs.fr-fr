@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: aahi
-ms.openlocfilehash: 953699793d81485e3828b9fb46de8523d2b7674e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 846650fce6701bb7e382df049902f427390b3051
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129999"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931206"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Langues et régions prises en charge par l’API Analyse de texte
 
@@ -51,11 +51,11 @@ Les langues prises en charge sont initialement déployées en préversion avant 
 | Chinois simplifié | `zh-hans`| ✔ \***     |             | ✔         |    |
 | Chinois traditionnel | `zh-hant`| ✔ \***     |             |          |    |
 | Danois      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| Néerlandais       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
+| Néerlandais       | `nl`          | ✔ \***     | ✔          |  ✔ \*           |     |
 | Anglais     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
 | Finnois     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Français      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
-| Allemand      | `de`          | ✔ \*     | ✔           |  ✔           |     |
+| Allemand      | `de`          | ✔ \***     | ✔           |  ✔           |     |
 | Grec       | `el`          | ✔ \*     |             |            |     |
 | Hongrois   | `hu`          |           |             |  ✔ \*          |     | 
 | Italien     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
@@ -63,10 +63,10 @@ Les langues prises en charge sont initialement déployées en préversion avant 
 | Coréen      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Norvégien (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polonais      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Portugais (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` également accepté|
+| Portugais (Portugal) | `pt-PT`| ✔ \***        |  ✔          | ✔ \*      |`pt` également accepté|
 | Portugais (Brésil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | Russe     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Espagnol     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
+| Espagnol     | `es`          | ✔ \***       | ✔           |   ✔ \*\*      |     | 
 | Suédois     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turc     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 810e03988fb900325794ea1c1a825c07824b3b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755632"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803918"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -41,9 +41,8 @@ Les sections suivantes répertorient les systèmes d’exploitation serveur pris
 
 ### Systèmes d’exploitation de serveur Windows <a name="os-windows"></a>
 
-[!div class="mx-tableFixed"]
 |OS|Pris en charge par Azure Security Center|Prise en charge de l’intégration avec Microsoft Defender ATP|
-|---|---|---|
+|:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
 |Windows Server 2012 R2|✔|✔|

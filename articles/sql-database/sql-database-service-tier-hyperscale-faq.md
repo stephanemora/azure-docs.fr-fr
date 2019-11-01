@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: a5daac9fb34f36620176111e866f493d47f63bba
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 906beabe527db41f41793a7fb1f76aef27487cdd
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513931"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044972"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 
@@ -46,9 +46,9 @@ Les niveaux de service basés sur vCore sont différenciés en fonction de la di
 | **Taille de calcul**|Base de données unique / pool élastique * | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
 | |Instance gérée | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
 | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
-| **Taille de stockage** | Base de données unique / pool élastique | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
+| **Taille de stockage** | Base de données unique / pool élastique *| 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
 | | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
-| **D’OPÉRATIONS D’E/S PAR SECONDE** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
+| **D’OPÉRATIONS D’E/S PAR SECONDE** | Base de données unique | 500 IOPS par vCore avec 7000 IOPS au maximum | L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail. | 5 000 IOPS avec un maximum de 200 000 IOPS|
 | | Instance gérée | Dépend de la taille du fichier | N/A | 1375 IOPS/vCore |
 |**Disponibilité**|Tous|1 réplica, pas d’échelle horizontale en lecture, pas de cache local | Plusieurs réplicas, jusqu’à 4 échelles horizontales en lecture, cache local partiel | 3 réplicas, 1 échelle horizontale en lecture, haute disponibilité redondante interzone, stockage local complet |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours de rétention (7 jours par défaut)| RA-GRS, 7 jours de rétention, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours de rétention (7 jours par défaut) |

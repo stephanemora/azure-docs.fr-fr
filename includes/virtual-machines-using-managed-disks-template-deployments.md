@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 59c888b1f18b1c9f700e1b79c4786a466f2c55fb
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176998"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821976"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilisation de la fonctionnalité Disques managés dans les modèles Azure Resource Manager
 
@@ -252,7 +252,6 @@ Pour obtenir des informations complètes sur les spécifications de l’API REST
 * Pour des modèles complets qui utilisent des disques managés, consultez les liens suivants du référentiel de démarrage rapide Azure.
     * [Machine virtuelle Windows avec disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
     * [Machine virtuelle Linux avec disques gérés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-    * [Liste complète des modèles de disque géré](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * Consultez le document [Vue d’ensemble d’Azure Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md) pour en savoir plus sur les disques managés.
 * Passez en revue la documentation de référence sur les modèles pour les ressources de machine virtuelle en consultant le document [de référence sur le modèle Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines).
 * Passez en revue la documentation de référence sur les modèles pour les ressources de disque en consultant le document [de référence sur le modèle Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks).

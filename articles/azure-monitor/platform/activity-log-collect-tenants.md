@@ -1,23 +1,18 @@
 ---
 title: Collecter les journaux d’activité Azure dans un espace de travail Log Analytics auprès de locataire Azure | Microsoft Docs
 description: Utilisez Event Hubs et Logic Apps pour collecter des données de journal d’activité Azure et les envoyer à un espace de travail Log Analytics dans Azure Monitor d’un autre locataire.
-services: log-analytics, logic-apps, event-hubs
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/06/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: d8cea59cd0bbeff410f585693cb7ffed82fd9327
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/06/2019
+ms.openlocfilehash: 98e256dbdc6993ee1aeb8e2ac26809ef849edb91
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248158"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932892"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Collecter les journaux d’activité Azure dans Azure Monitor auprès de locataires Azure Active Directory
 
@@ -129,13 +124,13 @@ Pour obtenir le nom et la chaîne de connexion de l’Event Hub, procédez comme
    |Paramètre | Description  |
    |:---|:---|
    | Nom           | Nom unique de l’application logique. |
-   | Abonnement   | Sélectionnez l’abonnement Azure qui contiendra l’application logique. |
+   | Subscription   | Sélectionnez l’abonnement Azure qui contiendra l’application logique. |
    | Groupe de ressources | Sélectionnez un groupe de ressources Azure existant ou créez-en un pour l’application logique. |
-   | Lieu       | Sélectionnez la région du centre de données où déployer votre application logique. |
+   | Location       | Sélectionnez la région du centre de données où déployer votre application logique. |
    | Log Analytics  | Choisissez d’enregistrer ou non l’état de chaque exécution de votre application logique dans un espace de travail Log Analytics.  |
 
     
-3. Sélectionnez **Créer**. Lorsque la notification **Le déploiement a été effectué** apparaît, cliquez sur **Accéder à la ressource** pour ouvrir votre application logique.
+3. Sélectionnez **Create** (Créer). Lorsque la notification **Le déploiement a été effectué** apparaît, cliquez sur **Accéder à la ressource** pour ouvrir votre application logique.
 
 4. Sous **Modèles**, choisissez **Application logique vide**. 
 
@@ -149,7 +144,7 @@ Le concepteur d’applications logiques affiche à présent les connecteurs disp
 
    ![image de l’ajout d’un déclencheur event hub dans logic apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
-2. Lorsque vous êtes invité à entrer les informations d’identification, connectez-vous à votre espace de noms Event Hubs. Nommez votre connexion et entrez la chaîne de connexion que vous avez copiée.  Sélectionnez **Créer**.
+2. Lorsque vous êtes invité à entrer les informations d’identification, connectez-vous à votre espace de noms Event Hubs. Nommez votre connexion et entrez la chaîne de connexion que vous avez copiée.  Sélectionnez **Create** (Créer).
 
    ![image de l’ajout d’une connexion event hub dans logic apps](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-connection.png)
 

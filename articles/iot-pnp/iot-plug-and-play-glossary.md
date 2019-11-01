@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 0d132a46db39308911f472941c02f8bb04a44e0d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249298"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988785"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossaire terminologique pour la préversion d’IoT Plug-and-Play
 
@@ -117,7 +117,7 @@ Un [développeur d’appareil](#device-developer) utilise le [DTDL (Digital Twin
 
 ## <a name="device-provisioning-service"></a>Service Device Provisioning
 
-[Azure IoT Central](#azure-iot-central) utilise le service Device Provisioning pour gérer toutes les inscriptions et connexions d’appareils. Pour plus d’informations, consultez [Connectivité des appareils dans Azure IoT Central](../iot-central/concepts-connectivity-pnp.md). Vous pouvez également utiliser le service Device Provisioning pour gérer l’inscription et la connexion des appareils à votre solution IoT basée sur IoT Hub. Pour plus d’informations, consultez [Provisionnement d’appareils avec le service Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md).
+[Azure IoT Central](#azure-iot-central) utilise le service Device Provisioning pour gérer toutes les inscriptions et connexions d’appareils. Pour plus d’informations, consultez [Connectivité des appareils dans Azure IoT Central](../iot-central/core/overview-iot-central-get-connected-pnp.md). Vous pouvez également utiliser le service Device Provisioning pour gérer l’inscription et la connexion des appareils à votre solution IoT basée sur IoT Hub. Pour plus d’informations, consultez [Provisionnement d’appareils avec le service Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Enregistrement de l’appareil
 

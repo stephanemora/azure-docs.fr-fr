@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5738161e88c42f4d4033fab091d8e8c8d7162042
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9eba76d78c2070f03ed835cdf2bf303ed72b1f7f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302138"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801868"
 ---
 # <a name="developers-guide-to-durable-entities-in-net-preview"></a>Guide du développeur pour les entités durables dans .NET (préversion)
 
@@ -120,7 +120,7 @@ Par exemple, nous pouvons modifier l’entité Counter pour qu’elle démarre u
 Vous pouvez accéder directement aux entités basées sur les classes, à l’aide de noms de chaînes explicites pour l’entité et ses opérations. Nous fournissons quelques exemples ci-dessous. Pour une explication plus approfondie des concepts sous-jacents (par exemple la différence entre les signaux et les appels), consultez la discussion dans [Accès aux entités](durable-functions-entities.md#accessing-entities). 
 
 > [!NOTE]
-> Dans la mesure du possible, nous vous recommandons d’[accéder aux entités via des interfaces](), car cela permet un meilleur contrôle de type.
+> Dans la mesure du possible, nous vous recommandons d’[accéder aux entités via des interfaces](#accessing-entities-through-interfaces), car cela permet un meilleur contrôle de type.
 
 ### <a name="example-client-signals-entity"></a>Exemple : le client signale l’entité
 

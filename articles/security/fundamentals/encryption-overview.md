@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003947"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804041"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -59,7 +59,7 @@ Les trois modèles de chiffrement côté serveur offrent différentes caractéri
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Vous pouvez protéger les machines virtuelles Windows et Linux à l’aide de [Azure Disk Encryption](/azure/security/azure-security-disk-encryption), qui utilise la technologie [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) et Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) pour protéger des disques du système d’exploitation et des disques de données avec un chiffrement de volume complet.
+Vous pouvez protéger les machines virtuelles Windows et Linux à l’aide de [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), qui utilise la technologie [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) et Linux [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) pour protéger des disques du système d’exploitation et des disques de données avec un chiffrement de volume complet.
 
 Les clés de chiffrement et les secrets sont sauvegardés dans votre abonnement [Azure Key Vault](../../key-vault/key-vault-overview.md). À l’aide du service Sauvegarde Azure, vous pouvez sauvegarder et restaurer des machines virtuelles chiffrées qui utilisent la configuration de clé de chiffrement à clé (KEK).
 

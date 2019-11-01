@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e4cf8802f9f12774f03199b76b58cb494f1c439
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143300"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162734"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -372,7 +372,7 @@ Mémoire disponible | Mémoire disponible sur un nœud de passerelle. Cette vale
 Utilisation du processeur | Utilisation du processeur d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel.
 Réseau (entrée/sortie) | Utilisation du réseau d’un nœud de passerelle. Cette valeur est un instantané en quasi temps réel.
 Tâches simultanées (en cours d’exécution/limite) | Nombre de travaux ou tâches qui s’exécutent sur chaque nœud. Cette valeur est un instantané en quasi temps réel. La limite correspond au nombre maximal de travaux simultanés pour chaque nœud. Cette valeur est définie selon la taille de l’ordinateur. Vous pouvez augmenter la limite pour monter en puissance l’exécution de tâches simultanées dans les scénarios avancés, où le processeur/la mémoire /le réseau sont sous-utilisés, alors que les activités expirent. Cette fonctionnalité est également disponible avec une passerelle à nœud unique (même quand la fonctionnalité Haute disponibilité et scalabilité n’est pas activée).
-Rôle | Il existe deux types de rôles dans une passerelle à plusieurs nœuds : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même).
+Role | Il existe deux types de rôles dans une passerelle à plusieurs nœuds : répartiteur et rôle de travail. Tous les nœuds sont des rôles de travail, ce qui signifie qu’ils peuvent tous être utilisés pour exécuter des tâches. Il n’existe qu’un seul nœud répartiteur, utilisé pour extraire des tâches/travaux auprès de services cloud et les répartir entre les différents nœuds rôles de travail (y compris lui-même).
 
 Dans cette page figurent des paramètres plus significatifs en présence de deux nœuds ou plus (scénario d’augmentation du nombre des instances) dans la passerelle. Consultez [Passerelle de gestion des données - Haute disponibilité et scalabilité](data-factory-data-management-gateway-high-availability-scalability.md) pour plus d’informations sur la configuration d’une passerelle à plusieurs nœud.
 
@@ -496,7 +496,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     **Exemple de commande et de sortie**:
 
     ```
-    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description “gateway for walkthrough”
+    PS C:\> $MyDMG = New-AzDataFactoryGateway -Name MyGateway -DataFactoryName $df -ResourceGroupName ADF –Description "gateway for walkthrough"
 
     Name              : MyGateway
     Description       : gateway for walkthrough

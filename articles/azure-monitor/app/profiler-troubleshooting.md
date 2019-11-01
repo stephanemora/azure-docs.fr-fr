@@ -1,23 +1,19 @@
 ---
 title: Résoudre les problèmes liés à Azure Application Insights Profiler | Microsoft Docs
 description: Cet article décrit les étapes de dépannage et donne des informations afin d’aider les développeurs qui rencontrent des difficultés à activer ou utiliser Application Insights Profiler.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 7430f04846a1e66680f85f939854fd50a5df41e4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67341673"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899974"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -111,7 +107,7 @@ Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramè
 
 Actuellement, vous pouvez activer Profiler sur un maximum de quatre applications web Azure et emplacements de déploiement exécutés sur le même plan de service. Si vous avez plus de quatre applications web exécutées dans un seul plan App Service, Profiler peut lever l’exception *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException*. Profiler s’exécute séparément pour chaque application web et tente de démarrer une session de suivi d’événements pour Windows (ETW) pour chaque application. Toutefois, seul un nombre limité de sessions ETW peuvent être actives en même temps. Si la tâche web de Profiler signale trop de sessions de profilage actives, déplacez des applications web vers un autre plan de service.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erreur de déploiement : Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Erreur de déploiement : Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 
 Si vous redéployez votre application web sur une ressource Web Apps avec Profiler activé, vous pouvez voir le message suivant :
 

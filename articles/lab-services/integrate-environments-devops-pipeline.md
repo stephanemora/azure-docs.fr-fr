@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61318383"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163914"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Intégrer des environnements à vos pipelines CI/CD Azure DevOps
 Vous pouvez utiliser l’extension Azure DevTest Labs Tasks installée dans Azure DevOps Services (anciennement Visual Studio Team Services) pour intégrer facilement votre pipeline de build et mise en production d’intégration continue (CI) et de livraison continue (CD) dans Azure DevTest Labs. Ces extensions facilitent le déploiement rapide d’un [environnement](devtest-lab-test-env.md) pour une tâche de test spécifique, ainsi que la suppression du déploiement une fois le test terminé. 
@@ -62,7 +62,7 @@ L’étape suivante du déploiement consiste à créer l’environnement nécess
 4. Pour **Nom du modèle**, sélectionnez le nom de l’environnement que vous avez enregistré dans votre dépôt de code source*. 
 5. **Nom du lab**, **Nom du dépôt** et **Nom du modèle** sont les représentations conviviales des ID de ressources Azure. Pour éviter les erreurs provoquées par la saisie manuelle des noms conviviaux, sélectionnez les noms dans les listes déroulantes.
 6. Pour **Nom de l’environnement**, entrez un nom qui identifie de façon unique l’instance de l’environnement dans le lab.  Ce nom doit être unique dans le lab.
-7. Avec les variables **Fichier de paramètres** et **Paramètres**, vous pouvez passer des paramètres personnalisés à l’environnement. Utilisez-en une, ou les deux, pour définir les valeurs des paramètres. Cet exemple utilise la section Paramètres. Utilisez les noms des variables que vous avez définies dans l’environnement, par exemple : `-administratorLogin “$(administratorLogin)” -administratorLoginPassword “$(administratorLoginPassword)” -databaseName “$(databaseName)” -cacheSKUCapacity 1`
+7. Avec les variables **Fichier de paramètres** et **Paramètres**, vous pouvez passer des paramètres personnalisés à l’environnement. Utilisez-en une, ou les deux, pour définir les valeurs des paramètres. Cet exemple utilise la section Paramètres. Utilisez les noms des variables que vous avez définies dans l’environnement, par exemple : `-administratorLogin "$(administratorLogin)" -administratorLoginPassword "$(administratorLoginPassword)" -databaseName "$(databaseName)" -cacheSKUCapacity 1`
 8. Les informations contenues dans le modèle d’environnement peuvent être passées à la section de sortie du modèle. Cochez **Créer les variables de sortie à partir de la sortie du modèle d’environnement** afin que d’autres tâches puissent utiliser les données. Suivez ce format : `$(Reference name.Output Name)`. Par exemple, si le nom de la référence était DTL et que le nom de la sortie dans le modèle était location, nous aurions la variable `$(DTL.location)`.
 
 ## <a name="delete-the-environment"></a>Supprimer l’environnement

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 9a21242cbb16466ed4c12746ff64bd7352925fed
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4f657cd8c804a597220a7e74d1fce0401c4cd9ae
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592798"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176335"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -433,7 +433,7 @@ Exemple : évalue les bases de données SQL Server pour déterminer si transpar
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-Cet effet est utilisé avec une définition de stratégie *mode* de `Microsoft.ContainerService.Data`. Il sert à transmettre des règles de contrôle d’admission définies avec [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) à [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+Cet effet est utilisé avec une définition de stratégie *mode* de `Microsoft.ContainerService.Data`. Il sert à transmettre des règles de contrôle d’admission définies avec [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) à [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > [Azure Policy pour Kubernetes](rego-for-aks.md) est en préversion publique et prend uniquement en charge les définitions de stratégie intégrées.

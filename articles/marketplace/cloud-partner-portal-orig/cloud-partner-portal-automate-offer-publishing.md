@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 0a927c72a82c6aa3c79988c599ea8b840821a2b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50b785ed9456b0b112dea01a219e988b81094571
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935898"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154642"
 ---
 <a name="automate-offer-publishing"></a>Automatiser la publication d’offre
 =========================
@@ -55,7 +55,7 @@ L’exemple de code suivant illustre ces étapes.
   ValidateAndGoLive()    
   {
       // Confirm the version in preview slot is the version that needs to go live
-      offer = CloudPartnerPortal.Client.GetOffer(offerName, “Preview”);
+      offer = CloudPartnerPortal.Client.GetOffer(offerName, "Preview");
       if(!offer[skuName].containsVersion(VMDisk.Version))
       {
           UpdateOfferAndPublish()
@@ -127,7 +127,7 @@ Une fois que l’offre de machine virtuelle (VM) est intégrée à un pipeline d
     ValidateAndGoLive()
     {
         // Confirm the version in preview slot is the version that needs to go live
-        offer = CloudPartnerPortal.Client.GetOffer(offerName, “Preview”);
+        offer = CloudPartnerPortal.Client.GetOffer(offerName, "Preview");
         if(!offer[skuName].containsVersion(VMDisk.Version))
         {
             UpdateOfferAndPublish()

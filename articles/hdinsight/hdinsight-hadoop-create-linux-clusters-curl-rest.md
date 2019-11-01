@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 963dc71097a1ac53df77f3ab9c804b53597adeb5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059419"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152000"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Créer des clusters Apache Hadoop à l’aide de l’API REST Azure
 
@@ -145,7 +145,7 @@ Le document JSON suivant résulte d’une fusion des fichiers de modèle et de p
                                "name": "headnode",
                                "targetInstanceCount": "2",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}" 
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -158,7 +158,7 @@ Le document JSON suivant résulte d’une fusion des fichiers de modèle et de p
                                "name": "workernode",
                                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}"
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {

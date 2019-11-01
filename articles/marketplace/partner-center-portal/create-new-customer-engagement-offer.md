@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 82a0d98b7a9bb29a69830f1d8bd9b1e7db977273
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 19f06ee2d254e927fde4ca087fdd46f596c7dcbd
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598408"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819905"
 ---
 # <a name="create-a-new-dynamics-365-for-customer-engagement--powerapps-offer"></a>Créer une nouvelle offre Dynamics 365 for Customer Engagement et PowerApps
 
@@ -101,7 +101,7 @@ Sélectionnez au minimum une et au maximum trois catégories. Elles serviront à
 
 ### <a name="industry"></a>Secteur d’activité
 
-Vous pouvez éventuellement sélectionner jusqu’à deux secteurs d’activité pour vous aider à classer votre offre dans la place de marché. Si votre offre n’est pas spécifique à un secteur d’activité, laissez cette section vide. Veillez à expliquer dans la description comment votre offre prend en charge les secteurs sélectionnés dans la description de l’offre. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="applicable-dynamics-365-products"></a>Produits Dynamics 365 applicables
 

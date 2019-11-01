@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
-ms.openlocfilehash: 87df7824a182e68d849fdf967f96b2974b7e0c16
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148022"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159835"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Développer une application sécurisée pour une application Azure AD
 ## <a name="overview"></a>Vue d'ensemble
@@ -235,7 +235,7 @@ $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1
 
 #Configure the HTTP settings for the application gateway back end
 
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting01" -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
 
 #Create a load-balancer routing rule that configures the load balancer
 
@@ -391,7 +391,7 @@ Avec Azure Security Center, les clients peuvent appliquer et gérer de façon ce
 Les services Azure assurent une journalisation complète de l’activité du système et des utilisateurs, ainsi que de l’intégrité du système :
    - Journaux d’activité : les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des insights sur les opérations ayant été effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
    - Journaux de diagnostic : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) incluent l’ensemble des journaux d’activité générés par chaque ressource. Ils incluent les journaux système des événements Windows, les journaux d’activité de Stockage Azure, les journaux d’audit de Key Vault, ainsi que les journaux d’activité de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise.
-### <a name="azure-monitor-logs"></a>Journaux Azure Monitor
+### <a name="azure-monitor-logs"></a>Journaux d’activité Azure Monitor
    ces journaux sont regroupés dans [Journaux Azure Monitor](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports de tableau de bord. Une fois collectées, les données sont organisées dans différentes tables en fonction du type de données dans des espaces de travail Log Analytics. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Journaux Azure Monitor pour permettre aux clients d’utiliser des requêtes Kusto ; ils peuvent alors accéder à leurs données d’événement de sécurité et les combiner avec des données provenant d’autres services.
 
    Les [solutions de supervision](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Azure suivantes sont incluses dans cette architecture
@@ -443,7 +443,7 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 1.  Revenez au portail Azure. Dans le volet de navigation de gauche, sélectionnez le service Azure Active Directory, puis Inscriptions d’applications.
 2.  Dans l’écran qui s’affiche, sélectionnez l’application WebApp-OpenIDConnect-DotNet-code-v2.
 3.  Sous l’onglet Authentification o   Dans la section URI de redirection, sélectionnez Web dans la zone de liste déroulante, puis ajoutez les URI de redirection suivants.
-    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o   Dans la section Paramètres avancés, définissez URL de déconnexion sur https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o   Dans la section Paramètres avancés, définissez URL de déconnexion sur https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  Sous l’onglet Personnalisation o   Mettez à jour l’URL de la page d’accueil avec l’adresse de votre service d’application ; par exemple, https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o   Enregistrez la configuration.
 5.  Si votre application appelle une API web, veillez à appliquer les changements nécessaires sur le projet appsettings.json, afin qu’il appelle l’URL d’API publiée au lieu de localhost.

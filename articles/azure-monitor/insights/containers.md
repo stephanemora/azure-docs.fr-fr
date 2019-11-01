@@ -1,24 +1,18 @@
 ---
 title: Solution Container Monitoring dans Azure Monitor | Microsoft Docs
 description: La solution Container Monitoring d’Azure Monitor vous permet d’afficher et de gérer vos hôtes de conteneur Docker et Windows dans un emplacement unique.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 07/22/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 5f48b1b1c8568c4f60d012797634b844a276b1bb
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.date: 07/22/2019
+ms.openlocfilehash: b71818d5d840a0466b5ff6f271df117043341f7b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951964"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899112"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solution Container Monitoring dans Azure Monitor
 
@@ -57,7 +51,7 @@ Le tableau suivant présente l’orchestration de Docker et la prise en charge d
 | kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mésosphère<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| de diffusion en continu<br>Structure | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Service<br>Structure | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Open<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autonome) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Serveur Linux<br>(autonome) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |

@@ -1,23 +1,19 @@
 ---
 title: Profiler des applications Azure Service Fabric en production avec Application Insights | Microsoft Docs
 description: Activer le profileur pour une application Service Fabric
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: a7a64be3c73ea82c6bf3d905772f3278f9bda5df
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727908"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72818483"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profiler des applications Azure Service Fabric en production avec Application Insights
 

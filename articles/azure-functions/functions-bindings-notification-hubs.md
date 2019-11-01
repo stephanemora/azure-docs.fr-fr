@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 7538e47a1d0bed0c72ff5ed467c98828cc9c18ba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cde565fbafec7f1209d0c65d6f3ebc121f38e6f5
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086645"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991392"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Liaison de sortie Notification Hubs pour Azure Functions
 
@@ -254,8 +254,8 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type** |n/a| Doit être défini sur « notificationHub ». |
-|**direction** |n/a| Doit être défini sur « out ». | 
+|**type** |n/a| Cette propriété doit être définie sur `notificationHub`. |
+|**direction** |n/a| Cette propriété doit être définie sur `out`. | 
 |**name** |n/a| Nom de variable utilisé dans le code de fonction pour le message du hub de notification. |
 |**tagExpression** |**tagExpression** | Expressions de balise vous permettant de demander que les notifications soient remises à un ensemble d’appareils qui se sont inscrits pour la réception de notifications correspondant à l’expression de balise.  Pour plus d’informations, voir [Routage et expressions de balise](../notification-hubs/notification-hubs-tags-segment-push-message.md). |
 |**hubName** | **HubName** | Nom de la ressource de hub de notification dans le portail Azure. |

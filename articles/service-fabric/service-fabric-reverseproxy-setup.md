@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 3fd1716fa7b9c32bb5b5e49598139b6a5e728692
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166580"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933893"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Installer et configurer un proxy inverse dans Azure Service Fabric
 Un proxy inverse est un service Azure Service Fabric facultatif qui aide des microservices s’exécutant dans un cluster Service Fabric à découvrir d’autres services ayant des points de terminaison HTTP, et à communiquer avec ces services. Pour en savoir plus, voir [Proxy inverse dans Azure Service Fabric](service-fabric-reverseproxy.md). Cet article vous montre comment installer et configurer un proxy inverse dans votre cluster. 
@@ -44,7 +44,7 @@ Pour des clusters sur Azure, vous pouvez utiliser le modèle Azure Resource Mana
 
 Pour un nouveau cluster, vous pouvez [créer un modèle Resource Manager personnalisé](service-fabric-cluster-creation-via-arm.md) ou utiliser un exemple de modèle. 
 
-Pour trouver des exemples de modèles Resource Manager qui pourront vous aider à configurer un proxy inverse sécurisé pour un cluster Azure, voir la rubrique [Secure Reverse Proxy Sample Templates](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample) (exemples de modèles de proxy inverse sécurisé) sur GitHub. La section [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) (Configurer un proxy inverse HTTPS dans un cluster sécurisé) du fichier README contient des instructions et les modèles à utiliser pour configurer un proxy inverse sécurisé avec un certificat ainsi que pour procéder à la substitution de certificat.
+Pour trouver des exemples de modèles Resource Manager qui pourront vous aider à configurer un proxy inverse sécurisé pour un cluster Azure, voir la rubrique [Secure Reverse Proxy Sample Templates](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample) (exemples de modèles de proxy inverse sécurisé) sur GitHub. La section [Configure HTTPS Reverse Proxy in a secure cluster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster) (Configurer un proxy inverse HTTPS dans un cluster sécurisé) du fichier README contient des instructions et les modèles à utiliser pour configurer un proxy inverse sécurisé avec un certificat ainsi que pour procéder à la substitution de certificat.
 
 Pour un cluster existant, vous pouvez exporter le modèle Resource Manager pour le groupe de ressources du cluster à l’aide du [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) ou d’[Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli).
 

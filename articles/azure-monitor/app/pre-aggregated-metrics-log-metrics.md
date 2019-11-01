@@ -1,21 +1,19 @@
 ---
 title: Métriques basées sur le journal et pré-agrégées dans Azure Application Insights | Microsoft Docs
 description: Pourquoi utiliser des métriques basées sur le journal et pré-agrégées dans Azure Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: vgorbenko
 ms.author: vitalyg
-ms.reviewer: mbullwin
 ms.date: 09/18/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.reviewer: mbullwin
+ms.openlocfilehash: e0a0784c6331bdf4575f5c044c67cf9b4df3152f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256128"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820673"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métriques basées sur le journal et pré-agrégées dans Application Insights
 

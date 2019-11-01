@@ -1,23 +1,19 @@
 ---
 title: Redirecteur local de traçage distribué OpenCensus Azure Application Insights (Préversion) | Microsoft docs
 description: Découvrez comment transférer des traces et étendues distribuées OpenCensus à partir de langages tels que Python et Go vers Azure Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.author: mbullwin
-ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348153"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819192"
 ---
 # <a name="local-forwarder-preview"></a>Redirecteur local (préversion)
 

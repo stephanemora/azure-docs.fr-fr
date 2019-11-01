@@ -1,23 +1,19 @@
 ---
 title: Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service | Microsoft Docs
 description: Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
-services: application-insights
-documentationcenter: ''
-author: brahmnes
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 03/07/2019
+author: brahmnes
 ms.author: bfung
-ms.openlocfilehash: 3e8ce3c2eff7b1f7184bb37f141e62563d4fe714
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.date: 03/07/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: 0f6eb6376075337edd7656e4bc83b5b7fddde479
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612681"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899895"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Activer le Débogueur de capture instantanée pour les applications .NET dans Azure App Service
 

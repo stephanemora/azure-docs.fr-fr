@@ -1,24 +1,18 @@
 ---
 title: Créer un pipeline de données avec l’API Collecte de données d’Azure Monitor | Microsoft Docs
 description: L’API Collecte de données HTTP d’Azure Monitor permet d’ajouter des données POST JSON à l’espace de travail Log Analytics à partir de tout client capable d’appeler l’API REST. Cet article explique comment charger automatiquement des données stockées dans des fichiers.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 08/09/2018
+ms.openlocfilehash: 8b739d86ec557ca8c7de7e0999c905b51d1d97a7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603236"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932628"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Créer un pipeline de données avec l’API Collecte de données
 

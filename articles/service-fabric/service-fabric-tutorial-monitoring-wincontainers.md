@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: b98917e6f3c0ff6570251751a9958b202908ee3e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68598774"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933914"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Didacticiel : surveiller des conteneurs Windows sur Service Fabric avec les journaux Azure Monitor
 
@@ -186,7 +186,7 @@ Apportez les modifications suivantes à votre *template.json* :
     },
     ```
 
-Vous trouverez [ici](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json) un exemple de modèle (utilisé dans la première partie de ce didacticiel) comportant toutes ces modifications, que vous pouvez référencer selon vos besoins. Ces modifications ajouteront un espace de travail Log Analytics à votre groupe de ressources. L’espace de travail sera configuré pour collecter les événements de la plateforme Service Fabric à partir des tables de stockage configurées avec l’agent [Diagnostics Azure pour Windows](service-fabric-diagnostics-event-aggregation-wad.md). L’agent Log Analytics (Microsoft Monitoring Agent) a également été ajouté à chaque nœud de votre cluster comme extension de machine virtuelle. Ainsi, quand vous mettez à l’échelle votre cluster, l’agent est automatiquement configuré sur chaque machine et raccordé au même espace de travail.
+Vous trouverez [ici](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/d2ffa318581fc23ac7f1b0ab2b52db1a0d7b4ba7/5-VM-Windows-OMS-UnSecure/sfclusteroms.json) un exemple de modèle (utilisé dans la première partie de ce didacticiel) comportant toutes ces modifications, que vous pouvez référencer selon vos besoins. Ces modifications ajouteront un espace de travail Log Analytics à votre groupe de ressources. L’espace de travail sera configuré pour collecter les événements de la plateforme Service Fabric à partir des tables de stockage configurées avec l’agent [Diagnostics Azure pour Windows](service-fabric-diagnostics-event-aggregation-wad.md). L’agent Log Analytics (Microsoft Monitoring Agent) a également été ajouté à chaque nœud de votre cluster comme extension de machine virtuelle. Ainsi, quand vous mettez à l’échelle votre cluster, l’agent est automatiquement configuré sur chaque machine et raccordé au même espace de travail.
 
 Déployez le modèle avec vos nouvelles modifications pour mettre à niveau votre cluster actuel. Vous devriez voir les ressources Log Analytics dans votre groupe de ressources une fois le processus terminé. Lorsque le cluster est prêt, déployez-y votre application en conteneur. À l’étape suivante, nous allons configurer le monitorage des conteneurs.
 
@@ -242,7 +242,7 @@ Dans ce tutoriel, vous avez appris à :
 
 Maintenant que vous avez configuré le monitorage de votre application en conteneur, essayez les opérations suivantes :
 
-* Configurez les journaux Azure Monitor pour un cluster Linux, en suivant les étapes ci-dessus. Référencez [ce modèle](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) pour apporter des modifications à votre modèle Resource Manager.
+* Configurez les journaux Azure Monitor pour un cluster Linux, en suivant les étapes ci-dessus. Référencez [ce modèle](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) pour apporter des modifications à votre modèle Resource Manager.
 * Configurez les journaux Azure Monitor pour paramétrer l’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics.
 * Explorez la liste Service Fabric de [compteurs de performances recommandés](service-fabric-diagnostics-event-generation-perf.md) à configurer pour vos clusters.
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) proposées par les journaux Azure Monitor.

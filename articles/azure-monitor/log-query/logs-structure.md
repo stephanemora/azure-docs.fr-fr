@@ -1,18 +1,18 @@
 ---
 title: Structure des journaux Azure Monitor | Microsoft Docs
 description: Pour récupérer des données de journal à partir d'Azure Monitor, vous devez exécuter une requête de journal.  Cet article explique comment les nouvelles requêtes de journal sont utilisées dans Azure Monitor et présente les concepts avec lesquels vous devez vous familiariser avant de créer une requête.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: b1d22729724c2d1a8e3705e017762dcef588245e
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 08/22/2019
+ms.openlocfilehash: 091d7f598a9841ae45b4248ad8a07a355203445a
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034867"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894249"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Structure des journaux Azure Monitor
 La possibilité d’extraire rapidement des informations de vos données à l’aide d’une [requête de journal](log-query-overview.md) est une puissante fonctionnalité d’Azure Monitor. Pour créer des requêtes efficaces et utiles, vous devez comprendre certains concepts de base tels que l’emplacement où se trouvent les données que vous souhaitez et la manière dont elles sont structurées. Cet article présente les concepts de base que vous devez comprendre pour commencer.

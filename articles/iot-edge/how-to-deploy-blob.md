@@ -9,12 +9,12 @@ ms.service: iot-edge
 ms.custom: seodec18
 ms.reviewer: arduppal
 manager: mchad
-ms.openlocfilehash: e5420bbe7f65dcef4997d909b3bc4ede00dd9902
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 603c407f93294f2c9697dcee4c3d5d829033d5d9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844227"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176964"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Déployer le module de stockage Blob Azure sur IoT Edge vers votre appareil
 
@@ -23,7 +23,7 @@ Il existe plusieurs façons de déployer des modules sur un appareil IoT Edge, e
 ## <a name="prerequisites"></a>Prérequis
 
 - Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) dans votre abonnement Azure.
-- Un [appareil IoT Edge](how-to-register-device-portal.md) avec le runtime IoT Edge installé.
+- Un [appareil IoT Edge](how-to-register-device.md) avec le runtime IoT Edge installé.
 - [Visual Studio Code](https://code.visualstudio.com/) et [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) si vous effectuez le déploiement à partir de Visual Studio Code.
 
 ## <a name="deploy-from-the-azure-portal"></a>Effectuer un déploiement à partir du portail Azure
@@ -78,7 +78,7 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
 
    - Remplacez `<your storage account name>` par un nom que vous pouvez mémoriser. Les noms de compte doivent être compris entre 3 et 24 caractères, et inclure des lettres minuscules et des chiffres. Pas d’espace.
 
-   - Remplacez `<your storage account key>` par une clé en base64 de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules.
+   - Remplacez `<your storage account key>` par une clé en base64 de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules.
 
    - Remplacez `<storage mount>` en fonction du système d’exploitation de votre conteneur. Indiquez le nom d’un [volume](https://docs.docker.com/storage/volumes/) ou le chemin absolu à un répertoire sur votre appareil IoT Edge où vous souhaitez que le module d’objets blob stocke ses données. Le montage associe un emplacement sur votre appareil que vous fournissez à un emplacement défini dans le module.
 
@@ -191,7 +191,7 @@ Azure IoT Edge fournit des modèles dans Visual Studio Code pour vous aider à d
 
 1. Remplacez `<your storage account name>` par un nom que vous pouvez mémoriser. Les noms de compte doivent être compris entre 3 et 24 caractères, et inclure des lettres minuscules et des chiffres. Pas d’espace.
 
-1. Remplacez `<your storage account key>` par une clé en base64 de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules.
+1. Remplacez `<your storage account key>` par une clé en base64 de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules.
 
 1. Remplacez `<storage mount>` en fonction du système d’exploitation de votre conteneur. Indiquez le nom d’un [volume](https://docs.docker.com/storage/volumes/) ou le chemin absolu à un répertoire sur votre appareil IoT Edge où vous souhaitez que le module d’objets blob stocke ses données. Le montage associe un emplacement sur votre appareil que vous fournissez à un emplacement défini dans le module.  
 

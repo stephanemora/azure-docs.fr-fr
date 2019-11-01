@@ -1,23 +1,18 @@
 ---
 title: Détection intelligente - Pack de détection de la sécurité avec Azure Application Insights | Microsoft Docs
 description: Effectuez le monitoring des applications avec Azure Application Insights pour détecter les éventuels problèmes de sécurité.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 12/12/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 90d58d1b22e893e922aa0f3770198fc95f539419
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/12/2017
+ms.openlocfilehash: 10c8a38af9e4f04b874bfa75e9e78d241b093117
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64572891"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820653"
 ---
 # <a name="application-security-detection-pack-preview"></a>Pack de détection de la sécurité des applications (préversion)
 

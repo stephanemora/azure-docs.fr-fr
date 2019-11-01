@@ -1,23 +1,18 @@
 ---
 title: Propriétés standard dans les enregistrements de journaux Azure Monitor | Microsoft Docs
 description: Décrit les propriétés communes à plusieurs types de données dans les journaux d’activité Azure Monitor.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: 0fe174f309656011a1d05762927e254ff210b1e7
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 07/18/2019
+ms.openlocfilehash: d765422957392a5cdb170208b809c24bf5aec2a3
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262006"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932208"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriétés standard dans les journaux Azure Monitor
 Les données dans les journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../log-query/logs-structure.md), chacun ayant un type de données particulier associé à un ensemble unique de propriétés. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.

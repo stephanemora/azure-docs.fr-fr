@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734670"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801880"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approche et processus d’adoption d’Azure Data Catalog
 
@@ -125,7 +125,7 @@ Pour en savoir plus sur l’outil d’inscription des sources de données, consu
 Dans le cadre du projet pilote, l’équipe de Nancy utilise également des sources de données, qui sont décrites dans un classeur Excel tenu à jour par David et ses collègues. Puisque d’autres équipes de l’entreprise utilisent également des classeurs Excel pour décrire les sources de données, l’équipe informatique décide de créer un outil pour migrer le classeur Excel vers Data Catalog. En utilisant l’API REST Data Catalog pour importer les annotations existantes, l’équipe du projet pilote peut disposer d’un catalogue de données complet comprenant les métadonnées extraites des sources de données à l’aide de l’outil d’inscription des sources de données, et le compléter avec les informations précédemment documentées par les producteurs et les consommateurs de données sans nécessité de nouvelle saisie manuelle. Comme le catalogue de données d’entreprise s’étoffe, l’organisation peut utiliser l’outil d’inscription des sources de données pour les sources de données courantes et l’API Data Catalog pour les sources personnalisées et les scénarios rares.
 
 > [!NOTE]
-> Nous avons écrit un exemple d’outil qui utilise l’API **Azure Data Catalog** pour migrer un classeur Excel vers Data Catalog. Pour découvrir l’API Data Catalog et l’exemple d’outil, vous pouvez [télécharger l’exemple de code de classeur Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) et découvrir la documentation sur [l’API REST Azure Data Catalog](/rest/api/datacatalog/).
+> Nous avons écrit un exemple d’outil qui utilise l’API **Azure Data Catalog** pour migrer un classeur Excel vers Data Catalog. Pour découvrir l’API Data Catalog et l’exemple d’outil, vous pouvez [télécharger l’exemple de code de classeur Ad Hoc](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets) et découvrir la documentation sur [l’API REST Azure Data Catalog](/rest/api/datacatalog/).
 
 Une fois le projet pilote en place, il est temps d’exécuter votre plan d’adoption Data Catalog.
 

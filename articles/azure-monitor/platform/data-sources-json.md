@@ -1,24 +1,18 @@
 ---
 title: Collecte des données JSON personnalisées dans Azure Monitor | Microsoft Docs
 description: Les sources de données JSON personnalisées peuvent être collectées dans Azure Monitor à l’aide de l’agent Log Analytics pour Linux.  Ces sources de données personnalisées peuvent être de simples scripts qui renvoient JSON en tant que cURL ou l’un des 300 plug-ins de FluentD. Cet article décrit la configuration requise pour cette collecte de données.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 101719668fee155e84b7a767647a662ca845f0f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2018
+ms.openlocfilehash: c7628badb993c26b989c1fe610d2360ff466de39
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804645"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932476"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Collecte des sources de données JSON personnalisées à l’aide de l’agent Log Analytics pour Linux dans Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -86,7 +80,7 @@ Redémarrez l’agent Log Analytics pour le service Linux à l’aide de la comm
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 Les données sont collectées dans Azure Monitor avec un enregistrement de type `<FLUENTD_TAG>_CL`.
 
 Par exemple, la balise personnalisée `tag oms.api.tomcat` dans Azure Monitor avec un enregistrement de type `tomcat_CL`.  Vous pouvez extraire tous les enregistrements de ce type avec la requête de journal suivante.

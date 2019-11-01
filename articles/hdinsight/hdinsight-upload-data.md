@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: f75933940aa97606ca33ab6bfc18fe5871811eef
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 10/29/2019
+ms.openlocfilehash: 7eb1f7e1ce02a30f84cb520438f60fcbcfa3a965
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441972"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100146"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
@@ -25,14 +25,14 @@ Notez les prérequis suivants avant de démarrer :
 
 * Un cluster Azure HDInsight. Pour obtenir des instructions, consultez le didacticiel [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md) ou la rubrique [Créer des clusters HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * Connaissance des articles suivants :
-
-    - [Utiliser Stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md)
-    - [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md)
-    - [Utiliser Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
+    * [Utiliser Stockage Azure avec HDInsight](hdinsight-hadoop-use-blob-storage.md)
+    * [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md)
+    * [Utiliser Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Charger des données sur le Stockage Azure
 
 ## <a name="utilities"></a>Services
+
 Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 
 | Outil | Linux | OS X | Windows |
@@ -43,12 +43,11 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 | [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 | [Commande Hadoop](#commandline) |✔ |✔ |✔ |
 
-
 > [!NOTE]  
 > La commande Hadoop est uniquement disponible sur le cluster HDInsight. La commande autorise uniquement le chargement de données du système de fichiers local sur le Stockage Azure.  
 
-
 ## <a id="commandline"></a>Ligne de commande Hadoop
+
 La ligne de commande Hadoop est utile uniquement pour stocker les données dans le blob du stockage Azure quand celles-ci sont déjà présentes sur le nœud principal du cluster.
 
 Pour utiliser la commande Hadoop, vous devez d’abord vous connecter au nœud principal à l’aide de [SSH ou PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md).
@@ -75,6 +74,7 @@ Pour la liste des autres commandes Hadoop qui fonctionnent avec des fichiers, vo
 > Sur les clusters Apache HBase, la taille de bloc par défaut durant l’écriture de données est de 256 Ko. Bien que cela fonctionne bien quand vous utilisez les API HBase ou les API REST, l’utilisation des commandes `hadoop` ou `hdfs dfs` pour écrire des données supérieures à ~12 Go génère une erreur. Pour plus d’informations, consultez la section [Exception de stockage pour l’écriture sur un objet blob](#storageexception) dans cet article.
 
 ## <a name="graphical-clients"></a>Clients graphiques
+
 Plusieurs applications fournissent également une interface graphique pour utiliser Azure Storage. Le tableau suivant répertorie quelques-unes de ces applications :
 
 | Client | Linux | OS X | Windows |
@@ -86,12 +86,14 @@ Plusieurs applications fournissent également une interface graphique pour utili
 | [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
-
 ## <a name="mount-azure-storage-as-local-drive"></a>Monter le stockage Azure comme un lecteur Local
+
 Consultez [Monter le stockage Azure comme un lecteur Local](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ## <a name="upload-using-services"></a>Effectuer un chargement en utilisant des services
+
 ### <a name="azure-data-factory"></a>Azure Data Factory
+
 Le service Azure Data Factory est un service entièrement géré pour composer des services de stockage de données, de traitement de données et de déplacement de données dans des pipelines de production rationalisés, évolutifs et fiables.
 
 |Type de stockage|Documentation|
@@ -101,11 +103,13 @@ Le service Azure Data Factory est un service entièrement géré pour composer d
 |Azure Data Lake Storage Gen2 |[Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 ### <a id="sqoop"></a>Apache Sqoop
+
 Sqoop est un outil conçu pour transférer des données entre Hadoop et des bases de données relationnelles. Vous pouvez l’utiliser pour importer des données depuis un système de gestion de base de données relationnelle (SGBDR) tel que SQ Server, MySQL ou Oracle dans un système de fichiers distribués Hadoop (HDFS), transformer des données dans Hadoop avec MapReduce ou Hive et exporter à nouveau les données dans un SGBDR.
 
 Pour plus d’informations, consultez [Utilisation de Sqoop avec HDInsight](hadoop/hdinsight-use-sqoop.md).
 
 ### <a name="development-sdks"></a>Kits de développement logiciel (SDK) de développement
+
 Le Stockage Azure est également accessible à l’aide d’un SDK Azure dans les langages de programmation suivants :
 
 * .NET
@@ -118,7 +122,9 @@ Le Stockage Azure est également accessible à l’aide d’un SDK Azure dans le
 Pour plus d'informations sur l'installation des kits de développement logiciel (SDK) Azure, consultez [Téléchargements Azure](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
+
 ### <a id="storageexception"></a>Exception de stockage pour l’écriture sur un objet blob
+
 **Symptômes** : Quand vous utilisez la commande `hadoop` ou `hdfs dfs` pour écrire des fichiers supérieurs à ~12 Go sur un cluster HBase, vous pouvez rencontrer l’erreur suivante :
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -163,6 +169,7 @@ Vous pouvez également augmenter la valeur de `fs.azure.write.request.size` glob
 Pour plus d’informations sur l’utilisation d’Ambari, voir [Gestion des clusters HDInsight à l’aide de l’interface utilisateur Web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Maintenant que vous savez comment obtenir des données avec HDInsight, consultez les articles suivants pour apprendre à effectuer des analyses :
 
 * [Prise en main d’Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
