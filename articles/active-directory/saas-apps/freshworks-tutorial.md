@@ -141,7 +141,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Ouvrez une nouvelle fenêtre de navigateur web et connectez-vous à votre site d’entreprise Freshworks en tant qu’administrateur, puis effectuez les étapes suivantes :
 
-2. Dans la partie gauche du menu, cliquez sur l’icône  **Security ** puis activez l’option **Single sign-on** (Authentification unique) et sélectionnez **SAML SSO** (SSO SAML) sous **Authentication Methods** (Méthodes d’authentification).
+2. Dans la partie gauche du menu, cliquez sur l’icône  **Security** puis activez l’option **Single sign-on** (Authentification unique) et sélectionnez **SAML SSO** (SSO SAML) sous **Authentication Methods** (Méthodes d’authentification).
 
     ![Configuration de Freshworks](./media/freshworks-tutorial/configure01.png)
 
