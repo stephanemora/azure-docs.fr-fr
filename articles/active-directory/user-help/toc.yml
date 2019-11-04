@@ -116,3 +116,13 @@
       href: my-apps-portal-end-user-access-reviews.md
     - name: Problèmes de dépannage
       href: my-apps-portal-end-user-troubleshoot.md
+- name: Aide sur le portail Mes applications (préversion)
+  items:
+    - name: Vue d'ensemble
+      href: my-applications-portal-overview.md
+    - name: "Accéder au portail Mes\_applications et l’utiliser"
+      href: my-applications-portal-access.md
+    - name: Accéder et utiliser les espaces de travail
+      href: my-applications-portal-workspaces.md
+    - name: Modifier ou révoquer des autorisations d’application
+      href: my-applications-portal-permissions-saved-accounts.md

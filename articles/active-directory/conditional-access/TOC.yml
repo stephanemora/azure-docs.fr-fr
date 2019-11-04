@@ -31,6 +31,8 @@
       href: location-condition.md
     - name: Commandes
       href: controls.md
+    - name: Mode Rapport uniquement
+      href: concept-conditional-access-report-only.md
     - name: Dépendances de services
       href: service-dependencies.md
     - name: Outil de simulation
@@ -76,6 +78,8 @@
       href: untrusted-networks.md
     - name: Exiger des conditions d’utilisation
       href: terms-of-use.md
+    - name: Configurer le mode Rapport uniquement
+      href: howto-conditional-access-report-only.md
     - name: Contrôles de la fréquence des connexions et de la persistance du navigateur
       href: howto-conditional-access-session-lifetime.md
     - name: Migrer les stratégies classiques

@@ -32,7 +32,7 @@
     - name: 8 - Ajouter plusieurs versions
       href: api-management-get-started-publish-versions.md
     - name: 9 - Personnaliser le portail des développeurs
-      href: api-management-customize-styles.md
+      href: api-management-howto-developer-portal-customize.md
 - name: Exemples
   items:
     - name: Stratégies
@@ -121,17 +121,13 @@
           href: api-management-howto-ca-certificates.md
         - name: Gérer les protocoles et les chiffrements
           href: api-management-howto-manage-protocols-ciphers.md
-    - name: Personnalisation de l’expérience de développement
+    - name: Personnaliser l’expérience des développeurs
       items:
-        - name: Accéder et personnaliser le nouveau portail des développeurs
+        - name: Comprendre le portail des développeurs
           href: api-management-howto-developer-portal.md
-        - name: Modifier la disposition et le contenu des pages
-          href: api-management-modify-content-layout.md
-        - name: Personnaliser les pages système à l’aide de modèles
-          href: api-management-developer-portal-templates.md
-        - name: Authentification avec Azure AD
+        - name: S’authentifier avec Azure AD
           href: api-management-howto-aad.md
-        - name: Authentification avec Azure AD B2C
+        - name: S’authentifier avec Azure AD B2C
           href: api-management-howto-aad-b2c.md
         - name: Authentification déléguée
           href: api-management-howto-setup-delegation.md
@@ -139,6 +135,34 @@
           href: api-management-howto-configure-notifications.md
         - name: Activer la prise en charge de la console OAuth
           href: api-management-howto-oauth2.md
+        - name: Portail hérité - personnaliser le portail
+          href: api-management-customize-styles.md
+        - name: Portail hérité - modifier les pages et les dispositions
+          href: api-management-modify-content-layout.md
+        - name: Portail hérité - personnaliser avec des modèles
+          href: api-management-developer-portal-templates.md
+    - name: Modèles du portail hérité
+      items:
+        - name: Référence du modèle de données
+          href: api-management-template-data-model-reference.md
+        - name: Contrôles de page
+          href: api-management-page-controls.md
+        - name: Modèles
+          href: api-management-developer-portal-templates-reference.md
+        - name: API
+          href: api-management-api-templates.md
+        - name: Produits
+          href: api-management-product-templates.md
+        - name: APPLICATIONS
+          href: api-management-application-templates.md
+        - name: Problèmes
+          href: api-management-issue-templates.md
+        - name: User Profile
+          href: api-management-user-profile-templates.md
+        - name: Pages
+          href: api-management-page-templates.md
+        - name: Ressources de modèle
+          href: api-management-template-resources.md
     - name: Définir des stratégies
       items:
         - name: Définir ou modifier des stratégies
@@ -167,28 +191,6 @@
           href: api-management-cross-domain-policies.md
         - name: Stratégies de transformation
           href: api-management-transformation-policies.md
-    - name: Référence de modèle
-      items:
-        - name: Modèles
-          href: api-management-developer-portal-templates-reference.md
-        - name: API
-          href: api-management-api-templates.md
-        - name: Produits
-          href: api-management-product-templates.md
-        - name: APPLICATIONS
-          href: api-management-application-templates.md
-        - name: Problèmes
-          href: api-management-issue-templates.md
-        - name: User Profile
-          href: api-management-user-profile-templates.md
-        - name: Pages
-          href: api-management-page-templates.md
-        - name: Ressources de modèle
-          href: api-management-template-resources.md
-    - name: Référence du modèle de données
-      href: api-management-template-data-model-reference.md
-    - name: Contrôles de page
-      href: api-management-page-controls.md
     - name: Gérer en production
       items:
         - name: Gérer les groupes

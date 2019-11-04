@@ -135,7 +135,7 @@
     - name: Sécuriser
       items:
         - name: Applications web et mobiles
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl'
+          href: 'https://docs.microsoft.com/azure/app-service/configure-ssl-bindings'
     - name: Sauvegarde
       items:
         - name: Applications web et mobiles

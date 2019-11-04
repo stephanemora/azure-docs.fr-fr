@@ -131,10 +131,14 @@
           items:
             - name: Configurer le consentement de l’utilisateur
               href: configure-user-consent.md
+            - name: Configurer le workflow du consentement administrateur (préversion)
+              href: configure-admin-consent-workflow.md
             - name: Méthodes d’attribution d’utilisateurs et de groupes à une application
               href: methods-for-assigning-users-and-groups.md
             - name: Affecter un utilisateur à une application
               href: assign-user-or-group-access-portal.md
+            - name: Créer des espaces de travail sur Mes applications (préversion)
+              href: access-panel-workspaces.md
             - name: Utiliser l’accès aux applications en libre-service
               href: access-panel-manage-self-service-access.md
             - name: Méthodes de suppression d’un accès utilisateur à une application
@@ -155,6 +159,8 @@
               href: migration-resources.md
             - name: Migrer une application ADFS vers Azure
               href: migrate-adfs-apps-to-azure.md
+            - name: Utiliser le rapport d’activité d’application AD FS (préversion)
+              href: migrate-adfs-application-activity.md
         - name: Résolution des problèmes
           items:
             - name: Résoudre les problèmes d’ajout d’applications

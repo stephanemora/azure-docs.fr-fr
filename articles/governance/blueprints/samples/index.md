@@ -7,12 +7,12 @@ ms.topic: sample
 ms.date: 09/24/2019
 ms.author: dacoulte
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f5f29ec3aa5dd87a891d53847bf5a3be3a121e63
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: eb559293a166da8b83bb3cf8fe13be3d2f25401e
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978386"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200730"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -24,6 +24,7 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 |---------|---------|
 | [PBMM fédéral du Canada](./canada-federal-pbmm/index.md) | Propose des garde-fous pour la conformité au profil PBMN (Protected B, Medium Integrity, Medium Availability) fédéral du Canada. |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Fournit un ensemble de stratégies pour vous aider à vous conformer aux recommandations de CIS Microsoft Azure Foundations Benchmark. |
+| [FedRAMP Moderate](./fedramp-m/index.md) | Fournit un ensemble de stratégies pour vous aider à vous conformer à FedRAMP Moderate. |
 | [IRS 1075](./irs-1075/index.md) | Propose des garde-fous pour la conformité à la norme IRS 1075.|
 | [ISO 27001](./iso27001/index.md) | Propose des garde-fous pour la conformité à la norme ISO 27001. |
 | [Services partagés ISO 27001](./iso27001-shared/index.md) | Fournit un ensemble de modèles d’infrastructure conformes et de garde-fou stratégiques qui facilitent l’attestation ISO 27001. |
