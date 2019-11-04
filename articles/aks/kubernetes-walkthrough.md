@@ -65,7 +65,7 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 }
 ```
 
-## <a name="create-aks-cluster"></a>Créer un cluster ACS
+## <a name="create-aks-cluster"></a>Créer un cluster AKS
 
 Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Il est également possible d’activer Azure Monitor pour conteneurs à l’aide du paramètre *--enable-addons monitoring*.  L’exécution de cette commande prend plusieurs minutes.
 
