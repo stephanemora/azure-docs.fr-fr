@@ -77,6 +77,8 @@
           href: application-gateway-waf-configuration.md
         - name: Règles personnalisées
           href: custom-waf-rules-overview.md
+    - name: Entrée pour AKS
+      href: ingress-controller-overview.md
     - name: Surveillance de l’intégrité
       items:
         - name: Sonde d’intégrité
@@ -153,6 +155,28 @@
           href: create-custom-waf-rules.md
         - name: Configurer un WAF avec des règles personnalisées
           href: configure-waf-custom-rules.md
+    - name: Entrée pour AKS
+      items:
+        - name: Configurer avec une passerelle d’application existante
+          href: ingress-controller-install-existing.md
+        - name: Configurer avec une nouvelle passerelle d’application
+          href: ingress-controller-install-new.md
+        - name: Activer l’affinité de cookies
+          href: ingress-controller-cookie-affinity.md
+        - name: Activer la prise en charge de plusieurs espaces de noms
+          href: ingress-controller-multiple-namespace-support.md
+        - name: Utiliser une adresse IP privée pour le routage interne
+          href: ingress-controller-private-ip.md
+        - name: Ajouter des sondes d’intégrité aux pods AKS
+          href: ingress-controller-add-health-probes.md
+        - name: Utiliser Application Gateway pour exposer le service AKS via HTTP/HTTPS
+          href: ingress-controller-expose-service-over-http-https.md
+        - name: Mettre à niveau le contrôleur d’entrée avec Helm
+          href: ingress-controller-update-ingress-controller.md
+        - name: Utiliser LetsEncrypt.org avec Application Gateway
+          href: ingress-controller-letsencrypt-certificate-application-gateway.md
+        - name: Exposer WebSocket à Application Gateway
+          href: ingress-controller-expose-websocket-server.md
     - name: Acheminer par URL
       items:
         - name: Azure PowerShell
@@ -223,6 +247,8 @@
           href: application-gateway-troubleshooting-502.md
         - name: Pare-feu d’applications web (WAF)
           href: web-application-firewall-troubleshoot.md
+        - name: Entrée pour AKS
+          href: ingress-controller-troubleshoot.md
         - name: Intégrité des ressources
           href: resource-health-overview.md
         - name: Utiliser Log Analytics
@@ -235,7 +261,9 @@
   items:
     - name: Règles CRS
       href: application-gateway-crs-rulegroups-rules.md
-    - name: Azure CLI
+    - name: Entrée pour les annotations AKS
+      href: ingress-controller-annotations.md
+    - name: D’Azure CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell
       href: /powershell/azure/overview

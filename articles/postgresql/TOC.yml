@@ -92,6 +92,8 @@
               href: concepts-data-access-and-security-vnet.md
             - name: Architecture de connectivité
               href: concepts-connectivity-architecture.md
+            - name: Authentification Azure AD
+              href: concepts-aad-authentication.md
         - name: Continuité de l’activité
           items:
             - name: Introduction à la continuité de l’activité
@@ -153,8 +155,14 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Configuration du chiffrement SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: Surveiller et régler
+          items:
+            - name: Surveiller et régler
+              href: concepts-hyperscale-monitoring.md
         - name: Extensions PostgreSQL
           href: concepts-hyperscale-extensions.md
+        - name: Haute disponibilité
+          href: concepts-hyperscale-high-availability.md
         - name: Ressources
           items:
             - name: Options de configuration
@@ -163,8 +171,12 @@
   items:
     - name: Serveur unique
       items:
-        - name: Créer des utilisateurs
-          href: howto-create-users.md
+        - name: Authentication
+          items:
+            - name: Créer des utilisateurs
+              href: howto-create-users.md
+            - name: Configurer l’intégration d’Azure AD
+              href: howto-configure-sign-in-aad-authentication.md
         - name: Optimisation
           items:
             - name: Insertions en bloc
@@ -245,12 +257,20 @@
               href: howto-read-replicas-cli.md
     - name: Hyperscale (Citus)
       items:
-        - name: Mise à l'échelle
+        - name: Créer des utilisateurs
+          href: howto-hyperscale-create-users.md
+        - name: Scale
           href: howto-hyperscale-scaling.md
         - name: Gérer le pare-feu
           items:
             - name: Portail Azure
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: Haute disponibilité
+          href: howto-hyperscale-high-availability.md
+        - name: Surveiller
+          items:
+            - name: Créer des alertes sur les mesures
+              href: howto-hyperscale-alert-on-metric.md
         - name: Résolution des problèmes
           items:
             - name: Résoudre les erreurs de connexion

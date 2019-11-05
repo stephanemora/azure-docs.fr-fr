@@ -37,6 +37,14 @@
       href: security-center-using-recommendations.md
     - name: Gestion multilocataire
       href: security-center-cross-tenant-management.md
+    - name: Sécurité du conteneur
+      items:
+        - name: Vue d’ensemble de la sécurité des conteneurs
+          href: container-security.md
+        - name: Intégration à Azure Container Registry
+          href: azure-container-registry-integration.md
+        - name: Intégration à Azure Kubernetes Service
+          href: azure-kubernetes-service-integration.md
     - name: Alertes de détection des menaces et incidents
       items:
         - name: Vue d'ensemble des alertes de sécurité
@@ -51,7 +59,7 @@
           href: security-center-alerts-compute.md
         - name: Détection des menaces pour les services de données
           href: security-center-alerts-data-services.md
-        - name: Détection des menaces pour la couche des services Azure
+        - name: Détection des menaces pour les couches des services Azure
           href: security-center-alerts-service-layer.md
         - name: Intégration avec les produits de sécurité Azure
           href: security-center-alerts-integration.md
@@ -67,33 +75,47 @@
       href: security-center-secure-score.md
     - name: Mettre à niveau vers la sécurité avancée
       href: security-center-onboarding.md
-    - name: Protection des serveurs avec Microsoft Defender ATP
+    - name: Protéger vos serveurs avec Microsoft Defender ATP
       href: security-center-wdatp.md
-    - name: Advanced Data Security pour SQL sur des machines virtuelles Azure (préversion publique)
+    - name: Utiliser Advanced Data Security pour SQL sur des machines virtuelles Azure
       href: security-center-iaas-advanced-data.md
     - name: Utiliser App Service pour protéger vos applications
       href: security-center-app-services.md
-    - name: Utilisation de stratégies de sécurité
-      href: tutorial-security-policy.md
+    - name: Utiliser des stratégies de sécurité
+      items:
+        - name: Vue d’ensemble des stratégies de sécurité
+          href: tutorial-security-policy.md
+        - name: Utiliser des stratégies de sécurité intégrées
+          href: security-center-policy-definitions.md
+        - name: Créer des stratégies de sécurité personnalisées
+          href: custom-security-policies.md
+        - name: Gérer les stratégies avec l’API REST d’Azure Policy
+          href: configure-security-policy-azure-policy.md
+    - name: Ajouter des packages de conformité dynamiques
+      href: update-regulatory-compliance-packages.md
     - name: Personnaliser la politique de protection des informations
       href: security-center-info-protection-policy.md
     - name: Gestion des solutions de sécurité
       href: security-center-partner-integration.md
     - name: Automatiser l’intégration avec PowerShell
       href: security-center-powershell-onboarding.md
-    - name: Paramètres de Security Center
-      href: security-center-policies-overview.md
+    - name: S’intégrer à Windows Admin Center
+      href: windows-admin-center-integration.md
     - name: Comparer les bases de référence en utilisant la surveillance de l’intégrité des fichiers
       href: security-center-file-integrity-monitoring-baselines.md
-    - name: Collecte des données
+    - name: Automatiser les réponses aux alertes et aux recommandations
+      href: workflow-automation.md
+    - name: Exporter les alertes et les recommandations
+      href: continuous-export.md
+    - name: Configurer la collecte de vos données
       href: security-center-enable-data-collection.md
-    - name: Stratégies de sécurité intégrées
-      href: security-center-policy-definitions.md
-    - name: Notifications par e-mail
+    - name: Configurer Advanced Threat Protection pour Azure Key Vault
+      href: advanced-threat-protection-key-vault.md
+    - name: Configurer les notifications par e-mail
       href: security-center-provide-security-contact-details.md
     - name: Tarifs
       href: security-center-pricing.md
-    - name: Visibilité à l’échelle du locataire
+    - name: Obtenir une visibilité à l’échelle du locataire
       href: security-center-management-groups.md
     - name: Implémenter les recommandations en matière de sécurité
       items:
@@ -160,7 +182,7 @@
     - name: Gérer les données utilisateur
       href: security-center-privacy.md
     - name: Documentation Azure Security Center pour IoT
-      href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
+      href: 'https://docs.microsoft.com/azure/asc-for-iot/'
     - name: Forum Aux Questions
       href: security-center-faq.md
     - name: Documentation sur la sécurité Azure

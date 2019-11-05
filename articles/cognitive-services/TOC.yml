@@ -3,12 +3,14 @@
 - name: Vue d'ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que Cognitive Services\_?"
+    - name: Présentation de Cognitive Services
       href: Welcome.md
-    - name: Sous-domaines personnalisés pour Cognitive Services
-      href: cognitive-services-custom-subdomains.md
     - name: Cognitive Services et machine learning
       href: cognitive-services-and-machine-learning.md
+    - name: Réseaux virtuels pour Cognitive Services
+      href: cognitive-services-virtual-networks.md
+    - name: Sous-domaines personnalisés pour Cognitive Services
+      href: cognitive-services-custom-subdomains.md
     - name: Support multilingue
       href: language-support.md
 - name: Support pour les conteneurs

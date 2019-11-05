@@ -12,7 +12,9 @@
       items:
         - name: Portail Azure
           href: create-cosmosdb-resources-portal.md
-        - name: Application .NET
+        - name: Application .NET - SDK V4
+          href: create-sql-api-dotnet-v4.md
+        - name: Application .NET - SDK V3
           href: create-sql-api-dotnet.md
         - name: Application Java
           href: create-sql-api-java.md
@@ -47,8 +49,11 @@
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
     - name: 2 - Migrer les données
-      displayName: import
-      href: import-data.md
+      items:
+        - name: Utilisation de l’outil de migration de données
+          href: import-data.md
+        - name: Utilisation de la prise en charge de l’exécution en bloc .NET
+          href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 - Interroger les données
       href: tutorial-query-sql-api.md
     - name: 4 - Créer un notebook
@@ -122,6 +127,8 @@
         - name: Approvisionner le débit sur les conteneurs et les bases de données
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+        - name: Provisionner le débit - Mode AutoPilot
+          href: provision-throughput-autopilot.md
     - name: Informations de référence sur les requêtes SQL
       items:
         - name: Prise en main
@@ -953,6 +960,11 @@
           href: how-to-configure-firewall.md
         - name: Configurer l’accès à partir de réseaux virtuels
           href: how-to-configure-vnet-service-endpoint.md
+        - name: Configurer l’accès depuis des points de terminaison privés
+          href: how-to-configure-private-endpoints.md
+        - name: Se connecter en privé à un compte Cosmos DB
+          href: /azure/private-link/create-private-endpoint-cosmosdb-portal
+          maintainContext: true
         - name: Configurer le partage de ressources cross-origin (CORS)
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Sécuriser les clés Azure Cosmos à l’aide de Key Vault

@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentation Azure Firewall Manager
+summary: Découvrez comment déployer Azure Firewall Manager, service de gestion de la sécurité distribué à l’échelle mondiale.
+metadata:
+  title: Documentation Azure Firewall Manager
+  description: Découvrez comment déployer Azure Firewall Manager, service de gestion de la sécurité distribué à l’échelle mondiale.
+  services: firewall
+  ms.service: firewall-manager
+  ms.topic: landing-page
+  author: vhorne
+  ms.author: victorh
+  ms.date: 10/10/2019
+  ms.openlocfilehash: e3b98f3954ee70b5e002bb844147d4d51b1f6d9d
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508667"
+landingContent:
+- title: Découvrir des informations sur Azure Firewall Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Firewall Manager ?
+      url: overview.md
+    - text: Vue d’ensemble du déploiement
+      url: deployment-overview.md
+- title: Découvrir des informations sur les hubs virtuels sécurisés
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Qu’est-ce qu’un hub virtuel sécurisé ?
+      url: secured-virtual-hub.md
+- title: Partenaires de sécurité de confiance
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Que sont les partenaires de sécurité de confiance (préversion) ?
+      url: trusted-security-partners.md
+  - linkListType: how-to-guide
+    links:
+    - text: Déployer un partenaire de sécurité de confiance (préversion)
+      url: deploy-trusted-security-partner.md
+- title: Sécuriser votre réseau cloud Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Sécuriser votre réseau cloud avec le portail Azure
+      url: secure-cloud-network.md

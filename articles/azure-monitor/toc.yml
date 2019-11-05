@@ -781,20 +781,32 @@
                   href: insights/container-insights-enable-new-cluster.md
                 - name: Activer pour un cluster existant
                   href: insights/container-insights-enable-existing-clusters.md
+                - name: Activer pour un cluster hybride
+                  href: insights/container-insights-hybrid-setup.md
                 - name: Correspondances de régions
                   href: insights/container-insights-region-mapping.md
             - name: Analyser
               href: insights/container-insights-analyze.md
             - name: Désactiver l’analyse
               href: insights/container-insights-optout.md
-            - name: Afficher les journaux d’activité dynamiques
-              href: insights/container-insights-live-logs.md
+            - name: Consulter les données en direct
+              items:
+                - name: Vue d’ensemble de Données en direct (préversion)
+                  href: insights/container-insights-livedata-overview.md
+                - name: Paramétrage
+                  href: insights/container-insights-livedata-setup.md
+                - name: Consulter les métriques du cluster
+                  href: insights/container-insights-livedata-metrics.md
+                - name: Consulter les déploiements
+                  href: insights/container-insights-livedata-deployments.md
             - name: Analyser des données avec des requêtes de journal
               href: insights/container-insights-log-search.md
             - name: Génération d’alertes
               href: insights/container-insights-alerts.md
             - name: Gestion des agents
               href: insights/container-insights-manage-agent.md
+            - name: Configurer l’abandon des métriques de Prometheus
+              href: insights/container-insights-prometheus-integration.md
             - name: Configurer les paramètres de collection de l’agent
               href: insights/container-insights-agent-config.md
             - name: Mettre à jour pour activer les métriques
@@ -1000,7 +1012,7 @@
               items:
                 - name: Contrôle d’accès
                   href: platform/workbooks-access-control.md
-                - name: Paramètres
+                - name: parameters
                   items:
                     - name: Récapitulatif des paramètres
                       href: platform/workbooks-parameters.md

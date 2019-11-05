@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/03/2019
-  ms.openlocfilehash: 589e97442412d30d844111cd9a3e332d70d705b6
-  ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+  ms.date: 10/29/2019
+  ms.openlocfilehash: 400ebc88faad1ba5d55aa81dd737c8913b131340
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71130379"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73497535"
 landingContent:
 - title: Bien démarrer avec Azure ML
   linkLists:
@@ -25,9 +25,11 @@ landingContent:
     links:
     - text: Expérience dans des notebooks Python
       url: service/tutorial-1st-experiment-sdk-setup.md
-    - text: Expérience avec le glisser-déposer
-      url: service/ui-tutorial-automobile-price-train-score.md
-    - text: Automatiser votre première expérience
+    - text: Expérimenter dans RStudio
+      url: service/tutorial-1st-r-experiment.md
+    - text: Expérimenter avec le concepteur Glisser-déposer
+      url: service/tutorial-designer-automobile-price-train-score.md
+    - text: Automatiser votre première expérience ML
       url: service/tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
@@ -51,8 +53,6 @@ landingContent:
       url: service/tutorial-train-models-with-aml.md
     - text: Prédire les prix de taxis avec le ML automatisé
       url: service/tutorial-auto-train-models.md
-    - text: Utiliser des pipelines pour le scoring par lots
-      url: service/tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: Entraîner avec Scikit-learn
@@ -63,22 +63,28 @@ landingContent:
       url: service/how-to-train-pytorch.md
     - text: Entraîner avec Keras
       url: service/how-to-train-keras.md
-- title: 'Expérience : interface visuelle'
+- title: Utiliser des pipelines ML
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Que sont les pipelines ML ?
+      url: service/concept-ml-pipelines.md
+    - text: Le concepteur « glisser-déposer »
+      url: service/concept-designer.md
   - linkListType: tutorial
     links:
-    - text: Utiliser le ML automatisé pour prédire les abonnements
-      url: service/tutorial-first-experiment-automated-ml.md
-    - text: Utiliser la régression linéaire pour prédire les prix
-      url: service/ui-tutorial-automobile-price-train-score.md
+    - text: Régression linéaire pour prédire les prix (concepteur)
+      url: service/tutorial-designer-automobile-price-train-score.md
+    - text: Créer des pipelines ML (SDK Python)
+      url: service/tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
-    - text: Prédire le risque de crédit
-      url: service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
-    - text: Prédire les retards
-      url: service/how-to-ui-sample-classification-predict-flight-delay.md
-    - text: Prédire l’évolution
-      url: service/how-to-ui-sample-classification-predict-churn.md
+    - text: Planification de pipelines (SDK Python)
+      url: service/how-to-schedule-pipelines.md
+    - text: Prédire les retards (concepteur)
+      url: service/how-to-designer-sample-classification-flight-delay.md
+    - text: Prédire l’attrition (concepteur)
+      url: service/how-to-designer-sample-classification-churn.md
 - title: Déployer et gérer des modèles
   linkLists:
   - linkListType: how-to-guide
@@ -95,9 +101,11 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: SDK Azure ML Python
+    - text: Kit SDK pour Python
       url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-    - text: Interface CLI d’Azure ML
+    - text: SDK pour R
+      url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+    - text: Interface CLI de Machine Learning
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-    - text: Algorithmes et modules de l’interface visuelle
+    - text: Algorithmes et modules du concepteur
       url: algorithm-module-reference/module-reference.md

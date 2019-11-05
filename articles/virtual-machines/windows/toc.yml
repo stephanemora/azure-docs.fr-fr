@@ -220,6 +220,8 @@
           href: disk-encryption.md
         - name: Conception pour de hautes performances
           href: premium-storage-performance.md
+        - name: Mode rafale des disques
+          href: disk-bursting.md
         - name: Objectifs d’extensibilité pour les disques
           href: disk-scalability-targets.md
         - name: Sauvegarde et récupération d’urgence pour les disques

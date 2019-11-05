@@ -21,28 +21,33 @@
             - name: Vue d'ensemble
               href: sql-database-purchase-models.md
             - name: Modèle vCore
-              href: sql-database-service-tiers-vcore.md
               items:
-                - name: Niveau de calcul serverless
+                - name: Vue d’ensemble du modèle vCore
+                  href: sql-database-service-tiers-vcore.md
+                - name: Sans serveur
                   href: sql-database-serverless.md
-                - name: Prépayer pour une capacité de réserve
+                - name: Azure Hybrid Benefit
+                  href: sql-database-azure-hybrid-benefit.md
+                - name: Capacité réservée
                   href: sql-database-reserved-capacity.md
-            - name: Niveaux de service DTU
+            - name: Vue d’ensemble du modèle DTU
               href: sql-database-service-tiers-dtu.md
+            - name: Migrer de DTU vers vCore
+              href: sql-database-dtu-to-vcore.md
         - name: Capacité de calcul et stockage
           items:
             - name: Vue d'ensemble
               href: sql-database-service-tiers-general-purpose-business-critical.md
               displayName: provisioned compute tier
-            - name: Niveaux de service Usage général / Standard
+            - name: Usage général / Standard
               href: sql-database-service-tier-general-purpose.md
-            - name: Niveaux de service Critique pour l’entreprise / Premium
+            - name: Critique pour l’entreprise / Premium
               href: sql-database-service-tier-business-critical.md
-            - name: Niveau de service Hyperscale
+            - name: Hyperscale
               href: sql-database-service-tier-hyperscale.md
             - name: FAQ relatif à Hyperscale
               href: sql-database-service-tier-hyperscale-faq.md
-            - name: Migrer à partir du niveau de service Premium RS
+            - name: Migrer à partir de Premium RS
               href: sql-database-service-tiers-prs.md
 - name: Démarrages rapides
   expanded: true
@@ -501,17 +506,17 @@
       items:
         - name: Ressources d’une base de données unique
           items:
-            - name: Limites de ressources basées sur des vCore
+            - name: Limites de ressources vCore
               href: sql-database-vcore-resource-limits-single-databases.md
-            - name: Limites de ressources basées sur des unités DTU
+            - name: Limites de ressources DTU
               href: sql-database-dtu-resource-limits-single-databases.md
             - name: Mettre les ressources à l’échelle
               href: sql-database-single-database-scale.md
         - name: Ressources de pool élastique
           items:
-            - name: Limites de ressources basées sur des vCore
+            - name: Limites de ressources vCore
               href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: Limites de ressources basées sur des unités DTU
+            - name: Limites de ressources DTU
               href: sql-database-dtu-resource-limits-elastic-pools.md
             - name: Mettre les ressources à l’échelle
               href: sql-database-elastic-pool-scale.md

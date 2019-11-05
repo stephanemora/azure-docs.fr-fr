@@ -33,7 +33,7 @@
       href: search-get-started-python.md
 - name: Tutoriels
   items:
-    - name: Créer votre première application
+    - name: 'Créer votre première application C#'
       items:
         - name: 1 - Page de recherche de base
           href: tutorial-csharp-create-first-app.md
@@ -215,8 +215,6 @@
           href: search-howto-schedule-indexers.md
         - name: Mapper des champs
           href: search-indexer-field-mappings.md
-        - name: Indexation incrémentielle
-          href: search-howto-incremental-index.md
         - name: Se connecter à SQL Managed Instance
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Se connecter à des machines virtuelles SQL Server
@@ -239,14 +237,14 @@
               href: cognitive-search-output-field-mapping.md
             - name: Traiter et extraire des informations à partir d’images
               href: cognitive-search-concept-image-scenarios.md
+            - name: Configurer l’indexation incrémentielle
+              href: search-howto-incremental-index.md
         - name: Compétences personnalisées
           items:
             - name: Intégrer des compétences personnalisées
               href: cognitive-search-custom-skill-interface.md
             - name: Exemple - Azure Functions
               href: cognitive-search-create-custom-skill-example.md
-            - name: Exemples - Super compétences
-              href: 'https://aka.ms/powerskills'
             - name: Exemple - Conteneurs
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: Conseils de dépannage
@@ -378,6 +376,8 @@
           href: cognitive-search-skill-shaper.md
         - name: Logique conditionnelle
           href: cognitive-search-skill-conditional.md
+        - name: Extraction de document
+          href: cognitive-search-skill-document-extraction.md
     - name: Compétences personnalisées
       items:
         - name: "API\_web personnalisée"

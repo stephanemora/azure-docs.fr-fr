@@ -102,6 +102,8 @@
       href: supported-kubernetes-versions.md
     - name: Durcissement de la sécurité dans le système d’exploitation hôte
       href: security-hardened-vm-host-image.md
+    - name: Vue d’ensemble des diagnostics d’Azure Kubernetes Service
+      href: concepts-diagnostics.md
 - name: Guides pratiques
   items:
     - name: Opérations de cluster
@@ -128,11 +130,11 @@
               href: virtual-nodes-portal.md
         - name: Utiliser Virtual Kubelet
           href: virtual-kubelet.md
-        - name: Utiliser le programme de mise à l’échelle automatique de cluster (préversion)
+        - name: Utiliser Cluster AutoScaler
           href: cluster-autoscaler.md
-        - name: Utiliser des zones de disponibilité (préversion)
+        - name: Utiliser des zones de disponibilité
           href: availability-zones.md
-        - name: Utiliser plusieurs pools de nœuds (préversion)
+        - name: Utiliser des pools multinœuds
           href: use-multiple-node-pools.md
         - name: Déployer AKS avec Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
@@ -199,7 +201,7 @@
           href: use-network-policies.md
         - name: Utiliser des stratégies de sécurité des pods (préversion)
           href: use-pod-security-policies.md
-        - name: Définir les plages IP autorisées du serveur d’API (préversion)
+        - name: Définir des plages d’adresses IP autorisées du serveur d’API
           href: api-server-authorized-ip-ranges.md
         - name: Contrôler les déploiements avec Azure Policy (préversion)
           href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
@@ -225,8 +227,8 @@
           href: view-master-logs.md
         - name: Afficher les journaux d’activité Kubelet
           href: kubelet-logs.md
-        - name: Afficher les journaux d’activité de conteneur en temps réel (préversion)
-          href: ../azure-monitor/insights/container-insights-live-logs.md
+        - name: Consulter les données d’un conteneur en temps réel
+          href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
     - name: Utiliser des conteneurs Windows Server (préversion)
       items:

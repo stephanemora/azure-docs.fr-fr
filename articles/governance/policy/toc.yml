@@ -28,6 +28,9 @@
     - name: Créer une définition de stratégie personnalisée
       displayName: 'disabled, parameters, rule, mode'
       href: ./tutorials/create-custom-policy-definition.md
+    - name: Gérer la gouvernance des étiquettes
+      displayName: 'modify, append, effects'
+      href: ./tutorials/govern-tags.md
     - name: Ateliers pratiques - Exploration d’Azure Policy
       displayName: 'create, policy, training, learn'
       href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
@@ -263,14 +266,25 @@
     - name: Évaluer l’impact d’une nouvelle stratégie
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Concevoir une stratégie en tant que workflows de code
+      displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
+      href: ./concepts/policy-as-code.md
     - name: Azure Policy pour Kubernetes
-      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
-      href: ./concepts/rego-for-aks.md
+      items:
+        - name: Stratégie pour AKS
+          displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper, v2'
+          href: ./concepts/rego-for-aks.md
+        - name: Stratégie pour le moteur AKS
+          displayName: 'aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
+          href: ./concepts/aks-engine.md
     - name: Auditer les machines virtuelles avec la configuration invité
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
 - name: Guides pratiques
   items:
+    - name: Extension Azure Policy pour VSCode
+      displayName: visual studio code
+      href: ./how-to/extension-for-vscode.md
     - name: Créer des stratégies par programmation
       displayName: 'assign, definition'
       href: ./how-to/programmatically-create.md
@@ -294,7 +308,7 @@
       href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: Informations de référence
   items:
-    - name: Azure CLI
+    - name: D’Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       items:
@@ -306,7 +320,7 @@
           href: 'https://www.powershellgallery.com/packages/Az.GuestConfiguration'
     - name: Kit SDK Azure pour .NET
       items:
-        - name: Attributions
+        - name: Affectations
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
         - name: Définitions de stratégies
           href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
@@ -316,7 +330,7 @@
           href: /rest/api/policy-insights/policyevents
         - name: États
           href: /rest/api/policy-insights/policystates
-        - name: Attributions
+        - name: Affectations
           href: /rest/api/resources/policyassignments
         - name: Définitions de stratégies
           href: /rest/api/resources/policydefinitions
@@ -330,7 +344,7 @@
           href: /rest/api/guestconfiguration/
     - name: Modèles Resource Manager
       items:
-        - name: Attributions
+        - name: Affectations
           href: /azure/templates/microsoft.authorization/policyassignments
         - name: Définitions de stratégies
           href: /azure/templates/microsoft.authorization/policydefinitions

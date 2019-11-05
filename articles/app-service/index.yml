@@ -105,7 +105,7 @@ sections:
         items:
           - html: Créer une application avec <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET avec Azure SQL DB</a> ou <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js avec MongoDB</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Mapper un domaine personnalisé existant à votre application</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Lier un certificat SSL existant à votre application</a>
+          - html: <a href="/azure/app-service/configure-ssl-certificate">Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Ajouter un CDN à votre application</a>
   - title: Développer vos compétences avec Microsoft Learn
     items:

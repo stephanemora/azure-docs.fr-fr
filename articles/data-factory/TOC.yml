@@ -80,8 +80,12 @@
           items:
             - name: Outil Copier des données
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Transformer des données avec un flux de données de mappage
-      href: tutorial-data-flow.md
+    - name: Transformer et préparer des données avec des flux de données
+      items:
+        - name: Transformer des données avec un flux de données de mappage
+          href: tutorial-data-flow.md
+        - name: Préparer des données avec un flux de données brutes
+          href: wrangling-data-flow-tutorial.md
     - name: Transformations externes
       items:
         - name: HDInsight Spark
@@ -143,28 +147,36 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime d’intégration
       href: concepts-integration-runtime.md
-    - name: Mappage des flux de données
+    - name: Flux de données
       items:
-        - name: Vue d’ensemble des flux de données de mappage
-          href: concepts-data-flow-overview.md
-        - name: Mode débogage
-          href: concepts-data-flow-debug-mode.md
-        - name: Gestion de JSON
-          href: concepts-data-flow-json.md
-        - name: Dérive de schéma
-          href: concepts-data-flow-schema-drift.md
-        - name: Modèles de colonne
-          href: concepts-data-flow-column-pattern.md
-        - name: Supervision du flux de données
-          href: concepts-data-flow-monitoring.md
-        - name: Performances de flux de données
-          href: concepts-data-flow-performance.md
-        - name: Déplacer des nœuds
-          href: concepts-data-flow-move-nodes.md
-        - name: Générateur d’expressions
-          href: concepts-data-flow-expression-builder.md
-        - name: Langage d’expression
-          href: data-flow-expression-functions.md
+        - name: Transformer des données avec des flux de données de mappage
+          items:
+            - name: Vue d’ensemble des flux de données de mappage
+              href: concepts-data-flow-overview.md
+            - name: Mode débogage
+              href: concepts-data-flow-debug-mode.md
+            - name: Gestion de JSON
+              href: concepts-data-flow-json.md
+            - name: Dérive de schéma
+              href: concepts-data-flow-schema-drift.md
+            - name: Modèles de colonne
+              href: concepts-data-flow-column-pattern.md
+            - name: Supervision du flux de données
+              href: concepts-data-flow-monitoring.md
+            - name: Performances de flux de données
+              href: concepts-data-flow-performance.md
+            - name: Déplacer des nœuds
+              href: concepts-data-flow-move-nodes.md
+            - name: Générateur d’expressions
+              href: concepts-data-flow-expression-builder.md
+            - name: Langage d’expression
+              href: data-flow-expression-functions.md
+        - name: Préparer des données avec des flux de données brutes
+          items:
+            - name: Vue d’ensemble des flux de données brutes
+              href: wrangling-data-flow-overview.md
+            - name: Fonctions prises en charge
+              href: wrangling-data-flow-functions.md
     - name: Rôles et autorisations
       href: concepts-roles-permissions.md
     - name: Compréhension de la tarification

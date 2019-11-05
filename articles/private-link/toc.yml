@@ -30,6 +30,8 @@
   items:
     - name: Se connecter en privé à un compte de stockage
       href: create-private-endpoint-storage-portal.md
+    - name: Se connecter en privé à un compte Cosmos DB
+      href: create-private-endpoint-cosmosdb-portal.md
     - name: Désactiver les stratégies réseau pour un point de terminaison privé
       href: disable-private-endpoint-network-policy.md
     - name: Désactiver les stratégies réseau pour un service Liaison privée

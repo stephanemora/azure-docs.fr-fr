@@ -1,0 +1,49 @@
+### YamlMime:Landing
+title: Documentation Azure Blockchain Tokens
+summary: Découvrez comment créer, émettre et gérer des jetons blockchain.
+metadata:
+  title: Documentation Azure Blockchain Tokens - Tutoriels, informations de référence sur les API
+  description: Découvrez comment émettre et gérer des jetons blockchain. Des tutoriels, des informations de référence sur les API et autres documentations vous montrent comment utiliser Azure Blockchain Tokens pour créer et gérer des jetons de blockchain sur Azure.
+  services: azure-blockchain
+  ms.service: azure-blockchain
+  ms.topic: landing-page
+  author: PatAltimore
+  ms.author: patricka
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 6df625c2264db279e29c4ebcf5aab5695b335a0e
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508429"
+landingContent:
+- title: À propos d’Azure Blockchain Tokens
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce qu’Azure Blockchain Tokens ?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Account management
+      url: account-management.md
+    - text: Modèles
+      url: templates.md
+    - text: Composabilité
+      url: composability.md
+- title: Prise en main
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: S’inscrire pour accéder à la préversion
+      url: https://aka.ms/PreviewForm
+  - linkListType: video
+    links:
+    - text: Bien démarrer avec Azure Blockchain Tokens
+      url: https://aka.ms/ABTokensPartI
+    - text: Gérer des comptes
+      url: https://aka.ms/ABTokensPartII
+    - text: Modèles et composabilité
+      url: https://aka.ms/ABTokensPartIII
+    - text: Jetons et infrastructure de taxonomie des jetons
+      url: https://aka.ms/TokenTaxFramework

@@ -61,6 +61,8 @@
       href: api-management-error-handling-policies.md
     - name: Restrictions à l’importation des API
       href: api-management-api-import-restrictions.md
+    - name: Vue d’ensemble de la passerelle auto-hébergée
+      href: self-hosted-gateway-overview.md
 - name: Guides pratiques
   items:
     - name: Définir des API
@@ -93,6 +95,16 @@
           href: api-management-howto-autoscale.md
         - name: Configuration d’un domaine personnalisé
           href: configure-custom-domain.md
+        - name: Déployer sur plusieurs régions Azure
+          href: api-management-howto-deploy-multi-region.md
+        - name: Provisionner une passerelle auto-hébergée
+          href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Déployer une passerelle auto-hébergée sur Kubernetes
+          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+        - name: Déployer une passerelle auto-hébergée sur Docker
+          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+        - name: Configurer un domaine personnalisé pour une passerelle auto-hébergée
+          href: api-management-howto-configure-custom-domain-gateway.md
     - name: Cache
       items:
         - name: Ajouter la mise en cache pour améliorer les performances
@@ -195,8 +207,6 @@
       items:
         - name: Gérer les groupes
           href: api-management-howto-create-groups.md
-        - name: Déployer sur plusieurs régions Azure
-          href: api-management-howto-deploy-multi-region.md
         - name: Récupérer les adresses IP
           href: api-management-howto-ip-addresses.md
         - name: Journaliser les événements dans Azure Event Hubs

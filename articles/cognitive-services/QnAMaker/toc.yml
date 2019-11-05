@@ -147,6 +147,10 @@
       href: limits.md
     - name: Résolution de problèmes
       href: troubleshooting.md
+    - name: Formats de fichiers
+      items:
+        - name: Test par lot de fichiers TSV
+          href: reference-tsv-format-batch-testing.md
     - name: Référence sur les API REST
       items:
         - name: Créer des API
