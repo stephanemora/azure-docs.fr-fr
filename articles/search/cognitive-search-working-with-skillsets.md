@@ -37,7 +37,7 @@ Les ensembles de compétences sont créés dans JSON. Vous pouvez créer des ens
 ### <a name="enrichment-tree"></a>Arborescence d’enrichissements
 
 Pour comprendre de quelle manière un ensemble de compétences enrichit progressivement un document, commençons par regarder à quoi le document ressemble avant tout enrichissement. La sortie du craquage du document varie selon la source de données et le mode d’analyse spécifique qui ont été sélectionnés. C’est également l’état du document à partir duquel les [mappages de champs](search-indexer-field-mappings.md) peuvent extraire le contenu lors de l’ajout de données à l’index de recherche.
-![Diagramme de base de connaissances au sein d’un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KDiagramme de base de connaissances au sein d’un pipeline)
+![Diagramme de base de connaissances au sein d’un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "K15Diagramme de base de connaissances au sein d’un pipeline")
 
 Une fois qu’un document se trouve dans le pipeline d’enrichissement, il est représenté sous la forme d’une arborescence du contenu et des enrichissements associés. Cette arborescence est instanciée en tant que sortie du craquage du document. Le format de l’arborescence d’enrichissements permet au pipeline d’enrichissement d’attacher des métadonnées même à des types de données primitifs ; ce n’est pas un objet JSON valide, mais il peut être projeté dans un format JSON valide. Le tableau suivant indique l’état d’un document qui entre dans le pipeline d’enrichissement :
 
@@ -100,7 +100,7 @@ Le nœud racine de tous les enrichissements est `"/document"`. Quand vous utilis
 
 ### <a name="skill-2-language-detection"></a>Compétence n° 2 : Détection de la langue
  La compétence de détection de la langue est la troisième compétence (compétence n° 3) définie dans l’ensemble de compétences, mais c’est la compétence suivante à exécuter. Comme elle n’est pas bloquée dans l’attente d’entrées, elle s’exécute parallèlement à la compétence précédente. À l’instar de la compétence de division qui l’a précédée, la compétence de détection de la langue est également appelée une fois pour chaque document. L’arborescence d’enrichissements comporte désormais un nouveau nœud pour la langue.
- ![arborescence d’enrichissement après la compétence n° 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "EnL’arborescence d’enrichissement après la compétence n° 2 s’exécute
+ ![arborescence d’enrichissement après la compétence n° 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "EnL’arborescence d’enrichissement après la compétence n° 2 s’exécute"
  
  ### <a name="skill-3-key-phrases-skill"></a>Compétence n° 3 : Expressions clés 
 

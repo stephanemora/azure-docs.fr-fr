@@ -122,6 +122,6 @@ Si votre problème persiste, utilisez l’un des canaux suivants pour obtenir de
 
 - Obtenez des réponses de la part d’experts Azure en faisant appel au [Support de la communauté Azure](https://azure.microsoft.com/support/community/).
 
-- Contactez [](https://twitter.com/azuresupport)@AzureSupport. Il s’agit du compte Microsoft Azure officiel pour améliorer l’expérience client. Il fournit à la communauté Azure les ressources appropriées : réponses, support technique et experts.
+- Contactez [@AzureSupport](https://twitter.com/azuresupport). Il s’agit du compte Microsoft Azure officiel pour améliorer l’expérience client. Il fournit à la communauté Azure les ressources appropriées : réponses, support technique et experts.
 
 - Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Votre abonnement Microsoft Azure comprend l’accès au support relatif à la gestion et à la facturation des abonnements, et le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

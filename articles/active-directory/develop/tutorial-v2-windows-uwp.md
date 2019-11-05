@@ -55,7 +55,7 @@ Cette section fournit des instructions pas à pas pour intégrer une application
 Ce guide crée une application qui affiche un bouton qui permet d’interroger l’API Graph et un bouton destiné à se déconnecter. Elle affiche aussi des zones de texte qui contiennent les résultats des appels.
 
 > [!NOTE]
-> Vous préférez télécharger le projet Visual Studio de cet exemple au lieu de le créer ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) et passez à l’étape d’[inscription d’application](#register-your-application "aÉtape d’inscription de l’application ») pour configurer l’exemple de code avant son exécution.
+> Vous préférez télécharger le projet Visual Studio de cet exemple au lieu de le créer ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) et passez à l’étape d’[inscription d’application](#register-your-application "ainscription d’application") pour configurer l’exemple de code avant son exécution.
 
 ### <a name="create-your-application"></a>Créer votre application
 
