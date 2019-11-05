@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: aba846ade9e2b5e19304df87ea3e29713aacf4ba
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1df8199abbbc195db873ab3da515cb1dd5fe9761
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129962"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484088"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Configurer les conteneurs Docker Vision par ordinateur
 
@@ -106,13 +106,11 @@ Remplacez {_argument_name_} par vos propres valeurs :
 
 ## <a name="container-docker-examples"></a>Exemples de conteneur Docker
 
-#### <a name="readtabread"></a>[Lire](#tab/read)
-
 Les exemples Docker suivants s’appliquent au conteneur Lire.
 
 ### <a name="basic-example"></a>Exemple de base
 
-  ```
+  ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
@@ -122,7 +120,7 @@ Les exemples Docker suivants s’appliquent au conteneur Lire.
 
 ### <a name="logging-example"></a>Exemple de journalisation 
 
-  ```
+  ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   containerpreview.azurecr.io/microsoft/cognitive-services-read \
   Eula=accept \
@@ -130,33 +128,6 @@ Les exemples Docker suivants s’appliquent au conteneur Lire.
   ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information
   ```
-
-#### <a name="recognize-texttabrecognize-text"></a>[Reconnaître le texte](#tab/recognize-text)
-
-Les exemples Docker suivants s’appliquent au conteneur Reconnaître le texte.
-
-### <a name="basic-example"></a>Exemple de base
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} 
-  ```
-
-### <a name="logging-example"></a>Exemple de journalisation
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={ENDPOINT_URI} \
-  ApiKey={API_KEY} \
-  Logging:Console:LogLevel:Default=Information
-  ```
-
-***
 
 ## <a name="next-steps"></a>Étapes suivantes
 

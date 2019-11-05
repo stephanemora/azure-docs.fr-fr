@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: d00af77a2d502cb534a4ab4a0db9231e5e8748b7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ad87964216db72cfef447a18d4cd05b8a976491b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69636446"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476923"
 ---
 | Ressource | [Plan Consommation](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plan Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plan App Service](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
@@ -27,7 +27,7 @@ ms.locfileid: "69636446"
 | [Plans App Service](../articles/app-service/overview-hosting-plans.md) | 100 par [région](https://azure.microsoft.com/global-infrastructure/regions/) |100 par groupe de ressources |100 par groupe de ressources |
 | Stockage<sup>6</sup> |1 Go |250 Go |50-1 000 Go |
 | Domaines personnalisés par application</a> |500<sup>7</sup> |500 |500 |
-| domaines personnalisés [Prise en charge SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |connexion SNI SSL illimitée incluse | connexions 1 IP SSL et SNI SSL illimitées incluses |connexions 1 IP SSL et SNI SSL illimitées incluses | 
+| domaines personnalisés [Prise en charge SSL](../articles/app-service/configure-ssl-bindings.md) |connexion SNI SSL illimitée incluse | connexions 1 IP SSL et SNI SSL illimitées incluses |connexions 1 IP SSL et SNI SSL illimitées incluses | 
 
 <sup>1</sup> Pour connaître les limites spécifiques des différentes options du plan App Service, consultez les [limites du plan App Service](../articles/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> Par défaut, le délai d’attente du runtime de Functions 1.x dans un plan App Service est illimité.  

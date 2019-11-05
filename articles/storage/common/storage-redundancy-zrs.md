@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: e075091461949639fc36ffb9feab69ac5399ae61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673107"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491981"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) pour la création d’applications Stockage Azure hautement disponibles
 
@@ -42,6 +42,7 @@ Pour les comptes v2 universels, le stockage ZRS est généralement disponible da
 Pour les comptes FileStorage, le stockage ZRS est généralement disponible dans les régions suivantes :
 
 - Europe occidentale
+- USA Est
 
 Microsoft continue d’activer le stockage ZRS dans d’autres régions Azure. Consultez la page [Mises à jour de service Azure](https://azure.microsoft.com/updates/) régulièrement pour plus d’informations sur les nouvelles régions.
 

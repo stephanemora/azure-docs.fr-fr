@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d49e4dff1664d6630c966583a722f8e136061de5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5c24a89ca12c36a54a84c61c6343ce960da012c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595259"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498070"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architecture de connectivité dans Azure Database for MariaDB
 Cet article présente l’architecture de connectivité Azure Database for MariaDB, ainsi que la façon dont le trafic est orienté vers votre instance Azure Database for MariaDB des clients dans Azure et en dehors.
@@ -54,8 +54,11 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Corée du Sud | 52.231.200.86 |  |
 | Centre-Nord des États-Unis | 23.98.55.75 | 23.96.178.199 |
 | Europe Nord | 191.235.193.75 | 40.113.93.91 |
-| États-Unis - partie centrale méridionale | 23.98.162.75 | 13.66.62.124 |
+| USA Centre Sud | 23.98.162.75 | 13.66.62.124 |
 | Asie Sud-Est | 23.100.117.95 | 104.43.15.0 |
+| Afrique du Sud Nord | 102.133.152.0 | |
+| Afrique du Sud Ouest | 102.133.24.0 | |
+| Émirats arabes unis Nord | 65.52.248.0 | |
 | Sud du Royaume-Uni | 51.140.184.11 | |
 | Ouest du Royaume-Uni | 51.141.8.11| |
 | Europe Ouest | 191.237.232.75 | 40.68.37.158 |

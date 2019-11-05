@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 12be696c74a32909d79be405144582cd8fc05fb6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561060"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73519150"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Démarrage rapide : Comment créer un classifieur avec Custom Vision
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Créer des ressources Custom Vision dans le portail Azure
 
-Pour utiliser le service Custom Vison, vous devez créer des ressources d’entraînement et de prédiction Custom Vision dans le portail Azure. Remplissez la boîte de dialogue de la page de [création Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) pour créer une ressource d’entraînement et une ressource de prédiction. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>Création d'un projet
 
@@ -51,7 +51,7 @@ Dans votre navigateur web, accédez à la [page web Custom Vision](https://custo
 
 1. Sélectionnez ensuite un des domaines disponibles. Chaque domaine optimise le classifieur pour des types spécifiques d’images, comme décrit dans le tableau suivant. Vous pourrez changer ultérieurement le domaine si vous le souhaitez.
 
-    |Domaine|Objectif|
+    |Domain|Objectif|
     |---|---|
     |__Générique__| Optimisé pour un large éventail de tâches de classification d’images. Si aucun autre domaine n’est approprié, ou si vous hésitez sur le choix du domaine, sélectionnez le domaine Generic (Général). |
     |__Food__ (Nourriture)|Optimisé pour les photographies de plats, tels que vous pouvez les voir dans un menu de restaurant. Si vous souhaitez classer des photographies de fruits ou de légumes distincts, utilisez le domaine Food (Nourriture).|

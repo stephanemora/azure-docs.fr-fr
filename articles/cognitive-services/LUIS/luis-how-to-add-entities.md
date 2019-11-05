@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 54c9d79c62052daeee76de5dffb1099dc7d75180
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932922"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467717"
 ---
 # <a name="create-entities-without-utterances"></a>Créer des entités sans énoncés
 
@@ -25,6 +25,8 @@ L’entité représente un mot ou une phrase dans l’énoncé que vous souhaite
 La **liste des entités** de la page **Entities** permet d’ajouter, de modifier et de supprimer des entités dans une application LUIS. LUIS propose deux grands types d’entités : les [entités prédéfinies](luis-reference-prebuilt-entities.md) et les [entités personnalisées](luis-concept-entity-types.md#types-of-entities).
 
 Lorsqu'une entité issue de l’apprentissage automatique est créée, vous devez marquer cette entité dans tous les exemples d’énoncé de toutes les intentions dans lesquelles elle est exprimée.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="add-prebuilt-entity"></a>
 

@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 5664bf1eaee85d2492601ef00968d9b17d857abb
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900478"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489093"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -22,7 +22,7 @@ Cet article explique comment activer l’hébergement de site web statique avec 
 
 <a id="portal" />
 
-## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Pour un didacticiel pas à pas, voir [Didacticiel : Héberger un site web statique sur le Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
@@ -38,7 +38,7 @@ Dans le volet qui s’affiche en regard de la page de Vue d’ensemble du compte
 
 <a id="cli" />
 
-## <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
+## <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 Vous pouvez activer l’hébergement de site web statique à l’aide de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) (Azure CLI).
 
@@ -102,7 +102,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## <a name="use-powershell"></a>Utiliser PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Vous pouvez activer l’hébergement de site web statique à l’aide du module Azure PowerShell.
 
@@ -184,6 +184,8 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 * Remplacez la valeur d’espace réservé `<storage-account-name>` par le nom de votre compte de stockage.
 
 <a id="metrics" />
+
+---
 
 ## <a name="enable-metrics-on-static-website-pages"></a>Activer les métriques sur des pages de site web statiques
 

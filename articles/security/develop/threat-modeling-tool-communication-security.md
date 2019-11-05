@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c9562f413fa0ed52d61d0b38df358f1a2cd03f9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828579"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498687"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastructure de sécurité : sécurité des communications | mesures d’atténuation 
 | Produit/Service | Article |
@@ -102,7 +102,7 @@ ms.locfileid: "71828579"
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | EnvironmentType - Azure |
-| **Informations de référence**              | [Activer le protocole HTTPS pour une application dans Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md) |
+| **Informations de référence**              | [Activer le protocole HTTPS pour une application dans Azure App Service](../../app-service/configure-ssl-bindings.md) |
 | **Étapes** | Par défaut, Azure active déjà le protocole HTTPS pour toutes les applications grâce à un certificat générique pour le domaine *.azurewebsites.net. Comme tous les domaines génériques, il n’est cependant pas aussi sécurisé qu’un domaine personnalisé avec votre propre certificat. [Consultez cet article](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/). Il est recommandé d’activer le protocole SSL pour le domaine personnalisé qui sera accessible via l’application déployée.|
 
 ## <a id="appservice-https"></a>Forcer l’intégralité du trafic vers Azure App Service sur la connexion HTTPS
@@ -113,7 +113,7 @@ ms.locfileid: "71828579"
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | EnvironmentType - Azure |
-| **Informations de référence**              | [Appliquer le protocole HTTPS sur Azure App Service](../../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
+| **Informations de référence**              | [Appliquer le protocole HTTPS sur Azure App Service](../../app-service/configure-ssl-bindings.md#enforce-https) |
 | **Étapes** | <p>Bien qu’Azure active déjà le protocole HTTPS pour les services d’application Azure grâce à un certificat générique pour le domaine *.azurewebsites.net, le domaine n’applique pas le protocole HTTPS. Les visiteurs peuvent toujours accéder à l’application à l’aide du protocole HTTP, ce qui peut compromettre la sécurité de l’application. Par conséquent, le protocole HTTPS doit être appliqué de manière explicite. Les applications ASP.NET MVC doivent utiliser le [filtre RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) qui force une demande HTTP non sécurisée à être renvoyée sur HTTPS.</p><p>Sinon, vous pouvez utiliser le module de réécriture d’URL, qui est inclus avec Azure App Service, pour appliquer le protocole HTTPS. Le module de réécriture d’URL permet aux développeurs de définir des règles qui sont appliquées aux demandes entrantes avant qu’elles ne soient transmises à votre application. Les règles de réécriture d’URL sont définies dans un fichier web.config stocké à la racine de l’application.</p>|
 
 ### <a name="example"></a>Exemples

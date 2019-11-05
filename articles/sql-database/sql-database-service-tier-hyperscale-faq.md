@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 906beabe527db41f41793a7fb1f76aef27487cdd
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 379629cfe3c742bd247e02cdf7a891afab08107f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044972"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496178"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database
 
@@ -127,7 +127,7 @@ Pas pour l’instant, mais vous pouvez faire descendre en puissance votre calcul
 
 ### <a name="can-i-provision-a-compute-replica-with-extra-ram-for-my-memory-intensive-workload"></a>Puis-je approvisionner un réplica de calcul avec de la RAM supplémentaire pour ma charge de travail utilisant beaucoup de mémoire ?
 
-Non. Pour obtenir davantage de RAM, vous devez effectuer une mise à niveau vers une taille de calcul plus grande. Pour plus d’informations, consultez [Tailles de stockage et taille de calcul Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
+Non. Pour obtenir davantage de RAM, vous devez effectuer une mise à niveau vers une taille de calcul plus grande. Pour plus d’informations, consultez [Tailles de stockage et taille de calcul Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5).
 
 ### <a name="can-i-provision-multiple-compute-replicas-of-different-sizes"></a>Puis-je approvisionner plusieurs réplicas de calcul de tailles différentes ?
 

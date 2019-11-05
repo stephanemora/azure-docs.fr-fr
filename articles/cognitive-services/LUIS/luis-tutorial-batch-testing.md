@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: ac88931d79df6c2527a2a5fd72b440baeb463115
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375513"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499060"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Didacticiel : Tester des jeux de données par lot
 
@@ -31,6 +31,8 @@ Exigences des tests de lots :
 * Types d’entités autorisés : seules les entités apprises automatiquement de type simple et composite. Les tests de lots ne sont utiles que pour les entités et les intentions apprises automatiquement.
 
 Si vous utilisez une application autre que ce tutoriel, *n’utilisez pas* les exemples d’énoncés déjà ajoutés à une intention. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 

@@ -1,29 +1,28 @@
 ---
-title: Compétence de recherche cognitive Analyse d’image - Recherche Azure
-description: Extrayez le texte sémantique par analyse d’image à l’aide de la compétence cognitive Analyse d’image dans un pipeline d’enrichissement Recherche Azure.
-services: search
+title: Compétence cognitive Analyse d’image
+titleSuffix: Azure Cognitive Search
+description: Extrayez le texte sémantique par analyse d’image à l’aide de la compétence cognitive Analyse d’image dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 08/28/2019
 ms.author: luisca
-ms.openlocfilehash: e2c8f0519ffcbdbc2445d1fed2725b6f6b948cd1
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 4819f34e16efebcdab734270988382e086c44e36
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064067"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479727"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
+# <a name="image-analysis-cognitive-skill"></a>Compétence cognitive Analyse d’image
 
 La compétence **Analyse d’image** extrait un ensemble complet de caractéristiques visuelles basées sur le contenu d’une image. Par exemple, vous pouvez générer une légende à partir d’une image, générer des balises ou identifier des célébrités et des paysages. Cette compétence utilise les modèles d’apprentissage automatique fournis par [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) dans Cognitive Services. 
 
 > [!NOTE]
-> Les petits volumes (moins de 20 transactions) peuvent être exécutés gratuitement dans Recherche Azure, mais l’exécution de charges de travail plus volumineuses nécessite l’[attachement d’une ressource facturable Cognitive Services](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
+> Les petits volumes (moins de 20 transactions) peuvent être exécutés gratuitement dans la Recherche cognitive Azure, mais l’exécution de charges de travail plus volumineuses nécessite l’[attachement d’une ressource facturable Cognitive Services](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont décrits dans la [page de tarification de la Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  

@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bf8b2551390fa36736f678c756093a55d6ceb0c2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: a99b2e7097f2abf36f184368b3b4fdaba8f2730b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932872"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467410"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
 
  Le test par lot est un test complet sur votre modèle formé en cours afin d’en mesurer les performances dans LUIS. Les jeux de données utilisés pour les tests par lot ne doivent pas inclure d'exemples d'énoncés dans les intentions ou énoncés reçus du point de terminaison du runtime de prédiction. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="batch-testing"></a>
 
@@ -52,7 +54,7 @@ Pour exécuter le test, sélectionnez le nom du jeu de données. Lorsque le test
 
 Le jeu de données téléchargeable est le même fichier que celui chargé pour le test par lot.
 
-|État|Signification|
+|State|Signification|
 |--|--|
 |![Icône cercle vert pour test réussi](./media/luis-how-to-batch-test/batch-test-result-green.png)|Tous les énoncés sont réussis.|
 |![Icône x rouge pour test ayant échoué](./media/luis-how-to-batch-test/batch-test-result-red.png)|Au moins une intention de l’énoncé ne correspond pas à la prédiction.|

@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 633c5944f7d813b78f7a0c9b71266d4012fd72cf
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 0c7e178d520084dbf963c4c7ebaf9b8873a36938
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673394"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521049"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>Stocker des données critiques pour l’entreprise dans le Stockage Blob Azure de manière immuable 
 
@@ -108,7 +108,7 @@ Le stockage immuable est disponible uniquement pour les comptes de stockage Blob
 
 Les dernières versions du [Portail Azure](https://portal.azure.com), [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) et [d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases) prennent en charge le stockage immuable pour le Stockage Blob Azure. Le [support de la bibliothèque client](#client-libraries) est également fourni.
 
-### <a name="azure-portal"></a>Portail Azure
+### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Créez un nouveau conteneur ou sélectionnez un conteneur existant pour stocker des objets Blob qui doivent demeurer dans l’état immuable.
  Le conteneur doit se trouver dans un compte de stockage Blob ou un compte de stockage universel V2.
@@ -144,11 +144,11 @@ Les dernières versions du [Portail Azure](https://portal.azure.com), [d’Azure
 
 9. Pour supprimer une conservation légale, supprimez simplement la balise de conservation légale associée.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 La fonctionnalité est incluse dans les groupes de commandes suivants : `az storage container immutability-policy` et `az storage container legal-hold`. Exécutez `-h` sur ces groupes pour afficher les commandes.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Le module Az.Storage prend en charge le stockage immuable.  Pour activer cette fonctionnalité, suivez les étapes ci-dessous :
 
@@ -157,6 +157,8 @@ Le module Az.Storage prend en charge le stockage immuable.  Pour activer cette f
 3. Installez Azure PowerShell : `Install-Module Az –Repository PSGallery –AllowClobber`.
 
 La section [Exemple de code PowerShell](#sample-powershell-code) plus loin dans cet article illustre l’utilisation de cette fonctionnalité.
+
+---
 
 ## <a name="client-libraries"></a>Bibliothèques clientes
 

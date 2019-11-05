@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b0a0d788c9fadd13b9a37f541a81945c86b37c29
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9fa0157bd458d2de028cab8ff9c836761e99562f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559180"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481213"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
@@ -56,7 +56,7 @@ Le point de terminaison `voices/list` vous permet d’obtenir une liste complèt
 | Centre de la Corée | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Centre-Nord des États-Unis | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europe Nord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| États-Unis - partie centrale méridionale | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Centre Sud | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Asie Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europe Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -210,8 +210,8 @@ Authorization: Bearer [Base64 access_token]
 
 Consultez nos guides de démarrage rapide pour obtenir des exemples propres aux langages :
 
-* [.NET Core, C#](quickstart-dotnet-text-to-speech.md)
-* [Python](quickstart-python-text-to-speech.md)
+* [.NET Core, C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
 * [Node.JS](quickstart-nodejs-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>Codes d’état HTTP

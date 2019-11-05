@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/01/2019
-ms.openlocfilehash: 7b5fd9800fdd2ee3b46087308f81f506e3e09e03
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a971b428da72028bcabd874e848d53bc2392a0f6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034955"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496106"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Niveaux de service Azure SQL Database
 
@@ -44,9 +44,9 @@ Le tableau suivant décrit les principales différences entre les niveaux de ser
 | | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
 | **Taille de stockage** | Base de données unique / pool élastique | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
 | | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
-| **Taille de TempDB** | Base de données unique / pool élastique | [32 Go par vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | [32 Go par vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) | [32 Go par vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
+| **Taille de TempDB** | Base de données unique / pool élastique | [32 Go par vCore](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 Go par vCore](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 Go par vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instance gérée  | [24 Go par vCore](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | Jusqu’à 4 To - [limité par taille de stockage](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-| **Débit d’écriture des journaux** | Base de données unique | [1,875 Mo/s par vCore (30 Mo/s max)](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) | 100 Mo/s | [6 Mo/s par vCore (96 Mo/s max)](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) |
+| **Débit d’écriture des journaux** | Base de données unique | [1,875 Mo/s par vCore (30 Mo/s max)](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 Mo/s | [6 Mo/s par vCore (96 Mo/s max)](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instance gérée | [3 Mo/s par vCore (22 Mo/s max)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [4 Mo/s par vCore (48 Mo/s max)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
 |**Disponibilité**|Tous| 99,99 % |  [99,95 % avec un réplica secondaire, 99,99 % avec d’autres réplicas](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> [99,995 % avec base de données unique et redondante dans une zone](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 jours, récupération jusqu’à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
@@ -54,7 +54,7 @@ Le tableau suivant décrit les principales différences entre les niveaux de ser
 |**Réplicas en lecture seule**| | 0  | 0 - 4 | 1 (intégré et inclus dans le prix) |
 |**Tarification/facturation** | Base de données unique | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. | [vCore pour chaque réplica et le stockage utilisé](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>IOPS non encore facturées. | [vCore, stockage réservé et stockage de sauvegarde](https://azure.microsoft.com/pricing/details/sql-database/single/) sont facturés. <br/>Les IOPS ne sont pas facturées. |
 || Instance gérée | [Le vCore et le stockage réservé](https://azure.microsoft.com/pricing/details/sql-database/managed/) sont facturés. <br/>Les IOPS ne sont pas facturées.<br/>Le stockage de sauvegarde n’est pas encore facturé. | N/A | [Le vCore et le stockage réservé](https://azure.microsoft.com/pricing/details/sql-database/managed/) sont facturés. <br/>Les IOPS ne sont pas facturées.<br/>Le stockage de sauvegarde n’est pas encore facturé. | 
-|**Modèles de remise**| | [Instances réservées](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instances réservées](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)|
+|**Modèles de remise**| | [Instances réservées](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-azure-hybrid-benefit.md) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Azure Hybrid Benefit](sql-database-azure-hybrid-benefit.md) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instances réservées](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-azure-hybrid-benefit.md) (non disponible avec les abonnements dev/test)<br/>Abonnements Dev/Test [Entreprise](https://azure.microsoft.com/offers/ms-azr-0148p/) et [Paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
 Pour plus d’informations, consultez les détails des différences entre les niveaux de service dans les pages [Base de données unique (vCore)](sql-database-vcore-resource-limits-single-databases.md), [Pools de bases de données uniques (VCore)](sql-database-dtu-resource-limits-single-databases.md), [Base de données unique (UDBD)](sql-database-dtu-resource-limits-single-databases.md), [Pools de bases de données uniques (UDBD)](sql-database-dtu-resource-limits-single-databases.md) et [Instance gérée](sql-database-managed-instance-resource-limits.md).
 

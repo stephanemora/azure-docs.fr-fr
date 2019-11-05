@@ -6,21 +6,18 @@ manager: nitinme
 description: Paramètres pour tous les conteneurs de Cognitive Services
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 10/15/2019
 ms.author: dapine
-ms.openlocfilehash: 06f68d28d06dec7c9e738ad8cb50ca337fa840be
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: bf4e8f06642a4a764794a75e2b49f15958796c61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101998"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465954"
 ---
 ## <a name="gathering-required-parameters"></a>Collecte des paramètres requis
 
 Il existe trois paramètres principaux pour tous les conteneurs de Cognitive Services requis. Le contrat de licence utilisateur final (CLUF) doit être présent avec une valeur de `accept`. En outre, une URL de point de terminaison et une clé API sont nécessaires.
-
-> [!NOTE]
-> La seule exception à ces trois paramètres obligatoires est lorsque les conteneurs sont considérés comme « hors connexion ». Ces derniers ne signalent pas l’utilisation, ne sont pas mesurés et suivent une méthodologie de facturation différente.
 
 ### <a name="endpoint-uri-endpoint_uri"></a>URL du point de terminaison `{ENDPOINT_URI}`
 

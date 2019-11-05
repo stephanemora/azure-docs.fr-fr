@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 7e341cf8a4ff2a18e44e36d73ad5dbc642582802
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710145"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496289"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
@@ -179,7 +179,7 @@ Les chargements de données sont souvent plus lents sur les instances gérées q
 Oui, vous n’avez pas besoin de décrypter votre base de données pour pouvoir la restaurer en instance gérée. Vous devez fournir à l’instance gérée un certificat/une clé utilisée comme protecteur de clé de cryptage dans le système source pour pouvoir lire les données du fichier de sauvegarde crypté. Il existe deux façons d'effectuer cette opération :
 
 - *Téléchargez le protecteur de certificat dans l’instance gérée*. Cela est uniquement possible à l’aide de PowerShell. L’[exemple de script](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) décrit l’ensemble du processus.
-- *Téléchargez le protecteur de clé asymétrique dans Azure Key Vault (AKV) et pointez l'instance gérée sur celui-ci.* . Cette approche ressemble au cas d’utilisation TDE de Bring-your-own-key (BYOK) qui utilise également l’intégration AKV pour stocker la clé de cryptage. Si vous ne souhaitez pas utiliser la clé en tant que protecteur de clé de chiffrement, mais simplement la mettre à disposition de l'instance gérée pour restaurer les bases de données chiffrées, suivez les instructions pour [configurer BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal), et ne cochez pas la case *Définir la clé sélectionnée comme protecteur TDE par défaut*.
+- *Téléchargez le protecteur de clé asymétrique dans Azure Key Vault (AKV) et pointez l'instance gérée sur celui-ci.* . Cette approche ressemble au cas d’utilisation TDE de Bring-your-own-key (BYOK) qui utilise également l’intégration AKV pour stocker la clé de cryptage. Si vous ne souhaitez pas utiliser la clé en tant que protecteur de clé de chiffrement, mais simplement la mettre à disposition de l'instance gérée pour restaurer les bases de données chiffrées, suivez les instructions pour [configurer BYOK TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption), et ne cochez pas la case *Définir la clé sélectionnée comme protecteur TDE par défaut*.
 
 Une fois que vous mettez le protecteur de cryptage à la disposition de l’instance gérée, vous pouvez procéder à la procédure standard de restauration de la base de données.
 

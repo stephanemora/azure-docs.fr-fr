@@ -1,6 +1,6 @@
 ---
 title: Entraîner avec azureml-datasets
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Découvrez comment utiliser des jeux de données lors de l’entraînement.
 services: machine-learning
 ms.service: machine-learning
@@ -11,14 +11,15 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 9ccc5f5721d1ddc8459918913a4f3ce707766dea
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 12c08a95cd43f9f988c98711141b1b1f879e8b3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316693"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489379"
 ---
 # <a name="train-with-datasets-preview-in-azure-machine-learning"></a>Entraîner avec des jeux de données (préversion) dans Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez découvrir les deux façons de consommer des [jeux de données Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) lors des exécutions d’entraînement d’expérience à distance sans vous soucier des chaînes de connexion ou des chemins de données.
 
@@ -32,9 +33,9 @@ Les jeux de données Azure Machine Learning fournissent une intégration transpa
 
 Pour créer des jeux de données et effectuer un entraînement avec eux, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree) dès aujourd’hui.
 
-* Un [espace de travail Azure Machine Learning service](how-to-manage-workspace.md)
+* Un [espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
 * Le [SDK Azure Machine Learning pour Python installé](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), qui inclut le paquet azureml-datasets.
 

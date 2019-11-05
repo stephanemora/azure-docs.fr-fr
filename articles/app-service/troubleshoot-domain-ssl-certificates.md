@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: a6c3b8485a3243d7c89ab409a2fb83b1b045c9ba
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 778836661ff15c334823f95fef42acadb3e8b649
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121981"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470134"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Résoudre les problèmes de domaines et de certificats SSL dans Azure App Service
 
@@ -70,7 +70,7 @@ Supprimez la liaison SSL pour ce certificat dans les applications, puis essayez 
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>Vous n’arrivez pas à acheter un certificat App Service 
 
 #### <a name="symptom"></a>Symptôme
-Vous ne pouvez pas acheter un [certificat Azure App Service](./web-sites-purchase-ssl-web-site.md) sur le portail Azure.
+Vous ne pouvez pas acheter un [certificat Azure App Service](./configure-ssl-certificate.md#import-an-app-service-certificate) sur le portail Azure.
 
 #### <a name="cause-and-solution"></a>Cause et solution
 Ce problème peut se produire pour l’une des raisons suivantes :

@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: e1e89612ee48aaf5ee9bda51f954add426bf6720
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: bebfad57da41d257749acd3842a75ace114ed643
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516803"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492775"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Étapes d’une migration vers une ressource de création Azure
 
 À partir du portail LUIS, effectuez la migration de toutes les applications que vous avez en vue d’utiliser la ressource de création Azure.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

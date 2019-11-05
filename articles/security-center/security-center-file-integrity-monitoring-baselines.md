@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e7ef558ec75622b804aef96781b549f1a833e21
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202143"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73518861"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparer des lignes de base avec le Monitoring d'intégrité de fichier (FIM)
 
@@ -60,7 +60,7 @@ Dans un premier temps, le Monitoring d'intégrité de fichier identifie les cara
 |Sécurité réseau : Restreindre NTLM : Auditer l’authentification NTLM dans ce domaine|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> Pour en savoir plus sur les paramètres de registre pris en charge par les différentes versions du système d’exploitation, consultez la [feuille de calcul de référence Paramètres de stratégie de groupe](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
+> Pour en savoir plus sur les paramètres de registre pris en charge par les différentes versions du système d’exploitation, consultez la [feuille de calcul de référence Paramètres de stratégie de groupe](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
 *Pour configurer le Monitoring intégré de fichier pour surveiller les lignes de base de registre :*
 

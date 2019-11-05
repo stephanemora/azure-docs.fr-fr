@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e398fd7d370d30fac87035b27a218834b4fab22
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ef1f420e4c4dbd38ad703eb0573fae36af078edb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899717"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496235"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>Niveau Critique pour l'entreprise - Azure SQL Database
 
@@ -59,7 +59,7 @@ Les principales raisons pour lesquelles vous devez choisir le niveau de service 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Recherchez les caractéristiques des ressources (nombre de cœurs, E/S, mémoire) du niveau Critique pour l’entreprise dans [Instance managée](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), Base de données unique dans [Modèle vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) ou [Modèle DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), ou Pool élastique dans [Modèle vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) et [Modèle DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
+- Recherchez les caractéristiques des ressources (nombre de cœurs, E/S, mémoire) du niveau Critique pour l’entreprise dans [Instance managée](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), Base de données unique dans [Modèle vCore](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) ou [Modèle DTU](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), ou Pool élastique dans [Modèle vCore](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) et [Modèle DTU](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Découvrez les niveaux [Usage général](sql-database-service-tier-general-purpose.md) et [Hyperscale](sql-database-service-tier-hyperscale.md).
 - Découvrez [Service Fabric](../service-fabric/service-fabric-overview.md).
 - Pour découvrir d’autres options de haute disponibilité et de récupération d’urgence, consultez [Continuité d’activité](sql-database-business-continuity.md).

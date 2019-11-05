@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/16/2019
 ms.author: diberry
-ms.openlocfilehash: bd1e665114fff4d5b7b0b2dca267207bdeebab56
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 383cade6e8bb5f66aa240564912056ec345a1ee6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949543"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500184"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -47,15 +47,9 @@ LUIS comprend les énoncés dans les langues suivantes :
 | Espagnol (Mexique)|`es-MX` |-|  -   |✔|✔|
 | Turc | `tr-TR` |✔|-|-|Sentiment uniquement|
 
-
 La prise en charge linguistique varie pour les [entités prédéfinies](luis-reference-prebuilt-entities.md) et les [domaines prédéfinis](luis-reference-prebuilt-domains.md).
 
-### <a name="chinese-support-notes"></a>*Notes pour la prise en charge du chinois
-
- - Dans la culture `zh-cn`, LUIS attend le jeu de caractères chinois simplifié plutôt que le jeu de caractères chinois traditionnel.
- - Les noms des intentions, les entités, les fonctionnalités et les expressions régulières peuvent être en caractères chinois ou romans.
- - Pour plus d’informations sur les domaines prédéfinis pris en charge dans la culture `zh-cn`, voir la [référence des domaines prédéfinis](luis-reference-prebuilt-domains.md).
-<!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
+[!INCLUDE [Chinese language support notes](includes/chinese-language-support-notes.md)]
 
 ### <a name="japanese-support-notes"></a>*Notes pour la prise en charge du japonais
 
@@ -63,8 +57,7 @@ La prise en charge linguistique varie pour les [entités prédéfinies](luis-ref
      - でございます ne signifie pas la même chose que です.
      - です ne signifie pas la même chose que だ.
 
-### <a name="text-analytics-support-notes"></a>\*\*Notes sur la prise en charge de l’analyse de texte
-L’analyse de texte inclut l’entité keyPhrase prédéfinie et l’analyse des sentiments. Seul le portugais est pris en charge pour les sous-cultures : `pt-PT` et `pt-BR`. Toutes les autres cultures sont prises en charge au niveau de la culture principale. En savoir plus sur les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) par l’analyse de texte.
+[!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Langues prises en charge par l’API Microsoft Speech
 Consultez les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode) par Speech pour connaître les langues du mode de dictée de Speech.

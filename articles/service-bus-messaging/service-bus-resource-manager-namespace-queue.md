@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1c6a4202b944b2eb95008964eb1040f176645334
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444783"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482386"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Créer un espace de noms Service Bus et une file d’attente à l’aide d’un modèle Azure Resource Manager
 
@@ -94,15 +94,16 @@ La version de l’API Service Bus du modèle.
 Crée un espace de noms Service Bus standard de type **Messagerie**, avec une file d’attente.
 
 ```json
-"resources ": [{
-        "apiVersion": "[variables('sbVersion')]",
+{
+    "resources": [{
+        "apiVersion": "2017-04-01",
         "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
         "sku": {
-            "name": "Standard",
+            "name": "Standard"
         },
+        "properties": {},
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
             "name": "[parameters('serviceBusQueueName')]",
@@ -111,10 +112,11 @@ Crée un espace de noms Service Bus standard de type **Messagerie**, avec une fi
                 "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
-                "path": "[parameters('serviceBusQueueName')]",
+                "path": "[parameters('serviceBusQueueName')]"
             }
         }]
     }]
+}
 ```
 
 Pour la syntaxe et les propriétés JSON, consultez [espaces de noms](/azure/templates/microsoft.servicebus/namespaces) et [files d’attente](/azure/templates/microsoft.servicebus/namespaces/queues).

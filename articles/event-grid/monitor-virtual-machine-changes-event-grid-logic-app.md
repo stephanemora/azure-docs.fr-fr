@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: ed48a4e5bab807695000fe6cdbecf1c1b7b01e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325700"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488608"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Didacticiel : Superviser les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
@@ -101,7 +101,7 @@ Maintenant, ajoutez le déclencheur Event Grid qui permet de superviser le group
    | Propriété | Obligatoire | Value | Description |
    | -------- | -------- | ----- | ----------- |
    | **Abonnement** | OUI | <*event-publisher-Azure-subscription-name*> | Sélectionnez le nom de l’abonnement Azure associé à l’*éditeur d’événements*. Dans le cadre de ce tutoriel, sélectionnez le nom d’abonnement Azure de votre machine virtuelle. |
-   | **Type de ressource** | OUI | <*event-publisher-Azure-resource-type*> | Sélectionnez le type de ressource Azure pour l’éditeur d’événements. Pour plus d’informations sur les types de ressources Azure, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md). Pour ce tutoriel, sélectionnez la valeur `Microsoft.Resources.ResourceGroups` pour superviser les groupes de ressources Azure. Si vous souhaitez superviser uniquement les machines virtuelles,  |
+   | **Type de ressource** | OUI | <*event-publisher-Azure-resource-type*> | Sélectionnez le type de ressource Azure pour l’éditeur d’événements. Pour plus d’informations sur les types de ressources Azure, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md). Pour ce tutoriel, sélectionnez la valeur `Microsoft.Resources.ResourceGroups` pour superviser les groupes de ressources Azure. |
    | **Nom de la ressource** |  OUI | <*event-publisher-Azure-resource-name*> | Sélectionnez le nom de la ressource Azure pour l’éditeur d’événements. Cette liste varie en fonction du type de ressource que vous avez sélectionné. Pour ce tutoriel, sélectionnez le nom du groupe de ressources Azure qui contient votre machine virtuelle. |
    | **Élément de type d’événement** |  Non | <*event-types*> | Sélectionnez un ou plusieurs types d’événements spécifiques à filtrer et envoyer à votre Event Grid. Par exemple, vous pouvez ajouter ces types d’événements pour détecter le moment où des ressources sont modifiées ou supprimées : <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [Schéma d’événements Azure Event Grid pour les groupes de ressources](../event-grid/event-schema-resource-groups.md) <br>- [Comprendre le filtrage des événements](../event-grid/event-filtering.md) <br>- [Filtrer des événements pour Event Grid](../event-grid/how-to-filter-events.md) |
    | Pour ajouter des propriétés facultatives, sélectionnez **Ajouter un nouveau paramètre**, puis les propriétés souhaitées. | Non | {voir les descriptions} | * **Filtre de préfixe** : Pour ce tutoriel, laissez cette propriété vide. Le comportement par défaut s’applique à toutes les valeurs. Vous pouvez cependant spécifier une chaîne de préfixe en tant que filtre, par exemple, un chemin d’accès et un paramètre pour une ressource spécifique. <p>* **Filtre de suffixe** : Pour ce tutoriel, laissez cette propriété vide. Le comportement par défaut s’applique à toutes les valeurs. Vous pouvez cependant spécifier une chaîne de suffixe en tant que filtre, par exemple, une extension de nom de fichier, si vous ne souhaitez utiliser que des types de fichiers spécifiques. <p>* **Nom d’abonnement** : Pour ce tutoriel, vous pouvez indiquer un nom unique pour votre abonnement aux événements. |

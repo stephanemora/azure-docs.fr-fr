@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 7/5/2019
 ms.author: dapine
 ms.openlocfilehash: b40f1833f08074cb0a8d45fe3afc6bac7cbac7f0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717094"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73522803"
 ---
 ## <a name="create-an-anomaly-detector-resource"></a>Créer une ressource Détecteur d’anomalies
 

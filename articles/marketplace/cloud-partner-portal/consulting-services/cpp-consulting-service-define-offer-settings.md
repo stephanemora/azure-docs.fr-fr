@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a89c1c548469b568a34521b240683af285c2342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942785"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485182"
 ---
 # <a name="offer-settings-tab"></a>Onglet des paramètres de l’offre
 
@@ -59,7 +59,7 @@ La liste suivante contient plusieurs noms d’offres bien nommés :
 -   Fondamentaux pour les services professionnels : Réunion d’information d’une heure
 -   Plateforme de migration cloud : Réunion d’information d’une heure
 -   PowerApps et Microsoft Flow : Atelier d’une journée
--   Azure Machine Learning Services : Preuve de concept de 3 semaines
+-   Azure Machine Learning : Preuve de concept de 3 semaines
 -   Solution de vente au détail physique et en ligne : Réunion d’information d’une heure
 -   Apportez vos propres données : Atelier d’une semaine
 -   Cloud Analytics : Atelier de 3 jours

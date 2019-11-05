@@ -11,16 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ef5f6967b7ad9500672d00d93dd8acaca99e5948
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387941"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499463"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Créer une application LUIS par programmation à l’aide de Node.js
 
 LUIS fournit une API de programmation qui fait tout ce que le site web [LUIS](luis-reference-regions.md) fait. Ceci permet de gagner du temps lorsque vous avez des données préexistantes et qu’il serait plus rapide de créer une application LUIS par programmation que d’entrer manuellement des informations. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

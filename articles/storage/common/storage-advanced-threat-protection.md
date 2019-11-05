@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: c19b64441d7afbe7544a4401314078b807a8c939
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b9413807cda096adf1056c07e026373ea19359b9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673254"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495968"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Protection avancée contre les menaces pour Stockage Azure
 
@@ -30,7 +30,7 @@ La protection avancée contre les menaces pour Stockage Azure ingère les journa
 
 La protection avancée contre les menaces est activée par défaut pour votre compte de stockage. Vous pouvez configurer la protection avancée contre les menaces de plusieurs façons, qui sont décrites dans les sections suivantes.
 
-### <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Lancez le [portail Azure](https://portal.azure.com/).
 1. Accédez à votre compte Stockage Azure. Sous **Paramètres**, sélectionnez **Sécurité avancée**.
@@ -40,7 +40,7 @@ La protection avancée contre les menaces est activée par défaut pour votre co
 
     ![Activer la protection avancée contre les menaces dans le stockage Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="using-azure-security-center"></a>Utilisation du Centre de sécurité Azure
+### <a name="azure-security-centertabazure-security-center"></a>[Centre de sécurité Azure](#tab/azure-security-center)
 
 Quand vous vous abonnez au niveau Standard dans Azure Security Center, la protection avancée contre les menaces est automatiquement configurée sur tous vos comptes de stockage. Vous pouvez activer ou désactiver la protection avancée contre les menaces pour vos comptes de stockage sous un abonnement spécifique comme suit :
 
@@ -56,11 +56,11 @@ Quand vous vous abonnez au niveau Standard dans Azure Security Center, la protec
     ![Activer ATP dans Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. Cliquez sur **Enregistrer**.
 
-### <a name="using-azure-resource-manager-templates"></a>Utilisation de modèles Azure Resource Manager
+### <a name="templatetabtemplate"></a>[Modèle](#tab/template)
 
 Utilisez un modèle Azure Resource Manager pour déployer un compte Stockage Azure avec la protection avancée contre les menaces activée. Pour plus d’informations, consultez [Compte de stockage avec la protection avancée contre les menaces](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### <a name="using-an-azure-policy"></a>Utilisation d’Azure Policy
+### <a name="azure-policytabazure-policy"></a>[Azure Policy](#tab/azure-policy)
 
 Utilisez Azure Policy pour activer la protection avancée contre les menaces dans les comptes de stockage sous un abonnement ou un groupe de ressources spécifiques.
 
@@ -78,20 +78,22 @@ Utilisez Azure Policy pour activer la protection avancée contre les menaces dan
 
     ![Page Définitions de stratégies](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="using-the-rest-api"></a>Utilisation de l’API REST
+### <a name="rest-apitabrest-api"></a>[API REST](#tab/rest-api)
 
 Utilisez les commandes de l’API Rest pour créer, mettre à jour ou obtenir le paramètre de protection avancée contre les menaces pour un compte de stockage spécifique.
 
 * [Protection avancée contre les menaces – Créer](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Protection avancée contre les menaces – Obtenir](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="using-azure-powershell"></a>Utilisation de Microsoft Azure PowerShell
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Utilisez les cmdlets PowerShell suivantes :
 
 * [Activer la protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
 * [Obtenir la protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
 * [Désactiver la protection avancée contre les menaces](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+
+---
 
 ## <a name="explore-security-anomalies"></a>Explorer les anomalies de sécurité
 

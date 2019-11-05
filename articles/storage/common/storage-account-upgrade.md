@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: d1c7edc2973231607cade89df56906190c2abbcf
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3ad82a1312ccce5029685d903a3c5e3caff50f8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671142"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495982"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Mettre à niveau vers un compte de stockage v2 à usage général
 
@@ -23,7 +23,7 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 > [!IMPORTANT]
 > La mise à niveau d’un compte de stockage v1 à usage général ou d’objets blob vers un compte v2 à usage général est définitive et ne peut pas être annulée.
 
-## <a name="upgrade-using-the-azure-portal"></a>Mise à niveau à l’aide du Portail Azure
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Accédez à votre compte de stockage.
@@ -34,7 +34,7 @@ La mise à niveau vers un compte de stockage v2 à usage général à partir d�
 
     ![Mise à niveau du type de compte](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-## <a name="upgrade-with-powershell"></a>Mise à niveau à l’aide de PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -45,8 +45,7 @@ Ensuite, appelez la commande suivante pour mettre à niveau le compte, en rempla
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2
 ```
-
-## <a name="upgrade-with-azure-cli"></a>Mise à niveau à l’aide de l’interface de ligne de commande Azure
+# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 Pour mettre à niveau un compte v1 à usage général vers un compte v2 à usage général à l’aide d’Azure CLI, commencez par installer la dernière version d’Azure CLI. Pour plus d’informations sur l’installation de l’interface de ligne de commande, consultez l’article [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -55,6 +54,8 @@ Ensuite, appelez la commande suivante pour mettre à niveau le compte, en rempla
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```
+
+---
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Spécifier un niveau d’accès pour les données blob
 

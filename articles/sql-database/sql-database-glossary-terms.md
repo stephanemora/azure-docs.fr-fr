@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: 5fccf1ffc76c824c81f8b8b826f90bf8314ff1e3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f23ef5506027a5de9f4189a11636d323679707f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883341"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488473"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Lexique Azure SQL Database
 
 |Context|Terme|Plus d’informations|
 |:---|:---|:---|
 |Nom du service Azure|Azure SQL Database ou SQL Database|[Le service Azure SQL Database](sql-database-technical-overview.md)|
-|Niveau de calcul|Serverless (préversion)|[Couche de calcul serverless](sql-database-serverless.md)
+|Niveau de calcul|Sans serveur |[Couche de calcul serverless](sql-database-serverless.md)
 ||approvisionné|[Couche de calcul serverless](sql-database-serverless.md)
 |Options de déploiement |Base de données unique|[Bases de données uniques](sql-database-single-database.md)|
 ||Pool élastique|[Pool élastique](sql-database-elastic-pool.md)|

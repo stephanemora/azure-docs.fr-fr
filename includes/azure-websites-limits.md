@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: b84b503fad951b5a6998bf0b06d466ce41031aa8
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1f08067768f2d4a0a0c2ab31b3db1c9f2c9e1521
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526741"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476914"
 ---
 | Ressource | Gratuit | Partagé | De base | standard | Premium (v2) | Isolé </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -28,7 +28,7 @@ ms.locfileid: "72526741"
 | [Connexions simultanées du débogueur](../articles/app-service/troubleshoot-dotnet-visual-studio.md) par application |1 |1 |1 |5\. |5\. |5\. |
 | Certificats App Service par abonnement<sup>9</sup>| Non pris en charge | Non pris en charge |10 |10 |10 |10 |
 | Domaines personnalisés par application</a> |0 (sous-domaine azurewebsites.net uniquement)|500 |500 |500 |500 |500 |
-| domaines personnalisés [Prise en charge SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Non pris en charge, certificat avec caractères génériques pour *. azurewebsites.net disponible par défaut|Non pris en charge, certificat avec caractères génériques pour *. azurewebsites.net disponible par défaut|Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses | Connexions SSL SNI illimitées et 1 connexion IP SSL incluses|
+| domaines personnalisés [Prise en charge SSL](../articles/app-service/configure-ssl-certificate.md) |Non pris en charge, certificat avec caractères génériques pour *. azurewebsites.net disponible par défaut|Non pris en charge, certificat avec caractères génériques pour *. azurewebsites.net disponible par défaut|Nombre illimité de connexions SNI SSL |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses |Connexions SSL SNI illimitées et 1 connexion IP SSL incluses | Connexions SSL SNI illimitées et 1 connexion IP SSL incluses|
 | Connexions hybrides par plan | | | 5\. | 25 | 200 | 200 |
 | Équilibreur de charge intégré | |X |X |X |X |X<sup>10</sup> |
 | [Toujours actif](../articles/app-service/configure-common.md) | | |X |X |X |X |

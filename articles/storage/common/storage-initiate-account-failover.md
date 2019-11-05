@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2bac51a86c8acdba0f6c2f03e5a24ab2b133aa8e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985336"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521005"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Lancer un basculement de compte de stockage (préversion)
 
@@ -44,7 +44,7 @@ Une fois le basculement terminé, votre compte de stockage devient un compte de 
 
 Une fois que vous réactivez GRS pour votre compte de stockage, Microsoft commence à répliquer les données de votre compte dans la nouvelle région secondaire. Le temps de réplication dépend de la quantité de données répliquées.  
 
-## <a name="azure-portal"></a>Portail Azure
+## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Pour lancer un basculement de compte à partir du portail Azure, procédez comme suit :
 
@@ -60,7 +60,7 @@ Pour lancer un basculement de compte à partir du portail Azure, procédez comme
 
     ![Capture d’écran représentant la boîte de dialogue de confirmation d’un basculement de compte](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Pour lancer un basculement de compte à l’aide de PowerShell, vous devez d’abord installer le module de préversion 6.0.1. Pour installer le module, procédez comme suit :
 
@@ -97,7 +97,7 @@ Pour lancer un basculement de compte à partir de PowerShell, exécutez la comma
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 Pour lancer un basculement de compte à partir de l’interface de ligne de commande Azure, exécutez la commande suivante :
 
@@ -105,6 +105,8 @@ Pour lancer un basculement de compte à partir de l’interface de ligne de comm
 az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

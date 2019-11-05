@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
-ms.openlocfilehash: 27988edaf9d6fe70288352b0ba45945e32976d4d
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 10/25/2019
+ms.openlocfilehash: 6590b6c3ecf1efc43822a4fefab79cdc7f624dcd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034644"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496974"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Déployer un modèle sur Azure Container Instances
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en tant que service web sur Azure Container Instances (ACI). Utilisez Azure Container Instances si l’une des conditions suivantes est vraie :
 
@@ -28,7 +29,7 @@ Pour plus d’informations sur les quotas et la disponibilité d’ACI en foncti
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un espace de travail Azure Machine Learning. Pour plus d’informations, consultez [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
+- Un espace de travail Azure Machine Learning. Pour plus d’informations, voir la page [Créer un espace de travail Azure Machine Learning](how-to-manage-workspace.md).
 
 - Un modèle Machine Learning inscrit dans votre espace de travail. Si vous n’avez pas de modèle inscrit, consultez la section [Comment et où déployer des modèles](how-to-deploy-and-where.md).
 

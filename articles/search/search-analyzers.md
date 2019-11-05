@@ -1,25 +1,25 @@
 ---
-title: Analyseurs pour la linguistique et le traitement de texte - Recherche Azure
+title: Analyseurs pour la linguistique et le traitement de texte
+titleSuffix: Azure Cognitive Search
 description: Attribuez des analyseurs aux champs de texte d’un index pouvant faire l’objet d’une recherche, afin de remplacer l’instance de Lucene standard par défaut par des solutions alternatives personnalisées, prédéfinies ou spécifiques à une langue.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
-ms.author: heidist
-manager: nitinme
 author: HeidiSteen
-ms.openlocfilehash: 85ebc75a22a4b27803df758d3f411a46a6206eb7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 32ac91df042eb29c39cc54b738dbb96aff3104f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72987620"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496501"
 ---
-# <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
+# <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analyseurs pour le traitement de texte dans la Recherche cognitive Azure
 
 Un *analyseur* est un composant du [moteur de recherche en texte intégral](search-lucene-query-architecture.md) chargé de traiter le texte dans les chaînes de requête et les documents indexés. La façon dont les différents analyseurs manipulent le texte varie en fonction du scénario. Les analyseurs linguistiques traitent le texte en utilisant des règles linguistiques afin d’améliorer la qualité de la recherche, alors que d’autres analyseurs effectuent des tâches plus simples comme la conversion de caractères en minuscules, par exemple. 
 
-Les analyseurs linguistiques sont les plus fréquemment utilisés. D’ailleurs, un analyseur linguistique par défaut est affecté à chaque champ pouvant faire l’objet d’une recherche figurant dans un index Recherche Azure. Les transformations linguistiques suivantes sont courantes au cours d’une analyse de texte :
+Les analyseurs linguistiques sont les plus fréquemment utilisés. D’ailleurs, un analyseur linguistique par défaut est affecté à chaque champ pouvant faire l’objet d’une recherche figurant dans un index de Recherche cognitive Azure. Les transformations linguistiques suivantes sont courantes au cours d’une analyse de texte :
 
 + Les mots non essentiels (mots vides) et la ponctuation sont supprimés.
 + Les expressions et les mots avec tirets sont segmentés en différents composants.
@@ -30,19 +30,19 @@ Les analyseurs linguistiques convertissent une entrée de texte en forme primiti
 
 ## <a name="default-analyzer"></a>Analyseur par défaut  
 
-Par défaut, Recherche Azure utilise l’[analyseur Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), qui décompose le texte en éléments en suivant les règles de la [« Segmentation du texte Unicode »](https://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.  
+Par défaut, la Recherche cognitive Azure utilise l’[analyseur Apache Lucene Standard (lucene standard)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html), qui décompose le texte en éléments en suivant les règles de la [« Segmentation du texte Unicode »](https://unicode.org/reports/tr29/). Par ailleurs, l'analyseur standard convertit tous les caractères en minuscules. Les documents indexés et les termes de recherche sont analysés pendant l'indexation et le traitement des requêtes.  
 
 Il est utilisé automatiquement sur chaque champ pouvant faire l’objet d’une recherche. Vous pouvez substituer l’analyseur par défaut champ par champ. Ces analyseurs alternatifs peuvent être un [analyseur linguistique](index-add-language-analyzers.md), un [analyseur personnalisé](index-add-custom-analyzers.md) ou un analyseur prédéfini figurant dans la [liste des analyseurs disponibles](index-add-custom-analyzers.md#AnalyzerTable).
 
 
 ## <a name="types-of-analyzers"></a>Types d’analyseurs
 
-La liste suivante décrit les analyseurs disponibles dans Recherche Azure.
+La liste suivante décrit les analyseurs disponibles dans la Recherche cognitive Azure.
 
 | Category | Description |
 |----------|-------------|
 | [Analyseur Lucene standard](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Par défaut. Aucune spécification ou configuration n’est nécessaire. Cet analyseur à usage général est efficace pour la plupart des scénarios et des langues.|
-| Analyseurs prédéfinis | Proposés comme produits finis destinés à être utilisés tels quels. <br/>Il en existe deux types : spécialisé et linguistique. Ils sont dits « prédéfinis », car vous les référencez par leur nom, sans aucune configuration ni personnalisation. <br/><br/>Les [analyseurs spécialisés (non dépendants de la langue)](index-add-custom-analyzers.md#AnalyzerTable) sont employés quand les entrées de texte nécessitent un traitement spécialisé ou minimal. Les analyseurs prédéfinis qui ne dépendent pas de la langue sont les suivants : **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>Utilisez les [analyseurs linguistiques](index-add-language-analyzers.md) quand vous avez besoin d’une prise en charge linguistique avancée pour différentes langues. La Recherche Azure prend en charge 35 analyseurs linguistiques Lucene et 50 analyseurs de traitement en langage naturel Microsoft. |
+| Analyseurs prédéfinis | Proposés comme produits finis destinés à être utilisés tels quels. <br/>Il en existe deux types : spécialisé et linguistique. Ils sont dits « prédéfinis », car vous les référencez par leur nom, sans aucune configuration ni personnalisation. <br/><br/>Les [analyseurs spécialisés (non dépendants de la langue)](index-add-custom-analyzers.md#AnalyzerTable) sont employés quand les entrées de texte nécessitent un traitement spécialisé ou minimal. Les analyseurs prédéfinis qui ne dépendent pas de la langue sont les suivants : **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>Utilisez les [analyseurs linguistiques](index-add-language-analyzers.md) quand vous avez besoin d’une prise en charge linguistique avancée pour différentes langues. La Recherche cognitive Azure prend en charge 35 analyseurs linguistiques Lucene et 50 analyseurs de traitement en langage naturel Microsoft. |
 |[Analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Ils renvoient à une configuration définie par l’utilisateur constituée d’une combinaison d’éléments existants, dont un générateur de jetons (obligatoire) et des filtres facultatifs (caractères ou jetons).|
 
 Certains analyseurs prédéfinis, comme **Pattern** ou **Stop**, prennent en charge un ensemble limité d’options de configuration. Pour définir ces options, vous créez en réalité un analyseur personnalisé constitué de l’analyseur prédéfini et d’une des autres options documentées dans les [informations de référence sur les analyseurs prédéfinis](index-add-custom-analyzers.md#AnalyzerTable). Comme pour toute configuration personnalisée, nommez votre nouvelle configuration (par exemple, *MonAnalyseurSéquencesOctets*) pour la distinguer de l’analyseur Lucene Pattern.
@@ -80,7 +80,7 @@ Cette section offre des conseils pour utiliser les analyseurs.
 
 ### <a name="one-analyzer-for-read-write-unless-you-have-specific-requirements"></a>Un même analyseur pour les opérations de lecture-écriture, sauf besoins spécifiques
 
-Recherche Azure vous permet de spécifier différents analyseurs pour l’indexation et la recherche via les paramètres de champ supplémentaires **indexAnalyzer** et **searchAnalyzer**. Par défaut, l’analyseur défini avec la propriété **analyzer** est utilisé pour l’indexation et la recherche. Si `analyzer` n’est pas spécifié, l’analyseur Lucene standard est utilisé par défaut.
+La Recherche cognitive Azure vous permet de spécifier différents analyseurs pour l’indexation et la recherche par le biais des paramètres de champ supplémentaires **indexAnalyzer** et **searchAnalyzer**. Par défaut, l’analyseur défini avec la propriété **analyzer** est utilisé pour l’indexation et la recherche. Si `analyzer` n’est pas spécifié, l’analyseur Lucene standard est utilisé par défaut.
 
 En règle générale, il est préférable d’utiliser le même analyseur pour l’indexation et l’interrogation, sauf si des besoins spécifiques vous obligent à faire autrement. Veillez à effectuer des tests approfondis. Quand il existe une divergence de traitement de texte pendant la recherche et l’indexation, le risque est que les termes de la requête et les termes indexés ne correspondent pas si la configuration de l’analyseur de recherche et celle de l’analyseur d’indexation ne sont pas conformes.
 
@@ -286,7 +286,7 @@ Tout analyseur qui est utilisé tel quel, sans configuration, est spécifié sur
 
 Cet exemple attribue les analyseurs Anglais et Français de Microsoft aux champs de description. C’est un extrait de code issu d’une définition plus grande de l’index des hôtels, créé à l’aide de la classe Hotel dans le fichier hotels.cs de l’exemple [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo).
 
-Appelez [Analyseur](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), en spécifiant le type [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) afin de fournir un analyseur de texte pris en charge dans Recherche Azure.
+Appelez la classe [Analyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet) en spécifiant le type [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) pour fournir un analyseur de texte pris en charge dans la Recherche cognitive Azure.
 
 ```csharp
     public partial class Hotel
@@ -336,7 +336,7 @@ Créez un objet [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ Lisez notre explication détaillée du [Fonctionnement de la recherche en texte intégral dans Recherche Azure](search-lucene-query-architecture.md). Cet article utilise des exemples pour expliquer les comportements qui, au premier abord, peuvent sembler contraires à la logique.
++ Lisez notre explication complète du [fonctionnement de la recherche en texte intégral dans la Recherche cognitive Azure](search-lucene-query-architecture.md). Cet article utilise des exemples pour expliquer les comportements qui, au premier abord, peuvent sembler contraires à la logique.
 
 + Essayez une syntaxe de requête supplémentaire à partir de la section Exemple [Rechercher des documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) ou à partir de la [syntaxe de requête simple](query-simple-syntax.md) dans l’Explorateur de recherche du portail.
 

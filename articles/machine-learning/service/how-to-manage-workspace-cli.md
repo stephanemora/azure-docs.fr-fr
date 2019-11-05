@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 75487906e4323ea12a47d75164617212bd3e65d9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8606ac2578c45062182517b5e67d669a09b8e5c0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002629"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489722"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Créer un espace de travail pour Azure Machine Learning avec Azure CLI
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez découvrir comment créer un espace de travail Azure Machine Learning à l’aide d’Azure CLI. Azure CLI fournit des commandes pour gérer les ressources Azure. L’extension Machine Learning de l’interface CLI fournit les commandes pour utiliser les ressources d’Azure Machine Learning.
 
@@ -58,7 +59,7 @@ L’espace de travail d’Azure Machine Learning s’appuie sur les entités ou 
 > [!IMPORTANT]
 > Si vous ne spécifiez pas de service Azure existant, il en sera créé un automatiquement lors de la création de l’espace de travail. Vous devez toujours spécifier un groupe de ressources.
 
-| de diffusion en continu | Paramètre pour spécifier une instance existante |
+| Service | Paramètre pour spécifier une instance existante |
 | ---- | ---- |
 | **Groupe de ressources Azure** | `-g <resource-group-name>`
 | **Compte Stockage Azure** | `--storage-account <service-id>` |

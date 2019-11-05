@@ -9,18 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390299"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499427"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>Didacticiel : Extraire des données de forme libre avec l’entité Pattern.any
 
 Dans ce tutoriel, vous allez utiliser l’entité pattern.any pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 

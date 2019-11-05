@@ -9,19 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 13a1589a6cc6ed48f159f361ff69a5a3ba8f0f80
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387637"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499445"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Didacticiel : Extraire des modèles relatifs au contexte à l’aide de rôles
 
 Dans ce tutoriel, vous allez utiliser un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une [entité simple](luis-concept-entity-types.md#simple-entity) et des [rôles](luis-concept-roles.md) pour extraire des données associées telles que la localisation d’origine et la localisation de destination.  Lorsque vous utilisez des modèles, l’intention nécessite moins d’exemples d’énoncés.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 

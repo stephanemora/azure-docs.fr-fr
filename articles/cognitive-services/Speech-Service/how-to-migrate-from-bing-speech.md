@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: nitinme
-ms.openlocfilehash: 5694894a78a46ad658ec18f210c6a82fb82df23f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 00a20ac2d7f05c42be9e955eeb8f47c302db7885
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559598"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464574"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrer de la Reconnaissance vocale Bing vers le Service Speech
 
@@ -61,7 +61,7 @@ Les services Speech utilisent un modèle de tarification basé sur le temps (plu
 
 ## <a name="migration-strategies"></a>Stratégies de migration
 
-Si vous ou votre organisation disposez d’applications en développement ou en production qui utilisent l’API Reconnaissance vocale Bing, vous devez les mettre à jour pour utiliser les services Speech au plus tôt. Pour accéder aux kits de développement logiciel (SDK), aux exemples de code et aux didacticiels disponibles, vois la [documentation des services Speech](index.yml).
+Si vous ou votre organisation disposez d’applications en développement ou en production qui utilisent l’API Reconnaissance vocale Bing, vous devez les mettre à jour pour utiliser les services Speech au plus tôt. Pour accéder aux kits de développement logiciel (SDK), aux exemples de code et aux didacticiels disponibles, vois la [documentation des services Speech](index.md).
 
 Les [API REST](rest-apis.md) des services Speech sont compatibles avec les API Reconnaissance vocale Bing. Si vous utilisez actuellement les API REST Reconnaissance vocale Bing, vous devez uniquement modifier le point de terminaison REST et basculer vers une clé d’abonnement Services Speech.
 
@@ -78,7 +78,7 @@ Si votre application utilise des connexions de longue durée et ne peut pas util
 Pour prendre en main du kit de développement logiciel (SDK) Speech :
 
 1. Téléchargez le [Kit de développement logiciel (SDK) Speech](speech-sdk.md).
-1. Parcourez les [guides de démarrage rapide](quickstart-csharp-dotnet-windows.md) et les [didacticiels](how-to-recognize-intents-from-speech-csharp.md) des services Speech. Consultez également les [exemples de code](samples.md) pour vous familiariser avec les nouvelles API.
+1. Parcourez les [guides de démarrage rapide](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) et les [didacticiels](how-to-recognize-intents-from-speech-csharp.md) des services Speech. Consultez également les [exemples de code](samples.md) pour vous familiariser avec les nouvelles API.
 1. Mettez à jour votre application pour utiliser les services Speech.
 
 ## <a name="support"></a>Support
@@ -90,7 +90,7 @@ Pour la prise en charge du Service Speech, du Kit de développement logiciel (SD
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Essayer gratuitement les services Speech](get-started.md)
-* [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](quickstart-csharp-uwp.md)
+* [Démarrage rapide : Reconnaissance vocale dans une application UWP à l’aide du kit SDK Speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## <a name="see-also"></a>Voir aussi
 * [Notes de publication des services Speech](releasenotes.md)

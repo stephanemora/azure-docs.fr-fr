@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 8/26/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 3c8ffcdb08fc99f5d815639e14fb4456fbd035e8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b413bc6d29f1b08949b50570cb5baa2eb758d779
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066505"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491029"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Utiliser le conteneur Speech Service avec Kubernetes et Helm
 
@@ -28,7 +28,7 @@ L’utilisation locale des conteneurs Speech est soumise aux prérequis suivants
 |Obligatoire|Objectif|
 |--|--|
 | Compte Azure. | Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][free-azure-account] avant de commencer. |
-| Accès à Container Registry | Pour que Kubernetes puisse extraire les images docker dans le cluster, il aura besoin d’accéder au registre de conteneurs. Vous devez d’abord [demander l’accès au registre de conteneurs][speech-preview-access]. |
+| Accès à Container Registry | Pour que Kubernetes puisse extraire les images docker dans le cluster, il aura besoin d’accéder au registre de conteneurs. |
 | Kubernetes CLI | L’interface [Kubernetes CLI][kubernetes-cli] est requise pour gérer les informations d’identification partagées à partir du registre de conteneurs. Kubernetes est également nécessaire avant Helm, qui est le gestionnaire de package de Kubernetes. |
 | Helm CLI | Dans le cadre de l’installation de l’[interface de ligne de commande Helm][helm-install], vous devrez également initialiser Helm, qui installera [Tiller][tiller-install]. |
 |Ressource Speech |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Ressource Azure de _Speech_ permettant d’obtenir la clé de facturation et l’URI du point de terminaison de facturation associés. Les deux valeurs, disponibles dans les pages Vue d’ensemble de **Speech** et Clés du portail Azure, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}** : clé de ressource<br><br>**{ENDPOINT_URI}**  : exemple d’URI de point de terminaison : `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
@@ -37,7 +37,7 @@ L’utilisation locale des conteneurs Speech est soumise aux prérequis suivants
 
 Reportez-vous aux détails de [l’ordinateur hôte du conteneur du service Speech][speech-container-host-computer] comme référence. Ce *graphique Helm* calcule automatiquement les besoins en ressources processeur et mémoire en fonction du nombre de décodages (demandes simultanées) que l’utilisateur spécifie. En outre, il s’ajuste en fonction selon que les optimisations pour l’entrée audio/textuelles sont configurées sur `enabled` ou non. Par défaut, le graphique Helm considère deux demandes simultanées et l’optimisation désactivée.
 
-| de diffusion en continu | Processeur/conteneur | Mémoire/conteneur |
+| Service | Processeur/conteneur | Mémoire/conteneur |
 |--|--|--|
 | **Reconnaissance vocale** | un décodeur nécessite un minimum de 1 150 millicores. Si `optimizedForAudioFile` est activé, 1 950 millicores sont requis. (par défaut : deux décodeurs) | Requis : 2 Go<br>Limité :  4 Go |
 | **Synthèse vocale** | une demande simultanée nécessite un minimum de 500 millicores. Si `optimizeForTurboMode` est activé, 1 000 millicores sont requis. (par défaut : deux demandes simultanées) | Requis : 1 Go<br> Limité : 2 Go |
@@ -48,22 +48,22 @@ L’ordinateur hôte doit avoir un cluster Kubernetes disponible. Consultez ce d
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Partage des informations d’identification au docker avec le cluster Kubernetes
 
-Pour permettre au cluster Kubernetes d’effectuer `docker pull` pour la ou les images configurées sur le registre de conteneurs `containerpreview.azurecr.io`, vous devez transférer les informations d’identification du docker dans le cluster. Exécutez la commande [`kubectl create`][kubectl-create] ci-dessous pour créer un *secret docker-registry* selon les informations d’identification fournies par les prérequis d’accès au registre de conteneurs.
+Pour permettre au cluster Kubernetes d’effectuer `docker pull` pour la ou les images configurées sur le registre de conteneurs `mcr.microsoft.com`, vous devez transférer les informations d’identification du docker dans le cluster. Exécutez la commande [`kubectl create`][kubectl-create] ci-dessous pour créer un *secret docker-registry* selon les informations d’identification fournies par les prérequis d’accès au registre de conteneurs.
 
 À partir de l’interface de ligne de commande de votre choix, exécutez la commande suivante. Veillez à remplacer `<username>`, `<password>` et `<email-address>` par les informations d’identification du registre de conteneurs.
 
 ```console
-kubectl create secret docker-registry containerpreview \
-    --docker-server=containerpreview.azurecr.io \
+kubectl create secret docker-registry mcr \
+    --docker-server=mcr.microsoft.com \
     --docker-username=<username> \
     --docker-password=<password> \
     --docker-email=<email-address>
 ```
 
 > [!NOTE]
-> Si vous avez déjà accès au registre de conteneurs `containerpreview.azurecr.io`, vous pouvez créer un secret Kubernetes avec l’indicateur générique à la place. Envisagez la commande suivante qui s’exécute sur le JSON de configuration de votre docker.
+> Si vous avez déjà accès au registre de conteneurs `mcr.microsoft.com`, vous pouvez créer un secret Kubernetes avec l’indicateur générique à la place. Envisagez la commande suivante qui s’exécute sur le JSON de configuration de votre docker.
 > ```console
->  kubectl create secret generic containerpreview \
+>  kubectl create secret generic mcr \
 >      --from-file=.dockerconfigjson=~/.docker/config.json \
 >      --type=kubernetes.io/dockerconfigjson
 > ```
@@ -71,7 +71,7 @@ kubectl create secret docker-registry containerpreview \
 La sortie suivante s’affiche sur la console lorsque le secret a été créé avec succès.
 
 ```console
-secret "containerpreview" created
+secret "mcr" created
 ```
 
 Pour vérifier que le secret a été créé, exécutez [`kubectl get`][kubectl-get] avec l’indicateur `secrets`.
@@ -83,8 +83,8 @@ kuberctl get secrets
 L’exécution de `kubectl get secrets` affiche tous les secrets configurés.
 
 ```console
-NAME                  TYPE                                  DATA      AGE
-containerpreview      kubernetes.io/dockerconfigjson        1         30s
+NAME    TYPE                              DATA    AGE
+mcr     kubernetes.io/dockerconfigjson    1       30s
 ```
 
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurer les valeurs du graphique Helm pour le déploiement
@@ -106,11 +106,11 @@ speechToText:
   numberOfConcurrentRequest: 3
   optimizeForAudioFile: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-speech-to-text
+    registry: mcr.microsoft.com
+    repository: azure-cognitive-services/speech-to-text
     tag: latest
     pullSecrets:
-      - containerpreview # Or an existing secret
+      - mcr # Or an existing secret
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -122,11 +122,11 @@ textToSpeech:
   numberOfConcurrentRequest: 3
   optimizeForTurboMode: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-text-to-speech
+    registry: mcr.microsoft.com
+    repository: azure-cognitive-services/text-to-speech
     tag: latest
     pullSecrets:
-      - containerpreview # Or an existing secret
+      - mcr # Or an existing secret
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -138,11 +138,11 @@ textToSpeech:
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Le package Kubernetes (graphique Helm)
 
-Le *graphique Helm* contient la configuration de la ou des images docker à extraire du registre de conteneurs `containerpreview.azurecr.io`.
+Le *graphique Helm* contient la configuration de la ou des images docker à extraire du registre de conteneurs `mcr.microsoft.com`.
 
 > Un [graphique Helm][helm-charts] est une collection de fichiers qui décrivent un ensemble de ressources Kubernetes. Un graphique unique peut être utilisé pour déployer quelque chose de simple comme un pod mis en cache, ou quelque chose de complexe, comme une pile d’application web complète avec des serveurs HTTP, des bases de données, des caches et ainsi de suite.
 
-Les *graphiques Helm* fournis extraient les images docker du service Speech, à la fois les services de synthèse et de reconnaissance vocale, à partir du registre de conteneurs `containerpreview.azurecr.io`.
+Les *graphiques Helm* fournis extraient les images docker du service Speech, à la fois les services de synthèse et de reconnaissance vocale, à partir du registre de conteneurs `mcr.microsoft.com`.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installer le graphique Helm sur le cluster Kubernetes
 
@@ -279,7 +279,6 @@ Pour plus d’informations sur l’installation d’applications avec Helm dans 
 [helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
 [helm-charts]: https://helm.sh/docs/developing_charts
-[speech-preview-access]: https://aka.ms/speechcontainerspreview
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test

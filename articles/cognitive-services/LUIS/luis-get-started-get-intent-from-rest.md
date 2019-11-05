@@ -9,19 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: f3eceed1c4ab06d9b7a1959bceda4122f0412b35
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 3a8badb74bb8919876f3c0670d785f44fbcbb397
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703584"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499672"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>Démarrage rapide : Reconnaître une intention avec des API REST
 
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. Envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application. 
+
+Ce guide de démarrage rapide utilise l’API REST de point de terminaison. Pour plus d’informations, consultez la [documentation de l’API de point de terminaison](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
+
+Pour cet article, vous avez besoin d’un compte [LUIS](https://www.luis.ai) gratuit. 
 
 <a name="create-luis-subscription-key"></a>
 

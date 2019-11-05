@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 92844f0fe3a851802836015a1340983eb4633ed2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5288c3025e523e767082f4ab7cfbb08805a74eaf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900548"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500085"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architecture de connectivité dans Azure Database pour PostgreSQL
 Cet article présente l’architecture de connectivité d’Azure Database pour PostgreSQL, ainsi que la façon dont le trafic est redirigé vers votre instance de base de données Azure Database pour PostgreSQL à partir de clients au sein d’Azure et en dehors.
@@ -52,8 +52,11 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Corée du Sud | 52.231.200.86 |  |
 | Centre-Nord des États-Unis | 23.98.55.75 | 23.96.178.199 |
 | Europe Nord | 191.235.193.75 | 40.113.93.91 |
-| États-Unis - partie centrale méridionale | 23.98.162.75 | 13.66.62.124 |
+| USA Centre Sud | 23.98.162.75 | 13.66.62.124 |
 | Asie Sud-Est | 23.100.117.95 | 104.43.15.0 |
+| Afrique du Sud Nord | 102.133.152.0 | |
+| Afrique du Sud Ouest | 102.133.24.0 | |
+| Émirats arabes unis Nord | 65.52.248.0 | |
 | Sud du Royaume-Uni | 51.140.184.11 | |
 | Ouest du Royaume-Uni | 51.141.8.11| |
 | Europe Ouest | 191.237.232.75 | 40.68.37.158 |

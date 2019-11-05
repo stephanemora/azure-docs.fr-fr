@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 7a7ac843960e253b3172d1ed22fe5b59633897dc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 664d3d4333f8c34a8c5dc6648da2beccc4d7a6a2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062465"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498432"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architecture de connectivité dans Azure Database pour MySQL
 Cet article présente l’architecture de connectivité d’Azure Database pour MySQL, ainsi que la façon dont le trafic est dirigé vers l’instance Azure Database pour MySQL des clients dans Azure et en dehors.
@@ -52,8 +52,11 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Corée du Sud | 52.231.200.86 |  |
 | Centre-Nord des États-Unis | 23.98.55.75 | 23.96.178.199 |
 | Europe Nord | 191.235.193.75 | 40.113.93.91 |
-| États-Unis - partie centrale méridionale | 23.98.162.75 | 13.66.62.124 |
+| USA Centre Sud | 23.98.162.75 | 13.66.62.124 |
 | Asie Sud-Est | 23.100.117.95 | 104.43.15.0 |
+| Afrique du Sud Nord | 102.133.152.0 | |
+| Afrique du Sud Ouest | 102.133.24.0 | |
+| Émirats arabes unis Nord | 65.52.248.0 | |
 | Sud du Royaume-Uni | 51.140.184.11 | |
 | Ouest du Royaume-Uni | 51.141.8.11| |
 | Europe Ouest | 191.237.232.75 | 40.68.37.158 |

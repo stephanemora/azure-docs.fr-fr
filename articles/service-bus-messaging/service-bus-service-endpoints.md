@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: f32a67dc6d3b3f869afaa532403c05b218588552
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786380"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484929"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Service Bus
 
@@ -36,7 +36,6 @@ Il en résulte une relation privée et isolée entre les charges de travail lié
 > - Intégration à Azure Event Grid
 > - Routes Azure IoT Hub
 > - Azure IoT Device Explorer
-> - Explorateur de données Azure
 >
 > Les services Microsoft suivants doivent être sur un réseau virtuel
 > - Azure App Service
