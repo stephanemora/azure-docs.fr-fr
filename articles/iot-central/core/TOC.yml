@@ -49,8 +49,6 @@
           href: howto-connect-windowsiotcore.md
         - name: Préparer et connecter un appareil SensorTile.box
           href: howto-connect-sensortile.md
-        - name: Préparer et connecter un appareil RuuviTag
-          href: howto-connect-ruuvi-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Surveiller la connectivité des appareils à l’aide la ligne de commande
           href: howto-use-iotc-explorer.md
     - name: Gérer des appareils

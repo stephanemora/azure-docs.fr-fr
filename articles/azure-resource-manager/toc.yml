@@ -101,8 +101,8 @@
           href: deployment-manager-health-check.md
     - name: Déploiements Gestionnaire des ressources et classiques
       href: resource-manager-deployment-model.md
-    - name: Attributs de sécurité courants Azure
-      href: azure-resource-manager-security-attributes.md
+    - name: Contrôles de sécurité intégrés
+      href: azure-resource-manager-security-controls.md
 - name: Procédures
   items:
     - name: Créer des modèles
@@ -249,6 +249,8 @@
           href: resource-manager-common-deployment-errors.md
         - name: AccountNameInvalid
           href: resource-manager-storage-account-name-errors.md
+        - name: DeploymentQuotaExceeded
+          href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: resource-manager-invalid-template-errors.md
         - name: Problèmes de déploiement Linux

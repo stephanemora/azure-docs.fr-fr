@@ -41,7 +41,7 @@
         - name: "Caractéristiques\_: action et contexte"
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
-        - name: Apprentissage actif
+        - name: Événements actifs et inactifs
           href: concept-active-learning.md
           displayName: 'active, inactive'
         - name: Récompenses

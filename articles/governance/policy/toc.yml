@@ -218,9 +218,6 @@
             - name: Auditer le paramètre d’audit de niveau de SQL Server
               displayName: auditIfNotExists
               href: samples/audit-sql-server-audit-setting.md
-            - name: "Nécessitent SQL Server version\_12.0"
-              displayName: 'deny, builtin'
-              href: samples/require-sql-12.md
         - name: BASES DE DONNÉES SQL
           items:
             - name: Références (SKU) de base de données SQL autorisées

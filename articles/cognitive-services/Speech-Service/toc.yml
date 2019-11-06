@@ -6,6 +6,8 @@
   items:
     - name: "Qu’est-ce que le service de reconnaissance vocale\_?"
       href: overview.md
+    - name: Prise en charge de la région et de la langue
+      href: language-support.md
 - name: Reconnaissance vocale
   expanded: false
   items:
@@ -38,7 +40,7 @@
         - name: Utiliser des formats d’entrée audio compressés
           href: how-to-use-codec-compressed-audio-input-streams.md
         - name: Utiliser la reconnaissance vocale avec des conteneurs Docker
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=stt
     - name: Informations de référence
       items:
         - name: API du SDK Speech
@@ -87,7 +89,7 @@
         - name: Synthétiser la voix avec l’API Audio long
           href: long-audio-api.md
         - name: Utiliser la synthèse vocale avec des conteneurs Docker
-          href: speech-container-howto.md
+          href: speech-container-howto.md?tabs=tts
     - name: Informations de référence
       items:
         - name: Kit de développement logiciel (SDK) de reconnaissance vocale

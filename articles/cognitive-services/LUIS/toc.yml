@@ -42,7 +42,7 @@
     - name: Créer une application
       items:
         - name: Déterminer les intentions d’un utilisateur
-          href: luis-quickstart-intents-only.md
+          href: tutorial-intents-only.md
         - name: Identifier les données utilisateur courantes avec des modèles prédéfinis
           href: luis-tutorial-prebuilt-intents-entities.md
         - name: Obtenir des sentiments à partir des énoncés utilisateur
@@ -116,6 +116,7 @@
           displayName: roles
         - name: Caractéristiques
           href: luis-concept-feature.md
+          displayName: 'descriptor, phrase list'
     - name: Scores de prédictions
       href: luis-concept-prediction-score.md
     - name: Bonnes pratiques
