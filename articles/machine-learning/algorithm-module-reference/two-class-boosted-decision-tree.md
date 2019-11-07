@@ -1,24 +1,24 @@
 ---
 title: 'Arbre de décision optimisé à deux classes : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Arbre de décision optimisé à deux classes dans Azure Machine Learning service pour créer un modèle Machine Learning basé sur l’algorithme d’arbres de décision optimisés.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Arbre de décision optimisé à deux classes dans Azure Machine Learning pour créer un modèle Machine Learning basé sur l’algorithme d’arbres de décision optimisés.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 5795dc994872ac5da37a1226524dddd35aa35126
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 7590cab00670c92e8a5b90006778542ec44bf83f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692629"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490178"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Arbre de décision optimisé à deux classes
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Ce module vous permet de créer un modèle Machine Learning reposant sur l’algorithme d’arbres de décision optimisés. 
 
@@ -75,4 +75,4 @@ Une fois l’apprentissage du modèle effectué, cliquez avec le bouton droit su
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

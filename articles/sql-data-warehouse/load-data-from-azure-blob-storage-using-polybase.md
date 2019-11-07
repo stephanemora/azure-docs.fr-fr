@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse | Microsoft Docs'
-description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un objet blob Azure public vers Azure SQL Data Warehouse.
+description: Ce didacticiel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un objet blob Azure global vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e3bef20a92322b07219e42c4f7fe8443917eae32
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2e799d84aee9ba4d3bfb00ddfad358c9b90c3d59
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575201"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482400"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
 
-Ce tutoriel utilise PolyBase pour charger les données de New York Taxicab d’un objet blob Azure public vers Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
+Ce didacticiel utilise PolyBase pour charger les données de New York Taxicab d’un objet blob Azure global vers Azure SQL Data Warehouse. Ce didacticiel utilise le [portail Azure](https://portal.azure.com) et [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour : 
 
 > [!div class="checklist"]
 > * Créer un entrepôt de données dans le portail Azure

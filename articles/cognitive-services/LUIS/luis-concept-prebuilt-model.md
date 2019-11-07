@@ -9,36 +9,34 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: b88801ded3dea7c7514ff117361feba3e95444ed
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d9cb86c1c19649052e4796fd0a8909ce08381d55
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264390"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487581"
 ---
-# <a name="prebuilt-domain-intent-and-entity-models"></a>Modèles de domaine, d’intention et d’entité prédéfinis
+# <a name="prebuilt-models"></a>Modèles prédéfinis
 
-Les modèles prédéfinis fournissent des domaines, des intentions, des énoncés et des entités. Vous pouvez démarrer votre application avec un domaine prédéfini ou ajouter un domaine approprié à votre application ultérieurement. 
+Les modèles prédéfinis fournissent des domaines, des intentions, des énoncés et des entités. Vous pouvez démarrer votre application avec un modèle prédéfini ou ajouter un modèle approprié à votre application ultérieurement. 
 
 ## <a name="types-of-prebuilt-models"></a>Types de modèles prédéfinis
 
-LUIS fournit 3 types de modèles prédéfinis. Chaque modèle peut être ajouté à votre application à tout moment. 
+LUIS fournit trois types de modèles prédéfinis. Chaque modèle peut être ajouté à votre application à tout moment. 
 
 |Type de modèle|Inclus|
 |--|--|
-|Domain|Intentions, énoncés, entités|
+|[Domaine](luis-reference-prebuilt-domains.md)|Intentions, énoncés, entités|
 |Intentions|Intentions, énoncés|
-|Entités|Entités uniquement| 
+|[Entités](luis-reference-prebuilt-entities.md)|Entités uniquement| 
 
 ## <a name="prebuilt-domains"></a>Domaines prédéfinis
 
-Language Understanding (LUIS) fournit des *domaines prédéfinis*, à savoir des ensembles prédéfinis d’[intentions](luis-how-to-add-intents.md) et d’[entités](luis-concept-entity-types.md) qui fonctionnent conjointement pour des domaines ou des catégories communes d’applications clientes. 
+Language Understanding (LUIS) fournit des *domaines prédéfinis*, à savoir des modèles préformés d’[intentions](luis-how-to-add-intents.md) et d’[entités](luis-concept-entity-types.md) qui fonctionnent conjointement pour des domaines ou des catégories communes d’applications clientes. 
 
-Les domaines prédéfinis sont formés et prêts à êtres ajoutés à votre application LUIS. Les intentions et les entités dans un domaine prédéfini sont entièrement personnalisables, une fois que vous les avez ajoutées à votre application. 
-
-Si vous commencez par personnaliser un domaine prédéfini entier, supprimez les intentions et les entités dont votre application n’a pas besoin. Vous pouvez également ajouter des intentions ou des entités à l’ensemble que le domaine prédéfini fournit déjà. Par exemple, si vous utilisez le domaine prédéfini **Événements** pour une application d’événements sportifs, vous pouvez pour ajouter des entités pour les équipes sportives. Lorsque vous commencez à [fournir des énoncés](luis-how-to-add-example-utterances.md) à LUIS, incluez les conditions propres à votre application. LUIS apprend à les reconnaître et adapte les intentions et les entités du domaine prédéfini aux besoins de votre application. 
+Les domaines prédéfinis sont formés et prêts à êtres ajoutés à votre application LUIS. Les intentions et les entités d’un domaine prédéfini sont entièrement personnalisables, une fois que vous les avez ajoutées à votre application. 
 
 > [!TIP]
 > Les intentions et les entités d’un domaine prédéfini fonctionnent le mieux ensemble. Il est préférable de combiner des intentions et des entités du même domaine lorsque cela est possible.
@@ -46,13 +44,13 @@ Si vous commencez par personnaliser un domaine prédéfini entier, supprimez les
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Modification du comportement d’une intention de domaine prédéfini
 
-Vous constaterez peut-être qu’un domaine prédéfini contient une intention semblable à une intention que vous souhaitez avoir dans votre application LUIS, mais avec un comportement différent. Par exemple, le domaine prédéfini **Lieux** fournit une intention `MakeReservation` pour effectuer une réservation au restaurant, mais vous voulez que votre application utilise cette intention pour faire des réservations d’hôtel. Dans ce cas, vous pouvez modifier le comportement de cette intention en fournissant des énoncés à LUIS sur les réservations d’hôtel et en les étiquetant à l’aide de l’intention `MakeReservation`. LUIS peut alors être formé à reconnaître l’intention `MakeReservation` dans une requête de réservation d’hôtel.
+Vous constaterez peut-être qu’un domaine prédéfini contient une intention semblable à une intention que vous souhaitez avoir dans votre application LUIS, mais avec un comportement différent. Par exemple, le domaine prédéfini **Lieux** fournit une intention `MakeReservation` pour effectuer une réservation au restaurant, mais vous voulez que votre application utilise cette intention pour faire des réservations d’hôtel. Dans ce cas, vous pouvez modifier le comportement de cette intention en ajoutant des exemples d’énoncés à l’intention dans le but d’effectuer des réservations d’hôtel. Ensuite, reformez l’application. 
 
 Vous trouverez une liste complète des domaines prédéfinis dans la [référence des domaines prédéfinis](./luis-reference-prebuilt-domains.md).
 
 ## <a name="prebuilt-intents"></a>Intentions prédéfinies
 
-LUIS fournit les intentions prédéfinies et leurs énoncés. Les intentions peuvent être ajoutées sans ajouter le domaine entier. Pour ajouter une intention, il faut ajouter une intention et ses énoncés. Le nom de l’intention et la liste d’énoncés peuvent être modifiés.  
+LUIS fournit les intentions prédéfinies et leurs énoncés à partir de domaines prédéfinis. Les intentions peuvent être ajoutées sans ajouter le domaine entier. Pour ajouter une intention, il faut ajouter une intention et ses énoncés à votre application. Le nom de l’intention et la liste d’énoncés peuvent être modifiés.  
 
 ## <a name="prebuilt-entities"></a>Entités prédéfinies
 

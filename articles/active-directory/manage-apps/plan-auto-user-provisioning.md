@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1caeb59cf7fc0a6baef5ba0001e734a75fccd2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757836"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473339"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -63,7 +63,7 @@ Cet article utilise les termes suivants :
 
 * Système cible - Référentiel d’utilisateurs vers lequel Azure AD provisionne. Le système cible est généralement une application SaaS, telle que ServiceNow, Zscaler et Slack. Le système cible peut également être un système local, comme AD.
 
-* [SCIM (System for Cross-Domain Identity Management)](http://www.simplecloud.info/) - Norme ouverte qui permet l’automatisation de l’attribution d’utilisateurs. SCIM communique les données d’identité des utilisateurs entre les fournisseurs d’identité tels que Microsoft, et les fournisseurs de services tels que Salesforce ou d’autres applications SaaS nécessitant des informations d’identité d’utilisateur.
+* [SCIM (System for Cross-Domain Identity Management)](https://aka.ms/scimoverview) - Norme ouverte qui permet l’automatisation de l’approvisionnement d’utilisateurs. SCIM communique les données d’identité des utilisateurs entre les fournisseurs d’identité tels que Microsoft, et les fournisseurs de services tels que Salesforce ou d’autres applications SaaS nécessitant des informations d’identité d’utilisateur.
 
 ### <a name="training-resources"></a>Ressources de formation
 
@@ -281,6 +281,8 @@ Après l’exécution d’un [cycle initial](https://docs.microsoft.com/azure/ac
 * Le processus de provisionnement est mis en quarantaine en raison d’un taux d’erreur élevé, et reste en quarantaine pendant plus de quatre semaines à l’issue desquelles il sera automatiquement désactivé.
 
 Pour passer en revue ces événements, et toutes les autres activités effectuées par le service de provisionnement, reportez-vous aux [journaux de provisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD.
+
+Pour comprendre la durée des cycles d’approvisionnement et surveiller la progression du travail d’approvisionnement, vous pouvez [consulter l’état de l’approvisionnement d’utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
 
 ### <a name="gain-insights-from-reports"></a>Mieux exploiter les rapports
 

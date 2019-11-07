@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170685"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485391"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 
@@ -32,7 +32,7 @@ Avant de pouvoir utiliser une DSVM Linux, vous devez posséder les composants re
 * [**Data Science Virtual Machine Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Pour plus d’informations sur l’approvisionnement de cette machine virtuelle, consultez [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installé sur votre ordinateur et une session XFCE ouverte. Pour plus d’informations, consultez [Installer et configurer le client X2Go](linux-dsvm-intro.md#x2go).
 * Pour une expérience de défilement plus fluide, dans le navigateur web Firefox de la DSVM, basculez l'indicateur `gfx.xrender.enabled`dans `about:config`. [Plus d’informations](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/) Envisagez également de régler `mousewheel.enable_pixel_scrolling` sur `False`. [Plus d’informations](https://support.mozilla.org/questions/981140)
-* **Compte Azure Machine Learning**. Si vous n’en avez pas déjà un, inscrivez-vous pour obtenir un compte sur la [page d’espace d’Azure Machine Learning](https://studio.azureml.net/). Vous pouvez l’essayer gratuitement pour vous aider à commencer.
+* **Compte Azure Machine Learning**. Si vous n’en avez pas déjà un, inscrivez-vous pour obtenir un compte sur la [page d’espace d’Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Télécharger le jeu de données spambase
 
@@ -172,11 +172,11 @@ Essayons également un modèle de forêts aléatoires. Les forêts aléatoires e
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Déployer un modèle sur Azure Machine Learning Studio
+## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Déployer un modèle sur Azure Machine Learning Studio (classique)
 
-[Azure Machine Learning Studio](https://studio.azureml.net/) est un service cloud qui facilite la création et le déploiement des modèles d’analyse prédictive. Une fonctionnalité intéressante d’Azure Machine Learning Studio est sa capacité à publier toute fonction R comme un service web. Le package Azure Machine Learning Studio rend le déploiement facile à réaliser à partir de notre session R sur la Data Science Virtual Machine.
+[Azure Machine Learning Studio (classique)](https://studio.azureml.net/) est un service cloud qui facilite la création et le déploiement des modèles d’analyse prédictive. Une fonctionnalité intéressante de la version classique d’Azure Machine Learning Studio est sa capacité à publier toute fonction R comme un service web. Le package Azure Machine Learning Studio rend le déploiement facile à réaliser à partir de notre session R sur la Data Science Virtual Machine.
 
-Pour déployer le code de l’arbre de décision à partir de la section précédente, connectez-vous à Azure Machine Learning Studio. Vous avez besoin de votre ID d’espace de travail et d’un jeton d’autorisation pour vous connecter. Pour rechercher ces valeurs et initialiser les variables Azure Machine Learning avec celles-ci, effectuez ces étapes :
+Pour déployer le code de l’arbre de décision à partir de la section précédente, connectez-vous à Azure Machine Learning Studio (classique). Vous avez besoin de votre ID d’espace de travail et d’un jeton d’autorisation pour vous connecter. Pour rechercher ces valeurs et initialiser les variables Azure Machine Learning avec celles-ci, effectuez ces étapes :
 
 1. Dans le menu de gauche, sélectionnez **Paramètres**. Notez la valeur de **l’ID d’espace de travail**.
 

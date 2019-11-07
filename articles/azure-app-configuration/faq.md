@@ -3,21 +3,21 @@ title: Azure App Configuration – Questions fréquentes (FAQ) | Microsoft Docs
 description: Questions fréquentes (FAQ) sur App Configuration
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: e321c0b473b110597b5b87a6e67666737116daa2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbfb6a1c4c53b1bd255560e688d3dc0cf3835a3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393347"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469638"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration – Questions fréquentes (FAQ)
 
@@ -46,6 +46,10 @@ Même si App Configuration offre une sécurité renforcée, Key Vault reste le m
 
 Oui. App Configuration chiffre toutes les valeurs de clés qu’il renferme, de même que les communications réseau. Les noms de clés servent d’index pour récupérer les données de configuration et ne sont pas chiffrés.
 
+## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>Existe-t-il des limitations de taille sur les clés et les valeurs stockées dans App Configuration ?
+
+Il existe une limite de 10 Ko pour un seul élément de clé-valeur.
+
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>Comment dois-je stocker les configurations pour plusieurs environnements (test, intermédiaire, production, etc) ?
 
 Actuellement, vous pouvez contrôler qui a accès à App Configuration par magasin. Utilisez un magasin distinct pour chaque environnement qui nécessite des autorisations différentes. Il s’agit de l’approche qui offre la meilleure isolation sur le plan de la sécurité.
@@ -57,6 +61,10 @@ Prenez connaissance des [bonnes pratiques](./howto-best-practices.md).
 ## <a name="how-much-does-app-configuration-cost"></a>Quel est le coût d’App Configuration ?
 
 L’utilisation de ce service est gratuite pour la préversion publique.
+
+## <a name="how-can-i-receive-announcements-on-new-releases-and-other-information-related-to-app-configuration"></a>Comment puis-je recevoir des annonces sur les nouvelles versions et d’autres informations relatives à App Configuration ?
+
+Abonnez-vous à notre [référentiel d’annonces GitHub](https://github.com/Azure/AppConfiguration-Announcements).
 
 ## <a name="how-can-i-report-an-issue-or-give-a-suggestion"></a>Comment puis-je signaler un problème ou faire une suggestion ?
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: afa6c5e40918906eb9fe0e40ed633715e3f2741d
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 5a65ee27d5175887b7bf0d9146afa025e665657c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844804"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488409"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -36,10 +36,11 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 | [Intentions][intents]|500 par application : 499 intentions personnalisées et l’intention _Aucune_ obligatoire.<br>L’application [dispatch](https://aka.ms/dispatch-tool) a 500 sources de dispatch correspondantes.|
 | [Répertorier des entités](./luis-concept-entity-types.md) | Parent : 50, Enfant : 20 000 éléments. Le nom canonique est *nombre maximum de caractère par défaut. Les valeurs synonymes n’ont aucune restriction de longueur. |
 | [Entités + rôles issus de l’apprentissage automatique](./luis-concept-entity-types.md) :<br> composite,<br>simple,<br>rôles d’entité|Limite de 100 entités parentes ou de 330 entités, selon la limite que l’utilisateur atteint en premier. Un rôle est comptabilisé comme une entité pour les besoins de cette limite. Un exemple est un composite avec une entité simple qui possède 2 rôles : 1 composite + 1 simple + 2 rôles = 4 des 330 entités.|
+|Modèle en tant que fonctionnalité| Nombre maximum de modèles pouvant être utilisés en tant que descripteur (fonctionnalité) sur un modèle spécifique pour avoir 10 modèles. Nombre maximum de listes d’expressions utilisées en tant que descripteur (fonctionnalité) sur un modèle spécifique pour avoir 10 listes d’expressions.|
 | [Préversion - Entités de liste dynamique](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listes de 1 000 environ par demande pour interroger le point de terminaison de prédiction|
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
 | [Pattern.any](./luis-concept-entity-types.md)|100 par application, 3 entités pattern.any par modèle |
-| [Liste d’expressions][phrase-list]|10 listes d’expressions, 5 000 éléments par liste|
+| [Liste d’expressions][phrase-list]|500 listes d’expressions. La liste d’expressions non interchangeable comprend un maximum de 5 000 expressions. La liste d’expressions interchangeable comprend un maximum de 50 000 expressions. Nombre maximum d’expressions au total par application de 500 000 expressions.|
 | [Entités prédéfinies](./luis-prebuilt-entities.md) | aucune limite|
 | [Entité d’expression régulière](./luis-concept-entity-types.md)|20 entités<br>500 caractères maximum par modèle d’entité d’expression régulière|
 | [Rôles](luis-concept-roles.md)|300 rôles par application. 10 rôles par entité|
@@ -51,6 +52,21 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 \* 50 caractères par défaut maximum. 
 
 <a name="intent-and-entity-naming"></a>
+
+## <a name="name-uniqueness"></a>Unicité du nom
+
+Utilisez les règles d’unicité d’attribution de noms suivantes.
+
+Les éléments suivants doivent être uniques au sein d’une application LUIS :
+
+* nom de version
+* intention
+* entité
+* roles
+
+Les éléments suivants doivent être uniques au sein de l’étendue appliquée :
+
+* liste d’expressions 
 
 ## <a name="object-naming"></a>Attribution de noms aux objets
 

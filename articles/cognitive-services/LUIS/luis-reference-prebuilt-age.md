@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 1b2ff6b64661010136d43b8d1f10abb58a88102a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 2a49cf406dea045302f84e95318eca1557fc3e22
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677727"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465108"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie age pour une application LUIS
 L’entité prédéfinie age capture la valeur d’âge à la fois sous forme numérique et en termes de jours, semaines, mois et années. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un âge aux intentions de l’application. L’entité age est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
@@ -26,17 +26,52 @@ L’entité age est gérée à partir du dépôt GitHub [Recognizers-text](https
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Résolution pour une entité prédéfinie age
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+
+
+#### <a name="v3-responsetabv3"></a>[Réponse V3](#tab/V3)
+
+Le code JSON suivant a le paramètre `verbose` défini sur `false` :
+
+```json
+"entities": {
+    "age": [
+        {
+            "number": 90,
+            "unit": "Day"
+        }
+    ]
+}
+```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[Réponse détaillée V3](#tab/V3-verbose)
+Le code JSON suivant a le paramètre `verbose` défini sur `true` :
+
+```json
+"entities": {
+    "age": [
+        {
+            "number": 90,
+            "unit": "Day"
+        }
+    ],
+    "$instance": {
+        "age": [
+            {
+                "type": "builtin.age",
+                "text": "90 day old",
+                "startIndex": 2,
+                "length": 10,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor"
+            }
+        ]
+    }
+}
+```
+#### <a name="v2-responsetabv2"></a>[Réponse V2](#tab/V2)
 
 L’exemple suivant montre la résolution de l’entité **builtin.age**.
 
 ```json
-{
-  "query": "A 90 day old utilities bill is quite late.",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.8236133
-  },
   "entities": [
     {
       "entity": "90 day old",
@@ -48,74 +83,7 @@ L’exemple suivant montre la résolution de l’entité **builtin.age**.
         "value": "90"
       }
     }
-  ]
-}
 ```
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
-
-Le code JSON suivant a le paramètre `verbose` défini sur `false` :
-
-```json
-{
-    "query": "A 90 day old utilities bill is quite late.",
-    "prediction": {
-        "normalizedQuery": "a 90 day old utilities bill is quite late.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.558252
-            }
-        },
-        "entities": {
-            "age": [
-                {
-                    "number": 90,
-                    "unit": "Day"
-                }
-            ]
-        }
-    }
-}
-```
-
-Le code JSON suivant a le paramètre `verbose` défini sur `true` :
-
-```json
-{
-    "query": "A 90 day old utilities bill is quite late.",
-    "prediction": {
-        "normalizedQuery": "a 90 day old utilities bill is quite late.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.558252
-            }
-        },
-        "entities": {
-            "age": [
-                {
-                    "number": 90,
-                    "unit": "Day"
-                }
-            ],
-            "$instance": {
-                "age": [
-                    {
-                        "type": "builtin.age",
-                        "text": "90 day old",
-                        "startIndex": 2,
-                        "length": 10,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## <a name="next-steps"></a>Étapes suivantes

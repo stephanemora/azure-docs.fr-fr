@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345557"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476941"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir plus de services.
@@ -56,7 +56,7 @@ Dans la liste des limites ci-dessous, une nouvelle table reflète les différenc
 * [Pare-feu Azure](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Service Azure Machine Learning](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -84,6 +84,7 @@ Dans la liste des limites ci-dessous, une nouvelle table reflète les différenc
 * [Azure Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Mise en réseau](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
+  * [Azure Bastion](#azure-bastion-limits)
   * [DNS Azure](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Pare-feu Azure](#azure-firewall-limits)
@@ -154,7 +155,7 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 ### <a name="azure-kubernetes-service-limits"></a>Limites d'Azure Kubernetes Service
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### <a name="azure-machine-learning-service-limits"></a>Limites du service Azure Machine Learning
+### <a name="azure-machine-learning-limits"></a>Limites d’Azure Machine Learning
 Les valeurs les plus récentes des quotas de calcul Azure Machine Learning sont disponibles dans la [page des quotas Azure Machine Learning](../articles/machine-learning/service/how-to-manage-quotas.md)
 
 ### <a name="networking-limits"></a>Limites de mise en réseau
@@ -179,6 +180,9 @@ Sauf mention contraire, le tableau suivant s’applique aux références SKU v1,
 
 #### <a name="traffic-manager-limits"></a>Limites de Traffic Manager
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### <a name="azure-bastion-limits"></a>Limites d’Azure Bastion
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### <a name="azure-dns-limits"></a>Limites d'Azure DNS
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]

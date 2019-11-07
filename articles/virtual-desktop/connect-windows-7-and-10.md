@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/31/2019
 ms.author: helohr
-ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 1d7f08dbaa9b91cd2dbac28daf5c17ea85d09985
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676739"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482208"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Se connecter avec le client Windows Desktop
 
@@ -25,11 +25,11 @@ Vous pouvez accéder aux ressources Windows Virtual Desktop sur des appareils Wi
 
 ## <a name="install-the-windows-desktop-client"></a>Installer le client Windows Desktop
 
-Voici les clients que vous pouvez télécharger :
+Choisissez le client qui correspond à votre version de Windows :
 
 - [Windows 64 bits](https://go.microsoft.com/fwlink/?linkid=2068602)
-
-Nous mettrons à jour cette liste au fur et à mesure que le client sera disponible pour d’autres versions de Windows.
+- [Windows 32 bit, version préliminaire](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64, version préliminaire](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 Vous pouvez installer le client pour l’utilisateur actuel, ce qui ne nécessite pas de droits d’administrateur, ou votre administrateur peut installer et configurer le client afin que tous les utilisateurs de l’appareil puissent y accéder.
 

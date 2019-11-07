@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: 3b60a6da1e7961c7709bb0b19e91dc6f15a51a1c
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 0fddabc7973fbea147de9f3b6e6da5556407030c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316774"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498464"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -260,10 +260,10 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 
 |                                  |                    | **Modèle de chiffrement et gestion des clés** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’une clé gérée par le client**             | **Côté client à l’aide d’une gestion par le client**      |
+|                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’une clé gérée par le client**             | **Côté client à l’aide d’une clé gérée par le client**      |
 | **IA et Machine Learning**      |                    |                    |                    |
 | Recherche Azure                     | OUI                | PRÉVERSION            | -                  |
-| Service Azure Machine Learning   | OUI                | -                  | -                  |
+| Azure Machine Learning   | OUI                | -                  | -                  |
 | Azure Machine Learning Studio    | OUI                | Préversion, RSA 2048 bits | -               |
 | Power BI                         | OUI                | Préversion, RSA 2048 bits | -                  |
 | **Analyse**                    |                    |                    |                    |

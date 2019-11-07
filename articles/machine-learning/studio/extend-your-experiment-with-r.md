@@ -1,7 +1,7 @@
 ---
 title: Prolongez votre expérience avec R
-titleSuffix: Azure Machine Learning Studio
-description: Comment étendre les fonctionnalités d'Azure Machine Learning Studio en utilisant le langage R et le module Exécuter le script R.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Comment étendre les fonctionnalités d’Azure Machine Learning Studio (classique) en utilisant le langage R et le module Exécuter le script R.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,26 +10,26 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 8c1292d0d36874892a286d91b1e367c7336b99aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1a3eca380240d624da3e2f086749756aabccbe2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811425"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492947"
 ---
-# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio : Prolongez votre expérience avec R 
-Comment étendre les fonctionnalités d’Azure Machine Learning Studio en utilisant le langage R et le module [Exécuter le script R][execute-r-script].
+# <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (classique) : Prolongez votre expérience avec R 
+Vous pouvez étendre les fonctionnalités d’Azure Machine Learning Studio (classique) en utilisant le langage R et le module [Exécuter le script R][execute-r-script].
 
-Ce module accepte plusieurs jeux de données d’entrée et génère un jeu de données unique en sortie. Vous pouvez taper un script R dans le paramètre **Script R** du module [Exécuter le script R][execute-r-script].
+Ce module accepte plusieurs jeux de données d’entrée et génère un jeu de données unique en sortie. Vous pouvez taper un script R dans le paramètre **Script R** du module [Exécuter le script R][execute-r-script].
 
 Pour accéder à chaque port d'entrée du module, utilisez un code semblable au suivant :
 
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>Liste de tous les packages actuellement installés
-La liste des packages installés peut changer. Vous trouverez une liste des packages actuellement installés dans [R Packages Supported by Azure Machine Learning Studio](https://msdn.microsoft.com/library/azure/mt741980.aspx) (Packages R pris en charge par Azure Machine Learning Studio).
+La liste des packages installés peut changer. Vous trouverez une liste des packages actuellement installés dans [Packages R pris en charge par Azure Machine Learning Studio (classique)](https://msdn.microsoft.com/library/azure/mt741980.aspx).
 
-Vous pouvez également obtenir la liste complète et à jour des packages installés en entrant le code suivant dans le module [Exécuter le Script R][execute-r-script] :
+Vous pouvez également obtenir la liste complète et à jour des packages installés en entrant le code suivant dans le module [Exécuter le Script R][execute-r-script] :
 
     out <- data.frame(installed.packages(,,,fields="Description"))
     maml.mapOutputPort("out")
@@ -45,7 +45,7 @@ For convenience, here is the [current full list with version numbers in Excel fo
 -->
 
 ## <a name="importing-packages"></a>Importation de packages
-Vous pouvez importer des packages qui ne sont pas encore installés en utilisant les commandes suivantes dans le module [Exécuter le Script R][execute-r-script] :
+Vous pouvez importer des packages qui ne sont pas encore installés en utilisant les commandes suivantes dans le module [Exécuter le Script R][execute-r-script] :
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)
     success <- library("my_favorite_package", lib.loc = ".", logical.return = TRUE, verbose = TRUE)

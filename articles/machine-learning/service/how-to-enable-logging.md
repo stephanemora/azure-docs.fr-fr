@@ -10,14 +10,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a47ce44a325720fb1b6df919a0a324a4d3319d86
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002756"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489896"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Activer la journalisation dans Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Le kit de développement logiciel (SDK) Python Azure Machine Learning permet d’activer la journalisation avec aussi bien le package de journalisation Python par défaut que des fonctionnalités spécifiques du SDK, pour la journalisation en local et dans un espace de travail sur le portail. Les journaux d’activité fournissent aux développeurs des informations en temps réel sur l’état de l’application et peuvent aider à diagnostiquer les erreurs et les avertissements. Dans cet article, vous allez découvrir différentes façons d’activer la journalisation dans les domaines suivants :
 
@@ -117,7 +118,7 @@ Vous pouvez également consigner les appels de procédure personnalisés de votr
 service.update(enable_app_insights=True)
 ```
 
-Pour plus d’informations sur l’utilisation d’Application Insights sur le Portail Azure., voir le [guide pratique](how-to-enable-app-insights.md).
+Pour plus d’informations sur l’utilisation d’Application Insights dans Azure Machine Learning Studio, voir le [guide pratique](how-to-enable-app-insights.md).
 
 ## <a name="python-native-logging-settings"></a>Paramètres de journalisation natifs de Python
 

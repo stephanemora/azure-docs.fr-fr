@@ -1,5 +1,5 @@
 ---
-title: Support pour les conteneurs
+title: Créer une ressource LUIS
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist
@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: dapine
-ms.openlocfilehash: ecb172aec37fdab21bed8373ac7484dc52a54829
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a765ac27936da9da5a2f41464c17491e3561f44b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821979"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465939"
 ---
 ## <a name="create-a-luis-resource"></a>Créer une ressource LUIS
 
@@ -29,10 +29,7 @@ ms.locfileid: "72821979"
     |Niveau de tarification|`F0` - le niveau tarifaire minimal|
     |Groupe de ressources|Sélectionner un groupe de ressources disponible|
 
-1. Cliquez sur **Créer** et attendez que la ressource soit créée. Après sa création, accédez à la page de ressources
-1. Collectez le `endpoint` configuré et une clé d’API :
+1. Cliquez sur **Créer** et attendez que la ressource soit créée. Après sa création, accédez à la page de ressources.
+1. Collectez les `endpoint` configurées et une clé API, consultez [Collecte des paramètres requis](#gathering-required-parameters).
 
-    |Onglet Ressource dans le portail|Paramètre|Valeur|
-    |--|--|--|
-    |**Vue d'ensemble**|Point de terminaison|Copiez le point de terminaison. Il ressemble à `https://luis.cognitiveservices.azure.com/luis/v2.0`|
-    |**Clés**|Clé de l’API|Copiez 1 des deux clés. Il s’agit d’une chaîne de 32 caractères alphanumériques sans espaces ni tirets, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]

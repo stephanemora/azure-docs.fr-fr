@@ -9,16 +9,17 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 08/2/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3576f7cc0297ff1e9b10373ccc27b09e1a0ae8ae
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: eac10c8c680caf834bbe4be18ca22a5af936c7a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436693"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497412"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Accéder aux données dans les services de stockage Azure
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, découvrez comment accéder facilement à vos données dans les services de stockage Azure via des magasins de données Azure Machine Learning. Les banques de données permettent de stocker les informations de connexion, comme votre ID d’abonnement et votre autorisation de jeton. L’utilisation de banques de données vous permet d’accéder à votre stockage sans avoir à coder en dur les informations de connexion dans vos scripts. Vous pouvez créer des magasins de données à partir de ces [solutions de stockage Azure](#matrix). Pour les solutions de stockage non prises en charge, nous vous recommandons de déplacer vos données vers nos solutions de stockage Azure prises en charge pour réduire le coût de sortie des données pendant les expériences de Machine Learning. [Découvrez comment déplacer vos données](#move). 
 
@@ -35,7 +36,7 @@ Cette procédure montre des exemples des tâches suivantes :
 
 - Un compte de stockage Azure avec un [conteneur d’objets blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) ou un [partage de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction).
 
-- Le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’accès à la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com/).
+- Le [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’accès à [Azure Machine Learning studio](https://ml.azure.com/).
 
 - Un espace de travail Azure Machine Learning. 
     - [Créez un espace de travail Azure Machine Learning](how-to-manage-workspace.md) ou utilisez un espace de travail existant à l’aide du SDK Python.
@@ -51,13 +52,13 @@ Cette procédure montre des exemples des tâches suivantes :
 
 ## <a name="create-and-register-datastores"></a>Créer et inscrire des magasins de données
 
-Quand vous inscrivez une solution de stockage Azure en tant que magasin de données, ce dernier est automatiquement créé dans un espace de travail spécifique. Vous pouvez créer des magasins de données et les inscrire auprès d’un espace de travail à l’aide du SDK Python ou de la page d’accueil de l’espace de travail.
+Quand vous inscrivez une solution de stockage Azure en tant que magasin de données, ce dernier est automatiquement créé dans un espace de travail spécifique. Vous pouvez créer des magasins de données et les inscrire auprès d’un espace de travail à l’aide du SDK Python ou d’Azure Machine Learning Studio.
 
 ### <a name="using-the-python-sdk"></a>Utilisation du Kit de développement logiciel (SDK) Python
 
 Toutes les méthodes d’inscription sont sur la classe [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) et ont la forme register_azure_*.
 
-Vous trouverez les informations dont vous avez besoin pour renseigner la méthode register() dans le [portail Azure](https://ms.portal.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche. 
+Vous trouverez les informations dont vous avez besoin pour renseigner la méthode register() via [Azure Machine Learning Studio](https://ml.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des informations d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche. 
 
 Les exemples suivants vous montrent comment inscrire un conteneur d’objets blob Azure ou un partage de fichiers Azure comme magasin de données.
 
@@ -73,6 +74,7 @@ Les exemples suivants vous montrent comment inscrire un conteneur d’objets blo
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
+    Si votre compte de stockage se trouve dans un réseau virtuel, seule la création d’un magasin de données d’objets blob Azure est prise en charge. Définissez le paramètre, `grant_workspace_access` sur `True` pour accorder à votre espace de travail l’accès à votre compte de stockage.
 
 + Pour un **magasin de données de partage de fichiers Azure**, utilisez [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
@@ -91,16 +93,16 @@ Les exemples suivants vous montrent comment inscrire un conteneur d’objets blo
 
 Nous vous recommandons d’utiliser le conteneur d’objets Blob Azure. Les stockages Standard et Premium sont tous deux disponibles pour les objets blob. Bien que plus cher, nous vous suggérons le stockage Premium pour ses vitesses de débit supérieures qui peuvent améliorer la vitesse de vos exécutions d’entraînement, en particulier si vous effectuez l’entraînement sur un jeu de données volumineux. Pour plus d’informations sur les coûts des comptes de stockage, consultez [Calculatrice de prix Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-### <a name="using-the-workspace-landing-page"></a>Avec la page d’accueil de l’espace de travail 
+### <a name="using-azure-machine-learning-studio"></a>Utilisation d’Azure Machine Learning Studio 
 
-Créez un magasin de données en quelques étapes dans la page d’accueil de l’espace de travail.
+Créez un nouveau magasin de données en quelques étapes dans Azure Machine Learning Studio.
 
-1. Connectez-vous à la [page d’accueil de l’espace de travail](https://ml.azure.com/).
+1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Sélectionnez **Magasins de données** dans le volet gauche sous **Gérer**.
 1. Sélectionnez **+ Nouveau magasin de données**.
 1. Remplissez le formulaire du nouveau magasin de données. Le formulaire est mis à jour intelligemment en fonction du type de stockage Azure et des sélections relatives au type d’authentification.
   
-Vous pouvez trouver les informations dont vous avez besoin pour remplir le formulaire dans le [Portail Azure](https://ms.portal.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des éléments d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche.
+Vous trouverez les informations dont vous avez besoin pour renseigner le formulaire via [Azure Machine Learning Studio](https://ml.azure.com). Sélectionnez **Comptes de stockage** dans le volet gauche, puis choisissez le compte de stockage à inscrire. La page **Vue d’ensemble** fournit des informations telles que le nom du compte et le nom du conteneur ou du partage de fichiers. Pour obtenir des éléments d’authentification comme la clé de compte ou le jeton SAS, accédez à **Clés de compte** sous le volet **Paramètres** à gauche.
 
 L’exemple suivant montre à quoi ressemble le formulaire si vous créez un magasin de données d’objets blob Azure. 
     
@@ -280,10 +282,10 @@ Dans les situations où le SDK ne fournit pas d’accès aux banques de données
 <a name="move"></a>
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>Déplacer des données vers des solutions de stockage Azure prises en charge
 
-Azure Machine Learning service prend en charge l’accès aux données à partir d’Azure Blob, Azure file, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Pour le stockage non pris en charge, nous vous recommandons de déplacer vos données vers nos solutions de stockage Azure prises en charge à l’aide d’Azure Data Factory pour réduire le coût de sortie des données pendant les expériences de Machine Learning. Azure Data Factory offre un transfert de données efficace et résilient avec plus de 80 connecteurs préconfigurés, notamment les services de données Azure, les sources de données locales, Amazon S3, Redshift et Google BigQuery®, sans frais supplémentaires. [Suivez le guide pas à pas pour déplacer vos données à l’aide d’ Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
+Azure Machine Learning prend en charge l’accès aux données à partir d’Azure Blob, Azure file, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Pour le stockage non pris en charge, nous vous recommandons de déplacer vos données vers nos solutions de stockage Azure prises en charge à l’aide d’Azure Data Factory pour réduire le coût de sortie des données pendant les expériences de Machine Learning. Azure Data Factory offre un transfert de données efficace et résilient avec plus de 80 connecteurs préconfigurés, notamment les services de données Azure, les sources de données locales, Amazon S3, Redshift et Google BigQuery®, sans frais supplémentaires. [Suivez le guide pas à pas pour déplacer vos données à l’aide d’ Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Entraîner un modèle](how-to-train-ml-models.md)
+* [Effectuer l’apprentissage d’un modèle](how-to-train-ml-models.md).
 
-* [Déployer un modèle](how-to-deploy-and-where.md)
+* [Déployer un modèle](how-to-deploy-and-where.md).

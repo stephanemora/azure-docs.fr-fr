@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/23/2019
-ms.openlocfilehash: 7c03c0c649876143eaa75c98fa0c9001f2b24fbd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b93bf4f67c2581b7cac476b83fc130bf344cfa83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932382"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476745"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Sources des données de surveillance pour Azure Monitor
 Azure Monitor repose sur une [plateforme commune de données de surveillance](data-platform.md) qui inclut des [journaux](data-platform-logs.md) et des [métriques](data-platform-metrics.md). La collecte des données dans cette plate-forme permet d'analyser ensemble des données provenant de plusieurs ressources à l'aide d'un ensemble commun d'outils dans Azure Monitor. Les données de surveillance peuvent également être envoyées à d'autres endroits pour étayer certains scénarios, et certaines ressources peuvent écrire des données sur d'autres sites afin de consigner ces informations dans des journaux ou des métriques.
@@ -180,7 +180,7 @@ Les [solutions de supervision](../insights/solutions.md) et [Insights](../insigh
 |:---|:---|:---|
 | Journaux d’activité Azure Monitor | Stocke les données de surveillance pour AKS, y compris l'inventaire, les journaux et les événements. Les données métriques sont également stockées dans les journaux afin de tirer parti de sa fonctionnalité d'analyse dans le portail. | [Comprendre les performances du cluster AKS avec Azure Monitor pour conteneurs](../insights/container-insights-analyze.md) |
 | Métriques Azure Monitor | Les données métriques sont stockées dans la base de données de métriques pour gérer la visualisation et les alertes. | [Afficher les métriques du conteneur dans Metrics Explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer). |
-| Azure Kubernetes Service | Pour une expérience quasiment en temps réel, Azure Monitor pour conteneurs présente les données directement depuis le service Azure Kubernetes sur le portail Azure. | [Affichage des journaux de conteneur en temps réel avec Azure Monitor pour les conteneurs (préversion)](../insights/container-insights-live-logs.md) |
+| Azure Kubernetes Service | Fournit un accès direct à vos journaux de conteneur (stdout/stderror), événements et mesures de pod Azure Kubernetes Service (AKS) dans le portail. | [Comment afficher les journaux, événements et mesures de pod Kubernetes en temps réel ](../insights/container-insights-livedata-overview.md) |
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor pour machines virtuelles
 [Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md) fournit une expérience personnalisée pour la surveillance des machines virtuelles. Une description des données recueillies par Azure Monitor pour les machines virtuelles est incluse dans la section [Système d'exploitation (invité)](#operating-system-guest) ci-dessus.

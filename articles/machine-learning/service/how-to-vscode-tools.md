@@ -10,20 +10,20 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a93c71a97cdb1f6296919a248cf7ef545f7b307f
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: df23c41629dfe86058f0f2fb6602e85fd5a6d494
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269237"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489302"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Premiers pas avec Azure Machine Learning pour Visual Studio Code
 
 Cet article explique comment entraîner et déployer des modèles Machine Learning à l’aide de l’extension **Azure Machine Learning pour Visual Studio Code**.
 
-Le service Azure Machine Learning simplifie la création, l’entraînement et le déploiement de modèles Machine Learning.
+[Azure Machine Learning](overview-what-is-azure-ml.md) simplifie la création, l’entraînement et le déploiement de modèles Machine Learning.
 + Dans le cadre de l’entraînement, il permet d’exécuter des expériences en local ou à distance. Pour chaque expérience, vous pouvez journaliser des métriques personnalisées de plusieurs exécutions en vue d’optimiser les hyperparamètres.
-+ Vous pouvez également utiliser le service Azure Machine Learning pour déployer facilement des modèles Machine Learning dans vos environnements de test et de production.
++ Vous pouvez également utiliser Azure Machine Learning pour déployer facilement des modèles Machine Learning dans vos environnements de test et de production.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,7 +58,7 @@ Installer l’extension Azure Machine Learning :
 > Vous pouvez également télécharger le programme d’installation de l’extension directement de la page [Extension Azure Machine Learning pour Visual Studio Code (préversion)](https://aka.ms/vscodetoolsforai).
 
 ## <a name="quickstart-with-azure-machine-learning"></a>Démarrage rapide avec Azure Machine Learning
-Il existe plusieurs façons d’exécuter vos scripts d’entraînement à l’aide du service Azure Machine Learning. Si vous débutez, commencez par la procédure qui explique comment envoyer rapidement un script d’entraînement à exécuter dans Azure.
+Il existe plusieurs façons d’exécuter vos scripts d’entraînement à l’aide d’Azure Machine Learning. Si vous débutez, commencez par la procédure qui explique comment envoyer rapidement un script d’entraînement à exécuter dans Azure.
 
 Si vous êtes déjà familiarisé avec les concepts Azure Machine Learning et que vous souhaitez en savoir plus sur la façon de les utiliser et les gérer avec l’extension, consultez [Approfondissement de l’utilisation des concepts Azure Machine Learning avec VS Code](./how-to-vscode-tools.md#azure-machine-learning-in-depth-with-vs-code), plus loin dans cet article.
 
@@ -155,9 +155,9 @@ Après avoir cliqué sur le bouton Run Experiment (Exécuter l’expérience), r
 
     [![Effectuer l’entraînement dans le cloud](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-Quelques secondes plus tard, vous êtes averti que l’expérience a été envoyée à Azure. Vous pouvez dès lors surveiller la progression de son exécution dans le portail Azure en cliquant sur le lien **View Experiment Run** (Voir l’exécution de l’expérience) dans la notification de VS Code, ou directement à partir de VS Code en appuyant sur le bouton d’actualisation dans l’onglet Azure.
+Quelques secondes plus tard, vous êtes averti que l’expérience a été envoyée à Azure. Vous pouvez dès lors surveiller la progression de son exécution dans Azure Machine Learning Studio en cliquant sur le lien **View Experiment Run** (Voir l’exécution de l’expérience) dans la notification de VS Code, ou directement à partir de VS Code en appuyant sur le bouton d’actualisation dans l’onglet Azure.
 
-Pour le moment, la consultation des métriques d’exécution est possible uniquement dans le portail Azure. Le lien **View Experiment Run** mentionné ci-dessus vous renvoie à l’exécution où vous pouvez voir les métriques que vous avez journalisées.
+Pour le moment, la consultation des métriques d’exécution est possible uniquement dans Studio. Le lien **View Experiment Run** mentionné ci-dessus vous renvoie à l’exécution où vous pouvez voir les métriques que vous avez journalisées.
 [![Exécution de l’expérience dans le portail](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
 
 ## <a name="azure-machine-learning-in-depth-with-vs-code"></a>Approfondissement de l’utilisation des concepts Azure Machine Learning avec VS Code
@@ -197,7 +197,7 @@ Vous pouvez créer une ou plusieurs expériences dans votre espace de travail po
 
 ### <a name="create-and-manage-compute-targets"></a>Créer et gérer des cibles de calcul
 
-Avec Azure Machine Learning pour Visual Studio Code, vous pouvez préparer vos données, entraîner les modèles et les déployer à la fois en local et sur des cibles de calcul à distance.
+Avec Azure Machine Learning pour Visual Studio Code, vous pouvez préparer vos données, effectuer l’apprentissage des modèles et les déployer à la fois en local et sur des cibles de calcul à distance.
 
 L’extension prend en charge plusieurs cibles de calcul à distance pour Azure Machine Learning. Pour plus d’informations, consultez la liste complète des [cibles de calcul prises en charge pour Azure Machine Learning](how-to-set-up-training-targets.md).
 
@@ -235,7 +235,7 @@ Cet exemple montre comment créer une configuration d’exécution pour le calcu
 
 Pour exécuter des expériences Azure ML sur votre machine locale, vous avez également besoin d’un fichier de configuration d’exécution. Lors de la création d’une configuration d’exécution locale, l’environnement Python utilisé choisit par défaut le chemin de l’interpréteur que vous avez défini dans VS Code.
 
-### <a name="train-and-tune-models"></a>Entraîner et régler les modèles
+### <a name="train-and-tune-models"></a>Effectuer l’apprentissage des modèles et les ajuster
 
 Avec l’extension Azure ML pour VS Code, il existe plusieurs façons d’exécuter un script d’entraînement dans une expérience.
 

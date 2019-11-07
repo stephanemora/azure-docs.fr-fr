@@ -1,5 +1,5 @@
 ---
-title: Intentions - LUIS
+title: Intentions et entités - LUIS
 titleSuffix: Azure Cognitive Services
 description: Une intention unique représente une tâche ou une action que l’utilisateur souhaite effectuer. Il s’agit d’une finalité ou d’un objectif exprimé dans l’énoncé d’un utilisateur. Définissez un ensemble d’intentions qui correspondent aux actions que les utilisateurs souhaitent effectuer dans votre application.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619918"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487530"
 ---
-# <a name="concepts-about-intents-in-your-luis-app"></a>Concepts relatifs aux intentions dans votre application LUIS
+# <a name="intents-in-your-luis-app"></a>Intentions dans votre application LUIS
 
 Une intention représente une tâche ou une action que l’utilisateur souhaite effectuer. Il s’agit d’une finalité ou d’un objectif exprimé dans [l’énoncé](luis-concept-utterance.md) d’un utilisateur.
 
@@ -31,55 +31,45 @@ Intentions de l’application de voyage   |   Exemples d’énoncés   |
  BulletinMétéo | « Quel temps fait-il à Boston ? » <br/> « Montre-moi les prévisions pour ce week-end » |
  Aucun         | « Trouve-moi une recette de cookies »<br>« Les Lakers ont-ils gagné ? » |
 
-Toutes les applications s’accompagnent de l’intention prédéfinie « [None](#none-intent-is-fallback-for-app) », qui correspond à l’intention de secours. 
+Toutes les applications s’accompagnent de l’intention prédéfinie « [None](#none-intent) », qui correspond à l’intention de secours. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>Intentions fournies par les domaines prédéfinis
-En plus des intentions que vous définissez, vous pouvez utiliser les intentions prédéfinies d’un des domaines prédéfinis. Pour savoir comment personnaliser les intentions d’un domaine prédéfini dans une application, voir [Utiliser les domaines prédéfinis dans les applications LUIS](luis-how-to-use-prebuilt-domains.md).
+En plus des intentions que vous définissez, vous pouvez utiliser les intentions prédéfinies d’un des [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md). 
 
 ## <a name="return-all-intents-scores"></a>Retourner le score de toutes les intentions
-Vous attribuez une seule intention à un énoncé. Lorsque LUIS reçoit un énoncé sur le point de terminaison, il retourne la meilleure intention pour cet énoncé. Si vous souhaitez connaître le score de toutes les intentions de l’énoncé, vous pouvez ajouter un indicateur `verbose=true` sur la chaîne de requête [d’appel du point de terminaison](https://aka.ms/v1-endpoint-api-docs) de l’API. 
+Vous attribuez une seule intention à un énoncé. Lorsque LUIS reçoit un énoncé sur le point de terminaison, il retourne par défaut la meilleure intention pour cet énoncé. 
+
+Si vous souhaitez connaître les scores de toutes les intentions de l’énoncé, vous pouvez ajouter un indicateur sur la chaîne de requête de l’API de prédiction. 
+
+|Version de l’API de prédiction|Indicateur|
+|--|--|
+|V2|`verbose=true`|
+|V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>Différence entre intention et entité
-L’intention correspond à l’action que le chatbot doit effectuer pour l’utilisateur ; elle s’appuie sur la totalité de l’énoncé. L’entité représente des mots ou des expressions contenues dans l’énoncé. Un énoncé ne peut avoir qu’une seule meilleure intention, mais il peut comporter de nombreuses entités. 
+L’intention correspond à l’action que le bot doit effectuer pour l’utilisateur ; elle s’appuie sur la totalité de l’énoncé. Un énoncé ne peut avoir qu’une seule meilleure intention, mais il peut comporter de nombreuses entités. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 
-Créez une intention lorsque le _but_ de l’utilisateur doit déclencher une action dans votre application cliente, comme un appel à la fonction checkweather(). Ensuite, créez une entité afin de représenter les paramètres requis pour exécuter l’action. 
+Créez une intention lorsque le _but_ de l’utilisateur doit déclencher une action dans votre application cliente, comme un appel à la fonction checkweather(). Ensuite, créez des entités afin de représenter les paramètres requis pour exécuter l’action. 
 
-|Exemple d’intention   | Entité | Entité dans des exemples d’énoncés   | 
+|Intention   | Entité | Exemple d’énoncé   | 
 |------------------|------------------------------|------------------------------|
 | BulletinMétéo | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "demain","resolution":"2018-05-23" } | « Quel temps fait-il à `Seattle` `tomorrow` ? » |
 | BulletinMétéo | { "type": "date_range", "entity": "ce weekend" } | Montre-moi les prévisions pour `this weekend` | 
 ||||
 
-## <a name="custom-intents"></a>Intentions personnalisées
-
-Des [énoncés](luis-concept-utterance.md) répondant au même objectif correspondent à une seule intention. Les énoncés d’une intention peuvent utiliser n’importe quelle [entité](luis-concept-entity-types.md) de l’application, car celles-ci ne sont pas propres à une intention en particulier. 
-
 ## <a name="prebuilt-domain-intents"></a>Intentions de domaine prédéfini
 
-Les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md) comportent des intentions avec des énoncés.  
+Les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md) fournissent des intentions avec des énoncés. 
 
 ## <a name="none-intent"></a>Intention None
 
-L’intention **Aucun** est importante pour chaque application et ne devrait pas n’avoir aucun énoncé.
+L’intention **None** est créée mais laissée vide intentionnellement. L’intention **None** est requise ; elle n’est ni supprimable ni renommable. Remplissez-la avec des énoncés extérieurs à votre domaine.
 
-### <a name="none-intent-is-fallback-for-app"></a>Intention None de secours pour l’application
-L’intention **None** est une intention de secours fourre-tout. Elle sert à montrer à LUIS des expressions qui ne sont pas importantes dans le domaine d’application (sujet). L’intention **None** doit comporter entre 10 et 20 % du nombre total d’énoncés de l’application. Ne laissez pas l’intention None vide. 
+L’intention **None** est l’intention de secours, importante dans chaque application, et doit avoir 10 % des énoncés totaux. Elle sert à montrer à LUIS des expressions qui ne sont pas importantes dans le domaine d’application (sujet). Si vous n’ajoutez pas d’énoncés à l’intention **None**, LUIS force un énoncé extérieur au domaine dans l’une des intentions du domaine. Cela fausse les scores de prédiction en indiquant à LUIS la mauvaise intention pour l’énoncé. 
 
-### <a name="none-intent-helps-conversation-direction"></a>Utilité pour orienter la conversation
-Lorsqu’un énoncé est annoncé comme ayant l’intention None et retourné au chatbot avec cette prédiction, le bot peut poser des questions supplémentaires ou proposer un menu afin d’orienter l’utilisateur vers des choix valides dans le chatbot. 
-
-### <a name="no-utterances-in-none-intent-skews-predictions"></a>Prédictions faussées en l’absence d’énoncés dans l’intention None
-Si vous n’ajoutez pas d’énoncés à l’intention **None**, LUIS force un énoncé extérieur au domaine dans l’une des intentions du domaine. Cela fausse les scores de prédiction en indiquant à LUIS la mauvaise intention pour l’énoncé. 
-
-### <a name="add-utterances-to-the-none-intent"></a>Ajout d’énoncés à l’intention None
-L’intention **None** est créée mais laissée vide intentionnellement. Remplissez-la avec des énoncés extérieurs à votre domaine. Un bon énoncé pour **None** est un élément sans rapport avec l’application ou son secteur. Par exemple, une application de voyage ne doit pas utiliser pour **None** des énoncés liés aux déplacements, comme les réservations, la facturation, la restauration, l’hébergement, le transport ou les divertissements à bord. 
-
-Quel type d’énoncés reste-t-il pour l’intention None ? Commencez par une question spécifique à laquelle votre bot ne devra pas répondre, par exemple, « Quel type de dinosaure a les dents bleues ? ». Il s’agit d’une question très précise et très éloignée d’une application de voyage. 
-
-### <a name="none-is-a-required-intent"></a>Intention None obligatoire
-L’intention **None** est requise ; elle n’est ni supprimable ni renommable.
+Lorsqu’un énoncé est annoncé comme ayant l’intention None, l’application cliente peut poser des questions supplémentaires ou proposer un menu afin d’orienter l’utilisateur vers des choix valides. 
 
 ## <a name="negative-intentions"></a>Intentions négatives 
 Si vous souhaitez identifier les intentions négatives et positives, par exemple, « je **veux** une voiture » et « je **ne veux pas** de voiture », vous pouvez créer deux intentions (une positive et une négative) et ajouter les énoncés correspondant à chacune. Vous pouvez également créer une intention unique et marquer les deux termes, positif et négatif, comme une entité.  
@@ -109,8 +99,6 @@ Découvrez comment combiner des applications LUIS et QnA Maker avec le [modèle 
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Aide pour les applications comportant de nombreuses intentions
 S’il ne vous est pas possible de réduire le nombre d’intentions ou de les diviser en plusieurs applications, contactez le support. Si votre abonnement Azure comprend des services de support, contactez le [support technique Azure](https://azure.microsoft.com/support/options/). 
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

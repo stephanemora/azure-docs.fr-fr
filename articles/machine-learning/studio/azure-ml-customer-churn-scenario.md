@@ -1,7 +1,7 @@
 ---
 title: Analyser l’évolution des clients
-titleSuffix: Azure Machine Learning Studio
-description: Étude de cas de développement d’un modèle intégré pour l’analyse et la notation de l’attrition des clients à l’aide d’Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Étude de cas de développement d’un modèle intégré pour l’analyse et la notation de l’attrition des clients à l’aide d’Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,19 +10,19 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 168ab29b3d7397505543c169add03fb0d768f54b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699436"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493375"
 ---
-# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio (classique)
 ## <a name="overview"></a>Vue d'ensemble
-Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning Studio. Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
+Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning Studio (classique). Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 
 ### <a name="acknowledgements"></a>Remerciements
-Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning Studio. L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
+Cette expérience a été développée et testée par Serge Berger, spécialiste des données chez Microsoft, et Roger Barga, anciennement chef de produits pour Microsoft Azure Machine Learning Studio (classique). L’équipe de documentation Azure leur sait gré de leur expertise et les remercie pour ce livre blanc.
 
 > [!NOTE]
 > Les données utilisées pour cette expérience ne sont pas disponibles publiquement. Pour obtenir un exemple montrant comment créer un modèle Machine Learning pour l’analyse de l’attrition, consultez : [Modèle d’attrition Retail](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) dans [Azure AI Gallery](https://gallery.azure.ai/)
@@ -70,29 +70,29 @@ L'analyse des données volumineuses est un ajout intéressant. Actuellement, les
 
  
 
-## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Implémentation de l’archétype de modélisation de ML Studio
-Compte tenu du problème décrit, quelle est la meilleure façon d'implémenter une méthode de modélisation et de notation intégrée ? Dans cette section, nous verrons comment nous y sommes parvenus à l’aide de Microsoft Azure Machine Learning Studio.  
+## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implémentation de l’archétype de modélisation de Machine Learning Studio (classique)
+Compte tenu du problème décrit, quelle est la meilleure façon d'implémenter une méthode de modélisation et de notation intégrée ? Dans cette section, nous verrons comment nous y sommes parvenus à l’aide de la version classique d’Azure Machine Learning Studio.  
 
 L’approche multi-modèles est incontournable pour concevoir un archétype global d’attrition. Même la partie évaluative (prédictive) de la méthode doit être multi-modèles.  
 
-Le schéma suivant illustre le fonctionnement du prototype que nous avons créé, qui utilise quatre algorithmes de notation différents dans ML Studio afin de prévoir le taux d’attrition. L'utilisation d'une méthode multi-modèles n'est pas seulement utile pour créer un classifieur d'ensemble afin d'améliorer l'exactitude, mais également pour se protéger du surajustement et pour améliorer la sélection des caractéristiques prédictives.  
+Le schéma suivant illustre le fonctionnement du prototype que nous avons créé, qui utilise quatre algorithmes de notation différents dans Machine Learning Studio (classique) afin de prévoir le taux d’attrition. L'utilisation d'une méthode multi-modèles n'est pas seulement utile pour créer un classifieur d'ensemble afin d'améliorer l'exactitude, mais également pour se protéger du surajustement et pour améliorer la sélection des caractéristiques prédictives.  
 
-![Capture d’écran illustrant un espace de travail Studio complexe avec de nombreux modules interconnectés](./media/azure-ml-customer-churn-scenario/churn-3.png)
+![Capture d’écran illustrant un espace de travail Studio (classique) complexe avec de nombreux modules interconnectés](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *Figure 5 : Prototype d’une méthode de modélisation de l’attrition*  
 
-Les sections suivantes fournissent plus d’informations sur le modèle de notation du prototype que nous avons implémenté à l’aide de ML Studio.  
+Les sections suivantes fournissent plus d’informations sur le modèle de notation du prototype que nous avons implémenté à l’aide de Machine Learning Studio (classique).  
 
 ### <a name="data-selection-and-preparation"></a>Sélection et préparation des données
 Les données utilisées pour établir les modèles et évaluer les clients ont été obtenues à partir d'une solution verticale de CRM. Elles ont été masquées pour protéger la confidentialité des clients. Ces données portent sur 8 000 abonnements aux États-Unis et proviennent de trois sources : données de préparation (métadonnées des abonnements), données d’activité (utilisation du système) et données de service clientèle. Elles n’incluent pas d’informations professionnelles sur les clients de l’entreprise. Par exemple, elles ne contiennent pas de métadonnées sur la fidélité ni de scores de crédit.  
 
 Pour simplifier, les processus de nettoyage des données et ETL ne sont pas utilisés, car nous estimons que la préparation des données a déjà été effectuée à un autre niveau.
 
-La sélection des caractéristiques de modélisation se base sur une notation préliminaire de l’importance de l’ensemble des facteurs de prédiction, incluse dans le processus à l’aide du module de forêt aléatoire. Pour l’implémentation dans ML Studio, nous avons calculé les valeurs moyennes et médianes, ainsi que les plages de caractéristiques représentatives. Nous avons notamment ajouté des agrégats pour les données qualitatives, telles que des valeurs minimum et maximum pour l’activité de l’utilisateur.
+La sélection des caractéristiques de modélisation se base sur une notation préliminaire de l’importance de l’ensemble des facteurs de prédiction, incluse dans le processus à l’aide du module de forêt aléatoire. Pour l’implémentation dans Machine Learning Studio (classique), nous avons calculé les valeurs moyennes et médianes, ainsi que les plages de caractéristiques représentatives. Nous avons notamment ajouté des agrégats pour les données qualitatives, telles que des valeurs minimum et maximum pour l’activité de l’utilisateur.
 
 Nous avons également collecté des informations temporelles portant sur les 6 derniers mois. Nous avons analysé les données pendant un an. Nous avons pu déterminer que, même s’il existe des tendances significatives en termes de statistiques, l’effet sur l’attrition est fortement réduit après six mois.  
 
-Ce qui importe le plus, c’est que le processus dans son ensemble (y compris ETL, la sélection de caractéristiques et la modélisation) a été implémenté dans ML Studio, en utilisant des sources de données dans Microsoft Azure.   
+Ce qui importe le plus, c’est que le processus dans son ensemble (y compris l’ETL, la sélection de caractéristiques et la modélisation) a été implémenté dans Machine Learning Studio (classique), en utilisant des sources de données dans Microsoft Azure.   
 
 Les schémas suivants illustrent les données utilisées :  
 
@@ -124,18 +124,18 @@ Le schéma suivant illustre une partie de la surface de conception de l’expér
 
 ![Capture d’écran d’une petite section du canevas de l'expérience Studio](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
-*Figure 8 : Création de modèles dans Microsoft Azure ML Studio*  
+*Figure 8 : Création de modèles dans Machine Learning Studio (classique)*  
 
 ### <a name="scoring-methods"></a>Méthodes de notation
 Nous avons effectué la notation des quatre modèles à l’aide d’un jeu de données d’apprentissage étiqueté.  
 
-Nous avons également envoyé le jeu de données de notation à un modèle comparable, créé via l’édition Desktop de SAS Enterprise Miner 12. Nous avons mesuré l’exactitude du modèle SAP, ainsi que des quatre modèles ML Studio.  
+Nous avons également envoyé le jeu de données de notation à un modèle comparable, créé via l’édition Desktop de SAS Enterprise Miner 12. Nous avons mesuré l’exactitude du modèle SAP, ainsi que des quatre modèles Machine Learning Studio (classique).  
 
 ## <a name="results"></a>Résultats
 Dans cette section, nous présentons nos découvertes sur l’exactitude des modèles en fonction du jeu de données d’évaluation.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Exactitude et précision de la notation
-En général, l'implémentation dans Azure Machine Learning Studio est derrière SAP en termes d'exactitude et ce, d'environ 10 à 15 % (aire sous la courbe, ASC).  
+En général, l’implémentation dans la version classique d’Azure Machine Learning Studio est derrière SAP en termes d’exactitude et ce, d’environ 10 à 15 % (aire sous la courbe, ASC).  
 
 Toutefois, la mesure la plus importante en termes d’attrition est le taux de classification incorrecte : parmi les clients les plus enclins à l’attrition, quels sont ceux qui n’ont **pas** quitté un fournisseur, mais ont bénéficié malgré tout d’un traitement spécial ? Le schéma suivant compare ces différents taux de classification incorrecte pour tous les modèles :  
 
@@ -152,9 +152,9 @@ La mesure ASC est utilisée pour évaluer la valeur de différents algorithmes 
 Nous avons comparé les taux de classification incorrecte du jeu de données concerné à l’aide des données CRM d’environ 8 000 abonnements.  
 
 * Le taux d’erreur de classification de SAP se situait entre 10 et 15 %.
-* Le taux de classification incorrecte de ML Studio était de 15 à 20 % pour les 200-300 clients les plus susceptibles de changer de fournisseur.  
+* Le taux de classification incorrecte de Machine Learning Studio (classique) était de 15 à 20 % pour les 200-300 clients les plus susceptibles de changer de fournisseur.  
 
-Dans le secteur des télécommunications, il est important de s’adresser uniquement aux clients les plus susceptibles d’attrition en leur offrant un service de conciergerie ou tout autre traitement spécial. Sur ce plan, l’implémentation de ML Studio obtient des résultats identiques à ceux du modèle SAP.  
+Dans le secteur des télécommunications, il est important de s’adresser uniquement aux clients les plus susceptibles d’attrition en leur offrant un service de conciergerie ou tout autre traitement spécial. Sur ce plan, l’implémentation de Machine Learning Studio (classique) obtient des résultats identiques à ceux du modèle SAP.  
 
 De même, l’exactitude est plus importante que la précision, car nous tenons avant tout à classer correctement les personnes susceptibles de changer de fournisseur.  
 
@@ -172,7 +172,7 @@ Le graphique suivant présente les résultats bruts d’une notation réalisée 
 *Figure 11 : Caractéristiques du modèle d’arbre de décision optimisé*
 
 ## <a name="performance-comparison"></a>Comparaison entre les performances
-Nous avons comparé la vitesse à laquelle les données étaient notées à l’aide de modèles ML Studio et d’un modèle comparable créé à l’aide de l’édition Desktop de SAS Enterprise Miner 12.1.  
+Nous avons comparé la vitesse à laquelle les données étaient notées à l’aide de modèles Machine Learning Studio (classique) et d’un modèle comparable créé à l’aide de l’édition Desktop de SAS Enterprise Miner 12.1.  
 
 Le tableau suivant récapitule les performances des algorithmes :  
 
@@ -182,7 +182,7 @@ Le tableau suivant récapitule les performances des algorithmes :
 | --- | --- | --- | --- |
 | Modèle moyen |Meilleur modèle |Mauvaises performances |Modèle moyen |
 
-Les modèles hébergés dans ML Studio ont supplanté le modèle SAP de 15 à 25 % grâce à sa vitesse d’exécution, mais leur exactitude était largement équivalente.  
+Les modèles hébergés dans Machine Learning Studio (classique) ont supplanté le modèle SAP de 15 à 25 % grâce à sa vitesse d’exécution, mais leur exactitude était largement équivalente.  
 
 ## <a name="discussion-and-recommendations"></a>Considérations et recommandations
 Dans le secteur des télécommunications, plusieurs pratiques ont émergé pour l’analyse de l’attrition :  
@@ -198,15 +198,15 @@ L’utilisation de ces quatre catégories donne l’impression qu’une simple a
 
 Cette observation importante est souvent ignorée par les entreprises, qui préfèrent généralement une approche d’informatique décisionnelle, car elle est plus vendeuse et permet une automatisation directe.  
 
-Cependant, la promesse d’une analyse autonome à l’aide de ML Studio permet d’envisager que les quatre catégories d’informations, évaluées par division ou service, deviendront des sources utiles pour l’apprentissage automatique relatif à l’attrition.  
+Cependant, la promesse d’une analyse autonome à l’aide de Microsoft Azure Machine Learning Studio (classique) permet d’envisager que les quatre catégories d’informations, évaluées par division ou service, deviendront des sources utiles pour l’apprentissage automatique relatif à l’attrition.  
 
-Une autre fonctionnalité passionnante proposée par Azure Machine Learning Studio est la possibilité d’ajouter un module personnalisé dans le référentiel des modules prédéfinis qui sont déjà disponibles. Cette capacité permet surtout de sélectionner des bibliothèques et de créer des modèles pour les marchés verticaux. C’est un facteur de différenciation primordial d'Azure Machine Learning Studio sur le marché.  
+Une autre fonctionnalité passionnante proposée par ma version classique d’Azure Machine Learning Studio est la possibilité d’ajouter un module personnalisé dans le référentiel des modules prédéfinis qui sont déjà disponibles. Cette capacité permet surtout de sélectionner des bibliothèques et de créer des modèles pour les marchés verticaux. C’est un facteur de différenciation primordial de la version classique d’Azure Machine Learning Studio sur le marché.  
 
 Nous espérons pouvoir à nouveau évoquer ce sujet, notamment en ce qui concerne l’analyse des données volumineuses.
   
 
 ## <a name="conclusion"></a>Conclusion
-Ce document détaille une approche rationnelle pour la gestion d’un problème commun, l’attrition, à l’aide d’une structure générique. Nous avons envisagé un prototype de modèle de notation, que nous avons implémenté à l’aide d'Azure Machine Learning Studio. Enfin, nous avons évalué l'exactitude et les performances de la solution prototype par rapport aux algorithmes comparables dans SAP.  
+Ce document détaille une approche rationnelle pour la gestion d’un problème commun, l’attrition, à l’aide d’une structure générique. Nous avons envisagé un prototype de modèle de notation, que nous avons implémenté à l’aide de la version classique d’Azure Machine Learning Studio. Enfin, nous avons évalué l'exactitude et les performances de la solution prototype par rapport aux algorithmes comparables dans SAP.  
 
  
 

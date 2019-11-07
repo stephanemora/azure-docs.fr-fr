@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 09/13/2019
-ms.openlocfilehash: 3b3fbce40c93389037435a7cdb1271e773163de3
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 11/04/2019
+ms.openlocfilehash: 536f3ab506dcbe2b8997f2c1870f25244b6c070f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123281"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489650"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>Détecter une dérive de données (préversion) sur des modèles déployés sur Azure Kubernetes Service (AKS)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Dans cet article, vous apprenez à surveiller la dérive de données entre le jeu de données d’apprentissage et les données d’inférence d’un modèle déployé. Dans le contexte du Machine Learning, des modèles Machine Learning entraînés peuvent subir une dégradation des performances de prédiction à cause de la dérive. Avec Azure Machine Learning, vous pouvez surveiller la dérive de données. Le service peut alors vous envoyer une alerte par e-mail lorsqu’une dérive est détectée.
 
@@ -40,7 +41,7 @@ Avec Azure Machine Learning, vous pouvez surveiller les entrées d’un modèle 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Supervision de la dérive des données dans Azure Machine Learning
 
-Avec Azure Machine Learning, la dérive de données est supervisée par le biais de jeux de données ou de déploiements. Pour superviser la dérive des données, un jeu de données de référence (généralement le jeu de données d’entraînement d’un modèle) est spécifié. Un deuxième jeu de données (généralement les données d’entrée du modèle qui ont été collectées à partir d’un déploiement) est testé en le comparant avec le jeu de données de référence. Les deux jeux de données sont profilés et sont utilisés comme entrée pour le service de supervision de la dérive des données. Un modèle Machine Learning est entraîné pour détecter les différences entre les deux jeux de données. Les performances du modèle sont converties pour établir un coefficient dérive mesurant l’étendue de la dérive entre les deux jeux de données. Grâce à l’[interprétabilité des modèles](machine-learning-interpretability-explainability.md), les fonctionnalités qui contribuent au coefficient de dérive sont calculées. De nombreuses informations (profil du jeu de données, données statistiques, etc.) relatives à chaque fonctionnalité sont suivies. 
+Avec Azure Machine Learning, la dérive de données est supervisée par le biais de jeux de données ou de déploiements. Pour superviser la dérive des données, un jeu de données de référence (généralement le jeu de données d’entraînement d’un modèle) est spécifié. Un deuxième jeu de données (généralement les données d’entrée du modèle qui ont été collectées à partir d’un déploiement) est testé en le comparant avec le jeu de données de référence. Les deux jeux de données sont profilés et sont utilisés comme entrée pour le service de supervision de la dérive des données. Un modèle Machine Learning est entraîné pour détecter les différences entre les deux jeux de données. Les performances du modèle sont converties pour établir un coefficient dérive mesurant l’étendue de la dérive entre les deux jeux de données. Grâce à l’[interprétabilité des modèles](how-to-machine-learning-interpretability.md), les fonctionnalités qui contribuent au coefficient de dérive sont calculées. De nombreuses informations (profil du jeu de données, données statistiques, etc.) relatives à chaque fonctionnalité sont suivies. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -58,7 +59,7 @@ Avec Azure Machine Learning, la dérive de données est supervisée par le biais
 - Installez le Kit de développement logiciel (SDK)à l’aide de la commande suivante :
 
     ```shell
-    pip install azureml-contrib-datadrift
+    pip install azureml-datadrift
     ```
 
 - Créez un [jeu de données](how-to-create-register-datasets.md) à partir de données d’apprentissage de votre modèle.
@@ -84,7 +85,7 @@ Cet exemple montre la configuration de l’objet [`DataDriftDetector`](https://d
 ```python
 # Import Azure ML packages
 from azureml.core import Experiment, Run, RunDetails
-from azureml.contrib.datadrift import DataDriftDetector, AlertConfiguration
+from azureml.datadrift import DataDriftDetector, AlertConfiguration
 
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
@@ -133,7 +134,7 @@ Il existe plusieurs manières d’afficher les métriques de la dérive :
 
 * Utilisez le `RunDetails`[widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Utilisez la fonction [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) sur tout objet d’exécution `datadrift`.
-* Affichez les métriques dans la section **Modèles** de la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com).
+* Affichez les métriques dans la section **Modèles** de votre espace de travail dans [Azure Machine Learning Studio](https://ml.azure.com).
 
 L’exemple Python suivant montre comment représenter les métriques de dérive de données pertinentes. Vous pouvez utiliser les métriques retournées pour générer des visualisations personnalisées :
 
@@ -158,15 +159,15 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-La configuration du détecteur de dérive de données peut être consultée sous **Modèles** dans l'onglet **Détails** de la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com).
+La configuration du détecteur de dérive de données peut être consultée sous **Modèles** dans l’onglet **Détails** de votre espace de travail sous [Azure Machine Learning Studio](https://ml.azure.com).
 
-![Dérive de données du portail Azure](media/how-to-monitor-data-drift/drift-config.png)
+![Dérive des données Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-config.png)
 
-## <a name="view-results-in-your-workspace-landing-page"></a>Afficher les résultats dans la page d’arrivée de votre espace de travail
+## <a name="view-results-in-your-azure-machine-learning-studio"></a>Consulter les résultats dans Azure Machine Learning Studio
 
-Pour afficher les résultats dans la [page d'arrivée de votre espace de travail](https://ml.azure.com), accédez à la page du modèle. Dans l’onglet de détails du modèle, la configuration de la dérive de données s’affiche. Vous pouvez désormais visualiser les métriques de dérive de données sous l’onglet **Dérive des données**. 
+Pour afficher les résultats dans votre espace de travail sous [Azure Machine Learning Studio](https://ml.azure.com), accédez à la page du modèle. Dans l’onglet de détails du modèle, la configuration de la dérive de données s’affiche. Vous pouvez désormais visualiser les métriques de dérive de données sous l’onglet **Dérive des données**. 
 
-[![Dérive des données - Page d'arrivée de l'espace de travail](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
+[![Dérive des données Azure Machine Learning Studio](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
 
 ## <a name="receiving-drift-alerts"></a>Réception d’alertes dérive

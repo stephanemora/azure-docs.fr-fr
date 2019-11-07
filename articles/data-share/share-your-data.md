@@ -1,19 +1,19 @@
 ---
-title: 'Didacticiel : Partager en dehors de votre organisation - Azure Data Share Preview'
-description: Tutoriel - Partager des données avec des clients et des partenaires via Azure Data Share Preview
+title: 'Didacticiel : Partager en dehors de votre organisation - Azure Data Share'
+description: Tutoriel - Partager des données avec des clients et des partenaires via Azure Data Share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327417"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499326"
 ---
-# <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>Didacticiel : Partager vos données avec Azure Data Share Preview
+# <a name="tutorial-share-data-using-azure-data-share"></a>Didacticiel : Partagez des données avec Azure Data Share  
 
 Dans ce tutoriel, vous allez découvrir comment créer un partage Azure Data Share et commencer à partager vos données avec des clients et des partenaires externes à votre organisation Azure. 
 
@@ -28,9 +28,28 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 * Abonnement Azure : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+* L’adresse e-mail de connexion Azure de vos destinataires (l’utilisation de leur alias de courrier ne fonctionnera pas).
+
+### <a name="share-from-a-storage-account"></a>Partager à partir d’un compte de stockage :
+
 * Compte Stockage Azure : Si vous n’en avez pas déjà, vous pouvez créer un [compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * Autorisation d’ajouter l’attribution de rôle au compte de stockage, qui est présente dans l’autorisation *Microsoft. Authorization/Role Assignments/Write*. Cette autorisation existe dans le rôle propriétaire. 
-* L’adresse e-mail de connexion Azure de vos destinataires (l’utilisation de leur alias de courrier ne fonctionnera pas).
+
+### <a name="share-from-a-sql-based-source"></a>Partage à partir d’une source SQL :
+
+* Une base de données ou un entrepôt de données Azure SQL avec des tables et des vues que vous souhaitez partager.
+* Autorisation pour l’accès du partage de données à l’entrepôt de données. Pour ce faire, procédez comme suit : 
+    1. Définissez-vous comme administrateur Azure Active Directory pour le serveur.
+    1. Connectez-vous à la base de données ou à l’entrepôt de données Azure SQL avec Azure Active Directory.
+    1. Utilisez l’Éditeur de requêtes (préversion) pour exécuter le script suivant afin d’ajouter le MSI Data Share en tant que db_owner. Vous devez vous connecter avec Active Directory et non avec l’authentification SQL Server. 
+    
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```                   
+Notez que *<share_acc_name>* est le nom de votre compte Data Share. Si vous n’avez pas encore créé de compte Data Share, vous pouvez le faire plus tard.  
+
+* Accès au pare-feu SQL Server de l’adresse IP du client : Pour ce faire, procédez comme suit : 1. Accédez à *Pare-feux et réseaux virtuels* 1. Cliquez sur le bouton **activer** pour autoriser l’accès à Azure Services. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -44,7 +63,7 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
 1. Recherchez *Data Share*.
 
-1. Sélectionnez Data Share (préversion), puis sélectionnez **Créer**.
+1. Sélectionnez Data Share, puis sélectionnez **Créer**.
 
 1. Indiquez les détails de base de votre ressource Azure Data Share à partir des informations suivantes. 
 
@@ -72,13 +91,13 @@ Créez une ressource Azure Data Share dans un groupe de ressources Azure.
 
 1. Indiquez les détails relatifs à votre partage Data Share. Spécifiez un nom, une description du contenu du partage et des conditions d’utilisation (facultatif). 
 
-    ![EnterShareDetails](./media/enter-share-details.png "Entrer les détails du partage") 
+    ![EnterShareDetails](./media/enter-share-details.png "Entrer les détails de partage") 
 
 1. Sélectionnez **Continue** (Continuer)
 
 1. Pour ajouter des jeux de données à votre partage Data Share, sélectionnez **Add Datasets** (Ajouter des jeux de données). 
 
-    ![Jeux de données](./media/datasets.png "Jeux de données")
+    ![Groupes de données](./media/datasets.png "Groupes de données")
 
 1. Sélectionnez le type de jeu de données à ajouter. 
 

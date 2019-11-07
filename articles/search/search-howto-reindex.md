@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26a751924985f94a7d7d12a382d4e6654f36ea48
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793704"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466445"
 ---
 # <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Guide pratique pour régénérer un index Recherche cognitive Azure
 
@@ -46,7 +46,7 @@ Toutes les autres modifications peuvent être effectuées sans impact sur les st
 
 Quand vous ajoutez un nouveau champ, les documents indexés existants reçoivent une valeur null pour le nouveau champ. Lors de l’actualisation suivante des données, les valeurs provenant des données sources externes remplacent les valeurs null ajoutées par Recherche cognitive Azure. Pour plus d’informations sur la mise à jour du contenu des index, consultez [Ajouter, mettre à jour ou supprimer des documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
-## <a name="partial-or-incremental-indexing"></a>Indexation incrémentielle ou partielle
+## <a name="partial-indexing"></a>Indexation partielle
 
 Dans Recherche cognitive Azure, vous ne pouvez pas contrôler l’indexation au niveau d’un champ, en choisissant de supprimer ou de recréer des champs spécifiques. De même, il n’existe pas de mécanisme intégré pour [l’indexation de documents en fonction de critères](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents). Toutes vos exigences quant à une indexation pilotée par des critères doivent être satisfaites via du code personnalisé.
 

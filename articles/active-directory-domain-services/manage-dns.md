@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 9279f97d5260eae698d5dbee10e077b71ab01992
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c225be5a1123c89d8a470a8dea48b3c57eb893b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612349"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474578"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Administrer DNS dans un domaine managé Azure AD Domain Services
 
@@ -23,7 +23,9 @@ Dans Azure Active Directory Domain Services (Azure AD DS), DNS est un composant 
 
 Lorsque vous exécutez vos propres applications et services, il se peut que vous deviez créer des enregistrements DNS pour des machines qui ne sont pas jointes au domaine, ou configurer des adresses IP virtuelles pour des équilibreurs de charge ou des redirecteurs DNS externes. Les utilisateurs qui appartiennent au groupe *Administrateurs AAD DC* bénéficient de privilèges d’administration DNS sur le domaine managé Azure AD DS, et peuvent créer et modifier des enregistrements DNS personnalisés.
 
-Cet article explique comment installer les Outils du serveur DNS, puis utiliser la console DNS pour gérer les enregistrements.
+Dans un environnement hybride, les zones DNS et les enregistrements configurés dans un environnement AD DS local ne sont pas synchronisées avec Azure AD DS. Pour définir et utiliser vos propres entrées DNS, créez des enregistrements dans le serveur DNS Azure AD DS ou utilisez des redirecteurs conditionnels qui pointent vers des serveurs DNS existants dans votre environnement.
+
+Cet article explique comment installer les Outils du serveur DNS, puis utiliser la console DNS pour gérer les enregistrements dans Azure AD DS.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -36,17 +38,17 @@ Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources 
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, suivez le tutoriel [Créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Une machine virtuelle de gestion Windows Server jointe au domaine managé Azure AD DS.
     * Si nécessaire, suivez les étapes du tutoriel pour [créer et joindre une machine virtuelle Windows Server à un domaine managé][create-join-windows-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
 
 ## <a name="install-dns-server-tools"></a>Installer les Outils du serveur DNS
 
-Pour créer et modifier DNS, vous devez installer les Outils du serveur DNS. Ces outils peuvent être installés en tant que fonctionnalité de Windows Server. Pour plus d’informations sur l’installation des outils d’administration sur un client Windows, consultez [Installer les outils d’administration de serveur distant][install-rsat].
+Pour créer et modifier des enregistrements DNS dans azure AD DS, vous devez installer les outils du serveur DNS. Ces outils peuvent être installés en tant que fonctionnalité de Windows Server. Pour plus d’informations sur l’installation des outils d’administration sur un client Windows, consultez [Installer les outils d’administration de serveur distant][install-rsat].
 
 1. Connectez-vous à votre machine virtuelle de gestion. Pour connaître les différentes étapes vous permettant de vous connecter au portail Azure, consultez la page [Se connecter à une machine virtuelle Windows Server][connect-windows-server-vm].
-1. Le **Gestionnaire de serveur** doit s’ouvrir par défaut quand vous vous connectez à la machine virtuelle. Si ce n’est pas le cas, dans le menu **Démarrer**, sélectionnez **Gestionnaire de serveur**.
+1. Si **Gestionnaire de serveur** ne s’ouvre pas par défaut lorsque vous vous connectez à la machine virtuelle, sélectionnez le menu **Démarrer**, puis choisissez **Gestionnaire de serveur**.
 1. Dans le volet *Tableau de bord* de la fenêtre **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**.
 1. Dans la page **Avant de commencer** de l’*Assistant Ajout de rôles et de fonctionnalités*, sélectionnez **Suivant**.
 1. Pour le *Type d’installation*, laissez l’option **Installation basée sur un rôle ou une fonctionnalité** cochée et sélectionnez **Suivant**.

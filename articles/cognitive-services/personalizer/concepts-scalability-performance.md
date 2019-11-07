@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: d116f6bd389b1404ea723c965111cd05880e6c30
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 5ac9a870cb05328f040febd0f8161a97f0982e09
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662818"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490781"
 ---
 # <a name="scalability-and-performance"></a>Extensibilité et performance
 
@@ -24,28 +24,15 @@ Les sites web et applications à trafic élevé et hautes performances ont deux 
 * Maintenir une faible latence lors des appels à l’API de classement
 * S’assurer que le rythme d’apprentissage s’adapte à l’entrée des événements
 
-La personnalisation peut retourner un classement très rapidement, la plus grande partie de la durée de l’appel étant dédiée à la communication via l’API REST. Azure mettra à l’échelle la capacité à répondre rapidement aux demandes.
+La personnalisation peut retourner un classement rapidement, la plus grande partie de la durée de l’appel étant dédiée à la communication via l’API REST. Azure mettra à l’échelle la capacité à répondre rapidement aux demandes.
 
 ##  <a name="low-latency-scenarios"></a>Scénarios de faible latence
 
-Certaines applications nécessitent des latences faibles lors du retour d’un classement. Cela est nécessaire :
+Certaines applications nécessitent des latences faibles lors du retour d’un classement. Des latences faibles sont nécessaires :
 
 * Pour empêcher l’utilisateur d’avoir à attendre avant d’afficher un contenu classé.
 * Pour aider un serveur qui subit un trafic extrême à éviter de mobiliser le temps de calcul et les connexions réseau.
 
-<!--
-
-If your web site is scaled on your infrastructure, you can avoid making HTTP calls by hosting the Personalizer API in your own servers running a Docker container.
-
-This change would be transparent to your application, other than using an endpoint URL referring to the running docker instances as opposed to an online service in the cloud.
-
-
-
-### Extreme Low Latency Scenarios
-
-If you require latencies under a millisecond, and have already tested using Personalizer via containers, please contact our support team so we can assess your scenario and provide guidance suited to your needs.
-
--->
 
 ## <a name="scalability-and-training-throughput"></a>Extensibilité et rythme d’apprentissage
 

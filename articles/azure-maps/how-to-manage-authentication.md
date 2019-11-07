@@ -3,17 +3,17 @@ title: Gérer l’authentification dans Azure Maps | Microsoft Docs
 description: Vous pouvez utiliser le portail Azure pour gérer l’authentification dans Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f4a3d791e6b5d6ff20c09408d1a0bf5995c32fd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 496edb4f3528daa5bd06193383f0277922e8a93a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756557"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478778"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 
@@ -91,7 +91,12 @@ Une fois que votre application est inscrite et associée à Azure Maps, vous pou
 
 * Si votre application utilise l’authentification du jeton utilisateur avec le Kit de développement logiciel (SDK) Azure Maps, vous devez configurer votre page HTML avec l’ID client Azure Maps et l’ID de l’application Azure AD.
 
-* Pour les applications utilisant l’authentification du serveur ou de l’application, vous devez demander un jeton à partir du point de terminaison de connexion Azure AD `https://login.microsoftonline.com` avec l’ID de ressource Azure AD `https://atlas.microsoft.com/`, l’ID client Azure Maps, l’ID de l’application Azure AD et le mot de passe ou le certificat d’inscription d’application Azure AD App.
+* Pour les applications utilisant l’authentification du serveur ou de l’application, vous devez demander un jeton à partir du point de terminaison de jeton Azure AD `https://login.microsoftonline.com` avec l’ID de ressource Azure AD `https://atlas.microsoft.com/`, l’ID client Azure Maps, l’ID de l’application Azure AD et le mot de passe ou le certificat d’inscription d’application Azure AD App.
+
+| Environnement Azure   | Point de terminaison de jeton Azure AD | ID de la ressource Azure |
+| --------------------|-------------------------|-------------------|
+| Azure (public)        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 Pour en savoir plus sur les demandes de jetons d’accès à partir d’Azure AD pour les utilisateurs et les principaux de service, voir [Scénarios d’authentification pour Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 

@@ -1,21 +1,21 @@
 ---
-title: Guide pratique de surveillance d’Azure Data Share en préversion
-description: Découvrez comment surveiller l’état d’une invitation, partager des abonnements et consulter l’historique des instantanés dans Azure Data Share (préversion).
+title: Comment surveiller Azure Data Share
+description: Découvrez comment surveiller l’état d’une invitation, l’abonnement de partage et l’historique des instantanés dans Azure Data Share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 22c95f1ac541e1288494ed85cc9654d42780ea60
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490506"
 ---
-# <a name="monitor-azure-data-share-preview"></a>Surveiller Azure Data Share en préversion 
+# <a name="monitor-azure-data-share"></a>Superviser Azure Data Share  
 
-Cet article explique comment surveiller vos partages de données à l’aide d’Azure Data Share en préversion. En tant que fournisseur de données, vous êtes en mesure de surveiller divers aspects de vos relations de partage de données. Vous pouvez surveiller divers détails, par exemple pour savoir si vos consommateurs de données ont accepté votre invitation de partage de données, ainsi que s’ils ont créé un abonnement de partage et commencé à utiliser vos données. 
+Cet article explique comment surveiller vos partages de données à l’aide d’Azure Data Share. En tant que fournisseur de données, vous êtes en mesure de surveiller divers aspects de vos relations de partage de données. Vous pouvez surveiller divers détails, par exemple pour savoir si vos consommateurs de données ont accepté votre invitation de partage de données, ainsi que s’ils ont créé un abonnement de partage et commencé à utiliser vos données. 
 
 En tant que consommateur de données, vous pouvez surveiller les captures instantanées qui ont été déclenchées dans votre abonnement Azure. 
 
@@ -23,7 +23,7 @@ En tant que consommateur de données, vous pouvez surveiller les captures instan
 
 Affichez l’état de vos invitations de partage de données en accédant à Partages envoyés -> Invitations. 
 
-![État de l’invitation](./media/invitation-status.png "État de l’invitation") 
+![Statut de l’invitation](./media/invitation-status.png "Statut de l’invitation") 
 
 Il existe trois états que votre invitation peut avoir :
 

@@ -1,5 +1,6 @@
 ---
-title: En savoir plus sur Microsoft Authentication Library (MSAL) | Azure
+title: En savoir plus sur Microsoft Authentication Library (MSAL)
+titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library (MSAL) permet aux développeurs d’applications d’acquérir des jetons afin d’appeler des API web sécurisées. Ces API web peuvent être Microsoft Graph, d’autres APIS Microsoft, des API web de tiers ou vos propres API web. MSAL prend en charge plusieurs architectures et plateformes d’application.
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/4/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec22381d1961c47ce257666177b5faf918cea56
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dedd9f3458118117546a900aa1a2c8c5aa627100
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554411"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473736"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Vue d’ensemble de Microsoft Authentication Library (MSAL)
 Microsoft Authentication Library (MSAL) permet aux développeurs d’acquérir des [jetons](developer-glossary.md#security-token) à partir du point de terminaison de la plateforme d’identités Microsoft afin d’accéder aux API web sécurisées. Ces API web peuvent être Microsoft Graph, d’autres APIS Microsoft, des API web de tiers ou vos propres API web. MSAL est disponible pour .NET, JavaScript, Android et iOS, qui prennent en charge de nombreuses architectures et plateformes d’application différentes.
@@ -37,11 +38,11 @@ MSAL vous permet d’obtenir des jetons différentes manières, avec une API coh
 * Vous permet de dépanner votre application en exposant des exceptions, une journalisation et une télémétrie exploitables.
 
 ## <a name="application-types-and-scenarios"></a>Types d’application et scénarios
-MSAL permet d’acquérir un jeton à partir de plusieurs types d’applications : applications web, API web, applications monopages (JavaScript), applications mobiles et natives, démons et applications côté serveur. 
+MSAL permet d’acquérir un jeton à partir de plusieurs types d’applications : applications web, API web, applications monopages (JavaScript), applications mobiles et natives, démons et applications côté serveur.
 
 MSAL peut être utilisé dans de nombreux scénarios d’application, dont les suivants :
 
-* [Applications monopages (JavaScript)](scenario-spa-overview.md) 
+* [Applications monopages (JavaScript)](scenario-spa-overview.md)
 * [Application web connectant des utilisateurs](scenario-web-app-sign-user-overview.md)
 * [Application web connectant un utilisateur et appelant une API web pour le compte de l’utilisateur](scenario-web-app-call-api-overview.md)
 * [Protection d’une API web afin que seuls des utilisateurs authentifiés puissent y accéder](scenario-protected-web-api-overview.md)
@@ -53,12 +54,13 @@ MSAL peut être utilisé dans de nombreux scénarios d’application, dont les s
 ## <a name="languages-and-frameworks"></a>Langages et infrastructures
 
 | Bibliothèque | Plateformes et infrastructures prises en charge|
-| --- | --- | 
+| --- | --- |
 | [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET framework, .NET Core, Xamarin Android, Xamarin iOS, plateforme Windows universelle|
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| Infrastructures JavaScript/TypeScript telles que AngularJS, Ember.js ou Durandal.js|
 | [MSAL pour Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL pour iOS et macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS et macOS|
-| [Préversion MSAL4J](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
+| [MSAL Java (préversion)](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
+| [MSAL Python (préversion)](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Python|
 
 ## <a name="differences-between-adal-and-msal"></a>Différences entre les bibliothèques ADAL et MSAL
 

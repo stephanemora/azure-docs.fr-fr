@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73102366"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467183"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Fournir une authentification Key Vault avec une stratégie de contrôle d’accès
 
@@ -162,7 +162,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 
 Vous pouvez créer un groupe Azure AD, lui ajouter des applications et des utilisateurs, et lui donner accès à votre coffre de clés.  Cela vous permet d’ajouter un certain nombre d’applications à un coffre de clés sous la forme d’une seule entrée de stratégie d’accès. Ainsi, il n’est plus nécessaire de donner aux utilisateurs un accès direct à votre coffre de clés (ce que nous déconseillons). Pour plus d’informations, consultez [Gérer l’accès aux applications et aux ressources à l’aide de groupes Azure Active Directory](../active-directory/fundamentals/active-directory-manage-groups.md).
 
-### <a name="addition-prerequisites"></a>Prérequis supplémentaires
+### <a name="additional-prerequisites"></a>Autres composants requis
 
 En plus des [prérequis ci-dessus](#prerequisites), vous devez disposer des autorisations nécessaires pour créer/modifier des groupes dans votre locataire Azure Active Directory. Si vous ne disposez pas des autorisations, vous devrez peut-être contacter votre administrateur Active Directory Azure.
 

@@ -11,14 +11,15 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/11/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: c16b6d769aa191b0e8ac86768a7eafd35ccbc3b9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9da057683f3da41f077b309db79271a10738b59d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301030"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490009"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Superviser et collecter des données à partir des points de terminaison de service web Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez apprendre à collecter des données à partir de points de terminaison de service web et à superviser les modèles déployés sur ces points de terminaison dans Azure Kubernetes service (AKS) ou Azure Container Instances (ACI) en activant Azure Application Insights. En plus de la collecte des données d’entrée et de réponse d’un point de terminaison, vous pouvez superviser les éléments suivants :
 * Les taux de demande, les temps de réponse et les taux d’échec
@@ -112,10 +113,43 @@ Pour désactiver Azure Application Insights, utilisez le code suivant :
 <service_name>.update(enable_app_insights=False)
 ```
     
+## <a name="use-studio-to-configure"></a>Utiliser Studio pour configurer
+
+Vous pouvez activer et désactiver Application Insights dans Azure Machine Learning Studio.
+
+1. Dans [Azure Machine Learning Studio](https://ml.azure.com), ouvrez votre espace de travail.
+
+1. Sous l’onglet **Déploiements**, sélectionnez le service dans lequel vous souhaitez activer Application Insights.
+
+   [![Liste des services sous l’onglet Déploiements](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+
+3. Sélectionnez **Modifier**.
+
+   [![Bouton Modifier](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+
+4. Dans **Paramètres avancés**, cochez la case **Activer les diagnostics AppInsights**.
+
+   [![Case à cocher pour activer les diagnostics](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+
+1. Sélectionnez **Mettre à jour** au bas de l’écran pour appliquer les modifications. 
+
+### <a name="disable"></a>Désactiver
+1. Dans [Azure Machine Learning Studio](https://ml.azure.com), ouvrez votre espace de travail.
+1. Sélectionnez **Déploiements**, sélectionnez le service, puis sélectionnez **Modifier**.
+
+   [![Utiliser le bouton Modifier](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+
+1. Dans **Paramètres avancés**, décochez la case **Activer les diagnostics AppInsights**. 
+
+   [![Case à décocher pour désactiver les diagnostics](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+
+1. Sélectionnez **Mettre à jour** au bas de l’écran pour appliquer les modifications. 
+ 
+
 ## <a name="evaluate-data"></a>Évaluer les données
 Les données de votre service sont stockées dans votre compte Azure Application Insights, dans le même groupe de ressources qu’Azure Machine Learning.
 Pour l’afficher :
-1. Accédez à votre espace de travail de service Machine Learning dans le [portail Azure](https://portal.azure.com). Cliquez sur le lien Azure Application Insights.
+1. Accédez à votre espace de travail Machine Learning service dans [Azure Machine Learning Studio](https://ml.azure.com) et cliquez sur le lien Application Insights.
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
@@ -138,7 +172,7 @@ Pour plus d’informations sur l’utilisation d’Azure Application Insights, c
 
 ## <a name="export-data-for-further-processing-and-longer-retention"></a>Exporter des données pour un traitement ultérieur et une plus longue conservation
 
-Vous pouvez utiliser l’[exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) d’Azure Application Insights pour envoyer des messages à un compte de stockage pris en charge, lorsqu’une conservation plus longue peut être définie. Les messages `"model_data_collection"` sont stockés au format JSON et peuvent être facilement analysés pour extraire des données de modèle. Vous pouvez utiliser Azure Data Factory, les pipelines Azure ML ou d’autres outils de traitement de données pour transformer les données en fonction des besoins. Une fois les données transformées, vous pouvez les inscrire auprès de l’espace de travail du service Azure Machine Learning en tant que jeu de données.
+Vous pouvez utiliser l’[exportation continue](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) d’Azure Application Insights pour envoyer des messages à un compte de stockage pris en charge, lorsqu’une conservation plus longue peut être définie. Les messages `"model_data_collection"` sont stockés au format JSON et peuvent être facilement analysés pour extraire des données de modèle. Vous pouvez utiliser Azure Data Factory, les pipelines Azure ML ou d’autres outils de traitement de données pour transformer les données en fonction des besoins. Une fois les données transformées, vous pouvez les inscrire auprès de l’espace de travail d’Azure Machine Learning en tant que jeu de données. Pour cela, consultez [How to create and register datasets](how-to-create-register-datasets.md) (Comment créer et inscrire des jeux de données).
 
    [![Exportation continue](media/how-to-enable-app-insights/continuous-export-setup.png)](./media/how-to-enable-app-insights/continuous-export-setup.png)
 

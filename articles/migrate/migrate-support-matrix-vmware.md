@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 949595b35c6d989be62dbda43a3b8ccb1608a23d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 2a8a19dfd2cdc7a64a5ea90b96808963b19f73bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937570"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498648"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration VMware
 
@@ -36,7 +36,7 @@ Le tableau récapitule les scénarios pris en charge pour les machines virtuelle
 --- | ---
 **Autorisations Azure** | Vous avez besoin d’autorisations Contributeur ou Propriétaire dans l’abonnement pour créer un projet Azure Migrate.
 **Limitations VMware**  | Évaluez jusqu’à 35 000 machines virtuelles VMware dans un même projet. Vous pouvez créer plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
-**Zone géographique** | Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques. Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+**Zone géographique** | [Passez en revue](migrate-support-matrix.md#supported-geographies) les zones géographiques prises en charge.
 
 **Zone géographique** | **Emplacement de stockage des métadonnées**
 --- | ---
@@ -57,6 +57,17 @@ Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
  > [!NOTE]
  > La prise en charge d’Azure Government est actuellement disponible pour l’[ancienne version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) d’Azure Migrate uniquement.
 
+
+## <a name="application-discovery"></a>Découverte des applications
+
+Azure Migrate : L’évaluation de serveur peut découvrir des applications, des rôles et des fonctionnalités. La découverte de votre inventaire d’applications vous permet d’identifier et de planifier un chemin de migration adapté à vos charges de travail locales. Azure Migrate : L’évaluation de serveur propose la découverte sans agent, en utilisant les informations d’identification de l’invité de la machine, en accédant à distance à des machines à l’aide des appels WMI et SSH.
+
+**Support** | **Détails**
+--- | ---
+Machines prises en charge | Machines virtuelles VMware locales
+Système d’exploitation des machines | Toutes les versions de Windows et Linux
+Informations d'identification | Prend actuellement en charge l’utilisation d’une information d’identification pour tous les serveurs Windows et d’une information d’identification pour tous les serveurs Linux. Vous créez un compte d’utilisateur invité pour les machines virtuelles Windows et un compte d’utilisateur standard/normal (accès non-sudo) pour toutes les machines virtuelles Linux.
+Limites de machine pour la découverte d’applications | 10 000 par appliance. 35 000 par projet
 
 ## <a name="assessment-vcenter-server-requirements"></a>Évaluation - Exigences relatives vCenter Server
 
@@ -109,6 +120,22 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 --- | ---
 Appliance | Connexions entrantes sur le port TCP 3389 pour permettre des connexions Bureau à distance avec l’appliance.<br/><br/> Connexions entrantes sur le port 44368 pour accéder à distance à l’application de gestion de l’appliance via l’URL : ```https://<appliance-ip-or-name>:44368``` <br/><br/>Connexions sortantes sur les ports 443, 5671 et 5672 pour envoyer les métadonnées de découverte et de performances à Azure Migrate.
 Serveur vCenter | Connexions entrantes sur le port TCP 443 pour permettre à l’appliance de collecter les métadonnées de configuration et de performances pour les évaluations. <br/><br/> L’appliance se connecte à vCenter sur le port 443 par défaut. Si le serveur vCenter écoute sur un autre port, vous pouvez modifier le port lors de la configuration de la découverte.
+
+## <a name="assessment-dependency-visualization"></a>Visualisation des dépendances d’évaluation
+
+La visualisation des dépendances vous permet de visualiser les dépendances entre les machines que vous voulez utiliser et migrer. En général, vous utilisez le mappage des dépendances lorsque vous souhaitez évaluer les machines avec des niveaux de confiance élevés. Pour les machines virtuelles VMware, la visualisation des dépendances est prise en charge comme suit :
+
+- **Visualisation des dépendances sans agent** : Cette option est actuellement en préversion. Il n’est pas nécessaire d’installer des agents sur les machines.
+    - Une capture des données de connexion TCP des machines pour lesquelles elle est activée suffit. Une fois la découverte des dépendances lancée, l’appliance recueille les données des machines selon un intervalle d’interrogation de cinq minutes.
+    - Les données suivantes sont collectées :
+        - Connexions TCP
+        - Noms des processus ayant des connexions actives
+        - Noms des applications installées exécutant les processus ci-dessus
+        - Non. de connexions détectées à chaque intervalle d’interrogation
+- **Visualisation des dépendances basée sur les agents** : Pour utiliser la visualisation des dépendances basée sur les agents, vous devez télécharger et installer les agents suivants sur chaque machine locale que vous souhaitez analyser.
+    - Microsoft Monitoring Agent (MMA) doit être installé sur chaque machine. [En savoir plus](how-to-create-group-machine-dependencies.md#install-the-mma) sur l’installation de l’agent MMA.
+    - Le programme Dependency Agent doit être installé sur chaque machine. [En savoir plus](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) sur l’installation de l’agent de dépendances.
+    - En outre, si certaines de vos machines sont dépourvues de connexion Internet, vous devez télécharger et installer la passerelle Log Analytics sur ces machines.
 
 ## <a name="migration---limitations"></a>Migration - Limitations
 Vous pouvez sélectionner jusqu’à 10 machines virtuelles à la fois pour la réplication. Si vous souhaitez migrer davantage de machines, répliquez-les dans des groupes de 10. Pour la migration sans agent VMware, vous pouvez exécuter jusqu’à 100 réplications simultanément.

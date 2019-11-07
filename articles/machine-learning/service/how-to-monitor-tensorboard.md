@@ -9,14 +9,15 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: 0908ca232ee38e2b0d461aa9f597558adc4461ef
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a45548d3698d28a0189be4f46c26e418da8c91ef
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350520"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489641"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualiser des exécutions d’expériences et des métriques avec TensorBoard et le service Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez apprendre à consulter vos exécutions d’expériences et métriques dans TensorBoard à l’aide du [package `tensorboard`](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) dans le kit SDK Azure Machine Learning principal. Une fois que vous avez examiné vos exécutions d’expériences, vous pouvez optimiser et réentraîner vos modèles Machine Learning.
 
@@ -33,7 +34,7 @@ La façon dont vous lancez TensorBoard avec des expériences Azure Machine Learn
 
 * Le code dans cette procédure peut être exécuté dans l’un des environnements suivants : 
 
-    * Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
+    * Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
 
         * Suivre le [Tutoriel : Configurez l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur Notebook dédié préchargé avec le kit de développement logiciel (SDK) et l’exemple de référentiel.
 

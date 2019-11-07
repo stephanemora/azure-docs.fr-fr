@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 408ee11b318143b3128833a741e04dd68f3816ed
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67343147"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494405"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Jointures dans Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Les jointures internes aboutissent à un produit croisé complet des ensembles p
 
 ## <a name="syntax"></a>Syntaxe
 
-Le langage prend en charge la syntaxe `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Cette requête retourne un jeu de tuples avec des `N` valeurs. Les valeurs de chaque tuple sont produites par l’itération de tous les alias du conteneur sur leurs ensembles respectifs. 
+Le langage prend en charge la syntaxe `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Cette requête retourne un jeu de tuples avec `N` valeurs. Les valeurs de chaque tuple sont produites par l’itération de tous les alias du conteneur sur leurs ensembles respectifs. 
 
 Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
@@ -103,7 +103,7 @@ Examinons la clause FROM suivante : `<from_source1> JOIN <from_source2> JOIN ...
   
 ## <a name="examples"></a>Exemples
 
-Les exemples suivants illustrent le fonctionnement de la clause JOIN. Dans l’exemple suivant, le résultat est vide, car le produit croisé de chaque élément de la source et d’un ensemble vide est vide :
+Les exemples suivants illustrent le fonctionnement de la clause JOIN. Avant d’exécuter ces exemples, téléchargez l’exemple de [données de la famille](sql-query-getting-started.md#upload-sample-data). Dans l’exemple suivant, le résultat est vide, car le produit croisé de chaque élément de la source et d’un ensemble vide est vide :
 
 ```sql
     SELECT f.id
@@ -167,7 +167,7 @@ La source FROM de la clause JOIN est un itérateur. Ainsi, le flux dans l’exem
 
 1. Développez chaque élément enfant `c` dans le tableau.
 2. Appliquez un produit croisé avec la racine de l’élément `f` avec chaque élément enfant `c` aplati par la première étape.
-3. Enfin, projetez seule la propriété `id` `f` de l’objet racine.
+3. Enfin, projetez seule la propriété `id` de l’objet racine `f`.
 
 Le premier élément, `AndersenFamily`, contient un seul élément `children`. Le jeu de résultats contient donc un seul objet. Le deuxième élément, `WakefieldFamily`, contient deux `children`. Le produit croisé génère donc deux objets, un pour chaque élément `children`. Les champs racine de ces deux éléments sont identiques, comme on peut l’attendre d’un produit croisé.
 
@@ -224,7 +224,7 @@ L’extension suivante de l’exemple précédent effectue une double jointure. 
     }
 ```
 
-`AndersenFamily` ayant un enfant qui a un animal, le produit croisé retourne une ligne (1\*1\*1) à partir de cette famille. `WakefieldFamily` a deux enfants, dont un seul a des animaux, en l’occurrence deux animaux. Le produit croisé pour cette famille génère 1\*1\*2 = 2 lignes.
+`AndersenFamily` ayant un enfant qui a un animal, le produit croisé retourne une ligne (1\*1\*1) à partir de cette famille. `WakefieldFamily` a deux enfants, dont un seul a des animaux, en l’occurrence deux animaux. Le produit croisé pour cette famille génère 1\*1\*2 = 2 lignes.
 
 L’exemple suivant contient un filtre supplémentaire sur `pet`, qui exclut tous les tuples dont le nom d’animal de compagnie (« pet ») n’est pas `Shadow`. Vous pouvez développer des tuples à partir de tableaux, filtrer n’importe quel élément du tuple et projeter n’importe quelle combinaison d’éléments.
 

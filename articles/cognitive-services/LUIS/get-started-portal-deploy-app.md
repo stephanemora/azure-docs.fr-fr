@@ -8,16 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: ecae5c7db02436fe34fec19989f174504fd1e03a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703221"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488715"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 
 Lorsque votre application LUIS est prête à retourner des prédictions d’énoncés à une application cliente, par exemple un chatbot, vous devez déployer l’application sur le point de terminaison de prédiction.
 
@@ -77,60 +80,67 @@ Formez l’application lorsque vous êtes prêt à la tester. Publiez l’applic
 
 1. Si l’application n’est pas entraînée, sélectionnez **Entraîner** dans le menu en haut à droite.
 
-1. Sélectionnez **Publuer** dans le menu supérieur. Acceptez les paramètres d’environnement par défaut, puis sélectionnez **Publier**.
+1. Sélectionnez **Publuer** dans le menu supérieur. Sélectionnez l’emplacement de production et publiez.
 
-1. Quand la barre de notification de réussite de couleur verte s’affiche en haut de la fenêtre du navigateur, sélectionnez **Consulter la liste des points de terminaison**.
+1. Lorsque la barre de notification s’affiche, la publication est terminée.
 
-   ![Barre de notification dans le navigateur, indiquant que l’application a été publiée](./media/get-started-portal-deploy-app/successfully-published-notification.png)
+1. La liste des ressources affectées et des URL de point de terminaison correspondantes se trouve sur la page **Ressources Azure** de la section Gérer.
 
-1. La liste des ressources affectées et des URL de point de terminaison correspondantes se trouve au bas de la page **Keys and Endpoint settings** (Paramètres des clés et du point de terminaison).
-
-1. Sélectionnez l’URL de point de terminaison associée au nom de votre nouvelle ressource. Cette action ouvre un navigateur web avec une URL correctement construite pour effectuer une requête `GET` auprès du runtime du point de terminaison de prédiction.
+1. Copiez l’exemple de requête dans une fenêtre de navigateur et ajoutez votre énoncé utilisateur en tant que paramètre `query`.
 
 ## <a name="prediction-endpoint-request"></a>Demande de point de terminaison de prédiction
 
-<!-- V3FIX -->
-
-Le `q=` à la fin de l’URL est l’abréviation de **query** et est l’endroit où l’énoncé de l’utilisateur est ajouté à la requête GET. Après le `q=`, entrez le même énoncé utilisateur que celui utilisé à la fin du guide de démarrage rapide précédent :
+Le `query=` à la fin de l’URL est l’abréviation de **query** et est l’endroit où l’énoncé de l’utilisateur est ajouté à la requête GET. Après le `query=`, entrez le même énoncé utilisateur que celui utilisé à la fin du guide de démarrage rapide précédent :
 
 ```Is there a form named hrf-234098```
 
-La réponse du navigateur est le même code JSON que celui reçu par votre application cliente :
+Assurez-vous que la chaîne de requête comprend les paires suivantes :
+
+* `show-all-intents=true`
+* `verbose=true`
+
+Le navigateur affiche la réponse :
 
 ```JSON
 {
-"query": "Is there a form named hrf-234098",
-"topScoringIntent": {
-    "intent": "FindForm",
-    "score": 0.9768753
-},
-"intents": [
-    {
-    "intent": "FindForm",
-    "score": 0.9768753
-    },
-    {
-    "intent": "None",
-    "score": 0.0216071066
+    "query": "Is there a form named hrf-234098",
+    "prediction": {
+        "topIntent": "FindForm",
+        "intents": {
+            "FindForm": {
+                "score": 0.9768753
+            },
+            "None": {
+                "score": 0.0216071177
+            }
+        },
+        "entities": {
+            "Human Resources Form Number": [
+                "hrf-234098"
+            ],
+            "$instance": {
+                "Human Resources Form Number": [
+                    {
+                        "type": "Human Resources Form Number",
+                        "text": "hrf-234098",
+                        "startIndex": 22,
+                        "length": 10,
+                        "modelTypeId": 8,
+                        "modelType": "Regex Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
     }
-],
-"entities": [
-    {
-    "entity": "hrf-234098",
-    "type": "Human Resources Form Number",
-    "startIndex": 22,
-    "endIndex": 31
-    }
-    ]
 }
 ```
 
-Cette réponse vous donne plus d’informations que le volet de test par défaut dans le tutoriel précédent. Pour voir ce même niveau d’informations dans le volet de test, vous devez publier l’application. Une fois l’application publiée, sélectionnez **Comparer avec la version publiée** dans le volet de test. Utilisez **Afficher la vue JSON** dans le volet de test publié pour voir le même code JSON qu’à l’étape précédente. Vous pouvez ainsi comparer l’application actuelle sur laquelle vous travaillez et une application publiée sur le point de terminaison.
+Pour voir ce même niveau d’informations dans le volet de test, vous devez publier l’application. Une fois l’application publiée, sélectionnez **Comparer avec la version publiée** dans le volet de test. Utilisez **Afficher la vue JSON** dans le volet de test publié pour voir le même code JSON qu’à l’étape précédente. Vous pouvez ainsi comparer l’application actuelle sur laquelle vous travaillez et une application publiée sur le point de terminaison.
 
 [![Comparer la version en cours de modification avec la version publiée de l’application](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
-
-
-
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

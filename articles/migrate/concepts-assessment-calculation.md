@@ -4,14 +4,14 @@ description: Offre une vue d’ensemble des calculs d’évaluation dans le serv
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
-ms.author: raynew
-ms.openlocfilehash: 4511c42514a5399d41029b61297bd4c1b0b63d9a
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.date: 10/15/2019
+ms.author: hamusa
+ms.openlocfilehash: d72e5a6dea8b411b6214e7749b8993f9f5a6e7a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827545"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466922"
 ---
 # <a name="assessment-calculations-in-azure-migrate"></a>Calculs d’évaluation dans Azure Migrate
 
@@ -39,7 +39,7 @@ Server Assessment est un outil d’Azure Migrate qui évalue les serveurs locaux
 
 ## <a name="how-are-assessments-calculated"></a>Comment les évaluations sont-elles calculées ?
 
-Une évaluation de Azure Migrate Server Assessment est calculée en utilisant les métadonnées collectées sur les serveurs locaux. Le calcul de l’évaluation est géré en trois étapes. Pour chaque serveur, le calcul de l’évaluation commence par une analyse de la pertinence Azure, suivie du dimensionnement et enfin, d’une estimation du coût mensuel. Un serveur se déplace vers une étape ultérieure uniquement s’il passe l’étape précédente avec succès. Par exemple, si un serveur ne parvient pas à vérifier la pertinence d’Azure, il est marqué comme inapproprié pour Azure, et le dimensionnement et l’évaluation des coûts ne sont pas effectués pour ce serveur.
+Une évaluation de Azure Migrate Server Assessment est calculée en utilisant les métadonnées collectées sur les serveurs locaux. Si la source de détection est une importation utilisant un fichier .CSV, l’évaluation est calculée à l’aide des métadonnées fournies par l’utilisateur sur les serveurs. Le calcul de l’évaluation est géré en trois étapes. Pour chaque serveur, le calcul de l’évaluation commence par une analyse de la pertinence Azure, suivie du dimensionnement et enfin, d’une estimation du coût mensuel. Un serveur se déplace vers une étape ultérieure uniquement s’il passe l’étape précédente avec succès. Par exemple, si un serveur ne parvient pas à vérifier la pertinence d’Azure, il est marqué comme inapproprié pour Azure, et le dimensionnement et l’évaluation des coûts ne sont pas effectués pour ce serveur.
 
 ## <a name="azure-suitability-analysis"></a>Analyse d’adéquation Azure
 
@@ -92,7 +92,7 @@ Systèmes d’exploitation 32 bits | La machine peut démarrer dans Azure, mais
 
 Une fois qu’une machine est marquée comme prête pour Azure, Server Assessment effectue des suggestions de dimensionnement, ce qui implique l’identification de la machine virtuelle Azure et de la référence SKU de disque pour la machine virtuelle locale. Ces suggestions varient en fonction des propriétés d’évaluation spécifiées.
 
-- Si le dimensionnement utilise le *dimensionnement basé sur les performances*, Azure Migrate prend en compte l’historique des performances de la machine pour identifier la taille et le type de disque de la machine virtuelle dans Azure. Cette méthode est particulièrement utile si vous avez dépassé l’allocation de la machine virtuelle locale, mais que l’utilisation est faible et que vous souhaitez dimensionner correctement la machine virtuelle dans Azure pour réduire les coûts. Cette méthode vous permet d’optimiser les tailles lors de la migration.
+- Si le dimensionnement utilise le *dimensionnement basé sur les performances*, Azure Migrate prend en compte l’historique des performances de la machine pour identifier la taille et le type de disque de la machine virtuelle dans Azure. Dans le cas de serveurs avec une source de détection sous forme d’importation, les valeurs d’utilisation des performances spécifiées par l’utilisateur sont prises en compte. Cette méthode est particulièrement utile si vous avez dépassé l’allocation de la machine virtuelle locale, mais que l’utilisation est faible et que vous souhaitez dimensionner correctement la machine virtuelle dans Azure pour réduire les coûts. Cette méthode vous permet d’optimiser les tailles lors de la migration.
 - Si vous ne souhaitez pas prendre en compte les données de performances pour le dimensionnement des machines virtuelles et que vous souhaitez prendre les machines locales telles quelles dans Azure, vous pouvez définir les critères de dimensionnement de la même façon que *localement*. Ensuite, Server Assessment dimensionnera les machines virtuelles en fonction de la configuration locale sans tenir compte des données d’utilisation. Dans ce cas, les activités de dimensionnement de disque sont basées sur le type de stockage que vous spécifiez dans les propriétés d’évaluation (HDD Standard, SSD Standard ou disques Premium).
 
 ### <a name="performance-based-sizing"></a>Dimensionnement en fonction des performances
@@ -101,12 +101,15 @@ Pour le dimensionnement basé sur les performances, Server Assessment commence p
 
 **Étapes de la collecte des données de performances :**
 
-1. Pour les machines virtuelles VMware, l’appliance de Azure Migrate collecte un point d’échantillonnage en temps réel à chaque intervalle de 20 secondes. Pour les machines virtuelles Hyper-V, le point d’échantillonnage en temps réel est collecté à chaque intervalle de 30 secondes.
-1. L’appliance cumule les points d’échantillonnage collectés toutes les 10 minutes et envoie la valeur maximale des 10 dernières minutes à Server Assessment.
-1. Server Assessment stocke tous les points d’échantillonnage de 10 minutes pour le dernier mois. Ensuite, selon les propriétés d’évaluation spécifiées pour l’*historique des performances* et l’*utilisation du centile*, il identifie le point de données approprié à utiliser pour le dimensionnement adéquat. Par exemple, si l’historique des performances est défini sur 1 jour et que l’utilisation du centile est le 95e centile, Server Assessment utilise les points d’échantillonnage de 10 minutes pour le dernier jour, les trie dans l’ordre croissant et sélectionne la valeur du 95e centile pour le dimensionnement adéquat.
-1. Cette valeur est multipliée par le facteur de confort pour obtenir les données d’utilisation des performances effectives pour chaque indicateur de performance (utilisation du processeur, utilisation de la mémoire, IOPS du disque (lecture et écriture), débit du disque (lecture et écriture) et débit réseau (entrée et sortie) collectées par l’appliance.
+1. Pour les machines virtuelles VMware, l’appliance de Azure Migrate collecte un point d’échantillonnage en temps réel à chaque intervalle de 20 secondes. Pour les machines virtuelles Hyper-V, le point d’échantillonnage en temps réel est collecté à chaque intervalle de 30 secondes. Pour les serveurs physiques, le point d’échantillonnage en temps réel est collecté à chaque intervalle de 5 minutes. 
+2. L’appliance cumule les points d’échantillonnage collectés toutes les 10 minutes et envoie la valeur maximale des 10 dernières minutes à Server Assessment. 
+3. Server Assessment stocke tous les points d’échantillonnage de 10 minutes pour le dernier mois. Ensuite, selon les propriétés d’évaluation spécifiées pour l’*historique des performances* et l’*utilisation du centile*, il identifie le point de données approprié à utiliser pour le dimensionnement adéquat. Par exemple, si l’historique des performances est défini sur 1 jour et que l’utilisation du centile est le 95e centile, Server Assessment utilise les points d’échantillonnage de 10 minutes pour le dernier jour, les trie dans l’ordre croissant et sélectionne la valeur du 95e centile pour le dimensionnement adéquat. 
+4. Cette valeur est multipliée par le facteur de confort pour obtenir les données d’utilisation des performances effectives pour chaque indicateur de performance (utilisation du processeur, utilisation de la mémoire, IOPS du disque (lecture et écriture), débit du disque (lecture et écriture) et débit réseau (entrée et sortie) collectées par l’appliance.
 
 Une fois la valeur d’utilisation effective déterminée, le stockage, le réseau et le dimensionnement du calcul sont gérés comme suit.
+
+> [!NOTE]
+> Pour les serveurs ajoutés par le biais de l’importation, les données de performances fournies par l’utilisateur sont utilisées directement pour le dimensionnement adéquat.
 
 **Dimensionnement du stockage** : Azure Migrate tente de mapper chaque disque attaché à la machine à un disque dans Azure.
 
@@ -124,6 +127,9 @@ Une fois la valeur d’utilisation effective déterminée, le stockage, le rése
 - Pour obtenir les performances réseau effectives de la machine virtuelle locale, Server Assessment agrège les données transmises par seconde (Mbits/s) à partir de l’ordinateur (données sortantes) pour toutes les cartes réseau, puis applique le facteur de confort. Il utilise ce nombre pour trouver une machine virtuelle Azure qui peut prendre en charge les performances réseau requises.
 - Outre les performances du réseau, Server Assessment détermine également si la machine virtuelle Azure peut prendre en charge le nombre de cartes réseau requis.
 - Si aucune donnée de performances réseau n’est disponible, Server Assessment considère uniquement le nombre de cartes réseau pour le dimensionnement de la machine virtuelle.
+
+> [!NOTE]
+> La spécification du nombre de cartes réseau n’est actuellement pas prise en charge pour les serveurs importés
 
 **Dimensionnement du calcul** : Après avoir calculé les exigences de stockage et de réseau, Server Assessment prend en compte les besoins en processeur et en mémoire pour trouver une taille de machine virtuelle appropriée dans Azure.
 - Azure Migrate examine les cœurs et la mémoire effectivement utilisés pour rechercher une taille de machine virtuelle appropriée dans Azure.
@@ -156,6 +162,9 @@ Selon le pourcentage de points de données disponibles, le niveau de confiance d
    41-60 % | 3 étoiles
    61-80 % | 4 étoiles
    81-100 % | 5 étoiles
+
+> [!NOTE]
+> Les niveaux de confiance ne sont pas attribués aux évaluations des serveurs importés à l’aide d’un fichier CSV dans Azure Migrate. 
 
 ### <a name="low-confidence-ratings"></a>Niveaux de confiance faibles
 

@@ -1,6 +1,6 @@
 ---
 title: Complément Excel pour services web
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 9e801e0d7a26cd4d6c43118959aee1dec7216b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18e7e2c2c57bd44cb974e5de668045d6322bc4ce
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750186"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492977"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Complément Excel de services web Azure Machine Learning Studio
+# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Complément Excel de services web Azure Machine Learning Studio (classique)
 Excel permet d'appeler facilement des services web directement sans qu'il soit nécessaire d'écrire du code.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procédure d’utilisation d’un service web existant dans le classeur
@@ -43,7 +43,7 @@ Obtenez la clé API de votre service web. L’emplacement à partir duquel exéc
 
 **Utiliser un service web classique** 
 
-1. Dans Machine Learning Studio, cliquez sur la section **WEB SERVICES** située sur le volet de gauche, puis sélectionnez le service web.
+1. Dans Machine Learning Studio (classique), cliquez sur la section **WEB SERVICES** située sur le volet de gauche, puis sélectionnez le service web.
    
     ![Studio - Sélectionner un service web](./media/excel-add-in-for-web-services/image4.png)
 2. Copiez la clé API du service web.

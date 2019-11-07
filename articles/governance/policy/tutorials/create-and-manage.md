@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 43d39039d01b22e7d918755e9557d6a1030ef7a8
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: d01a28e1b4cbd9b2dacef8059d46ea72e789094d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302861"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490468"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Didacticiel : Créer et gérer des stratégies pour appliquer la conformité
 
@@ -29,9 +29,9 @@ Si vous souhaitez affecter une stratégie pour identifier l’état actuel de la
 
 La première étape de l’application de la conformité avec une stratégie Azure consiste à affecter une définition de stratégie. Une définition de stratégie définit dans quelle condition une stratégie est appliquée et l’action à effectuer. Dans cet exemple, affectez une définition de stratégie intégrée appelée *Exiger SQL Server version 12.0* afin d’appliquer la condition selon laquelle toutes les bases de données SQL Server doivent être de version 12.0 pour être compatibles.
 
-1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
+1. Accédez au portail Azure pour attribuer des stratégies. Recherchez et sélectionnez **Stratégie**.
 
-   ![Rechercher Stratégie dans Tous les services](../media/create-and-manage/search-policy.png)
+   ![Rechercher Stratégie dans la barre de recherche](../media/create-and-manage/search-policy.png)
 
 1. Sélectionnez **Affectations** du côté gauche de la page Azure Policy. Une affectation est une stratégie qui a été affectée pour être appliquée dans une étendue spécifique.
 
@@ -41,7 +41,7 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
    ![Affecter une définition de stratégie à partir de la page Affectations](../media/create-and-manage/select-assign-policy.png)
 
-1. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un groupe d’administration ou un abonnement. Sélectionnez éventuellement un groupe de ressources. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
+1. Dans la page **Assigner une stratégie**, sélectionnez l’**étendue** en sélectionnant les points de suspension et en sélectionnant un groupe d’administration ou un abonnement. Sélectionnez éventuellement un groupe de ressources. Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée. Cliquez ensuite sur **Sélectionner** au bas de la page **Étendue**.
 
    Cet exemple utilise l’abonnement **Contoso**. Votre abonnement sera différent.
 
@@ -58,7 +58,7 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
 1. Laissez la case **Créer une identité managée** non cochée. Vous _devez_ la cocher si la stratégie ou l’initiative affectée inclut une stratégie avec l’effet [deployIfNotExists](../concepts/effects.md#deployifnotexists). Comme ce n’est pas le cas pour la stratégie utilisée dans ce tutoriel, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](../how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Cliquez sur **Affecter**.
+1. Sélectionnez **Attribuer**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implémenter une nouvelle stratégie personnalisée
 
@@ -340,7 +340,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 1. Pour **Catégorie**, choisissez une des options existantes ou créez une catégorie.
 
-1. Parcourez la liste des **définitions disponibles** (partie droite de la page **Définition d’initiative**) et sélectionnez les définitions de stratégie à ajouter à cette initiative. Pour l’initiative **Garantir la sécurité**, ajoutez les définitions de stratégie prédéfinies suivantes en cliquant sur **+** en regard des informations correspondantes ou en cliquant sur une ligne de définition de stratégie, puis sur l’option **+ Ajouter** dans la page de détails :
+1. Parcourez la liste des **définitions disponibles** (partie droite de la page **Définition d’initiative**) et sélectionnez les définitions de stratégie à ajouter à cette initiative. Pour l’initiative **Garantir la sécurité**, ajoutez les définitions de stratégie prédéfinies suivantes en sélectionnant **+** en regard des informations correspondantes ou en sélectionnant une ligne de définition de stratégie, puis l’option **+ Ajouter** dans la page de détails :
 
    - Nécessitent SQL Server version 12.0
    - [Preview]: Monitor unprotected web applications in Security Center.
@@ -357,19 +357,19 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
    ![Modifier les paramètres de la définition d’initiative à partir des valeurs autorisées](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
-   > Dans le cas de certains paramètres `strongType`, la liste de valeurs ne peut pas être déterminée automatiquement. Dans ce cas, un bouton de sélection s’affiche à droite de la ligne de paramètre. En cliquant dessus, vous ouvrez la page Étendue du paramètre (&lt;nom du paramètre&gt;). Sur cette page, sélectionnez l’abonnement à utiliser pour fournir les options de valeur. L’étendue de ce paramètre est utilisée uniquement lors de la création de la définition d’initiative et n’a aucun impact sur l’évaluation de la stratégie ou l’étendue de l’initiative lors de l’affectation.
+   > Dans le cas de certains paramètres `strongType`, la liste de valeurs ne peut pas être déterminée automatiquement. Dans ce cas, un bouton de sélection s’affiche à droite de la ligne de paramètre. En le sélectionnant, vous ouvrez la page Étendue du paramètre (&lt;nom du paramètre&gt;). Sur cette page, sélectionnez l’abonnement à utiliser pour fournir les options de valeur. L’étendue de ce paramètre est utilisée uniquement lors de la création de la définition d’initiative et n’a aucun impact sur l’évaluation de la stratégie ou l’étendue de l’initiative lors de l’affectation.
 
-1. Cliquez sur **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 ### <a name="assign-an-initiative-definition"></a>Attribuer une définition d’initiative
 
 1. Sélectionnez **Définitions** sous **Création** dans la partie gauche de la page Azure Policy.
 
-1. Recherchez la définition d’initiative **Garantir la sécurité** que vous avez créée, puis cliquez sur celle-ci. Sélectionnez **Affecter** en haut de la page pour ouvrir la page **Garantir la sécurité : affecter l’initiative**.
+1. Recherchez la définition d’initiative **Garantir la sécurité** que vous avez précédemment créée et sélectionnez-la. Sélectionnez **Affecter** en haut de la page pour ouvrir la page **Garantir la sécurité : affecter l’initiative**.
 
    ![Affecter une définition à partir de la page de définition d’initiative](../media/create-and-manage/assign-definition.png)
 
-   Vous pouvez également cliquer avec le bouton droit sur la ligne sélectionnée ou cliquer sur le bouton de sélection situé en fin de ligne pour faire apparaître un menu contextuel. Sélectionnez ensuite **Affecter**.
+   Vous pouvez également cliquer avec le bouton droit sur la ligne sélectionnée ou sélectionner les points de suspension situé en fin de ligne pour faire apparaître un menu contextuel. Sélectionnez ensuite **Affecter**.
 
    ![Autres options pour une initiative](../media/create-and-manage/select-right-click.png)
 
@@ -384,14 +384,14 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
 1. Laissez la case **Créer une identité managée** non cochée. Vous _devez_ la cocher si la stratégie ou l’initiative affectée inclut une stratégie avec l’effet [deployIfNotExists](../concepts/effects.md#deployifnotexists). Comme ce n’est pas le cas pour la stratégie utilisée dans ce tutoriel, ne cochez pas la case. Pour plus d’informations, consultez [Identités managées](../../../active-directory/managed-identities-azure-resources/overview.md) et [Fonctionnement de la sécurité par correction](../how-to/remediate-resources.md#how-remediation-security-works).
 
-1. Cliquez sur **Affecter**.
+1. Sélectionnez **Attribuer**.
 
 ## <a name="check-initial-compliance"></a>Vérifier la conformité initiale
 
 1. Sélectionnez **Conformité** dans la partie gauche de la page Azure Policy.
 
 1. Localisez l’initiative **Garantir la sécurité**. Elle est probablement toujours à l’_État de conformité_ **Non démarrée**.
-   Cliquez sur l’initiative pour obtenir tous les détails sur la progression de l’affectation.
+   Sélectionnez l’initiative pour obtenir tous les détails sur la progression de l’affectation.
 
    ![Page de conformité de l’initiative - évaluations non démarrées](../media/create-and-manage/compliance-status-not-started.png)
 
@@ -399,7 +399,7 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
    ![Page de conformité de l’initiative - ressources conformes](../media/create-and-manage/compliance-status-compliant.png)
 
-1. Pour ouvrir la page de détails sur la conformité de la stratégie, cliquez sur une stratégie dans la page de conformité de l’initiative. Cette page fournit des détails au niveau des ressources pour la conformité.
+1. Pour ouvrir la page de détails sur la conformité de la stratégie, sélectionnez une stratégie dans la page de conformité de l’initiative. Cette page fournit des détails au niveau des ressources pour la conformité.
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exempter une ressource non conforme ou refusée en utilisant l’exclusion
 
@@ -408,11 +408,12 @@ Dans l’exemple suivant, toutes les versions de serveur SQL Server sont autoris
 
 Un déploiement bloqué en raison d’une stratégie ou d’une initiative affectée est consultable à deux emplacements :
 
-- Sur le groupe de ressources ciblé par le déploiement : sélectionnez **Déploiements** dans la partie gauche de la page, puis cliquez sur le **nom du déploiement** qui a échoué. La ressource refusée est listée avec l’état _Interdit_. Pour déterminer la stratégie ou initiative et l’affectation qui a refusé la ressource, cliquez sur **Échec. Cliquez ici pour plus d’informations ->** dans la page Vue d’ensemble du déploiement. Une fenêtre s’ouvre dans la partie droite de la page pour présenter les informations d’erreur. Sous **Détails de l’erreur** figurent les GUID des objets de stratégie associés.
+- Sur le groupe de ressources ciblé par le déploiement : Sélectionnez **Déploiements** dans la partie gauche de la page, puis sélectionnez le **nom du déploiement** qui a échoué. La ressource refusée est listée avec l’état _Interdit_. Pour déterminer la stratégie ou l’initiative et l’affectation qui a refusé la ressource, sélectionnez **Échec. Cliquez ici pour plus d’informations ->** dans la page Vue d’ensemble du déploiement.
+  Une fenêtre s’ouvre dans la partie droite de la page pour présenter les informations d’erreur. Sous **Détails de l’erreur** figurent les GUID des objets de stratégie associés.
 
   ![Déploiement refusé par l’affectation de stratégie](../media/create-and-manage/rg-deployment-denied.png)
 
-- Dans la page Azure Policy : sélectionnez **Conformité** dans la partie gauche de la page, puis cliquez sur la stratégie **Exiger SQL Server version 12.0**. Dans la page qui s’ouvre, vous pouvez observer une augmentation du nombre de **refus**. Sous l’onglet **Événements**, vous pouvez également observer le nom de la personne qui a tenté d’effectuer le déploiement refusé par la stratégie.
+- Dans la page Azure Policy : Sélectionnez **Conformité** dans la partie gauche de la page, puis sélectionnez la stratégie **Exiger SQL Server version 12.0**. Dans la page qui s’ouvre, vous pouvez observer une augmentation du nombre de **refus**. Sous l’onglet **Événements**, vous pouvez également observer le nom de la personne qui a tenté d’effectuer le déploiement refusé par la stratégie.
 
   ![Vue d’ensemble de la conformité d’une stratégie affectée](../media/create-and-manage/compliance-overview.png)
 
@@ -424,7 +425,7 @@ Dans cet exemple, Trent Baker, l’un des spécialistes de la virtualisation che
 
 1. Parcourez toutes les affectations de stratégie, puis ouvrez l’affectation *Nécessiter SQL Server version 12.0*.
 
-1. Définissez l’**exclusion** en cliquant sur le bouton de sélection et en sélectionnant le groupe de ressources à exclure, *SQLServers_Excluded* dans cet exemple.
+1. Définissez l’**exclusion** en sélectionnant les points de suspension et en sélectionnant le groupe de ressources à exclure, *SQLServers_Excluded* dans cet exemple.
 
    ![Ajouter un groupe de ressources exclues à l’affectation de stratégie](../media/create-and-manage/request-exclusion.png)
 

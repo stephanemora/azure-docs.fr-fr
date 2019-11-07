@@ -1,7 +1,7 @@
 ---
 title: Créer un modèle d'analyse des sentiments
-titleSuffix: Azure Machine Learning Studio
-description: Création de modèles d’analyse de texte dans Azure Machine Learning Studio à l’aide de modules pour le pré-traitement de texte, les N-grammes ou le hachage de fonction
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Création de modèles d’analyse de texte dans Azure Machine Learning Studio (classique) à l’aide de modules pour le pré-traitement de texte, les N-grammes ou le hachage de fonction
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 08d62e7a6c9503d415fe144da57eee72ce3bfafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d24e4f98e987cb911a8bc0ffcd1b49e1bed8b920
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60636568"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467163"
 ---
-# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio"></a>Créer un modèle d’analyse des sentiments dans Azure Machine Learning Studio
+# <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Créer un modèle d’analyse des sentiments dans Azure Machine Learning Studio (classique)
 
-Vous pouvez utiliser Azure Machine Learning Studio pour créer des modèles d’analyse de texte et les rendre opérationnels. Ces modèles peuvent, par exemple, vous aider à résoudre des problèmes d’analyse de sentiments ou de classification de document.
+Vous pouvez utiliser Azure Machine Learning Studio (classique) pour créer des modèles d’analyse de texte et les rendre opérationnels. Ces modèles peuvent, par exemple, vous aider à résoudre des problèmes d’analyse de sentiments ou de classification de document.
 
 Dans une expérience d’analyse de texte, vous devez généralement :
 
@@ -66,7 +66,7 @@ En guise d’alternative à l’utilisation du module d’extraction des fonctio
 ## <a name="step-3-train-classification-or-regression-model"></a>Étape 3 : former le modèle de classification ou de régression ;
 À présent, le texte a été transformé en colonnes de fonctions numériques. Le jeu de données contient toujours des colonnes de type chaîne issues des étapes précédentes, donc nous utilisons Sélectionner des colonnes dans le jeu de données pour les exclure.
 
-Nous utilisons ensuite [Régression logistique à deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) pour prédire notre cible : note de critique élevée ou faible. À ce stade, le problème d’analyse de texte a été transformé en un problème de classification standard. Vous pouvez utiliser les outils disponibles dans Azure Machine Learning Studio pour améliorer le modèle. Par exemple, vous pouvez faire des essais avec des classifieurs différents pour déterminer la précision des résultats qu’ils donnent, ou vous pouvez utiliser le réglage d’hyperparamètre pour améliorer la précision.
+Nous utilisons ensuite [Régression logistique à deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) pour prédire notre cible : note de critique élevée ou faible. À ce stade, le problème d’analyse de texte a été transformé en un problème de classification standard. Vous pouvez utiliser les outils disponibles dans la version classique d’Azure Machine Learning Studio pour améliorer le modèle. Par exemple, vous pouvez faire des essais avec des classifieurs différents pour déterminer la précision des résultats qu’ils donnent, ou vous pouvez utiliser le réglage d’hyperparamètre pour améliorer la précision.
 
 ![Apprentissage et Notation](./media/text-analytics-module-tutorial/scoring-text.png)
 

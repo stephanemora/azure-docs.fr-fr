@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 28b1c3622ca449b0ce539937369fe43bd1d508ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468972"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Se connecter à l'aide d'une application Android dans Azure Active Directory B2C
 
@@ -38,7 +38,9 @@ Inscrivez ensuite une application dans votre locataire Azure AD B2C. Vous fourn
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Enregistrez l’**ID D’APPLICATION** pour l’utiliser lors d’une étape ultérieure. Sélectionnez ensuite l’application dans la liste et enregistrez l’**URI de redirection personnalisé** pour l’utiliser également lors d’une étape ultérieure. Par exemple : `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
+
+Enregistrez également votre URI de redirection personnalisé pour l’utiliser dans une étape ultérieure. Par exemple : `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Créer vos flux utilisateur
 

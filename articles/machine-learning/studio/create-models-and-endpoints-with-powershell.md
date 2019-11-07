@@ -1,6 +1,6 @@
 ---
 title: Créer plusieurs points de terminaison pour un modèle
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Utilisez PowerShell pour créer plusieurs modèles de formation et points de terminaison de service web Machine Learning avec le même algorithme, mais différents jeux de données de formation.
 services: machine-learning
 ms.service: machine-learning
@@ -10,24 +10,24 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: a191a7adc2c43337b663fc44a8ef40df9d8ffef4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c600e0facfbe1a2458aed30bb23e7cd7168b0170
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60773689"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493214"
 ---
-# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>Utiliser PowerShell pour créer de nombreux modèles et points de terminaison de service web à partir d’une expérience
+# <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Utiliser PowerShell pour créer des modèles Studio (classique) et points de terminaison de service web à partir d’une expérience
 
-Voici un problème d’apprentissage automatique courant : vous souhaitez créer un grand nombre de modèles ayant le même flux de travail d’apprentissage et utilisant le même algorithme. Mais vous souhaitez qu’ils aient différents jeux de données d’apprentissage comme entrée. Cet article montre comment procéder dans Azure Machine Learning Studio à l’aide d’une expérience unique.
+Voici un problème d’apprentissage automatique courant : vous souhaitez créer un grand nombre de modèles ayant le même flux de travail d’apprentissage et utilisant le même algorithme. Mais vous souhaitez qu’ils aient différents jeux de données d’apprentissage comme entrée. Cet article montre comment procéder dans Azure Machine Learning Studio (classique) à l’aide d’une expérience unique.
 
 Supposez par exemple que vous avez une franchise de location de vélos à l’échelle internationale. Vous souhaitez créer un modèle de régression pour prédire la demande en location sur la base de données historiques. Vous avez 1 000 emplacements de location dans le monde et vous avez collecté un jeu de données pour chaque emplacement. Ils comprennent des caractéristiques importantes telles que la date, l’heure, la météo et le trafic qui sont propres à chaque emplacement.
 
 Vous pourriez former votre modèle une fois à l’aide d’une version fusionnée de tous les jeux de données et de tous les emplacements. Toutefois, chacun de vos emplacements a un environnement unique. Une meilleure approche consiste donc à former le modèle de régression séparément à l’aide du jeu de données de chacun. Ainsi, chaque modèle formé peut prendre en compte les différences en termes de taille de magasin, de volume, de géographie, de population, de qualité de l’environnement de circulation pour les vélos, et ainsi de suite.
 
-Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans Azure Machine Learning Studio représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
+Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans la version classique d’Azure Machine Learning Studio représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
 
-Heureusement, vous pouvez obtenir le même résultat en utilisant [l’API de reformation Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model) et en automatisant la tâche avec [Azure Machine Learning Studio PowerShell](powershell-module.md).
+Heureusement, vous pouvez obtenir le même résultat en utilisant l’[API de reformation Azure Machine Learning Studio (classique)](/azure/machine-learning/studio/retrain-machine-learning-model) et en automatisant la tâche avec [Azure Machine Learning Studio (classique) PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Pour accélérer l’exécution de notre exemple, nous allons réduire le nombre d’emplacements de 1000 à 10, mais les mêmes principes et procédures sont valables pour 1 000 emplacements. Toutefois, si vous ne souhaitez pas effectuer l’apprentissage à partir de 1000 jeux de données, vous pouvez exécuter les scripts PowerShell suivants en parallèle. Cette opération sort du cadre de cet article, mais vous trouverez des exemples de multi-threading PowerShell sur Internet.  
@@ -35,10 +35,10 @@ Heureusement, vous pouvez obtenir le même résultat en utilisant [l’API de re
 > 
 
 ## <a name="set-up-the-training-experiment"></a>Configurer l’expérience de formation
-Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) qui se trouve dans la [Cortana Intelligence Gallery](https://gallery.azure.ai). Ouvrez cette expérience dans votre espace de travail [Azure Machine Learning Studio](https://studio.azureml.net) .
+Utilisez l’exemple [d’expérience de formation](https://gallery.azure.ai/Experiment/Bike-Rental-Training-Experiment-1) qui se trouve dans la [Cortana Intelligence Gallery](https://gallery.azure.ai). Ouvrez cette expérience dans votre espace de travail [Azure Machine Learning Studio (classique)](https://studio.azureml.net) .
 
 > [!NOTE]
-> Pour suivre cet exemple, il est préférable d’utiliser un espace de travail standard plutôt qu’un espace de travail gratuit. Vous créez un point de terminaison pour chaque client (soit 10 points de terminaison en tout), ce qui nécessite un espace de travail standard car un espace de travail gratuit est limité à trois points de terminaison. Si vous disposez uniquement d’un espace de travail gratuit, il suffit de changer les scripts pour autoriser uniquement trois emplacements.
+> Pour suivre cet exemple, il est préférable d’utiliser un espace de travail standard plutôt qu’un espace de travail gratuit. Vous créez un point de terminaison pour chaque client (soit 10 points de terminaison en tout), ce qui nécessite un espace de travail standard car un espace de travail gratuit est limité à trois points de terminaison.
 > 
 > 
 

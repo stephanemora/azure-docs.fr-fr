@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c163dacae24749dbe309bca33bac016a3be7aa5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 902bf84ebf090cf9f0f886ad1e774ff7bdfeca93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002891"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490744"
 ---
 # <a name="how-personalizer-works"></a>Fonctionnement de Personalizer
 
@@ -33,7 +33,7 @@ L’API de **classement** décide d’utiliser :
 L’API de **récompense** :
 
 * Collecte des données pour entraîner le modèle en enregistrant les caractéristiques et les scores de récompense de chaque appel du classement.
-* Utilise ces données pour mettre à jour le modèle en fonction des paramètres spécifiés dans la _stratégie d’apprentissage_.
+* Utilise ces données pour mettre à jour le modèle en fonction de la configuration spécifiée dans la _stratégie d’apprentissage_.
 
 ## <a name="architecture"></a>Architecture
 

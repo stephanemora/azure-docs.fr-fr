@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 268def74a354b19427849738549fbc0c6b197746
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e07b1d7e01d743bb46c8d5a21664bf68184c97dd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813399"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488468"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -158,7 +158,7 @@ Sélectionnez et vérifiez les ressources cibles.
 
 ## <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
 
-1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**.
+1. Ouvrez le [portail Azure](https://portal.azure.com). Recherchez et sélectionnez **Coffres Recovery Services**.
 2. Sélectionnez le coffre Recovery Services (**ContosoVMVault** dans ce didacticiel).
 3. Pour créer une stratégie de réplication, sélectionnez **Infrastructure Azure Site Recovery** > **Stratégies de réplication** >  **+Stratégie de réplication**.
 4. Dans **Créer une stratégie de réplication**, entrez le nom de stratégie. Nous utilisons **VMwareRepPolicy**.

@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Concevoir un tableau de bord en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus) (préversion)'
-description: Ce tutoriel illustre comment créer, remplir et interroger des tables distribuées dans Azure Database pour PostgreSQL Hyperscale (Citus) (préversion).
+title: 'Tutoriel : Concevoir un tableau de bord en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus)'
+description: Ce tutoriel illustre comment créer, remplir et interroger des tables distribuées dans Azure Database pour PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791331"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482868"
 ---
-# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Didacticiel : Concevoir un tableau de bord analytique en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus) (préversion)
+# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Didacticiel : Concevoir un tableau de bord analytique en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus)
 
-Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Citus) (préversion) pour apprendre à :
+Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Citus) pour apprendre à :
 
 > [!div class="checklist"]
 > * Créer un groupe de serveurs Hyperscale (Citus)
@@ -34,7 +34,7 @@ Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Cit
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Utiliser l’utilitaire psql pour créer un schéma
 
-Une fois que vous êtes connecté à Azure Database pour PostgreSQL - Hyperscale (Citus) (préversion) à l’aide de psql, vous pouvez effectuer certaines tâches de base. Ce tutoriel vous guide lors de l’ingestion de données de trafic à partir d’analytiques web, puis du cumul des données pour fournir des tableaux de bord en temps réel basés sur ces données.
+Une fois que vous êtes connecté à Azure Database pour PostgreSQL - Hyperscale (Citus) à l’aide de psql, vous pouvez effectuer certaines tâches de base. Ce tutoriel vous guide lors de l’ingestion de données de trafic à partir d’analytiques web, puis du cumul des données pour fournir des tableaux de bord en temps réel basés sur ces données.
 
 Vous allez créer une table qui consomme toutes vos données de trafic web brutes. Exécutez les commandes suivantes dans le terminal psql :
 

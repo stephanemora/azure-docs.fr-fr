@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: f95174efbffedd09946f5910a39285e7bec062c1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d8e95f9c345a943eb458800b852640e3f1fde907
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161487"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488503"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Démarrage rapide : Créer un réseau virtuel au moyen du portail Azure
 
@@ -34,9 +34,11 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
 
-1. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
+2. À partir de la Place de marché Azure, sélectionnez **Mise en réseau** > **Réseau virtuel**.
+
+3. Dans **Créer un réseau virtuel**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -48,7 +50,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
     | Nom du sous-réseau | Entrez *myVirtualSubnet*. |
     | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
 
-1. Conservez les autres valeurs par défaut, puis sélectionnez **Créer**.
+4. Conservez les autres valeurs par défaut, puis sélectionnez **Créer**.
 
 ## <a name="create-virtual-machines"></a>Créer des machines virtuelles
 
@@ -56,9 +58,11 @@ Créez deux machines virtuelles dans le réseau virtuel :
 
 ### <a name="create-the-first-vm"></a>Créer la première machine virtuelle
 
-1. Dans l’angle supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Calcul** > **Windows Server 2019 Datacenter**.
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
 
-1. Dans **Créer une machine virtuelle - Notions de base**, entrez ou sélectionnez ces informations :
+2. À partir de la Place de marché Azure, sélectionnez **Calcul** > **Windows Server 2019 Datacenter**.
+
+3. Dans **Créer une machine virtuelle - Notions de base**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -80,11 +84,11 @@ Créez deux machines virtuelles dans le réseau virtuel :
     | **ÉCONOMISEZ DE L’ARGENT** |  |
     | Vous disposez déjà d’une licence Windows ? | Conservez la valeur par défaut **Non**. |
 
-1. Sélectionnez **Suivant : Disks**.
+4. Sélectionnez **Suivant : Disks**.
 
-1. Dans **Créer une machine virtuelle - Disks**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
+5. Dans **Créer une machine virtuelle - Disks**, conservez les valeurs par défaut et sélectionnez **Suivant : Mise en réseau**.
 
-1. Dans **Créer une machine virtuelle - Mise en réseau**, entrez ou sélectionnez ces informations :
+6. Dans **Créer une machine virtuelle - Mise en réseau**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -94,11 +98,11 @@ Créez deux machines virtuelles dans le réseau virtuel :
     | Aucun port d’entrée public | Sélectionnez **Autoriser les ports sélectionnés**. |
     | Sélectionner des ports d’entrée | Sélectionnez **HTTP** et **RDP**.
 
-1. Sélectionnez **Suivant : Gestion**.
+7. Sélectionnez **Suivant : Gestion**.
 
-1. Dans **Créer une machine virtuelle - Gestion**, pour **Compte de stockage de diagnostics**, sélectionnez **Créer**.
+8. Dans **Créer une machine virtuelle - Gestion**, pour **Compte de stockage de diagnostics**, sélectionnez **Créer**.
 
-1. Dans **Créer un compte de stockage**, entrez ou sélectionnez ces informations :
+9. Dans **Créer un compte de stockage**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
@@ -107,11 +111,11 @@ Créez deux machines virtuelles dans le réseau virtuel :
     | Performances | Conservez la valeur par défaut **Standard**. |
     | Réplication | Conservez la valeur par défaut **Stockage localement redondant (LRS)** . |
 
-1. Sélectionnez **OK**.
+10. Sélectionnez **OK**.
 
-1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration.
+11. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration.
 
-1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
+12. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
 
 ### <a name="create-the-second-vm"></a>Créer la seconde machine virtuelle
 
@@ -122,9 +126,9 @@ Créez deux machines virtuelles dans le réseau virtuel :
     >
     > À l’étape 7, pour **Compte de stockage de diagnostic**, veillez à sélectionner **myvmstorageaccount**.
 
-1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Revoir + créer** et Azure valide votre configuration.
+2. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Revoir + créer** et Azure valide votre configuration.
 
-1. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
+3. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
 
@@ -132,34 +136,34 @@ Après avoir créé *myVm1*, connecter-vous à Internet.
 
 1. Dans la barre de recherche du portail, entrez *myVm1*.
 
-1. Sélectionnez le bouton **Connexion**.
+2. Sélectionnez le bouton **Connexion**.
 
     ![Connexion à une machine virtuelle](./media/quick-create-portal/connect-to-virtual-machine.png)
 
     Après avoir sélectionné le bouton **Connecter**, **Se connecter à la machine virtuelle** s’ouvre.
 
-1. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier *.rdp* (Remote Desktop Protocol) et le télécharge sur votre ordinateur.
+3. Sélectionnez **Télécharger le fichier RDP**. Azure crée un fichier *.rdp* (Remote Desktop Protocol) et le télécharge sur votre ordinateur.
 
-1. Ouvrez le fichier *.rdp* téléchargé.
+4. Ouvrez le fichier *.rdp* téléchargé.
 
     1. Si vous y êtes invité, sélectionnez **Connexion**.
 
-    1. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.
+    2. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle.
 
         > [!NOTE]
         > Vous devrez peut-être sélectionner **Plus de choix** > **Utiliser un autre compte**, pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle.
 
-1. Sélectionnez **OK**.
+5. Sélectionnez **OK**.
 
-1. Vous recevrez peut-être un avertissement de certificat lors du processus de connexion. Si vous recevez un avertissement de certificat, sélectionnez **Oui** ou **Continuer**.
+6. Vous recevrez peut-être un avertissement de certificat lors du processus de connexion. Si vous recevez un avertissement de certificat, sélectionnez **Oui** ou **Continuer**.
 
-1. Une fois que le bureau de la machine virtuelle s’affiche, réduisez-le pour revenir à votre poste de travail local.
+7. Une fois que le bureau de la machine virtuelle s’affiche, réduisez-le pour revenir à votre poste de travail local.
 
 ## <a name="communicate-between-vms"></a>Établir une communication entre les machines virtuelles
 
 1. Dans le Bureau à distance de *myVm1*, ouvrez PowerShell.
 
-1. Entrez `ping myVm2`.
+2. Entrez `ping myVm2`.
 
     Vous recevez un message similaire à celui ci :
 
@@ -176,7 +180,7 @@ Après avoir créé *myVm1*, connecter-vous à Internet.
 
     `ping` a échoué car `ping` utilise le protocole ICMP (Internet Control Message Protocol). Par défaut, le protocole ICMP n’est pas autorisé par le pare-feu Windows.
 
-1. Pour autoriser *myVm2* à effectuer un test ping *myVm1* entrez la commande suivante dans une étape ultérieure :
+3. Pour autoriser *myVm2* à effectuer un test ping *myVm1* entrez la commande suivante dans une étape ultérieure :
 
     ```powershell
     New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
@@ -184,11 +188,11 @@ Après avoir créé *myVm1*, connecter-vous à Internet.
 
     Cette commande autorise le protocole ICMP entrant via le pare-feu Windows :
 
-1. Fermez la connexion Bureau à distance sur *myVm1*.
+4. Fermez la connexion Bureau à distance sur *myVm1*.
 
-1. Effectuez à nouveau les étapes dans [Se connecter à une machine virtuelle à partir d’internet](#connect-to-a-vm-from-the-internet), mais connectez-vous à *myVm2*.
+5. Effectuez à nouveau les étapes dans [Se connecter à une machine virtuelle à partir d’internet](#connect-to-a-vm-from-the-internet), mais connectez-vous à *myVm2*.
 
-1. À partir d’une invite de commandes, entrez `ping myvm1`.
+6. À partir d’une invite de commandes, entrez `ping myvm1`.
 
     Vous allez obtenir un message comme celui-ci :
 
@@ -207,7 +211,7 @@ Après avoir créé *myVm1*, connecter-vous à Internet.
 
     Vous recevez des réponses de *myVm1*, car vous avez autorisé ICMP via le pare-feu Windows sur la machine virtuelle *myVm1* à l’étape 3.
 
-1. Fermez la connexion Bureau à distance sur *myVm2*.
+7. Fermez la connexion Bureau à distance sur *myVm2*.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -215,9 +219,9 @@ Lorsque vous avez fini d’utiliser le réseau virtuel et les machines virtuelle
 
 1. Entrez *myResourceGroup* dans la zone **Recherche** en haut du portail, puis sélectionnez **myResourceGroup** dans les résultats de la recherche.
 
-1. Sélectionnez **Supprimer le groupe de ressources**.
+2. Sélectionnez **Supprimer le groupe de ressources**.
 
-1. Entrez *myResourceGroup* dans **TAPER LE NOM DU GROUPE DE RESSOURCES** puis sélectionnez **Supprimer**.
+3. Entrez *myResourceGroup* dans **TAPER LE NOM DU GROUPE DE RESSOURCES** puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

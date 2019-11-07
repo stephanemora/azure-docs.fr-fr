@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: wellsi
-ms.openlocfilehash: 1ca6b5265cf97ef551ec0b13b46ac934a372d2c7
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: ba1db1ccba6a1849756e75c9b9f7078371da5bfb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797925"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464741"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notes de publication du Kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 Les sections suivantes dressent la liste des modifications dans les versions les plus récentes.
@@ -34,12 +34,12 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 
 *   Le SDK Speech Devices est désormais généralement disponible et n’est plus en préversion contrôlée.
 *   Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.5.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
-*   La nouvelle technologie de mot déclencheur apporte des améliorations de qualité notables, voir Dernières modifications.
+*   La nouvelle technologie de mot clé apporte des améliorations de qualité notables, voir Dernières modifications.
 *   Un nouveau pipeline de traitement audio pour une meilleure reconnaissance en champ lointain.
 
 **Dernières modifications**
 
-*   En raison de la nouvelle technologie de mot déclencheur, tous les mots déclencheurs doivent être recréés sur notre portail de mots déclencheurs améliorés. Pour supprimer complètement les anciens mots-clés de l’appareil, désinstallez l’ancienne application.
+*   En raison de la nouvelle technologie de mot clé, tous les mots clés doivent être recréés sur notre portail de mots clés améliorés. Pour supprimer complètement les anciens mots-clés de l’appareil, désinstallez l’ancienne application.
     - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.4.0 : version d’avril 2019
@@ -49,13 +49,13 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 ## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Kit SDK Speech Devices de Cognitive Services version 1.3.1 : version de mars 2019
 
 * Mise à jour du composant [Kit de développement logiciel (SDK) Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) vers la version 1.3.1. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
-*   Gestion des mots déclencheurs mise à jour, voir Dernières modifications.
+*   Gestion des mots clés mise à jour, voir Dernières modifications.
 *   L’exemple d’application ajoute le choix de la langue à la fois pour la reconnaissance vocale et la traduction.
 
 **Dernières modifications**
 
-*   [L’installation d’un mot déclencheur](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) a été simplifiée. Elle fait désormais partie de l’application et n’a pas besoin d’une installation distincte sur l’appareil.
-*   La reconnaissance des mots déclencheurs a changé, et deux événements sont pris en charge.
+*   [L’installation d’un mot clé](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws) a été simplifiée. Elle fait désormais partie de l’application et n’a pas besoin d’une installation distincte sur l’appareil.
+*   La reconnaissance des mots clés a changé, et deux événements sont pris en charge.
     - RecognizingKeyword indique que le résultat de la reconnaissance vocale contient un mot-clé (non vérifié).
     - RecognizedKeyword indique que cette reconnaissance du mot-clé a terminé la reconnaissance du mot-clé donné.
 
@@ -75,7 +75,7 @@ Les sections suivantes dressent la liste des modifications dans les versions les
 **Dernières modifications**
 
 * Cette version contient plusieurs changements cassants. Pour plus d’informations concernant les API, consultez [cette page](https://aka.ms/csspeech/breakingchanges_1_0_0).
-* Les fichiers de modèle KWS ne sont pas compatibles avec le Kit de développement logiciel (SDK) Speech Devices 1.0.1. Les fichiers Wake Word existants sont supprimés une fois les nouveaux fichiers Wake Word écrits sur l’appareil.
+* Les fichiers de modèle KWS ne sont pas compatibles avec le Kit de développement logiciel (SDK) Speech Devices 1.0.1. Les fichiers de mots clés existants sont supprimés une fois les nouveaux fichiers de mots clés écrits sur l’appareil.
 
 ## <a name="cognitive-services-speech-devices-sdk-050-2018-aug-release"></a>Kit SDK Speech Devices de Cognitive Services version 0.5.0 : Version d’août 2018
 

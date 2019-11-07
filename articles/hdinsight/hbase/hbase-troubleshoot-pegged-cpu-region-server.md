@@ -1,5 +1,5 @@
 ---
-title: Processeur invariable sur le serveur de région dans le cluster Apache HBase d'Azure HDInsight
+title: Processeur invariable dans un cluster Apache HBase - Azure HDInsight
 description: Résoudre les problèmes de processeur invariable sur un serveur de région d’un cluster Apache HBase sur Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/01/2019
-ms.openlocfilehash: 0712e6e8e9fe6db370d913d04e562c19b72d69a7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 845307f24495090891812b4e945e202cdad47e71
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091658"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468333"
 ---
 # <a name="scenario-pegged-cpu-on-region-server-in-apache-hbase-cluster-in-azure-hdinsight"></a>Scénario : Processeur invariable sur le serveur de région dans le cluster Apache HBase d'Azure HDInsight
 

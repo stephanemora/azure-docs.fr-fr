@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787971"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466760"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Erreurs et avertissements courants du pipeline d’enrichissement de l’IA dans Recherche cognitive Azure
 
@@ -117,6 +117,7 @@ Le document a été lu et traité, mais l’indexeur n’a pas pu l’ajouter à
 | Difficultés à se connecter à l’index cible (qui persiste après les nouvelles tentatives), car le service est soumis à une autre charge, par exemple l’interrogation ou l’indexation. | Échec de l’établissement d’une connexion pour mettre à jour l’index. Le service de recherche est soumis à une charge importante. | [Effectuer le scale-up de votre service de recherche](search-capacity-planning.md)
 | Un correctif est appliqué au service de recherche en vue de sa mise à jour ou fait l’objet d’une reconfiguration de topologie. | Échec de l’établissement d’une connexion pour mettre à jour l’index. Le service de recherche est actuellement inopérant/Le service de recherche est en cours de transition. | Configurer le service avec au moins trois réplicas pour une disponibilité de 99,9 % selon la [documentation SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Échec dans la ressource de calcul/réseau sous-jacente (rare) | Échec de l’établissement d’une connexion pour mettre à jour l’index. Une erreur inconnue s’est produite. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec.
+| Une requête d’indexation envoyée à l’index cible n’a pas reçu d’accusé de réception pendant la période définie en raison de problèmes réseau. | Impossible d’établir la connexion à l’index de recherche en temps opportun. | Configurer les indexeurs pour une [exécution selon une planification](search-howto-schedule-indexers.md) pour récupérer d’un état d’échec. Essayez également de réduire la [taille du lot](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) de l’indexeur si cet état d’erreur persiste.
 
 ### <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>Impossible d’indexer le document parce que les données de l’indexeur ne sont pas valides
 
@@ -130,7 +131,11 @@ Le document a été lu et traité mais, en raison d’une discordance dans la co
 | Un type inconnu a été découvert dans le document source. | Le type inconnu « _unknown_ » ne peut pas être indexé |
 | Une notation incompatible pour les points géographiques a été utilisée dans le document source. | Les littéraux de chaîne WKT POINT ne sont pas pris en charge. Utilisez des littéraux de points GeoJson à la place |
 
-Dans tous ces cas, consultez les [Types de données pris en charge (Recherche Azure)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) et le [Mappage des types de données pour les indexeurs dans Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) pour vous assurer de générer le schéma d’index correctement et que vous avez défini les [mappages de champs d’indexeur](search-indexer-field-mappings.md) appropriés. Le message d’erreur comprendra des détails qui peuvent aider à identifier la source de l’incompatibilité.
+Dans tous ces cas, consultez les [types de données pris en charge ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) et le [mappage des types de données pour les indexeurs](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) pour vous assurer de générer le schéma d’index correctement et de définir les [mappages de champs d’indexeur](search-indexer-field-mappings.md) appropriés. Le message d’erreur comprendra des détails qui peuvent aider à identifier la source de l’incompatibilité.
+
+### <a name="could-not-process-document-within-indexer-max-run-time"></a>Impossible de traiter le document en respectant le temps d’exécution max. de l’indexeur
+
+Cette erreur se produit lorsque l’indexeur ne peut pas terminer le traitement d’un document unique à partir de la source de données en respectant le temps d’exécution autorisé. [Le temps d’exécution maximal](search-limits-quotas-capacity.md#indexer-limits) est plus court quand des ensembles de compétences sont utilisés. Lorsque cette erreur se produit, si maxFailedItems est défini sur une valeur autre que 0, l’indexeur ignore le document pour les prochaines exécutions, de façon que l’indexation puisse progresser. Si vous ne pouvez pas vous permettre d’ignorer un document, ou si vous voyez cette erreur en permanence, pensez à diviser les documents en documents plus petits pour qu’une seule exécution de l’indexeur puisse traiter une partie de ces derniers.
 
 ##  <a name="warnings"></a>Avertissements
 L’indexation des avertissements ne s’arrête pas, mais certaines conditions pourraient entraîner des résultats inattendus. Vos données et votre scénario conditionnent les mesures que vous devriez prendre.
@@ -220,3 +225,8 @@ La possibilité de reprendre un travail d’indexation inachevé dépend de la d
 Il est possible de modifier ce comportement en activant la progression incrémentielle et en supprimant l’avertissement à l’aide de la propriété de configuration `assumeOrderByHighWatermarkColumn`.
 
 [Autres informations sur la progression incrémentielle de Cosmos DB et les requêtes personnalisées.](https://go.microsoft.com/fwlink/?linkid=2099593)
+
+### <a name="could-not-map-output-field-x-to-search-index"></a>Impossible de mapper le champ de sortie « X » à l’index de recherche
+Les mappages de champs de sortie qui font référence à des données inexistantes/null génèrent des avertissements pour chaque document et créent un champ d’index vide. Pour contourner ce problème, vérifiez que les chemins sources de mappage de champs de sortie sont corrects ou définissez une valeur par défaut à l’aide de la [compétence conditionnelle](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+
+Indexer a pu exécuter une compétence dans l’ensemble de compétences, mais la réponse à la demande de l’API web indique qu’il y a eu des avertissements durant l’exécution. Examinez les avertissements pour comprendre l’impact sur vos données et déterminer si une action est requise ou non.

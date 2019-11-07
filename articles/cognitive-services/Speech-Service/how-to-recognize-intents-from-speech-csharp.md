@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326835"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464622"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Didacticiel : Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour C#
 
@@ -45,11 +45,12 @@ Veillez à disposer des éléments suivants avant de commencer ce tutoriel :
 
 LUIS s’intègre aux services Voix pour reconnaître les intentions à partir de la voix. Vous n’avez besoin que de LUIS. Aucun abonnement aux services Voix n’est nécessaire.
 
-LUIS utilise deux types de clés :
+LUIS utilise trois types de clés :
 
 |Type de clé|Objectif|
 |--------|-------|
 |Création|Permet de créer et de modifier des applications LUIS programmatiquement|
+|Starter|Permet de tester l’application LUIS en utilisant uniquement du texte|
 |Point de terminaison |Autorise l’accès à une application LUIS particulière|
 
 Pour ce tutoriel, vous avez besoin du type de clé du point de terminaison. Ce tutoriel utilise l’exemple d’application domotique LUIS Home Automation, que vous pouvez créer en suivant le guide de démarrage rapide [Utiliser une application domotique prédéfinie](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Si vous avez créé votre propre application LUIS, vous pouvez aussi l’utiliser.
@@ -195,4 +196,4 @@ Retrouvez le code de cet article dans le dossier **samples/csharp/sharedcontent/
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Comment effectuer une reconnaissance vocale](quickstart-csharp-dotnetcore-windows.md)
+> [Comment effectuer une reconnaissance vocale](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

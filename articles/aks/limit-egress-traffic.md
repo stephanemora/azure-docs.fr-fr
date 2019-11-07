@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: mlearned
-ms.openlocfilehash: 3010973c7d0af784938e9295bb80fc22b7f718f3
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: cfef8ff79f62eca9946dcbb49cafc253f36ab7bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018638"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472738"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -58,6 +58,7 @@ Les ports de sortie/règles de réseau suivants sont requis pour un cluster AKS 
 * Le port UDP *53* pour DNS est également requis si vous avez des pods qui accèdent directement au serveur d’API.
 
 Les noms de domaine complets/règles d’application suivantes sont requis :
+- Azure Global
 
 | FQDN                       | Port      | Utilisation      |
 |----------------------------|-----------|----------|
@@ -72,7 +73,34 @@ Les noms de domaine complets/règles d’application suivantes sont requis :
 | ntp.ubuntu.com             | UDP:123   | Cette adresse est requise pour la synchronisation temporelle NTP sur des nœuds Linux. |
 | packages.microsoft.com     | HTTPS:443 | Cette adresse est le référentiel de packages Microsoft utilisé pour les opérations *apt-get* mises en cache.  Moby, PowerShell et Azure CLI sont des exemples de packages. |
 | acs-mirror.azureedge.net   | HTTPS:443 | Cette adresse correspond au référentiel requis pour installer les fichiers binaires requis comme kubenet et Azure CNI. |
+- Azure China
 
+| FQDN                       | Port      | Utilisation      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | Cette adresse est le point de terminaison du serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
+| *.tun.\<location\>.cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | Cette adresse est le point de terminaison du serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
+| *.azk8s.cn        | HTTPS:443 | Cette adresse est nécessaire pour le téléchargement des fichiers binaires et des images requis|
+| mcr.microsoft.com          | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Microsoft Container Registry (MCR). Ce registre contient des images/graphiques internes (par exemple, moby, etc.) nécessaires au fonctionnement du cluster pendant la mise à niveau et la mise à l’échelle du cluster. |
+| *.cdn.mscr.io              | HTTPS:443 | Cette adresse est requise pour le stockage MCR assuré par le réseau de distribution de contenu Azure (CDN). |
+| management.chinacloudapi.cn       | HTTPS:443 | Cette adresse est requises pour les opérations GET/PUT de Kubernetes. |
+| .chinacloudapi.cn  | HTTPS:443 | Cette adresse est requise pour l’authentification Azure Active Directory. |
+| ntp.ubuntu.com             | UDP:123   | Cette adresse est requise pour la synchronisation temporelle NTP sur des nœuds Linux. |
+| packages.microsoft.com     | HTTPS:443 | Cette adresse est le référentiel de packages Microsoft utilisé pour les opérations *apt-get* mises en cache.  Moby, PowerShell et Azure CLI sont des exemples de packages. |
+- Azure Government
+
+| FQDN                       | Port      | Utilisation      |
+|----------------------------|-----------|----------|
+| *.hcp.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | Cette adresse est le point de terminaison du serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
+| *.tun.\<location\>.cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | Cette adresse est le point de terminaison du serveur d’API. Remplacez *\<location\>* par la région où votre cluster AKS est déployé. |
+| aksrepos.azurecr.io        | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Azure Container Registry (ACR). Ce registre contient des images/graphiques tiers (par exemple, un serveur de métriques, un serveur DNS de base, etc.) nécessaires au fonctionnement du cluster pendant la mise à niveau et la mise à l’échelle du cluster.|
+| *.blob.core.windows.net    | HTTPS:443 | Cette adresse est le magasin backend des images stockées dans ACR. |
+| mcr.microsoft.com          | HTTPS:443 | Cette adresse est nécessaire pour l’accès aux images dans Microsoft Container Registry (MCR). Ce registre contient des images/graphiques internes (par exemple, moby, etc.) nécessaires au fonctionnement du cluster pendant la mise à niveau et la mise à l’échelle du cluster. |
+| *.cdn.mscr.io              | HTTPS:443 | Cette adresse est requise pour le stockage MCR assuré par le réseau de distribution de contenu Azure (CDN). |
+| management.usgovcloudapi.net       | HTTPS:443 | Cette adresse est requises pour les opérations GET/PUT de Kubernetes. |
+| login.microsoftonline.us  | HTTPS:443 | Cette adresse est requise pour l’authentification Azure Active Directory. |
+| ntp.ubuntu.com             | UDP:123   | Cette adresse est requise pour la synchronisation temporelle NTP sur des nœuds Linux. |
+| packages.microsoft.com     | HTTPS:443 | Cette adresse est le référentiel de packages Microsoft utilisé pour les opérations *apt-get* mises en cache.  Moby, PowerShell et Azure CLI sont des exemples de packages. |
+| acs-mirror.azureedge.net   | HTTPS:443 | Cette adresse correspond au référentiel requis pour installer les fichiers binaires requis comme kubenet et Azure CNI. |
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>Adresses et ports recommandés facultatifs pour les clusters AKS
 
 Les ports de sortie/règles de réseau suivants sont facultatifs pour un cluster AKS :

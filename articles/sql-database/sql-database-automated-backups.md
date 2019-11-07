@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: a8cf17ab3eab31d4ac6113437f55d73f96425e4e
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: a43783110f625dd5faef13c83228a2659155ead0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843302"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492233"
 ---
 # <a name="automated-backups"></a>Sauvegardes automatisées
 
@@ -82,7 +82,7 @@ Comme les sauvegardes PITR, les sauvegardes LTR sont géo-redondantes et protég
 Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Coûts de stockage
-Pour les bases de données uniques, une quantité minimale de stockage de sauvegarde égale à 100 % de la taille de la base de données est fournie sans frais supplémentaires. Pour les pools élastiques, une quantité minimale de stockage de sauvegarde égale à 100 % du stockage de données alloué pour le pool est fournie sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois. Cette consommation supplémentaire dépend de la charge de travail et de la taille des bases de données individuelles.
+Pour les bases de données uniques et les instances gérées, une quantité minimale de stockage de sauvegarde égale à 100 % de la taille de la base de données est fournie sans frais supplémentaires. Pour les pools élastiques, une quantité minimale de stockage de sauvegarde égale à 100 % du stockage de données alloué pour le pool est fournie sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois. Cette consommation supplémentaire dépend de la charge de travail et de la taille des bases de données individuelles.
 
 Pour plus d’informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 

@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 775b50c4735115dde8ae936c4d06b087d58683b1
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 25b360f90a0920aad2ea5e68cda31a68be5d37a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619783"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486674"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Test d’exemples d’énoncés dans LUIS
 
 Le test est le processus consistant à fournir des exemples d’énoncés à LUIS et obtenir une réponse des intentions et des entités reconnues par LUIS. 
 
-Vous pouvez [tester](luis-interactive-test.md) LUIS de manière interactive, un énoncé à la fois, ou fournir un [lot](luis-concept-batch-test.md) d’énoncés. Avec les tests, vous comparez le modèle [actif](luis-concept-version.md#active-version) actuel au modèle publié. 
+Vous pouvez tester LUIS de manière interactive, un énoncé à la fois, ou fournir un lot d’énoncés. Pendant le test, vous pouvez comparer la réponse de prédiction du modèle actif actuel à la réponse de prédiction du modèle publié. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -32,7 +32,7 @@ Vous pouvez [tester](luis-interactive-test.md) LUIS de manière interactive, un 
 Consultez les concepts du [Score de prédiction](luis-concept-prediction-score.md) pour en savoir plus sur les scores de prédiction.
 
 ## <a name="interactive-testing"></a>Test interactif
-Le test interactif s’effectue à partir du panneau **Test** du site web. Vous pouvez entrer un énoncé pour voir comment les entités et les intentions sont identifiées et évaluées. Si LUIS ne prévoit pas les intentions et les entités comme prévu sur un énoncé dans le volet de test, copiez l’énoncé dans la page **Intention** en tant que nouvel énoncé. Puis, étiquetez les parties de cet énoncé et effectuez l’apprentissage de LUIS. 
+Le test interactif s’effectue à partir du panneau **Test** du portail LUIS. Vous pouvez entrer un énoncé pour voir comment les entités et les intentions sont identifiées et évaluées. Si LUIS ne prévoit pas les intentions et les entités comme prévu sur un énoncé dans le panneau de test, copiez l’énoncé dans la page **Intention** en tant que nouvel énoncé. Puis, étiquetez les parties de cet énoncé pour les entités et effectuez l’apprentissage de LUIS. 
 
 ## <a name="batch-testing"></a>Test par lot
 Consultez [Test par lot](luis-concept-batch-test.md) si vous testez plusieurs énoncés à la fois.
@@ -46,12 +46,10 @@ Tous les tests sur votre point de terminaison sont inclus dans votre quota d’u
 Si vous testez sur un point de terminaison et que vous ne souhaitez pas que l’énoncé soit enregistré, pensez à utiliser la configuration de la chaîne de requête `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Où trouver les énoncés
-LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le site web [LUIS](luis-reference-regions.md) à la page répertoriant les **Applications**, ainsi que les [API de création](https://go.microsoft.com/fwlink/?linkid=2092087) LUIS. 
+LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le portail LUIS à la page **Applications**, ainsi que les [API de création](https://go.microsoft.com/fwlink/?linkid=2092087) LUIS. 
 
 Les énoncés dont LUIS n’est pas sûr sont répertoriés dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)** du site web [LUIS](luis-reference-regions.md). 
 
-![Réviser les énoncés de point de terminaison](./media/luis-concept-test/review-endpoint-utterances.png)
- 
 ## <a name="remember-to-train"></a>Penser à former
 Pensez à [former](luis-how-to-train.md) LUIS après avoir apporté des modifications au modèle. Les modifications apportées à l’application LUIS ne sont pas visibles dans le test avant que l’application ait été formée. 
 

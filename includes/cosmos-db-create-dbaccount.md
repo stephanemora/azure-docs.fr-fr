@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/08/2019
 ms.author: rimman
 ms.custom: include file
-ms.openlocfilehash: d21fd6c4848a4806039d5cbed5c7ed8ab4112405
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 93652273dda16e93bdcf9123d7d4a9b3fc956fe9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307606"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466192"
 ---
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-1. Sélectionnez **Créer une ressource** > **Bases de données** > **Azure Cosmos DB**.
+1. Accédez au [portail Azure](https://portal.azure.com/) pour créer un compte Azure Cosmos DB. Recherchez et sélectionnez **Azure Cosmos DB**.
 
    ![Volet Bases de données du portail Azure](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
+1. Sélectionnez **Ajouter**.
 1. Dans la page **Créer un compte Azure Cosmos DB**, entrez les paramètres de base du nouveau compte Azure Cosmos. 
 
     |Paramètre|Valeur|Description |

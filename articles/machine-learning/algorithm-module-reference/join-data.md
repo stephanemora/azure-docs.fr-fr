@@ -1,7 +1,7 @@
 ---
 title: 'Joindre des données : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Joindre des données dans Azure Machine Learning service pour fusionner deux jeux de données.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Joindre des données dans Azure Machine Learning pour fusionner des jeux de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 587490284b2886764c137a01e0eb4b3c9c755d41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693091"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495092"
 ---
 # <a name="join-data"></a>Joindre des données
 
-Cet article décrit comment utiliser le module **Joindre des données** dans l’interface visuelle d’Azure Machine Learning service pour fusionner deux jeux de données à l’aide d’une opération de jointure basée sur la base de données.  
+Cet article décrit comment utiliser le module **Joindre des données** dans le concepteur d’Azure Machine Learning (préversion) pour fusionner deux jeux de données à l’aide d’une opération de jointure basée sur la base de données.  
 
 ## <a name="how-to-configure-join-data"></a>Configuration de Joindre des données
 
@@ -68,4 +68,4 @@ Pour joindre deux jeux de données, ces derniers doivent être liés par une col
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

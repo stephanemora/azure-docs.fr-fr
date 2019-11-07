@@ -6,18 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
+ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 08/05/2019
-ms.openlocfilehash: 9299959eef24f6890218dc2d2aa733cc227e1a32
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: 1f2380748c4feea6321bd8df1c29bd599f19b089
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162583"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489904"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous apprendrez à sécuriser les travaux d’expérimentation/de formation et les travaux d’inférence/de notation dans Azure Machine Learning au sein d’un réseau virtuel (vnet) Azure.
 
@@ -26,6 +27,12 @@ Un **réseau virtuel** agit en tant que limite de sécurité, isolant vos ressou
 Azure Machine Learning s’appuie sur d’autres services Azure pour les ressources de calcul. Les ressources de calcul ou les [cibles de calcul](concept-compute-target.md) sont utilisées pour entraîner et déployer des modèles. Ces cibles peuvent être créées à l’intérieur d’un réseau virtuel. Par exemple, vous pouvez utiliser la machine virtuelle Microsoft Data Science Virtual Machine pour entraîner un modèle, puis déployer le modèle sur Azure Kubernetes Service (AKS). Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 Cet article fournit aussi des informations détaillées sur les *paramètres de sécurité avancés*, qui ne sont pas nécessaires aux cas d’utilisation de base ou expérimentaux. Certaines sections de cet article fournissent des informations de configuration pour un large éventail de scénarios. Vous n’avez pas besoin de suivre les instructions dans l’ordre ou dans leur intégralité.
+
+> [!TIP]
+> Sauf indication contraire, l’utilisation de ressources telles que des comptes de stockage ou des cibles de calcul à l’intérieur d’un réseau virtuel fonctionne avec les pipelines de Machine Learning et les flux de travail sans pipeline tels que les exécutions de script.
+
+> [!WARNING]
+> Microsoft ne prend pas en charge l’utilisation du concepteur Azure Machine Learning ou du Machine Learning automatisé (à partir de Studio) avec des ressources au sein d’un réseau virtuel.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,7 +46,7 @@ Cet article fournit aussi des informations détaillées sur les *paramètres de 
 
 Pour utiliser le compte de stockage Azure de l’espace de travail d’un réseau virtuel, effectuez les étapes suivantes :
 
-1. Créez une instance de calcul (par exemple, une instance de Capacité de calcul Machine Learning) dans un réseau virtuel ou attachez une instance de capacité de calcul à l’espace de travail (par exemple, un cluster HDInsight, une machine virtuelle ou un cluster Azure Kubernetes Service). L’instance de capacité de calcul peut servir à l’expérimentation ou au déploiement de modèle.
+1. Créez une ressource de calcul (par exemple, une instance de Capacité de calcul Machine Learning ou cluster) dans un réseau virtuel ou attachez une ressource de capacité de calcul à l’espace de travail (par exemple, un cluster HDInsight, une machine virtuelle ou un cluster Azure Kubernetes Service). La ressource de capacité de calcul peut servir à l’expérimentation ou au déploiement de modèle.
 
    Pour plus d’informations, consultez les sections [Utiliser la Capacité de calcul Machine Learning](#amlcompute), [Utiliser une machine virtuelle ou un cluster HDInsight](#vmorhdi) et [Utiliser Azure Kubernetes Service](#aksvnet) de cet article.
 
@@ -53,10 +60,10 @@ Pour utiliser le compte de stockage Azure de l’espace de travail d’un résea
 
 1. Sur la page __Pare-feux et réseaux virtuels__, faites ce qui suit :
     - Sélectionnez __Réseaux sélectionnés__.
-    - Cliquez sur __Réseaux virtuel__ puis choisissez le lien __Ajouter un réseau virtuel existant__. Cette action ajoute le réseau virtuel dans lequel votre instance de capacité de calcul réside (voir l’étape 1).
+    - Cliquez sur __Réseaux virtuel__ puis choisissez le lien __Ajouter un réseau virtuel existant__. Cette action ajoute le réseau virtuel dans lequel votre capacité de calcul réside (voir l’étape 1).
 
         > [!IMPORTANT]
-        > Le compte de stockage doit se trouver dans le même réseau virtuel que les instances de capacité de calcul utilisées pour l’entraînement ou l’inférence.
+        > Le compte de stockage doit se trouver dans le même réseau virtuel que les instances de capacité de calcul ou les clusters utilisés pour l’entraînement ou l’inférence.
 
     - Vérifiez que __Autoriser les services Microsoft approuvés à accéder à ce compte de stockage__ est coché.
 
@@ -98,25 +105,29 @@ Pour utiliser les fonctionnalités d’expérimentation Azure Machine Learning a
 
 1. Sur la page __Pare-feux et réseaux virtuels__, faites ce qui suit :
     - Sous __Autoriser l’accès depuis__, cliquez sur __Réseaux sélectionnés__.
-    - Sous __Réseaux virtuels__, sélectionnez __Ajouter des réseaux virtuels existants__ pour ajouter le réseau virtuel où se trouve votre instance de calcul d’expérimentation.
+    - Sous __Réseaux virtuels__, sélectionnez __Ajouter des réseaux virtuels existants__ pour ajouter le réseau virtuel où se trouve votre calcul d’expérimentation.
     - Sous __Autoriser les services Microsoft approuvés pour contourner ce pare-feu__, sélectionnez __Oui__.
 
    [![La section « Pare-feux et réseaux virtuels » dans le volet Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 <a id="amlcompute"></a>
 
-## <a name="use-a-machine-learning-compute-instance"></a>Utilisez une Capacité de calcul Machine Learning
+## <a name="use-a-machine-learning-compute"></a>Utiliser Capacité de calcul Machine Learning
 
-Pour utiliser la Capacité de calcul Machine Learning Azure dans un réseau virtuel, les exigences réseau suivantes doivent être remplies :
+> [!NOTE]
+> Les instances de calcul sont disponibles uniquement pour les espaces de travail avec la région **USA Centre Nord** ou **Royaume-Uni Sud**.
+> Utilisez l’une de ces régions pour créer une instance de calcul qui peut être ajoutée au réseau virtuel.
+
+Pour utiliser une instance de calcul Machine Learning Azure ou un cluster de calcul dans un réseau virtuel, les exigences réseau suivantes doivent être remplies :
 
 > [!div class="checklist"]
 > * Le réseau virtuel doit être dans les mêmes abonnement et région que l’espace de travail Azure Machine Learning.
-> * Le sous-réseau spécifié pour le cluster de calcul doit avoir suffisamment d’adresses IP non attribuées pour toutes les machines virtuelles ciblées par le cluster. Si le sous-réseau n’a pas suffisamment d’adresses IP non attribuées, le cluster est alloué partiellement.
+> * Le sous-réseau spécifié pour l’instance ou le cluster de calcul doit avoir suffisamment d’adresses IP non attribuées pour toutes les machines virtuelles ciblées. Si le sous-réseau n’a pas suffisamment d’adresses IP non attribuées, le cluster de calcul est alloué partiellement.
 > * Vérifiez si vos stratégies ou verrous de sécurité sur l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations pour gérer le réseau virtuel. Si vous souhaitez sécuriser le réseau virtuel en limitant le trafic, laissez certains ports ouverts pour le service Capacité de calcul. Pour plus d’informations, voir la section [Ports requis](#mlcports).
-> * Si vous vous apprêtez à placer plusieurs clusters de calcul sur un réseau virtuel, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de vos ressources.
-> * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que l’instance de capacité de calcul Azure Machine Learning.
+> * Si vous vous apprêtez à placer plusieurs instances ou clusters de calcul sur un réseau virtuel, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de vos ressources.
+> * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que l’instance ou le cluster de capacité de calcul Azure Machine Learning.
 
-La capacité de calcul Machine Learning Azure alloue automatiquement des ressources réseau supplémentaires au groupe de ressources qui contient le réseau virtuel. Pour chaque cluster de calcul, le service alloue les ressources suivantes :
+La capacité de calcul ou le cluster Machine Learning Azure alloue automatiquement des ressources réseau supplémentaires au groupe de ressources qui contient le réseau virtuel. Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
 
 * Un seul groupe de sécurité réseau
 * Une seule adresse IP publique
@@ -185,7 +196,7 @@ Lorsque vous ajoutez les UDR, définissez l’itinéraire pour chaque préfixe d
 
 Pour plus d’informations, consultez l’article [Créer un pool Azure Batch dans un réseau virtuel](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
-### <a name="create-a-machine-learning-compute-cluster-in-a-virtual-network"></a>Créer un cluster Capacité de calcul dans un réseau virtuel
+### <a name="create-a-compute-cluster-in-a-virtual-network"></a>Créer un cluster de calcul dans un réseau virtuel
 
 Pour créer un cluster Capacité de calcul dans un réseau virtuel, faites ce qui suit :
 
@@ -244,6 +255,28 @@ except ComputeTargetException:
 Une fois le processus de création terminé, vous pouvez entraîner votre modèle en utilisant le cluster dans le cadre d’une expérience. Pour plus d’informations, consultez [Sélectionner et utiliser une cible de calcul pour l’entraînement](how-to-set-up-training-targets.md).
 
 <a id="vmorhdi"></a>
+
+### <a name="create-a-compute-instance-in-a-virtual-network"></a>Créer une instance de calcul dans un réseau virtuel
+
+Créez une instance de calcul Azure Machine Learning dans un réseau virtuel. Pour créer une instance de calcul, procédez comme suit :
+
+1. Dans l’espace de travail Studio, sélectionnez **Calcul** dans le volet gauche.
+
+1. Dans l’onglet Instances de calcul, sélectionnez **Nouveau** pour commencer à créer une nouvelle instance de calcul.
+
+1. Définissez les champs Nom de calcul et Taille de la machine virtuelle, puis activez/désactivez l’accès SSH.
+
+1. Pour configurer cette instance de calcul afin d’utiliser un réseau virtuel, faites ceci :
+
+    a. Sélectionnez  **Paramètres avancés**.
+
+    b. Dans la liste déroulante  **Groupe de ressources** , sélectionnez le groupe de ressources qui contient le réseau virtuel.
+
+    c. Dans la liste déroulante  **Réseau virtuel** , sélectionnez le réseau virtuel qui contient le sous-réseau.
+
+    d. Dans la liste déroulante  **Sous-réseau** , sélectionnez le sous-réseau à utiliser.
+
+1. Sélectionnez **Créer** pour approvisionner une instance de calcul à l’intérieur d’un réseau virtuel.
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>Utiliser une machine virtuelle ou un cluster HDInsight
 

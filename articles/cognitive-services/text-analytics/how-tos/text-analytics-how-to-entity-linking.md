@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 642b21624ce3ffc993d5f29a413845044d703fd7
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: e51e5945df8b08ec81db0c85416b31b3ec788ffd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984269"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488634"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -29,15 +29,75 @@ Le point de terminaison `entities` d’Analyse de texte prend en charge la recon
 La liaison d’entités est la possibilité d’identifier une entité présente dans un texte et de lever l’ambiguïté sur son identité (par exemple, en déterminant si « Mars » fait référence à la planète ou au dieu romain de la guerre). Ce processus nécessite la présence d’une base de connaissances à laquelle les entités reconnues sont liées. Wikipédia est utilisé en tant que base de connaissances pour le point de terminaison `entities` d’Analyse de texte.
 
 ### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)
-La reconnaissance d’entité nommée (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes prédéfinies. Les classes d’entités prises en charge sont répertoriées ci-dessous.
+La reconnaissance d’entité nommée (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes ou types prédéfinis. 
 
-Dans Analyse de texte [version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont toutes deux disponibles pour plusieurs langues. Pour plus d’informations, consultez l’article [Prise en charge linguistique](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition).
+## <a name="named-entity-recognition-v3-public-preview"></a>Préversion publique de la reconnaissance d’entité nommée v3
 
-### <a name="language-support"></a>Support multilingue
+La [prochaine version de la reconnaissance d’entité nommée](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) est désormais disponible en préversion publique. Elle offre des mises à jour des liaisons d’entités et une reconnaissance d’entité nommée. 
 
-L’utilisation de la liaison d'entités dans différentes langues requiert l’utilisation d’une base de connaissances correspondante dans chaque langue. Pour la liaison d'entités dans Analyse de texte, cela signifie que chaque langue prise en charge par le point de terminaison `entities` établira un lien vers le corpus Wikipédia correspondant dans cette langue. Comme la taille du corpus varie d’une langue à l’autre, il est probable que le rappel des fonctionnalités de liaison d'entités varie également.
+:::row:::
+    :::column span="":::
+        **Fonctionnalité**
+    :::column-end:::
+    ::: column span="":::
+        **Description** 
+    :::column-end:::
+:::row-end:::
+<!-- expanded types and subtypes row-->
+:::row:::
+    :::column span="":::
+        Types et sous-types d’entité développés
+    :::column-end:::
+    :::column span="":::
+     Classification et détection étendues pour plusieurs types d’entités nommés.
+    :::column-end:::
+:::row-end:::
+<!-- separate endpoints row-->
+:::row:::
+    :::column span="":::
+        Séparer les points de terminaison de requête 
+    :::column-end:::
+    :::column span="":::
+        Séparez des points de terminaison distincts pour l’envoi de demandes de liaison d’entité et NER.
+    :::column-end:::
+:::row-end:::
+<!-- model-version row -->
+:::row:::
+    :::column span="":::
+        Paramètre `model-version`
+    :::column-end:::
+    :::column span="":::
+        Paramètre facultatif permettant de choisir une version du modèle d’analyse de texte. Actuellement, seul le modèle par défaut peut être utilisé.
+    :::column-end:::
+:::row-end:::
 
-## <a name="supported-types-for-named-entity-recognition"></a>Types pris en charge pour la reconnaissance d’entité nommée
+### <a name="entity-types"></a>Types d’entités
+
+La reconnaissance d’entité nommée v3 fournit une détection étendue sur plusieurs types. Actuellement, NER v3 peut reconnaître les catégories d’entités suivantes. Pour obtenir la liste détaillée des entités et des langages pris en charge, consultez l’article [Types d’entités nommés](../named-entity-types.md).
+
+* Généralités
+* Informations personnelles 
+
+### <a name="request-endpoints"></a>Points de terminaison de requête
+
+La reconnaissance d’entité nommée v3 utilise des points de terminaison distincts pour les demandes de liaison d’entité et NER. Utilisez un format d’URL ci-dessous en fonction de votre demande :
+
+NER
+* Entités générales - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/general`
+
+* Entités d’informations personnelles - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/recognition/pii`
+
+Liaison d’entités
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
+
+### <a name="model-versioning"></a>Gestion des versions des modèles
+
+[!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
+
+## <a name="supported-types-for-named-entity-recognition-v2"></a>Types pris en charge pour la reconnaissance d’entité nommée v2
+
+> [!NOTE]
+> Les entités suivantes sont prises en charge par la reconnaissance d’entité nommée (NER) version 2. [NER v3](#named-entity-recognition-v3-public-preview) est en préversion publique et augmente le nombre et la profondeur des entités reconnues dans le texte.   
 
 | Type  | Subtype | Exemples |
 |:-----------   |:------------- |:---------|
@@ -63,7 +123,9 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 
 \* Selon les entités entrées et extraites, certaines entités peuvent omettre le `SubType`.  Tous les types d’entités pris en charge répertoriés sont disponibles uniquement en anglais, chinois simplifié, français, allemand et espagnol.
 
+### <a name="language-support"></a>Support multilingue
 
+L’utilisation de la liaison d'entités dans différentes langues requiert l’utilisation d’une base de connaissances correspondante dans chaque langue. Pour la liaison d'entités dans Analyse de texte, cela signifie que chaque langue prise en charge par le point de terminaison `entities` établira un lien vers le corpus Wikipédia correspondant dans cette langue. Comme la taille du corpus varie d’une langue à l’autre, il est probable que le rappel des fonctionnalités de liaison d'entités varie également. Pour plus d’informations, consultez l’article [Prise en charge linguistique](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition).
 
 ## <a name="preparation"></a>Préparation
 

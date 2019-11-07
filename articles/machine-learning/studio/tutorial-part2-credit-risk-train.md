@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel 2 : Entraîner des modèles de risque de crédit'
-titleSuffix: Azure Machine Learning Studio
-description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio. Ce tutoriel est la deuxième partie d’une série de tutoriels qui en compte trois. Il montre comment entraîner et évaluer des modèles.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans la version classique d’Azure Machine Learning Studio. Ce tutoriel est la deuxième partie d’une série de tutoriels qui en compte trois. Il montre comment entraîner et évaluer des modèles.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques
 author: sdgilley
 ms.author: sgilley
@@ -10,24 +10,24 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: ce3661a75d35ab39b7e8b551cc0b84b57a76e032
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453476"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492559"
 ---
-# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>Tutoriel 2 : Entraîner des modèles de risque de crédit - Azure Machine Learning Studio
+# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutoriel 2 : Former des modèles de risque de crédit - Azure Machine Learning Studio (classique)
 
-Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio.  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est la **deuxième partie d’une série de tutoriels qui en compte trois**.
+Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans la version classique de Machine Learning Studio.  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est la **deuxième partie d’une série de tutoriels qui en compte trois**.
 
 Supposons que vous deviez prédire le risque lié à l'octroi d'un crédit à un individu sur la base des informations fournies lors d'une demande de crédit.  
 
-L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio. Vous allez utiliser Machine Learning Studio et un service web Machine Learning pour cette solution.  
+L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio (classique). Vous allez utiliser la version classique d’Azure Machine Learning Studio et un service web Machine Learning pour cette solution.  
 
 Dans ce tutoriel en trois parties, vous commencez avec des données de risque crédit disponibles publiquement.  Ensuite, vous développez et entraînez un modèle prédictif.  Enfin, vous déployez le modèle en tant que service web.
 
-Dans la [première partie du tutoriel](tutorial-part1-credit-risk.md), vous avez créé un espace de travail Machine Learning Studio, chargé des données et créé une expérience.
+Dans la [première partie du tutoriel](tutorial-part1-credit-risk.md), vous avez créé un espace de travail Machine Learning Studio (classique), chargé des données et créé une expérience.
 
 Dans cette partie du tutoriel, vous allez effectuer les opérations suivantes :
  
@@ -38,23 +38,20 @@ Dans cette partie du tutoriel, vous allez effectuer les opérations suivantes :
 
 Dans la [troisième partie du tutoriel](tutorial-part3-credit-risk-deploy.md), vous allez déployer le modèle en tant que service web.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## <a name="prerequisites"></a>Prérequis
 
 Effectuez la [première partie du tutoriel](tutorial-part1-credit-risk.md).
 
 ## <a name="train"></a>Entraîner plusieurs modèles
 
-Un des avantages de l’utilisation d’Azure Machine Learning Studio pour créer des modèles d’apprentissage automatique est la possibilité d’essayer simultanément plusieurs types de modèle dans une expérience et de comparer les résultats. Ce type d’expérimentation vous aide à trouver la meilleure solution à votre problème.
+Un des avantages de l’utilisation de la version classique d’Azure Machine Learning Studio pour créer des modèles Machine Learning est la possibilité d’essayer simultanément plusieurs types de modèle dans une expérience et de comparer les résultats. Ce type d’expérimentation vous aide à trouver la meilleure solution à votre problème.
 
 Dans l’expérience développée au fil de ce tutoriel, vous allez créer deux types de modèles différents, puis comparer les résultats de la notation afin de choisir l’algorithme que vous voulez utiliser dans votre expérience finale.  
 
 Vous avez le choix entre différents modèles. Pour connaître les modèles disponibles, développez le nœud **Machine Learning** dans la palette des modules, puis développez **Initialiser le modèle** et les nœuds inférieurs. Pour cette expérience, vous allez sélectionner les modules [Machines à vecteurs de support à deux classes][two-class-support-vector-machine] et [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree].
 
 > [!TIP]
-> Pour déterminer facilement l’algorithme Machine Learning le mieux adapté au problème à résoudre, consultez [Guide pratique pour choisir des algorithmes pour Microsoft Azure Machine Learning Studio](algorithm-choice.md).
+> Pour déterminer facilement l’algorithme Machine Learning le mieux adapté au problème à résoudre, consultez [Guide pratique pour choisir des algorithmes pour Microsoft Azure Machine Learning Studio (classique)](algorithm-choice.md).
 > 
 > 
 
@@ -64,16 +61,16 @@ Vous allez ajouter le module [Arbre de décision optimisé à deux classes][two-
 
 Configurez d’abord le modèle d’arbre de décision optimisé.
 
-1. Recherchez le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] dans la palette des modules et faites-le glisser sur la zone de dessin.
+1. Recherchez le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] dans la palette des modules et faites-le glisser sur le canevas.
 
-1. Recherchez le module [Former le modèle][train-model], faites-le glisser sur la zone de dessin et connectez la sortie du module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] au port d’entrée de gauche du module [Former le modèle][train-model].
+1. Recherchez le module [Former le modèle][train-model], faites-le glisser sur le canevas et connectez la sortie du module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] au port d’entrée de gauche du module [Former le modèle][train-model].
    
    Le module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree] initialise le modèle générique, tandis que le module [Former le modèle][train-model] utilise les données d’apprentissage pour former le modèle. 
 
-1. Connectez la sortie de gauche du module [Exécuter un script R][execute-r-script] de gauche au port d’entrée de droite du module [Entraîner le modèle][train-model] (dans ce tutoriel, vous avez [utilisé les données provenant du côté gauche](#train) du module Fractionner les données pour l’entraînement).
+1. Connectez la sortie de gauche du module [Exécuter un script R][execute-r-script] de gauche au port d’entrée de droite du module [Former le modèle][train-model] (dans ce tutoriel, vous avez [utilisé les données provenant du côté gauche](#train) du module Fractionner les données pour la formation).
    
    > [!TIP]
-   > Pour cette expérience, vous n’avez pas besoin de deux des entrées et de l’une des sorties du module [Exécuter un script R][execute-r-script]. Vous pouvez donc les laisser détachées. 
+   > Pour cette expérience, vous n’avez pas besoin de deux des entrées et de l’une des sorties du module [Exécuter un script R][execute-r-script]. Vous pouvez donc les laisser détachées. 
    > 
    > 
 
@@ -81,11 +78,11 @@ Cette partie de l'expérience ressemble alors à ce qui suit :
 
 ![Training a model](./media/tutorial-part2-credit-risk-train/experiment-with-train-model.png)
 
-Maintenant, vous devez indiquer au module [Entraîner le modèle][train-model] que vous voulez utiliser le modèle pour prédire la valeur Risque de crédit.
+Maintenant, vous devez indiquer au module [Former le modèle][train-model] que vous voulez utiliser le modèle pour prédire la valeur Risque de crédit.
 
-1. Sélectionnez le module [Former le modèle][train-model]. Dans le volet **Propriétés**, cliquez sur **Lancer le sélecteur de colonne**.
+1. Sélectionnez le module [Entraîner le modèle][train-model]. Dans le volet **Propriétés**, cliquez sur **Lancer le sélecteur de colonne**.
 
-1. Dans la boîte de dialogue **Sélectionner une seule colonne**, tapez « risque de crédit » dans le champ de recherche sous **Colonnes disponibles**, sélectionnez « Risque de crédit » ci-dessous et cliquez sur la flèche droite (**>**) pour déplacer « Risque de crédit » vers **Colonnes sélectionnées**. 
+1. Dans la boîte de dialogue **Sélectionner une seule colonne**, tapez « risque de crédit » dans le champ de recherche sous **Colonnes disponibles**, sélectionnez « Risque de crédit » ci-dessous et cliquez sur la flèche droite ( **>** ) pour déplacer « Risque de crédit » vers **Colonnes sélectionnées**. 
 
     ![Sélectionnez la colonne Risque de crédit pour le module Former le modèle](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -95,17 +92,17 @@ Maintenant, vous devez indiquer au module [Entraîner le modèle][train-model] q
 
 Vous configurez ensuite le modèle SVM.  
 
-Tout d’abord, une petite explication sur SVM. Les arbres de décision optimisés fonctionnent bien avec tout type de caractéristique. Toutefois, le module SVM générant un classifieur linéaire, le modèle qu'il génère obtient la meilleure erreur de test quand toutes les caractéristiques numériques sont à la même échelle. Pour convertir toutes les fonctions numériques à la même échelle, vous utilisez une transformation « Tanh » (avec le module [Normaliser les données][normalize-data]). Cette opération transforme les nombres en plage [0,1]. Le module SVM convertit les fonctionnalités de chaîne en fonctionnalités catégorielles, puis en fonctionnalités 0/1 binaires. Il est donc inutile de les transformer manuellement. De même, vous ne voulez pas transformer la colonne Risque du crédit (colonne 21). Elle est numérique, mais elle contient la valeur de prédiction pour laquelle vous entraînez le modèle ; vous devez donc la laisser seule.  
+Tout d’abord, une petite explication sur SVM. Les arbres de décision optimisés fonctionnent bien avec tout type de caractéristique. Toutefois, le module SVM générant un classifieur linéaire, le modèle qu'il génère obtient la meilleure erreur de test quand toutes les caractéristiques numériques sont à la même échelle. Pour convertir toutes les fonctions numériques à la même échelle, vous utilisez une transformation « Tanh » (avec le module [Normaliser les données][normalize-data]). Cette opération transforme les nombres en plage [0,1]. Le module SVM convertit les fonctionnalités de chaîne en fonctionnalités catégorielles, puis en fonctionnalités 0/1 binaires. Il est donc inutile de les transformer manuellement. De même, vous ne voulez pas transformer la colonne Risque du crédit (colonne 21). Elle est numérique, mais elle contient la valeur de prédiction pour laquelle vous entraînez le modèle ; vous devez donc la laisser seule.  
 
 Pour configurer le modèle SVM, procédez comme suit :
 
-1. Recherchez le module [Machine à vecteurs de support à deux classes][two-class-support-vector-machine] dans la palette des modules et faites-le glisser sur la zone de dessin.
+1. Recherchez le module [Machine à vecteurs de support à deux classes][two-class-support-vector-machine] dans la palette des modules et faites-le glisser sur le canevas.
 
-1. Cliquez avec le bouton droit sur le module [Former le modèle][train-model], sélectionnez **Copier**, puis cliquez avec le bouton droit sur la zone de dessin et sélectionnez **Coller**. La copie du module [Former le modèle][train-model] contient les mêmes colonnes que l’original.
+1. Cliquez avec le bouton droit sur le module [Former le modèle][train-model], sélectionnez **Copier**, puis cliquez avec le bouton droit sur le canevas et sélectionnez **Coller**. La copie du module [Former le modèle][train-model] contient les mêmes colonnes que l’original.
 
-1. Connectez la sortie du module [Machines à vecteurs de support à deux classes][two-class-support-vector-machine] au port d’entrée de gauche du second module [Former le modèle][train-model].
+1. Connectez la sortie du module [Machines à vecteurs de support à deux classes][two-class-support-vector-machine] au port d’entrée de gauche du deuxième module [Former le modèle][train-model].
 
-1. Trouvez le module [Normaliser les données][normalize-data] et faites-le glisser vers la zone de dessin.
+1. Trouvez le module [Normaliser les données][normalize-data] et faites-le glisser vers le canevas.
 
 1. Connectez la sortie de gauche du module [Exécuter le script R][execute-r-script] de gauche à l’entrée de ce module (notez que le port de sortie d’un module peut être connecté à plusieurs autres modules).
 
@@ -132,13 +129,13 @@ Le module [Normaliser les données][normalize-data] est maintenant configuré po
 
 ## <a name="score-and-evaluate-the-models"></a>Notation et évaluation des modèles
 
-Vous utilisez les données de test exclues par le module [Fractionner les données][split] pour noter nos modèles entraînés. Vous pouvez ensuite comparer les résultats des deux modèles pour savoir lequel donne les meilleurs résultats.  
+Vous utilisez les données de test exclues par le module [Fractionner les données][split] pour noter nos modèles formés. Vous pouvez ensuite comparer les résultats des deux modèles pour savoir lequel donne les meilleurs résultats.  
 
 ### <a name="add-the-score-model-modules"></a>Ajouter les modules Noter le modèle
 
-1. Recherchez le module [Noter le modèle][score-model] et faites-le glisser sur la zone de dessin.
+1. Recherchez le module [Noter le modèle][score-model] et faites-le glisser sur le canevas.
 
-1. Connectez le module [Former le modèle][train-model] relié au module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree], au port d’entrée de gauche du module [Noter le modèle][score-model].
+1. Connectez le module [Former le modèle][train-model], relié au module [Arbre de décision optimisé à deux classes][two-class-boosted-decision-tree], au port d’entrée de gauche du module [Noter le modèle][score-model].
 
 1. Connectez le module [Exécuter le script R][execute-r-script] (nos données de test) au port d’entrée de droite du module [Noter le modèle][score-model].
 
@@ -151,9 +148,9 @@ Vous utilisez les données de test exclues par le module [Fractionner les donné
 
 1. Connectez la sortie du modèle SVM (c’est-à-dire le port de sortie du module [Former le modèle][train-model] relié au module [Arbre de décision optimisé à deux classes][two-class-support-vector-machine]) au port d’entrée du deuxième module [Noter le modèle][score-model].
 
-1. Pour le modèle SVM, vous devez effectuer la même transformation pour tester les données comme vous l’avez fait pour les données d’entraînement. Donc, copiez et collez le module [Normaliser les données][normalize-data] pour créer une autre copie et connectez-la au module [Exécuter le script R][execute-r-script] de droite.
+1. Pour le modèle SVM, vous devez effectuer la même transformation pour tester les données comme vous l’avez fait pour les données d’entraînement. Donc, copiez et collez le module [Normaliser les données][normalize-data] pour créer une autre copie et connectez-la au module[Exécuter le script R][execute-r-script] de droite.
 
-1. Connectez la sortie de gauche du deuxième module [Noter le modèle][normalize-data] au port d’entrée de droite du deuxième module [Noter le modèle][score-model].
+1. Connectez la sortie de gauche du deuxième module [Normaliser les données][normalize-data] au port d’entrée de droite du deuxième module [Noter le modèle][score-model].
 
     ![Deux modules Noter le modèle connectés](./media/tutorial-part2-credit-risk-train/both-score-models-added.png)
 
@@ -162,9 +159,9 @@ Vous utilisez les données de test exclues par le module [Fractionner les donné
 
 Pour évaluer les deux résultats de notation et les comparer, vous utilisez un module [Évaluer le modèle][evaluate-model].  
 
-1. Recherchez le module [Évaluer le modèle][evaluate-model] et faites-le glisser vers la zone de dessin.
+1. Recherchez le module [Évaluer le modèle][evaluate-model] et faites-le glisser vers le canevas.
 
-1. Connectez le port de sortie du module [Noter le modèle][score-model] associé au modèle Arbre de décision optimisé, au port d’entrée gauche du module [Évaluer le modèle][evaluate-model].
+1. Connectez le port de sortie du module [Noter le modèle][score-model], associé au modèle Arbre de décision optimisé, au port d’entrée de gauche du module [Évaluer le modèle][evaluate-model].
 
 1. Connectez l’autre module [Noter le modèle][score-model] au port d’entrée de droite.  
 
@@ -191,9 +188,9 @@ Le module [Évaluer le modèle][evaluate-model] produit une paire de courbes et 
 En examinant ces valeurs, vous pouvez déterminer quel modèle est le plus susceptible de fournir les résultats que vous recherchez. Vous pouvez revenir en arrière et relancer votre expérience en modifiant les valeurs des différents modèles. 
 
 Ce tutoriel n’explique pas comment interpréter ces résultats et optimiser les performances du modèle. Pour en savoir plus, consultez les articles suivants :
-- [Évaluation des performances d’un modèle dans Azure Machine Learning Studio](evaluate-model-performance.md)
-- [Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio](algorithm-parameters-optimize.md)
-- [Interpréter les résultats de modèle dans Azure Machine Learning Studio](interpret-model-results.md)
+- [Évaluation des performances d’un modèle dans Azure Machine Learning Studio (classique)](evaluate-model-performance.md)
+- [Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio (classique)](algorithm-parameters-optimize.md)
+- [Interpréter les résultats de modèle dans Azure Machine Learning Studio (classique)](interpret-model-results.md)
 
 > [!TIP]
 > À chaque exécution de l’expérience, un enregistrement de cet essai est conservé dans l’historique d’exécution. Vous pouvez afficher tous les essais de votre expérience (et y revenir) en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** , sous le canevas. Vous pouvez également cliquer sur **Exécution précédente** dans le volet **Propriétés** pour revenir à l’exécution précédant immédiatement celle que vous avez ouverte.
@@ -201,7 +198,7 @@ Ce tutoriel n’explique pas comment interpréter ces résultats et optimiser le
 > Vous pouvez faire une copie d’un essai de votre expérience en cliquant sur **ENREGISTRER SOUS** sous le canevas. 
 > Utilisez les propriétés **Résumé** et **Description** de l’expérience pour conserver un enregistrement de vos essais dans les itérations de l’expérience.
 > 
-> Pour plus d’informations, consultez [Gérer des itérations d’expériences dans Azure Machine Learning Studio](manage-experiment-iterations.md).  
+> Pour plus d’informations, consultez [Gérer des itérations d’expériences dans Azure Machine Learning Studio (classique)](manage-experiment-iterations.md).  
 > 
 > 
 

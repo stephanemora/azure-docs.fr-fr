@@ -1,23 +1,23 @@
 ---
 title: Travaux du service Azure Batch
-titleSuffix: Azure Machine Learning Studio
-description: Vue d’ensemble des services Azure Batch pour les travaux Machine Learning Studio. Le traitement par pool Batch vous permet de créer des pools dans lesquels vous pouvez soumettre des programmes de traitement par lots.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Vue d’ensemble des services Azure Batch pour les travaux Machine Learning Studio (classique). Le traitement par pool Batch vous permet de créer des pools dans lesquels vous pouvez soumettre des programmes de traitement par lots.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 24efa3caba3918a38c09b1c921c600b117dedbc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751152"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493039"
 ---
-# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Service Azure Batch pour les travaux Azure Machine Learning Studio
+# <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Service Azure Batch pour les travaux Azure Machine Learning Studio (classique)
 
 Le traitement par pool Batch de Machine Learning utilise une échelle gérée par le client pour le service d’exécution de lot d’Azure Machine Learning. Le traitement par lots classique pour Machine Learning a lieu dans un environnement multi-clients, qui limite le nombre de travaux simultanés que vous pouvez soumettre. Les travaux sont mis en file d’attente d’après le principe premier entré, premier sorti. Cette incertitude signifie que vous ne pouvez pas prédire précisément à quel moment votre travail sera exécuté.
 

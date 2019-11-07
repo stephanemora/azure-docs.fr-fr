@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 62ec5d4e85a6e72982b49872af59e7b579c4fd77
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249385"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496267"
 ---
 # <a name="sql-database-release-notes"></a>Notes de publication SQL Database
 
@@ -26,6 +26,7 @@ Cet article répertorie les fonctionnalités SQL Database actuellement en préve
 
 | Fonctionnalité | Détails |
 | ---| --- |
+| Nouvelles générations de matériel de série Fsv2 et de série M| Pour plus d’informations, consultez [Générations de matériel](sql-database-service-tiers-vcore.md#hardware-generations).|
 | [Liaison privée Azure](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Le service Liaison privée simplifie l’architecture réseau et sécurise la connexion entre les points de terminaison dans Azure en conservant les données sur le réseau Azure, éliminant ainsi l’exposition à Internet. Liaison privée vous permet également de créer vos propres services et d’assurer leur rendu dans Azure. |
 | Récupération de base de données accélérée à l’aide de bases de données uniques et de pools élastiques | Pour plus d’informations, consultez [Récupération de base de données accélérée](sql-database-accelerated-database-recovery.md).|
 |Comptage approximatif des valeurs distinctes|Pour plus d’informations, consultez [Comptage approximatif des valeurs distinctes](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
@@ -37,7 +38,6 @@ Cet article répertorie les fonctionnalités SQL Database actuellement en préve
 |Rétroaction d’allocation de mémoire (Mode ligne) (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Rétroaction d’allocation de mémoire (Mode ligne)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
 | Éditeur de requête dans le portail Azure |Pour plus d’informations, consultez [Utiliser l’éditeur de requête SQL du portail Azure pour se connecter aux données et les interroger](sql-database-connect-query-portal.md).|
 | Services R / machine learning avec des bases de données uniques et des pools élastiques |Pour plus d’informations, consultez [Machine Learning Services dans Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
-| Niveau de calcul serverless | Pour plus d’informations, consultez [SQL Database serverless (préversion)](sql-database-serverless.md).|
 |SQL Analytics|Pour plus d’informations, consultez [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).|
 |Compilation différée des variables de table (sous le niveau de compatibilité 150)|Pour plus d’informations, consultez [Compilation différée des variables de table](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
 | &nbsp; |

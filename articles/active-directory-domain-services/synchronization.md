@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 88a5e5fa1267e834a04c46ed38868cf74acd9bb0
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 7d4546a6d2de01575825154ab30a909b76b3fc89
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171930"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474484"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Synchronisation des objets et des informations d’identification dans un domaine managé Azure AD Domain Services
 
-Les objets et les informations d’identification d’un domaine managé Azure Active Directory Domain Services (AD DS) peuvent être créés localement dans le domaine ou synchronisés à partir d’un locataire Azure Active Directory (AD). Lorsque vous déployez Azure AD DS pour la première fois, une synchronisation automatique à sens unique est configurée et démarrée pour répliquer les objets à partir d’Azure AD. Cette synchronisation unidirectionnelle continue à s’exécuter en arrière-plan pour maintenir à jour le domaine managé Azure AD DS avec les modifications apportées par Azure AD.
+Les objets et les informations d’identification d’un domaine managé Azure Active Directory Domain Services (AD DS) peuvent être créés localement dans le domaine ou synchronisés à partir d’un locataire Azure Active Directory (Azure AD). Lorsque vous déployez Azure AD DS pour la première fois, une synchronisation automatique à sens unique est configurée et démarrée pour répliquer les objets à partir d’Azure AD. Cette synchronisation unidirectionnelle continue à s’exécuter en arrière-plan pour maintenir à jour le domaine managé Azure AD DS avec les modifications apportées par Azure AD. Aucune synchronisation n’est effectuée à partir d’Azure AD DS vers Azure AD.
 
 Dans un environnement hybride, les objets et les informations d’identification d’un domaine AD DS local peuvent être synchronisés avec Azure AD à l’aide d’Azure AD Connect. Une fois que ces objets sont synchronisés avec succès sur Azure AD, la synchronisation en arrière-plan automatique rend ces objets et informations d’identification disponibles pour les applications utilisant le domaine managé Azure AD DS.
 
@@ -47,7 +47,9 @@ Le tableau suivant répertorie certains attributs courants et la façon dont ils
 | Historique des SID des utilisateurs et groupes | SID d’utilisateur et de groupe principal local | L'attribut *SidHistory* pour les utilisateurs et les groupes dans Azure AD DS est défini de sorte à correspondre au SID de groupe ou d’utilisateur principal correspondant dans un environnement AD DS local. Cette fonctionnalité permet de faciliter la migration des applications sur site vers Azure AD DS, étant donné que vous n’avez pas besoin de redéfinir les ACL des ressources. |
 
 > [!TIP]
-> **Se connecter au domaine managé en utilisant le format UPN** : l’attribut *SAMAccountName*, tel que `CONTOSO\driley`, peut être généré automatiquement pour certains comptes d’utilisateurs dans un domaine managé Azure AD DS. La valeur de *SAMAccountName* générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier, donc n’est pas toujours un moyen fiable de se connecter. Par exemple, si plusieurs utilisateurs ont le même attribut *mailNickname* ou si des utilisateurs ont des préfixes UPN anormalement longs, la valeur *SAMAccountName* pour ces utilisateurs peut être générée automatiquement. Utilisez le format UPN, tel que `driley@contoso.com`, pour vous connecter de manière fiable à un domaine managé Azure AD DS.
+> **Se connecter au domaine managé en utilisant le format UPN** : l’attribut *SAMAccountName*, tel que `CONTOSO\driley`, peut être généré automatiquement pour certains comptes d’utilisateurs dans un domaine managé Azure AD DS. La valeur de *SAMAccountName* générée automatiquement pour l’utilisateur peut différer du préfixe UPN de ce dernier, donc n’est pas toujours un moyen fiable de se connecter.
+>
+> Par exemple, si plusieurs utilisateurs ont le même attribut *mailNickname* ou si des utilisateurs ont des préfixes UPN anormalement longs, la valeur *SAMAccountName* pour ces utilisateurs peut être générée automatiquement. Utilisez le format UPN, tel que `driley@contoso.com`, pour vous connecter de manière fiable à un domaine managé Azure AD DS.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>Mappage d’attributs pour les comptes d’utilisateur
 
@@ -112,7 +114,7 @@ Comme nous l’avons vu précédemment, il n’existe aucune synchronisation d�
 
 ## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Éléments qui ne sont pas synchronisés avec Azure AD DS
 
-Les objets ou attributs suivants ne sont pas synchronisés avec Azure AD ou Azure AD DS :
+Les objets ou attributs suivants ne sont pas synchronisés à partir d’un environnement AD DS local vers Azure AD ou Azure AD DS :
 
 * **Exlure les attributs :** Vous pouvez choisir d’exclure certains attributs de la synchronisation avec Azure AD à partir d’un environnement AD DS local à l’aide d’Azure AD Connect. Ces attributs exclus ne sont alors pas disponibles dans Azure AD DS.
 * **Stratégies de groupe :** Les stratégies de groupe configurées dans un environnement AD DS local ne sont pas synchronisées avec Azure AD DS.

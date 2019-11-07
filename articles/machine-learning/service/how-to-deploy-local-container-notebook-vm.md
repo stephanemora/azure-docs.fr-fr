@@ -1,7 +1,7 @@
 ---
-title: Guide pratique pour déployer des modèles sur des machines virtuelles Notebook
+title: Comment déployer des modèles sur des instances de calcul
 titleSuffix: Azure Machine Learning
-description: Découvrez comment déployer vos modèles Azure Machine Learning en tant que service web en utilisant des machines virtuelles Notebook.
+description: Découvrez comment déployer vos modèles Azure Machine Learning en tant que service web en utilisant des instances de calcul.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,33 +9,39 @@ ms.topic: conceptual
 ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
-ms.date: 08/08/2019
-ms.openlocfilehash: 046f998038c47a48a8528bf36d87ac836395eec2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 10/25/2019
+ms.openlocfilehash: bb187826250b3edc9ac3d9e36a243d75819a45b3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002824"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496877"
 ---
-# <a name="deploy-a-model-to-notebook-vms"></a>Déployer un modèle sur des machines virtuelles Notebook
+# <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Déployer un modèle sur des instances de calcul Azure Machine Learning
 
-Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en tant que service web sur votre machine virtuelle Notebook. Utilisez les machines virtuelles Notebook si l’une des conditions suivantes est vraie :
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
+> [!NOTE]
+> Les instances de calcul sont disponibles uniquement pour les espaces de travail dont la région est **USA Centre Nord** ou **Royaume-Uni Sud**.
+>Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle de notebooks](concept-compute-instance.md#notebookvm) à la place.  Vous pouvez déployer un modèle sur une instance de calcul ou sur une machine virtuelle de notebooks à l’aide des étapes décrites dans cet article.
+
+Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en tant que service web sur l’instance de calcul Azure Machine Learning. Utilisez des instances de calcul si l’une des conditions suivantes est vraie :
 
 - Vous avez besoin de déployer et de valider rapidement votre modèle.
 - Vous testez un modèle en cours de développement.
 
 > [!TIP]
-> Le déploiement d’un modèle d’un notebook Jupyter sur une machine virtuelle Notebook vers un service web sur la même machine virtuelle est un _déploiement local_. Dans ce cas, l’ordinateur « local » est la machine virtuelle Notebook. Pour plus d’informations sur les déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
+> Le déploiement d’un modèle à partir d’un Jupyter Notebook sur une instance de calcul vers un service web sur la même machine virtuelle est un _déploiement local_. Dans ce cas, l’ordinateur « local » est l’instance de calcul. Pour plus d’informations sur les déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un espace de travail Azure Machine Learning avec une machine virtuelle Notebook en cours d’exécution. Pour plus d’informations, consultez [Configuration de l’environnement et de l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
+- Un espace de travail Azure Machine Learning avec une instance de calcul en cours d’exécution. Pour plus d’informations, consultez [Configuration de l’environnement et de l’espace de travail](tutorial-1st-experiment-sdk-setup.md).
 
-## <a name="deploy-to-the-notebook-vms"></a>Déployer sur des machines virtuelles Notebook
+## <a name="deploy-to-the-compute-instances"></a>Déploiement sur des instances de calcul
 
-Un exemple de notebook illustrant les déploiements locaux est inclus sur votre machine virtuelle Notebook. Utilisez les étapes suivantes pour charger le notebook et déployer le modèle en tant que service web sur la machine virtuelle :
+Un exemple de notebook illustrant les déploiements locaux est inclus sur votre instance de calcul. Utilisez les étapes suivantes pour charger le notebook et déployer le modèle en tant que service web sur la machine virtuelle :
 
-1. À partir du [portail Azure](https://portal.azure.com), sélectionnez vos machines virtuelles Notebook Azure Machine Learning.
+1. Dans [Azure Machine Learning Studio](https://ml.azure.com), sélectionnez vos instances de calcul Azure Machine Learning.
 
 1. Ouvrez le sous-répertoire `samples-*`, puis ouvrez `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Une fois ouvert, exécutez le notebook.
 
@@ -45,7 +51,13 @@ Un exemple de notebook illustrant les déploiements locaux est inclus sur votre 
 
     ![Capture d’écran du port du service local en cours d’exécution](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. Pour tester le service à partir de la machine virtuelle Notebook, utilisez l’URL `https://localhost:<local_service.port>`. Pour effectuer un test à partir d’un client distant, obtenez l’URL publique du service en cours d’exécution sur la machine virtuelle Notebook. L’URL publique peut être déterminée à l’aide de la formule suivante : `https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. Par exemple : `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score`.
+1. Pour tester le service à partir d’une instance de calcul, utilisez l’URL `https://localhost:<local_service.port>`. Pour effectuer un test à partir d’un client distant, récupérez l’URL publique du service en cours d’exécution sur l’instance de calcul. L’URL publique peut être déterminée à l’aide de la formule suivante : 
+    * Machine virtuelle de notebooks : `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
+    * Instance de calcul : `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
+    
+    Par exemple, 
+    * Machine virtuelle de notebooks : `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Instance de calcul : `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## <a name="test-the-service"></a>Testez le service
 
@@ -61,7 +73,8 @@ test_sample = json.dumps({'data': [
 test_sample = bytes(test_sample,encoding = 'utf8')
 access_token = "your bearer token"
 headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
-service_url = "https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score"
+service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
+# for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
 print("prediction:", resp.text)
 ```

@@ -8,18 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958549"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474520"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrez les objets de stratégie de groupe sur un domaine managé Azure AD Domain Services
 
 Les paramètres des objets utilisateur et ordinateur dans Azure Active Directory Domain Services (Azure AD DS) sont souvent managés à l’aide d’objets de stratégie de groupe (GPO). Azure AD DS inclut des objets de stratégie de groupe intégrés pour les conteneurs *Utilisateurs AADDC* et *Ordinateurs AADDC*. Vous pouvez personnaliser ces objets de stratégie de groupe intégrés pour configurer la stratégie de groupe selon les besoins de votre environnement. Les membres du groupe *Administrateurs Azure AD DC* disposent de privilèges d’administration de stratégie de groupe pour le domaine managé Azure AD DS et peuvent également créer des objets de stratégie de groupe et des unités d’organisation (OU) personnalisés. Pour plus d’informations sur les stratégie de groupe et son fonctionnement, consultez la page [Vue d’ensemble de la stratégie de groupe][group-policy-overview].
+
+Dans un environnement hybride, les stratégies de groupe configurées dans un environnement AD DS local ne sont pas synchronisées avec Azure AD DS. Pour définir les paramètres de configuration des utilisateurs ou des ordinateurs dans Azure AD DS, modifiez l’un des objets de stratégie de groupe par défaut ou créez un objet de stratégie de groupe personnalisé.
 
 Cet article indique comment installer les outils de gestion de stratégie de groupe, modifier les objets de stratégie de groupe intégrés et créer des objets de stratégie de groupe personnalisés.
 
@@ -80,7 +82,7 @@ Il existe deux objets de stratégie de groupe (GPO) intégrés dans un domaine m
 
     ![Objets de stratégie de groupe intégrés appliqués aux conteneurs « Ordinateurs AADDC » et « Utilisateurs AADDC » par défaut](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 
-1. Ces objets de stratégie de groupe intégrés peuvent être personnalisés pour configurer des stratégies de groupe particulières sur votre domaine managé Azure AD DS. Cliquez avec le bouton droit sur l’un des objets de stratégie de groupe, tel que *Objets de stratégie de groupe ordinateurs AADDC*, puis sélectionnez **Modifez…** .
+1. Ces objets de stratégie de groupe intégrés peuvent être personnalisés pour configurer des stratégies de groupe particulières sur votre domaine managé Azure AD DS. Cliquez avec le bouton droit sur l’un des objets de stratégie de groupe, tel que *Objets de stratégie de groupe ordinateurs AADDC*, puis choisissez **Modifier...** .
 
     ![Choisissez l’option permettant de « modifier » l’un des objets de stratégie de groupe intégrés](./media/active-directory-domain-services-admin-guide/edit-builtin-gpo.png)
 

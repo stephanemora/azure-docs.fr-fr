@@ -1,5 +1,5 @@
 ---
-title: 'Échec du débogage du travail Spark avec le kit de ressources Azure pour IntelliJ (préversion) '
+title: Travail de débogage Spark avec le kit de ressources Azure pour IntelliJ (préversion)-HDInsight
 description: Conseils d’utilisation de HDInsight Tools dans le kit de ressources Azure pour IntelliJ afin de déboguer des applications
 keywords: déboguer à distance intellij, débogage à distance intellij, ssh, intellij, hdinsight, déboguer intellij, débogage
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 0275cd6ff83fd5fdcc75c8b88602e8943f9504dd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266163"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494595"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Échec du débogage du travail Spark avec le kit de ressources Azure pour IntelliJ (préversion)
 

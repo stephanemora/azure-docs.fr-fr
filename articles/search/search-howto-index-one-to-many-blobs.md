@@ -1,5 +1,6 @@
 ---
 title: Indexer un blob en plusieurs documents d’index de recherche à partir de l’indexeur d’objets blob Azure pour la recherche en texte intégral
+titleSuffix: Azure Cognitive Search
 description: Analysez les objets blob Azure à la recherche de contenu textuel à l’aide de l’indexeur d’objets blob de la Recherche cognitive Azure. Chaque objet blob peut contenir un ou plusieurs documents d’index de recherche.
 manager: nitinme
 author: arv100kri
@@ -8,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ec7796f19df8d58831b442adeae02b54223799c1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 863d38f6ea0f071a1c1a6678d025ec5b37a306dc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793727"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466426"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexation d’objets blob pour produire plusieurs documents de recherche
 Par défaut, un indexeur d’objets blob traite le contenu d’un objet blob comme un document de recherche unique. Certaines valeurs **parsingMode** prennent en charge les scénarios où un objet blob individuel peut entraîner plusieurs documents de recherche. Les différents types de **parsingMode** qui permettent à un indexeur d’extraire plusieurs documents de recherche à partir d’un objet blob sont les suivants :
@@ -98,7 +99,7 @@ Si vous ne souhaitez pas configurer un mappage de champs explicite, assurez-vous
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous n’êtes pas déjà familiarisé avec la structure et le flux de travail de base de l’indexation d’objets BLOB, vous devez passer en revue [Indexation du stockage d’objets blob Azure avec la Recherche cognitive Azure](search-howto-index-json-blobs.md) en premier. Pour plus d’informations sur les modes d’analyse pour les différents types de contenu blob, consultez les articles suivants.
+Si vous n’êtes pas déjà familiarisé avec la structure et le flux de travail de base de l’indexation d’objets BLOB, vous devez passer en revue [Indexation du stockage d’objets blob Azure avec la Recherche Azure](search-howto-index-json-blobs.md) en premier. Pour plus d’informations sur les modes d’analyse pour les différents types de contenu blob, consultez les articles suivants.
 
 > [!div class="nextstepaction"]
 > [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md)

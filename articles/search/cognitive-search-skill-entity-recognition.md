@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792005"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479751"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités
 
@@ -39,9 +39,8 @@ Les paramètres respectent la casse et sont tous facultatifs.
 |--------------------|-------------|
 | categories    | Tableau des catégories à extraire.  Types de catégorie possibles : `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Si aucune catégorie n’est précisée, tous les types sont retournés.|
 |defaultLanguageCode |  Code de langue du texte d’entrée. Langues prises en charge : `de, en, es, fr, it`.|
-|minimumPrecision | Non utilisé. Réservé pour un usage futur. |
-|includeTypelessEntities | Lorsque la valeur est true si le texte contient une entité connue, mais ne peut pas être classé dans les catégories prises en charge, il est retourné dans le cadre du champ de sortie complexe `"entities"`. 
-Il s’agit d’entités qui sont bien connues, mais non classées dans le cadre des « catégories » prises en charge actuelles. Par exemple, « Windows 10 » est une entité bien connue (un produit), mais les « Produits » ne font pas partie des catégories actuellement prises en charge. La valeur par défaut est `false`. |
+|minimumPrecision | Valeur comprise entre 0 et 1 Si le score de confiance (dans la sortie `namedEntities`) est inférieur à cette valeur, l’entité n’est pas retournée. La valeur par défaut est 0. |
+|includeTypelessEntities | Affectez la valeur `true` si vous souhaitez reconnaître les entités connues qui ne correspondent pas aux catégories actuelles. Les entités reconnues sont retournées dans le champ de sortie complexe `entities`. Par exemple, « Windows 10 » est une entité bien connue (un produit), mais étant donné que la catégorie « Produits » n’est pas prise en charge, cette entité est incluse dans le champ de sortie des entités. La valeur par défaut est `false`. |
 
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
@@ -65,7 +64,7 @@ Il s’agit d’entités qui sont bien connues, mais non classées dans le cadre
 | dateTimes  | Tableau de chaînes représentant chacune une valeur DateTime (telle qu’elle apparaît dans le texte). |
 | urls | Tableau de chaînes représentant chacune une URL. |
 | emails | Tableau de chaînes représentant chacune un e-mail. |
-| namedEntities | Tableau de types complexes contenant les champs suivants : <ul><li>category</li> <li>la valeur (le nom réel de l’entité) ;</li><li>le décalage (l’emplacement où elle a été trouvée dans le texte) ;</li><li>confidence (non utilisé pour l’instant ; sera défini sur la valeur -1)</li></ul> |
+| namedEntities | Tableau de types complexes contenant les champs suivants : <ul><li>category</li> <li>la valeur (le nom réel de l’entité) ;</li><li>le décalage (l’emplacement où elle a été trouvée dans le texte) ;</li><li>confiance (une valeur plus élevée signifie qu’il s’agit d’une entité réelle)</li></ul> |
 | entities | Tableau de types complexes contenant des informations détaillées sur les entités extraites du texte, avec les champs suivants <ul><li> name (nom réel de l’entité ; il représente une forme « normalisée »)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (lien vers la page Wikipedia relative à l’entité)</li><li>bingId</li><li>type (catégorie de l’entité reconnue)</li><li>subType (disponible uniquement pour certaines catégories ; il offre une vue plus précise du type d’entité)</li><li> matches (collection complexe contenant)<ul><li>text (texte brut pour l’entité)</li><li>offset (emplacement où cela a été trouvé)</li><li>length (longueur du texte brut d’entité)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Exemple de définition
@@ -76,6 +75,7 @@ Il s’agit d’entités qui sont bien connues, mais non classées dans le cadre
     "categories": [ "Person", "Email"],
     "defaultLanguageCode": "en",
     "includeTypelessEntities": true,
+    "minimumPrecision": 0.5,
     "inputs": [
       {
         "name": "text",
@@ -131,7 +131,7 @@ Il s’agit d’entités qui sont bien connues, mais non classées dans le cadre
             "category":"Person",
             "value": "John Smith",
             "offset": 35,
-            "confidence": -1
+            "confidence": 0.98
           }
         ],
         "entities":  

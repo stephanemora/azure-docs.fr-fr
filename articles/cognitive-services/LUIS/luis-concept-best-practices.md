@@ -9,41 +9,42 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 91ff99f674439580d369aad1490ded85d39d377c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 64d67edaf5affbc908fba7b6c261096589bc84d0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382889"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487623"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Bonnes pratiques pour la création d’une application Language Understanding avec Cognitive Services
 Suivez le processus de création d’applications pour générer votre application LUIS : 
 
-* Générer un modèle de langage
-* Ajouter quelques exemples d’énoncés d’apprentissage (10-15 par intention)
-* Publish 
+* Créer des modèles de langage (intentions et entités)
+* Ajouter quelques exemples d’énoncés d’entraînement (15-30 par intention)
+* Publier sur le point de terminaison
 * Tester à partir du point de terminaison 
-* Ajouter des fonctionnalités
 
-Une fois votre application [publiée](luis-how-to-publish-app.md), utilisez le cycle de création pour y ajouter des fonctionnalités, la publier et la tester à partir du point de terminaison. Ne commencez pas le cycle de création suivant en ajoutant d’autres exemples d’énoncés. LUIS ne pourrait pas apprendre votre modèle avec des énoncés d’utilisateurs réels. 
+Une fois votre application [publiée](luis-how-to-publish-app.md), utilisez le cycle de développement pour y ajouter des fonctionnalités, la publier et la tester à partir du point de terminaison. Ne commencez pas le cycle de création suivant en ajoutant des exemples d’énoncés supplémentaires, car LUIS ne pourrait pas apprendre votre modèle avec des énoncés d’utilisateurs réels. 
 
-Pour que LUIS soit efficace dans sa tâche d’apprentissage, ne développez pas les énoncés tant que le jeu actuel d’exemples d’énoncés et d’énoncés du point de terminaison ne retourne pas des scores sûrs à haute valeur prédictive. Améliorez les résultats à l’aide de l’[apprentissage actif](luis-concept-review-endpoint-utterances.md), de [modèles](luis-concept-patterns.md) et de [listes d’expressions](luis-concept-feature.md). 
+Ne développez pas les énoncés tant que le jeu actuel d’exemples d’énoncés et d’énoncés du point de terminaison ne retourne pas des scores sûrs à haute valeur prédictive. Améliorez les scores à l’aide de l’[apprentissage actif](luis-concept-review-endpoint-utterances.md). 
+
+
+
 
 ## <a name="do-and-dont"></a>Bonnes et mauvaises pratiques
 La liste suivante indique les meilleures pratiques pour les applications LUIS :
 
 |À faire|À ne pas faire|
 |--|--|
-|[Définir des intentions distinctes](#do-define-distinct-intents) |[Ajouter de nombreux exemples d’énoncés aux intentions](#dont-add-many-example-utterances-to-intents) |
+|[Définir des intentions distinctes](#do-define-distinct-intents)<br>[Ajouter des descripteurs aux intentions](#do-add-descriptors-to-intents) |[Ajouter de nombreux exemples d’énoncés aux intentions](#dont-add-many-example-utterances-to-intents)<br>[Utiliser peu d’entités ou des entités simples](#dont-use-few-or-simple-entities) |
 |[Trouver l’équilibre idéal, ni trop générique ni trop spécifique, pour chaque intention](#do-find-sweet-spot-for-intents)|[Utiliser LUIS comme plateforme d’apprentissage](#dont-use-luis-as-a-training-platform)|
-|[Générer l’application de manière itérative](#do-build-the-app-iteratively)|[Ajouter de nombreux exemples d’énoncés du même format, en ignorant les autres formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[Ajouter des listes d’expression et des modèles dans les itérations ultérieures](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Mélanger la définition des intentions et des entités](#dont-mix-the-definition-of-intents-and-entities)|
-|[Équilibrer vos énoncés entre toutes les intentions](#balance-your-utterances-across-all-intents), sauf l’intention None.<br>[Ajouter des exemples d’énoncés à l’intention None](#do-add-example-utterances-to-none-intent)|[Créer des listes d’expressions avec toutes les valeurs possibles](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[Générer l’application de manière itérative avec des versions](#do-build-your-app-iteratively-with-versions)<br>[Générer des entités pour la décomposition du modèle](#do-build-for-model-decomposition)|[Ajouter de nombreux exemples d’énoncés du même format, en ignorant les autres formats](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Ajouter des modèles dans les itérations ultérieures](#do-add-patterns-in-later-iterations)|[Mélanger la définition des intentions et des entités](#dont-mix-the-definition-of-intents-and-entities)|
+|[Équilibrer vos énoncés entre toutes les intentions](#balance-your-utterances-across-all-intents), sauf l’intention None.<br>[Ajouter des exemples d’énoncés à l’intention None](#do-add-example-utterances-to-none-intent)|[Créer des descripteurs avec toutes les valeurs possibles](#dont-create-descriptors-with-all-the-possible-values)|
 |[Tirer parti de la fonctionnalité de suggestion pour l’apprentissage actif](#do-leverage-the-suggest-feature-for-active-learning)|[Ajouter trop de modèles](#dont-add-many-patterns).|
-|[Analyser les performances de l’application](#do-monitor-the-performance-of-your-app)|[Effectuer l’apprentissage et publier à chaque ajout d’exemple d’énoncé](#dont-train-and-publish-with-every-single-example-utterance)|
-|[Utiliser des versions pour chaque itération de l’application](#do-use-versions-for-each-app-iteration)||
+|[Analyser les performances de l’application avec des tests par lots](#do-monitor-the-performance-of-your-app)|[Effectuer l’apprentissage et publier à chaque ajout d’exemple d’énoncé](#dont-train-and-publish-with-every-single-example-utterance)|
 
 ## <a name="do-define-distinct-intents"></a>Définir des intentions distinctes
 Le vocabulaire de chaque intention doit porter uniquement sur cette intention, sans chevauchement avec une autre. Par exemple, si vous souhaitez disposer d’une application qui gère les préparatifs de voyage, comme les vols et les hôtels, vous pouvez choisir de faire de ces domaines des intentions distinctes ou une même intention avec des entités pour les données précises à l’intérieur de l’énoncé.
@@ -57,57 +58,78 @@ Prenons les exemples d’énoncés suivants :
 |Book a flight|
 |Book a hotel|
 
-« Book a flight » (« Réserver un vol ») et « Book a hotel » (« Réserver un hôtel ») utilisent le même vocabulaire « Book a » (« Réserver un »). Le format étant le même, il doit s’agir de la même intention avec différentes entités extraites pour les mots « flight » (« vol ») et « hotel » (« hôtel »). 
+`Book a flight` et `Book a hotel` utilisent le même vocabulaire de `book a `. Le format étant le même, il doit s’agir de la même intention avec différentes entités extraites pour les mots `flight` et `hotel`. 
 
-Pour plus d'informations :
-* Concept : [Concepts relatifs aux intentions dans votre application LUIS](luis-concept-intent.md)
-* Didacticiel : [Générer une application LUIS pour déterminer les intentions d’un utilisateur](luis-quickstart-intents-only.md)
-* Activation [Ajouter des intentions pour déterminer l’intention de l’utilisateur des énoncés](luis-how-to-add-intents.md)
+## <a name="do-add-descriptors-to-intents"></a>Ajouter des descripteurs aux intentions
 
+Les descripteurs aident à décrire les fonctionnalités d’une intention. Un descripteur peut être une liste d’expressions de mots significatifs pour cette intention ou une entité significative pour cette intention. 
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Trouver l’équilibre idéal pour les intentions
 Utilisez les données de prédiction de LUIS pour déterminer si vos intentions se chevauchent, ce qui serait source de confusion pour LUIS. La meilleure intention serait alors trop proche d’une autre intention. Dans la mesure où LUIS n’utilise pas à chaque fois le même chemin d’accès à travers les données pour l’apprentissage, l’intention présentant un recoupement a des chances de finir première ou deuxième lors de l’apprentissage. Pour éviter cela, il faut que le score de l’énoncé de chaque intention soit plus éloigné. Lorsque les intentions sont bien distinctes les unes des autres, la meilleure intention devrait être à chaque fois conforme aux attentes. 
  
-## <a name="do-build-the-app-iteratively"></a>Générer l’application de manière itérative
-Conservez un jeu distinct d’énoncés ne servant pas d’[exemples d’énoncés](luis-concept-utterance.md) ou d’énoncés du point de terminaison. Continuez à améliorer l’application pour votre jeu de test. Adaptez celui-ci de façon à refléter les énoncés d’utilisateurs réels. Utilisez ce jeu de test pour évaluer chaque itération ou version de l’application. 
+<a name="#do-build-the-app-iteratively"></a>
 
-Les développeurs doivent avoir trois jeux de données : les exemples d’énoncés servant à générer le modèle, un jeu permettant de tester le modèle au point de terminaison et les données de test aveugle utilisées dans les [tests par lots](luis-how-to-batch-test.md). Ce dernier jeu n’est ni utilisé pour entraîner l’application ni envoyé sur le point de terminaison.  
+## <a name="do-build-your-app-iteratively-with-versions"></a>Générer l’application de manière itérative avec des versions
 
-Pour plus d'informations :
-* Concept : [Cycle de création de votre application LUIS](luis-concept-app-iteration.md)
+Chaque cycle de création doit figurer dans une nouvelle [version](luis-concept-version.md), clonée à partir d’une version existante. 
 
-## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Ajouter des listes d’expressions et des modèles dans les itérations ultérieures
+## <a name="do-build-for-model-decomposition"></a>Générer des entités pour la décomposition du modèle
 
-Il est préférable de ne pas appliquer ces pratiques tant que votre application n'a pas été testée. Vous devez comprendre le comportement de l’application avant d’ajouter des [modèles](luis-concept-feature.md) et des [listes d’expression](luis-concept-patterns.md), car ces fonctionnalités sont pondérées plus fortement que les exemples d’énoncés et fausseront la confiance. 
+La décomposition du modèle comprend un processus type :
 
-Cela permet de comprendre comment votre application se comporte sans ces éléments ; vous pouvez ensuite ajouter ces fonctionnalités selon les besoins. Il n'est pas nécessaire d'ajouter ces fonctionnalités à chaque [itération](luis-concept-app-iteration.md) ou de les modifier à chaque version. 
+* créer une **Intention** en fonction des intentions de l’utilisateur de l’application cliente
+* ajouter 15-30 exemples d’énoncés basés sur une entrée utilisateur réelle
+* étiqueter le concept de données de niveau supérieur dans l’exemple d’énoncé
+* fractionner le concept de données en sous-composants
+* ajouter des descripteurs (fonctionnalités) à des sous-composants
+* ajouter des descripteurs (fonctionnalités) à une intention 
 
-Rien ne vous empêche de les ajouter au début de la conception de votre modèle, mais il est plus aisé de constater les changements produits par chaque fonctionnalité une fois le modèle testé avec des énoncés. 
+Une fois que vous avez créé l’intention et ajouté des exemples d’énoncés, l’exemple suivant décrit la décomposition d’entité. 
 
-Une bonne pratique consiste à le tester via le [point de terminaison](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) pour bénéficier de l'avantage supplémentaire qu'offre l'[apprentissage actif](luis-concept-review-endpoint-utterances.md). Le [volet de test interactif](luis-interactive-test.md) constitue également une méthodologie de test valide. 
+Commencez par identifier les concepts de données complets que vous souhaitez extraire dans un énoncé. Il s’agit de votre entité issue de l’apprentissage automatique. Décomposez ensuite l’expression en ses parties. Cela comprend l’identification des sous-composants (en tant qu’entités), ainsi que des descripteurs et des contraintes. 
+
+Par exemple, si vous souhaitez extraire une adresse, la première entité issue de l’apprentissage automatique peut être appelée `Address`. Lors de la création de l’adresse, identifiez certains de ses sous-composants, tels que l’adresse postale, la ville, l’État et le code postal. 
+
+Continuez à décomposer ces éléments en **contraignant** le code postal en une expression régulière. Décomposez l’adresse postale en parties d’un numéro de rue (à l’aide d’un numéro prédéfini), d’un nom de rue et d’un type de rue. Le type de rue peut être décrit à l’aide d’une liste **descripteur** comme avenue, cercle, route et voie.
+
+L’API de création V3 permet la décomposition du modèle. 
+
+## <a name="do-add-patterns-in-later-iterations"></a>Ajouter des modèles dans les itérations ultérieures
+
+Vous devez comprendre le comportement de l’application avant d’ajouter des [modèles](luis-concept-patterns.md) car les modèles sont pondérés plus fortement que les exemples d’énoncés et fausseront la confiance. 
+
+Une fois que vous comprenez le comportement de votre application, ajoutez des modèles tels qu’ils s’appliquent à votre application. Vous n’avez pas besoin de les ajouter avec chaque [itération](luis-concept-app-iteration.md). 
+
+Rien ne vous empêche de les ajouter au début de la conception de votre modèle, mais il est plus aisé de constater les changements produits par chaque modèle une fois le modèle testé avec des énoncés. 
  
+<!--
 
-### <a name="phrase-lists"></a>Listes d’expressions
+### Phrase lists
 
-Les [listes d’expressions](luis-concept-feature.md) vous permettent de définir des dictionnaires de mots liés à votre domaine d’application. Commencez par créer une liste d’expressions de quelques mots, puis utiliser la fonctionnalité de suggestion pour que LUIS connaisse d’autres mots de vocabulaire spécifiques à votre application. Une Liste d'expressions améliore la détection des intentions et la classification des entités en renforçant le signal associé aux mots ou expressions significatifs pour votre application. 
+[Phrase lists](luis-concept-feature.md) allow you to define dictionaries of words related to your app domain. Seed your phrase list with a few words then use the suggest feature so LUIS knows about more words in the vocabulary specific to your app. A Phrase List improves intent detection and entity classification by boosting the signal associated with words or phrases that are significant to your app. 
 
-N’ajoutez pas tous les mots au vocabulaire, car la liste d’expressions ne fonctionne pas par correspondance exacte. 
+Don't add every word to the vocabulary since the phrase list isn't an exact match. 
 
-Pour plus d'informations :
-* Concept : [Caractéristiques de liste d’expressions dans votre application LUIS](luis-concept-feature.md)
-* Procédure : [Utiliser des listes d’expressions pour améliorer le signal de liste de mots](luis-how-to-add-features.md)
+For more information:
+* Concept: [Phrase list features in your LUIS app](luis-concept-feature.md)
+* How-to: [Use phrase lists to boost signal of word list](luis-how-to-add-features.md)
 
-### <a name="patterns"></a>Modèles
 
-Les énoncés d’utilisateurs réels du point de terminaison, très similaires les uns aux autres, peuvent révéler des motifs dans le choix et la place des mots. La fonctionnalité [modèle](luis-concept-patterns.md) s’appuie sur ces motifs et sur des expressions régulières pour améliorer la précision des prédictions. L’ajout d’une expression régulière au modèle permet d’ignorer certains mots et signes de ponctuation tout en préservant la correspondance avec le modèle. 
 
-Utilisez la [syntaxe facultative](luis-concept-patterns.md) du modèle afin d’ignorer la ponctuation. Utilisez la [liste explicite](luis-concept-patterns.md#explicit-lists) pour compenser les problèmes de syntaxe pattern.any. 
+### Patterns
 
-Pour plus d'informations :
-* Concept : [Les modèles améliorent la précision de la prédiction](luis-concept-patterns.md)
-* Procédure : [Comment ajouter des modèles pour améliorer la précision de la prédiction](luis-how-to-model-intent-pattern.md)
+Real user utterances from the endpoint, very similar to each other, may reveal patterns of word choice and placement. The [pattern](luis-concept-patterns.md) feature takes this word choice and placement along with regular expressions to improve your prediction accuracy. A regular expression in the pattern allows for words and punctuation you intend to ignore while still matching the pattern. 
 
-## <a name="balance-your-utterances-across-all-intents"></a>Équilibrer vos énoncés entre toutes les intentions
+Use pattern's [optional syntax](luis-concept-patterns.md) for punctuation so punctuation can be ignored. Use the [explicit list](luis-concept-patterns.md#explicit-lists) to compensate for pattern.any syntax issues. 
+
+For more information:
+* Concept: [Patterns improve prediction accuracy](luis-concept-patterns.md)
+* How-to: [How to add Patterns to improve prediction accuracy](luis-how-to-model-intent-pattern.md)
+-->
+
+<a name="balance-your-utterances-across-all-intents"></a>
+
+## <a name="do-balance-your-utterances-across-all-intents"></a>Équilibrer vos énoncés entre toutes les intentions
 
 Pour que LUIS puisse faire des prédictions précises, la quantité d’exemples d’énoncés dans chaque intention (à l’exception de l’intention None) doit être plus ou moins égale. 
 
@@ -115,27 +137,25 @@ Si vous avez une intention avec 100 exemples d’énoncés et une autre avec 20
 
 ## <a name="do-add-example-utterances-to-none-intent"></a>Ajouter des exemples d’énoncés à l’intention None
 
-Cette intention est l’intention de secours, qui indique tout ce qui ne concerne pas l’application. Ajoutez un exemple d’énoncé à l’intention None tous les 10 exemples d’énoncés dans le reste de votre application LUIS.
-
-Pour plus d'informations :
-* Concept : [Comprendre ce que sont les bons énoncés pour votre application LUIS](luis-concept-utterance.md)
+Cette intention est l’intention de secours, et indique tout ce qui ne concerne pas l’application. Ajoutez un exemple d’énoncé à l’intention None tous les 10 exemples d’énoncés dans le reste de votre application LUIS.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Tirer parti de la fonctionnalité de suggestion pour l’apprentissage actif
 
 Utilisez régulièrement la fonctionnalité **Vérifier les énoncés du point de terminaison** de [l’apprentissage actif](luis-how-to-review-endpoint-utterances.md), au lieu d’ajouter d’autres exemples d’énoncés aux intentions. L’application reçoit constamment des énoncés du point de terminaison, ce qui allonge et fait évoluer cette liste.
 
-Pour plus d'informations :
-* Concept : [Concepts pour l’activation de l’apprentissage actif en passant en revue les énoncés de point de terminaison](luis-concept-review-endpoint-utterances.md)
-* Didacticiel : [Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison](luis-tutorial-review-endpoint-utterances.md)
-* Procédure : [Comment passer en revue les énoncés de point de terminaison dans le portail LUIS](luis-how-to-review-endpoint-utterances.md)
-
 ## <a name="do-monitor-the-performance-of-your-app"></a>Analyser les performances de l’application
 
 Supervisez la précision des prédictions à l’aide d’un jeu de [tests par lots](luis-concept-batch-test.md). 
 
+Conservez un jeu distinct d’énoncés ne servant pas d’[exemples d’énoncés](luis-concept-utterance.md) ou d’énoncés du point de terminaison. Continuez à améliorer l’application pour votre jeu de test. Adaptez celui-ci de façon à refléter les énoncés d’utilisateurs réels. Utilisez ce jeu de test pour évaluer chaque itération ou version de l’application. 
+
 ## <a name="dont-add-many-example-utterances-to-intents"></a>Ne pas ajouter de nombreux exemples d’énoncés aux intentions
 
-Une fois l’application publiée, ajoutez seulement des énoncés à partir de l’apprentissage actif selon un processus itératif. S’ils sont trop proches, ajoutez un modèle. 
+Une fois l’application publiée, ajoutez seulement des énoncés à partir de l’apprentissage actif au processus de cycle de développement. S’ils sont trop proches, ajoutez un modèle. 
+
+## <a name="dont-use-few-or-simple-entities"></a>Utiliser peu d’entités ou des entités simples
+
+Des entités sont générées pour l’extraction et la prédiction de données. Il est important que chaque intention comprenne des entités issues de l’apprentissage automatique qui décrivent les données dans l’intention. Cela permet à LUIS de prédire l’intention, même si votre application cliente n’a pas besoin d’utiliser l’entité extraite. 
 
 ## <a name="dont-use-luis-as-a-training-platform"></a>Ne pas utiliser LUIS comme plateforme d’apprentissage
 
@@ -155,11 +175,11 @@ La deuxième colonne utilise différents verbes (acheter, réserver), différent
 
 Créez une intention pour chaque action du bot. Utilisez des entités comme des paramètres qui rendent cette action possible. 
 
-Pour un chatbot qui réserve des vols, créez une intention **RéserverVol**. Ne créez pas une intention pour chaque compagnie aérienne ou chaque destination. Utilisez ces éléments de données comme [entités](luis-concept-entity-types.md) et marquez-les dans les exemples d’énoncés. 
+Pour un bot qui réserve des vols, créez une intention **BookFlight**. Ne créez pas une intention pour chaque compagnie aérienne ou chaque destination. Utilisez ces éléments de données comme [entités](luis-concept-entity-types.md) et marquez-les dans les exemples d’énoncés. 
 
-## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>Ne pas créer des listes d’expressions avec toutes les valeurs possibles
+## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Ne pas créer de descripteurs avec toutes les valeurs possibles
 
-Donnez quelques exemples dans les [listes d’expressions](luis-concept-feature.md), mais pas tous les mots. LUIS généralise et tient compte du contexte. 
+Donnez quelques exemples dans les [listes d’expressions](luis-concept-feature.md) de descripteur, mais pas tous les mots. LUIS généralise et tient compte du contexte. 
 
 ## <a name="dont-add-many-patterns"></a>Ne pas ajouter de nombreux modèles
 
@@ -168,15 +188,6 @@ Donnez quelques exemples dans les [listes d’expressions](luis-concept-feature.
 ## <a name="dont-train-and-publish-with-every-single-example-utterance"></a>Ne pas effectuer l’apprentissage et publier à chaque ajout d’exemple d’énoncé
 
 Ajoutez 10 ou 15 énoncés avant de passer à l’apprentissage et à la publication. Vous pourrez ainsi en voir l’impact sur la précision des prédictions. L’ajout d’un seul énoncé n’aura peut-être pas d’incidence visible sur le score. 
-
-## <a name="do-use-versions-for-each-app-iteration"></a>Ne pas utiliser des versions pour chaque itération de l’application
-
-Chaque cycle de création doit figurer dans une nouvelle [version](luis-concept-version.md), clonée à partir d’une version existante. LUIS ne limite pas les versions. Un nom de version étant utilisé dans le cadre de la route d’API, il est important de choisir des caractères autorisés dans une URL et de ne pas dépasser 10 caractères. Développez une stratégie de nom de version pour organiser vos versions. 
-
-Pour plus d'informations :
-* Concept : [Comprendre comment et quand utiliser une version de LUIS](luis-concept-version.md)
-* Procédure : [Utiliser les versions pour modifier et tester sans impact sur les applications intermédiaires et de production](luis-how-to-manage-versions.md)
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

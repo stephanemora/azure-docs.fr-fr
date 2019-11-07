@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: bb9a9c1d67e52c21d2cb039832d27547a023da9f
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154663"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490881"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Les scores de récompense indiquent la réussite de la personnalisation
 
@@ -71,9 +71,9 @@ Vous pouvez ensuite envoyer la récompense totale à l’API.
 
 ## <a name="calling-the-reward-api-multiple-times"></a>Appeler l’API Reward plusieurs fois
 
-Vous pouvez également appeler l’API Reward en utilisant le même ID d’événement, en envoyant différents scores de récompense. Lorsque Personalizer reçoit ces récompenses, il détermine la récompense finale pour cet événement en les agrégeant tel que spécifié dans les paramètres Personalizer.
+Vous pouvez également appeler l’API Reward en utilisant le même ID d’événement, en envoyant différents scores de récompense. Lorsque Personalizer reçoit ces récompenses, il détermine la récompense finale pour cet événement en les agrégeant tel que spécifié dans la configuration Personalizer.
 
-Paramètres d’agrégation :
+Valeurs d’agrégation :
 
 *  **First** : prend le premier score de récompense reçu pour l’événement et ignore le reste.
 * **Sum** : prend tous les scores de récompense collectés pour l’ID d’événement et les additionne.
@@ -81,10 +81,6 @@ Paramètres d’agrégation :
 Toutes les récompenses pour un événement, qui sont reçues une fois que le **Temps d’attente des récompenses** s’est écoulé, sont ignorées et n’affectent pas l’apprentissage des modèles.
 
 En additionnant les scores de récompense, votre récompense finale peut se trouver en dehors de la plage prévue. Cela n’entraîne pas l’échec du service.
-
-<!--
-@edjez - is the number ignored if it is outside the acceptable range?
--->
 
 ## <a name="best-practices-for-calculating-reward-score"></a>Meilleures pratiques pour le calcul du score de récompense
 
@@ -106,13 +102,11 @@ Personalizer met en corrélation les informations d’un appel Rank avec les ré
 
 Si le **Temps d’attente des récompenses** arrive à expiration et qu’aucune information de récompense n’a été générée, une récompense par défaut est appliquée à cet événement pour apprentissage. La durée d’attente maximale est de 6 jours.
 
-## <a name="best-practices-for-setting-reward-wait-time"></a>Meilleures pratiques pour définir le temps d’attente des récompenses
+## <a name="best-practices-for-reward-wait-time"></a>Meilleures pratiques pour le temps d’attente des récompenses
 
 Suivez ces recommandations pour améliorer les résultats.
 
 * Définissez un temps d’attente des récompenses aussi court que possible, tout en laissant suffisamment de temps pour obtenir des retours des utilisateurs. 
-
-<!--@Edjez - storage quota? -->
 
 * Ne choisissez pas une durée qui est plus courte que le temps nécessaire pour obtenir des commentaires. Par exemple, si certaines de vos récompenses ont lieu une fois qu’un utilisateur a visionné 1 minute d’une vidéo, la longueur de l’expérience doit être au moins le double.
 

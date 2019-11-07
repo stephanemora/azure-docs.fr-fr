@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: afdb5d256c33042655c122e9c84a4ab07c94f14c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327364"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470041"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Didacticiel : Configurer une passerelle d’application avec un arrêt SSL à l’aide du portail Azure
 
@@ -62,7 +62,7 @@ Utilisez [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pk
 > N’utilisez pas de caractères spéciaux dans le mot de passe de votre fichier .pfx. Seuls les caractères alphanumériques sont pris en charge.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +150,7 @@ Sous l’onglet **Configuration**, vous allez connecter le front-end et le pool 
 
    - **Fichier de certificat PFX** : recherchez et sélectionnez le fichier c:\appgwcert.pfx que vous avez créé précédemment.
    - **Nom du certificat** : tapez *mycert1* pour le nom du certificat.
-   - **Mot de passe** : tapez *Azure123456!* pour le mot de passe.
+   - **Mot de passe** : saisissez *Azure123456*.
   
         Acceptez les valeurs par défaut pour les autres paramètres sous l’onglet **Écouteur**, puis sélectionnez l’onglet **Cibles de back-end** pour configurer le reste de la règle de routage.
 
@@ -194,7 +194,7 @@ Pour ce faire, vous allez effectuer les opérations suivantes :
     - **Groupe de ressources** : sélectionnez **myResourceGroupAG** comme nom de groupe de ressources.
     - **Nom de la machine virtuelle** : entrez *myVM* comme nom de machine virtuelle.
     - **Nom d’utilisateur** : entrez *azureuser* comme nom d’utilisateur administrateur.
-    - **Mot de passe** : entrez *Azure123456!* comme mot de passe d’administrateur.
+    - **Mot de passe** : Saisissez *Azure123456* comme mot de passe d’administrateur.
 4. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Disques**.  
 5. Acceptez les valeurs par défaut sous l’onglet **Disques**, puis sélectionnez **Suivant : Mise en réseau**.
 6. Sous l’onglet **Mise en réseau**, vérifiez que **myVNet** est sélectionné comme **Réseau virtuel** et que **Sous-réseau** est défini sur  **myBackendSubnet**. Acceptez les autres valeurs par défaut, puis sélectionnez **Suivant : Gestion**.

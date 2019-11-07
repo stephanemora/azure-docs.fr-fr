@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a917176cb06e833745996326520341c1f819c5bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376267"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465400"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Didacticiel : Extraire des noms avec une entité simple et une liste d’expressions
 
 Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité **Simple**. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
 
 L’entité simple détecte un concept de données unique contenu dans des mots ou des expressions.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -93,7 +95,7 @@ Une fois les entités marquées dans les exemples d’énoncés, il est importan
 
 1. Dans l’énoncé, `I want to apply for the new accounting job`, sélectionnez `accounting`, entrez `Job` dans le premier champ de la liste déroulante, puis sélectionnez **Créer une nouvelle entité** dans le menu contextuel. 
 
-    [![Capture d’écran de LUIS avec l’intention « ApplyForJob »avec les étapes de création de l’entité mises en surbrillance](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Capture d’écran de LUIS avec l’intention « ApplyForJob » avec les étapes de création de l’entité mises en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![Capture d’écran de LUIS avec intention « ApplyForJob » et étapes de création d’entité mises en surbrillance](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Capture d’écran de LUIS avec intention « ApplyForJob » et étapes de création d’entité mises en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 1. Dans la fenêtre contextuelle, vérifiez le nom de l’entité et le type et sélectionnez **Terminé**.
 
@@ -101,7 +103,7 @@ Une fois les entités marquées dans les exemples d’énoncés, il est importan
 
 1. Dans les énoncés restants, marquez les mots liés aux postes avec l’entité **Job** (Poste) en sélectionnant le mot ou l’expression, puis en sélectionnant **Job** dans le menu contextuel. 
 
-    [![Capture d’écran de LUIS avec l’étiquetage d’entité de travail mis en surbrillance](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Capture d’écran de LUIS avec l’étiquetage d’entité de travail mis en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![Capture d’écran de LUIS d’étiquetage des entités de poste mis en surbrillance](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Capture d’écran de LUIS d’étiquetage d’entité de poste mis en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
 
 ## <a name="add-more-example-utterances-and-mark-entity"></a>Ajouter des exemples d’énoncés et marquer l’entité
@@ -231,7 +233,7 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Azure-Samples/cogni
 
 1. Nommez la nouvelle liste d’expressions `JobNames` et copiez la liste depuis jobs-phrase-list.csv vers la zone de texte **Valeurs**.
 
-    [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![Capture d’écran de boîte de dialogue contextuelle de création de nouvelle liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Capture d’écran de boîte de dialogue contextuelle de création de nouvelle liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     Pour ajouter d’autres mots à la liste d’expressions, sélectionnez **Recommand** (Nouvelle commande), puis passez en revue les nouvelles **valeurs associées** et ajoutez celles qui sont pertinentes. 
 
@@ -239,7 +241,7 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Azure-Samples/cogni
 
 1. Sélectionnez **Terminé** pour activer la liste d’expressions.
 
-    [![Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions avec des mots dans la zone de valeurs de liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Capture d’écran de boîte de dialogue contextuelle de création de liste d’expressions avec des mots dans la zone de valeurs de liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![Capture d’écran de boîte de dialogue contextuelle de création de nouvelle liste d’expressions avec des mots dans la zone de valeurs de la liste d’expressions](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Capture d’écran de boîte de dialogue contextuelle de création de nouvelle liste d’expressions avec des mots dans la zone de valeurs de la liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 1. Entraînez et publiez à nouveau l’application pour utiliser la liste d’expressions.
 

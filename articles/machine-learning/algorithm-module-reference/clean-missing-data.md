@@ -1,24 +1,24 @@
 ---
 title: 'Nettoyage des données manquantes : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module de nettoyage des données manquantes dans le service Azure Machine Learning pour supprimer, remplacer ou déduire les valeurs manquantes.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module de nettoyage des données manquantes dans Azure Machine Learning pour supprimer, remplacer ou déduire les valeurs manquantes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: fef8cb0c29eac4b26b93abee54faa4fe1078678d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693217"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493822"
 ---
 # <a name="clean-missing-data-module"></a>Module de nettoyage des données manquantes
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning Service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour supprimer, remplacer ou déduire des valeurs manquantes. 
 
@@ -133,8 +133,8 @@ Si vous devez répéter les opérations de nettoyage souvent, nous vous recomman
   
 2.  Ajoutez le jeu de données que vous souhaitez nettoyer et connectez le jeu de données au port d’entrée droit.  
   
-3.  Développez le groupe **Transformations** dans le volet gauche de l’interface. Recherchez la transformation enregistrée et faites-la glisser vers le pipeline.  
-  
+3.  Développez le groupe **Transformations** dans le volet gauche du concepteur. Recherchez la transformation enregistrée et faites-la glisser vers le pipeline.  
+
 4.  Connectez la transformation enregistrée au port d’entrée gauche de [Appliquer une transformation](./apply-transformation.md). 
 
     Lorsque vous appliquez une transformation enregistrée, vous ne pouvez pas sélectionner les colonnes auxquelles elle est appliquée. C’est parce que la transformation a déjà été définie et s’applique automatiquement aux colonnes spécifiées dans l’opération d’origine.
@@ -145,4 +145,4 @@ Si vous devez répéter les opérations de nettoyage souvent, nous vous recomman
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858529"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470078"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -72,7 +73,7 @@ Si vous utilisez une adresse IP publique en tant que point de terminaison, vous 
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>L’adresse IP ou le nom DNS changent-ils pendant la durée de vie d’Application Gateway ?
 
-L’adresse IP virtuelle peut changer si vous arrêtez et démarrez la passerelle d’application. Le nom DNS associé à la passerelle d’application, quant à lui, ne change pas pendant toute la durée de vie de la passerelle. Le nom DNS ne changeant pas, vous devez utiliser un alias CNAME et le faire pointer vers l’adresse DNS de la passerelle d’application.
+Dans la référence SKU Application Gateway V1, l’adresse IP virtuelle peut changer si vous arrêtez et démarrez la passerelle d’application. Le nom DNS associé à la passerelle d’application, quant à lui, ne change pas pendant toute la durée de vie de la passerelle. Le nom DNS ne changeant pas, vous devez utiliser un alias CNAME et le faire pointer vers l’adresse DNS de la passerelle d’application. Dans la référence SKU Application Gateway V2, vous pouvez définir l’adresse IP comme étant statique, de sorte que l’adresse IP et le nom DNS ne changent pas pendant la durée de vie de la passerelle d’application. 
 
 ### <a name="does-application-gateway-support-static-ip"></a>Application Gateway prend-il en charge les adresses IP statiques ?
 
@@ -269,7 +270,7 @@ Application Gateway prend en charge jusqu'à 100 certificats SSL.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>Combien de certificats d’authentification pour le nouveau chiffrement du back-end Application Gateway prend-il en charge ?
 
-Application Gateway prend en charge jusqu'à 10 certificats d'authentification. La valeur par défaut est 5.
+Application Gateway prend en charge jusqu’à 100 certificats d’authentification.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Application Gateway s’intègre-t-il en mode natif à Azure Key Vault ?
 
@@ -326,6 +327,19 @@ Oui. Vous pouvez activer le service de protection DDoS sur le réseau virtuel su
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Existe-t-il des instructions pour migrer de la référence SKU v1 vers la référence SKU v2 ?
 
 Oui. Pour plus d'informations, consultez [Migrer Azure Application Gateway et le pare-feu d’applications web de v1 à v2](migrate-v1-v2.md).
+
+## <a name="configuration---ingress-controller-for-aks"></a>Configuration - Contrôleur d’entrée pour AKS
+
+### <a name="what-is-an-ingress-controller"></a>Qu’est-ce qu’un contrôleur d’entrée ?
+
+Kubernetes permet de créer des ressources `deployment` et `service` pour exposer en interne un groupe de pods dans le cluster. Pour exposer le même service en externe, une ressource [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) est définie, ce qui permet l’équilibrage de charge, l’arrêt SSL et l’hébergement virtuel basé sur le nom.
+Pour satisfaire cette ressource `Ingress`, un contrôleur d’entrée est nécessaire, qui écoute les modifications apportées aux ressources `Ingress` et configure les stratégies d’équilibreur de charge.
+
+Le contrôleur d’entrée Application Gateway permet l’utilisation d’[Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) en tant qu’entrée pour un service [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), également appelé un cluster AKS.
+
+### <a name="can-a-single-ingress-controller-instance-manage-multiple-application-gateways"></a>Une seule instance de contrôleur d’entrée peut-elle gérer plusieurs Application Gateways ?
+
+Actuellement, une instance de contrôleur d’entrée ne peut être associée qu’à une seule Application Gateway.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostics et journalisation
 

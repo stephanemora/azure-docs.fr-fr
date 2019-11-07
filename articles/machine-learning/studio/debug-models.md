@@ -1,7 +1,7 @@
 ---
 title: Déboguer votre modèle
-titleSuffix: Azure Machine Learning Studio
-description: Comment déboguer les erreurs produites par les modules Entraîner le modèle et Noter le modèle dans Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Comment déboguer les erreurs produites par les modules Entraîner le modèle et Noter le modèle dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,19 +10,19 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2017
-ms.openlocfilehash: 9c505262030e5b5aa13b8d221cf1e39c4a9c7833
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 053bb75bb7beea86215397bdfd81a1dbc9d1bcb9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751103"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493059"
 ---
-# <a name="debug-your-model-in-azure-machine-learning-studio"></a>Déboguer votre modèle dans Azure Machine Learning Studio
+# <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Déboguer votre modèle dans Azure Machine Learning Studio (classique)
 
 Lors de l’exécution d’un modèle, vous pouvez rencontrer les erreurs suivantes :
 
-* le module [Former le modèle][train-model] génère une erreur ; 
-* le module [Noter le modèle][score-model] produit des résultats incorrects ; 
+* le module [Former le modèle][train-model] génère une erreur ; 
+* le module [Noter le modèle][score-model] produit des résultats incorrects. 
 
 Cet article explique les causes possibles de ces erreurs.
 
@@ -31,9 +31,9 @@ Cet article explique les causes possibles de ces erreurs.
 
 ![image1](./media/debug-models/train_model-1.png)
 
-Le module [Former le modèle][train-model] attend deux entrées :
+Le module [Former le modèle][train-model] attend deux entrées :
 
-1. Le type de modèle Machine Learning issu de la collection de modèles fournie par Azure Machine Learning Studio.
+1. Le type de modèle Machine Learning issu de la collection de modèles fournie par Azure Machine Learning Studio (classique).
 2. Les données d’apprentissage avec une colonne Étiquette spécifiée qui indique la variable à prédire (les autres colonnes sont supposées être des fonctionnalités).
 
 Ce module peut générer une erreur dans les cas suivants :
@@ -48,9 +48,9 @@ Ce module peut générer une erreur dans les cas suivants :
 
 ![image2](./media/debug-models/train_test-2.png)
 
-Dans une expérience d’apprentissage/de test classique pour un apprentissage supervisé, le module [Fractionner les données][split] divise le jeu de données en deux parties : une partie utilisée pour effectuer l’apprentissage du modèle et une partie est utilisée pour noter l’efficacité du comportement du modèle formé. Le modèle formé est ensuite utilisé pour noter les données de test, après quoi les résultats sont évalués afin de déterminer la précision du modèle.
+Dans une expérience d’apprentissage/de test classique pour un apprentissage supervisé, le module [Fractionner les données][split] divise le jeu de données en deux parties : une partie utilisée pour effectuer l’apprentissage du modèle et une partie est utilisée pour noter l’efficacité du comportement du modèle formé. Le modèle formé est ensuite utilisé pour noter les données de test, après quoi les résultats sont évalués afin de déterminer la précision du modèle.
 
-Le module [Noter le modèle][score-model] nécessite deux entrées :
+Le module [Noter le modèle][score-model] nécessite deux entrées :
 
 1. Une sortie du modèle formé à partir du module [Former le modèle][train-model].
 2. Un jeu de données de notation différent du jeu de données utilisé pour former le modèle.

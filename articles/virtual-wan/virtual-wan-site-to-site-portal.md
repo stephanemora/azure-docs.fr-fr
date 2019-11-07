@@ -5,19 +5,31 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/07/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: b3147db8cda04ce7a71b35659eb91a20a06e0c52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8824111edff23b8bdc93a64707cf5198288b3a6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028028"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488852"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Didacticiel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
 Ce didacticiel vous montre comment utiliser Virtual WAN pour vous connecter à vos ressources dans Azure via une connexion VPN IPsec/IKE (IKEv1 et IKEv2). Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur Azure Virtual WAN, consultez l’article [Vue d'ensemble d’Azure Virtual WAN](virtual-wan-about.md).
+
+Ce didacticiel vous montre comment effectuer les opérations suivantes :
+
+> [!div class="checklist"]
+> * Créer un WAN virtuel
+> * Créer un hub
+> * Créer un site
+> * Connecter un site à un hub
+> * Connecter un site VPN à un hub
+> * Connecter un réseau virtuel à un hub
+> * Télécharger un fichier de configuration
+> * Afficher votre WAN virtuel
 
 > [!NOTE]
 > Si vous avez de nombreux sites, vous utiliseriez généralement un [partenaire WAN virtuel](https://aka.ms/virtualwan) pour créer cette configuration. Toutefois, vous pouvez créer cette configuration vous-même si vous êtes familiarisé avec la mise en réseau et expert dans la configuration de votre propre périphérique VPN.
@@ -25,76 +37,57 @@ Ce didacticiel vous montre comment utiliser Virtual WAN pour vous connecter à v
 
 ![Diagramme WAN virtuel](./media/virtual-wan-about/virtualwan.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
-
-> [!div class="checklist"]
-> * Créer un WAN
-> * Créer un site
-> * Créer un hub
-> * Connecter un hub à un site
-> * Créer un réseau virtuel compatible (si vous n’en avez pas encore)
-> * Connecter un réseau virtuel à un hub
-> * Télécharger et appliquer la configuration de périphérique VPN
-> * Afficher votre WAN virtuel
-> * Afficher l’intégrité des ressources
-> * Surveiller une connexion
-
 ## <a name="before-you-begin"></a>Avant de commencer
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
-## <a name="openvwan"></a>1. Créer un WAN virtuel
+* Vous avez un réseau virtuel auquel vous souhaitez vous connecter. Vérifiez qu’aucun des sous-réseaux de votre réseau local ne chevauche les réseaux virtuels auxquels vous souhaitez vous connecter. Pour créer un réseau virtuel dans le Portail Azure, consultez le [démarrage rapide](../virtual-network/quick-create-portal.md).
 
-Dans un navigateur, accédez au [portail Azure](https://aka.ms/azurevirtualwanpreviewfeatures) et connectez-vous avec votre compte Azure.
+* Votre réseau virtuel n’a pas de passerelle de réseau virtuel. Si votre réseau virtuel dispose d’une passerelle (VPN ou ExpressRoute), vous devez supprimer toutes les passerelles. Cette configuration nécessite que les réseaux virtuels soient connectés à la passerelle hub Virtual WAN.
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
+* Obtenez une plage d’adresses IP pour la région de votre hub. Le hub est un réseau virtuel qui est créé et utilisé par Virtual WAN. La plage d’adresses que vous spécifiez pour le hub ne peut pas chevaucher les réseaux virtuels existants auxquels vous vous connectez. Il ne peut pas chevaucher vos plages d’adresses auxquelles vous vous connectez en local. Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, contactez une personne en mesure de vous aider.
 
-## <a name="site"></a>2. Créer un site
+* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Créez autant de sites que nécessaire correspondant à vos emplacements physiques. Par exemple, si vous avez une succursale à New York, une autre à Londres et une autre à LA, vous créeriez trois sites distincts. Ces sites contiennent vos points de terminaison du périphérique VPN local. À ce stade, vous ne pouvez spécifier qu’un seul espace d’adressage privé pour votre site.
+## <a name="openvwan"></a>Créer un WAN virtuel
 
-1. Cliquez sur le WAN que vous avez créé. Dans la page du WAN, sous **Virtual WAN Architecture**, cliquez sur **Sites VPN** pour ouvrir la page dédiée aux sites VPN.
-2. Sur la page **Sites VPN**, cliquez sur **+Créer un site**.
-3. Sur la page **Créer un site**, renseignez les champs suivants :
+Dans un navigateur, accédez au Portail Azure et connectez-vous avec votre compte Azure.
 
-   * **Nom** : nom par lequel vous souhaitez faire référence à votre site local.
-   * **Adresse IP publique** : adresse IP publique du périphérique VPN qui réside sur votre site local.
-   * **Espace d’adressage privé** : il s’agit de l’espace d’adresse IP situé sur votre site local. Le trafic destiné à cet espace d’adressage est acheminé vers votre site local.
-   * **Abonnement** : vérifiez l’abonnement.
-   * **Groupe de ressources** : le groupe de ressources que vous souhaitez utiliser.
-   * **Lieu**
-4. Cliquez sur **Afficher les options avancées** pour afficher des paramètres supplémentaires. 
+1. Accédez à la page WAN Virtuel. Dans le portail, cliquez sur **+Créer une ressource**. Tapez **WAN virtuel** dans la zone de recherche et sélectionnez Entrée.
+2. Sélectionnez **WAN virtuel** dans les résultats. Sur la page Virtual WAN, cliquez sur **Créer** pour ouvrir la page Créer un WAN.
+3. Sur la page **Créer un WAN**, dans l’onglet **Fonctions de base**, renseignez les champs suivants :
 
-   Vous pouvez sélectionner **BGP** pour activer le protocole BGP et ainsi activer cette fonctionnalité sur toutes les connexions créées pour ce site dans Azure. La configuration du protocole BGP sur un réseau Virtual WAN équivaut à configurer le protocole BGP sur une passerelle VPN Azure. Votre adresse d’homologue BGP local *ne doit pas* être identique à l’adresse IP publique de votre réseau VPN vers l’appareil ou à l’espace d’adresse du réseau virtuel du site VPN. Utilisez une adresse IP différente sur le périphérique VPN de votre adresse IP BGP homologue. Il peut s’agir d’une adresse affectée à l’interface de bouclage sur le périphérique. Toutefois, il *ne peut pas* s’agir d’une adresse APIPA (169.254.*x*.*x*). Spécifiez cette adresse sur la passerelle de réseau local correspondante, représentant l’emplacement. Pour les conditions préalables BGP, consultez [À propos de BGP avec la passerelle VPN Azure](../vpn-gateway/vpn-gateway-bgp-overview.md).
+   ![WAN virtuel](./media/virtual-wan-site-to-site-portal/vwan.png)
 
-   Vous pouvez également renseigner le champ **Informations sur le périphérique** (facultatif). Cela peut aider l’équipe Azure à mieux comprendre votre environnement afin d’ajouter des possibilités d’optimisation supplémentaires à l’avenir ou pour vous aider à résoudre les problèmes.
-   
-5. Cliquez sur **Confirmer**.
-6. Après avoir cliqué sur **Confirmer**, affichez l’état sur la page Sites VPN. Le site passe de l’état **Approvisionnement** à l’état **Approvisionné**.
+   * **Abonnement** : sélectionnez l’abonnement que vous voulez utiliser.
+   * **Groupe de ressources** : créez-en un nouveau ou utilisez-en un qui existe déjà.
+   * **Emplacement du groupe de ressources** : choisissez un emplacement de la ressource dans la liste déroulante. Un réseau étendu est une ressource globale et ne réside pas dans une région particulière. Toutefois, vous devez sélectionner une région afin de gérer et de localiser plus facilement la ressource de réseau étendu que vous créez.
+   * **Nom** : tapez le nom que vous souhaitez donner à votre réseau étendu.
+   * **Type :** De base ou Standard. Si vous créez un WAN de base, vous ne pourrez créer qu’un hub de base. Les hubs de base offrent uniquement une connectivité de site VPN à site.
+4. Lorsque vous avez fini de renseigner les champs, cliquez sur **Vérifier + créer**.
+5. Après la validation, sélectionnez **Créer** pour créer le WAN virtuel.
 
-## <a name="hub"></a>3. Créer un hub
+## <a name="hub"></a>Créer un hub
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
+Un hub est un réseau virtuel qui peut contenir des passerelles pour offrir des fonctionnalités de site à site, ExpressRoute ou de point à site. Une fois le hub créé, vous serez facturé, même si vous n’y joignez aucun site. La création de la passerelle VPN de site à site prend 30 minutes dans le hub virtuel.
 
-## <a name="associate"></a>4. Associer les sites au hub
+[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-Les hubs doivent généralement être associés aux sites qui se trouvent dans la même région que celle du réseau virtuel.
+## <a name="site"></a>Créer un site
 
-1. Sur la page **Sites VPN**, sélectionnez les sites que vous souhaitez associer au hub, puis cliquez sur **+Nouvelle association au hub**.
-2. Sur la page **Associate sites with one or more hubs** (Associer des sites à un ou plusieurs hubs), sélectionnez un hub dans la liste déroulante. Vous pouvez associer un site à d’autres hubs en cliquant sur **+Add an association** (+Ajouter une association).
-3. Vous pouvez également ajouter une **PSK** spécifique ici ou utiliser la valeur par défaut.
-4. Cliquez sur **Confirmer**.
-5. Vous pouvez afficher l’état de la connexion sur la page **Sites VPN**.
+Vous êtes maintenant prêt à créer les sites correspondant à vos emplacements physiques. Créez autant de sites que nécessaire correspondant à vos emplacements physiques. Par exemple, si vous avez une succursale à New York, une autre à Londres et une autre à LA, vous créeriez trois sites distincts. Ces sites contiennent vos points de terminaison du périphérique VPN local. Vous pouvez créer jusqu’à 1 000 sites par hub virtuel dans Virtual WAN. Si vous aviez plusieurs hubs, vous pouvez créer 1 000 sites pour chacun de ces hubs. Si vous avez un appareil CPE de partenaire Virtual WAN (lien d’insertion), contactez ce dernier pour en savoir plus sur son automatisation sur Azure. En général, l’automatisation permet d’exporter, en un seul clic, des informations de branche à grande échelle dans Azure et de configurer la connectivité depuis l’appareil CPE vers la passerelle VPN Azure Virtual WAN (ici un lien vers le guide de l’automatisation d’Azure vers les partenaires CPE).
 
-## <a name="vnet"></a>5. Créez un réseau virtuel
+[!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-Si vous n’avez pas déjà de réseaux virtuels, vous pouvez en créer un rapidement à l’aide de PowerShell ou du portail Azure. Si vous avez déjà un réseau virtuel, vérifiez qu’il répond aux critères requis et ne dispose pas d’une passerelle de réseau virtuel.
+## <a name="connectsites"></a>Connecter le site VPN au hub
 
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
+Au cours de cette étape, vous connectez votre site VPN au hub.
 
-## <a name="vnet"></a>6. Connecter votre réseau virtuel à un hub
+[!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-Dans cette étape, vous créez la connexion de peering entre votre hub et un réseau virtuel. Répétez ces étapes pour chaque réseau virtuel que vous souhaitez connecter.
+## <a name="vnet"></a>Connecter le réseau virtuel au hub
+
+Au cours de cette étape, vous créez la connexion entre votre hub et un réseau virtuel. Répétez ces étapes pour chaque réseau virtuel que vous souhaitez connecter.
 
 1. Sur la page de votre WAN virtuel, cliquez sur **Connexion de réseau virtuel**.
 2. Dans la page de connexion de réseau virtuel, cliquez sur **+ Ajouter une connexion**.
@@ -104,16 +97,16 @@ Dans cette étape, vous créez la connexion de peering entre votre hub et un ré
     * **Hubs** : sélectionnez le hub que vous souhaitez associer à cette connexion.
     * **Abonnement** : vérifiez l’abonnement.
     * **Réseau virtuel** : sélectionnez le réseau virtuel que vous souhaitez connecter à ce hub. Le réseau virtuel ne peut pas avoir une passerelle de réseau virtuel déjà existante.
-4. Cliquez sur **OK** pour créer la connexion du peering.
+4. Cliquez sur **OK** pour créer la connexion de réseau virtuel.
 
-## <a name="device"></a>7. Télécharger une configuration VPN
+## <a name="device"></a>Télécharger une configuration VPN
 
 Utilisez la configuration de périphérique VPN pour configurer votre périphérique VPN local.
 
 1. Dans la page de votre réseau étendu virtuel, cliquez sur **Vue d’ensemble**.
-2. En haut de la page Vue d'ensemble, cliquez sur **Télécharger la configuration VPN**. Azure crée un compte de stockage dans le groupe de ressources « microsoft-network-[emplacement] », où emplacement est l’emplacement du réseau étendu. Une fois que vous avez appliqué la configuration à vos périphériques VPN, vous pouvez supprimer ce compte de stockage.
+2. En haut de la page **Hub ->VPNSite**, cliquez sur **Télécharger la configuration VPN**. Azure crée un compte de stockage dans le groupe de ressources « microsoft-network-[emplacement] », où emplacement est l’emplacement du réseau étendu. Une fois que vous avez appliqué la configuration à vos périphériques VPN, vous pouvez supprimer ce compte de stockage.
 3. Une fois que le fichier a terminé la création, vous pouvez cliquer sur le lien pour le télécharger.
-4. Appliquez la configuration à votre périphérique VPN.
+4. Appliquez la configuration à votre périphérique VPN local.
 
 ### <a name="understanding-the-vpn-device-configuration-file"></a>Comprendre le fichier de configuration de périphérique VPN
 
@@ -258,42 +251,12 @@ Si vous avez besoin d’instructions pour configurer votre périphérique, vous 
 * Un nouvel élément Virtual WAN peut prendre en charge IKEv1 et IKEv2.
 * Le WAN virtuel peut uniquement utiliser des périphériques VPN basés sur un itinéraire et des instructions de périphérique.
 
-## <a name="viewwan"></a>8. Afficher votre WAN virtuel
+## <a name="viewwan"></a>Afficher votre WAN virtuel
 
 1. Accédez au WAN virtuel.
-2. Dans la page Vue d’ensemble, chaque point sur la carte représente un hub. Placez le curseur sur n’importe quel point pour afficher le résumé de l’intégrité du hub.
-3. Dans la section des hubs et des connexions, vous pouvez afficher l’état du hub, le site, la région, l’état de la connexion VPN et les octets entrés et sortis.
-
-## <a name="viewhealth"></a>9. Afficher l’intégrité des ressources
-
-1. Accédez à votre réseau étendu.
-2. Sur la page de votre WAN, dans la section **SUPPORT + Dépannage**, cliquez sur **Intégrité** pour afficher votre ressource.
-
-## <a name="connectmon"></a>10. Surveiller une connexion
-
-Créez une connexion pour surveiller les communications entre une machine virtuelle Azure et un site distant. Pour plus d’informations sur la façon de configurer un contrôleur de connexion, consultez [Surveiller une communication réseau](~/articles/network-watcher/connection-monitor.md). Le champ source est l’adresse IP de la machine virtuelle dans Azure, et l’adresse IP de destination est le l’adresse IP du site.
-
-## <a name="cleanup"></a>11. Supprimer des ressources
-
-Quand vous n’avez plus besoin de ces ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources et toutes les ressources qu’il contient. Remplacez « myResourceGroup » par le nom de votre groupe de ressources et exécutez la commande PowerShell suivante :
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+2. Sur la page **Vue d’ensemble**, chaque point sur la carte représente un hub. Placez le curseur sur n’importe quel point pour afficher le résumé d’intégrité du hub, son état de connexion et son nombre d’octets entrants et sortants.
+3. Dans la section Hubs et connexions, vous pouvez afficher l’état du hub, les sites VPN, etc. Vous pouvez cliquer sur un nom de hub spécifique et accéder au site VPN pour obtenir des détails supplémentaires.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Dans ce tutoriel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Créer un WAN
-> * Créer un site
-> * Créer un hub
-> * Connecter un hub à un site
-> * Connecter un réseau virtuel à un hub
-> * Télécharger et appliquer la configuration de périphérique VPN
-> * Afficher votre WAN virtuel
-> * Afficher l’intégrité des ressources
-> * Surveiller une connexion
 
 Pour plus d’informations sur le WAN virtuel, consultez la page [Vue d'ensemble de WAN virtuel](virtual-wan-about.md).

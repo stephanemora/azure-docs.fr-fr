@@ -1,7 +1,7 @@
 ---
 title: 'Attribuer des données à des clusters : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Attribuer des données à des clusters dans le service Azure Machine Learning pour évaluer les modèles de clustering.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Attribuer des données à des clusters dans Azure Machine Learning pour évaluer les modèles de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,23 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 3caf568590beb5b1f9d346d472c93f134a4f3a5f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 75a547a26057ad05444753253666dceea160d714
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693232"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493868"
 ---
 # <a name="module-assign-data-to-clusters"></a>Module : Attribuer des données à des clusters
 
-Cet article décrit comment utiliser le module *Attribuer des données à des clusters* dans l’interface visuelle Azure Machine Learning. Le module génère des prédictions via un modèle de clustering qui a été formé avec l’algorithme de *clustering k-moyennes*.
+Cet article décrit comment utiliser le module *Attribuer des données à des clusters* dans le concepteur Azure Machine Learning (préversion). Le module génère des prédictions via un modèle de clustering qui a été formé avec l’algorithme de *clustering k-moyennes*.
 
 Le module Attribuer des données à des clusters retourne un jeu de données contenant les attributions probables de chaque nouveau point de données. 
 
 
 ## <a name="how-to-use-assign-data-to-clusters"></a>Comment utiliser le module Attribuer des données à des clusters
   
-1. Dans l’interface visuelle d’Azure Machine Learning, recherchez un modèle de clustering formé précédemment. Vous pouvez créer et former un modèle de clustering à l’aide d’une des méthodes suivantes :  
+1. Dans le concepteur Azure Machine Learning, recherchez un modèle de clustering entraîné précédemment. Vous pouvez créer et former un modèle de clustering à l’aide d’une des méthodes suivantes :  
   
     - Configurer l’algorithme de clustering K-moyennes à l’aide du module [Clustering k-moyennes](k-means-clustering.md) et former le modèle à l’aide d’un jeu de données et du module Former le modèle de clustering (cet article).  
   
@@ -38,9 +38,9 @@ Le module Attribuer des données à des clusters retourne un jeu de données con
    Dans ce jeu de données, les étiquettes sont facultatives. En règle générale, le clustering est une méthode d’apprentissage non supervisée. Vous n’êtes pas censé connaître les catégories en avance. Toutefois, les colonnes d’entrée doivent être identiques aux colonnes utilisées lors de la formation du modèle de clustering. Dans le cas contraire, une erreur se produit.
 
     > [!TIP]
-    > Pour réduire le nombre de colonnes rédigées dans l’interface à partir des prédictions de cluster, utilisez [Sélectionner les colonnes dans le jeu de données](select-columns-in-dataset.md), puis sélectionnez un sous-ensemble de colonnes. 
+    > Pour réduire le nombre de colonnes rédigées dans le concepteur à partir des prédictions de cluster, utilisez [Sélectionner les colonnes dans le jeu de données](select-columns-in-dataset.md), puis sélectionnez un sous-ensemble de colonnes. 
     
-4. Cochez la case **Cocher pour ajouter ou Décocher pour résultats uniquement** si vous voulez que les résultats comprennent le jeu de données d’entrée entier, y compris une colonne qui affiche les résultats (attributions de cluster).
+4. Cochez la case **Cocher pour ajouter ou décocher pour résultats uniquement** si vous voulez que les résultats comprennent le jeu de données d’entrée entier, y compris une colonne qui affiche les résultats (attributions de cluster).
   
     Si vous décochez cette case, seuls les résultats sont retournés. Cette option peut être utile lorsque vous créez des prédictions dans le cadre d’un service web.
   

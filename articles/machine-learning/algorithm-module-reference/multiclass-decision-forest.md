@@ -1,24 +1,24 @@
 ---
 title: 'Forêt d’arbres de décision multiclasse : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Forêt d’arbres de décision multiclasse dans Azure Machine Learning service pour créer un modèle Machine Learning basé sur l’algorithme de *forêt d’arbres de décision*.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Forêt d’arbres de décision multiclasse dans Azure Machine Learning pour créer un modèle Machine Learning basé sur l’algorithme de *forêt d’arbres de décision*.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 80d8fc886ec62cf6abea7620f0c5763b619b5de4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 85459fe586ccbb5adb1e86b153ec63252c0cce2d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466022"
 ---
 # <a name="multiclass-decision-forest-module"></a>Module Forêt d’arbres de décision multiclasse
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Ce module vous permet de créer un modèle Machine Learning basé sur l’algorithme de *forêt d’arbres de décision*. Une forêt d’arbres de décision est un modèle d’ensemble qui génère rapidement une série d’arbres de décision, tout en apprenant grâce à des données avec balises.
 
@@ -39,9 +39,7 @@ Le classifieur de forêt d’arbres de décision dans Azure Machine Learning est
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Configuration du module Forêt d’arbres de décision multiclasse
 
-
-
-1. Ajoutez le module **Forêt de décision multiclasse** à votre pipeline dans l’interface. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser le modèle** et **Classification**.
+1. Ajoutez le module **Forêt d’arbres de décision multiclasse** à votre pipeline dans le concepteur. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser le modèle** et **Classification**.
 
 2. Double-cliquez sur le module pour ouvrir le volet **Propriétés**.
 
@@ -88,4 +86,4 @@ Une fois l’apprentissage terminé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

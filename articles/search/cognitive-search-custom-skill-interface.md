@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f86c34dcc1276b8677e3e60514661a6d0b974005
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787561"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466774"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Comment ajouter une compétence personnalisée à un pipeline d’enrichissement Recherche cognitive Azure
 
@@ -154,8 +154,10 @@ Lorsque vous créez un enrichisseur d’API web, vous pouvez décrire des en-tê
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ [Super compétences : référentiel de compétences personnalisées](https://aka.ms/powerskills)
-+ [Exemple : Création d’une compétence personnalisée pour la recherche cognitive](cognitive-search-create-custom-skill-example.md)
+Cet article a abordé les exigences d’interface nécessaires à l’intégration d’une compétence personnalisée dans un ensemble de compétences. Cliquez sur les liens suivants pour en savoir plus sur les compétences personnalisées et la composition d’un ensemble de compétences.
+
++ [Super compétences : référentiel de compétences personnalisées](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Exemple : Création d’une compétence personnalisée pour l’enrichissement par l’IA](cognitive-search-create-custom-skill-example.md)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Créer un jeu de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)

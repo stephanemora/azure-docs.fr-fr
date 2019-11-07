@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-ms.openlocfilehash: b8628d60110818fe64e5b09b400a1396213147b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 46d78ca9f82017e1a11642af6e5dcdc68e239c8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980771"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498269"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Vue d’ensemble du service Azure Policy
 
@@ -48,12 +48,11 @@ Pour créer et implémenter une stratégie dans Azure Policy, il faut commencer 
 
 Dans Azure Policy, nous proposons plusieurs stratégies intégrées qui sont disponibles par défaut. Par exemple :
 
-- **Exiger SQL Server 12.0** : Valide le fait que tous les serveurs SQL utilisent la version 12.0. Son effet consiste à refuser tous les serveurs qui ne répondent pas à ces critères.
 - **Références SKU de compte de stockage autorisées** : Détermine si un compte de stockage en cours de déploiement se trouve dans un ensemble de tailles de référence SKU. Son effet consiste à refuser tous les comptes de stockage dont la taille ne fait pas partie de l’ensemble de tailles de référence SKU définies.
 - **Type de ressource autorisé** : Définit les types de ressources que vous pouvez déployer. Son effet consiste à refuser toutes les ressources qui ne font pas partie de cette liste définie.
 - **Emplacements autorisés** : Restreint les emplacements disponibles pour les nouvelles ressources. Son effet permet d’appliquer vos exigences de conformité géographique.
 - **Références SKU de machine virtuelle autorisées** : Spécifie un ensemble de références SKU de machine virtuelle que vous pouvez déployer.
-- **Appliquer la balise et sa valeur par défaut** : Applique une balise requise et sa valeur par défaut si elle n’est pas spécifiée par la requête de déploiement.
+- **Ajouter une étiquette aux ressources** : Applique une balise requise et sa valeur par défaut si elle n’est pas spécifiée par la requête de déploiement.
 - **Appliquer la balise et sa valeur** : Applique une balise requise et sa valeur à une ressource.
 - **Types de ressources non autorisés** : Empêche une liste de types de ressources d’être déployés.
 

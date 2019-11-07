@@ -16,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372404"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489192"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Repérer les menaces dans Azure Sentinel
-
-
+# <a name="hunt-for-threats-with-azure-sentinel"></a>Repérer les menaces avec Azure Sentinel
 
 Si vous êtes chargé d’examiner les menaces pour la sécurité, les puissants outils de repérage et de requête offerts par Azure Sentinel vous aideront à détecter ces menaces de manière proactive dans l’ensemble des sources de données de votre organisation. Toutefois, vos systèmes et appliances de sécurité génèrent des montagnes de données qui peuvent se révéler difficiles à analyser et à convertir en événements significatifs. Afin de faciliter la tâche des analystes de la sécurité dans la recherche proactive des nouvelles anomalies non détectées par vos applications de sécurité, les requêtes de repérage intégrées d’Azure Sentinel vous aident à poser les bonnes questions pour identifier les problèmes au niveau des données déjà présents dans le réseau. 
 

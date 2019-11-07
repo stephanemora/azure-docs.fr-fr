@@ -1,7 +1,7 @@
 ---
-title: Migration de l’API V2 vers V3
+title: Modifications de point de terminaison de prédiction dans l’API V3
 titleSuffix: Azure Cognitive Services
-description: Les API de point de terminaison de version 3 ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
+description: Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,99 +9,116 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 5b0516f3d610c0a518d6afc461dddebfb68a7c5d
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.openlocfilehash: 7c2866441c7439008fad27ced9b9b1dddea848ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213517"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492831"
 ---
-# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>Aperçu : Migrer vers la version 3.x de l’API pour les applications LUIS
+# <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
-Les API de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3. 
+Les API V3 de point de terminaison de prédiction de requête ont évolué. Servez-vous de ce guide pour comprendre comment migrer vers les API de point de terminaison de version 3. 
 
-Cette API V3 propose les nouveautés suivantes, notamment une évolution importante en matière de demandes et/ou de réponses JSON : 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+**État généralement disponible** : cette API V3 inclut des modifications significatives de requête et de réponse JSON par rapport à l’API V2.
+
+L’API V3 fournit les nouvelles fonctionnalités suivantes :
 
 * [Entités externes](#external-entities-passed-in-at-prediction-time)
 * [Listes dynamiques](#dynamic-lists-passed-in-at-prediction-time)
-* [Évolutions de JSON – Entités prédéfinies](#prebuilt-entities-with-new-json)
+* [Évolutions de JSON – Entités prédéfinies](#prebuilt-entity-changes)
 
-<!--
-* [Multi-intent detection of utterance](#detect-multiple-intents-within-single-utterance)
--->
-
-La [demande](#request-changes) et la [réponse](#response-changes) du point de terminaison de prédiction de requête ont évolué de façon significative afin de prendre en charge les nouvelles fonctionnalités mentionnées ci-dessus, notamment les suivantes :
+La [requête](#request-changes) et la [réponse](#response-changes) du point de terminaison de prédiction ont évolué de manière significative afin de prendre en charge les nouvelles fonctionnalités mentionnées ci-dessus, notamment les suivantes :
 
 * [Évolutions de l’objet réponse](#top-level-json-changes)
 * [Remplacement des références au nom de rôle d’entité par le nom d’entité](#entity-role-name-instead-of-entity-name)
 * [Propriétés visant à marquer les entités dans les énoncés](#marking-placement-of-entities-in-utterances)
 
-Les fonctionnalités LUIS suivantes ne sont **pas prises en charge** dans l’API V3 :
-
-* Vérification orthographique Bing V7
-
 La [documentation de référence](https://aka.ms/luis-api-v3) est disponible pour V3.
 
-## <a name="endpoint-url-changes-by-slot-name"></a>Évolutions de l’URL de point de terminaison par nom d’emplacement
+## <a name="v3-changes-from-preview-to-ga"></a>Modifications de V3 entre la préversion à GA
+
+V3 a introduit les modifications suivantes dans le cadre du passage à GA : 
+
+* Les entités prédéfinies suivantes ont des réponses JSON différentes : 
+    * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
+    * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
+    * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
+    * Nom de la clé d’unité mesurable de `units` à `unit`
+
+* Modification JSON du corps de la demande :
+    * de `preferExternalEntities` à `preferExternalEntities`
+    * paramètre `score` facultatif pour les entités externes
+
+* Modifications JSON du corps de la réponse :
+    * `normalizedQuery` supprimé
+
+## <a name="suggested-adoption-strategy"></a>Stratégie d’adoption suggérée
+
+Si vous utilisez Bot Framework, Vérification orthographique Bing V7 ou si vous souhaitez migrer uniquement votre création d’application LUIS, continuez à utiliser le point de terminaison V2. 
+
+Si vous savez qu’aucune de vos applications clientes ou intégrations (Bot Framework et Vérification orthographique Bing V7) n’est affectée et si vous êtes familiarisé avec la migration simultanée de votre création d’application LUIS et de votre point de terminaison de prédiction, commencez à utiliser le point de terminaison de prédiction V3. Le point de terminaison de prédiction V2 sera toujours disponible et constitue une bonne stratégie de secours. 
+
+## <a name="not-supported"></a>Non pris en charge
+
+* L’API Vérification orthographique Bing n’est pas prise en charge dans le point de terminaison de prédiction V3. Continuez à utiliser l’API V2 de point de terminaison de prédiction pour corriger l’orthographe
+
+## <a name="bot-framework-and-azure-bot-service-client-applications"></a>Applications clientes Bot Framework et Azure Bot Service
+
+Continuez à utiliser l’API V2 de point de terminaison de prédiction jusqu’à ce que la version 4.7 de Bot Framework soit disponible. 
+
+## <a name="v2-api-deprecation"></a>Dépréciation de l’API V2 
+
+L’API de prédiction V2 ne sera pas déconseillée pendant au moins 9 mois après la préversion V3, à savoir le 8 juin 2020. 
+
+## <a name="endpoint-url-changes"></a>Modifications de l’URL de point de terminaison 
+
+### <a name="changes-by-slot-name-and-version-name"></a>Modifications par nom d’emplacement et nom de version
 
 Le format de l’appel HTTP de point de terminaison V3 a évolué.
 
-|MÉTHODE|URL|
-|--|--|
-|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
-|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
-|||
-
-Valeurs valides pour les emplacements :
-
-* `production`
-* `staging`
-
-## <a name="endpoint-url-changes-by-version-id"></a>Évoluions de l’URL de point de terminaison par ID de version
-
 Si vous souhaitez interroger par version, vous devez d’abord [publier via l’API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) avec `"directVersionPublish":true`. Interrogez le point de terminaison qui fait référence à l’ID de version plutôt qu’au nom d’emplacement.
 
+|VERSION DE L’API DE PRÉDICTION|MÉTHODE|URL|
+|--|--|--|
+|V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
-|MÉTHODE|URL|
-|--|--|
-|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
-|||
-
-## <a name="prebuilt-entities-with-new-json"></a>Entités prédéfinies avec le nouveau JSON
-
-Parmi les évolutions de l’objet réponse V3 figurent les [entités prédéfinies](luis-reference-prebuilt-entities.md). 
+|Valeurs valides pour `SLOT-NAME`|
+|--|
+|`production`|
+|`staging`|
 
 ## <a name="request-changes"></a>Demander des changements 
 
-### <a name="query-string-parameters"></a>Paramètres de chaîne de requête
+### <a name="query-string-changes"></a>Modifications de la chaîne de requête
 
 L’API V3 possède de différents paramètres de chaîne de requête.
 
 |Nom de paramètre|Type|Version|Default|Objectif|
 |--|--|--|--|--|
-|`log`|boolean|V2 et V3|false|Stocker la requête dans un fichier journal.| 
+|`log`|boolean|V2 et V3|false|Stocker la requête dans un fichier journal. La valeur par défaut est false.| 
 |`query`|string|V3 uniquement|Pas de valeur par défaut. Obligatoire dans la demande GET.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
 |`show-all-intents`|boolean|V3 uniquement|false|Retourner toutes les intentions avec le score correspondant dans l’objet **prediction.intents**. Les intentions sont retournées en tant qu’objets dans un objet `intents` parent. Cela permet un accès programmatique sans qu’il soit nécessaire de rechercher l’intention dans un tableau : `prediction.intents.give`. Dans V2, elles étaient retournées dans un tableau. |
 |`verbose`|boolean|V2 et V3|false|**Dans V2**, quand la valeur est true, cela signifie que toutes les intentions prédites ont été retournées. Si vous avez besoin de toutes les intentions prédites, utilisez le paramètre `show-all-intents` de V3.<br><br>**Dans V3**, ce paramètre fournit uniquement les détails des métadonnées d’entité de la prédiction d’entité.  |
+|`timezoneOffset`|string|V2|-|Fuseau horaire appliqué aux entités datetimeV2.|
+|`datetimeReference`|string|V3|-|[Fuseau horaire](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) appliqué aux entités datetimeV2. Remplace `timezoneOffset` dans V2.|
 
 
-
-<!--
-|`multiple-segments`|boolean|V3 only|Break utterance into segments and predict each segment for intents and entities.|
--->
-
-
-### <a name="the-query-prediction-json-body-for-the-post-request"></a>Corps JSON de prédiction de requête pour la demande `POST`
+### <a name="v3-post-body"></a>Corps de POST V3
 
 ```JSON
 {
     "query":"your utterance here",
     "options":{
         "datetimeReference": "2019-05-05T12:00:00",
-        "overridePredictions": true
+        "preferExternalEntities": true
     },
     "externalEntities":[],
     "dynamicLists":[]
@@ -113,7 +130,7 @@ L’API V3 possède de différents paramètres de chaîne de requête.
 |`dynamicLists`|array|V3 uniquement|Non requis.|Les [listes dynamiques](#dynamic-lists-passed-in-at-prediction-time) vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS.|
 |`externalEntities`|array|V3 uniquement|Non requis.|Les [entités externes](#external-entities-passed-in-at-prediction-time) permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. |
 |`options.datetimeReference`|string|V3 uniquement|Pas de valeur par défaut|Utilisé pour déterminer le [décalage de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Le format du datetimeReference est [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
-|`options.overridePredictions`|boolean|V3 uniquement|false|Indique si l’[entité externe (dont le nom est identique à celui de l’entité existante)](#override-existing-model-predictions) de l’utilisateur est utilisée ou si l’entité existante du modèle est utilisée pour la prédiction. |
+|`options.preferExternalEntities`|boolean|V3 uniquement|false|Indique si l’[entité externe (dont le nom est identique à celui de l’entité existante)](#override-existing-model-predictions) de l’utilisateur est utilisée ou si l’entité existante du modèle est utilisée pour la prédiction. |
 |`query`|string|V3 uniquement|Requis.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
 
 
@@ -123,6 +140,8 @@ L’API V3 possède de différents paramètres de chaîne de requête.
 Le JSON de réponse de requête a évolué pour permettre un accès programmatique élargi aux données les plus souvent utilisées. 
 
 ### <a name="top-level-json-changes"></a>Évolutions JSON de niveau supérieur
+
+
 
 Quand `verbose` est défini sur true, ce qui retourne toutes les intentions et leurs scores dans la propriété `intents`, les principales propriétés JSON pour V2 sont les suivantes :
 
@@ -142,17 +161,12 @@ Les principales propriétés JSON pour V3 sont :
 {
     "query": "this is your utterance you want predicted",
     "prediction":{
-        "normalizedQuery": "this is your utterance you want predicted - after normalization",
         "topIntent": "intent-name-1",
         "intents": {}, 
         "entities":{}
     }
 }
 ```
-
-<!--
-The `alteredQuery` contains spelling corrections. This corresponds to the V2 API property `alteredQuery`.  
--->
 
 L’objet `intents` est une liste non triée. Ne partez pas du principe que le premier enfant de `intents` correspond à `topIntent`. Utilisez à la place la valeur de `topIntent` pour rechercher le score :
 
@@ -168,15 +182,29 @@ Voici ce qu’autorisent les évolutions du schéma JSON de réponse :
 * Les types de données, s’ils sont déterminés, sont respectés. Les valeurs numériques ne sont plus retournées sous forme de chaînes.
 * Distinction entre les informations de prédiction de première priorité et les métadonnées supplémentaires, retournées dans l’objet `$instance`. 
 
-### <a name="access-instance-for-entity-metadata"></a>Accès à `$instance` pour les métadonnées d’entité
+### <a name="entity-response-changes"></a>Modifications de la réponse d’entité
+
+#### <a name="marking-placement-of-entities-in-utterances"></a>Marquage de l’emplacement des entités dans les énoncés
+
+**Dans V2**, une entité était marquée dans un énoncé avec `startIndex` et `endIndex`. 
+
+**Dans V3**, l’entité est marquée avec `startIndex` et `entityLength`.
+
+#### <a name="access-instance-for-entity-metadata"></a>Accès à `$instance` pour les métadonnées d’entité
 
 Si vous avez besoin de métadonnées d’entité, la chaîne de requête doit utiliser l’indicateur `verbose=true` et la réponse contient les métadonnées de l’objet `$instance`. Des exemples sont présentés dans les réponses JSON des sections suivantes.
 
-### <a name="each-predicted-entity-is-represented-as-an-array"></a>Chaque entité prédite est représentée sous forme de tableau
+#### <a name="each-predicted-entity-is-represented-as-an-array"></a>Chaque entité prédite est représentée sous forme de tableau
 
 L’objet `prediction.entities.<entity-name>` contient un tableau, car chaque entité peut être prédite plusieurs fois dans l’énoncé. 
 
-### <a name="list-entity-prediction-changes"></a>Évolutions des prédictions d’entité de liste
+<a name="prebuilt-entities-with-new-json"></a>
+
+#### <a name="prebuilt-entity-changes"></a>Modifications de l’entité prédéfinie
+
+L’objet réponse V3 inclut des modifications apportées aux entités prédéfinies. Consultez les [entités prédéfinies spécifiques](luis-reference-prebuilt-entities.md) pour en savoir plus. 
+
+#### <a name="list-entity-prediction-changes"></a>Évolutions des prédictions d’entité de liste
 
 Le JSON d’une prédiction d’entité de liste a évolué pour devenir un tableau de tableaux :
 
@@ -198,7 +226,7 @@ const predictedCanonicalForm = entities.my_list_entity[item];
 const associatedMetadata = entities.$instance.my_list_entity[item];
 ```
 
-### <a name="entity-role-name-instead-of-entity-name"></a>Le nom de rôle d’entité à la place du nom d’entité 
+#### <a name="entity-role-name-instead-of-entity-name"></a>Le nom de rôle d’entité à la place du nom d’entité 
 
 Dans V2, le tableau `entities` retournait toutes les entités prédites avec le nom d’entité en guise d’identificateur unique. Dans V3, si l’entité utilise des rôles et que la prédiction porte sur un rôle d’entité, l’identificateur principal est le nom de rôle. Cela est possible, car les noms de rôle d’entité doivent être uniques dans toute l’application, y compris les autres noms de modèle (intention, entité).
 
@@ -321,7 +349,7 @@ La réponse de prédiction comprend cette entité externe, avec toutes les autre
 
 ### <a name="override-existing-model-predictions"></a>Remplacer les prédictions de modèle existantes
 
-La propriété des options `overridePredictions` indique que si l’utilisateur envoie une entité externe qui se chevauche avec une entité prédite de même nom, LUIS choisit l’entité transmise ou l’entité existant dans le modèle. 
+La propriété des options `preferExternalEntities` indique que si l’utilisateur envoie une entité externe qui se chevauche avec une entité prédite de même nom, LUIS choisit l’entité transmise ou l’entité existant dans le modèle. 
 
 Prenons l’exemple de la requête `today I'm free`. LUIS détecte `today` comme datetimeV2 avec la réponse suivante :
 
@@ -352,7 +380,7 @@ Si l’utilisateur envoie l’entité externe :
 }
 ```
 
-Si `overridePredictions` a la valeur `false`, LUIS retourne une réponse comme si l’entité externe n’était pas envoyée. 
+Si `preferExternalEntities` a la valeur `false`, LUIS retourne une réponse comme si l’entité externe n’était pas envoyée. 
 
 ```JSON
 "datetimeV2": [
@@ -368,7 +396,7 @@ Si `overridePredictions` a la valeur `false`, LUIS retourne une réponse comme s
 ]
 ```
 
-Si `overridePredictions` a la valeur `true`, LUIS retourne une réponse comprenant ce qui suit :
+Si `preferExternalEntities` a la valeur `true`, LUIS retourne une réponse comprenant ce qui suit :
 
 ```JSON
 "datetimeV2": [
@@ -436,18 +464,6 @@ Envoyez le corps JSON suivant pour ajouter une nouvelle sous-liste constituée d
 ```
 
 La réponse de prédiction comprend cette entité de liste, comprenant toutes les autres entités prédites, car elle est définie dans la demande. 
-
-## <a name="timezoneoffset-renamed-to-datetimereference"></a>TimezoneOffset renommé datetimeReference
-
-**Dans V2**, le [paramètre](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) `timezoneOffset` est envoyé dans la demande de prédiction comme paramètre de chaîne de requête, que la demande soit envoyée en tant que demande GET ou POST. 
-
-**Dans V3**, la même fonctionnalité est fournie avec le paramètre de corps POST, `datetimeReference`. 
-
-## <a name="marking-placement-of-entities-in-utterances"></a>Marquage de l’emplacement des entités dans les énoncés
-
-**Dans V2**, une entité était marquée dans un énoncé avec `startIndex` et `endIndex`. 
-
-**Dans V3**, l’entité est marquée avec `startIndex` et `entityLength`.
 
 ## <a name="deprecation"></a>Dépréciation 
 

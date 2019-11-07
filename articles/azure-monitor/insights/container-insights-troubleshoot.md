@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/27/2018
-ms.openlocfilehash: ec75f607f707405d6a5bea98deb784f4306c04f1
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: 3d6ed3b13c134d8e9c1df72ae2cb880a477a803a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555356"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477050"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Dépannage d’Azure Monitor for containers
 
@@ -109,7 +109,27 @@ Le tableau ci-dessous récapitule les erreurs connues que vous pouvez rencontrer
 | Message d’erreur `Error retrieving data` | Bien que le cluster Azure Kubernetes Service soit configuré pour la supervision de l’intégrité et des performances, une connexion est établie entre le cluster et l’espace de travail Azure Log Analytics. Un espace de travail Log Analytics est utilisé pour stocker toutes les données de supervision de votre cluster. Cette erreur peut se produire lorsque votre espace de travail Log Analytics a été supprimé. Vérifiez si l’espace de travail a été supprimé et, si c’est le cas, vous devrez réactiver l’analyse de votre cluster avec Azure Monitor pour les conteneurs et spécifier un espace de travail existant ou créer un nouvel espace de travail. Pour réactiver, vous devez [désactiver](container-insights-optout.md) la supervision du cluster et [réactiver](container-insights-enable-new-cluster.md) Azure Monitor pour conteneurs. |  
 | `Error retrieving data` après l’ajout d’Azure Monitor pour conteneurs à l’aide de la commande az aks cli | Lorsque vous activez la surveillance avec `az aks cli`, Azure Monitor pour conteneurs peut ne pas être correctement déployé. Vérifiez si la solution est déployée. Pour cela, accédez à votre espace de travail Log Analytics et voyez si la solution est disponible en sélectionnant **Solutions** dans le volet de gauche. Pour résoudre ce problème, vous devez redéployer la solution en suivant les instructions de [déploiement d’Azure Monitor pour conteneurs](container-insights-onboard.md) |  
 
-Pour vous aider à diagnostiquer le problème, nous vous fournissons un script de résolution des problèmes disponible [ici](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
+Pour vous aider à diagnostiquer le problème, nous vous fournissons un script de résolution des problèmes disponible [ici](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).
+
+## <a name="azure-monitor-for-containers-agent-replicaset-pods-are-not-scheduled-on-non-azure-kubernetes-cluster"></a>Les pods ReplicaSet d’agent Azure Monitor pour conteneurs ne sont pas planifiés sur un cluster Kubernetes non Azure
+
+Les pods ReplicaSet d’agent Azure Monitor pour conteneurs dépendent des sélecteurs de nœuds suivants sur les nœuds Worker (ou agent) pour la planification :
+
+```
+nodeSelector:
+  beta.kubernetes.io/os: Linux
+  kubernetes.io/role: agent
+```
+
+Si aucune étiquette de nœud n’est associée à vos nœuds Worker, les pods ReplicaSet d’agent ne sont pas planifiés. Pour obtenir des instructions sur l’association de l’étiquette, reportez-vous à [Kubernetes assign label selectors](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) (Kubernetes - Attribuer des sélecteurs d’étiquette).
+
+## <a name="performance-charts-dont-show-cpu-or-memory-of-nodes-and-containers-on-a-non-azure-cluster"></a>Les graphiques de performances n’affichent pas l’UC ou la mémoire des nœuds et des conteneurs sur un cluster non Azure
+
+Les pods d’agent Azure Monitor pour conteneurs utilisent le point de terminaison cAdvisor sur l’agent de nœud pour collecter les métriques de performances. Vérifiez que l’agent en conteneur sur le nœud est configuré pour autoriser l’ouverture de `cAdvisor port: 10255` sur tous les nœuds du cluster pour collecter les métriques de performance.
+
+## <a name="non-azure-kubernetes-cluster-are-not-showing-in-azure-monitor-for-containers"></a>Le cluster Kubernetes non Azure n’apparaît pas dans Azure Monitor pour conteneurs
+
+Pour visualiser le cluster Kubernetes non Azure dans Azure Monitor pour conteneurs, un accès en lecture est requis sur l’espace de travail Log Analytics qui prend en charge cet aperçu, ainsi que sur la ressource de solution Container Insights **ContainerInsights (*espace de travail*)** .
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,7 +1,7 @@
 ---
 title: Préparer le modèle pour le déploiement
-titleSuffix: Azure Machine Learning Studio
-description: Comment préparer votre modèle entraîné au déploiement sous forme de service web en convertissant votre expérience de formation Machine Learning Studio en une expérience prédictive.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Comment préparer votre modèle entraîné au déploiement sous forme de service web en convertissant votre expérience de formation Machine Learning Studio (classique) en une expérience prédictive.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 2a318edada5cdc4124e221fdc8c441ab323a9289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: caaed83417ac1eaadc407fb12dc8bb360aae45ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751925"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493270"
 ---
-# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Guide pratique : préparer un modèle au déploiement dans Azure Machine Learning Studio
+# <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Comment préparer un modèle au déploiement dans Azure Machine Learning Studio (classique)
 
-Azure Machine Learning Studio vous donne les outils nécessaires pour développer un modèle d’analyse prédictive, puis le faire fonctionner en le déployant sous forme de service web Azure.
+Azure Machine Learning Studio (classique) vous donne les outils nécessaires pour développer un modèle d’analyse prédictive, puis le faire fonctionner en le déployant sous forme de service web Azure.
 
-Pour cela, vous utiliserez Studio afin de créer une expérience, appelée *expérience de formation*, dans laquelle vous entraînerez, évaluerez et modifierez votre modèle. Une fois satisfait, vous préparerez votre modèle au déploiement en convertissant votre expérience de formation en une *expérience prédictive* configurée pour évaluer les données utilisateur.
+Pour cela, vous utiliserez la version classique de Studio afin de créer une expérience, appelée *expérience de formation*, dans laquelle vous entraînerez, évaluerez et modifierez votre modèle. Une fois satisfait, vous préparerez votre modèle au déploiement en convertissant votre expérience de formation en une *expérience prédictive* configurée pour évaluer les données utilisateur.
 
 Vous pouvez voir un exemple de ce processus dans [Tutoriel 1 : Prédire le risque de crédit](tutorial-part1-credit-risk.md).
 

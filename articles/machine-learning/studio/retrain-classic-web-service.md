@@ -1,7 +1,7 @@
 ---
 title: Réentraîner et déployer un service web classique
-titleSuffix: Azure Machine Learning Studio
-description: Apprenez à réentraîner un modèle et à mettre à jour un service web classique pour utiliser le modèle réentraîné dans Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Apprenez à réentraîner un modèle et à mettre à jour un service web classique pour utiliser le modèle réentraîné dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234044"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480199"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Réentraîner et déployer un service web Studio classique
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Réentraîner et déployer un service web Studio (classique) classique
 
-Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio, [consultez cet article pratique.](retrain-machine-learning-model.md)
+Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio (classique) classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio (classique), [consultez cet article pratique.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -44,7 +44,7 @@ Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exe
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Utiliser le portail de services web Azure pour ajouter un point de terminaison
 
-1. Dans Machine Learning Studio, dans la colonne de navigation de gauche, cliquez sur Services web.
+1. Dans Machine Learning Studio (classique), dans la colonne de navigation de gauche, cliquez sur Services web.
 1. En bas du tableau de bord de services web, cliquez sur **Gérer les points de terminaison (préversion)** .
 1. Cliquez sur **Add**.
 1. Tapez un nom et une description pour le point de terminaison. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, consultez [Activation de la journalisation pour les services web de Machine Learning](web-services-logging.md).

@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
-ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.date: 11/04/2019
+ms.openlocfilehash: f693a80726c9185bbd75d5fb99eb7e5f3ccad987
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695611"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493505"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Créer et utiliser un pipeline Azure Machine Learning pour le scoring par lots
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans ce tutoriel, vous utilisez un pipeline Azure Machine Learning pour exécuter un travail de scoring par lots. L’exemple utilise le modèle Tensorflow de réseau neuronal convolutif [Inception-V3](https://arxiv.org/abs/1512.00567) préentraîné pour classifier les images sans étiquette. Après avoir créé et publié un pipeline, vous configurez un point de terminaison REST qui vous permet de déclencher ce pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme.
 
@@ -54,7 +56,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-datastore-for-sample-images"></a>Créer un magasin de données pour des exemples d’images
+### <a name="create-a-datastore-for-sample-images"></a>Créer une banque de données pour des exemples d’images
 
 Pour le compte `pipelinedata`, récupérez l’exemple de données publiques d’évaluation ImageNet à partir du conteneur d’objets blob public `sampledata`. Appelez `register_azure_blob_container()` pour rendre les données disponibles dans l’espace de travail sous le nom `images_datastore`. Définissez ensuite le magasin de données par défaut de l’espace de travail en tant que magasin de données de sortie. Utilisez le magasin de données de sortie pour effectuer un scoring de la sortie dans le pipeline.
 
@@ -463,7 +465,7 @@ df.head(10)
 
 ## <a name="publish-and-run-from-a-rest-endpoint"></a>Publier et exécuter à partir d’un point de terminaison REST
 
-Exécutez le code suivant pour publier le pipeline sur votre espace de travail. Dans votre espace de travail au sein du portail Azure, vous pouvez voir les métadonnées du pipeline, notamment l’historique des exécutions et leurs durées. Vous pouvez également exécuter le pipeline manuellement à partir du portail.
+Exécutez le code suivant pour publier le pipeline sur votre espace de travail. Dans votre espace de travail dans Azure Machine Learning Studio, vous pouvez voir les métadonnées du pipeline, notamment l’historique des exécutions et leurs durées. Vous pouvez également exécuter le pipeline manuellement à partir du studio.
 
 La publication du pipeline active un point de terminaison REST qui vous permet de réexécuter le pipeline à partir de n’importe quelle bibliothèque HTTP sur n’importe quelle plateforme.
 
@@ -487,7 +489,7 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Obtenez l’URL REST de la propriété `endpoint` de l’objet de pipeline publié. Vous pouvez également trouver l’URL REST dans votre espace de travail au sein du portail Azure. 
+Obtenez l’URL REST de la propriété `endpoint` de l’objet de pipeline publié. Vous pouvez également trouver l’URL REST dans votre espace de travail dans Azure Machine Learning Studio. 
 
 Créez une requête HTTP POST au point de terminaison. Spécifiez votre en-tête d’authentification dans la requête. Ajoutez un objet de charge utile JSON ayant le nom de l’expérience et le paramètre de taille de lot. Comme indiqué plus tôt dans le tutoriel, `param_batch_size` est passé à votre script `batch_scoring.py`, car vous l’avez défini en tant qu’objet `PipelineParameter` dans la configuration de l’étape.
 
@@ -520,14 +522,9 @@ RunDetails(published_pipeline_run).show()
 
 Sautez cette section si vous prévoyez de suivre d’autres tutoriels Azure Machine Learning.
 
-### <a name="stop-the-notebook-vm"></a>Arrêter la machine virtuelle Notebook
+### <a name="stop-the-compute-instance"></a>Arrêter l’instance de calcul
 
-Si vous avez utilisé un serveur de notebooks cloud, vous pouvez réduire les coûts en arrêtant la machine virtuelle quand vous ne l’utilisez pas :
-
-1. Dans votre espace de travail, sélectionnez **Machines virtuelles Notebook**.
-1. Dans la liste des machines virtuelles, sélectionnez la machine virtuelle à arrêter.
-1. Sélectionnez **Arrêter**.
-1. Quand vous êtes prêt à utiliser à nouveau le serveur, sélectionnez **Démarrer**.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>Tout supprimer
 

@@ -7,65 +7,24 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: e8ffb9051220cc80aa12adaa9dc9b1fcc6ddfc20
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839977"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472824"
 ---
-# <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Préversion - Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
+# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Créer un cluster Azure Kubernetes Service (AKS) qui utilise des zones de disponibilité
 
 Un cluster AKS (Azure Kubernetes Service) répartit les ressources telles que les nœuds et le stockage entre les sections logiques de l'infrastructure de calcul Azure sous-jacente. Ce modèle de déploiement permet de s'assurer que les nœuds s'exécutent sur des domaines de mise à jour et d’erreur distincts d’un même centre de données Azure. Les clusters AKS déployés avec ce comportement par défaut offrent un niveau élevé de disponibilité pour se protéger contre une panne matérielle ou un événement de maintenance planifiée.
 
 Pour offrir un niveau de disponibilité plus élevé à vos applications, les clusters AKS peuvent être répartis sur plusieurs zones de disponibilité. Ces zones représentent des centres de données physiquement séparés au sein d’une région donnée. Lorsque les composants du cluster sont répartis sur plusieurs zones, votre cluster AKS est capable de tolérer une défaillance dans l'une de ces zones. Vos applications et vos opérations de gestion restent disponibles même si un centre de données complet rencontre un problème.
 
-Cet article vous explique comment créer un cluster AKS et répartir les composants de nœud entre des zones de disponibilité. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
-
-> [!IMPORTANT]
-> Les fonctionnalités d’évaluation AKS sont en libre-service et font l’objet d’un abonnement. Les versions préliminaires sont fournies « en l’état », « avec toutes les erreurs » et « en fonction des disponibilités », et sont exclues des contrats de niveau de service (sla) et de la garantie limitée. Les versions préliminaires AKS sont partiellement couvertes par le service clientèle sur la base du meilleur effort. En tant que tel, ces fonctionnalités ne sont pas destinées à une utilisation en production. Pour obtenir des informations supplémentaires, veuillez lire les articles de support suivants :
->
-> * [Stratégies de support AKS][aks-support-policies]
-> * [FAQ du support Azure][aks-faq]
+Cet article vous explique comment créer un cluster AKS et répartir les composants de nœud entre des zones de disponibilité.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Azure CLI 2.0.66 (ou version ultérieure) doit être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
-
-### <a name="install-aks-preview-cli-extension"></a>Installer l’extension CLI de préversion d’aks
-
-Pour créer des clusters AKS qui utilisent des zones de disponibilité, vous avez besoin de l’extension de l’interface CLI *aks-preview* 0.4.12 ou version supérieure. Installez l’extension Azure CLI *aks-preview* à l’aide de la commande [az extension add][az-extension-add], puis recherchez toutes les mises à jour disponibles à l’aide de la commande [az extension update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>Enregistrer l’indicateur de fonctionnalité AvailabilityZonePreview pour votre abonnement
-
-Afin de créer un cluster AKS pour des zones de disponibilité, commencez par activer l’indicateur de fonctionnalité *AvailabilityZonePreview* sur votre abonnement. Enregistrez l’indicateur de fonctionnalité *AvailabilityZonePreview* à l’aide de la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
-
-> [!CAUTION]
-> Lorsque vous inscrivez une fonctionnalité sur un abonnement, vous ne pouvez actuellement pas désinscrire cette fonctionnalité. Après avoir activé des fonctionnalités en préversion, des valeurs par défaut peuvent être utilisées pour tous les clusters AKS créés ultérieurement dans l’abonnement. N’activez pas les fonctionnalités d’évaluation sur les abonnements de production. Utilisez un abonnement distinct pour tester les fonctionnalités d’évaluation et recueillir des commentaires.
-
-```azurecli-interactive
-az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-```
-
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état de l’enregistrement à l’aide de la commande [az feature list][az-feature-list] :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-```
-
-Lorsque vous êtes prêt, actualisez l’inscription du fournisseur de ressources *Microsoft.ContainerService* à l’aide de la commande [az provider register][az-provider-register] :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et configurée. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Limitations et disponibilité de la région
 
@@ -91,7 +50,7 @@ Les limitations suivantes s'appliquent lorsque vous créez un cluster AKS à l'a
 * Les clusters avec des zones de disponibilité activées nécessitent l'utilisation d'équilibreurs de charge Standard Azure pour la distribution entre les zones.
 * Vous devez utiliser Kubernetes version 1.13.5 ou supérieure pour déployer des équilibreurs de charge Standard.
 
-Les clusters AKS qui emploient des zones de disponibilité doivent utiliser la référence SKU *Standard* de l’équilibreur de charge Azure. La référence SKU *De base* de l'équilibreur de charge Azure ne prend pas en charge la distribution entre les zones de disponibilité. Pour plus d'informations et connaître les limites de l’équilibreur de charge Standard, consultez [Limites de la référence SKU Standard de l’équilibreur de charge Azure][standard-lb-limitations].
+Les clusters AKS qui emploient des zones de disponibilité doivent utiliser la référence SKU *Standard* de l’équilibreur de charge Azure, qui est la valeur par défaut pour le type équilibreur de charge. Ce type d’équilibreur de charge ne peut être défini qu’au moment de la création du cluster. Pour plus d'informations et connaître les limites de l’équilibreur de charge Standard, consultez [Limites de la référence SKU Standard de l’équilibreur de charge Azure][standard-lb-limitations].
 
 ### <a name="azure-disks-limitations"></a>Limitations des disques Azure
 
@@ -113,9 +72,9 @@ En cas de défaillance d’une zone, les nœuds peuvent être rééquilibrés ma
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>Créer un cluster AKS sur plusieurs zones de disponibilité
 
-Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-create], le paramètre `--node-zones` définit dans quelles zones les nœuds d'agent sont déployés. Les composants du plan de contrôle AKS de votre cluster sont également répartis entre les zones dans la configuration la plus élevée disponible lorsque vous créez un cluster en spécifiant le paramètre `--node-zones`.
+Lorsque vous créez un cluster à l'aide de la commande [az aks create][az-aks-create], le paramètre `--zones` définit dans quelles zones les nœuds d'agent sont déployés. Les composants du plan de contrôle AKS de votre cluster sont également répartis entre les zones dans la configuration la plus élevée disponible lorsque vous créez un cluster en spécifiant le paramètre `--zones`.
 
-Si vous ne définissez aucune zone pour le pool d'agents par défaut lorsque vous créez un cluster AKS, les composants du plan de contrôle AKS de votre cluster n'utiliseront aucune zone de disponibilité. Vous pouvez ajouter des pools de nœuds supplémentaires (actuellement en préversion dans AKS) en utilisant la commande [az aks nodepool add][az-aks-nodepool-add], puis spécifiez `--node-zones` pour ces nouveaux nœuds d'agents, mais les composants du plan de contrôle ne tiendront pas compte des zones de disponibilité. Vous ne pouvez ni modifier la prise en compte des zones d’un pool de nœuds ni les composants du plan de contrôle AKS une fois ces éléments déployés.
+Si vous ne définissez aucune zone pour le pool d'agents par défaut lorsque vous créez un cluster AKS, les composants du plan de contrôle AKS de votre cluster n'utiliseront aucune zone de disponibilité. Vous pouvez ajouter des pools de nœuds supplémentaires en utilisant la commande [az aks nodepool add][az-aks-nodepool-add], puis spécifier `--zones` pour ces nouveaux nœuds d’agents, mais les composants du plan de contrôle ne tiendront pas compte des zones de disponibilité. Vous ne pouvez ni modifier la prise en compte des zones d’un pool de nœuds ni les composants du plan de contrôle AKS une fois ces éléments déployés.
 
 L’exemple suivant crée un cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup*. Un total de *3* nœuds sont créés : un agent dans la zone *1*, un dans la zone *2*, puis un dans la zone *3*. Les composants du plan de contrôle AKS sont également répartis entre les zones dans la configuration la plus élevée possible puisqu'ils sont définis dans le cadre du processus de création du cluster.
 
@@ -129,7 +88,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
-    --node-zones 1 2 3
+    --zones 1 2 3
 ```
 
 La création du cluster AKS ne prend que quelques minutes.

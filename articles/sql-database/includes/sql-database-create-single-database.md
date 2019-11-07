@@ -3,14 +3,14 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.author: mathoma
-ms.openlocfilehash: d4c426c5fe31f8fc2bfaf4697c05456124cafcb1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496158"
 ---
 Au cours de cette étape, vous allez créer une base de données unique Azure SQL Database. 
 
@@ -55,12 +55,12 @@ Créez votre groupe de ressources et votre base de données unique à l’aide d
 
      ![Détails de la base de données SQL](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - Sélectionnez **Provisionné** et **Gen5**.
+   - Sélectionnez **Provisionné**.
 
      ![Gen4 provisionné](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - Vérifiez les paramètres pour **vCores max.** , **vCores min.** , **Délai de pause automatique** et **Taille maximale de données**. Modifiez-les comme vous le souhaitez.
-   - Acceptez les termes de la préversion et cliquez sur **OK**.
+   - Passez en revue les paramètres pour **vCores** et **Taille max. des données**. Modifiez-les comme vous le souhaitez. 
+     - Si vous le souhaitez, vous pouvez également sélectionner **Changer la configuration** pour modifier la génération matérielle.
    - Sélectionnez **Appliquer**.
 
 5. Sélectionnez l’onglet **Paramètres supplémentaires**. 
@@ -142,6 +142,15 @@ Créez votre groupe de ressources et votre base de données unique à l’aide d
    $database
    ```
 
+Cette partie de l’article utilise les cmdlets PowerShell suivantes :
+
+| Commande | Notes |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crée un serveur SQL Database qui héberge des bases de données uniques et des pools élastiques. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crée une règle de pare-feu pour un serveur logique. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crée une base de données unique Azure SQL Database. | 
+
 # <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
 
 Créez votre groupe de ressources et votre base de données unique à l’aide de l’interface CLI AZ.
@@ -207,5 +216,16 @@ Créez votre groupe de ressources et votre base de données unique à l’aide d
       --family Gen5 \
       --capacity 2
    ```
+
+Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
+
+| Commande | Notes |
+|---|---|
+| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set) | Définit un abonnement en tant qu’abonnement actif. | 
+| [az group create](/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Crée un serveur SQL Database qui héberge des bases de données uniques et des pools élastiques. |
+| [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) | Crée les règles de pare-feu d’un serveur. | 
+| [az sql db create](/cli/azure/sql/db?view=azure-cli-latest) | Crée une base de données. | 
+
 
 ---

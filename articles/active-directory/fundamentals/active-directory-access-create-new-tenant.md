@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bc3e3bb178efbbc8f4cee6d81417ce70bd7a662
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c8310b6fc33f1d03e1ccc9ccddfcd7b9e6c35d37
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562061"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473348"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Démarrage rapide : Créer un locataire dans Azure Active Directory
 Vous pouvez effectuer toutes vos tâches d’administration à l’aide du portail Azure Active Directory (Azure AD), notamment la création d’un locataire pour votre organisation. 
@@ -26,22 +26,24 @@ Dans ce guide de démarrage rapide, vous découvrez comment accéder au portail 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-Connectez-vous au [portail Azure](https://portal.azure.com/) de votre organisation avec un compte d’administrateur général.
-
-![Écran du portail Azure, avec l’option Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
-
 ## <a name="create-a-new-tenant-for-your-organization"></a>Créer un locataire pour votre organisation
 Une fois connecté au portail Azure, vous pouvez créer un locataire pour votre organisation. Votre nouveau locataire représente votre organisation et vous permet de gérer une instance particulière des services cloud de Microsoft pour vos utilisateurs internes et externes.
 
 ### <a name="to-create-a-new-tenant"></a>Pour créer un locataire
-1. Sélectionnez **Créer une ressource**, **Identité** et **Azure Active Directory**.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) de votre organisation avec un compte d’administrateur général.
+
+1. Dans le menu du portail Azure, sélectionnez **Créer une ressource**.  
+
+    ![Page de création de ressource d’un annuaire Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+
+1. Sélectionnez **Identité**, puis **Azure Active Directory**.
 
     La page **Créer un annuaire** s’affiche.
 
     ![Page de création d’un annuaire Azure Active Directory](media/active-directory-access-create-new-tenant/azure-ad-create-new-tenant.png)
 
-2.  Dans la page **Créer un annuaire**, indiquez les informations suivantes :
+1.  Dans la page **Créer un annuaire**, indiquez les informations suivantes :
     
     - Tapez _Contoso_ dans la zone **Nom de l’organisation**.
 
@@ -49,7 +51,7 @@ Une fois connecté au portail Azure, vous pouvez créer un locataire pour votre 
 
     - Laissez l’option _États-Unis_ dans la zone **Pays ou région**.
 
-3. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 Votre nouveau locataire est créé avec le domaine contoso.onmicrosoft.com.
 

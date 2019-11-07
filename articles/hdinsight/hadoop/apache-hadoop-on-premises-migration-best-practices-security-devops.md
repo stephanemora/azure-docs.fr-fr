@@ -1,5 +1,5 @@
 ---
-title: Effectuer la migration de clusters Apache Hadoop locaux vers Azure HDInsight - Sécurité
+title: 'Sécurité : Effectuer la migration d’Apache Hadoop en local vers Azure HDInsight'
 description: Découvrez les bonnes pratiques concernant la sécurité et DevOps pour la migration des clusters Hadoop locaux vers Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1cebe425e323eefda6e26b0f32ddeda0118a70d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736134"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494972"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques de sécurité et DevOps
 
@@ -85,7 +85,7 @@ Pour plus d’informations, consultez les articles suivants :
 
 - [Vue d’ensemble des réseaux virtuels Azure](../../virtual-network/virtual-networks-overview.md)
 - [Vue d’ensemble des groupes de sécurité réseau Azure](../../virtual-network/security-overview.md)
-- [Homologation de réseaux virtuels Azure](../../virtual-network/virtual-network-peering-overview.md)
+- [Peering de réseaux virtuels Azure](../../virtual-network/virtual-network-peering-overview.md)
 - [Guide de sécurité du stockage Azure](../../storage/common/storage-security-guide.md)
 - [Chiffrement du service de stockage Azure au repos](../../storage/common/storage-service-encryption.md)
 

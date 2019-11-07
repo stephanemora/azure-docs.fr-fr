@@ -1,24 +1,24 @@
 ---
 title: 'Réseau neuronal multiclasse : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Multiclass Neural Network (Réseau neuronal multiclasse) dans Azure Machine Learning service pour créer un modèle de réseau neuronal qui peut être utilisé pour prédire une cible ayant plusieurs valeurs.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Multiclass Neural Network (Réseau neuronal multiclasse) dans Azure Machine Learning pour créer un modèle de réseau neuronal qui peut être utilisé pour prédire une cible ayant plusieurs valeurs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b49ff44e898a78d865278df087aca75e4f8e50ca
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692724"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466036"
 ---
 # <a name="multiclass-neural-network-module"></a>Module Multiclass Neural Network (Réseau neuronal à multiclasse)
 
-Cet article décrit un module de l’interface visuelle (préversion) pour le service Azure Machine Learning.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour créer un modèle de réseau neuronal qui peut être utilisé pour prédire une cible ayant plusieurs valeurs. 
 
@@ -40,7 +40,7 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
 
 ## <a name="configure-multiclass-neural-network"></a>Configurer un réseau neuronal multiclasse
 
-1. Ajoutez le module **Réseau neuronal multiclasse** à votre pipeline dans l’interface. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser**, dans la catégorie **Classification**.
+1. Ajoutez le module **Réseau neuronal multiclasse** à votre pipeline dans le concepteur. Vous pouvez trouver ce module sous **Machine Learning**, **Initialiser**, dans la catégorie **Classification**.
 
 2. **Create trainer mode** (Créer un mode d’apprentissage) : Utilisez cette option pour spécifier comment vous voulez que le modèle soit entraîné :
 
@@ -93,4 +93,4 @@ Une fois la formation terminée :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

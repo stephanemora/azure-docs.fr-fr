@@ -1,5 +1,5 @@
 ---
-title: Data Warehouse Units (DWU, cDWU) dans Azure SQL Data Warehouse | Microsoft Docs
+title: Data Warehouse Units (DWU, cDWU) dans Azure Synapse Analytics (anciennement SQL DW) | Microsoft Docs
 description: Recommandations concernant le choix du nombre idéal de Data Warehouse Units (DWU, cDWU) pour optimiser le prix et la performance ainsi que la manière de modifier leur nombre.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 05/30/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19
-ms.openlocfilehash: 282fab70e3b6d1fcf81814b2dd599259e2396fb3
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036050"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475758"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (DWU) et Data Warehouse Units de calcul (cDWU)
 
@@ -24,11 +24,11 @@ Recommandations concernant le choix du nombre idéal de Data Warehouse Units (DW
 
 ## <a name="what-are-data-warehouse-units"></a>Que sont les Data Warehouse Units ?
 
-Azure SQL Data Warehouse, l’UC, la mémoire et les E/S sont regroupés dans des unités d’échelle de calcul appelées Data Warehouse Units (DWU). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances. Une modification de votre niveau de service change le nombre de DWU disponibles sur le système, qui à son tour ajuste le niveau de performance et le coût de votre système.
+Le pool SQL représente une collection de ressources analytiques en cours de configuration lors de l’utilisation de [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Les ressources analytiques sont définies comme une combinaison d’UC, de mémoire et d’E/S. Ces trois ressources sont regroupées dans des unités d’échelle de calcul appelées Data Warehouse Units (DWU). Une DWU représente une mesure abstraite et standardisée des ressources de calcul et de performances. Une modification de votre niveau de service change le nombre de DWU disponibles sur le système, qui à son tour ajuste le niveau de performance et le coût de votre système.
 
 Pour un meilleur niveau de performance, vous pouvez augmenter le nombre de DWU. Pour un niveau de performance inférieur, vous pouvez diminuer le nombre de DWU. Les coûts de stockage et de calcul sont facturés séparément. Ainsi, la modification des DWU n’a pas d’effet sur les coûts de stockage.
 
-Les performances des DWU sont basées sur les métriques de charge de travail d’entrepôt de données suivantes :
+Les performances des DWU sont basées sur les métriques de charge de travail suivantes :
 
 - À quelle vitesse une requête d’entreposage de données standard peut-t-elle analyser un grand nombre de lignes avant d’effectuer une agrégation complexe ? C’est une opération très gourmande en E/S et en UC.
 - À quelle vitesse un entrepôt de données peut-il traiter des données provenant du stockage d'objets blob Azure ou d’Azure Data Lake ? C’est une opération très gourmande en réseau et en UC.
@@ -42,11 +42,11 @@ Augmentation du nombre de DWU :
 
 ## <a name="service-level-objective"></a>Objectif de niveau de service
 
-L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour Gen2 sont mesurés en unités cDWU (compute Data Warehouse Unit), par exemple DW2000C. Les niveaux de service Gen1 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000.
+L’Objectif de niveau de service (SLO) est le paramètre d’extensibilité qui détermine le niveau de coût et de performance de votre entrepôt de données. Les niveaux de service pour le pool SQL Gen2 sont mesurés en unités cDWU (compute Data Warehouse Unit), par exemple DW2000C. Les niveaux de service du pool SQL Gen 1 sont mesurés en unités DWU (Data Warehouse Unit), par exemple DW2000.
   > [!NOTE]
-  > Azure SQL Data Warehouse Gen2 a récemment ajouté des fonctionnalités de mise à l'échelle supplémentaires pour la prise en charge des niveaux de calcul inférieurs à 100 cDWU. Les entrepôts de données Gen1 existants qui ont besoin des niveaux de calcul inférieurs peuvent désormais être mis à niveau vers Gen2 dans les régions actuellement disponibles sans aucun coût supplémentaire.  Si votre région n'est pas encore prise en charge, vous pouvez procéder à une mise à niveau vers une région qui l'est. Pour plus d’informations, consultez [Mettre à niveau vers Gen2](upgrade-to-latest-generation.md).
+  > Le pool SQL Gen 2 a récemment ajouté des fonctionnalités de mise à l’échelle supplémentaires pour la prise en charge des niveaux de calcul inférieurs à 100 cDWU. Les pools SQL Gen1 existants qui ont besoin des niveaux de calcul inférieurs peuvent désormais être mis à niveau vers Gen2 dans les régions actuellement disponibles sans aucun coût supplémentaire.  Si votre région n'est pas encore prise en charge, vous pouvez procéder à une mise à niveau vers une région qui l'est. Pour plus d’informations, consultez [Mettre à niveau vers Gen2](upgrade-to-latest-generation.md).
 
-Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine les niveaux de service et de performance de votre entrepôt de données.
+Dans T-SQL, le paramètre SERVICE_OBJECTIVE détermine les niveaux de service et de performance de votre pool SQL.
 
 ```sql
 --Gen1
@@ -68,10 +68,10 @@ CREATE DATABASE myComputeSQLDW
 
 Chaque niveau de performances utilise une unité de mesure légèrement différente pour ses DWU. Cette différence est répercutée sur la facture, car l’unité d’échelle s’applique directement à la facturation.
 
-- Les entrepôts de données Gen1 sont mesurés en unités DWU.
-- Les entrepôts de données Gen2 sont mesurés en unités cDWU.
+- Les pools SQL Gen1 sont mesurés en DWU (Data Warehouse Units).
+- Les pools SQL Gen2 sont mesurés en cDWU (compute Data Warehouse Units).
 
-Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser l’entrepôt de données. Ces opérations se font toutes à la demande. Gen2 utilise un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.  
+Les DWU et les cDWU prennent en charge la mise à l’échelle du calcul (augmentation ou réduction) et la suspension du calcul lorsque vous n’avez pas besoin d’utiliser le pool SQL. Ces opérations se font toutes à la demande. Gen2 utilise un cache sur disque local sur les nœuds de calcul pour améliorer les performances. Lorsque vous mettez à l’échelle ou suspendez le système, le cache est invalidé, et une période de préchauffage du cache est nécessaire pour pouvoir bénéficier de performances optimales.  
 
 Lorsque vous augmentez les DWU, vous augmentez de façon linéaire le nombre de ressources de calcul. Gen2 offre les meilleures performances de requête et la plus grande échelle. Les systèmes Gen2 exploitent aussi au maximum le cache.
 
@@ -89,7 +89,7 @@ Le nombre idéal de DWU dépend en grande partie de votre charge de travail et d
 2. Surveillez les performances de votre application pendant le test des charges de données dans le système, en observant notamment le nombre de DWU sélectionné.
 3. Identifiez des besoins supplémentaires pour les périodes ponctuelles de pics d’activité. Les charges de travail présentant d'importantes variations d'activité doivent être fréquemment mises à l’échelle.
 
-SQL Data Warehouse est un système de montée en puissance parallèle qui peut fournir des quantités importantes de calcul et lancer des requêtes sur une grande quantité de données. Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élevé de DWU, nous vous recommandons d’effectuer la mise à l’échelle de l’ensemble de données en vous assurant que vous disposez de suffisamment de données pour alimenter les UC. Pour le test de mise à l’échelle, nous recommandons d’utiliser au moins 1 To.
+SQL Analytics est un système de scale-out qui peut fournir des quantités importantes de calcul et lancer des requêtes sur une grande quantité de données. Pour tester ses capacités de mise à l’échelle, surtout avec un nombre élevé de DWU, nous vous recommandons d’effectuer la mise à l’échelle de l’ensemble de données en vous assurant que vous disposez de suffisamment de données pour alimenter les UC. Pour le test de mise à l’échelle, nous recommandons d’utiliser au moins 1 To.
 
 > [!NOTE]
 >
@@ -185,25 +185,26 @@ Vous ne pouvez pas vérifier l’état de la base de données pour les opératio
 Pour vérifier l’état des modifications de DWU :
 
 1. Connectez-vous à la base de données associée à votre serveur SQL Database logique.
-2. Envoyez la requête suivante pour vérifier l’état de la base de données.
 
-```sql
-SELECT    *
-FROM      sys.databases
-;
-```
+1. Envoyez la requête suivante pour vérifier l’état de la base de données.
 
+    ```sql
+    SELECT    *
+    FROM      sys.databases
+    ;
+    ```
+    
 1. Envoyez la requête suivante pour vérifier l’état de l’opération.
 
-```sql
-SELECT    *
-FROM      sys.dm_operation_status
-WHERE     resource_type_desc = 'Database'
-AND       major_resource_id = 'MySQLDW'
-;
-```
-
-Cette vue de gestion dynamique renvoie des informations sur diverses opérations de gestion de votre SQL Data Warehouse, comme l’opération et l’état de l’opération, qui a la valeur IN_PROGRESS ou COMPLETED.
+    ```sql
+    SELECT    *
+    FROM      sys.dm_operation_status
+    WHERE     resource_type_desc = 'Database'
+    AND       major_resource_id = 'MySQLDW'
+    ;
+    ```
+    
+Cette vue de gestion dynamique renvoie des informations sur diverses opérations de gestion de votre pool SQL, comme l’opération et l’état de l’opération, qui a la valeur IN_PROGRESS ou COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>Flux de travail de mise à l’échelle
 

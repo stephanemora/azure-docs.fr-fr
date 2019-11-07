@@ -4,14 +4,14 @@ description: Décrit comment configurer une appliance pour la découverte, l’�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: fe190381df346278e75a3e6fd9876b80c33bd86b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 77bf9a0f73519aa979da49614475daf70f582a9e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67810196"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467127"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurer une appliance pour les machines virtuelles VMware
 
@@ -29,7 +29,7 @@ L’appliance de machines virtuelles VMware est une appliance légère utilisée
 
 Pour configurer l’appliance, vous devez :
 - Téléchargez un fichier de modèle OVA, puis importez-le dans vCenter Server.
-- Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment. 
+- Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
 - Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
 ## <a name="download-the-ova-template"></a>Télécharger le modèle OVA
@@ -48,7 +48,7 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Pour l’appliance version 1.0.0.5, le hachage généré doit correspondre à ces valeurs. 
+3. Pour l’appliance version 1.0.0.5, le hachage généré doit correspondre à ces valeurs.
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
@@ -98,7 +98,7 @@ Configurez l’appliance pour la première fois.
 ## <a name="register-the-appliance-with-azure-migrate"></a>Inscrire l’appliance auprès d’Azure Migrate
 
 1. Cliquez sur **Se connecter**. S’il n’apparaît pas, vérifiez que vous avez désactivé le bloqueur de fenêtres publicitaires dans le navigateur.
-2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure. 
+2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
     - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
     - La connexion avec un code PIN n’est pas prise en charge.
 3. Une fois la connexion effectuée, revenez à l’application web.
@@ -107,18 +107,30 @@ Configurez l’appliance pour la première fois.
 4. Cliquez sur **S'inscrire**.
 
 
-## <a name="start-continuous-discovery"></a>Démarrer la découverte en continu
+## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>Démarrer la découverte continue en fournissant vCenter Server et des informations d’identification de machine virtuelle
 
-Connectez-vous ensuite depuis l’appliance à vCenter Server, puis démarrez la découverte des machines virtuelles. 
+L’appliance doit se connecter à vCenter Server pour détecter les données de configuration et de performances des machines virtuelles.
 
+### <a name="specify-vcenter-server-details"></a>Spécifier les détails vCenter Server
 1. Dans **Spécifier les détails vCenter Server**, spécifiez le nom (FQDN) ou l’adresse IP du serveur vCenter Server. Vous pouvez laisser le port par défaut, ou spécifier un port personnalisé sur lequel votre serveur vCenter Server est à l’écoute.
-2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance utilisera pour découvrir les machines virtuelles sur le vCenter Server. Vérifiez que le compte dispose des [autorisations nécessaires pour la découverte](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance utilisera pour découvrir les machines virtuelles sur le vCenter Server. Vérifiez que le compte dispose des [autorisations nécessaires pour la découverte](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Vous pouvez définir l’étendue de la découverte en limitant l’accès au compte vCenter. Pour en savoir plus sur la découverte délimitée, cliquez [ici](tutorial-assess-vmware.md#scoping-discovery).
 3. Cliquez sur **Valider la connexion** pour vérifier que l’appliance peut se connecter à vCenter Server.
-4. Une fois la connexion établie, cliquez sur **Enregistrer et lancer la découverte**.
 
+### <a name="specify-vm-credentials"></a>Spécifier les informations d’identification de machine virtuelle
+Pour la découverte des applications, des rôles et des fonctionnalités et la visualisation des dépendances des machines virtuelles, vous pouvez fournir des informations d’identification de machine virtuelle qui ont accès aux machines virtuelles VMware. Vous pouvez ajouter une information d’identification pour les machines virtuelles Windows et une autre pour les machines virtuelles Linux. [En savoir plus](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sur les privilèges d’accès nécessaires.
 
-Ceci démarre la découverte. Il faut environ 15 minutes pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail. 
+> [!NOTE]
+> Cette entrée est facultative et nécessaire pour activer la détection des applications et la visualisation des dépendances sans agent.
 
+1. Dans **Découvrir les applications et les dépendances sur les machines virtuelles**, cliquez **Ajouter les informations d’identification**.
+2. Sélectionnez le **Système d’exploitation**.
+3. Fournissez un nom convivial pour les informations d’identification.
+4. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez un compte disposant au moins d’un accès invité sur les machines virtuelles.
+5. Cliquez sur **Add**.
+
+Une fois que vous avez spécifié les informations d’identification de vCenter Server et de la machine virtuelle (facultatif), cliquez sur **Enregistrer et démarrer la découverte** pour démarrer la découverte de l’environnement local.
+
+Environ 15 minutes sont nécessaires pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail. La découverte des applications, des rôles et des fonctionnalités installés prend un certain temps et la durée dépend du nombre de machines virtuelles découvertes. Pour 500 machines virtuelles, il faut environ 1 heure pour que l’inventaire des applications s’affiche dans le portail Azure Migrate.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

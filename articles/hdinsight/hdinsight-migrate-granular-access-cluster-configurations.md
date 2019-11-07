@@ -1,5 +1,5 @@
 ---
-title: Passer à un accès en fonction du rôle granulaire - Configurations de cluster Azure HDInsight
+title: Accès en fonction du rôle granulaire - Configurations de cluster Azure HDInsight
 description: Découvrez les modifications nécessaires dans le cadre de la migration vers un accès granulaire en fonction du rôle pour des configurations de cluster HDInsight.
 author: tylerfox
 ms.author: tyfox
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 9eb77b3e4066712aecebee4660d50baf45957cb8
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: ea8e1565a5ebe4e5cb40049fbfcb329feb83bdda
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733233"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498207"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrer vers un accès en fonction du rôle granulaire pour les configurations de cluster
 

@@ -1,21 +1,21 @@
 ---
-title: Terminologie d’Azure Data Share en préversion
-description: Découvrez les termes couramment employés pour décrire les ressources utilisées dans la préversion d’Azure Data Share (fournisseur de données, consommateur de données, partage de données, abonnement de partage, instantané, invitation, destinataire).
+title: Terminologie Azure Data Share
+description: Découvrez les termes couramment employés pour décrire les ressources utilisées dans Azure Data Share (fournisseur de données, consommateur de données, partage de données, abonnement de partage, instantané, invitation, destinataire).
+ms.service: data-share
 author: joannapea
 ms.author: joanpo
-ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166270"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468558"
 ---
-# <a name="azure-data-share-preview-concepts"></a>Concepts d’Azure Data Share en préversion 
+# <a name="azure-data-share-concepts"></a>Concepts d’Azure Data Share 
 
-Azure Data Share en préversion introduit quelques nouveaux termes liés au partage de données. Cet article explique quelques-uns des termes pouvant être utilisés à travers le service. 
+Azure Data Share introduit quelques nouveaux termes liés au partage de données. Cet article explique quelques-uns des termes pouvant être utilisés à travers le service. 
 
 ## <a name="data-provider"></a>Fournisseur de données
 
@@ -47,7 +47,7 @@ Un fournisseur de données peut activer un paramètre d’instantané pour un pa
 
 Si un fournisseur de données active ce paramètre, un intervalle de récurrence peut être sélectionné. L’intervalle de récurrence peut être horaire ou quotidien. 
 
-Un consommateur de données a la possibilité d’accepter cette planification d’instantanés pour recevoir des mises à jour incrémentielles, qui incluent toutes les données qui ont changé depuis le premier instantané généré. 
+Un consommateur de données a la possibilité de participer à cette planification de capture instantanée pour recevoir des mises à jour incrémentielles, qui incluent toutes les données qui ont changé depuis le premier instantané généré. 
 
 ## <a name="invitation"></a>Invitation
 
@@ -64,4 +64,3 @@ Un destinataire est une personne qui reçoit une invitation à un partage de don
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour découvrir comment commencer à partager des données, passez au tutoriel [Partager vos données](share-your-data.md).
-

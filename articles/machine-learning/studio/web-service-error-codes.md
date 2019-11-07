@@ -1,9 +1,8 @@
 ---
-title: Codes d’erreur de l’API REST - Azure Machine Learning Studio | Microsoft Docs
+title: Codes d’erreur de l’API REST - Azure Machine Learning Studio (classique) | Microsoft Docs
 description: Ces codes d’erreur peuvent être renvoyés par une opération effectuée sur un service web Azure Machine Learning.
 keywords: ''
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -11,21 +10,18 @@ editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 8e91d0cd68997dee9bb00cceeaa6b697f6644ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736562"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468158"
 ---
-# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Codes d’erreur de l’API REST Azure Machine Learning Studio
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Codes d’erreur de l’API REST Azure Machine Learning Studio (classique)
  
-Les codes d’erreur suivants peuvent être retournés par une opération effectuée sur un service web Azure Machine Learning Studio.
+Les codes d’erreur suivants peuvent être retournés par une opération effectuée sur un service web Azure Machine Learning Studio (classique).
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument (code d’état HTTP :  400)
  
@@ -55,7 +51,7 @@ Cette classe d’erreurs indique qu’un des arguments fournis est non valide. I
 | InvalidBlobExtension | La référence d’objet blob {0} présente une extension de fichier manquante ou non valide. Les extensions de fichier prises en charge pour ce type de sortie sont les suivantes : « {1} ». |
 | InvalidInputNames | Les noms d’entrée de service indiqués dans la requête ne sont pas valides : {0}. Mappez les données d’entrée sur les entrées appropriées de service, puis réessayez. |
 | InvalidOutputOverrideName | Le nom de remplacement de sortie {0} n’est pas valide. Ce service ne présente aucun nœud de sortie portant ce nom. Communiquez un nom approprié de nœud de sortie de remplacement (contenu sensible à la casse). |
-| InvalidQueryParameter | Le paramètre de requête « {0} » n’est pas valide. {1} |
+| InvalidQueryParameter | Le paramètre de requête « {0} » n’est pas valide. [https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/]({1}) |
 | MissingInputBlobInformation | Informations manquantes sur l’objet blob de stockage Azure. Fournissez une chaîne de connexion valide et un chemin d’accès relatif ou un URI, puis réessayez. |
 | MissingJobId | Aucun ID de travail fourni. Un ID de travail est renvoyé lors de la première soumission d’un travail. Vérifiez qu’il s’agit de l’ID de travail approprié, puis réessayez. |
 | MissingKeys | Aucune clé fournie, ou les clés primaire ou secondaire ne sont pas fournies. |

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: a73308274c9aedf6a85745c17c14637e2ef3d27d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626402"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492466"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale
 
@@ -70,7 +70,7 @@ Prédisez la durée de vie restante (RUL) d’un moteur d’avion donné en util
 
 ## <a name="data-publishing"></a>Publication des données
 ### <a name="azure-sql-database"></a>Azure SQL Database
-Utilisez le service [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) pour stocker les prédictions reçues par le service Azure Machine Learning, qui sont ensuite utilisées dans le tableau de bord [Power BI](https://powerbi.microsoft.com).
+Utilisez le service [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) pour stocker les prédictions reçues par Azure Machine Learning, qui sont ensuite utilisées dans le tableau de bord [Power BI](https://powerbi.microsoft.com).
 
 ## <a name="data-consumption"></a>Consommation des données
 ### <a name="power-bi"></a>Power BI

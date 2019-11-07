@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6f04ccf216edb4e6a654c83c6220451bfccfe6ac
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244553"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488506"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 
@@ -69,11 +69,11 @@ Le tableau suivant répertorie les noms de propriétés et leur description pour
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Stockage d’objets BLOB et Azure Data Lake Gen2
 
-La sortie vers Azure Data Lake Gen2 est fournie sous la forme d’une fonctionnalité en préversion dans certaines régions. Vous pouvez demander l'accès à la préversion en fournissant des détails supplémentaires dans notre [formulaire de requête](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).
+Data Lake Storage Gen2 fait du stockage Azure la base pour créer des dépôts Data Lake d’entreprise sur Azure. Conçu dès le départ pour traiter plusieurs téraoctets d’informations tout en assurant des centaines de gigaoctets de débit, Data Lake Storage Gen2 vous permet de facilement gérer d’importants volumes de données. Une caractéristique fondamentale de Data Lake Storage Gen2 est l’ajout d’un espace de noms hiérarchique au stockage Blob.
 
 Le stockage d’objets blob Azure offre une solution peu coûteuse et évolutive pour stocker de grandes quantités de données non structurées dans le cloud. Pour une introduction au stockage d’objets blob et à son utilisation, consultez [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Microsoft Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-Le tableau suivant répertorie les noms de propriétés et leur description pour la création d’une sortie d’objet blob.
+Le tableau suivant répertorie les noms de propriétés et leur description pour la création d’une sortie d’objet blob ou ADLS Gen2.
 
 | Nom de la propriété       | Description                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|

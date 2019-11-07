@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2f815d99c32c2dcaa1fd35d00110b27a90f53ab4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415571"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471204"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database
 
@@ -201,7 +201,7 @@ Lorsque Visual Studio a créé le paramètre de pare-feu pour votre instance SQL
 
 Ici, vous pouvez effectuer les opérations de base de données les plus courantes, par exemple exécuter des requêtes, créer des vues et des procédures stockées, etc. 
 
-Développez votre connexion > **Bases de données** > **&lt;votre base de données >** > **Tables**. Cliquez avec le bouton droit sur la table `Todoes`, puis sélectionnez **Afficher les données**. 
+Développez votre connexion > **Bases de données** >  **&lt;votre base de données >**  > **Tables**. Cliquez avec le bouton droit sur la table `Todoes`, puis sélectionnez **Afficher les données**. 
 
 ![Explorer les objets SQL Database](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -311,9 +311,9 @@ Cliquez sur **Configurer** pour ouvrir les paramètres de publication.
 
 Dans l’assistant, cliquez sur **Suivant**.
 
-Assurez-vous que la chaîne de connexion pour votre instance SQL Database est renseignée dans **MyDatabaseContext (MyDbConnection)**. Vous devrez peut-être sélectionner la base de données **myToDoAppDb** dans la liste déroulante. 
+Assurez-vous que la chaîne de connexion pour votre instance SQL Database est renseignée dans **MyDatabaseContext (MyDbConnection)** . Vous devrez peut-être sélectionner la base de données **myToDoAppDb** dans la liste déroulante. 
 
-Sélectionnez **Exécuter les migrations Code First (s’exécute au démarrage de l’application)**, puis cliquez sur **Enregistrer**.
+Sélectionnez **Exécuter les migrations Code First (s’exécute au démarrage de l’application)** , puis cliquez sur **Enregistrer**.
 
 ![Activer les Migrations Code First dans l’application Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
@@ -364,7 +364,7 @@ Pour modifier les niveaux de suivi pour générer d’autres messages de suivi, 
 
 Cliquez à nouveau avec le bouton droit sur votre application Azure et sélectionnez **Afficher les paramètres**.
 
-Dans la liste déroulante **Journal des applications (Système de fichiers)**, sélectionnez **Détaillé**. Cliquez sur **Enregistrer**.
+Dans la liste déroulante **Journal des applications (Système de fichiers)** , sélectionnez **Détaillé**. Cliquez sur **Enregistrer**.
 
 ![Définir le niveau de suivi sur Détaillé](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
@@ -392,11 +392,11 @@ Pour arrêter le service de diffusion de journaux, cliquez sur le bouton **Arrê
 
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée. 
+Accédez au [Portail Azure](https://portal.azure.com) pour gérer l’application web. Recherchez et sélectionnez **App Services**. 
 
+![Rechercher Azure App Services](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-Dans le menu de gauche, cliquez sur **App Service**, puis cliquez sur le nom de votre application Azure.
+Sélectionnez le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

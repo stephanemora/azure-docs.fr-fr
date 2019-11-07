@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2bd2510b3b7aa72ac5e66ac9910f1c941f276564
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0bed9f96ce04fae313672f2fa627c2e20bea2f6f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259894"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496417"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Blueprint sur la sécurité et la conformité Azure - Analytique des données pour NIST SP 800-171
 
@@ -27,7 +27,7 @@ Cette architecture de référence, ainsi que le guide d‘implémentation et le 
 ## <a name="architecture-diagram-and-components"></a>Diagramme et composants de l’architecture
 Cette solution offre une plateforme analytique sur la base de laquelle les clients peuvent créer leurs propres outils d’analyse. L’architecture de référence présente un cas d’usage générique. Les clients peuvent l’utiliser pour entrer des données via des importations de données en bloc par l’administrateur de données/SQL. Ils peuvent également l’utiliser pour entrer des données à l’aide de mises à jour de données opérationnelles via un utilisateur opérationnel. Ces deux axes de travail incorporent la solution Azure Functions pour l’importation des données dans Azure SQL Database. Chaque client doit configurer Azure Functions par le biais du portail Azure pour la gestion des tâches d’importation conformément à ses exigences d’analyse.
 
-Azure offre divers services de création de rapports et d’analyse pour le client. Cette solution utilise les services Azure Machine Learning et SQL Database pour parcourir rapidement les données et fournir plus rapidement des résultats par le biais d’une modélisation plus intelligente des données. Machine Learning a pour but d’accroître la vitesse des requêtes en découvrant de nouvelles relations entre les jeux de données. Initialement, l’apprentissage des données est effectué par le biais de plusieurs fonctions statistiques. Par la suite, il est possible de synchroniser jusqu’à sept pools de requêtes supplémentaires avec les mêmes modèles tabulaires pour répartir la charge de travail des requêtes et réduire les temps de réponse. Le serveur du client porte ce total de pools de requêtes à huit.
+Azure offre divers services de création de rapports et d’analyse pour le client. Cette solution utilise Azure Machine Learning et SQL Database pour parcourir rapidement les données et fournir plus rapidement des résultats par le biais d’une modélisation plus intelligente des données. Machine Learning a pour but d’accroître la vitesse des requêtes en découvrant de nouvelles relations entre les jeux de données. Initialement, l’apprentissage des données est effectué par le biais de plusieurs fonctions statistiques. Par la suite, il est possible de synchroniser jusqu’à sept pools de requêtes supplémentaires avec les mêmes modèles tabulaires pour répartir la charge de travail des requêtes et réduire les temps de réponse. Le serveur du client porte ce total de pools de requêtes à huit.
 
 SQL Database est configurable avec des index de stockage de colonnes afin d’améliorer les fonctions d’analyse et de génération de rapports. Machine Learning et SQL Database peuvent faire l’objet d’un scale-up ou d’un scale-down, ou être complètement arrêtés en fonction de l’utilisation du client. La totalité du trafic SQL est chiffrée avec SSL grâce à l’inclusion de certificats auto-signés. En guise de bonne pratique, nous recommandons l’utilisation d’une autorité de certification de confiance afin de renforcer la sécurité.
 
@@ -39,7 +39,7 @@ Pour renforcer la sécurité, toutes les ressources dans cette solution sont gé
 
 SQL Database est généralement géré via SQL Server Management Studio. Il s‘exécute à partir d‘une machine locale configurée pour accéder à la base de données SQL via une connexion VPN ou Azure ExpressRoute sécurisée. *Nous vous recommandons de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le groupe de ressources*.
 
-![Diagramme de l’architecture de référence Analytique données pour NIST SP 800-171](images/nist171-analytics-architecture.png "Diagramme de l’architecture de référence Analytique données pour NIST SP 800-171")
+![Analyse des données pour le diagramme d’architecture de référence NIST SP 800-171](images/nist171-analytics-architecture.png "Analyse des données pour le diagramme d’architecture de référence NIST SP 800-171")
 
 Cette solution utilise les services Azure suivants. Pour plus d‘informations, consultez la section sur l‘[architecture de déploiement](#deployment-architecture).
 
@@ -68,7 +68,7 @@ La section ci-après décrit en détail les éléments nécessaires au déploiem
 
 **Azure Functions** : [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) est un service de calcul serverless qui exécute du code à la demande. Vous n’êtes pas obligé de configurer ou gérer explicitement l’infrastructure. Utilisez Azure Functions pour exécuter un script ou du code en réponse à un grand nombre d’événements.
 
-**Azure Machine Learning service** : [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) est une technique de science des données qui permet aux ordinateurs d’utiliser des données existantes afin de prévoir les tendances, les résultats et les comportements futurs.
+**Azure Machine Learning** : [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) est une technique de science des données qui permet aux ordinateurs d’utiliser des données existantes afin de prévoir les tendances, les résultats et les comportements futurs.
 
 **Azure Data Catalog** : [Data Catalog](../../data-catalog/overview.md) permet aux utilisateurs qui gèrent les données de détecter et comprendre facilement les sources de données. Les sources de données courantes peuvent être inscrites, étiquetées et soumises à des recherches de données. Les données restent à leur emplacement existant, mais une copie de leurs métadonnées est ajoutée à Data Catalog. Une référence à l’emplacement de source de données est incluse. Les métadonnées sont indexées pour faciliter la découverte via la recherche de chaque source de données. L’indexation permet aussi aux utilisateurs qui la découvrent de la comprendre.
 
@@ -153,7 +153,7 @@ Les [solutions de supervision](../../monitoring/monitoring-solutions.md) Azure s
 
 Le diagramme de flux de données de cette architecture de référence figure ci-dessous et est également disponible en [téléchargement](https://aka.ms/nist171-analytics-tm). Ce modèle peut aider les clients à comprendre les points de risque potentiel de l’infrastructure du système lors de l’apport de modifications.
 
-![Modèle de risque Analytique données pour NIST SP 800-171](images/nist171-analytics-threat-model.png "Modèle de risque Analytique données pour NIST SP 800-171")
+![Analyse des données pour le modèle de menace NIST SP 800-171](images/nist171-analytics-threat-model.png "Analyse des données pour le modèle de menace NIST SP 800-171")
 
 ## <a name="compliance-documentation"></a>Documentation sur la conformité
 Le [Blueprint sur la sécurité et la conformité Azure - Matrice de responsabilités des clients de NIST SP 800-171](https://aka.ms/nist171-crm) liste tous les contrôles de sécurité exigés par NIST SP 800-171. La matrice indique si l’implémentation de chaque contrôle revient à Microsoft, au client, ou est partagé entre les deux.

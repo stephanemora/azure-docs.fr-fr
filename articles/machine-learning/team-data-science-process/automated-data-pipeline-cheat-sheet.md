@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: 1245255e65412f9bbcba3c8d9caa76b9ffd2dcc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b41241d3f0223e7c96dce4a9e98262b403cb0660
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826190"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495073"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Aide-mémoire relatif au pipeline de données automatisé pour les prévisions Azure Machine Learning
 L’ **aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning** vous permet d’accéder aux technologies que vous pouvez utiliser pour transférer vos données au service web Machine Learning où celles-ci peuvent être évaluées par votre modèle d’analyse prédictive.
@@ -29,7 +29,7 @@ Une fois que vous avez téléchargé l’aide-mémoire, imprimez-le au format ta
 
 Téléchargez l’aide-mémoire ici : **[Aide-mémoire sur le pipeline de données automatisé Azure Machine Learning](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
-![Microsoft Azure Machine Learning Studio : de quoi s’agit-il ?][op-cheat-sheet]
+![Vue d’ensemble des fonctionnalités de Microsoft Azure Machine Learning Studio (classique)][op-cheat-sheet]
 
 [op-cheat-sheet]: ./media/automated-data-pipeline-cheat-sheet/machine-learning-automated-data-pipeline-cheat-sheet_v1.1.png
 
@@ -38,6 +38,4 @@ Téléchargez l’aide-mémoire ici : **[Aide-mémoire sur le pipeline de donné
 * Pour une vue d’ensemble de Microsoft Azure Machine Learning, consultez [Présentation de l’apprentissage automatique sur Microsoft Azure](../studio/what-is-machine-learning.md)
 * Pour plus d’informations sur le déploiement d’un service web d’évaluation, consultez [Déploiement d’un service web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
 * Pour plus d’informations sur l’utilisation d’un service web d’évaluation, consultez [Utilisation d’un service web Azure Machine Learning](../studio/consume-web-services.md).
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

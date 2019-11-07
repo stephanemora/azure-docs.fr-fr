@@ -10,14 +10,15 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 70d6bd9507670a8846b2a79509b6b6e571f17e37
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 91278bdc1748615c91675e3894ebae4cf5fce1e4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710085"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489492"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Entraîner et inscrire des modèles Chainer à l’échelle avec Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez découvrir comment exécuter vos scripts de formation [Chainer](https://chainer.org/) à l’échelle de l’entreprise à l’aide de la classe d’[estimateur Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) de Azure Machine Learning. L’exemple de script de formation de cet article utilise le [jeu de données MNIST](http://yann.lecun.com/exdb/mnist/) populaire pour classifier les chiffres manuscrits à l’aide d’un réseau neural profond (DNN) créé à l’aide de la bibliothèque python Chainer qui s’exécute par-dessus [numpy](https://www.numpy.org/).
 
@@ -31,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 Exécutez ce code sur l’un de ces environnements :
 
-- Machine virtuelle de Notebook Azure Machine Learning : pas d’installation ou de téléchargement nécessaire
+- Instance de calcul Azure Machine Learning : pas de téléchargement ni d’installation nécessaire
 
     - Suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md) pour créer un serveur de notebook dédié préchargé avec le kit SDK et l’exemple de dépôt.
     - Dans le dossier d’exemples de deep learning du serveur de notebooks, recherchez un notebook et des fichiers finalisés dans le dossier **how-to-use-azureml > ml-frameworks > chainer > deployment > train-hyperparameter-tune-deploy-with-chainer**.  Le notebook inclut des sections développées couvrant l’optimisation des hyperparamètres intelligents, les modèles de déploiement et les widgets de notebook.

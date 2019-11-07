@@ -10,14 +10,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 4d4d83e12d284ce760b8a7e87fd42e6c8ebb4850
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: f733e29fc5fbce764fef9a713747d6793d2ebd43
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001215"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489329"
 ---
 # <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Créez et gérez des environnements réutilisables pour l’entraînement et le déploiement avec Azure Machine Learning.
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, découvrez comment créer et gérer des [environnements](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) Azure Machine Learning afin de pouvoir suivre et reproduire les dépendances logicielles de vos projets à mesure qu’elles évoluent.
 
@@ -260,7 +261,7 @@ myenv.docker.enabled = True
 
 Une fois générée, l’image Docker s’affiche par défaut dans le service Azure Container Registry qui est associé à l’espace de travail.  Le nom du référentiel se présente sous la forme *azureml/azureml_\<uuid\>* . La partie identificateur unique (*uuid*) correspond à un hachage calculé à partir de la configuration de l’environnement. Cela permet au service de déterminer si une image correspondant à l’environnement donné existe déjà pour être réutilisée.
 
-En outre, le service utilise automatiquement l’une des [images de base](https://github.com/Azure/AzureML-Containers) basées sur Ubuntu Linux et installe les packages Python spécifiés. L’image de base comprend des versions UC et GPU. Azure Machine Learning Service détecte automatiquement la version à utiliser.
+En outre, le service utilise automatiquement l’une des [images de base](https://github.com/Azure/AzureML-Containers) basées sur Ubuntu Linux et installe les packages Python spécifiés. L’image de base comprend des versions UC et GPU. Azure Machine Learning détecte automatiquement la version à utiliser.
 
 ```python
 # Specify custom Docker base image and registry, if you don't want to use the defaults
