@@ -17,8 +17,6 @@
       href: quick-create-cli.md
 - name: Tutoriels
   items:
-    - name: Activer le pare-feu d’applications web
-      href: application-gateway-web-application-firewall-portal.md
     - name: Sécuriser avec SSL
       href: create-ssl-portal.md
     - name: Héberger plusieurs sites
@@ -127,12 +125,6 @@
           items:
             - name: Configurer la stratégie SSL
               href: application-gateway-configure-ssl-policy-powershell.md
-    - name: Configurer le pare-feu d’application web
-      items:
-        - name: Azure PowerShell
-          href: tutorial-restrict-web-traffic-powershell.md
-        - name: D’Azure CLI
-          href: tutorial-restrict-web-traffic-cli.md
     - name: Entrée pour AKS
       items:
         - name: Configurer avec une passerelle d’application existante
