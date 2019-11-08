@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 145ab994bbd2ac2445947968ccdeadbb730eb76a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 16066ceeb7196bb181d144cc9529d6db627ed828
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476120"
+ms.locfileid: "73582529"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Explorer Azure Machine Learning avec des notebooks Jupyter
 
@@ -24,7 +24,7 @@ L’[exemple de dépôt Azure Machine Learning Notebooks](https://github.com/azu
 
 Cet article vous montre comment accéder au dépôt dans les environnements suivants :
 
-- [Instance de calcul Azure Machine Learning](#notebookvm)
+- [Machine virtuelle Notebook Azure Machine Learning](#notebookvm)
 - [Utiliser son propre serveur de notebooks](#byo)
 - [Data Science Virtual Machine](#dsvm) (Machine virtuelle Science des données)
 
@@ -32,7 +32,7 @@ Cet article vous montre comment accéder au dépôt dans les environnements suiv
 > Une fois que vous avez cloné le dépôt, vous voyez que des notebooks de tutoriel se trouvent dans le dossier **tutorials**, et que des notebooks relatifs à certaines fonctionnalités se trouvent dans le dossier **how-to-use-azureml**.
 
 <a name="notebookvm"></a>
-## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Obtenir des exemples d’instance de calcul Azure Machine Learning
+## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Recevoir des exemples sur une machine virtuelle Notebook Azure Machine Learning
 
 Pour bien démarrer avec les exemples, le plus simple est de suivre le [Tutoriel : Configurer l’environnement et l’espace de travail](tutorial-1st-experiment-sdk-setup.md). Une fois que vous l’aurez suivi, vous disposerez d’un serveur de notebook dédié dans lequel auront été préchargés le SDK et l’exemple de dépôt. Aucune installation ni aucun téléchargement ne sont nécessaires.
 

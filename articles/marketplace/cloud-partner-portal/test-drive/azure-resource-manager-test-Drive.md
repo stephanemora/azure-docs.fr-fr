@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Patrick .Butler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03783424544588a4bc147b232d41b103fb2e5b3e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606437"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827548"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
@@ -84,10 +85,10 @@ Il est également important de noter que **tous les paramètres sont facultatifs
 
 | Type de métadonnées   | Type de paramètre  | Description     | Exemple de valeur    |
 |---|---|---|---|
-| **baseuri**     | chaîne          | URI de base de votre package de déploiement| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **nom d’utilisateur**    | chaîne          | Nouveau nom d’utilisateur aléatoire.| admin68876      |
+| **baseuri**     | string          | URI de base de votre package de déploiement| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
+| **nom d’utilisateur**    | string          | Nouveau nom d’utilisateur aléatoire.| admin68876      |
 | **mot de passe**    | chaîne sécurisée    | Nouveau mot de passe aléatoire | Lp!ACS\^2kh     |
-| **ID de la session**   | chaîne          | ID de session unique de la version d’évaluation (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **ID de la session**   | string          | ID de session unique de la version d’évaluation (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="username"></a>username
 

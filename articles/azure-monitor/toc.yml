@@ -295,7 +295,7 @@
                 - name: Exceptions
                   href: app/asp-net-exceptions.md
                 - name: Suivis de journaux
-                  href: app/java-trace-logs.md
+                  href: app/asp-net-trace-logs.md
                 - name: Mesures d’UNIX
                   href: app/java-collectd.md
                 - name: Les dépendances
@@ -318,6 +318,8 @@
                   href: app/opencensus-python.md
                 - name: Les dépendances
                   href: app/opencensus-python-dependency.md
+                - name: Demandes
+                  href: app/opencensus-python-request.md
             - name: Pages web
               items:
                 - name: JavaScript côté client
@@ -593,26 +595,39 @@
         - name: Journaux d’activité de ressources
           items:
             - name: Vue d'ensemble
+              displayname: Resource logs
               href: platform/resource-logs-overview.md
             - name: Collecter dans les journaux Azure Monitor
+              displayname: Resource logs
               href: platform/resource-logs-collect-workspace.md
             - name: Archiver dans le stockage
+              displayname: Resource logs
               href: platform/resource-logs-collect-storage.md
             - name: Flux de concentrateurs d’événements
+              displayname: Resource logs
               href: platform/resource-logs-stream-event-hubs.md
         - name: Journal d’activité
           items:
             - name: Vue d'ensemble
+              displayname: Activity log
               href: platform/activity-logs-overview.md
+            - name: Collecter avec un paramètre de diagnostic
+              displayname: Activity log
+              href: platform/diagnostic-settings-subscription.md
             - name: Voir et récupérer
+              displayname: Activity log
               href: platform/activity-log-view.md
             - name: Collecter et analyser
+              displayname: Activity log
               href: platform/activity-log-collect.md
             - name: Collecter auprès des locataires
+              displayname: Activity log
               href: platform/activity-log-collect-tenants.md
             - name: Exportation
+              displayname: Activity log
               href: platform/activity-log-export.md
             - name: Schéma
+              displayname: Activity log
               href: platform/activity-log-schema.md
         - name: Paramètres de diagnostic
           items:
@@ -621,6 +636,7 @@
             - name: Créer un paramètre de diagnostic avec Resource Manager
               href: platform/diagnostic-settings-template.md
             - name: Remplacer par le format de stockage d’objets blob
+              displayname: Diagnostic settings
               href: platform/resource-logs-blob-format.md
         - name: Envoyer des données en streaming à Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md

@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel 3 : Déployer un modèle de risque de crédit'
-titleSuffix: Azure Machine Learning Studio
-description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio. Ce tutoriel est la troisième partie d’une série de tutoriels qui en compte trois. Il montre comment déployez un modèle en tant que service web.
+titleSuffix: ML Studio (classic) Azure
+description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans la version classique d’Azure Machine Learning Studio. Ce tutoriel est la troisième partie d’une série de tutoriels qui en compte trois. Il montre comment déployez un modèle en tant que service web.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques, déployer, service web
 author: sdgilley
 ms.author: sgilley
@@ -10,24 +10,24 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 0f4ee6cfebcb5edb38b1cc7a11b070dab5d2098c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620509"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619012"
 ---
-# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Tutoriel 3 : Déployer un modèle de risque de crédit - Azure Machine Learning Studio
+# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutoriel 3 : Déployer un modèle de risque de crédit - Azure Machine Learning Studio (classique)
 
-Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio.  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est le **troisième tutoriel d’une série qui en compte trois**.
+Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio (classique).  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est le **troisième tutoriel d’une série qui en compte trois**.
 
 Supposons que vous deviez prédire le risque lié à l'octroi d'un crédit à un individu sur la base des informations fournies lors d'une demande de crédit.  
 
-L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio. Vous allez utiliser Machine Learning Studio et un service web Machine Learning pour cette solution. 
+L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio (classique). Vous allez utiliser la version classique d’Azure Machine Learning Studio et un service web Machine Learning pour cette solution. 
 
 Dans ce tutoriel en trois parties, vous commencez avec des données de risque crédit disponibles publiquement.  Ensuite, vous développez et entraînez un modèle prédictif.  Enfin, vous déployez le modèle en tant que service web.
 
-Dans la [première partie du tutoriel](tutorial-part1-credit-risk.md), vous avez créé un espace de travail Machine Learning Studio, chargé des données et créé une expérience.
+Dans la [première partie du tutoriel](tutorial-part1-credit-risk.md), vous avez créé un espace de travail Machine Learning Studio (classique), chargé des données et créé une expérience.
 
 Dans la [deuxième partie du tutoriel](tutorial-part2-credit-risk-train.md), vous avez entraîné et évalué des modèles.
 
@@ -39,8 +39,6 @@ Dans cette partie du tutoriel, vous allez effectuer les opérations suivantes :
 > * Test du service web
 > * Gérer le service web
 > * Accès au service web
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -91,7 +89,7 @@ Pour préparer ce modèle pour le déploiement, vous devez convertir cette expé
 Vous pourriez effectuer cette opération manuellement, mais heureusement, il est possible d’accomplir ces trois étapes en cliquant sur **Configurer le service web** en bas du canevas de l’expérience (puis en sélectionnant l’option **Service web prédictif**).
 
 > [!TIP]
-> Pour en savoir plus sur ce qui se passe quand vous convertissez une expérience d’apprentissage en une expérience de prévision, consultez [Guide pratique pour préparer votre modèle au déploiement dans Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
+> Pour en savoir plus sur ce qui se passe quand vous convertissez une expérience de formation en une expérience de prévision, consultez [Guide pratique pour préparer votre modèle au déploiement dans Azure Machine Learning Studio (classique)](convert-training-experiment-to-scoring-experiment.md).
 
 Lorsque vous cliquez sur **Configurer le service web**, plusieurs choses se produisent :
 
@@ -109,7 +107,7 @@ Lorsque vous cliquez sur **Configurer le service web**, plusieurs choses se prod
 
 Vous devez effectuer une étape supplémentaire avec cette expérience particulière.
 Vous avez ajouté deux modules [Exécuter un script R][execute-r-script] pour pondérer les données. Cette opération n’étant nécessaire que pour l’entraînement et le test, vous pouvez retirer ces modules du modèle final.
-Machine Learning Studio a supprimé un module [Exécuter le script R][execute-r-script] lors de la suppression du module [Fractionner][split]. Vous pouvez à présent supprimer l’autre et connecter [Éditeur de métadonnées][metadata-editor] directement à [Noter le modèle][score-model].    
+Machine Learning Studio (classique) a supprimé un module [Exécuter le script R][execute-r-script] lors de la suppression du module [Fractionner][split]. Vous pouvez à présent supprimer l’autre et connecter [Éditeur de métadonnées][metadata-editor] directement à [Noter le modèle][score-model].    
 
 Notre expérience doit alors ressembler à cela :  
 
@@ -130,7 +128,7 @@ Exécutez une dernière fois l’expérience (cliquez sur **Exécuter**). Si vou
 Vous pouvez déployer l’expérience en tant que service web classique ou nouveau service web basé sur Azure Resource Manager.
 
 ### <a name="deploy-as-a-classic-web-service"></a>Déployer comme un service web classique
-Pour déployer un service web classique dérivé de notre expérience, cliquez sur **Déployer le service web** sous la zone de dessin, puis sélectionnez **Déployer le service web [Classique]**. Machine Learning Studio déploie l’expérience en tant que service web et vous amène au tableau de bord associé à ce service web. Depuis cette page, vous pouvez revenir à l’expérience (**Afficher l’instantané** ou **Afficher les données les plus récentes**) et exécuter un test simple du service web (voir **Tester le service web**, ci-dessous). Vous y trouverez également des informations sur la création d’applications pouvant accéder au service web (l’étape suivante de ce tutoriel aborde ce point plus en détail).
+Pour déployer un service web classique dérivé de notre expérience, cliquez sur **Déployer le service web** sous la zone de dessin, puis sélectionnez **Déployer le service web [Classique]** . Machine Learning Studio (classique) déploie l’expérience en tant que service web et vous amène au tableau de bord associé à ce service web. Depuis cette page, vous pouvez revenir à l’expérience (**Afficher l’instantané** ou **Afficher les données les plus récentes**) et exécuter un test simple du service web (voir **Tester le service web**, ci-dessous). Vous y trouverez également des informations sur la création d’applications pouvant accéder au service web (l’étape suivante de ce tutoriel aborde ce point plus en détail).
 
 ![Tableau de bord du service web](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
@@ -147,11 +145,11 @@ Vous pouvez configurer le service en cliquant sur l'onglet **CONFIGURATION** . V
 
 Pour déployer un nouveau service web dérivé de notre expérience :
 
-1. Cliquez sur **Déployer le service web** sous la zone de dessin, puis sélectionnez **Déployer le service web [nouveau]**. Machine Learning Studio vous redirige vers la page **Deploy Experiment (Déployer l’expérience)** des services web Azure Machine Learning.
+1. Cliquez sur **Déployer le service web** sous la zone de dessin, puis sélectionnez **Déployer le service web [nouveau]** . Machine Learning Studio (classique) vous redirige vers la page **Deploy Experiment (Déployer l’expérience)** des services web Azure Machine Learning.
 
 1. Entrez le nom du service web. 
 
-1. Dans **Price Plan (Plan de tarification)**, choisissez un plan de tarification ou sélectionnez « Créer », nommez le nouveau plan et sélectionnez l’option de plan mensuel. Les niveaux de plan s’appliquent par défaut aux plans de votre région par défaut et votre service web est déployé dans cette région.
+1. Dans **Price Plan (Plan de tarification)** , choisissez un plan de tarification ou sélectionnez « Créer », nommez le nouveau plan et sélectionnez l’option de plan mensuel. Les niveaux de plan s’appliquent par défaut aux plans de votre région par défaut et votre service web est déployé dans cette région.
 
 1. Cliquez sur **Déployer**.
 
@@ -162,7 +160,7 @@ Vous pouvez configurer le service en cliquant sur l’onglet **Configurer**. Dan
 Pour tester le service web, cliquez sur l’onglet **Tester** (consultez **Tester le service web** ci-dessous). Pour plus d’informations sur la création d’applications pouvant accéder au service web, cliquez sur l’onglet **Consommer** (l’étape suivante de ce tutoriel aborde ce point plus en détail).
 
 > [!TIP]
-> Vous pouvez mettre à jour le service web après l’avoir déployé. Par exemple, si vous souhaitez modifier votre modèle, modifiez l’expérience de formation, ajustez les paramètres du modèle, cliquez sur **Déployer le service web**, puis sélectionnez **Déployer le service web [Classic]** ou **Déployer le service web [Nouveau]**. Lorsque vous redéployez l’expérience, le service web est remplacé par votre modèle mis à jour.  
+> Vous pouvez mettre à jour le service web après l’avoir déployé. Par exemple, si vous souhaitez modifier votre modèle, modifiez l’expérience de formation, ajustez les paramètres du modèle, cliquez sur **Déployer le service web**, puis sélectionnez **Déployer le service web [Classic]** ou **Déployer le service web [Nouveau]** . Lorsque vous redéployez l’expérience, le service web est remplacé par votre modèle mis à jour.  
 > 
 > 
 
@@ -176,17 +174,17 @@ Les résultats sont renvoyés à l’utilisateur par le service web via le modul
 > 
 > 
 
-Vous pouvez tester le service web Classique dans **Machine Learning Studio** ou dans le portail des **services web Azure Machine Learning**.
+Vous pouvez tester le service web Classique dans **Machine Learning Studio (classique)** ou dans le portail des **services web Azure Machine Learning**.
 Vous pouvez tester un nouveau service web uniquement dans le portail **des services web Machine Learning**.
 
 > [!TIP]
-> Lors du test dans le portail des services web Azure Machine Learning, vous pouvez demander au portail de créer un échantillon de données pour tester le service Demande-Réponse. Dans la page **Configurer**, sélectionnez « Oui » pour **Échantillon de données activé ?**. Lorsque vous ouvrez l’onglet Demande-Réponse dans la page **Tester**, le portail intègre l’échantillon provenant du jeu de données Risque de crédit.
+> Lors du test dans le portail des services web Azure Machine Learning, vous pouvez demander au portail de créer un échantillon de données pour tester le service Demande-Réponse. Dans la page **Configurer**, sélectionnez « Oui » pour **Échantillon de données activé ?** . Lorsque vous ouvrez l’onglet Demande-Réponse dans la page **Tester**, le portail intègre l’échantillon provenant du jeu de données Risque de crédit.
 
 ### <a name="test-a-classic-web-service"></a>Tester un service web classique
 
-Vous pouvez tester un service web classique dans Machine Learning Studio ou dans le portail des services web Machine Learning. 
+Vous pouvez tester le service web Classique dans Machine Learning Studio (classique) ou dans le portail des services web Azure Machine Learning. 
 
-#### <a name="test-in-machine-learning-studio"></a>Tester dans Machine Learning Studio
+#### <a name="test-in-machine-learning-studio-classic"></a>Test dans Machine Learning Studio (classique)
 
 1. Sur la page **TABLEAU DE BORD** du service web, cliquez sur le bouton **Test** sous **Point de terminaison par défaut**. La boîte de dialogue qui s’affiche vous demande les données d’entrée du service. Les colonnes sont identiques à celles du jeu de données d’origine (Risque de crédit).  
 

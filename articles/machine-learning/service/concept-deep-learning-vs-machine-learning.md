@@ -1,20 +1,20 @@
 ---
 title: Apprentissage profond et apprentissage automatique
-titleSuffix: Azure Machine Learning
-description: Apprenez-en davantage sur le Deep Learning par rapport au Machine Learning et la façon dont les deux concepts se rapportent à l’intelligence artificielle. Le Deep Learning peut être mis en œuvre dans des scénarios de détection de fraude, de reconnaissances vocale et faciale, d’analyse des sentiments et de prévision de série chronologique.
+titleSuffix: Azure
+description: Découvrez la relation du Deep Learning avec le Machine Learning et l’intelligence artificielle. Le Deep Learning est utilisé dans des scénarios de détection de fraude, de reconnaissances vocale et faciale, d’analyse des sentiments et de prévision de série chronologique.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 08/07/2019
-ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 11/04/2019
+ms.openlocfilehash: 2ed9f933e790aa70b257e27fa2bbbc04f6a2e077
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123141"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648011"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Apprentissage profond et apprentissage automatique
 
@@ -113,6 +113,11 @@ Les réseaux neuronaux convolutifs sont utilisés dans des domaines tels que la 
 Les articles suivants expliquent comment utiliser la technologie du deep learning dans [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri) :
 
 - [Classifier des chiffres manuscrits à l’aide d’un modèle TensorFlow](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+
 - [Classifier des chiffres manuscrits à l’aide d’un estimateur TensorFlow et de Keras](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+
 - [Classifier des images à l’aide d’un modèle Pytorch](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+
 - [Classifier des chiffres manuscrits à l’aide d’un modèle Chainer](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+
+Utilisez également l’[Aide-mémoire de l’algorithme de Machine Learning](../algorithm-cheat-sheet.md) pour choisir des algorithmes pour votre modèle.

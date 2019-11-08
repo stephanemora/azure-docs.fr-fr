@@ -88,10 +88,6 @@
           href: ingest-data-logstash.md
         - name: Copier des données à l’aide d’Azure Data Factory
           href: data-factory-load-data.md
-    - name: Déployer
-      items:
-        - name: Tâche DevOps
-          href: devops.md
     - name: Données de requête
       items:
         - name: Rédiger des requêtes
@@ -136,6 +132,8 @@
           href: tableau.md
         - name: Sisense
           href: sisense.md
+        - name: Redash
+          href: redash.md
     - name: gérer
       items:
         - name: Cluster
@@ -166,6 +164,10 @@
               href: delete-data.md
             - name: Gérer des données en double
               href: dealing-with-duplicates.md
+    - name: Déployer
+      items:
+        - name: Déployer votre cluster dans votre réseau virtuel
+          href: vnet-deployment.md
     - name: Surveiller
       items:
         - name: Utiliser des journaux de diagnostic pour superviser l’ingestion
@@ -186,6 +188,8 @@
           href: connect-from-databricks.md
         - name: Analyser des données dans Jupyter Notebook et Kqlmagic
           href: kqlmagic.md
+        - name: Azure Pipelines
+          href: devops.md
     - name: Résolution des problèmes
       items:
         - name: Création d’un cluster
@@ -220,9 +224,13 @@
           href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto'
     - name: Commentaires sur le produit
       href: 'https://aka.ms/adefeedback'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
-    - name: Estimateur de coût
-      href: 'https://aka.ms/adecostestimator'
+    - name: Tarification et facturation
+      items:
+        - name: Page des tarifs
+          href: 'https://azure.microsoft.com/pricing/details/data-explorer/'
+        - name: Estimateur de coût
+          href: 'https://aka.ms/adecostestimator'
+        - name: Capacité réservée
+          href: pricing-reserved-capacity.md
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=data-explorer'

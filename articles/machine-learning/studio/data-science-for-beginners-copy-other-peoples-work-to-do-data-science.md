@@ -1,6 +1,6 @@
 ---
 title: Copier des exemples de sciences des données
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: 'Une pierre d’angle de la science des données : amener d’autres personnes à faire votre travail. Obtenez des exemples d’apprentissage automatique à partir d’Azure AI Gallery.'
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 8bacc3940cebaf9c62179cee0788e5903e56a310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6004a3092856b0dbe55e044676b6a93e77debb1e
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751816"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619502"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copier le travail d’autres personnes pour des projets de science des données
 ## <a name="video-5-data-science-for-beginners-series"></a>Vidéo 5 : série Science des données pour les débutants
@@ -50,9 +50,9 @@ L’une des pierres d’angle de la science des données est d’amener d’autr
 
 ## <a name="find-examples-in-the-azure-ai-gallery"></a>Rechercher des exemples dans Azure AI Gallery
 
-Microsoft propose un service cloud appelé [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) que vous êtes invité à essayer gratuitement. Il fournit un espace de travail dans lequel essayer différents algorithmes d’apprentissage automatique et, lorsque votre solution est en place, vous permet de la lancer en tant que service web.
+Microsoft propose un service cloud appelé [Azure Machine Learning Studio (classique)](https://azure.microsoft.com/services/machine-learning-studio/). Il fournit un espace de travail dans lequel essayer différents algorithmes d’apprentissage automatique et, lorsque votre solution est en place, vous permet de la lancer en tant que service web.
 
-Une partie de ce service s’appelle **[Azure AI Gallery](https://gallery.azure.ai/)** . Elle contient des ressources, notamment une collection d’expériences Azure Machine Learning Studio ou encore des modèles créés et fournis par les utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions. N’hésitez pas à aller la découvrir.
+Une partie de ce service s’appelle **[Azure AI Gallery](https://gallery.azure.ai/)** . Elle contient des ressources, notamment une collection d’expériences Azure Machine Learning Studio (classique) ou encore des modèles créés et fournis par des utilisateurs. Ces expériences sont un excellent moyen d’exploiter la réflexion et les efforts d’autres personnes pour vous aider dans vos propres solutions. N’hésitez pas à aller la découvrir.
 
 ![Galerie Azure AI](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/azure-ai-gallery.png)
 
@@ -71,25 +71,25 @@ Cliquez sur cette expérience pour accéder à une page web décrivant le travai
 
 ![Page de description d’expérience de clustering](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/clustering-experiment-description-page.png)
 
-Un lien **Ouvrir dans Studio**s’affiche.
+Notez le lien **Ouvrir dans Studio (classique)** .
 
-![Bouton Ouvrir dans Visual Studio](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
+![Bouton Ouvrir dans Studio (classique)](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/open-in-studio.png)
 
-Je peux cliquer dessus pour accéder directement à **Azure Machine Learning Studio**. Cette opération crée une copie de l’expérience et la place dans mon espace de travail. Cela inclut un jeu de données du contributeur, tout le traitement effectué, tous les algorithmes utilisés et la méthode d’enregistrement des résultats.
+Je peux cliquer dessus pour accéder directement à **Azure Machine Learning Studio (classique)** . Cette opération crée une copie de l’expérience et la place dans mon espace de travail. Cela inclut un jeu de données du contributeur, tout le traitement effectué, tous les algorithmes utilisés et la méthode d’enregistrement des résultats.
 
-![Ouvrez une expérience de galerie dans Machine Learning Studio - l’exemple d’algorithme de clustering](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
+![Ouvrir une expérience de galerie dans Machine Learning Studio (classique) – Exemple d’algorithme de clustering](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/cluster-experiment-open-in-studio.png)
 
 J’ai maintenant un point de départ. Je peux remplacer leurs données par les miennes et peaufiner le modèle. Cela me donne une longueur d’avance et me permet de tirer parti du travail déjà effectué par d’autres utilisateurs expérimentés.
 
 ## <a name="find-experiments-that-demonstrate-machine-learning-techniques"></a>Découvrir des expériences qui illustrent les techniques d’apprentissage automatique
 Il existe d’autres expériences dans [Azure AI Gallery](https://gallery.azure.ai) fournies spécifiquement pour donner des exemples de procédures aux personnes novices en matière de science des données. Par exemple, il existe une expérience dans la galerie qui montre comment gérer les valeurs manquantes ([Méthodes de gestion des valeurs manquantes](https://gallery.azure.ai/Experiment/Methods-for-handling-missing-values-1)). Elle vous guide dans les 15 façons de remplacer les valeurs vides et présente les avantages de chaque méthode et quand les utiliser.
 
-![Ouverture d’expériences de galerie dans Machine Learning Studio - Méthodes pour les valeurs manquantes](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
+![Ouvrir des expériences de galerie dans Machine Learning Studio (classique) – Méthodes pour les valeurs manquantes](./media/data-science-for-beginners-copy-other-peoples-work-to-do-data-science/experiment-methods-for-handling-missing-values.png)
 
 [Azure AI Gallery](https://gallery.azure.ai) est l’endroit où trouver des expériences de travail que vous pouvez utiliser comme point de départ pour vos propres solutions.
 
-Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning Studio.
+Nous vous invitons à regarder les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning Studio (classique).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Menez votre première expérience de science des données avec Azure Machine Learning Studio](create-experiment.md)
+* [Menez votre première expérience de science des données avec Azure Machine Learning Studio (classique)](create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

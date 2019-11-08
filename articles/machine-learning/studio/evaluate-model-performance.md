@@ -1,7 +1,7 @@
 ---
 title: Évaluation des performances du modèle
-titleSuffix: Azure Machine Learning Studio
-description: Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération.
+titleSuffix: ML Studio (classic) Azure
+description: Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio (classique) et décrit brièvement les métriques disponibles pour cette opération.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 37ab56c377bc53a7300b51ffc709ea8d1b9d6f9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a3ceb8c46c883e76c06053e395dca1310a86419
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750458"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621741"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>Évaluation des performances d’un modèle dans Azure Machine Learning Studio
+# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Évaluation des performances d’un modèle dans Azure Machine Learning Studio (classique)
 
-Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants : 
+Cet article explique comment évaluer les performances d’un modèle dans Azure Machine Learning Studio (classique) et décrit brièvement les métriques disponibles pour cette opération. Il vous présente trois scénarios d’apprentissage supervisé courants : 
 
 * régression ;
 * classification binaire ; 
@@ -29,7 +29,7 @@ Cet article explique comment évaluer les performances d’un modèle dans Azure
 
 L’évaluation des performances d’un modèle constitue l’une des étapes clés du processus de science des données. Elle indique l’efficacité de la notation (prédictions) d’un jeu de données par un modèle formé. 
 
-Azure Machine Learning Studio prend en charge l’évaluation des modèles via deux de ses principaux modules d’apprentissage automatique : [Évaluer le modèle][evaluate-model] et [Effectuer la validation croisée du modèle][cross-validate-model]. Ces modules vous permettent de déterminer l’efficacité de votre modèle sur le plan du nombre de métriques couramment utilisées dans les domaines de l’apprentissage automatique et des statistiques.
+Azure Machine Learning Studio (classique) prend en charge l’évaluation des modèles via deux de ses principaux modules d’apprentissage automatique : [Évaluer le modèle][evaluate-model] et [Effectuer la validation croisée du modèle][cross-validate-model]. Ces modules vous permettent de déterminer l’efficacité de votre modèle sur le plan du nombre de métriques couramment utilisées dans les domaines de l’apprentissage automatique et des statistiques.
 
 ## <a name="evaluation-vs-cross-validation"></a>Évaluation et validation croisée
 L’évaluation et la validation croisée constituent deux méthodes standard de mesure des performances d’un modèle. Elles génèrent toutes deux des métriques d’évaluation que vous pouvez inspecter ou comparer avec les métriques d’autres modèles.
@@ -41,10 +41,10 @@ Une autre possibilité consiste à utiliser la validation croisée pour applique
 Dans les sections qui suivent, nous allons générer des modèles de régression et de classification simples et en évaluer les performances à l’aide des modules [Évaluer le modèle][evaluate-model] et [Effectuer la validation croisée du modèle][cross-validate-model].
 
 ## <a name="evaluating-a-regression-model"></a>Évaluation d’un modèle de régression
-Supposons que vous souhaitiez prédire le prix d’une voiture à l’aide de certaines caractéristiques comme les dimensions, le nombre de chevaux, les spécifications du moteur, etc. Il s’agit d’un problème de régression classique, dans lequel la variable cible, price (*prix*), est une valeur numérique continue. Nous pouvons ajuster un modèle de régression linéaire simple nous permettant de prédire le prix d’une voiture spécifique en nous basant sur les valeurs de caractéristiques de cette voiture. Il est possible d’utiliser ce modèle de régression pour noter le même jeu de données que celui sur lequel nous avons effectué l’apprentissage. Une fois que nous avons prédit les prix de toutes les voitures, nous pouvons évaluer les performances du modèle en examinant l’importance de l’écart entre les prédictions et les prix réels en moyenne. Pour illustrer cette approche, nous utilisons le jeu de données *Automobile price data (Raw) dataset* disponible à la section **Jeux de données enregistrés** d’Azure Machine Learning Studio.
+Supposons que vous souhaitiez prédire le prix d’une voiture à l’aide de certaines caractéristiques comme les dimensions, le nombre de chevaux, les spécifications du moteur, etc. Il s’agit d’un problème de régression classique, dans lequel la variable cible, price (*prix*), est une valeur numérique continue. Nous pouvons ajuster un modèle de régression linéaire simple nous permettant de prédire le prix d’une voiture spécifique en nous basant sur les valeurs de caractéristiques de cette voiture. Il est possible d’utiliser ce modèle de régression pour noter le même jeu de données que celui sur lequel nous avons effectué l’apprentissage. Une fois que nous avons prédit les prix de toutes les voitures, nous pouvons évaluer les performances du modèle en examinant l’importance de l’écart entre les prédictions et les prix réels en moyenne. Pour illustrer cette approche, nous utilisons le jeu de données *Automobile price data (Raw) dataset* disponible à la section **Jeux de données enregistrés** de la version classique d’Azure Machine Learning Studio.
 
 ### <a name="creating-the-experiment"></a>Création de l’expérience
-Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio :
+Ajoutez les modules ci-après à votre espace de travail dans la version classique d’Azure Machine Learning Studio :
 
 * Données sur le prix des véhicules automobiles (brutes)
 * [Régression linéaire][linear-regression]
@@ -83,10 +83,10 @@ Après avoir exécuté l’expérience, vous pouvez inspecter les résultats de 
 Figure 4. résultats de la validation croisée d’un modèle de régression
 
 ## <a name="evaluating-a-binary-classification-model"></a>Évaluation d’un modèle de classification binaire
-Dans un scénario de classification binaire, la variable cible ne peut avoir que deux résultats, par exemple : {0, 1} ou {faux, vrai}, {négatif, positif}. Supposons que vous disposiez d’un jeu de données sur des employés incluant certaines variables démographiques et d’emploi, et que vous souhaitiez prédire le niveau de revenu, qui constitue une variable binaire avec les valeurs {« <=50 K », « >50 K »}. En d’autres termes, la classe négative représente les employés dont le revenu annuel est inférieur ou égal à 50 K, tandis que la classe positive représente tous les autres employés. Comme dans le scénario de régression, nous allons former un modèle, noter certaines données, puis évaluer les résultats. La principale différence ici réside dans le choix des métriques calculées et générées en sortie par Azure Machine Learning Studio. Pour illustrer le scénario de prédiction du niveau de revenu, nous allons utiliser le jeu de données [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) afin de créer une expérience Studio et d’évaluer les performances d’un modèle de régression logistique à deux classes, qui constitue un classifieur binaire couramment utilisé.
+Dans un scénario de classification binaire, la variable cible ne peut avoir que deux résultats, par exemple : {0, 1} ou {faux, vrai}, {négatif, positif}. Supposons que vous disposiez d’un jeu de données sur des employés incluant certaines variables démographiques et d’emploi, et que vous souhaitiez prédire le niveau de revenu, qui constitue une variable binaire avec les valeurs {« <=50 K », « >50 K »}. En d’autres termes, la classe négative représente les employés dont le revenu annuel est inférieur ou égal à 50 K, tandis que la classe positive représente tous les autres employés. Comme dans le scénario de régression, nous allons former un modèle, noter certaines données, puis évaluer les résultats. La principale différence ici réside dans le choix des métriques calculées et générées en sortie par la version classique d’Azure Machine Learning Studio. Pour illustrer le scénario de prédiction du niveau de revenu, nous allons utiliser le jeu de données [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) afin de créer une expérience Studio (classique) et d’évaluer les performances d’un modèle de régression logistique à deux classes, qui constitue un classifieur binaire couramment utilisé.
 
 ### <a name="creating-the-experiment"></a>Création de l’expérience
-Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio :
+Ajoutez les modules ci-après à votre espace de travail dans la version classique d’Azure Machine Learning Studio :
 
 * Jeu de données Adult Census Income Binary Classification
 * [Régression logistique à deux classes][two-class-logistic-regression]
@@ -105,7 +105,7 @@ Après avoir exécuté l’expérience, vous pouvez cliquer sur le port de sorti
 
 La métrique « Accuracy » (Exactitude) désigne simplement la proportion d’instances qui ont été classées correctement. Il s’agit généralement du premier métrique que vous examinez quand vous évaluez un classifieur. Toutefois, lorsque les données de test sont déséquilibrées (dans les cas où la plupart des instances appartiennent à l’une des classes), ou que vous êtes plus intéressé par les performances d’une seule classe, l’exactitude ne permet pas de déterminer véritablement l’efficacité d’un classifieur. Dans le scénario de classification du niveau de revenu, supposons que vous testiez certaines données où 99 % des instances représentent des employés dont le revenu annuel est inférieur ou égal à 50 K. Il est alors possible d’atteindre une valeur d’exactitude de 0,99 en prédisant la classe « <= 50 K » pour toutes les instances. Dans ce cas, le classifieur semble se révéler globalement efficace, alors qu’en réalité, il classe incorrectement tous les employés dont le revenu est plus élevé (les 1 % restants).
 
-Il est donc utile de calculer d’autres métriques capturant des aspects plus spécifiques de l’évaluation. Avant d’examiner ces métriques en détail, il est important de comprendre en quoi consiste la matrice de confusion d’une évaluation de classification binaire. Les étiquettes de classe du jeu de données d’apprentissage ne peuvent prendre que 2 valeurs, que nous désignons généralement en tant que valeurs positives ou négatives. Les instances positives et négatives correctement prédites par un classifieur sont respectivement appelées vrais positifs (VP) et vrais négatifs (VN). De la même façon, les instances classées incorrectement sont appelées faux positifs (FP) et faux négatifs (FN). La matrice de confusion est un simple tableau présentant le nombre d’instances appartenant à chacune de ces 4 catégories. Azure Machine Learning Studio détermine automatiquement celle des deux classes du jeu de données qui correspond à la classe positive. Si les étiquettes de classe correspondent à des valeurs booléennes ou à des entiers, la classe positive est attribuée aux instances étiquetées « true » ou « 1 ». Si les étiquettes sont des chaînes, comme dans le cas du jeu de données de revenu, les étiquettes sont triées dans l’ordre alphabétique, et le premier niveau est désigné comme classe négative, tandis que le second niveau constitue la classe positive.
+Il est donc utile de calculer d’autres métriques capturant des aspects plus spécifiques de l’évaluation. Avant d’examiner ces métriques en détail, il est important de comprendre en quoi consiste la matrice de confusion d’une évaluation de classification binaire. Les étiquettes de classe du jeu de données d’apprentissage ne peuvent prendre que 2 valeurs, que nous désignons généralement en tant que valeurs positives ou négatives. Les instances positives et négatives correctement prédites par un classifieur sont respectivement appelées vrais positifs (VP) et vrais négatifs (VN). De la même façon, les instances classées incorrectement sont appelées faux positifs (FP) et faux négatifs (FN). La matrice de confusion est simplement un tableau qui indique le nombre d’instances qui se trouvent sous chacune de ces 4 catégories. La version classique d’Azure Machine Learning Studio détermine automatiquement quelles classes du jeu de données est la classe positive. Si les étiquettes de classe correspondent à des valeurs booléennes ou à des entiers, la classe positive est attribuée aux instances étiquetées « true » ou « 1 ». Si les étiquettes sont des chaînes, comme dans le cas du jeu de données de revenu, les étiquettes sont triées dans l’ordre alphabétique, et le premier niveau est désigné comme classe négative, tandis que le second niveau constitue la classe positive.
 
 ![Matrice de confusion d’une classification binaire](./media/evaluate-model-performance/6a.png)
 
@@ -133,13 +133,13 @@ Figure 8. validation croisée d’un modèle de classification binaire
 Figure 9. résultats de la validation croisée d’un classifieur binaire
 
 ## <a name="evaluating-a-multiclass-classification-model"></a>Évaluation d’un modèle de classification multiclasse
-Dans cette expérience, nous allons utiliser le fameux jeu de données [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris"), qui contient des instances de 3 différents types (classes) d’iris. Il existe 4 valeurs de caractéristique (longueur et largeur de sépale, longueur et largeur de pétale) pour chaque instance. Dans les expériences précédentes, nous avons formé et testé les modèles à l’aide des mêmes jeux de données. Ici, nous allons utiliser le module [Fractionner les données][split] pour créer 2 sous-échantillons des données, former le modèle sur le premier sous-échantillon, puis noter et évaluer le modèle sur le second sous-échantillon. Le jeu de données Iris est publiquement accessible dans le [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html) (Référentiel Machine Learning UCI) et peut être téléchargé à l’aide d’un module [Importer les données][import-data].
+Dans cette expérience, nous allons utiliser le fameux jeu de données [Iris](https://archive.ics.uci.edu/ml/datasets/Iris "Iris"), qui contient des instances de 3 différents types (classes) d’iris. Il existe 4 valeurs de caractéristique (longueur et largeur de sépale, longueur et largeur de pétale) pour chaque instance. Dans les expériences précédentes, nous avons formé et testé les modèles à l’aide des mêmes jeux de données. Ici, nous allons utiliser le module [Fractionner les données][split] pour créer 2 sous-échantillons des données, former le modèle sur le premier sous-échantillon, puis noter et évaluer le modèle sur le second sous-échantillon. Le jeu de données Iris est publiquement accessible dans le [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html) (Référentiel Machine Learning UCI) et peut être téléchargé à l’aide d’un module [Importer les données][import-data].
 
 ### <a name="creating-the-experiment"></a>Création de l’expérience
-Ajoutez les modules ci-après à votre espace de travail dans Azure Machine Learning Studio :
+Ajoutez les modules ci-après à votre espace de travail dans la version classique d’Azure Machine Learning Studio :
 
 * [Importer des données][import-data]
-* [Forêt d’arbres de décision multiclasse][multiclass-decision-forest]
+* [Forêt d’arbres décisionnels multiclasse][multiclass-decision-forest]
 * [Fractionner les données][split]
 * [Former le modèle][train-model]
 * [Noter le modèle][score-model]

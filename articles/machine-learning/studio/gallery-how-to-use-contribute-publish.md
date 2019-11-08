@@ -1,6 +1,6 @@
 ---
 title: Galerie Azure AI
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Partagez et découvrez des ressources d’analyse et plus encore dans Azure AI Gallery. Tirez parti de l’expérience des autres utilisateurs et apportez vos propres contributions à la communauté.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f02c7377242dc031cd2d21d2b57bbd5f839eec3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811548"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619140"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partager et découvrir des ressources dans Azure AI Gallery
 
@@ -26,10 +26,10 @@ La galerie contient diverses ressources que vous pouvez utiliser pour développe
 
 Azure AI Gallery contient un certain nombre de ressources différentes qui ont été fournies par Microsoft et des membres de la communauté de science des données. Il s’agit des actions suivantes :
 
-* **Expériences** : la galerie contient une grande variété d’expériences qui ont été développées dans Azure Machine Learning Studio. Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
+* **Expériences** : la galerie contient une grande variété d’expériences qui ont été développées dans Azure Machine Learning Studio (classique). Vous trouverez aussi bien des expériences de démonstration rapides qui illustrent une technique spécifique que des solutions entièrement développées pour les problèmes complexes Machine Learning.
 * **Tutoriels** : une série de tutoriels est disponible pour vous guider à travers les concepts et les technologies de machine learning, ou pour décrire les méthodes avancées de résolution des divers problèmes de machine learning.
 * **Collections** : une collection vous permet de regrouper des expériences, des API et d’autres ressources de la galerie qui répondent à une solution ou à un concept spécifiques.
-* **Modules personnalisés** : vous pouvez télécharger des modules personnalisés dans votre espace de travail Studio à utiliser dans vos propres expériences.
+* **Modules personnalisés** : vous pouvez télécharger des modules personnalisés dans votre espace de travail Studio (classique) à utiliser dans vos propres expériences.
 * **Blocs-notes Jupyter** : les blocs-notes Jupyter incluent du code, des visualisations de données et de la documentation dans un seul canevas interactif. Les blocs-notes dans la galerie fournissent des didacticiels et des explications détaillées sur les solutions et les techniques avancées de Machine Learning.
 
 ## <a name="discover-and-contribute"></a>Découvrir et contribuer
@@ -50,7 +50,7 @@ Vous pouvez partager des **expériences**, des **tutoriels** et des **collection
 
 ## <a name="download-experiments-modules-notebooks"></a>Télécharger des expériences, des modules et des blocs-notes
 
-Vous pouvez télécharger des **expériences**, des **modules personnalisés** et des **blocs-notes Jupyter** dans votre espace de travail Machine Learning Studio en vue de les utiliser dans le développement de vos propres solutions.
+Vous pouvez télécharger des **expériences**, des **modules personnalisés** et des **blocs-notes Jupyter** dans votre espace de travail Machine Learning Studio (classique) en vue de les utiliser dans le développement de vos propres solutions.
 
 Pour télécharger une ressource à partir de AI Gallery :
 
@@ -59,15 +59,15 @@ Pour télécharger une ressource à partir de AI Gallery :
 
 ![Ouvrez un élément à partir d’AI Gallery](./media/gallery-how-to-use-contribute-publish/open-experiment-from-gallery.png)
 
-Pour télécharger une ressource à partir de Studio :
+Pour télécharger une ressource à partir de la version classique de Studio :
 
-1. Dans Studio, sélectionnez **NOUVEAU**.
+1. Dans la version classique de Studio, sélectionnez **Nouveau**.
 1. Sélectionnez **Module**, **Expérience** ou **Bloc-notes**.
 1. Parcourez ou recherchez une ressource dans la galerie.
 1. Pointez votre souris sur la ressource, puis sélectionnez **Ouvrir dans Studio**.
-    ![Ouvrir une expérience de la galerie dans Machine Learning Studio](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
+    ![Ouvrir une expérience de la galerie dans Machine Learning Studio (classique)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
 
-Une fois que la ressource se trouve dans votre espace de travail, vous pouvez la personnaliser et l’utiliser comme vous le feriez pour tout ce que vous créez dans Studio.
+Une fois que la ressource se trouve dans votre espace de travail, vous pouvez la personnaliser et l’utiliser comme vous le feriez pour tout ce que vous créez dans la version classique de Studio.
 
 Pour utiliser un module personnalisé importé :
 
@@ -77,12 +77,12 @@ Pour utiliser un module personnalisé importé :
 
 ## <a name="contribute-experiments"></a>Apportez votre contribution en partageant vos expériences
 
-Pour illustrer les techniques d’analytique, ou pour aider d’autres utilisateurs à démarrer rapidement avec leurs solutions, vous pouvez partager des **expériences** que vous avez développées dans Studio.
+Pour illustrer les techniques d’analytique, ou pour aider d’autres utilisateurs à démarrer rapidement avec leurs solutions, vous pouvez partager des **expériences** que vous avez développées dans la version classique de Studio.
 Quand d’autres personnes découvrent votre contribution dans la galerie, vous pouvez suivre le nombre de vues et de téléchargements de votre contribution.
 Les utilisateurs peuvent également ajouter des commentaires et partager vos contributions avec d’autres membres de la communauté de science des données.
 De plus, vous pouvez vous connecter avec un outil de discussion comme Disqus pour recevoir des notifications pour les commentaires sur vos contributions.
 
-1. Ouvrez votre expérience dans Studio.
+1. Ouvrez votre expérience dans la version classique de Studio.
 
 1. Dans la liste des actions sous le canevas de l’expérience, sélectionnez **Publier dans la galerie**.
 
@@ -114,7 +114,7 @@ De plus, vous pouvez vous connecter avec un outil de discussion comme Disqus pou
 
 ### <a name="update-your-experiment"></a>Mettre à jour votre expérience
 
-Si besoin, vous pouvez apporter des modifications au workflow (modules, paramètres, etc.) dans une expérience que vous avez publiée dans la galerie. Dans Machine Learning Studio, apportez les modifications souhaitées sur l’expérience, puis publiez-la à nouveau. Votre expérience publiée sera mise à jour.
+Si besoin, vous pouvez apporter des modifications au workflow (modules, paramètres, etc.) dans une expérience que vous avez publiée dans la galerie. Dans Machine Learning Studio (classique), apportez les modifications souhaitées sur l’expérience, puis publiez-la à nouveau. Votre expérience publiée sera mise à jour.
 
 Vous pouvez modifier les informations suivantes pour votre expérience directement dans la galerie :
 
@@ -158,7 +158,7 @@ Vous pouvez aider d’autres utilisateur en écrivant un **tutoriel** dans la ga
    > [!TIP]
    > Si vous souhaitez vérifier que la documentation est correctement présentée avant de la diffuser publiquement, vous pouvez d’abord publier l’expérience en tant que **Non visible au public**. Vous pourrez opter plus tard pour le réglage de visibilité **Visible au public** sur la page de détails de l’expérience. Notez qu’après avoir défini une expérience comme **Visible au public**, vous ne pouvez pas la changer ensuite en **Non visible au public**.
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 Votre contribution figure désormais dans Azure AI Gallery. Vos contributions sont listées dans la page de votre compte, sous l’onglet **Éléments**.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8a6bc8b71f5f8edda76faa1a8d1b20417dfba1d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478654"
+ms.locfileid: "73575654"
 ---
 # <a name="authentication-with-azure-maps"></a>Authentification avec Azure Maps
 
@@ -49,7 +49,7 @@ Azure Maps génère un *identificateur unique (ID client)* pour chaque compte Az
 | Azure Government    | https://login.microsoftonline.us |
 
 
-Si vous souhaitez obtenir plus d’informations sur la configuration d’Azure AD et sur les requêtes de jetons pour Azure Maps, consultez [Gérer l’authentification dans Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Si vous souhaitez obtenir plus d’informations sur la configuration d’Azure AD et sur les requêtes de jetons pour Azure Maps, consultez [Gérer l’authentification dans Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 Pour obtenir des informations générales sur la requête de jetons Azure AD, consultez [Qu’est l’authentification ?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 
@@ -92,6 +92,6 @@ Les [identités managées pour ressources Azure](https://docs.microsoft.com/azur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur l’authentification d’une application avec Azure AD et Azure Maps, consultez [Gérer l’authentification dans Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+* Pour plus d’informations sur l’authentification d’une application avec Azure AD et Azure Maps, consultez [Gérer l’authentification dans Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 * Pour plus d’informations sur l’authentification d’Azure Maps, de Map Control et d’Azure AD, consultez [Utiliser Azure AD et Azure Maps Map Control](https://aka.ms/amaadmc).

@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel 1 : Prédire le risque de crédit'
-titleSuffix: Azure Machine Learning Studio
-description: Tutoriel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans Azure Machine Learning Studio. Ce tutoriel est la première partie d’une série de tutoriels qui en compte trois.  Il montre comment créer un espace de travail, charger des données, puis créez une expérience.
+titleSuffix: ML Studio (classic) Azure
+description: Didacticiel détaillé indiquant comment créer une solution d’analyse prédictive pour l’évaluation des risques de crédit dans la version classique d’Azure Machine Learning Studio. Ce tutoriel est la première partie d’une série de tutoriels qui en compte trois.  Il montre comment créer un espace de travail, charger des données, puis créez une expérience.
 keywords: risque de crédit, solution d’analyse prédictive, évaluation des risques
 author: sdgilley
 ms.author: sgilley
@@ -10,66 +10,65 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 78092bd4ad4da896cd2fd36768f181764335ee85
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949792"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619180"
 ---
-# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutoriel 1 : Prédire le risque de crédit - Azure Machine Learning Studio
+# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Tutoriel 1 : Prédire le risque de crédit – Azure Machine Learning Studio (classique)
 
-Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio.  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est la **première partie d’une série de tutoriels qui en compte trois**.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+Dans ce tutoriel, vous étudiez de manière approfondie le processus de développement d’une solution d’analyse prédictive. Vous développez un modèle simple dans Machine Learning Studio (classique).  Vous déployez ensuite le modèle en tant que service web Azure Machine Learning.  Ce modèle déployé peut effectuer des prédictions à l’aide de nouvelles données. Ce tutoriel est la **première partie d’une série de tutoriels qui en compte trois**.
 
 Supposons que vous deviez prédire le risque lié à l'octroi d'un crédit à un individu sur la base des informations fournies lors d'une demande de crédit.  
 
-L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio. Vous allez utiliser Machine Learning Studio et un service web Machine Learning pour cette solution.  
+L’évaluation du risque de crédit est un problème complexe, mais ce tutoriel va le simplifier un peu. Vous allez l’utiliser comme exemple de création d’une solution d’analyse prédictive à l’aide de Microsoft Azure Machine Learning Studio (classique). Vous allez utiliser la version classique d’Azure Machine Learning Studio et un service web Machine Learning pour cette solution.  
 
 Dans ce tutoriel en trois parties, vous commencez avec des données de risque crédit disponibles publiquement.  Ensuite, vous développez et entraînez un modèle prédictif.  Enfin, vous déployez le modèle en tant que service web.
 
 Dans cette partie du tutoriel, vous allez effectuer les opérations suivantes : 
  
 > [!div class="checklist"]
-> * Créer un espace de travail Machine Learning Studio
+> * Créer un espace de travail Machine Learning Studio (classique)
 > * Charger des données existantes
 > * Création d'une expérience
 
 Vous pouvez ensuite utiliser cette expérience pour [entraîner des modèles dans la deuxième partie](tutorial-part2-credit-risk-train.md), puis [les déployer dans la troisième partie](tutorial-part3-credit-risk-deploy.md).
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## <a name="prerequisites"></a>Prérequis
 
-Ce tutoriel suppose que vous avez utilisé Machine Learning Studio au moins une fois et que vous comprenez les concepts du Machine Learning. Il ne suppose pas non plus que vous êtes un expert.
+Ce didacticiel suppose que vous avez utilisé Machine Learning Studio (classique) au moins une fois et que vous comprenez les concepts du Machine Learning. Il ne suppose pas non plus que vous êtes un expert.
 
-Si vous n’avez jamais utilisé **Azure Machine Learning Studio**, vous pouvez commencer par le guide de démarrage rapide [Créer votre première expérience de science des données dans Azure Machine Learning Studio](create-experiment.md). Ce guide de démarrage rapide vous accompagne lors de votre première utilisation de Machine Learning Studio. Vous y découvrirez les principes fondamentaux de glisser-déplacer des modules vers votre expérience, et comment les connecter, réaliser votre expérience et étudier les résultats.
+Si vous n’avez jamais utilisé **Azure Machine Learning Studio (classique)** , vous pouvez commencer par le guide de démarrage rapide [Créer votre première expérience de science des données dans Azure Machine Learning Studio (classique)](create-experiment.md). Ce guide de démarrage rapide vous accompagne lors de votre première utilisation de Machine Learning Studio (classique). Vous y découvrirez les principes fondamentaux de glisser-déplacer des modules vers votre expérience, et comment les connecter, réaliser votre expérience et étudier les résultats.
 
 
 > [!TIP] 
-> Vous pouvez obtenir une copie de travail de l’expérience que vous développez dans ce tutoriel dans [Azure AI Gallery](https://gallery.azure.ai). Accédez à **[Tutoriel - Prédire le risque de crédit](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** , puis cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
+> Vous pouvez obtenir une copie de travail de l’expérience que vous développez dans ce tutoriel dans [Azure AI Gallery](https://gallery.azure.ai). Accédez à **[didacticiel – Prédire le risque de crédit](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** , puis cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio (classique).
 > 
 
 
-## <a name="create-a-machine-learning-studio-workspace"></a>Créer un espace de travail Machine Learning Studio
+## <a name="create-a-machine-learning-studio-classic-workspace"></a>Créer un espace de travail Machine Learning Studio (classique)
 
-Pour utiliser Machine Learning Studio, vous devez disposer d’un espace de travail Microsoft Azure Machine Learning Studio. Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.  
+Pour utiliser Machine Learning Studio (classique), vous devez disposer d’un espace de travail Microsoft Azure Machine Learning Studio (classique). Cet espace de travail contient les outils dont vous avez besoin pour créer, gérer et publier des expériences.  
 
-Pour créer un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning Studio](create-workspace.md).
+Pour créer un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning Studio (classique)](create-workspace.md).
 
-Une fois votre espace de travail créé, ouvrez Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Si vous disposez de plusieurs espaces de travail, vous pouvez sélectionner l’espace de travail dans la barre d’outils dans le coin supérieur droit de la fenêtre.
+Une fois votre espace de travail créé, ouvrez Machine Learning Studio (classique) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Si vous disposez de plusieurs espaces de travail, vous pouvez sélectionner l’espace de travail dans la barre d’outils dans le coin supérieur droit de la fenêtre.
 
-![Sélection de l’espace de travail dans Studio](./media/tutorial-part1-credit-risk/open-workspace.png)
+![Sélectionner un espace de travail dans Studio (classique)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> Si vous êtes propriétaire de l’espace de travail, vous pouvez partager les expériences sur lesquelles vous travaillez en invitant d’autres personnes dans l’espace de travail. Pour cela, dans Machine Learning Studio, ouvrez la page **PARAMÈTRES** . Vous avez simplement besoin du compte Microsoft ou du compte professionnel de chaque utilisateur.
+> Si vous êtes propriétaire de l’espace de travail, vous pouvez partager les expériences sur lesquelles vous travaillez en invitant d’autres personnes dans l’espace de travail. Pour cela, dans Machine Learning Studio (classique), ouvrez la page **PARAMÈTRES** . Vous avez simplement besoin du compte Microsoft ou du compte professionnel de chaque utilisateur.
 > 
 > Dans la page **PARAMÈTRES**, cliquez sur **UTILISATEURS**, puis cliquez sur **INVITER PLUS D’UTILISATEURS** en bas de la fenêtre.
 > 
 
 ## <a name="upload"></a>Charger des données existantes
 
-Pour développer un modèle prédictif pour un risque de crédit, vous avez besoin de données que vous pouvez utiliser pour entraîner puis tester le modèle. Pour ce tutoriel, vous allez utiliser le modèle « UCI Statlog (German Credit Data) Data Set » qui se trouve dans le dépôt UC Irvine Machine Learning. Vous pouvez le trouver ici :   
+Pour développer un modèle prédictif pour un risque de crédit, vous avez besoin de données que vous pouvez utiliser pour entraîner puis tester le modèle. Pour ce tutoriel, vous allez utiliser le modèle « UCI Statlog (German Credit Data) Data Set » qui se trouve dans le dépôt UC Irvine Machine Learning. Vous pouvez le trouver ici :  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Vous allez utiliser le fichier nommé **german.data**. Téléchargez ce fichier sur votre disque dur.  
@@ -96,7 +95,7 @@ Ensuite, si le modèle considère une personne présentant un risque élevé com
 
 ### <a name="convert-the-dataset-format"></a>Conversion du format du jeu de données
 
-Le jeu de données d'origine utilise un format séparé par des espaces. Machine Learning Studio fonctionne mieux avec un fichier de valeurs séparées par des virgules (CSV). Vous allez donc convertir le jeu de données en remplaçant les espaces par des virgules.  
+Le jeu de données d'origine utilise un format séparé par des espaces. La version classique de Machine Learning Studio fonctionne mieux avec un fichier de valeurs séparées par des virgules (CSV). Vous allez donc convertir le jeu de données en remplaçant les espaces par des virgules.  
 
 Il existe de nombreux moyens de convertir ces données. L'une des méthodes consiste à utiliser la commande Windows PowerShell suivante :   
 
@@ -108,11 +107,11 @@ Vous pouvez aussi utiliser la commande Unix sed :
 
 Dans les deux cas, vous avez créé une version séparée par des virgules des données dans un fichier nommé **german.csv** que vous pouvez utiliser dans votre expérience.
 
-### <a name="upload-the-dataset-to-machine-learning-studio"></a>Télécharger le jeu de données vers Machine Learning Studio
+### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Télécharger le jeu de données vers Machine Learning Studio (classique)
 
-Une fois les données converties au format CSV, vous devez les charger sur Machine Learning Studio. 
+Une fois les données converties au format CSV, vous devez les charger dans la version classique de Machine Learning Studio. 
 
-1. Ouvrez la page d’accueil de Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)). 
+1. Ouvrez la page d’accueil de Machine Learning Studio (classique) ([https://studio.azureml.net](https://studio.azureml.net)). 
 
 2. Cliquez sur le menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) dans le coin supérieur gauche de la fenêtre, cliquez sur **Azure Machine Learning**, sélectionnez **Studio**, puis connectez-vous.
 
@@ -138,17 +137,17 @@ Une fois les données converties au format CSV, vous devez les charger sur Machi
 
 Les données sont chargées dans un module de jeu de données que vous pouvez utiliser dans une expérience.
 
-Vous pouvez gérer les jeux de données que vous avez téléchargés dans Studio en cliquant sur l’onglet **JEUX DE DONNÉES** à gauche de la fenêtre de Studio.
+Vous pouvez gérer les jeux de données que vous avez téléchargés dans Studio (classique) en cliquant sur l’onglet **JEUX DE DONNÉES** à gauche de la fenêtre de Studio (classique).
 
 ![Gérer des jeux de données](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-Pour plus d’informations sur l’importation d’autres types de données dans une expérience, consultez [Importez vos données d’apprentissage dans Azure Machine Learning Studio](import-data.md).
+Pour plus d’informations sur l’importation d’autres types de données dans une expérience, consultez [Importez vos données d’apprentissage dans Azure Machine Learning Studio (classique)](import-data.md).
 
 ## <a name="create-an-experiment"></a>Création d'une expérience
 
-L’étape suivante de ce tutoriel consiste à créer une expérience dans Machine Learning Studio qui utilise le jeu de données que vous avez chargé.  
+L’étape suivante de ce didacticiel consiste à créer une expérience dans la version classique de Machine Learning Studio qui utilise le jeu de données que vous avez chargé.  
 
-1. Dans Studio, cliquez sur **+NOUVEAU** en bas de la fenêtre.
+1. Dans Studio (classique), cliquez sur **+NOUVEAU** en bas de la fenêtre.
 1. Sélectionnez **EXPÉRIENCE**, puis sélectionnez « Expérience vide ». 
 
     ![Création d'une expérience](./media/tutorial-part1-credit-risk/create-new-experiment.png)
@@ -174,7 +173,7 @@ L’étape suivante de ce tutoriel consiste à créer une expérience dans Machi
 
 Vous pouvez afficher les 100 premières lignes des données et quelques informations statistiques sur l’ensemble du jeu de données : Cliquez sur le port de sortie du jeu de données (le petit cercle en bas) et sélectionnez **Visualiser**.  
 
-Le fichier de données étant dépourvu d’en-têtes de colonne, Studio a fourni des en-têtes génériques (Col1, Col2, *etc.* ). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
+Le fichier de données étant dépourvu d’en-têtes de colonne, la version classique de Studio a fourni des en-têtes génériques (Col1, Col2, *etc.* ). Des en-têtes explicites ne sont pas essentiels pour créer un modèle, mais ils facilitent l’utilisation des données dans l’expérience. En outre, lors de la publication de ce modèle dans un service web, les en-têtes permettent à l’utilisateur du service d’identifier les colonnes.  
 
 Vous pouvez ajouter des en-têtes de colonne en utilisant le module [Modifier les métadonnées][edit-metadata].
 
@@ -296,7 +295,7 @@ Pour plus d’informations sur l'utilisation de scripts R dans vos expériences,
 Dans ce tutoriel, vous avez effectué les étapes suivantes : 
  
 > [!div class="checklist"]
-> * Créer un espace de travail Machine Learning Studio
+> * Créer un espace de travail Machine Learning Studio (classique)
 > * Charger des données existantes dans l’espace de travail
 > * Création d'une expérience
 

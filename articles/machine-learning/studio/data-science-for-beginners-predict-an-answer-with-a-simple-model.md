@@ -1,6 +1,6 @@
 ---
 title: Prédire les réponses avec des modèles de régression
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Comment créer un modèle de régression simple pour prédire un prix dans la quatrième vidéo de la série Science des données pour les débutants 4. Comprend une régression linéaire avec des données cibles.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 9165e51d07cf97756408c7f73720931abe067bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2148938323ed3f819f14be88590723da40462453
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751534"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619520"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prédire une réponse à l’aide d’un modèle simple
 ## <a name="video-4-data-science-for-beginners-series"></a>Vidéo 4 : série Science des données pour les débutants
@@ -124,8 +124,8 @@ Et, si nous avions deux mille ou deux millions de diamants au lieu de quelques u
 
 Aujourd’hui, nous avons expliqué comment effectuer une régression linéaire, et nous avons réalisé une prédiction à l’aide de données.
 
-Nous vous invitons à consulter les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning Studio.
+Nous vous invitons à regarder les autres vidéos de la série « Science des données pour les débutants » de Microsoft Azure Machine Learning Studio (classique).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Menez une première expérience de science des données avec Machine Learning Studio](create-experiment.md)
+* [Menez une première expérience de science des données avec Machine Learning Studio (classique)](create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

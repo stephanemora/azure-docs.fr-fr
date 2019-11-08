@@ -1,7 +1,7 @@
 ---
 title: Optimiser les algorithmes
-titleSuffix: Azure Machine Learning Studio
-description: Explique comment choisir l’ensemble de paramètres optimal pour un algorithme dans Azure Machine Learning Studio.
+titleSuffix: ML Studio (classic) Azure
+description: Explique comment choisir l’ensemble de paramètres optimal pour un algorithme dans Azure Machine Learning Studio (classique).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 6dc9476f603d5664b7ea23489042b69f86647cf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a0434b0f0768447f9922e651297924ad86f63c8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60752190"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621917"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Choisir les paramètres permettant d’optimiser des algorithmes dans Azure Machine Learning Studio (classique)
 
-Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning Studio. La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
+Cette rubrique explique comment choisir le bon ensemble d’hyperparamètres pour un algorithme dans Microsoft Azure Machine Learning Studio (classique). La plupart des algorithmes Machine Learning ont des paramètres qui doivent être définis. Lorsque vous gérez l’apprentissage d’un modèle, vous devez fournir des valeurs pour ces paramètres. L’efficacité du modèle formé dépend des paramètres de modèle choisis. Le processus de recherche de l’ensemble optimal de paramètres est connu sous le nom de *sélection du modèle*.
 
 
 
-Il existe différentes manières d’effectuer une sélection de modèle. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans Azure Machine Learning Studio. Comme les langages R et Python sont pris en charge par Azure Machine Learning Studio, vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
+Il existe différentes manières d’effectuer une sélection de modèle. Dans ML, la méthode de validation croisée est l’une des plus largement utilisées pour la sélection de modèle. Il s’agit du mécanisme par défaut utilisé à cette fin dans la version classique d’Azure Machine Learning Studio. Comme les langages R et Python sont pris en charge par la version classique d’Azure Machine Learning Studio, vous pouvez toujours implémenter votre propre mécanisme de sélection de modèle, via l’un ou l’autre de ces langages.
 
 Le processus de recherche de l’ensemble de paramètres idéal comprend quatre étapes :
 
@@ -32,7 +32,7 @@ Le processus de recherche de l’ensemble de paramètres idéal comprend quatre 
 3. **Définir la métrique** : Déterminez la métrique à utiliser pour évaluer l’ensemble de paramètres le plus approprié (exactitude, erreur quadratique moyenne, précision, rappel ou f-score).
 4. **Apprentissage, évaluation et comparaison** : Pour chaque combinaison unique de valeurs de paramètres, la validation croisée est effectuée selon la métrique d’erreur que vous définissez. Après évaluation et comparaison, vous pouvez choisir le modèle le plus performant.
 
-L’image ci-dessous illustre cette opération dans Azure Machine Learning Studio.
+L’image ci-dessous illustre cette opération dans la version classique d’Azure Machine Learning Studio.
 
 ![Trouver l’ensemble de paramètres idéal](./media/algorithm-parameters-optimize/fig1.png)
 
