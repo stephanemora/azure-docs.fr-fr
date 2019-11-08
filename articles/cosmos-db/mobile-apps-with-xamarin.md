@@ -1,20 +1,20 @@
 ---
-title: Créer des applications mobiles avec Xamarin et Azure Cosmos DB
-description: Didacticiel qui permet de créer une application Xamarin iOS, Android ou Forms à l’aide d’Azure Cosmos DB. Azure Cosmos DB est une base de données cloud, mondiale et rapide, pour les applications mobiles.
+title: 'Didacticiel : Créer des applications mobiles avec Xamarin et Azure Cosmos DB'
+description: 'Didacticiel : Didacticiel qui permet de créer une application Xamarin iOS, Android ou Forms à l’aide d’Azure Cosmos DB. Azure Cosmos DB est une base de données cloud, mondiale et rapide, pour les applications mobiles.'
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 4a9c0fe09bee553f53c90c9833922746aad35d14
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 40f7de4b4feb2b312705238abd30402edb635ea9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615081"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720895"
 ---
-# <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Créer des applications mobiles avec Xamarin et Azure Cosmos DB
+# <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Didacticiel : Créer des applications mobiles avec Xamarin et Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)

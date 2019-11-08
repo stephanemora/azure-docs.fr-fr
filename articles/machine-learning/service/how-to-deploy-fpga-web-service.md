@@ -7,18 +7,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.author: tedway
-author: tedway
-ms.date: 07/25/2019
+ms.author: jordane
+author: jpe316
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c3c844ba7044f8e1c9c313f1ac63b94310ea322
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5e8dc6181660f0c1545df0688e2749f8f0187027
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350536"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496895"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>Présentation des FPGA (Field Programmable Gate Arrays) et de la façon dont ils sont déployés
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Cet article présente les FGPA (Field-Programmable Gate Array) et explique comment déployer vos modèles à l’aide d’Azure Machine Learning sur un FPGA Azure. 
 
@@ -319,7 +320,7 @@ for i in Image.list(workspace=ws):
 
 ### <a name="deploy-to-the-cloud"></a>Déployer dans le cloud
 
-Pour déployer votre modèle en tant que service web de production à grande échelle, utilisez Azure Kubernetes Service (AKS). Vous pouvez en créer un en utilisant le kit SDK Azure Machine Learning, l’interface CLI, le [Portail Azure](https://portal.azure.com) ou la [page d’arrivée de l’espace de travail (préversion)](https://ml.azure.com).
+Pour déployer votre modèle en tant que service web de production à grande échelle, utilisez Azure Kubernetes Service (AKS). Vous pouvez en créer un en utilisant le Kit de développement logiciel (SDK) Azure Machine Learning, l’interface CLI ou [Azure Machine Learning Studio](https://ml.azure.com).
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

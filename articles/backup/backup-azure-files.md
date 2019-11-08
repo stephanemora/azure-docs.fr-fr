@@ -7,18 +7,20 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 44a2b0feab19d042de58359a7ea13814415e6c9e
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129565"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747478"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Sauvegarder et restaurer des partages de fichiers Azure
+
 Cet article explique comment utiliser le portail Azure pour sauvegarder et restaurer des [partages de fichiers Azure](../storage/files/storage-files-introduction.md).
 
 Dans ce guide, vous apprendrez comment :
 > [!div class="checklist"]
+>
 > * Configurer un coffre Recovery Services pour sauvegarder des fichiers Azure
 > * Exécuter un travail de sauvegarde à la demande pour créer un point de restauration
 > * Restaurer un ou plusieurs fichiers à partir d’un point de restauration
@@ -27,22 +29,24 @@ Dans ce guide, vous apprendrez comment :
 > * Supprimer vos données de sauvegarde
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de sauvegarder un partage de fichiers Azure, assurez-vous qu’il est présent dans l’un des [types de compte de stockage pris en charge](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). Après avoir vérifié ce point, vous pouvez protéger vos partages de fichiers.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitations pour la sauvegarde de partage de fichiers Azure en préversion
+
 La sauvegarde des partages de fichiers Azure est disponible en préversion. Les partages de fichiers Azure dans les comptes de stockage v1 et v2 universels sont pris en charge. Les scénarios de sauvegarde suivants ne sont pas pris en charge pour les partages de fichiers Azure :
-- La prise en charge de la sauvegarde des partages de fichiers Azure dans les comptes de stockage avec réplication de [stockage redondant interzone](../storage/common/storage-redundancy-zrs.md) (ZRS) est actuellement limitée à [ces régions](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
-- Il n’y a aucune interface CLI disponible pour la protection d’Azure Files à l’aide de Sauvegarde Azure.
-- La sauvegarde Azure prend actuellement en charge la configuration de sauvegardes planifiées une fois par jour des partages de fichiers Azure.
-- Vous pouvez effectuer une seule sauvegarde planifiée par jour.
-- Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
-- Utilisez les [verrous de ressources](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) sur le compte de stockage pour empêcher la suppression accidentelle des sauvegardes de votre coffre Recovery Services.
-- Ne supprimez pas les instantanés créés par Sauvegarde Azure. La suppression d’instantanés peut provoquer une perte de points de récupération et/ou des échecs de restauration.
-- Ne supprimez pas les partages de fichiers qui sont protégés par Sauvegarde Azure. La solution actuelle supprimera tous les instantanés pris par Sauvegarde Azure une fois que le partage de fichiers aura été supprimé. Tous les points de restauration seront donc perdus.
 
-
+* La prise en charge de la sauvegarde des partages de fichiers Azure dans les comptes de stockage avec réplication de [stockage redondant interzone](../storage/common/storage-redundancy-zrs.md) (ZRS) est actuellement limitée à [ces régions](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares).
+* Il n’y a aucune interface CLI disponible pour la protection d’Azure Files à l’aide de Sauvegarde Azure.
+* La sauvegarde Azure prend actuellement en charge la configuration de sauvegardes planifiées une fois par jour des partages de fichiers Azure.
+* Vous pouvez effectuer une seule sauvegarde planifiée par jour.
+* Vous pouvez effectuer quatre sauvegardes à la demande par jour maximum.
+* Utilisez les [verrous de ressources](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) sur le compte de stockage pour empêcher la suppression accidentelle des sauvegardes de votre coffre Recovery Services.
+* Ne supprimez pas les instantanés créés par Sauvegarde Azure. La suppression d’instantanés peut provoquer une perte de points de récupération et/ou des échecs de restauration.
+* Ne supprimez pas les partages de fichiers qui sont protégés par Sauvegarde Azure. La solution actuelle supprimera tous les instantanés pris par Sauvegarde Azure une fois que le partage de fichiers aura été supprimé. Tous les points de restauration seront donc perdus.
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configuration de la sauvegarde d’un partage de fichiers Azure
+
 Ce didacticiel suppose que vous ayez déjà établi un partage de fichiers Azure. Pour sauvegarder votre partage de fichiers Azure :
 
 1. Créez un coffre Recovery Services dans la même région que votre partage de fichiers. Si vous disposez déjà d’un coffre, ouvrez la page de vue d’ensemble de votre coffre et cliquez sur **Sauvegarde**.
@@ -74,6 +78,7 @@ Ce didacticiel suppose que vous ayez déjà établi un partage de fichiers Azure
     Une fois la stratégie de sauvegarde établie, un instantané des partages de fichiers sera effectué à l’heure planifiée, et le point de récupération est conservé pour la période définie.
 
 ## <a name="create-an-on-demand-backup"></a>Créer une sauvegarde à la demande
+
 Vous souhaiterez parfois générer un instantané de sauvegarde ou un point de récupération en dehors des heures planifiées dans la stratégie de sauvegarde. Le moment suivant la configuration de la stratégie de sauvegarde est un temps commun pour générer une sauvegarde à la demande. En fonction du calendrier dans la stratégie de sauvegarde, des heures ou des jours peuvent s’écouler avant qu’un instantané soit généré. Pour protéger vos données en attendant que la stratégie de sauvegarde génère un instantané, effectuez une sauvegarde à la demande. La création d’une sauvegarde à la demande est souvent nécessaire avant d’apporter des modifications prévues à vos partages de fichiers.
 
 ### <a name="to-create-an-on-demand-backup"></a>Pour créer une sauvegarde à la demande
@@ -97,11 +102,13 @@ Vous souhaiterez parfois générer un instantané de sauvegarde ou un point de r
 5. Cliquez sur **OK** pour confirmer la tâche de sauvegarde à la demande.
 
 ## <a name="restore-from-backup-of-azure-file-share"></a>Restauration à partir d’une sauvegarde de partage de fichiers Azure
+
 Si vous devez restaurer un partage de fichiers entier ou des fichiers ou dossiers individuels à partir d’un point de restauration, accédez à l’élément de sauvegarde, comme détaillé dans la section précédente. Choisissez **Restaurer un partage** pour restaurer un partage de fichiers entier depuis un moment précis. Dans la liste des points de restauration qui s’affichent, sélectionnez-en un qui est en mesure de remplacer votre partage de fichiers actuel ou bien restaurez-le dans un autre partage de fichier de la même région.
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/select-restore-location.png)
 
 ## <a name="restore-individual-files-or-folders-from-backup-of-azure-file-shares"></a>Restauration de fichiers ou dossiers individuels à partir d’une sauvegarde de partages de fichiers Azure
+
 Azure Backup offre la possibilité de parcourir un point de restauration au sein du portail Azure. Pour restaurer un fichier ou un dossier de votre choix, cliquez sur Récupération de fichiers à partir de la page Élément de sauvegarde et faites votre choix dans la liste des points de restauration. Sélectionnez la destination de récupération, puis cliquez sur **Sélectionner un fichier** pour rechercher le point de restauration. Sélectionnez le fichier ou le dossier de votre choix puis **Restaurer**.
 
    ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/restore-individual-files-folders.png)
@@ -109,11 +116,12 @@ Azure Backup offre la possibilité de parcourir un point de restauration au sein
 ## <a name="manage-azure-file-share-backups"></a>Gérer les sauvegardes de partage de fichiers Azure
 
 Vous pouvez exécuter plusieurs tâches de gestion pour les sauvegardes de partage de fichiers sur la page **Travaux de sauvegarde**, y compris :
-- [Surveiller des travaux](backup-azure-files.md#monitor-jobs)
-- [Créer une nouvelle stratégie](backup-azure-files.md#create-a-new-policy)
-- [Arrêter la protection sur un partage de fichiers](backup-azure-files.md#stop-protecting-an-azure-file-share)
-- [Reprendre la protection sur un partage de fichiers](backup-azure-files.md#resume-protection-for-azure-file-share)
-- [Supprimer des données de sauvegarde](backup-azure-files.md#delete-backup-data)
+
+* [Surveiller des travaux](backup-azure-files.md#monitor-jobs)
+* [Créer une nouvelle stratégie](backup-azure-files.md#create-a-new-policy)
+* [Arrêter la protection sur un partage de fichiers](backup-azure-files.md#stop-protecting-an-azure-file-share)
+* [Reprendre la protection sur un partage de fichiers](backup-azure-files.md#resume-protection-for-azure-file-share)
+* [Supprimer des données de sauvegarde](backup-azure-files.md#delete-backup-data)
 
 ### <a name="monitor-jobs"></a>Surveiller des travaux
 
@@ -121,7 +129,7 @@ Vous pouvez surveiller la progression de tous les travaux sur la page **Travaux 
 
 Pour ouvrir la page **Travaux de sauvegarde** :
 
-- Ouvrez le coffre Recovery Services que vous souhaitez analyser puis, dans le menu du coffre Recovery Services, cliquez sur **Travaux** puis sur **Travaux de sauvegarde**.
+* Ouvrez le coffre Recovery Services que vous souhaitez analyser puis, dans le menu du coffre Recovery Services, cliquez sur **Travaux** puis sur **Travaux de sauvegarde**.
 
    ![Sélectionner le travail que vous souhaitez surveiller](./media/backup-file-shares/open-backup-jobs.png)
 
@@ -135,7 +143,7 @@ Vous pouvez créer une nouvelle stratégie de sauvegarde des partages de fichier
 
 Pour afficher les stratégies de sauvegarde existantes :
 
-- Ouvrez le coffre Recovery Services désiré puis, dans le menu du coffre Recovery Services, cliquez sur **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde sont répertoriées.
+* Ouvrez le coffre Recovery Services désiré puis, dans le menu du coffre Recovery Services, cliquez sur **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde sont répertoriées.
 
    ![Sélectionner le travail que vous souhaitez surveiller](./media/backup-file-shares/list-of-backup-policies.png)
 
@@ -154,8 +162,8 @@ Pour créer une nouvelle stratégie de sauvegarde :
 
 Si vous décidez d’arrêter la protection d’un partage de fichiers Azure, vous devrez indiquer si vous souhaitez conserver les points de récupération. Il existe deux façons de suspendre la protection des partages de fichiers Azure :
 
-- Arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération, ou
-- Arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération
+* Arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération, ou
+* Arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération
 
 Le fait de laisser des points de récupération dans le stockage peut avoir un coût, étant donné que les instantanés sous-jacents créés par Azure Backup seront conservés. Mais elle a l’avantage de vous permettre de restaurer ultérieurement le partage de fichiers, si vous le souhaitez. Pour plus d’informations sur les coûts de conservation des points de récupération, consultez la tarification. Si vous choisissez de supprimer tous les points de récupération, vous ne pourrez pas restaurer le partage de fichiers.
 
@@ -194,6 +202,8 @@ Vous pouvez supprimer la sauvegarde d’un partage de fichiers lors du travail d
 La procédure suivante suppose que le travail de sauvegarde de la machine virtuelle a été arrêté. Les options Reprendre la sauvegarde et Supprimer les données de sauvegarde sont accessibles dans le tableau de bord de l’élément de sauvegarde seulement lorsque le travail de sauvegarde a été arrêté. Cliquez sur Supprimer les données de sauvegarde et tapez le nom du partage de fichiers pour confirmer la suppression. Vous pouvez, si vous le souhaitez, indiquer une Raison pour la suppression ou un Commentaire.
 
 ## <a name="see-also"></a>Voir aussi
+
 Pour plus d’informations sur les partages de fichiers Azure, consultez les références suivantes
-- [Questions sur la sauvegarde des fichiers Azure](backup-azure-files-faq.md)
-- [Résoudre les problèmes de sauvegarde des fichiers Azure](troubleshoot-azure-files.md)
+
+* [Questions sur la sauvegarde des fichiers Azure](backup-azure-files-faq.md)
+* [Résoudre les problèmes de sauvegarde des fichiers Azure](troubleshoot-azure-files.md)

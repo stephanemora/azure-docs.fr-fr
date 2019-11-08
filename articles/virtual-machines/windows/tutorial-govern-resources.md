@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a0821885361fa4781c75b0ed4caa71f9fda37a1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674984"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749127"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Didacticiel : Découvrez-en plus sur la gestion des machines virtuelles Windows avec Azure PowerShell.
 
@@ -26,7 +26,7 @@ ms.locfileid: "71674984"
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. 
 

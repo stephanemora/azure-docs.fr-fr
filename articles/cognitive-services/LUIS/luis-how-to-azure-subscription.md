@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 957b12ad00f53a5aed7ff2a1ecd4afd21e58eb93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984376"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467456"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>Utilisation de clés de ressources de création et de runtime
 
 Les ressources de création et de runtime fournissent l’authentification à votre application LUIS et au point de terminaison de prédiction.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
@@ -28,7 +30,7 @@ Les ressources de création et de runtime fournissent l’authentification à vo
 Quand vous vous connectez au portail LUIS, vous pouvez choisir de continuer avec :
 
 * une [clé d’essai](#trial-key) gratuit qui fournit des requêtes de création et de point de terminaison de prédiction ;
-* une nouvelle ressource de création LUIS Azure permettant de créer une ressource. Ce n’est pas la même chose qu’une ressource de point de terminaison de prédiction. 
+* une ressource de [création LUIS](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) Azure. 
 
 
 <a name="starter-key"></a>
@@ -52,10 +54,7 @@ Lorsque vous êtes prêt à publier votre point de terminaison de prédiction, c
 
 ## <a name="create-resources-in-the-azure-portal"></a>Créer des ressources dans le portail Azure
 
-1. Connectez-vous au [Portail Azure](https://azure.microsoft.com/free/). 
-1. Sélectionnez **+ Créer une ressource**.
-1. Dans la zone de recherche, entrez `Language understanding`.
-1. Sélectionnez **Créer** pour commencer le processus de création. 
+1. Utilisez [ce lien](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) afin d’ouvrir le Portail Azure pour la création de ressources.
 1. Sélectionnez **Les deux** pour créer une clé d’exécution et une clé de runtime de point de terminaison de prédiction. 
 1. Entrez les informations requises pour créer la ressource, puis sélectionnez **Créer** pour terminer le processus.
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978084"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480260"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenir les données de conformité des ressources Azure
 
@@ -131,9 +131,16 @@ Comme une stratégie ou une initiative peut être affectée à différentes éte
 La liste des ressources dans l’onglet **Resource compliance (Conformité des ressources)** affiche l’état de l’évaluation des ressources existantes pour l’affectation actuelle. Par défaut, l’onglet est défini sur **Non conforme**, mais un filtre peut être appliqué.
 Les événements (ajouter, effectuer un audit, refuser, déployer) déclenchés par la requête pour créer une ressource sont affichés dans l’onglet **Événements**.
 
+> [!NOTE]
+> Pour une stratégie du moteur AKS, la ressource indiquée est le groupe de ressources.
+
 ![Exemple d’événements de conformité à Azure Policy](../media/getting-compliance-data/compliance-events.png)
 
-Cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
+Pour les ressources du [mode Fournisseur de ressources](../concepts/definition-structure.md#resource-provider-modes), dans l’onglet **Conformité des ressources**, la sélection de la ressource ou un clic droit sur la ligne et la sélection de l’option **Afficher les détails de la conformité** ouvre les détails de conformité du composant. Cette page propose également des onglets pour afficher les stratégies attribuées à cette ressource, les événements, les événements de composant et l’historique des modifications.
+
+![Exemple de détails de la conformité des composants à Azure Policy](../media/getting-compliance-data/compliance-components.png)
+
+Une fois de retour sur la page de conformité des ressources, cliquez avec le bouton droit sur la ligne de l’événement pour lequel vous souhaitez obtenir plus de détails et sélectionnez **Afficher les journaux d’activité**. La page Journal d’activité s’ouvre et les critères de recherche sont préfiltrés pour montrer les détails de l’affectation et des événements. Le journal d’activité fournit davantage de contexte ainsi que des informations supplémentaires sur ces événements.
 
 ![Exemple de journal d’activité de conformité à Azure Policy](../media/getting-compliance-data/compliance-activitylog.png)
 
@@ -145,32 +152,10 @@ Lorsque le système détermine qu’une ressource est **non conforme**, plusieur
 
 ## <a name="command-line"></a>Ligne de commande
 
-Les informations disponibles dans le portail peuvent être récupérées à l’aide de l’API REST (y compris avec [ARMClient](https://github.com/projectkudu/ARMClient)) ou à l’aide d’Azure PowerShell. Pour plus d’informations sur l’API REST, consultez la référence [Azure Policy Insights](/rest/api/policy-insights/). Les pages de référence de l’API REST contiennent, pour chaque opération, un bouton vert qui vous permet de la tester directement dans votre navigateur.
+Les informations disponibles dans le portail peuvent être récupérées à l’aide de l’API REST (y compris avec [ARMClient](https://github.com/projectkudu/ARMClient)), d’Azure PowerShell ou d’Azure CLI (préversion).
+Pour plus d’informations sur l’API REST, consultez la référence [Azure Policy Insights](/rest/api/policy-insights/). Les pages de référence de l’API REST contiennent, pour chaque opération, un bouton vert qui vous permet de la tester directement dans votre navigateur.
 
-Pour utiliser les exemples suivants dans Azure PowerShell, créez un jeton d’authentification avec cet exemple de code. Remplacez ensuite le $restUri par la chaîne de votre choix dans les exemples pour récupérer un objet JSON pouvant être analysé.
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+Utilisez ARMClient ou un outil similaire pour gérer l’authentification auprès d’Azure pour les exemples de l’API REST.
 
 ### <a name="summarize-results"></a>Synthétiser les résultats
 

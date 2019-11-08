@@ -1,21 +1,18 @@
 ---
 title: Créer une Function App sur Linux à l’aide du Portail Azure | Microsoft Docs
 description: Apprenez à créer votre première fonction Azure pour une exécution sans serveur à l’aide du portail Azure.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
-ms.custom: ''
-ms.openlocfilehash: a612505acdc37591377eebf290365b65cc3836cd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 89755e8b70a490f1c5746b23e0d36c5d90b624c1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098285"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571667"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Créer une application de fonction dans un plan App Service sur Linux
 
@@ -50,7 +47,7 @@ Vous devez disposer d’une application de fonction pour héberger l’exécutio
     | **Publier** | Code | Le conteneur Linux par défaut pour votre **pile d’exécution** est utilisé. Tout ce que vous avez à fournir est le code de projet de votre application de fonction. Une autre option consiste à publier une [image Docker](functions-create-function-linux-custom-image.md) personnalisée. |
     | **[Plan d’hébergement](functions-scale.md)** | Plan App Service | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Si vous exécutez dans un plan App Service, vous pouvez gérer la [mise à l’échelle de votre application de fonction](functions-scale.md).  |
     | **Plan/lieu App Service** | Créer un plan | Choisissez **Créer** et fournissez le nom du **plan App Service**. Choisissez un **emplacement** dans une [région](https://azure.microsoft.com/regions/) proche de chez vous, ou proche d’autres services auxquels vos fonctions ont accès. Choisissez votre **[niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/linux/)** . <br/>Vous ne pouvez pas exécuter des applications de fonction Linux et Windows dans le même plan App Service. |
-    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. La [prise en charge de Python](functions-reference-python.md) est en préversion actuellement. |
+    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. |
     | **[Stockage](../storage/common/storage-quickstart-create-account.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](functions-scale.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | activé | Application Insights est déactivé par défaut. Nous vous recommandons d’activer l’intégration d’Application Insights maintenant et de choisir un emplacement près de votre emplacement de plan App Service. Si vous souhaitez le faire ultérieurement, consultez [Surveiller Azure Functions](functions-monitoring.md).  |
 

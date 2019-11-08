@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: c55de6b437755f46df8d95a8ee461c0671a52cff
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3af9c5e728bd119ce6c5546c8dc6556967cd1eda
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791527"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606106"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Démarrage rapide : Exécuter un travail Spark sur Azure Databricks à l'aide d'un modèle Azure Resource Manager
 
@@ -81,7 +81,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
    Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
-Pour plus d’informations sur la création de clusters, consultez [Créer un cluster Spark dans Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+Pour plus d’informations sur la création de clusters, consultez [Créer un cluster Spark dans Azure Databricks](/azure/databricks/user-guide/clusters/create).
 
 ## <a name="run-a-spark-sql-job"></a>Exécuter un travail Spark SQL
 
@@ -126,7 +126,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
      Pour des instructions sur la récupération de la clé du compte de stockage, consultez [Gérer vos clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys).
 
    > [!NOTE]
-   > Vous pouvez également utiliser Azure Data Lake Store avec un cluster Spark sur Azure Databricks. Pour obtenir des instructions, consultez [Utiliser Data Lake Store avec Azure Databricks](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).
+   > Vous pouvez également utiliser Azure Data Lake Store avec un cluster Spark sur Azure Databricks. Pour obtenir des instructions, consultez [Utiliser Data Lake Store avec Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html).
 
 4. Exécutez une instruction SQL pour créer une table temporaire en utilisant les données de l’exemple de fichier de données JSON, **small_radio_json.json**. Dans l’extrait de code suivant, remplacez les valeurs des espaces réservés par le nom de votre conteneur et par le nom de votre compte de stockage. Collez l’extrait de code dans une cellule vide du notebook, puis appuyez sur Maj+Entrée. Dans l’extrait de code, `path` désigne l’emplacement de l’exemple de fichier JSON que vous avez chargé sur votre compte de stockage Azure.
 
@@ -142,7 +142,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
    Une fois la commande terminée, vous avez toutes les données du fichier JSON sous forme de table dans le cluster Databricks.
 
-   La commande magic `%sql` vous permet d’exécuter du code SQL à partir du notebook, même si celui-ci est d’un autre type. Pour plus d’informations, consultez [Mélange de langages dans un notebook](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
+   La commande magic `%sql` vous permet d’exécuter du code SQL à partir du notebook, même si celui-ci est d’un autre type. Pour plus d’informations, consultez [Mélange de langages dans un notebook](/azure/databricks/notebooks/index).
 
 5. Examinons un instantané des données JSON pour mieux comprendre la requête que vous exécutez. Collez l’extrait de code suivant dans une cellule de code, puis appuyez sur **Maj+Entrée**.
 
@@ -186,7 +186,7 @@ Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et vous avez exécuté un travail Spark avec des données dans Stockage Azure. Vous pouvez également consulter [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks. Vous pouvez également consulter le modèle Resource Manager pour [créer un espace de travail Azure Databricks avec l’adresse de réseau virtuel personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Pour connaître la syntaxe JSON et les propriétés à utiliser dans un modèle, consultez les informations de référence sur les modèles [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
+Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et vous avez exécuté un travail Spark avec des données dans Stockage Azure. Vous pouvez également consulter [Sources de données Spark](/azure/databricks/data/data-sources/index.html) pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks. Vous pouvez également consulter le modèle Resource Manager pour [créer un espace de travail Azure Databricks avec l’adresse de réseau virtuel personnalisée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address). Pour connaître la syntaxe JSON et les propriétés à utiliser dans un modèle, consultez les informations de référence sur les modèles [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces).
 
 Passez à l’article suivant pour savoir comment effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks.
 

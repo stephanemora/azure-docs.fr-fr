@@ -17,21 +17,16 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 8c3bc90b282092ede0e924d32b50b67e5c4e22b8
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 09ecc258001dd735b920c3a7cb51d8ce7443ceb4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244503"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686540"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>Intégration d’App Service Mobile Apps
 
 Pour offrir une expérience transparente et unifiée dans l’ensemble des services Azure, [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) intègre la prise en charge des notifications Push à l’aide de Notification Hubs. [App Service Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) offre une plateforme de développement d’applications mobiles hautement évolutive pour les développeurs d’entreprise et les intégrateurs système. Disponible pour tous, elle fournit un ensemble complet de fonctionnalités pour les développeurs d’applications mobiles.
-
-Visual Studio App Center offre aujourd’hui aux développeurs une solution mobile plus moderne. Il prend en charge les services intégrés, de bout en bout, qui sont essentiels au développement d’applications mobiles. Les développeurs peuvent utiliser les services **Build**, **Test** et **Distribute** pour configurer le pipeline de livraison et d’intégration continues. Une fois l’application déployée, les développeurs peuvent superviser l’état et l’utilisation de leur application à l’aide des services **Analytics** et **Diagnostics**, puis interagir avec les utilisateurs à l’aide du service **Push**. Les développeurs peuvent aussi utiliser **Auth** pour authentifier leurs utilisateurs ainsi que le service **Data** pour conserver et synchroniser les données d’application dans le cloud.
-
-> [!NOTE]
-> Si vous souhaitez intégrer des services cloud à votre application mobile, inscrivez-vous à [App Center](https://appcenter.ms/signup?utm_source=NotificationHubs&utm_medium=Azure&utm_campaign=docs) dès aujourd’hui.
 
 Les développeurs Mobile Apps peuvent utiliser Notification Hubs avec le flux de travail suivant :
 

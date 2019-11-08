@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: f40043b920fab4cb38f935618c7aaecc6bf40a87
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8b8e7270851c71869b1a67f0f0f0ba2187f0e87
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069705"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470674"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificats et l’environnement App Service 
 
@@ -64,7 +64,7 @@ Les applications qui sont hébergées dans un environnement ASE peuvent utiliser
 - SSL basé sur IP, uniquement pris en charge avec un environnement ASE externe.  Un environnement ASE ILB ne prend pas en charge SSL basé sur IP.
 - Certificats hébergés KeyVault 
 
-Les instructions pour charger et gérer ces certificats sont disponibles dans le tutoriel sur SSL App Service https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl.  Si vous vous contentez de configurer des certificats pour faire correspondre un nom de domaine personnalisé que vous avez affecté à votre application web, ces instructions suffisent. Si vous chargez le certificat pour une application web ASE ILB avec le nom de domaine par défaut, spécifiez le site scm dans l’autre nom de l’objet du certificat, comme indiqué plus haut. 
+Les instructions pour charger et gérer ces certificats sont disponibles dans [Ajouter un certificat SSL dans Azure App Service](../configure-ssl-certificate.md).  Si vous vous contentez de configurer des certificats pour faire correspondre un nom de domaine personnalisé que vous avez affecté à votre application web, ces instructions suffisent. Si vous chargez le certificat pour une application web ASE ILB avec le nom de domaine par défaut, spécifiez le site scm dans l’autre nom de l’objet du certificat, comme indiqué plus haut. 
 
 ## <a name="tls-settings"></a>Paramètres TLS 
 

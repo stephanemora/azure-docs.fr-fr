@@ -1,5 +1,5 @@
 ---
-title: Requêtes Apache Hive avec le pilote ODBC et PowerShell - Azure HDInsight
+title: Requêtes Apache Hive avec le pilote ODBC et PowerShell – Azure HDInsight
 description: Utilisez le pilote ODBC Microsoft Hive et PowerShell pour interroger les clusters Apache Hive sur Azure HDInsight.
 keywords: hive,hive odbc,powershell
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494330"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>Didacticiel : Requête Apache Hive avec ODBC et PowerShell
 
@@ -36,7 +36,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Installation du pilote ODBC Microsoft Hive
 
-Téléchargez et installez le [pilote ODBC Microsoft Hive](https://go.microsoft.com/fwlink/?LinkID=286698).
+Téléchargez et installez le [pilote ODBC Microsoft Hive](https://www.microsoft.com/download/details.aspx?id=40886).
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Créer une source de données ODBC Apache Hive
 
@@ -70,7 +70,7 @@ La procédure suivante explique comment créer une source de données ODBC Apach
    |  Rows fetched per block |Lors de l’extraction d’un grand nombre d’enregistrements, la définition de ce paramètre peut être nécessaire pour garantir des performances optimales. |
    |  Default string column length, Binary column length, Decimal column scale |Les précisions et longueurs des types de données peuvent affecter la façon dont les données sont renvoyées. Elles entraînent le renvoi d’informations incorrectes en raison d’une perte de précision et/ou de troncations. |
 
-    ![Options avancées de configuration de DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Options avancées de configuration de DSN")
+    ![Options avancées de configuration DSN](./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png "Options avancées de configuration DSN")
 
 1. Sélectionnez **Tester** pour tester la source de données. Une fois que la source de données est configurée correctement, le message suivant apparaît **SUCCESS!** .  
 

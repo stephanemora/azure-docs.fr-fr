@@ -1,6 +1,6 @@
 ---
-title: Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay | Microsoft Docs
-description: Créez une application cliente et un service à l’aide de WCF Relay.
+title: 'Didacticiel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay'
+description: 'Didacticiel : Créez une application cliente et un service à l’aide de WCF Relay.'
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -9,19 +9,19 @@ editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 4707e56a09c257c9e03e6db070083c81ffde07b6
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e2dd0448dfed55450a6319936f49831e5d6d77f3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212903"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718842"
 ---
-# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
+# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Didacticiel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
 
 Ce didacticiel vous montre comment créer une application cliente et un service WCF Relay à l’aide d’Azure Relay. Pour obtenir un didacticiel similaire utilisant la [messagerie Service Bus](../service-bus-messaging/service-bus-messaging-overview.md), consultez [Bien démarrer avec les files d’attente Service Bus](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
 > [!div class="checklist"]
 >
-> * Conditions préalables à l’exécution de ce didacticiel
+> * Configuration requise pour l’exécution de ce didacticiel
 > * Créer un espace de noms Relay
 > * Définir un contrat de service WCF
 > * Implémenter le contrat WCF
@@ -63,7 +63,7 @@ Le contrat de service spécifie les opérations prises en charge par le service.
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>Création d’un contrat de relais avec une interface
 
-1. Lancez Microsoft Visual Studio en tant qu'administrateur. Pour cela, cliquez avec le bouton droit sur l’icône de programme Visual Studio, puis sélectionnez **Exécuter en tant qu’administrateur**.
+1. Lancez Microsoft Visual Studio en tant qu'administrateur. Pour ce faire, cliquez avec le bouton droit sur l’icône de programme Visual Studio, puis sélectionnez **Exécuter en tant qu’administrateur**.
 1. Dans Visual Studio, sélectionnez **Créer un nouveau projet**.
 1. Dans **Créer un projet**, choisissez **Application console (.NET Framework)** pour C#, puis sélectionnez **Suivant**.
 1. Nommez le projet *EchoService* et sélectionnez **Créer**.

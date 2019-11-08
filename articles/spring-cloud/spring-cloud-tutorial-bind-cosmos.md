@@ -1,22 +1,19 @@
 ---
 title: Lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud | Microsoft Docs
 description: Découvrez comment lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud.
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d051fd431180e9cb86f1df4642fb5e947103c007
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 76a2b9f305f041a19b8d7ace8234a804825f6a0e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038668"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607131"
 ---
-# <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Tutoriel : Lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud
+# <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>Didacticiel : Lier une base de données Azure Cosmos DB à votre application Azure Spring Cloud
 
 Azure Spring Cloud vous permet de lier automatiquement certains services Azure à vos applications au lieu de configurer manuellement votre application Spring Boot. Cet article explique comment lier votre application à une base de données Azure Cosmos DB.
 
@@ -28,7 +25,7 @@ Configuration requise :
 
 Azure Cosmos DB a cinq types d’API différents qui prennent en charge la liaison :
 
-1. Créez une base de données Azure Cosmos DB. [Consultez cet article](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) pour obtenir de l’aide sur la création de la base de données. Prenez note du nom de votre base de données. La nôtre se nomme `testdb`.
+1. Crée une base de données Azure Cosmos DB. [Consultez cet article](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) pour obtenir de l’aide sur la création de la base de données. Prenez note du nom de votre base de données. La nôtre se nomme `testdb`.
 
 1. Ajoutez l’une des dépendances suivantes dans le fichier `pom.xml` de votre application Spring Cloud en fonction de votre type d’API.
     
@@ -70,7 +67,7 @@ Azure Cosmos DB a cinq types d’API différents qui prennent en charge la liais
     </dependency>
     ```
 
-    #### <a name="api-type-azure-table"></a>Type d’API : Table Azure
+    #### <a name="api-type-azure-table"></a>Type d’API : table Azure
 
     ```xml
     <dependency>

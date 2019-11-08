@@ -10,14 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 47387108de09c9b24471c4afc06a25fa0cbeca00
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 3f822e0089772f06245d80c1323cf1f5dfe10361
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053402"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496927"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Découvrez comment utiliser une image Docker personnalisée lors du déploiement de modèles formés avec Azure Machine Learning.
 
@@ -183,7 +184,7 @@ Microsoft fournit plusieurs images Docker dans un dépôt accessible publiquemen
 | Image | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Image de base pour Azure Machine Learning |
-| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contient ONNX Runtime pour l’inférence du processeur |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contient ONNX Runtime pour l’inférence de l’UC |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contient ONNX Runtime et CUDA pour le GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contient ONNX Runtime et TensorRT pour le GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contient ONNX Runtime et OpenVINO pour la technologie Intel<sup></sup> Vision Accelerator Design basée sur les VPU Movidius<sup>TM</sup> MyriadX |

@@ -1,19 +1,19 @@
 ---
-title: Envoyer des données Event Hubs vers un entrepôt de données - Event Grid
-description: Décrit comment utiliser Azure Event Grid et Event Hubs pour migrer des données vers un entrepôt SQL Data Warehouse. Une fonction Azure est utilisée pour récupérer un fichier de capture.
+title: 'Didacticiel : Envoyer des données Event Hubs vers un entrepôt de données - Event Grid'
+description: 'Didacticiel : Décrit comment utiliser Azure Event Grid et Event Hubs pour migrer des données vers un entrepôt SQL Data Warehouse. Une fonction Azure est utilisée pour récupérer un fichier de capture.'
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/13/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603445"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718184"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Didacticiel : Diffuser en continu des Big Data dans un entrepôt de données
 Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications (événements) à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Azure Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple d’intégration Event Hubs et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) vous indique comment utiliser Event Hubs avec Event Grid pour migrer en toute transparence les données Event Hubs capturées du stockage blob vers un service SQL Data Warehouse.
@@ -87,7 +87,7 @@ Dans cette étape, vous déployez l’infrastructure requise avec un [modèle Re
     1. Spécifiez un nom pour le **groupe de ressources**
     2. Appuyez sur **ENTRÉE**. 
 
-        Voici un exemple : 
+        Voici un exemple :
     
         ```azurecli
         user@Azure:~$ az group create -l eastus -n ehubegridgrp

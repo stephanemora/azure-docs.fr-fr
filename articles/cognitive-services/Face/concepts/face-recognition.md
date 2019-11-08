@@ -1,7 +1,7 @@
 ---
 title: Concepts de reconnaissance faciale
 titleSuffix: Azure Cognitive Services
-description: Découvrez les concepts relatifs à la reconnaissance faciale.
+description: Cet article explique les concepts des opérations de reconnaissance faciale Vérifier, Rechercher semblables, Grouper et Identifier, ainsi que des structures de données sous-jacentes.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pafarley
-ms.openlocfilehash: fa38c492530cb8938e49bc15e13fdd39ed5b6f1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 164e5a8c107f445b376d26f9be7db92a7983b0d3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65890887"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743078"
 ---
 # <a name="face-recognition-concepts"></a>Concepts de reconnaissance faciale
 

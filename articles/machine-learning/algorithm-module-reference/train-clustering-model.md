@@ -1,7 +1,7 @@
 ---
-title: 'Entraîner un modèle de clustering : informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Train Clustering Model (Entraîner un modèle de clustering) dans le service Azure Machine Learning pour entraîner les modèles de clustering.
+title: 'Entraîner un modèle de clustering : Informations de référence sur les modules'
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Train Clustering Model (Entraîner un modèle de clustering) dans Azure Machine Learning pour entraîner des modèles de clustering.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1b26fc251aeb527041b1e648f19f9dd67f7701b7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693645"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490400"
 ---
 # <a name="train-clustering-model"></a>Entraîner un modèle de clustering
 
-Cet article décrit un module de l’interface visuelle (préversion) du service Azure Machine Learning.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour entraîner un modèle de clustering.
 
@@ -28,8 +28,8 @@ Le module prend un modèle de clustering non entraîné que vous avez déjà con
 > Il est impossible d’entraîner un modèle de clustering à l’aide du module [Train Model](train-model.md) (Entraîner le modèle), qui est le module générique pour l’entraînement des modèles d’apprentissage automatique. Cela est dû au fait que le module [Train Model](train-model.md) (Entraîner le modèle) fonctionne uniquement avec les algorithmes d’apprentissage supervisé. L’algorithme de clustering k-moyennes et les autres algorithmes de clustering permettent un apprentissage non supervisé, ce qui signifie que l’algorithme peut apprendre à partir de données sans étiquette.  
   
 ## <a name="how-to-use-train-clustering-model"></a>Entraînement d’un modèle de clustering  
-  
-1.  Ajoutez le module **Effectuer l'apprentissage d’un modèle de clustering** à votre pipeline dans Studio. Vous trouverez ce module sous **Modules Machine Learning**, dans la catégorie **Entraîner**.  
+
+1.  Ajoutez le module **Train Clustering Model** (Entraîner un modèle de clustering) à votre pipeline dans le concepteur. Vous trouverez ce module sous **Modules Machine Learning**, dans la catégorie **Entraîner**.  
   
 2. Ajouter le module [Clustering k-moyennes](k-means-clustering.md) ou un autre module personnalisé qui crée un modèle de clustering compatible, puis définissez les paramètres du modèle de clustering.  
     
@@ -39,7 +39,7 @@ Le module prend un modèle de clustering non entraîné que vous avez déjà con
 
     Si une étiquette est disponible, vous pouvez l’utiliser comme une fonctionnalité ou l’ignorer.  
   
-6. Sélectionnez l’option **Check for Append or Uncheck for Result Only** (Cocher pour ajouter ou décocher pour les résultats uniquement), si vous souhaitez exporter les données d’apprentissage avec la nouvelle étiquette de cluster.
+6. Sélectionnez l’option **Check for Append or Uncheck for Result Only** (Cocher pour ajouter ou décocher pour les résultats uniquement) si vous souhaitez exporter les données d’apprentissage avec la nouvelle étiquette de cluster.
 
     Si vous désélectionnez cette option, seuls les affectations de cluster sont générées. 
 
@@ -60,4 +60,4 @@ Une fois l’apprentissage terminé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

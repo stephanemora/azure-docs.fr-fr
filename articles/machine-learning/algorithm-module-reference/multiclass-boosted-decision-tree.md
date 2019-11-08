@@ -1,7 +1,7 @@
 ---
 title: 'Arbre de décision optimisé à plusieurs classes : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module de l’arbre de décision optimisé multiclasse dans Azure Machine Learning service pour créer un classifieur à l’aide de données étiquetées.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module de l’arbre de décision optimisé multiclasse dans Azure Machine Learning pour créer un classifieur à l’aide de données étiquetées.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b53e504e98cab34fdc50ee8715ec162c910dd40d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692818"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465981"
 ---
 # <a name="multiclass-boosted-decision-tree"></a>Arbre de décision optimisé à plusieurs classes
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning Service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Ce module vous permet de créer un modèle Machine Learning reposant sur l’algorithme d’arbres de décision optimisés.
 
@@ -61,4 +61,4 @@ Vous pouvez effectuer l’apprentissage de ce type de modèle à l’aide de l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

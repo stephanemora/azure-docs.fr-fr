@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161532"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585157"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Accéder à un laboratoire de classe dans Azure Lab Services
 Cet article explique comment vous inscrire à un labo de salle de classe, voir tous les labos auxquels vous pouvez accéder, démarrer/arrêter une machine virtuelle dans le labo et vous connecter à la machine virtuelle. 
@@ -107,7 +107,7 @@ Une fois que vous êtes inscrit, vous pouvez voir tous les labos de classe en ef
 2. Connectez-vous au service à l’aide du compte d’utilisateur que vous avez utilisé pour vous inscrire au labo. 
 3. Confirmez que vous voyez tous les labos auxquels vous avez accès. 
 
-    ![Afficher tous les laboratoires](../media/how-to-use-classroom-lab/all-labs.png)
+    ![Afficher tous les laboratoires](../media/how-to-manage-classroom-labs/all-labs.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

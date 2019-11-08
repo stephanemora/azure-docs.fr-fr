@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62cbe68bcf191c7ee6fc906bc8ba8ea66e3efb31
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 2cd0cc6b2343a84287bd2ffdfd9df8d832f17fc8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233876"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474174"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Autoriser ou bloquer des invitations aux utilisateurs B2B à partir d’organisations spécifiques
 
@@ -81,6 +81,9 @@ Si vous passez d’une stratégie à l’autre, la configuration de la stratégi
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>Définir la stratégie des listes vertes ou d’exclusion à l’aide de PowerShell
 
 ### <a name="prerequisite"></a>Configuration requise
+
+> [!Note]
+> Le module AzureADPreview n’est pas un module entièrement pris en charge, car il s’agit d’une version préliminaire. 
 
 Pour définir les listes vertes ou d’exclusion à l’aide de PowerShell, vous devez installer la préversion du Module Azure Active Directory pour Windows PowerShell. Plus précisément, installez le module AzureADPreview version 2.0.0.98 ou version ultérieure.
 

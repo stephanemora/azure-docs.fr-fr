@@ -9,14 +9,14 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/31/2019
 ms.author: aahi
-ms.openlocfilehash: 9fc05ab42c75bac1f8e192dd4fe20bb142881479
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ea883bb294a8769b3c9be1e0eafc2e3e7c811b48
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176906"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481740"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Guide pratique pour parcourir les résultats à partir des API Recherche Bing
 
@@ -64,6 +64,8 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offs
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```
+
+Lorsque vous utilisez les API Vidéo et Image Bing, vous pouvez utiliser la valeur `nextOffset` pour éviter les résultats de recherche en double. Récupérez la valeur des objets de réponse `Images` ou `Videos` et utilisez-la dans vos requêtes avec le paramètre `offset`.  
 
 > [!NOTE]
 > L’API Recherche web Bing retourne des résultats de recherche qui peuvent inclure des pages web, des images, des vidéos et des actualités. Quand vous parcourez les résultats de la recherche à partir de l’API Recherche web Bing, vous parcourez uniquement [WebPages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webpage) et non d’autres types de réponses tels que des images ou des actualités. Les résultats de la recherche dans les objets `WebPage` peuvent inclure des résultats qui s’affichent également dans d’autres types de réponses.

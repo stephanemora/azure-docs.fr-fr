@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1d7cf8baafb7208909b54c4d74d2b73777b075c8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8df34904cd67e79b70bc5f76f7ed94fe81ff1c23
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090936"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748790"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>Créer une machine virtuelle WordPress avec PowerShell
 
@@ -30,7 +30,7 @@ Ce script crée une machine virtuelle et utilise l’extension du script personn
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="sample-script"></a>Exemple de script
 

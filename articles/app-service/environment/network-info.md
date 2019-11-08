@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7c63639eea7176af36593983b08ad0c5213613
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073230"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470646"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
@@ -144,7 +144,7 @@ Toutes ces adresses IP sont visibles dans le portail Microsoft Azure, à partir 
 
 ### <a name="app-assigned-ip-addresses"></a>Adresses IP attribuées par l’application ###
 
-Avec un ASE externe, vous pouvez assigner des adresses IP à des applications individuelles. Ce n’est pas possible avec un ASE ILB. Pour savoir comment configurer votre application de sorte qu’elle possède sa propre adresse IP, consultez [Lier un certificat SSL personnalisé existant à Azure App Service](../app-service-web-tutorial-custom-ssl.md).
+Avec un ASE externe, vous pouvez assigner des adresses IP à des applications individuelles. Ce n’est pas possible avec un ASE ILB. Pour savoir comment configurer votre application de sorte qu’elle possède sa propre adresse IP, consultez [Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service](../configure-ssl-bindings.md).
 
 Lorsqu’une application possède sa propre adresse SSL basée sur IP, l’ASE réserve deux ports pour le mappage à cette adresse IP. Un port est destiné au trafic HTTP et l’autre au trafic HTTPS. Ces ports sont répertoriés dans l’interface utilisateur de l’ASE, dans la section des adresses IP. Le trafic doit pouvoir atteindre ces ports à partir de l’adresse IP virtuelle. Sinon, les applications ne sont pas accessibles. Il est important de ne pas oublier cela lorsque vous configurez des groupes de sécurité réseau (NSG).
 
@@ -251,7 +251,7 @@ Lorsque les points de terminaison de service sont activés sur un sous-réseau a
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

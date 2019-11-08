@@ -1,7 +1,7 @@
 ---
 title: Concepts de détection et d’attributs de visage
 titleSuffix: Azure Cognitive Services
-description: Découvrez les concepts relatifs à la détection des visages et aux attributs de visage.
+description: La détection des visages est l’action visant à localiser des visages humains dans une image et à retourner, si vous le souhaitez, différents types de données liées aux visages.
 services: cognitive-services
 author: PatrickFarley
 manager: nitime
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: pafarley
-ms.openlocfilehash: e61048eeab9d7061c18f3237db22fc87ca52f526
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e39eb9f5b8dd3556ea9ff8240bc2c9d252cd31
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65891137"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743055"
 ---
 # <a name="face-detection-and-attributes"></a>Détection et attributs de visage
 

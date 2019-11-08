@@ -1,19 +1,19 @@
 ---
-title: Outil de migration de base de données pour Azure Cosmos DB
-description: Découvrez comment utiliser l’outil de migration de données open source Azure Cosmos DB pour importer des données dans Azure Cosmos DB depuis différentes sources, y compris des fichiers MongoDB, SQL Server, Stockage Table, Amazon DynamoDB, CSV et JSON. Conversion CSV vers JSON.
+title: 'Didacticiel : Outil de migration de base de données pour Azure Cosmos DB'
+description: 'Didacticiel : Découvrez comment utiliser l’outil de migration de données open source Azure Cosmos DB pour importer des données dans Azure Cosmos DB depuis différentes sources, y compris des fichiers MongoDB, SQL Server, Stockage Table, Amazon DynamoDB, CSV et JSON. Conversion CSV vers JSON.'
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 11/05/2019
 ms.author: dech
-ms.openlocfilehash: 0981a0810ee64f78443512d794d172a69fb54494
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1d25a2c9a3fda48c2f7de01563e01dd0c7de7762
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617013"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721147"
 ---
-# <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB
+# <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Didacticiel : Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB
 
 Ce tutoriel explique comment utiliser l’outil de migration de données Azure Cosmos DB pour importer des données dans des conteneurs Azure Cosmos DB à partir de différentes sources. Vous pouvez importer à partir de fichiers JSON, de fichiers CSV, de SQL, de MongoDB, d’un stockage Table Azure, d’Amazon DynamoDB et même de collections d’API SQL Azure Cosmos DB. Vous migrez ces données vers des collections et des tables en vue de les utiliser avec Azure Cosmos DB. L’outil de migration de données peut également être utilisé pour migrer des données à partir d’une collection à partition unique vers une collection à plusieurs partitions pour l’API SQL.
 

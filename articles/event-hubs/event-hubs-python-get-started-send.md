@@ -1,22 +1,22 @@
 ---
-title: Envoyer et recevoir des événements à l’aide de Python - Azure Event Hubs
-description: Cette procédure pas à pas montre comment créer et exécuter des scripts Python qui envoient des événements à ou reçoivent des événements à partir d’Azure Event Hubs.
+title: 'Démarrage rapide : Envoyer et recevoir des événements à l’aide de Python - Azure Event Hubs'
+description: 'Démarrage rapide : Cette procédure pas à pas montre comment créer et exécuter des scripts Python qui envoient des événements à ou reçoivent des événements à partir d’Azure Event Hubs.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
-ms.date: 10/11/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 330a7f5dc325c707b5be7ce9f9b3242a1d4c9547
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428883"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720547"
 ---
-# <a name="send-and-receive-events-with-event-hubs-using-python"></a>Envoyer et recevoir des événements avec Event Hubs à l’aide de Python
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Démarrage rapide : Envoyer et recevoir des événements avec Event Hubs à l’aide de Python
 
 Azure Event Hubs est une plateforme de streaming Big Data et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie de logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour plus d’informations sur Event Hubs, consultez [Azure Event Hubs](event-hubs-about.md) et [Fonctionnalités et terminologie dans Azure Event Hubs](event-hubs-features.md).
 

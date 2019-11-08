@@ -1,21 +1,21 @@
 ---
-title: Tutoriel de développement d’applications Java avec Azure Cosmos DB
-description: Ce didacticiel d’application web Java vous montre comment utiliser le service Azure Cosmos DB et l’API SQL pour stocker les données et y accéder à partir d’une application Java hébergée sur les sites web Azure.
+title: 'Didacticiel : Tutoriel de développement d’applications Java avec Azure Cosmos DB'
+description: 'Didacticiel : Ce didacticiel d’application web Java vous montre comment utiliser le service Azure Cosmos DB et l’API SQL pour stocker les données et y accéder à partir d’une application Java hébergée sur les sites web Azure.'
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/22/2018
+ms.date: 11/05/2019
 ms.author: ramkris
-ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4a7c307e8a4d4088fe4d2f7800398fda4704219c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616651"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720840"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
+# <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Didacticiel : Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)

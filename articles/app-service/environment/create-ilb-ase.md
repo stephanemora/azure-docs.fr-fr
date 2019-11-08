@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 08a18dc115990ad7d44a8b20412e07995c9af390
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069507"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470569"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Créer et utiliser un environnement App Service Environment avec équilibreur de charge interne 
 
@@ -31,7 +31,7 @@ Cet article explique comment créer un ASE ILB. Pour une présentation de l’A
 
 ## <a name="overview"></a>Vue d'ensemble 
 
-Vous pouvez déployer un ASE avec un point de terminaison accessible via Internet ou avec une adresse IP de votre réseau virtuel. Pour définir l’adresse IP sur une adresse de réseau virtuel, l’ASE doit être déployé avec un ILB. Lorsque vous déployez votre ASE avec un ILB, vous devez indiquer le nom de votre ASE. Le nom de votre ASE est utilisé dans le suffixe du domaine pour les applications dans votre ASE.  Le suffixe du domaine pour votre ASE ILB est &lt;nom ASE&gt;.appservicewebsites.net. Les applications qui sont créées dans un ASE ILB ne sont pas placées dans le DNS public. 
+Vous pouvez déployer un ASE avec un point de terminaison accessible via Internet ou avec une adresse IP de votre réseau virtuel. Pour définir l’adresse IP sur une adresse de réseau virtuel, l’ASE doit être déployé avec un ILB. Lorsque vous déployez votre ASE avec un ILB, vous devez indiquer le nom de votre ASE. Le nom de votre ASE est utilisé dans le suffixe du domaine pour les applications dans votre ASE.  Le suffixe du domaine pour votre ASE ILB est &lt;nom ASE&gt;.appserviceenvironment.net. Les applications qui sont créées dans un ASE ILB ne sont pas placées dans le DNS public. 
 
 Dans les versions antérieures de l’ASE ILB, vous deviez indiquer un suffixe de domaine et un certificat par défaut pour les connexions HTTPS. Le suffixe de domaine n’est plus collecté lors de la création de l’ASE ILB et aucun certificat par défaut n’est collecté. À présent, lorsque vous créez un ASE ILB, le certificat par défaut est fourni par Microsoft et est approuvé par le navigateur. Vous pouvez toujours définir des noms de domaine personnalisés pour les applications dans votre ASE et définir des certificats sur ces noms de domaine personnalisés. 
 
@@ -107,9 +107,10 @@ Lorsque vous utilisez une adresse IP virtuelle externe, le DNS est géré par Az
 Pour configurer votre DNS :
 
 - créez une zone pour *&lt;nom ASE&gt;.appserviceenvironment.net*
-- créez un enregistrement A dans cette zone qui pointe * vers l’adresse IP ILB 
+- créez un enregistrement A dans cette zone qui pointe * vers l’adresse IP ILB
+- créez un enregistrement A dans cette zone qui pointe @ vers l’adresse IP ILB
 - créez une zone dans le scm nommé *&lt;nom ASE&gt;.appserviceenvironment.net*
-- créez un enregistrement A dans la zone scm qui pointe vers l’adresse IP ILB
+- créez un enregistrement A dans la zone scm qui pointe * vers l’adresse IP ILB
 
 ## <a name="publish-with-an-ilb-ase"></a>Publier avec un ASE ILB
 
@@ -156,7 +157,7 @@ Pour les ASE ILB créés avant mai 2019, vous deviez définir le suffixe de doma
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

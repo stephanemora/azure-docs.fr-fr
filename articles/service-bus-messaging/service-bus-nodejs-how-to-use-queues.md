@@ -1,6 +1,6 @@
 ---
-title: Utiliser des files d’attente Service Bus dans Node.js
-description: Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js.
+title: 'Démarrage rapide : Utiliser des files d’attente Service Bus dans Node.js'
+description: 'Démarrage rapide : Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,18 +11,19 @@ ms.service: service-bus-messaging
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1aba29f8ed7cacb8f2911ae2d37358869e6a7730
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 404163ed93549b55ceadad10825a9cf682de470b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001125"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719225"
 ---
-# <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Utiliser les files d’attente Service Bus dans Azure avec Node.js et le package azure-sb
+# <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Démarrage rapide : Utiliser les files d’attente Service Bus dans Azure avec Node.js et le package azure-sb
+
 > [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)

@@ -1,21 +1,21 @@
 ---
-title: Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
-description: Découvrez comment créer des ressources d’API SQL Azure Cosmos DB à l’aide d’une application console C#.
+title: 'Didacticiel : Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB'
+description: 'Didacticiel : Découvrez comment créer des ressources d’API SQL Azure Cosmos DB à l’aide d’une application console C#.'
 author: kirankumarkolli
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 35e92ff1591bc5f0427dabbf68e697d9c3c32b48
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 25846bb7a19d29a3a72146d4046b5205183a247e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299288"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720850"
 ---
-# <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
+# <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>Didacticiel : Créer une application console .NET pour gérer des données dans le compte de l’API SQL Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)

@@ -1,24 +1,24 @@
 ---
-title: 'Entraîner le modèle : informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module **Train Model** (Entraîner le modèle) dans Azure Machine Learning service pour effectuer l’apprentissage d’un modèle de classification ou de régression.
+title: 'Entraîner le modèle : Informations de référence sur les modules'
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module **Entraîner le modèle** dans Azure Machine Learning pour effectuer l’apprentissage d’un modèle de classification ou de régression.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: f9717c39388c85ced889744722899b78a5df8453
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693690"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490369"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour effectuer l’apprentissage d’un modèle de classification ou de régression. La formation a lieu une fois que vous avez défini un modèle et ses paramètres et nécessite des données avec balises. Vous pouvez également utiliser le module **Train Model** (Entraîner le modèle) pour effectuer l’apprentissage d’un modèle existant avec de nouvelles données. 
 
@@ -77,4 +77,4 @@ Une fois le modèle formé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
