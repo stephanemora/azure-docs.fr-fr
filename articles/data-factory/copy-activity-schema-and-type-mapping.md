@@ -1,5 +1,5 @@
 ---
-title: Mappage de schéma dans l’activité de copie | Microsoft Docs
+title: Mappage de schéma dans l’activité de copie
 description: Découvrez comment l’activité de copie dans Azure Data Factory mappe les schémas et les types de données des données de la source aux données du récepteur lors de la copie.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b705123dc6492466c30b3c1ddaf4b330b0d684a1
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: ed0823930b819661baf384d51478547cb2e0eccf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272260"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678136"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
 
@@ -295,7 +295,7 @@ Data Factory prend en charge les types de données intermédiaires suivants : V
 * Int16
 * Int32
 * Int64
-* Single
+* Unique
 * Chaîne
 * Timespan
 

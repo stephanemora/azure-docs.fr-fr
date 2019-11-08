@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551524"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815700"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Structure des tableaux de bord Azure
 Ce document décrit la structure d’un tableau de bord Azure, en utilisant le tableau de bord suivant comme exemple :
@@ -295,7 +295,7 @@ Analysons les sections appropriées du document JSON.  Les propriétés de nivea
 
 ### <a name="the-id-property"></a>Propriété id
 
-ID de ressource Azure, soumis aux [conventions d’affectation de noms des ressources Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Quand le portail crée un tableau de bord, il choisit généralement un ID sous la forme d’un GUID, mais libre à vous d’utiliser tout nom valide quand vous les créez par programmation. 
+ID de ressource Azure, soumis aux [conventions d’affectation de noms des ressources Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging). Quand le portail crée un tableau de bord, il choisit généralement un ID sous la forme d’un GUID, mais libre à vous d’utiliser tout nom valide quand vous les créez par programmation. 
 
 ### <a name="the-name-property"></a>Propriété name
 Le nom est le segment de l’ID de ressource qui n’inclut pas l’abonnement, le type de ressource ou les informations du groupe de ressources. En gros, il s’agit du dernier segment de l’ID de ressource.

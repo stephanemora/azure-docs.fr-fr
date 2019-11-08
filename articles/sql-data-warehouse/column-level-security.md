@@ -1,21 +1,22 @@
 ---
-title: Sécurité au niveau des colonnes dans Azure SQL Data Warehouse | Microsoft Docs
+title: Sécurité au niveau des colonnes
 description: La sécurité au niveau des colonnes permet aux clients de contrôler l’accès aux colonnes de table de base de données selon le contexte d’exécution de l’utilisateur ou leur appartenance au groupe. La sécurité au niveau des colonnes simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux colonnes.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/02/2019
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61082796"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693090"
 ---
 # <a name="column-level-security"></a>Sécurité au niveau des colonnes
 La sécurité au niveau des colonnes permet aux clients de contrôler l’accès aux colonnes de table de base de données selon le contexte d’exécution de l’utilisateur ou leur appartenance au groupe.

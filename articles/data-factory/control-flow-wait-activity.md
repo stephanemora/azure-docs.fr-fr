@@ -1,5 +1,5 @@
 ---
-title: Activité Wait dans Azure Data Factory | Microsoft Docs
+title: Activité Wait dans Azure Data Factory
 description: L’activité Wait suspend l’exécution du pipeline pendant la période spécifiée.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 48a722979e61209a855dd1fec22fcdcc756ae1ce
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142419"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678244"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Exécuter l’activité Wait dans Azure Data Factory
 Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant la période spécifiée avant de poursuivre l’exécution des activités suivantes. 

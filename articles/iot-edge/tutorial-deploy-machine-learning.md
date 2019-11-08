@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 04c09c60a8b633c9ddb51fbe97ac02a319472448
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 28e5e09ea64f7ac1272e8ed126d5b4153b952c1d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434686"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494037"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
 
 Utilisez Azure Notebooks pour développer un module Machine Learning et déployez-le sur un appareil Linux exécutant Azure IoT Edge. 
 
-Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide tout au long du déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil à partir des données de température de machine simulée. Pour plus d’informations sur le service Azure Machine Learning sur IoT Edge, consultez la [documentation Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md).
+Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide tout au long du déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil à partir des données de température de machine simulée. Pour plus d'informations sur Azure Machine Learning sur IoT Edge, consultez la [documentation Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md).
 
 Le module Azure Machine Learning que vous créez dans ce didacticiel lit les données de l’environnement générées par votre appareil et étiquette les messages comme étant anormaux ou pas.
 
@@ -55,10 +55,10 @@ Ressources cloud :
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Créer et déployer un module Azure Machine Learning
 
-Dans cette section, vous allez convertir des fichiers de modèles Machine Learning entraînés en un conteneur Azure Machine Learning Service. Tous les composants requis pour l’image Docker se trouvent dans le référentiel Git [AI Toolkit pour Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Effectuez les étapes suivantes pour charger ce dépôt dans Microsoft Azure Notebooks, afin de créer le conteneur et de l’envoyer (push) vers Azure Container Registry.
+Dans cette section, vous allez convertir des fichiers de modèles Machine Learning entraînés en conteneur Azure Machine Learning. Tous les composants requis pour l’image Docker se trouvent dans le référentiel Git [AI Toolkit pour Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Effectuez les étapes suivantes pour charger ce dépôt dans Microsoft Azure Notebooks, afin de créer le conteneur et de l’envoyer (push) vers Azure Container Registry.
 
 
-1. Accédez à vos projets Azure Notebooks. Vous pouvez y accéder à partir de votre espace de travail Azure Machine Learning service sur le [portail Azure](https://portal.azure.com), ou en vous connectant à [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) avec votre compte Azure.
+1. Accédez à vos projets Azure Notebooks. Vous pouvez y accéder à partir de votre espace de travail Azure Machine Learning sur le [portail Azure](https://portal.azure.com), ou en vous connectant à [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) avec votre compte Azure.
 
 2. Sélectionnez **Charger un dépôt GitHub**.
 
@@ -72,7 +72,7 @@ Dans cette section, vous allez convertir des fichiers de modèles Machine Learni
 
 6. Ouvrez le fichier **aml_config/config.json**.
 
-7. Dans le fichier config, ajoutez les valeurs de votre ID d’abonnement Azure, d’un groupe de ressources de votre abonnement ainsi que le nom de l’espace de travail Azure Machine Learning Service. Vous pouvez retrouver toutes ces valeurs dans la section **Vue d’ensemble** de votre espace de travail dans Azure. 
+7. Dans le fichier config, ajoutez les valeurs de votre ID d'abonnement Azure, d'un groupe de ressources de votre abonnement ainsi que le nom de l'espace de travail Azure Machine Learning. Vous pouvez retrouver toutes ces valeurs dans la section **Vue d’ensemble** de votre espace de travail dans Azure. 
 
 8. Enregistrez le fichier de configuration.
 
@@ -149,7 +149,7 @@ Les étapes suivantes montrent comment configurer Visual Studio Code pour survei
 
 5. Observez les messages en provenance de tempSensor toutes les cinq secondes. Le corps du message contient une propriété appelée **anomaly**, qui est fournie par machinelearningmodule avec la valeur true ou false. La propriété **AzureMLResponse** contient la valeur « OK » si le modèle a été exécuté correctement.
 
-   ![Réponse du service Azure Machine Learning dans le corps du message](./media/tutorial-deploy-machine-learning/ml-output.png)
+   ![Réponse d'Azure Machine Learning dans le corps du message](./media/tutorial-deploy-machine-learning/ml-output.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

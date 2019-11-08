@@ -1,5 +1,5 @@
 ---
-title: Superviser Azure SQL Data Sync avec des journaux Azure Monitor | Microsoft Docs
+title: Superviser SQL Data Sync avec des journaux Azure Monitor
 description: Découvrez comment superviser Azure SQL Data Sync avec des journaux Azure Monitor.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 031482fc0b87e095fcb19046564e15642050f261
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791756"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820802"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Superviser SQL Data Sync avec des journaux Azure Monitor 
 

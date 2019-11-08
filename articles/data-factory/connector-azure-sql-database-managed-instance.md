@@ -1,5 +1,5 @@
 ---
-title: Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory | Microsoft Docs
+title: Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory
 description: Apprenez à déplacer des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: af207c460c47c07d11a80ad64dc6c0944ebf6aa4
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6dadb84b5323568ff736d9e39a1297515f33368c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009941"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681162"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory
 
@@ -605,7 +605,7 @@ Lors de la copie de données vers et depuis Azure SQL Database Managed Instance,
 | ntext |String, Char[] |
 | numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Unique |
 | rowversion |Byte[] |
 | smalldatetime |Datetime |
 | smallint |Int16 |
@@ -625,11 +625,11 @@ Lors de la copie de données vers et depuis Azure SQL Database Managed Instance,
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour en savoir plus sur les propriétés, voir [Activité Lookup](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="getmetadata-activity-properties"></a>Propriétés de l’activité GetMetadata
 
-Pour en savoir plus sur les propriétés, voir [Activité GetMetadata](control-flow-get-metadata-activity.md). 
+Pour en savoir plus sur les propriétés, consultez [Activité GetMetadata](control-flow-get-metadata-activity.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des magasins de données pris en charge en tant que sources et récepteurs par l'activité de copie d'Azure Data Factory, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md##supported-data-stores-and-formats).

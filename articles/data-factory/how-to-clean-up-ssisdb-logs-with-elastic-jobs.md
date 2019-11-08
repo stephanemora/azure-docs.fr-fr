@@ -1,5 +1,5 @@
 ---
-title: Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique Azure | Microsoft Docs
+title: 'Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique Azure '
 description: Cet article explique comment nettoyer les journaux d’activité SSISDB à l’aide de travaux de base de données élastique Azure pour déclencher la procédure stockée prévue à cet effet
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1afc40bd601c06def57ae59797d31a5edf4095bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0697addb14894855f554c1d82f59f3798e63d03b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61345553"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674739"
 ---
 # <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Nettoyer les journaux d’activité SSISDB avec les travaux de base de données élastique Azure
 

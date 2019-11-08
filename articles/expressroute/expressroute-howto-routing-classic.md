@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a57681cc9f44593ceea6b2c1795274c1b16d3a94
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 01ec721fb7e7dea0e4e31e0c3052cc4246cf14b0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64726199"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748199"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Créer et modifier le peering pour un circuit ExpressRoute (Classic)
 > [!div class="op_single_selector"]
 > * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Interface de ligne de commande Azure](howto-routing-cli.md)
-> * [Vidéo - Homologation privée](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vidéo - Homologation publique](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [Vidéo - Homologation Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering privé](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering public](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [Vidéo - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-routing-classic.md)
 > 
 
@@ -35,9 +35,6 @@ Ces instructions s’appliquent seulement aux circuits créés avec des fourniss
 **À propos des modèles de déploiement Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Prérequis de configuration
 
@@ -117,7 +114,7 @@ Cette section fournit des instructions sur la façon de créer, obtenir, mettre 
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **Configurez l'homologation privée Azure pour le circuit.**
+3. **Configurez le peering privé Azure pour le circuit.**
 
    Assurez-vous de disposer des éléments suivants avant de procéder aux étapes suivantes :
    
@@ -224,7 +221,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **Configuration de l'homologation publique Azure pour le circuit**
+4. **Configuration du peering public Azure pour le circuit**
    
    Assurez-vous de disposer des informations suivantes avant de poursuivre :
    
@@ -328,7 +325,7 @@ Cette section fournit des instructions sur la façon de créer, d’obtenir, de 
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **Configuration de l'homologation Microsoft pour le circuit**
+3. **Configuration du peering Microsoft pour le circuit**
    
     Assurez-vous de disposer des informations suivantes avant de poursuivre.
    

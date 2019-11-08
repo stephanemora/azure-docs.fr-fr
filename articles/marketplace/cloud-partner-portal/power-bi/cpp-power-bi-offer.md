@@ -4,15 +4,16 @@ description: Comment publier une offre d’application Power BI sur la Place de
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 72de873b773f174499b0cdc7225b344ea30a137f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1974133562c0bb8b8006ea2ef323e6797643b67
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943029"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826067"
 ---
 # <a name="power-bi-app-offer"></a>Offre d’application Power BI
 

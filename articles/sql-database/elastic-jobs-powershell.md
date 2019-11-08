@@ -1,22 +1,22 @@
 ---
-title: Créer un agent de travail élastique Azure SQL Database à l’aide de PowerShell | Microsoft Docs
+title: Créer un agent de travail élastique à l’aide de PowerShell
 description: Découvrez comment créer un agent de travail élastique à l’aide de PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 0d64bd150a43666679253f8244d80411e25dfdcd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 9724e54b03e5de065b8b39cb57c6a9880cf37cc6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935059"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827193"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Créer un agent de travail élastique à l’aide de PowerShell
 
@@ -72,7 +72,7 @@ La création d’un agent de travail élastique requiert une base de données (S
 
 *Le script ci-dessous crée un nouveau groupe de ressources, un serveur et une base de données pour une utilisation comme Base de données des travaux. Le script ci-dessous crée également un second serveur avec deux bases de données vides par rapport auxquelles exécuter les travaux.*
 
-Travaux élastiques n’ont aucune exigence d’affectation de noms, c’est la raison pour laquelle vous pouvez utiliser n’importe quelle convention d’affectation de noms, tant qu’elle est conforme aux [conditions requises pour Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+Travaux élastiques n’ont aucune exigence d’affectation de noms, c’est la raison pour laquelle vous pouvez utiliser n’importe quelle convention d’affectation de noms, tant qu’elle est conforme aux [conditions requises pour Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
 ```powershell
 # Sign in to your Azure account
@@ -289,7 +289,7 @@ $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 
 Le tableau suivant répertorie les états d’exécution de travail possibles :
 
-|État|Description|
+|State|Description|
 |:---|:---|
 |**Créé** | L’exécution du travail vient d’être créée et n’est pas encore en cours d’exécution.|
 |**InProgress** | L’exécution du travail est en cours.|

@@ -1,5 +1,5 @@
 ---
-title: Charger des données dans Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory | Microsoft Docs
+title: Charger des données dans Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 description: Utiliser Azure Data Factory pour copier des données dans Azure Data Lake Storage Gen1
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 522b9743af28dedb2aec5682a1ae95b9d52ad2d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8e5841e6869bd6f19b07bf71434de809cdcb74f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60548427"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672712"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 
@@ -58,7 +58,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
     * **Version** : Sélectionnez **V2**.
     * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. Ces magasins de données incluent Azure Data Lake Storage Gen1, Stockage Azure, Azure SQL Database, etc.
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante : 
    
    ![Page d’accueil Data Factory](./media/load-data-into-azure-data-lake-store/data-factory-home-page.png)

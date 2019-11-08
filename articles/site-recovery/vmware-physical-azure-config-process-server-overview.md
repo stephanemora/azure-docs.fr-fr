@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: raynew
-ms.openlocfilehash: d835eda044c2a6d1e0e7c678073711e45fde7395
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972147"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747822"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Informations sur les composants Site Recovery (configuration, processus, cible maître)
 
@@ -27,7 +27,7 @@ Pour la récupération d’urgence de machines virtuelles VMware locales et de s
 **Composants**  | La machine serveur de configuration exécute tous les composants locaux de Site Recovery, y compris le serveur de configuration, le serveur de processus et le serveur cible maître.<br/><br/> Lorsque vous configurez le serveur de configuration, tous les composants sont installés automatiquement. | [Lisez](vmware-azure-common-questions.md#configuration-server) le Forum aux questions sur le serveur de configuration.
 **Rôle** | Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données. | Découvrez l’architecture de la récupération d’urgence des [machines virtuelles VMware](vmware-azure-architecture.md) et des [serveurs physiques](physical-azure-architecture.md) dans Azure.
 **Conditions requises VMware** | Pour la récupération d’urgence des machines virtuelles VMware locales, vous devez installer et exécuter le serveur de configuration en tant que machine virtuelle VMware locale hautement disponible. | [En savoir plus sur](vmware-azure-deploy-configuration-server.md#prerequisites) les conditions préalables.
-**Déploiement de VMware** | Nous vous recommandons de déployer le serveur de configuration en utilisant un modèle OVA téléchargé. Cette méthode permet de configurer simplement un serveur de configuration qui répond à toutes les exigences et conditions préalables.<br/><br/> Si, pour une raison quelconque, vous ne parvenez pas à déployer une machine virtuelle VMware à l’aide d’un modèle OVA, vous pouvez configurer manuellement les machines du serveur de configuration, comme décrit ci-dessous pour la récupération d’urgence des machines physiques. | [Déployez](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) un modèle OVA.
+**Déploiement de VMware** | Nous vous recommandons de déployer le serveur de configuration en utilisant un modèle OVA téléchargé. Cette méthode permet de configurer simplement un serveur de configuration qui répond à toutes les exigences et conditions préalables.<br/><br/> Si, pour une raison quelconque, vous ne parvenez pas à déployer une machine virtuelle VMware à l’aide d’un modèle OVA, vous pouvez configurer manuellement les machines du serveur de configuration, comme décrit ci-dessous pour la récupération d’urgence des machines physiques. | [Déployez](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) un modèle OVA.
 **Exigences des serveurs physiques** | Pour la récupération d’urgence sur des serveurs physiques locaux, vous déployez le serveur de configuration manuellement. | [En savoir plus sur](physical-azure-set-up-source.md#prerequisites) les conditions préalables.
 **Déploiement de serveur physique** | S’il ne peut pas être installé en tant que machine virtuelle VMware, vous pouvez l’installer sur un serveur physique. | [Déployez](physical-azure-set-up-source.md#set-up-the-source-environment) le serveur de configuration manuellement.
 
