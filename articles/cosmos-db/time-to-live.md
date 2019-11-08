@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f66508a4794b8009523cc2820efe0156b4a9e2f6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c504e2f574970142942945de5a0a9fb409bb166b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756846"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498300"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durée de vie (TTL) dans Azure Cosmos DB 
 
 Avec la **Durée de vie** (TTL, Time to Live), Azure Cosmos DB permet de supprimer automatiquement des éléments d’un conteneur après une période déterminée. La durée de vie par défaut peut être définie au niveau du conteneur et être substituée par élément. Une fois la durée de vie définie au niveau d'un conteneur ou d'un élément, Azure Cosmos DB supprime automatiquement les éléments correspondants au terme de la période écoulée depuis la dernière modification. La valeur de durée de vie est définie en secondes. Lorsque vous définissez la durée de vie, le système supprime automatiquement les éléments arrivés à expiration en fonction de la valeur de durée de vie, sans avoir besoin d’une opération de suppression explicitement émise par l’application cliente.
 
-La suppression des éléments expirés est une tâche en arrière-plan qui utilise des [unités de requête](request-units.md) restantes, qui sont des unités de requête qui n’ont pas été utilisées par les demandes de l’utilisateur. Les expirations peuvent être retardées si le conteneur est soumis à une charge importante et qu’aucune unité de requête n’est conservée pour les tâches de maintenance.
+La suppression des éléments expirés est une tâche en arrière-plan qui utilise des [unités de requête](request-units.md) restantes, qui sont des unités de requête qui n’ont pas été utilisées par les demandes de l’utilisateur. Même après l’expiration de la durée de vie, si le conteneur est surchargé avec les demandes et si le nombre d’unités réservées est insuffisant, la suppression des données est retardée. Les données sont supprimées une fois que le nombre d’unités de requête disponibles est suffisant pour effectuer l’opération de suppression. Bien que la suppression des données soit différée, les données ne sont renvoyées par aucune requête (quelle que soit l’API) après l’expiration de la durée de vie.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Durée de vie pour les conteneurs et éléments
 

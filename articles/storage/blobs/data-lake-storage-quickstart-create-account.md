@@ -4,22 +4,22 @@ description: Apprenez rapidement à créer un compte de stockage avec accès à 
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: quickstart
-ms.date: 08/19/2019
+ms.topic: conceptual
+ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 2063dd22e3253b0707f6920f3a5c0c7a6bb01126
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 675d1889fc74474a1d732cb5d4e9f46c638ce200
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992317"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467925"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Créer un compte de stockage Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 [prend en charge un espace de noms hiérarchique](data-lake-storage-introduction.md) qui fournit un conteneur basé sur les répertoires conçu spécifiquement pour fonctionner avec le système de fichiers DFS hadoop (HDFS). L’accès aux données Data Lake Storage Gen2 à partir du HDFS est disponible via le [pilote ABFS](data-lake-storage-abfs-driver.md).
 
-Ce démarrage rapide montre comment créer un compte en utilisant le [Portail Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), ou [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Cet article montre comment créer un compte en utilisant le Portail Azure, Azure PowerShell ou Azure CLI.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,7 +28,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 |           | Configuration requise |
 |-----------|--------------|
 |Portail     | Aucun         |
-|PowerShell | Ce démarrage rapide requiert le module PowerShell Az.Storage version **0.7** ou ultérieure. Pour connaître votre version actuelle, exécutez la commande `Get-Module -ListAvailable Az.Storage`. Si après avoir exécuté cette commande, aucun résultat n’apparaît, ou si une version antérieure à la version **0.7** s’affiche, vous devez procéder à la mise à niveau de votre module PowerShell. Consultez la section [Mettre à niveau votre module powershell](#upgrade-your-powershell-module) de ce guide.
+|PowerShell | Cet article requiert le module PowerShell Az.Storage version **0.7** ou ultérieure. Pour connaître votre version actuelle, exécutez la commande `Get-Module -ListAvailable Az.Storage`. Si après avoir exécuté cette commande, aucun résultat n’apparaît, ou si une version antérieure à la version **0.7** s’affiche, vous devez procéder à la mise à niveau de votre module PowerShell. Consultez la section [Mettre à niveau votre module powershell](#upgrade-your-powershell-module) de ce guide.
 |Interface de ligne de commande        | Vous pouvez vous connecter à Azure et exécuter des commandes Azure CLI de l’une des deux façons suivantes : <ul><li>Vous pouvez exécuter des commandes CLI à partir du portail Azure, dans Azure Cloud Shell. </li><li>Vous pouvez installer la CLI et exécuter des commandes CLI localement.</li></ul>|
 
 Lorsque vous travaillez sur la ligne de commande, vous avez la possibilité d’exécuter l’interpréteur de commandes Azure Cloud ou d’installer l’interface CLI localement.
@@ -39,64 +39,49 @@ Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouve
 
 [![Cloud Shell](./media/data-lake-storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
-Ce bouton lance un interpréteur de commandes interactif que vous pouvez utiliser pour exécuter les étapes de ce démarrage rapide :
+Ce bouton lance un interpréteur de commandes interactif que vous pouvez utiliser pour exécuter les étapes de cet article :
 
 [![Capture d’écran représentant la fenêtre Cloud Shell du portail](./media/data-lake-storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### <a name="install-the-cli-locally"></a>Installer la CLI localement
 
-Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide vous demande d’exécuter Azure CLI version 2.0.38 ou ultérieur. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
+Vous pouvez également installer et utiliser Azure CLI localement. Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.38 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Créer un compte de stockage avec Data Lake Storage Gen2 activé
 
-Avant de créer un compte, vous devez tout d’abord créer un groupe de ressources qui agit comme conteneur logique pour les comptes de stockage ou les autres ressources Azure que vous créez. Si vous souhaitez supprimer les ressources créées par ce démarrage rapide, vous pouvez simplement supprimer le groupe de ressources. La suppression du groupe de ressources efface également le compte de stockage associé et d’autres ressources liées au groupe de ressources. Pour plus d’informations sur les groupes de ressources Azure, consultez l’article [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Le compte de stockage fournit pour vos données de stockage Azure un espace de noms unique, accessible de n’importe où dans le monde via HTTP ou HTTPS. Les données dans votre compte de stockage Azure sont durables et hautement disponibles, sécurisées et massivement évolutives.
 
 > [!NOTE]
 > Vous devez créer de nouveaux comptes de stockage en tant que type **StorageV2 (usage général V2)** pour tirer parti des fonctionnalités de Data Lake Storage Gen2.  
 
 Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).
 
-Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de stockage :
-
-- Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
-- Le nom de votre compte de stockage doit être unique dans Azure. Deux comptes de stockage ne peuvent avoir le même nom.
-
 ## <a name="create-an-account-using-the-azure-portal"></a>Créer un compte avec le portail Azure
 
 Connectez-vous au [Portail Azure](https://portal.azure.com).
 
-### <a name="create-a-resource-group"></a>Créer un groupe de ressources
+### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Pour créer un groupe de ressources dans le portail Azure, procédez comme suit :
-
-1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Groupes de ressources**.
-2. Cliquez sur le bouton **Ajouter** pour ajouter un nouveau groupe de ressources.
-3. Entrez un nom pour le nouveau groupe de ressources.
-4. Sélectionnez l’abonnement dans lequel vous créez le nouveau groupe de ressources.
-5. Choisissez l’emplacement du groupe de ressources.
-6. Cliquez sur le bouton **Créer**.  
-
-   ![Capture d’écran montrant la création du groupe de ressources dans le portail Azure](./media/data-lake-storage-quickstart-create-account/create-resource-group.png)
-
-### <a name="create-a-general-purpose-v2-storage-account"></a>Créer un compte de stockage à usage général v2
+Chaque compte de stockage doit appartenir à un groupe de ressources Azure. Un groupe de ressources est un conteneur logique servant à grouper vos services Azure. Lorsque vous créez un compte de stockage, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe de ressources existant. Cet article montre comment créer un groupe de ressources.
 
 Pour créer un compte de stockage à usage général v2 dans le portail Azure, procédez comme suit :
 
 > [!NOTE]
 > L’espace de noms hiérarchique est actuellement disponible dans toutes les régions publiques.
 
-1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Tous les services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
-2. Sélectionnez votre **abonnement** ainsi que le **groupe de ressources** créé précédemment.
-3. Entrez un nom pour votre compte de stockage.
-4. Définissez l’**emplacement** à **USA Ouest 2**
-5. Ne modifiez pas la valeur par défaut des champs suivants : **Niveau de performance**, **Type de compte**, **Réplication**, **Niveau d’accès**.
-6. Choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
-7. Sélectionnez **Suivant : Avancé >**
-8. Ne modifiez pas la valeur par défaut des champs **SÉCURITÉ** et **RÉSEAUX VIRTUELS**.
-9. Dans la section **Data Lake Storage Gen2**, définissez **Espace de noms hiérarchique** sur **Activé**.
-10. Cliquez sur **Vérifier + créer** pour créer le compte de stockage.
+1. Choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
+2. Dans le Portail Azure, choisissez le bouton **Créer une ressource**, puis choisissez **Compte de stockage**.
+3. Sous le champ **Groupe de ressources**, sélectionnez **Créer**. Entrez le nom de votre nouveau groupe de ressources.
+   
+   Un groupe de ressources est un conteneur logique servant à grouper vos services Azure. Lorsque vous créez un compte de stockage, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe de ressources existant.
 
-    ![Capture d’écran montrant la création du compte de stockage dans le portail Azure](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
+4. Ensuite, entrez un nom pour votre compte de stockage. Le nom choisi doit être unique dans tout Azure. Le nom doit aussi contenir entre 3 et 24 caractères, et uniquement des lettres minuscules et des chiffres.
+5. Choisissez un emplacement.
+6. Assurez-vous que **StorageV2 (usage général v2)** est sélectionné dans la liste déroulante **Type de compte**.
+7. Modifiez éventuellement les valeurs de chacun de ces champs : **Performances**, **Réplication**, **Niveau d’accès**. Pour en savoir plus sur ces options, consultez [Présentation du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#azure-storage-services).
+8. Sélectionnez l’onglet **Avancé**.
+10. Dans la section **Data Lake Storage Gen2**, définissez **Espace de noms hiérarchique** sur **Activé**.
+11. Cliquez sur **Vérifier + créer** pour créer le compte de stockage.
 
 Votre compte de stockage est maintenant créé via le portail.
 
@@ -227,6 +212,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un compte de stockage avec des fonctions Data Lake Storage Gen2. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, consultez la rubrique suivante.
+Dans cet article, vous avez créé un compte de stockage avec des fonctions Data Lake Storage Gen2. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, consultez la rubrique suivante.
 
 * [AzCopy V10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

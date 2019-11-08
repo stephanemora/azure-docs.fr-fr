@@ -6,17 +6,17 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
-ms.openlocfilehash: 44cdc2d6b93ac9a62f96875ca6c679fbb97d85a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: dd58ec08c6ec372cf53a79b75162748cfe336b23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555404"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477130"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Procédure d’activation d’Azure Monitor pour les conteneurs
 
-Cet article offre un aperçu des options disponibles pour configurer Azure Monitor pour les conteneurs en vue de surveiller les performances des charges de travail qui sont déployées dans un environnement Kubernetes et hébergées sur [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
+Cet article offre un aperçu des options disponibles pour configurer Azure Monitor pour les conteneurs en vue de surveiller les performances des charges de travail qui sont déployées dans des environnements Kubernetes et hébergées sur [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), AKS Engine sur [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) ou Kubernetes déployé localement.
 
 Azure Monitor pour conteneurs peut être activé pour un ou plusieurs déploiements d’AKS nouveaux ou existants, à l’aide des méthodes prises en charge suivantes :
 
@@ -26,6 +26,7 @@ Azure Monitor pour conteneurs peut être activé pour un ou plusieurs déploieme
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prérequis
+
 Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 * **Un espace de travail Log Analytics.**
@@ -40,7 +41,41 @@ Avant de commencer, vérifiez que vous disposez des éléments suivants :
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* Les métriques Prometheus ne sont pas collectées par défaut. Avant de [configurer l’agent](container-insights-agent-config.md) pour les collecter, il est important de consulter la [documentation](https://prometheus.io/) Prometheus pour comprendre ce que vous pouvez définir.
+* Les métriques Prometheus ne sont pas collectées par défaut. Avant de [configurer l’agent](container-insights-prometheus-integration.md) pour les collecter, il est important de consulter la [documentation](https://prometheus.io/) Prometheus pour comprendre ce que vous pouvez définir.
+
+## <a name="network-firewall-requirements"></a>Configuration requise du pare-feu réseau
+
+Le tableau suivant répertorie les informations de configuration du proxy et du pare-feu requises pour permettre à l’agent en conteneur de communiquer avec Azure Monitor pour les conteneurs. Tout le trafic réseau provenant de l’agent est sortant vers Azure Monitor.
+
+|Ressource de l'agent|Ports |
+|--------------|------|
+| *.ods.opinsights.azure.com | 443 |  
+| *.oms.opinsights.azure.com | 443 | 
+| *.blob.core.windows.net | 443 |
+| dc.services.visualstudio.com | 443 |
+| *.microsoftonline.com | 443 |
+| *.monitoring.azure.com | 443 |
+| login.microsoftonline.com | 443 |
+
+Le tableau suivant répertorie les informations de configuration du proxy et du pare-feu pour Azure Chine.
+
+|Ressource de l'agent|Ports |Description | 
+|--------------|------|-------------|
+| *.ods.opinsights.azure.cn | 443 | Ingestion de données |
+| *.oms.opinsights.azure.cn | 443 | Intégration d’OMS |
+| *.blob.core.windows.net | 443 | Utilisé pour surveiller la connectivité sortante. |
+| microsoft.com | 80 | Utilisé pour la connectivité réseau. Cet élément n’est requis que si la version de l’image de l’agent est ciprod09262019 ou antérieure. |
+| dc.services.visualstudio.com | 443 | Pour la télémétrie de l’agent à l’aide d’Azure Public Cloud Application Insights. |
+
+Le tableau suivant répertorie les informations de configuration du proxy et du pare-feu pour Azure - Gouvernement des États-Unis.
+
+|Ressource de l'agent|Ports |Description | 
+|--------------|------|-------------|
+| *.ods.opinsights.azure.us | 443 | Ingestion de données |
+| *.oms.opinsights.azure.us | 443 | Intégration d’OMS |
+| *.blob.core.windows.net | 443 | Utilisé pour surveiller la connectivité sortante. |
+| microsoft.com | 80 | Utilisé pour la connectivité réseau. Cet élément n’est requis que si la version de l’image de l’agent est ciprod09262019 ou antérieure. |
+| dc.services.visualstudio.com | 443 | Pour la télémétrie de l’agent à l’aide d’Azure Public Cloud Application Insights. |
 
 ## <a name="components"></a>Composants
 
@@ -67,6 +102,7 @@ Vous activez Azure Monitor pour les conteneurs en utilisant l’une des méthode
 | | [Activer à partir d’Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| Vous pouvez activer la surveillance d’un ou plusieurs clusters AKS déjà déployés depuis la page multi-cluster AKS dans Azure Monitor. |
 | | [Activer à partir du cluster AKS](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| Vous pouvez activer la surveillance directement depuis un cluster AKS dans le portail Azure. |
 | | [Activer à l’aide d’un modèle Azure Resource Manager](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| Vous pouvez activer la surveillance d’un cluster AKS à l’aide d’un modèle Azure Resource Manager préconfiguré. |
+| | [Activer pour le cluster Kubernetes hybride](container-insights-hybrid-setup.md) | Vous pouvez activer la surveillance d’un AKS Engine hébergé dans Azure Stack ou pour Kubernetes hébergé localement. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

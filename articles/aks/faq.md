@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 2f24f5cacb8b6e115d7fe91c6ef0a7a333676ae1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827348"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472845"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -33,7 +33,7 @@ Oui, vous pouvez déployer un cluster AKS dans un réseau virtuel existant en ut
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Puis-je limiter qui a accès au serveur d’API Kubernetes ?
 
-Oui, vous pouvez limiter l’accès au serveur d’API Kubernetes en utilisant les [plages d’adresses IP autorisées du serveur d’API][api-server-authorized-ip-ranges], qui sont actuellement en préversion.
+Oui, vous pouvez limiter l’accès au serveur d’API Kubernetes en utilisant les [plages d’adresses IP autorisées du serveur d’API][api-server-authorized-ip-ranges].
 
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>Puis-je rendre le serveur d’API Kubernetes accessible uniquement dans mon réseau virtuel ?
 
@@ -41,7 +41,7 @@ Pas pour l’instant, mais cela est prévu. Vous pouvez suivre l’avancement de
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>Puis-je avoir des machines virtuelles de différentes tailles dans un même cluster ?
 
-Oui, vous pouvez utiliser différentes tailles de machines virtuelles dans votre cluster AKS en créant [plusieurs pools de nœuds][multi-node-pools], ce qui est actuellement en préversion.
+Oui, vous pouvez utiliser différentes tailles de machines virtuelles dans votre cluster AKS en créant [plusieurs pools de nœuds][multi-node-pools].
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Des mises à jour sécurisées sont-elles appliquées aux nœuds de l’agent AKS ?
 
@@ -118,7 +118,7 @@ La prise en charge des pools de nœuds dans Windows Server comprend certaines li
 
 Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser le coût du service au client si le niveau de service publié n’est pas respecté. AKS étant gratuit, aucun coût ne peut être remboursé, et dès lors, AKS ne dispose d'aucun contrat SLA formel. Toutefois, AKS cherche à maintenir une disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
 
-Il est important de bien distinguer la disponibilité du service AKS, qui fait référence au temps de fonctionnement du plan de contrôle Kubernetes, et la disponibilité de votre charge de travail spécifique, qui s’exécute sur les machines virtuelles Azure. Même si le plan de contrôle n'est pas prêt et donc indisponible, vos charges de travail de cluster s’exécutant sur des machines virtuelles Azure peuvent continuer de fonctionner. Les machines virtuelles Azure sont des ressources payantes qui s'appuient sur un contrat SLA financier. Consultez [ceci pour plus d'informations](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) sur le contrat SLA de machine virtuelle Azure et la manière d'améliorer cette disponibilité avec des fonctionnalités telles que les [Zones de disponibilité][availability-zones].
+Il est important de bien distinguer la disponibilité du service AKS, qui fait référence au temps de fonctionnement du plan de contrôle Kubernetes, et la disponibilité de votre charge de travail spécifique, qui s’exécute sur les machines virtuelles Azure. Même si le plan de contrôle n'est pas prêt et donc indisponible, vos charges de travail de cluster s’exécutant sur des machines virtuelles Azure peuvent continuer de fonctionner. Les machines virtuelles Azure sont des ressources payantes qui s'appuient sur un contrat SLA financier. Consultez [ceci pour plus d'informations](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) sur le contrat SLA de machine virtuelle Azure et la manière d'améliorer cette disponibilité avec des fonctionnalités telles que les [Zones de disponibilité][availability-zones].
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>Pourquoi ne puis-je pas définir une valeur maxPods inférieure à 30 ?
 
