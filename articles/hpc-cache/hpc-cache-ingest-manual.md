@@ -1,19 +1,19 @@
 ---
-title: Ingestion de données Azure HPC Cache (préversion) - Copie manuelle
+title: Ingestion de données Azure HPC Cache - Copie manuelle
 description: Comment utiliser les commandes cp pour déplacer des données vers une cible de stockage Blob dans Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7e29cbd202b32897026bed074743de543d3fd587
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b2514eaaf70d13d3be63963f24ea7be99c4fbcce
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254467"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582286"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Ingestion de données Azure HPC Cache (préversion) - Méthode de copie manuelle
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingestion de données Azure HPC Cache - Copie manuelle
 
 Cet article fournit des instructions détaillées sur la copie manuelle de données vers un conteneur de stockage Blob en vue d’une utilisation avec Azure HPC Cache. Il utilise des opérations parallèles multithread pour accélérer la copie des données.
 

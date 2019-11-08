@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Square avec Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données de Square avec Azure Data Factory (préversion)
 description: Découvrez comment utiliser l’activité de copie pour copier des données de Square vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 84091a91321f3d42c5c75aa11d12abf10c5545d7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: b7f83e8e7690180dbed04572f2e2699f02d5fed7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089302"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680132"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copier des données de Square avec Azure Data Factory (préversion)
 
@@ -152,9 +152,9 @@ Pour copier des données de Square, affectez la valeur **SquareSource** au type 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9365e36cb2beff21e795adecaef5fa41e0d7583c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370626"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748257"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Connectez un réseau virtuel à un circuit ExpressRoute à l’aide de PowerShell (classique)
 > [!div class="op_single_selector"]
@@ -34,8 +34,6 @@ Vous pouvez lier jusqu’à 10 réseaux virtuels à un circuit ExpressRoute. To
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>Prérequis de configuration
 

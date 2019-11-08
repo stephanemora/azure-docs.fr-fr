@@ -1,5 +1,5 @@
 ---
-title: Activer l’authentification Azure Active Directory pour Azure-SSIS Integration Runtime | Microsoft Docs
+title: Activer l’authentification Azure Active Directory pour Azure-SSIS Integration Runtime
 description: Cet article décrit comment activer l’authentification Azure Active Directory avec l’identité managée pour Azure Data Factory afin de créer un Azure-SSIS Integration Runtime.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 51f67667caa9e0e564709de40c145b107c619b59
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 5f867126762924906aefada558a65cb68e884f6f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016006"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675666"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Activer l’authentification Azure Active Directory pour Azure-SSIS Integration Runtime
 

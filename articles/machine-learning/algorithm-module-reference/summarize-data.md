@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 54d7235ef56a94c9c0e7b780c53cbd9791bf4f53
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694289"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492569"
 ---
 # <a name="summarize-data"></a>Totaliser les données
 
-Cet article décrit un module de l’interface visuelle d’Azure Machine Learning.
+Cet article décrit un module du concepteur Azure Machine Learning (préversion).
 
 Utilisez le module Synthétiser les données pour créer un ensemble de mesures statistiques standard qui décrivent chaque colonne de la table d’entrée.
 
@@ -32,7 +32,7 @@ Le module calcule les scores importants de chaque colonne et retourne une ligne 
 
 ## <a name="how-to-configure-summarize-data"></a>Comment configurer le module Synthétiser les données  
 
-1. Ajoutez le module **Synthétiser les données** à votre pipeline. Ce module se trouve dans la catégorie **Fonctions statistiques** dans l’interface visuelle.
+1. Ajoutez le module **Synthétiser les données** à votre pipeline. Ce module se trouve dans la catégorie **Fonctions statistiques** du concepteur.
 
 1. Connectez le jeu de données pour lequel vous voulez générez un rapport.
 

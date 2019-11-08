@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: tutorial
+ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
 manager: femila
-ms.openlocfilehash: cff1085d14f2f849134b0b6f602e272fbb5bc561
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bb23d6b9b42e1c51646765255870a14a1b5d39f7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329272"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579935"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Utiliser le connecteur Ethereum Blockchain avec Azure Logic Apps
 

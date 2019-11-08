@@ -1,5 +1,5 @@
 ---
-title: Query Performance Insight pour Azure SQL Database | Microsoft Docs
+title: Query Performance Insight
 description: La supervision des performances de requêtes identifie les requêtes consommant le plus de processeur pour une base de données Azure SQL.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/03/2019
-ms.openlocfilehash: 659022f625604fe31c2ce47978d1132b20b7ffc8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 56daca0aa817d03298bad971506402739d71482e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567032"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821253"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight pour Azure SQL Database
 

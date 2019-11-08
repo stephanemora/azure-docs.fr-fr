@@ -7,27 +7,17 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/04/2019
+ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249214"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582397"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ sur Azure Red Hat OpenShift
 
 Cet article traite des questions fréquemment posées (FAQ) sur Microsoft Azure Red Hat OpenShift.
-
-## <a name="how-do-i-get-started"></a>Comment faire pour démarrer ?
-
-Avant de pouvoir utiliser Azure Red Hat OpenShift, vous devez acheter au minimum 4 nœuds d’application Azure Red Hat OpenShift réservés.
-
-Si vous êtes un client Azure, [achetez les instances réservées Azure Red Hat OpenShift](https://aka.ms/openshift/buy) via le portail Azure. Après l’achat, votre abonnement est activé dans les 24 heures, après quoi, vous serez en mesure d’approvisionner des clusters.
-
-Si vous n’êtes pas client Azure, [contactez le service commercial](https://aka.ms/openshift/contact-sales) et remplissez le formulaire de vente en bas de la page pour démarrer le processus.
-
-Consultez la [page de tarification Azure Red Hat OpenShift](https://aka.ms/openshift/pricing) pour plus d’informations.
 
 ## <a name="which-azure-regions-are-supported"></a>Quelles sont les régions Azure prises en charge ?
 

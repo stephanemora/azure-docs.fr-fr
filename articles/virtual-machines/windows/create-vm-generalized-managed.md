@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 30e5a7e5953c56ff452b992370e8225ca103abba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 016b53660499b86de13855cfa994c84d6d9bc702
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079698"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749504"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Créer une machine virtuelle à partir d’une image gérée
 
@@ -43,7 +43,7 @@ Avant de créer une machine virtuelle, vous devez [créer une image de machine v
 
 Vous pouvez utiliser PowerShell pour créer une machine virtuelle à partir d’une image à l’aide du paramètre simplifié défini pour la cmdlet [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). L’image doit se trouver dans le même groupe de ressources que celui dans lequel vous allez créer la machine virtuelle.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 Le paramètre simplifié défini pour [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) nécessite uniquement un nom, un groupe de ressources et un nom d’image pour créer une machine virtuelle à partir d’une image. New-AzVm utilise la valeur du paramètre **-Name** comme nom de toutes les ressources qu’il crée automatiquement. Dans cet exemple, nous fournissons des noms plus détaillés pour chaque ressource, mais laissons l’applet de commande les créer automatiquement. Vous pouvez également créer des ressources en avance, comme le réseau virtuel, et passer le nom de ressource dans l’applet de commande. New-AzVm utilisera les ressources existantes s’il peut les trouver par leur nom.
 

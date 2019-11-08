@@ -1,5 +1,5 @@
 ---
-title: Transformer des données à l’aide d’une activité Spark dans Azure Data Factory | Microsoft Docs
+title: Transformer des données à l’aide d’une activité Spark dans Azure Data Factory
 description: Découvrez comment transformer des données en exécutant des programmes Spark à partir d’un pipeline de fabrique de données Azure et à l’aide de l’activité de Spark.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 05/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: c493dbc99edc794dd5a261dfc004c2c8c1cb6d52
-ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.openlocfilehash: 5f3bb88d3a2e43abe1776a4b46e4ab35490db8ec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67312085"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683753"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Spark dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -60,7 +60,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans la définition 
 
 | Propriété              | Description                              | Obligatoire |
 | --------------------- | ---------------------------------------- | -------- |
-| Nom                  | Nom de l'activité dans le pipeline.    | OUI      |
+| name                  | Nom de l'activité dans le pipeline.    | OUI      |
 | description           | Texte décrivant l’activité.  | Non       |
 | Type                  | Pour l’activité Spark, le type d’activité est HDinsightSpark. | OUI      |
 | linkedServiceName     | Nom du service lié HDInsight Spark sur lequel s’exécute le programme Spark. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |

@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 38299a8ffd72722c2d2c1dda9227b7fbf76c0386
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595485"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603123"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Query Performance Insight dans Azure Database pour MySQL
 
 **S’applique à :** Azure Database pour MySQL 5.7
-
-> [!IMPORTANT]
-> Query Performance Insight est en préversion.
 
 L’analyse des performances des requêtes vous aide à identifier rapidement vos requêtes les plus longues, comment elles évoluent au fil du temps et les attentes qui les affectent.
 

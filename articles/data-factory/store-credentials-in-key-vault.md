@@ -1,5 +1,5 @@
 ---
-title: Stocker des informations d’identification dans Azure Key Vault | Microsoft Docs
+title: Informations d’identification dans Azure Key Vault
 description: Découvrez comment stocker les informations d’identification des magasins de données utilisées par un coffre de clés Azure, qui peuvent être récupérées automatiquement par Azure Data Factory au moment de l’exécution.
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f46c54edff2bc765e75742848f83d30e7aa7c09
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1e2458fa125ee4d223ef46001534fb7ae72b805e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003393"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684010"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 

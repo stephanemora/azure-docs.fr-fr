@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 6/30/2019
-ms.openlocfilehash: 0f148a97b25afb9135223ff92afb898d4734c586
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: f1eb9fb0d81d1e9cdf3dd8628a6d7ad1f0ccce92
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67537794"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581987"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualiser des données Azure Data Explorer dans Grafana
 
@@ -36,108 +36,7 @@ Pour suivre ce guide pratique, vous avez besoin des éléments suivants :
 
     [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-## <a name="configure-the-data-source"></a>Configurer la source de données
-
-Effectuez les étapes suivantes pour configurer Azure Data Explorer en tant que source de données pour Grafana. Nous allons détailler ces étapes dans cette section :
-
-1. Créez un principal de service Azure Active Directory (Azure AD) Le principal de service est utilisé par Grafana pour accéder au service Azure Data Explorer.
-
-1. Ajoutez le principal de service Azure AD au rôle *observateurs* dans la base de données Azure Data Explorer.
-
-1. Spécifiez les propriétés de connexion Grafana selon les informations du principal de service Azure AD, puis testez la connexion.
-
-### <a name="create-a-service-principal"></a>Créer un principal du service
-
-Vous pouvez créer le principal de service dans le [portail Azure](#azure-portal) ou à l’aide de la ligne de commande [Azure CLI](#azure-cli). Quelle que soit la méthode que vous utilisez, après la création, vous obtenez des valeurs pour quatre propriétés de connexion que vous utiliserez lors des étapes ultérieures.
-
-#### <a name="azure-portal"></a>Portail Azure
-
-1. Pour créer le principal de service, suivez les instructions données dans la [documentation du portail Azure](/azure/active-directory/develop/howto-create-service-principal-portal).
-
-    1. Dans la section [Affecter l’application à un rôle](/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role), affectez le type de rôle **Lecteur** à votre cluster Azure Data Explorer.
-
-    1. Dans la section [Obtenir les valeurs pour la connexion](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), copiez les trois valeurs de propriété décrites dans les étapes : **ID de répertoire** (ID de locataire), **ID d’application** et **Mot de passe**.
-
-1. Dans le portail Azure, sélectionnez **Abonnements**, puis copiez l’ID de l’abonnement dans lequel vous avez créé le principal de service.
-
-    ![ID d’abonnement - portail](media/grafana/subscription-id-portal.png)
-
-#### <a name="azure-cli"></a>D’Azure CLI
-
-1. Créer un principal de service. Définissez une étendue appropriée et le type de rôle `reader`.
-
-    ```azurecli
-    az ad sp create-for-rbac --name "https://{UrlToYourGrafana}:{PortNumber}" --role "reader" \
-                             --scopes /subscriptions/{SubID}/resourceGroups/{ResourceGroupName}
-    ```
-
-    Pour plus d’informations, consultez [Créer un principal de service Azure avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
-
-1. La commande retourne un jeu de résultats comme le suivant. Copiez les trois valeurs de propriété : **appID**, **mot de passe** et **locataire**.
-
-    ```json
-    {
-      "appId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-      "displayName": "{UrlToYourGrafana}:{PortNumber}",
-      "name": "https://{UrlToYourGrafana}:{PortNumber}",
-      "password": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
-      "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-    }
-    ```
-
-1. Obtenez la liste de vos abonnements.
-
-    ```azurecli
-    az account list --output table
-    ```
-
-    Copiez l’ID d’abonnement approprié.
-
-    ![ID d’abonnement - CLI](media/grafana/subscription-id-cli.png)
-
-### <a name="add-the-service-principal-to-the-viewers-role"></a>Ajouter le principal de service au rôle observateurs
-
-Maintenant que vous avez un principal de service, ajoutez-le au rôle *observateurs* dans la base de données Azure Data Explorer. Vous pouvez effectuer cette tâche sous **Autorisations** dans le portail Azure ou sous **Requête** en utilisant une commande de gestion.
-
-#### <a name="azure-portal---permissions"></a>Portail Azure - Autorisations
-
-1. Dans le portail Azure, accédez à votre cluster Azure Data Explorer.
-
-1. Dans la section **Vue d’ensemble**, sélectionnez la base de données contenant l’exemple de données StormEvents.
-
-    ![Sélectionner la base de données](media/grafana/select-database.png)
-
-1. Sélectionnez **Autorisations**, puis **Ajouter**.
-
-    ![Autorisations de base de données](media/grafana/database-permissions.png)
-
-1. Sous **Ajouter des autorisations de base de données**, sélectionnez le rôle **Observateur**, puis **Sélectionner les principaux**.
-
-    ![Ajouter des autorisations de base de données](media/grafana/add-permission.png)
-
-1. Recherchez le principal de service que vous avez créé (l’exemple montre le principal **mb-grafana**). Sélectionnez le principal, puis **Sélectionner**.
-
-    ![Gérer les autorisations dans le portail Azure](media/grafana/new-principals.png)
-
-1. Sélectionnez **Enregistrer**.
-
-    ![Gérer les autorisations dans le portail Azure](media/grafana/save-permission.png)
-
-#### <a name="management-command---query"></a>Commande de gestion - Requête
-
-1. Dans le portail Azure, accédez à votre cluster Azure Data Explorer, puis sélectionnez **Requête**.
-
-    ![Requête](media/grafana/query.png)
-
-1. Exécutez la commande suivante dans la fenêtre de requête. Utiliser l’ID d’application et l’ID de locataire à partir du portail Azure ou de l’interface CLI.
-
-    ```kusto
-    .add database {TestDatabase} viewers ('aadapp={ApplicationID};{TenantID}')
-    ```
-
-    La commande retourne un jeu de résultats comme le suivant. Dans cet exemple, la première ligne concerne un utilisateur existant dans la base de données et la deuxième le principal de service qui vient d’être ajouté.
-
-    ![Jeu de résultats](media/grafana/result-set.png)
+[!INCLUDE [data-explorer-configure-data-source](../../includes/data-explorer-configure-data-source.md)]
 
 ### <a name="specify-properties-and-test-the-connection"></a>Spécifier des propriétés et tester la connexion
 
@@ -160,7 +59,7 @@ Maintenant que le principal de service est affecté au rôle *observateurs*, vou
     | Interface utilisateur de Grafana | Portail Azure | D’Azure CLI |
     | --- | --- | --- |
     | ID d’abonnement | ID D’ABONNEMENT | SubscriptionId |
-    | ID client | ID du répertoire | locataire |
+    | ID client | ID du répertoire | tenant |
     | ID de client | ID de l'application | appId |
     | Clé secrète client | Mot de passe | password |
     | | | |

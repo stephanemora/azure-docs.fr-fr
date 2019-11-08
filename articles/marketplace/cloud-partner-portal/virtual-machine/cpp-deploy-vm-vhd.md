@@ -4,15 +4,16 @@ description: Explique comment inscrire une machine virtuelle à partir d’un di
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: evansma
-ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934966"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813414"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Déployer une machine virtuelle à partir de vos disques durs virtuels
 

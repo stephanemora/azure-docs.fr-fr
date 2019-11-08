@@ -1,5 +1,5 @@
 ---
-title: Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory | Microsoft Docs
+title: Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
 description: Explique comment utiliser l’activité de diffusion en continu Hadoop dans Azure Data Factory pour transformer des données en exécutant des programmes de diffusion en continu Hadoop sur un cluster Hadoop.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 0d8267f1cd65f78d5e98ae9d288d5fa5c4214420
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6977f7a6ad7fd79a51083bf2ef71c539e04837e5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848246"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683790"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité de diffusion en continu Hadoop dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -70,7 +70,7 @@ Si vous découvrez Azure Data Factory, lisez la [présentation d’Azure Data Fa
 
 | Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
-| Nom              | Nom de l’activité                     | OUI      |
+| name              | Nom de l’activité                     | OUI      |
 | description       | Texte décrivant la raison motivant l’activité. | Non       |
 | Type              | Pour l’activité de diffusion en continu Hadoop, le type d’activité est HDInsightStreaming. | OUI      |
 | linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |

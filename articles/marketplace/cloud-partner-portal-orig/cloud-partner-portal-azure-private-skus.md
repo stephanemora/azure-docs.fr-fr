@@ -4,15 +4,16 @@ description: Comment utiliser des références SKU privées pour gérer la dispo
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: eb6eac5eafaeea239bfaf9cf2aface3db659dd57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883114"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818832"
 ---
 <a name="private-skus-and-plans"></a>Références SKU et plans privés
 ============

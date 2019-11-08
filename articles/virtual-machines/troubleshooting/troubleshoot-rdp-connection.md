@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 0a88c1e4d357f2919635e36a223e79b0407c0b8b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d3ad0e6d88ed849074989dc36698c01209921449
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168752"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749680"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure
 La connexion RDP (Remote Desktop Protocol) à votre machine virtuelle Azure Windows peut échouer pour diverses raisons, rendant votre machine virtuelle inaccessible. Le problème peut être lié au service Bureau à distance sur la machine virtuelle, à la connexion réseau ou encore au client Bureau à distance sur votre ordinateur hôte. Cet article vous guide à travers certaines des méthodes plus courantes pour résoudre les problèmes de connexion RDP. 
 
 Si vous avez besoin d’une aide supplémentaire à quelque étape que ce soit dans cet article, vous pouvez contacter les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site du support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 <a id="quickfixrdp"></a>
 

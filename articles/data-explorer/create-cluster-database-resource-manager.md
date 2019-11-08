@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 34f5daaf074e011176610caed883cef9d1dbb2ea
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 49c55b580abdaea6c876a0fac4e7dd4e73d496af
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152035"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643828"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Créer un cluster et une base de données Azure Data Explorer avec un modèle Azure Resource Manager
 
@@ -104,7 +104,7 @@ Vous pouvez déployer le modèle Azure Resource Manager [à l’aide du portail 
 
 1. Pour créer un cluster et une base de données, utilisez le bouton suivant pour commencer le déploiement. Cliquez avec le bouton droit et sélectionnez **Ouvrir dans une nouvelle fenêtre** pour pouvoir suivre le reste des étapes de l’article.
 
-    [![Déployer sur Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-kusto-cluster-database/azuredeploy.json)
+    [![Déployer sur Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
     Le bouton **Déployer sur Azure** vous amène dans le portail Azure pour remplir un formulaire de déploiement.
 

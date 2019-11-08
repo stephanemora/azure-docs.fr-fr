@@ -1,5 +1,5 @@
 ---
-title: Configuration de la sécurité du fractionnement et de la fusion | Microsoft Docs
+title: Configuration de la sécurité du fractionnement et de la fusion
 description: Configurez des certificats x409 pour le chiffrement à l’aide du service de fractionnement/fusion pour la mise à l’échelle élastique.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: ada794807f980854c203b56874e452713ecef6ea
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a916645f153f73a98e7fc5d4046bdf557e8acf2b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568351"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823532"
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 

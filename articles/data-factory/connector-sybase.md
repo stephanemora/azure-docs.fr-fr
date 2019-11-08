@@ -1,5 +1,5 @@
 ---
-title: Copier des données à partir de Sybase à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données à partir de Sybase à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données de Sybase vers des magasins de données récepteurs pris en charge à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f6fcdddb2da005d563ee0a10381e7aa4f26487d0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4877706c487f389539e8e5c73bb984b01d200f38
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089253"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680117"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copier des données à partir de Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -177,7 +177,7 @@ Sybase prend en charge les types T-SQL. Pour obtenir une table de mappage entre 
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
 
-Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 
 

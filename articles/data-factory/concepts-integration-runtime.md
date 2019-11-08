@@ -1,5 +1,5 @@
 ---
-title: Infrastructure Integration Runtime dans Azure Data Factory | Microsoft Docs
+title: Infrastructure Integration Runtime dans Azure Data Factory
 description: Découvrez l’infrastructure Integration Runtime dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: ab82055d99401b0e7bc8aedf247fdf0d779f9f07
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875275"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681507"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :

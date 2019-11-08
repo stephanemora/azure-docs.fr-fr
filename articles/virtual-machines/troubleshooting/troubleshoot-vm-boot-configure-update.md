@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 4263afe33caa4d6471848c8e7dbf9bc1eeec4bee
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332531"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749638"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>Le démarrage de la machine virtuelle est bloqué sur « Préparation de Windows. N’éteignez pas l’ordinateur. » dans Azure
 
 Cet article décrit les écrans « Préparation » et « Préparation de Windows » que vous pouvez rencontrer quand vous démarrez une machine virtuelle Windows dans Microsoft Azure. Il fournit les étapes pour vous aider à collecter des données pour un ticket de support.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptoms"></a>Symptômes
 

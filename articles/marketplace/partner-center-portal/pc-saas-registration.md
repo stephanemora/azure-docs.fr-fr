@@ -4,15 +4,16 @@ description: Explique comment inscrire une application SaaS à l’aide du porta
 services: Azure, Marketplace, Cloud Partner Portal, Azure portal
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: 1f644dca7a057667fb37f5a79a4683c592059e7a
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: b2e02e42ab63f893574ca5217fd2f36c7481aabd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67331594"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827940"
 ---
 # <a name="register-a-saas-application"></a>Inscrire une application SaaS
 

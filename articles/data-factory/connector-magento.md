@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Magento avec Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données de Magento avec Azure Data Factory (préversion)
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Magento vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: a1c3d36ba008e44bca748a1d366f0c78be99f090
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6e303ce4a797029f5001676d9d49457fcc408c9d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090118"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680760"
 ---
 # <a name="copy-data-from-magento-using-azure-data-factory-preview"></a>Copier des données de Magento avec Azure Data Factory (préversion)
 

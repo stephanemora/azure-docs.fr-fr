@@ -1,6 +1,6 @@
 ---
 title: Travaux du service Azure Batch
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Vue d’ensemble des services Azure Batch pour les travaux Machine Learning Studio (classique). Le traitement par pool Batch vous permet de créer des pools dans lesquels vous pouvez soumettre des programmes de traitement par lots.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0e829f61117df25f8643301a0acdadeafd7c267
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493039"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684803"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Service Azure Batch pour les travaux Azure Machine Learning Studio (classique)
 
@@ -43,7 +43,7 @@ Créez des pools en appelant l’opération Créer un pool dans l’URL de servi
 
 Vous pouvez utiliser n’importe quel service web basé sur le nouveau Resource Manager, mais sachez que la facturation correspondant aux travaux est établie par rapport au plan de facturation associé à ce service. Vous pouvez créer un service web et un plan de facturation spécialement pour l’exécution des travaux du pool Batch.
 
-Pour plus d’informations sur la création de services web, consultez [Déploiement d’un service web Azure Machine Learning](publish-a-machine-learning-web-service.md).
+Pour plus d’informations sur la création de services web, consultez [Déploiement d’un service web Azure Machine Learning](deploy-a-machine-learning-web-service.md).
 
 Une fois que vous avez créé un pool, soumettez le travail du service d’exécution de lot à l’aide de l’URL des requêtes de lots du service web. Vous pouvez choisir de le soumettre à un traitement par lots classique ou par pool. Pour soumettre un travail au traitement par pool Batch, ajoutez le paramètre suivant dans le corps de la demande de soumission de travail :
 

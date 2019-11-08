@@ -1,5 +1,5 @@
 ---
-title: Réplication transactionnelle avec Azure SQL Database | Microsoft Docs
+title: Réplication transactionnelle
 description: Découvrez comment utiliser la réplication transactionnelle SQL Server avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a57d1c85384204c26e75f7138b9514f2b3297bef
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879052"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823311"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
 
@@ -140,7 +140,7 @@ Dans cette configuration, une Azure SQL Database (base de données unique, mise 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-1. [Configurer la réplication entre deux instances managées](replication-with-sql-database-managed-instance.md). 
+1. [Configurer la réplication entre deux instances gérées](replication-with-sql-database-managed-instance.md). 
 1. [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple, `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL comme base de données de destination (par exemple, **Adventureworks**). )
 1. Découvrir les [Limitations de la réplication transactionnelle pour une instance managée](sql-database-managed-instance-transact-sql-information.md#replication)

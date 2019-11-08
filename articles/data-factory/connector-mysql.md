@@ -1,5 +1,5 @@
 ---
-title: Copier des données de MySQL à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données de MySQL à l’aide d’Azure Data Factory
 description: Découvrez le connecteur MySQL dans Azure Data Factory, qui permet de copier des données d’une base de données MySQL vers une banque de données réceptrice prise en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 433160054dd653e1389c3d8c13faadb93782d7c0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: ecc6bdb9f46b5dbc544f5a9c74bdec4a58c1fd72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090031"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680623"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copier des données de MySQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 177d8e6e9d4393df785f2caf55bf6cbe895bc640
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819382"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667912"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -49,7 +49,7 @@ Si votre application n’utilise pas npm, vous pouvez directement instrumenter v
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
 {
   instrumentationKey:"INSTRUMENTATION_KEY"
 }
@@ -80,7 +80,7 @@ Par défaut, le kit SDK JavaScript Application Insights recueille un certain nom
 ### <a name="telemetry-initializers"></a>Initialiseurs de télémétrie
 Les initialiseurs de télémétrie permettent de modifier le contenu des données de télémétrie collectées avant leur envoi à partir du navigateur de l’utilisateur. Ils peuvent également être utilisés pour empêcher l’envoi de certaines données de télémétrie, en retournant `false`. Plusieurs initialiseurs de télémétrie peuvent être ajoutés à votre instance d’Application Insights et ils seront exécutés dans l’ordre où ils sont ajoutés.
 
-L’argument d’entrée pour `addTelemetryInitializer` est un rappel qui prend un [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer) comme argument et retourne un `boolean` ou un `void`. Si `false` est retourné, l’élément de télémétrie n’est pas envoyé, sinon il passe à l’initialiseur de télémétrie suivant, le cas échéant, ou il est envoyé au point de terminaison de collecte de données de télémétrie.
+L’argument d’entrée pour `addTelemetryInitializer` est un rappel qui prend un [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) comme argument et retourne un `boolean` ou un `void`. Si `false` est retourné, l’élément de télémétrie n’est pas envoyé, sinon il passe à l’initialiseur de télémétrie suivant, le cas échéant, ou il est envoyé au point de terminaison de collecte de données de télémétrie.
 
 Voici un exemple d’utilisation des initialiseurs de télémétrie :
 ```ts

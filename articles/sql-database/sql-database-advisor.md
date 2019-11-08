@@ -1,5 +1,5 @@
 ---
-title: Recommandations relatives aux performances - Azure SQL Database | Microsoft Docs
+title: Recommandations en matière de performances
 description: Azure SQL Database fournit des recommandations pour vos bases de données SQL afin d’améliorer le niveau de performance actuel des requêtes.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb7ba90724a98a34adf4aa279eefc8e3d7a63bf3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569526"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811389"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>Recommandations relatives aux performances pour SQL Database
 

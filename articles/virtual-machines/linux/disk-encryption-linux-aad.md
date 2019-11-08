@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 853b1308edb55257495c0aed52710cfe23008203
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 35d14599ca9a7abdad88603deeb8431f77e92a92
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829958"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748943"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Activer Azure Disk Encryption avec Azure AD sur des machines virtuelles Linux (version précédente)
 
@@ -33,7 +33,7 @@ Prenez un [instantané](snapshot-copy-managed-disk.md) et/ou faites une sauvegar
 > - Lors du chiffrement de volumes de système d’exploitation Linux, la machine virtuelle ne devrait pas être disponible. Nous vous recommandons vivement d'éviter les connexions SSH pendant le chiffrement afin d'éviter tout problème risquant de bloquer les fichiers ouverts qui devront être accessibles pendant le processus de chiffrement. Pour vérifier la progression, vous pouvez utiliser la commande [Get-AzVMDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) ou [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show). Ce processus peut prendre quelques heures pour un volume de système d’exploitation de 30 Go, et du temps supplémentaire pour le chiffrement des volumes de données. La durée de chiffrement de volume de données est proportionnelle à la taille et à la quantité des volumes de données, sauf si l’option « EncryptFormatAll » est utilisée. 
  > - La désactivation du chiffrement sur les machines virtuelles Linux est prise en charge seulement pour les volumes de données. Elle n’est pas prise en charge sur les volumes de données ou de système d’exploitation si le volume du système d’exploitation a été chiffré.  
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="bkmk_RunningLinux"> </a> Activer le chiffrement sur une machine virtuelle IaaS Linux existante ou en cours d’exécution
 

@@ -9,12 +9,12 @@ ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 833aa7dcce5c429b3005a378e93e2177df1eb0d4
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d77ab142e227cfaa6533395cc256d992e698dd17
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595181"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495923"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Autoriser l’accès aux objets blob et files d’attente avec Azure Active Directory et les identités managées pour les ressources Azure
 
@@ -42,7 +42,7 @@ Lorsque votre code s’exécute dans l’environnement de développement, l’au
 
 D’autres outils de développement peuvent vous inviter à vous connecter via un navigateur web. Vous pouvez également utiliser un principal de service pour vous authentifier à partir de l’environnement de développement. Pour plus d’informations, consultez [Créer une identité pour une application Azure dans le portail](../../active-directory/develop/howto-create-service-principal-portal.md).
 
-Après l’authentification, la bibliothèque de client d’identité Azure obtient des informations d’identification de jeton. Ces informations d’identification de jeton sont ensuite encapsulées dans l’objet client de service que vous créez pour effectuer des opérations sur le stockage Azure. La bibliothèque la gère en toute transparence en obtenant les informations d’identification de jeton appropriées.
+Après l’authentification, la bibliothèque de client d’identité Azure obtient des informations d’identification de jeton. Ces informations d’identification de jeton sont ensuite encapsulées dans l’objet client de service que vous créez pour effectuer des opérations sur le stockage Azure. La bibliothèque gère ceci pour vous, en toute transparence, en obtenant les informations d’identification de jeton appropriées.
 
 Pour plus d’informations sur la bibliothèque cliente Azure Identity, consultez [Bibliothèque cliente Azure Identity pour .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
 

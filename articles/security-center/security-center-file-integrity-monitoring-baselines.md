@@ -1,5 +1,5 @@
 ---
-title: Comparer des lignes de base avec le Monitoring d'intégrité de fichier dans Azure Security Center | Microsoft Docs
+title: Supervision d’intégrité de fichier dans Azure Security Center
 description: Découvrez comment comparer des lignes de base avec le Monitoring d’intégrité de fichier dans Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: 0e7ef558ec75622b804aef96781b549f1a833e21
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518861"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664412"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparer des lignes de base avec le Monitoring d'intégrité de fichier (FIM)
 

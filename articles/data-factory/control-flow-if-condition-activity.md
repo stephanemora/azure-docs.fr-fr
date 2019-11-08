@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fc6318b5033ff1297f917ab95b28f8ed9285e930
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 562e84b4fe51603ae32884057578541f5536ebd4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142488"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679845"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d’activités si l’expression retourne `true` et un autre ensemble d’activités si elle retourne `false`. 

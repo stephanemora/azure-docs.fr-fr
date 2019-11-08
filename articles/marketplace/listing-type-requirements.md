@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b9a2e8b37f746eb86b2e0fe6a7304cd888a293e1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937893"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823028"
 ---
 # <a name="requirements-by-listing-type"></a>Exigences par type de liste  
 Les exigences techniques et de contenu marketing varient en fonction de la vitrine, du type d’offre et du type de liste. Consultez les spécifications suivantes pour vous assurer que vous respectez les critères.  
@@ -53,7 +54,7 @@ La configuration préalable requise pour les types de liste dans la Place de mar
 ## <a name="non-transact-listings"></a>Listes non Transaction  
 Cette section décrit tous les types d’offres qui n’utilisent pas le type de référencement Transaction. 
 
-### <a name="list"></a>Liste  
+### <a name="list"></a>List  
 Le type de référencement Liste inclut les types d’offre suivants dans les vitrines de la Place de marché.  
 
 | Type d’offre | Vitrine | Détails |  

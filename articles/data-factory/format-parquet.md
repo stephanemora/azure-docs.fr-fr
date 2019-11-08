@@ -1,5 +1,5 @@
 ---
-title: Format Parquet dans Azure Data Factory | Microsoft Docs
+title: Format Parquet dans Azure Data Factory
 description: Cette rubrique décrit comment traiter le format Parquet dans Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 92950a79be43bc656d50e2ced106a2fdb47f53bf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9047e82713b709027275c75b17eb955877c62f08
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387706"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674785"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Format Parquet dans Azure Data Factory
 

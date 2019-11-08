@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: 8a8193d21bbc1d0af933657705e605ce31589cbf
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 44cc611a9a7d71a3ac4ac7b0d779b18778d0aacd
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67785850"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607607"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
@@ -105,6 +105,7 @@ Pour connaître les propriétés de l’objet de données, consultez la source d
 * [Groupes de ressources (opérations de gestion)](event-schema-resource-groups.md)
 * [Service Bus](event-schema-service-bus.md)
 * [Azure SignalR](event-schema-azure-signalr.md)
+* [Azure Machine Learning](event-schema-machine-learning.md)
 
 Pour les rubriques personnalisées, l’éditeur d’événements détermine l’objet de données. Les données de niveau supérieur doivent avoir les mêmes champs que des événements standard définis par les ressources.
 

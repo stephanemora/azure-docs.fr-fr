@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 771064774371e71c0664918790b296c156ed1c1f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 547de4862081b56bf627c3a00564ce6564f2ad09
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084788"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750088"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>Utiliser PowerShell pour activer Diagnostics Azure sur une machine virtuelle exécutant Windows
 
 Diagnostics Azure est la fonctionnalité Azure qui active la collecte de données de diagnostic dans une application déployée. Vous pouvez utiliser l’extension de diagnostics pour collecter des données de diagnostic telles que les journaux des applications ou les compteurs de performances à partir d’une machine virtuelle Azure exécutant Windows. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>Activer l'extension de diagnostics si vous utilisez le modèle de déploiement Resource Manager
 Vous pouvez activer l'extension de diagnostics lors de la création d'une machine virtuelle Windows avec le modèle de déploiement Azure Resource Manager en ajoutant la configuration de l'extension au modèle Resource Manager. Consultez [Créer une machine virtuelle Windows avec des fonctionnalités de surveillance et de diagnostics à l’aide d’un modèle Azure Resource Manager](diagnostics-template.md).

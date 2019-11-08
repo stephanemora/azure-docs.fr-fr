@@ -1,5 +1,5 @@
 ---
-title: Contrôle de code source dans Azure Data Factory | Microsoft Docs
+title: Contrôle de code source dans Azure Data Factory
 description: Découvrez comment configurer le contrôle de code source dans Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 46c983fcf863c6948c6107b2213879c65396ed39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326377"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684046"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 

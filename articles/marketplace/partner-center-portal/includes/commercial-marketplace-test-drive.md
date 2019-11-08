@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 08/13/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: ee4d253eaa50b4299f4b912ccacbd50307d6fdc5
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 831e3330126d82795cece128c28cb96b7199d69a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72600941"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825526"
 ---
 L’onglet **Version d’évaluation** vous permet de configurer une démonstration (ou « version d’évaluation ») qui permettra à des clients d’essayer votre offre avant de s’engager et l’acheter. Pour en savoir, consultez l’article [Qu’est-ce qu’une version d’évaluation ?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Si vous ne souhaitez plus fournir une version d’évaluation de votre offre, retournez sur la page **Configuration de l’offr** et décochez **Activer la version d’évaluation**.
 

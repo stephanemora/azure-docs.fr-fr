@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432660"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605667"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Déployer Azure Databricks sur votre réseau virtuel
 
@@ -119,7 +119,7 @@ Si vous utilisez ce modèle sans utiliser également le modèle de groupes de s�
 
 ## <a name="whitelisting-subnet-traffic"></a>Mise en liste verte du trafic de sous-réseau
 
-Si vous n’utilisez pas le [portail Microsoft Azure](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) ou les [modèles Azure Resource Manager](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) pour créer les groupes de sécurité de votre réseau, vous devez manuellement placer en liste verte les éléments suivants du trafic sur vos sous-réseaux.
+Si vous n’utilisez pas le [portail Microsoft Azure](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) ou les [modèles Azure Resource Manager](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) pour créer les groupes de sécurité de votre réseau, vous devez manuellement placer en liste verte les éléments suivants du trafic sur vos sous-réseaux.
 
 |Direction|Protocol|Source|Port source|Destination|Port de destination|
 |---------|--------|------|-----------|-----------|----------------|
@@ -133,7 +133,7 @@ Si vous n’utilisez pas le [portail Microsoft Azure](https://docs.azuredatabric
 
 Mettez sur liste verte le trafic du sous-réseau à l’aide de l’adresse IP suivante. Pour SQL (metastore) et Storage (stockage des journaux et des artefacts), vous devez utiliser les [balises de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) Sql et Storage.
 
-|Zone géographie d’Azure Databricks|de diffusion en continu|Adresse IP publique|
+|Zone géographie d’Azure Databricks|Service|Adresse IP publique|
 |-----------------------|-------|---------|
 |USA Est|NAT de plan de contrôle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |USA Est 2|NAT de plan de contrôle </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|

@@ -1,5 +1,5 @@
 ---
-title: Créer une règle de pare-feu au niveau du serveur - Azure SQL Database| Microsoft Docs
+title: Créer une règle de pare-feu au niveau du serveur
 description: Créez une règle de pare-feu au niveau du serveur SQL Database pour des bases de données uniques et des bases de données mises en pool
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 27b554159fca2043fbd0c853e260a66294c10387
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162309"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818253"
 ---
 # <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Démarrage rapide : Créer une règle de pare-feu au niveau du serveur pour des bases de données uniques et mises en pool à l’aide du portail Azure
 

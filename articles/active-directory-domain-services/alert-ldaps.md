@@ -12,15 +12,15 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
 ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 11/05/2019
 ms.locfileid: "71258051"
 ---
 # <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes du protocole LDAP sécurisé dans Azure Active Directory Domain Services
 
-Les applications et services qui utilisent le protocole LDAP (Lightweight Directory Access Protocol) pour communiquer avec Azure Active Directory Domain Services (Azure AD DS) peuvent être configurés pour utiliser le protocole LDAP sécurisé. Un certificat approprié et les ports réseau requis doivent être ouverts pour que le protocole LDAP sécurisé fonctionne correctement.
+Les applications et services qui utilisent le protocole LDAP (Lightweight Directory Access Protocol) pour communiquer avec Azure Active Directory Domain Services (Azure AD DS) peuvent être [configurés pour utiliser le protocole LDAP sécurisé](tutorial-configure-ldaps.md). Un certificat approprié et les ports réseau requis doivent être ouverts pour que le protocole LDAP sécurisé fonctionne correctement.
 
 Cet article vous aide à comprendre et à résoudre les alertes courantes avec un accès LDAP sécurisé dans Azure AD DS.
 

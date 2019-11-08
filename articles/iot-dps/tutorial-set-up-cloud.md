@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 41689b7596c9da350a9e0fec619e49d332a36d5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170732"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826191"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
 
@@ -48,7 +48,7 @@ Suivez ces étapes pour créer une instance du service Device Provisioning.
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nom** | Tout nom unique | -- | 
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
-   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
+   | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Conventions d’affectation de nom). |
    | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |   
 
    ![Entrer les informations de base sur votre service Device Provisioning dans le portail](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)

@@ -3,18 +3,18 @@ title: Utiliser Azure Media Clipper dans le portail | Microsoft Docs
 description: Créer des clips à l’aide d’Azure Media Clipper à partir du portail Azure
 services: media-services
 keywords: clip;sous-clip;encodage;média
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8c88caefb0909da55de87116a23fa520c1679cc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec43fa469547dcd6481c0c6781c438f42ab4e2bd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465823"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684991"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Créer des clips avec Azure Media Clipper dans le portail  
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3b94e3e352f4d6b5cd7da41feb9660be2ffed2bd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 69b18cdd4d0bb8e3d13bbacd5d21764004308786
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786486"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795639"
 ---
 # <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>Tutoriel C# : Combiner des données provenant de plusieurs sources de données dans un index Recherche cognitive Azure
 
@@ -36,7 +36,7 @@ Voici les services, outils et données utilisés dans ce guide de démarrage rap
 
 - [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
 
-- [Créez un compte Azure Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données d’hôtels.
+- [Créez un compte Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal) pour stocker les exemples de données d’hôtels.
 
 - [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) pour stocker les exemples de données blob JSON.
 
@@ -60,7 +60,7 @@ Pour interagir avec votre service Recherche cognitive Azure, vous devez disposer
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir une clé d’accès et un point de terminaison HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. Une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 

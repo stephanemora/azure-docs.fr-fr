@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e6e4c0018f11e216afd5a8c295fc336036885e68
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 577dc6d4344cd6d7a38c4d538218c9dd89e883aa
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468948"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643640"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
@@ -132,7 +132,7 @@ Pas actuellement. Cette fonctionnalité est sur notre feuille de route. La véri
 
 Procédez comme suit pour supprimer votre locataire Azure AD B2C.
 
-Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur l’expérience en préversion](http://aka.ms/b2cappregintro).
+Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur la nouvelle expérience](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 

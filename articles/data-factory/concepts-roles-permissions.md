@@ -1,5 +1,5 @@
 ---
-title: Rôles et autorisations pour Azure Data Factory | Microsoft Docs
+title: Rôles et autorisations pour Azure Data Factory
 description: Cet article décrit les rôles et autorisations requis pour créer des fabriques de données et travailler avec des ressources enfants.
 ms.date: 11/5/2018
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 9df65322958bffd3182aaa8d734e8b29717d939d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f5b4cbc670a429a84f42be79adb00057656a5483
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142526"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681422"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
 

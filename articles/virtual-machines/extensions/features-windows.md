@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8d73a2dcd0aab3b972a3e0a9237e53d05d4a9a53
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438143"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750020"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -28,7 +28,7 @@ Les extensions de machine virtuelle Azure sont de petites applications permettan
 
 Cet article offre une vue d’ensemble des extensions de machine virtuelle et des prérequis pour l’utilisation d’extensions de machine virtuelle Azure. Il explique également comment détecter, gérer et supprimer des extensions de machine virtuelle. Cet article fournit des informations générales, car de nombreuses extensions de machine virtuelle sont disponibles, chacune présentant une configuration potentiellement unique. Vous trouverez des informations détaillées sur une extension spécifique dans la documentation consacrée à celle-ci.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="use-cases-and-samples"></a>Cas d’utilisation et exemples
 

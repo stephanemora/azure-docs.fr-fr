@@ -1,5 +1,5 @@
 ---
-title: Journalisation des diagnostics et métriques Azure SQL Database | Microsoft Docs
+title: Journalisation des métriques et des diagnostics
 description: Découvrez comment activer les diagnostics dans la base de données SQL Azure pour stocker des informations sur l’utilisation des ressources et les statistiques d’exécution des requêtes.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 235cdff1297b840bfd1a522e265633b47094c855
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597966"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821772"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 

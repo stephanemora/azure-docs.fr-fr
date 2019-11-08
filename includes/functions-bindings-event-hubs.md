@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: ef3dc13bd7d36e11f3109ef96a6f453b59afe145
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 0f94c89a52de138b261796cbef25c0acb57622c4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809343"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73799814"
 ---
 ## <a name="trigger"></a>Déclencheur
 
@@ -643,7 +643,7 @@ def main(timer: func.TimerRequest) -> str:
 L’exemple suivant illustre une fonction Java qui écrit un message contenant l’heure actuelle à l’attention d’un Event Hub.
 
 ```java
-@}FunctionName("sendTime")
+@FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
    @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {

@@ -1,5 +1,5 @@
 ---
-title: Résolution des problèmes d’Azure SQL Data Warehouse | Microsoft Docs
+title: Résolution de problèmes
 description: Résolution des problèmes d’Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a6a6fdf6e63bf8c063f8dd6f23ae380e9ce7b98d
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 2aa7926286be277c7ad0aa7054b4bd6fceb8229f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575512"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685397"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Résolution des problèmes d’Azure SQL Data Warehouse
 Cet article répertorie les questions de résolution de problèmes courantes.

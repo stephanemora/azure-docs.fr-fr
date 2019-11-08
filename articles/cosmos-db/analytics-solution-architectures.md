@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d50b946e67bbcc171850b71021165356011f58e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d0b5042c1401a95cc75f4c01ace843659b6babfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755199"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681736"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Solutions utilisant l’analytique distribuée à l’échelle mondiale dans Azure Cosmos DB
 
@@ -34,12 +34,12 @@ Vous pouvez utiliser la prise en charge de Spark dans Azure Cosmos DB pour fourn
 
 L’illustration suivante montre comment la prise en charge de Spark dans Azure Cosmos DB est utilisée pour optimiser la tarification et les promotions :
 
-![Prise en charge de Spark par Azure Cosmos DB pour optimiser la tarification et les promotions](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
+![Prise en charge de Spark par Azure Cosmos DB pour optimiser la tarification et les promotions](./media/analytics-solution-architectures/optimize-pricing-and-promotions.png)
 
 
 L’illustration suivante montre comment la prise en charge de Spark dans Azure Cosmos DB est utilisée dans le moteur de recommandations en temps réel :
 
-![Prise en charge de Spark par Azure Cosmos DB dans le moteur de recommandations en temps réel](./media/spark-api-introduction/real-time-recommendation-engine.png)
+![Prise en charge de Spark par Azure Cosmos DB dans le moteur de recommandations en temps réel](./media/analytics-solution-architectures/real-time-recommendation-engine.png)
 
 ## <a name="manufacturing-and-iot"></a>Fabrication et IoT
 
@@ -49,7 +49,7 @@ La plateforme d’analytique intégrée d’Azure Cosmos DB vous permet d’acti
 
 L’illustration suivante montre comment la prise en charge de Spark dans Azure Cosmos DB est utilisée pour lire des métriques à partir d’appareils IoT et appliquer l’analytique de grille intelligente :
 
-![Prise en charge de Spark dans Azure Cosmos DB pour lire des métriques à partir d’appareils IoT](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
+![Prise en charge de Spark dans Azure Cosmos DB pour lire des métriques à partir d’appareils IoT](./media/analytics-solution-architectures/read-metrics-from-iot-devices.png)
 
 ## <a name="predictive-maintenance"></a>Maintenance prédictive
 
@@ -59,11 +59,11 @@ L’illustration suivante montre comment la prise en charge de Spark dans Azure 
 
 L’illustration suivante montre comment la prise en charge de Spark dans Azure Cosmos DB est utilisée pour créer un système de maintenance prédictive :
 
-![Prise en charge de Spark dans Azure Cosmos DB pour créer un système de maintenance prédictive](./media/spark-api-introduction/predictive-maintenance-system.png)
+![Prise en charge de Spark dans Azure Cosmos DB pour créer un système de maintenance prédictive](./media/analytics-solution-architectures/predictive-maintenance-system.png)
 
 L’illustration suivante montre comment la prise en charge de Spark dans Azure Cosmos DB est utilisée pour créer un système de diagnostic de véhicule en temps réel :
 
-![Prise en charge de Spark dans Azure Cosmos DB pour créer un système de diagnostic de véhicule en temps réel](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
+![Prise en charge de Spark dans Azure Cosmos DB pour créer un système de diagnostic de véhicule en temps réel](./media/analytics-solution-architectures/real-time-vehicle-diagnostic-system.png)
 
 ## <a name="gaming"></a>Jeux
 
@@ -75,7 +75,7 @@ L’illustration suivante montre comment la prise en charge de Spark dans Azure 
 
 L’illustration suivante montre comment la prise en charge de Spark par Azure Cosmos DB est utilisée dans l’analytique de jeu :
 
-![Prise en charge de Spark par Azure Cosmos DB dans l’analytique de jeu](./media/spark-api-introduction/gaming-analytics.png)
+![Prise en charge de Spark par Azure Cosmos DB dans l’analytique de jeu](./media/analytics-solution-architectures/gaming-analytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

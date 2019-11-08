@@ -1,5 +1,5 @@
 ---
-title: Copie des données de HubSpot à l’aide d’Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données de HubSpot à l’aide d’Azure Data Factory (préversion)
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de HubSpot vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 066c80f7791bb9699494a09dec12f43dfb383ac6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e59d281ee492a1e926acc25cd812054f84c11f72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090199"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680804"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Copier des données de HubSpot à l’aide d’Azure Data Factory (préversion)
 

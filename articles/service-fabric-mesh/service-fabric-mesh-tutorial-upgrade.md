@@ -1,6 +1,6 @@
 ---
 title: Tutoriel - Mettre à niveau une application Azure Service Fabric Mesh | Microsoft Docs
-description: Découvrez comment mettre à niveau une application Service Fabric à l'aide de Visual Studio
+description: Ce tutoriel est la quatrième partie d’une série et vous montre comment mettre à niveau une application Azure Service Fabric Mesh directement depuis Visual Studio.
 services: service-fabric-mesh
 documentationcenter: .net
 author: dkkapur
@@ -14,12 +14,12 @@ ms.workload: NA
 ms.date: 11/29/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 20aa65f0a8e47485e71fd03d73ff144f5290bcb7
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 81f155d5708a2fca2fc1145feb20af12d2fd151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036090"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686199"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Didacticiel : Découvrez comment mettre à niveau une application Service Fabric à l'aide de Visual Studio
 

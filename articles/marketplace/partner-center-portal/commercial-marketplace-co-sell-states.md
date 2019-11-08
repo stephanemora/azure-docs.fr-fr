@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f0fa86cc3de9f8c183d7b7a24fb03d02204adc17
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 38dcfe04473e8d2fbd81614908adef9636c44b19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076053"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812858"
 ---
 # <a name="co-sell-state-codes"></a>Codes d'état de co-vente
 
@@ -82,4 +83,4 @@ Le cas échéant, utilisez ces codes pour fournir des informations sur les état
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez l'[option de co-vente dans l'Espace partenaires](./commercial-marketplace-co-sell.md).
+- Découvrez l’[option de co-vente dans l’Espace partenaires](./commercial-marketplace-co-sell.md).

@@ -4,15 +4,16 @@ description: Configurer la gestion des prospects sur Salesforce pour les clients
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 0be5cd84e9ed8314584b5cea064b5c0241db1ab5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa1bfdcd172b17f88f6acf14a9d9b80e13767da8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935091"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827704"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configurer la gestion des prospects pour Salesforce
 

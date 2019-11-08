@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 533958221898b620500b7363f3710f75f155934a
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998061"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482754"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocation de tables dans Azure Database pour PostgreSQL - Hyperscale (Citus)
 
@@ -20,7 +20,7 @@ La colocation signifie que vous stockez ensemble des informations connexes sur l
 
 ## <a name="data-colocation-for-hash-distributed-tables"></a>Colocation de données pour les tables distribuées par hachage
 
-Dans la préversion d'Azure Database pour PostgreSQL - Hyperscale (Citus), une ligne est stockée au sein d'une partition si le hachage de la valeur de la colonne de distribution se situe dans la plage de hachage de la partition. Les partitions avec la même plage de hachage sont toujours placées sur le même nœud. Les lignes avec des valeurs de colonne de distribution égales sont toujours placées sur le même nœud dans toutes les tables.
+Dans Azure Database pour PostgreSQL – Hyperscale (Citus), une ligne est stockée au sein d'une partition si le hachage de la valeur de la colonne de distribution se situe dans la plage de hachage de la partition. Les partitions avec la même plage de hachage sont toujours placées sur le même nœud. Les lignes avec des valeurs de colonne de distribution égales sont toujours placées sur le même nœud dans toutes les tables.
 
 ![Partitions](media/concepts-hyperscale-colocation/colocation-shards.png)
 

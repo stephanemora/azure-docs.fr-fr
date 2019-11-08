@@ -1,6 +1,6 @@
 ---
 title: Poser une question à laquelle les données peuvent répondre
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Découvrez comment formuler une question de science des données précise dans la vidéo 3 Science des données pour les débutants. Inclut une comparaison des questions de classification et de régression.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: 7f0064d30c96a143dd2e53637a681e4a7ee0bc30
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a2c5dea20ca55f4b04cf8b1d1693c8614a6440bf
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493163"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621804"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Poser une question à laquelle les données permettent de répondre
 ## <a name="video-3-data-science-for-beginners-series"></a>Vidéo 3 : série Science des données pour les débutants

@@ -4,15 +4,16 @@ description: Conditions préalables à l'utilisation d'API du portail Cloud Part
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: a973ab0a406168756af61900fd35947c8be6d03b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d3c2d89d3c3561e86047529e5b284e4481fc1652
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935380"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819699"
 ---
 <a name="api-prerequisites"></a>Conditions préalables à l'utilisation d'API
 ================

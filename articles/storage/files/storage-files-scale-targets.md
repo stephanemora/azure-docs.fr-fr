@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514868"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615772"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 
@@ -98,7 +98,7 @@ Pour vous aider à planifier votre déploiement pour chacune des phases, voici l
 | Nombre d’objets synchronisés| 125 000 objets (variation ~1 %) |
 | Taille du jeu de données| 50 GiB |
 | Taille de fichier moyenne | ~ 500 Kio |
-| Débit de chargement | 30 objets par seconde |
+| Débit de chargement | 20 objets par seconde |
 | Débit de téléchargement complet* | 60 objets par seconde |
 
 * Si la hiérarchisation cloud est activée, vous devez avoir de meilleures performances, car seules certaines données de fichier sont téléchargées. Azure File Sync télécharge uniquement les données des fichiers mis en cache quand elles changent sur un point de terminaison. Pour les fichiers hiérarchisés ou nouvellement créés, l’agent ne télécharge pas les données de fichier et, à la place, synchronise uniquement l’espace de noms sur tous les points de terminaison de serveur. L’agent prend également en charge les téléchargements partiels de fichiers hiérarchisés à mesure qu’ils sont consultés par l’utilisateur. 

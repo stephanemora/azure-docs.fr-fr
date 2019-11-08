@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
-ms.openlocfilehash: 22d7afa889994068c3f906d0b9adbc1a74bc4839
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1bb5d979ff7c9fe6e2afec4c7ebd81649b4488e3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642013"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581231"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>Connectez-vous à vos machines virtuelles à l’aide d’un navigateur 
 
@@ -26,8 +26,6 @@ DevTest Labs s’intègre à [Azure Bastion](https://docs.microsoft.com/azure/
 
 Une fois la *connexion du navigateur*, les utilisateurs du labo peuvent accéder aux machines virtuelles à l’aide d’un navigateur.  
 
-> [!NOTE]
-> L’activation de la connexion du navigateur sur les machines virtuelles du labo est en préversion.
 
 ## <a name="create-a-lab-virtual-machine"></a>Créer une machine virtuelle du labo
 

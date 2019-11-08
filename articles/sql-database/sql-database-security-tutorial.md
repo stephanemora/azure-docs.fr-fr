@@ -1,5 +1,5 @@
 ---
-title: Sécuriser une base de données unique ou mise en pool dans Azure SQL Database | Microsoft Docs
+title: Sécuriser une base de données unique ou mise en pool
 description: Un tutoriel qui vous apprend les techniques et les fonctionnalités permettant de sécuriser une base de données unique ou en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: ba648a2bf563b775c39f11ab8d5c4069c4bf740f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 05ea21f7b3221425e5b052797d79e629fdfe3ba5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231189"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818035"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou mise en pool
 

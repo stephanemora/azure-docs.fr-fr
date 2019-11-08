@@ -1,6 +1,6 @@
 ---
 title: Utiliser NLP Cognitive Services pour enrichir les conversations
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Cognitive Services fournit deux services de traitement en langage naturel, Language Understanding et QnA Maker, chacun avec un objectif différent. Découvrez quand utiliser chaque service et comment ils se complètent.
 author: diberry
 ms.author: diberry
@@ -8,12 +8,12 @@ manager: nitinme
 ms.topic: conceptual
 ms.service: cognitive-services
 ms.date: 08/01/2019
-ms.openlocfilehash: f293f57f4a98e822aa1c3950614ba5a186f9751d
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 32159b37d3d1a8609181d81dc1a73f27177adb85
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816836"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818209"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Utilisez Cognitive Services avec le traitement en langage naturel (NLP) pour enrichir les conversations des robots
 
@@ -33,7 +33,7 @@ Pour sélectionner le service approprié, vous devez comprendre le texte de l’
 
 Si votre robot de conversation reçoit le texte `How do I get to the Human Resources building on the Seattle North campus?`, utilisez le graphique ci-dessous pour comprendre le fonctionnement de chaque service avec le texte.
 
-|de diffusion en continu|L’application cliente détermine|
+|Service|L’application cliente détermine|
 |--|--|
 |LUIS|**Détermine l’intention de l’utilisateur** du texte – le service ne retourne pas la réponse à la question. Par exemple, ce texte est classé comme correspondant à `FindLocation` l’intention.<br>|
 |QnA Maker|**Retourne la réponse à la question** à partir d’une base de connaissances personnalisée. Par exemple, ce texte est déterminé comme une question avec la réponse texte statique de `Get on the #9 bus and get off at Franklin street`.|

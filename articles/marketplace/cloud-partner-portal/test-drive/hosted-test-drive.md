@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 67d8421b2e545c951dcbc3280a306514e4b14897
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2ce43402fb283cce09687bc7226770731f1bae0d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030058"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827515"
 ---
 # <a name="hosted-test-drive"></a>Version d’évaluation hébergée
 

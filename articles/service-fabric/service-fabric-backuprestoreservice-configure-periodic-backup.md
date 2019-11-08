@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: b1b36ed5197aeb056c70200a49e09cc777d66d0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47faeff22db4e4a2b3630104c9b492b43e29fd7b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237353"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819259"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Compréhension de la configuration de la sauvegarde périodique dans Azure Service Fabric
 
@@ -251,4 +251,4 @@ Voici de brèves informations sur les variantes prises en charge.
 ## <a name="next-steps"></a>Étapes suivantes
 - [Informations de référence sur l’API REST de sauvegarde et restauration](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/BackupPolicyAssociationExample.png
+[0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

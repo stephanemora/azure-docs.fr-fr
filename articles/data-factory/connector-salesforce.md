@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données de Salesforce vers des banques de données réceptrices prises en charge ou comment copier des données de banques de données sources prises en charge vers Salesforce, à l’aide de l’activité de copie disponible dans le pipeline d’une fabrique de données.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 08d1afb4175a61b70d8e04b19db187bcc87dd129
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 1bcfc0386925d142fd765547ff60e1f2a3bd9101
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010510"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680334"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

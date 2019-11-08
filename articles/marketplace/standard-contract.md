@@ -4,15 +4,16 @@ description: Contrat Standard dans la Place de marché Azure et AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: ellacroi
-ms.openlocfilehash: 80c157423572d356026f257e81d52650ce01d3e8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 17c1bf9d20b6f2e3ec450ff7bfb54fe61494ff09
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620364"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819490"
 ---
 # <a name="standard-contract"></a>Contrat standard
 

@@ -1,5 +1,5 @@
 ---
-title: Copier des données de SAP ECC avec Azure Data Factory | Microsoft Docs
+title: Copier des données de SAP ECC avec Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP ECC vers des magasins de données récepteurs pris en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c2b9fcc3f75b8f310532978061c887776f007ff0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 526f85ca4b8854a36232c75a55847a73a8d372cc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089546"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680310"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Copier des données de SAP ECC avec Azure Data Factory
 
@@ -208,7 +208,7 @@ Lorsque vous copiez des données de SAP ECC, les mappages suivants sont utilisé
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
 
-Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

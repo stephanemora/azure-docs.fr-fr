@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bced7a4b994172a1a2076149d6f25adb39c99b54
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 62d75267421d1f7587f136ea1e76f7c4b4341a37
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015561"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742655"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personnalisation de la langue dans Azure Active Directory B2C
 
@@ -203,56 +203,56 @@ Azure AD B2C inclut la prise en charge des langues suivantes. Les langues de flu
 
 | Langage              | Code de langue | Flux d’utilisateurs         | Notifications MFA  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
-| Arabe                | ar            | :x:                | :heavy_check_mark: |
-| Bulgare             | bg            | :x:                | :heavy_check_mark: |
-| Bangla                | bn            | :heavy_check_mark: | :x:                |
-| Catalan               | ca            | :x:                | :heavy_check_mark: |
-| Tchèque                 | cs            | :heavy_check_mark: | :heavy_check_mark: |
-| Danois                | da            | :heavy_check_mark: | :heavy_check_mark: |
-| Allemand                | de            | :heavy_check_mark: | :heavy_check_mark: |
-| Grec                 | el            | :heavy_check_mark: | :heavy_check_mark: |
-| Anglais               | en            | :heavy_check_mark: | :heavy_check_mark: |
-| Espagnol               | es            | :heavy_check_mark: | :heavy_check_mark: |
-| Estonien              | et            | :x:                | :heavy_check_mark: |
-| Basque                | eu            | :x:                | :heavy_check_mark: |
-| Finnois               | fi            | :heavy_check_mark: | :heavy_check_mark: |
-| Français                | fr            | :heavy_check_mark: | :heavy_check_mark: |
-| Galicien              | gl            | :x:                | :heavy_check_mark: |
-| Goudjrati              | gu            | :heavy_check_mark: | :x:                |
-| Hébreu                | he            | :x:                | :heavy_check_mark: |
-| Hindi                 | hi            | :heavy_check_mark: | :heavy_check_mark: |
-| Croate              | hr            | :heavy_check_mark: | :heavy_check_mark: |
-| Hongrois             | hu            | :heavy_check_mark: | :heavy_check_mark: |
-| Indonésien            | id            | :x:                | :heavy_check_mark: |
-| Italien               | it            | :heavy_check_mark: | :heavy_check_mark: |
-| Japonais              | ja            | :heavy_check_mark: | :heavy_check_mark: |
-| Kazakh                | kk            | :x:                | :heavy_check_mark: |
-| Kannada               | kn            | :heavy_check_mark: | :x:                |
-| Coréen                | ko            | :heavy_check_mark: | :heavy_check_mark: |
-| Lituanien            | lt            | :x:                | :heavy_check_mark: |
-| Letton               | lv            | :x:                | :heavy_check_mark: |
-| Malayalam             | ml            | :heavy_check_mark: | :x:                |
-| Marathi               | mr            | :heavy_check_mark: | :x:                |
-| Malais                 | ms            | :heavy_check_mark: | :heavy_check_mark: |
-| Norvégien Bokmal      | nb            | :heavy_check_mark: | :x:                |
-| Néerlandais                 | nl            | :heavy_check_mark: | :heavy_check_mark: |
-| Norvégien             | no            | :x:                | :heavy_check_mark: |
-| Pendjabi               | pa            | :heavy_check_mark: | :x:                |
-| Polonais                | pl            | :heavy_check_mark: | :heavy_check_mark: |
-| Portugais - Brésil   | pt-br         | :heavy_check_mark: | :heavy_check_mark: |
-| Portugais - Portugal | pt-pt         | :heavy_check_mark: | :heavy_check_mark: |
-| Roumain              | ro            | :heavy_check_mark: | :heavy_check_mark: |
-| Russe               | ru            | :heavy_check_mark: | :heavy_check_mark: |
-| Slovaque                | sk            | :heavy_check_mark: | :heavy_check_mark: |
-| Slovène             | sl            | :x:                | :heavy_check_mark: |
-| Serbe - Cyrillique    | sr-cryl-cs    | :x:                | :heavy_check_mark: |
-| Serbe - Latin       | sr-latn-cs    | :x:                | :heavy_check_mark: |
-| Suédois               | sv            | :heavy_check_mark: | :heavy_check_mark: |
-| Tamoul                 | ta            | :heavy_check_mark: | :x:                |
-| Télougou                | te            | :heavy_check_mark: | :x:                |
-| Thaï                  | th            | :heavy_check_mark: | :heavy_check_mark: |
-| Turc               | tr            | :heavy_check_mark: | :heavy_check_mark: |
-| Ukrainien             | uk            | :x:                | :heavy_check_mark: |
-| Vietnamien            | vi            | :x:                | :heavy_check_mark: |
-| Chinois - simplifié  | zh-hans       | :heavy_check_mark: | :heavy_check_mark: |
-| Chinois - traditionnel | zh-hant       | :heavy_check_mark: | :heavy_check_mark: |
+| Arabe                | ar            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Bulgare             | bg            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Bangla                | bn            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Catalan               | ca            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Tchèque                 | cs            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Danois                | da            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Allemand                | de            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Grec                 | el            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Anglais               | en            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Espagnol               | es            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Estonien              | et            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Basque                | eu            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Finnois               | fi            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Français                | fr            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Galicien              | gl            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Goudjrati              | gu            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Hébreu                | he            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Hindi                 | hi            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Croate              | hr            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Hongrois             | hu            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Indonésien            | id            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Italien               | it            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Japonais              | ja            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Kazakh                | kk            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Kannada               | kn            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Coréen                | ko            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Lituanien            | lt            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Letton               | lv            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Malayalam             | ml            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Marathi               | mr            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Malais                 | ms            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Norvégien Bokmal      | nb            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Néerlandais                 | nl            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Norvégien             | no            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Pendjabi               | pa            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Polonais                | pl            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Portugais - Brésil   | pt-br         | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Portugais - Portugal | pt-pt         | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Roumain              | ro            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Russe               | ru            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Slovaque                | sk            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Slovène             | sl            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Serbe - Cyrillique    | sr-cryl-cs    | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Serbe - Latin       | sr-latn-cs    | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Suédois               | sv            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Tamoul                 | ta            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Télougou                | te            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| Thaï                  | th            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Turc               | tr            | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Ukrainien             | uk            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Vietnamien            | vi            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Chinois - simplifié  | zh-hans       | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |
+| Chinois - traditionnel | zh-hant       | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) | ![Oui](media/active-directory-b2c-reference-language-customization/yes.png) |

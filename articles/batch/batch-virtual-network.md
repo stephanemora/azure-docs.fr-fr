@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b4be715bd910326b3d06837508e7a07ac853189f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 78f29bacaadac5f01e4a8dd26bf03b2bda84f2bf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322644"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577574"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Créer un pool Azure Batch dans un réseau virtuel
 
@@ -56,7 +56,7 @@ Votre organisation vous oblige peut-être à rediriger (forcer) le trafic Intern
 
 Pour vérifier que les nœuds de calcul de votre pool Azure Batch fonctionnent dans un réseau virtuel pour lequel le tunneling forcé est activé, vous devez ajouter les [routages définis par l’utilisateur](../virtual-network/virtual-networks-udr-overview.md) suivants pour ce sous-réseau :
 
-* Le service Batch doit communiquer avec les nœuds de calcul du pool pour la planification des tâches. Pour activer cette communication, ajoutez un routage défini par l’utilisateur pour chaque adresse IP utilisée par le service Batch dans la région où se trouve votre compte Batch. Pour savoir comment obtenir la liste des adresses IP du service Batch, consultez [Balises de service dans un environnement local](../virtual-network/security-overview.md#service-tags-in-on-premises).
+* Le service Batch doit communiquer avec les nœuds de calcul du pool pour la planification des tâches. Pour activer cette communication, ajoutez un routage défini par l’utilisateur pour chaque adresse IP utilisée par le service Batch dans la région où se trouve votre compte Batch. Pour savoir comment obtenir la liste des adresses IP du service Batch, consultez [Balises de service dans un environnement local](../virtual-network/service-tags-overview.md).
 
 * Vérifiez que le trafic sortant vers le stockage Azure (plus précisément, les URL sous la forme `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` et `<account>.blob.core.windows.net`) n’est pas bloqué par votre appliance de réseau local.
 

@@ -1,5 +1,5 @@
 ---
-title: Notes de version pour la passerelle de gestion des données | Microsoft Docs
+title: Notes de version pour la passerelle de gestion des données
 description: Notes de version pour la passerelle de gestion des données
 services: data-factory
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb89ed08b05f9a8f271ceee400bc609881e7048d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486462"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682587"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notes de version pour la passerelle de gestion des données
 > [!NOTE]

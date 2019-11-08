@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 40718cdb12cbc46bf0587dfdc657ee06c090061b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598240"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603026"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Surveiller les performances d’Azure Database pour MySQL avec Magasin de données des requêtes
 
 **S’applique à :** Azure Database pour MySQL 5.7
-
-> [!IMPORTANT]
-> Magasin de données des requêtes est disponible en préversion.
 
 La fonctionnalité Magasin de données des requêtes dans Azure Database pour MySQL fournit un moyen de suivre les performances des requêtes dans le temps. Le Magasin des requêtes simplifie la résolution des problèmes de performances en vous aidant à identifier rapidement les requête dont l’exécution est la plus longue et qui consomment le plus de ressources. Le Magasin des requêtes capture automatiquement un historique des requêtes et des statistiques d’exécution, et les conserve pour que vous les passiez en revue. Il sépare les données par fenêtres de temps afin que vous puissiez voir les modèles d’utilisation des bases de données. Les données de tous les utilisateurs, des bases de données et des requêtes sont stockées dans une base de données de schéma **mysql** dans l’instance Azure Database pour MySQL.
 

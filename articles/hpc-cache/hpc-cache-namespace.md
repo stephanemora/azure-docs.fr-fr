@@ -1,21 +1,21 @@
 ---
-title: Créer un cache Azure HPC Cache (préversion)
+title: Créer un cache Azure HPC Cache
 description: Comment créer une instance de cache Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255272"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582179"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planifier l’espace de noms agrégé
 
-Azure HPC Cache (préversion) permet aux clients d’accéder à un large éventail de systèmes de stockage par le biais d’un espace de noms virtuels qui masque les détails du système de stockage back-end.
+Azure HPC Cache permet aux clients d’accéder à un large éventail de systèmes de stockage par le biais d’un espace de noms virtuels qui masque les détails du système de stockage back-end.
 
 Lorsque vous ajoutez une cible de stockage, vous définissez le chemin de fichier côté client. Les ordinateurs clients montent ce chemin de fichier et peuvent effectuer des requêtes de lecture de fichier dans le cache au lieu de monter directement le système de stockage.
 

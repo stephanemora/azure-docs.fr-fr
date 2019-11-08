@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 87777d3a6abfeaeac74fd69126cc3e71e11be825
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 73f38760153a6e1db5621801282c71216b3e8560
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597849"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749435"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Chiffrer des disques virtuels sur une machine virtuelle Windows
 Pour renforcer la sécurité et la conformité de la machine virtuelle, les disques virtuels dans Azure peuvent être chiffrés. Les disques sont chiffrés à l’aide de clés de chiffrement sécurisées dans un coffre Azure Key Vault. Vous contrôlez ces clés de chiffrement et pouvez effectuer un audit de leur utilisation. Cet article explique comment chiffrer des disques virtuels sur une machine virtuelle Windows avec Azure PowerShell. Vous pouvez également [chiffrer des machines virtuelles Linux](../linux/disk-encryption-overview.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="overview-of-disk-encryption"></a>Présentation du chiffrement de disque
 Les disques virtuels des machines virtuelles Windows sont chiffrés au repos avec BitLocker. Le chiffrement de disques virtuels dans Azure n’occasionne pas de frais. Les clés de chiffrement sont stockées dans un coffre Azure Key Vault avec une protection logiciel ; cependant, vous pouvez les importer ou les générer dans des modules de sécurité matériels (HSM) certifiés conformes aux normes FIPS 140-2 de niveau 2. Ces clés de chiffrement servent à chiffrer et à déchiffrer les disques virtuels attachés à une machine virtuelle. Vous en gardez le contrôle et pouvez effectuer un audit de leur utilisation. 

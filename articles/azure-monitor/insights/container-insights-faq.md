@@ -6,17 +6,21 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 08/14/2019
-ms.openlocfilehash: bda64dd555f1970b70878d827f6be1dab3f1e2d5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: d3779a2d48db82bfccdc0f047119a36ef56c3bdf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555433"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477409"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Azure Monitor pour conteneurs - Forum Aux Questions (FAQ)
 
 Ce FAQ Microsoft est une liste de questions fréquemment posées au sujet d'Azure Monitor pour conteneurs (préversion). Si vous avez d’autres questions sur la solution, rendez-vous sur le [forum de discussion](https://feedback.azure.com/forums/34192--general-feedback) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
+
+## <a name="can-i-view-metrics-collected-in-grafana"></a>Puis-je consulter les métriques collectées dans Grafana ?
+
+Azure Monitor pour conteneurs prend en charge l'affichage des métriques stockées dans votre espace de travail Log Analytics dans les tableaux de bord Grafana. Nous fournissons un modèle que vous pouvez télécharger à partir du [référentiel de tableau de bord](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) de Grafana pour vous aider à démarrer ainsi qu'une référence pour apprendre à interroger des données supplémentaires à partir de vos clusters surveillés afin de les visualiser dans des tableaux de bord Grafana personnalisés. 
 
 ## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>Puis-je surveiller mon cluster AKS-Engine avec Azure Monitor pour les conteneurs ?
 
@@ -72,20 +76,15 @@ Pour en savoir plus sur ce problème, utilisez le [lien GitHub](https://github.c
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Comment puis-je résoudre les erreurs Azure AD lorsque j’active les journaux d’activité dynamiques ? 
 
-L'erreur suivante peut apparaître : **L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : « <ID application\> »** . Sa solution se trouve dans l’article [Affichage des journaux d’activité de conteneur en temps réel avec Azure Monitor pour conteneurs](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+L'erreur suivante peut apparaître : **L’URL de réponse spécifiée dans la requête ne correspond pas aux URL de réponse configurées pour l’application : « <ID application\> »** . Sa solution se trouve dans l'article [Affichage des données de conteneur en temps réel avec Azure Monitor pour conteneurs](container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Pourquoi ne puis-je pas mettre à niveau un cluster après l’intégration ?
 
 Après avoir activé Azure Monitor pour conteneurs pour un cluster AKS, si vous supprimez l’espace de travail Log Analytics auquel le cluster envoyait ses données, le cluster échoue lorsque vous tentez de le mettre à niveau. Pour contourner ce problème, vous devez désactiver la supervision, puis la réactiver en faisant référence à un autre espace de travail valide dans votre abonnement. Lorsque vous réessayez de mettre le cluster à niveau, il doit être traité et s’effectuer correctement.  
 
 ## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Quels ports et domaines dois-je ouvrir/mettre sur liste verte pour l’agent ?
-- *.ods.opinsights.azure.com   443
-- *.oms.opinsights.azure.com   443
-- *.blob.core.windows.net      443
-- dc.services.visualstudio.com 443
-- *.microsoftonline.com        443
-- *.monitoring.azure.com       443
-- login.microsoftonline.com    443
+
+Pour plus d'informations sur les configurations de proxy et de pare-feu requises pour l'agent conteneurisé avec les clouds Azure, Azure US Government et Azure China, consultez la [Configuration requise pour le pare-feu réseau](container-insights-onboard.md#network-firewall-requirements).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

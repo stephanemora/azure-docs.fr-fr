@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: e3928d865178d0afc3d814ae0d7794f981f49d47
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1c16ebe1f0b07e5ee5ef73dc3dd4781161f934b6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079415"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749387"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -35,7 +35,7 @@ Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Serv
 > Pour les machines virtuelles classiques, seul le déploiement d’une nouvelle machine virtuelle à partir des images personnalisées locales est pris en charge. Pour tirer parti des fonctionnalités prises en charge dans cet article, vous devez d’abord migrer des machines virtuelles classiques vers le modèle Resource Manager.
 >
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Façons d’utiliser Azure Hybrid Benefit pour Windows Server
 Il existe plusieurs façons d’utiliser des machines virtuelles Windows avec Azure Hybrid Benefit :

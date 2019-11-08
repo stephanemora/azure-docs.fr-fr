@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données depuis Teradata à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données depuis Teradata à l’aide d’Azure Data Factory
 description: En savoir plus sur le connecteur Teradata pour le service Data Factory qui vous permet de déplacer des données depuis une base de données Teradata
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8e7fcff6fa4dcea1af15efa2cb4ed3a743c9c402
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 645dcde949c8f5a6b48a5c02892d4cb2c6c5be0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836131"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666089"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Déplacer des données depuis Teradata à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -47,7 +47,7 @@ Pour que la passerelle de gestion des données puisse se connecter à la base de
 Vous pouvez créer un pipeline avec une activité de copie qui déplace les données d’un magasin de données Cassandra local à l’aide de différents outils/API.
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
-- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **REST API**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Que vous utilisiez des outils ou des API, la création d’un pipeline qui déplace les données d’un magasin de données source vers un magasin de données récepteur implique les étapes suivantes :
 
@@ -65,9 +65,9 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété type doit être définie sur : **OnPremisesTeradata** |OUI |
-| serveur |Nom du serveur Teradata. |OUI |
+| server |Nom du serveur Teradata. |OUI |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Teradata. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Teradata locale. |OUI |
 
@@ -297,13 +297,13 @@ Lors du déplacement de données vers Teradata, les mappages suivants sont utili
 | ByteInt |Int16 |
 | Decimal |Decimal |
 | Double |Double |
-| Entier |Int32 |
+| Integer |Int32 |
 | Number |Double |
 | SmallInt |Int16 |
-| Date |Datetime |
+| Date |DateTime |
 | Temps |TimeSpan |
 | Time With Time Zone |Chaîne |
-| Timestamp |Datetime |
+| Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |

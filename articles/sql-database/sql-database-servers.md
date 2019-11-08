@@ -1,5 +1,5 @@
 ---
-title: Serveurs Azure SQL Database | Microsoft Docs
+title: Serveurs
 description: En savoir plus sur les serveurs Azure SQL Database et leur gestion.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 02d57c297926ef375eecaa76af55ffed60668cf1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a3ad3314b8a18ec6a63b5d51bc7d8b3f9d7a6260
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566773"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818281"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Serveurs Azure SQL Database et leur gestion
 

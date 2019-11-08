@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45c59ccdd45a0c00635c3e0a3919248f33e2919a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0277e07f67b3f9124dc0e27b20e3d49e0d2f6e9
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102446"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749219"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Comment créer une image de machine virtuelle non managée à partir d’une machine virtuelle Azure
 
@@ -28,7 +28,7 @@ Cet article traite de l’utilisation de comptes de stockage. Nous vous recomman
 
 Cet article vous montre comment utiliser Azure PowerShell pour créer une image d’une machine virtuelle Azure généralisée à l’aide d’un compte de stockage. Vous pouvez ensuite utiliser l’image pour créer une autre machine virtuelle. L’image comprend le disque du système d’exploitation, ainsi que les disques de données attachés à la machine virtuelle. L’image n’inclut pas les ressources du réseau virtuel. Vous devez donc configurer les ressources lorsque vous créez la nouvelle machine virtuelle. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-vm"></a>Généraliser la machine virtuelle 
 Cette section vous montre comment généraliser votre machine virtuelle Windows de façon à l’utiliser comme image. La généralisation d’une machine virtuelle supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, consultez [Utilisation de Sysprep : de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).

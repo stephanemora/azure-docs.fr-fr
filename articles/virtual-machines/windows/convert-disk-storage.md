@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: fa6b005be91f47f5976dace7fd1e76f6ea7e0b29
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 274697d555974f286c2c71f26280640077c11f81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698846"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749547"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Mettre à jour le type de stockage d’un disque managé
 
@@ -20,7 +20,7 @@ Il existe quatre types de disques managés Azure : SSD Ultra (préversion), SSD
 
 Cette fonctionnalité n’est pas prise en charge pour les disques non managés. En revanche, vous pouvez facilement [convertir un disque non managé en disque managé](convert-unmanaged-to-managed-disks.md) pour pouvoir basculer entre les différents types de disques.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prerequisites"></a>Prérequis
 

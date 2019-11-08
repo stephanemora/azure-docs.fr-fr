@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données depuis Sybase à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données depuis Sybase à l’aide d’Azure Data Factory
 description: Découvrez comment déplacer des données depuis une base de données Sybase à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 43bd21673c6619541f68e282d708bdbf54cd6f48
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e6d2acbb848a03d950e830458963ecc4f26dff98
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839872"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682410"
 ---
 # <a name="move-data-from-sybase-using-azure-data-factory"></a>Déplacer des données depuis Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -67,11 +67,11 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété type doit être définie sur : **OnPremisesSybase** |OUI |
-| serveur |Nom du serveur Sybase. |OUI |
+| server |Nom du serveur Sybase. |OUI |
 | database |Nom de la base de données Sybase. |OUI |
 | schema |Nom du schéma dans la base de données. |Non |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données Sybase. Les valeurs possibles sont les suivantes : Anonymous, Basic et Windows. |OUI |
-| userName |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
+| username |Spécifiez le nom d'utilisateur si vous utilisez l'authentification de base ou Windows. |Non |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. |Non |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données Sybase locale. |OUI |
 

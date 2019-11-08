@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: d554629c4a03b81ee3c04d27f6365c1a8734c952
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 47ff8870df7c89ee2ab3e48e064e31aa581f65f0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058199"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748631"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>L’activation de Windows échoue dans un scénario de tunneling forcé
 
@@ -50,7 +50,7 @@ Pour ajouter l’itinéraire personnalisé, procédez comme suit :
 
 ### <a name="for-resource-manager-vms"></a>Pour les machines virtuelles Resource Manager
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 > [!NOTE] 
 > L’activation utilise des adresses IP publiques et sera affectée par une configuration d’équilibreur de charge SKU standard. Examinez attentivement [les connexions sortantes dans Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) pour en savoir plus sur la configuration requise.

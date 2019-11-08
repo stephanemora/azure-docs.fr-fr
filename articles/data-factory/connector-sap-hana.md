@@ -1,5 +1,5 @@
 ---
-title: Copier des données de SAP HANA à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données de SAP HANA à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de SAP HANA vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a5592c0c5fa06d8319b91c6d624a74c83bdeb1f
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6b7f41f53ea743f8e3914512b40d3f69f595b7c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010426"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680250"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copier des données de SAP HANA à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -241,7 +241,7 @@ Lors de la copie de données de SAP HANA, les mappages suivants sont utilisés e
 | INTEGER            | Int32                          |
 | NCLOB              | Chaîne                         |
 | NVARCHAR           | Chaîne                         |
-| REAL               | Single                         |
+| REAL               | Unique                         |
 | SECONDDATE         | DateTime                       |
 | SHORTTEXT          | Chaîne                         |
 | SMALLDECIMAL       | Decimal                        |

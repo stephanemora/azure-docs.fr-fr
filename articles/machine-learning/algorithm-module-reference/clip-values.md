@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a45755ca13aed6a514b548674ef424c40238fa42
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 704b7c8a0c55bdcdd69bd8a44b0f9f44e8ddf457
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694297"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493839"
 ---
 # <a name="clip-values"></a>Limiter les valeurs
 
-Cet article décrit un module de l’interface visuelle d’Azure Machine Learning.
+Cet article décrit un module du concepteur Azure Machine Learning (préversion).
 
 Utilisez le module Limiter les valeurs pour identifier et éventuellement remplacer des valeurs de données qui sont au-dessus ou en dessous d’un seuil spécifié par une moyenne, une constante ou une autre valeur de remplacement.  
 

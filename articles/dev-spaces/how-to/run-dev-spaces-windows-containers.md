@@ -9,12 +9,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Découvrez comment exécuter Azure Dev Spaces sur un cluster existant avec des conteneurs Windows
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, conteneurs Windows
-ms.openlocfilehash: 6c15534d5d47ba384a0f368f5d212fb1350e5229
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 90d7c8e5fc08405178ab6596b765f289b9bd716f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858610"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582770"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Utiliser Azure Dev Spaces pour interagir avec des conteneurs Windows
 
@@ -181,7 +181,7 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md

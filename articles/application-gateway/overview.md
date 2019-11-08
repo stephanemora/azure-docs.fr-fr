@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146619"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469746"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -52,6 +52,13 @@ Le pare-feu d’applications Web (WAF) est une fonctionnalité de passerelle d�
 Les applications Web sont de plus en plus la cible d’attaques malveillantes qui exploitent des vulnérabilités connues. Les types d’attaques les plus courantes sont l’injection de code SQL, les attaques de script site à site, entre autres. Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau d’un grand nombre de couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. Une solution WAF peut également réagir plus rapidement à une menace de sécurité en exécutant la mise à jour corrective d’une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web. Les passerelles d’application existantes peuvent être facilement converties en une passerelle d’application avec un pare-feu d’applications web.
 
 Pour plus d’informations, consultez [Pare-feu d’applications web (WAF) dans Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+
+## <a name="ingress-controller-for-aks"></a>Contrôleur d’entrée pour AKS
+Le contrôleur d’entrée Application Gateway (AGIC) vous permet d'utiliser Application Gateway en tant qu’entrée pour un cluster [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/). 
+
+Le contrôleur d’entrée s’exécute en tant que pod au sein du cluster AKS, consomme les [ressources d’entrée Kubernetes ](https://kubernetes.io/docs/concepts/services-networking/ingress/) et les transforme en configuration Application Gateway pour permettre à la passerelle d’équilibrer la charge du trafic vers les pods Kubernetes. Le contrôleur d’entrée prend uniquement en charge la référence SKU Application Gateway V2. 
+
+Pour plus d’informations, consultez [Contrôleur d’entrée Azure Application Gateway (AGIC)](ingress-controller-overview.md).
 
 ## <a name="url-based-routing"></a>Routage basé sur des URL
 
@@ -96,12 +103,6 @@ Application Gateway prend en charge les protocoles WebSocket et HTTP/2 de maniè
 Les protocoles WebSocket et HTTP/2 permettent une communication en duplex intégral entre le serveur et le client via une connexion TCP de longue durée. Cela assure une communication plus interactive entre le serveur web et le client, qui peut être bidirectionnelle sans nécessiter d’interrogations, comme c’est le cas pour les implémentations basées sur le protocole HTTP. Ces protocoles engendrent une faible surcharge, contrairement à HTTP, et peuvent réutiliser la même connexion TCP pour plusieurs demandes/réponses, ce qui entraîne une utilisation plus efficace des ressources. Ces protocoles sont conçus pour fonctionner sur les ports HTTP traditionnels (80 et 443).
 
 Pour plus d’informations, consultez [Prise en charge de WebSocket](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) et [Prise en charge de HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support).
-
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Préversion du contrôleur d’entrée d’Azure Kubernetes Service (AKS) 
-
-Le contrôleur Application Gateway Ingress s’exécute en tant que pod au sein du cluster AKS et permet à Application Gateway de servir d’entrée à un cluster AKS. Cela est pris en charge avec Application Gateway v2 uniquement.
-
-Pour plus d’informations, consultez [Contrôleur d’entrée d’Azure Application Gateway](https://azure.github.io/application-gateway-kubernetes-ingress/).
 
 ## <a name="connection-draining"></a>Vidage des connexions
 

@@ -1,5 +1,5 @@
 ---
-title: Déplacement de données entre des bases de données cloud mises à l’échelle | Microsoft Docs
+title: Déplacement de données entre des bases de données cloud mises à l’échelle
 description: Explique comment manipuler les partitions et déplacer les données via un service auto-hébergé, à l'aide des API de base de données élastique.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 00f579017ce4dd79e913565ee27698398b5feb38
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568390"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823599"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 

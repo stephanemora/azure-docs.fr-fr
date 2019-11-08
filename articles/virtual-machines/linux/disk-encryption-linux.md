@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a1515144f340938cddfd5ca9f2ac4803bcb3f77
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2e7646d2f84696d0b04183d8d06b96405909de87
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174721"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750043"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scénarios Azure Disk Encryption sur les machines virtuelles Linux
 
@@ -42,7 +42,7 @@ Vous pouvez activer et gérer Azure Disk Encryption par le biais d’[Azure CLI]
 
 [Azure CLI 2.0](/cli/azure) est un outil en ligne de commande pour la gestion des ressources Azure. L’interface CLI est conçue pour interroger les données de manière flexible, pour prendre en charge les opérations de longue durée en tant que processus non bloquants et pour simplifier l’écriture de scripts. Vous pouvez l’installer localement en effectuant les étapes décrites dans [Installer Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 Pour [vous connecter à votre compte Azure avec Azure CLI](/cli/azure/authenticate-azure-cli), utilisez la commande [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
@@ -66,25 +66,25 @@ az account set --subscription "<subscription name or ID>"
 Pour plus d’informations, consultez [Bien démarrer avec Azure CLI 2.0](/cli/azure/get-started-with-azure-cli). 
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Le [module az Azure PowerShell](/powershell/azure/new-azureps-module-az) fournit un ensemble d’applets de commande qui utilise le modèle [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) pour gérer vos ressources Azure. Vous pouvez l’ouvrir dans votre navigateur avec [Azure Cloud Shell](../../cloud-shell/overview.md), ou vous pouvez l’installer sur votre ordinateur local à l’aide des instructions fournies dans [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). 
+Le [module az Azure PowerShell](/powershell/azure/new-azureps-module-az) fournit un ensemble de cmdlets qui utilise le modèle [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) pour gérer vos ressources Azure. Vous pouvez l’utiliser dans votre navigateur avec [Azure Cloud Shell](../../cloud-shell/overview.md), ou vous pouvez l’installer sur votre ordinateur local à l’aide des instructions fournies dans [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). 
 
 Si vous l’avez déjà installé localement, veillez à utiliser la dernière version du Kit de développement logiciel (SDK) Azure PowerShell pour configurer Azure Disk Encryption. Téléchargez la dernière version [d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-Pour [vous connecter à votre compte Azure avec Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), utilisez l’applet de commande [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
+Pour [vous connecter à votre compte Azure avec Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-2.5.0), utilisez la cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0).
 
 ```powershell
 Connect-AzAccount
 ```
 
-Si vous avez plusieurs abonnements et que vous souhaitez en spécifier un, utilisez l’applet de commande [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) pour les lister, puis l’applet de commande [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) :
+Si vous avez plusieurs abonnements et que vous souhaitez en spécifier un, utilisez la cmdlet [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) pour les lister, puis la cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) :
 
 ```powershell
 Set-AzContext -Subscription -Subscription <SubscriptionId>
 ```
 
-L’exécution de l’applet de commande [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) permet de vérifier que l’abonnement approprié a été sélectionné.
+L’exécution de la cmdlet [Get-AzContext](/powershell/module/Az.Accounts/Get-AzContext) permet de vérifier que l’abonnement approprié a été sélectionné.
 
-Pour confirmer que les applets de commande Azure Disk Encryption sont installées, utilisez l’applet de commande [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6) :
+Pour vérifier que les cmdlets Azure Disk Encryption sont installées, utilisez la cmdlet [Get-command](/powershell/module/microsoft.powershell.core/get-command?view=powershell-6) :
      
 ```powershell
 Get-command *diskencryption*
@@ -404,4 +404,4 @@ Azure Disk Encryption ne fonctionne pas pour les scénarios, fonctionnalités et
 
 - [Vue d’ensemble d’Azure Disk Encryption](disk-encryption-overview.md)
 - [Exemples de scripts Azure Disk Encryption](disk-encryption-sample-scripts.md)
-- [Dépannage d’Azure Disk Encryption](disk-encryption-troubleshooting.md)
+- [Résolution des problèmes liés à Azure Disk Encryption](disk-encryption-troubleshooting.md)

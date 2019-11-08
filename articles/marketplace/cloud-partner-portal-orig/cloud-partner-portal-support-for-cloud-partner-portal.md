@@ -4,15 +4,16 @@ description: Bénéficiez du support dans le portail Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 35a5a4c4cfdbfa26ea00f0f4d76f91f9f76a1ca5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30fc0ea4a8baba4f0677c9cceb12a7887d205f21
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935374"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827672"
 ---
 # <a name="get-support-for-cloud-partner-portal"></a>Bénéficier du support dans le portail Cloud Partner
 

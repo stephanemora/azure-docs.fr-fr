@@ -1,5 +1,5 @@
 ---
-title: Connexions et utilisateurs Azure SQL | Microsoft Docs
+title: Connexions et utilisateurs
 description: Apprenez-en davantage sur la gestion de la sécurité SQL Database et SQL Data Warehouse, en particulier sur la façon de gérer la sécurité d’accès et de connexion aux bases de données par le biais du compte du principal au niveau du serveur.
 keywords: sécurité sql database, gestion de la sécurité de base de données, sécurité de connexion,sécurité de base de données, accès aux bases de données
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 9dae1e3864f5f1cf745bfe9b0872f15f61471a1c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: a33c653199ae21b551acadfb4503eae029ddc5e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014499"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822825"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: 0fddabc7973fbea147de9f3b6e6da5556407030c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498464"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795799"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -262,7 +262,7 @@ Le chiffrement côté client des données Azure SQL Database est pris en charge 
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’une clé gérée par le client**             | **Côté client à l’aide d’une clé gérée par le client**      |
 | **IA et Machine Learning**      |                    |                    |                    |
-| Recherche Azure                     | OUI                | PRÉVERSION            | -                  |
+| Recherche cognitive Azure                     | OUI                | PRÉVERSION            | -                  |
 | Azure Machine Learning   | OUI                | -                  | -                  |
 | Azure Machine Learning Studio    | OUI                | Préversion, RSA 2048 bits | -               |
 | Power BI                         | OUI                | Préversion, RSA 2048 bits | -                  |

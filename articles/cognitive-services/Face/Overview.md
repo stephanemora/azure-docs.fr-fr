@@ -1,7 +1,7 @@
 ---
 title: Qu’est ce que le l’API Visage ?
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser le service Visage pour détecter et analyser les visages dans les images.
+description: L’API Visage d’Azure Cognitive Services fournit des algorithmes qui sont utilisés pour détecter, reconnaître et analyser les visages humains dans des images.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606907"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743708"
 ---
 # <a name="what-is-the-azure-face-api"></a>Qu’est ce que le l’API Visage Azure ?
 

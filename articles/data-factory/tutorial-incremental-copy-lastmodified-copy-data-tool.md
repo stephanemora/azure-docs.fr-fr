@@ -1,5 +1,5 @@
 ---
-title: Copier les fichiers nouveaux et modifiés selon LastModifiedDate à l’aide de l’outil Copier des données de façon incrémentielle| Microsoft Docs
+title: Copier les fichiers nouveaux et modifiés selon LastModifiedDate à l’aide de l’outil Copier des données de façon incrémentielle
 description: Créez une fabrique de données Azure, puis utilisez l’outil Copier des données afin de charger de nouveaux fichiers de façon incrémentielle sur la base de LastModifiedDate.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 9f6fd57586603d0d987faa674d40a7e4678530a1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 09a9fa4515913470c86bbafe293add007a3117ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933901"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683462"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copier les fichiers nouveaux et modifiés selon LastModifiedDate à l’aide de l’outil Copier des données de façon incrémentielle
 
@@ -74,7 +74,7 @@ Préparez votre stockage d’objets blob pour ce tutoriel en effectuant les éta
 5. Sous **Version**, sélectionnez **V2**.
 6. Sous **Emplacement**, sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (tels que le Stockage Azure et SQL Database) et les services de calcul (comme Azure HDInsight) qu’utilise votre fabrique de données peuvent se trouver dans d’autres emplacements et régions.
 7. Sélectionnez **Épingler au tableau de bord**. 
-8. Sélectionnez **Créer**.
+8. Sélectionnez **Create** (Créer).
 9. Sur le tableau de bord, consultez la vignette **Déploiement de Data Factory** pour afficher l’état du processus.
 
     ![Vignette Déploiement de Data Factory](media/tutorial-copy-data-tool/deploying-data-factory.png)

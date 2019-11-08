@@ -1,5 +1,5 @@
 ---
-title: Activité d’ajout de variable dans Azure Data Factory | Microsoft Docs
+title: Activité d’ajout de variable dans Azure Data Factory
 description: Découvrez comment utiliser l’activité d’ajout de variable afin d’ajouter la valeur d’une variable de tableau existante définie dans un pipeline Data Factory
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
 ms.date: 10/09/2018
-ms.openlocfilehash: 24808c9ed4bda5e8d3b0ce23ab93bc59eb260374
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: bcecd3411b6e6e751032f33862a671d8adbca046
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141723"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679971"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Activité d’ajout de variable dans Azure Data Factory
 

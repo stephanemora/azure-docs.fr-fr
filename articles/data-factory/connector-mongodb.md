@@ -1,5 +1,5 @@
 ---
-title: Copier des données de MongoDB à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données de MongoDB à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de MongoDB vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 86029c5617d2a3c2723e388fb5812a3947166623
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 2f675bed803873e46ee25ca7bc0afda5cb09c07b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966928"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680658"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Déplacer des données de MongoDB à l’aide d’Azure Data Factory
 
@@ -51,7 +51,7 @@ Les propriétés prises en charge pour le service lié MongoDB sont les suivante
 | type |La propriété type doit être définie sur : **MongoDbV2** |OUI |
 | connectionString |Spécifiez la chaîne de connexion MongoDB, par exemple `mongodb://[username:password@]host[:port][/[database][?options]]`. Pour plus d’informations, consultez le [manuel MongoDB sur la chaîne de connexion](https://docs.mongodb.com/manual/reference/connection-string/). <br/><br />Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
 | database | Nom de la base de données à laquelle vous souhaitez accéder. | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
 
 **Exemple :**
 

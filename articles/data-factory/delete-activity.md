@@ -1,5 +1,5 @@
 ---
-title: Activité Delete dans Azure Data Factory | Microsoft Docs
+title: Activité Delete dans Azure Data Factory
 description: Découvrez comment supprimer des fichiers dans plusieurs magasins de fichiers avec l’activité Delete dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: d9a1c76e8ac386b954c68f16e2189df4e6c0e1b7
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 8efbf5cd6003781450afe70b8019b39d75290546
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69996321"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675617"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Activité Delete dans Azure Data Factory
 

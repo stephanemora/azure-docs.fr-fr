@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924842"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747907"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planifier la capacité et la mise à l’échelle pour la récupération d’urgence VMware vers Azure
 
@@ -41,7 +41,7 @@ UC | Mémoire | Taille du disque cache | Taux de modification des données | Mac
 8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz) | 16 Go | 300 Go | 500 Go ou moins | Permet de répliquer moins de 100 machines.
 12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz) | 18 Go | 600 Go | 501 Go à 1 To | Permet de répliquer de 100 à 150 machines.
 16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) | 32 Go | 1 To | >1 To à 2 To | Permet de répliquer de 151 à 200 machines.
-Déployez un autre serveur de configuration à l’aide du [modèle OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). | | | | Déployez un nouveau serveur de configuration si vous répliquez plus de 200 machines.
+Déployez un autre serveur de configuration à l’aide du [modèle OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). | | | | Déployez un nouveau serveur de configuration si vous répliquez plus de 200 machines.
 Déployez un autre [serveur de processus](vmware-azure-set-up-process-server-scale.md#download-installation-file). | | | > 2 To| Déployez un nouveau serveur de processus de scale-out si le taux total quotidien de modifications est supérieur à 2 To.
 
 Dans ces configurations :
@@ -53,7 +53,7 @@ Dans ces configurations :
 
 Le serveur de processus est le composant qui gère le processus de réplication de données dans Azure Site Recovery. Si la quantité de modifications quotidiennes est supérieure à 2 To, vous devez ajouter des serveurs de processus de scale-out pour gérer la charge de réplication. Pour augmenter la taille des instances, vous pouvez :
 
-* Augmenter le nombre de serveurs de configuration en déployant à l’aide d’un [modèle OVF](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template). Par exemple, vous pouvez protéger jusqu’à 400 machines avec deux serveurs de configuration.
+* Augmenter le nombre de serveurs de configuration en déployant à l’aide d’un [modèle OVF](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template). Par exemple, vous pouvez protéger jusqu’à 400 machines avec deux serveurs de configuration.
 * Ajoutez des [serveurs de processus de scale-out](vmware-azure-set-up-process-server-scale.md#download-installation-file). Utilisez des serveurs de processus de scale-out pour gérer le trafic de réplication à la place (ou en plus) du serveur de configuration.
 
 Le tableau suivant décrit ce scénario :

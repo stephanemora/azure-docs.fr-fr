@@ -4,15 +4,16 @@ description: Décrit les trois méthodes disponibles la tarification des offres 
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e398b43e679fb6420c2256e77d34359ae537ac1c
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868740"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827339"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Tarification des offres de machine virtuelle
 ==================================
@@ -103,7 +104,7 @@ L'éditeur peut également charger sa feuille de calcul de tarification sur un e
 <a name="new-core-sizes-added-on-722019"></a>Nouvelles tailles de cœurs ajoutées le 02/07/2019
 ---------------------------
 
-Les éditeurs de machines virtuelles ont été avertis le 2 juillet 2019 de l’ajout de nouveaux tarifs pour les nouvelles tailles de machines virtuelles Azure (en fonction du nombre de cœurs).  Les nouveaux tarifs sont adaptés aux tailles de cœurs suivantes : 10, 44, 48, 60, 120, 208 et 416.  Pour les machines virtuelles existantes, de nouveaux tarifs pour ces tailles de cœurs ont été calculés automatiquement en fonction des tarifs actuels.  Les éditeurs ont jusqu’au 1er août 2019 pour passer en revue les prix supplémentaires et apporter les modifications souhaitées.  Après cette date, s’ils n’ont pas encore été republiés par l’éditeur, les prix automatiquement calculés pour ces nouvelles tailles de cœurs prendront effet.
+Les éditeurs de machines virtuelles ont été avertis le 2 juillet 2019 de l’ajout de nouveaux tarifs pour les nouvelles tailles de machines virtuelles Azure (en fonction du nombre de cœurs).  Les nouveaux tarifs concernent les tailles de cœurs suivantes : 10, 44, 48, 60, 120, 208 et 416.  Pour les machines virtuelles existantes, de nouveaux tarifs pour ces tailles de cœurs ont été calculés automatiquement en fonction des tarifs actuels.  Les éditeurs ont jusqu’au 1er août 2019 pour passer en revue les prix supplémentaires et apporter les modifications souhaitées.  Après cette date, s’ils n’ont pas encore été republiés par l’éditeur, les prix automatiquement calculés pour ces nouvelles tailles de cœurs prendront effet.
 
 
 <a name="regions"></a>Régions
@@ -198,7 +199,7 @@ Le tableau suivant présente les différentes régions que vous pouvez spécifie
 | UA         | Ukraine              | UAH               |
 | AE         | Émirats Arabes Unis | EUR               |
 | GB         | Royaume-Uni       | GBP               |
-| FR         | États-Unis        | USD               |
+| US         | États-Unis        | USD               |
 | UY         | Uruguay              | UYU               |
 | VE         | Venezuela            | USD               |
 |  |  |  |

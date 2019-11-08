@@ -4,15 +4,16 @@ description: Conditions préalables à la publication d’un conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 87727d23b407853aa9dad8a52c0a1cea446353bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c4e5520a2055fafee586fc369c21acfa36037c6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942552"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823133"
 ---
 # <a name="container-publishing-prerequisites"></a>Conditions préalables à la publication des conteneurs
 

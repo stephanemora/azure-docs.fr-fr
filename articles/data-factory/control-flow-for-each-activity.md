@@ -1,5 +1,5 @@
 ---
-title: Activité ForEach dans Azure Data Factory | Microsoft Docs
+title: Activité ForEach dans Azure Data Factory
 description: L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection et d’exécuter des activités spécifiées.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 319f4e722184ce840d43b8f23e61711851a6d4a0
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b8f95f22553a3b4639b1aba6576ce844116ae20b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142477"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679879"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Activité ForEach dans Azure Data Factory
 L’activité ForEach définit un flux de contrôle répétitif dans votre pipeline. Elle permet d’effectuer une itération sur une collection, et exécute des activités spécifiées dans une boucle. L’implémentation en boucle de cette activité est semblable à la structure d’exécution en boucle de Foreach dans les langages de programmation.

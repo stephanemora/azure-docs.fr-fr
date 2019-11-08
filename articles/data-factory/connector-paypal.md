@@ -1,5 +1,5 @@
 ---
-title: Copier des données de PayPal avec Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données de PayPal avec Azure Data Factory (préversion)
 description: Découvrez comment utiliser l’activité de copie pour copier des données de PayPal vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 9c15f942d10b0535540bdd03ec6d64aa4d99f528
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 106fa42fc7c9feb51ab6bf7f1be5a13a08d234a0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089814"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680493"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Copier des données de PayPal avec Azure Data Factory (préversion)
 
@@ -149,9 +149,9 @@ Pour copier des données de PayPal, affectez la valeur **PayPalSource** au type 
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Propriétés de l’activité de recherche
+## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
-Pour en savoir plus sur les propriétés, consultez [Activité de recherche](control-flow-lookup-activity.md).
+Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

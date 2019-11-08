@@ -1,5 +1,5 @@
 ---
-title: Scale-out avec Azure SQL Database | Microsoft Docs
+title: Montée en charge
 description: Les développeurs de Software as a Service (SaaS) peuvent facilement créer des bases de données élastiques et évolutives dans le cloud à l'aide de ces outils
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e5ae56b2050243831f10863bbb4184a9e89f5911
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3e30e54eb18eb5d487da6821d285109b1a22297f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568400"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823614"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Scale-out avec Azure SQL Database
 Vous pouvez facilement effectuer un scale-out sur les bases de données Azure SQL à l’aide des outils de **base de données élastique**. Ces outils et fonctionnalités vous permettent d’utiliser les ressources d’**Azure SQL Database** pour créer des solutions pour les charges de travail transactionnelles et notamment les applications Software as a Service (SaaS). Les fonctionnalités de base de données élastique se composent des éléments suivants :

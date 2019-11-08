@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044418"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469732"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Gérer les mises à jour et les correctifs pour vos machines virtuelles Azure
 
@@ -47,8 +47,9 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Pour ce tutoriel, vous devez d’abord activer la gestion des mises à jour sur votre machine virtuelle :
 
-1. Dans le menu de gauche du portail Azure, sélectionnez **Machines virtuelles**. Sélectionnez une machine virtuelle dans la liste.
-2. Sur la page de la machine virtuelle, sous **OPÉRATIONS**, sélectionnez **Gestion des mises à jour**. Le volet **Activer la gestion des mises à jour** s’ouvre.
+1. Dans le menu [Portail Azure](https://portal.azure.com), sélectionnez **Machines virtuelles**, ou recherchez et sélectionnez **Machines virtuelles** sur la page **Accueil**.
+1. Sélectionnez la machine virtuelle pour laquelle vous souhaitez activer Update Management.
+1. Sur la page de la machine virtuelle, sous **OPÉRATIONS**, sélectionnez **Gestion des mises à jour**. Le volet **Activer la gestion des mises à jour** s’ouvre.
 
 Une validation est effectuée pour déterminer si la gestion des mises à jour est activée pour cette machine virtuelle. Cette validation inclut la vérification de l’existence d’un espace de travail Azure Log Analytics et d’un compte Automation lié, et détermine si la solution de gestion des mises à jour se trouve dans l’espace de travail.
 

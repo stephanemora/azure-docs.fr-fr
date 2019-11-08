@@ -3,18 +3,18 @@ title: Bien démarrer avec Azure Media Clipper | Microsoft Docs
 description: Bien démarrer avec Azure Media Clipper, outil de création de clips vidéo à partir d’éléments AMS
 services: media-services
 keywords: clip;sous-clip;encodage;média
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ecc81967d6a95f817b10bce7f8396d9379bc94
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466270"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685083"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Créer des clips avec Azure Media Clipper
 Cette section montre les étapes de base permettant de bien démarrer avec Azure Media Clipper. Les sections qui suivent fournissent des détails sur la configuration d’Azure Media Clipper.

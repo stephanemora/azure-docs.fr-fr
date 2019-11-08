@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 864c806f146d7da4e45cc2b58159e5cad23364f8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c1e96a3acf2a576e0656afb3abea9dd787bf989a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829986"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750054"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
 
@@ -24,7 +24,7 @@ Avant d’effectuer l’une des étapes ci-dessous, vérifiez que les machines v
 - [Spécifications réseau](disk-encryption-overview.md#networking-requirements)
 - [Conditions requises pour le stockage des clés de chiffrement](disk-encryption-overview.md#encryption-key-storage-requirements)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Résolution des problèmes de chiffrement de disque de système d’exploitation Linux
 

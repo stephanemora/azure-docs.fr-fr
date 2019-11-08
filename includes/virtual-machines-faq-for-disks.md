@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973016"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73522770"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -144,6 +144,30 @@ Le partitionnement GPT peut être utilisé uniquement sur les disques de donnée
 **Quels types de disque prennent en charge les captures instantanées ?**
 
 Les disques SSD Premium, SSD Standard et HDD Standard prennent en charge les captures instantanées. Pour ces trois types de disques, les captures instantanées sont prises en charge pour toutes les tailles (dont les disques allant jusqu’à 32 To). Les disques Ultra ne prennent pas en charge les captures instantanées.
+
+### <a name="disk-reservation"></a>Réservation de disque
+
+**Qu’est-ce que la réservation de disque Azure ?**
+La réservation de disque est la possibilité d’acheter à l’avance un an de stockage sur disque, ce qui réduit le coût total pour vous.
+
+**Quelles sont les options offertes par la réservation de disque Azure ?**
+La réservation de disque Azure offre la possibilité d’acheter des SSD Premium dans les références SKU spécifiées de P30 (1 Tio) à P80 (32 Tio) pour une période d’un an. Il n’existe aucune limitation sur la quantité minimale de disques nécessaires pour acheter une réservation de disque. En outre, vous pouvez choisir de payer avec un paiement initial unique ou par mensualités. Aucun coût transactionnel supplémentaire n’est appliqué pour les disques managés SSD Premium.
+
+Les réservations sont effectuées sous forme de disques, et non de capacité. En d’autres termes, lorsque vous réservez un disque P80 (32 Tio), vous recevez un seul disque P80 ; vous ne pouvez pas ensuite diviser cette réservation spécifique en deux disques P70 plus petits (16 Tio). Vous pouvez, bien sûr, réserver autant de disques que vous le souhaitez, y compris deux disques P70 (16 Tio) distincts.
+
+**Comment est facturée la réservation de disque Azure ?**
+- Pour les clients sous Contrat Entreprise, l’engagement financier Azure est d’abord utilisé pour acheter des réservations de disques Azure. Dans les scénarios où les clients sous Contrat Entreprise ont utilisé tout leur engagement financier, ils peuvent toujours acheter des réservations de disque, et le paiement initial unique pour celles-ci sera porté sur la facture de dépassement suivante.
+
+- Pour les clients effectuant un achat via Azure.com, au moment de l’achat, l’ensemble du paiement initial des réservations de disque Azure (ou des paiements mensuels fixes) est débité sur la carte bancaire enregistrée.
+
+**Comment la réservation de disque Azure est-elle appliquée ?**
+La réservation de disque suit un modèle similaire aux instances de machines virtuelles réservées. La différence réside dans le fait qu’une réservation de disque ne peut pas être appliquée à différentes références SKU, contrairement aux instances de machines virtuelles. Pour plus d’informations sur les instances de machine virtuelle, consultez [Économiser grâce aux instances de machines virtuelles Azure réservées](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md). 
+
+**Puis-je utiliser mon stockage de données acheté par le biais de la réservation de disque Azure dans plusieurs régions ?**
+La réservation de disque Azure est achetée pour une région et une référence SKU spécifiques (par exemple, P30 dans USA Est 2) et ne peut donc pas être utilisée en dehors de ces limites. Vous pouvez toujours acheter une réservation de disque Azure supplémentaire pour vos besoins de stockage sur disque dans d’autres régions ou références SKU.
+
+**Que se passe-t-il lorsque ma réservation de disque Azure expire ?**
+Vous recevez une notification par e-mail 30 jours avant l’expiration, puis à nouveau au moment de l’expiration. Une fois la réservation expirée, les disques déployés continuent à fonctionner et sont facturés en fonction au [tarif de paiement à l'utilisation](https://azure.microsoft.com/pricing/details/managed-disks/) le plus récent.
 
 ## <a name="ultra-disks"></a>Disques Ultra
 
@@ -334,6 +358,18 @@ OUI
 Non. Mais si vous exportez un disque dur virtuel vers un compte de stockage chiffré depuis un disque géré chiffré ou un instantané, il sera chiffré. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Disques Premium : gérés et non gérés
+
+**Quelles régions prennent en charge la fonctionnalité de rafale pour la taille de disque SSD Premium applicable ?**
+
+La fonctionnalité de rafale est actuellement prise en charge dans la région Azure USA Centre-Ouest.
+
+**Dans quelles régions les tailles de disque géré 4/8/16 Gio (P1/P2/P3, E1/E2/E3) sont-elles prises en charge ?**
+
+Ces nouvelles tailles de disque sont actuellement prises en charge dans la région Azure USA Centre-Ouest.
+
+**Les tailles de disque P1/P2/P3 sont-elles prises en charge pour les disques non managés ou les objets blob de pages ?**
+
+Non, elles sont uniquement prises en charge sur les disques managés SSD Premium. 
 
 **Si une machine virtuelle utilise une taille qui prend en charge les disques SSD Premium, comme DSv2, puis-je attacher des disques de données Standard et Premium ?** 
 

@@ -4,15 +4,16 @@ description: Solutions intégrées dans la Place de marché Azure et Microsoft A
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 8bffb2c71f5e07499338ea32e0c064392af81684
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706312"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818557"
 ---
 # <a name="publish-an-integrated-solution"></a>Publier une solution intégrée
 

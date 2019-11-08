@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: b363a994024b4a53703b6107ef4190129e900547
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 11/04/2019
+ms.openlocfilehash: 1c903dcd9015de47c5364c5abd65569d17e7e21f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950650"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604136"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recommandations sur les performances dans Azure Database for MariaDB
 
 **S’applique à :** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> La fonctionnalité Recommandations sur les performances est en préversion.
 
 La fonctionnalité Recommandations sur les performances analyse vos bases de données pour créer des suggestions personnalisées afin d’améliorer les performances. Pour produire les recommandations, l’analyse examine les différentes caractéristiques de la base de données, y compris le schéma. Activez le [Magasin des requêtes](concepts-query-store.md) sur votre serveur pour utiliser pleinement la fonctionnalité Recommandations sur les performances. Si le schéma de performances est désactivé, l’activation du magasin de données des requêtes activera performance_schema et un sous-ensemble d’instruments de schéma de performances requis pour la fonctionnalité. Après avoir implémenté une recommandation sur les performances, vous devez tester les performances pour évaluer l’impact des changements.
 

@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 63e61844ddb5bd0f0ed52b67e26ea5bf1857fd2b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608531"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579923"
 ---
 # <a name="azure-blockchain-service-security"></a>Sécurité d’Azure Blockchain Service
 

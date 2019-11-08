@@ -1,5 +1,5 @@
 ---
-title: Surveiller et améliorer les performances - Azure SQL Database | Microsoft Docs
+title: Surveiller et améliorer les performances
 description: Azure SQL Database fournit des outils de performances pour vous aider à identifier les zones susceptibles d’améliorer les performances actuelles des requêtes.
 ms.service: sql-database
 ms.subservice: performance
@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 39a100c487588fb717c642036c7713150a95e047
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f7e5f698a822cd68d8319102e1b8bddbbfa8ad70
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567083"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821336"
 ---
 # <a name="monitor-and-improve-performance"></a>Surveiller et améliorer les performances
 

@@ -4,7 +4,7 @@ description: Cet article fournit une vue d’ensemble de la sécurité opératio
 services: security
 documentationcenter: na
 author: unifycloud
-manager: barbkess
+manager: rkarlin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 52d74983458a2c6a4de27ec91bc23a8dd9bee387
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899816"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643786"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 
@@ -34,7 +34,7 @@ Une équipe des opérations informatiques est chargée de gérer l’infrastruct
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](/azure/azure-monitor/overview) collecte des données à partir de sources managées dans des banques de données centrales. Ces données peuvent inclure des événements, des données de performance ou des données personnalisées fournies par l’API. Une fois collectées, les données sont disponibles pour les fonctions d’alerte, d’analyse et d’exportation. 
+[Azure Monitor](/azure/azure-monitor/overview) collecte des données à partir de sources managées dans des banques de données centrales. Ces données peuvent inclure des événements, des données de performance ou des données personnalisées fournies par l’API. Une fois collectées, les données sont disponibles pour les fonctions d’alerte, d’analyse et d’exportation.
 
 Vous pouvez consolide rles données provenant de différentes sources, et combiner celles de vos services Azure à celles de votre environnement local. La solution Journaux Azure Monitor dissocie clairement la collecte des données, de l’action exécutée sur celles-ci, afin que toutes les actions soient disponibles pour tous les types de données.
 
@@ -44,9 +44,9 @@ Vous pouvez consolide rles données provenant de différentes sources, et combin
 
 ### <a name="backup"></a>Sauvegarde
 
-[Sauvegarde Azure](/azure/backup/backup-introduction-to-azure-backup) est le service Azure qui vous permet de sauvegarder (ou protéger) et de restaurer vos données dans Microsoft Cloud. Il remplace votre solution de sauvegarde locale ou hors site par une solution cloud à la fois fiable, sécurisée et économique. 
+[Sauvegarde Azure](/azure/backup/backup-introduction-to-azure-backup) est le service Azure qui vous permet de sauvegarder (ou protéger) et de restaurer vos données dans Microsoft Cloud. Il remplace votre solution de sauvegarde locale ou hors site par une solution cloud à la fois fiable, sécurisée et économique.
 
-Sauvegarde Azure propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou le serveur approprié, ou encore dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Azure Recovery Services. 
+Sauvegarde Azure propose plusieurs composants que vous pouvez télécharger et déployer sur l’ordinateur ou le serveur approprié, ou encore dans le cloud. Vous déployez un composant (ou un agent) en fonction de ce que vous souhaitez protéger. Vous pouvez utiliser tous les composants de Sauvegarde Azure (que vous protégiez des données en local ou dans le cloud) pour sauvegarder des données dans un coffre Azure Recovery Services.
 
 Pour plus d’informations, consultez le [tableau des composants de Sauvegarde Azure](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use).
 
@@ -102,7 +102,7 @@ Les problèmes de performances dans votre application cloud peuvent affecter vot
 
 [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) est l’outil de base pour la surveillance des services s’exécutant sur Azure. Il vous fournit des données au niveau de l’infrastructure sur le débit d’un service et l’environnement. Si vous gérez toutes vos applications dans Azure et décidez d’augmenter ou de diminuer les ressources, Azure Monitor est l’outil qu’il vous faut.
 
-Vous pouvez également utiliser les données de surveillance pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances de l’application ou sa facilité de gestion, ou à automatiser des actions qui exigeraient normalement une intervention manuelle. 
+Vous pouvez également utiliser les données de surveillance pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances de l’application ou sa facilité de gestion, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
 
 Azure Monitor comprend les composants suivants :
 
@@ -154,13 +154,15 @@ Pour plus d’informations, consultez [Créer une instance d’Azure Network Wat
 
 ## <a name="cloud-service-provider-access-transparency"></a>Transparence de l’accès du fournisseur de service cloud
 
-[Customer Lockbox pour Microsoft Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/) est un service intégré au portail Azure qui vous offre un contrôle explicite dans les rares cas où un ingénieur du support Microsoft peut avoir besoin d’accéder à vos données pour résoudre un problème. Les cas où un ingénieur du support Microsoft requiert des autorisations élevées pour résoudre un problème sont rares, par exemple : débogage d’un problème d’accès à distance. Dans ces cas, les ingénieurs Microsoft utilisent le service d’accès juste-à-temps qui fournit une autorisation limitée avec un accès limité au service.  
+[Customer Lockbox pour Microsoft Azure](customer-lockbox-overview.md) est un service intégré au portail Azure qui vous offre un contrôle explicite dans les rares cas où un ingénieur du support Microsoft peut avoir besoin d’accéder à vos données pour résoudre un problème.
+Les cas où un ingénieur du support Microsoft requiert des autorisations élevées pour résoudre un problème sont rares, par exemple : débogage d’un problème d’accès à distance. Dans ces cas, les ingénieurs Microsoft utilisent le service d’accès juste-à-temps qui fournit une autorisation limitée avec un accès limité au service.  
 Microsoft a toujours obtenu le consentement des clients concernant l’accès, mais Customer Lockbox vous permet à présent de vérifier et d’approuver ou de refuser ces demandes à partir du portail Azure. Les ingénieurs du support Microsoft n’obtiendront l’accès que si vous approuvez la requête.
 
 ## <a name="standardized-and-compliant-deployments"></a>Déploiements standardisés et conformes
 
 [Azure Blueprints](/azure/governance/blueprints/overview) permet aux architectes cloud et aux membres de l’informatique centrale de définir un ensemble reproductible de ressources Azure qui implémentent et respectent les normes, modèles et exigences d’une organisation.  
-Cela permet aux équipes DevOps de créer et de mettre en place rapidement de nouveaux environnements et de savoir qu’elles les génèrent à l’aide d’une infrastructure qui respecte la conformité de l’organisation. Blueprints fournit un moyen déclaratif d’orchestrer le déploiement de divers modèles de ressources et d’autres artefacts, notamment ceux-ci : 
+Cela permet aux équipes DevOps de créer et de mettre en place rapidement de nouveaux environnements et de savoir qu’elles les génèrent à l’aide d’une infrastructure qui respecte la conformité de l’organisation.
+Blueprints fournit un moyen déclaratif d’orchestrer le déploiement de divers modèles de ressources et d’autres artefacts, notamment ceux-ci :
 
 - Affectations de rôles
 - Affectations de stratégies
@@ -189,6 +191,6 @@ Les professionnels DevOps expérimentés adoptent plusieurs des pratiques suivan
 
 Pour en savoir plus sur la solution Security and Audit, consultez les articles suivants :
 
-- [Sécurité et conformité](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Sécurité et conformité](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Centre de sécurité Azure](/azure/security-center/security-center-intro)
 - [Azure Monitor](/azure/azure-monitor/overview)

@@ -1,5 +1,5 @@
 ---
-title: Restaurer un Azure SQL Data Warehouse existant | Microsoft Docs
+title: Restaurer un entrepôt de données existant
 description: Guide pratique pour la restauration d’un Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 7470dd96109823057a174d2ecf097583dcb51898
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a73658510111df44c522d88ed5eceb7dcfa80d0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575276"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685537"
 ---
 # <a name="restore-an-existing-azure-sql-data-warehouse"></a>Restaurer un Azure SQL Data Warehouse existant
 

@@ -1,5 +1,5 @@
 ---
-title: Transformer des données à l’aide d’une activité Hadoop MapReduce dans Azure Data Factory | Microsoft Docs
+title: Transformer des données à l’aide d’une activité Hadoop MapReduce dans Azure Data Factory
 description: Découvrez comment traiter des données en exécutant des programmes Hadoop MapReduce sur un cluster Azure HDInsight à partir d’une fabrique de données Azure.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: ccc194dd4120762a30da3ad28cdabed6faf53ba2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49e00d9a47f92fb30a29e7051cba35f54bde3700
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611500"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683853"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Hadoop MapReduce dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -62,7 +62,7 @@ Consultez [Pig](transform-data-using-hadoop-pig.md) et [Hive](transform-data-usi
 
 | Propriété          | Description                              | Obligatoire |
 | ----------------- | ---------------------------------------- | -------- |
-| Nom              | Nom de l’activité                     | OUI      |
+| name              | Nom de l’activité                     | OUI      |
 | description       | Texte décrivant la raison motivant l’activité. | Non       |
 | Type              | Pour l’activité MapReduce, le type d’activité est HDinsightMapReduce. | OUI      |
 | linkedServiceName | Référence au cluster HDInsight enregistré en tant que service lié dans Data Factory. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md). | OUI      |

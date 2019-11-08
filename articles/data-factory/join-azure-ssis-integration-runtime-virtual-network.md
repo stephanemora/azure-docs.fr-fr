@@ -1,5 +1,5 @@
 ---
-title: Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel | Microsoft Docs
+title: Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 description: Découvrez comment joindre un runtime d’intégration Azure-SSIS à un réseau virtuel Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 065f69cc98f05fcb19648f190a7dba4b43da1a9a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d36900a1ce05eaf022637a6ef6b866fe0d190b17
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326623"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672732"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 Lorsque vous utilisez SQL Server Integration Services (SSIS) dans Azure Data Factory , vous devez joindre votre runtime d’intégration Azure-SSIS IR à un réseau virtuel Azure dans les scénarios suivants : 

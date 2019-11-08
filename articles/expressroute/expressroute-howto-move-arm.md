@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34dd7ed4c6352ed90793288f918d78b7fb07af80
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365177"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748246"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Déplacer des circuits ExpressRoute du modèle de déploiement classique vers le modèle de déploiement Resource Manager à l’aide de PowerShell
 
@@ -21,7 +21,7 @@ Pour utiliser un circuit ExpressRoute pour les modèles de déploiement classiqu
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 * Vérifiez que vous avez installé les modules Azure PowerShell classique et 	Az localement sur votre ordinateur. Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
 * Veillez à consulter les [conditions préalables](expressroute-prerequisites.md), la [configuration requise pour le routage](expressroute-routing.md) et les [flux de travail](expressroute-workflows.md) avant de commencer la configuration.

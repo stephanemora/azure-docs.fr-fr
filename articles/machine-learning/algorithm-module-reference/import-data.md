@@ -1,53 +1,64 @@
 ---
 title: 'Importer des données : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Importer des données dans Azure Machine Learning service pour charger des données dans un pipeline de Machine Learning à partir de services de données cloud existants.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Importer des données dans Azure Machine Learning pour charger des données dans un pipeline de Machine Learning à partir de services de données cloud existants.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: fef7d686479b24b0402ab6f1e6990df74231b8d6
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 5fa8d3984c758d0bf95372864f3bffeb6f302c83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693147"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497808"
 ---
 # <a name="import-data-module"></a>Module Importer des données
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning Service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
-Utilisez ce module pour charger des données dans un pipeline de Machine Learning des services de données cloud existants.  
+Utilisez ce module pour charger des données dans un pipeline de Machine Learning des services de données cloud existants. 
 
-Dans un premier temps, choisissez le type de stockage informatique à partir duquel vous effectuez la lecture et terminez les paramètres supplémentaires. Après avoir défini les données souhaitées et une fois connecté à la source, [Importer des données](./import-data.md) déduit le type de données de chaque colonne en fonction des valeurs qu’elle contient et charge les données dans votre espace de travail Azure Machine Learning. La sortie de [Importer des données](./import-data.md) est un jeu de données qui peut être utilisé avec n’importe quel pipeline.
+> [!Note]
+> Toutes les fonctionnalités fournies par ce module peuvent être effectuées par le **magasin de données** et les **jeux de données** dans la page d’accueil de l’espace de travail. Nous vous recommandons d’utiliser le **magasin de données** et le **jeu de données** qui comprend des fonctionnalités supplémentaires telles que la surveillance des données. Pour plus d’informations, consultez l’article [Comment accéder aux données](../service/how-to-access-data.md) et [Comment inscrire des jeux de données](../service/how-to-create-register-datasets.md).
+> Une fois que vous avez inscrit un jeu de données, vous pouvez le trouver dans la catégorie **Jeux de données** -> **Mes jeux de données** dans l’interface du concepteur. Ce module est réservé aux utilisateurs Studio (classique) pour une expérience familière. 
+>
 
-  
-Si votre source de données change, vous pouvez actualiser le jeu de données et ajouter de nouvelles données en réexécutant [Importer des données](./import-data.md). Toutefois, si vous ne souhaitez pas relire la source chaque fois que vous exécutez l’expérience, définissez l’option **Utiliser les résultats mis en cache** sur TRUE. Lorsque cette option est sélectionnée, le module vérifie si le pipeline a déjà été exécuté avec la même source et les mêmes options d’entrée. Si une exécution précédente est trouvée, les données dans le cache sont utilisées plutôt que de recharger les données de la source.
- 
+Tout d’abord, choisissez la source à partir de laquelle vous effectuez la lecture et terminez les paramétrages supplémentaires. Le module **Importer des données** prend en charge les données lues à partir des sources suivantes :
 
-## <a name="data-sources"></a>Sources de données
+- URL via HTTP
+- Stockages cloud Azure via les [**magasin de données**](../service/how-to-access-data.md))
+    - Conteneur d’objets blob Azure
+    - Partage de fichiers Azure
+    - Azure Data Lake
+    - Azure Data Lake Gen2
+    - Azure SQL Database
+    - Azure PostgreSQL    
 
-Le module Importer des données prend en charge les sources de données suivantes. Cliquez sur les liens pour obtenir des instructions détaillées et des exemples d’utilisation de chaque source de données. 
- 
-Si vous n’êtes pas sûr de l’emplacement ou vous devez stocker vos données, consultez ce guide de scénarios de données courants dans le processus de science des données :  [Scénarios d’analyses avancées dans Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-plan-sample-scenarios). 
+Avant d’utiliser le stockage cloud, vous devez inscrire un magasin de données dans votre espace de travail Azure Machine Learning. Pour plus d’informations, consultez la page [Accès aux données](../service/how-to-access-data.md). 
 
+Après avoir défini les données souhaitées et une fois connecté à la source, **[Importer des données](./import-data.md)** déduit le type de données de chaque colonne en fonction des valeurs qu’elle contient et charge les données dans votre pipeline de concepteur. La sortie de **Importer des données** est un jeu de données qui peut être utilisé avec n’importe quel pipeline de concepteur.
 
-|Source de données| Utiliser avec|
-|-----------|-----------|  
-|[URL web via HTTP](./import-from-web-url-via-http.md)|Obtenir des données qui sont hébergées sur une URL web qui utilise le protocole HTTP et qui a été fournie dans les formats CSV, TSV, ARFF ou SvmLight|  
-|[Importer à partir du Stockage Blob Azure](./import-from-azure-blob-storage.md) |Obtenir des données qui sont stockées dans le service blob Azure|  
-|[Importer à partir d’Azure SQL Database](./import-from-azure-sql-database.md) |Obtenir des données d’Azure SQL Database|
+Si votre source de données change, vous pouvez actualiser le jeu de données et ajouter de nouvelles données en réexécutant [Importer des données](./import-data.md). Toutefois, si vous ne souhaitez pas relire la source chaque fois que vous exécutez le pipeline, définissez l’option **Utiliser les résultats mis en cache** sur TRUE. Lorsque cette option est sélectionnée, le module vérifie si le pipeline a déjà été exécuté avec la même source et les mêmes options d’entrée. Si une exécution précédente est trouvée, les données dans le cache sont utilisées plutôt que de recharger les données de la source.
 
 ## <a name="how-to-configure-import-data"></a>Comment configurer Importer des données
- 
-1. Ajoutez le module **Importer des données** à votre pipeline. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) de l’interface.
 
-1. Cliquez sur **Source de données**, puis choisissez le type de stockage informatique que vous consultez. 
+1. Ajoutez le module **Importer des données** à votre pipeline. Vous trouverez ce module dans la catégorie **Data Input and Output** (Entrée et sortie de données) du concepteur.
 
-    Les paramètres supplémentaires varient selon le type de stockage que vous choisissez, et si le stockage est sécurisé ou non. Vous devrez peut-être fournir le nom de compte, le type de fichier ou les informations d’identification. Certaines sources ne nécessitent pas d’authentification. Pour d’autres, vous devrez peut-être connaître le nom du compte, une clé ou le nom du conteneur.
+1. Cliquez sur **Launch Data Import Wizard** (Lancer l’Assistant Importation de données) pour configurer la source de données à l’aide d’un Assistant.
+
+    L’Assistant obtient le nom et les informations d’identification du compte, et vous aide à configurer d’autres options. Si vous modifiez une configuration existante, il charge tout d’abord les valeurs actuelles.
+
+1. Sélectionnez **Source de données**, puis choisissez le type de source de données. Cela peut être HTTP ou un magasin de données.
+
+    Si vous choisissez le magasin de données, vous pouvez sélectionner les magasins de données existants déjà inscrits dans votre espace de travail Azure Machine Learning ou créer un nouveau magasin de données. Ensuite, définissez le chemin d’accès des données à importer dans le magasin de données. Vous pouvez facilement parcourir le chemin d’accès en cliquant sur **Parcourir le chemin d’accès** ![import-data-path](media/module/import-data-path.png)
+
+1. Sélectionnez le schéma d’aperçu pour filtrer les colonnes que vous souhaitez inclure. Vous pouvez également définir des paramètres avancés tels que les délimiteurs dans les options d’analyse.
+
+    ![import-data-preview](media/module/import-data.png)
 
 1. Sélectionnez l’option **Use cached results** (Utiliser les résultats mis en cache) si vous souhaitez mettre en cache le jeu de données pour le réutiliser lors des exécutions suivantes.
 
@@ -57,11 +68,11 @@ Si vous n’êtes pas sûr de l’emplacement ou vous devez stocker vos données
 
 1. Exécuter le pipeline.
 
-    Lorsque le module Importer des données charge les données dans l’interface, il déduit le type de données de chaque colonne en fonction des valeurs qu’elle contient : numériques ou par catégorie.
+    Lorsque le module Importer des données charge les données dans le concepteur, il déduit le type de données de chaque colonne en fonction des valeurs qu’elle contient : numériques ou par catégorie.
 
-    - Si un en-tête est présent, il est utilisé pour nommer les colonnes du jeu de données de sortie.
+    Si un en-tête est présent, il est utilisé pour nommer les colonnes du jeu de données de sortie.
 
-    - S’il n’existe aucun en-tête de colonne dans les données, les nouveaux noms de colonnes sont générés au format col1, col2, ... , coln*.
+    S’il n’existe aucun en-tête de colonne dans les données, les nouveaux noms de colonnes sont générés au format col1, col2, ... , coln*.
 
 ## <a name="results"></a>Résultats
 
@@ -71,7 +82,6 @@ Si vous souhaitez enregistrer les données pour les réutiliser, plutôt que d�
 
 Après l’importation des données, d’autres préparations seront peut-être nécessaires pour modélisation et l’analyse :
 
-
 - Utilisez [Modifier les métadonnées](./edit-metadata.md) pour modifier les noms de colonnes, traiter une colonne comme un autre type de données, ou pour indiquer que certaines colonnes sont des étiquettes ou des fonctionnalités.
 
 - Utilisez [Sélectionner des colonnes dans le jeu de données](./select-columns-in-dataset.md) pour sélectionner un sous-ensemble de colonnes à transformer ou à utiliser dans la modélisation. Les colonnes transformées ou supprimées peuvent facilement être réassociées au jeu de données d’origine à l’aide du module [Ajouter des colonnes](./add-columns.md).  
@@ -80,4 +90,4 @@ Après l’importation des données, d’autres préparations seront peut-être 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

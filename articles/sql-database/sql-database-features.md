@@ -1,5 +1,5 @@
 ---
-title: Comparaison des fonctionnalités Azure SQL Database | Microsoft Docs
+title: Comparaison des fonctionnalités
 description: Cet article compare les fonctionnalités de SQL Server disponibles dans différentes versions d’Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: bec70c6385c9d7ea09e1d8e41229b224423956ab
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bfb44a44967c474da319c574307c7c289b28648e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330981"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807821"
 ---
 # <a name="azure-sql-database-features"></a>Fonctionnalités d’Azure SQL Database
 

@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure | Microsoft Docs
+title: Utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure
 description: Apprenez à utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 8/30/2019
-ms.openlocfilehash: a2e98e46b168ff2e1270c6512aa515278190350f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677957"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675813"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d'un cluster Hadoop local vers le service Stockage Azure 
 

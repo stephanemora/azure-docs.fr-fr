@@ -1,7 +1,7 @@
 ---
 title: 'Exemple : Identifier les visages dans une image - API Visage'
 titleSuffix: Azure Cognitive Services
-description: Utilisez l’API Visage pour identifier les visages d’une image.
+description: Ce guide montre comment identifier des visages inconnus à l'aide d'objets PersonGroup créés à l'avance à partir de personnes connues.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c21647e3fbbc38e905a6d6ec116551004da20d5c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 10ab11669569b16293ccf9b8777190cf271e5795
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300528"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744319"
 ---
 # <a name="example-identify-faces-in-images"></a>Exemple : Identifier des visages sur des images
 

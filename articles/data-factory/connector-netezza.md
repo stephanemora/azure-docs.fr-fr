@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Netezza avec Azure Data Factory | Microsoft Docs
+title: Copier des données de Netezza avec Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Netezza vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 5d0c09c9cff2fefcc2eee20b9fd2f93dd375115f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 93fed398748dc793f0021758b5c24b6ba6d54782
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090017"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680647"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copier des données de Netezza avec Azure Data Factory
 

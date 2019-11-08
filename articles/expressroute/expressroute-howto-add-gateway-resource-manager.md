@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 6ab701adcc2122270c607604f222ac5edbceeb37
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bbb091addd078a08a075d2754256ed016d8dd086
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730508"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748338"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Configurer une passerelle de réseau virtuel pour ExpressRoute à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -30,9 +30,9 @@ Cet article vous permet d’ajouter, de redimensionner et de supprimer une passe
 
 ### <a name="working-with-powershell"></a>Travailler avec PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-[!INCLUDE [working with cloud shell](../../includes/expressroute-cloud-shell-powershell-about.md)]
+[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ### <a name="configuration-reference-list"></a>Liste de référence de configuration
 

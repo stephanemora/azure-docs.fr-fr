@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151580"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748165"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtention de tables ARP dans le modèle de déploiement Resource Manager
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Cet article vous guide tout au long des étapes d’apprentissage des tables ARP
 > 
 > 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>Protocole ARP (Address Resolution Protocol) et tables ARP
 Le protocole ARP (Address Resolution Protocol) est un protocole de couche 2 défini dans [RFC 826](https://tools.ietf.org/html/rfc826). ARP est utilisé pour mapper l’adresse Ethernet (adresse MAC) avec une adresse IP.

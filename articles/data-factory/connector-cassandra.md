@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Cassandra à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données de Cassandra à l’aide d’Azure Data Factory
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Cassandra vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 1531f2530af9c2fbc90d1bf25f04962fb4148a8d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9068874704233b3bbb5f38345648bc3455433768
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090481"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681106"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copier des données de Cassandra à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -187,7 +187,7 @@ Lors de la copie de données de Cassandra, les mappages suivants sont utilisés 
 | BOOLEAN |BOOLEAN |
 | DECIMAL |Decimal |
 | DOUBLE |DOUBLE |
-| FLOAT |Single |
+| FLOAT |Unique |
 | INET |Chaîne |
 | INT |Int32 |
 | TEXTE |String |

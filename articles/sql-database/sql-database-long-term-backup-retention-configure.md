@@ -1,5 +1,5 @@
 ---
-title: Gérer la conservation à long terme des sauvegardes Azure SQL Database | Microsoft Docs
+title: Gérer la rétention des sauvegardes à long terme
 description: Découvrez comment stocker des sauvegardes automatisées dans le stockage SQL Azure, puis les restaurer
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 08/21/2019
-ms.openlocfilehash: b90e364442e46269fc949ef4aecd9a756cff5595
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: ea9a1da775a64f8ee405ced52df01d0824836c42
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904624"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820016"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la conservation à long terme des sauvegardes Azure SQL Database
 

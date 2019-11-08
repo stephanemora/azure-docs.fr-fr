@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 018c8f7895669d437b129d92a840a393e2453a79
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3dc2a2d7c0e9fae425340ab1aa91790070708cd1
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624663"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606188"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Bibliothèque d’exécuteurs en bloc Java : Télécharger des informations
 
@@ -36,7 +36,7 @@ ms.locfileid: "69624663"
 |**Description**|La bibliothèque de l’exécuteur en bloc permet aux applications clientes d’effectuer des opérations en bloc dans des comptes Azure Cosmos DB. la bibliothèque de l’exécuteur en bloc fournit les espaces de noms BulkImport et BulkUpdate. Le module BulkImport peut ingérer en bloc des documents de manière optimisée afin que le débit provisionné pour une collection soit consommé dans ses limites maximales. Le module BulkUpdate peut mettre à jour en bloc des données existantes dans des conteneurs Azure Cosmos sous forme de correctifs.|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**Bibliothèque d’exécuteurs en bloc dans GitHub**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **Documentation de l’API**| [Documentation de référence sur l’API .NET](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+| **Documentation de l’API**| [Documentation de référence sur l’API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Prise en main**|[Bien démarrer avec le kit de développement logiciel (SDK) Java de la bibliothèque de l’exécuteur en bloc](bulk-executor-java.md)|
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](https://aka.ms/azure-jdks)|
 

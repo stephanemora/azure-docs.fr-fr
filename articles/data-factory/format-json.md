@@ -1,5 +1,5 @@
 ---
-title: Format JSON dans Azure Data Factory | Microsoft Docs
+title: Format JSON dans Azure Data Factory
 description: Cette rubrique décrit comment traiter le format JSON dans Azure Data Factory.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: a01c95cbe9281c915e89572c07fcbc203193b962
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b520575202165a3f879b17969d9ceea71eb71006
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935494"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674786"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Format JSON dans Azure Data Factory
 

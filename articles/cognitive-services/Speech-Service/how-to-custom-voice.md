@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 636c397001a3130c60fc2bf498339ad058aca374
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: f8b963c456e4d4318c6b28cd33c18ebd615487de
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959392"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464520"
 ---
 # <a name="get-started-with-custom-voice"></a>Bien démarrer avec Custom Voice
 
@@ -36,6 +36,13 @@ Le diagramme ci-dessous présente les étapes à suivre pour créer un modèle v
 3.  [Entraîner votre modèle](how-to-custom-voice-create-voice.md#build-your-custom-voice-model) – Servez-vous de vos données pour créer un modèle vocal personnalisé pour la synthèse vocale. Vous pouvez entraîner un modèle dans différentes langues. Après l’entraînement, testez votre modèle. Si vous êtes satisfait du résultat, vous pouvez le déployer.
 
 4.  [Déployer votre modèle](how-to-custom-voice-create-voice.md#create-and-use-a-custom-voice-endpoint) – Créez un point de terminaison personnalisé pour votre modèle vocal et utilisez-le pour la synthèse vocale dans vos produits, outils et applications.
+
+## <a name="custom-neural-voices"></a>Voix neurales personnalisées
+
+La fonctionnalité de personnalisation de la voix neurale est actuellement en version préliminaire publique, limitée aux clients sélectionnés. Renseignez ce [formulaire d’application](https://go.microsoft.com/fwlink/?linkid=2108737) pour commencer.
+
+> [!NOTE]
+> Dans le cadre de l’engagement de Microsoft à concevoir une IA responsable, notre intention est de protéger les droits des individus et de la société, et de favoriser des interactions transparentes entre humains et ordinateurs. C’est la raison pour laquelle la voix neuronale personnalisée n’est généralement pas disponible pour tous les clients. Vous pouvez accéder à la technologie uniquement après que vos applications ont été examinées et que vous vous êtes engagé à l’utiliser en conformité avec nos principes déontologiques. En savoir plus sur notre [processus de vérification des applications](https://aka.ms/custom-neural-gating-overview).
 
 ## <a name="set-up-your-azure-account"></a>Configurer votre compte Azure
 

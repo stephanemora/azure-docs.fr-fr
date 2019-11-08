@@ -1,20 +1,17 @@
 ---
 title: Configurer un environnement de préproduction dans Azure Spring Cloud | Microsoft Docs
 description: Découvrir comment utiliser le déploiement bleu-vert avec Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 454eeaa2568891ec35fe698cdb20c5448e10887e
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: conceptual
+ms.date: 10/31/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 24ce4dee04e4daf3eaee4144f8dc56de5867bbca
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038298"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607206"
 ---
 # <a name="how-to-set-up-a-staging-environment"></a>Guide pratique pour configurer un environnement de préproduction
 
@@ -26,33 +23,25 @@ Cet article part du principe que vous avez déjà déployé l’application Pigg
 
 Si vous souhaitez utiliser une autre application pour cet exemple, vous devez effectuer un changement simple dans une partie publique de l’application.  Ce changement permet de différencier votre déploiement de préproduction de la production.
 
->[!NOTE]
-> Avant de commencer ce guide de démarrage rapide, vérifiez que votre abonnement Azure a accès à Azure Spring Cloud.  Comme il s’agit d’un service en préversion, nous vous demandons de nous contacter pour que nous puissions ajouter votre abonnement à notre liste verte.  Si vous souhaitez explorer les fonctionnalités d’Azure Spring Cloud, contactez-nous par e-mail à l’adresse azure-spring-cloud@service.microsoft.com.
-
 >[!TIP]
 > Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez [Azure Cloud Shell](https://shell.azure.com) à partir de shell.azure.com.  Pour en savoir plus, [lisez notre documentation sur Azure Cloud Shell](../cloud-shell/overview.md).
 
 Pour effectuer ce qui est décrit dans cet article :
 
-1. [Installez Git](https://git-scm.com/)
-1. [Installer JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
-1. [Installer Maven 3.0 ou ultérieur](https://maven.apache.org/download.cgi)
-1. [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-1. [Souscrire un abonnement Azure](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>Installer l’extension Azure CLI
 
 Installer l’extension Azure Spring Cloud pour Azure CLI avec la commande suivante
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
     
 ## <a name="view-all-deployments"></a>Afficher tous les déploiements
 
 Accédez à votre instance de service dans le portail Azure et sélectionnez **Gestion du déploiement** pour afficher tous les déploiements. Vous pouvez sélectionner chaque déploiement pour obtenir des détails supplémentaires.
 
-## <a name="create-a-staging-deployment"></a>Créer un déploiement de préproduction
+## <a name="create-a-staging-deployment"></a>Créer un déploiement intermédiaire
 
 1. Dans votre environnement de développement local, apportez une petite modification à l’application passerelle de Piggy Metric. Par exemple, changez la couleur dans `gateway/src/main/resources/static/css/launch.css`. Vous pourrez ainsi différencier facilement les deux déploiements. Exécutez la commande suivante pour générer le package jar : 
 

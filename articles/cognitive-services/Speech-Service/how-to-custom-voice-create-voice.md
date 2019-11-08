@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0fdc58ba54c63ba7dd6b74f56aa91e9c2b3c0936
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 370b5005f27fbfe6ee8fc96d6dd7e467a581ec67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562833"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464617"
 ---
 # <a name="create-a-custom-voice"></a>Créer une voix personnalisée Custom Voice
 
@@ -44,7 +44,7 @@ Les jeux de données sont validés automatiquement après avoir appuyé sur le b
 
 Le tableau suivant présente les états de traitement des jeux de données importés :
 
-| État | Signification |
+| State | Signification |
 | ----- | ------- |
 | Traitement en cours | Votre jeu de données est bien reçu et est en cours de traitement. |
 | Succeeded | Votre jeu de données a été validé et est maintenant utilisable pour créer un modèle vocal. |
@@ -78,7 +78,7 @@ Une fois votre jeu de données validé, vous pouvez l’utiliser pour créer vot
     > Les noms audio en double seront retirés de l’apprentissage. Veillez à ce que les jeux de données sélectionnés ne comportent pas les mêmes noms audio dans plusieurs fichiers .zip.
 
     > [!TIP]
-    > Il est nécessaire d’utiliser des jeux de données provenant du même orateur pour obtenir des résultats de qualité. Si les jeux de données soumis pour l’apprentissage contiennent au total moins de 6 000 énoncés distincts, le modèle vocal sera entraîné suivant la technique de synthèse paramétrique statistique. Dans le cas où les données d’apprentissage dépassent 6 000 énoncés distincts, le processus d’apprentissage qui se déclenchera utilisera la technique de synthèse concaténative. La technologie de concaténation donne normalement des résultats vocaux plus naturels et plus fidèles. [Contactez l’équipe Custom Voice](mailto:speechsupport@microsoft.com) si vous souhaitez entraîner un modèle avec la dernière technologie de synthèse vocale neuronale, capable de produire une voix numérique équivalente aux [voix neuronales](language-support.md#neural-voices) proposées au public.
+    > Il est nécessaire d’utiliser des jeux de données provenant du même orateur pour obtenir des résultats de qualité. Si les jeux de données soumis pour l’apprentissage contiennent au total moins de 6 000 énoncés distincts, le modèle vocal sera entraîné suivant la technique de synthèse paramétrique statistique. Dans le cas où les données d’apprentissage dépassent 6 000 énoncés distincts, le processus d’apprentissage qui se déclenchera utilisera la technique de synthèse concaténative. La technologie de concaténation donne normalement des résultats vocaux plus naturels et plus fidèles. [Contactez l’équipe Custom Voice](https://go.microsoft.com/fwlink/?linkid=2108737) si vous souhaitez entraîner un modèle avec la dernière technologie de synthèse vocale neuronale, capable de produire une voix numérique équivalente aux [voix neuronales](language-support.md#neural-voices) proposées au public.
 
 5.  Cliquez sur **Entraîner** pour commencer à créer votre modèle vocal.
 
@@ -86,7 +86,7 @@ La table Apprentissage comporte une nouvelle entrée correspondant à ce nouveau
 
 L’état indiqué reflète le processus de conversion du jeu de données en modèle vocal :
 
-| État | Signification |
+| State | Signification |
 | ----- | ------- |
 | Traitement en cours | Le modèle vocal est en cours de création. |
 | Succeeded | Le modèle vocal a été créé et peut être déployé. |
@@ -99,6 +99,8 @@ Le temps d’apprentissage varie selon le volume de données audio traitées. Il
 
 > [!NOTE]
 > Le nombre maximal de modèles vocaux qu’il est autorisé d’entraîner par abonnement est de 10 pour les utilisateurs disposant d’un abonnement gratuit (F0) et de 100 pour ceux qui disposent d’un abonnement standard (S0).
+
+Si vous utilisez la fonctionnalité d’entraînement de voix neuronale, vous pouvez choisir d’entraîner un modèle optimisé pour les scénarios de diffusion en continu en temps réel, ou un modèle neuronal HD optimisé pour la [synthèse d’audio long](long-audio-api.md).  
 
 ## <a name="test-your-voice-model"></a>Tester un modèle vocal
 
@@ -145,3 +147,4 @@ D’un point de vue fonctionnel, le point de terminaison personnalisé est ident
 
 * [Guide : Enregistrer des échantillons vocaux](record-custom-voice-samples.md)
 * [Référence API Synthèse vocale](rest-text-to-speech.md)
+* [API Audio long](long-audio-api.md)

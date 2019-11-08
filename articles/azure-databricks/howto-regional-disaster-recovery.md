@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596901"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601763"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Récupération d’urgence régionale pour les clusters Azure Databricks
 
@@ -47,7 +47,7 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
    Cet article présente différents exemples de code qui utilisent l’interface de ligne de commande pour la plupart des étapes automatisées, puisqu’il s’agit d’un wrapper simple d'utilisation reposant sur l’API REST Azure Databricks.
 
-   Avant toute étape de migration, installez databricks-cli sur votre ordinateur de bureau ou une machine virtuelle sur laquelle vous prévoyez d’effectuer le travail. Pour plus d’informations, voir [Installer l’interface CLI Databricks](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+   Avant toute étape de migration, installez databricks-cli sur votre ordinateur de bureau ou une machine virtuelle sur laquelle vous prévoyez d’effectuer le travail. Pour plus d’informations, voir [Installer l’interface CLI Databricks](/azure/databricks/dev-tools/databricks-cli).
 
    ```bash
    pip install databricks-cli
@@ -286,7 +286,7 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
 8. **Migrez les montages Azure Data Lake Storage et Stockage Blob Azure.**
 
-   Remontez manuellement tous les points de montage [Stockage Blob Azure](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) et [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) à l’aide d’une solution basée sur des notebooks. Les ressources de stockage auront été montées dans l’espace de travail principal, et cette opération doit être répétée dans l’espace de travail secondaire. Il n’existe aucune API externe pour les montages.
+   Remontez manuellement tous les points de montage [Stockage Blob Azure](/azure/databricks/data/data-sources/azure/azure-storage.html) et [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) à l’aide d’une solution basée sur des notebooks. Les ressources de stockage auront été montées dans l’espace de travail principal, et cette opération doit être répétée dans l’espace de travail secondaire. Il n’existe aucune API externe pour les montages.
 
 9. **Migrez les scripts d’initialisation de clusters.**
 
@@ -302,7 +302,7 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
 10. **Reconfigurez et réappliquez manuellement le contrôle d’accès.**
 
-    Si votre espace de travail principal actuel est configuré pour utiliser le niveau Premium (SKU), il est probable que vous utilisiez également la [fonctionnalité de contrôle d’accès](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Si votre espace de travail principal actuel est configuré pour utiliser le niveau Premium (SKU), il est probable que vous utilisiez également la [fonctionnalité de contrôle d’accès](/azure/databricks/administration-guide/access-control/index).
 
     Si c’est le cas, réappliquez manuellement le contrôle d’accès aux ressources (notebooks, clusters, travaux, tables).
 
@@ -312,4 +312,4 @@ Si vous utilisez d’autres services Azure, veillez à implémenter les meilleur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, voir la [documentation Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).
+Pour plus d’informations, voir la [documentation Azure Databricks](index.yml).

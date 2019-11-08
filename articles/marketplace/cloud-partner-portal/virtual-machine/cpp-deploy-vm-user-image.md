@@ -4,15 +4,16 @@ description: Explique comment déployer une image de disque dur virtuel utilisat
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8421e9b7b7e2b7d13054e977da83be044b4e6af7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938244"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816646"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur
 
@@ -31,7 +32,7 @@ Copiez le modèle Azure Resource Manager de [déploiement de disque dur virtuel]
 | userStorageAccountName     | Nom du compte de stockage                                                    |
 | sNameForPublicIP           | Nom DNS de l’adresse IP publique. Il doit être en minuscules                                  |
 | subscriptionId             | Identificateur de l’abonnement Azure                                                  |
-| Lieu                   | Sélectionnez un emplacement géographique Azure standard pour le groupe de ressources                       |
+| Location                   | Sélectionnez un emplacement géographique Azure standard pour le groupe de ressources                       |
 | vmName                     | Nom de la machine virtuelle                                                    |
 | vaultName                  | Nom du Key Vault.                                                          |
 | vaultResourceGroup         | Groupe de ressources du Key Vault.

@@ -1,5 +1,5 @@
 ---
-title: Charger des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory | Microsoft Docs
+title: Charger des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 description: Utiliser Azure Data Factory pour copier des données dans Azure SQL Data Warehouse
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 538751b1e93dfec66c35ea3768bde603c198df32
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60548790"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672759"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Charger des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 
@@ -27,7 +27,7 @@ La prise en main d’Azure SQL Data Warehouse est désormais plus facile lorsque
 Azure Data Factory offre les avantages suivants pour le chargement des données dans Azure SQL Data Warehouse :
 
 * **Facilité de configuration** : assistant intuitif en 5 étapes. Aucun script nécessaire.
-* **Prise en charge étendue du magasin de données** : prise en charge intégrée d’un ensemble complet de magasins de données locaux et informatiques. Pour une liste détaillée, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+* **Prise en charge étendue du magasin de données** : prise en charge intégrée d’un ensemble complet de magasins de données locaux et dans le cloud. Pour une liste détaillée, consultez le tableau [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Sécurité et conformité** : les données sont transférées via HTTPS ou ExpressRoute. La présence globale du service garantit que vos données ne quittent jamais les limites géographiques.
 * **Performances sans précédent à l’aide de PolyBase** : PolyBase est le moyen le plus efficace de déplacer des données dans Azure SQL Data Warehouse. Utilisez la fonction blob intermédiaire pour atteindre des vitesses de charge élevées pour tous les types de magasins de données, y compris le stockage Blob Azure et Data Lake Store. (Polybase prend en charge le stockage Blob Azure et Azure Data Lake Store par défaut.) Pour plus d’informations, consultez [Performances de l’activité de copie](copy-activity-performance.md).
 
@@ -59,7 +59,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
     * **Version** : Sélectionnez **V2**.
     * **Emplacement** : Sélectionnez l’emplacement de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données utilisés par la fabrique de données peuvent se trouver dans d’autres emplacements et régions. Ces magasins de données incluent Azure Data Lake Store, Stockage Azure, Azure SQL Database, etc.
 
-3. Sélectionnez **Créer**.
+3. Sélectionnez **Create** (Créer).
 4. Une fois la création terminée, accédez à votre fabrique de données. La page d’accueil **Data Factory** devrait s’afficher comme dans l’image suivante :
    
    ![Page d’accueil Data Factory](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)

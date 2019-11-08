@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/16/2019
 ms.author: diberry
-ms.openlocfilehash: 8accac7fe6068007180403fdab27013da161b28c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: b2b32d6ccca69f330cfe15faa1446aa91fdb687a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437193"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465731"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Ressources du développeur pour implémenter Language Understanding
 
@@ -54,6 +54,17 @@ Les API de création et de point de terminaison de prédiction sont disponibles 
 |Node.js|[Création](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[Prédiction](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM - création](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring)<br>[NPM - prédiction](https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime)|[Création](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[Prédiction](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[Création à l’aide de REST](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-get-intent)<br>[Prédiction à l’aide de REST](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-add-utterance)|
 |Python|[Création et prédiction](sdk-python-quickstart-authoring-app.md)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Création](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Création](sdk-python-quickstart-authoring-app.md)<br>[Prédiction à l’aide de REST](luis-get-started-python-get-intent.md)
 
+
+### <a name="containers"></a>Containers
+
+LUIS (Language Understanding) propose un [conteneur](luis-container-howto.md) qui permet de fournir des versions locales et autonomes de votre application. 
+
+### <a name="export-and-import-formats"></a>Formats d'exportation et d'importation
+
+Language Understanding vous permet de gérer votre application et ses modèles au format JSON, au format `.LU` ([LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)), et sous forme de package compressé pour le conteneur Language Understanding. 
+
+L'importation et l'exportation de ces formats sont disponibles à partir des API et du portail LUIS. Le portail permet l'importation et l'exportation à partir de la liste Applications et de la liste Versions. 
+
 ## <a name="other-tools-and-sdks"></a>Autres outils et kits SDK
 
 Bot Framework est disponible en tant que [kit SDK](https://github.com/Microsoft/botframework) dans différents langages et en tant que service avec [Azure Bot Service](https://dev.botframework.com/). 
@@ -61,7 +72,7 @@ Bot Framework est disponible en tant que [kit SDK](https://github.com/Microsoft/
 Bot Framework fournit [plusieurs outils](https://github.com/microsoft/botbuilder-tools) pour vous aider à utiliser Language Understanding, notamment :
 
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) : créez des modèles de compréhension de la langue LUIS à l’aide de fichiers Markdown.
-* [LUIS Cli](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) : créez et gérez vos applications Luis.ai.
+* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) : créez et gérez vos applications Luis.ai.
 * [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch) : gérez des applications parentes et enfants.
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) : générez automatiquement des classes C#/Typescript de support pour vos intentions et entités LUIS.
 * [Bot emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) : application de bureau permettant aux développeurs de bots de tester et de déboguer les bots créés à l’aide du kit SDK Bot Framework.
@@ -69,4 +80,8 @@ Bot Framework fournit [plusieurs outils](https://github.com/microsoft/botbuilder
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [codes d’erreur HTTP](luis-reference-response-codes.md) courants
+* En savoir plus sur les [codes d’erreur HTTP](luis-reference-response-codes.md) courants
+* [Documentation de référence](https://docs.microsoft.com/azure/index#pivot=sdkstools) pour l'ensemble des API et des kits de développement logiciel (SDK)
+* [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) et [Azure Bot Service](https://dev.botframework.com/)
+* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
+* [Conteneurs cognitifs](../cognitive-services-container-support.md)

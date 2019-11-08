@@ -1,5 +1,5 @@
 ---
-title: Bonnes pratiques pour Azure SQL Data Sync | Microsoft Docs
+title: Bonnes pratiques pour Data Sync
 description: Découvrez les bonnes pratiques pour configurer et exécuter Azure SQL Data Sync.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 01962770c011a0107abd4e035c25d6c0d45fa0a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569376"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821850"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Bonnes pratiques pour SQL Data Sync 
 

@@ -1,5 +1,5 @@
 ---
-title: Restrictions des fonctionnalités Azure SQL Database | Microsoft Docs
+title: Restrictions des fonctionnalités
 description: Les restrictions des fonctionnalités Azure SQL Database améliorent la sécurité de votre base de données en limitant les fonctionnalités dans votre base de données grâce auxquelles des attaquants peuvent accéder aux informations qu’elles contiennent.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 03/22/2019
-ms.openlocfilehash: f2fd6cb73428c69fbb27cb93377f851a4e06221d
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ce10daca23299f838e4086426fa89d9cade314ea
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70959132"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823447"
 ---
 # <a name="azure-sql-database-feature-restrictions"></a>Restrictions des fonctionnalités Azure SQL Database
 

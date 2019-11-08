@@ -14,22 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: b6b1292e4c8874da826740d303cd0de26f9f46ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b2a86ffab0286559cfcce89252c889c530f00871
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092769"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750114"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Azure Monitor Dependency pour Windows
 
 La fonctionnalité Azure Monitor pour machines virtuelles Map obtient ses données à partir de l’agent Microsoft Dependency. L’extension de machine virtuelle de l’agent Azure VM Dependency pour Windows est publiée et prise en charge par Microsoft. L’extension installe l’agent Dependency sur des machines virtuelles Azure. Ce document présente les plateformes, configurations et options de déploiement prises en charge pour l’extension de machine virtuelle Azure VM Dependency pour Windows.
 
-## <a name="prerequisites"></a>Prérequis
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-### <a name="operating-system"></a>Système d’exploitation
+## <a name="operating-system"></a>Système d’exploitation
 
 L’extension de l’agent Azure VM Dependency pour Windows peut être exécutée sur les systèmes d’exploitation pris en charge répertoriés dans la section [Systèmes d’exploitation pris en charge](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) de l’article portant sur le déploiement d’Azure Monitor pour machines virtuelles.
 

@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccab7e59eaa925df4ba46447cef458111dc7e60a
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c4f51adbcaa5e5b750169f53a1333544365fd4f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869340"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825492"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>API de service de mesure de la Place de marché - Questions fréquentes (FAQ)
 
@@ -51,4 +52,4 @@ Oui, lorsque vous appelez l’API `GET /saas/subscriptions`, elle comprend une l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations, consultez [API du service de contrôle de la Place de marché](./marketplace-metering-service-apis.md).
+- Pour plus d’informations, consultez [API du service de mesure de la consommation de la Place de marché](./marketplace-metering-service-apis.md).

@@ -1,5 +1,5 @@
 ---
-title: Personnaliser l’installation du runtime d’intégration Azure-SSIS | Microsoft Docs
+title: 'Personnalisation l’installation du runtime d’intégration Azure-SSIS '
 description: Cet article décrit comment utiliser l’interface d’installation personnalisée du runtime d’intégration Azure-SSIS pour installer des composants supplémentaires ou modifier des paramètres
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f7b09dcbd474debc08b79599e9e2dfaaca52285a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 222672a93ccde7464ec1f37212f18996033a1460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754680"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674860"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personnalisation l’installation du runtime d’intégration Azure-SSIS
 

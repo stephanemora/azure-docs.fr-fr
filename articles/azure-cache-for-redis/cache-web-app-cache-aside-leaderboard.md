@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 8ca24e8556ee53e9d12eaea8fd9eddb07ebed490
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873033"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826392"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutoriel : Créer un leaderboard de type Cache-Aside sur ASP.NET
 
@@ -671,7 +671,7 @@ Dans cette section, vous allez configurer une nouvelle base de données SQL Azur
 
    | Paramètre       | Valeur suggérée | DESCRIPTION |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
+   | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) (Conventions d’affectation de nom). |
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
    | **Mot de passe** | Mot de passe valide | Votre mot de passe doit comporter au moins 8 caractères et contenir des caractères appartenant à trois des catégories suivantes : caractères en majuscules, caractères en minuscules, chiffres et caractères non alphanumériques. |
    | **Lieu** | *USA Est* | Sélectionnez la région où vous avez créée le cache et le service d’applications. |

@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis et vers Salesforce Service Cloud à l’aide de Azure Data Factory | Microsoft Docs
+title: Copier des données depuis et vers le Salesforce Service Cloud à l’aide de Azure Data Factory
 description: Découvrez comment copier des données du Salesforce Service Cloud vers des banques de données réceptrices prises en charge ou des magasins de données sources pris en charge vers Salesforce Service Cloud à l’aide d’une activité de copie dans un pipeline Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: ac9b12f07a27b3bb8ff66d8a5637cb656e06abc6
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 5b98e11d4b8d820c87dfb6ffc5e98b46f2095ace
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010568"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680357"
 ---
 # <a name="copy-data-from-and-to-salesforce-service-cloud-by-using-azure-data-factory"></a>Copier des données depuis et vers le Salesforce Service Cloud à l’aide de Azure Data Factory
 

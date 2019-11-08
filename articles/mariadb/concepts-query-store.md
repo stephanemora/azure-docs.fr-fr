@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: ab543ee8e379b89aaa9a1133bb75387ed9904002
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: 67ca6aa36166e8ae08bedec82441e45930976b80
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598391"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604000"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Surveiller les performances de Azure Database for MariaDB avec Magasin de données des requêtes
 
 **S’applique à :** Azure Database for MariaDB 10.2
-
-> [!IMPORTANT]
-> Magasin de données des requêtes est disponible en préversion.
 
 La fonctionnalité Magasin de données des requêtes dans Azure Database pour Mariadb fournit un moyen de suivre les performances des requêtes dans le temps. Le Magasin des requêtes simplifie la résolution des problèmes de performances en vous aidant à identifier rapidement les requête dont l’exécution est la plus longue et qui consomment le plus de ressources. Le Magasin des requêtes capture automatiquement un historique des requêtes et des statistiques d’exécution, et les conserve pour que vous les passiez en revue. Il sépare les données par fenêtres de temps afin que vous puissiez voir les modèles d’utilisation des bases de données. Les données de tous les utilisateurs, des bases de données et des requêtes sont stockées dans une base de données de schéma **mysql** dans l’instance Azure Database for MariaDB.
 
@@ -72,7 +69,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## <a name="finding-wait-queries"></a>Recherche de requêtes d’attente
 
 > [!NOTE]
-> Les statistiques d’attente ne doivent pas être activées pendant les heures de pic de charges de travail ou être activées indéfiniment pour les charges de travail sensibles. <br>Pour les charges de travail s’exécutant avec une utilisation élevée du processeur ou sur des serveurs configurés avec des vCores inférieurs, activez les statistiques d’attente avec prudence. Elles ne doivent pas être activées indéfiniment. 
+> Les statistiques d’attente ne doivent pas être activées pendant les heures de pic de charges de travail ou être activées indéfiniment pour les charges de travail sensibles. <br>Pour les charges de travail dont l’exécution implique une utilisation élevée du processeur ou qui sont exécutées sur des serveurs configurés avec des vCores inférieurs, activez les statistiques d’attente avec prudence. Elles ne doivent pas être activées indéfiniment. 
 
 Les types d’événements d’attente combinent différents événements d’attente dans des compartiments par similarité. Le Magasin des requêtes fournit le type d’événement d’attente, le nom d’événement d’attente spécifique et la requête en question. Pouvoir mettre en corrélation ces informations d’attente avec les statistiques d’exécution de requête vous permet de mieux comprendre ce qui contribue aux caractéristiques de performances des requêtes.
 

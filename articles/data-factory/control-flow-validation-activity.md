@@ -1,5 +1,5 @@
 ---
-title: Activité Validation dans Azure Data Factory | Microsoft Docs
+title: Activité Validation dans Azure Data Factory
 description: L’activité Validation interrompt l’exécution du pipeline jusqu’à ce qu’elle valide le jeu de données attaché avec certains critères spécifiés par l’utilisateur.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 77fdab04e03429d135875cb2ef223e8c23d312a2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f63c78c59d7d6be3c66ea0785389eff73e3bff60
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141601"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678367"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Activité Validation dans Azure Data Factory
 Vous pouvez utiliser une Validation dans un pipeline pour garantir que l’exécution du pipeline se poursuit uniquement une fois qu’elle a confirmé que la référence du jeu de données attaché existe, qu’elle remplit les critères spécifiés ou que le délai d’attente a été atteint.

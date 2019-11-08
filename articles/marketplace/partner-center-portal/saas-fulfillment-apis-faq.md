@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: b324d3b9dca710dca6f5f99ad50ce4d973a42d2a
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 2f8aa41604ac176181252fb7b30cdeb2f039d10f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869332"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822874"
 ---
 # <a name="saas-fulfillment-apis---faq"></a>API de traitement SaaS - Questions fréquentes (FAQ)
 
@@ -85,4 +86,4 @@ La séquence ci-dessous montre le flux lorsqu'un client Azure se désabonne dans
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations, consultez [API du service de contrôle de la Place de marché](./marketplace-metering-service-apis.md).
+- Pour plus d’informations, consultez [API du service de mesure de la consommation de la Place de marché](./marketplace-metering-service-apis.md).

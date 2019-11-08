@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c0fcb748262b20fd4550d08d74056c0219dbc09
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: edb6d96dfdca63f1bacf45ab0af01d18aafcf302
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694001"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667872"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison de la plateforme d’identités Microsoft
 
@@ -186,29 +186,26 @@ Lorsque vous êtes prêt à demander les autorisations à l’administrateur de 
 
 ```
 // Line breaks are for legibility only.
-
-GET https://login.microsoftonline.com/{tenant}/adminconsent?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&state=12345
-&redirect_uri=http://localhost/myapp/permissions
+    GET https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?
+  client_id=6731de76-14a6-49ae-97bc-6eba6914391e
+  &state=12345
+  &redirect_uri=http://localhost/myapp/permissions
+    &scope=
+    https://graph.microsoft.com/calendars.read 
+    https://graph.microsoft.com/mail.send
 ```
 
-```
-// Pro tip: Try pasting the below request in a browser!
-```
 
-```
-https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
-```
-
-| Paramètre | Condition | Description |
-| --- | --- | --- |
+| Paramètre     | Condition     | Description                                                                               |
+|--------------:|--------------:|:-----------------------------------------------------------------------------------------:|
 | `tenant` | Obligatoire | Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être fourni au format GUID ou sous forme de nom convivial OU référencé de manière générique avec `common` comme indiqué dans l’exemple. |
 | `client_id` | Obligatoire | L’**ID (client) d’application** attribué à votre application par l’environnement [Inscriptions d’applications du portail Azure](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obligatoire |URI de redirection où vous souhaitez que la réponse soit envoyée pour être gérée par votre application. Il doit correspondre exactement à l’un des URI de redirection que vous avez inscrits dans le portail d’inscription des applications. |
 | `state` | Recommandé | Une valeur incluse dans la requête, qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. Utilisez l’état pour encoder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou la vue sur laquelle ou laquelle il était positionné. |
+|`scope`        | Obligatoire      | Définit l’ensemble des autorisations demandées par l’application. Il peut s’agir d’étendues statiques (utilisant /.default) ou dynamiques.  Cela peut inclure les étendues OIDC (`openid`, `profile`, `email`). | 
 
-À ce stade, Azure AD nécessite qu’un administrateur client se connecte pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations que vous avez demandées pour votre application dans le portail d’inscription.
+
+À ce stade, Azure AD nécessite qu’un administrateur client se connecte pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations que vous avez demandées dans le paramètre `scope`.  Si vous avez utilisé une valeur (`/.default`) statique, celle-ci fonctionne comme le point de terminaison de consentement administrateur v 1.0 et demande un consentement pour toutes les étendues trouvées dans les autorisations requises pour l’application.
 
 #### <a name="successful-response"></a>Réponse correcte
 
@@ -234,7 +231,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 | Paramètre | Description |
 | --- | --- |
-| `error` | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
+| `error` | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreurs se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur. |
 
 Une fois que vous avez reçu une réponse correcte du point de terminaison de consentement de l’administrateur, votre application a acquis les autorisations qu’elle avait demandées. Vous pouvez alors demander un jeton pour la ressource souhaitée.

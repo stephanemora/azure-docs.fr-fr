@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058108"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749667"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Erreurs de démarrage BitLocker dans une machine virtuelle Azure
 
  Cet article décrit les erreurs BitLocker que vous pouvez rencontrer lorsque vous démarrez une machine virtuelle Windows dans Microsoft Azure.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptom"></a>Symptôme
 

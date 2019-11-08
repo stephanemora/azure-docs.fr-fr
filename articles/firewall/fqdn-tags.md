@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 4/23/2019
 ms.author: victorh
-ms.openlocfilehash: 7a412589f4e86f2a49d07f2d01ca34bf30fd528b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78f67b96776fa3fb1d13fbf7b385e41ca3aa59a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721171"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665559"
 ---
 # <a name="fqdn-tags-overview"></a>Présentation des balises FQDN
 
@@ -35,7 +35,7 @@ Le tableau suivant présente les balises FQDN que vous pouvez actuellement utili
 |Microsoft Active Protection Service (MAPS)|Autoriser l’accès sortant à [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/).|
 |App Service Environment (ASE)|Autoriser l’accès sortant au trafic de plateforme ASE. Cette balise ne concerne pas les points de terminaison SQL et de stockage propres au client créés par ASE. Ceux-ci doivent être activés via les [points de terminaison de service](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou ajoutés manuellement.<br><br>Pour plus d’informations sur l’intégration du Pare-feu Azure avec l’ASE, consultez [Verrouillage d’un App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase).|
 |Sauvegarde Azure|Autoriser l’accès sortant aux services de sauvegarde Azure.|
-|Azure HDInsight<br>(Préversion)|Autoriser l’accès sortant au trafic de plateforme HDInsight. Cette balise ne concerne pas le trafic SQL et de stockage propre au client provenant de HDInsight. Activer à l’aide de [points de terminaison de service](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou ajouter manuellement.|
+|Azure HDInsight|Autoriser l’accès sortant au trafic de plateforme HDInsight. Cette balise ne concerne pas le trafic SQL et de stockage propre au client provenant de HDInsight. Activer à l’aide de [points de terminaison de service](../virtual-network/tutorial-restrict-network-access-to-resources.md) ou ajouter manuellement.|
 
 > [!NOTE]
 > Lorsque vous sélectionnez une balise FQDN dans une règle d’application, le champ protocol:port doit être défini sur **https**.

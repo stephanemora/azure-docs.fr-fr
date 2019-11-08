@@ -1,5 +1,5 @@
 ---
-title: Déployer un service de fractionnement et de fusion | Microsoft Docs
+title: Déployer un service de fractionnement et de fusion
 description: Utilisez l’outil de fractionnement et de fusion pour déplacer les données entre les différentes bases de données partitionnées.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: a8c50f492c28bf1e009d15d6332e939959190a49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e7438674981115599637ac1763a8d24444fd0552
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568501"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823687"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Déployer un service de fractionnement et de fusion pour déplacer des données entre bases de données partitionnées
 

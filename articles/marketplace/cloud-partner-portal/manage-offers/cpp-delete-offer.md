@@ -4,15 +4,16 @@ description: Supprimer des offres des places de marché Microsoft Azure et AppSo
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
-ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a75fbb0c4b9c364342a406a8076128346943101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942140"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826776"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Supprimer des références SKU ou des offres de la Place de marché Microsoft Azure et d’AppSource
 

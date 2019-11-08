@@ -1,5 +1,5 @@
 ---
-title: Réglage des performances avec des vues matérialisées Azure SQL Data Warehouse | Microsoft Docs
+title: Réglage des performances avec des vues matérialisées
 description: Recommandations et points à prendre en compte quand vous utilisez des vues matérialisées pour améliorer les performances de vos requêtes.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c1cfd3b4c365a04c3d4704f37e4ed4177fa74619
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338916"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692987"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Réglage des performances avec des vues matérialisées 
 Les vues matérialisées dans Azure SQL Data Warehouse fournissent une méthode de maintenance modérée pour les requêtes analytiques complexes en vue d’obtenir des performances rapides sans aucune modification des requêtes. Cet article dispense des conseils d’ordre général sur l’utilisation des vues matérialisées.

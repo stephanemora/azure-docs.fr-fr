@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: b41241d3f0223e7c96dce4a9e98262b403cb0660
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c7011991deb632110264233ea0e7aeabe793fbb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495073"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670483"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Aide-mémoire relatif au pipeline de données automatisé pour les prévisions Azure Machine Learning
 L’ **aide-mémoire relatif au pipeline de données automatisé pour les prévisions Microsoft Azure Machine Learning** vous permet d’accéder aux technologies que vous pouvez utiliser pour transférer vos données au service web Machine Learning où celles-ci peuvent être évaluées par votre modèle d’analyse prédictive.
@@ -36,6 +36,6 @@ Téléchargez l’aide-mémoire ici : **[Aide-mémoire sur le pipeline de donné
 
 ## <a name="more-help-with-machine-learning-studio"></a>Aide supplémentaire sur Machine Learning Studio
 * Pour une vue d’ensemble de Microsoft Azure Machine Learning, consultez [Présentation de l’apprentissage automatique sur Microsoft Azure](../studio/what-is-machine-learning.md)
-* Pour plus d’informations sur le déploiement d’un service web d’évaluation, consultez [Déploiement d’un service web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+* Pour plus d’informations sur le déploiement d’un service web d’évaluation, consultez [Déploiement d’un service web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 * Pour plus d’informations sur l’utilisation d’un service web d’évaluation, consultez [Utilisation d’un service web Azure Machine Learning](../studio/consume-web-services.md).
 

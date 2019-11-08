@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 22d7ef90ee0cf4d09467516b7bb0664327b7dabe
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 4eb19a5b344cc5bda5ecad724daaddf9b0000d7e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509689"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580906"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Comparaison des fonctionnalités Azure Stream Analytics
 
@@ -59,7 +59,7 @@ Avec Azure Stream Analytics, vous pouvez créer des solutions de diffusion en co
 |Test de requête avec un exemple de fichier     |OUI         |OUI         |Non         |
 |Partager des entrées et des sorties entre plusieurs requêtes     |Non         |OUI         |Non         |
 |C# UDF     |Non         |OUI         |Non         |
-|Envoyer, lancer et arrêter des tâches     |OUI         |OUI         |Non         |
+|Soumettre les travaux     |OUI         |OUI         |Non         |
 |Répertorier les travaux et afficher les entités de travail     |OUI         |OUI         |Non         |
 |Afficher les métriques de tâche et le diagramme     |OUI         |Partiel         |Non         |
 |Afficher les erreurs d’exécution de tâches     |OUI         |Partiel         |Non         |

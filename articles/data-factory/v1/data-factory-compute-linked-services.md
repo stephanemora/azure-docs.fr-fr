@@ -1,5 +1,5 @@
 ---
-title: Environnements de calcul pris en charge par Azure Data Factory | Microsoft Docs
+title: Environnements de calcul pris en charge par Azure Data Factory
 description: Découvrez les environnements de calcul que vous pouvez utiliser dans les pipelines Azure Data Factory (tels qu’Azure HDInsight) pour transformer ou traiter les données.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 12d12e96616d94360e5d193cf2b778a9ae389062
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140245"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667764"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Environnements de calcul pris en charge par Azure Data Factory
 > [!NOTE]
@@ -364,7 +364,7 @@ Utilisez l’authentification par principal de service en spécifiant les propri
 | :---------------------- | :--------------------------------------- | :------- |
 | servicePrincipalId  | L’ID client de l’application.     | OUI      |
 | servicePrincipalKey | La clé de l’application.           | OUI      |
-| locataire              | Les informations sur le locataire (nom de domaine ou ID de locataire) dans lesquels votre application se trouve. Pour obtenir ces informations, passez la souris sur le coin supérieur droit du portail Azure. | OUI      |
+| tenant              | Les informations sur le locataire (nom de domaine ou ID de locataire) dans lesquels votre application se trouve. Pour obtenir ces informations, passez la souris sur le coin supérieur droit du portail Azure. | OUI      |
 
 **Exemple : Authentification d’un principal de service**
 ```json

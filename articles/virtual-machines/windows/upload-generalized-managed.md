@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 6382a39e67805eb9bddb356a7b76205a82f3f7c2
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ead44c321ffb7afb69295d1bf8c0e1acd26cb9ce
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553451"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749076"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Charger un disque dur virtuel généralisé et l’utiliser pour créer des machines virtuelles dans Azure
 
@@ -32,7 +32,7 @@ Pour un exemple de script, consultez [Exemple de script pour charger un disque d
 - Avant de télécharger un disque dur virtuel dans Azure, vous devez apprendre à [préparer un disque dur virtuel Windows à charger sur Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Consultez [Planification de la migration vers la fonctionnalité Disques managés](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) avant de démarrer la migration vers la [fonctionnalité Disques managés](managed-disks-overview.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Généraliser la machine virtuelle source en utilisant Sysprep

@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 description: Découvrez comment déplacer des données depuis un serveur FTP à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5d043072244ede5b1d7bd28d4628ffe3cf4961d8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: e5a6485e93e8f617883a7dfef511709ec857b411
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836319"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682597"
 ---
 # <a name="move-data-from-an-ftp-server-by-using-azure-data-factory"></a>Déplacer des données à partir d’un serveur FTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -68,7 +68,7 @@ Le tableau suivant décrit les éléments JSON spécifiques pour un service FTP 
 | Type |Définissez ceci sur FtpServer. |OUI |&nbsp; |
 | host |Spécifiez le nom ou l’adresse IP du serveur FTP. |OUI |&nbsp; |
 | authenticationType |Spécifiez le type d’authentification. |OUI |Basic, anonyme |
-| userName |Spécifiez l’utilisateur ayant accès au serveur FTP. |Non |&nbsp; |
+| username |Spécifiez l’utilisateur ayant accès au serveur FTP. |Non |&nbsp; |
 | password |Spécifiez le mot de passe de l’utilisateur (username). |Non |&nbsp; |
 | encryptedCredential |Spécifiez les informations d’identification chiffrées pour accéder au serveur FTP. |Non |&nbsp; |
 | gatewayName |Spécifiez le nom de la passerelle dans Passerelle de gestion des données pour la connexion à un serveur FTP local |Non |&nbsp; |

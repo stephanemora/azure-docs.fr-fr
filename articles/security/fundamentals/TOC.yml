@@ -140,78 +140,20 @@
   items:
     - name: AU protégée
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Application web IaaS
-          href: ../blueprints/au-protected-iaaswa-overview.md
-        - name: Application web PaaS
-          href: ../blueprints/au-protected-paaswa-overview.md
     - name: FedRAMP
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Analyse de données
-          href: ../blueprints/fedramp-analytics-overview.md
-        - name: Entrepôt de données
-          href: ../blueprints/fedramp-datawarehouse-overview.md
-        - name: Application web IaaS
-          href: ../blueprints/fedramp-iaaswa-overview.md
-        - name: Application web PaaS
-          href: ../blueprints/fedramp-paaswa-overview.md
     - name: FFIEC
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Analyse de données
-          href: ../blueprints/ffiec-analytics-overview.md
-        - name: Entrepôt de données
-          href: ../blueprints/ffiec-dw-overview.md
-        - name: Application web IaaS
-          href: ../blueprints/ffiec-iaaswa-overview.md
-        - name: Application web PaaS
-          href: ../blueprints/ffiec-paaswa-overview.md
     - name: HIPAA/HITRUST
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Données et intelligence artificielle d’intégrité
-          href: ../blueprints/azure-health.md
     - name: "Service NIS (Network Information Service) SP\_800-171"
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Analyse de données
-          href: ../blueprints/nist171-analytics-overview.md
-        - name: Entrepôt de données
-          href: ../blueprints/nist171-datawarehouse-overview.md
-        - name: Application web IaaS
-          href: ../blueprints/nist171-iaaswa-overview.md
-        - name: Application web PaaS
-          href: ../blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Analyse de données
-          href: ../blueprints/pcidss-analytics-overview.md
-        - name: Entrepôt de données
-          href: ../blueprints/pcidss-dw-overview.md
-        - name: Application web IaaS
-          href: ../blueprints/pcidss-iaaswa-overview.md
-        - name: Application web PaaS
-          href: ../blueprints/pcidss-paaswa-overview.md
     - name: UK NHS
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Analyse de données
-          href: ../blueprints/uknhs-analytics-overview.md
-        - name: Entrepôt de données
-          href: ../blueprints/uknhs-datawarehouse-overview.md
-        - name: Application web IaaS
-          href: ../blueprints/uknhs-iaaswa-overview.md
-        - name: Application web PaaS
-          href: ../blueprints/uknhs-paaswa-overview.md
     - name: ROYAUME-UNI OFFICIELLE
       displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Application web IaaS
-          href: ../blueprints/ukofficial-iaaswa-overview.md
-        - name: Application web PaaS
-          href: ../blueprints/ukofficial-paaswa-overview.md
 - name: Livres blancs sur la sécurité
   href: 'https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource'
 - name: Services de sécurité Azure

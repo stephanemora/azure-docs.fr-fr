@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le service Azure SQL Database ? | Microsoft Docs
+title: Qu’est-ce que le service Azure SQL Database ?
 description: 'Obtenir une introduction à SQL Database : détails techniques et fonctionnalités du système de gestion de base de données relationnelle (SGBDR) Microsoft dans le cloud.'
 keywords: introduction à sql, intro à sql, qu’est-ce qu’une base de données sql
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e5782ba016cf58335de17cdacabbcca95914f59a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3932c22ff003a343e4c32aee117a7ddea922fbdb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066277"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820744"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ?
 
@@ -50,7 +50,7 @@ SQL Database offre des performances prévisibles avec plusieurs types de ressou
 Vous pouvez définir la quantité de ressources affectées. 
 - Avec les bases de données uniques, chaque base de données est isolée des autres et est portable. Chacune possède sa propre quantité garantie de ressources de calcul, de mémoire et de stockage. La quantité de ressources assignées à la base de données est dédiée à cette base de données et n’est pas partagée avec d’autres bases de données dans Azure. Vous pouvez [effectuer un scale-up et un scale-down des ressources d’une base de données unique](sql-database-single-database-scale.md) de manière dynamique. L’option de base de données unique fournit différentes ressources de calcul, de mémoire et de stockage pour différents besoins. Par exemple, vous pouvez obtenir de 1 à 80 vCores, ou de 32 Go à 4 To. Le [niveau de service hyperscale](sql-database-service-tier-hyperscale.md) pour une base de données unique vous permet de mettre à l’échelle jusqu’à 100 To, avec des fonctionnalités de sauvegarde et de restauration rapides.
 - Avec les pools élastiques, vous pouvez affecter des ressources qui sont partagées par toutes les bases de données du pool. Vous pouvez créer une base de données ou déplacer des bases de données uniques existantes vers un pool de ressources pour optimiser l’utilisation des ressources et réaliser des économies. Cette option vous permet également d’[effectuer un scale-up et un scale-down de ressources de pool élastique](sql-database-elastic-pool-scale.md) de façon dynamique.
-- Avec des instances managées, chaque instance est isolée des autres avec des ressources garanties. Dans une instance managée, les bases de données d’instance partagent un ensemble de ressources. Vous pouvez [effectuer un scale-up et un scale-down des ressources d’instance managée](sql-database-managed-instance-resource-limits.md) de manière dynamique.
+- Avec des instances gérées, chaque instance est isolée des autres avec des ressources garanties. Dans une instance managée, les bases de données d’instance partagent un ensemble de ressources. Vous pouvez [effectuer un scale-up et un scale-down des ressources d’instance managée](sql-database-managed-instance-resource-limits.md) de manière dynamique.
 
 Vous pouvez créer votre première application sur une petite base de données unique pour un coût mensuel modique dans le niveau de service à usage général. Vous pouvez ensuite changer son niveau de service manuellement ou par programmation à tout moment pour définir le niveau de service Critique pour l’entreprise afin de répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous payez uniquement pour les ressources dont vous avez besoin, quand vous en avez besoin.
 
@@ -121,14 +121,14 @@ De plus, SQL Database fournit des fonctionnalités intégrées de [continuité 
 
 - [Sauvegardes automatiques](sql-database-automated-backups.md) :
 
-  SQL Database effectue automatiquement des sauvegardes complètes, différentielles et de journaux de transactions des bases de données SQL pour vous permettre de restaurer à n’importe quel point dans le temps. Pour les bases de données uniques et les bases de données mises en pool, vous pouvez configurer SQL Database de façon à stocker les sauvegardes de base de données complètes dans le Stockage Azure en vue d’une conservation des sauvegardes à long terme. Pour des instances managées, vous pouvez également effectuer des sauvegardes de copie uniquement en vue d’une conservation à long terme.
+  SQL Database effectue automatiquement des sauvegardes complètes, différentielles et de journaux de transactions des bases de données SQL pour vous permettre de restaurer à n’importe quel point dans le temps. Pour les bases de données uniques et les bases de données mises en pool, vous pouvez configurer SQL Database de façon à stocker les sauvegardes de base de données complètes dans le Stockage Azure en vue d’une conservation des sauvegardes à long terme. Pour des instances gérées, vous pouvez également effectuer des sauvegardes de copie uniquement en vue d’une rétention à long terme.
 
 - [Restaurations à un point dans le temps](sql-database-recovery-using-backups.md) :
 
   Toutes les options de déploiement SQL Database prennent en charge la reprise d’activité à n’importe quel point dans le temps au cours de la période de conservation de sauvegarde automatique pour toute base de données SQL.
 - [Géoréplication active](sql-database-active-geo-replication.md) :
 
-  Les options de base de données unique et de bases de données mises en pool vous permettent de configurer jusqu’à quatre bases de données secondaires accessibles en lecture, que ce soit dans le même centre de données ou dans des centres de données Azure distribués à l’échelle mondiale. Par exemple, si vous avez une application SaaS avec une base de données de catalogue qui a un volume élevé de transactions simultanées en lecture seule, utilisez la géo-réplication active pour permettre une mise à l’échelle en lecture globale. Cela supprime les goulots d’étranglement sur le principal qui sont dus à des charges de travail de lecture. Pour des instances managées, utilisez des groupes de basculement automatique.
+  Les options de base de données unique et de bases de données mises en pool vous permettent de configurer jusqu’à quatre bases de données secondaires accessibles en lecture, que ce soit dans le même centre de données ou dans des centres de données Azure distribués à l’échelle mondiale. Par exemple, si vous avez une application SaaS avec une base de données de catalogue qui a un volume élevé de transactions simultanées en lecture seule, utilisez la géo-réplication active pour permettre une mise à l’échelle en lecture globale. Cela supprime les goulots d’étranglement sur le principal qui sont dus à des charges de travail de lecture. Pour des instances gérées, utilisez des groupes de basculement automatique.
 - [Groupes de basculement automatique](sql-database-auto-failover-group.md) :
 
   Toutes les options de déploiement SQL Database vous permettent d’utiliser des groupes de basculement pour activer la haute disponibilité et l’équilibrage de charge à l’échelle mondiale. Cela inclut la géo-réplication transparente ainsi que le basculement de grands ensembles de bases de données, de pools élastiques et d’instances managées. Les groupes de basculement permettent de créer des applications SaaS distribuées à l’échelle mondiale avec une surcharge administrative minimale. Cela laisse SQL Database se charger de toutes les tâches complexes de supervision, de routage et d’orchestration de basculement.

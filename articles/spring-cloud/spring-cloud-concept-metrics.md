@@ -1,20 +1,17 @@
 ---
 title: Présentation des métriques pour Azure Spring Cloud
 description: Découvrir comment passer en revue les métriques dans Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d9c6f14b7ecfc2929dc48c11e0df1fe80303c8b1
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 952dfc1c707df3b7fa61443ea6ea18630352f0dc
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038498"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607809"
 ---
 # <a name="metrics-for-azure-spring-cloud"></a>Métriques pour Azure Spring Cloud
 

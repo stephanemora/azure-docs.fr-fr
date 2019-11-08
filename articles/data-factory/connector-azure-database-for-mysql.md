@@ -1,5 +1,5 @@
 ---
-title: Copier des données depuis et vers Azure Database pour MySQL à l’aide d’Azure Data Factory | Microsoft Docs
+title: Copier des données depuis et vers Azure Database pour MySQL à l’aide d’Azure Data Factory
 description: Découvrez comment copier des données depuis et vers Azure Database pour MySQL à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: jingwang
-ms.openlocfilehash: c15a60b7329359ee8d3e429159eb178c0c9b4782
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: dd450852931fdc57192bcc126b710d8cfb3e27ac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018761"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681233"
 ---
 # <a name="copy-data-to-and-from-azure-database-for-mysql-using-azure-data-factory"></a>Copier des données depuis et vers Azure Database pour MySQL à l’aide d’Azure Data Factory
 

@@ -1,5 +1,5 @@
 ---
-title: Conception de bases de données cloud évolutives | Microsoft Docs
+title: Conception de bases de données cloud évolutives
 description: Créez des applications de base de données .NET évolutives avec la bibliothèque cliente de bases de données élastiques
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/25/2018
-ms.openlocfilehash: 24b7f769be3f4db3c36412e162b5cda40e3ca959
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae26f669ddbe2cc2c5b6e25a9c1c0229e88dc2e1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568718"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823923"
 ---
 # <a name="building-scalable-cloud-databases"></a>Conception de bases de données cloud évolutives
 

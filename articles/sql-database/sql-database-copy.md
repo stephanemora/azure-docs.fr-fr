@@ -1,5 +1,5 @@
 ---
-title: Copie d’une base de données Azure SQL | Microsoft Docs
+title: Copier une base de données
 description: Créez une copie cohérente au niveau transactionnel d’une base de données Azure SQL Database existante sur le même serveur ou sur un autre serveur.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ebf63d14a8fb883158d1ac3e0a8f3d6658920aa7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934200"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826654"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Copier une copie cohérente au niveau transactionnel d'une base de données Azure SQL Database
 

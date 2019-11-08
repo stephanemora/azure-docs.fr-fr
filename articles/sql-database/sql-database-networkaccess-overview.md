@@ -1,9 +1,10 @@
 ---
-title: Contrôles d’accès réseau Azure SQL Database et Data Warehouse | Microsoft Docs
+title: Contrôles d’accès réseau
 description: Vue d’ensemble des contrôles d’accès réseau pour Azure SQL Database et Data Warehouse pour gérer l’accès et configurer une base de données unique ou mise en pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 16de1d9fcf86459b6bcadd9d8c372e436aad0915
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703269"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802938"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Data Warehouse
 

@@ -1,5 +1,5 @@
 ---
-title: Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory | Microsoft Docs
+title: Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory
 description: Découvrez comment créer un runtime d’intégration Azure-SSIS dans Azure Data Factory afin de pouvoir déployer et exécuter des packages SSIS dans Azure.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ddc91a3317d362f6b56e486556f2edf6cdb85131
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ce688248a205981f4a4c60ad01231c0b8f6bae3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326689"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677357"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory
 

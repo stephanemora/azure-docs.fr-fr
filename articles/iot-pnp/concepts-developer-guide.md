@@ -7,12 +7,12 @@ ms.date: 07/05/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6d5247454fe65e5539a2401330192f1db9a65114
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 6d8e0e9e675b88c69b74cdad261280f5dcaf7161
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69879233"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581625"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guide du développeur pour la modélisation avec la préversion d’IoT Plug-and-Play
 
@@ -84,7 +84,7 @@ L’exemple suivant montre l’interface pour un appareil à thermostat :
       "schema": "double"
     }
   ],
-  "@context": "http://azureiot.com/v1/contexts/Interface.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 
@@ -103,7 +103,7 @@ Dans cet exemple simple, il n’y a qu’un seul champ de télémétrie. Une des
 
 D’autres champs facultatifs, tels que le nom d’affichage et la description, vous permettent d’ajouter des détails à l’interface et aux fonctionnalités.
 
-### <a name="properties"></a>Propriétés
+### <a name="properties"></a>properties
 
 Par défaut, les propriétés sont en lecture seule. Ainsi, l’appareil signale les mises à jour de valeurs de propriété à votre hub IoT. Votre hub IoT ne peut pas définir la valeur d’une propriété en lecture seule.
 

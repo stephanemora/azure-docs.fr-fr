@@ -1,5 +1,5 @@
 ---
-title: Configurer Azure SQL Data Sync | Microsoft Docs
+title: Configurer Data Sync
 description: Ce tutoriel vous montre comment configurer Azure SQL Data Sync
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 315d65b635f34847d0310e6b6adf03e20f2afd45
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568159"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807530"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Didacticiel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
 

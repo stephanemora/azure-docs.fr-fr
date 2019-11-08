@@ -1,5 +1,5 @@
 ---
-title: Transformer des données à l’aide de Databricks dans Azure Data Factory | Microsoft Docs
+title: Transformer des données à l’aide de Databricks dans Azure Data Factory
 description: Découvrez comment utiliser un modèle de solution pour transformer des données à l’aide d’un notebook Databricks dans Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 471c1d9610fa346b0eac44c73fe02f4510bd2889
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395229"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684238"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Transformer des données à l’aide de Databricks dans Azure Data Factory
 
@@ -85,7 +85,7 @@ Pour plus de simplicité, ce modèle ne crée aucun déclencheur planifié. Vous
 
         `https://storagewithdata.blob.core.windows.net/?sv=2017-11-09&ss=b&srt=sco&sp=rl&se=2019-12-31T21:40:53Z&st=2018-10-24T13:40:53Z&spr=https&sig=K8nRio7c4xMLnUV0wWVAmqr5H4P3JDwBaG9HCevI7kU%3D`
 
-        ![6\.](media/solution-template-Databricks-notebook/Databricks-tutorial-image06.png)
+        ![6](media/solution-template-Databricks-notebook/Databricks-tutorial-image06.png)
 
     1.  **Récepteur** : emplacement où les données sont copiées.
 

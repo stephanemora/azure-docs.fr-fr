@@ -1,5 +1,5 @@
 ---
-title: Activité de recherche dans Azure Data Factory | Microsoft Docs
+title: Activité de recherche dans Azure Data Factory
 description: Découvrez comment utiliser l’activité Lookup pour rechercher une valeur à partir d’une source externe. Cette sortie peut être référencée davantage par des activités complémentaires.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141659"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679702"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 

@@ -1,5 +1,5 @@
 ---
-title: Tolérance de panne de l’activité de copie dans Azure Data Factory | Microsoft Docs
+title: Tolérance de panne de l’activité de copie dans Azure Data Factory
 description: Découvrez comment ajouter une tolérance de panne à l’activité de copie dans Azure Data Factory en ignorant les lignes incompatibles.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: 0af35748ee9fd5db45668ae4c6619a32f905d0db
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: a60cafd529db1c6726a15db2c442af8d097411cc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827445"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678161"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -76,7 +76,7 @@ Propriété | Description | Valeurs autorisées | Obligatoire
 enableSkipIncompatibleRow | Indique s’il faut ignorer ou non les lignes incompatibles durant la copie. | True<br/>False (valeur par défaut) | Non
 redirectIncompatibleRowSettings | Groupe de propriétés qui peuvent être spécifiées lorsque vous souhaitez journaliser les lignes incompatibles. | &nbsp; | Non
 linkedServiceName | Service lié de [Stockage Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) pour stocker le journal contenant les lignes ignorées. | Nom d’un service lié de type `AzureStorage` ou `AzureDataLakeStore` faisant référence à l’instance que vous souhaitez utiliser pour stocker le fichier journal. | Non
-chemin d’accès | Chemin d’accès du fichier journal contenant les lignes ignorées. | Spécifiez le chemin que vous souhaitez utiliser pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
+path | Chemin d’accès du fichier journal contenant les lignes ignorées. | Spécifiez le chemin que vous souhaitez utiliser pour journaliser les données incompatibles. Si vous ne spécifiez pas le chemin d’accès, le service crée un conteneur à votre place. | Non
 
 ## <a name="monitor-skipped-rows"></a>Effectuer le monitoring des lignes ignorées
 Une fois l’activité de copie exécutée, vous pouvez voir le nombre de lignes ignorées dans la sortie de l’activité de copie :

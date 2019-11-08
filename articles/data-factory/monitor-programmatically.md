@@ -1,5 +1,5 @@
 ---
-title: Surveiller par programmation une fabrique de données Azure | Microsoft Docs
+title: Surveiller par programmation une fabrique de données Azure
 description: Découvrez comment surveiller un pipeline dans une fabrique de données à l’aide de différents kits de développement logiciels (SDK).
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/16/2018
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 5c1f64282f1e0b1f225bcad0935c4c9b9a0f96b4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f9e85a2660ffe1088a9897e9936b6fd0360f87d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141052"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684603"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Surveiller par programmation une fabrique de données Azure
 Cet article explique comment surveiller un pipeline dans une fabrique de données à l’aide de différents kits de développement logiciels (SDK). 

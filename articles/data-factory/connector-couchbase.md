@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Couchbase avec Azure Data Factory (préversion) | Microsoft Docs
+title: Copier des données de Couchbase avec Azure Data Factory (préversion)
 description: Découvrez comment utiliser l’activité de copie pour copier des données de Couchbase vers des magasins de données récepteurs pris en charge dans le cadre d’un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: d1b9a2a151ee73a060e65dc7df631d3e4955504d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: b5fcff9ce393fc74b03257f4adde69a7c7a049ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090423"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681061"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copier des données de Couchbase avec Azure Data Factory (préversion)
 

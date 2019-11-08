@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36cb3b1555a339249528e290e376454dd78f1e53
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 7a23f8fc10e0e5a19be1f93cc6d6e5e8e301f86d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509060"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473996"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Démarrage rapide : Exiger une authentification multifacteur (MFA) pour des applications spécifiques disposant d’un accès conditionnel à Azure Active Directory
 
@@ -66,7 +66,7 @@ Dans votre stratégie, définissez :
 **Pour configurer votre stratégie d’accès conditionnel, procédez comme suit :**
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général, administrateur de sécurité ou administrateur de l’accès conditionnel.
-1. Dans la barre de navigation gauche du portail Azure, cliquez sur **Azure Active Directory**.
+1. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
 

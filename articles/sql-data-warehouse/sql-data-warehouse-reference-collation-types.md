@@ -1,5 +1,5 @@
 ---
-title: Classement - Azure SQL Data Warehouse | Microsoft Docs
+title: Collation
 description: Types de classement pris en charge dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: antvgski
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 598ad4c103035ec2d94015e1f8e12194d1b723fc
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f05e54a3dd4b69fff2bc7d122391d145b222b295
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935095"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692551"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Prise en charge des classements de base de données pour Azure SQL Data Warehouse
 

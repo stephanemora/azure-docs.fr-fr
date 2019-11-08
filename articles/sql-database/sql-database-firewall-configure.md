@@ -1,9 +1,10 @@
 ---
-title: Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse | Microsoft Docs
+title: Règles de pare-feu IP
 description: Configurez des règles de pare-feu IP au niveau du serveur pour un pare-feu SQL Database ou SQL Data Warehouse. Gérez l’accès aux bases de données et configurez des règles de pare-feu IP au niveau de la base de données pour une base unique ou mise en pool.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 668744121c41a6e4797bc335b2736c8b31d87a41
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686471"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807932"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse
 

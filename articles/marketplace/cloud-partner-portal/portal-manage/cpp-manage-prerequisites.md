@@ -4,15 +4,16 @@ description: Conditions préalables pour la gestion des comptes de la Place de m
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: b0a9f312ba78e148a573064b81ff1f52fbd85c03
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720064"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826670"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Conditions préalables pour la gestion des comptes sur le Portail Cloud Partner 
 

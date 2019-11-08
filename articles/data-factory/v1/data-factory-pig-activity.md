@@ -1,5 +1,5 @@
 ---
-title: Transformer des données à l’aide d’une activité Pig dans Azure Data Factory | Microsoft Docs
+title: Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
 description: Découvrez comment utiliser l'activité pig d’une fabrique de données Azure pour exécuter des requêtes pig sur un cluster HDInsight à la demande/ou votre propre cluster.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 72f532c277096a20387ab1b4922def2cd35a9afb
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: a6861a22f853bb0b48eb7c9832adb251bc3467ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139124"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682393"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformer des données à l’aide d’une activité Pig dans Azure Data Factory
 > [!div class="op_single_selector" title1="Activités de transformation"]

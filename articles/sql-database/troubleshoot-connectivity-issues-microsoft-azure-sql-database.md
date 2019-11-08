@@ -1,19 +1,20 @@
 ---
-title: Résolution des problèmes de connectivité de Microsoft Azure SQL Database | Microsoft Docs
+title: Résoudre les problèmes de connectivité
 description: Cet article explique comment résoudre les problèmes de connectivité dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 9de6d85e1fc54d60f999cfa18665067b3998a432
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 20988296b5eac7152c53abd6d238043288feacc8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390676"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807268"
 ---
 # <a name="troubleshooting-connectivity-issues-with-microsoft-azure-sql-database"></a>Résolution des problèmes de connectivité de Microsoft Azure SQL Database
 
@@ -28,9 +29,9 @@ En cas d’échec de la connexion à Azure SQL Database, vous recevez des messag
 Pour résoudre ce problème :
 
 1. Recherchez des pannes connues dans le [tableau de bord des services Microsoft Azure](https://status.azure.com/status). 
-2. S’il n’y a aucune panne connue, accédez au [site web du support Microsoft Azure](http://azure.microsoft.com/support/options) pour ouvrir un cas de support.
+2. S’il n’y a aucune panne connue, accédez au [site web du support Microsoft Azure](https://azure.microsoft.com/support/options) pour ouvrir un cas de support.
 
-Pour plus d’informations, consultez [Dépannage de l’erreur « La base de données sur le serveur n’est pas disponible actuellement »](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-common-connection-issues#troubleshoot-transient-errors).
+Pour plus d’informations, consultez [Dépannage de l’erreur « La base de données sur le serveur n’est pas disponible actuellement »](sql-database-troubleshoot-common-connection-issues.md#troubleshoot-transient-errors).
 
 ## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server"></a>Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server
 
@@ -197,7 +198,7 @@ Pour contourner ce problème, essayez d’appliquer l’une des méthodes suivan
   2. Déterminez la **mémoire tampon d’entrée** pour le bloqueur d’en-tête.
   3. Paramétrez la requête du bloqueur d’en-tête.
 
-    Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+    Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 * Si la base de données atteint constamment sa limite malgré la résolution des problèmes liés aux requêtes longues et bloquantes, effectuez une mise à niveau vers l’une des nouvelles éditions Preview (par exemple [Standard ou Premium](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -275,7 +276,7 @@ Si cette erreur survient à plusieurs reprises, vous pouvez essayer de la résou
 
 Vous pouvez également traiter vos requêtes par lot. Pour plus d’informations sur le traitement par lot, consultez [Comment utiliser le traitement par lot pour améliorer les performances des applications de base de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Erreur 40551 : La session a été arrêtée en raison d’une utilisation excessive de TEMPDB
 
@@ -311,7 +312,7 @@ Pour corriger ce problème, essayez les méthodes suivantes :
 
 Pour contourner ce problème, essayez d’optimiser la requête.
 
-Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
+Pour obtenir une procédure de dépannage détaillée, consultez [Is my query running fine in the cloud?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx) (Ma requête s’exécute-t-elle correctement dans le cloud ?).
 
 
 ### <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>Impossible d’ouvrir la base de données « Master » demandée par la connexion. La connexion a échoué.
@@ -336,7 +337,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Quand l’exception est déclenchée par des problèmes de requête, vous remarquerez une pile des appels semblable à la suivante (notez la référence à la classe **SqlCommand**). Dans ce cas, [affinez vos requêtes](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Quand l’exception est déclenchée par des problèmes de requête, vous remarquerez une pile des appels semblable à la suivante (notez la référence à la classe **SqlCommand**). Dans ce cas, [affinez vos requêtes](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -364,7 +365,7 @@ Voir [Obtenir des informations de connexion SQL Server](https://docs.microsoft.c
 
 5. Nous vous recommandons de vérifier que la logique de nouvelle tentative est en place. Pour plus d’informations sur la logique de nouvelle tentative, consultez [Gestion des problèmes de connexion et des erreurs temporaires de Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
 
-Si ces procédures ne permettent pas de résoudre votre problème, essayez de collecter davantage de données, puis contactez le support. Si votre application est un service cloud, activez la journalisation. Cette étape retourne l’horodatage UTC de l’échec. En outre, SQL Azure retourne l’ID de suivi. Les [services de support technique Microsoft](http://azure.microsoft.com/support/options/) peuvent utiliser ces informations. 
+Si ces procédures ne permettent pas de résoudre votre problème, essayez de collecter davantage de données, puis contactez le support. Si votre application est un service cloud, activez la journalisation. Cette étape retourne l’horodatage UTC de l’échec. En outre, SQL Azure retourne l’ID de suivi. Les [services de support technique Microsoft](https://azure.microsoft.com/support/options/) peuvent utiliser ces informations. 
 
 Pour plus d’informations sur la façon d’activer la journalisation, consultez [Activer la journalisation des diagnostics pour les applications dans Azure App Service](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/).
 

@@ -4,15 +4,16 @@ description: Vue d’ensemble du processus de publication d’une offre de modul
 services: Azure, Marketplace, Cloud Partner Portal
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: pabutler
-ms.openlocfilehash: 319031ec99d449ea5866bb5234cc617145954173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97df9a61d15e0d90e81f42cef327aea23873ffa0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942609"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814320"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>Vue d’ensemble de la publication d’une offre de module Azure IoT Edge
 

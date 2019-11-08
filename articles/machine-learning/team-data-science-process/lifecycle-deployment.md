@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 00710183828892c81d3ea887e4394237288eb6bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 156f2e95913dffd88de0b4669b13a5af5fc9605c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303534"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684682"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Phase de déploiement du cycle de vie du processus TDSP (Team Data Science Process)
 
@@ -50,7 +50,7 @@ Une fois que votre ensemble de modèles fonctionne correctement, vous pouvez l�
    * applications métier ; 
    * Applications principales 
 
-Pour obtenir des exemples de mise en œuvre de modèle avec un service web Azure Machine Learning, consultez [Déploiement d’un service web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md). Il est recommandé de générer des données de télémétrie et de surveillance dans le modèle de production et le pipeline de données que vous déployez. Cette pratique facilite la création de rapports sur l’état subséquent du système et le dépannage de ce dernier.  
+Pour obtenir des exemples de mise en œuvre de modèle avec un service web Azure Machine Learning, consultez [Déploiement d’un service web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). Il est recommandé de générer des données de télémétrie et de surveillance dans le modèle de production et le pipeline de données que vous déployez. Cette pratique facilite la création de rapports sur l’état subséquent du système et le dépannage de ce dernier.  
 
 ## <a name="artifacts"></a>Artefacts
 

@@ -1,20 +1,17 @@
 ---
 title: Analyser les journaux et les métriques dans Azure Spring Cloud | Microsoft Docs
 description: Découvrez comment analyser les données de diagnostic dans Azure Spring Cloud.
-services: spring-cloud
 author: jpconnock
-manager: gwallace
-editor: ''
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 955641f3511989baa5bfc3c0fa4d7df7ccbf9bfa
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ebe438bd2dc5b4921ce733001f3c9df19bc592fe
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554583"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607857"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 

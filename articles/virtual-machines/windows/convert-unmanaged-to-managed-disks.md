@@ -6,18 +6,18 @@ ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: d43ad941fe68707bca873fa969fbc27806ba96a5
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 64ff47f1dc4b06d1407497adf41981c670ea9064
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698809"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749535"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Windows en disques managés
 
 Si vos machines virtuelles Windows existantes utilisent des disques non managés, vous pouvez les convertir pour qu’elles utilisent des disques managés par le biais d’[Azure Disques managés](managed-disks-overview.md). Ce processus convertit le disque du système d’exploitation ainsi que tous les autres disques de données attachés.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

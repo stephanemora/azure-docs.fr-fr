@@ -4,15 +4,16 @@ description: Configurez les paramètres de Place de marché d’un conteneur Azu
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d7c930f3adcfb4b4d092cc909bf4468ced3271f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942654"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823209"
 ---
 # <a name="container-marketplace-tab"></a>Onglet Place de marché de conteneur
 
