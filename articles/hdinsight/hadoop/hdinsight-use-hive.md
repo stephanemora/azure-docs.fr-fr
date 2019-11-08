@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e07939bd5f0264df637fda439d96be213a8d28d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "72167347"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499210"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
 
 [Apache Hive](https://hive.apache.org/) est un système d’entrepôt de données pour Apache Hadoop. Hive permet la synthèse, l’interrogation et l’analyse des données. Les requêtes Hive sont écrites dans le langage HiveQL, qui est un langage de requête semblable à SQL.
 
-Hive vous permet de concevoir une structure sur des données largement non structurées. Une fois que vous avez défini la structure, vous pouvez utiliser HiveQL pour interroger les données sans connaître Java ou MapReduce.
+Hive vous permet de concevoir une structure sur des données largement structurées. Une fois que vous avez défini la structure, vous pouvez utiliser HiveQL pour interroger les données sans connaître Java ou MapReduce.
 
 HDInsight fournit plusieurs types de cluster adaptés à des charges de travail spécifiques. Voici les types de cluster les plus souvent utilisés pour les requêtes Hive :
 
