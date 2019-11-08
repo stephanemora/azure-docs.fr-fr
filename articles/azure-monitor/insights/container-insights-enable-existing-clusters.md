@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/12/2019
-ms.openlocfilehash: 0ca73d75751259eccd9e952c2d704a09fc081396
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5d68c343fee5807c430ce42777b988a48b9227f8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162273"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478611"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Activer la surveillance d’un cluster Azure Kubernetes Service (AKS) déjà déployé
 
@@ -47,7 +47,7 @@ provisioningState       : Succeeded
 
 Si vous préférez effectuer une intégration avec un espace de travail existant, effectuez les étapes suivantes pour identifier tout d’abord l’ID de ressource complet de votre espace de travail Log Analytics requis pour le paramètre `--workspace-resource-id`, puis exécutez la commande pour activer l’extension de supervision par rapport à l’espace de travail spécifié.  
 
-1. Listez tous les abonnements auxquels vous avez accès à l’aide de la commande suivante :
+1. Affichez la liste de tous les abonnements auxquels vous avez accès à l’aide de la commande suivante :
 
     ```azurecli
     az account list --all -o table
@@ -371,4 +371,6 @@ Au bout de quelques minutes, la commande se termine et renvoie des informations 
 
 * Si vous rencontrez des problèmes en tentant d’intégrer la solution, consultez le [guide de résolution des problèmes](container-insights-troubleshoot.md)
 
-* Vous pouvez activer la fonctionnalité de supervision pour collecter des métriques d’intégrité pour les nœuds et pods du cluster AKS et les consulter dans le portail Azure. Pour savoir comment utiliser Azure Monitor pour les conteneurs, consultez l’article [Connaître l’état d’Azure Kubernetes Service](container-insights-analyze.md).
+* Une fois l’analyse activée pour collecter l’utilisation des ressources et l’intégrité de votre cluster Azure Kubernetes et charges de travail s’y exécutant, découvrez [comment utiliser](container-insights-analyze.md) Azure Monitor pour les conteneurs.
+
+

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515167"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467251"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>Didacticiel : Utiliser Personalizer dans Azure Notebook
 
@@ -81,7 +81,7 @@ Descriptions des fichiers :
 
 ## <a name="configure-personalizer-resource"></a>Configurer la ressource Personalizer
 
-Dans le portail Azure, configurez votre ressource [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) avec la **Fréquence de mise à jour du modèle** définie sur 15 secondes et une **Durée d’attente de la récompense** de 15 secondes. Ces paramètres se trouvent dans la page **[Paramètres](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
+Dans le portail Azure, configurez votre ressource [Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) avec la **Fréquence de mise à jour du modèle** définie sur 15 secondes et une **Durée d’attente de la récompense** de 15 secondes. Ces valeurs figurent dans la page **[Configuration](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
 
 |Paramètre|Valeur|
 |--|--|
@@ -170,7 +170,7 @@ def get_last_updated(currentModifiedDate):
 
 Validez l’état du service à l’aide de ces deux appels REST.
 
-Ces cellules n’ont pas de sortie. La fonction génère les paramètres du service quand elle est appelée.
+Ces cellules n’ont pas de sortie. La fonction génère les valeurs du service quand elle est appelée.
 
 ```python
 def get_service_settings():
@@ -574,11 +574,11 @@ Ce graphique montre la réussite du modèle pour la stratégie d’apprentissage
 ![Ce graphique montre la réussite de la stratégie d’apprentissage actuelle pendant la durée du test.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-La cible idéale est qu’à la fin du test, la boucle obtienne un taux de réussite moyen proche de 100 % moins l’exploration. Le paramètre d’exploration par défaut est de 20 %. 
+La cible idéale est qu’à la fin du test, la boucle obtienne un taux de réussite moyen proche de 100 % moins l’exploration. La valeur d’exploration par défaut est 20 %. 
 
 `100-20=80`
 
-Ce paramètre d’exploration figure dans le portail Azure, pour la ressource Personalizer, dans la page **Paramètres**. 
+Cette valeur d’exploration figure dans le portail Azure pour la ressource Personalizer, dans la page **Configuration**. 
 
 Pour trouver une meilleure stratégie d’apprentissage, basée sur vos données envoyées à l’API de classement, exécutez une [évaluation hors connexion](how-to-offline-evaluation.md) dans le portail pour votre boucle Personalizer.
 
@@ -598,7 +598,7 @@ Pour trouver une meilleure stratégie d’apprentissage, basée sur vos données
 
 ## <a name="change-update-model-frequency-to-5-minutes"></a>Régler la fréquence de mise à jour du modèle sur cinq minutes
 
-1. Dans le portail Azure, toujours sur la ressource Personalizer, sélectionnez la page **Paramètres**. 
+1. Dans le portail Azure, toujours sur la ressource Personalizer, sélectionnez la page **Configuration**. 
 1. Réglez la **Fréquence de mise à jour du modèle** et la **Durée d’attente de la récompense** sur cinq minutes et sélectionnez **Enregistrer**.
 
 Apprenez-en davantage sur la [durée d’attente de la récompense](concept-rewards.md#reward-wait-time) et sur la [fréquence de mise à jour du modèle](how-to-settings.md#model-update-frequency).

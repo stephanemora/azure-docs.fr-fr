@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 49bab338f559b1b43389e12d98c75bbffbb25a85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a2f3665355cc2023aaf4b66c9207aaff4a3bc6db
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694305"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493930"
 ---
 # <a name="apply-math-operation"></a>Appliquer une opération mathématique
 
-Cet article décrit un module de l’interface visuelle d’Azure Machine Learning.
+Cet article décrit un module du concepteur Azure Machine Learning (préversion).
 
 Utilisez le module Appliquer une opération mathématique pour créer des calculs et les appliquer aux colonnes numériques du jeu de données d’entrée. 
 
@@ -95,7 +95,7 @@ Si vous générez les résultats à l’aide des options **Append** ou **ResultO
 -   **Equals(Col2_Col1)** , qui indique que vous avez testé Col2 sur Col1.  
 -   **Equals(Col2_$10)** , qui indique que vous avez comparé la colonne 2 à la constante 10.  
 
-Même si vous utilisez l’option **InPlace**, les données sources ne sont pas supprimées ni modifiées. La colonne du jeu de données d’origine est toujours disponible dans l’interface visuelle. Pour voir les données d’origine, vous pouvez connecter le module [Ajouter des colonnes](add-columns.md) et le joindre à la sortie du module **Appliquer une opération mathématique**.  
+Même si vous utilisez l’option **InPlace**, les données sources ne sont pas supprimées ou modifiées. La colonne du jeu de données d’origine est toujours disponible dans le concepteur. Pour voir les données d’origine, vous pouvez connecter le module [Ajouter des colonnes](add-columns.md) et le joindre à la sortie du module **Appliquer une opération mathématique**.  
     
 ## <a name="basic-math-operations"></a>Opérations mathématiques de base 
 
@@ -208,7 +208,7 @@ Pour chaque valeur de la colonne sélectionnée, multiplie la valeur par pi, pui
 
 ## <a name="comparison-operations"></a>Opérations de comparaison  
 
-Utilisez les fonctions de comparaison dans l’interface visuelle d’Azure Machine Learning chaque fois que vous devez tester deux ensembles de valeurs l’un par rapport à l’autre. Par exemple, dans un pipeline, vous pouvez être amené à effectuer ces opérations de comparaison :  
+Utilisez les fonctions de comparaison dans le concepteur Azure Machine Learning chaque fois que vous devez tester deux ensembles de valeurs l’un par rapport à l’autre. Par exemple, dans un pipeline, vous pouvez être amené à effectuer ces opérations de comparaison :  
 
 - Évaluer une colonne du modèle de score de probabilité par rapport à une valeur de seuil.
 - Déterminez si deux jeux de résultats sont identiques. Pour chaque ligne différente, ajoutez un indicateur FALSE, utilisable par la suite (traitement ou filtrage).  
@@ -280,7 +280,7 @@ Spécifiez la colonne de valeurs sur laquelle effectuer l’opération (le *dimi
 
 ##  <a name="rounding-operations"></a>Opérations d’arrondi 
 
-L’interface visuelle d’Azure Machine Learning prend en charge diverses opérations d’arrondi. Pour de nombreuses opérations, vous devez spécifier le degré de précision à utiliser pour l’arrondi. Vous pouvez utiliser un niveau de précision statique, spécifié comme une constante, ou appliquer une valeur de précision dynamique obtenue à partir d’une colonne de valeurs.  
+Le concepteur Azure Machine Learning prend en charge diverses opérations d’arrondi. Pour de nombreuses opérations, vous devez spécifier le degré de précision à utiliser pour l’arrondi. Vous pouvez utiliser un niveau de précision statique, spécifié comme une constante, ou appliquer une valeur de précision dynamique obtenue à partir d’une colonne de valeurs.  
 
 - Si vous utilisez une constante, définissez **Type de précision** sur **Constante**, puis tapez le nombre de chiffres (un entier) dans la zone de texte **Précision de la constante**. Si vous tapez un nombre qui n’est pas un entier, le module ne génère pas d’erreur, mais les résultats peuvent être inattendus.  
 

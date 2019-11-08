@@ -1,5 +1,6 @@
 ---
-title: Créer une identité pour une application Azure dans le portail | Microsoft Docs
+title: Créer une identité pour une application Azure dans le portail
+titleSuffix: Microsoft identity platform
 description: Décrit comment créer une application et un principal du service Azure Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources.
 services: active-directory
 documentationcenter: na
@@ -16,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 03ae780f86512ac401fcb7f6936e8f74cb595ca7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324701"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473871"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Activation Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -50,7 +51,7 @@ Pour accéder aux ressources de votre abonnement, vous devez affecter un rôle �
 
 Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue (par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie qu’elle peut lire le groupe de ressources et toutes les ressources qu’il contient).
 
-1. Accédez au niveau d’étendue que vous souhaitez affecter à l’application. Par exemple, pour assigner un rôle au niveau de l’abonnement, sélectionnez **Tous les services** et **Abonnements**.
+1. Dans le portail Azure, sélectionnez le niveau d’étendue auquel vous souhaitez affecter l’application. Par exemple, pour affecter un rôle à l’étendue de l’abonnement, recherchez et sélectionnez **Abonnements**, ou sélectionnez **Abonnements** dans la **page d’accueil**.
 
    ![Par exemple, affecter un rôle à l’étendue d’abonnement](./media/howto-create-service-principal-portal/select-subscription.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Science des données pour les débutants
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: La série Science des données pour les débutants enseigne des concepts de base en 5 courtes vidéos, et commence par Les 5 questions de la science des données. À partir d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2a91f3df3bab6a2ba10090719d0e614b9d652a3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751346"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621776"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>La science des données pour les débutants, vidéo 1 : Les cinq questions auxquelles répond la science des données
 Découvrez la science des données dans la série de cinq courtes vidéos de présentation *Science des données pour les débutants* d’un célèbre spécialiste des données. Ces vidéos sont simples mais utiles, que vous souhaitiez travailler sur la science des données ou collaborer avec d’autres scientifiques.
@@ -135,5 +135,5 @@ Les algorithmes d’apprentissage par renforcement collectent les données au fu
 Et voilà ! Ce sont les 5 questions auxquelles la science des données peut répondre.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Menez une première expérience de science des données avec Machine Learning Studio](create-experiment.md)
+* [Menez une première expérience de science des données avec Machine Learning Studio (classique)](create-experiment.md)
 * [Consultez la présentation de Machine Learning sur Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

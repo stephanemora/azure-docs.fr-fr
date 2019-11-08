@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Application Scala Maven pour Spark avec IntelliJ - Azure HDInsight'
+title: 'Didacticiel : Application Scala Maven pour Spark et IntelliJ – Azure HDInsight'
 description: Didacticiel - Créez une application Spark écrite en Scala avec Apache Maven comme système de génération et un archétype Maven existant pour Scala fourni par IntelliJ IDEA.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 667590120bba4676cbedf3d3bb2ff08e31656e1d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 156892a4785bf1644d29b82e98c3b2ae202c5a49
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71147017"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494699"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Didacticiel : Créer une application Scala Maven pour Apache Spark dans HDInsight à l’aide d’IntelliJ
 
@@ -220,7 +220,7 @@ Si vous ne comptez pas continuer à utiliser cette application, effectuez les é
 
 1. Sélectionnez **Supprimer**. Sélectionnez **Oui**.
 
-![Supprimer le cluster HDInsight dans le portail Azure](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Supprimer le cluster HDInsight")
+![Supprimer le cluster HDInsight dans le portail Azure](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Supprimer un cluster HDInsight")
 
 ## <a name="next-step"></a>Étape suivante
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 9cc06df5d2a66ede18af52c13201c731c12e2049
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 719f45aeeb5c7aa7e9b5e597ed461808c9d2b005
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614508"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472596"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Mettre le nombre de nœuds à l'échelle dans un cluster Azure Kubernetes Service (AKS)
 
@@ -74,7 +74,7 @@ L'exemple suivant montre que le cluster a été mis à l'échelle avec succès s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez mis à l’échelle un cluster AKS manuellement pour augmenter ou réduire le nombre de nœuds. Vous pouvez également utiliser l’[autoscaler de cluster][cluster-autoscaler] (actuellement en préversion dans AKS) pour mettre automatiquement à l’échelle votre cluster.
+Dans cet article, vous avez mis à l’échelle un cluster AKS manuellement pour augmenter ou réduire le nombre de nœuds. Vous pouvez également utiliser l’[autoscaler de cluster][cluster-autoscaler] pour mettre à l’échelle votre cluster automatiquement.
 
 <!-- LINKS - external -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

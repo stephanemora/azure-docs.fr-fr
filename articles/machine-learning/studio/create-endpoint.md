@@ -1,7 +1,7 @@
 ---
 title: Créer des points de terminaison de service web
-titleSuffix: Azure Machine Learning Studio
-description: Créez des points de terminaison de service web dans Azure Machine Learning Studio. Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante.
+titleSuffix: ML Studio (classic) Azure
+description: Créez des points de terminaison de service web dans Azure Machine Learning Studio (classique). Chaque point de terminaison du service web est adressé, limité et géré de façon indépendante.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca7061171eb68b7473f3bf72423e481f6c5dfee1
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751176"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619570"
 ---
-# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>Créer des points de terminaison pour les services web Azure Machine Learning Studio déployés
+# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>Créer des points de terminaison pour les services web Azure Machine Learning Studio (classique) déployés
 
 > [!NOTE]
 > Cette rubrique décrit les techniques applicables à un service web Machine Learning **classique**.
@@ -32,14 +32,14 @@ Vous pouvez ajouter un point de terminaison à un service web à l’aide du por
 > [!NOTE]
 > Si vous avez ajouté des points de terminaison au service web, vous ne pouvez pas supprimer le point de terminaison par défaut.
 
-1. Dans Machine Learning Studio, dans la colonne de navigation de gauche, cliquez sur Services web.
+1. Dans la colonne de navigation de gauche de Machine Learning Studio (classique), cliquez sur Services web.
 2. En bas du tableau de bord du service web, cliquez sur **Gérer les points de terminaison**. Le portail des services web Azure Machine Learning s’ouvre sur la page des points de terminaison pour le service web.
 3. Cliquez sur **Nouveau**.
 4. Tapez un nom et une description pour le point de terminaison. Les noms de point de terminaison doivent compter au maximum 24 caractères, et doivent être composés de lettres minuscules ou de chiffres. Sélectionnez le niveau de journalisation et activez les exemples de données si nécessaire. Pour plus d’informations sur la journalisation, consultez [Activation de la journalisation pour les services web de Machine Learning](web-services-logging.md).
 
 ## <a id="scaling"></a> Mettre à l’échelle un service web en ajoutant des points de terminaison supplémentaires
 
-Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées, avec un maximum de 200 requêtes. Azure Machine Learning Studio optimise automatiquement ce paramètre pour améliorer les performances de votre service web et la valeur de portail est ignorée.
+Par défaut, chaque service web publié est configuré pour prendre en charge 20 requêtes simultanées, avec un maximum de 200 requêtes. La version classique d’Azure Machine Learning Studio optimise automatiquement ce paramètre pour améliorer les performances de votre service web, et la valeur de portail est ignorée.
 
 Si vous envisagez d’appeler l’API avec une charge supérieure à ce que le nombre maximal d’appels simultanés (200) prend en charge, vous devez créer plusieurs points de terminaison sur le même service web. Vous pouvez ensuite répartir la charge entre tous de façon aléatoire.
 

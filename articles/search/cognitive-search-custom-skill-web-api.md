@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784902"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466740"
 ---
 # <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Compétence API web personnalisée dans un pipeline d’enrichissement de Recherche cognitive Azure
 
@@ -41,6 +41,7 @@ Les paramètres respectent la casse.
 | httpHeaders | Collection de paires clé-valeur où les clés représentent les noms d’en-tête et les valeurs représentent les valeurs d’en-tête à envoyer à votre API web avec la charge utile. Les en-têtes suivants sont interdits dans cette collection : `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (Facultatif) Si spécifié, indique le délai d’expiration pour le client http qui effectue l’appel d’API. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Par exemple, `PT60S` pour 60 secondes. S’il n’est pas défini, une valeur par défaut de 30 secondes est choisie. Le délai d’expiration peut être défini sur 230 secondes maximum et 1 seconde minimum. |
 | batchSize | (Facultatif) Indique le nombre « d’enregistrements de données » (voir la structure de charge utile _JSON_ ci-dessous) à envoyer par appel d’API. S’il n’est pas défini, une valeur par défaut de 1000 est choisie. Nous vous recommandons d’utiliser ce paramètre pour avoir un compromis entre le débit d’indexation et la charge sur votre API |
+| degreeOfParallelism | (Facultatif) Lorsqu’il est spécifié, indique le nombre d’appels que l’indexeur effectuera en parallèle au point de terminaison que vous avez fourni. Vous pouvez réduire cette valeur si votre point de terminaison échoue avec une charge de requête trop élevée, ou l’augmenter si votre point de terminaison est en mesure d’accepter plus de requêtes et si vous souhaitez augmenter les performances de l’indexeur.  S’il n’est pas défini, une valeur par défaut de 5 secondes est utilisée. Le degreeOfParallelism peut avoir une valeur maximale de 10 et un minimum de 1. |
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
@@ -56,7 +57,7 @@ Il n’y a pas de sortie « prédéfinie » pour cette compétence. En fonctio
 ```json
   {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can count the number of words or characters or lines in text",
+        "description": "A custom skill that can identify positions of different phrases in the source text",
         "uri": "https://contoso.count-things.com",
         "batchSize": 4,
         "context": "/document",
@@ -70,14 +71,13 @@ Il n’y a pas de sortie « prédéfinie » pour cette compétence. En fonctio
             "source": "/document/languageCode"
           },
           {
-            "name": "countOf",
-            "source": "/document/propertyToCount"
+            "name": "phraseList",
+            "source": "/document/keyphrases"
           }
         ],
         "outputs": [
           {
-            "name": "count",
-            "targetName": "countOfThings"
+            "name": "hitPositions"
           }
         ]
       }
@@ -101,7 +101,7 @@ Elle suit toujours ces contraintes :
            {
              "text": "Este es un contrato en Inglés",
              "language": "es",
-             "countOf": "words"
+             "phraseList": ["Este", "Inglés"]
            }
       },
       {
@@ -110,16 +110,16 @@ Elle suit toujours ces contraintes :
            {
              "text": "Hello world",
              "language": "en",
-             "countOf": "characters"
+             "phraseList": ["Hi"]
            }
       },
       {
         "recordId": "2",
         "data":
            {
-             "text": "Hello world \r\n Hi World",
+             "text": "Hello world, Hi world",
              "language": "en",
-             "countOf": "lines"
+             "phraseList": ["world"]
            }
       },
       {
@@ -128,7 +128,7 @@ Elle suit toujours ces contraintes :
            {
              "text": "Test",
              "language": "es",
-             "countOf": null
+             "phraseList": []
            }
       }
     ]
@@ -157,7 +157,7 @@ Elle suit toujours ces contraintes :
             },
             "errors": [
               {
-                "message" : "Cannot understand what needs to be counted"
+                "message" : "'phraseList' should not be null or empty"
               }
             ],
             "warnings": null
@@ -165,7 +165,7 @@ Elle suit toujours ces contraintes :
         {
             "recordId": "2",
             "data": {
-                "count": 2
+                "hitPositions": [6, 16]
             },
             "errors": null,
             "warnings": null
@@ -173,7 +173,7 @@ Elle suit toujours ces contraintes :
         {
             "recordId": "0",
             "data": {
-                "count": 6
+                "hitPositions": [0, 23]
             },
             "errors": null,
             "warnings": null
@@ -181,10 +181,12 @@ Elle suit toujours ces contraintes :
         {
             "recordId": "1",
             "data": {
-                "count": 11
+                "hitPositions": []
             },
             "errors": null,
-            "warnings": null
+            "warnings": {
+                "message": "No occurrences of 'Hi' were found in the input text"
+            }
         },
     ]
 }
@@ -201,7 +203,6 @@ Quand l’API web n’est pas disponible ou retourne une erreur HTTP, une erreur
 
 ## <a name="see-also"></a>Voir aussi
 
-+ [Page sur les super compétences (dépôt de compétences personnalisées)](https://aka.ms/powerskills)
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Ajouter une compétence personnalisée à un pipeline d’enrichissement par IA](cognitive-search-custom-skill-interface.md)
 + [Exemple : Création d’une compétence personnalisée pour l’enrichissement par IA (cognitive-search-create-custom-skill-example.md)

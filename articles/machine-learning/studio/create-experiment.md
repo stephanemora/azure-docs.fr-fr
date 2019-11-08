@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : Créer une expérience de science des données'
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Ce guide de démarrage rapide sur l’apprentissage automatique vous montre comment créer une expérience de science des données simple. Nous allons prédire le prix d’une voiture à l’aide d’un algorithme de régression.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 99cc453387ed32c4d7cbba31c1fec2ff24a8255f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515106"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621889"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Démarrage rapide : Créer votre première expérience de science des données dans Azure Machine Learning Studio
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Démarrage rapide : Créer votre première expérience de science des données dans Azure Machine Learning Studio (classique)
 
-Dans ce guide de démarrage rapide, vous utilisez [Azure Machine Learning Studio](what-is-ml-studio.md) pour créer une expérience d’apprentissage automatique qui prédit le prix d’une voiture d’après plusieurs variables comme la marque et les caractéristiques techniques.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+Dans ce guide de démarrage rapide, vous utilisez [Azure Machine Learning Studio (classique)](what-is-ml-studio.md) pour créer une expérience d’apprentissage automatique qui prédit le prix d’une voiture d’après plusieurs variables comme la marque et les caractéristiques techniques.
 
 Si vous ne connaissez pas bien l’apprentissage automatique, la série de vidéos [Science des données pour les débutants](data-science-for-beginners-the-5-questions-data-science-answers.md) offre une excellente introduction à l’apprentissage automatique, en présentant les termes et les concepts courants.
 
@@ -40,20 +42,18 @@ Ce guide de démarrage rapide suit le workflow par défaut d’une expérience 
 [Sélection et application d’un algorithme]: #choose-and-apply-an-algorithm
 [Prédiction des nouveaux prix des voitures]: #predict-new-automobile-prices
 
-Si vous n’avez pas de compte Studio, accédez à la [page d’accueil de Studio](https://studio.azureml.net) et sélectionnez **Inscrivez-vous ici** pour créer un compte gratuit. L’espace de travail gratuit comporte toutes les fonctionnalités dont vous avez besoin pour suivre ce guide de démarrage rapide.
-
 ## <a name="get-the-data"></a>Obtenir les données
 
 Les données sont la première chose dont vous avez besoin pour l’apprentissage automatique.
-Vous pouvez utiliser plusieurs exemples de jeux de données inclus dans Studio ou importer d’autres données à partir de sources diverses. Pour les besoins de cet exemple, nous allons utiliser le jeu de données **Données sur le prix des véhicules automobiles (brutes)** inclus dans votre espace de travail.
+Vous pouvez utiliser plusieurs exemples de jeux de données inclus dans la version classique de Studio ou importer d’autres données à partir de sources diverses. Pour les besoins de cet exemple, nous allons utiliser le jeu de données **Données sur le prix des véhicules automobiles (brutes)** inclus dans votre espace de travail.
 Ce jeu de données comprend des entrées relatives à plusieurs véhicules, notamment des informations sur la marque, le modèle, les caractéristiques techniques et le prix.
 
 > [!TIP]
-> Vous pouvez obtenir une copie de travail de l’expérience suivante dans la [galerie Azure AI](https://gallery.azure.ai). Accédez à **[Votre première expérience de science des données : prédiction sur les prix automobiles](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** () et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
+> Vous pouvez obtenir une copie de travail de l’expérience suivante dans la [galerie Azure AI](https://gallery.azure.ai). Accédez à **[Votre première expérience de science des données : prédiction sur les prix automobiles](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio (classique).
 
 Voici comment obtenir ce jeu de données dans le cadre de votre expérience.
 
-1. Créez une expérience en cliquant sur **+ NOUVEAU** en bas de la fenêtre Machine Learning Studio. Sélectionnez **EXPÉRIENCE** >  **Expérience vide**.
+1. Créez une expérience en cliquant sur **+ NOUVEAU** en bas de la fenêtre Machine Learning Studio (classique). Sélectionnez **EXPÉRIENCE** >  **Expérience vide**.
 
 1. Un nom par défaut est attribué à l’expérience : il apparaît en haut du canevas. Sélectionnez le texte et remplacez-le par un nom plus significatif, par exemple **Prédiction sur les prix automobiles**. Le nom n’a pas besoin d’être unique.
 
@@ -240,7 +240,7 @@ Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites s
 Dans ce guide de démarrage rapide, vous avez créé une expérience simple à partir d’un exemple de jeu de données. Pour approfondir le processus de création et de déploiement d’un modèle, passez au tutoriel sur les solutions prédictives.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Développer une solution prédictive dans Studio](tutorial-part1-credit-risk.md)
+> [Tutoriel : Développer une solution prédictive dans Studio (classique)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

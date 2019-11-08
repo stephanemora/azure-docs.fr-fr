@@ -1,5 +1,6 @@
 ---
-title: Flux d’authentification (Microsoft Authentication Library) | Azure
+title: Flux d’authentification (Microsoft Authentication Library)
+titleSuffix: Microsoft identity platform
 description: Découvrez les flux d’authentification et les octrois utilisés par Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d41e011fd58c20cbe6d2dc8d9029e645f8851bd9
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513034"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473819"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -202,7 +203,7 @@ Cela signifie que l’une des conditions suivantes est remplie :
 - Vous avez fourni un moyen aux utilisateurs de donner leur consentement pour l’utilisation de l’application (consultez [Demande de consentement d’utilisateur individuel](v2-permissions-and-consent.md#requesting-individual-user-consent)).
 - Vous avez fourni un moyen à l’administrateur de locataires de donner son consentement pour l’utilisation de l’application (consultez [Consentement administrateur](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
 
-Le flux d’authentification Windows intégrée est activé pour les applications de bureau .NET, .NET Core et la plateforme universelle Windows. Sur .NET Core, seule la surcharge prenant le nom d’utilisateur est disponible. La plateforme .NET Core ne peut pas demander le nom d’utilisateur au système d’exploitation.
+Le flux d’authentification Windows intégrée est activé pour les applications de bureau .NET, .NET Core et la plateforme universelle Windows. Sur .NET Core, vous devez fournir le nom d’utilisateur à IWA, car .NET Core ne peut pas obtenir les noms d’utilisateur du système d’exploitation.
   
 Pour plus d’informations sur le consentement, consultez [Autorisations et consentement dans v2.0](v2-permissions-and-consent.md).
 
@@ -230,7 +231,7 @@ Même si cette méthode peut parfois s’avérer utile (scénarios DevOps), si v
 
 En dehors des [contraintes inhérentes à l’authentification Windows intégrée](#integrated-windows-authentication), les contraintes suivantes s’appliquent :
 
-- Le flux de nom d’utilisateur/mot de passe n’est pas compatible avec l’accès conditionnel et l’authentification multifacteur. Par conséquent, si votre application s’exécute dans un locataire Azure AD pour lequel l’administrateur de locataires requiert une authentification multifacteur, vous ne pouvez pas utiliser ce flux. De nombreuses organisations procèdent ainsi.
+- Le flux de nom d’utilisateur/mot de passe n’est pas compatible avec l’accès conditionnel et l’authentification multifacteur. Par conséquent, si votre application s’exécute dans un locataire Azure AD pour lequel l’administrateur de locataires exige une authentification multifacteur, vous ne pouvez pas utiliser ce flux. De nombreuses organisations procèdent ainsi.
 - Cela fonctionne uniquement pour les comptes professionnels et scolaires (pas les comptes Microsoft).
 - Ce flux est disponible sur les applications de bureau .NET et .NET Core, mais pas sur la plateforme Windows universelle.
 

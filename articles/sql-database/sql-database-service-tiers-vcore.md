@@ -1,141 +1,183 @@
 ---
-title: Service Azure SQL Database - vCore | Microsoft Docs
-description: Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts.
+title: Vue d’ensemble du modèle vCore
+description: Le modèle d’achat vCore permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances en local et d’optimiser les coûts.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/01/2019
-ms.openlocfilehash: af2e8826c40fb0d16844b6c67f151b0affbf3efd
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 11/04/2019
+ms.openlocfilehash: b9de02bf0836727ac88b78194641238621e87a79
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034989"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821060"
 ---
-# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Choisissez parmi les niveaux de service vCore et effectuez la migration depuis les niveaux de service DTU
+# <a name="vcore-model-overview"></a>Vue d’ensemble du modèle vCore
 
-Le modèle d’achat vCore (cœurs virtuels) vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Il vous permet également de choisir la génération du matériel :
+Le modèle vCore (« cœur virtuel ») offre plusieurs avantages :
 
-- **Gen4** : Jusqu’à 24 processeurs logiques basés sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (cœur physique), 7 Go par vCore, disque SSD attaché
-- **Gen5** : Jusqu’à 80 processeurs logiques basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5,1 Go par vCore pour le calcul provisionné et jusqu’à 24 Go par vCore pour le calcul serverless, disque SSD eNVM haute vitesse
+- limites de calcul, de mémoire, d’E/S et de stockage plus élevées ;
+- contrôle de la génération du matériel pour mieux répondre aux besoins de calcul et de mémoire de la charge de travail ;
+- remises sur le tarif [d’Azure Hybrid Benefit (AHB)](sql-database-azure-hybrid-benefit.md) et de [l’Instance réservée (RI)](sql-database-reserved-capacity.md) ;
+- plus grande transparence des informations sur le matériel qui fait tourner les calculs, ce qui facilite la planification des migrations à partir de déploiements locaux.
 
-Le matériel Gen4 offre bien plus de mémoire par vCore. Toutefois, le matériel Gen5 vous permet de monter en puissance les ressources de calcul de façon plus importante.
+## <a name="service-tiers"></a>Niveaux de service
 
-> [!IMPORTANT]
-> Les nouvelles bases de données Gen4 ne sont plus prises en charge dans la région Australie Est ni Brésil Sud.
-> [!NOTE]
-> Pour plus d’informations sur les niveaux de service DTU, consultez [Niveaux de service pour le modèle d’achat DTU](sql-database-service-tiers-dtu.md). Pour plus d’informations sur les différences entre les niveaux de service pour modèles d’achat DTU et vCore, consultez [Modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
-
-## <a name="service-tier-characteristics"></a>Caractéristiques des niveaux de service
-
-Le modèle d’achat vCore fournit trois niveaux de service : usage général, hyperscale et critique pour l’entreprise. Ces niveaux de service se distinguent par leur taille de calcul, leur conception de haute disponibilité, leurs méthodes d’isolation des défaillances, leurs types et tailles de stockage, et leurs plages d’E/S.
-
-Vous devez configurer séparément le stockage nécessaire et la période de rétention des sauvegardes. Pour définir la période de rétention de sauvegarde, ouvrez le Portail Azure, accédez au serveur (pas à la base de données), puis sélectionnez **Gérer les sauvegardes** > **Configurer la stratégie** > **Configuration de la limite de restauration dans le temps** > **7 à 35 jours**.
-
-Le tableau suivant explique les différences entre les trois niveaux :
+Les options de niveau de service du modèle vCore sont les suivantes : usage général, critique pour l’entreprise et hyperscale. Le niveau de service définit généralement l’architecture de stockage, les limites d’espace et d’E/S et les options de continuité d’activité liées à la disponibilité et à la reprise d’activité.
 
 ||**Usage général**|**Critique pour l’entreprise**|**Hyperscale**|
 |---|---|---|---|
-|Idéal pour|Offre des options de calcul et de stockage équilibrées et économiques.|Applications OLTP avec des débits de transactions élevés et une faible latence des E/S. Offre une meilleure résilience aux défaillances et des basculements rapides à l’aide de plusieurs réplicas mis à jour de façon synchrone.|La plupart des charges de travail d’entreprise. Mise à l’échelle automatique de la taille de stockage jusqu’à 100 To, mise à l’échelle verticale et horizontale du calcul, restauration rapide de la base de données.|
-|Calcul|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels<br/>**Calcul serverless** :<br/>Gen5 : De 0,5 à 16 vCores|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels|**Calcul provisionné** :<br/>Gen4 : 1 à 24 cœurs virtuels<br/>Gen5 : 2 à 80 cœurs virtuels|
-|Mémoire|**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore<br/>**Calcul serverless** :<br/>Gen5 : Jusqu’à 24 Go par vCore|**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore |**Calcul provisionné** :<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore|
-|Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**Instance managée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Instance managée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
-|Débit d’E/S (approximatif)|**Base de données et pool élastique** : 500 IOPS par vCore avec un maximum de 40 000 IOPS.<br/>**Instance managée** : Dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5 000 IOPS par cœur avec un maximum de 200 000 IOPS.|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.|
+|Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques. |Offre aux applications métier la résilience la plus élevée aux défaillances en utilisant plusieurs réplicas isolés et assure les meilleures performances d’E/S par réplica de base de données.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité.  Offre une meilleure résilience aux défaillances en autorisant la configuration de plusieurs réplicas de base de données isolés. |
+|Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**Instance managée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 8 To<br/>**Instance managée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
+|Débit d’E/S (approximatif)|**Base de données et pool élastique** : 500 IOPS par vCore avec un maximum de 40 000 IOPS.<br/>**Instance managée** : Dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5 000 IOPS par vCore avec un maximum de 320 000 IOPS|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.|
 |Disponibilité|1 réplica, réplicas sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>haute disponibilité (HA) redondante interzone|1 réplica en lecture-écriture, plus 0 à 4 [réplicas avec échelle lecture](sql-database-read-scale-out.md)|
 |Sauvegardes|[Stockage géo-redondant avec accès en lecture (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegardes basées sur des instantanés dans le stockage distant Azure. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S de calcul. Les restaurations sont rapides et ne sont pas des opérations à l’échelle des données (elles durent quelques minutes plutôt que quelques heures ou jours).|
 |En mémoire|Non pris en charge|Pris en charge|Non pris en charge|
 |||
 
-> [!NOTE]
-> Vous pouvez obtenir une base de données Azure SQL Database gratuite au niveau de service De base avec un compte Azure gratuit. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
 
-- Pour plus d’informations à ce sujet, consultez [Limites de ressources vCore dans une base de données unique](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources vCore dans une instance managée](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Pour plus d’informations sur les niveaux de service Usage général et Critique pour l’entreprise, consultez [Niveaux de service Usage général et Critique pour l’entreprise](sql-database-service-tiers-general-purpose-business-critical.md).
-- Pour plus d’informations sur le niveau de service Hyperscale dans le modèle d’achat vCore, consultez [Niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).  
+### <a name="choosing-a-service-tier"></a>Choix d’un niveau de service
 
-## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
+Pour plus d’informations sur la sélection d’un niveau de service pour une charge de travail spécifique, voir les articles suivants :
 
-Dans le niveau de calcul provisionné du modèle d’achat vCore, vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’économiser jusqu’à 30 % sur Azure SQL Database en utilisant vos licences SQL Server locales avec la Software Assurance.
+- [Quand choisir le niveau de service Usage général](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [Quand choisir le niveau de service Critique pour l’entreprise](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [Quand choisir le niveau de service Hyperscale](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
-![Prix](./media/sql-database-service-tiers/pricing.png)
 
-Avec Azure Hybrid Benefit, vous pouvez choisir de payer uniquement pour l’infrastructure Azure sous-jacente en utilisant votre licence SQL Server existante pour le moteur de base de données SQL lui-même (tarification de calcul de base) ou de payer à la fois pour l’infrastructure sous-jacente et pour la licence SQL Server (tarification avec licence incluse).
+## <a name="compute-tiers"></a>Niveaux de calcul
 
-Vous pouvez choisir ou modifier votre modèle de licence en utilisant le Portail Azure ou l’une des API suivantes :
+Les options de niveau de calcul du modèle vCore sont les suivantes : provisionné et serverless.
 
-- Pour définir ou mettre à jour le type de licence à l’aide de PowerShell :
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
+### <a name="provisioned-compute"></a>Calcul provisionné
 
-- Pour définir ou mettre à jour le type de licence à l’aide d’Azure CLI :
+Le niveau de calcul provisionné fournit une quantité spécifique de ressources de calcul provisionnées en continu, indépendamment de l’activité de la charge de travail, la quantité de ressources provisionnées étant facturée à un tarif horaire fixe.
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- Pour définir ou mettre à jour le type de licence à l’aide de l’API REST :
+### <a name="serverless-compute"></a>Calcul serverless
 
-  - [Bases de données : Create ou Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Instances managées - Créer ou Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Instances managées - Mettre à jour](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+Le [niveau de calcul serverless](sql-database-serverless.md) met automatiquement à l’échelle les ressources de calcul en fonction de l’activité de la charge de travail, la quantité de ressources utilisées étant facturée à la seconde.
 
-## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>Effectuer une migration à partir du modèle DTU vers le modèle vCore
 
-### <a name="migrate-a-database"></a>Migrer une base de données
 
-La migration d’une base de données du modèle d’achat DTU vers le modèle d’achat vCore est similaire à la mise à niveau ou au passage à une version antérieure entre les niveaux de service standard et premium dans le modèle d’achat DTU.
+## <a name="hardware-generations"></a>Génération du matériel
 
-### <a name="migrate-databases-with-geo-replication-links"></a>Migrer des bases de données avec des liens de géoréplication
+Les options de génération du matériel du modèle vCore sont les suivantes : Gen4/5, série M (préversion) et série Fsv2 (préversion). La génération du matériel définit généralement les limites de calcul et de mémoire, ainsi que d’autres caractéristiques qui ont un impact sur les performances de la charge de travail.
 
-La migration du modèle DTU vers le modèle vCore est similaire à la mise à niveau (ou à la rétrogradation) des relations de géoréplication entre les bases de données dans les niveaux de service standard et premium. Pendant la migration, vous n’êtes pas obligé d’arrêter la géoréplication, mais vous devez suivre ces règles de séquencement :
+### <a name="gen4gen5"></a>Gen4/Gen5
 
-- Lors d’une mise à niveau, vous devez mettre à niveau la base de données secondaire, avant de mettre à niveau la base de données primaire.
-- Lors d’une rétrogradation, inversez l’ordre : rétrogradez d’abord la base de données primaire, puis la base de données secondaire.
+- Le matériel Gen4/Gen5, qui fournit des ressources de calcul et de mémoire équilibrées, convient à la plupart des charges de travail de base de données qui n’ont pas besoin de la quantité de mémoire, du nombre de vCore et de la vitesse de vCore unique offerts par les séries Fsv2 et M.
 
-Lorsque vous utilisez la géoréplication entre deux pools élastiques, nous vous recommandons de désigner un pool comme le pool principal et l’autre comme le pool secondaire. Dans ce cas, lorsque vous effectuez une migration de pools élastiques, vous devez utiliser les mêmes recommandations de séquencement. Toutefois, si vous avez des pools élastiques qui contiennent des bases de données primaires et secondaire, traitez le pool le plus utilisé comme pool principal et suivez les règles de séquencement en conséquence.  
+Pour connaître les régions dans lesquelles Gen4/Gen5 est disponible, voir [Disponibilité Gen4/Gen5](#gen4gen5-1).
 
-Le tableau suivant fournit des conseils pour certains scénarios de migration :
+### <a name="fsv2-seriespreview"></a>Série Fsv2 (préversion)
 
-|Niveau de service actuel|Niveau de service cible|Type de migration|Actions utilisateur|
-|---|---|---|---|
-|standard|Usage général|Latéral|Peut effectuer la migration dans n’importe quel ordre, mais doit garantir un redimensionnement vCore adapté*|
-|Premium|Critique pour l'entreprise|Latéral|Peut effectuer la migration dans n’importe quel ordre, mais doit garantir un redimensionnement vCore adapté*|
-|standard|Critique pour l'entreprise|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
-|Critique pour l'entreprise|standard|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
-|Premium|Usage général|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
-|Usage général|Premium|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
-|Critique pour l'entreprise|Usage général|Rétrogradation|Doit d’abord effectuer la migration de la base de données primaire|
-|Usage général|Critique pour l'entreprise|Mise à niveau|Doit d’abord effectuer la migration de la base de données secondaire|
-||||
+- La série Fsv2 est une option matérielle optimisée pour le calcul qui assure une faible latence du processeur et une fréquence d’horloge élevée pour les charges de travail les plus exigeantes en ressources de processeur.
+- En fonction de la charge de travail, la série Fsv2 peut fournir plus de performances de processeur par vCore que Gen5 ; la taille de 72 vCore peut en offrir plus à moindre coût que 80 vCore sur Gen5. 
+- Dans la mesure où Fsv2 fournit moins de mémoire et de tempdb par vCore que d’autres matériels, Gen5 ou la série M peuvent être à envisager pour les charges de travail sensibles à ces limites.  
 
-\* Chaque ensemble de 100 unités de transaction de base de données du niveau standard nécessite au moins 1 cœur virtuel, et chaque ensemble de 125 DTU du niveau premium nécessite au moins 1 cœur virtuel.
+Pour connaître les régions dans lesquelles la série Fsv2 est disponible, voir [Disponibilité de la série Fsv2](#fsv2-series).
 
-### <a name="migrate-failover-groups"></a>Migrer des groupes de basculement
 
-La migration des groupes de basculement comprenant plusieurs bases de données nécessite que la base de données primaire et la base de données secondaire soient migrées séparément. Pendant ce processus, les mêmes recommandations et règles de séquencement s’appliquent. Une fois les bases de données converties au modèle d’achat vCore, le groupe de basculement reste actif, avec les mêmes paramètres de stratégie.
+### <a name="m-seriespreview"></a>Série M (préversion)
 
-### <a name="create-a-geo-replication-secondary-database"></a>Créer une base de données secondaire de géoréplication
+- La série M est une option matérielle à mémoire optimisée destinée aux charges de travail réclamant plus de mémoire et des limites de calcul supérieures à celles fournies par Gen5.
+- La série M fournit 29 Go par vCore et 128 vCore, ce qui multiplie par 8 la limite de mémoire par rapport à Gen5 (presque 4 To).
 
-Vous pouvez créer une base de données secondaire géoréplication (réplica géosecondaire) uniquement dans le même niveau de service que celui utilisé pour la base de données primaire. Pour les bases de données avec un taux élevé de génération de journaux, nous vous recommandons de créer le réplica géosecondaire avec la même taille de calcul que le réplica principal.
+Pour activer le matériel de série M sur un abonnement et une région, il est nécessaire d’ouvrir une demande de support. Si elle est approuvée, l’expérience de sélection et de provisionnement de la série M suit le même modèle que pour les autres générations de matériel. Pour connaître les régions dans lesquelles la série M est disponible, voir [Disponibilité de la série M](#m-series).
 
-Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire unique, le paramètre `maxVCore` du pool doit correspondre à la taille de calcul de la base de données primaire. Si vous créez une base de données secondaire de géoréplication pour une base de données primaire située dans un autre pool élastique, nous vous recommandons d’attribuer la même valeur au paramètre `maxVCore` des deux pools.
 
-### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utiliser la copie de base de données pour convertir une base de données DTU en base de données vCore
+### <a name="compute-and-memory-specifications"></a>Spécifications de calcul et de mémoire
 
-Vous pouvez copier n’importe quelle base de données avec une taille de calcul DTU vers une base de données avec une taille de calcul vCore, sans aucune restriction ni séquencement spécial, tant que la taille de calcul cible prend en charge la taille maximale de la base de données source. La copie de base de données crée un instantané des données dès que commence l’opération de copie, et elle ne synchrone pas les données entre la source et la cible.
+
+|Génération du matériel  |Calcul  |Mémoire  |
+|:---------|:---------|:---------|
+|Gen4     |- Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz<br>- Provisionnement dans la limite de 24 vCore (1 vCore = 1 cœur physique)  |- 7 Go par vCore<br>- Provisionnement dans la limite de 168 Go|
+|Gen5     |**Calcul provisionné**<br>- Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz<br>- Provisionnement dans la limite de 80 vCore (1 vCore = 1 hyper-thread)<br><br>**Calcul serverless**<br>- Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz<br>- Mise à l’échelle automatique dans la limite de 16 vCore (1 vCore = 1 hyper-thread)|**Calcul provisionné**<br>- 5,1 Go par vCore<br>- Provisionnement dans la limite de 408 Go<br><br>**Calcul serverless**<br>- Mise à l’échelle automatique dans la limite de 24 Go par vCore<br>- Mise à l’échelle automatique dans la limite de 48 Go|
+|Série Fsv2     |- Processeurs Intel Xeon Platinum 8168 (Skylake)<br>- Fréquence d’horloge turbo tous cœurs prolongée de 3,4 GHz et fréquence d’horloge turbo monocœur maximale de 3,7 GHz<br>- Provisionnement de 72 vCore (1 vCore = 1 hyper-thread)|- 1,9 Go par vCore<br>- Provisionnement de 136 Go|
+|Série M     |- Processeurs Intel Xeon E7-8890 v3 2,5 GHz<br>- Provisionnement de 128 vCore (1 vCore = 1 hyper-thread)|- 29 Go par vCore<br>- Provisionnement de 3,7 To|
+
+
+Pour plus d’informations sur les limites de ressources, voir [Limites de ressources des bases de données uniques (vCore)](sql-database-vcore-resource-limits-single-databases.md)ou [Limites de ressources des pools élastiques (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
+
+### <a name="selecting-a-hardware-generation"></a>Choisir une génération de matériel
+
+Sur la Portail Azure, vous pouvez sélectionner la génération du matériel pour une base de données SQL ou un pool au moment de la création ou bien la modifier après la création.
+
+**Sélectionner une génération de matériel lors de la création d’une base de données SQL ou d’un pool**
+
+Pour plus d’informations, voir [Créer une base de données SQL](sql-database-single-database-get-started.md).
+
+Sous l’onglet **Informations de base**, sélectionnez le lien **Configurer la base de données** dans la section **Calcul + Stockage**, puis le lien **Modifier la configuration** :
+
+  ![Configurer la base de données](media/sql-database-service-tiers-vcore/configure-sql-database.png)
+
+Sélectionnez la génération du matériel souhaitée :
+
+  ![Sélectionner le matériel](media/sql-database-service-tiers-vcore/select-hardware.png)
+
+
+**Pour modifier la génération du matériel d’une base de données SQL ou d’un pool existant**
+
+Pour une base de données, sélectionnez le lien **Niveau tarifaire** sur la page Vue d’ensemble :
+
+  ![Modifier le matériel](media/sql-database-service-tiers-vcore/change-hardware.png)
+
+Pour un pool, sélectionnez **Configurer** sur la page Vue d’ensemble.
+
+Suivez les étapes indiquées pour modifier la configuration, puis sélectionnez la génération du matériel comme dans la procédure précédente.
+
+### <a name="hardware-availability"></a>Disponibilité matérielle
+
+#### <a name="gen4gen5"></a>Gen4/Gen5
+
+Les nouvelles bases de données Gen4 ne sont plus prises en charge dans les régions Australie Est et Brésil Sud. 
+
+Gen5 est disponible dans la plupart des régions du monde.
+
+#### <a name="fsv2-series"></a>Série Fsv2
+
+La série Fsv2 est disponible dans les régions suivantes : Afrique du Sud Nord, Asie Est, Asie Sud-Est, Australie Centre, Australie Centre 2, Australie Est, Australie Sud-Est, Brésil Sud, Canada Centre, Corée Centre, Corée Sud, Europe Nord, Europe Ouest, France Centre, Inde Centre, Inde Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, USA Est et USA Ouest 2.
+
+
+#### <a name="m-series"></a>Série M
+
+La série M est disponible dans les régions suivantes : Europe Nord, Europe Ouest, USA Est et USA Ouest 2.
+Elle peut également être en disponibilité limitée dans d’autres régions. Vous pouvez demander une autre région que celles de la liste, mais l’approvisionnement ne sera pas forcément possible.
+
+Pour activer la disponibilité de la série M dans un abonnement, il est nécessaire de demander l’accès en [déposant une nouvelle demande de support](#create-a-support-request-to-enable-m-series).
+
+
+##### <a name="create-a-support-request-to-enable-m-series"></a>Créer une demande de support pour activer la série M 
+
+1. Sélectionnez **Aide + support** sur le portail.
+2. Sélectionnez **Nouvelle demande de support**.
+
+Sur la page **Informations de base**, indiquez les informations suivantes :
+
+1. Pour **Type de problème**, sélectionnez **Limites du service et des abonnements (quotas)** .
+2. Dans **Abonnement**, sélectionnez l’abonnement pour lequel vous voulez activer la série M.
+3. Dans **Type de quota**, sélectionnez **Base de données SQL**.
+4. Sélectionnez **Suivant** pour accéder à la page **Détails**.
+
+Sur la page **Détails**, indiquez les informations suivantes :
+
+5. Dans la section **DÉTAILS DU PROBLÈME**, sélectionnez le lien **Indiquer des détails**. 
+6. Dans **Type de quota SQL Database**, sélectionnez **Série M**.
+7. Dans **Région**, sélectionnez la région pour laquelle vous voulez activer la série M.
+    Pour connaître les régions dans lesquelles la série M est disponible, voir [Disponibilité de la série M](#m-series).
+
+Les demandes de support approuvées sont généralement approvisionnées sous cinq jours ouvrables.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Pour créer une base de données SQL, voir [Créer une base de données SQL avec le Portail Azure](sql-database-single-database-get-started.md).
 - Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md).
-- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les pools élastiques, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les pools élastiques, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).
+- Pour plus d’informations sur les tarifs, voir la [page des tarifs Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/).

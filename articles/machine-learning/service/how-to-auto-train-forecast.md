@@ -9,15 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: eb13e6d279ffd8efc0cdb5ce675b77aac5be9c18
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 11/04/2019
+ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436631"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580700"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans cet article, vous allez apprendre à entraîner un modèle de régression de prévisions de série chronologique à l’aide du Machine Learning dans Azure Machine Learning. La configuration d’un modèle de prévision est semblable à celle d’un modèle de régression standard utilisant le machine learning automatisé, mais il existe certaines options de configuration et étapes de prétraitement pour l’utilisation des données de série chronologique. Les exemples suivants vous montrent comment :
 
@@ -34,6 +35,27 @@ Contrairement aux méthodes de séries chronologiques classique, cette méthode 
 Vous pouvez [configurer](#config) l’horizon souhaité pour la prévision, ainsi que des retards et bien plus encore. ML automatisé entraîne un modèle unique, mais comportant souvent des branches en interne pour tous les éléments du jeu de données et des horizons de prédiction. Plus de données sont donc disponibles pour estimer les paramètres du modèle, et il devient possible de généraliser des séries inconnues.
 
 Les fonctionnalités extraites les données d’apprentissage jouent un rôle capital. ML automatisé effectue les étapes de prétraitement standard et génère des fonctionnalités supplémentaires de séries chronologiques pour capturer les effets saisonniers et optimiser la précision des prévisions.
+
+## <a name="time-series-and-deep-learning-models"></a>Modèles de série chronologique et de Deep Learning
+
+
+Le ML automatisé fournit aux utilisateurs des modèles natifs de série chronologique et de Deep Learning dans le cadre du système de recommandation. Ces apprenants comprennent :
++ Prophet
++ Auto-ARIMA
++ ForecastTCN
+
+Le Deep Learning du ML automatisé permet de prévoir des données de série chronologique univariées et multivariées.
+
+Les modèles de Deep Learning ont trois capacités intrinsèques :
+1. Ils peuvent apprendre de mappages arbitraires des entrées aux sorties.
+1. Ils prennent en charge plusieurs entrées et sorties.
+1. Ils peuvent extraire automatiquement des modèles dans les données d’entrée qui s’étendent sur des séquences longues.
+
+En raison de données plus volumineuses, les modèles de Deep Learning, tels que ForecastTCN de Microsoft, peuvent améliorer les scores du modèle qui en résulte. 
+
+Les apprenants natifs de série chronologique sont également fournis dans le cadre du ML automatisé. Prophet fonctionne mieux avec les séries chronologiques ayant des effets saisonniers forts et plusieurs saisons de données historiques. Prophet est précis et rapide et robuste aux valeurs hors norme, aux données manquantes et aux modifications spectaculaires dans votre série chronologique. 
+
+La moyenne mobile intégrée autorégressive (ARIMA) est une méthode statistique populaire pour la prévision de série chronologique. Cette technique de prévision est couramment utilisée dans les scénarios de prévision à court terme où les données montrent des tendances telles que des cycles, qui peuvent être imprévisibles et difficiles à modéliser ou à prévoir. Auto-ARIMA transforme vos données en données fixes afin d’obtenir des résultats cohérents et fiables.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -98,6 +120,7 @@ L’objet `AutoMLConfig` définit les paramètres et les données nécessaires p
 |`max_horizon`|Définit l’horizon maximal de prévision souhaité en unités de fréquence de série chronologique. Les unités sont basées sur l’intervalle de temps de vos données d’apprentissage (par exemple, mensuelles, hebdomadaires) que l’analyste doit prévoir.|✓|
 |`target_lags`|Nombre de lignes selon lequel décaler les valeurs cibles en fonction de la fréquence des données. Ce paramètre est représenté sous la forme d’une liste ou d’un entier unique. Un décalage est nécessaire en l’absence de correspondance ou de corrélation par défaut des relations entre les variables indépendantes et la variable dépendante. Par exemple, quand vous essayez de prévoir la demande d’un produit, la demande mensuelle peut dépendre du prix de certaines matières premières trois mois auparavant. Dans ce cas, vous pouvez appliquer un décalage négatif de trois mois à la cible (la demande) afin que le modèle soit entraîné sur la relation appropriée.||
 |`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet. Spécifiez ce paramètre si vous souhaitez prendre en compte seulement une partie des données historiques pour l’entraînement du modèle.||
+|`enable_dnn`|Activez Prévision des DNN.||
 
 Pour plus d’informations, consultez la [documentation de référence](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -129,7 +152,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -148,7 +172,18 @@ Consultez le [notebook sur la demande d’énergie](https://github.com/Azure/Mac
 * détection et personnalisation de congé
 * validation croisée d’origine
 * décalages configurables
-* Caractéristiques des agrégations des fenêtres dynamiques
+* caractéristiques des agrégations des fenêtres dynamiques
+
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configurer une expérience de prévision d’activation des DNN
+
+> [!NOTE]
+> La prise en charge de DNN pour les prévisions dans le Machine Learning automatisé est en version préliminaire.
+
+Pour tirer parti des DNN pour les prévisions, vous devez définir le paramètre `enable_dnn` dans AutoMLConfig sur « true ». 
+
+Pour pouvoir utiliser des DNN, nous vous recommandons d’utiliser un cluster de calcul AML avec des références SKU GPU et au moins deux nœuds comme cible de calcul. Pour plus d’informations, consultez la [documentation Capacité de calcul AML](how-to-set-up-training-targets.md#amlcompute). Pour plus d’informations sur les tailles de machine virtuelle qui incluent des GPU, consultez [Tailles de machine virtuelle à GPU optimisé](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+
+Afin d’accorder suffisamment de temps pour que la formation DNN se termine, nous vous recommandons de définir le délai d’expiration de l’expérience sur au moins quelques heures.
 
 ### <a name="view-feature-engineering-summary"></a>Afficher le résumé de l’ingénierie des caractéristiques
 

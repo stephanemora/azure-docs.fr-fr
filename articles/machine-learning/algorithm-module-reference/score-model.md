@@ -1,24 +1,24 @@
 ---
 title: 'Noter le modèle : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Noter le modèle dans Azure Machine Learning service pour générer des prédictions à l’aide d’un modèle de classification ou de régression entraîné.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Noter le modèle dans Azure Machine Learning pour générer des prédictions à l’aide d’un modèle de classification ou de régression entraîné.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: f046b41d02ac392d003a9ecd15f25b43e5449cd0
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: e7ab953a7ac0907244ebaab70b3b86cbe6f0f4d9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692675"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497652"
 ---
 # <a name="score-model-module"></a>Score Model module
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour générer des prédictions à l’aide d’un modèle de classification ou de régression entraîné.
 
@@ -50,7 +50,6 @@ Le score, ou la valeur prédite, peut être indiqué dans différents formats en
 
 Une utilisation courante du scoring consiste à retourner la sortie en tant que partie d’un service web prédictif. Pour plus d’informations, consultez ce didacticiel sur la création d’un service web basé sur un pipeline dans Azure Machine Learning :
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

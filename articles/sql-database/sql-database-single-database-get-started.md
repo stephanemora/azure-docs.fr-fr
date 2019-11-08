@@ -1,5 +1,5 @@
 ---
-title: Créer une base de données unique - Azure SQL Database | Microsoft Docs
+title: Créer une base de données unique
 description: Créez et interrogez une base de données unique dans Azure SQL Database à l’aide du portail Azure, de PowerShell et d’Azure CLI.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845296"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821009"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>Démarrage rapide : Créer une base de données unique dans Azure SQL Database à l’aide du portail Azure, de PowerShell et d’Azure CLI
 
@@ -28,7 +28,7 @@ Pour toutes les étapes de ce guide de démarrage rapide, connectez-vous au [Por
 
 ## <a name="create-a-single-database"></a>Créer une base de données unique
 
-Une base de données unique peut être créée dans la couche de calcul approvisionnée ou serverless (préversion).
+Une base de données unique peut être créée au niveau du calcul approvisionné ou serverless.
 
 - Une base de données unique dans le niveau de calcul provisionné a une quantité définie de ressources de calcul allouées au préalable, notamment en termes de mémoire et de processeur, selon l’un des deux [modèles d’achat](sql-database-purchase-models.md).
 - Une base de données unique dans le niveau de calcul serverless a une gamme de ressources de calcul automatiquement mises à l’échelle, notamment en termes de mémoire et de processeur, et est uniquement disponible avec les [modèles d’achat vCore](sql-database-service-tiers-vcore.md).

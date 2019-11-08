@@ -1,5 +1,5 @@
 ---
-title: Modèles d’achat Azure SQL Database | Microsoft Docs
+title: Modèles d’achat
 description: Apprenez-en davantage sur les modèles d’achat disponibles pour Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 98d257c28ab5ff2cf902c0b8205ac8918ccf4d45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567007"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821259"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Choisir entre les modèles d’achat vCore et DTU
 
 Azure SQL Database vous permet d’acheter facilement un moteur de base de données PaaS (Platform as a Service) entièrement managé adapté à vos besoins en terme de performances et de coûts. Selon le modèle de déploiement choisi pour Azure SQL Database, vous pouvez sélectionner le modèle d’achat qui vous convient :
 
-- [Modèle d’achat vCore (basé sur une mémoire à tores magnétiques virtuelle)](sql-database-service-tiers-vcore.md) (recommandé). Ce modèle d’achat offre le choix entre un niveau de calcul approvisionné et un niveau de calcul serverless (sans serveur) (préversion). Avec le niveau calcul provisionné, vous choisissez la quantité exacte de ressources de calcul qui sont toujours approvisionnées pour votre charge de travail. Avec le niveau de calcul serverless, vous spécifiez la mise à l’échelle automatique des ressources de calcul sur une plage de calcul configurable. Ce niveau de calcul vous permet également de suspendre et reprendre automatiquement l’activité de la base de données en fonction de l’activité de la charge de travail. Le prix unitaire de vCore par unité de temps du niveau de calcul approvisionné est inférieur à celui du niveau de calcul serverless.
+- [Modèle d’achat vCore (basé sur une mémoire à tores magnétiques virtuelle)](sql-database-service-tiers-vcore.md) (recommandé). Ce modèle d’achat offre le choix entre un niveau de calcul approvisionné et un niveau de calcul serverless (sans serveur). Avec le niveau calcul provisionné, vous choisissez la quantité exacte de ressources de calcul qui sont toujours approvisionnées pour votre charge de travail. Avec le niveau de calcul serverless, vous spécifiez la mise à l’échelle automatique des ressources de calcul sur une plage de calcul configurable. Ce niveau de calcul vous permet également de suspendre et reprendre automatiquement l’activité de la base de données en fonction de l’activité de la charge de travail. Le prix unitaire de vCore par unité de temps du niveau de calcul approvisionné est inférieur à celui du niveau de calcul serverless.
 - [Modèle d’achat DTU (basé sur une unité de transaction de base de données)](sql-database-service-tiers-dtu.md). Ce modèle d’achat fournit des packages de calcul et de stockage groupés et équilibrés pour les charges de travail courantes.
 
 Différents modèles d’achat sont disponibles pour les différents modèles de déploiement Azure SQL Database :
@@ -53,7 +53,7 @@ Le coût du stockage de sauvegarde est le même pour les niveaux de service Crit
 
 ### <a name="serverless-compute-costs"></a>Coûts de calcul serverless
 
-Pour une description de la manière de définir la capacité de calcul et de calculer les coûts pour le niveau de calcul serverless, voir [Base de données SQL serverless (préversion)](sql-database-serverless.md).
+Si vous souhaitez consulter une description de la méthode permettant de définir la capacité de calcul et de calculer les coûts pour le niveau de calcul serverless, veuillez consulter la page [Microsoft Azure SQL Database serverless](sql-database-serverless.md).
 
 ## <a name="storage-costs"></a>Coûts de stockage
 

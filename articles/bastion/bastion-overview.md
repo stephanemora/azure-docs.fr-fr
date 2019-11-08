@@ -5,24 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 06/17/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: d153c876366c8c747e06bf50a0ea26bcdcea10eb
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 4cee16a4b6d4f87c8f09ad742d9a504cfc5fc394
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303590"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498323"
 ---
-# <a name="what-is-azure-bastion-preview"></a>Qu’est-ce qu’Azure Bastion ? (Préversion)
+# <a name="what-is-azure-bastion"></a>Qu’est-ce qu’Azure Bastion ?
 
 Le service Azure Bastion est un nouveau service PaaS complètement managé par la plateforme que vous provisionnez au sein de votre réseau virtuel. Il fournit une connectivité RDP/SSH sécurisée et fluide à vos machines virtuelles directement dans le Portail Azure via SSL. Lorsque vous vous connectez via Azure Bastion, vos machines virtuelles n’ont pas besoin d’une adresse IP publique.
 
  Bastion fournit une connectivité RDP et SSH sécurisée à toutes les machines virtuelles du réseau virtuel dans lequel il est fourni. Azure Bastion protège vos machines virtuelles contre l’exposition des ports RDP/SSH au monde extérieur, tout en fournissant un accès sécurisé à l’aide de RDP/SSH. Avec Azure Bastion, vous vous connectez à la machine virtuelle directement depuis le Portail Azure. Vous n’avez pas besoin d’un client, d’un agent ou d’un logiciel supplémentaire.
-
-> [!IMPORTANT]
-> Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="architecture"></a>Architecture
 
@@ -34,15 +30,15 @@ RDP et SSH font partie des moyens fondamentaux par lesquels vous pouvez vous con
 
 Cette figure représente l’architecture d’un déploiement Azure Bastion. Dans ce diagramme :
 
-* L’hôte Bastion est déployé dans le réseau virtuel.
-* L’utilisateur se connecte au Portail Azure à l’aide de n’importe quel navigateur HTML5.
+* l’hôte Bastion est déployé dans le réseau virtuel.
+* L’utilisateur se connecte au portail Azure à l’aide de n’importe quel navigateur HTML5.
 * L’utilisateur sélectionne la machine virtuelle à laquelle se connecter.
 * D’un simple clic, la session RDP/SSH s’ouvre dans le navigateur.
 * Aucune adresse IP publique n’est requise sur la machine virtuelle Azure.
 
 ## <a name="key-features"></a>Fonctionnalités clés
 
-Les fonctionnalités suivantes sont disponibles en préversion publique :
+Les fonctionnalités suivantes sont disponibles :
 
 * **RDP et SSH directement dans le Portail Azure :** Vous pouvez accéder directement à la session RDP et SSH directement dans le Portail Azure en un clic.
 * **Session à distance sur SSL et traversée de pare-feu pour RDP/SSH :** Azure Bastion utilise un client web basé sur HTML5 qui est automatiquement diffusé en continu sur votre appareil local de sorte que vous obtenez votre session RDP/SSH via SSL sur le port 443 ce qui vous permet de traverser les pare-feu d’entreprise en toute sécurité.

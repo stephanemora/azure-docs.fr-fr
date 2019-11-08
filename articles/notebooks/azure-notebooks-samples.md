@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8e4c817437c22d15e60cf48d5976c30433e83d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 715db36921427dc0ac5dcdad24c2c026b1ea1326
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970022"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496697"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Découvrir et utiliser des exemples de notebooks
 
@@ -30,7 +30,7 @@ Une fois que vous avez identifié un notebook que vous souhaitez explorer, voici
 
 ## <a name="great-sample-notebooks"></a>Exemples de notebooks particulièrement utiles
 
-- [Jeu de démarrage Azure Notebooks](https://notebooks.azure.com/#sample-redirect) inclut les introductions à Python, R et F# ainsi que des notebooks illustrant l’accès aux données, Azure Machine Learning Services et quelques exercices de science des données.
+- Le [kit de démarrage Azure Notebooks](https://notebooks.azure.com/#sample-redirect) inclut des introductions à Python, R et F#, ainsi que des notebooks présentant l’accès aux données, Azure Machine Learning et quelques exercices de science des données.
 - [Introduction aux notebooks Jupyter](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) (jupyter.org)
 - [Introduction à la science des données](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks) par Jake Vanderplas.
 - [Galerie de notebooks intéressants](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (projet Jupyter sur GitHub)
@@ -43,4 +43,4 @@ Une fois que vous avez identifié un notebook que vous souhaitez explorer, voici
 - [Guide pratique pour configurer et gérer des projets](configure-manage-azure-notebooks-projects.md)
 - [Guide pratique pour utiliser des fichiers de données](work-with-project-data-files.md)
 - [Guide pratique pour accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)
-- [Guide pratique pour utiliser Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Guide pratique pour Utiliser Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

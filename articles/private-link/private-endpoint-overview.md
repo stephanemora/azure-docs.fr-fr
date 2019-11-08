@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: ccc3da6f2dd49775ff4d4486fcd2af9f08a396d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592378"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475929"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
-Azure Private Endpoint est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Private Endpoint utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Le service peut être un service Azure, tel qu’Azure Storage, SQL, etc. ou votre propre [service Private Link](private-link-service-overview.md).
+Azure Private Endpoint est une interface réseau qui vous permet de vous connecter de façon privée et sécurisée à un service basé sur Azure Private Link. Private Endpoint utilise une adresse IP privée de votre réseau virtuel, plaçant de fait le service dans votre réseau virtuel. Le service peut être un service Azure, tel qu’Azure Storage, Azure Cosmos DB, SQL, etc. ou votre propre [service Private Link](private-link-service-overview.md).
   
 ## <a name="private-endpoint-properties"></a>Propriétés de Private Endpoint 
  Private Endpoint spécifie les propriétés suivantes : 
@@ -57,7 +57,7 @@ Une ressource Private Link est la cible de destination d’une instance Private 
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Stockage Azure**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Table (table, table_secondary)<BR> File d'attente (queue, queue_secondary)<BR> Fichier (file, file_secondary)<BR> Web (web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
- 
+|**Azure Cosmos DB** | Microsoft.AzureCosmosDB/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|
  
 ## <a name="network-security-of-private-endpoints"></a>Sécurité réseau de Private Endpoint 
 Lorsque vous utilisez Private Endpoint pour les services Azure, le trafic est sécurisé vers une ressource Private Link spécifique. La plateforme effectue un contrôle d’accès pour valider les connexions réseau qui atteignent uniquement la ressource Private Link spécifiée. Pour accéder à des ressources supplémentaires au sein du même service Azure, des instances Private Endpoint supplémentaires sont requises. 
@@ -81,7 +81,7 @@ Le propriétaire de la ressource Private Link peut effectuer les actions suivant
 > Seule une instance Private Endpoint dans un état approuvé peut envoyer le trafic vers une ressource Private Link donnée. 
 
 ### <a name="connecting-using-alias"></a>Connexion à l’aide de l’alias
-Alias est un moniker unique qui est généré lorsque le propriétaire du service crée le service Private Link derrière un Standard Load Balancer. Le propriétaire du service peut partager cet alias avec ses consommateurs hors connexion. Les consommateurs peuvent demander une connexion au service Private Link à l’aide de l’URI de ressource ou de l’alias. Si vous souhaitez vous connecter à l’aide de l’alias, vous devez créer une instance Private Endpoint à l’aide de la méthode d’approbation de connexion manuelle. Pour utiliser la méthode d’approbation de connexion manuelle, affectez la valeur true au paramètre de demande manuelle au cours de la création de votre Private Endpoint. Étudiez [New-AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) et [az network private-endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) pour plus de détails. 
+Alias est un moniker unique qui est généré lorsque le propriétaire du service crée le service Private Link derrière un Standard Load Balancer. Le propriétaire du service peut partager cet alias avec ses consommateurs hors connexion. Les consommateurs peuvent demander une connexion au service Private Link à l’aide de l’URI de ressource ou de l’alias. Si vous souhaitez vous connecter à l’aide de l’alias, vous devez créer une instance Private Endpoint à l’aide de la méthode d’approbation de connexion manuelle. Pour utiliser la méthode d’approbation de connexion manuelle, affectez la valeur true au paramètre de demande manuelle au cours de la création de votre Private Endpoint. Étudiez [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) et [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) pour plus de détails. 
 
 ## <a name="dns-configuration"></a>Configuration DNS 
 Lors de la connexion à une ressource Private Link à l’aide d’un nom de domaine complet (FQDN) dans la chaîne de connexion, il est important de configurer correctement vos paramètres DNS pour résoudre l’adresse IP privée allouée. Les services Azure existants peuvent déjà avoir une configuration DNS à utiliser lors de la connexion à un point de terminaison public. Cette valeur doit être remplacée pour la connexion à l’aide de votre instance Private Endpoint. 
@@ -91,7 +91,7 @@ L’interface réseau associée à l’instance Private Endpoint contient l’en
 Vous pouvez utiliser les options suivantes pour configurer vos paramètres DNS pour Private Endpoint : 
 - **Utilisez le fichier d’hôte (recommandé uniquement pour les tests)** . Vous pouvez utiliser le fichier d’hôte sur une machine virtuelle pour remplacer le DNS.  
 - **Utilisez une zone DNS privée**. Vous pouvez utiliser des zones DNS privées pour remplacer la résolution DNS pour un Private Endpoint donné. Une zone DNS privée peut être liée à votre réseau virtuel pour résoudre des domaines spécifiques.
-- **Utilisez votre serveur DNS personnalisé**. Vous pouvez utiliser votre propre serveur DNS pour remplacer la résolution DNS pour une ressource Private Link donnée. Si votre serveur DNS est hébergé sur un réseau virtuel, vous pouvez créer une règle de transfert DNS pour utiliser une zone DNS privée afin de simplifier la configuration de toutes les ressources Private Link.
+- **Utilisez votre serveur DNS personnalisé**. Vous pouvez utiliser votre propre serveur DNS pour remplacer la résolution DNS pour une ressource Private Link donnée. Si votre [serveur DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) est hébergé sur un réseau virtuel, vous pouvez créer une règle de transfert DNS pour utiliser une zone DNS privée afin de simplifier la configuration de toutes les ressources Private Link.
  
 > [!IMPORTANT]
 > Il n’est pas recommandé de remplacer une zone utilisée activement pour résoudre des points de terminaison publics. Les connexions aux ressources ne peuvent pas être résolues correctement sans transfert DNS vers le DNS public. Pour éviter les problèmes, créez un autre nom de domaine ou suivez le nom suggéré pour chaque service ci-dessous. 
@@ -107,9 +107,12 @@ Pour les services Azure, utilisez les noms de zone recommandés comme indiqué d
 |Compte de stockage (Microsoft.Storage/storageAccounts)   |    Fichier (file, file_secondary)      |    privatelink.file.core.windows.net      |
 |Compte de stockage (Microsoft.Storage/storageAccounts)     |  Web (web, web_secondary)        |    privatelink.web.core.windows.net      |
 |Système de fichiers Data Lake Gen2 (Microsoft.Storage/storageAccounts)  |  Système de fichiers Data Lake Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-||||
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|SQL |privatelink.documents.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts)|Table|privatelink.table.cosmos.azure.com|
  
-
 Azure créera un enregistrement DNS de nom canonique (CNAME) sur le DNS public pour rediriger la résolution vers les noms de domaine suggérés. Vous serez en mesure de remplacer la résolution par l’adresse IP privée de vos instances Private Endpoint. 
  
 Vos applications n’ont pas besoin de modifier l’URL de connexion. Lors d’une tentative de résolution à l’aide d’un DNS public, le serveur DNS est maintenant résolu sur vos instances Private Endpoint. Le processus n’a pas d’impact sur vos applications. 
@@ -122,8 +125,6 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 |Limitation |Description |Atténuation  |
 |---------|---------|---------|
 |Les règles de groupe de sécurité réseau et les routes définies par l’utilisateur ne s’appliquent pas au point de terminaison privé.    |Le groupe de sécurité réseau n’est pas pris en charge sur Private Endpoint. Si les sous-réseaux contenant Private Endpoint peuvent être associés à un groupe de sécurité réseau, les règles ne sont pas effectives sur le trafic traité par Private Endpoint. Vous devez [désactiver l’application des stratégies réseau](disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau. Les routes sur un sous-réseau client, quel qu’il soit, utiliseront un préfixe /32. La modification du comportement de routage par défaut nécessite une UDR similaire.  | Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source. Déployez des routes individuelles avec le préfixe /32 pour remplacer les routes de points de terminaison privés.        |
-|Vous ne pouvez pas créer Private Endpoint dans des sous-réseaux activés pour un point de terminaison de service ou des charges de travail spécialisées    |Vous ne pouvez pas déployer Private Endpoint dans des sous-réseaux activés pour des points de terminaison de service ou des sous-réseaux délégués à des charges de travail spécialisées|  Créez un sous-réseau distinct pour déployer Private Endpoint.        |
-|Private Endpoint ne peut être mappé qu’à un service Private Link (appartenant à un client) se trouvant dans la même région    |   La connexion à un service Private Link (votre propre service) à partir d’une autre région n’est pas prise en charge       |  Pour la version préliminaire, vous devez déployer votre service Private Link dans la même région.        |
 |  Un réseau virtuel appairé avec uniquement des points de terminaison privés n’est pas pris en charge   |   Quand la connexion à des points de terminaison privés sur un réseau virtuel appairé sans aucune autre charge de travail n’est pas prise en charge       | Déployez une machine virtuelle unique sur le réseau virtuel appairé pour activer la connectivité. |
 |Les charges de travail spécialisées ne peuvent pas accéder à Private Endpoint    |   Les services suivants déployés dans votre réseau virtuel ne peuvent pas accéder à une ressource Private Link à l’aide de Private Endpoint :<br>Plan App Service</br>Azure Container Instance</br>Azure NetApp Files</br>Module de sécurité matériel (HSM) dédié Azure<br>       |   Aucune atténuation pendant la préversion.       |
 
@@ -133,4 +134,5 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 - [Créer un point de terminaison privé pour un serveur SQL Database à l’aide de PowerShell](create-private-endpoint-powershell.md)
 - [Créer un point de terminaison privé pour un serveur SQL Database à l’aide de l’interface CLI](create-private-endpoint-cli.md)
 - [Créer un point de terminaison privé pour un compte de stockage à l’aide du portail](create-private-endpoint-storage-portal.md)
+- [Créer un point de terminaison privé pour un compte Cosmos Azure à l’aide du portail](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Créer votre propre service Liaison privée à l’aide d’Azure PowerShell](create-private-link-service-powershell.md)

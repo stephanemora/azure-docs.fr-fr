@@ -1,5 +1,6 @@
 ---
-title: Comment ajouter des rôles d’application dans votre application inscrite dans Azure Active Directory et les recevoir dans le jeton
+title: Ajouter des rôles d’application dans votre application inscrite auprès d’Azure Active Directory et les recevoir dans le jeton
+titleSuffix: Microsoft identity platform
 description: Découvrez comment ajouter des rôles d’application dans une application inscrite dans Azure Active Directory, comment affecter des utilisateurs et des groupes à ces rôles et les recevoir dans la revendication `roles` au sein du jeton.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8c0e761c7a03efda470aba83bfa02a30b22a21
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754315"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473786"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Activation Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -42,9 +43,9 @@ Ces rôles d’application sont définis dans le [portail Azure](https://portal.
 1. Dans la barre supérieure, sélectionnez votre compte, puis **Changer de répertoire**.
 1. Une fois que le volet **Répertoire + abonnement** est ouvert, choisissez le locataire Active Directory dans lequel vous souhaitez inscrire votre application, à partir de la liste **Favoris** ou **Tous les répertoires**.
 1. Sélectionnez sur **Tous les services** dans le volet de navigation de gauche, puis choisissez **Azure Active Directory**.
-1. Dans le volet **Azure Active Directory**, sélectionnez **Inscriptions d'applications** pour afficher une liste de toutes vos applications.
+1. Dans le volet **Azure Active Directory**, sélectionnez **Inscriptions d’applications (héritage)** pour afficher la liste de toutes vos applications.
 
-     Si vous ne voyez pas l’application que vous souhaitez afficher ici, utilisez les filtres présents en haut de la liste **Inscriptions d'applications** pour restreindre la liste ou bien faites-la défiler vers le bas pour localiser votre application.
+     Si vous ne voyez pas l’application que vous souhaitez afficher ici, utilisez les filtres présents en haut de la liste **Inscriptions d’applications (héritage)** pour restreindre la liste ou bien faites-la défiler vers le bas pour localiser votre application.
 
 1. Sélectionnez l’application pour laquelle vous souhaitez définir des rôles d’application.
 1. Dans le panneau de votre application, sélectionnez **Manifeste**.

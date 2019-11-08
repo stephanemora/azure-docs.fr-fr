@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 34ec5588a510574f4ea9f01bd23c6f6487e288da
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5b8d97005d8f404a296ddb45e92b65e4aa811aa3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638360"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486761"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>Les scores de prédiction indiquent la précision des prédictions pour les entités et l’intention
 
-Un score de prédiction indique le degré de confiance que LUIS a dans les résultats de prédiction, en fonction d’un énoncé utilisateur.
+Un score de prédiction indique le degré de confiance que LUIS a dans les résultats de prédiction d’un énoncé d’utilisateur.
 
 Un score de prédiction est compris entre zéro (0) et un (1). Un exemple de score LUIS de grande confiance est égal à 0,99. Un exemple de score faible confiance est égal à 0,01. 
 
@@ -31,33 +31,40 @@ Un score de prédiction est compris entre zéro (0) et un (1). Un exemple de sco
 |0.01|faible confiance|
 |0|échec définitif de correspondance|
 
-Lorsqu’un énoncé obtient un score à faible degré de confiance, LUIS le signale sur la page **Intention** du site web [LUIS](luis-reference-regions.md), en encadrant **labeled-intent** en rouge.
-
-![Disparité de score](./media/luis-concept-score/score-discrepancy.png)
-
 ## <a name="top-scoring-intent"></a>Intention de score principale
 
-Chaque prédiction d’énoncé retourne une intention de score principale. Cette prédiction est une comparaison numérique des scores de prédiction. La différence entre les deux principaux scores peut être très faible. LUIS n’indique pas cette proximité autrement qu’en retournant le meilleur score.  
+Chaque prédiction d’énoncé retourne une intention de score principale. Cette prédiction est une comparaison numérique des scores de prédiction. 
+
+## <a name="proximity-of-scores-to-each-other"></a>Proximité des scores entre eux
+
+La différence entre les deux principaux scores peut être très faible. LUIS n’indique pas cette proximité autrement qu’en retournant le meilleur score.  
 
 ## <a name="return-prediction-score-for-all-intents"></a>Retourner le score de prédiction pour toutes les intentions
 
-Un résultat de test ou de point de terminaison peut inclure toutes les intentions. Cette configuration est définie sur le [point de terminaison](https://aka.ms/v1-endpoint-api-docs) avec la `verbose=true` paire nom/valeur de chaîne de requête.
+Un résultat de test ou de point de terminaison peut inclure toutes les intentions. Cette configuration est définie sur le point de terminaison en utilisant la paire nom/valeur de chaîne de requête correcte.
+
+|API de prédiction|Nom de chaîne de requête|
+|--|--|
+|V3|`show-all-intents=true`|
+|V2|`verbose=true`|
 
 ## <a name="review-intents-with-similar-scores"></a>Passer en revue les intentions aux scores similaires
 
-La révision du score pour toutes les intentions est une bonne manière de vérifier non seulement que l’intention correcte est identifiée, mais encore, que le score d’intention suivant identifié est nettement plus faible et cohérent par rapport aux énoncés.
+La révision du score pour toutes les intentions est une bonne manière de vérifier non seulement que l’intention correcte est identifiée, mais aussi que le score de l’intention identifiée suivante est sensiblement et systématiquement plus faible pour les énoncés.
 
 Si plusieurs intentions ont des scores de prédiction proches, en se basant sur le contexte d’un énoncé, LUIS peut basculer d’une intention à l’autre. Pour corriger cette situation, continuez à ajouter des énoncés à chaque intention avec une plus grande variété de différences contextuelles ou vous pouvez faire en sorte que l’application cliente, par exemple un bot de conversation, effectue des choix programmatiques sur la façon de gérer les deux meilleures intentions.
 
-Les deux intentions, qui ont des notations trop proches, peuvent s’inverser en raison d’une formation non déterministe. Le score le plus élevé peut devenir le second score le plus élevé, et le second score le plus élevé peut devenir le score le plus élevé. Pour éviter ce problème, ajoutez des énoncés de l’exemple à chacune des deux principales intentions de cet énoncé, avec un choix de mots et de contexte permettant de différencier les deux intentions. Les deux intentions doivent avoir le même nombre d’énoncés d’exemple. Une règle empirique de séparation visant à empêcher l’inversion en raison de la formation, constitue une différence de score de 15 %.
+Les deux intentions, qui ont des scores trop proches, peuvent s’inverser en raison d’une **formation non déterministe**. Le score le plus élevé peut devenir le second score le plus élevé, et le second score le plus élevé peut devenir le score le plus élevé. Pour éviter ce problème, ajoutez des énoncés de l’exemple à chacune des deux principales intentions de cet énoncé, avec un choix de mots et de contexte permettant de différencier les deux intentions. Les deux intentions doivent avoir le même nombre d’énoncés d’exemple. Une règle empirique de séparation visant à empêcher l’inversion en raison de la formation, constitue une différence de score de 15 %.
 
-Vous pouvez désactiver la formation non déterministe en effectuant une [formation avec toutes les données](luis-how-to-train.md#train-with-all-data).
+Vous pouvez désactiver la **formation non déterministe** en [effectuant l’apprentissage avec toutes les données](luis-how-to-train.md#train-with-all-data).
 
 ## <a name="differences-with-predictions-between-different-training-sessions"></a>Différences des prédictions entre des sessions de formation différentes
 
-Lorsque vous effectuez l’apprentissage du même modèle dans une autre application et que les scores ne sont pas les mêmes, la différence est due à la formation non déterministe (un élément de caractère aléatoire). En second lieu, un chevauchement d’énoncé sur plus d’une intention signifie que l’intention principale pour le même énoncé peut changer en fonction de l’apprentissage.
+Lorsque vous effectuez l’apprentissage du même modèle dans une autre application et que les scores ne sont pas les mêmes, la différence est due à la **formation non déterministe** (élément de caractère aléatoire). En second lieu, un chevauchement d’énoncé sur plus d’une intention signifie que l’intention principale pour le même énoncé peut changer en fonction de l’apprentissage.
 
 Si votre chatbot requiert un score LUIS spécifique pour indiquer la confiance dans un énoncé, vous devez utiliser la différence de score entre les deux intentions principales. Cette situation offre une flexibilité pour varier l’apprentissage.
+
+Vous pouvez désactiver la **formation non déterministe** en [effectuant l’apprentissage avec toutes les données](luis-how-to-train.md#train-with-all-data).
 
 ## <a name="e-exponent-notation"></a>Notation E (exposant)
 

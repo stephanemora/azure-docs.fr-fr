@@ -1,24 +1,24 @@
 ---
-title: 'Régression logistique à deux classes : informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module de régression logistique à deux classes dans le service Azure Machine Learning pour créer un modèle de régression logistique qui peut être utilisé pour prédire seulement deux résultats.
+title: 'Régression logistique à deux classes : Informations de référence sur les modules'
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module de régression logistique à deux classes dans Azure Machine Learning pour créer un modèle de régression logistique utilisable pour prédire seulement deux résultats.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7020bf529fa635d74959a9dac071aa6e2b134c5b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: f64352906da5d6e3a314b3af68e37f4dc5bb80bd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692620"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485932"
 ---
 # <a name="two-class-logistic-regression-module"></a>Module de régression logistique à deux classes
 
-Cet article décrit un module de l’interface visuelle (préversion) du service Azure Machine Learning.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour créer un modèle de régression logistique qui peut être utilisé pour prédire seulement deux résultats. 
 
@@ -87,4 +87,4 @@ Une fois l’apprentissage terminé :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

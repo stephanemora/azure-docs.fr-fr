@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database serverless (préversion) | Microsoft Docs
+title: Azure SQL Database serverless| Microsoft Docs
 description: Cet article décrit le nouveau niveau de calcul serverless et le compare au niveau de calcul provisionné existant
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173396"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496250"
 ---
-# <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database serverless (préversion)
+# <a name="azure-sql-database-serverless"></a>Azure SQL Database serverless
 
-Azure SQL Database serverless (préversion) est un niveau de calcul pour les bases de données uniques qui met automatiquement à l’échelle les calculs en fonction de la demande de charge de travail, et facture la quantité de calcul utilisée par seconde. Le niveau de calcul serverless met aussi automatiquement en pause les bases de données pendant les périodes d’inactivité, quand seul le stockage est facturé, et reprend leur exécution automatiquement avec l’activité.
+Azure SQL Database serverless est un niveau de calcul pour les bases de données uniques qui met automatiquement à l’échelle les calculs en fonction de la demande de charge de travail, et facture la quantité de calcul utilisée par seconde. Le niveau de calcul serverless met aussi automatiquement en pause les bases de données pendant les périodes d’inactivité, quand seul le stockage est facturé, et reprend leur exécution automatiquement avec l’activité.
 
 ## <a name="serverless-compute-tier"></a>Niveau de calcul serverless
 
@@ -171,7 +171,7 @@ La création d’une base de données ou le déplacement d’une base de donnée
 
    |Paramètre|Choix des valeurs|Valeur par défaut|
    |---|---|---|---|
-   |Nombre minimal de vCores|Dépend du nombre maximal de vCores configuré. Voir [Limites des ressources](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCore|
+   |Nombre minimal de vCores|Dépend du nombre maximal de vCores configuré. Voir [Limites des ressources](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).|0,5 vCore|
    |Délai de la mise en pause automatique|Minimum : 60 minutes (1 heure)<br>Maximum : 10 080 minutes (7 jours)<br>Incréments : 60 minutes<br>Désactiver la mise en pause automatique  -1|60 minutes|
 
 > [!NOTE]
@@ -288,7 +288,7 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>Limites des ressources
 
-Pour connaître les limites de ressources, consultez [Niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
+Pour connaître les limites de ressources, consultez [Niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).
 
 ## <a name="billing"></a>Facturation
 
@@ -331,4 +331,4 @@ Le niveau de calcul serverless est disponible partout dans le monde, sauf dans l
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour démarrer, consultez [Démarrage rapide : Créez une base de données unique dans Azure SQL Database à l’aide du portail Azure](sql-database-single-database-get-started.md).
-- Pour les limites de ressources, consultez [Limites des ressources du niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)
+- Pour les limites de ressources, consultez [Limites des ressources du niveau de calcul serverless](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)

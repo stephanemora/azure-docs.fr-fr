@@ -1,6 +1,6 @@
 ---
 title: Gérer des services web
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: ML Studio (classic) Azure
 description: Gérez vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf24c45cb00dfcffa085272a26e401abf78524c2
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861733"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618921"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning Studio
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning Studio (classique)
 Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
 
 Le portail des services web Azure Machine Learning vous permet d’effectuer les opérations suivantes :
@@ -29,7 +29,7 @@ Le portail des services web Azure Machine Learning vous permet d’effectuer les
 * ajouter et supprimer des points de terminaison (classique uniquement).
 
 >[!NOTE]
->Vous pouvez également gérer les services web Classic dans [Machine Learning Studio](https://studio.azureml.net) dans l’onglet **Services web**.
+>Vous pouvez également gérer les services web classiques dans [Machine Learning Studio (classique)](https://studio.azureml.net) dans l’onglet **Services web**.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Autorisations pour gérer des services web basés sur le gestionnaire de nouvelles ressources
 
@@ -39,7 +39,7 @@ Si l’utilisateur n’a pas les autorisations appropriées pour accéder aux re
 
 *Échec du déploiement d’un service web. Ce compte n’a pas de droits d’accès suffisants à l’abonnement Azure qui contient l’espace de travail. Pour déployer un service web sur Azure, le même compte doit être invité à l’espace de travail et disposer de l’accès à l’abonnement Azure qui contient l’espace de travail.*
 
-Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning Studio](create-workspace.md).
+Pour plus d’informations sur la création d’un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning Studio (classique)](create-workspace.md).
 
 Pour plus d’informations sur la définition des autorisations d’accès, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
@@ -86,7 +86,7 @@ Vous pouvez mettre à jour les propriétés suivantes :
 * **Titre** pour entrer le titre du service web.
 * **Clés** pour configurer la rotation de vos clés API principales et secondaires.
 * **Clé du compte de stockage** pour mettre à jour la clé du compte de stockage associé aux modifications du service web. 
-* **Activer l’exemple de données** pour fournir des exemples de données que vous pouvez utiliser pour tester votre service de demande-réponse. Si vous avez créé le service web dans Machine Learning Studio, les exemples de données proviennent des données utilisées dans votre modèle. Si vous avez créé le service par programme, les données proviennent des exemples de données que vous avez fournis dans le cadre du package JSON.
+* **Activer l’exemple de données** pour fournir des exemples de données que vous pouvez utiliser pour tester votre service de demande-réponse. Si vous avez créé le service web dans Machine Learning Studio (classique), les exemples de données proviennent des données utilisées pour effectuer l’apprentissage de votre modèle. Si vous avez créé le service par programme, les données proviennent des exemples de données que vous avez fournis dans le cadre du package JSON.
 
 ### <a name="managing-billing-plans"></a>Gestion des plans de facturation
 Cliquez sur l’option de menu **Plans** à partir de la page Démarrage rapide des services web. Vous pouvez également cliquer sur le plan associé au service web spécifique pour gérer ce plan.
@@ -108,7 +108,7 @@ Le tableau de bord du plan affiche les informations suivantes :
 
 ## <a name="manage-classic-web-services"></a>Gérer des services web classiques
 > [!NOTE]
-> Les procédures décrites dans cette section ont trait à la gestion de services web classiques via le portail des services web Azure Machine Learning. Pour plus d’informations sur la gestion des services web classiques via Machine Learning Studio et le portail Microsoft Azure, voir [Gestion d’un espace de travail Azure Machine Learning Studio](manage-workspace.md).
+> Les procédures décrites dans cette section ont trait à la gestion de services web classiques via le portail des services web Azure Machine Learning. Pour plus d’informations sur la gestion des services web classiques par le biais de Machine Learning Studio (classique) et le Portail Microsoft Azure, consultez [Gérer un espace de travail Azure Machine Learning Studio (classique)](manage-workspace.md).
 > 
 > 
 
@@ -151,6 +151,6 @@ Vous pouvez mettre à jour les propriétés suivantes :
 
 * **Description** pour entrer une description du service web. Le champ Description est obligatoire.
 * **Journalisation** pour activer ou désactiver la journalisation des erreurs sur le point de terminaison. Pour plus d’informations sur la journalisation, voir [Activation de la journalisation pour les services web Machine Learning](web-services-logging.md).
-* **Activer l’exemple de données** pour fournir des exemples de données que vous pouvez utiliser pour tester votre service de demande-réponse. Si vous avez créé le service web dans Machine Learning Studio, les exemples de données proviennent des données utilisées dans votre modèle. Si vous avez créé le service par programme, les données proviennent des exemples de données que vous avez fournis dans le cadre du package JSON.
+* **Activer l’exemple de données** pour fournir des exemples de données que vous pouvez utiliser pour tester votre service de demande-réponse. Si vous avez créé le service web dans Machine Learning Studio (classique), les exemples de données proviennent des données utilisées pour effectuer l’apprentissage de votre modèle. Si vous avez créé le service par programme, les données proviennent des exemples de données que vous avez fournis dans le cadre du package JSON.
 
 

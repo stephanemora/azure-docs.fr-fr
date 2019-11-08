@@ -1,7 +1,7 @@
 ---
-title: Créer un mot déclencheur personnalisé – Service Speech
+title: Créer un mot clé personnalisé – Service de reconnaissance vocale
 titleSuffix: Azure Cognitive Services
-description: Votre appareil est toujours à l’écoute d’un mot déclencheur (ou d’une phrase). Quand l’utilisateur prononce le mot déclencheur, l’appareil envoie tous les sons suivants vers le cloud, jusqu’à ce que l’utilisateur arrête de parler. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot déclencheur.
+description: Votre appareil est toujours à l’écoute d’un mot (ou d’une phrase) clé. Quand l’utilisateur prononce le mot clé, l’appareil envoie tous les sons suivants vers le cloud, jusqu’à ce que l’utilisateur arrête de parler. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot clé.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,62 +10,60 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553104"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490924"
 ---
-# <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Créer un mot déclencheur personnalisé à l’aide du service Speech
+# <a name="create-a-custom-keyword-by-using-the-speech-service"></a>Créer un mot clé personnalisé à l’aide du service Speech
 
-Votre appareil est toujours à l’écoute d’un mot déclencheur (ou d’une phrase). Par exemple, « Bonjour Cortana » est un mot déclencheur de l’assistant Cortana. Quand l’utilisateur prononce le mot déclencheur, l’appareil envoie tous les sons suivants vers le cloud, jusqu’à ce que l’utilisateur arrête de parler. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot déclencheur.
+Votre appareil est toujours à l’écoute d’un mot (ou d’une phrase) clé. Par exemple, « Bonjour Cortana » est un mot clé de l’assistant Cortana. Quand l’utilisateur prononce le mot clé, l’appareil envoie tous les sons suivants vers le cloud, jusqu’à ce que l’utilisateur arrête de parler. Pour différencier votre appareil et renforcer votre marque, vous pouvez personnaliser votre mot clé.
 
-Dans cet article, vous allez apprendre à créer un mot déclencheur personnalisé pour votre appareil.
+Dans cet article, vous allez apprendre à créer un mot clé personnalisé pour votre appareil.
 
-## <a name="choose-an-effective-wake-word"></a>Choisir un mot déclencheur efficace
+## <a name="choose-an-effective-keyword"></a>Choisir un mot clé efficace
 
-Vous devez respecter les consignes suivantes lors du choix d’un mot déclencheur :
+Vous devez respecter les consignes suivantes lors du choix d’un mot clé :
 
-* Votre mot déclencheur doit être un mot ou une phrase en anglais. Le/la prononcer ne doit pas prendre plus de deux secondes.
+* Votre mot clé doit être un mot ou une phrase en anglais. Le/la prononcer ne doit pas prendre plus de deux secondes.
 
-* Il est préférable d’utiliser un mot de quatre à sept syllabes. Par exemple, « Hey, Computer » est un bon mot déclencheur, ce qui n’est pas le cas du mot « Hey » seul.
+* Il est préférable d’utiliser un mot de quatre à sept syllabes. Par exemple, « Hey, Computer » est un bon mot clé, ce qui n’est pas le cas du mot « Hey » seul.
 
-* Les mots déclencheurs doivent suivre les règles courantes de prononciation de la langue anglaise.
+* Les mots clés doivent suivre les règles courantes de prononciation de la langue anglaise.
 
-* Un mot unique ou même inventé qui suit les règles courantes de prononciation de la langue anglaise peut réduire les faux positifs. Par exemple, « computerama » pourrait être un bon mot déclencheur.
+* Un mot unique ou même inventé qui suit les règles courantes de prononciation de la langue anglaise peut réduire les faux positifs. Par exemple, « computerama » pourrait être un bon mot clé.
 
 * Ne choisissez pas un mot courant, comme « eat » et « go » qui sont prononcés très fréquemment dans les conversations. Ces faux déclencheurs activeraient à tort votre appareil.
 
-* Évitez d’utiliser un mot déclencheur qui a plusieurs prononciations. Sinon, les utilisateurs devront connaître la « bonne » prononciation pour obtenir une réponse de leur appareil. Par exemple, « 509 » peut se prononcer « five zero nine », « five oh nine » ou « five hundred and nine ». « R.E.I. » peut être prononcé « r-e-i » ou « ray ». « Live » peut être prononcé « /līv/ » ou « /liv/ ».
+* Évitez d’utiliser un mot clé qui a plusieurs prononciations. Sinon, les utilisateurs devront connaître la « bonne » prononciation pour obtenir une réponse de leur appareil. Par exemple, « 509 » peut se prononcer « five zero nine », « five oh nine » ou « five hundred and nine ». « R.E.I. » peut être prononcé « r-e-i » ou « ray ». « Live » peut être prononcé « /līv/ » ou « /liv/ ».
 
-* N’utilisez pas de caractères spéciaux, de symboles ou de chiffres. Par exemple, « Go# » et « 20 + cats » ne sont pas de bons mots déclencheurs. Cependant, « go sharp » ou « twenty plus cats » peuvent fonctionner. Pour rendre évidente la bonne prononciation, vous pouvez utiliser les symboles de votre marque et vous servir du marketing et de la documentation.
+* N’utilisez pas de caractères spéciaux, de symboles ou de chiffres. Par exemple, « Go# » et « 20 + cats » ne sont pas de bons mots clés. Cependant, « go sharp » ou « twenty plus cats » peuvent fonctionner. Pour rendre évidente la bonne prononciation, vous pouvez utiliser les symboles de votre marque et vous servir du marketing et de la documentation.
 
 > [!NOTE]
-> Si vous choisissez un mot commercial comme mot déclencheur, vous devez être propriétaire de cette marque commerciale ou avoir l’autorisation de son propriétaire pour utiliser le mot. Microsoft n’est pas responsable des problèmes juridiques que pourrait provoquer votre choix de mot déclencheur.
+> Si vous choisissez un mot commercial comme mot clé, vous devez être propriétaire de cette marque commerciale ou avoir l’autorisation de son propriétaire pour utiliser le mot. Microsoft n’est pas responsable des problèmes juridiques que pourrait provoquer votre choix de mot clé.
 
-## <a name="create-your-wake-word"></a>Créer votre mot déclencheur
+## <a name="create-your-keyword"></a>Créer votre mot clé
 
-Avant de pouvoir utiliser un mot déclencheur personnalisé avec votre appareil, vous devez en créer un avec le service de génération de mot déclencheur personnalisé de Microsoft. Une fois que vous avez fourni un mot déclencheur, le service génère un fichier que vous déployez sur votre kit de développement pour activer le mot déclencheur sur votre appareil.
+Avant de pouvoir utiliser un mot clé personnalisé avec votre appareil, vous devez en créer un avec le service de génération de mot clé personnalisé de Microsoft. Une fois que vous avez fourni un mot clé, le service génère un fichier que vous déployez sur votre kit de développement pour activer le mot clé sur votre appareil.
 
-1. Accédez au [portail du service Speech personnalisé](https://aka.ms/sdsdk-speechportal) et **connectez-vous**, ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Accédez au [Speech Studio](https://aka.ms/sdsdk-speechportal) et **connectez-vous**, ou, si vous n’avez pas d’abonnement vocal, choisissez [**Créer un abonnement**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-    ![Le portail du service Speech personnalisé](media/speech-devices-sdk/wake-word-4.png)
+1. Dans la page [Mot clé personnalisé](https://aka.ms/sdsdk-wakewordportal), tapez le mot clé de votre choix, puis cliquez sur **Ajouter un mot clé**. Nous avons des [instructions](#choose-an-effective-keyword) pour vous aider à choisir un mot clé efficace. La prise en charge est actuellement limitée à la langue en-US.
 
-1. À la page du [mot déclencheur personnalisé](https://aka.ms/sdsdk-wakewordportal), tapez le mot déclencheur de votre choix, puis cliquez sur **Ajouter un mot déclencheur**. Nous avons des [instructions](#choose-an-effective-wake-word) pour vous aider à choisir un mot clé efficace. Seule la langue en-US est prise en charge pour le moment.
+    ![Entrez votre mot clé](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
 
-    ![Entrez votre mot déclencheur](media/speech-devices-sdk/wake-word-5.png)
+1. Le portail crée des propositions de prononciations pour votre mot clé. Écoutez chaque prononciation en cliquant sur les boutons de lecture, supprimez les coches en regard des prononciations incorrectes. Une fois que seules les bonnes prononciations sont cochées, sélectionnez **Envoyer** pour commencer à générer le mot clé. Si vous souhaitez modifier le mot clé, supprimez le mot clé existant en cliquant sur le bouton Supprimer à droite de la ligne lorsque vous pointez dessus.
 
-1. Trois prononciations possibles de votre mot déclencheur sont créées. Vous pouvez choisir toutes les prononciations que vous voulez. Puis sélectionnez **Envoyer** pour générer le mot déclencheur. Si vous souhaitez modifier le mot déclencheur, supprimez d’abord le mot existant : l’icône de suppression apparaît lorsque vous pointez sur la ligne de prononciation.
+    ![Vérifier votre mot clé](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
 
-    ![Vérifiez votre mot déclencheur](media/speech-devices-sdk/wake-word-6.png)
+1. La génération du modèle peut prendre jusqu’à une minute. Vous êtes ensuite invité à télécharger le fichier.
 
-1. La création du modèle peut prendre jusqu'à une minute. Vous êtes alors invité à télécharger le fichier.
+    ![Télécharger votre mot clé](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-    ![Téléchargez votre mot déclencheur](media/speech-devices-sdk/wake-word-7.png)
-
-1. Enregistrez le fichier .zip sur votre ordinateur. Vous aurez besoin de ce fichier pour déployer votre mot déclencheur personnalisé dans le kit de développement.
+1. Enregistrez le fichier .zip sur votre ordinateur. Vous aurez besoin de ce fichier pour déployer votre mot clé personnalisé dans le kit de développement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Tester votre mot de mise en éveil personnalisé avec le [kit de développement logiciel (SDK) de démarrage rapide Speech](https://aka.ms/sdsdk-quickstart).
+Testez votre mot clé personnalisé avec le [Démarrage rapide du Kit de développement logiciel (SDK) Speech](https://aka.ms/sdsdk-quickstart).

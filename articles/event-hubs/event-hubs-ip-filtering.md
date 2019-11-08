@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f96c25dbb85ed92141636487f10d861a8c5e5f28
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821675"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468428"
 ---
 # <a name="use-firewall-rules"></a>Utiliser les règles de pare-feu
 
@@ -51,7 +51,6 @@ Les règles de filtre IP sont appliquées dans l’ordre et la première règle
 > - Intégration à Azure Event Grid
 > - Routes Azure IoT Hub
 > - Azure IoT Device Explorer
-> - Explorateur de données Azure
 >
 > Les services Microsoft suivants doivent être sur un réseau virtuel
 > - Azure Web Apps

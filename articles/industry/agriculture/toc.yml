@@ -1,0 +1,40 @@
+- name: Vue d'ensemble
+  items:
+    - name: "Qu’est-ce que FarmBeats\_?"
+      href: overview.md
+- name: Tutoriels
+  expanded: true
+  items:
+    - name: Générer une carte d’humidité des sols
+      href: generate-soil-moisture-map.md
+    - name: Ingérer des données de télémétrie historiques
+      href: ingest-historical-telemetry-data.md
+- name: Concepts
+  items:
+    - name: Modèles d’intégration
+      href: integration-patterns.md
+    - name: Intégration de partenaire de capteur
+      href: sensor-partner-integration.md
+    - name: Intégration de partenaire d’imagerie
+      href: imagery-partner-integration.md
+- name: Guides pratiques
+  items:
+    - name: Déployer FarmBeats
+      href: prepare-for-deployment.md
+    - name: Gérer des fermes
+      href: manage-farms.md
+    - name: Obtenir des données de capteur
+      href: get-sensor-data-from-sensor-partner.md
+    - name: Générer des cartes
+      href: generate-maps.md
+    - name: Configurer des règles et gérer des alertes
+      href: configure-rules-alerts.md
+    - name: Obtenir une imagerie par drone
+      href: get-drone-imagery.md
+- name: Résolution des problèmes
+  items:
+    - name: Résoudre les problèmes de FarmBeats
+      href: troubleshoot-project-farmbeats.md
+- name: Informations de référence
+  items: null
+  href: references-for-farmbeats.md

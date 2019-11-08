@@ -1,7 +1,7 @@
 ---
 title: Questions courantes - FAQ
 titleSuffix: Microsoft Genomics
-description: Réponses apportées aux questions fréquemment posées par les clients de Microsoft Genomics.
+description: Recevez des réponses à des questions fréquemment posées sur l’utilisation du service Microsoft Genomics, dont des informations techniques, le SLA et la facturation.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249227"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476435"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
 

@@ -1,7 +1,7 @@
 ---
 title: Utiliser des exemples de jeux de données
-titleSuffix: Azure Machine Learning Studio
-description: Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio. Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Descriptions des jeux de données utilisés dans les exemples de modèles inclus dans Machine Learning Studio (classique). Vous pouvez utiliser ces exemples de jeux de données pour vos expériences.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,21 +10,21 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: f86ae4977621927a09d9b83287a00dfa3bc17196
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c44fd4fcc6672d81332d79d1f5cc6845868a09d5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736613"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466965"
 ---
-# <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio
+# <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Utilisation des exemples de jeux de données dans Azure Machine Learning Studio (classique)
 [top]: #machine-learning-sample-datasets
 
-Quand vous créez un espace de travail dans Azure Machine Learning Studio, vous disposez par défaut d’un certain nombre d’exemples de jeux de données et d’expériences. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles [d’Azure AI Gallery](https://gallery.azure.ai/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
+Quand vous créez un espace de travail dans Azure Machine Learning Studio (classique), vous disposez par défaut d’un certain nombre d’exemples de jeux de données et d’expériences. Plusieurs de ces exemples de jeux de données sont utilisés par les exemples de modèles [d’Azure AI Gallery](https://gallery.azure.ai/). D’autres sont inclus comme exemples des différents types de données généralement utilisées dans Machine Learning.
 
 Certains de ces jeux de données sont disponibles dans le Stockage Blob Azure. Le tableau ci-dessous fournit un lien direct vers ces jeux de données. Vous pouvez utiliser ces jeux de données dans vos expériences à l’aide du module [Importer les données][import-data].
 
-Les autres exemples de jeux de données sont disponibles dans votre espace de travail, dans **Jeux de données enregistrés**. Vous le trouverez dans la palette de modules, à gauche du canevas de l’expérience, dans Machine Learning Studio.
+Les autres exemples de jeux de données sont disponibles dans votre espace de travail, dans **Jeux de données enregistrés**. Vous le trouverez dans la palette de modules, à gauche du canevas de l’expérience, dans Machine Learning Studio (classique).
 Vous pouvez utiliser un de ces jeux de données dans votre propre expérience en le faisant glisser sur le canevas de l'expérience.
 
 ## <a name="datasets"></a>Groupes de données
@@ -169,7 +169,7 @@ Collection de profils d'énergie simulés, basée sur 12 formes différentes de
   <td>
 Données de ponctualité des vols passagers provenant de la collection de données TranStats du ministère Ministère des transports des États-Unis (<a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">à l’heure</a>).
 <p></p>
-Le jeu de données couvre la période d’avril à octobre 2013. Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :
+Le jeu de données couvre la période d’avril à octobre 2013. Avant son téléchargement dans la version classique d’Azure Machine Learning Studio, le jeu de données a été traité comme suit :
 <ul>
   <li>Le jeu de données a été filtré afin de prendre uniquement en compte les 70 aéroports les plus fréquentés aux États-Unis.</li>
   <li>Les vols annulés ont été considérés comme ayant été retardés de plus de 15 minutes</li>
@@ -329,7 +329,7 @@ Notez également que le nombre d’événements de bruit de fond (h, pour douche
   <td>
 Observations météorologiques terrestres effectuées toutes les heures par la NOAA (<a href="https://az754797.vo.msecnd.net/data/WeatherDataset.csv">données fusionnées, de 201304 à 201310</a>).
 <p></p>
-Les données météorologiques couvrent les observations effectuées depuis les stations météo des aéroports, entre les mois d’avril et octobre 2013. Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :
+Les données météorologiques couvrent les observations effectuées depuis les stations météo des aéroports, entre les mois d’avril et octobre 2013. Avant son téléchargement dans la version classique d’Azure Machine Learning Studio, le jeu de données a été traité comme suit :
 <ul>
   <li>Les identifiants des stations météo ont été alignés sur les identifiants des aéroports correspondants.</li>
   <li>Les stations météo non associées à un des 70 aéroports sélectionnés ont été supprimées.</li>
@@ -344,7 +344,7 @@ Les données météorologiques couvrent les observations effectuées depuis les 
   <td>
 Les données sont extraites de Wikipédia (<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>), notamment d’articles sur chaque société S&P 500 et sont stockées sous forme de données XML.
 <p></p>
-Avant son téléchargement dans Azure Machine Learning Studio, le jeu de données a été traité comme suit :
+Avant son téléchargement dans la version classique d’Azure Machine Learning Studio, le jeu de données a été traité comme suit :
 <ul>
   <li>Extraction du contenu textuel de chaque société particulière</li>
   <li>Suppression de la mise en forme wiki</li>

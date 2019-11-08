@@ -1,0 +1,53 @@
+### YamlMime:Hub
+title: Documentation sur les secteurs d’activité pour Azure
+summary: Découvrez comment utiliser Azure afin de créer des solutions pour les cas d’utilisation courants dans différents secteurs d’activité.
+brand: azure
+metadata:
+  title: Documentation sur les secteurs d’activité pour Azure
+  description: Découvrez comment utiliser Azure afin de créer des solutions pour les cas d’utilisation courants dans différents secteurs d’activité.
+  ms.service: azure-industry
+  ms.topic: hub-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 2777093db7486f17cf19b45db08bbd0168a4e2a8
+  ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73797072"
+highlightedContent:
+  items:
+  - title: Azure FarmBeats
+    itemType: overview
+    url: ./agriculture/overview.md
+  - title: Forum de la communauté
+    itemType: concept
+    url: https://aka.ms/FarmBeatsMSDN
+  - title: UserVoice (commentaires)
+    itemType: get-started
+    url: https://aka.ms/FarmBeatsForum
+productDirectory:
+  title: Solutions pour des secteurs d’activité
+  items:
+  - title: Azure FarmBeats
+    imageSrc: ../media/index/industry-agriculture-farmbeats.svg
+    summary: Crée rapidement des solutions d’agriculture numérique dans le cloud.
+    url: ./agriculture/overview.md
+  - title: Services financiers
+    imageSrc: ../media/index/industry-financial.png
+    summary: Solutions et cas d’usage pour le secteur des services financiers.
+    url: /azure/industry-marketing/financial/
+  - title: Santé et sciences de la vie
+    imageSrc: ../media/index/industry-health.png
+    summary: Solutions et cas d’usage pour le secteur de la santé et des sciences de la vie.
+    url: /azure/industry-marketing/health/
+  - title: Fabrication
+    imageSrc: ../media/index/industry-manufacturing.png
+    summary: Solutions et cas d’usage pour le secteur de la fabrication.
+    url: /azure/industry-marketing/manufacturing/
+  - title: Vente au détail
+    imageSrc: ../media/index/industry-retail.png
+    summary: Solutions et cas d’usage pour le secteur de la vente au détail.
+    url: /azure/industry-marketing/retail/

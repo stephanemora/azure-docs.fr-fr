@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 11/02/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018972"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468465"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Didacticiel : Déployer et configurer un Pare-feu Azure dans un réseau hybride à l’aide du portail Azure
 
@@ -107,14 +107,6 @@ Tout d’abord, créez le groupe de ressources qui doit contenir les ressources 
 9. Sous **Sous-réseau**, tapez **SN-Workload** pour **Nom**.
 10. Pour **Plage d’adresses**, tapez **10.6.0.0/24**.
 11. Acceptez les autres paramètres par défaut, puis sélectionnez **Créer**.
-
-À présent, créez un second sous-réseau pour la passerelle.
-
-1. Sur la page **VNet-Spoke**, sélectionnez **Sous-réseaux**.
-2. Sélectionnez **+Sous-réseau**.
-3. Pour **Nom**, tapez **GatewaySubnet**.
-4. Pour **Plage d’adresses (bloc CIDR)** , tapez **10.6.1.0/24**.
-5. Sélectionnez **OK**.
 
 ## <a name="create-the-on-premises-virtual-network"></a>Créer le réseau virtuel local
 
@@ -341,7 +333,7 @@ Ensuite, créez deux itinéraires :
 2. Une fois la table de routage créée, sélectionnez-la pour ouvrir la page correspondante.
 3. Sélectionnez **Routes** dans la colonne de gauche.
 4. Sélectionnez **Ajouter**.
-5. Pour le nom de la route, tapez **ToSpoke**.
+5. Pour le nom de la route, tapez **ToHub**.
 6. Pour le préfixe d’adresse, tapez **0.0.0.0/0**.
 7. Pour le type de tronçon suivant, sélectionnez **Appliance virtuelle**.
 8. Pour l’adresse du tronçon suivant, tapez l’adresse IP privée du pare-feu que vous avez notée précédemment.
@@ -384,7 +376,7 @@ Créez une machine virtuelle dans le réseau virtuel spoke, exécutant IIS, sans
 ### <a name="install-iis"></a>Installer IIS
 
 1. Dans le portail Azure, ouvrez Cloud Shell et assurez-vous qu’il est défini sur **PowerShell**.
-2. Exécutez la commande suivante pour installer IIS sur la machine virtuelle :
+2. Exécutez la commande suivante pour installer IIS sur la machine virtuelle et modifier l’emplacement si nécessaire :
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -420,7 +412,7 @@ Il s’agit d’une machine virtuelle que vous utilisez pour vous connecter au m
 
 ## <a name="test-the-firewall"></a>Tester le pare-feu
 
-1. Tout d’abord, obtenez puis notez l’adresse IP privée pour la machine virtuelle **VM-spoke-01**.
+1. Tout d’abord, notez l’adresse IP privée de la machine virtuelle **VM-spoke-01**.
 
 2. À partir du portail Azure, connectez-vous à la machine virtuelle **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.

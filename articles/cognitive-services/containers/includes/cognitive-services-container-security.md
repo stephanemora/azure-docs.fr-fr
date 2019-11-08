@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: 7322d356d972635b81bc1bdd4b329bd3d5ac02df
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 35f5cffdc644370082e229c88d67db33e853c446
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842562"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499166"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Sécurité des conteneurs Azure Cognitive Services
 
-Quand vous développez des applications, la sécurité doit être l’un de vos principaux soucis. L’importance que vous accordez à la sécurité est un indicateur de réussite. Quand vous concevez une solution logicielle qui comprend des conteneurs Cognitive Services, il est essentiel de comprendre les limitations et les capacités disponibles. Pour plus d’informations, consultez [Sécurité Azure][az-security].
+Quand vous développez des applications, la sécurité doit être l’un de vos principaux soucis. L’importance que vous accordez à la sécurité est un indicateur de réussite. Quand vous concevez une solution logicielle qui comprend des conteneurs Cognitive Services, il est essentiel de comprendre les limitations et les capacités disponibles. Pour plus d’informations sur la sécurité réseau, voir [Configurer des réseaux virtuels Azure Cognitive Services][az-security].
 
 > [!IMPORTANT]
 > Par défaut, l’API du conteneur Cognitive Services *n’est pas sécurisée*. Cela est dû au fait que le conteneur s’exécute le plus souvent dans le cadre d’un pod qui est protégé de l’extérieur par un pont réseau. Toutefois, il est possible d’activer l’authentification, celle-ci fonctionnant de la même façon que l’authentification utilisée lors de l’accès aux [services Cognitive Services basés sur le cloud][request-authentication].
@@ -51,4 +51,4 @@ Désactivez l’inspection approfondie des paquets sur les canaux sécurisés qu
 [istio]: https://istio.io/
 [nginx]: https://www.nginx.com
 [request-authentication]: ../../authentication.md
-[az-security]: ../../../security/fundamentals/overview.md
+[az-security]: ../../cognitive-services-virtual-networks.md

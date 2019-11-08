@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595028"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471346"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Didacticiel : Mapper un nom DNS personnalisé existant à Azure App Service
 
@@ -60,9 +60,13 @@ Pour mapper un nom DNS personnalisé à une application web, le [plan App Servic
 
 Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous avec votre compte Azure.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Accéder à l’application dans le portail Azure
+### <a name="select-the-app-in-the-azure-portal"></a>Sélectionner l’application dans le portail Azure
 
-Dans le menu de gauche, sélectionnez **App Services**, puis le nom de l’application.
+Recherchez et sélectionnez **App Services**.
+
+![Sélectionner App Services](./media/app-service-web-tutorial-custom-domain/app-services.png)
+
+Dans la page **App Services**, sélectionnez le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -156,7 +160,7 @@ Un certain temps peut être nécessaire pour que le nouveau domaine personnalis�
 ![Enregistrement CNAME ajouté](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour ajouter une liaison SSL, consultez [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour ajouter une liaison SSL, voir [Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service](configure-ssl-bindings.md).
 
 Si vous avez raté une étape ou fait une faute de frappe à un endroit, une erreur de vérification peut apparaître au bas de la page.
 
@@ -240,7 +244,7 @@ Un certain temps peut être nécessaire pour que le nouveau domaine personnalis�
 ![Enregistrement A ajouté](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour ajouter une liaison SSL, consultez [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour ajouter une liaison SSL, voir [Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service](configure-ssl-bindings.md).
 
 Si vous avez raté une étape ou fait une faute de frappe à un endroit, une erreur de vérification peut apparaître au bas de la page.
 
@@ -295,7 +299,7 @@ Resélectionnez l’icône **+** pour ajouter un autre domaine personnalisé qui
 ![Enregistrement CNAME ajouté](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour ajouter une liaison SSL, consultez [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md).
+> Si le domaine personnalisé présente l’état **Non sécurisé**, cela signifie qu’il n’est pas encore lié à un certificat SSL. Toutes les requêtes HTTPS d’un navigateur sur votre domaine personnalisé recevront une erreur ou un avertissement, selon le navigateur. Pour ajouter une liaison SSL, voir [Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service](configure-ssl-bindings.md).
 
 ## <a name="test-in-browser"></a>Test dans le navigateur
 
@@ -374,4 +378,4 @@ Dans ce didacticiel, vous avez appris à :
 Passez au didacticiel suivant pour découvrir comment lier un certificat SSL personnalisé à une application web.
 
 > [!div class="nextstepaction"]
-> [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md)
+> [Sécuriser un nom DNS personnalisé avec une liaison SSL dans Azure App Service](configure-ssl-bindings.md)

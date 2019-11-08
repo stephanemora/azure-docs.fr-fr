@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 3fb36eb9b8507903d1aee00b82c375685a4dfa6c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 18032250bc5c321d638ad46204738f49f1a0c744
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279469"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480137"
 ---
 # <a name="azure-migrate-support-matrix"></a>Tableau de prise en charge Azure Migrate
 
@@ -24,15 +24,16 @@ Vous pouvez utiliser le [service Azure Migrate](migrate-overview.md) pour évalu
 
 Il existe deux versions du service Azure Migrate :
 
-- **Version actuelle** : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations. [Plus d’informations](whats-new.md#azure-migrate-new-version)
+- **Version actuelle** : utilisez cette version pour créer des projets Azure Migrate, découvrir des machines locales et orchestrer des évaluations et migrations. [Plus d’informations](whats-new.md#release-version-july-2019)
 - **Version précédente** : les clients utilisant la version précédente d’Azure Migrate (seule l’évaluation des machines virtuelles VMware locales était prise en charge) doivent à présent utiliser la version actuelle. La version précédente ne permet plus de créer des projets Azure Migrate ni d’effectuer de nouvelles découvertes.
 
-## <a name="supported-migration-scenarios"></a>Scénarios de migration pris en charge
+## <a name="supported-assessmentmigration-scenarios"></a>Scénarios d’évaluation et de migration pris en charge
 
-Le tableau récapitule les scénarios de migration pris en charge.
+Le tableau récapitule les scénarios de détection, d’évaluation et de migration pris en charge.
 
 **Déploiement** | **Détails** 
 --- | --- 
+**Détection spécifique de l’application** | Vous pouvez détecter des applications, des rôles et des fonctionnalités qui s’exécutent sur des machines virtuelles VMware. Actuellement, cette fonctionnalité est limitée à la détection. L’évaluation est actuellement au niveau de la machine. Nous n’offrons pas encore d’évaluation spécifique d’une application, d’un rôle ou d’une fonctionnalité. 
 **Évaluation locale** | Évaluez les charges de travail et les données locales exécutées sur des machines virtuelles VMware et des machines virtuelles Hyper-V. Évaluez à l’aide de la fonctionnalité Évaluation de serveur Azure Migrate et de l’Assistant Migration de données Microsoft, ainsi que d’outils tiers, notamment Cloudamize, Corent Tech et Turbonomic Server.
 **Migration locale vers Azure** | Migrez vers Azure des charges de travail et données exécutées sur des serveurs physiques, des machines virtuelles VMware, des machines virtuelles Hyper-V, des serveurs physiques et des machines virtuelles cloud vers Azure. Migrez à l’aide de la fonctionnalité Évaluation de serveur Azure Migrate et d’Azure Database Migration Service (DMS) ainsi que d’outils tiers, notamment Carbonite et CorentTech.
 
@@ -59,6 +60,30 @@ Machines virtuelles VMware  | Évaluez jusqu’à 35 000 machines virtuelles V
 Machines virtuelles Hyper-V | Évaluez jusqu'à 35 000 machines virtuelles Hyper-V au sein d'un même projet.
 
 Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
+
+## <a name="supported-geographies"></a>Zones géographiques prises en charge
+
+Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques. Même si vous ne pouvez créer des projets que dans ces zones, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+
+**Zone géographique** | **Emplacement de stockage des métadonnées**
+--- | ---
+Azure Government | Gouvernement américain - Virginie
+Asie-Pacifique | Asie Est ou Asie Sud-Est
+Australie | Australie Est ou Australie Sud-Est
+Brésil | Brésil Sud
+Canada | Canada Centre ou Canada Est
+Europe | Europe Nord ou Europe Ouest
+France | France Centre
+Inde | Inde Centre ou Inde Sud
+Japon |  Japon Est ou Japon Ouest
+Corée du Sud | Corée Centre ou Corée Sud
+Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
+États-Unis | USA Centre ou USA Ouest 2
+
+
+ > [!NOTE]
+ > La prise en charge d’Azure Government est actuellement disponible pour l’[ancienne version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) d’Azure Migrate uniquement.
+
 
 
 ## <a name="vmware-assessment-and-migration"></a>Évaluation et migration VMware

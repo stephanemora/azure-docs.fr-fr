@@ -8,19 +8,19 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: acf0b1984eb3e68858be6ed68731612448e672f4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6e1ee1fda658ef0884975e4055891f705c4f5058
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432709"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493989"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>Didacticiel : Entraîner et déployer un modèle Azure Machine Learning
 
 > [!NOTE]
 > Cet article fait partie d’une série d’un tutoriel décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Si vous êtes arrivé directement à cet article, nous vous encourageons à commencer par le [premier article](tutorial-machine-learning-edge-01-intro.md) de la série afin d’obtenir de meilleurs résultats.
 
-Dans cet article, nous utilisons d’abord Azure Notebooks pour former un modèle d’apprentissage automatique à l’aide d’Azure Machine Learning, puis nous empaquetons ce modèle sous forme d’image de conteneur qui peut être déployée en tant que module Azure IoT Edge. Les notebooks Azure bénéficient d’un espace de travail de service Azure Machine Learning, qui est un bloc fondamental utilisé pour expérimenter, former et déployer des modèles d’apprentissage automatique.
+Dans cet article, nous utilisons d’abord Azure Notebooks pour former un modèle d’apprentissage automatique à l’aide d’Azure Machine Learning, puis nous empaquetons ce modèle sous forme d’image de conteneur qui peut être déployée en tant que module Azure IoT Edge. Azure Notebooks bénéficient d’un espace de travail Azure Machine Learning, qui est un bloc fondamental utilisé pour expérimenter, former et déployer des modèles d’apprentissage automatique.
 
 Les activités de cette partie du tutoriel sont réparties sur deux notebooks.
 
@@ -72,7 +72,7 @@ Dans cette étape, nous créons un nouveau projet Azure Notebooks et y chargeons
 
 * **01-turbomoteur\_regression.ipynb** : Fichier de notebook Jupyter qui vous guide à travers le processus de téléchargement des données générées par l’atelier de l’appareil à partir du compte de stockage Azure ; exploration et préparation des données pour former le classifieur ; apprentissage du modèle ; test des données à l’aide du jeu de données de test trouvé dans le fichier Test\_FD003.txt ; et enfin, enregistrement du classifieur de modèle dans l’espace de travail du service Machine Learning.
 
-* **02-turbofan\_deploy\_model.ipynb :** Notebook Jupyter qui vous guide tout au long du processus d’utilisation du modèle de classifieur enregistré dans l’espace de travail du service Machine Learning pour produire une image de conteneur. Une fois l’image créée, le notebook vous guide tout au long du processus de déploiement de l’image en tant que service web afin que vous puissiez valider le fonctionnement attendu. L’image validée sera déployée sur notre périphérique Edge dans la partie [Créer et déployer des modules IoT Edge personnalisés](tutorial-machine-learning-edge-06-custom-modules.md) de ce tutoriel.
+* **02-turbofan\_deploy\_model.ipynb :** Notebook Jupyter qui vous guide tout au long du processus d’utilisation du modèle de classifieur enregistré dans l’espace de travail du service Machine Learning pour produire une image de conteneur. Une fois l’image créée, le notebook vous guide tout au long du processus de déploiement de l’image en tant que service web afin que vous puissiez valider le fonctionnement attendu. L’image validée sera déployée sur notre périphérique IoT Edge dans la partie [Créer et déployer des modules IoT Edge personnalisés](tutorial-machine-learning-edge-06-custom-modules.md) de ce tutoriel.
 
 * **Test\_FD003.txt :** Ce fichier contient les données que nous utiliserons comme jeu de test lors de la validation de notre classifieur formé. Nous avons choisi d’utiliser les données de test fournies pour le concours original comme jeu de test par souci de simplicité de l’exemple de test.
 

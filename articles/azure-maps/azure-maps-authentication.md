@@ -3,18 +3,18 @@ title: Authentification auprès d’Azure Maps | Microsoft Docs
 description: Authentification pour l’utilisation des services Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 8a6bc8b71f5f8edda76faa1a8d1b20417dfba1d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838050"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478654"
 ---
 # <a name="authentication-with-azure-maps"></a>Authentification avec Azure Maps
 
@@ -41,11 +41,14 @@ Azure Maps accepte les jetons d’accès **OAuth 2.0** pour les locataires Azur
 * Les applications partenaires qui utilisent des autorisations déléguées pour les utilisateurs.
 * Identités managées pour les ressources Azure.
 
-Azure Maps génère un *identificateur unique (ID client)* pour chaque compte Azure Maps. Lorsque vous combinez cet ID de client à d’autres paramètres, vous pouvez demander des jetons Azure AD en spécifiant la valeur suivante :
+Azure Maps génère un *identificateur unique (ID client)* pour chaque compte Azure Maps. Lorsque vous combinez cet ID de client avec d’autres paramètres, vous pouvez demander des jetons Azure AD en spécifiant les valeurs dans le tableau suivant en fonction de votre environnement Azure.
 
-```
-https://login.microsoftonline.com
-```
+| Environnement Azure   | Point de terminaison de jeton Azure AD |
+| --------------------|-------------------------|
+| Azure (public)        | https://login.microsoftonline.com |
+| Azure Government    | https://login.microsoftonline.us |
+
+
 Si vous souhaitez obtenir plus d’informations sur la configuration d’Azure AD et sur les requêtes de jetons pour Azure Maps, consultez [Gérer l’authentification dans Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 Pour obtenir des informations générales sur la requête de jetons Azure AD, consultez [Qu’est l’authentification ?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).

@@ -1,5 +1,5 @@
 ---
-title: Les jointures dans Apache Hive provoquent une erreur OutOfMemory dans Azure HDInsight
+title: Les jointures dans Apache Hive provoquent une erreur OutOfMemory – Azure HDInsight
 description: Traitement des erreurs OutOfMemory « Limite de la surcharge GC dépassée »
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: e1f41b6e1e5f51cb7e6e0af1e99184cdfbd373e1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 182ca8243b2e6050a72c22f52b9fcd0d2cef37c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091403"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494228"
 ---
 # <a name="scenario-joins-in-apache-hive-leads-to-an-outofmemory-error-in-azure-hdinsight"></a>Scénario : Les jointures dans Apache Hive provoquent une erreur OutOfMemory dans Azure HDInsight
 

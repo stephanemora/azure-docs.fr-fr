@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.custom: mvc
-ms.openlocfilehash: a4c7fe0d01bc9e5045cfe585c3f235636aa3dd22
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 214a88ad8b0f5dd0352004edc125705ad2f04fc7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676985"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494130"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : créer un cluster Apache Spark dans Azure HDInsight à l’aide du portail Azure
 
@@ -30,7 +30,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Analytics** > **HDInsight**.
 
-    ![Portail Azure : Créer une ressource HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight sur le portail Azure")
+    ![Portail Azure – Créer une ressource HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight sur Portail Azure")
 
 1. Sous **Informations de base**, fournissez les valeurs suivantes :
 
@@ -46,7 +46,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
     |Mot de passe de connexion au cluster| Entrez le mot de passe de connexion au cluster. |
     |Nom d’utilisateur SSH (Secure Shell)| Entrez le nom d’utilisateur SSH. Le nom d’utilisateur SSH utilisé pour ce démarrage rapide est **sshuser**. Par défaut, ce compte a le même mot de passe que le compte *Nom d’utilisateur de connexion au cluster*. |
 
-    ![Créer des configurations de base de cluster HDInsight Spark](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Créer des configurations de base de cluster HDInsight Spark")
+    ![Créer des configurations de base de cluster HDInsight Spark](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Créer un cluster Spark dans des configurations de base HDInsight")
 
     Sélectionnez **Suivant : Stockage >>** pour accéder à la page **Stockage**.
 
@@ -59,7 +59,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
     |Compte de stockage principal|Utilisez la valeur renseignée automatiquement.|
     |Conteneur|Utilisez la valeur renseignée automatiquement.|
 
-    ![Créer des configurations de base de cluster HDInsight Spark](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage-spark.png "Créer des configurations de base de cluster HDInsight Spark")
+    ![Créer des configurations de base de cluster HDInsight Spark](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage-spark.png "Créer un cluster Spark dans des configurations de base HDInsight")
 
     Sélectionnez **Vérifier + créer** pour continuer.
 
@@ -79,11 +79,11 @@ Jupyter Notebook est un environnement de Notebook interactif qui prend en charge
 
 1. Sur le Portail, sélectionnez **Tableaux de bord de cluster**, puis **Jupyter Notebook**. À l’invite (le cas échéant), entrez les informations d’identification du cluster.
 
-   ![Ouvrir Jupyter Notebook pour exécuter une requête interactive Spark SQL](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Ouvrir Jupyter Notebook pour exécuter une requête interactive Spark SQL")
+   ![Ouvrir Jupyter Notebook pour exécuter une requête SQL Spark interactive](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Ouvrir Jupyter Notebook pour exécuter une requête SQL Spark interactive")
 
 1. Sélectionnez **Nouveau** > **PySpark** pour créer un Notebook.
 
-   ![Créer un bloc-notes Jupyter Notebook pour exécuter une requête interactive Spark SQL](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Créer un bloc-notes Jupyter Notebook pour exécuter une requête interactive Spark SQL")
+   ![Créer un Jupyter Notebook pour exécuter une requête SQL Spark interactive](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Créer un Jupyter Notebook pour exécuter une requête SQL Spark interactive")
 
    Un nouveau bloc-notes est créé et ouvert sous le nom Untitled(Untitled.pynb).
 
@@ -129,7 +129,7 @@ HDInsight enregistre vos données dans le Stockage Azure ou Azure Data Lake Stor
 
 Revenez au Portail Azure, puis sélectionnez **Supprimer**.
 
-![Portail Azure : supprimer un cluster HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "Supprimer un cluster HDInsight")
+![Portail Azure – Supprimer un cluster HDInsight](./media/apache-spark-jupyter-spark-sql/hdinsight-azure-portal-delete-cluster.png "Supprimer un cluster HDInsight")
 
 Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir la page du groupe de ressources, puis sélectionner **Supprimer le groupe de ressources**. En supprimant le groupe de ressources, vous supprimez le cluster HDInsight Spark et le compte de stockage par défaut.
 

@@ -1,7 +1,7 @@
 ---
 title: Gérer des itérations d'expériences
-titleSuffix: Azure Machine Learning Studio
-description: Gestion des itérations d’expériences dans Azure Machine Learning Studio. Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
+titleSuffix: ML Studio (classic) Azure
+description: Gestion des itérations d’expériences dans Azure Machine Learning Studio (classique). Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 34a72f2e7b6be90654c0f053d5b8978b0283d56c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3fedd613d2a9de90f5ee04ca4266d06c6ed725a4
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860240"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621599"
 ---
-# <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gestion des itérations d'expériences dans Azure Machine Learning Studio
+# <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Gérez des itérations d’expériences dans Azure Machine Learning Studio (classique)
 Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.
 
 
 
-Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes. Quand vous exécutez une expérience, Machine Learning Studio conserve un historique de l’exécution, y compris l’ensemble de données, le module, les connexions de port et les paramètres. Cet historique capture également les résultats, les informations d'exécution telles que les heures de démarrage et d'arrêt, les messages de journal et l'état d'exécution. Vous pouvez réexaminer, à tout moment, l'une de ces exécutions pour consulter la chronologie de votre expérience et les résultats intermédiaires. Vous pouvez même utiliser une exécution précédente de votre expérience pour entamer une nouvelle phase de recherche et de découverte sur votre chemin d'accès pour la création de solutions de modélisation simples, complexes ou même d'ensemble.
+Vous pouvez consulter les précédentes exécutions de vos expériences à tout moment pour défier, réexaminer et finalement confirmer ou affiner les hypothèses précédentes. Quand vous exécutez une expérience, Machine Learning Studio (classique) conserve un historique de l’exécution, y compris l’ensemble de données, le module, les connexions de port et les paramètres. Cet historique capture également les résultats, les informations d'exécution telles que les heures de démarrage et d'arrêt, les messages de journal et l'état d'exécution. Vous pouvez réexaminer, à tout moment, l'une de ces exécutions pour consulter la chronologie de votre expérience et les résultats intermédiaires. Vous pouvez même utiliser une exécution précédente de votre expérience pour entamer une nouvelle phase de recherche et de découverte sur votre chemin d'accès pour la création de solutions de modélisation simples, complexes ou même d'ensemble.
 
 > [!NOTE]
-> Lorsque vous affichez une exécution précédente de l'expérience, cette version de l'expérience est verrouillée et ne peut pas être modifiée. Vous pouvez, toutefois, en enregistrer une copie en cliquant sur **ENREGISTRER SOUS** et en fournissant un nouveau nom à cette copie. Machine Learning Studio ouvre la nouvelle copie, que vous pouvez ensuite modifier et exécuter. Cette copie de votre expérience est disponible dans la liste **EXPÉRIENCES** , avec vos autres expériences.
+> Lorsque vous affichez une exécution précédente de l'expérience, cette version de l'expérience est verrouillée et ne peut pas être modifiée. Vous pouvez, toutefois, en enregistrer une copie en cliquant sur **ENREGISTRER SOUS** et en fournissant un nouveau nom à cette copie. Machine Learning Studio (classique) ouvre la nouvelle copie, que vous pouvez ensuite modifier et exécuter. Cette copie de votre expérience est disponible dans la liste **EXPÉRIENCES** , avec vos autres expériences.
 > 
 > 
 
@@ -57,12 +57,12 @@ Cliquez sur une de ces exécutions pour afficher un instantané de l'expérience
 > 
 > 
 
-La liste des expériences de l’onglet **EXPÉRIENCES** dans Machine Learning Studio affiche toujours la version la plus récente d’une expérience. Si vous ouvrez une exécution précédente de l'expérience (via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION**), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l'**ÉTAT** est défini sur **Modifiable**.
+La liste des expériences de l’onglet **EXPÉRIENCES** dans Machine Learning Studio (classique) affiche toujours la version la plus récente d’une expérience. Si vous ouvrez une exécution précédente de l'expérience (via **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION**), vous pouvez revenir à la version brouillon en cliquant sur **AFFICHER L'HISTORIQUE D'EXÉCUTION** et en sélectionnant l'itération dont l'**ÉTAT** est défini sur **Modifiable**.
 
 ## <a name="iterating-on-a-previous-run"></a>Itération sur une exécution précédente
 Lorsque vous cliquez sur **Exécution précédente** ou **AFFICHER L'HISTORIQUE D'EXÉCUTION** et que vous ouvrez une exécution précédente, vous pouvez afficher une expérience terminée en mode lecture seule.
 
-Si vous souhaitez lancer une itération du début de votre expérience, configurée de la même manière qu'une exécution précédente, ouvrez l'exécution et cliquez sur **ENREGISTRER SOUS**. Ceci créera une nouvelle expérience, avec un nouveau titre, un historique d'exécution vierge ainsi que tous les composants et valeurs de paramètre de l'exécution précédente. Cette nouvelle expérience est répertoriée sous l’onglet **EXPÉRIENCES** de la page d’accueil Machine Learning Studio et vous pouvez la modifier et l’exécuter, en lançant un nouvel historique d’exécution pour cette itération de votre expérience. 
+Si vous souhaitez lancer une itération du début de votre expérience, configurée de la même manière qu'une exécution précédente, ouvrez l'exécution et cliquez sur **ENREGISTRER SOUS**. Ceci créera une nouvelle expérience, avec un nouveau titre, un historique d'exécution vierge ainsi que tous les composants et valeurs de paramètre de l'exécution précédente. Cette nouvelle expérience est répertoriée sous l’onglet **EXPÉRIENCES** de la page d’accueil Machine Learning Studio (classique) et vous pouvez la modifier et l’exécuter, en lançant un nouvel historique d’exécution pour cette itération de votre expérience. 
 
 Supposons par exemple que l'historique d'exécution d'une expérience est indiqué dans la section précédente. Vous souhaitez découvrir ce qui se passe lorsque vous définissez le **Taux d'apprentissage** paramètre sur 0,4, et essayer différentes valeurs pour le paramètre **Nombre d'époques de formation**.
 

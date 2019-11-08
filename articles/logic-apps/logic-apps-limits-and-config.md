@@ -1,6 +1,6 @@
 ---
 title: Limites et configuration - Azure Logic Apps
-description: Limites de service et valeurs de configuration pour Azure Logic Apps
+description: Limites de service, telles que la durée, le débit et la capacité, ainsi que valeurs de configuration, telles que des adresses IP à autoriser, pour Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 7483d31b5e4d375d817019b1f81de98a05ef7530
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e2b866ddd888261e7d8817c73952d4830a4f8147
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550246"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464008"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -146,7 +146,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 | Nom | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Taille des messages | 100 Mo | 200 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. |
-| Taille des messages avec segmentation | 1 Go | 5 GO | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p>Pour l’environnement de service d’intégration, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites de segmentation jusqu’à la limite de moteur. Pour obtenir un exemple, consultez [Connecteur Stockage Blob Azure](/connectors/azureblob/). Pour plus d’informations sur la segmentation, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
+| Taille des messages avec segmentation | 1 Go | 5 GO | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p>Pour l’environnement de service d’intégration, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites de segmentation jusqu’à la limite du moteur. Pour un exemple, voir les [Informations de référence sur l’API du connecteur Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblob/). Pour plus d’informations sur la segmentation, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
 | Limite d’évaluation des expressions | 131 072 caractères | 131 072 caractères | Les expressions `@concat()`, `@base64()`, `@string()` ne peuvent pas contenir plus de caractères. |
 |||||
 
@@ -177,7 +177,7 @@ Les limites pour les connecteurs personnalisés qu’il est possible de créer �
 
 | Nom | Limite |
 | ---- | ----- |
-| Nombre d’applications logiques avec des identités managées assignées par le système par abonnement Azure | 100 |
+| Nombre d’applications logiques qui ont l’identité attribuée par le système dans un abonnement Azure par région | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -273,13 +273,11 @@ Les adresses IP qu’Azure Logic Apps utilise pour les appels entrants et sortan
 
 * Pour prendre en charge les appels que passent les [connecteurs managés par Microsoft](../connectors/apis-list.md), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région. 
 
-* Pour les applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), assurez-vous que vous [ouvrez ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+* Pour permettre la communication des applications logiques qui s’exécutent dans un environnement de service d’intégration (ISE), veillez à [ouvrir ces ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-* Les applications logiques n’ont pas directement accès aux comptes de stockage Azure dotés de [règles de pare-feu](../storage/common/storage-network-security.md) et situés dans la même région. Toutefois, si vous autorisez les [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound), les applications logiques peuvent accéder aux comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou le connecteur de Stockage File d’attente Azure. Pour accéder à votre service Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP. Dans le cas contraire, vous pouvez utiliser les options plus avancées disponibles ici :
+* Si vos applications logiques rencontrent des problèmes d’accès aux comptes de stockage Azure qui utilisent des [pare-feu et des règles de pare-feu](../storage/common/storage-network-security.md), vous disposez de [différentes options pour activer l’accès](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
-  * Créez un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), qui peut se connecter à des ressources dans un réseau virtuel Azure.
-
-  * Si vous utilisez un niveau dédié pour la Gestion des API, vous pouvez avoir recours à l’API de stockage en utilisant le service Gestion des API et en autorisant les adresses IP de ce dernier via le pare-feu. En gros, ajoutez le réseau virtuel Azure utilisé par le service Gestion des API au paramètre de pare-feu du compte de stockage. Vous pouvez ensuite utiliser l’action Gestion des API ou l’action HTTP pour appeler les API Stockage Azure. Cela dit, si vous choisissez cette option, vous devez gérer vous-même le processus d’authentification. Pour plus d’informations, consultez [Architecture d’intégration d’entreprise simple](https://aka.ms/aisarch).
+  Par exemple, les applications logiques n’ont pas directement accès aux comptes de stockage Azure qui utilisent des règles de pare-feu et se trouvent dans la même région. Toutefois, si vous autorisez les [adresses IP sortantes pour les connecteurs managés dans votre région](../logic-apps/logic-apps-limits-and-config.md#outbound), vos applications logiques peuvent accéder à des comptes de stockage dans une autre région, sauf lorsque vous utilisez le connecteur de Stockage Table Azure ou des connecteurs de Stockage File d’attente Azure. Pour accéder à votre Stockage Table ou Stockage File d’attente, vous pouvez toujours utiliser le déclencheur et les actions HTTP à la place. Pour d’autres options, voir [Accéder à des comptes de stockage derrière des pare-feu](../connectors/connectors-create-api-azureblobstorage.md#access-storage-accounts-behind-firewalls).
 
 * Pour les connecteurs personnalisés, [Azure Government](../azure-government/documentation-government-overview.md) et [21Vianet - Azure Chine](https://docs.microsoft.com/azure/china/), il n’y a pas d’adresses IP fixes ou réservées disponibles.
 

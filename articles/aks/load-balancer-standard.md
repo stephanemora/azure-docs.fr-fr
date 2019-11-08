@@ -7,20 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 55ded9a733baaac7fbc78621bd625d57d1d37ad1
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 8ebd91f8f02ad7eacd8440b34a31b78f5cac5741
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255476"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472629"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge de référence (SKU) Standard dans Azure Kubernetes Service (AKS)
 
 Pour restreindre l’accès à vos applications dans Azure Kubernetes Service (AKS), vous pouvez créer et utiliser un Azure Load Balancer. Un équilibreur de charge exécuté sur AKS peut être utilisé comme équilibreur de charge interne ou externe. Un équilibreur de charge interne rend un service Kubernetes accessible uniquement aux applications qui s’exécutent dans le même réseau virtuel que le cluster AKS. Un équilibreur de charge externe reçoit une ou plusieurs adresses IP publiques pour l’entrée et rend un service Kubernetes accessible en externe en utilisant des adresses IP publiques.
 
-Azure Load Balancer se décline en deux références SKU : *De base* et *Standard*. Par défaut, la référence SKU *De base* est utilisée lorsqu’un manifeste de service est utilisé pour créer un équilibreur de charge sur AKS. L’utilisation d’un équilibreur de charge de référence SKU *Standard* fournit des fonctionnalités supplémentaires, comme une plus grande taille pour le pool principal, et les zones de disponibilité. Il est important de comprendre les différences entre les équilibreurs de charge *Standard* et *De base* avant de choisir lequel utiliser. Une fois que vous créez un cluster AKS, vous ne pouvez pas modifier la référence SKU de l’équilibreur de charge pour ce cluster. Pour plus d’informations sur les références SKU *De base* et *Standard*, consultez [Comparaison des références SKU des équilibreurs de charge Azure][azure-lb-comparison].
-
-Cet article explique comment créer et utiliser un Azure Load Balancer avec la référence SKU *Standard* avec Azure Kubernetes Service (AKS).
+Azure Load Balancer se décline en deux références SKU : *De base* et *Standard*. Par défaut, la référence SKU *Standard* est utilisée lorsque vous créez un cluster AKS. L’utilisation d’un équilibreur de charge de référence SKU *Standard* fournit des fonctionnalités supplémentaires, comme une plus grande taille pour le pool principal, et les zones de disponibilité. Il est important de comprendre les différences entre les équilibreurs de charge *Standard* et *De base* avant de choisir lequel utiliser. Une fois que vous créez un cluster AKS, vous ne pouvez pas modifier la référence SKU de l’équilibreur de charge pour ce cluster. Pour plus d’informations sur les références SKU *De base* et *Standard*, consultez [Comparaison des références SKU des équilibreurs de charge Azure][azure-lb-comparison].
 
 Cet article suppose une compréhension élémentaire des concepts de Kubernetes et d’Azure Load Balancer. Pour plus d’informations, consultez [Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)][kubernetes-concepts] et [Qu’est-ce qu’Azure Load Balancer ?][azure-lb].
 
@@ -31,10 +29,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.74 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Avant de commencer
+Cet article part du principe que vous disposez d’un cluster AKS avec la référence SKU Azure Load Balancer *Standard*. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli]ou avec le [Portail Azure][aks-quickstart-portal].
 
-Le principal de service du cluster AKS a besoin de l’autorisation de gérer les ressources réseau si vous utilisez un sous-réseau ou un groupe de ressources existant. De façon générale, attribuez le rôle *Contributeur de réseau* au principal de service sur les ressources déléguées. Pour plus d’informations sur les autorisations, consultez [Déléguer l’accès à AKS à d’autres ressources Azure][aks-sp].
-
-Vous devez créer un cluster AKS qui définit la référence SKU pour l’équilibreur de charge sur *Standard* au lieu de la valeur par défaut, *De base*.
+Le principal de service du cluster AKS a également besoin de l’autorisation de gérer les ressources réseau si vous utilisez un sous-réseau ou un groupe de ressources existant. De façon générale, attribuez le rôle *Contributeur de réseau* au principal de service sur les ressources déléguées. Pour plus d’informations sur les autorisations, consultez [Delegate access to other Azure resources][aks-sp] (Déléguer l’accès à d’autres ressources Azure).
 
 ### <a name="limitations"></a>Limites
 
@@ -48,220 +45,11 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez des clust
 * Vous ne pouvez définir la référence (SKU) d’équilibreur de charge que lorsque vous créez un cluster AKS. Vous ne pouvez pas modifier la référence SKU de l’équilibreur de charge après la création d’un cluster AKS.
 * Vous pouvez utiliser qu’une seule référence (SKU) d’équilibreur de charge dans un même cluster.
 
-## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+## <a name="configure-the-load-balancer-to-be-internal"></a>Configurer l’équilibreur de charge pour qu’il soit interne
 
-Un groupe de ressources Azure est un groupe logique dans lequel des ressources Azure sont déployées et gérées. Lorsque vous créez un groupe de ressources, vous devez spécifier un emplacement. Il s’agit de l’emplacement de stockage des métadonnées de groupe de ressources. C’est également là que vos ressources s’exécutent dans Azure si vous ne spécifiez pas une autre région lors de la création de ressources. Créez un groupe de ressources avec la commande [az group create][az-group-create].
+Vous pouvez également configurer l’équilibreur de charge pour qu’il soit interne et n’expose pas une adresse IP publique. Pour configurer l’équilibreur de charge en interne, ajoutez `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` comme notation pour le service *LoadBalancer*. Vous pouvez voir un exemple de manifeste YAML, ainsi que plus de détails sur les équilibreurs de charge internes [ici][internal-lb-yaml].
 
-L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus*.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location eastus
-```
-
-L’exemple de sortie suivant montre que le groupe de ressources a été créé correctement :
-
-```json
-{
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup",
-  "location": "eastus",
-  "managedBy": null,
-  "name": "myResourceGroup",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "tags": null,
-  "type": null
-}
-```
-
-## <a name="create-aks-cluster"></a>Créer un cluster ACS
-Pour exécuter un cluster AKS qui prend en charge un équilibreur de charge avec la référence SKU *Standard*, votre cluster doit définir le paramètre *load-balancer-sku* sur *standard*. Ce paramètre crée un équilibreur de charge avec la référence SKU *Standard* quand votre cluster est créé. Lorsque vous exécutez un service *LoadBalancer* sur votre cluster, la configuration de l’équilibreur de charge de référence (SKU) *Standard* est mise à jour avec la configuration du service. Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS nommé *myAKSCluster*.
-
-> [!NOTE]
-> La propriété *load-balancer-sku* peut uniquement être utilisée lors de la création de votre cluster. Vous ne pouvez pas modifier la référence SKU de l’équilibreur de charge après la création d’un cluster AKS. En outre, vous pouvez utiliser un seul type de référence SKU d’équilibreur de charge dans un même cluster.
-> 
-> Si vous souhaitez utiliser vos propres adresses IP publiques, servez-vous des paramètres *load-balancer-outbound-ips* ou *load-balancer-outbound-ip-prefixes*. Vous pouvez également utiliser ces deux paramètres lors de la [mise à jour du cluster](#optional---provide-your-own-public-ips-or-prefixes-for-egress).
-
-```azurecli-interactive
-az aks create \
-    --resource-group myResourceGroup \
-    --name myAKSCluster \
-    --vm-set-type VirtualMachineScaleSets \
-    --node-count 1 \
-    --load-balancer-sku standard \
-    --generate-ssh-keys
-```
-
-Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster.
-
-## <a name="connect-to-the-cluster"></a>Connexion au cluster
-
-Pour gérer un cluster Kubernetes, vous utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes. Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé. Pour installer `kubectl` en local, utilisez la commande [az aks install-cli][az-aks-install-cli] :
-
-```azurecli
-az aks install-cli
-```
-
-Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][az-aks-get-credentials]. Cette commande télécharge les informations d’identification et configure l’interface CLI Kubernetes pour les utiliser.
-
-```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
-```
-
-Pour vérifier la connexion à votre cluster, utilisez la commande [kubectl get][kubectl-get] pour retourner une liste des nœuds du cluster.
-
-```azurecli-interactive
-kubectl get nodes
-```
-
-L’exemple de sortie suivant montre le nœud unique créé au cours des étapes précédentes. Vérifiez que l’état du nœud est *Ready* :
-
-```
-NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.10
-```
-
-## <a name="verify-your-cluster-uses-the-standard-sku"></a>Vérifier que votre cluster utilise la référence SKU *Standard*
-
-Utilisez la commande [az aks show][az-aks-show] pour afficher la configuration de votre cluster.
-
-```console
-$ az aks show --resource-group myResourceGroup --name myAKSCluster
-
-{
-  "aadProfile": null,
-  "addonProfiles": null,
-   ...
-   "networkProfile": {
-    "dnsServiceIp": "10.0.0.10",
-    "dockerBridgeCidr": "172.17.0.1/16",
-    "loadBalancerSku": "standard",
-    ...
-```
-
-Vérifiez que la propriété *loadBalancerSku* affiche la valeur *standard*.
-
-## <a name="use-the-load-balancer"></a>Utiliser l’équilibreur de charge
-
-Pour utiliser l’équilibreur de charge sur votre cluster, créez un manifeste de service avec le type de service *LoadBalancer*. Pour afficher le fonctionnement de l’équilibreur de charge, créez un autre manifeste avec un exemple d’application à exécuter sur votre cluster. Cet exemple d’application est exposé via l’équilibreur de charge et peut être affiché dans un navigateur.
-
-Créez un manifeste nommé `sample.yaml`, comme indiqué dans l’exemple suivant :
-
-```yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-back
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-back
-  template:
-    metadata:
-      labels:
-        app: azure-vote-back
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-back
-        image: redis
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 6379
-          name: redis
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-back
-spec:
-  ports:
-  - port: 6379
-  selector:
-    app: azure-vote-back
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-front
-  template:
-    metadata:
-      labels:
-        app: azure-vote-front
-    spec:
-      nodeSelector:
-        "beta.kubernetes.io/os": linux
-      containers:
-      - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        ports:
-        - containerPort: 80
-        env:
-        - name: REDIS
-          value: "azure-vote-back"
-```
-
-Le manifeste ci-dessus configure deux déploiements : *azure-vote-front* et *azure-vote-back*. Pour configurer le déploiement *azure-vote-front* pour qu’il soit exposé à l’aide de l’équilibreur de charge, créez un manifeste nommé `standard-lb.yaml` comme indiqué dans l’exemple suivant :
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-vote-front
-```
-
-Le service *azure-vote-front* utilise le type *LoadBalancer* pour configurer l’équilibreur de charge sur votre cluster AKS pour se connecter au déploiement *azure-vote-front*.
-
-Déployez l’exemple d’application et l’équilibreur de charge avec la commande [kubectl apply][kubectl-apply] et spécifiez le nom de vos manifestes YAML :
-
-```console
-kubectl apply -f sample.yaml
-kubectl apply -f standard-lb.yaml
-```
-
-L’équilibreur de charge de référence SKU *Standard* est maintenant configuré pour exposer l’exemple d’application. Affichez les détails du service *azure-vote-front* avec la commande [kubectl get][kubectl-get] pour voir l’adresse IP publique de l’équilibreur de charge. L’adresse IP publique de l’équilibreur de charge est indiquée dans la colonne *EXTERNAL-IP* . Le passage de l’adresse IP de l’état *\<en attente\>* à une adresse IP externe réelle peut prendre une ou deux minutes, comme indiqué dans l’exemple suivant :
-
-```
-$ kubectl get service azure-vote-front
-
-NAME                TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
-azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP   16s
-```
-
-Accédez à l’adresse IP publique dans un navigateur et vérifiez que vous voyez l’exemple d’application. Dans l’exemple ci-dessus, l’IP publique est `52.179.23.131`.
-
-![Image de la navigation vers Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
-
-> [!NOTE]
-> Vous pouvez également configurer l’équilibreur de charge pour qu’il soit interne et n’expose pas une adresse IP publique. Pour configurer l’équilibreur de charge en interne, ajoutez `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` comme notation pour le service *LoadBalancer*. Vous pouvez voir un exemple de manifeste YAML, ainsi que plus de détails sur les équilibreurs de charge internes [ici][internal-lb-yaml].
-
-## <a name="optional---scale-the-number-of-managed-public-ips"></a>Facultatif – Mettre à l’échelle le nombre d’adresses IP publiques gérées
+## <a name="scale-the-number-of-managed-public-ips"></a>Mettre à l’échelle le nombre d’adresses IP publiques gérées
 
 Lorsque vous utilisez un équilibreur de charge de référence (SKU) *Standard* avec des adresses IP sortantes publiques gérées créées par défaut, vous pouvez mettre à l’échelle le nombre de ces adresses à l’aide du paramètre *load-balancer-managed-ip-count*.
 
@@ -278,7 +66,7 @@ L’exemple ci-dessus définit le nombre d’adresses IP sortantes publiques gé
 
 Vous pouvez également utiliser le paramètre *load-balancer-managed-ip-count* pour définir le nombre initial d’adresses IP publiques sortantes gérées lors de la création de votre cluster en ajoutant le paramètre `--load-balancer-managed-outbound-ip-count` et en lui attribuant la valeur de votre choix. Le nombre d’adresses IP sortantes publiques gérées par défaut est 1.
 
-## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Facultatif – Fournir vos propres adresses IP ou préfixes publics pour la sortie
+## <a name="provide-your-own-public-ips-or-prefixes-for-egress"></a>Fournir vos propres adresses IP ou préfixes publics pour la sortie
 
 Lorsque vous utilisez un équilibreur de charge de référence (SKU) *Standard*, le cluster AKS crée automatiquement une adresse IP publique dans le groupe de ressources créé pour le cluster AKS et attribue l’adresse IP publique à l’équilibreur de charge de référence (SKU) *Standard* . Vous pouvez également affecter votre propre adresse IP publique au moment de la création du cluster ou vous pouvez mettre à jour les propriétés d’équilibreur de charge d’un cluster existant.
 
@@ -336,7 +124,7 @@ Vous souhaiterez peut-être apporter vos propres adresses IP ou préfixes d’ad
 
 Utilisez la commande *az aks create* avec le paramètre *load-balancer-outbound-ips* pour créer un cluster commençant par vos adresses IP publiques.
 
-```
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -349,7 +137,7 @@ az aks create \
 
 Utilisez la commande *az aks create* avec le paramètre *load-balancer-outbound-ip-prefixes* pour créer un cluster commençant par vos préfixes d’adresses IP publiques.
 
-```
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -358,15 +146,6 @@ az aks create \
     --load-balancer-sku standard \
     --generate-ssh-keys \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
-```
-
-## <a name="clean-up-the-standard-sku-load-balancer-configuration"></a>Nettoyer la configuration d’un équilibreur de charge de référence SKU Standard
-
-Pour supprimer l’exemple d'application et la configuration de l’équilibreur de charge, utilisez [kubectl delete][kubectl-delete] :
-
-```console
-kubectl delete -f sample.yaml
-kubectl delete -f standard-lb.yaml
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -408,4 +187,3 @@ En savoir plus sur les services Kubernetes dans la [documentation des services K
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-

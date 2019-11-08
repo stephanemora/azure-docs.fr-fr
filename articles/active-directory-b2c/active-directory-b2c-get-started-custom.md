@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8e858869d742120138e7997ce21d9e4cca93ed9b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b8ce4565a2df3ad5f144508010265c1029a6856d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264365"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468865"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C
 
@@ -67,9 +67,15 @@ Ajoutez le [secret d’application](active-directory-b2c-setup-fb-app.md) de vot
 
 ## <a name="register-identity-experience-framework-applications"></a>Inscrire les applications de l’infrastructure d’expérience d’identité
 
-Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrire et connecter les utilisateurs : IdentityExperienceFramework (application web) et ProxyIdentityExperienceFramework (application native) avec autorisation déléguée de l'application IdentityExperienceFramework. Les comptes locaux existent uniquement dans votre client. Vos utilisateurs se connectent avec une combinaison unique adresse e-mail/mot de passe pour accéder à vos applications inscrites auprès du locataire.
+Azure AD B2C exige que vous inscriviez deux applications qu’il utilise pour inscrire et connecter des utilisateurs avec des comptes locaux : *IdentityExperienceFramework*, API web, et *ProxyIdentityExperienceFramework*, application native avec autorisation déléguée à l’application IdentityExperienceFramework. Vos utilisateurs peuvent s’inscrire avec une adresse e-mail ou un nom d’utilisateur et un mot de passe pour accéder à vos applications inscrites par le locataire, ce qui crée un « compte local ». Les comptes locaux existent uniquement dans votre locataires Azure AD B2C.
+
+Vous ne devez inscrire ces deux applications dans votre locataire Azure AD B2C qu’une seule fois.
 
 ### <a name="register-the-identityexperienceframework-application"></a>Inscrire l’application IdentityExperienceFramework
+
+Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur l’expérience en préversion](https://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
 1. Sélectionnez **Tous les services** dans le coin supérieur gauche du portail Azure.
 1. Dans la zone de recherche, entrez `Azure Active Directory`.
@@ -81,7 +87,31 @@ Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrir
 1. Pour **URL de connexion**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, où `your-tenant-name` est le nom de domaine de votre locataire Azure AD B2C. Toutes les URL doivent désormais utiliser [b2clogin.com](b2clogin.md).
 1. Sélectionnez **Create** (Créer). Après sa création, copiez l’ID d’application et enregistrez-le pour une utilisation ultérieure.
 
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+
+1. Sélectionnez **Inscriptions d’applications (préversion)** , puis **Nouvelle inscription**.
+1. Pour **Nom**, entrez `IdentityExperienceFramework`.
+1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
+1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, où `your-tenant-name` est le nom de domaine de votre locataires Azure AD B2C.
+1. Sous **Autorisations**, activez la case à cocher *Accorder le consentement administrateur aux autorisations openid et offline_access*.
+1. Sélectionnez **Inscription**.
+1. Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
+
+Ensuite, exposez l’API en ajoutant une étendue :
+
+1. Sous **Gérer**, sélectionnez **Exposer une API**.
+1. Sélectionnez **Ajouter une étendue**, puis sélectionnez **Enregistrer et continuer** pour accepter l’URI d’ID d’application par défaut.
+1. Entrez les valeurs suivantes pour créer une étendue qui autorise l’exécution de stratégie personnalisée dans votre locataires Azure AD B2C :
+    * **Nom de l’étendue** : `user_impersonation`
+    * **Nom d’affichage du consentement administrateur** : `Access IdentityExperienceFramework`
+    * **Description du consentement de l’administrateur** : `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
+1. Sélectionnez **Ajouter une étendue**
+
+* * *
+
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Inscrire l’application ProxyIdentityExperienceFramework
+
+#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
 1. Dans **Inscriptions d’applications (héritées)** , sélectionnez **Nouvelle inscription d’application**.
 1. Pour **Nom**, entrez `ProxyIdentityExperienceFramework`.
@@ -92,6 +122,38 @@ Azure AD B2C exige que vous inscriviez deux applications utilisées pour inscrir
 1. Choisissez **Sélectionner une API**, recherchez et sélectionnez **IdentityExperienceFramework**, puis cliquez sur **Sélectionner**.
 1. Cochez la case en regard d’**Accéder à IdentityExperienceFramework**, cliquez sur **Sélectionner**, puis sur **Terminé**.
 1. Sélectionnez **Accorder des autorisations** puis confirmez en sélectionnant **Oui**.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+
+1. Sélectionnez **Inscriptions d’applications (préversion)** , puis **Nouvelle inscription**.
+1. Pour **Nom**, entrez `ProxyIdentityExperienceFramework`.
+1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire organisationnel uniquement**.
+1. Sous **URI de redirection**, utilisez la liste déroulante pour sélectionner **client public/natif (Bureau et mobile)** .
+1. Pour **URI de redirection**, entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, où `your-tenant-name` est votre locataire Azure AD B2C.
+1. Sous **Autorisations**, activez la case à cocher *Accorder le consentement administrateur aux autorisations openid et offline_access*.
+1. Sélectionnez **Inscription**.
+1. Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
+
+Ensuite, spécifiez que l’application doit être traitée comme un client public :
+
+1. Sous **Gérer**, sélectionnez **Authentification**.
+1. Sélectionnez **Essayer la nouvelle expérience** (si elle est indiquée).
+1. Sous **Paramètres avancés**, activez **Considérer l’application comme un client public** (sélectionnez **Oui**).
+1. Sélectionnez **Enregistrer**.
+
+Maintenant, accordez des autorisations à l’étendue de l’API que vous avez exposée précédemment dans l’inscription  *IdentityExperienceFramework* :
+
+1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.
+1. Sous **Autorisations configurées**, sélectionnez **Ajouter une autorisation**.
+1. Sélectionnez l’onglet **Mes API**, puis sélectionnez l’application **IdentityExperienceFramework**.
+1. Sous **Autorisation**, sélectionnez l’étendue **user_impersonation** que vous avez définie précédemment.
+1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
+1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre locataire)** .
+1. Sélectionnez le compte administrateur actuellement connecté ou connectez-vous avec un compte de votre locataire Azure AD B2C qui possède au minimum le rôle *Administrateur d’application cloud*.
+1. Sélectionnez **Accepter**.
+1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît dans **ÉTAT** pour les deux étendues. La propagation des autorisations peut prendre quelques minutes.
+
+* * *
 
 ## <a name="custom-policy-starter-pack"></a>Pack de démarrage de stratégie personnalisée
 

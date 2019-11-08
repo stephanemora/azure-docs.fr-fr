@@ -9,16 +9,16 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: a755fe1607e581cb0a25eb9bd90c2ba223829a46
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ac7ae0d7933e1d1b4d716eb157bf74152155a969
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350608"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497336"
 ---
-# <a name="train-models-with-azure-machine-learning"></a>Entraîner des modèles avec Azure Machine Learning
+# <a name="train-models-with-azure-machine-learning"></a>Former des modèles avec Azure Machine Learning
 
-Azure Machine Learning vous permet d’entraîner vos modèles de plusieurs façons, qu’il s’agisse de solutions Code First s’appuyant sur le SDK ou de solutions avec peu de code comme le machine learning automatisé et l’interface visuelle. Consultez la liste suivante pour identifier la méthode d’entraînement qui vous convient le mieux :
+Azure Machine Learning vous permet d’entraîner vos modèles de plusieurs façons, qu’il s’agisse de solutions Code First s’appuyant sur le Kit de développement logiciel (SDK) ou de solutions comportant peu de code comme le Machine learning automatisé et le concepteur visuel. Consultez la liste suivante pour identifier la méthode d’entraînement qui vous convient le mieux :
 
 + [SDK Azure Machine Learning pour Python](#python-sdk) : le SDK Python permet d’entraîner les modèles de plusieurs façons, chacune s’appuyant sur des fonctionnalités différentes.
 
@@ -29,7 +29,7 @@ Azure Machine Learning vous permet d’entraîner vos modèles de plusieurs faç
     | [Estimateurs](#estimators) | Les classes d’estimateur **facilitent l’entraînement de modèles à partir de frameworks de machine learning à succès**. Il existe des classes d’estimateur pour **Scikit-learn**, **PyTorch**, **TensorFlow** et **Chainer**. Il existe aussi un estimateur générique qui peut être utilisé avec les frameworks qui ne disposent pas déjà d’une classe d’estimateur dédiée. Les estimateurs vous dispensent de la définition d’une configuration d’exécution. |
     | [Pipeline de machine learning](#machine-learning-pipeline) | Les pipelines ne constituent pas une méthode d’entraînement différente. Il s’agit d’une **façon de définir un workflow en suivant des étapes modulaires réutilisables**, qui peuvent inclure l’entraînement. Les pipelines de machine learning prennent en charge l’utilisation du machine learning automatisé, d’estimateurs et de la configuration d’exécution pour l’entraînement des modèles. Les pipelines n’étant pas spécifiquement axés sur l’entraînement, les raisons d’utiliser un pipeline sont plus variées que les autres méthodes d’entraînement. En règle générale, vous pouvez utiliser un pipeline dans les cas suivants :<br>* Vous souhaitez **planifier des processus sans assistance** comme des tâches d’entraînement durables ou une préparation de données.<br>* Utilisation de **plusieurs étapes** coordonnées sur des ressources de calcul et des emplacements de stockage hétérogènes.<br>* Utilisation du pipeline comme **modèle réutilisable** pour des scénarios spécifiques, comme le réentraînement ou le scoring par lots.<br>* **Suivi et versioning des sources de données, entrées et sorties** pour votre workflow.<br>* Votre workflow est **implémenté par différentes équipes qui travaillent de façon indépendante sur des étapes spécifiques**. Les étapes peuvent ensuite être regroupées dans un pipeline pour implémenter le workflow. |
 
-+ **Interface visuelle** : l’__interface visuelle__ d’Azure Machine Learning offre un point d’entrée facile dans le machine learning pour établir des preuves de concept ou pour les utilisateurs qui ont peu d’expérience en programmation. Elle permet d’entraîner des modèles par glisser-déposer via une interface utilisateur web. Vous pouvez utiliser du code Python en phase de conception ou entraîner des modèles sans écrire de code.
++ **Concepteur** : Le concepteur Azure Machine Learning (préversion) offre un point d’entrée facile dans le Machine Learning pour établir des preuves de concept ou pour les utilisateurs peu expérimenté en matière de codage. Elle permet d’entraîner des modèles par glisser-déposer via une interface utilisateur web. Vous pouvez utiliser du code Python en phase de conception ou entraîner des modèles sans écrire de code.
 
 + **CLI** : l’interface de ligne de commande (CLI) de machine learning propose des commandes pour les tâches courantes d’Azure Machine Learning et est souvent employée pour **écrire des scripts et automatiser les tâches**. Par exemple, après avoir créé un script d’entraînement ou un pipeline, vous pouvez utiliser l’interface CLI pour lancer un entraînement selon une planification ou quand les fichiers de données utilisés pour l’entraînement sont mis à jour. Pour les modèles d’entraînement, elle propose des commandes qui soumettent les tâches d’entraînement. Elle peut soumettre des tâches utilisant des configurations d’exécution ou des pipelines.
 
@@ -59,7 +59,7 @@ Vous pouvez commencer avec une configuration d’exécution pour votre ordinateu
 Définissez les itérations, la configuration des hyperparamètres, la caractérisation et d’autres paramètres. Pendant l’entraînement, Azure Machine Learning teste différents algorithmes et paramètres en parallèle. L’entraînement s’arrête une fois qu’il a atteint les critères de sortie que vous avez définis. Les estimateurs vous dispensent de la définition d’une configuration d’exécution.
 
 > [!TIP]
-> Outre le SDK Python, vous pouvez aussi utiliser le ML automatisé via la [page de destination de l’espace de travail (préversion) ](https://ml.azure.com).
+> Outre le Kit de développement logiciel (SDK) Python, vous pouvez utiliser le Machine Learning automatisé via la [Azure Machine Learning Studio](https://ml.azure.com).
 
 * [Qu’est-ce que le machine learning automatisé ?](concept-automated-ml.md)
 * [Tutoriel : Créer votre premier modèle de classification avec le machine learning automatisé](tutorial-first-experiment-automated-ml.md)
@@ -67,7 +67,7 @@ Définissez les itérations, la configuration des hyperparamètres, la caractér
 * [Exemples : exemples Jupyter Notebook pour le machine learning automatisé](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [Guide pratique pour configurer des expériences de ML automatisé dans Python](how-to-configure-auto-train.md)
 * [Guide pratique pour entraîner automatiquement un modèle de prévision de série chronologique](how-to-auto-train-forecast.md)
-* [Guide pratique pour créer, explorer et déployer des expériences de machine learning automatisé avec la page de destination de l’espace de travail d’Azure Machine Learning (préversion)](how-to-create-portal-experiments.md)
+* [Procédure : créer, explorer et déployer des expériences de Machine Learning automatisé avec [Azure Machine Learning Studio](how-to-create-portal-experiments.md)
 
 ### <a name="estimators"></a>Estimateurs
 
@@ -89,15 +89,17 @@ Les pipelines de machine learning peuvent utiliser les méthodes d’entraîneme
 * [Exemples : pipeline avec machine learning automatisé](https://aka.ms/pl-automl)
 * [Exemples : pipeline avec estimateurs](https://aka.ms/pl-estimator)
 
-## <a name="visual-interface"></a>Interface visuelle
+## <a name="azure-machine-learning-designer"></a>Concepteur Azure Machine Learning
 
-L’interface visuelle (préversion) vous permet d’entraîner des modèles par glisser-déposer dans une interface de navigateur web.
+Le concepteur vous permet d’entraîner des modèles via une interface de glisser-déplacer dans votre navigateur web.
 
-+ [Qu’est-ce que l’interface visuelle ?](ui-concept-visual-interface.md)
-+ [Tutoriel : Prédire le prix de voitures](ui-tutorial-automobile-price-train-score.md)
-+ [Régression : Prédire le prix](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-+ [Classification : prédire le risque de crédit](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-+ [Classification : Prédire l’évolution, l’appétence et la vente incitative](how-to-ui-sample-classification-predict-churn.md)
++ [Qu’est-ce que le concepteur ?](concept-designer.md)
++ [Tutoriel : Prédire le prix de voitures](tutorial-designer-automobile-price-train-score.md)
++ [Régression : Prédire le prix](how-to-designer-sample-regression-automobile-price-basic.md)
++ [Classification : Prédire les revenus](how-to-designer-sample-classification-predict-income.md)
++ [Classification : Prédire l’évolution, l’appétence et la vente incitative](how-to-designer-sample-classification-churn.md)
++ [Classification avec un script R personnalisé : Prédire les retards de vols](how-to-designer-sample-classification-flight-delay.md)
++ [Classification de texte : Jeu de données Wikipedia concernant le SP 500](how-to-designer-sample-text-classification.md)
 
 ## <a name="cli"></a>Interface de ligne de commande
 

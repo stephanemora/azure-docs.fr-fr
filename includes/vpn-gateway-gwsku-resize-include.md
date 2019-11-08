@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/15/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f6fd4039614dbd7c1a2b2c6ba8403502a6420fe3
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 4842c55b2b1fd23f4d6b7996ccf02e7141504836
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176946"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495746"
 ---
-Pour les références SKU en cours (VpnGw1, VpnGw2 et VPNGW3) pour lesquelles vous souhaitez redimensionner la référence SKU de votre passerelle en vue d’une mise à niveau vers une référence SKU plus puissante, vous pouvez utiliser la cmdlet PowerShell `Resize-AzVirtualNetworkGateway`. Vous pouvez également réduire la taille de référence SKU à l’aide de cet applet de commande. Si vous utilisez la référence SKU de passerelle De base [utilisez ces instructions à la place](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) pour redimensionner votre passerelle.
+Vous pouvez utiliser l’applet de commande PowerShell `Resize-AzVirtualNetworkGateway` modifier le niveau d’une référence (SKU) Generation1 ou Generation2 (toutes les références SKU VpnGw peuvent être redimensionnées, à l’exception des références De base). Si vous utilisez la référence SKU de passerelle De base [utilisez ces instructions à la place](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) pour redimensionner votre passerelle.
 
 L’exemple PowerShell suivant montre une référence SKU de passerelle redimensionnée sur VpnGw2.
 

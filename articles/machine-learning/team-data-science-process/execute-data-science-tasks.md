@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a6b463c4a1d0e640cc6c2a380ee978fcafa2877e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278606"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670333"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
@@ -30,7 +30,7 @@ Les tâches courantes de science des données incluent l’exploration, la modé
 
 Un scientifique des données peut effectuer les tâches d’exploration et de création de rapports de plusieurs façons : à l’aide de bibliothèques et de packages disponibles pour Python (matplotlib, par exemple) ou de R (ggplot ou lattice, par exemple). Il peut personnaliser ce code en fonction des besoins d’exploration de données pour des scénarios spécifiques. Les contraintes liées aux données structurées diffèrent de celles liées aux données non structurées, telles que le texte ou les images. 
 
-En outre, des produits tels que le service Azure Machine Learning fournissent une [préparation avancée des données](../service/how-to-transform-data.md) pour l’exploration des données et le data wrangling, notamment en ce qui concerne la création de caractéristiques. L’utilisateur doit choisir les outils, bibliothèques et packages qui répondent le mieux à ses besoins. 
+En outre, des produits tels qu’Azure Machine Learning fournissent une [préparation avancée des données](../service/how-to-transform-data.md) pour l’exploration des données et le data wrangling, notamment en ce qui concerne la création de caractéristiques. L’utilisateur doit choisir les outils, bibliothèques et packages qui répondent le mieux à ses besoins. 
 
 Le livrable à la fin de cette phase est un rapport d’exploration de données. Ce rapport doit fournir une vue très complète des données à utiliser pour la modélisation et une évaluation indiquant si les données sont appropriées pour passer à l’étape de modélisation. Les utilitaires TDSP (Team Data Science Process) indiqués dans les sections suivantes pour l’exploration, la modélisation et la création de rapports semi-automatiques fournissent également des rapports de modélisation et d’exploration de données standard. 
 
@@ -86,7 +86,7 @@ Le déploiement de production permet à un modèle de jouer un rôle actif dans 
 Il existe différentes approches et plateformes pour mettre les modèles en production. Voici quelques options :
 
 
-- [Déploiement d’un modèle dans le service Azure Machine Learning](../service/how-to-deploy-and-where.md)
+- [Déploiement du modèle dans Azure Machine Learning](../service/how-to-deploy-and-where.md)
 - [Déploiement d’un modèle dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -98,7 +98,7 @@ Il existe différentes approches et plateformes pour mettre les modèles en prod
 Des exemples sont disponibles dans des procédures pas à pas qui illustrent toutes les étapes de **scénarios spécifiques**. L’article [Exemples de procédures pas à pas](walkthroughs.md) les liste et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente.
 
 > [!NOTE]
-> Pour un déploiement à l’aide de Microsoft Azure Machine Learning Studio, consultez [Déploiement d’un service web Azure Machine Learning](../studio/publish-a-machine-learning-web-service.md).
+> Pour un déploiement à l’aide de Microsoft Azure Machine Learning Studio, consultez [Déploiement d’un service web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
 >
 >
 

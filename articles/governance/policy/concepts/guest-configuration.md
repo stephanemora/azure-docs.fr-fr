@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 82279e6937fccfbbef13f9580f76cd344593b0df
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255852"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464061"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -122,6 +122,29 @@ Azure Policy utilise la propriété **complianceStatus** des fournisseurs de res
 > La stratégie **DeployIfNotExists** est requise pour que la stratégie **AuditIfNotExists** retourne des résultats. Sans la stratégie **DeployIfNotExists**, la stratégie **AuditIfNotExists** affiche « 0 sur 0 » ressource comme état.
 
 Toutes les stratégies intégrées pour la configuration d’invité sont incluses dans une initiative pour regrouper les définitions à utiliser dans les attributions. L’initiative intégré nommée *[Préversion] : Auditer les paramètres de sécurité de mot de passe dans les machines Linux et Windows* contient 18 stratégies. Il existe six paires **DeployIfNotExists** et **AuditIfNotExists** pour Windows et trois paires pour Linux. La logique de [définition de stratégie](definition-structure.md#policy-rule) valide que seul le système d’exploitation cible est évalué.
+
+#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Audit des paramètres du système d’exploitation conformément aux lignes de base du secteur
+
+L’une des initiatives disponibles dans Azure Policy permet d’auditer les paramètres du système d’exploitation à l’intérieur des machines virtuelles en suivant une « ligne de base » de Microsoft.  La définition, *[Préversion] : Auditer les machines virtuelles Windows qui ne correspondent pas aux paramètres de la base de référence de sécurité Azure* comprend un ensemble complet de règles d’audit basées sur les paramètres de stratégie de groupe Active Directory.
+
+La plupart des paramètres sont disponibles en tant que tels.  Cette fonctionnalité vous permet de personnaliser ce qui sera audité afin d’aligner la stratégie sur les besoins de votre organisation, ou de mapper la stratégie à des informations tierces, telles que les normes réglementaires sectorielles.
+
+Certains paramètres prennent en charge une plage de valeurs entières.  Par exemple, le paramètre Âge maximum du mot de passe peut être défini à l’aide d’un opérateur de plage pour offrir de la flexibilité aux propriétaires d’ordinateurs.  Vous pouvez vérifier que le paramètre de stratégie de groupe effectif exigeant que l’utilisateur modifie son mot de passe ne soit pas supérieur à 70 jours ou inférieur à 1 jour.  Comme décrit dans l’info-bulle du paramètre, pour rendre cette valeur d’audit effective, définissez la valeur sur « 1,70 ».
+
+Si vous affectez la stratégie à l’aide d’un modèle de déploiement Azure Resource Manager, vous pouvez utiliser un fichier de paramètres pour gérer ces paramètres à partir du contrôle de code source.
+L’utilisation d’un outil tel que Git pour gérer les modifications des stratégies d’audit avec des commentaires à chaque enregistrement permet de documenter les raisons pour lesquelles une affectation doit être en exception de la valeur attendue.
+
+#### <a name="applying-configurations-using-guest-configuration"></a>Application de configurations à l’aide de Guest Configuration
+
+La dernière fonctionnalité d’Azure Policy configure les paramètres à l’intérieur des machines.
+La définition *Configurer le fuseau horaire sur les machines Windows* apporte des modifications à la machine en configurant le fuseau horaire.
+
+Lorsque vous attribuez des définitions qui commencent par *Configurer*, vous devez également attribuer la définition *Déployer les composants requis pour activer la stratégie de configuration d’invité sur des machines virtuelles Windows*.
+Vous pouvez combiner ces définitions dans une initiative.
+
+#### <a name="assigning-policies-to-machines-outside-of-azure"></a>Attribution de stratégies à des machines en dehors d’Azure
+
+Les stratégies d’audit disponibles pour Guest Configuration incluent le type de ressource **Microsoft.HybridCompute/machines**.  Toutes les machines intégrées à Azure Arc qui se trouvent dans l’étendue de l’attribution sont automatiquement incluses.
 
 ### <a name="multiple-assignments"></a>Affectations multiples
 

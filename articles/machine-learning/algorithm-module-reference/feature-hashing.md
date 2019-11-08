@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur le module de hachage des caractéristiques
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment caractériser des données texte à l’aide du module de hachage des caractéristiques dans Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment caractériser des données texte à l’aide du module de hachage des caractéristiques dans Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: bbcab6e94783583c7e13ae482d68fd013ba4c91d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170879"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497829"
 ---
 # <a name="feature-hashing-module-reference"></a>Informations de référence sur le module de hachage des caractéristiques
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning service.
+Cet article décrit un module inclus dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez le module Feature Hashing (Hachage des caractéristiques) pour transformer un flux de texte anglais en un ensemble de caractéristiques numériques (entiers). Vous pouvez alors passer cet ensemble de caractéristiques hachées à un algorithme de machine learning pour entraîner un modèle d’analyse de texte.
 
@@ -73,7 +73,7 @@ Les sorties numériques permettent également d’utiliser des méthodes d’app
 
 ## <a name="configure-the-feature-hashing-module"></a>Configurer le module Feature Hashing
 
-1.  Ajoutez le module Feature Hashing à votre expérience dans une interface visuelle.
+1.  Ajoutez le module Feature Hashing à votre pipeline dans le concepteur.
 
 1. Connectez le jeu de données qui contient le texte à analyser.
 
@@ -94,7 +94,7 @@ Les sorties numériques permettent également d’utiliser des méthodes d’app
 
     Par exemple, si vous entrez 3, des unigrammes, des digrammes et des trigrammes sont créés.
 
-1. Exécutez l’expérience.
+1. Exécuter le pipeline.
 
 ## <a name="results"></a>Résultats
 
@@ -127,8 +127,8 @@ Les bonnes pratiques suivantes peuvent vous aider à tirer le meilleur parti du 
     * Suppression de la ponctuation et des caractères spéciaux
     * Recherche de radical  
 
-L’ensemble optimal de méthodes de prétraitement à appliquer dans une solution dépend du domaine, du vocabulaire et des besoins métier. Faites des essais avec vos données pour déterminer quelles méthodes de traitement de texte sont les plus efficaces.
+L’ensemble optimal de méthodes de prétraitement à appliquer dans une solution dépend du domaine, du vocabulaire et des besoins métier. Essayez le pipeline avec vos données pour déterminer quelles méthodes de traitement de texte sont les plus efficaces.
 
 ## <a name="next-steps"></a>Étapes suivantes
             
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Regardez les [modules disponibles](module-reference.md) pour Azure Machine Learning 

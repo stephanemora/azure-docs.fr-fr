@@ -8,33 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 6e46d58b3f1ef33902ab44043e954d9718d865af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73506880"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799838"
 ---
 ## <a name="personal-information-entity-types"></a>Types d’entités d’informations personnelles :
-
-### <a name="person"></a>Personne
-Noms et autres personnes reconnus dans le texte.
-Langages :
-* Préversion publique : `English`
-
-| Nom de sous-type | Description             |
-|--------------|-------------------------|
-| N/A          | Noms reconnus, par exemple `Bill Gates`, `Marie Curie` |
-
-### <a name="organization"></a>Organisation  
-
-Organisations, entreprises, agences et autres groupes de personnes reconnus. Par exemple : sociétés, groupes politiques, groupes de musique, clubs de sport, organismes gouvernementaux et organisations publiques. Les nationalités et les religions ne sont pas incluses dans ce type d’entité. Langages : 
-
-* Préversion publique : `English`
-
-| Nom de sous-type | Description                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| N/A          | Organisations, par exemple `Microsoft`, `NASA`, `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>Numéro de téléphone
 

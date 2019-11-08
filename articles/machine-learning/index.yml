@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: 400ebc88faad1ba5d55aa81dd737c8913b131340
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: 0b5e264cc7fd2e220e2d6b5b7c4e886f4c8a8d32
+  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73497535"
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73748025"
 landingContent:
 - title: Bien démarrer avec Azure ML
   linkLists:
@@ -29,7 +29,7 @@ landingContent:
       url: service/tutorial-1st-r-experiment.md
     - text: Expérimenter avec le concepteur Glisser-déposer
       url: service/tutorial-designer-automobile-price-train-score.md
-    - text: Automatiser votre première expérience ML
+    - text: Expérience avec le ML automatisé
       url: service/tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
@@ -97,7 +97,9 @@ landingContent:
       url: service/how-to-consume-web-service.md
     - text: Prédiction par lots
       url: service/how-to-run-batch-predictions.md
-- title: Explorer la documentation de référence
+    - text: Exemples de bout en bout (GitHub)
+      url: https://github.com/microsoft/MLOps
+- title: Accéder à la documentation de référence
   linkLists:
   - linkListType: reference
     links:
@@ -109,3 +111,7 @@ landingContent:
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
     - text: Algorithmes et modules du concepteur
       url: algorithm-module-reference/module-reference.md
+    - text: API REST
+      url: https://docs.microsoft.com/rest/api/azureml/
+    - text: Architectures de référence IA (GitHub)
+      url: https://github.com/Microsoft/AI
