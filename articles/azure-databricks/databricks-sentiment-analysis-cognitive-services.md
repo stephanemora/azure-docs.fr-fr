@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 9070c19c668529fac5edea5b4d233361043de16d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12e6d292779d497d907bb68eece3fc2338f072fd
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469549"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602058"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Didacticiel : Analyse d'opinions sur des données de diffusion en continu à l’aide d'Azure Databricks
 
@@ -640,4 +640,5 @@ Dans ce didacticiel, vous avez appris à utiliser Azure Databricks pour diffuser
 Passer au didacticiel suivant pour apprendre à réaliser des tâches de machine learning avec Azure Databricks.
 
 > [!div class="nextstepaction"]
->[Machine Learning avec Azure Databricks](https://docs.azuredatabricks.net/applications/machine-learning/index.html)
+>[Machine Learning avec Azure Databricks](/azure/databricks/applications/machine-learning/mllib/decision-trees)
+

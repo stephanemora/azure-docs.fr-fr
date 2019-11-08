@@ -1,6 +1,6 @@
 ---
-title: Utilisation des files d’attente Service Bus avec PHP | Microsoft Docs
-description: Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en PHP.
+title: 'Démarrage rapide : Utilisation des files d’attente Service Bus avec PHP'
+description: "Démarrage rapide : Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en PHP."
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: d958202ee42b1edec5e1b65c120536c656823ecf
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: d576c269f4178c7543327c6b75f46f5487d7a205
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147235"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719189"
 ---
-# <a name="how-to-use-service-bus-queues-with-php"></a>Utilisation des files d’attente Service Bus avec PHP
+# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>Démarrage rapide : Utilisation des files d’attente Service Bus avec PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Dans ce tutoriel, vous allez apprendre à créer des applications PHP afin d’envoyer des messages à une file d’attente Service Bus. 
