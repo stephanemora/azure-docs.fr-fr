@@ -10,43 +10,40 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/15/2019
+ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: b4150858986f204723dc258b23daf22de5d39842
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e1d27563d2181a8e094e00295f9506d88e694513
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430166"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500261"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
 ## <a name="october-2019-guest-os"></a>Système d’exploitation invité, octobre 2019
 
->[!NOTE]
->Le système d’exploitation invité octobre est actuellement déployé sur les machines virtuelles du service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité octobre. Cette liste est susceptible d’être modifiée.
-
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 10-19   |  [4520003]  |  Sécurité Windows   |  2,91  |  Octobre 8, 2019  |
-|  Version 10-19   |  [4519985]  |  Sécurité Windows   |  3,78  |  Octobre 8, 2019  |
-|  Version 10-19   |  [4519990]  |  Sécurité Windows   |  4.71  |  Octobre 8, 2019  |
-|  Version 10-19   |  [4519998]  |  Dernière mise à jour cumulative   |  5.36  |  Octobre 8, 2019  |
-|  Version 10-19   |  [4519338]  |  Dernière mise à jour cumulative   |  6.12  |  Octobre 8, 2019  |
-|  Version 10-19   |  [4519974]  |  Internet Explorer   |  2.91, 3.78, 4.71  |  Octobre 8, 2019  |
-|  Version 10-19   |  [4516065]  |  Non relatif à la sécurité   |  2,91  |  10 septembre 2019  |
-|  Version 10-19   |  [4516655]  |  SSU   |  2,91  |  10 septembre 2019  |
-|  Version 10-19   |  [4516055]  |  Non relatif à la sécurité   |  3,78  |  10 septembre 2019  |
-|  Version 10-19   |  [4512939]  |  SSU   |  3,78  |  10 septembre 2019  |
-|  Version 10-19   |  [4514370]  |  .NET Framework 3.5   |  3,78  |  10 septembre 2019  |
-|  Version 10-19   |  [4514368]  |  .NET Framework 4.5.2   |  3,78  |  10 septembre 2019  |
-|  Version 10-19   |  [4516067]  |  Non liée à la sécurité   |  4.71  |  10 septembre 2019  |
-|  Version 10-19   |  [4512938]  |  SSU   |  4.71  |  10 septembre 2019  |
-|  Version 10-19   |  [4514371]  |  .NET Framework 3.5   |  4.71  |  10 septembre 2019  |
-|  Version 10-19   |  [4514367]  |  .NET Framework 4.5.2   |  4.71  |  10 septembre 2019  |
-|  Version 10-19   |  [4512574]  |  SSU   |  5.36  |  10 septembre 2019  |
-|  Version 10-19   |  [4512577]  |  SSU   |  6.12  |  10 septembre 2019  |
+|  Version 10-19   |  [4520003]  |  Sécurité Windows   |  [2.91]  |  Octobre 8, 2019  |
+|  Version 10-19   |  [4519985]  |  Sécurité Windows   |  [3.78]  |  Octobre 8, 2019  |
+|  Version 10-19   |  [4519990]  |  Sécurité Windows   |  [4.71]  |  Octobre 8, 2019  |
+|  Version 10-19   |  [4519998]  |  Dernière mise à jour cumulative   |  [5.36]  |  Octobre 8, 2019  |
+|  Version 10-19   |  [4519338]  |  Dernière mise à jour cumulative   |  [6.12]  |  Octobre 8, 2019  |
+|  Version 10-19   |  [4519974]  |  Internet Explorer   |  [2.91], [3.78], [4.71]  |  Octobre 8, 2019  |
+|  Version 10-19   |  [4516065]  |  Non relatif à la sécurité   |  [2.91]  |  10 septembre 2019  |
+|  Version 10-19   |  [4516655]  |  SSU   |  [2.91]  |  10 septembre 2019  |
+|  Version 10-19   |  [4516055]  |  Non relatif à la sécurité   |  [3.78]  |  10 septembre 2019  |
+|  Version 10-19   |  [4512939]  |  SSU   |  [3.78]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514370]  |  .NET Framework 3.5   |  [3.78]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514368]  |  .NET Framework 4.5.2   |  [3.78]  |  10 septembre 2019  |
+|  Version 10-19   |  [4516067]  |  Non liée à la sécurité   |  [4.71]  |  10 septembre 2019  |
+|  Version 10-19   |  [4512938]  |  SSU   |  [4.71]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514371]  |  .NET Framework 3.5   |  [4.71]  |  10 septembre 2019  |
+|  Version 10-19   |  [4514367]  |  .NET Framework 4.5.2   |  [4.71]  |  10 septembre 2019  |
+|  Version 10-19   |  [4512574]  |  SSU   |  [5.36]  |  10 septembre 2019  |
+|  Version 10-19   |  [4512577]  |  SSU   |  [6.12]  |  10 septembre 2019  |
 
 [4520003]: https://support.microsoft.com/kb/4520003
 [4519985]: https://support.microsoft.com/kb/4519985
@@ -67,6 +64,11 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
+[6.12]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.36]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.71]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.78]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.91]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>Système d’exploitation invité, septembre 2019

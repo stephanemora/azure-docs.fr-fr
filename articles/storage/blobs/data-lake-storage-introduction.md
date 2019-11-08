@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d843e288297db656cca6e2a07f2e1f3322ebfa89
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 99863f68c20a2f95dfc744e13a977bf3ccbbf639
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299652"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580428"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Présentation d'Azure Data Lake Storage Gen2
 
@@ -83,7 +83,7 @@ Plusieurs plateformes open source prennent en charge le stockage Data Lake Gen2.
 
 ## <a name="supported-azure-services"></a>Services Azure pris en charge
 
-Data Lake Storage Gen2 prend en charge plusieurs services Azure permettant d’ingérer des données, d’obtenir des données d’analytique et de créer des représentations visuelles. Pour obtenir la liste des services Azure pris en charge, consultez [Intégrer Azure Data Lake Storage aux services Azure](data-lake-store-integrate-with-azure-services.md).
+Data Lake Storage Gen2 prend en charge plusieurs services Azure permettant d’ingérer des données, d’obtenir des données d’analytique et de créer des représentations visuelles. Pour obtenir la liste des services Azure pris en charge, consultez [Intégrer Azure Data Lake Storage aux services Azure](data-lake-storage-integrate-with-azure-services.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -92,4 +92,4 @@ Les articles suivants décrivent certains des principaux concepts de Data Lake S
 - [Espace de noms hiérarchique](data-lake-storage-namespace.md)
 - [Créez un compte de stockage](data-lake-storage-quickstart-create-account.md)
 - [Accès multiprotocole pour Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)
-- [Intégrer Azure Data Lake Storage aux services Azure](data-lake-store-integrate-with-azure-services.md)
+- [Intégrer Azure Data Lake Storage aux services Azure](data-lake-storage-integrate-with-azure-services.md)

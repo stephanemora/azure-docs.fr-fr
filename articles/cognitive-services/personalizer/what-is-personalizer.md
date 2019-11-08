@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203789"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467190"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
-Azure Personalizer est un service d’API cloud qui vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.
+Azure Personalizer est un service informatique d’API qui vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement collectif en temps réel.
 
 * Fournissez des informations sur vos utilisateurs et sur le contenu, et recevez l’action classée en premier à montrer à vos utilisateurs. 
 * Il n’est pas nécessaire de nettoyer et d’étiqueter les données avant d’utiliser Personalizer.
 * Fournissez un feedback à Personalizer au moment où cela vous convient. 
 * Consultez une analytique en temps réel. 
-* Utilisez Personalizer dans le cadre d’une démarche de science des données plus vaste pour valider des expériences existantes.
+
+Voir une démonstration du [fonctionnement de Personalizer](https://personalizercontentdemo.azurewebsites.net/)
 
 ## <a name="how-does-personalizer-work"></a>Fonctionnement de Personalizer
 
@@ -37,9 +38,9 @@ Personalizer utilise des modèles Machine Learning pour découvrir quelle action
 
 1. Choisissez une expérience dans votre application à personnaliser.
 1. Créez et configurez une instance du service de personnalisation dans le portail Azure. Chaque instance est une boucle Personalizer.
-1. Utilisez le SDK pour appeler Personalizer avec des informations (_caractéristiques_) sur vos utilisateurs et le contenu (_actions_). Vous n’avez pas besoin de fournir des données nettoyées et étiquetées avant d’utiliser Personalizer. 
+1. Utilisez l’[API Rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) pour appeler Personalizer avec des informations (_fonctionnalités_) sur vos utilisateurs et le contenu (_actions_). Vous n’avez pas besoin de fournir des données nettoyées et étiquetées avant d’utiliser Personalizer. Les API peuvent être appelées directement ou à l’aide de Kits de développement logiciel (SDK) disponibles pour différents langages de programmation.
 1. Dans l’application cliente, montrez à l’utilisateur l’action sélectionnée par Personalizer.
-1. Utilisez le kit SDK pour fournir à Personalizer un feedback indiquant si l’utilisateur a sélectionné l’action de Personalizer. Il s’agit d’un _[score de récompense](concept-rewards.md)_ .
+1. Utilisez l’[API Reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) pour fournir à Personalizer un retour d’information indiquant si l’utilisateur a sélectionné l’action de Personalizer. Il s’agit d’un _[score de récompense](concept-rewards.md)_ .
 1. Visualisez l’analytique dans le portail Azure pour évaluer comment le système fonctionne et comment vos données aident à la personnalisation.
 
 ## <a name="where-can-i-use-personalizer"></a>Où puis-je utiliser Personalizer ?

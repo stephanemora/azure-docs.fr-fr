@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a8ebd0b36c6ee8bf6762a70af9f4a7c09f6b118d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 418324ea0d50cb2f8ff4a30018a31e7807d52eac
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955154"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602595"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Ajouter des échanges de conversation à une base de connaissances
 
@@ -38,13 +38,26 @@ Pour la requête utilisateur de `When is your birthday?`, chaque personnalité a
 |Enthousiaste|Je suis un bot, donc je n’ai pas d’âge.|
 ||
 
-> [!NOTE]
-> Actuellement, les échanges de conversation sont disponibles en anglais uniquement. 
+
+## <a name="language-support"></a>Support multilingue
+
+Les jeux de données d’échange de conversation sont pris en charge dans les langues suivantes :
+
+|Langage|
+|--|
+|Chinois|
+|Anglais|
+|Français|
+|Allemagne|
+|Italien|
+|Japonais|
+|Coréen|
+|Portugais|
+|Espagnol|
+
 
 ## <a name="add-chit-chat-during-kb-creation"></a>Ajouter des échanges de conversation lors de la création de la base de connaissances
 Pendant la création de la base de connaissances, après l’ajout des vos URL et fichiers sources, il existe une option permettant d’ajouter des échanges de conversation. Choisissez la personnalité que vous souhaitez utiliser comme base pour les échanges de conversation. Si vous ne souhaitez pas ajouter d’échanges de conversation, ou si votre source de données prend déjà en charge les échanges de conversation, choisissez **None** (Aucun). 
-   
-![Ajouter des échanges de conversation lors de la création](../media/qnamaker-how-to-chit-chat/create-kb-chit-chat.png)
 
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Ajouter des échanges de conversation à une base de connaissances existante
 Sélectionnez votre base de connaissances et accédez à la page **Settings** (Paramètres). Il existe un lien vers tous les jeux de données d’échanges de conversation au format **.tsv** approprié. Téléchargez la personnalité souhaitée, puis chargez-la en tant que source de fichier. Veillez à ne pas modifier le format ou les métadonnées quand vous téléchargez et chargez le fichier. 

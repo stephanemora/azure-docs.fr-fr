@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 25b08bf78de61e556bab790869b45131a01ce6b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "64926184"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495106"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de détection des anomalies Machine Learning
 
@@ -46,7 +46,7 @@ L’offre de détection des anomalies inclut des outils utiles pour bien commenc
 -->
 
 ## <a name="api-deployment"></a>Déploiement de l’API
-Pour pouvoir utiliser l’API, vous devez la déployer dans votre abonnement Azure où elle sera hébergée comme un service web Azure Machine Learning.  Vous pouvez effectuer cette opération dans la [galerie Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Cette action déploie deux services web Azure Machine Learning Studio (et leurs ressources associées) dans votre abonnement Azure : un pour la détection d’anomalies avec détection de saisonnalité et un autre sans détection de saisonnalité.  Une fois le déploiement terminé, vous serez en mesure de gérer vos API à partir de la page des [services web Azure Machine Learning Studio](https://services.azureml.net/webservices/).  Sur cette page, vous pourrez trouver l’emplacement de vos points de terminaison, de vos clés API, ainsi que les exemples de code pour appeler l’API.  Des instructions plus détaillées sont disponibles [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Pour pouvoir utiliser l’API, vous devez la déployer dans votre abonnement Azure où elle sera hébergée comme un service web Azure Machine Learning.  Vous pouvez effectuer cette opération dans la [galerie Azure AI](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Cette action déploie deux services web Azure Machine Learning Studio (classique) (et leurs ressources associées) dans votre abonnement Azure : un pour la détection d’anomalies avec détection de saisonnalité et un autre sans détection de saisonnalité.  Une fois le déploiement terminé, vous serez en mesure de gérer vos API à partir de la page des [services web Azure Machine Learning Studio (classique)](https://services.azureml.net/webservices/).  Sur cette page, vous pourrez trouver l’emplacement de vos points de terminaison, de vos clés API, ainsi que les exemples de code pour appeler l’API.  Des instructions plus détaillées sont disponibles [ici](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Mise à l’échelle de l’API
 Par défaut, votre déploiement dispose d’un plan de facturation gratuit de développement/test qui comprend 1 000 transactions par mois et 2 heures de calcul par mois.  Vous pouvez mettre à niveau votre plan en fonction de vos besoins.  Vous pouvez retrouver des informations sur la tarification des différents plans [ici](https://azure.microsoft.com/pricing/details/machine-learning/) sous « Tarification des API web de production ».
@@ -58,7 +58,7 @@ Vous pouvez gérer votre plan de facturation [ici](https://services.azureml.net/
 Le service web fournit des API REST sur HTTPS qui peuvent être utilisées de différentes façons, notamment une application web ou mobile, R, Python, Excel, etc.  L’envoi des données de séries chronologiques à ce service se fait via un appel d’API REST ; celui-ci exécute une combinaison des trois types de détection d’anomalie décrits ci-dessous.
 
 ## <a name="calling-the-api"></a>Appel de l’API
-Pour appeler l’API, vous devez connaître l’emplacement du point de terminaison et la clé d’API.  Ces deux éléments, ainsi que l’exemple de code d’appel de l’API, sont disponibles sur la page des [services web Azure Machine Learning Studio](https://services.azureml.net/webservices/).  Accédez à l’API souhaitée, puis cliquez sur l’onglet « Utiliser » pour les trouver.  Notez que vous pouvez appeler l’API comme API Swagger (par exemple, avec le paramètre d’URL `format=swagger`) ou comme API non-Swagger (c’est-à-dire sans le paramètre d’URL `format`).  L’exemple de code utilise le format Swagger.  Voici un exemple de demande et de réponse au format non-Swagger.  Ces exemples sont relatifs au point de terminaison de saisonnalité.  Le point de terminaison sans saisonnalité est similaire.
+Pour appeler l’API, vous devez connaître l’emplacement du point de terminaison et la clé d’API.  Ces deux éléments, ainsi que l’exemple de code d’appel de l’API, sont disponibles sur la page des [services web Azure Machine Learning Studio (classique)](https://services.azureml.net/webservices/).  Accédez à l’API souhaitée, puis cliquez sur l’onglet « Utiliser » pour les trouver.  Notez que vous pouvez appeler l’API comme API Swagger (par exemple, avec le paramètre d’URL `format=swagger`) ou comme API non-Swagger (c’est-à-dire sans le paramètre d’URL `format`).  L’exemple de code utilise le format Swagger.  Voici un exemple de demande et de réponse au format non-Swagger.  Ces exemples sont relatifs au point de terminaison de saisonnalité.  Le point de terminaison sans saisonnalité est similaire.
 
 ### <a name="sample-request-body"></a>Exemple de corps de la demande
 La demande contient deux objets : `Inputs` et `GlobalParameters`.  Dans l’exemple de demande ci-dessous, certains paramètres sont envoyés de façon explicite tandis que d’autres ne le sont pas (faites défiler pour voir la liste complète des paramètres de chaque point de terminaison).  Les paramètres qui ne sont pas envoyés de façon explicite dans la demande utilisent les valeurs par défaut indiquées ci-dessous.

@@ -1,7 +1,7 @@
 ---
 title: Détecter les visages dans une image - API Visage
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser les différentes données retournées par la fonctionnalité de détection des visages.
+description: Ce guide explique comment utiliser la détection des visages pour extraire des attributs tels que le sexe, l’âge ou la posture à partir d’une image donnée.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306631"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744286"
 ---
 # <a name="get-face-detection-data"></a>Obtenir des données de détection des visages
 

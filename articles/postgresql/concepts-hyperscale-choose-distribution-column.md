@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 0b29567dcd22c79c30e70594066f7ff87c18fdb0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: a61c52773c4c6036a76d7b233988c713c1da861f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947596"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482858"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Choisir les colonnes de distribution dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 
-Le choix de la colonne de distribution de chaque table est l’une des décisions les plus importantes que vous allez prendre en matière de modélisation. La préversion d’Azure Database pour PostgreSQL – Hyperscale (Citus) stocke les lignes dans les partitions en fonction de la valeur de la colonne de distribution des lignes.
+Le choix de la colonne de distribution de chaque table est l’une des décisions les plus importantes que vous allez prendre en matière de modélisation. Azure Database pour PostgreSQL – Hyperscale (Citus) stocke des lignes dans des partitions en fonction de la valeur de la colonne de distribution des lignes.
 
 Le choix correct permet de regrouper les données sur les mêmes nœuds physiques, ce qui a pour effet d’accélérer les requêtes et d’ajouter la prise en charge toutes les fonctionnalités SQL. Un choix incorrect ralentit le système et ne permet pas de prendre en charge toutes les fonctionnalités SQL sur les nœuds.
 
