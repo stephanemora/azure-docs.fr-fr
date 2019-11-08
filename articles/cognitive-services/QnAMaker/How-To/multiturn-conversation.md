@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc99626e2341e180ba0ab191003cf3a6ba9b72e9
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 06b16af941004f6506b43fb36b4d79297b403595
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695141"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486887"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -42,12 +42,10 @@ Dans l’image précédente, un utilisateur a lancé une conversation en entrant
 
 Quand l’utilisateur sélectionne une option (#3), la liste suivante d’options d’affinage (#4) est présentée. Cette séquence se poursuit (#5) jusqu’à ce que l’utilisateur détermine la réponse finale correcte (#6).
 
-> [!NOTE]
-> Dans l’image précédente, la case **Enable multi-turn** a été cochée pour que les invites s’affichent. 
 
 ### <a name="use-multi-turn-in-a-bot"></a>Utiliser la conversation multitour dans un bot
 
-Pour gérer la conversation contextuelle, modifiez votre application cliente en [ajoutant du code à votre bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). L’ajout du code permet aux utilisateurs de voir les invites.  
+Après avoir publié votre base de connaissances, vous pouvez sélectionner le bouton **Créer un bot** pour déployer votre bot QnA Maker sur Azure Bot Service. Les invites s’affichent dans les clients de conversation que vous avez activés pour votre bot.
 
 ## <a name="create-a-multi-turn-conversation-from-a-documents-structure"></a>Créer une conversation multitour à partir de la structure d’un document
 
@@ -55,25 +53,25 @@ Quand vous créez une base de connaissances, la section **Populate your KB** pr�
 
 ![Case à cocher permettant d’activer l’extraction multitour](../media/conversational-context/enable-multi-turn.png)
 
-Quand vous sélectionnez cette option, la conversation multitour peut être suggérée par la structure du document. Si cette structure existe, QnA Maker crée l’invite de suivi qui regroupe les questions et les réponses par paires dans le cadre du processus d’importation. 
+Lorsque vous sélectionnez cette option, QnA Maker extrait la hiérarchie présente dans la structure du document. La hiérarchie est convertie en invites de suivi et la racine de la hiérarchie faite office de QnA parente. Dans certains documents où la racine de la hiérarchie n’a pas de contenu qui pourrait servir de réponse, vous pouvez fournir un texte de réponse par défaut  à utiliser comme texte de réponse de substitution pour extraire de telles hiérarchies.   
 
-La structure multitour ne peut être déduite qu’à partir d’URL, de fichiers PDF ou de fichiers DOCX. Pour obtenir un exemple de structure, examinez une image du [fichier PDF du manuel utilisateur Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Compte tenu de la taille de ce fichier PDF, la ressource QnA Maker a besoin d’un **niveau tarifaire de recherche** **B** (15 index) ou supérieur. 
+La structure multitour ne peut être déduite qu’à partir d’URL, de fichiers PDF ou de fichiers DOCX. Pour obtenir un exemple de structure, examinez une image du [fichier PDF du manuel utilisateur Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
 
 ![![Exemple de structure dans un manuel utilisateur](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-### <a name="determine-multi-turn-structure-from-format"></a>Déterminer la structure multitour à partir de la mise en forme
+### <a name="building-your-own-multi-turn-document"></a>Création de votre propre document multitour
 
-QnA Maker détermine la structure multitour à partir des éléments suivants :
+Si vous créez un document multitour, gardez à l’esprit les instructions suivantes :
 
-* Taille de la police de titre : si vous utilisez un style, une couleur ou un autre mécanisme pour suggérer la structure dans votre document, QnA Maker n’extrait pas les invites multitours. 
-
-Exemple de règle de titre :
+* Utilisez des titres et sous-titres pour montrer la hiérarchie. Par exemple, vous pouvez H1 pour dénoter la QnA parente et H2 pour dénoter la QnA à considérer comme invite. Utilisez une petite taille de titre pour dénoter la hiérarchie suivante. N’utilisez pas de style, de couleur ou d’autre mécanisme pour montrer la structure de votre document. QnA Maker n’extrait pas les invites multitours. 
 
 * Ne pas terminer un titre par un point d’interrogation (`?`). 
 
-### <a name="add-file-with-multi-turn-prompts"></a>Ajouter un fichier avec des invites multitours
+* Vous pouvez utiliser l’[exemple de document](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) en tant qu’exemple pour créer votre propre document multitour.
 
-Quand vous ajoutez un document multitour, QnA Maker détermine des invites de suivi à partir de la structure pour créer un flux de conversation. 
+### <a name="adding-files-to-a-multi-turn-kb"></a>Ajout de fichiers à une base de connaissances multitour
+
+Quand vous ajoutez un document hiérarchique, QnA Maker détermine des invites de suivi à partir de la structure pour créer un flux de conversation. 
 
 1. Dans QnA Maker, sélectionnez une base de connaissances existante créée avec la case **Enable multi-turn extraction from URLs, .pdf or .docx files** cochée. 
 1. Accédez à la page **Settings** (Paramètres), puis sélectionnez le fichier ou l’URL à ajouter. 
@@ -91,7 +89,7 @@ Vous pouvez créer une base de connaissances avec des invites multitours à l’
 
 Affichez uniquement les paires de questions/réponses assorties de conversations contextuelles. 
 
-Sélectionnez **View options**, puis **Show context (PREVIEW)** . La liste affiche les paires de questions/réponses qui contiennent des invites de suivi. 
+Sélectionnez **Options d’affichage**, puis **Afficher le contexte**. La liste affiche les paires de questions/réponses qui contiennent des invites de suivi. 
 
 ![Filtrer les paires questions/réponses par conversations contextuelles](../media/conversational-context/filter-question-and-answers-by-context.png)
 
@@ -111,7 +109,7 @@ Ajoutez une invite de suivi à une paire de questions/réponses existante qui n�
 
 1. Pour lier une paire de questions/réponses existante comme invite de suivi, sélectionnez la ligne correspondant à la paire de questions/réponses. Pour le manuel Surface, recherchez **Sign out** pour réduire la liste.
 1. Dans la ligne **Signout**, dans la colonne **Answer**, sélectionnez **Add follow-up prompt**.
-1. Dans les champs de la fenêtre indépendante **Follow-up prompt (PREVIEW)** , entrez les valeurs suivantes :
+1. Dans les champs, de la fenêtre indépendante **Invite de suivi**, entrez les valeurs suivantes :
 
     |Champ|Valeur|
     |--|--|
@@ -355,11 +353,8 @@ La réponse JSON _GenerateAnswer_ de QnA Maker comprend les invites de suivi dan
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Interroger la base de connaissances avec l’ID QnA Maker
 
-Dans la réponse de la question initiale, les éventuelles invites de suivi et leurs `qnaId` associés sont retournés. Maintenant que vous disposez de l’ID, vous pouvez le transmettre dans le corps de la demande de l’invite de suivi. Si le corps de la demande contient le `qnaId` et l’objet de contexte (qui contient les propriétés QnA Maker précédentes), GenerateAnswer retourne la question exacte par ID, au lieu d’utiliser l’algorithme de classement pour trouver la réponse à partir du texte de la question. 
+Si vous créez une application personnalisée à l’aide de la fonctionnalité multitour. Dans la réponse de la question initiale, les éventuelles invites de suivi et leurs `qnaId` associés sont retournés. Maintenant que vous disposez de l’ID, vous pouvez le transmettre dans le corps de la demande de l’invite de suivi. Si le corps de la demande contient le `qnaId` et l’objet de contexte (qui contient les propriétés QnA Maker précédentes), GenerateAnswer retourne la question exacte par ID, au lieu d’utiliser l’algorithme de classement pour trouver la réponse à partir du texte de la question. 
 
-## <a name="display-prompts-and-send-context-in-the-client-application"></a>Afficher des invites et envoyer le contexte dans l’application cliente 
-
-Vous avez ajouté des invites dans votre base de connaissances et testé le flux dans le volet de test. Maintenant, vous devez utiliser ces invites dans l’application cliente. Pour Bot Framework, les invites ne s’affichent pas automatiquement dans les applications clientes. Vous pouvez afficher les invites en guise d’actions suggérées ou de boutons dans la réponse à la requête de l’utilisateur dans les applications clientes en incluant cet [exemple Bot Framework](https://aka.ms/qnamakermultiturnsample) dans votre code. L’application cliente stocke l’ID QnA Maker actuel et la requête utilisateur avant de les transmettre dans l’objet de contexte [ de l’API GenerateAnswer](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) pour la prochaine requête utilisateur. 
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>L’ordre d’affichage est pris en charge dans l’API Update
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6e71028855344d083dedf3493682e1e27685de48
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 95e38cee8f6995e09dbbb2194cd5a9d0ebc301c1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240123"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498667"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Connecter des données à partir de Microsoft Cloud App Security 
 
@@ -30,18 +30,22 @@ Vous pouvez diffuser des journaux dans Azure Sentinel en un seul clic à partir
 ## <a name="prerequisites"></a>Prérequis
 
 - Utilisateur, doté d’autorisations d’administrateur général ou d’administrateur de la sécurité
+- Pour diffuser des journaux Cloud Discovery dans Azure Sentinel, [activez Azure Sentinel comme SIEM dans Microsoft Cloud App Security](aka.ms. https://aka.ms/AzureSentinelMCAS).
 
+> [!IMPORTANT]
+> L’ingestion des journaux Cloud Discovery est actuellement en préversion publique.
+> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production.
+> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+ 
 ## <a name="connect-to-cloud-app-security"></a>Connexion à Cloud App Security
 
 Si vous avez déjà Cloud App Security, assurez-vous qu’il est [activé sur votre réseau](https://docs.microsoft.com/cloud-app-security/getting-started-with-cloud-app-security).
 Si Cloud App Security est déployé et ingère vos données, les données d’alerte peuvent facilement être envoyés à Azure Sentinel.
 
 
-1. Dans Azure Sentinel, sélectionnez **Connecteurs de données** puis cliquez sur la vignette de **Cloud App Security**.
+1. Dans Azure Sentinel, sélectionnez **Connecteurs de données**, puis cliquez sur la vignette **Cloud App Security** et sélectionnez **Ouvrir la page du connecteur**.
 
-1. Pour sélectionner les journaux que vous souhaitez diffuser en continu dans Azure Sentinel, vous pouvez sélectionner **Alertes**. 
-
-1. Vous pouvez décider que les alertes provenant de Microsoft Cloud App Security génèrent automatiquement des incidents dans Azure Sentinel. Sous **Créer des incidents**, sélectionnez **Activer** pour activer la règle analytique par défaut qui crée des incidents automatiquement à partir des alertes générées dans le service de sécurité associé. Vous pouvez ensuite modifier cette règle sous **Analytique**, puis **Règles actives**.
+1. Pour sélectionner les journaux que vous souhaitez diffuser en continu dans Azure Sentinel, vous pouvez sélectionner **Alertes** et **Journaux Cloud Discovery** (préversion). 
 
 1. Cliquez sur **Connecter**.
 
@@ -53,4 +57,4 @@ Si Cloud App Security est déployé et ingère vos données, les données d’al
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris à connecter Microsoft Cloud App Security à Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [avoir une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
-- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Prise en main de la [détection des menaces avec Azure Sentinel](tutorial-detect-threats.md).
