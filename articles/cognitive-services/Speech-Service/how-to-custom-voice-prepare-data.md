@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 8b4b5553605042499a9a8f3343ac4e6678e7006f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a954118cd0697213674bb9981f0d94100488fb38
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640422"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464511"
 ---
 # <a name="prepare-data-to-create-a-custom-voice"></a>Préparer des données en vue de créer une voix personnalisée
 
@@ -33,9 +33,9 @@ Ce tableau liste les types de données et la façon dont chacun est utilisé pou
 
 | Type de données | Description | Quand utiliser | Autre service nécessaire | Quantité nécessaire pour l’entraînement d’un modèle | Paramètres régionaux |
 | --------- | ----------- | ----------- | --------------------------- | ----------------------------- | --------- |
-| **Énoncés individuels + transcription correspondante** | Collection (.zip) de fichiers audio (.wav) correspondant à des énoncés individuels. Chaque fichier audio est limité à 15 secondes et est associé à une transcription formatée (.txt). | Enregistrements professionnels avec transcriptions correspondantes | Prêt pour l’entraînement. | Pas d’exigence spécifique pour les langues en-US et zh-CN. Plus de 2 000 énoncés distinctes pour les autres paramètres régionaux. | Tous les paramètres régionaux de Custom Voice |
-| **Contenu audio long + transcription (bêta)** | Collection (.zip) de fichiers audio longs et non segmentés (plus de 20 secondes), associés à une transcription (.txt) qui contient tous les mots prononcés. | Vous disposez de fichiers audio et des transcriptions correspondantes, mais ils ne sont pas segmentés en énoncés. | Segmentation (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire. | Pas d’exigence spécifique pour les langues en-US et zh-CN. | `en-US` et `zh-CN` |
-| **Audio uniquement (bêta)** | Collection (.zip) de fichiers audio sans transcription. | Vous disposez uniquement de fichiers audio, sans transcriptions. | Segmentation + génération de transcriptions (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire.| Pas d’exigence précise pour `en-US` et `zh-CN`. | `en-US` et `zh-CN` |
+| **Énoncés individuels + transcription correspondante** | Collection (.zip) de fichiers audio (.wav) correspondant à des énoncés individuels. Chaque fichier audio est limité à 15 secondes et est associé à une transcription formatée (.txt). | Enregistrements professionnels avec transcriptions correspondantes | Prêt pour l’entraînement. | Pas d’exigence spécifique pour les langues en-US et zh-CN. Plus de 2 000 énoncés distinctes pour les autres paramètres régionaux. | [Tous les paramètres régionaux de Custom Voice](language-support.md#customization) |
+| **Contenu audio long + transcription (bêta)** | Collection (.zip) de fichiers audio longs et non segmentés (plus de 20 secondes), associés à une transcription (.txt) qui contient tous les mots prononcés. | Vous disposez de fichiers audio et des transcriptions correspondantes, mais ils ne sont pas segmentés en énoncés. | Segmentation (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire. | Pas d’exigence précise  | [Tous les paramètres régionaux de Custom Voice](language-support.md#customization) |
+| **Audio uniquement (bêta)** | Collection (.zip) de fichiers audio sans transcription. | Vous disposez uniquement de fichiers audio, sans transcriptions. | Segmentation + génération de transcriptions (à l’aide de la transcription Batch).<br>Transformation du format audio, si nécessaire.| Pas d’exigence précise | [Tous les paramètres régionaux de Custom Voice](language-support.md#customization) |
 
 Les fichiers doivent être regroupées par type dans un jeu de données et chargés sous forme de fichier zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
@@ -65,7 +65,7 @@ Suivez ces recommandations pendant la préparation du contenu audio.
 | Nom de fichier | Numérique, avec l’extension .wav. Noms de fichiers en double non autorisés. |
 | Durée du contenu audio | Moins de 15 secondes |
 | Format d’archive | .zip |
-| Taille d’archive maximale | 200 Mo |
+| Taille d’archive maximale | 2 048 Mo |
 
 > [!NOTE]
 > Les fichiers .wav dont le taux d’échantillonnage est inférieur à 16 000 Hz sont rejetés. Si un fichier .zip contient des fichiers .wav dont le taux d’échantillonnage est différent, seuls ceux dont ce taux est supérieur ou égal à 16 000 Hz sont importés. Actuellement, le portail importe les archives .zip jusqu’à 200 Mo. Toutefois, il est possible de charger plusieurs archives.
@@ -79,7 +79,7 @@ Le fichier de transcription est un fichier texte brut. Suivez ces recommandation
 | Format de fichier | Texte brut (.txt) |
 | Format d’encodage | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE ou UTF-16-BE. Pour zh-CN, les encodages ANSI/ASCII et UTF-8 ne sont pas pris en charge. |
 | Nb d’énoncés par ligne | **Un** – Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t). |
-| Taille maximale du fichier | 50 Mo |
+| Taille maximale du fichier | 2 048 Mo |
 
 Voici un exemple d’organisation des transcriptions, énoncé par énoncé, dans un même fichier .txt :
 
@@ -107,12 +107,12 @@ Suivez ces recommandations au moment de préparer le contenu audio à segmenter.
 | Propriété | Valeur |
 | -------- | ----- |
 | Format de fichier | RIFF (.wav) avec un taux d’échantillonnage d’au moins 16 khz 16 bits en PCM ou .mp3 avec une vitesse de transmission d’au moins 256 Kbits/s, le tout regroupé dans un fichier .zip |
-| Nom de fichier | Caractères ASCII uniquement. La présence de caractères Unicode dans le nom se traduit par un échec (par exemple, les caractères chinois ou des symboles comme « — »). Les noms de fichiers en double ne sont pas autorisés. |
+| Nom de fichier | Prise en charge des caractères Unicode et ASCII. Les noms de fichiers en double ne sont pas autorisés. |
 | Durée du contenu audio | Plus de 20 secondes |
 | Format d’archive | .zip |
-| Taille d’archive maximale | 200 Mo |
+| Taille d’archive maximale | 2 048 Mo |
 
-Tous les fichiers audio doivent être regroupés dans un fichier zip. S’il est possible de placer des fichiers .wav et des fichiers .mp3 dans un même fichier zip audio, ce dernier ne doit pas contenir de sous-dossiers. Par exemple, vous pouvez charger un fichier zip contenant un fichier audio nommé « kingstory.wav », d’une durée de 45 secondes, et un autre nommé « queenstory.mp3 », d’une durée de 200 secondes, sans aucun sous-dossier. Tous les fichiers .mp3 seront convertis au format .wav à l’issue du traitement.
+Tous les fichiers audio doivent être regroupés dans un fichier zip. Il est possible de placer des fichiers .wav et des fichiers .mp3 dans un même fichier zip audio. Par exemple, vous pouvez charger un fichier zip contenant un fichier audio nommé « kingstory.wav », d’une durée de 45 secondes, et un autre nommé « queenstory.mp3 », d’une durée de 200 secondes. Tous les fichiers .mp3 seront convertis au format .wav à l’issue du traitement.
 
 ### <a name="transcripts"></a>Transcriptions
 
@@ -124,9 +124,9 @@ Les transcriptions doivent être préparées selon les spécifications listées 
 | Nom de fichier | Utilisez le nom du fichier audio correspondant |
 | Format d’encodage | UTF-8-BOM uniquement |
 | Nb d’énoncés par ligne | Aucune limite |
-| Taille maximale du fichier | 50 Mo |
+| Taille maximale du fichier | 2 048 Mo |
 
-Tous les fichiers de transcriptions de ce type de données doivent être regroupés dans un fichier zip. Aucun sous-dossier n’est autorisé dans le fichier zip. Par exemple, supposons que vous avez chargé un fichier zip contenant un fichier audio nommé « kingstory.wav », d’une durée de 45 secondes, et un autre nommé « queenstory.mp3 », d’une durée de 200 secondes. Vous devez charger un autre fichier zip contenant deux transcriptions, l’une nommée « kingstory.txt » et l’autre « queenstory.txt ». Dans chaque fichier texte brut, vous fournirez la transcription complète correcte pour le contenu audio correspondant.
+Tous les fichiers de transcriptions de ce type de données doivent être regroupés dans un fichier zip. Par exemple, supposons que vous avez chargé un fichier zip contenant un fichier audio nommé « kingstory.wav », d’une durée de 45 secondes, et un autre nommé « queenstory.mp3 », d’une durée de 200 secondes. Vous devez charger un autre fichier zip contenant deux transcriptions, l’une nommée « kingstory.txt » et l’autre « queenstory.txt ». Dans chaque fichier texte brut, vous fournirez la transcription complète correcte pour le contenu audio correspondant.
 
 Une fois le jeu de données chargé, nous vous aiderons à segmenter le fichier audio en énoncés sur la base de la transcription fournie. Vous pouvez vérifier les énoncés segmentés et les transcriptions correspondantes en téléchargeant le jeu de données. Des ID uniques seront attribués automatiquement aux énoncés segmentés. Il est important de vérifier que les transcriptions que vous fournissez sont précises à 100 %. La présence d’erreurs dans les transcriptions peut réduire la précision pendant la segmentation audio et occasionner des pertes de qualité pendant la phase d’entraînement qui vient après.
 
@@ -142,12 +142,12 @@ Suivez ces recommandations pendant la préparation du contenu audio.
 | Propriété | Valeur |
 | -------- | ----- |
 | Format de fichier | RIFF (.wav) avec un taux d’échantillonnage d’au moins 16 khz 16 bits en PCM ou .mp3 avec une vitesse de transmission d’au moins 256 Kbits/s, le tout regroupé dans un fichier .zip |
-| Nom de fichier | Caractères ASCII uniquement. La présence de caractères Unicode dans le nom se traduit par un échec (par exemple, les caractères chinois ou des symboles comme « — »). Aucun nom en double autorisé. |
+| Nom de fichier | Prise en charge des caractères Unicode et ASCII. Aucun nom en double autorisé. |
 | Durée du contenu audio | Plus de 20 secondes |
 | Format d’archive | .zip |
-| Taille d’archive maximale | 200 Mo |
+| Taille d’archive maximale | 2 048 Mo |
 
-Tous les fichiers audio doivent être regroupés dans un fichier zip. Aucun sous-dossier n’est autorisé dans le fichier zip. Une fois le jeu de données chargé, nous vous aiderons à segmenter le fichier audio en énoncés à partir de notre service de transcription Batch. Des ID uniques seront attribués automatiquement aux énoncés segmentés. Les transcriptions correspondantes seront générées via la reconnaissance vocale. Tous les fichiers .mp3 seront convertis au format .wav à l’issue du traitement. Vous pouvez vérifier les énoncés segmentés et les transcriptions correspondantes en téléchargeant le jeu de données.
+Tous les fichiers audio doivent être regroupés dans un fichier zip. Une fois le jeu de données chargé, nous vous aiderons à segmenter le fichier audio en énoncés à partir de notre service de transcription Batch. Des ID uniques seront attribués automatiquement aux énoncés segmentés. Les transcriptions correspondantes seront générées via la reconnaissance vocale. Tous les fichiers .mp3 seront convertis au format .wav à l’issue du traitement. Vous pouvez vérifier les énoncés segmentés et les transcriptions correspondantes en téléchargeant le jeu de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

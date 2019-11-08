@@ -11,17 +11,15 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a74f2c21746deb16372174d4a769f9abb825a1cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da5da64538ceaf906388c49963c0d5115e1b5ab9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809636"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480219"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Sélection de fonctionnalités dans le processus TDSP (Team Data Science Process)
-Cet article explique les finalités de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Ces exemples sont tirés d’Azure Machine Learning Studio. 
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+Cet article explique les finalités de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Ces exemples sont tirés d’Azure Machine Learning Studio.
 
 La conception et la sélection de fonctionnalités constituent une partie du processus TDSP présenté dans l’article [Qu’est ce que le processus TDSP (Team Data Science Process) ?](overview.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus TDSP.
 
@@ -44,7 +42,7 @@ Dans Azure Machine Learning Studio, des modules sont fournis pour la sélectio
 
 ![Modules de sélection de caractéristiques](./media/select-features/feature-Selection.png)
 
-Prenons l’exemple de l’utilisation du module de [sélection de caractéristiques basée par filtrage][filter-based-feature-selection]. Pour plus de commodité, continuez à utiliser l’exemple d’exploration de texte. Supposons que nous voulons créer un modèle de régression après avoir créé un ensemble de 256 caractéristiques via le module de [hachage de caractéristiques][feature-hashing] et que la variable de réponse est le « Col1 » contenant une critique de livre notée de 1 à 5. La « Méthode de notation des caractéristiques » doit être définie en tant que « corrélation de Pearson », la « Colonne cible » en tant que « Col1 » et le « nombre de caractéristiques souhaitées » à 50. Le module de [sélection de caractéristiques par filtrage][filter-based-feature-selection] produit ensuite un jeu de données contenant 50 caractéristiques avec l’attribut cible « Col1 ». La figure suivante montre le flux de cette expérimentation et les paramètres d’entrée :
+Prenons l’exemple de l’utilisation du module de [sélection de caractéristiques par filtrage][filter-based-feature-selection]. Pour plus de commodité, continuez à utiliser l’exemple d’exploration de texte. Supposons que nous voulons créer un modèle de régression après avoir créé un ensemble de 256 caractéristiques via le module de [hachage de caractéristiques][feature-hashing] et que la variable de réponse est le « Col1 » contenant une critique de livre notée de 1 à 5. La « Méthode de notation des caractéristiques » doit être définie en tant que « corrélation de Pearson », la « Colonne cible » en tant que « Col1 » et le « nombre de caractéristiques souhaitées » à 50. Le module de [sélection de caractéristiques par filtrage][filter-based-feature-selection] produit ensuite un jeu de données contenant 50 caractéristiques avec l’attribut cible « Col1 ». La figure suivante montre le flux de cette expérimentation et les paramètres d’entrée :
 
 ![Propriétés du module de sélection de caractéristiques par filtrage](./media/select-features/feature-Selection1.png)
 

@@ -1,20 +1,18 @@
 ---
 title: Informations de référence sur le fichier host.json pour Azure Functions 2.x
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
-services: functions
 author: ggailey777
-manager: jeconnoc
-keywords: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596870"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469207"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -73,6 +71,9 @@ L’exemple de fichier *host.json* suivant contient toutes les options possibles
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -80,10 +81,7 @@ L’exemple de fichier *host.json* suivant contient toutes les options possibles
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -150,9 +148,7 @@ Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne 
 ## <a name="functiontimeout"></a>functionTimeout
 
 Indique la durée avant expiration du délai de toutes les fonctions. Il suit le format de chaîne TimeSpan. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes.  
-Dans un plan dédié (App Service), il n’existe aucune limite globale et la valeur par défaut dépend de la version du runtime : 
-+ Version 1.x : la valeur par défaut est *null*, ce qui signifie l’absence de délai d’expiration.   
-+ Version 2.x : la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution sans limite.
+Dans un plan App Service dédié, il n’existe aucune limite globale, et la valeur par défaut est de 30 minutes. La valeur `-1` indique une exécution sans limite.
 
 ```json
 {
@@ -251,6 +247,18 @@ Ce paramètre est un enfant de la [journalisation](#logging). Il contrôle la jo
 |---------|---------|---------| 
 |isEnabled|false|Active ou désactive la journalisation de la console.| 
 
+## <a name="manageddependency"></a>managedDependency
+
+La dépendance managée est une fonctionnalité qui est actuellement prise en charge uniquement par les fonctions basées sur PowerShell. Elle permet au service de gérer automatiquement les dépendances. Lorsque la propriété `enabled` est définie sur `true`, le fichier `requirements.psd1` est traité. Les dépendances sont mises à jour lorsque des versions mineures sont publiées. Pour plus d’informations, consultez la section [Dépendance managée](functions-reference-powershell.md#dependency-management) de l’article PowerShell.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
+
 ## <a name="queues"></a>queues
 
 Les paramètres de configuration se trouvent dans les [déclencheurs et liaisons de la file d'attente de stockage](functions-bindings-storage-queue.md#host-json).  
@@ -298,18 +306,6 @@ Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watche
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## <a name="manageddependency"></a>managedDependency
-
-La dépendance managée est une fonctionnalité d’évaluation qui est actuellement prise en charge uniquement par les fonctions basées sur PowerShell. Elle permet au service de gérer automatiquement les dépendances. Lorsque la propriété activée est définie sur true, le fichier [requirements.psd1](functions-reference-powershell.md#dependency-management) est traité. Les dépendances sont mises à jour lorsque des versions mineures sont publiées.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

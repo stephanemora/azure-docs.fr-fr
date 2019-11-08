@@ -9,16 +9,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a7b0276ca41e1b9342b3602a67dea0517c60f66a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999386"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489342"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Optimiser les hyperparamètres de votre modèle avec Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Ajustez avec efficacité les hyperparamètres de votre modèle à l’aide d’Azure Machine Learning.  L’optimisation des hyperparamètres comprend les étapes suivantes :
 
@@ -95,6 +96,12 @@ Ce code définit un espace de recherche avec deux paramètres : `learning_rate`
 ### <a name="sampling-the-hyperparameter-space"></a>Échantillonnage de l’espace des hyperparamètres
 
 Vous pouvez aussi spécifier la méthode d’échantillonnage des paramètres à utiliser dans la définition de l’espace des hyperparamètres. Azure Machine Learning prend en charge l’échantillonnage aléatoire, l’échantillonnage par grille et l’échantillonnage bayésien.
+
+#### <a name="picking-a-sampling-method"></a>Sélection d’une méthode d’échantillonnage
+
+* L’échantillonnage de grille peut être utilisé si votre espace d’hyperparamètres peut être défini en tant que choix parmi des valeurs discrètes et si vous disposez d’un budget suffisant pour effectuer une recherche complète sur toutes les valeurs dans l’espace de recherche défini. En outre, il est possible d’utiliser l’arrêt automatisé anticipé des exécutions à performances médiocres, ce qui réduit le gaspillage des ressources.
+* L’échantillonnage aléatoire permet à l’espace d’hyperparamètres d’inclure à la fois des hyperparamètres discrets et des hyperparamètres continus. En pratique, il produit de bons résultats la plupart du temps et permet également l’utilisation d’un arrêt automatisé anticipé des exécutions peu performantes. Certains utilisateurs effectuent une recherche initiale à l’aide de l’échantillonnage aléatoire, puis affinent de manière itérative l’espace de recherche pour améliorer les résultats.
+* L’échantillonnage bayésien utilise la connaissance des exemples précédents lors du choix de valeurs hyperparamètres, en tentant d’améliorer efficacement la métrique principale signalée. L’échantillonnage bayésien est recommandé si vous disposez d’un budget suffisant pour explorer l’espace d’hyperparamètres. Pour de meilleurs résultats avec l’échantillonnage bayésien, nous vous recommandons d’utiliser un nombre maximal d’exécutions supérieur ou égal à 20 fois le nombre d’hyperparamètres configurés. Notez que l’échantillonnage bayésien ne prend actuellement pas en charge les stratégies d’arrêt anticipé.
 
 #### <a name="random-sampling"></a>Échantillonnage aléatoire
 
@@ -248,8 +255,10 @@ policy=None
 
 Si aucune stratégie n’est spécifiée, le service d’optimisation des hyperparamètres permet à toutes les exécutions d’entraînement d’arriver à leur terme.
 
->[!NOTE] 
->Si vous cherchez une stratégie classique qui permet de réaliser des économies, sans arrêter les tâches prometteuses, vous pouvez utiliser une stratégie d’arrêt à la médiane avec un `evaluation_interval` de 1 et un `delay_evaluation` de 5. Il s’agit de valeurs prudentes, qui peuvent fournir approximativement 25 à 35 % d’économies sans perte sur la métrique principale (d’après nos évaluations).
+### <a name="picking-an-early-termination-policy"></a>Sélection d’une stratégie d’arrêt anticipé
+
+* Si vous cherchez une stratégie classique qui permet de réaliser des économies, sans arrêter les tâches prometteuses, vous pouvez utiliser une stratégie d’arrêt à la médiane avec un `evaluation_interval` de 1 et un `delay_evaluation` de 5. Il s’agit de valeurs prudentes, qui peuvent fournir approximativement 25 à 35 % d’économies sans perte sur la métrique principale (d’après nos évaluations).
+* Si vous recherchez des économies plus poussées que celles possibles avec l’arrêt anticipé, vous pouvez utiliser une stratégie Bandit avec une marge autorisée plus stricte (plus petite) ou une stratégie de sélection de troncation avec un pourcentage de troncation plus élevé.
 
 ## <a name="allocate-resources"></a>Allouer des ressources
 
@@ -305,6 +314,46 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
 `experiment_name` est le nom que vous voulez attribuer à votre expérience d’optimisation des hyperparamètres, et `workspace` est l’espace de travail dans lequel vous voulez créer l’expérience (pour plus d’informations sur les expériences, consultez [Fonctionnement d’Azure Machine Learning](concept-azure-machine-learning-architecture.md)).
+
+## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>Démarrage à chaud de votre expérience de paramétrage d’hyperparamètres (facultatif)
+
+Souvent, la recherche des meilleures valeurs d’hyperparamètres pour votre modèle peut être un processus itératif, nécessitant plusieurs exécutions de paramétrage qui apprennent à partir des exécutions de paramétrage d’hyperparamètres précédentes. La réutilisation des connaissances de ces exécutions précédentes accélère le processus de paramétrage d’hyperparamètres, ce qui réduit le coût de réglage du modèle et peut potentiellement améliorer la métrique principale du modèle résultant. Lors du démarrage à chaud d’une expérience de paramétrage d’hyperparamètres avec l’échantillonnage bayésien, les essais de l’exécution précédente sont utilisés comme connaissances préalables pour choisir intelligemment de nouveaux échantillons, afin d’améliorer la métrique principale. En outre, lors de l’utilisation de l’échantillonnage aléatoire ou de grille, toutes les décisions d’arrêt anticipé tirent parti des mesures des précédentes exécutions pour déterminer des exécutions de formation médiocres. 
+
+Azure Machine Learning vous permet de démarrer à chaud votre exécution de paramétrage d’hyperparamètres en tirant parti des connaissances de jusqu’à 5 exécutions parentes de paramétrage d’hyperparamètres terminées/annulées précédemment. Vous pouvez spécifier la liste des exécutions parentes que vous souhaitez démarrer à chaud à l’aide de cet extrait de code :
+
+```Python
+from azureml.train.hyperdrive import HyperDriveRun
+
+warmstart_parent_1 = HyperDriveRun(experiment, "warmstart_parent_run_ID_1")
+warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
+warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
+```
+
+En outre, il peut arriver que des formations individuelles sur une expérience de paramétrage d’hyperparamètres soient annulées en raison de contraintes budgétaires ou d’une défaillance due à d’autres raisons. Il est à présent possible de reprendre ces formations individuelles à partir du dernier point de contrôle (en supposant que votre script de formation gère les points de contrôle). La reprise d’une exécution de formation unique utilise la même configuration d’hyperparamètres et monte le dossier de sorties utilisé pour cette exécution. Le script de formation doit accepter l’argument `resume-from`, qui contient les fichiers de point de contrôle ou de modèle à partir desquels reprendre l’exécution de la formation. Vous pouvez reprendre des exécutions de formation individuelles à l’aide de l’extrait de code suivant :
+
+```Python
+from azureml.core.run import Run
+
+resume_child_run_1 = Run(experiment, "resume_child_run_ID_1")
+resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
+child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
+```
+
+Vous pouvez configurer votre expérience de paramétrage d’hyperparamètres pour démarrer à chaud à partir d’une expérience précédente ou reprendre des exécutions individuelles à l’aide des paramètres facultatifs `resume_from` et `resume_child_runs` dans la configuration :
+
+```Python
+from azureml.train.hyperdrive import HyperDriveConfig
+
+hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
+                          hyperparameter_sampling=param_sampling, 
+                          policy=early_termination_policy,
+                          resume_from=warmstart_parents_to_resume_from, 
+                          resume_child_runs=child_runs_to_resume,
+                          primary_metric_name="accuracy", 
+                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                          max_total_runs=100,
+                          max_concurrent_runs=4)
+```
 
 ## <a name="visualize-experiment"></a>Visualiser l’expérience
 

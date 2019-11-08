@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight'
+title: 'Didacticiel : Charger des données et exécuter des requêtes avec Apache Spark - Azure HDInsight'
 description: Didacticiel - Découvrez comment charger des données et exécuter des requêtes interactives sur des clusters Spark dans Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027794"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494501"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
 
@@ -36,7 +36,7 @@ Jupyter Notebook est un environnement de Notebook interactif qui prend en charge
 
 2. Sur la page web de Jupyter, sélectionnez **Nouveau** > **PySpark** pour créer un notebook.
 
-   ![Créer un bloc-notes Jupyter Notebook pour exécuter une requête interactive Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Créer un bloc-notes Jupyter Notebook pour exécuter une requête interactive Spark SQL")
+   ![Créer un Jupyter Notebook pour exécuter une requête Spark SQL interactive](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Créer un Jupyter Notebook pour exécuter une requête Spark SQL interactive")
 
    Un nouveau notebook est créé et ouvert sous le nom Untitled(`Untitled.ipynb`).
 
@@ -47,7 +47,7 @@ Jupyter Notebook est un environnement de Notebook interactif qui prend en charge
 
 Les applications peuvent créer des dataframes directement à partir de fichiers ou de dossiers dans le stockage distant, par exemple le stockage Azure ou Azure Data Lake Storage, à partir d’une table Hive ou d’autres sources de données prises en charge par Spark, telles que Cosmos DB, Azure SQL DB, DW, etc. La capture d’écran suivante montre un instantané du fichier HVAC.csv utilisé dans ce didacticiel. Le fichier CSV est fourni avec tous les clusters HDInsight Spark. Les données capturent les variations de température de certains bâtiments.
 
-![Instantané des données pour les requêtes Spark SQL interactives](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "instantané des données pour les requêtes Spark SQL interactives")
+![Capture instantanée des données pour la requête Spark SQL interactive](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Capture instantanée des données pour la requête Spark SQL interactive")
 
 1. Collez l'exemple de code suivant dans une cellule vide du notebook Jupyter, puis appuyez sur **MAJ + ENTRÉE** pour exécuter le code. Le code importe les types requis pour ce scénario :
 
@@ -58,7 +58,7 @@ Les applications peuvent créer des dataframes directement à partir de fichiers
 
     Lorsque vous exécutez une requête interactive dans Jupyter, la fenêtre du navigateur web ou la légende d’onglet affiche l’état **(Occupé)** ainsi que le titre du bloc-notes. Un cercle plein s’affiche également en regard du texte **PySpark** dans le coin supérieur droit. Une fois le travail terminé, ce cercle est remplacé par un cercle vide.
 
-    ![État de la requête interactive Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "État de la requête interactive Spark SQL")
+    ![État de la requête Spark SQL interactive](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "État de la requête Spark SQL interactive")
 
 2. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**).
 
@@ -81,11 +81,11 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
 
    La sortie sous forme de tableau suivante s’affiche.
 
-     ![Sortie sous forme de tableau d’un résultat de requête interactive Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Sortie sous forme de tableau d’un résultat de requête interactive Spark")
+     ![Résultat de la requête Spark interactive sous forme de tableau](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Résultat de la requête Spark interactive sous forme de tableau")
 
 2. Vous pouvez également voir les résultats dans d’autres visualisations. Pour afficher un graphique en aires pour le même résultat, sélectionnez **Area** (Aires), puis définissez d’autres valeurs comme indiqué.
 
-    ![Résultat de requête interactive Spark sous forme graphique](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Résultat de requête interactive Spark sous forme graphique")
+    ![Résultat de la requête Spark interactive sous forme de graphique en aires](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Résultat de la requête Spark interactive sous forme de graphique en aires")
 
 3. Dans la barre de menus du notebook, accédez à **File** (Fichier) > **Save and Checkpoint**(Enregistrer et créer un point de contrôle).
 
@@ -97,7 +97,7 @@ Avec HDInsight, vos données et notebooks Jupyter sont stockés dans le stockage
 
 Ouvrez le cluster dans le portail Azure, puis sélectionnez **Supprimer**.
 
-![Supprimer le cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Supprimer le cluster HDInsight")
+![Supprimer un cluster HDInsight](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Supprimer un cluster HDInsight")
 
 Vous pouvez également sélectionner le nom du groupe de ressources pour ouvrir la page du groupe de ressources, puis sélectionner **Supprimer le groupe de ressources**. En supprimant le groupe de ressources, vous supprimez le cluster HDInsight Spark et le compte de stockage par défaut.
 

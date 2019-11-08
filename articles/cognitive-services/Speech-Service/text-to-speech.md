@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: d12b952d298b41c8d06f0fcac141a45749de9051
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d3d4777d54e3ef6b20ab0ac0f0890da958411297
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799954"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468668"
 ---
 # <a name="what-is-text-to-speech"></a>Qu’est-ce que la synthèse vocale ?
 
 Le service de synthèse vocale des services de reconnaissance vocale Azure permet à vos applications, outils ou appareils de convertir du texte en parole naturelle synthétisée quasi humaine. Choisissez parmi les voix standard et neuronales, ou créez une voix personnalisée propre à votre produit ou votre marque. Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètres régionaux, et 5 voix neuronales sont disponibles dans 4 langues et paramètres régionaux. Pour en obtenir la liste complète, consultez les [langues prises en charge](language-support.md#text-to-speech).
 
-La technologie de synthèse vocale permet aux créateurs de contenu d’interagir avec leurs utilisateurs de différentes façons. La synthèse vocale peut améliorer l’accessibilité en proposant aux utilisateurs une option permettant d’interagir avec le contenu de façon audible. Que l’utilisateur souffre d’une déficience visuelle, de difficultés d’apprentissage, ou qu’il ait besoin d’informations de navigation tout en conduisant, la synthèse vocale peut améliorer une expérience existante. La synthèse vocale constitue également un module complémentaire précieux pour les bots vocaux et assistants virtuels.
+La technologie de synthèse vocale permet aux créateurs de contenu d’interagir avec leurs utilisateurs de différentes façons. La synthèse vocale peut améliorer l’accessibilité en proposant aux utilisateurs une option permettant d’interagir avec le contenu de façon audible. Que l’utilisateur souffre d’une déficience visuelle, de difficultés d’apprentissage, ou qu’il ait besoin d’informations de navigation tout en conduisant, la synthèse vocale peut améliorer une expérience existante. La synthèse vocale constitue également un module complémentaire précieux pour les bots et assistants vocaux.
 
 
 Avec le langage de balisage de synthèse vocale (SSML), un langage de balisage basé sur XML, les développeurs utilisant le service de synthèse vocale peuvent spécifier la manière dont un texte en entrée est converti en parole synthétisée. Avec SSML, vous pouvez ajuster la tonalité, la prononciation, la vitesse d’énonciation, le volume et bien plus encore. Pour plus d’informations, consultez la page [SSML](#speech-synthesis-markup-language-ssml).
@@ -34,7 +34,7 @@ Les voix standard sont créées à l’aide des techniques de synthèse paramét
 
 Les voix neuronales utilisent des réseaux neuronaux profonds pour dépasser les limites des systèmes de synthèse vocale traditionnels, avec mise en correspondance de modèles d’accent et d’intonation dans la langue parlée, et synthétisation des unités de discours en voix d’ordinateur. La synthèse vocale standard décompose la prosodie en plusieurs étapes d’analyse linguistique et de prédiction acoustique régies par des modèles indépendants, ce qui peut entraîner une voix synthétique étouffée. Ici, les capacités neuronales exécutent la prédiction prosodique et la synthèse vocale simultanément, pour une voix plus naturelle et une énonciation plus fluide.
 
-Les voix neuronales peuvent être utilisées pour rendre les interactions avec les chatbots et les assistants virtuels plus naturelles et agréables, convertir des textes numériques comme les livres électroniques en livres audio et améliorer les systèmes de navigation embarqués. Grâce à la prosodie naturelle quasi humaine et à la bonne articulation des mots, les voix neuronales réduisent considérablement la fatigue d’écoute lorsque vous interagissez avec des systèmes d’intelligence artificielle.
+Les voix neuronales peuvent être utilisées pour rendre les interactions avec les chatbots et les assistants vocaux plus naturelles et agréables, convertir des textes numériques comme les livres électroniques en livres audio et améliorer les systèmes de navigation embarqués. Grâce à la prosodie naturelle quasi humaine et à la bonne articulation des mots, les voix neuronales réduisent considérablement la fatigue d’écoute lorsque vous interagissez avec des systèmes d’intelligence artificielle.
 
 Les voix neuronales prennent en charge différents styles. Elles peuvent être neutres ou enthousiastes. Par exemple, la voix Jessa (en-US) peut parler sur un ton enthousiaste, optimisé pour les conversations chaleureuses et joyeuses. Vous pouvez ajuster la sortie de la voix, comme le ton, la tonalité et le débit avec le [langage de balisage de synthèse vocale](speech-synthesis-markup.md). Vous trouverez une liste complète des voix disponibles dans [Langues prises en charge](language-support.md#text-to-speech).
 
@@ -87,25 +87,25 @@ Nous proposons des guides de démarrage rapide conçu pour que vous exécutiez l
 
 | Démarrage rapide (SDK) | Plateforme | Informations de référence sur l'API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](quickstart-text-to-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](quickstart-text-to-speech-java-android.md) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Objective-C](quickstart-text-to-speech-objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Objective-C](quickstart-text-to-speech-objectivec-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](quickstart-text-to-speech-swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Swift](quickstart-text-to-speech-swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](quickstart-text-to-speech-python.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>Démarrages rapides REST
 
 | Démarrage rapide (REST) | Plateforme | Informations de référence sur l'API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Node.JS](quickstart-nodejs-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Python](quickstart-python-text-to-speech.md) | Window, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 

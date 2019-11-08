@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ : déboguer des applications à distance dans HDInsight Spark '
+title: 'Azure Toolkit : Déboguer des applications Apache Spark à distance - Azure HDInsight'
 description: Découvrez comment utiliser HDInsight Tools dans Azure Toolkit for IntelliJ pour déboguer à distance des applications Spark qui s’exécutent sur des clusters HDInsight par le biais d’un VPN.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: a558c0e767610f1fefdf29ca461a476c7bfcee59
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ac8ef620948048ae26ef6f408b4bc86b2a2bfbdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327335"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494587"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utiliser Azure Toolkit for IntelliJ pour déboguer des applications Apache Spark à distance dans HDInsight via VPN
 

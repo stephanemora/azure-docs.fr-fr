@@ -1,7 +1,7 @@
 ---
 title: 'Exécuter un script R : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Exécuter un script R dans le service Azure Machine Learning pour exécuter du code R.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Exécuter un script R dans Azure Machine Learning pour exécuter du code R.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693764"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497882"
 ---
 # <a name="execute-r-script"></a>Exécuter un script R
 
-Cet article décrit comment utiliser le module **Exécuter un script R** pour exécuter du code R dans votre pipeline d’interface visuelle.
+Cet article explique comment utiliser le module **Exécuter un script R** pour exécuter du code R dans votre pipeline de concepteur Azure Machine Learning (préversion).
 
 R vous permet d’exécuter des tâches qui ne sont actuellement pas prises en charge par les modules existants, telles que : 
 - Créer des transformations de données personnalisées
 - Utiliser vos propres métriques pour évaluer des prédictions
-- Générer des modèles à l’aide d’algorithmes qui ne sont pas implémentés en tant que modules autonomes dans l’interface visuelle
+- Générer des modèles à l’aide d’algorithmes qui ne sont pas implémentés en tant que modules autonomes dans le concepteur
 
 ## <a name="r-version-support"></a>Prise en charge de la version de R
 
-L’interface visuelle du service Azure Machine Learning utilise la distribution CRAN (Comprehensive R Archive Network) de R. La version actuellement utilisée est CRAN 3.5.1.
+Le concepteur Azure Machine Learning utilise la distribution CRAN (Comprehensive R Archive Network) de R. La version actuellement utilisée est CRAN 3.5.1.
 
 ## <a name="supported-r-packages"></a>Packages R pris en charge
 
@@ -73,7 +73,7 @@ Le module **Exécuter un script R** contient un exemple de code que vous pouvez
 
 ![R-module](media/module/execute-r-script.png)
 
-Les jeux de données stockés dans l’interface visuelle sont automatiquement convertis en trame de données R quand ils sont chargés avec ce module.
+Les jeux de données stockés dans le concepteur sont automatiquement convertis en trame de données R quand ils sont chargés avec ce module.
 
 1.  Ajoutez le module **Exécuter un script R** à votre pipeline.
 
@@ -116,10 +116,10 @@ azureml_main <- function(dataframe1, dataframe2){
  * La fonction de point d’entrée peut contenir jusqu’à deux arguments d’entrée : `Param<dataframe1>` et `Param<dataframe2>`.
  
    > [!NOTE]
-    > Les données passées au module **Execute R Script** sont référencées en `dataframe1` et `dataframe2`, ce qui est différent de Azure Machine Learning Studio (référence Studio comme `dataset1`, `dataset2`). Vérifiez que les données d’entrée sont référencées correctement dans votre script.  
+    > Les données passées au module **Exécuter le script R** sont référencées en tant que `dataframe1` et `dataframe2`, ce qui est différent du concepteur Azure Machine Learning (référence de concepteur en tant que `dataset1`, `dataset2`). Vérifiez que les données d’entrée sont référencées correctement dans votre script.  
  
     > [!NOTE]
-    >  Il est possible que vous deviez apporter des modifications mineures au code R existant pour qu’il s’exécute dans un pipeline d’interface visuelle. Par exemple, les données d’entrée que vous fournissez au format CSV doivent être explicitement converties en un jeu de données avant de pouvoir les utiliser dans votre code. Les types de données et de colonnes utilisés dans le langage R diffèrent également à certains égards des types de données et de colonnes utilisés dans l’interface visuelle.
+    >  Vous devrez peut-être apporter des modifications mineures au code R existant pour qu’il s’exécute dans un pipeline de concepteur. Par exemple, les données d’entrée que vous fournissez au format CSV doivent être explicitement converties en un jeu de données avant de pouvoir les utiliser dans votre code. Les types de données et de colonnes utilisés dans le langage R diffèrent également à certains égards des types de données et de colonnes utilisés dans le concepteur.
 
 1.  **Valeur de départ aléatoire** : Tapez une valeur à utiliser dans l’environnement R en tant que valeur de départ aléatoire. Ce paramètre revient à appeler `set.seed(value)` dans le code R.  
 
@@ -127,7 +127,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>Résultats
 
-Les modules **Exécuter un script R** peuvent retourner plusieurs sorties, mais elles doivent être fournies sous forme de trames de données R. Les trames de données sont automatiquement converties en jeux de données d’interface visuelle pour assurer la compatibilité avec d’autres modules.
+Les modules **Exécuter un script R** peuvent retourner plusieurs sorties, mais elles doivent être fournies sous forme de trames de données R. Les trames de données sont automatiquement converties en jeux de données dans le concepteur pour assurer la compatibilité avec d’autres modules.
 
 Les erreurs et messages standard de R sont retournés dans le journal du module.
 
@@ -235,7 +235,7 @@ Vous pouvez passer des objets R entre des instances du module **Exécuter un sc
     }
     ```
 
-    La conversion explicite en type entier est effectuée, car la fonction de sérialisation génère des données au format R `Raw`, qui n’est pas pris en charge par l’interface visuelle.
+    La conversion explicite en type entier est effectuée, car la fonction de sérialisation génère des données au format R `Raw`, qui n’est pas pris en charge par le concepteur.
 
 1. Ajoutez une deuxième instance du module **Exécuter un script R** et connectez-la au port de sortie du module précédent.
 
@@ -402,4 +402,4 @@ Liste actuelle de packages R préinstallés pouvant être utilisés :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

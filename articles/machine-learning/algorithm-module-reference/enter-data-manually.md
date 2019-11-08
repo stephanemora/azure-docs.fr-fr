@@ -1,24 +1,24 @@
 ---
 title: 'Entrer des données manuellement : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Entrer des données manuellement dans Azure Machine Learning service pour créer un petit jeu de données en saisissant des valeurs. Le jeu de données peut avoir plusieurs colonnes.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Entrer des données manuellement dans Azure Machine Learning pour créer un petit jeu de données en saisissant des valeurs. Le jeu de données peut avoir plusieurs colonnes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: bd5fb636dbf79534e84a21a461f8912ceb6d9633
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693158"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497936"
 ---
 # <a name="enter-data-manually-module"></a>Module Entrer des données manuellement
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour créer un petit jeu de données en saisissant des valeurs. Le jeu de données peut avoir plusieurs colonnes.
   
@@ -102,4 +102,4 @@ Ce module peut être utile dans des scénarios tels que les suivants :
      Pour afficher le jeu de données, cliquez sur le port de sortie et sélectionnez **Visualiser**.  
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6f81bc2ccf11cbcc3621dc1149879864c88cf0cf
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980521"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474440"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Cas d’usage et scénarios courants pour Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine gérés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP et l’authentification Kerberos/NTLM. Azure AD DS s’intègre à votre locataire Azure AD existant, permettant ainsi aux utilisateurs de se connecter à l’aide de leurs informations d’identification actuelles. Vous utilisez ces services de domaine sans avoir à déployer, gérer et corriger des contrôleurs de domaine dans le cloud, ce qui permet un lift-and-shift plus fluide des ressources locales sur Azure.
+Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP et l’authentification Kerberos/NTLM. Azure AD DS s’intègre à votre locataire Azure AD existant, permettant ainsi aux utilisateurs de se connecter à l’aide de leurs informations d’identification actuelles. Vous utilisez ces services de domaine sans avoir à déployer, gérer et corriger des contrôleurs de domaine dans le cloud, ce qui permet un lift-and-shift plus fluide des ressources locales sur Azure.
 
 Cet article décrit quelques scénarios métier courants dans lesquels Azure AD DS offre de la valeur et répond à ces besoins.
 
@@ -28,11 +28,11 @@ Cet article décrit quelques scénarios métier courants dans lesquels Azure AD 
 
 Pour vous permettre d’utiliser un jeu unique d’informations d’identification AD, les machines virtuelles Azure peuvent être jointes à un domaine managé par Azure AD DS. Cette approche réduit les problèmes de gestion des informations d’identification, comme la maintenance des comptes administrateurs locaux sur chaque machine virtuelle ou des comptes et mots de passe distincts entre les environnements.
 
-Les machines virtuelles jointes à un domaine managé peuvent par Azure AD DS peuvent également être gérées et sécurisées à l’aide d’une stratégie de groupe. Les bases de référence de sécurité exigées peuvent être appliquées aux machines virtuelles pour les verrouiller conformément aux directives de sécurité de l’entreprise. Par exemple, vous pouvez utiliser des fonctionnalités de gestion de stratégie de groupe pour restreindre les types d’applications pouvant être exécutés sur ces machines virtuelles.
+Les machines virtuelles jointes à un domaine managé Azure AD DS peuvent également être gérées et sécurisées à l’aide d’une stratégie de groupe. Les bases de référence de sécurité exigées peuvent être appliquées aux machines virtuelles pour les verrouiller conformément aux directives de sécurité de l’entreprise. Par exemple, vous pouvez utiliser des fonctionnalités de gestion de stratégie de groupe pour restreindre les types d’applications pouvant être exécutés sur ces machines virtuelles.
 
 ![Administration simple des machines virtuelles Azure](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-Intéressons-nous à un exemple de scénario courant. Les serveurs et d’autres infrastructures arrivant en fin de vie, Contoso souhaite transférer de nombreuses applications actuellement hébergées en local vers le cloud. La norme informatique actuelle exige que les serveurs hébergeant les applications d’entreprise soient joints à un domaine et gérés au moyen d’une stratégie de groupe. L’administrateur informatique de Contoso préfère joindre à un domaine les machines virtuelles déployées sur Azure pour en faciliter l’administration, car les utilisateurs peuvent alors se connecter à l’aide de leurs informations d’identification d’entreprise. Quand elles sont jointes à un domaine, les machines virtuelles peuvent aussi être configurées pour se conformer aux bases de référence de sécurité exigées avec la stratégie de groupe. Contoso préfère ne pas déployer, superviser et gérer ses propres contrôleurs de domaine dans Azure.
+Intéressons-nous à un exemple de scénario courant. Les serveurs et d’autres infrastructures arrivant en fin de vie, Contoso souhaite transférer de nombreuses applications actuellement hébergées en local vers le cloud. La norme informatique actuelle exige que les serveurs hébergeant les applications d’entreprise soient joints à un domaine et gérés au moyen d’une stratégie de groupe. L’administrateur informatique de Contoso préfère joindre à un domaine les machines virtuelles déployées sur Azure pour en faciliter l’administration, car les utilisateurs peuvent alors se connecter à l’aide de leurs informations d’identification d’entreprise. Quand elles sont jointes à un domaine, les machines virtuelles peuvent aussi être configurées pour se conformer aux bases de référence de sécurité exigées avec des objets stratégie de groupe. Contoso préfère ne pas déployer, superviser et gérer ses propres contrôleurs de domaine dans Azure.
 
 Azure AD DS convient parfaitement à ce cas d’usage. Un domaine managé par Azure AD DS vous permet de joindre des machines virtuelles à un domaine, d’utiliser un seul jeu d’informations d’identification et d’appliquer une stratégie de groupe. Un domaine managé vous dispense de configurer les contrôleurs de domaine et d’en assurer la maintenance vous-même.
 
@@ -63,7 +63,7 @@ Les considérations de déploiement suivantes s’appliquent à cet exemple de c
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>Lift-and-shift des applications locales qui utilisent une lecture LDAP pour accéder à l’annuaire
 
-Comme dans l’exemple de scénario précédent, supposons que Contoso a une application métier locale développée il y a presque une décennie. Cette application prend en charge les annuaires et a été conçue pour utiliser le protocole LDAP (Lightweight Directory Access Protocol) pour lire les informations/attributs des utilisateurs à partir d’AD DS. L’application ne modifie pas les attributs et n’écrit pas dans l’annuaire.
+Comme dans l’exemple de scénario précédent, supposons que Contoso a une application métier locale développée il y a presque une décennie. Cette application prend en charge les annuaires et a été conçue pour utiliser le protocole LDAP pour lire les informations/attributs des utilisateurs à partir d’AD DS. L’application ne modifie pas les attributs et n’écrit pas dans l’annuaire.
 
 Contoso souhaite migrer cette application vers Azure et mettre hors-service l’ancien matériel local qui l’héberge actuellement. L’application ne peut pas être réécrite pour utiliser des API d’annuaire modernes comme l’API Graph Azure AD de type REST. Une option lift-and-shift est nécessaire pour migrer l’application afin qu’elle s’exécute dans le cloud, sans modification de code ni réécriture de l’application.
 
@@ -99,7 +99,7 @@ Vous pouvez utiliser Azure AD DS pour fournir des services de domaine managés 
 
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>Clusters HDInsight joints à un domaine (préversion)
 
-Vous pouvez configurer un cluster Azure HDInsight qui est joint à un domaine managé par Azure AD DS avec Apache Ranger activé. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Vous pouvez créer et appliquer des stratégies Hive par le biais d’Apache Ranger et autoriser des utilisateurs, comme des scientifiques des données, à se connecter à Hive à l’aide d’outils ODBC, comme Excel ou Tableau. Nous poursuivons nos efforts pour ajouter d’autres charges de travail, comme HBase, Spark et Storm à HDInsight joint à un domaine.
+Vous pouvez configurer un cluster Azure HDInsight qui est joint à un domaine managé par Azure AD DS avec Apache Ranger activé. Vous pouvez créer et appliquer des stratégies Hive par le biais d’Apache Ranger et autoriser des utilisateurs, comme des scientifiques des données, à se connecter à Hive à l’aide d’outils ODBC, comme Excel ou Tableau. Nous poursuivons nos efforts pour ajouter d’autres charges de travail, comme HBase, Spark et Storm à HDInsight joint à un domaine.
 
 Pour plus d’informations sur ce scénario de déploiement, consultez le guide pratique pour [configurer des clusters HDInsight joints à un domaine][hdinsight].
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387266"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486203"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Transformation de Alter Row du flux de données de mappage Azure Data Factory
 
@@ -22,7 +22,7 @@ Utiliser la transformation de Alter Row pour définir des stratégies insert, de
 ![Paramètres d’Alter Row](media/data-flow/alter-row1.png "Paramètres d’Alter Row")
 
 > [!NOTE]
-> Les transformations Alter Row ne fonctionnent que sur les récepteurs de base de données de votre flux de données. Les actions que vous attribuez aux lignes (insert, update, delete, upsert) n’ont pas lieu au cours des sessions de débogage. Vous devez ajouter une tâche Exécuter le flux de données à un pipeline et utiliser le débogage de pipeline ou des déclencheurs pour mettre en œuvre les stratégies Alter Row sur vos tables de base de données.
+> Les transformations Alter Row ne fonctionnent que sur les récepteurs de base de données ou CosmosDB de votre flux de données. Les actions que vous attribuez aux lignes (insert, update, delete, upsert) n’ont pas lieu au cours des sessions de débogage. Vous devez ajouter une tâche Exécuter le flux de données à un pipeline et utiliser le débogage de pipeline ou des déclencheurs pour mettre en œuvre les stratégies Alter Row sur vos tables de base de données.
 
 ## <a name="indicate-a-default-row-policy"></a>Indiquer une stratégie de ligne par défaut
 

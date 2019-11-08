@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 27578e50c56a9c7dac3d74b88e14d0f8fbe9d402
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784989"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466876"
 ---
-# <a name="introduction-to-ai-enrichment-in-azure-cognitive-search"></a>Présentation de l’enrichissement par IA dans la Recherche cognitive Azure
+# <a name="introduction-to-ai-in-azure-cognitive-search"></a>Présentation de l’intelligence artificielle dans la Recherche cognitive Azure
 
-L’enrichissement par IA est une fonctionnalité d’indexation de la Recherche cognitive Azure, utilisée pour extraire du texte à partir d’images, d’objets blob et d’autres sources de données non structurées. Le contenu est enrichi, ce qui facilite les recherches dans un index ou une base de connaissances. L'extraction et l'enrichissement sont implémentés par le biais de *compétences cognitives* rattachées à un pipeline d'indexation. Les compétences cognitives se répartissent en fonction des catégories suivantes : 
+L’enrichissement par IA est une fonctionnalité d’indexation de la Recherche cognitive Azure, utilisée pour extraire du texte à partir d’images, d’objets blob et d’autres sources de données non structurées. Le contenu est enrichi, ce qui facilite les recherches dans un index ou une base de connaissances. L'extraction et l'enrichissement sont implémentés par le biais de *compétences cognitives* rattachées à un pipeline d'indexation. Les compétences cognitives intégrées au service se répartissent en fonction des catégories suivantes : 
 
 + Les compétences de **traitement en langage naturel** incluent la [reconnaissance d'entité](cognitive-search-skill-entity-recognition.md), la [détection de la langue](cognitive-search-skill-language-detection.md), l'[extraction de phrases clés](cognitive-search-skill-keyphrases.md), la manipulation de texte et la [détection de sentiments](cognitive-search-skill-sentiment.md). Grâce à ces compétences, un texte non structuré peut adopter de nouvelles formes, mappées en tant que champs interrogeables et filtrés dans un index.
 
@@ -36,6 +36,12 @@ Le traitement en langage naturel et le traitement des images sont appliqués dur
 
 ## <a name="when-to-use-cognitive-skills"></a>Quand utiliser les compétences cognitives
 
+Vous devez envisager d’utiliser des compétences cognitives intégrées si votre contenu brut est du texte non structuré, du contenu d’image ou du contenu qui nécessite la détection de la langue et la traduction. L’application de l’intelligence artificielle via les compétences cognitives intégrées peut déverrouiller ce contenu, en renforçant sa valeur et son utilité dans vos applications de science des données et de recherche. 
+
+En outre, vous pouvez envisager d’ajouter une compétence personnalisée si vous avez du code open source, tiers ou interne que vous souhaitez intégrer dans le pipeline. Les modèles de classification qui identifient les caractéristiques importantes de différents types de documents appartiennent à cette catégorie, mais tout package qui ajoute de la valeur à votre contenu peut également être utilisé.
+
+### <a name="more-about-built-in-skills"></a>En savoir plus sur les compétences intégrées
+
 Un ensemble de compétences assemblé à l’aide de compétences prédéfinies convient parfaitement aux scénarios d’application suivants :
 
 + Documents numérisés (JPEG) dans lesquels effectuer une recherche en texte intégral. Vous pouvez associer une compétence de reconnaissance optique de caractères (OCR) pour identifier, extraire et ingérer du texte à partir de fichiers JPEG.
@@ -49,6 +55,8 @@ Un ensemble de compétences assemblé à l’aide de compétences prédéfinies 
   En particulier, les blobs contiennent souvent un grand corps de contenu qui est compressé dans un « champ » unique. En associant des compétences en traitement des images et en langage naturel à un indexeur, vous pouvez créer de nouvelles informations qui sont existantes dans le contenu brut, mais qui ne sont pas affichées en tant que champs distincts. Voici quelques compétences cognitives intégrées prêtes à l’emploi qui peuvent aider : l’extraction d’expressions clés, l’analyse des sentiments et la reconnaissance d’entité (personnes, organisations et lieux).
 
   De plus, les compétences prédéfinies peuvent également être utilisées pour restructurer du contenu via des opérations de découpage, de fusion et de mise en forme du texte.
+
+### <a name="more-about-custom-skills"></a>En savoir plus sur les compétences personnalisées
 
 Les compétences personnalisées peuvent prendre en charge des scénarios plus complexes, tels que la reconnaissance de formulaires ou la détection d’entité personnalisée à l’aide d’un modèle que vous fournissez et encapsulez dans l’[interface web des compétences personnalisées](cognitive-search-custom-skill-interface.md). Plusieurs exemples de compétences personnalisées incluent [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), l’intégration de l’[API Recherche d’entités Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) et la [reconnaissance d’entité personnalisée](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 

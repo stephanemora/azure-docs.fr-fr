@@ -1,20 +1,20 @@
 ---
-title: Azure Database pour PostgreSQL - Options de performance d’Hyperscale (Citus) (préversion)
+title: Azure Database pour PostgreSQL - Options de performance d’Hyperscale (Citus)
 description: Options pour un groupe de serveurs Hyperscale (Citus), notamment le nœud de calcul, le stockage et les régions.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: e8c1c2e51ca14ae9b17f0d7efb20552cdd55139b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/17/2019
+ms.openlocfilehash: 2b848827d3d2017e5e787989553c0bf1e26d48e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077289"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482642"
 ---
-# <a name="azure-database-for-postgresql--hyperscale-citus-preview-performance-options"></a>Azure Database pour PostgreSQL - Options de performance d’Hyperscale (Citus) (préversion)
+# <a name="azure-database-for-postgresql--hyperscale-citus-performance-options"></a>Azure Database pour PostgreSQL - Options de performance d’Hyperscale (Citus)
 
 ## <a name="compute-and-storage"></a>Calcul et stockage
  
@@ -22,7 +22,7 @@ Vous pouvez sélectionner les paramètres de calcul et de stockage indépendamme
  
 |                       | Nœud Worker           | Nœud coordinateur      |
 |-----------------------|-----------------------|-----------------------|
-| Calcule, vCores       | 4, 8, 16, 32          | 4, 8, 16, 32          |
+| Calcule, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Mémoire par vCore, Gio | 8                     | 4                     |
 | Taille de stockage, Tio     | 0,5, 1, 2             | 0,5, 1, 2             |
 | Type de stockage          | Usage général (SSD) | Usage général (SSD) |
@@ -31,10 +31,22 @@ Vous pouvez sélectionner les paramètres de calcul et de stockage indépendamme
 
 ## <a name="regions"></a>Régions
 Les groupes de serveurs Hyperscale (Citus) sont disponibles dans les régions Azure suivantes :
-* USA Est 2
-* Asie Sud-Est
-* Europe Ouest
-* USA Ouest 2
+
+* Amérique :
+    * Canada Centre *
+    * USA Est
+    * USA Est 2
+    * USA Centre Nord *
+    * USA Ouest 2
+* Asie-Pacifique :
+    * Australie Est *
+    * Asie Sud-Est
+* Europe :
+    * Europe Nord
+    * Royaume-Uni Sud
+    * Europe Ouest
+
+Les régions avec un astérisque (\*) ne prennent pas encore en charge la [haute disponibilité](concepts-hyperscale-high-availability.md).
 
 ## <a name="pricing"></a>Tarifs
 Pour obtenir les dernières informations sur la tarification, veuillez consulter le service [Page de tarification](https://azure.microsoft.com/pricing/details/postgresql/).

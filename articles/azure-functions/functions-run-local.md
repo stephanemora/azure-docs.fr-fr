@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 28502c49c0eebce84ffd5aa376e7b20bd52213c0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 60ef89308eceeb8ae74caba7230f1dc9c6940f47
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674981"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469063"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -156,8 +156,8 @@ Dans la version 2.x, lorsque vous exécutez la commande, vous devez choisir un r
 Select a worker runtime:
 dotnet
 node
-python (preview)
-powershell (preview)
+python 
+powershell
 ```
 
 Utilisez les touches de direction haut/bas pour choisir un langage, puis appuyez sur Entrée. Si vous envisagez de développer des fonctions JavaScript ou TypeScript, choisissez **nœud**, puis sélectionnez la langue. TypeScript comprend [des exigences supplémentaires](functions-reference-node.md#typescript). 
@@ -208,11 +208,13 @@ Si aucune chaîne de connexion de stockage valide n’est définie pour [`AzureW
 
 Même si vous utilisez l’émulateur de stockage pour le développement, vous pouvez tester votre configuration avec une connexion de stockage réelle. Si vous avez déjà [créé un compte de stockage](../storage/common/storage-create-storage-account.md), vous pouvez obtenir une chaîne de connexion de stockage valide de l’une des manières suivantes :
 
-+ À partir du [portail Azure]. Accédez à votre compte de stockage, sélectionnez **Clés d’accès** dans **Paramètres**, puis copiez une des valeurs **Chaîne de connexion**.
-
+- Dans le [Portail Azure], recherchez et sélectionnez **Comptes de stockage**. 
+  ![Sélectionner des comptes de stockage à partir du Portail Azure](./media/functions-run-local/select-storage-accounts.png)
+  
+  Sélectionnez votre compte de stockage, sélectionnez **Clés d’accès** dans **Paramètres**, puis copiez une des valeurs **Chaîne de connexion**.
   ![Copier une chaîne de connexion à partir du portail Azure](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ Utilisez l’[Explorateur Stockage Azure](https://storageexplorer.com/) pour vous connecter à votre compte Azure. Dans l’**Explorateur**, développez votre abonnement, sélectionnez votre compte de stockage et copiez la chaîne de connexion principale ou secondaire.
+- Utilisez l’[Explorateur Stockage Azure](https://storageexplorer.com/) pour vous connecter à votre compte Azure. Dans l’**Explorateur**, développez votre abonnement, sélectionnez votre compte de stockage et copiez la chaîne de connexion principale ou secondaire.
 
   ![Copier une chaîne de connexion à partir de l’Explorateur Stockage Azure](./media/functions-run-local/storage-explorer.png)
 

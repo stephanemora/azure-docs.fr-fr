@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9a4d4f84626eafdfbc5cc21eef1968a9ed64fcad
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a52a842bbd8ba9d8b22cdcf6792ec7e45a06e964
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "71055618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471119"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Didacticiel : Générer une application ASP.NET Core et SQL Database dans Azure App Service
 
@@ -408,13 +408,15 @@ Pour plus d’informations sur la personnalisation des journaux d’activité AS
 
 ## <a name="manage-your-azure-app"></a>Gérer votre application Azure
 
-Accédez au [portail Azure](https://portal.azure.com) pour voir l’application que vous avez créée.
+Pour voir l’application que vous avez créée, dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **App Services**.
 
-Dans le menu de gauche, cliquez sur **App Services**, puis sur le nom de votre application Azure.
+![Sélectionnez App Services dans le portail Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/app-services.png)
+
+Dans la page **App Services**, sélectionnez le nom de votre application Azure.
 
 ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-Par défaut, le portail affiche la page **Vue d’ensemble** de votre application. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Les onglets sur le côté gauche de la page affichent les différentes pages de configuration que vous pouvez ouvrir.
+Par défaut, le portail affiche la page **Vue d’ensemble** de votre application. Cette page propose un aperçu de votre application. Ici, vous pouvez également effectuer des tâches de gestion de base (parcourir, arrêter, démarrer, redémarrer et supprimer des éléments, par exemple). Le côté gauche de la page présente les différentes pages de configuration que vous pouvez ouvrir.
 
 ![Page App Service du Portail Azure](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

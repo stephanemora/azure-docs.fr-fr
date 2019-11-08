@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 2d80ac949dea3c9d6c3d28d2a343c4ed7bad8983
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554394"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474300"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud
 
@@ -220,6 +220,7 @@ Il est important que vous évitiez de perdre l’accès à votre locataire Azure
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général.
 1. Accédez à **Azure Active Directory**, **Accès conditionnel**.
 1. Sélectionnez **Nouvelle stratégie**.
+   ![Créer une stratégie d’accès conditionnel pour activer l’authentification multifacteur pour les utilisateurs du portail Azure dans le groupe pilote](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Entrez un nom explicite pour votre stratégie.
 1. Sous **utilisateurs et groupes** :
    * Dans l’onglet **Inclure**, sélectionnez la case d’option **Tous les utilisateurs**
@@ -237,8 +238,6 @@ Il est important que vous évitiez de perdre l’accès à votre locataire Azure
 1. Ignorez la section **Session**.
 1. Basculez **Activer la stratégie** sur **Activé**.
 1. Cliquez sur **Créer**.
-
-![Créer une stratégie d’accès conditionnel pour activer l’authentification multifacteur pour les utilisateurs du portail Azure dans le groupe pilote](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>Planifier l’intégration avec les systèmes locaux
 
