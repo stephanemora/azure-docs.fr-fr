@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53d656d8d39c71c813d7dd7a504ec45667bf18b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947483"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482440"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Données distribuées dans Azure Database pour PostgreSQL – Hyperscale (Citus)
 
-Cet article décrit les trois types de tables dans la préversion d’Azure Database pour PostgreSQL – Hyperscale (Citus).
+Cet article décrit les trois types de tables dans Azure Database pour PostgreSQL – Hyperscale (Citus).
 Il montre comment les tables distribuées sont stockées sous forme de partitions et la manière dont les partitions sont placées sur les nœuds.
 
 ## <a name="table-types"></a>Types de tables
