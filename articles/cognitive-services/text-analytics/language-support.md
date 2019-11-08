@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/18/2019
+ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 846650fce6701bb7e382df049902f427390b3051
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 529568cf4f667e72b0b4fb7ba83d0b85c4a90341
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931206"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499987"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>Langues et régions prises en charge par l’API Analyse de texte
 
@@ -31,7 +31,7 @@ Si vous avez du contenu exprimé dans une langue moins fréquemment utilisée, v
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>Analyse des sentiments, extraction de phrases clés et reconnaissance d’entité nommée
 
-Pour l’analyse des sentiments, l’extraction de phrases clés et la reconnaissance d’entité, la liste des langues prises en charge est plus sélective, car les analyseurs sont optimisés pour prendre en compte les règles linguistiques des langues supplémentaires. La prise en charge de l’ensemble complet de [types d’entité](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition) est actuellement limitée aux langues suivantes : 
+Pour l’analyse des sentiments, l’extraction de phrases clés et la reconnaissance d’entité, la liste des langues prises en charge est plus sélective, car les analyseurs sont optimisés pour prendre en compte les règles linguistiques des langues supplémentaires. Dans la reconnaissance d’entité nommée v2, la prise en charge de l’ensemble complet de [types d’entité](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition-v2) est actuellement limitée aux langues suivantes : 
 * Anglais
 * Chinois simplifié
 * Français
@@ -44,37 +44,38 @@ Seules les entités nommées `Person`, `Location` et `Organization` sont retourn
 
 Les langues prises en charge sont initialement déployées en préversion avant d’évoluer vers l’état de disponibilité générale, indépendamment les unes des autres et du service Analyse de texte global. Il est possible que les langues restent disponibles en préversion, même si l’API Analyse de texte est rendue globalement disponible.
 
-| Langage    | Code de langue | Sentiments | Expressions clés | Reconnaissance d’entité nommée |   Notes  |
-|:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Arabe      | `ar`          |           |             | ✔ \*                     | |
-| Tchèque       | `cs`          |           |             | ✔ \*                     | |
-| Chinois simplifié | `zh-hans`| ✔ \***     |             | ✔         |    |
-| Chinois traditionnel | `zh-hant`| ✔ \***     |             |          |    |
-| Danois      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| Néerlandais       | `nl`          | ✔ \***     | ✔          |  ✔ \*           |     |
-| Anglais     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
-| Finnois     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Français      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
-| Allemand      | `de`          | ✔ \***     | ✔           |  ✔           |     |
-| Grec       | `el`          | ✔ \*     |             |            |     |
-| Hongrois   | `hu`          |           |             |  ✔ \*          |     | 
-| Italien     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
-| Japonais    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
-| Coréen      | `ko`          |          | ✔           |  ✔ \*          |     |
-| Norvégien (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
-| Polonais      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Portugais (Portugal) | `pt-PT`| ✔ \***        |  ✔          | ✔ \*      |`pt` également accepté|
-| Portugais (Brésil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
-| Russe     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Espagnol     | `es`          | ✔ \***       | ✔           |   ✔ \*\*      |     | 
-| Suédois     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
-| Turc     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
+> [!NOTE]
+> Pour connaître précisément les langues prises en charge pour la préversion publique v3 de la reconnaissance d’entité nommée, consultez [Types d’entités nommées](named-entity-types.md).
+
+| Langage              | Code de langue | Sentiments | Expressions clés | Reconnaissance d’entité nommée | Liaison d’entités |       Notes        |
+|:----------------------|:-------------:|:---------:|:-----------:|:------------------------:|:--------------:|:------------------:|
+| Arabe                |     `ar`      |           |             |           ✔ \*           |                |                    |
+| Tchèque                 |     `cs`      |           |             |           ✔ \*           |                |                    |
+| Chinois simplifié    |   `zh-hans`   |  ✔ \*\*   |             |            ✔             |                |                    |
+| Chinois traditionnel   |   `zh-hant`   |  ✔ \*\*   |             |                          |                |                    |
+| Danois                |     `da`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Néerlandais                 |     `nl`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Anglais               |     `en`      |   ✔ \**   |      ✔      |          ✔ \*\*          |     ✔ \**      |                    |
+| Finnois               |     `fi`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Français                |     `fr`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
+| Allemand                |     `de`      |   ✔ \**   |      ✔      |            ✔             |                |                    |
+| Grec                 |     `el`      |   ✔ \*    |             |                          |                |                    |
+| Hongrois             |     `hu`      |           |             |           ✔ \*           |                |                    |
+| Italien               |     `it`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Japonais              |     `ja`      |   ✔ \**   |      ✔      |           ✔ \*           |                |                    |
+| Coréen                |     `ko`      |           |      ✔      |           ✔ \*           |                |                    |
+| Norvégien (Bokmål)   |     `no`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Polonais                |     `pl`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Portugais (Portugal) |    `pt-PT`    |   ✔\**    |      ✔      |           ✔ \*           |                | `pt` également accepté |
+| Portugais (Brésil)   |    `pt-BR`    |           |      ✔      |           ✔ \*           |                |                    |
+| Russe               |     `ru`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Espagnol               |     `es`      |   ✔\**    |      ✔      |           ✔ \*           |     ✔ \**      |                    |
+| Suédois               |     `sv`      |   ✔ \*    |      ✔      |           ✔ \*           |                |                    |
+| Turc               |     `tr`      |   ✔ \*    |             |           ✔ \*           |                |                    |
 
 \* Prise en charge linguistique disponible en préversion
 
-\*\* La [reconnaissance d’entité nommée](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner) et la [liaison d’entités](how-tos/text-analytics-how-to-entity-linking.md#entity-linking) sont toutes deux disponibles pour cette langue.  
-
-\*** Disponible dans [Analyse des sentiments v3 - Préversion publique](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview)
+\** Également disponible dans les préversions publiques [Analyse des sentiments v3](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis#sentiment-analysis-v3-public-preview) et/ou [Reconnaissance d’entité nommée v3](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-v3-public-preview).
 
 ## <a name="see-also"></a>Voir aussi
 

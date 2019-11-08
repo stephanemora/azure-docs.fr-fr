@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: b5e5df111b81cb60b6d194be190421bdb5ce2683
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638316"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467703"
 ---
-# <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planifier votre application LUIS avec le domaine du sujet ainsi que les intentions et les entités
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planifier votre schéma d’application LUIS avec le domaine de l’objet et l’extraction de données
 
-Pour planifier votre application, identifiez votre domaine de zone de sujet. Ceci inclut des intentions et des entités possibles qui sont pertinentes pour votre application.  
+Un schéma d’application LUIS contient des intentions et des entités pertinentes pour votre domaine de sujet. Les intentions classifient les énoncés utilisateur et les entités extraient les données des énoncés utilisateur. 
 
 ## <a name="identify-your-domain"></a>Identifier votre domaine
 
@@ -32,10 +32,16 @@ Une application LUIS est centrée autour d’un sujet spécifique à un domaine.
 
 ## <a name="identify-your-intents"></a>Identifier vos intentions
 
-Pensez aux [intentions](luis-concept-intent.md) qui sont importantes pour la tâche de votre application. Prenons l’exemple d’une application de voyage, qui permet de réserver un vol et de vérifier la météo là où se rend l’utilisateur. Vous pouvez définir les intentions « BookFlight » et « GetWeather » pour ces actions. Dans une application plus complexe avec davantage de fonctions, vous avez plus d’intentions, et vous devez les définir soigneusement pour ne pas être trop spécifique. Par exemple, « BookFlight » et « BookHotel » peuvent devoir être des intentions distinctes, mais « BookInternationalFlight » et « BookDomesticFlight » peuvent être trop proches.
+Pensez aux [intentions](luis-concept-intent.md) qui sont importantes pour la tâche de votre application. 
+
+Prenons l’exemple d’une application de voyage, qui permet de réserver un vol et de vérifier la météo là où se rend l’utilisateur. Vous pouvez définir les intentions `BookFlight` et `GetWeather` pour ces actions. 
+
+Dans une application plus complexe avec davantage de fonctions, vous avez plus d’intentions et vous devez les définir soigneusement pour ne pas être trop spécifique. Par exemple, `BookFlight` et `BookHotel` doivent peut-être être des intentions distinctes, mais `BookInternationalFlight` et `BookDomesticFlight` peuvent être trop similaires.
 
 > [!NOTE]
 > Il est recommandé d’utiliser uniquement les intentions nécessaires pour exécuter les fonctions de votre application. Si vous définissez trop d’intentions, il devient plus difficile pour LUIS de classer les énoncés correctement. Si vous en définissez trop peu, elles peuvent être trop générales au point de se chevaucher.
+
+Si vous n’avez pas besoin d’identifier l’intention globale de l’utilisateur, ajoutez tous les exemples d’énoncés utilisateur à l’intention Aucune. Si votre application a besoin de plus d’intentions, vous pouvez les créer ultérieurement. 
 
 ## <a name="create-example-utterances-for-each-intent"></a>Créer des exemples d’énoncés pour chaque intention
 
@@ -51,7 +57,4 @@ Lorsque vous déterminez les entités à utiliser dans votre application, gardez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que votre application est entraînée et publiée, et obtient les énoncés du point de terminaison, envisagez d’implémenter des améliorations de prédiction avec [l’apprentissage actif](luis-how-to-review-endpoint-utterances.md), des [listes d’expressions](luis-concept-feature.md) et des [modèles](luis-concept-patterns.md). 
-
-
-* Consultez [Créer votre première application Language Understanding Intelligent Services (LUIS)](luis-get-started-create-app.md) pour connaître la procédure de création d’une application LUIS.
+En savoir plus sur le [cycle de développement](luis-concept-app-iteration.md) standard.  

@@ -1,32 +1,32 @@
 ---
 title: Planifier vitre environnement Azure Time Series Insights en préversion | Microsoft Docs
 description: Planifier votre environnement Azure Time Series Insights (préversion).
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: b97db5fcebeea67cc593a4d2c1fd677a55ad8559
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f5a12ca2bdccee1d2f738aa3c810577caf3d8eac
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491955"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planifier votre environnement Azure Time Series Insights (préversion)
 
-Cet article décrit les meilleures pratiques pour planifier et commencer à utiliser la préversion d’Azure Time Series Insights.
+Cet article décrit les bonnes pratiques pour planifier et commencer à utiliser Azure Time Series Insights (préversion).
 
 > [!NOTE]
 > Pour obtenir des recommandations sur la planification d’une instance Time Series Insights avec disponibilité générale, consultez l’article que la [planification de votre environnement de disponibilité générale Azure Time Series Insights](time-series-insights-environment-planning.md).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Meilleures pratiques de planification et de préparation
 
-Pour démarrer avec Time Series Insights, il est important de comprendre les points suivants :
+Les bonnes pratiques pour la planification et la préparation de votre environnement sont décrites plus en détail dans les articles suivants :
 
 * Ce que vous obtenez lorsque vous [approvisionnez un environnement Time Series Insights en préversion](#the-preview-environment).
 * Ce que sont vos [propriétés ID Time Series et Timestamp](#configure-time-series-ids-and-timestamp-properties).
@@ -43,22 +43,33 @@ Lorsque vous approvisionnez un environnement Time Series Insights en préversion
 * Un environnement Azure Time Series Insights en préversion
 * Un compte Stockage Azure à usage général V1
 
+Dans le cadre du processus de provisionnement, vous spécifiez si vous souhaitez activer un stockage chaud. Le stockage chaud vous offre une expérience de requête à plusieurs niveaux. Lorsque cette option est activée, vous devez spécifier une période de conservation comprise entre 7 et 30 jours. Les requêtes exécutées dans la période de conservation du stockage chaud présentent généralement des temps de réponse plus rapides. Quand une requête dépasse la période de conservation du stockage chaud, elle est traitée à partir du stockage froid.
+
+Les requêtes sur le stockage chaud sont gratuites, contrairement aux requêtes sur le stockage froid qui sont facturées. Il est important de bien comprendre vos modèles de requête et de planifier la configuration de votre stockage chaud en conséquence. Nous vous recommandons de placer l’analytique interactive sur les données les plus récentes dans votre stockage chaud, et de placer l’analyse des modèles et les tendances à long terme dans le stockage froid.
+
+> [!NOTE]
+> Nous prenons actuellement en charge un maximum de 1 000 propriétés avec le stockage chaud.
+
 Pour commencer, vous avez besoin de trois autres éléments :
 
 * Un [modèle Time Series](./time-series-insights-update-tsm.md)
 * Une [source d’événements connectée à Time Series Insights](./time-series-insights-how-to-add-an-event-source-iothub.md)
 * Les [événements transférés à la source d’événement](./time-series-insights-send-events.md) qui sont mappés sur le modèle et qui respectent un format JSON valide
 
+## <a name="review-preview-limits"></a>Examiner les limites de la préversion
+
+[!INCLUDE [Review Time Series Insights Preview limits](../../includes/time-series-insights-preview-limits.md)]
+
 ## <a name="configure-time-series-ids-and-timestamp-properties"></a>Configurer les propriétés ID Time Series et Timestamp
 
 Pour créer un environnement Time Series Insights, sélectionnez un ID Time Series. Cette opération fonctionne comme une partition logique pour vos données. Comme indiqué, assurez-vous que votre ID Time Series est prêt.
 
 > [!IMPORTANT]
-> Les ID de série chronologique *ne peuvent pas être modifiés ultérieurement*. Vérifiez-les tous avant la sélection finale et leur utilisation.
+> Les ID de série chronologique *ne peuvent pas être changés ultérieurement*. Vérifiez-les tous avant la sélection finale et leur utilisation.
 
 Vous pouvez sélectionner jusqu’à trois clés pour différencier de manière unique vos ressources. Pour plus d’informations, consultez [Meilleures pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md) et [Stockage et entrée](./time-series-insights-update-storage-ingress.md).
 
-La propriété Timestamp est également importante. Vous pouvez désigner cette propriété lorsque vous ajoutez des sources d’événements. Chaque source d’événement a une propriété Timestamp facultative utilisée pour suivre les sources d’événements. Les valeurs de Timestamp respectent la casse et doivent être mises en forme selon les spécifications propres à chaque source.
+La propriété **Timestamp** est également importante. Vous pouvez désigner cette propriété lorsque vous ajoutez des sources d’événements. Chaque source d’événement a une propriété Timestamp facultative utilisée pour suivre les sources d’événements. Les valeurs de Timestamp respectent la casse et doivent être mises en forme selon les spécifications propres à chaque source.
 
 > [!TIP]
 > Vérifiez les exigences de mise en forme et d’analyse de vos sources d’événements.
@@ -80,7 +91,7 @@ Vous pouvez voir la façon dont vous envoyez des événements à Time Series Ins
 Une règle de base :
 
 * stockez les métadonnées dans votre modèle Time Series.
-* Time Series Mode, les champs d’instance et les événements ne comprennent que les informations nécessaires, comme un ID de série chronologique ou un horodatage.
+* Assurez-vous que Time Series Mode, les champs d’instance et les événements ne comprennent que les informations nécessaires, comme un ID de série chronologique ou une propriété Timestamp.
 
 Pour plus d’informations, consultez [Événements Shape](./time-series-insights-send-events.md#supported-json-shapes).
 
@@ -89,7 +100,5 @@ Pour plus d’informations, consultez [Événements Shape](./time-series-insight
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez [Azure Advisor](../advisor/advisor-overview.md) pour planifier vos options de configuration de récupération.
-
 - Renseignez-vous sur [l’entrée et le stockage](./time-series-insights-update-storage-ingress.md) dans Azure Time Series Insights en préversion.
-
 - Renseignez-vous sur la [modélisation des données](./time-series-insights-update-tsm.md) dans Azure Time Series Insights en préversion.

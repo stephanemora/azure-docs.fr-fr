@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026112"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472614"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -31,7 +31,7 @@ Cet article traite des bonnes pratiques relatives aux fonctionnalités de planif
 
 Quand vous créez votre cluster AKS, vous pouvez déployer des nœuds avec prise en charge des unités centrales graphiques (GPU) ou un grand nombre de processeurs puissants. Ces nœuds sont souvent utilisés pour les charges de travail de traitement de données volumineuses, notamment celles liées au machine learning (ML) ou à l’intelligence artificielle (IA). Ce type de matériel étant généralement une ressource de nœud coûteuse à déployer, limitez les charges de travail qui peuvent être planifiées sur ces nœuds. Au lieu de cela, vous pouvez dédier certains nœuds du cluster à l’exécution de services d’entrée et empêcher les autres charges de travail.
 
-Cette prise en charge pour différents nœuds est fournie à l’aide de plusieurs pools de nœuds. Un cluster AKS fournit un ou plusieurs pools de nœud. La prise en charge de plusieurs pools de nœuds dans AKS est actuellement en préversion.
+Cette prise en charge pour différents nœuds est fournie à l’aide de plusieurs pools de nœuds. Un cluster AKS fournit un ou plusieurs pools de nœud.
 
 Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour restreindre les charges de travail qui peuvent s’exécuter sur des nœuds.
 
@@ -81,16 +81,16 @@ Pour en savoir plus sur l’utilisation de plusieurs pools de nœuds dans AKS, v
 
 Lorsque vous mettez à niveau un pool de nœuds dans AKS, les teintes et les tolérances suivent un modèle défini lorsqu’elles sont appliquées à de nouveaux nœuds :
 
+- **Clusters par défaut qui utilisent des groupes de machines virtuelles identiques**
+  - Partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Vous mettez à niveau le pool de nœuds.
+  - Deux nœuds supplémentaires sont créés, *node3* et *node4*, et les teintes y sont envoyées.
+  - Les *node1* et *node2* originaux sont supprimés.
+
 - **Clusters par défaut sans prise en charge de groupe de machine virtuelle identique**
-  - Partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Lorsque vous le mettez à niveau, un nœud supplémentaire (*node3*) est créé.
+  - Encore une fois, partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Lorsque vous le mettez à niveau, un nœud supplémentaire (*node3*) est créé.
   - Les teintes du *node1* sont appliquées au *node3*, avant que *node1* soit supprimé.
   - Un nouveau nœud est créé (nommé *node1*, car le précédent *node1* a été supprimé), et les teintes du *node2* sont appliquées au nouveau *node1*. Ensuite, *node2* est supprimé.
   - Fondamentalement, *node1* devient *node3* et *node2* devient *node1*.
-
-- **Clusters qui utilisent des groupes de machines virtuelles identiques**
-  - Encore une fois, partons du principe que nous disposons d’un cluster à deux nœuds : *node1* et *node2*. Vous mettez à niveau le pool de nœuds.
-  - Deux nœuds supplémentaires sont créés, *node3* et *node4*, et les teintes y sont envoyées.
-  - Les *node1* et *node2* originaux sont supprimés.
 
 Lorsque vous faites évoluer un pool de nœuds dans AKS, les teintes et les tolérances ne sont pas transmises par défaut.
 
@@ -179,7 +179,7 @@ Un bon exemple est une application web qui utilise également un Cache Azure pou
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Cet exemple de déploiement plus complexe dépasse le cadre de l’utilisation des sélecteurs ou de l’affinité de nœud. Le déploiement vous permet de contrôler la façon dont Kubernetes planifie les pods sur les nœuds et dont il isole logiquement les ressources. Pour obtenir un exemple complet de cette application web avec un Cache Azure pour Redis, consultez [Colocaliser des pods sur le même nœud][k8s-pod-affinity].
+Cet exemple de déploiement plus complexe dépasse le cadre de l’utilisation des sélecteurs ou de l’affinité de nœud. Le déploiement vous permet de contrôler la façon dont Kubernetes planifie les pods sur les nœuds et dont il isole logiquement les ressources. Pour obtenir un exemple complet de cette application web avec un exemple Azure Cache pour Redis, consultez [Colocaliser des pods sur le même nœud][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Étapes suivantes
 

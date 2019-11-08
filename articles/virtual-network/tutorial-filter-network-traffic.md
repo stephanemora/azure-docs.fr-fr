@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984901"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519292"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
 
@@ -41,7 +41,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
-1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. 
 2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
 3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
 
@@ -59,7 +59,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Un groupe de sécurité d’application vous permet de regrouper des serveurs avec des fonctions similaires, tels que des serveurs Web.
 
-1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. 
 2. Dans le champ **Rechercher dans la Place de marché**, entrez *Groupe de sécurité d’application*. Lorsque **Groupe de sécurité d’application** apparaît dans les résultats de recherche, sélectionnez cette entrée. Cliquez à nouveau sur **Groupe de sécurité d’application** sous **Tout**, puis sélectionnez **Créer**.
 3. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Créer** :
 
@@ -81,7 +81,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
 
 ## <a name="create-a-network-security-group"></a>Créer un groupe de sécurité réseau
 
-1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. 
 2. Sélectionnez **Mise en réseau**, puis **Groupe de sécurité réseau**.
 3. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Créer** :
 
@@ -123,7 +123,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | Destination             | Sélectionnez **Groupe de sécurité d’application**, puis **myAsgMgmtServers** pour **Groupe de sécurité d’application**. |
     | Plages de ports de destination | Entrer 3389                                                                                                      |
     | Protocol                | Sélectionner TCP                                                                                                      |
-    | Priorité                | Entrer 110                                                                                                       |
+    | Priority                | Entrer 110                                                                                                       |
     | Nom                    | Allow-RDP-All                                                                                                   |
 
     Dans ce tutoriel, le protocole RDP (port 3389) est exposé à Internet pour la machine virtuelle qui est affectée au groupe de sécurité d’application *myAsgMgmtServers*. Pour les environnements de production, au lieu d’exposer le port 3389 sur Internet, il est recommandé de vous connecter aux ressources Azure que vous souhaitez gérer à l’aide d’une connexion réseau VPN ou privée.
@@ -138,7 +138,7 @@ Créez deux machines virtuelles dans le réseau virtuel.
 
 ### <a name="create-the-first-vm"></a>Créer la première machine virtuelle
 
-1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**. 
 2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**.
 3. Entrez ou sélectionnez les informations suivantes, puis acceptez les valeurs par défaut pour les autres paramètres :
 

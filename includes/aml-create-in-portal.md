@@ -8,25 +8,25 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 08/14/2019
-ms.openlocfilehash: 1da2afc6c0dfa0571d6e7ccbf358bb574aa736c5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: d49a84f26453a6a7b2ff6d7f419fbc53ad8b98ba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71830081"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476005"
 ---
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) avec les informations d’identification de l’abonnement Azure que vous utilisez. 
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide des informations d’identification de votre abonnement Azure.
 
 1. En haut à gauche du portail Azure, sélectionnez **+ Créer une ressource**.
 
       ![Créer une nouvelle ressource](media/aml-create-in-portal/portal-create-resource.png)
 
-1. Utilisez la barre de recherche pour rechercher **Espace de travail Machine Learning service**.
+1. Utilisez la barre de recherche pour rechercher **Machine Learning**.
 
-1. Sélectionnez **Espace de travail Machine Learning service**.
+1. Sélectionnez **Machine Learning**.
 
-1. Dans le volet **Espace de travail de service Machine Learning**, sélectionnez **Créer** pour commencer.
+1. Dans le volet **Machine Learning**, sélectionnez **Créer** pour commencer.
 
 1. Fournissez les informations suivantes pour configurer votre nouvel espace de travail :
 
@@ -36,8 +36,9 @@ ms.locfileid: "71830081"
    Subscription |Sélectionnez l’abonnement Azure que vous souhaitez utiliser.
    Resource group | Utilisez un groupe de ressources existant dans votre abonnement, ou entrez un nom pour créer un groupe de ressources. Un groupe de ressources contient les ressources associées d’une solution Azure. Dans cet exemple, nous allons utiliser **docs-aml**. 
    Location | Sélectionnez l’emplacement le plus proche de vos utilisateurs et des ressources de données pour créer votre espace de travail.
+   Édition de l’espace de travail | Sélectionnez **De base** comme type d’espace de travail pour ce didacticiel. Ce type d’espace de travail (De base et Enterprise) détermine les fonctionnalités auxquelles vous aurez accès et la tarification. Tous les éléments de ce didacticiel peuvent être exécutés avec un espace de travail De base ou Enterprise.
 
-1. Une fois que vous avez terminé de configurer l’espace de travail, sélectionnez **Créer**. 
+1. Une fois que vous avez terminé de configurer l’espace de travail, sélectionnez **Évaluer + Créer**. 
 
    > [!Warning] 
    > La création de votre espace de travail dans le cloud peut prendre plusieurs minutes.

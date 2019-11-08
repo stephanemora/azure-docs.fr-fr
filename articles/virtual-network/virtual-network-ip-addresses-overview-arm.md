@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 40797c1b46bc88ecdaab6e28ef64f05a73e3ba8d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965667"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495916"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -151,7 +151,7 @@ Dans le modèle de déploiement Azure Resource Manager, une adresse IP privée e
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 
-Une adresse IP privée est allouée à partir de la plage d’adresses du sous-réseau de la machine virtuelle dans lequel la ressource est déployée. Azure réserve les quatre premières adresses de la plage d’adresses de chaque sous-réseau, qui ne peuvent donc pas être attribuées à des ressources. Par exemple, si la plage d’adresses du sous-réseau est 10.0.0.0/16, les adresses 10.0.0.0 à 10.0.0.3 ne peuvent pas être attribuées à des ressources. Les adresses IP de la plage d’adresses du sous-réseau peuvent uniquement être attribuées à une ressource à la fois. 
+Une adresse IP privée est allouée à partir de la plage d’adresses du sous-réseau de la machine virtuelle dans lequel la ressource est déployée. Azure réserve les quatre premières adresses de la plage d’adresses de chaque sous-réseau, qui ne peuvent donc pas être attribuées à des ressources. Par exemple, si la plage d’adresses du sous-réseau est 10.0.0.0/16, les adresses 10.0.0.0-10.0.0.3 et 10.0.255.255 ne peuvent pas être attribuées à des ressources. Les adresses IP de la plage d’adresses du sous-réseau peuvent uniquement être attribuées à une ressource à la fois. 
 
 Il existe deux méthodes d’allocation d’adresses IP :
 

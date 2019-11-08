@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792664"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493629"
 ---
 Un pipeline s’exécute sur une cible de calcul, qui est une ressource de calcul attachée à votre espace de travail. Une fois que vous avez créé une cible de calcul, vous pouvez la réutiliser pour d’autres exécutions ultérieures.
 
@@ -25,7 +25,7 @@ Un pipeline s’exécute sur une cible de calcul, qui est une ressource de calcu
     Si vous avez déjà une cible de calcul, vous pouvez la sélectionner pour exécuter ce pipeline.
 
     > [!NOTE]
-    > L’interface visuelle peut uniquement exécuter des expériences sur des cibles Capacité de calcul Machine Learning. Les autres cibles de calcul ne sont pas affichées.
+    > Le concepteur peut uniquement exécuter des expériences sur des cibles Capacité de calcul Machine Learning. Les autres cibles de calcul ne sont pas affichées.
 
 1. Fournissez un nom pour la ressource de calcul.
 

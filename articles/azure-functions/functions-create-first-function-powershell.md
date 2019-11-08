@@ -1,26 +1,21 @@
 ---
-title: Créer votre première fonction PowerShell avec Azure Functions
+title: Créer votre première fonction PowerShell dans Azure
 description: Découvrez comment créer votre première fonction PowerShell dans Azure à l’aide de Visual Studio Code.
-services: functions
-keywords: ''
 author: joeyaiello
-manager: jeconnoc
+manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.devlang: powershell
-ms.openlocfilehash: c9de4cec417625bb8451457652dacb61550c31b0
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 1d6d641e141862b12fed40b800589aad70af2789
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248329"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469415"
 ---
-# <a name="create-your-first-powershell-function-in-azure-preview"></a>Créer votre première fonction PowerShell dans Azure (préversion)
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+# <a name="create-your-first-powershell-function-in-azure"></a>Créer votre première fonction PowerShell dans Azure
 
 Ce guide de démarrage rapide vous explique comment créer votre première fonction PowerShell [serverless](https://azure.com/serverless) à l’aide de Visual Studio Code.
 
@@ -66,7 +61,7 @@ Le modèle de projet Azure Functions dans Visual Studio Code crée un projet qui
     > [!NOTE]
     > Cet article a été conçu pour être terminé en dehors d’un espace de travail. Dans ce cas, ne sélectionnez pas de dossier de projet qui fait partie d’un espace de travail.
 
-1. Sélectionnez **Powershell (préversion)** comme langage de votre projet d’application de fonction, puis **Azure Functions v2**.
+1. Sélectionnez **Powershell** comme langage de votre projet d’application de fonction, puis **Azure Functions v2**.
 
 1. Choisissez **Déclencheur HTTP** comme modèle pour votre première fonction, utilisez `HTTPTrigger` comme nom de fonction, puis choisissez le niveau d’autorisation **Fonction**.
 
@@ -104,9 +99,9 @@ Après avoir vérifié que la fonction s’exécute correctement sur votre ordin
 
 > [!NOTE]
 > N’oubliez pas de supprimer tous les appels à `Wait-Debugger` avant de publier vos fonctions sur Azure. 
-
-> [!NOTE]
-> Lors de la création d’une application de fonction dans Azure, vous êtes uniquement invité à entrer le nom de l’application. Si vous souhaitez être invité à entrer toutes les valeurs, affectez à azureFunctions.advancedCreation la valeur true.
+>
+> Création d’une application de fonction dans Azure, vous êtes uniquement invité à entrer le nom de votre application de fonction. D’autres valeurs sont définies pour vous.
+> Définissez `azureFunctions.advancedCreation` sur `true` pour être invité à entrer toutes les autres valeurs.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

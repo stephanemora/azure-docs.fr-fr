@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779774"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464226"
 ---
-# <a name="tutorial-host-your-domain-in-azure-dns"></a>Tutoriel : Hébergez votre domaine dans Azure DNS
+# <a name="tutorial-host-your-domain-in-azure-dns"></a>Didacticiel : Hébergez votre domaine dans Azure DNS
 
 Vous pouvez utiliser Azure DNS pour héberger vos domaines DNS et gérer vos enregistrements DNS. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS à l’aide des mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure.
 
@@ -40,11 +40,11 @@ L’exemple de domaine utilisé pour ce tutoriel est contoso.net, mais utilisez 
 
 ## <a name="create-a-dns-zone"></a>Création d’une zone DNS
 
-1. Connectez-vous au portail Azure.
-1. Dans le coin supérieur gauche, sélectionnez **Créer une ressource** > **Mise en réseau** > **Zone DNS** pour ouvrir la page **Créer une zone DNS**.
+1. Accédez au [Portail Azure](https://portal.azure.com/) pour créer une zone DNS. Recherchez et sélectionnez **zones DNS**.
 
    ![Zone DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
+1. Sélectionnez **Créer une zone DNS**.
 1. Sur la page **Créer une zone DNS**, entrez les valeurs suivantes, puis cliquez sur **Créer** :
 
    | **Paramètre** | **Valeur** | **Détails** |

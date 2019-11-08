@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: ad90a6443cc1c94bcdb730e783b82dfdd4798676
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b1f23ffac26cb48493f013290654189162861a27
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553041"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468744"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>Démarrage rapide : Exécuter l’exemple d’application du SDK Speech Devices sur Windows
 
@@ -89,16 +89,16 @@ Si vous prévoyez d’utiliser les intentions, vous aurez besoin d’un abonneme
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. Le mot signifiant (mot clé) par défaut est « Computer ». Vous pouvez également essayer l’un des autres mots signifiants fournis, tels que « Machine » ou « Assistant ». Les fichiers de ressources pour ces mots alternatifs figurent dans le dossier keyword du Kit de développement logiciel (SDK) Speech Devices. Par exemple, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contient les fichiers utilisés pour le mot de sortie de veille « Computer ».
+1. Le mot clé par défaut (keyword) est « Computer ». Vous pouvez également essayer l’un des autres mots clés fournis, tels que « Machine » ou « Assistant ». Les fichiers de ressources pour ces mots clés alternatifs figurent dans le dossier keyword du Kit de développement logiciel (SDK) Speech Devices. Par exemple, `C:\SDSDK\JRE-Sample-Release\keyword\Computer` contient les fichiers utilisés pour le mot clé « Computer ».
 
    > [!TIP]
-   > Vous pouvez également [créer un mot signifiant personnalisé](speech-devices-sdk-create-kws.md).
+   > Vous pouvez également [créer un mot clé personnalisé](speech-devices-sdk-create-kws.md).
 
-    Pour utiliser un nouveau mot de sortie de veille, mettez à jour les deux lignes suivantes dans `FunctionsList.java` et copiez le package de mots de sortie de veille dans votre application. Par exemple, pour utiliser le mot de sortie de veille « Machine » du package de mots de sortie de veille `kws-machine.zip` :
+    Pour utiliser un nouveau mot clé, mettez à jour les deux lignes suivantes dans `FunctionsList.java` et copiez l’ensemble de mots clés dans votre application. Par exemple, pour utiliser le mot clé « Machine » du package de mots clés `kws-machine.zip` :
 
-   * Copiez le package de mots de sortie de veille dans le dossier **target/classes** du projet.
+   * Copiez le package de mots clés dans le dossier **target/classes** du projet.
 
-   * Mettez à jour le fichier `FunctionsList.java` avec le mot clé et le nom du package :
+   * Mettez à jour le fichier `FunctionsList.java` avec le mot clé et le nom de l’ensemble :
 
      ```java
      private static final String Keyword = "Machine";

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259218"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490409"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide du portail Azure
 
@@ -29,9 +29,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Création d'un coffre
 
-1. Sélectionnez l’option **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-
-    ![Sortie après la création du coffre de clés](./media/quick-create-portal/search-services.png)
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Dans la zone de recherche, entrez **Key Vault**.
 3. Dans la liste des résultats, choisissez **Key Vault**.
 4. Dans la section Key Vault, choisissez **Créer**.
@@ -56,7 +54,7 @@ Notez les deux propriétés ci-dessous :
 
 Pour ajouter un secret au coffre, vous devez effectuer deux autres opérations. Dans ce cas, nous ajoutons un mot de passe qu’une application est susceptible d’utiliser. Le mot de passe est appelé **ExamplePassword** et nous y stockons la valeur **hVFkk965BuUv**.
 
-1. Dans les pages des propriétés du coffre de clés, sélectionnez **Secrets**.
+1. Dans les pages des propriétés Key Vault, sélectionnez **Secrets**.
 2. Cliquez sur **Generate/Import (Générer/Importer)** .
 3. Dans l’écran **Create a secret (Créer un secret)** , choisissez les valeurs suivantes :
     - **Options de chargement** : Manuel.
@@ -84,9 +82,9 @@ Si vous n’en avez plus besoin, supprimez le groupe de ressources. Ce faisant, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un coffre de clés Key Vault, et vous y avez stocké un secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
+Dans ce guide de démarrage rapide, vous avez créé un coffre de clés et vous y avez stocké un secret. Pour en savoir plus sur Key Vault et sur la manière de l’intégrer à vos applications, consultez les articles ci-dessous.
 
 - Lire la [vue d’ensemble Azure Key Vault](key-vault-overview.md)
 - Consulter le [Guide du développeur Azure Key Vault](key-vault-developers-guide.md)
-- En savoir plus sur les [clés, secrets et certificats](about-keys-secrets-and-certificates.md)
+- Découvrir les [clés, secrets et certificats](about-keys-secrets-and-certificates.md)
 - Passer en revue les [bonnes pratiques relatives à Azure Key Vault](key-vault-best-practices.md)

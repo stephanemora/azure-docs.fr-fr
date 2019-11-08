@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf0e679ab46752d71ba4f5ef2b014e0cb2b4c6ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e9daf1be1f931bb13cda446cbb9d6e37acce3bcf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593996"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498108"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -27,8 +27,6 @@ Cette rubrique fournit des instructions pour les procédures suivantes :
 * accès et téléchargement des jeux de données, y compris des instructions sur l’obtention d’une autorisation d'accès aux jeux de données Azure Machine Learning depuis votre environnement Python local
 * accès aux jeux de données intermédiaires à partir d'expériences
 * utilisation de la bibliothèque cliente Python pour énumérer les jeux de données, accès aux métadonnées, lecture du contenu d'un jeu de données, création de nouveaux jeux de données et mise à jour des jeux de données existants
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>Configuration requise
 La bibliothèque cliente Python a été testée dans les environnements suivants :
@@ -66,7 +64,7 @@ Depuis l’interface web Studio, vous pouvez générer des extraits de code qui 
 ### <a name="security"></a>Sécurité relative à l'accès aux données
 Les extraits de code fournis par Studio pour une utilisation avec la bibliothèque cliente Python incluent l'ID de votre d'espace de travail et le jeton d'autorisation. Ceux-ci vous permettent un accès complet à votre espace de travail et doivent être protégés, par exemple avec un mot de passe.
 
-Pour des raisons de sécurité, la fonctionnalité d'extrait de code est uniquement disponible pour les utilisateurs qui ont leur rôle défini en tant que **Propriétaire** de l'espace de travail. Votre rôle s’affiche dans Azure Machine Learning Studio sur la page **UTILISATEURS** sous **Paramètres**.
+Pour des raisons de sécurité, la fonctionnalité d'extrait de code est uniquement disponible pour les utilisateurs qui ont leur rôle défini en tant que **Propriétaire** de l'espace de travail. Votre rôle s’affiche dans Azure Machine Learning Studio (classique) dans la page **UTILISATEURS** sous **Paramètres**.
 
 ![Sécurité][security]
 
@@ -112,11 +110,11 @@ Les formats suivants sont pris en charge (ces constantes sont dans la classe `az
 
 Vous pouvez déterminer le format en pointant sur un nœud de sortie de module. Celui-ci s'affiche avec le nom de nœud dans une infobulle.
 
-Certains des modules, tels que le module [Fractionner][split], ont un format de sortie appelé `Dataset`, qui n’est pas pris en charge par la bibliothèque cliente Python.
+Certains des modules, comme le module [Fractionner][split], ont un format de sortie appelé `Dataset`, qui n’est pas pris en charge par la bibliothèque de client Python.
 
 ![Format de jeu de données][dataset-format]
 
-Vous devez utiliser un module de conversion, tel que [Convertir en CSV][convert-to-csv], afin d’obtenir un format de sortie pris en charge.
+Vous devez utiliser un module de conversion, comme [Convertir au format CSV][convert-to-csv], afin d’obtenir une sortie dans un format pris en charge.
 
 ![Format CSV générique][csv-format]
 
@@ -124,10 +122,10 @@ Les étapes suivantes proposent un exemple qui créé une expérience, l'exécut
 
 1. Création d'une nouvelle expérience.
 2. Insérez un module **Jeu de données Adult Census Income Binary Classification** .
-3. Insérez un module [Fractionner][split] puis connectez son entrée à une sortie de module de jeu de données.
-4. Insérez un module [Convertir en CSV][convert-to-csv], puis connectez son entrée à l’une des sorties du module [Fractionner][split].
+3. Insérez un module [Fractionner][split], puis connectez son entrée à la sortie du module de jeu de données.
+4. Insérez un module [Convertir au format CSV][convert-to-csv], puis connectez son entrée à l’une des sorties du module [Fractionner][split].
 5. Enregistrez l'expérience, exécutez-la et attendez qu'elle ait fini de s'exécuter.
-6. Cliquez sur le nœud de sortie du module [Convertir en CSV][convert-to-csv].
+6. Cliquez sur le nœud de sortie du module [Convertir au format CSV][convert-to-csv].
 7. Lorsque le menu contextuel s’affiche, sélectionnez **Générer un code d’accès aux données**.
    
     ![Menu contextuel][experiment]
@@ -193,7 +191,7 @@ D'autres sont des valeurs affectées par Azure ML :
 Consultez la classe `SourceDataset` pour plus d'informations sur les métadonnées disponibles.
 
 ### <a name="read-contents"></a>Lire le contenu
-Les extraits de code fournis par Machine Learning Studio téléchargent automatiquement et désérialisent le jeu de données vers un objet DataFrame de pandas. Cette opération est effectuée à l'aide de la méthode `to_dataframe` :
+Les extraits de code fournis par Machine Learning Studio (classique) téléchargent et désérialisent automatiquement le jeu de données vers un objet DataFrame Pandas. Cette opération est effectuée à l'aide de la méthode `to_dataframe` :
 
     frame = ds.to_dataframe()
 

@@ -1,24 +1,24 @@
 ---
-title: 'Partition et échantillon : Référence sur le module'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Partition et échantillon dans Azure Machine Learning service pour effectuer un échantillonnage sur un jeu de données ou créer des partitions à partir de votre jeu de données.
+title: 'Partition et échantillon : Informations de référence sur les modules'
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Partition et échantillon dans Azure Machine Learning pour effectuer un échantillonnage sur un jeu de données ou créer des partitions à partir de votre jeu de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: fcbf9fae3306c43613ef0b67a79c9c0b53f6b923
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693753"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497711"
 ---
 # <a name="partition-and-sample-module"></a>Module Partition et échantillon
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour effectuer un échantillonnage sur un jeu de données ou pour créer des partitions à partir de votre jeu de données.
 
@@ -167,4 +167,4 @@ Cette option est utilisée lorsque vous avez divisé un jeu de données en plusi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

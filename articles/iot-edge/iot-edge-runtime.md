@@ -1,40 +1,40 @@
 ---
 title: Découvrir comment le runtime gère les appareils - Azure IoT Edge | Microsoft Docs
-description: Découvrez comment les modules, la sécurité, la communication et les rapports sur vos appareils sont gérés par le runtime Azure IoT Edge
+description: Découvrez comment runtime IoT Edge gère les modules, la sécurité, la communication et les rapports sur vos appareils
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/06/2019
+ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 49abd9e5ecee8637d830604028463650071c0198
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163163"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490424"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Présentation du runtime Azure IoT Edge et de son architecture
 
-Le runtime IoT Edge est une collection de programmes qui transforme un appareil en appareil IoT Edge. Collectivement, les composants du runtime IoT Edge permettent aux appareils IoT Edge de recevoir du code à exécuter dans la périphérie et de communiquer les résultats. 
+Le runtime IoT Edge est une collection de programmes qui transforme un appareil en appareil IoT Edge. Collectivement, les composants du runtime IoT Edge permettent aux appareils IoT Edge de recevoir du code à exécuter dans l’arête et de communiquer les résultats. 
 
-Le runtime IoT Edge exécute les fonctions suivantes sur les appareils IoT Edge :
+Le runtime IoT Edge est responsable des fonctions suivantes sur les appareils IoT Edge :
 
 * Installer et mettre à jour des charges de travail sur l’appareil.
 * Tenir à jour les normes de sécurité Azure IoT Edge sur l’appareil.
 * Garantir que les [modules IoT Edge](iot-edge-modules.md) sont toujours en cours d’exécution.
 * Envoyer des rapports d’intégrité du module dans le cloud pour la supervision à distance.
-* Faciliter la communication entre les appareils de nœud terminal en aval et les appareils IoT Edge.
-* Faciliter la communication entre les modules et le périphérique IoT Edge.
-* Faciliter la communication entre l’appareil IoT Edge et le cloud.
+* Gérer la communication entre les appareils en aval et les appareils IoT Edge.
+* Gérer la communication entre les modules sur l’appareil IoT Edge.
+* Gérer la communication entre l’appareil IoT Edge et le cloud.
 
 ![Le runtime communique des insights et des données sur l’intégrité des modules à IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
 Les responsabilités du runtime IoT Edge se répartissent en deux catégories : communication et gestion des modules. Ces deux rôles sont remplis par deux composants qui font partie du runtime IoT Edge. Le *hub IoT Edge* est responsable de la communication, tandis que l’*agent IoT Edge* déploie et surveille les modules. 
 
-Le hub IoT Edge et l’agent IoT Edge sont tous deux des modules, comme n’importe quel autre module exécuté sur un appareil IoT Edge. 
+Le hub IoT Edge et l’agent IoT Edge sont tous deux des modules, comme n’importe quel autre module exécuté sur un appareil IoT Edge. Ils sont parfois appelés *modules runtime*. 
 
 ## <a name="iot-edge-hub"></a>Hub IoT Edge
 
@@ -45,7 +45,7 @@ Le hub IoT Edge est l’un des deux modules qui composent le runtime Azure IoT E
 
 Le hub IoT Edge n’est pas une version complète d’IoT Hub qui s’exécute localement. Il y a certaines choses que le hub IoT Edge délègue de manière silencieuse à IoT Hub. Par exemple, le hub IoT Edge transfère les demandes d’authentification à IoT Hub quand un appareil essaie de se connecter pour la première fois. Une fois la première connexion établie, les informations de sécurité sont mises en cache localement par le hub IoT Edge. Les connexions suivantes à partir de cet appareil sont autorisées sans avoir à s’authentifier sur le cloud. 
 
-Pour réduire la bande passante utilisée par votre solution IoT Edge, le hub IoT Edge optimise le nombre de connexions établies avec le cloud. Le hub IoT Edge accepte les connexions logiques à partir de clients tels que les modules ou les appareils de nœud terminal, et il les combine pour établir une connexion physique unique au cloud. Les détails de ce processus sont transparents pour le reste de la solution. Les clients pensent avoir leur propre connexion au cloud, alors qu’ils passent tous par la même connexion. 
+Pour réduire la bande passante utilisée par votre solution IoT Edge, le hub IoT Edge optimise le nombre de connexions établies avec le cloud. Le hub IoT Edge accepte les connexions logiques à partir de clients tels que modules ou appareils en aval et il les combine pour établir une connexion physique unique au cloud. Les détails de ce processus sont transparents pour le reste de la solution. Les clients pensent avoir leur propre connexion au cloud, alors qu’ils passent tous par la même connexion. 
 
 ![Le hub IoT Edge est une passerelle entre les appareils physiques et IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
@@ -73,13 +73,13 @@ Pour recevoir un message, inscrivez un rappel qui traite les messages entrant su
 
 Pour plus d’informations sur la classe ModuleClient et ses méthodes de communication, reportez-vous aux informations de référence sur l’API du langage de votre SDK préféré : [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable) ou [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
-Le développeur de solution doit spécifier les règles qui déterminent la façon dont le hub IoT Edge transmet les messages d’un module à l’autre. Les règles de routage sont définies dans le cloud et envoyées (push) au hub IoT Edge dans son jumeau d’appareil. La même syntaxe pour les itinéraires IoT Hub est utilisée pour définir les itinéraires entre les modules dans Azure IoT Edge. Pour plus d’informations, consultez [Déployer des modules et établir des routes dans IoT Edge](module-composition.md).   
+Le développeur de solution doit spécifier les règles qui déterminent la façon dont le hub IoT Edge transmet les messages d’un module à l’autre. Les règles d’acheminement sont définies dans le cloud et envoyées (push) vers le hub IoT Edge dans son jumeau de module. La même syntaxe pour les itinéraires IoT Hub est utilisée pour définir les itinéraires entre les modules dans Azure IoT Edge. Pour plus d’informations, consultez [Déployer des modules et établir des routes dans IoT Edge](module-composition.md).   
 
 ![Les routes entre modules passent par le hub IoT Edge](./media/iot-edge-runtime/module-endpoints-with-routes.png)
 
 ## <a name="iot-edge-agent"></a>Agent IoT Edge
 
-L’agent IoT Edge est l’autre module qui compose le runtime Azure IoT Edge. Il est responsable de l’instanciation des modules, vérifie qu’ils continuent à s’exécuter, et signale l’état des modules à IoT Hub. Tout comme n’importe quel autre module, l’agent IoT Edge utilise son jumeau de module pour stocker ces données de configuration. 
+L’agent IoT Edge est l’autre module qui compose le runtime Azure IoT Edge. Il est responsable de l’instanciation des modules, vérifie qu’ils continuent à s’exécuter, et signale l’état des modules à IoT Hub. Ces données de configuration sont écrites en tant que propriété du jumeau de module de l’agent IoT Edge. 
 
 Le [démon de sécurité IoT Edge](iot-edge-security-manager.md) démarre l’agent IoT Edge au démarrage de l’appareil. L’agent récupère son jumeau de module à partir d’IoT Hub et inspecte le manifeste de déploiement. Le manifeste de déploiement est un fichier JSON qui déclare les modules qui doivent être démarrés. 
 

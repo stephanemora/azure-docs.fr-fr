@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515227"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490738"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysez votre boucle d’apprentissage avec une évaluation hors connexion
 
 Découvrez comment effectuer une évaluation hors connexion et comment comprendre les résultats.
 
-Les évaluations hors connexion vous permettent de mesurer l’efficacité de Personalizer en comparaison du comportement par défaut de votre application, de trouver quelles caractéristiques contribuent le plus à la personnalisation, et de découvrir automatiquement de nouveaux paramètres du machine learning.
+Les évaluations hors connexion vous permettent de mesurer l’efficacité de Personalizer en comparaison du comportement par défaut de votre application, de trouver quelles caractéristiques contribuent le plus à la personnalisation, et de découvrir automatiquement de nouvelles valeurs de l’apprentissage automatique.
 
 Pour plus d’informations, consultez [Évaluations hors connexion](concepts-offline-evaluation.md).
 
@@ -36,10 +36,10 @@ Pour plus d’informations, consultez [Évaluations hors connexion](concepts-off
 1. Sur le [portail Azure](https://azure.microsoft.com/free/), recherchez votre ressource Personnalisation.
 1. Sur le portail Azure, accédez à la section **Évaluations**, puis sélectionnez l’option **Créer une évaluation**.
     ![Sur le portail Azure, accédez à la section **Évaluations**, puis sélectionnez l’option **Créer une évaluation**.](./media/offline-evaluation/create-new-offline-evaluation.png)
-1. Sélectionnez les paramètres suivants :
+1. Configurez les valeurs suivantes :
 
     * Un nom d’évaluation
-    * Dates de début et de fin : il s’agit de dates dans le passé, qui spécifient la plage de données à utiliser pour l’évaluation. Ces données doivent être présentes dans les journaux, tel que spécifié dans le paramètre [Conservation des données](how-to-settings.md).
+    * Dates de début et de fin : il s’agit de dates dans le passé, qui spécifient la plage de données à utiliser pour l’évaluation. Ces données doivent être présentes dans les journaux, tel que spécifié dans la valeur de [Conservation des données](how-to-settings.md).
     * Découverte d’optimisation définie sur **Oui**
 
     ![Choisissez les paramètres d’évaluation hors connexion](./media/offline-evaluation/create-an-evaluation-form.png)

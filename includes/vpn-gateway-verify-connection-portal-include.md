@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 205cc4cdb0e31a19a2030478993d428449f23127
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 1626d6f86dcfefd094f325f1f10296d01d4bad93
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673335"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73522777"
 ---
 Dans le portail Azure, vous pouvez afficher l’état de la connexion d’une passerelle VPN Resource Manager en accédant à cette connexion. Les étapes suivantes montrent un moyen d’accéder à votre connexion pour la vérifier.
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Toutes les ressources** et accédez à votre passerelle de réseau virtuel.
-2. Dans le panneau de votre passerelle de réseau virtuel, cliquez sur **Connexions**. Vous pouvez voir l’état de chaque connexion.
-3. Cliquez sur le nom de la connexion que vous souhaitez vérifier pour ouvrir **Essentials**. Dans Essentials, vous pouvez afficher plus d’informations sur la connexion. Ce **champ** indique « Opération réussie » et « Connecté » lorsqu’une connexion a été établie.
+1. Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources** ou recherchez et sélectionnez **Toutes les ressources** dans n’importe quelle page. 
+2. Sélectionnez votre passerelle de réseau virtuel.
+3. Dans le panneau de votre passerelle de réseau virtuel, cliquez sur **Connexions**. Vous pouvez voir l’état de chaque connexion.
+4. Cliquez sur le nom de la connexion que vous souhaitez vérifier pour ouvrir **Essentials**. Dans Essentials, vous pouvez afficher plus d’informations sur la connexion. Ce **champ** indique « Opération réussie » et « Connecté » lorsqu’une connexion a été établie.
 
    ![Vérifier la connexion de la passerelle VPN à l’aide du portail Azure](./media/vpn-gateway-verify-connection-portal-include/connection-succeeded.png)

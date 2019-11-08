@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/15/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: abff902dc62ad7ae48f2ecedfbd52aeb96719093
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: af8bb24862c05b232b7bb5d831b1eb3b1add3a7f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970382"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468809"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Prise en charge des langues et des régions des services Speech
 
@@ -24,11 +24,15 @@ Les langues prises en charge varient selon les fonctions des services Speech. Le
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
-Le Kit de développement logiciel (SDK) et l’API REST de reconnaissance vocale de Microsoft prennent en charge les langues suivantes (paramètres régionaux). Afin d'améliorer la précision, la personnalisation est proposée pour un sous-ensemble de langues en téléchargeant des transcriptions audio + étiquetées à la main ou des textes associés : Phrases.  La personnalisation de la prononciation n'est actuellement disponible que pour les langues en-US et de-DE. Pour en savoir plus sur la personnalisation, cliquez [ici](how-to-custom-speech.md).
+Le Kit de développement logiciel (SDK) et l’API REST Speech de Microsoft prennent en charge les langages suivants (paramètres régionaux). Afin d'améliorer la précision, la personnalisation est proposée pour un sous-ensemble de langues en téléchargeant des transcriptions audio + étiquetées à la main ou des textes associés : Phrases.  La personnalisation de la prononciation n'est actuellement disponible que pour les langues en-US et de-DE. Pour en savoir plus sur la personnalisation, cliquez [ici](how-to-custom-speech.md).
 
-  Code | Langage | Pris en charge | Personnalisable
+  Paramètres régionaux | Langage | Pris en charge | Personnalisable
  ------|----------|---------------------|---------------------
  ar-EG | Arabe (Égypte), standard moderne | OUI | OUI
+ ar-SA | Arabe (Arabie saoudite) | OUI | OUI
+ ar-AE | Arabe (Émirats arabes unis) | OUI | OUI
+ ar-KW | Arabe (Koweït) | OUI | OUI
+ ar-QA | Arabe (Qatar) | OUI | OUI
  ca-ES | Catalan | OUI | Non
  da-DK | Danois (Danemark) | OUI | Non
  de-DE | Allemand (Allemagne) | OUI | OUI
@@ -43,10 +47,12 @@ Le Kit de développement logiciel (SDK) et l’API REST de reconnaissance vocale
  fi-FI | Finnois (Finlande) | OUI | Non
  fr-CA | Français (Canada) | OUI | OUI
  fr-FR | Français (France) | OUI | OUI
+ gu-IN | Goudjrati (Inde) | OUI | OUI
  hi-IN | Hindi (Inde) | OUI | OUI
  it-IT | Italien (Italie) | OUI | OUI
  ja-JP | Japonais (Japon) | OUI | OUI
  ko-KR | Coréen (Corée) | OUI | OUI
+ mr-IN | Marathi (Inde) | OUI | OUI
  nb-NO | Norvégien( Bokmål) (Norvège) | OUI | Non
  nl-NL | Néerlandais (Pays-Bas) | OUI | OUI
  pl-PL | Polonais (Pologne) | OUI | Non
@@ -54,15 +60,18 @@ Le Kit de développement logiciel (SDK) et l’API REST de reconnaissance vocale
  pt-PT | Portugais (Portugal) | OUI | OUI
  ru-RU | Russe (Russie) | OUI | OUI
  sv-SE | Suédois (Suède) | OUI | Non
+ ta-IN | Tamoul (Inde) | OUI | OUI
+ te-IN | Télougou (Inde) | OUI | OUI
  zh-CN | Chinois (mandarin, simplifié) | OUI | OUI
  zh-HK | Chinois (cantonais, traditionnel) | OUI | OUI
  zh-TW | Chinois (mandarin, taïwanais) | OUI | OUI
- th-TH | Thaï (Thaïlande) | OUI | Non 
+ th-TH | Thaï (Thaïlande) | OUI | Non
+ tr-TR | Turquie | OUI | OUI |
 
 
 ## <a name="text-to-speech"></a>Synthèse vocale
 
-L’API REST de synthèse vocale prend en charge ces voix qui, à leur tour, prennent chacune en charge une langue et un dialecte spécifiques, identifiés par les paramètres régionaux.
+Le Kit de développement logiciel (SDK) et l’API REST Speech de Microsoft prennent en charge ces voix qui, à leur tour, prennent chacune en charge un langage et un dialecte spécifiques, identifiés par les paramètres régionaux.
 
 > [!IMPORTANT]
 > Les prix varient pour les voix standard, personnalisées et neurales. Pour plus d’informations, visitez la page [Tarification](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -71,7 +80,7 @@ L’API REST de synthèse vocale prend en charge ces voix qui, à leur tour, pre
 
 La synthèse vocale neuronale est un nouveau type de synthèse vocale alimentée par les réseaux neuronaux profonds. Lorsque vous utilisez une voix neuronale, il est presque impossible de distinguer la voix synthétisée des enregistrements humains.
 
-Les voix neuronales peuvent être utilisées pour rendre les interactions avec les chatbots et les assistants virtuels plus naturelles et agréables, convertir des textes numériques comme les livres électroniques en livres audio et améliorer les systèmes de navigation embarqués. Grâce à la prosodie naturelle quasi humaine et à la bonne articulation des mots, les voix neuronales réduisent considérablement la fatigue d’écoute des utilisateurs qui interagissent avec les systèmes d’intelligence artificielle.
+Les voix neurales peuvent être utilisées pour rendre les interactions avec les chatbots et des assistants vocaux plus naturelles et agréables, convertir des textes numériques comme les livres électroniques en livres audio et améliorer les systèmes de navigation embarqués. Grâce à la prosodie naturelle quasi humaine et à la bonne articulation des mots, les voix neuronales réduisent considérablement la fatigue d’écoute des utilisateurs qui interagissent avec les systèmes d’intelligence artificielle.
 
 Pour obtenir la liste complète des voix neuronales et la disponibilité régionale, consultez [régions](regions.md#standard-and-neural-voices).
 
@@ -261,4 +270,4 @@ L’API **Traduction vocale** prend en charge différentes langues pour la tradu
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Obtenir votre abonnement d’essai gratuit à Speech Services](https://azure.microsoft.com/try/cognitive-services/)
-* [Découvrir comment utiliser la reconnaissance vocale en C#](quickstart-csharp-dotnet-windows.md)
+* [Découvrir comment utiliser la reconnaissance vocale dans C#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)

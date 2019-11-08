@@ -1,5 +1,5 @@
 ---
-title: La vue Apache Hive expire lors de la récupération d’un résultat de requête dans Azure HDInsight
+title: La vue Apache Hive expire à partir du résultat de requête - Azure HDInsight
 description: La vue Apache Hive expire lors de la récupération d’un résultat de requête dans Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 3e61103fceb668a9c8be381d1c4cc13efdc421f9
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 86523a7564220191de252b362e45569116ff3111
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091258"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494195"
 ---
 # <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>Scénario : La vue Apache Hive expire lors de la récupération d’un résultat de requête dans Azure HDInsight
 

@@ -1,16 +1,21 @@
 ---
 author: mmacy
 ms.service: active-directory-b2c
+ms.subservice: B2C
 ms.topic: include
-ms.date: 10/01/2019
+ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 67a0832f868fecd47983aa8cddff9cdf139b3f2a
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: baf39c1fe72703d8ebc18b03bae1c963536d7ced
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702182"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475185"
 ---
+Pour inscrire une application dans votre abonné Azure AD B2C, vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** . [En savoir plus sur l’expérience de préversion](https://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l'annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure Active Directory** (et *non* Azure AD B2C). Vous pouvez également sélectionner **Tous les services**, puis rechercher et sélectionner **Azure Active Directory**.
@@ -21,3 +26,15 @@ ms.locfileid: "71702182"
 1. Entrez une URL valide dans **URL de connexion**. Par exemple : `https://localhost`. Il doit s’agir d’une URL valide, mais pas nécessairement un point de terminaison accessible.
 1. Sélectionnez **Create** (Créer).
 1. Notez l’**ID de l’application** qui s’affiche dans la page de vue d’ensemble **Application inscrite**. Vous utiliserez cette valeur ultérieurement.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Inscriptions d’applications (préversion)** , puis **Nouvelle inscription**.
+1. Entrez un **Nom** pour l’application. Par exemple, *managementapp1*.
+1. Sélectionnez **Comptes dans ce répertoire organisationnel uniquement**.
+1. Sous **Autorisations**, décochez la case *Accorder le consentement administrateur aux autorisations openid et offline_access*.
+1. Sélectionnez **Inscription**.
+1. Enregistrez l’**ID d’application (client)** indiqué dans la page d’aperçu de l’application. Vous utiliserez cette valeur ultérieurement.

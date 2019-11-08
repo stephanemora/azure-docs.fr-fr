@@ -1,22 +1,22 @@
 ---
-title: Résoudre les problèmes Azure Data Share Preview
-description: Découvrez comment résoudre les problèmes avec les invitations et les erreurs rencontrées lors de la création ou réception de partages de données dans Azure Data Share (préversion).
+title: Résoudre les problèmes liés à Azure Data Share
+description: Découvrez comment résoudre les problèmes avec les invitations et les erreurs rencontrées lors de la création ou réception de partages de données dans Azure Data Share.
 services: data-share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 592a2d464aed8c39dfd11734beccbd0399d75fd9
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6ad612d56b25da9e092070198e321e7fca8ad96b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169229"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490560"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Résoudre les problèmes courants dans Azure Data Share Preview
+# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
-Cet article explique comment résoudre les problèmes courants pour Azure Data Share Preview. 
+Cet article explique comment résoudre les problèmes courants pour Azure Data Share. 
 
 ## <a name="azure-data-share-invitations"></a>Invitations Azure Data Share 
 
@@ -55,6 +55,20 @@ Si vous recevez une des erreurs ci-dessus lors de la création d’un nouveau pa
 1. Sélectionnez **Contrôle d’accès (IAM)**
 1. Cliquez sur **Ajouter**.
 1. Ajoutez-vous en tant que propriétaire.
+
+## <a name="troubleshooting-sql-based-sharing"></a>Résolution des problèmes de partage basé sur SQL
+
+«Erreur : x jeux de données n’ont pas été ajoutés car vous ne disposez pas des autorisations nécessaires pour le partager. »
+
+Si vous recevez ce message d’erreur lors de l’ajout d’un jeu de données à partir d’une source SQL, cela peut être dû au fait que vous n’avez pas créé d’utilisateur pour le fichier MSI Azure Data Share sur votre instance SQL Server.  Pour résoudre ce problème, exécutez le script suivant :
+
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```      
+Notez que *<share_acc_name>* est le nom de votre compte Data Share. Si vous n’avez pas encore créé de compte Data Share, vous pouvez le faire plus tard.         
+
+Assurez-vous que vous avez suivi toutes les conditions préalables indiquées dans le didacticiel [Partager vos données](share-your-data.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

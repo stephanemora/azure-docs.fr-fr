@@ -1,7 +1,7 @@
 ---
 title: 'Pré-traiter le texte : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Pré-traiter le texte du service Azure Machine Learning pour nettoyer et simplifier le texte.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Pré-traiter le texte dans Azure Machine Learning pour nettoyer et simplifier le texte.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 2213d26e6d3b2b6a7aca9d65e74a4499ff0da6c1
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9bf81b4e4c305c864592c32a8737d1a5eeb18651
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692683"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497671"
 ---
 # <a name="preprocess-text"></a>Pré-traiter le texte
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning Service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez le module **Prétraiter le texte** pour nettoyer et simplifier le texte. Ce module prend en charge ces opérations courantes de traitement de texte :
 
@@ -33,7 +33,7 @@ Actuellement, le module **Pré-traiter le texte** prend en charge uniquement l�
 
 ## <a name="configure-text-preprocessing"></a>Configurer le prétraitement du texte  
 
-1.  Ajoutez le module **Pré-traiter le texte** à votre expérience dans Azure Machine Learning. Ce module se trouve sous **Analyse de texte**.
+1.  Ajoutez le module **Pré-traiter le texte** à votre pipeline dans Azure Machine Learning. Ce module se trouve sous **Analyse de texte**.
 
 1. Connectez un jeu de données qui comprend au moins une colonne contenant du texte.
 
@@ -83,8 +83,8 @@ Actuellement, le module **Pré-traiter le texte** prend en charge uniquement l�
 
     Par exemple, la chaîne `MS---WORD` est divisée en trois jetons, `MS`, `-` et `WORD`.
 
-1. Exécutez l’expérience.
+1. Exécuter le pipeline.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

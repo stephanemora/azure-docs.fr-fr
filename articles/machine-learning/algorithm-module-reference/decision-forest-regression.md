@@ -1,28 +1,28 @@
 ---
-title: 'Régression de forêt d’arbres de décision : informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module de régression de forêt d’arbres de décision dans Azure Machine Learning Service pour créer un modèle de régression basé sur un ensemble d’arbres de décision.
+title: 'Régression de forêt d’arbres de décision : Informations de référence sur les modules'
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module de régression de forêt d’arbres de décision dans Azure Machine Learning pour créer un modèle de régression basé sur un ensemble d’arbres de décision.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693175"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497962"
 ---
 # <a name="decision-forest-regression-module"></a>Module Régression de forêt d’arbres de décision
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour créer un modèle de régression basé sur un ensemble d’arbres de décision.
 
-Une fois que vous avez configuré le modèle, vous devez le former à l’aide d’un jeu de données étiqueté et du module [Entraîner un modèle](./train-model.md).  Le modèle ainsi formé permet ensuite d’effectuer des prédictions. 
+Une fois que vous avez configuré le modèle, vous devez le former à l’aide d’un jeu de données étiqueté et du module [Entraîner un modèle](./train-model.md). Le modèle ainsi entraîné permet ensuite d’effectuer des prédictions. 
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -42,11 +42,11 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Comment configurer le modèle de régression de forêt de décision
 
-1. Ajoutez le module **Régression de forêt de décision** au pipeline. Vous pouvez rechercher le module dans l’interface sous **Machine Learning**, **Initialiser le modèle** et **Régression**.
+1. Ajoutez le module **Régression de forêt de décision** au pipeline. Vous pouvez rechercher le module dans le concepteur sous **Machine Learning**, **Initialiser le modèle** et **Régression**.
 
 2. Ouvrez les propriétés du module et, pour **Méthode de rééchantillonnage**, choisissez la méthode utilisée pour créer des arbres individuels.  Vous pouvez choisir **l’ensachage** ou la **réplication**.
 
-    - **Bagging** : l’ensachage est aussi appelé bagging ou *bootstrap aggregating* en anglais. Chaque arbre d’une forêt de décision de régression génère une distribution gaussienne, sous la forme d’une prédiction. L’agrégation consiste à trouver une distribution gaussienne dont les deux premiers moments correspondent à des moments du mélange de distributions gaussiennes obtenu via la combinaison de toutes les distributions gaussiennes renvoyées par des arbres individuels.
+    - **Bagging** : l’ensachage est aussi appelé bagging ou *bootstrap aggregating* en anglais. Chaque arbre d’une forêt de décision de régression génère une distribution gaussienne, sous la forme d’une prédiction. L’agrégation consiste à trouver une distribution gaussienne dont les deux premiers moments correspondent à des moments du mélange de distributions gaussiennes obtenu via la combinaison de toutes les distributions gaussiennes retournées par des arbres individuels.
 
          Pour en savoir plus, consultez l’entrée Wikipedia relative au [Bootstrap Aggregating](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
@@ -96,4 +96,4 @@ Une fois la formation terminée :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

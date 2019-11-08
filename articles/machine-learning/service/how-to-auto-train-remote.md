@@ -3,22 +3,24 @@ title: Cibles de calcul distantes ML automatisées
 titleSuffix: Azure Machine Learning
 description: Découvrez comment créer des modèles avec le Machine Learning automatisé sur une cible de calcul distante Azure Machine Learning avec Azure Machine Learning
 services: machine-learning
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 7/12/2019
-ms.openlocfilehash: 9eab21fe6b5269229de186a7553e11a147c1033e
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034985"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497322"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entraîner des modèles avec le machine learning automatisé dans le cloud
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans Azure Machine Learning, vous effectuez l'apprentissage de votre modèle sur différents types de ressources de calcul que vous gérez. La cible de calcul peut être un ordinateur local ou une ressource dans le cloud.
 
@@ -278,7 +280,7 @@ L’impression des résultats du résumé d’explication `best_run` renvoie la 
 
 ![Sortie de la console d’explicabilité du modèle](./media/how-to-auto-train-remote/expl-print.png)
 
-Vous pouvez également visualiser l’importance des caractéristiques dans l’interface utilisateur du widget, l’interface utilisateur web du Portail Azure ou la [page d’arrivée de votre espace de travail (préversion)](https://ml.azure.com). 
+Vous pouvez également visualiser l’importance des caractéristiques à partir de l’interface utilisateur du widget ou dans votre espace de travail dans [Azure Machine Learning Studio](https://ml.azure.com). 
 
 ![Interface utilisateur d’explicabilité du modèle](./media/how-to-auto-train-remote/model-exp.png)
 

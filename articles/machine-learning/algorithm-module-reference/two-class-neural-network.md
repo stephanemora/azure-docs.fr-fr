@@ -1,24 +1,24 @@
 ---
 title: 'Réseau neuronal à deux classes : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Two-Class Neural Network (Réseau neuronal à deux classes) dans Azure Machine Learning service pour créer un modèle de réseau neuronal qui peut être utilisé pour prédire une cible ayant uniquement deux valeurs.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Two-Class Neural Network (Réseau neuronal à deux classes) dans Azure Machine Learning pour créer un modèle de réseau neuronal qui peut être utilisé pour prédire une cible ayant uniquement deux valeurs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 8f38a7b7086e5023eb63e94363301ac5277f7e7c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d8e27d13de6b1ac6940972022f66811eb75c8986
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693600"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485880"
 ---
 # <a name="two-class-neural-network-module"></a>Module Two-Class Neural Network (Réseau neuronal à deux classes)
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour créer un modèle de réseau neuronal qui peut être utilisé pour prédire une cible ayant uniquement deux valeurs.
 
@@ -89,4 +89,4 @@ Une fois la formation terminée :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

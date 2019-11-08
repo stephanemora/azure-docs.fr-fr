@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5fb79fc3aa3297068f93b631d11e967c9345f4c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 531f6d86d57be550d0a1147e131d93ae6e298406
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717165"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474772"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Sécuriser une API Gestion des API Azure avec Azure AD B2C
 
@@ -35,11 +35,25 @@ Avant de poursuivre les étapes de cet article, vous devez disposer des ressourc
 
 Lorsque vous sécurisez une API dans Gestion des API Azure avec Azure AD B2C, vous avez besoin de plusieurs valeurs pour la [stratégie de trafic entrant](../api-management/api-management-howto-policies.md) que vous créez dans APIM. Tout d’abord, enregistrez l’ID d’une application que vous avez précédemment créée dans votre locataire Azure AD B2C. Si vous utilisez l’application que vous avez créée dans les prérequis, utilisez l’ID d’application pour *webbapp1*.
 
-1. Accédez à votre locataire Azure AD B2C dans le [portail Azure](https://portal.azure.com).
-1. Sous **Gérer**, sélectionnez **Applications**.
-1. Enregistrez la valeur dans **ID D’APPLICATION** pour *webapp1* ou une autre application que vous avez créée précédemment.
+Vous pouvez utiliser l’expérience **Applications** actuelle ou notre nouvelle expérience unifiée **Inscriptions d’applications (préversion)** pour obtenir l’ID d’application. [En savoir plus sur l’expérience en préversion](http://aka.ms/b2cappregintro).
 
-  ![Emplacement de l’ID d’une application B2C dans le portail Azure](media/secure-apim-with-b2c-token/portal-02-app-id.png)
+#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Gérer**, sélectionnez **Applications**.
+1. Enregistrez la valeur dans la colonne **ID D’APPLICATION** pour *webapp1* ou une autre application que vous avez créée précédemment.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez **Inscriptions d’applications (préversion)** , puis sélectionnez l’onglet **Applications détenues**.
+1. Enregistrez la valeur dans la colonne **ID D’APPLICATION (CLIENTE)** pour *webapp1* ou une autre application que vous avez créée précédemment.
+
+* * *
 
 ## <a name="get-token-issuer-endpoint"></a>Obtenir le point de terminaison de l’émetteur de jeton
 

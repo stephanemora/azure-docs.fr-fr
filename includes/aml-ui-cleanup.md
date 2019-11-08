@@ -7,16 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 10/16/2019
-ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 5a66212122745d0f4426e48e9487e9d674cec53f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692312"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489928"
 ---
 >[!IMPORTANT]
->Vous pouvez utiliser les ressources que vous avez créées comme prérequis pour d’autres tutoriels et articles de procédure relatifs au service Azure Machine Learning.
+>Vous pouvez utiliser les ressources que vous avez créées comme prérequis pour d’autres didacticiels et articles de guides pratiques Azure Machine Learning.
 
 ### <a name="delete-everything"></a>Tout supprimer
 
@@ -32,7 +32,7 @@ Si vous n’avez pas l’intention d’utiliser les éléments que vous avez cr�
 
 1. Sélectionnez **Supprimer le groupe de ressources**.
 
-La suppression du groupe de ressources supprime également toutes les ressources créées dans l’interface visuelle.  
+La suppression du groupe de ressources supprime également toutes les ressources créées dans le concepteur.  
 
 ### <a name="delete-only-the-compute-target"></a>Supprimer uniquement la cible de calcul
 
@@ -48,6 +48,12 @@ La cible de calcul que vous avez créée ici *est automatiquement mise à l’é
 
 ### <a name="delete-individual-assets"></a>Supprimer des ressources individuelles
 
-Dans l’interface visuelle où vous avez créé votre expérience, supprimez des ressources individuelles en les sélectionnant, puis en sélectionnant le bouton **Supprimer**. Les jeux de données peuvent être désinscrits de votre espace de travail en sélectionnant chaque jeu de données, puis **Annuler l’enregistrement**.
+Dans le concepteur où vous avez créé votre expérience, supprimez des ressources individuelles en les sélectionnant, puis en sélectionnant le bouton **Supprimer**.
 
 ![Supprimer des ressources](./media/aml-ui-cleanup/delete-asset.png)
+
+Les jeux de données peuvent être désinscrits de votre espace de travail en sélectionnant chaque jeu de données, puis **Annuler l’enregistrement**.
+
+![Désinscrire le jeu de données](./media/aml-ui-cleanup/unregister-dataset.png)
+
+

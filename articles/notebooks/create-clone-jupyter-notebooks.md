@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 13615d319af600234dcc23e04f82ce46b8f97780
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3e0c49d1141d976558ece325baaa99fc9981275e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970087"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496714"
 ---
 # <a name="create-and-clone-projects"></a>Créer et cloner des projets
 
@@ -125,4 +125,4 @@ Pour cloner un projet :
 - [Guide pratique pour présenter un diaporama](present-jupyter-notebooks-slideshow.md)
 - [Guide pratique pour utiliser des fichiers de données](work-with-project-data-files.md)
 - [Guide pratique pour accéder aux ressources de données](access-data-resources-jupyter-notebooks.md)
-- [Guide pratique pour utiliser Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Guide pratique pour Utiliser Azure Machine Learning](use-machine-learning-services-jupyter-notebooks.md)

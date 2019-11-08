@@ -1,5 +1,6 @@
 ---
-title: Durées de vie des jetons configurables dans Azure Active Directory | Microsoft Docs
+title: Durées de vie des jetons configurables dans Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Découvrez comment définir les durées de vie des jetons émis par Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be2e9d7657d621a285f7177dc6cdd3a01b83470d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 23cdf7887d6d0812a9e991580e2095b603a4b4df
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024448"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473956"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durées de vie des jetons configurables dans Azure Active Directory (préversion)
 
@@ -44,11 +45,19 @@ Vous pouvez désigner une stratégie comme stratégie par défaut pour votre org
 
 ## <a name="token-types"></a>Types de jetons
 
-Vous pouvez définir les stratégies de durée de vie des jetons pour les jetons d’actualisation, les jetons d’accès, les jetons de session et les jetons d’ID.
+Vous pouvez définir les stratégies de durée de vie des jetons pour les jetons d’actualisation, les jetons d’accès, les jetons SAML, les jetons de session et les jetons d’ID.
 
 ### <a name="access-tokens"></a>Jetons d’accès
 
 Les clients utilisent des jetons d’accès pour accéder à une ressource protégée. Un jeton d’accès peut uniquement être utilisé pour une combinaison spécifique d’utilisateur, de client et de ressource. Les jetons d’accès ne peuvent pas être révoqués et sont valides jusqu’à leur expiration. Un acteur malveillant qui a obtenu un jeton d’accès peut l’utiliser pour prolonger sa durée de vie. L’ajustement de la durée de vie des jetons d’accès représente un compromis entre l’amélioration des performances du système et l’augmentation de la durée pendant laquelle le client conserve un accès une fois son compte désactivé. Les performances du système sont améliorées en réduisant le nombre de fois où un client doit acquérir un nouveau jeton d’accès.  La valeur par défaut est 1 heure. Après 1 heure, le client doit utiliser le jeton d’actualisation pour acquérir (généralement en mode silencieux) un nouveau jeton d’actualisation et un jeton d’accès. 
+
+### <a name="saml-tokens"></a>Jetons SAML
+
+Les jetons SAML sont utilisés par de nombreuses applications SAAS basées sur le web, et sont obtenus à l’aide du point de terminaison du protocole SAML2 d’Azure Active Directory.  Ils sont également consommés par les applications utilisant WS-Federation.    La durée de vie par défaut du jeton est d’une heure. Vu sous l’angle des applications, la période de validité du jeton est spécifiée par la valeur NotOnOrAfter de l’élément <conditions ...> dans le jeton.  Après la période de validité du jeton, le client doit initier une nouvelle requête d’authentification, qui est souvent satisfaite sans connexion interactive en raison du jeton de session d’authentification unique (SSO).
+
+La valeur de NotOnOrAfter peut être modifiée à l’aide du paramètre AccessTokenLifetime dans TokenLifetimePolicy.  Elle sera définie sur la durée de vie configurée dans la stratégie si elle existe, à laquelle sera ajouté un facteur de décalage de l’horloge de cinq minutes.
+
+Notez que la valeur NotOnOrAfter de la confirmation d’objet spécifiée dans l’élément <SubjectConfirmationData> n’est pas affectée par la configuration de la durée de vie du jeton. 
 
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
 
@@ -62,6 +71,9 @@ Les clients confidentiels sont des applications qui peuvent stocker un mot de pa
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Durées de vie des jetons avec des jetons d’actualisation de client public
 
 Les clients publics ne peuvent pas stocker en toute sécurité un mot de passe client (secret). Par exemple, une application iOS/Android ne peut pas masquer un secret au propriétaire de la ressource et est donc considérée comme un client public. Vous pouvez définir des stratégies sur des ressources pour empêcher les jetons d’actualisation des clients publics antérieurs à une période spécifiée d’obtenir une nouvelle paire de jetons d’accès/actualisation. (Pour ce faire, utilisez la propriété Délai d’inactivité maximale de jeton d’actualisation (`MaxInactiveTime`).) Vous pouvez également utiliser des stratégies pour définir un délai au-delà duquel les jetons d’actualisation ne sont plus acceptés. (Pour ce faire, utilisez la propriété Âge maximal de jeton d’actualisation). Vous pouvez ajuster la durée de vie des jetons d’actualisation pour contrôler le moment et la fréquence auxquels l’utilisateur doit entrer de nouveau les informations d’identification au lieu d’être authentifié de nouveau en mode silencieux lorsqu’il utilise une application cliente publique.
+
+> [!NOTE]
+> La propriété Âge maximal représente la durée pendant laquelle un seul jeton peut être utilisé. 
 
 ### <a name="id-tokens"></a>Jetons d’ID
 Les jetons d’ID sont transmis aux sites web et clients natifs. Les jetons d’ID contiennent des informations de profil sur un utilisateur. Un jeton d’ID est lié à une combinaison spécifique d’utilisateur et de client. Les jetons d’ID sont considérés comme valides jusqu’à leur expiration. En règle générale, une application web fait correspondre la durée de vie de session d’un utilisateur de l’application à la durée de vie du jeton d’ID émis pour l’utilisateur. Vous pouvez ajuster la durée de vie des jetons d’ID pour contrôler la fréquence à laquelle l’application web arrête la session de l’application et demande à l’utilisateur de s’authentifier à nouveau auprès d’Azure AD (en mode silencieux ou interactif).
@@ -89,7 +101,7 @@ Une stratégie de durée de vie des jetons est un type d’objet de stratégie q
 | Âge maximal de jeton de session multifacteur |MaxAgeSessionMultiFactor |Jetons de session (persistants et non persistants) |Jusqu’à révocation |10 minutes |Jusqu’à révocation<sup>1</sup> |
 
 * <sup>1</sup>Une durée explicite maximale de 365 jours peut être définie pour ces attributs.
-* <sup>2</sup>Pour que le client web Microsoft Teams fonctionne, il est recommandé de définir AccessTokenLifetime sur une valeur supérieure à 15 minutes pour Microsoft Teams.
+* <sup>2</sup>Pour s’assurer que le client web Microsoft Teams fonctionne, il est recommandé de conserver AccessTokenLifetime sur une durée supérieure à 15 minutes pour Microsoft Teams.
 
 ### <a name="exceptions"></a>Exceptions
 | Propriété | Éléments affectés | Default |
@@ -139,7 +151,7 @@ Tous les intervalles de temps utilisés ici sont mis en forme selon C# [TimeSpan
 ### <a name="access-token-lifetime"></a>Durée de vie de jeton d’accès
 **Chaîne :** AccessTokenLifetime
 
-**Éléments affectés :** jetons d’accès, jetons d’ID
+**Éléments affectés :** Jetons d’accès, jetons d’ID, jetons SAML
 
 **Résumé :** cette stratégie détermine la durée pendant laquelle les jetons d’accès et d’ID sont considérés comme valides. Réduire la propriété Durée de vie de jeton d’accès atténue le risque qu’un jeton d’accès ou jeton d’ID soit utilisé par un acteur malveillant pour une période prolongée. (Ces jetons ne peuvent pas être révoqués.) L’inconvénient est que les performances sont affectées, car les jetons sont remplacés plus souvent.
 

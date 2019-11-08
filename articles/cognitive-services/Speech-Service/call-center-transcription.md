@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 858ca114ca4c4b469ce4a5dd5275c9ac9874feb5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516769"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464997"
 ---
 # <a name="speech-services-for-telephony-data"></a>Services Speech pour les données de téléphonie
 
@@ -38,7 +38,7 @@ Au-delà de leur aspect fonctionnel, les services Speech servent principalement,
 
 * Analytique post-appel, autrement dit, le traitement par lot des enregistrements d’appel
 * Traitement analytique en temps réel du signal audio pour extraire divers insights pendant que l’appel a lieu (le sentiment étant un cas d’usage important)
-* Assistants virtuels (bots), qui pilotent le dialogue entre le client et le bot afin de tenter de résoudre le problème du client sans intervention de l’agent ou qui font office d’application de protocoles d’intelligence artificielle pour aider l’agent.
+* Assistants vocaux (bots), qui pilotent le dialogue entre le client et le bot afin de tenter de résoudre le problème du client sans intervention de l’agent ou qui font office d’application de protocoles d’intelligence artificielle pour aider l’agent.
 
 L’image ci-dessous représente une architecture classique de l’implémentation d’un scénario en mode de traitement par lot. ![Architecture de la transcription de centre d’appels](media/scenarios/call-center-transcription-architecture.png)
 

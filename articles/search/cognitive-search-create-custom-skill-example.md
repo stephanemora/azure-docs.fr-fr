@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784934"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466816"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exemple : Créer une qualification personnalisée à l’aide de l’API Recherche d’entités Bing
 
@@ -313,7 +313,7 @@ namespace SampleSkills
 
 Veillez à entrer votre propre valeur de *clé* dans la constante `key`en fonction de la clé que vous avez obtenue lors de l’inscription à l’API Recherche d’entités Bing.
 
-Cet exemple inclut tous le code nécessaire dans un fichier unique pour plus de commodité. Vous pouvez trouver une version légèrement plus structurée de cette compétence, ainsi que d’autres exemples de compétences personnalisées, dans le [dépôt des super compétences](https://aka.ms/entity-search-power-skill).
+Cet exemple inclut tous le code nécessaire dans un fichier unique pour plus de commodité. Vous pouvez trouver une version légèrement plus structurée de cette qualification dans le [référentiel des qualifications puissantes](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
 Vous pouvez bien sûr renommer le fichier de `Function1.cs` en `BingEntitySearch.cs`.
 
@@ -476,10 +476,10 @@ Ici, nous comptons sur le fait que la [compétence de reconnaissance d’entité
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Félicitations ! Vous avez créé votre premier enrichisseur personnalisé. Vous pouvez maintenant suivre le même schéma pour ajouter vos propres fonctionnalités personnalisées. 
+Félicitations ! Vous avez créé votre première qualification personnalisée. Vous pouvez maintenant suivre le même schéma pour ajouter vos propres fonctionnalités personnalisées. Pour en savoir plus, cliquez sur les liens suivants.
 
-+ [Super compétences : dépôt de compétences personnalisées](https://aka.ms/powerskills)
-+ [Ajouter une compétence personnalisée à un pipeline de recherche cognitive](cognitive-search-custom-skill-interface.md)
-+ [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
++ [Super compétences : référentiel de compétences personnalisées](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Ajouter une qualification personnalisée à un pipeline d’enrichissement par IA](cognitive-search-custom-skill-interface.md)
++ [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Créer un jeu de compétences (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)

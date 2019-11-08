@@ -6,14 +6,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: 7199dfaaa476e4be27929010b76a6e0544857bdb
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: afa2dc950efe4c03b41afbd6090d9bf29ac5a798
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838510"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499696"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -21,37 +21,164 @@ ms.locfileid: "71838510"
 * [Visual Studio Code](https://code.visualstudio.com/) ou l’IDE de votre choix.
 * ID d’application publique : df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
-
 ## <a name="get-luis-key"></a>Obtenir la clé LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent-programmatically"></a>Reconnaître une intention par programmation
 
-Vous pouvez utiliser Java pour accéder aux résultats que vous avez vus dans la fenêtre du navigateur à l’étape précédente. Veillez à ajouter les bibliothèques Apache à votre projet.
+Utilisez Java pour interroger l’[API](https://aka.ms/luis-apim-v3-prediction) GET du point de terminaison de prédiction afin d’obtenir le résultat de la prédiction.
 
-1. Copiez le code suivant pour créer une classe dans un fichier nommé `LuisGetRequest.java` :
+1. Créez un sous-répertoire nommé `lib` et copiez-le dans les bibliothèques Java suivantes :
 
-   [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/java/call-endpoint.java)]
+    * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
+    * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
+    * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
 
-2. Remplacez la valeur de la variable `YOUR-KEY` par votre clé LUIS.
+1. Copiez le code suivant pour créer une classe dans un fichier nommé `Predict.java` :
 
-3. Remplacez le chemin par le chemin du fichier, puis compilez le programme Java à partir de la ligne de commande : `javac -cp .;<FILE_PATH>\* LuisGetRequest.java`.
 
-4. Remplacez le chemin par le chemin du fichier, puis exécutez l’application à partir d’une ligne de commande : `java -cp .;<FILE_PATH>\* LuisGetRequest.java`. Des valeurs identiques à celles que vous avez vues plus tôt dans la fenêtre du navigateur s’affichent.
-
-    ![Fenêtre de console affichant le résultat JSON de l’application LUIS](../media/luis-get-started-java-get-intent/console-turn-on.png)
+    ```java
+    import java.io.*;
+    import java.net.URI;
+    import org.apache.http.HttpEntity;
+    import org.apache.http.HttpResponse;
+    import org.apache.http.client.HttpClient;
+    import org.apache.http.client.methods.HttpGet;
+    import org.apache.http.client.utils.URIBuilder;
+    import org.apache.http.impl.client.HttpClients;
+    import org.apache.http.util.EntityUtils;
     
+    public class Predict {
+    
+        public static void main(String[] args) 
+        {
+            HttpClient httpclient = HttpClients.createDefault();
+    
+            try
+            {
+    
+                // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
+                String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+                
+                // Add your endpoint key 
+                String Key = "YOUR-KEY";
+    
+                // Add your endpoint, example is westus.api.cognitive.microsoft.com
+                String Endpoint = "YOUR-ENDPOINT";
+    
+                String Utterance = "turn on all lights";
+    
+                // Begin endpoint URL string building
+                URIBuilder endpointURLbuilder = new URIBuilder("https://" + Endpoint + "/luis/prediction/v3.0/apps/" + AppId + "/slots/production/predict?");
+    
+                // query string params
+                endpointURLbuilder.setParameter("query", Utterance);
+                endpointURLbuilder.setParameter("subscription-key", Key);
+                endpointURLbuilder.setParameter("show-all-intents", "true");
+                endpointURLbuilder.setParameter("verbose", "true");
+    
+                // create URL from string
+                URI endpointURL = endpointURLbuilder.build();
+    
+                // create HTTP object from URL
+                HttpGet request = new HttpGet(endpointURL);
+    
+                // access LUIS endpoint - analyze text
+                HttpResponse response = httpclient.execute(request);
+    
+                // get response
+                HttpEntity entity = response.getEntity();
+    
+    
+                if (entity != null) 
+                {
+                    System.out.println(EntityUtils.toString(entity));
+                }
+            }
+    
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+        }   
+    }    
+    ```
 
+1. Remplacez les valeurs suivantes :
+
+    * `YOUR-KEY` avec votre clé de démarrage
+    * `YOUR-ENDPOINT` avec votre point de terminaison, par exemple, `westus2.api.cognitive.microsoft.com`
+
+
+1. Compilez le programme Java à partir d’une ligne de commande : 
+
+    ```console
+    javac -cp ":lib/*" Predict.java
+    ```
+
+1. Exécutez le programme à partir de la ligne de commande :
+
+    ```console
+    java -cp ":lib/*" Predict
+    ```
+
+1. Évaluez la réponse de prédiction au format JSON :
+
+    ```console
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```
+
+    La réponse JSON mise en forme pour des raisons de lisibilité : 
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## <a name="luis-keys"></a>Clés LUIS
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Une fois que vous avez terminé ce démarrage rapide, fermez le projet Visual Studio et supprimez le répertoire du projet dans le système de fichiers. 
+Lorsque vous aurez fini de suivre ce guide de démarrage rapide, supprimez le fichier du système de fichiers. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

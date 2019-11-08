@@ -6,14 +6,14 @@ documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: 9085d5ee21b1e955b7d9416a379ee730ba26ad3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150083"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495675"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connecter des passerelles VPN à plusieurs périphériques VPN basés sur des stratégies via PowerShell
 
@@ -39,12 +39,12 @@ Les diagrammes suivants illustrent les deux modèles :
 ### <a name="azure-support-for-policy-based-vpn"></a>Prise en charge par Azure des VPN basés sur des stratégies
 Actuellement, Azure prend en charge les deux modes de passerelles VPN : les passerelles VPN basées sur le routage et les passerelles VPN basées sur des stratégies. Les deux modes sont construits sur différentes plateformes internes aux caractéristiques différentes :
 
-|                          | **Passerelle VPN basée sur des stratégies** | **Passerelle VPN basée sur le routage**               |
-| ---                      | ---                         | ---                                      |
-| **Référence SKU de passerelle Azure**    | De base                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
-| **Version IKE**          | IKEv1                       | IKEv2                                    |
-| **IOPS Connexions S2S** | **1**                       | Basic/Standard : 10<br> HighPerformance : 30 |
-|                          |                             |                                          |
+|                          | **Passerelle VPN basée sur des stratégies** | **Passerelle VPN basée sur le routage**       |**Passerelle VPN basée sur le routage**                          |
+| ---                      | ---                         | ---                              |---                                                 |
+| **Référence SKU de passerelle Azure**    | De base                       | De base                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **Version IKE**          | IKEv1                       | IKEv2                            | IKEv1 et IKEv2                                    |
+| **Bande passante Connexions S2S** | **1**                       | 10                               |Standard : 10<br> Autres références SKU : 30                     |
+|                          |                             |                                  |                                                    |
 
 Avec une stratégie IPsec/IKE personnalisée, vous pouvez désormais configurer les passerelles VPN Azure basées sur le routage pour utiliser des sélecteurs de trafic basés sur les préfixes avec l’option «**PolicyBasedTrafficSelectors**», afin de vous connecter à des périphériques VPN basés sur des stratégies locales. Cette fonctionnalité vous permet de vous connecter à partir d’un réseau virtuel Azure et d’une passerelle VPN à plusieurs périphériques VPN/pare-feu basés sur des stratégies locales, en supprimant ainsi la limite d’une connexion unique à partir des passerelles VPN Azure basées sur des stratégies locales.
 

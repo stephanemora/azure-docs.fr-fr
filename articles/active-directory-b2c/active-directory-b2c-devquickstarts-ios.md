@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326600"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469163"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C : Se connecter à l’aide d’une application iOS
 
@@ -37,7 +37,9 @@ Inscrivez ensuite une application dans votre locataire Azure AD B2C. Vous fourn
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-Enregistrez l’**ID D’APPLICATION** pour l’utiliser lors d’une étape ultérieure. Sélectionnez ensuite l’application dans la liste et enregistrez l’**URI de redirection personnalisé** pour l’utiliser également lors d’une étape ultérieure. Par exemple : `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+Enregistrez l’**ID d’application (client)** pour l’utiliser dans une étape ultérieure.
+
+Enregistrez également votre URI de redirection personnalisé pour l’utiliser dans une étape ultérieure. Par exemple : `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## <a name="create-your-user-flows"></a>Créer vos flux utilisateur
 Dans Azure AD B2C, chaque expérience utilisateur est définie par un [flux utilisateur](active-directory-b2c-reference-policies.md). Cette application offre une expérience unique en matière d'identité en combinant connexion et inscription. Lorsque vous créez le flux utilisateur, veillez à effectuer les actions suivantes :

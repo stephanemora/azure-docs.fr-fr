@@ -1,19 +1,35 @@
 ---
 author: mmacy
 ms.service: active-directory-b2c
+ms.subservice: B2C
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: 91bb9b587d6f6bc35c32cf51be13c27374b76cdd
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6cb0ef848bdeab35c971ebd1a0b14eca1dfe3001
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720089"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73522763"
 ---
+#### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
+
 1. Dans la page de vue d’ensemble **Application inscrite**, sélectionnez **Paramètres**.
 1. Sous **ACCÈS D’API**, sélectionnez **Autorisations requises**.
 1. Sélectionnez **Windows Azure Active Directory**.
 1. Sous **AUTORISATIONS DE L’APPLICATION**, sélectionnez **Accéder en lecture et en écriture aux données de l’annuaire**.
 1. Sélectionnez **Enregistrer**.
 1. Sélectionnez **Accorder des autorisations**, puis **Oui**. La propagation complète des autorisations peut prendre quelques minutes.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
+
+1. Sous **Gérer**, sélectionnez **Autorisations de l’API**.
+1. Sous **Autorisations configurées**, sélectionnez **Ajouter une autorisation**.
+1. Sélectionnez **Azure Active Directory Graph**.
+1. Sélectionnez **Autorisations de l’application**.
+1. Développez **Répertoire** puis cochez la case **Directory. ReadWrite. All**.
+1. Sélectionnez **Ajouter des autorisations**. Comme vous l’indiquent les instructions, patientez quelques minutes avant de passer à l’étape suivante.
+1. Sélectionnez **Accorder le consentement de l’administrateur pour (nom de votre abonné)** .
+1. Sélectionnez un compte d’administrateur abonné.
+1. Sélectionnez **Accepter**.
+1. Sélectionnez **Actualiser**, puis vérifiez que la mention « Accordé pour ... » apparaît sous **ÉTAT**. La propagation des autorisations peut prendre quelques minutes.

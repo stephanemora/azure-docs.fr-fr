@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390158"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499235"
 ---
 # <a name="what-are-azure-reservations"></a>Qu’est-ce qu’une réservation Azure ?
 
@@ -125,7 +125,7 @@ Une remise de réservation s’applique uniquement aux ressources associées aux
 
 ## <a name="when-the-reservation-term-expires"></a>Expiration du terme de la réservation
 
-À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer. La machine virtuelle, la base de données SQL, Azure Cosmos DB ou tout autre ressource sont facturées au tarif du paiement à l’utilisation. Les réservations Azure ne sont pas renouvelées automatiquement. Pour continuer de bénéficier de la remise sur facturation, vous devez acheter une nouvelle réservation de services et logiciels éligibles.
+À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et les ressources sont facturées au tarif du paiement à l’utilisation. Par défaut, les réservations ne sont pas configurées pour se renouveler automatiquement. Vous pouvez choisir d’activer le renouvellement automatique d’une réservation en sélectionnant l’option dans les paramètres de renouvellement. En cas de renouvellement automatique, une réservation de remplacement est achetée à l’expiration de la réservation existante. Par défaut, la réservation de remplacement a les mêmes attributs que la réservation arrivant à expiration. Vous pouvez éventuellement modifier la périodicité de facturation, le terme ou la quantité dans les paramètres de renouvellement. Tout utilisateur disposant d’un accès propriétaire sur la réservation et de l’abonnement utilisé pour la facturation peut configurer le renouvellement.  
 
 ## <a name="discount-applies-to-different-sizes"></a>La remise s'applique à différentes tailles
 

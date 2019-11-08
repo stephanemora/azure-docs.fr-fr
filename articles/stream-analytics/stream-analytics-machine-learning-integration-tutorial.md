@@ -9,15 +9,15 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab510f7ee2f95a2c3373c0514c31554598451b27
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: b078c92d02c55080cb84c386b7bbdabf3e1f85bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173333"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467882"
 ---
-# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-preview"></a>Analyse des sentiments avec Azure Stream Analytics et Azure Machine Learning Studio (préversion)
-Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple avec Azure Machine Learning Studio. Vous allez utiliser un modèle d’analyse des sentiments Machine Learning de la galerie Cortana Intelligence pour analyser la diffusion des données de texte et déterminer l’évaluation des sentiments en temps réel. Cortana Intelligence Suite vous permet d’accomplir cette tâche sans vous préoccuper de la complexité inhérente à la création d’un modèle d’analyse des sentiments.
+# <a name="perform-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic-preview"></a>Exécuter des analyses de sentiments avec Azure Stream Analytics et Azure Machine Learning Studio (classique) (préversion)
+Cet article explique comment configurer rapidement un travail Azure Stream Analytics simple qui intègre Azure Machine Learning Studio (classique). Vous allez utiliser un modèle d’analyse des sentiments Machine Learning de la galerie Cortana Intelligence pour analyser la diffusion des données de texte et déterminer l’évaluation des sentiments en temps réel. Cortana Intelligence Suite vous permet d’accomplir cette tâche sans vous préoccuper de la complexité inhérente à la création d’un modèle d’analyse des sentiments.
 
 Vous pourrez appliquer les instructions de cet article dans les scénarios suivants :
 
@@ -45,7 +45,7 @@ Avant de commencer, veillez à disposer des éléments qui suivent :
 À un niveau général, pour effectuer les tâches décrites dans cet article, vous devez procédez comme suit :
 
 1. Créez un compte de stockage Azure et un conteneur de stockage d’objets blob, et chargez un fichier d’entrée au format CSV dans le conteneur.
-3. Ajoutez un modèle d’analyse des sentiments à partir de la galerie Cortana Intelligence à votre espace de travail Azure Machine Learning Studio et déployez-le en tant que service web dans l’espace de travail Machine Learning.
+3. Ajoutez un modèle d’analyse de sentiments à partir de la galerie Cortana Intelligence à votre espace de travail Azure Machine Learning Studio (classique) et déployez-le en tant que service web dans l’espace de travail Machine Learning.
 5. Créez un travail Stream Analytics qui appelle ce service web en tant que fonction afin de déterminer le sentiment de saisie de texte.
 6. Démarrez le travail Stream Analytics et observez le résultat.
 

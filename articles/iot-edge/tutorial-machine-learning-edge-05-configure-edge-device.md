@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9f9fe78db2d8bcf50a076fdfc3eba7b1f347201
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6d8f67cf94e143cd67a525fa2cc675650fb59e65
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965393"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494012"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Didacticiel : Configurer un appareil IoT Edge
 
@@ -73,11 +73,11 @@ Dans cette section, nous créons les certificats auto-signés à l’aide d’un
 
 ## <a name="upload-certificates-to-azure-key-vault"></a>Charger des certificats dans Azure Key Vault
 
-Pour stocker nos certificats de manière sécurisée et les rendre accessibles sur plusieurs appareils, nous les chargeons dans Azure Key Vault. Comme vous pouvez le voir dans la liste ci-dessus, nous avons deux types de fichiers de certificat : PFX et PEM. Les fichiers PFX correspondent aux certificats de coffre de clés à charger dans Key Vault. Les fichiers PEM sont en texte intégral et correspondent aux secrets de coffre de clés. Nous utilisons le coffre de clés associé à l’espace de travail du service Azure Machine Learning que nous avons créé en exécutant les [notebooks Azure](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
+Pour stocker nos certificats de manière sécurisée et les rendre accessibles sur plusieurs appareils, nous les chargeons dans Azure Key Vault. Comme vous pouvez le voir dans la liste ci-dessus, nous avons deux types de fichiers de certificat : PFX et PEM. Les fichiers PFX correspondent aux certificats de coffre de clés à charger dans Key Vault. Les fichiers PEM sont en texte intégral et correspondent aux secrets de coffre de clés. Nous utilisons le coffre de clés associé à l’espace de travail Azure Machine Learning que nous avons créé en exécutant les [notebooks Azure](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks).
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre espace de travail de service Azure Machine Learning.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à votre espace de travail Azure Machine Learning.
 
-2. Dans la page Vue d’ensemble de l’espace de travail du service Azure Machine Learning, recherchez le nom du **coffre de clés**.
+2. Dans la page Vue d’ensemble de l’espace de travail Azure Machine Learning, recherchez le nom du **coffre de clés**.
 
     ![Copier le nom du coffre de clés](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 

@@ -5,19 +5,19 @@ services: expressroute
 author: rambk
 ms.service: expressroute
 ms.topic: article
-ms.date: 8/17/2018
+ms.date: 11/1/2018
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: 14f65851e50ed25024524f6d988ba2b2f2b3aeba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a24e021c34fe1ad315ca7f75f9bfdb29d94b253a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367663"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495006"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurer BFD sur ExpressRoute
 
-ExpressRoute prend en charge la détection de transfert bidirectionnel (BFD, Bidirectional Forwarding Detection) sur le peering privé. En activant BFD via ExpressRoute, vous pouvez accélérer la détection des défaillances des liaisons entre les appareils MSEE (Microsoft Enterprise Edge) et les routeurs sur lesquels vous terminez le circuit ExpressRoute (PE). Vous pouvez établir une terminaison d’ExpressRoute sur des appareils de routage de périphérie du client ou des appareils de routage de périphérie de partenaire (si vous avez utilisé le service de connexion de couche 3 managé). Ce document explique pourquoi BFD peut être nécessaire et comment activer BFD sur ExpressRoute.
+ExpressRoute prend en charge la détection de transfert bidirectionnel (BFD, Bidirectional Forwarding Detection) sur le peering privé et le peering Microsoft. En activant BFD via ExpressRoute, vous pouvez accélérer la détection des défaillances des liaisons entre les appareils MSEE (Microsoft Enterprise Edge) et les routeurs sur lesquels vous terminez le circuit ExpressRoute (CE/PE). Vous pouvez établir une terminaison d’ExpressRoute sur des appareils de routage de périphérie du client ou des appareils de routage de périphérie de partenaire (si vous avez utilisé le service de connexion de couche 3 managé). Ce document explique pourquoi BFD peut être nécessaire et comment activer BFD sur ExpressRoute.
 
 ## <a name="need-for-bfd"></a>Besoin de BFD
 
@@ -34,9 +34,9 @@ Dans ce scénario, BFD peut être bénéfique. BFD assure la détection de la d�
 
 ## <a name="enabling-bfd"></a>Activation de BFD
 
-BFD est configuré par défaut sous toutes les interfaces de peering privé ExpressRoute nouvellement créées sur les appareils MSEE. Ainsi, pour activer BFD, vous devez simplement configurer BFD sur vos PE. La configuration de BFD est un processus en deux étapes : vous devez configurer BFD sur l’interface, puis la lier à la session BGP.
+BFD est configuré par défaut sous toutes les interfaces de peering privé ExpressRoute nouvellement créées sur les appareils MSEE. Ainsi, pour activer BFD, vous devez simplement configurer BFD sur vos routeurs CE/PE (sur vos appareils principaux et secondaires). La configuration de BFD est un processus en deux étapes : vous devez configurer BFD sur l’interface, puis la lier à la session BGP.
 
-Voici un exemple de configuration de PE (avec Cisco IOS XE). 
+Voici un exemple de configuration de CE/PE (avec Cisco IOS XE). 
 
     interface TenGigabitEthernet2/0/0.150
       description private peering to Azure
@@ -64,7 +64,7 @@ Voici un exemple de configuration de PE (avec Cisco IOS XE).
 Entre les pairs BFD, le plus lent des deux pairs détermine la vitesse de transmission. Les intervalles de transmission/réception BFD des appareils MSEE sont définis sur 300 millisecondes. Dans certains scénarios, l'intervalle peut être défini sur une valeur supérieure de 750 millisecondes. En configurant des valeurs plus élevées, vous pouvez forcer ces intervalles à être plus longs, mais pas plus courts.
 
 >[!NOTE]
->Si vous avez configuré des circuits de peering privé ExpressRoute géoredondants ou que vous utilisez une connectivité de VPN IPSec de site à site comme solution de secours pour le peering privé ExpressRoute, l’activation de BFD sur le peering privé permet d’accélérer la bascule sur l’alternative de secours après une défaillance de la connectivité ExpressRoute. 
+>Si vous avez configuré des circuits ExpressRoute géoredondants ou que vous utilisez une connectivité de VPN IPSec de site à site comme solution de secours, l’activation de BFD aide à accélérer la bascule sur l’alternative de secours après une défaillance de la connectivité ExpressRoute. 
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -72,7 +72,7 @@ Entre les pairs BFD, le plus lent des deux pairs détermine la vitesse de transm
 Pour plus d’informations ou d'aide, consultez les liens suivants :
 
 - [Création et modification d’un circuit ExpressRoute][CreateCircuit]
-- [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering]
+- [Créer et modifier le routage pour un circuit ExpressRoute][CreatePeering]
 
 <!--Image References-->
 [1]: ./media/expressroute-bfd/BFD_Need.png "BFD accélère les temps de détection des défaillances des liaisons"

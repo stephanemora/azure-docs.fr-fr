@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: raynew
-ms.openlocfilehash: a07e83c805fc422c861f6c644a59da0b42bb8072
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: e235116ab77159a0e2e9c66ad09cdb86ce6da1e9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71007708"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466929"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Meilleures pratiques pour la création d’évaluations
 
@@ -41,13 +41,19 @@ Par exemple, si vous avez une machine virtuelle locale avec quatre cœurs utilis
 
 ## <a name="best-practices-for-creating-assessments"></a>Meilleures pratiques pour la création d’évaluations
 
-L’appliance Azure Migrate profile en permanence votre environnement local et envoie des métadonnées et des données de performances à Azure. Passez en revue les meilleures pratiques pour créer des évaluations :
+L’appliance Azure Migrate profile en permanence votre environnement local et envoie des métadonnées et des données de performances à Azure. Suivez ces meilleures pratiques pour évaluer les serveurs découverts à l’aide d’une appliance :
 
 - **Créer des évaluations telles quelles** : Vous pouvez créer des évaluations telles quelles dès que vos machines s’affichent dans le portail Azure Migrate.
 - **Créer une évaluation basée sur les performances** : Après la configuration de la détection, nous vous recommandons d’attendre au moins une journée avant d’exécuter une évaluation basée sur les performances :
     - La collecte des données de performances prend du temps. En attendant au moins une journée, vous pouvez être certain qu’il y a suffisamment de points de données de performances avant d’exécuter l’évaluation.
     - Lorsque vous exécutez des évaluations basées sur les performances, veillez à profiler votre environnement pour la durée de l’évaluation. Par exemple, si vous créez une évaluation avec une durée des performances définie sur une semaine, vous devez attendre au moins une semaine après le démarrage de la détection pour que tous les points de données soient collectés. Sinon, l’évaluation n’aura pas cinq étoiles.
 - **Recalculer les évaluations** : Étant donné que les évaluations sont des instantanés à un moment donné, elles ne sont pas automatiquement mises à jour avec les données les plus récentes. Pour mettre à jour une évaluation avec les données les plus récentes, vous devez la recalculer.
+
+Suivez ces meilleures pratiques pour évaluer les serveurs importés dans Azure Migrate via. le fichier .CSV :
+
+- **Créer des évaluations telles quelles** : Vous pouvez créer des évaluations telles quelles dès que vos machines s’affichent dans le portail Azure Migrate.
+- **Créer une évaluation basée sur les performances** : Cela permet d’obtenir une meilleure estimation des coûts, surtout si vous avez surapprovisionné la capacité du serveur localement. Toutefois, la précision de l’évaluation basée sur les performances dépend des données de performances que vous avez spécifiées pour les serveurs. 
+- **Recalculer les évaluations** : Étant donné que les évaluations sont des instantanés à un moment donné, elles ne sont pas automatiquement mises à jour avec les données les plus récentes. Pour mettre à jour une évaluation avec les dernières données importées, vous devez la recalculer.
 
 ## <a name="best-practices-for-confidence-ratings"></a>Meilleures pratiques pour les niveaux de confiance
 

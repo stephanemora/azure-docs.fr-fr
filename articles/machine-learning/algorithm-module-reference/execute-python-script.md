@@ -1,24 +1,24 @@
 ---
 title: 'Exécuter un script Python : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Exécuter un script Python dans Azure Machine Learning service pour exécuter du code Python.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Exécuter un script Python dans Azure Machine Learning pour exécuter du code Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 4bd3433db92767f2d0d733ab71e4298fc5e618f8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 10/22/2019
+ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128827"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497864"
 ---
 # <a name="execute-python-script-module"></a>Module Exécuter un script Python
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour exécuter du code Python. Pour plus d’informations sur les principes de conception et d’architecture de Python, consultez [cet article](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
@@ -79,9 +79,9 @@ os.system(f"pip install scikit-misc")
 
 Le module **Exécuter un script Python** contient un exemple de code Python que vous pouvez utiliser comme point de départ. Pour configurer le module **Exécuter un script Python**, vous fournissez un ensemble d’entrées et de code Python à exécuter dans la zone de texte **Script Python**.
 
-1. Ajoutez le module **Exécuter un script Python** à votre expérience.
+1. Ajoutez le module **Exécuter un script Python** à votre pipeline.
 
-2. À partir de l’interface, ajoutez et connectez dans **Jeu de données 1** tous les jeux de données que vous souhaitez utiliser pour l’entrée. Référencez ce jeu de données dans votre script Python sous le nom **DataFrame1**.
+2. À partir du concepteur, ajoutez et connectez dans **Jeu de données 1** tous les jeux de données que vous souhaitez utiliser pour l’entrée. Référencez ce jeu de données dans votre script Python sous le nom **DataFrame1**.
 
     L’utilisation d’un jeu de données est facultative, si vous souhaitez générer des données à l’aide de Python ou utiliser du code Python pour importer les données directement dans le module.
 
@@ -93,11 +93,11 @@ Le module **Exécuter un script Python** contient un exemple de code Python que 
 
 4. Pour inclure du code ou de nouveaux packages Python, ajoutez le fichier zip contenant ces ressources personnalisées dans **Script groupé**. L’entrée dans **Script groupé** doit correspondre à un fichier zip déjà chargé dans votre espace de travail. 
 
-    Tous les fichiers qui figurent dans l’archive zip chargée sont utilisables lors de l’exécution de l’expérience. Si l’archive inclut une structure de répertoires, cette structure est préservée, mais vous devez ajouter au chemin d’accès un répertoire appelé **src**.
+    Tous les fichiers qui figurent dans l’archive zip chargée sont utilisables lors de l’exécution du pipeline. Si l’archive inclut une structure de répertoires, cette structure est préservée, mais vous devez ajouter au chemin d’accès un répertoire appelé **src**.
 
 5. Dans la zone de texte **Script Python**, saisissez ou collez un script Python valide.
 
-    La zone de texte **Script Python** est préremplie avec certaines instructions en commentaires, ainsi qu’avec un exemple de code pour l’accès aux données et la sortie. **Vous devez modifier ou remplacer ce code.** Veillez à suivre les conventions Python concernant la mise en retrait et la casse.
+    La zone de texte **Script Python** est préremplie avec certaines instructions en commentaires, ainsi qu’avec un exemple de code pour l’accès aux données et la sortie. Vous devez modifier ou remplacer ce code. Veillez à suivre les conventions Python concernant la mise en retrait et la casse.
 
     + Le script doit contenir une fonction nommée `azureml_main` comme point d’entrée pour ce module.
     + La fonction de point d’entrée peut contenir jusqu’à deux arguments d’entrée : `Param<dataframe1>` et `Param<dataframe2>`.
@@ -105,15 +105,15 @@ Le module **Exécuter un script Python** contient un exemple de code Python que 
 
     Par conséquent, si votre fichier zip contient `mymodule.py`, importez-le à l’aide de `import mymodule`.
 
-    + Deux jeux de données peuvent être renvoyés à l’interface, ce qui doit constituer une séquence de type `pandas.DataFrame`. Vous pouvez créer d’autres sorties dans votre code Python et les écrire directement dans le service Stockage Azure.
+    + Deux jeux de données peuvent être renvoyés au concepteur, ce qui doit constituer une séquence de type `pandas.DataFrame`. Vous pouvez créer d’autres sorties dans votre code Python et les écrire directement dans le service Stockage Azure.
 
-6. Exécutez l’expérience, ou sélectionnez le module et cliquez sur **Exécuter la sélection** pour exécuter uniquement le script Python.
+6. Exécutez le pipeline, ou sélectionnez le module et cliquez sur **Exécuter la sélection** pour exécuter uniquement le script Python.
 
     La totalité des données et du code sont chargés sur une machine virtuelle et s’exécutent à l’aide de l’environnement Python spécifié.
 
 ## <a name="results"></a>Résultats
 
-Les résultats des calculs effectués par le code Python incorporé doivent être fournis sous la forme pandas.DataFrame, qui est automatiquement convertie au format de jeu de données Azure Machine Learning. Ceci vous permet d’utiliser les résultats avec d’autres modules de l’expérience.
+Les résultats des calculs effectués par le code Python incorporé doivent être fournis sous la forme pandas.DataFrame, qui est automatiquement convertie au format de jeu de données Azure Machine Learning. Ceci vous permet d’utiliser les résultats avec d’autres modules du pipeline.
 
 Le module renvoie deux jeux de données :  
   
@@ -124,4 +124,4 @@ Le module renvoie deux jeux de données :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

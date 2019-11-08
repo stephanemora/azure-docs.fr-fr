@@ -1,24 +1,24 @@
 ---
-title: 'Appliquer une transformation : Référence sur le module'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Appliquer une transformation dans Azure Machine Learning service pour modifier un jeu de données d’entrée en fonction d’une transformation précédemment calculée.
+title: 'Appliquer une transformation : Informations de référence sur les modules'
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Appliquer une transformation dans Azure Machine Learning pour modifier un jeu de données d’entrée en fonction d’une transformation précédemment calculée.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 8b4ec9e71d9ce932a7b206467db91760f4a4fc47
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 10/22/2019
+ms.openlocfilehash: 19385870d184654d902cd40b45d4be3646c87b46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128977"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493893"
 ---
 # <a name="apply-transformation-module"></a>Appliquer le module de transformation
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour modifier un jeu de données d’entrée en fonction d’une transformation précédemment calculée.  
   
@@ -32,7 +32,7 @@ Azure Machine Learning prend en charge la création et l’application de diffé
 
 ## <a name="how-to-use-apply-transformation"></a>Comment utiliser le module Appliquer une transformation  
   
-1. Ajoutez le module **Appliquer une transformation** à votre expérience. Vous pouvez trouver ce module sous **Machine Learning**, dans la catégorie **Score**. 
+1. Ajoutez le module **Appliquer une transformation** à votre pipeline. Vous pouvez trouver ce module sous **Machine Learning**, dans la catégorie **Score**. 
   
 2. Recherchez une transformation existante à utiliser en tant qu’entrée.  Les transformations précédemment enregistrées se trouvent dans le groupe **Transformation** du volet de navigation gauche.  
   
@@ -42,8 +42,8 @@ Azure Machine Learning prend en charge la création et l’application de diffé
   
 4. Aucun autre paramètre ne doit être défini dans la mesure où toutes les personnalisations s’effectuent lors de la définition de la transformation.  
   
-5. Pour appliquer une transformation au nouveau jeu de données, exécutez l’expérience.  
+5. Pour appliquer une transformation au nouveau jeu de données, exécutez le pipeline.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

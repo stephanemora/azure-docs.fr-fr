@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638293"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499567"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Le glossaire Language Understanding (LUIS) explique les termes que vous pourriez rencontrer lors de l’utilisation du service API LUIS.
@@ -39,16 +39,20 @@ Les tests par lot permettent de valider un modèle actuel d’application LUIS a
 Voir aussi : 
 * [Concepts](luis-concept-batch-test.md)
 * [Guide pratique](luis-how-to-batch-test.md)
-* [Tutoriel]luis-tutorial-batch-testing.md)
+* [Didacticiel](luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Collaborateur
 
-Un collaborateur n’est pas le [propriétaire](#owner) de l’application, mais il dispose des mêmes autorisations pour ajouter, modifier et supprimer les intentions, les entités et les énoncés.
+Un collaborateur/contributeur n’est pas le [propriétaire](#owner) de l’application, mais il dispose des mêmes autorisations pour ajouter, modifier et supprimer les intentions, les entités et les énoncés.
 
-## <a name="currently-editing"></a>En cours de modification
+## <a name="contributor"></a>Contributeur
 
-Synonyme de [Version active](#active-version).
+Un contributeur est pareil qu’un [collaborateur](#collaborator).
+
+## <a name="descriptor"></a>Descripteur
+
+Un descripteur est une [fonctionnalité](#features) appliquée à un modèle au moment de la formation, y compris des [listes de phrases](#phrase-list) et des [entités](#entity). 
 
 ## <a name="domain"></a>Domaine
 
@@ -57,18 +61,6 @@ Dans le contexte de LUIS, un **domaine** est un champ de connaissances propre à
 ## <a name="endpoint"></a>Point de terminaison
 
 L’URL du [point de terminaison LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
-
-Voici un exemple de point de terminaison :
-
-`https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
-
-|Paramètre de chaîne de requête|description|
-|--|--|
-|region| [Région publiée](luis-reference-regions.md#publishing-regions) |
-|appID | ID d’application LUIS |
-|subscriptionID | Clé de point de terminaison (d’abonnement) LUIS créée sur le portail Azure |
-|q | Énoncé |
-|timezoneOffset| minutes|
 
 ## <a name="entity"></a>Entité
 
@@ -100,7 +92,7 @@ L’étiquetage, ou marquage, est le processus d’association d’un mot ou une
 
 ## <a name="luis-app"></a>Application LUIS
 
-Une application LUIS est un modèle de données entraîné pour le traitement automatique des langues, avec [intentions](#intent), [entités](#entity) et [énoncés](#utterance) étiquetés.
+Une application LUIS est une collection de modèles de langage pour le traitement du langage naturel, y compris des [intentions](#intent), [entités](#entity) et [énoncés](#utterance) étiquetés.
 
 ## <a name="owner"></a>Propriétaire
 
@@ -111,7 +103,7 @@ L’ancienne fonctionnalité Modèle est remplacée par [Modèles](luis-concept-
 
 ## <a name="phrase-list"></a>Liste d’expressions
 
-Une [liste d’expressions](luis-concept-feature.md#what-is-a-phrase-list-feature) est un groupe de valeurs (mots ou expressions) qui appartiennent à la même classe et doivent être traitées de la même façon (par exemple, des noms de villes ou de produits). Les éléments d’une liste interchangeable sont traités comme synonymes.
+Une [liste d’expressions](luis-concept-feature.md) est un groupe de valeurs (mots ou expressions) qui appartiennent à la même classe et doivent être traitées de la même façon (par exemple, des noms de villes ou de produits). Les éléments d’une liste interchangeable sont traités comme synonymes.
 
 ## <a name="prebuilt-domains"></a>Domaine prédéfini
 
@@ -130,7 +122,7 @@ Renommée [clé de création](#authoring-key).
 
 ## <a name="publish"></a>Publication
 
-La publication consiste à rendre disponible une [version active](#active-version) de LUIS sur le [point de terminaison](#endpoint) intermédiaire ou de production.  
+La publication consiste à rendre disponible une version active de LUIS sur le [point de terminaison](#endpoint) de mise en lots ou de production.  
 
 ## <a name="quota"></a>Quota
 
@@ -155,11 +147,15 @@ Activez la vérification orthographique Bing pour corriger les mots mal orthogra
 
 ## <a name="starter-key"></a>Clé de démarrage
 
-Identique à la [clé programmatique](#programmatic-key), renommée Clé de création.
+Une clé libre à utiliser lors du premier démarrage à l’aide de LUIS.
+
+## <a name="structure"></a>Structure
+
+Ajoutez une structure à une entité issue de l’apprentissage automatique pour fournir des sous-composants avec des descripteurs (fonctionnalités) et des contraintes (expression régulière ou entités de listes).
 
 ## <a name="subscription-key"></a>Clé d’abonnement
 
-La clé d’abonnement est la clé de **point de terminaison** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Keys and endpoints (Clés et points de terminaison)** ](luis-how-to-azure-subscription.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**.
+La clé d’abonnement est la clé du **point de terminaison de prédiction** associée au service LUIS [créé dans Azure](luis-how-to-azure-subscription.md). Il ne s’agit pas de la [clé de création](#programmatic-key). Si vous avez une clé de point de terminaison, vous devrez l’utiliser pour toutes les demandes du point de terminaison au lieu de la clé de création. Vous pouvez voir votre clé de point de terminaison actuelle au sein de l’URL du point de terminaison en bas de la [page **Keys and endpoints (Clés et points de terminaison)** ](luis-how-to-azure-subscription.md) sur le site web [LUIS](luis-reference-regions.md). Il s’agit de la valeur de la paire nom/valeur **subscription-key**.
 
 ## <a name="test"></a>Test
 
@@ -176,7 +172,7 @@ Un jeton est la plus petite unité pouvant être étiquetée dans une entité. L
 
 ## <a name="train"></a>Apprentissage
 
-L’apprentissage est le processus consistant à indiquer à LUIS toutes les modifications apportées à la [version active](#active-version) depuis le dernier apprentissage.
+La formation est le processus consistant à enseigner à LUIS toutes les modifications apportées à la version active depuis la dernière formation.
 
 ## <a name="true-negative"></a>Vrai négatif (TN)
 

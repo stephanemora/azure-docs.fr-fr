@@ -1,5 +1,5 @@
 ---
-title: Prise en charge Azure pour les machines virtuelles de 2e génération (préversion) | Microsoft Docs
+title: Support Azure des machines virtuelles 2e génération | Microsoft Docs
 description: Vue d’ensemble de la prise en charge Azure pour les machines virtuelles de 2e génération
 services: virtual-machines-linux
 documentationcenter: ''
@@ -11,31 +11,26 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: afec40216695ed19cddb4e93b6523cf30251f2e4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6d90075f866cb65e5428a1641ebd4cf77dd2a887
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063149"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479573"
 ---
-# <a name="support-for-generation-2-vms-preview-on-azure"></a>Prise en charge des machines virtuelles de 2e génération (préversion) sur Azure
+# <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
-> [!IMPORTANT]
-> La prise en charge Azure pour les machines virtuelles de 2e génération est actuellement en préversion.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Le support des machines virtuelles de 2e génération est désormais disponible dans Azure. Vous ne pouvez pas modifier la génération d’une machine virtuelle après l’avoir créée. Passez bien en revue les considérations relatives sur cette page avant de choisir une génération.
 
-La prise en charge des machines virtuelles de 2e génération est désormais disponible en préversion dans Azure. Vous ne pouvez pas modifier la génération d’une machine virtuelle après l’avoir créée. Passez bien en revue les considérations relatives sur cette page avant de choisir une génération.
-
-Les machines virtuelles de 2e génération prennent en charge des fonctionnalités clés qui ne sont pas prises en charge par des machines virtuelles de 1ère génération. Ces fonctionnalités incluent la mémoire augmentée, Intel Software Guard Extensions (Intel SGX) et mémoire persistante virtualisée (vPMEM). Les machines virtuelles de 2e génération disposent également de fonctionnalités non prises en charge dans Azure à l’heure actuelle. Pour en savoir, consultez la section [Fonctionnalités et capacités](#features-and-capabilities).
+Les machines virtuelles de 2e génération prennent en charge des fonctionnalités clés qui ne sont pas prises en charge par des machines virtuelles de 1ère génération. Ces fonctionnalités incluent la mémoire augmentée, Intel Software Guard Extensions (Intel SGX) et mémoire persistante virtualisée (vPMEM). Les machines virtuelles locales de 2e génération présentent des fonctionnalités qui ne sont pas encore prises en charge dans Azure. Pour en savoir, consultez la section [Fonctionnalités et capacités](#features-and-capabilities).
 
 Les machines virtuelles de 2e génération utilisent la nouvelle architecture de démarrage basée sur UEFI alors que les machines virtuelles de 1ère génération utilisaient l’architecture basée sur le BIOS. Comparées aux machines virtuelles de 1ère génération, les machines virtuelles de 2e génération peuvent avoir des temps d’installation et de démarrage améliorés. Pour obtenir une vue d’ensemble des machines virtuelles de 2e génération et de quelques-unes des différences entre 1ère et 2e génération, consultez [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 ## <a name="generation-2-vm-sizes"></a>Tailles des machines virtuelles de 2e génération
 
-Les machines virtuelles de 1ère génération sont prises en charge dans toutes les tailles dans Azure. Azure prend désormais en charge en préversion la 2e génération pour les gammes de machines virtuelles sélectionnées suivantes :
+Les machines virtuelles de 1ère génération sont prises en charge dans toutes les tailles dans Azure. Azure prend désormais en charge la 2e génération de machines virtuelles des séries sélectionnées suivantes :
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
 * [Série DC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
@@ -50,7 +45,6 @@ Les machines virtuelles de 1ère génération sont prises en charge dans toutes 
 * [Série NCv2](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) et [série NCv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [Série ND](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
 * [Série NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
-
 
 > [!NOTE]
 > L’utilisation d’images de machine virtuelle de 2e génération pour les machines virtuelles de la série MV2 est généralement disponible, car la série MV2 fonctionne exclusivement avec les images de machine virtuelle de 2e génération. Les images de machine virtuelle de génération 1 ne sont pas prises en charge sur les machines virtuelles de série MV2. 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 88fe73988f6a90fd5041445a561c0f77f25eddc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060479"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496349"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer
 
@@ -128,7 +128,16 @@ Image Store Viewer est une fonctionnalité proposée si vous utilisez Native Ima
 
 ![Mappage de cluster de Service Fabric Explorer][sfx-imagestore]
 
+## <a name="backup-and-restore"></a>Sauvegarde et restauration
+Service Fabric Explorer offre la possibilité d’interagir avec [Sauvegarde et de restauration](./service-fabric-reliable-services-backup-restore.md). Les opérations suivantes sont possibles :
 
+* Créer, modifier et supprimer une stratégie de sauvegarde.
+* Activer et désactiver la sauvegarde pour une application, un service ou une partition.
+* Interrompre et reprendre la sauvegarde pour une application, un service ou une partition.
+* Déclencher et suivre la sauvegarde d’une partition.
+* Déclencher et suivre la restauration d’une partition.
+
+Pour plus d’informations sur le service Sauvegarde et restauration, consultez la [référence sur l’API REST](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore).
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gestion de vos applications Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Déploiement d’application Service Fabrix à l’aide de PowerShell](service-fabric-deploy-remove-applications.md)

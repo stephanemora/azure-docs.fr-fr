@@ -8,19 +8,22 @@ ms.topic: include
 ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ed828a09843648b129b701c9afd22aac9e2fa9b0
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 12c28969ed00a1370b90e06e9d57cd666c50ea29
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970828"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73522776"
 ---
-1. Dans le portail, sur le côté gauche, cliquez sur **+Créer une ressource**, puis entrez « passerelle de réseau virtuel » dans la recherche. Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Dans la page **Passerelle de réseau virtuel**, cliquez sur **Créer**. La page **Créer une passerelle de réseau virtuel** s’ouvre.
+1. Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**. 
+
+   ![Créer une ressource dans le portail Azure](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
+2. Dans le champ **Rechercher dans le marketplace**, tapez « passerelle de réseau virtuel ». Recherchez **passerelle de réseau virtuel** dans la zone de recherche et cliquez sur l’entrée. Dans la page **Passerelle de réseau virtuel**, cliquez sur **Créer**. La page **Créer une passerelle de réseau virtuel** s’ouvre.
 
    ![Champs de la page Créer une passerelle de réseau virtuel](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "Champs de la page Créer une passerelle de réseau virtuel")
 
    ![Champs de la page Créer une passerelle de réseau virtuel](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw2.png "Champs de la page Créer une passerelle de réseau virtuel")
-2. Sur la page **Créer une passerelle de réseau virtuel**, renseignez les valeurs pour votre passerelle de réseau virtuel.
+3. Sur la page **Créer une passerelle de réseau virtuel**, renseignez les valeurs pour votre passerelle de réseau virtuel.
 
    **Détails du projet**
 
@@ -49,6 +52,6 @@ ms.locfileid: "71970828"
 
    Laissez l’option **Configurer un ASN BGP** désélectionnée, sauf si votre configuration exige spécifiquement ce paramètre. Si vous avez besoin de ce paramètre, la valeur par défaut ASN est 65515, bien que vous puissiez la modifier.
 
-3. Cliquez sur **Vérifier + créer** pour exécuter la validation. Une fois la validation réussie, cliquez sur **Créer** pour déployer la passerelle VPN. La création et le déploiement complets d’une passerelle peuvent prendre jusqu’à 45 minutes. Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle.
+4. Cliquez sur **Vérifier + créer** pour exécuter la validation. Une fois la validation réussie, cliquez sur **Créer** pour déployer la passerelle VPN. La création et le déploiement complets d’une passerelle peuvent prendre jusqu’à 45 minutes. Vous pouvez voir l’état du déploiement dans la page Vue d’ensemble pour votre passerelle.
 
 Une fois la passerelle créée, examinez le réseau virtuel dans le portail pour obtenir l’adresse IP affectée à la passerelle. Cette dernière apparaît sous la forme d’un appareil connecté.

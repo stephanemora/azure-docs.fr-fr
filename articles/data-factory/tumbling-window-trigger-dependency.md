@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: daperlov
-ms.openlocfilehash: bf8534ce40460637141bea2b9582e63a2a5cd04a
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 24a1a5d132990db2aa10b7860774eecafb4b4edb
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620633"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "73520637"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Créer une dépendance de déclencheur de fenêtre bascule
 
@@ -147,20 +147,22 @@ Une tâche de traitement quotidien des données de télémétrie dépend d’une
 
 Voici une tâche quotidienne sans écart dans les flux de sortie :
 
-![Exemple d'autodépendance](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Exemple d'autodépendance")
+![Exemple d’autodépendance](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Exemple d’autodépendance")
 
 ## <a name="monitor-dependencies"></a>Effectuer le monitoring des dépendances
 
-Vous pouvez effectuer le monitoring de la chaîne de dépendance et des fenêtres correspondantes sur la page de monitoring des exécutions du déclencheur. Accédez à **Monitoring > Exécutions du déclencheur**.
+Vous pouvez effectuer le monitoring de la chaîne de dépendance et des fenêtres correspondantes sur la page de monitoring des exécutions du déclencheur. Accédez à **Monitoring > Exécutions du déclencheur**. Sous la colonne Actions, vous pouvez réexécuter le déclencheur ou afficher ses dépendances.
 
-![Surveiller les exécutions du déclencheur](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Exemple d'autodépendance")
+![Superviser les exécutions de déclencheur](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Surveiller les exécutions du déclencheur")
 
-Cliquez sur l'icône d'action pour afficher toutes les exécutions du déclencheur dépendantes sur la fenêtre sélectionnée.
+Si vous cliquez sur « Afficher les dépendances du déclencheur », vous pouvez voir l’état des dépendances. Si un des déclencheurs de dépendance échoue, vous devez le réexécuter correctement pour que le déclencheur dépendant s’exécute. Un déclencheur de fenêtre bascule attend des dépendances pendant sept jours avant d’arriver à expiration.
 
-![Surveiller les dépendances](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Surveiller les dépendances")
+![Superviser les dépendances](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Effectuer le monitoring des dépendances")
 
-Dans l’exemple ci-dessus, un déclencheur quotidien dépend d’un déclencheur horaire sans fenêtre définie et un décalage de 3 heures. Par conséquent, le déclencheur s’exécute après 24 exécutions réussies de la dépendance.
+Pour un rendu plus visuel de la planification des dépendances du déclencheur, sélectionnez l’affichage de Gantt.
+
+![Superviser les dépendances](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Effectuer le monitoring des dépendances")
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Voir [Guide pratique pour créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md).
+* Consulter le [Guide pratique pour créer un déclencheur de fenêtre bascule](how-to-create-tumbling-window-trigger.md)

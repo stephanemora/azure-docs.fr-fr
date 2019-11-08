@@ -5,15 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.custom: mvc
-ms.openlocfilehash: d1c90e61890ee98dc5371faed872d03409aaf31f
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: bfec1493492fb1e8e9bd7394aae3db8983f4cff9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489541"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495650"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Didacticiel : Créer et gérer une passerelle VPN à l’aide de PowerShell
 
@@ -128,7 +127,7 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 Valeurs des paramètres clés :
 * GatewayType : utilisez **Vpn** pour les connexions de site à site, et de réseau virtuel à réseau virtuel.
 * VpnType : utilisez **RouteBased** pour interagir avec une plus grande gamme de périphériques VPN et bénéficier d’autres fonctionnalités de routage.
-* GatewaySku : **VpnGw1** est la valeur par défaut. Remplacez-la par VpnGw2 ou VpnGw3 si vous avez besoin de débits plus élevés ou de connexions supplémentaires. Pour plus d’informations, consultez l’article [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* GatewaySku : **VpnGw1** est la valeur par défaut. Remplacez-la par une autre référence SKU VpnGw si vous avez besoin de débits plus élevés ou de connexions supplémentaires. Pour plus d’informations, consultez l’article [Références (SKU) de passerelle](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 Si vous utilisez TryIt, votre session peut expirer. C’est normal. La passerelle est quand même créée.
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: bdc645bf8de95265158c3bb7ebf71952369e4ab2
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: c8ead7abc454df387db31b2ce65d2ba714b0067d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190909"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494081"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Utiliser Apache Spark MLlib pour créer une application de Machine Learning et analyser un jeu de données
 
@@ -176,7 +176,7 @@ Commençons par nous faire une idée de ce que contient le jeu de données.
 
     La sortie est la suivante :
 
-    ![Résultat de la requête SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Résultat de la requête SQL")
+    ![Sortie de requête SQL](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-query-output.png "Sortie de requête SQL")
 
 
 3. Vous pouvez également utiliser [Matplotlib](https://en.wikipedia.org/wiki/Matplotlib), une bibliothèque permettant de construire une visualisation des données, pour créer un tracé. Étant donné que le tracé doit être créé à partir du tableau de données **countResultsdf** conservé localement, l’extrait de code doit commencer par la commande magique `%%local`. Cela garantit l’exécution locale du code sur le serveur Jupyter.
@@ -195,7 +195,7 @@ Commençons par nous faire une idée de ce que contient le jeu de données.
 
     La sortie est la suivante :
 
-    ![Sortie de l’application de Machine Learning Spark : graphique en secteurs avec cinq résultats d’inspection distincts](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Sortie du résultat de l’application de Machine Learning Spark")
+    ![Sortie de l’application de Machine Learning Spark : graphique en secteurs avec cinq résultats d’inspection distincts](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Sortie des résultats Spark Machine Learning")
 
     Pour prédire un résultat d’inspection de produits alimentaires, vous devez développer un modèle basé sur les violations. Étant donné que la régression logistique est une méthode de classification binaire, il est judicieux de regrouper les données de résultat en deux catégories : **Échec** et **Réussite** :
 
@@ -352,7 +352,7 @@ Vous pouvez désormais construire une visualisation finale pour faciliter l’ex
 
     Vous devez normalement voir la sortie suivante.
 
-    ![Sortie de l’application de Machine Learning Spark : graphique en secteurs des pourcentages d’inspections alimentaires qui ont échoué.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Sortie du résultat de l’application de Machine Learning Spark")
+    ![Sortie de l’application de Machine Learning Spark : graphique en secteurs des pourcentages d’inspections alimentaires qui ont échoué.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Sortie des résultats Spark Machine Learning")
 
     Dans ce graphique, un résultat « positif » fait référence à l’inspection de produits alimentaires ayant échoué, tandis qu’un résultat négatif fait référence à une inspection réussie.
 
@@ -381,4 +381,4 @@ Une fois l’exécution de l’application terminée, fermez le bloc-notes pour 
 
 ### <a name="manage-resources"></a>Gestion des ressources
 * [Gérer les ressources du cluster Apache Spark dans Azure HDInsight](apache-spark-resource-manager.md)
-* [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](apache-spark-job-debugging.md)

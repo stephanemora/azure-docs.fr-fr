@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 919e717811b3b04ca7407772fcf11f293d58508c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240937"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471549"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Créer une application web ASP.NET Core dans Azure
 
@@ -139,17 +139,19 @@ Une fois la publication terminée, Visual Studio lance un navigateur en accédan
 
 ## <a name="manage-the-azure-app"></a>Gérer l’application Azure
 
-1. Accédez au <a href="https://portal.azure.com" target="_blank">Portail Azure</a> pour gérer l’application web.
+Pour gérer l’application web, accédez au [Portail Azure](https://portal.azure.com), puis recherchez et sélectionnez **App Services**.
 
-1. Dans le menu de gauche, sélectionnez **App Services**, puis sélectionnez le nom de votre application Azure.
+![Sélectionner App Services](./media/app-service-web-get-started-dotnet/app-services.png)
 
-   ![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
+Dans la page **App Services**, sélectionnez le nom de votre application web.
 
-   Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, vous pouvez effectuer des tâches de gestion de base, par exemple parcourir, arrêter, démarrer, redémarrer et supprimer.
+![Navigation au sein du portail pour accéder à l’application Azure](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   ![App Service dans le portail Azure](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, vous pouvez effectuer des tâches de gestion de base, par exemple parcourir, arrêter, démarrer, redémarrer et supprimer.
 
-   Le menu de gauche fournit différentes pages vous permettant de configurer votre application.
+![App Service dans le portail Azure](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+Le menu de gauche fournit différentes pages vous permettant de configurer votre application.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

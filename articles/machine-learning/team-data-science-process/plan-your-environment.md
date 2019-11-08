@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704482"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495044"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
 
@@ -30,8 +30,6 @@ Répondez à des questions clés dans les domaines suivants pour identifier votr
 * caractéristiques des données
 * qualité du jeu de données
 * outils et langages favoris
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>Questions logistiques : emplacements et déplacement des données
 
@@ -68,7 +66,7 @@ Où vos données doivent-elles se trouver pour le traitement ou la modélisation
 Pour les procédures et les ressources d’ingestion ou de chargement des données dans différents environnements de stockage et de traitement, consultez :
 
 * [Charger des données dans des environnements de stockage à des fins d’analyse](ingest-data.md)
-* [Importation de vos données de formation Azure Machine Learning Studio depuis différentes sources de données](../studio/import-data.md)
+* [Importer vos données d’entraînement dans Azure Machine Learning Studio (classique) à partir de différentes sources de données](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>Les données doivent-elles être déplacées à intervalles réguliers ou modifiées pendant la migration ?
 
@@ -81,7 +79,7 @@ Pour plus d’informations, référez-vous à [Déplacement de données à parti
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Quelle est la quantité de données à déplacer vers Azure ?
 
-Des jeux de données extrêmement volumineux peuvent dépasser la capacité de stockage de certains environnements. Pour obtenir un exemple, reportez-vous à la rubrique sur les limites de taille pour Machine Learning Studio dans la section suivante. Dans ces cas, vous pouvez utiliser un échantillon de données pendant l’analyse. Pour plus d’informations sur l’échantillonnage d’un jeu de données dans différents environnements Azure, référez-vous à [Échantillonner des données dans le processus TDSP (Team Data Science Process)](sample-data.md).
+Des jeux de données extrêmement volumineux peuvent dépasser la capacité de stockage de certains environnements. Pour obtenir un exemple, consultez la discussion sur les limites de taille pour Machine Learning Studio (classique) dans la section suivante. Dans ces cas, vous pouvez utiliser un échantillon de données pendant l’analyse. Pour plus d’informations sur l’échantillonnage d’un jeu de données dans différents environnements Azure, référez-vous à [Échantillonner des données dans le processus TDSP (Team Data Science Process)](sample-data.md).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Questions sur les caractéristiques des données : type, format et taille
 
@@ -108,7 +106,7 @@ Ces questions sont essentielles pour la planification de vos environnements de s
 * Intermédiaire : plus de 2 Go et moins de 10 Go
 * Grand : supérieur à 10 Go
 
-Prenons par exemple l’environnement Azure Machine Learning Studio :
+Prenons, par exemple, l’environnement Azure Machine Learning Studio (classique) :
 
 * Pour obtenir la liste des formats et des types de données pris en charge par Azure Machine Learning Studio, référez-vous à la section [Formats et types de données pris en charge](../studio/import-data.md#supported-data-formats-and-data-types) .
 * Pour plus d’informations sur les limitations des autres services Azure utilisés dans le processus d’analyse, référez-vous à [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md).

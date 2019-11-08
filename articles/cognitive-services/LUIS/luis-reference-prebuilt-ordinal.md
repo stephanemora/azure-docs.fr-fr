@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: d1d69b256c4fc7e7b9d1c84b7c409d01a9f8ce52
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b2a2d9e78a0b152da14bb737079cf0dfdef0dc05
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677540"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491247"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie ordinal pour une application LUIS
 Un nombre ordinal est une représentation numérique d’un objet à l’intérieur d’un ensemble : `first`, `second`, `third`. Étant donné que cette entité est déjà entraînée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un ordinal aux intentions de l’application. L’entité ordinale est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
@@ -26,108 +26,64 @@ L’entité ordinal est gérée à partir du dépôt GitHub [Recognizers-text](h
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Résolution pour une entité ordinal prédéfinie
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
+Les objets d’entité suivants sont retournés pour la requête :
 
-L’exemple suivant montre la résolution de l’entité **builtin.ordinal**.
+`Order the second option`
 
-```json
-{
-  "query": "Order the second option",
-  "topScoringIntent": {
-    "intent": "OrderFood",
-    "score": 0.9993253
-  },
-  "intents": [
-    {
-      "intent": "OrderFood",
-      "score": 0.9993253
-    },
-    {
-      "intent": "None",
-      "score": 0.05046708
-    }
-  ],
-  "entities": [
-    {
-      "entity": "second",
-      "type": "builtin.ordinal",
-      "startIndex": 10,
-      "endIndex": 15,
-      "resolution": {
-        "value": "2"
-      }
-    }
-  ]
-}
-```
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
+#### <a name="v3-responsetabv3"></a>[Réponse V3](#tab/V3)
 
 Le code JSON suivant a le paramètre `verbose` défini sur `false` :
 
 ```json
-{
-    "query": "Order the second option",
-    "prediction": {
-        "normalizedQuery": "order the second option",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.7124502
-            }
-        },
-        "entities": {
-            "ordinal": [
-                {
-                    "offset": 2,
-                    "relativeTo": "start"
-                }
-            ]
-        }
-    }
+"entities": {
+    "ordinal": [
+        2
+    ]
 }
 ```
-
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[Réponse détaillée V3](#tab/V3-verbose)
 Le code JSON suivant a le paramètre `verbose` défini sur `true` :
 
 ```json
-{
-    "query": "Order the second option",
-    "prediction": {
-        "normalizedQuery": "order the second option",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.7124502
-            }
-        },
-        "entities": {
-            "ordinal": [
-                {
-                    "offset": 2,
-                    "relativeTo": "start"
-                }
-            ],
-            "$instance": {
-                "ordinal": [
-                  {
-                    "type": "builtin.ordinal",
-                    "text": "second",
-                    "startIndex": 10,
-                    "length": 6,
-                    "modelTypeId": 2,
-                    "modelType": "Prebuilt Entity Extractor",
-                    "recognitionSources": [
-                        "model"
-                    ]
-                  }
+"entities": {
+    "ordinal": [
+        2
+    ],
+    "$instance": {
+        "ordinal": [
+            {
+                "type": "builtin.ordinal",
+                "text": "second",
+                "startIndex": 10,
+                "length": 6,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
 
+#### <a name="v2-responsetabv2"></a>[Réponse V2](#tab/V2)
+
+L’exemple suivant montre la résolution de l’entité **builtin.ordinal**.
+
+```json
+"entities": [
+  {
+    "entity": "second",
+    "type": "builtin.ordinal",
+    "startIndex": 10,
+    "endIndex": 15,
+    "resolution": {
+      "value": "2"
+    }
+  }
+]
+```
 * * * 
 
 ## <a name="next-steps"></a>Étapes suivantes

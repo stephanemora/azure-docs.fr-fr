@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648370"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490700"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -42,8 +42,10 @@ Dans ce guide de démarrage rapide, vous allez utiliser un compte Stockage Azure
 Pour ce démarrage rapide, vous devez disposer du nom de votre compte de stockage Azure. La procédure suivante détaille les étapes à suivre pour obtenir le nom de votre compte de stockage : 
 
 1. Dans un navigateur web, accédez au [portail Azure](https://portal.azure.com) et connectez-vous à l’aide de vos nom d’utilisateur et mot de passe Azure.
-2. Sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**.
+2. Dans le menu Portail Azure, sélectionnez **Tous les services**, puis sélectionnez **Stockage** > **Comptes de stockage**. Vous pouvez également rechercher et sélectionner *Comptes de stockage* à partir de n’importe quelle page.
 3. Dans la page **Comptes de stockage**, appliquez un filtre pour votre compte de stockage (si nécessaire), puis sélectionnez votre compte de stockage. 
+
+Vous pouvez également rechercher et sélectionner *Comptes de stockage* à partir de n’importe quelle page.
 
 #### <a name="create-a-blob-container"></a>Création d’un conteneur d’objets blob
 Dans cette section, vous allez créer un conteneur d’objets blob nommé **adftutorial** dans un stockage Blob Azure.
@@ -64,7 +66,12 @@ Jane, Doe
 
 Enregistrez-le dans le dossier **C:\ADFv2QuickStartPSH** (si le dossier n’existe pas, créez-le). Revenez ensuite au portail Azure et procédez comme suit :
 
-1. Dans la page *\<Nom du compte>*  - **Objets blob**, là où vous vous êtes arrêté, sélectionnez **adftutorial** dans la liste mise à jour des conteneurs (si vous avez fermé la fenêtre ou accédé à une autre page, reconnectez-vous au [portail Azure](https://portal.azure.com), sélectionnez **Tous les services** > **Stockage** > **Comptes de stockage**, sélectionnez votre compte de stockage, puis sélectionnez **Objets blob** > **adftutorial**).
+1. Dans la page *\<Nom du compte>*  - **Objets blob**, là où vous vous êtes arrêté, sélectionnez **adftutorial** dans la liste mise à jour des conteneurs
+
+   1. Si vous avez fermé la fenêtre ou accédé à une autre page, connectez-vous au [Portail Azure](https://portal.azure.com) à nouveau.
+   1. Dans le menu Portail Azure, sélectionnez **Tous les services**, puis sélectionnez **Stockage** > **Comptes de stockage**. Vous pouvez également rechercher et sélectionner *Comptes de stockage* à partir de n’importe quelle page.
+   1. Sélectionnez votre compte de stockage, puis sélectionnez **Blobs** > **adftutorial**.
+
 2. Dans la barre d’outils de la page du conteneur **adftutorial**, sélectionnez **Charger**.
 3. Dans la page **Charger l’objet blob**, sélectionnez la zone **Fichiers**, puis recherchez et sélectionnez le fichier **emp.txt**.
 4. Développez le titre **Avancé**. La page s’affiche à présent comme indiqué :

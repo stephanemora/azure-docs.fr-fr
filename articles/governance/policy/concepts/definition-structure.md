@@ -3,15 +3,15 @@ title: Détails de la structure des définitions de stratégies
 description: Explique comment Azure Policy utilise une définition de stratégie de ressource afin d’établir des conventions pour les ressources de votre organisation en décrivant quand la stratégie est appliquée et la mesure à prendre.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053495"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464032"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -81,12 +81,17 @@ Nous vous recommandons de définir **mode** sur `all` dans tous les cas. Toutes 
 
 Il est recommandé (quoique non obligatoire) d’utiliser `indexed` pour créer des stratégies qui appliquent des balises ou des emplacements, car cela empêche les ressources qui ne prennent pas en charge les balises et les emplacements de s’afficher comme non conformes dans les résultats de conformité. Les **groupes de ressources** font figure d’exception. Les stratégies qui appliquent des emplacements ou des balises à un groupe de ressources doivent définir **mode** sur `all` et cibler spécifiquement le type `Microsoft.Resources/subscriptions/resourceGroups`. Pour exemple, consultez [Appliquer des balises au groupe de ressources](../samples/enforce-tag-rg.md). Pour obtenir la liste des ressources qui prennent en charge les étiquettes, consultez [Prise en charge des étiquettes pour les ressources Azure](../../../azure-resource-manager/tag-support.md).
 
-### <a name="resource-provider-modes"></a>Modes Fournisseur de ressources
+### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />Modes Fournisseur de ressources (préversion)
 
-Le seul mode Fournisseur de ressources pris en charge actuellement est `Microsoft.ContainerService.Data` pour la gestion des règles de contrôleur d’admission sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md).
+Les modes Fournisseur de ressources suivants sont actuellement pris en charge pendant la préversion :
+
+- `Microsoft.ContainerService.Data` pour la gestion des règles d’admission de contrôleur sur [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceRegoPolicy](./effects.md#enforceregopolicy).
+- `Microsoft.Kubernetes.Data` pour la gestion des clusters Kubernetes du moteur AKS auto-managés sur Azure.
+  Les stratégies utilisant ce mode Fournisseur de ressources **doivent** utiliser l’effet [EnforceOPAConstraint](./effects.md#enforceopaconstraint).
+- `Microsoft.KeyVault.Data` pour la gestion des coffres et des certificats dans [Azure Key Vault](../../../key-vault/key-vault-overview.md).
 
 > [!NOTE]
-> [Azure Policy pour Kubernetes](rego-for-aks.md) est en préversion publique et prend uniquement en charge les définitions de stratégie intégrées.
+> Les modes Fournisseur de ressources prennent uniquement en charge les définitions de stratégie intégrées et ne prennent pas en charge les initiatives en préversion.
 
 ## <a name="parameters"></a>parameters
 
@@ -134,7 +139,7 @@ Par exemple, vous pouvez définir une définition de stratégie qui limite les e
 
 ### <a name="using-a-parameter-value"></a>Utiliser une valeur de paramètre
 
-Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe suivante de valeur de déploiement `parameters` :
+Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe de fonction `parameters` suivante :
 
 ```json
 {
@@ -272,7 +277,7 @@ Les champs suivants sont pris en charge :
 - `tags['''<tagName>''']`
   - Cette syntaxe en crochet prend en charge les noms de balise contenant des apostrophes en appliquant une séquence d’échappement entre apostrophes doubles.
   - Où **'\<tagName\>'** est le nom de l’étiquette pour laquelle vérifier la condition.
-  - Exemple : `tags['''My.Apostrophe.Tag''']` où **'\<tagName\>'** est le nom de l’étiquette.
+  - Exemple : `tags['''My.Apostrophe.Tag''']` où **'My.Apostrophe.Tag** est le nom de la balise.
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
 
 > [!NOTE]
@@ -282,7 +287,7 @@ Les champs suivants sont pris en charge :
 
 Une valeur de paramètre peut être passée à un champ de balise. Le passage d’un paramètre à un champ de balise augmente la flexibilité de la définition de stratégie lors de l’attribution de stratégie.
 
-Dans l’exemple suivant, `concat` est utilisé pour créer une recherche dans le champ de balises pour la balise nommée avec la valeur du paramètre **tagName**. Si cette balise n’existe pas, l’effet **append** est utilisé pour ajouter la balise à l’aide de la valeur de la même balise nommée définie sur le groupe de ressources parent des ressources auditées à l’aide de la fonction lookup `resourcegroup()`.
+Dans l’exemple suivant, `concat` est utilisé pour créer une recherche dans le champ de balises pour la balise nommée avec la valeur du paramètre **tagName**. Si cette balise n’existe pas, l’effet **Modifier** est utilisé pour ajouter la balise à l’aide de la valeur de la même balise nommée définie sur le groupe de ressources parent des ressources auditées à l’aide de la fonction de recherche `resourcegroup()`.
 
 ```json
 {
@@ -291,11 +296,17 @@ Dans l’exemple suivant, `concat` est utilisé pour créer une recherche dans l
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
@@ -390,42 +401,15 @@ Avec la règle de stratégie révisée, `if()` vérifie la longueur du **nom** a
 
 Azure Policy prend en charge les types d’effet suivants :
 
-- **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
-- **audit** : génère un événement d’avertissement dans le journal d’activité, mais ne fait pas échouer la requête.
 - **append** : ajoute l’ensemble de champs défini à la requête.
-- **AuditIfNotExists** : active l’audit si une certaine ressource n’existe pas.
-- **DeployIfNotExists** : déploie une ressource si elle n’existe pas déjà.
+- **audit** : génère un événement d’avertissement dans le journal d’activité, mais ne fait pas échouer la requête.
+- **AuditIfNotExists** : génère un événement d’avertissement dans le journal d’activité si une ressource connexe n’existe pas
+- **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
+- **DeployIfNotExists** : déploie une ressource connexe si elle n’existe pas déjà
 - **disabled** : n’évalue pas la conformité des ressources à la règle de stratégie.
-- **EnforceRegoPolicy** : configure le contrôleur d’admissions d’agent de stratégie ouverte dans Azure Kubernetes Service (préversion)
+- **EnforceOPAConstraint** (préversion) : configure le contrôleur des admissions de l’agent de stratégie ouverte avec Gatekeeper V3 pour les clusters Kubernetes auto-managés sur Azure (préversion)
+- **EnforceRegoPolicy** (préversion) : configure le contrôleur des admissions de l’agent de stratégie ouverte avec Gatekeeper v2 dans Azure Kubernetes Service
 - **Modify** : ajoute, met à jour ou supprime les étiquettes définies dans une ressource
-
-Pour **append**, vous devez fournir les détails suivants :
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-La valeur peut être une chaîne ou un objet au format JSON.
-
-**AuditIfNotExists** et **DeployIfNotExists** évaluent l’existence d’une ressource liée et appliquent une règle. Si la ressource ne correspond pas à la règle, l’effet est implémenté. Par exemple, vous pouvez exiger qu’un observateur réseau soit déployé pour tous les réseaux virtuels. Pour plus d’informations, voir l’exemple [AuditIfNotExists si une extension n’existe pas](../samples/audit-ext-not-exist.md).
-
-L’effet **DeployIfNotExists** requiert la présence de la propriété **roleDefinitionId** dans la partie **détails** de la règle de stratégie. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
-
-De même, **Modify** nécessite la présence de la propriété **roleDefinitionId** dans la partie **détails** de la règle de stratégie pour la [tâche de correction](../how-to/remediate-resources.md). **Modify** a également besoin du tableau **operations** pour définir quelles actions entreprendre sur les étiquettes de ressources.
 
 Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, consultez [Présentation des effets Azure Policy](effects.md).
 

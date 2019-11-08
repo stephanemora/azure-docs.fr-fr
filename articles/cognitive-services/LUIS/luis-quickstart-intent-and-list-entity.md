@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307611"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492708"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Didacticiel : Obtenir des données exactes correspondant au texte d’un énoncé
 
 Ce tutoriel explique comment obtenir des données d’entité correspondant à une liste de termes prédéfinie. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -78,7 +80,7 @@ Une entité de type liste est un choix approprié pour ce type de données lorsq
     |Steve Standish vers 1234|
     |Tanner Thompson vers 3456|
 
-    [![Capture d’écran de l’intention avec des exemples d’énoncés](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Capture d’écran de l’intention avec des exemples d’énoncés")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
+    [![Capture d’écran comprenant une intention avec des exemples d’énoncés](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "Capture d’écran comprenant une intention avec des exemples d’énoncés")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
@@ -104,7 +106,7 @@ Le nom _canonique_ principal pour chaque élément est le nom de service. Voici 
 
 1. Dans la fenêtre de dialogue contextuelle des entités, saisir `Department` dans le nom d’entité, et **List** pour le type d’entité. Sélectionnez **Terminé**.  
 
-    [![Capture d’écran de la boîte de dialogue contextuelle de création d’une entité](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Capture d’écran de la boîte de dialogue contextuelle de création d’une entité")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
+    [![Capture d’écran de la fenêtre contextuelle Creating new entity](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Capture d’écran de la fenêtre contextuelle Creating new entity")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
 1. Dans la page Department entity, entrez la valeur `Accounting`.
 

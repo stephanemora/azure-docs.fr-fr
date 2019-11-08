@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 07/09/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997175"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489362"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Résolution des problèmes de déploiement d’Azure Machine Learning, Azure Kubernetes Service et Azure Container Instances
 
@@ -154,15 +154,15 @@ Pour éviter ce problème, nous vous recommandons une des approches suivantes :
 
 ## <a name="debug-locally"></a>Déboguer en local
 
-Si vous rencontrez des problèmes de déploiement d’un modèle sur ACI ou AKS, essayez de le déployer comme un service web local. L’utilisation d’un service web local facilite la résolution des problèmes. L’image Docker contenant le modèle est téléchargée et démarrée sur votre système local.
+Si vous rencontrez des problèmes de déploiement d’un modèle sur ACI ou AKS, essayez de le déployer comme un service local. L’utilisation d’un service local facilite la résolution des problèmes. L’image Docker contenant le modèle est téléchargée et démarrée sur votre système local.
 
 > [!IMPORTANT]
-> Les déploiements de service web locaux nécessitent l’installation d’un Docker de travail sur votre système local. Docker doit être en cours d’exécution avant de déployer un service web local. Pour plus d’informations sur l’installation et l’utilisation de Docker, consultez [https://www.docker.com/](https://www.docker.com/).
+> Les déploiements de service local nécessitent une installation opérationnelle de Docker sur votre système local. Docker doit être en cours d’exécution avant de déployer un service local. Pour plus d’informations sur l’installation et l’utilisation de Docker, consultez [https://www.docker.com/](https://www.docker.com/).
 
 > [!WARNING]
-> Les déploiements de service web locaux ne sont pas pris en charge pour les scénarios de production.
+> Les déploiements de service local ne sont pas pris en charge pour les scénarios de production.
 
-Pour déployer en local, modifiez votre code pour utiliser `LocalWebservice.deploy_configuration()` afin de créer une configuration de déploiement. Puis, utilisez `Model.deploy()` pour déployer le service. L’exemple suivant déploie un modèle (contenu dans la variable `model`) sous forme de service web local :
+Pour déployer en local, modifiez votre code pour utiliser `LocalWebservice.deploy_configuration()` afin de créer une configuration de déploiement. Puis, utilisez `Model.deploy()` pour déployer le service. L’exemple suivant déploie un modèle (contenu dans la variable `model`) sous forme de service local :
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -173,14 +173,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the web service endpoint
+# Create a local deployment, using port 8890 for the  endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the web service is available on
+# Display the port that the  is available on
 print(service.port)
 ```
 
@@ -290,7 +290,7 @@ Il existe deux mesures permettant d’empêcher les codes d’état 503 :
     > [!IMPORTANT]
     > Cette modification n’entraîne pas la création de réplicas *plus rapidement*. Ils sont créés à un seuil d’utilisation inférieur. Au lieu d’attendre jusqu’à ce que le service soit utilisé à 70 %, la modification de la valeur sur 30 % provoque la création de réplicas lors d’une utilisation à 30 %.
     
-    Si le service web utilise déjà les réplicas maximum actuels et que des codes d’état 503 subsistent, augmentez la valeur `autoscale_max_replicas` pour augmenter le nombre maximal de réplicas.
+    Si le ///service utilise déjà le nombre maximal de réplicas actuel et que des codes d’état 503 subsistent, augmentez la valeur `autoscale_max_replicas` pour augmenter le nombre maximal de réplicas.
 
 * Modifiez le nombre minimal de réplicas. L’augmentation du nombre minimal de réplicas offre un plus grand pool pour gérer les pics entrants.
 
@@ -326,7 +326,7 @@ Dans certains cas, vous devrez peut-être déboguer interactivement le code Pyth
 > [!IMPORTANT]
 > Cette méthode de débogage ne fonctionne pas lorsque `Model.deploy()` et `LocalWebservice.deploy_configuration` sont utilisés pour déployer un modèle localement. Au lieu de cela, vous devez créer une image à l’aide de la classe [ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py). 
 >
-> Les déploiements de service web locaux nécessitent l’installation d’un Docker de travail sur votre système local. Docker doit être en cours d’exécution avant de déployer un service web local. Pour plus d’informations sur l’installation et l’utilisation de Docker, consultez [https://www.docker.com/](https://www.docker.com/).
+> Les déploiements de service local nécessitent une installation opérationnelle de Docker sur votre système local. Docker doit être en cours d’exécution avant de déployer un service local. Pour plus d’informations sur l’installation et l’utilisation de Docker, consultez [https://www.docker.com/](https://www.docker.com/).
 
 ### <a name="configure-development-environment"></a>Configurer l’environnement de développement
 

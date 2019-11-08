@@ -1,7 +1,7 @@
 ---
-title: Sécuriser des services web à l'aide de SSL
+title: Sécuriser le service web à l’aide de SSL
 titleSuffix: Azure Machine Learning
-description: Découvrez comment sécuriser un service web déployé par le biais d’Azure Machine Learning en activant HTTPS. HTTPS sécurise les données des clients à l’aide du protocole TLS (Transport Layer Security), une alternative au protocole SSL (Secure Socket Layer). Les clients utilisent également HTTPS pour vérifier l’identité du service web.
+description: Découvrez comment activer HTTPS afin de sécuriser un service web déployé par le biais d’Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,17 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034374"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489557"
 ---
-# <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>Utiliser SSL pour sécuriser un service web par le biais d'Azure Machine Learning
+# <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>Utiliser SSL pour sécuriser un service web par le biais d'Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Cet article vous expliquer comment sécuriser un service web déployé par le biais d’Azure Machine Learning.
+Cet article vous explique comment sécuriser un service web déployé par le biais d’Azure Machine Learning.
 
 Vous utilisez [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pour restreindre l’accès aux services web et sécuriser les données soumises par les clients. HTTPS permet de sécuriser les communications entre un client et un service web en chiffrant les communications entre les deux. Le chiffrement utilise [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS est toujours parfois appelé *SSL (Secure Sockets Layer)* , qui était le prédécesseur de TLS.
 
@@ -40,9 +41,9 @@ Voici le processus général visant à sécuriser un service web :
 
 2. Obtenir un certificat numérique.
 
-3. Déployer ou mettre à jour le service web sur lequel SSL est activé.
+3. Déployer ou mettre à jour le service sur lequel SSL est activé
 
-4. Mettre à jour votre DNS afin qu’il pointe vers le service web.
+4. Mettre à jour votre DNS pour pointer vers le service.
 
 > [!IMPORTANT]
 > Si vous effectuez un déploiement vers Azure Kubernetes Service (AKS), vous pouvez acheter votre propre certificat ou utiliser un certificat fourni par Microsoft. Si vous utilisez un certificat fourni par Microsoft, vous n'êtes pas tenu d'obtenir un nom de domaine ou un certificat SSL. Pour plus d’informations, consultez la section [Activer le protocole SSL et le déployer](#enable) de cet article.
@@ -75,7 +76,7 @@ Pour déployer (ou redéployer) le service avec le protocole SSL activé, défin
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Déployer AKS et FPGA (Field-Programmable Gate Array)
 
   > [!NOTE]
-  > Les informations contenues dans cette section s’appliquent également lorsque vous déployez un service web sécurisé pour l’interface visuelle. Si vous n’êtes pas habitué à utiliser le kit de développement logiciel (SDK) Python, consultez [Présentation du kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+  > Les informations contenues dans cette section s’appliquent également lorsque vous déployez un service web sécurisé pour le concepteur. Si vous n’êtes pas habitué à utiliser le kit de développement logiciel (SDK) Python, consultez [Présentation du kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 Lorsque vous déployez sur AKS, vous pouvez créer un cluster AKS ou attacher un cluster existant. Pour plus d’informations sur la création ou l’attachement d’un cluster, consultez [Déployer un modèle sur un cluster Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
   
@@ -151,7 +152,7 @@ Vous devez ensuite mettre à jour votre DNS afin qu’il pointe vers le service 
 
   Mettez à jour le DNS de l’adresse IP publique du cluster AKS sur l’onglet **Configuration**, sous **Paramètres** dans le volet de gauche. (Consultez l'image suivante.) L’adresse IP publique est un type de ressource créé sous le groupe de ressources qui contient les nœuds d’agent AKS et d’autres ressources de mise en réseau.
 
-  [![Azure Machine Learning : Sécurisation des services web avec SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning : Sécurisation du service avec SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>Mettre à jour le certificat SSL
 
@@ -248,5 +249,5 @@ aks_target.update(update_config)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Découvrez comment :
-+ [Utiliser un modèle Machine Learning déployé en tant que service web](how-to-consume-web-service.md)
++ [Consommer un modèle Machine Learning déployé en tant que ](how-to-consume-web-service.md)
 + [Exécuter en toute sécurité des expériences et une inférence dans un réseau virtuel Azure](how-to-enable-virtual-network.md)

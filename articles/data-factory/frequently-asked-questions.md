@@ -5,18 +5,16 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 26f1360d4ecd336d44f4fc03aabfa9a2c540e781
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785961"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481146"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -180,31 +178,95 @@ Vous pouvez utiliser la construction `@coalesce` dans les expressions pour gére
 
 ## <a name="mapping-data-flows"></a>Mappage des flux de données
 
-### <a name="which-data-factory-version-do-i-use-to-create-mapping-data-flows"></a>Quelle version de Data Factory dois-je utiliser pour créer des flux de données de mappage ?
-Utilisez la version V2 de Data Factory pour créer des flux de données de mappage.
-  
-### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>J’étais un client de préversion privée qui utilisait des flux de données, et j’ai utilisé la préversion Data Factory V2 pour les flux de données.
-Cette version est désormais obsolète. Utilisez Data Factory V2 pour les flux de données.
-  
-### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>Qu’est-ce qui a changé entre la préversion privée et la préversion publique limitée en ce qui concerne les flux de données ?
-Vous ne serez plus obligé d’apporter vos propres clusters Azure Databricks. Data Factory gère la création et la destruction du cluster lors de l’exécution de flux de données de mappage. Les jeux de données d’objets blob et les jeux de données Azure Data Lake Storage Gen2 sont divisés en jeux de données Apache Parquet et à texte délimité. Vous pouvez toujours utiliser Data Lake Storage Gen2 et le stockage d’objets blob pour stocker ces fichiers. Utilisez le service lié approprié pour ces moteurs de stockage.
-
-### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>Puis-je migrer mes fabriques en préversion privée vers Data Factory V2 ?
-
-Oui. [Suivez ces instructions](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
-
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>J’ai besoin d’aide pour dépanner ma logique de flux de données. Quelles informations dois-je fournir pour obtenir une aide ?
 
-Quand Microsoft fournit une aide ou une assistance au dépannage pour des flux de données, veuillez indiquer le script flux de données. Pour ce faire, procédez comme suit :
+Quand Microsoft fournit une aide ou une assistance au dépannage pour des flux de données, veuillez indiquer le script DataFlow. Il s’agit du script code-behind de votre graphique de Data Flow. À partir de l’interface utilisateur ADF, ouvrez votre flux de données, puis cliquez sur le bouton « Script » dans le coin supérieur droit. Copiez et collez ce script ou enregistrez-le dans un fichier texte.
 
-1. Dans le canevas de flux de données, sélectionnez **Script** dans l’angle supérieur droit. Ceci affichera le script de flux de données modifiable.
-3. Copiez et collez ce script ou enregistrez-le dans un fichier texte.
-
-### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Comment accéder à des données à l’aide des 80 autres types de jeux de données dans Data Factory ?
+### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Comment accéder à des données à l’aide des 90 autres types de jeux de données dans Data Factory ?
 
 La fonctionnalité de mappage de flux de données autorise actuellement Azure SQL Database, Azure SQL Data Warehouse, les fichiers texte délimités à partir de Stockage Blob Azure ou Azure Data Lake Storage Gen2, et les fichiers Parquet à partir du stockage d’objets blob ou Data Lake Storage Gen2 en mode natif pour la source et le récepteur. 
 
 Utilisez l’activité de copie pour indexer les données des autres connecteurs, puis exécutez une activité de flux de données pour transformer les données une fois qu’elles ont été indexées. Par exemple, votre pipeline copiera tout d’abord dans le stockage d’objets blob, puis une activité de flux de données utilisera un jeu de données dans la source pour transformer ces données.
+
+### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>Le runtime d’intégration auto-hébergé est-il disponible pour les flux de données ?
+
+Le runtime d’intégration auto-hébergé est une construction de pipeline ADF que vous pouvez utiliser avec l’activité de copie pour acquérir ou déplacer des données vers et depuis des sources de données et des récepteurs basés sur des machines virtuelles ou locaux. Effectuez d’abord une indexation des données avec une copie, puis le transfert de données pour la transformation, puis une copie ultérieure si vous devez replacer ces données transformées dans le magasin local.
+
+## <a name="wrangling-data-flows"></a>Flux de wrangling data
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>Quelles sont les régions prises en charge pour le flux de wrangling data ?
+
+Le flux de wrangling data est actuellement pris en charge dans les fabriques de données créées dans les régions suivantes :
+
+* Australie Est
+* Centre du Canada
+* Inde centrale
+* USA Centre
+* USA Est
+* USA Est 2
+* Japon Est
+* Europe Nord
+* Asie Sud-Est
+* États-Unis - partie centrale méridionale
+* Sud du Royaume-Uni
+* Centre-USA Ouest
+* Europe Ouest
+* USA Ouest
+* USA Ouest 2
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>Quelles sont les limitations et les contraintes imposées par l’utilisation d’un flux de wrangling data ?
+
+Les noms de jeux de données peuvent uniquement contenir des caractères alphanumériques. Les banques de données suivantes sont prises en charge :
+
+* Jeu de données DelimitedText dans le Stockage Blob Azure à l’aide de l’authentification par clé de compte
+* Jeu de données DelimitedText dans Azure Data Lake Storage Gen2 utilisant la clé de compte ou l’authentification du principal de service
+* Jeu de données DelimitedText dans Azure Data Lake Storage Gen1 utilisant l’authentification du principal de service
+* Azure SQL Database et Data Warehouse utilisant l’authentification SQL. Reportez-vous aux types SQL pris en charge. Il n’existe aucune prise en charge de Polybase ou de phase intermédiaire pour l’entrepôt de données.
+
+À ce stade, l’intégration du service Key Vault lié n’est pas prise en charge dans les flux de wrangling data.
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>Quelle est la différence entre le mappage et les flux de wrangling data ?
+
+Le mappage de flux de données permet de transformer des données à grande échelle sans aucun codage. Vous pouvez concevoir une tâche de transformation de données dans le canevas de flux de données en créant une série de transformations. Commencez par un certain nombre de transformations sources, suivies par des étapes de transformation de données. Réalisez votre flux de données avec un récepteur qui servira de destination à vos résultats. Le mappage du flux de données est très utile lors du mappage et de la transformation des données avec des schémas connus et inconnus dans les récepteurs et les sources.
+
+Les flux de wrangling data vous permettent d’effectuer une préparation et une exploration agiles des données à l’aide de l’éditeur web hybride Power Query en ligne à grande échelle via l’exécution de Spark. Si votre organisation fait partie des entreprises de plus en plus nombreuses à adopter la technologie des lacs de données, vous devez parfois simplement explorer un jeu de données ou créer un jeu de données dans le lac. Vous n’effectuez pas de mappage vers une cible connue. Les flux de wrangling data sont utilisés dans des scénarios analytiques moins formels et basés sur des modèles.
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Quelle est la différence entre les flux de données Power Platform et les flux de wrangling data ?
+
+Les Dataflows Power Platform permettent aux utilisateurs d’importer et de transformer des données provenant d'un large éventail de sources de données dans le Common Data Service et Azure Data Lake afin de créer des applications PowerApps, des rapports Power BI ou des automatisations Flow. Les Dataflows Power Platform utilisent les expériences éprouvées de préparation de données Power Query, similaires à Power BI et Excel. Les Dataflows Power Platform permettent également une réutilisation aisée au sein d'une organisation et gèrent automatiquement l’orchestration (par exemple, actualiser automatiquement les flux de données qui dépendent d’un autre flux de données lorsque l’ancien flux de données est actualisé).
+
+Azure Data Factory (ADF) est un service d’intégration de données géré qui permet aux ingénieurs de données et aux intégrateurs de données citoyens de créer des flux de travail hybrides complexes d’extraction-transformation-chargement (ETL) et d’extraction-chargement-transformation (ELT). Le flux de wrangling data dans ADF offre aux utilisateurs un environnement sans code et serverless, qui simplifie la préparation des données dans le cloud et s’adapte à n’importe quelle taille de données. Aucune gestion d’infrastructure n’est requise. Il utilise la technologie de préparation des données Power Query (également utilisée dans Power Platform flux, Excel, Power BI) pour préparer et mettre en forme les données. Conçus pour gérer l’ensemble des complexités et des défis d’échelle de l’intégration du Big Data, les flux de wrangling data permettent aux utilisateurs de préparer rapidement des données à grande échelle via l’exécution de Spark. Les utilisateurs peuvent créer des pipelines de données résilients dans un environnement visuel accessible avec notre interface basée sur un navigateur et laisser ADF gérer les complexités de l’exécution de Spark. Établissez des calendriers pour vos pipelines et surveillez les exécutions de vos flux de données à partir du portail de supervision ADF. Gérez facilement les contrats SLA de disponibilité des données avec les alertes et la supervision enrichie de la disponibilité dans ADF, ainsi que les fonctionnalités d’intégration et de déploiement continus prédéfinies pour enregistrer et gérer vos flux dans un environnement managé. Établissez des alertes et affichez des plans d’exécution pour valider que votre logique fonctionne comme prévu lorsque vous optimisez vos flux de données.
+
+### <a name="supported-sql-types"></a>Types SQL pris en charge
+
+Le flux de wrangling data prend en charge les types de données suivantes dans SQL. Vous obtiendrez une erreur de validation pour l’utilisation d’un type de données qui n’est pas pris en charge.
+
+* short
+* double
+* real
+* float
+* char
+* nchar
+* varchar
+* nvarchar
+* integer
+* int
+* bit
+* boolean
+* smallint
+* tinyint
+* bigint
+* long
+* text
+* date
+* datetime
+* datetime2
+* smalldatetime
+* timestamp
+* uniqueidentifier
+* Xml
+
+D’autres types de données seront pris en charge à l’avenir.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des instructions pas à pas pour créer une fabrique de données, consultez les tutoriels suivants :

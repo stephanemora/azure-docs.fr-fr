@@ -1,24 +1,24 @@
 ---
 title: Informations de référence sur le module Modifier les métadonnées
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Modifier les métadonnées d’Azure Machine Learning service pour modifier les métadonnées associées aux colonnes d’un jeu de données.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Modifier les métadonnées d’Azure Machine Learning pour changer les métadonnées associées aux colonnes d’un jeu de données.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 2c8224edbe95c8185e390c2ce48cbb4263f97586
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693830"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497948"
 ---
 # <a name="edit-metadata-module"></a>Module Modifier les métadonnées
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning service.
+Cet article décrit un module inclus dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez le module Modifier les métadonnées pour modifier les métadonnées associées aux colonnes d’un jeu de données. La valeur et le type de données du jeu de données sont modifiés après l’utilisation du module Modifier les métadonnées.
 
@@ -98,4 +98,4 @@ Les modifications de métadonnées standard peuvent être les suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service.
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

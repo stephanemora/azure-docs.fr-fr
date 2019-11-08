@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 2647a8c33bf777cb2d97dcfe89799097ad719ac3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077021"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498163"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planifier un réseau virtuel pour Azure HDInsight
 
@@ -248,6 +248,10 @@ Si vous prévoyez d’utiliser un **pare-feu** et d’accéder au cluster depuis
 Pour obtenir la liste des ports utilisés pour des services spécifiques, voir le document [Ports utilisés par les services Apache Hadoop sur HDInsight](hdinsight-hadoop-port-settings-for-services.md).
 
 Pour plus d’informations sur les règles de pare-feu pour les appliances virtuelles, voir le document [Scénario d’appliance virtuelle](../virtual-network/virtual-network-scenario-udr-gw-nva.md).
+
+## <a name="load-balancing"></a>Équilibrage de la charge
+
+Lorsque vous créez un cluster HDInsight, un équilibreur de charge est également créé. Le type de cet équilibreur de charge se trouve au [niveau de la référence SKU de base](../load-balancer/load-balancer-overview.md#skus) qui a certaines contraintes. L’une de ces contraintes est que si vous avez deux réseaux virtuels dans des régions différentes, vous ne pouvez pas vous connecter aux équilibreurs de charge de base. Pour plus d’informations, consultez [FAQ sur les réseaux virtuels : contraintes sur le peering de réseaux virtuels globaux](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

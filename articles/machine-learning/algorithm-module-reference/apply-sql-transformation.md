@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 8eede9d1fbee7d8b70f6b6924b9767b4d3f4e0bf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 62c61d589324fe8364fe4630b3cf2cc64e1860b1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694265"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493925"
 ---
 # <a name="apply-sql-transformation"></a>Appliquer une transformation SQL
 
-Cet article décrit un module de l’interface visuelle d’Azure Machine Learning.
+Cet article décrit un module du concepteur Azure Machine Learning (préversion).
 
 À l’aide du module Appliquer une transformation SQL, vous pouvez effectuer les opérations suivantes :
   

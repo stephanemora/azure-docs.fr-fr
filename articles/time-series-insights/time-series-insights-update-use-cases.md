@@ -1,25 +1,25 @@
 ---
 title: Cas d’usage de la préversion d’Azure Time Series Insights | Microsoft Docs
 description: Comprendre les cas d’usage de la préversion d’Azure Time Series Insights.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 437f93e35040a93fb0c3098d6ec53883c3f856a7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: b2c1aec7f5b653824ab999da2706549e54d47e3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553290"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492068"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Cas d’usage de la préversion d’Azure Time Series Insights
 
-Cet article récapitule plusieurs cas d’usage courants de la préversion d’Azure Time Series Insights. Les recommandations de cet article constituent le point de départ pour développer vos applications et solutions avec Time Series Insights.
+Cet article récapitule plusieurs cas d’usage courants d’Azure Time Series Insights (préversion). Les recommandations de cet article constituent le point de départ pour développer vos applications et solutions avec Time Series Insights.
 
 Plus précisément, cet article répond aux questions suivantes :
 
@@ -43,18 +43,18 @@ Explorez et analysez instantanément des milliards d’événements pour repére
 La plupart des clients s’accordent pour dire que l’une des fonctionnalités les plus intéressantes de Time Series Insights est la rapidité avec laquelle les informations sont fournies :
 
 * Time Series Insights ne requiert aucune préparation de données initiale. 
-* Très rapide, il vous connecte à des milliards d’événements dans votre environnement Azure IoT Hub ou Azure Event Hubs en quelques minutes. 
+* Très rapide, il vous connecte à des milliards d’événements dans votre environnement Azure IoT Hub ou d’instances Azure Event Hubs en quelques minutes. 
 * Une fois connecté, vous pouvez visualiser et analyser des milliards d’événements pour repérer les anomalies et découvrir les tendances cachées de vos données.
 
 Time Series Insights est intuitif et simple à utiliser. Vous pouvez interagir avec vos données sans avoir à écrire une seule ligne de code. En outre, il n’est pas nécessaire d’apprendre un nouveau langage, bien que Time Series Insights fournisse un langage de requête texte précis pour les utilisateurs avancés qui maîtrisent SQL. Quant aux novices, ils peuvent utiliser la plateforme via un mode d’exploration simplifié.
 
-Les clients tirent parti de la vitesse de diagnostic des problèmes liés aux ressources. Ils peuvent effectuer des analyses d’opérations de développement pour identifier la cause racine d’un bogue dans une solution IoT. Ils peuvent également identifier les zones à marquer pour investigation dans le cadre de leurs initiatives en science des données.  
+Les clients tirent parti de la vitesse de diagnostic des problèmes liés aux ressources. Ils peuvent effectuer des analyses d’opérations de développement pour identifier la cause racine d’un bogue dans une solution IoT. Ils peuvent également identifier les zones à marquer pour investigation dans le cadre de leurs initiatives en science des données. 
 
 Il existe trois méthodes principales pour interagir avec les données stockées dans Time Series Insights :
 
 - La méthode la plus simple pour commencer consiste à utiliser l’explorateur de la préversion de Time Series Insights. Vous pouvez l’utiliser pour visualiser rapidement toutes vos données IoT au même endroit. Il fournit des outils tels qu’une carte thermique pour vous aider à détecter les anomalies dans vos données. Il propose également une vue en perspective. Vous pouvez l’utiliser pour comparer jusqu’à quatre vues provenant d’un ou plusieurs environnements Time Series Insights dans un tableau de bord unique. Le tableau de bord vous donne une vue d’ensemble des données de série chronologique de tous vos emplacements. En savoir plus sur [l’explorateur de la préversion de Time Series Insights](./time-series-insights-update-explorer.md). Pour planifier votre environnement Time Series Insights, consultez [Time Series Insights planning](./time-series-insights-update-plan.md) (Planification de Time Series Insights).
 
-- La deuxième méthode consiste à utiliser le kit de développement logiciel (SDK) JavaScript pour incorporer rapidement de puissants graphiques dans votre application web. Avec seulement quelques lignes de code, vous pouvez créer des requêtes puissantes. Utilisez-les pour remplir les graphiques en courbes, les graphiques à secteurs, les graphiques à barres, les cartes thermiques, les grilles de données et bien plus encore. Tous ces éléments sont prêts à l’emploi dans le kit de développement logiciel (SDK). Le kit de développement logiciel (SDK) extrait également les API de requête Time Series Insights. Vous pouvez les utiliser pour créer des prédicats de type SQL afin d’interroger les données que vous souhaitez afficher dans un tableau de bord. Pour les solutions hybrides de couche présentation, Time Series Insights propose des URL paramétrables. Elles fournissent des points de connexion transparents avec l’explorateur de la préversion de Time Series Insights pour des analyses détaillées des données.
+- La deuxième méthode consiste à utiliser le kit SDK JavaScript pour incorporer rapidement de puissants graphiques et graphes dans votre application web. Avec seulement quelques lignes de code, vous pouvez créer des requêtes puissantes. Utilisez-les pour remplir les graphiques en courbes, les graphiques à secteurs, les graphiques à barres, les cartes thermiques, les grilles de données et bien plus encore. Tous ces éléments sont prêts à l’emploi dans le kit de développement logiciel (SDK). Le kit de développement logiciel (SDK) extrait également les API de requête Time Series Insights. Vous pouvez les utiliser pour créer des prédicats de type SQL afin d’interroger les données que vous souhaitez afficher dans un tableau de bord. Pour les solutions hybrides de couche présentation, Time Series Insights propose des URL paramétrables. Elles fournissent des points de connexion transparents avec l’explorateur de la préversion de Time Series Insights pour des analyses détaillées des données.
 
     * Pour en savoir plus sur le SDK JavaScript, consultez la [bibliothèque de client JS Time Series Insights](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) et la documentation sur le [client Time Series Insights](https://github.com/Microsoft/tsiclient).
 
@@ -96,7 +96,7 @@ Pour combler les lacunes des données IoT pour effectuer des analyses avancées,
 
     Time Series Insights peut servir de source fiable pour toutes les données au sein d’une organisation. Il crée un référentiel central pour les charges de travail en aval à utiliser. Étant donné que Time Series Insights est un service de stockage en temps quasi réel, les modèles d’analyse avancée peuvent s’enrichir en permanence à partir des données de télémétrie IoT entrantes. Par conséquent, les modèles peuvent effectuer des prévisions plus précises.
 
-- En outre, la sortie des modèles de Machine Learning et de prédiction peut être injectée dans Time Series Insights pour visualiser et stocker leurs résultats. Cette procédure permet aux organisations d’optimiser et d’ajuster leurs modèles. Time Series Insights vous permet de facilement visualiser les données de télémétrie sur le même plan que les résultats du modèle qui a bénéficié de l’apprentissage. De cette façon, il permet aux équipes de science des données d’identifier les anomalies et les modèles.  
+- En outre, la sortie des modèles Machine Learning et de prédiction peut être injectée dans Time Series Insights pour visualiser et stocker leurs résultats. Cette procédure permet aux organisations d’optimiser et d’ajuster leurs modèles. Time Series Insights vous permet de facilement visualiser les données de télémétrie sur le même plan que les résultats du modèle qui a bénéficié de l’apprentissage. De cette façon, il permet aux équipes de science des données d’identifier les anomalies et les modèles. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

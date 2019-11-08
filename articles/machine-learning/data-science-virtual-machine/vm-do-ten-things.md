@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6af9f2c80915745f995144c24ae1649fb02a31ae
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 75a685dc90db9133ee9bc5d52d046246270ea32a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70192271"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497613"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données de Windows
 
@@ -85,12 +85,7 @@ Une fois dans le notebook, vous pouvez explorer vos données, générer le modè
 ## <a name="train-and-deploy-models-by-using-azure-machine-learning"></a>Entraîner et déployer des modèles à l’aide d’Azure Machine Learning
 Une fois que vous avez créé et validé votre modèle, l’étape suivante consiste généralement à le déployer en production. Cette étape permet à vos applications clientes d’appeler les prédictions de modèle en temps réel ou par lots. Azure Machine Learning fournit un mécanisme permettant de faire fonctionner un modèle généré avec R ou Python.
 
-Quand vous opérationnalisez votre modèle dans Azure Machine Learning, un service web est exposé. Il permet aux clients d’effectuer des appels REST qui passent des paramètres d’entrée et reçoivent des prédictions du modèle en tant que sorties.   
-
-> [!NOTE]
-> Si vous n’êtes pas encore inscrit à Azure Machine Learning, vous pouvez obtenir un espace de travail gratuit ou standard en vous rendant sur la page d’accueil [Azure Machine Learning Studio](https://studio.azureml.net/) et en sélectionnant **Getting Started** (Bien démarrer).   
-> 
-> 
+Quand vous opérationnalisez votre modèle dans Azure Machine Learning, un service web est exposé. Il permet aux clients d’effectuer des appels REST qui passent des paramètres d’entrée et reçoivent des prédictions du modèle en tant que sorties.
 
 ### <a name="build-and-operationalize-python-models"></a>Générer et opérationnaliser des modèles Python
 Voici un extrait de code développé dans un notebook Jupyter Python qui génère un modèle simple à l’aide de la bibliothèque Scikit-learn :
@@ -809,9 +804,9 @@ pd.read_sql(queryString, connection)
 
 ![Premières lignes de données de la table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-#### <a name="read-data-from-hdi-by-using-machine-learning-reader-module"></a>Lire des données à partir de HDI à l’aide de Machine Learning : module lecteur
+#### <a name="read-data-from-hdi-by-using-azure-machine-learning-studio-classic-reader-module"></a>Lire des données à partir de HDI avec Azure Machine Learning Studio (classique) : module lecteur
 
-Vous pouvez également utiliser le module lecteur dans Machine Learning Studio pour accéder à la base de données dans un cluster Hadoop. Entrez les informations d’identification de votre compte Stockage Azure et de vos clusters HDI pour pouvoir générer des modèles Machine Learning à l’aide de la base de données des clusters HDI.
+Vous pouvez également utiliser le module lecteur dans Azure Machine Learning Studio (classique) pour accéder à la base de données dans un cluster Hadoop. Entrez les informations d’identification de votre compte Stockage Azure et de vos clusters HDI pour pouvoir générer des modèles Machine Learning à l’aide de la base de données des clusters HDI.
 
 ![Propriétés du module lecteur](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 

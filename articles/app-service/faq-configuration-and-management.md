@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 68d0f693d0cc7d8db8e6f697ff8907400a7aca50
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 111ee6cda46677b3b0fc39f5a84268e6ac192da9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121328"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470536"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -43,12 +43,12 @@ Pour savoir comment acheter et configurer un domaine personnalisé pour votre ap
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>Comment charger et configurer un certificat SSL existant pour mon application web ?
 
-Pour découvrir comment charger et configurer un certificat SSL personnalisé existant, voir [Liaison de votre certificat SSL](app-service-web-tutorial-custom-ssl.md#upload).
+Pour découvrir comment charger et configurer un certificat SSL personnalisé existant, consultez [Ajouter un certificat SSL à votre application App Service](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>Comment acheter et configurer un nouveau certificat SSL dans Azure pour mon application web ?
 
-Pour découvrir comment acheter et configurer un certificat SSL pour votre application web App Service, voir [Acheter et configurer un certificat SSL pour votre service Azure App Service](web-sites-purchase-ssl-web-site.md).
+Pour découvrir comment acheter et configurer un certificat SSL pour votre application web App Service, voir [Acheter et configurer un certificat SSL pour votre service Azure App Service](configure-ssl-certificate.md).
 
 
 ## <a name="how-do-i-move-application-insights-resources"></a>Comment déplacer des ressources Application Insights ?

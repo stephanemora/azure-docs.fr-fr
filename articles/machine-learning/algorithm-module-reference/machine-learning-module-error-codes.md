@@ -1,6 +1,6 @@
 ---
 title: Résolution des erreurs de module
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Résolution des exceptions des modules dans Azure Machine Learning Studio à l’aide de codes d’erreur
 services: machine-learning
 ms.service: machine-learning
@@ -8,25 +8,25 @@ ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: a1a6817c08223b360c08804e0595f12f2947ea5f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b07b1fc14ac7ac72a30f75a098b4aab35f2de713
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693073"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497727"
 ---
 # <a name="exceptions-and-error-codes-for-algorithm--module-reference"></a>Exceptions et codes d’erreur pour les algorithmes et informations de référence sur les modules
 
-Découvrez les messages d’erreur et codes d’exception que vous pouvez rencontrer en utilisant des modules dans Azure Machine Learning Studio. 
+Découvrez les messages d’erreur et codes d’exception que vous pouvez rencontrer en utilisant des modules dans le concepteur Azure Machine Learning (préversion). 
 
-Pour résoudre le problème, cherchez l’erreur dans cet article afin d’en connaître les causes courantes. Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans Studio :  
+Pour résoudre le problème, cherchez l’erreur dans cet article afin d’en connaître les causes courantes. Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans le concepteur :  
  
 - Cliquez sur le lien **Afficher le journal de sortie** dans le volet de droite et faites défiler vers le bas. Le message d’erreur détaillé est affiché dans les deux dernières lignes de la fenêtre.  
   
 - Sélectionnez le module qui présente l’erreur et cliquez sur la croix rouge. Seul le texte d’erreur correspondant s’affiche.  
   
-Si le texte du message n’est pas utile, envoyez-nous des informations sur le contexte et les ajouts ou les modifications souhaités. Vous pouvez soit envoyer vos commentaires sur l’erreur, soit visiter le [forum Azure Machine Learning STUDIO](https://aka.ms/aml-forum-studio) pour y poser une question.  
+Si le texte du message n’est pas utile, envoyez-nous des informations sur le contexte et les ajouts ou les modifications souhaités en nous faisant part de vos commentaires.
 
 
 ## <a name="error-0001"></a>Erreur 0001  
@@ -163,9 +163,9 @@ Si le texte du message n’est pas utile, envoyez-nous des informations sur le c
 ## <a name="error-0009"></a>Erreur 0009  
  Une exception se produit lorsque le nom du compte de stockage Azure ou le nom du conteneur n’est pas spécifié correctement.  
   
-Cette erreur se produit dans Azure Machine Learning Studio lorsque vous spécifiez des paramètres pour un compte de stockage Azure, mais que le nom ou le mot de passe ne peut pas être résolu. Les erreurs sur les mots de passe ou les noms de compte peuvent se produire pour de nombreuses raisons :
+Cette erreur se produit dans le concepteur Azure Machine Learning quand vous spécifiez des paramètres pour un compte de stockage Azure, mais que le nom ou le mot de passe ne peut pas être résolu. Les erreurs sur les mots de passe ou les noms de compte peuvent se produire pour de nombreuses raisons :
  
- + Le type du compte est incorrect. Certains nouveaux types de comptes ne sont pas pris en charge pour une utilisation avec Machine Learning Studio. Pour plus de détails, consultez [Importer des données](import-data.md).
+ + Le type du compte est incorrect. Certains nouveaux types de comptes ne sont pas pris en charge pour une utilisation avec le concepteur Machine Learning. Pour plus de détails, consultez [Importer des données](import-data.md).
  + Le nom de compte que vous avez entré est incorrect
  + Le compte n’existe plus
  + Le mot de passe du compte de stockage est erroné ou a changé.
@@ -1063,7 +1063,7 @@ Cette erreur peut également se produire si vous essayez d’utiliser une colonn
   
 **Resolution:**
 
-1. In Azure Machine Learning Studio, right-click the module that has the error, and select **View Log**.
+1. In Azure Machine Learning designer, right-click the module that has the error, and select **View Log**.
 2. Examine the standard error log of the module, which contains the stack trace.
     + Lines beginning with [ModuleOutput] indicate output from R.
     + Messages from R marked as **warnings** typically do not cause the pipeline to fail.

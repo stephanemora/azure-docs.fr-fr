@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73522770"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612064"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -170,15 +170,6 @@ La réservation de disque Azure est achetée pour une région et une référence
 Vous recevez une notification par e-mail 30 jours avant l’expiration, puis à nouveau au moment de l’expiration. Une fois la réservation expirée, les disques déployés continuent à fonctionner et sont facturés en fonction au [tarif de paiement à l'utilisation](https://azure.microsoft.com/pricing/details/managed-disks/) le plus récent.
 
 ## <a name="ultra-disks"></a>Disques Ultra
-
-**Quelles sont les régions qui prennent en charge les disques Ultra ?**
-- USA Est 2
-- Asie Sud-Est
-- Europe Nord
-
-**Quelles sont les séries de machines virtuelles qui prennent en charge les disques Ultra ?**
-- ESv3
-- DSv3
 
 **Quel débit dois-je définir pour mon disque Ultra ?**
 Si vous ne savez pas comment configurer le débit de votre disque, nous vous recommandons de commencer par une taille d’E/S de 16 Kio et d’ajuster les performances à partir de cette valeur quand vous supervisez votre application. La formule est : Débit en Mbits/s = nombre d’IOPS * 16 / 1 000.

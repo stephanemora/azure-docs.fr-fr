@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b32f3762f2546a4d4956bf38c914173657e9d3da
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164051"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499868"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Didacticiel : Connecter des réseaux virtuels à l’aide du peering de réseaux virtuels en utilisant le portail Azure
 
@@ -44,7 +44,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Créer des réseaux virtuels
 
-1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
 3. Dans la page **Bases**, entrez ou sélectionnez les informations suivantes, puis acceptez les valeurs par défaut pour les autres paramètres :
 
@@ -54,7 +54,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
     |Groupe de ressources| Sélectionnez **Créer** et entrez *myResourceGroup*.|
     |Région| Sélectionnez **USA Est**.|
     |Nom|myVirtualNetwork1|
-   
+
 4. Dans la page **Adresses IP**, entrez 10.0.0.0/16 dans le champ **Espace d’adressage**. Cliquez sur le bouton **Ajouter un sous-réseau** situé dessous, puis entrez Subnet1 sous **Nom du sous-réseau** et 10.0.0.0/24 sous **Plage d’adresses de sous-réseau**.
    
 5. Effectuez à nouveau les étapes 1 à 3, avec les modifications suivantes :
@@ -69,7 +69,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 ## <a name="peer-virtual-networks"></a>Appairer des réseaux virtuels
 
 1. Dans la zone de recherche en haut du portail Azure, commencez à taper *MyVirtualNetwork1*. Quand la mention **myVirtualNetwork1** apparaît dans les résultats de recherche, sélectionnez-la.
-2. Sélectionnez **Peerings** (Appairages) sous **PARAMÈTRES**, puis **+ Ajouter**, comme indiqué dans l’image suivante :
+2. Sélectionnez **Peerings** sous **Paramètres**, puis sélectionnez **Ajouter**, comme indiqué dans l’image suivante :
 
     ![Créer un peering](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
@@ -96,7 +96,7 @@ Créez une machine virtuelle sur chaque réseau virtuel afin de pouvoir établir
 
 ### <a name="create-the-first-vm"></a>Créer la première machine virtuelle
 
-1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. Vous pouvez sélectionner différents systèmes d’exploitation, mais les étapes restantes partent du principe que vous avez sélectionné **Windows Server 2016 Datacenter**. 
 3. Entrez ou sélectionnez les informations suivantes pour **De base**, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Créer** :
 

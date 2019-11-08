@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8264030593a1e44b2a50d9f95dce925136eb4d26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: edb100901dea4419d65635f9214555c27c1949f0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965984"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494061"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil virtuel Windows
 
@@ -22,7 +22,7 @@ Testez Azure IoT Edge dans ce démarrage rapide en déployant du code conteneuri
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
-1. Créez un IoT Hub.
+1. Créez un hub IoT.
 2. Inscrivez un appareil IoT Edge dans votre IoT Hub.
 3. Installez et démarrez le runtime IoT Edge sur votre appareil virtuel.
 4. Déployez à distance un module sur un appareil IoT Edge et envoyez les données de télémétrie à IoT Hub.
@@ -139,7 +139,7 @@ Utilisez PowerShell pour télécharger et installer le runtime IoT Edge. Utilise
 
 1. Si vous ne l’avez pas encore fait, suivez les étapes de la rubrique [Inscrire un nouvel appareil Azure IoT Edge](how-to-register-device.md) pour inscrire votre appareil et récupérer la chaîne de connexion d’appareil.
 
-2. Exécutez PowerShell ISE en tant qu’administrateur.
+2. Sur la machine virtuelle, exécutez PowerShell en tant qu’administrateur.
 
    >[!NOTE]
    >Utilisez une session AMD64 de PowerShell pour installer IoT Edge, pas PowerShell (x86). Si vous ne savez pas quel type de session vous utilisez, exécutez la commande suivante :
@@ -148,7 +148,7 @@ Utilisez PowerShell pour télécharger et installer le runtime IoT Edge. Utilise
    >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
    >```
 
-3. La commande **Deploy-IoTEdge** vérifie que votre ordinateur Windows a une version prise en charge, active la fonctionnalité des conteneurs, télécharge le runtime moby, puis télécharge le runtime IoT Edge.
+3. La commande **Deploy-IoTEdge** vérifie que votre ordinateur Windows a une version prise en charge, active la fonctionnalité des conteneurs, télécharge le runtime Moby, puis télécharge le runtime IoT Edge.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `

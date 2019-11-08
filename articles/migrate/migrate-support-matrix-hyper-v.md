@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802185"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498692"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Tableau de prise en charge pour l’évaluation et la migration Hyper-V
 
@@ -35,26 +35,7 @@ Le tableau récapitule les scénarios pris en charge pour les machines virtuelle
 --- | ---
 Autorisations Azure | Vous avez besoin d’autorisations Contributeur ou Propriétaire dans l’abonnement pour créer un projet Azure Migrate.
 Machines virtuelles Hyper-V | Évaluez jusqu'à 35 000 machines virtuelles Hyper-V au sein d'un même projet. Vous pouvez avoir plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des machines virtuelles VMware et des machines virtuelles Hyper-V, jusqu’aux limites d’évaluation.
-Geography | Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques. Même si vous pouvez créer des projets dans des zones géographiques spécifiques, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
-
-  **Zone géographique** | **Emplacement de stockage des métadonnées**
-  --- | ---
-  Azure Government | Gouvernement américain - Virginie
-  Asie-Pacifique | Asie Est ou Asie Sud-Est
-  Australie | Australie Est ou Australie Sud-Est
-  Brésil | Brésil Sud
-  Canada | Canada Centre ou Canada Est
-  Europe | Europe Nord ou Europe Ouest
-  France | France Centre
-  Inde | Inde Centre ou Inde Sud
-  Japon |  Japon Est ou Japon Ouest
-  Corée du Sud | Corée Centre ou Corée Sud
-  Royaume-Uni | Royaume-Uni Sud ou Royaume-Uni Ouest
-  États-Unis | USA Centre ou USA Ouest 2
-
-
- > [!NOTE]
- > La prise en charge d’Azure Government est actuellement disponible pour l’[ancienne version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) d’Azure Migrate uniquement.
+Geography | [Passer en revue](migrate-support-matrix.md#supported-geographies) les zones géographiques prises en charge.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>Évaluation - Exigences de l'hôte Hyper-V

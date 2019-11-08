@@ -1,7 +1,7 @@
 ---
 title: Informations de référence sur le module d’extraction des caractéristiques de N-grammes du texte
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment caractériser des données texte à l’aide du module d’extraction des caractéristiques de N-grammes du texte dans Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment caractériser des données texte à l’aide du module d’extraction des caractéristiques de N-grammes du texte dans Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 0803627b8d2e9fb3db2c7c96d7dd74e9b275f5d8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 71c1afd294b880f68849b283ea1a4b058d744801
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71171004"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497841"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Informations de référence sur le module d’extraction des caractéristiques de N-grammes du texte
 
-Cet article décrit un module de l’interface visuelle (préversion) pour Azure Machine Learning service. Utilisez le module Extract N-Gram Features from Text (Extraire les caractéristiques de N-grammes du texte) pour *caractériser* des données texte non structurées. 
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion). Utilisez le module Extract N-Gram Features from Text (Extraire les caractéristiques de N-grammes du texte) pour *caractériser* des données texte non structurées. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuration du module Extract N-Gram Features from Text
 
@@ -32,7 +32,7 @@ Le module prend en charge les scénarios suivants pour l’utilisation d’un di
 
 ### <a name="create-a-new-n-gram-dictionary"></a>Créer un dictionnaire de N-grammes
 
-1.  Ajoutez le module Extract N-Gram Features from Text à votre expérience et connectez le jeu de données contenant le texte que vous souhaitez traiter.
+1.  Ajoutez le module Extraire les caractéristiques de N-grammes du texte à votre pipeline et connectez le jeu de données contenant le texte que vous souhaitez traiter.
 
 1.  Utilisez **Text column** (Colonne Texte) pour choisir une colonne de type chaîne contenant le texte à extraire. Étant donné que les résultats sont détaillés, vous ne pouvez traiter qu’une seule colonne à la fois.
 
@@ -73,11 +73,11 @@ Le module prend en charge les scénarios suivants pour l’utilisation d’un di
 
 1. Sélectionnez l’option **Normalize n-gram feature vectors** (Normaliser les vecteurs de caractéristique N-grammes) pour normaliser les vecteurs de caractéristique. Si cette option est activée, chaque vecteur de caractéristiques de N-grammes est divisé par sa norme L2.
 
-1. Exécutez l’expérience.
+1. Exécuter le pipeline.
 
 ### <a name="use-an-existing-n-gram-dictionary"></a>Utiliser un dictionnaire de N-grammes existant
 
-1.  Ajoutez le module Extract N-Gram Features from Text à votre expérience et connectez le jeu de données contenant le texte à traiter au port **Dataset** (Jeu de données).
+1.  Ajoutez le module Extraire les caractéristiques de N-grammes du texte à votre pipeline et connectez le jeu de données contenant le texte à traiter au port **Jeu de données**.
 
 1.  Utilisez **Text column** (Colonne Texte) pour sélectionner la colonne de texte contenant le texte que vous souhaitez caractériser. Par défaut, le module sélectionne toutes les colonnes de type **chaîne**. Pour des résultats optimaux, traitez une seule colonne à la fois.
 
@@ -92,7 +92,7 @@ Le module prend en charge les scénarios suivants pour l’utilisation d’un di
 
 1.  Pour toutes les autres options, consultez les descriptions des propriétés dans la [section précédente](#create-a-new-n-gram-dictionary).
 
-1.  Exécutez l’expérience.
+1.  Exécuter le pipeline.
 
 ### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Noter ou publier un modèle qui utilise des N-grammes
 
@@ -102,7 +102,7 @@ Le module prend en charge les scénarios suivants pour l’utilisation d’un di
 
 1.  Dans le flux de travail de scoring, modifiez le module Extract N-Gram Features from Text et définissez le paramètre **Vocabulary mode** sur **ReadOnly**. Laissez tout le reste identique.
 
-1.  Pour publier l’expérience, enregistrez la sortie **Result Vocabulary** (Vocabulaire de résultat) en tant que jeu de données.
+1.  Pour publier le pipeline, enregistrez la sortie **Vocabulaire de résultat** en tant que jeu de données.
 
 1.  Connectez le jeu de données enregistré au module Extract N-Gram Features from Text dans votre graphe de scoring.
 
@@ -137,4 +137,4 @@ Vous pouvez mettre à jour ce jeu de données manuellement, mais vous risquez d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

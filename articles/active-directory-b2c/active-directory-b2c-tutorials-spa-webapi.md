@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 30e7059605ef86e6afd86251db0e416c9143a9ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374244"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475116"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Les étendues permettent de gérer l'accès aux ressources protégées. Elles so
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Notez la **VALEUR DE PORTÉE COMPLÈTE** de l’étendue `demo.read` pour l’utiliser dans une étape ultérieure, quand vous configurez l’application monopage. La valeur d’étendue complète est similaire à `https://yourtenant.onmicrosoft.com/api/demo.read`.
+Enregistrez la valeur sous **ÉTENDUES** de l’étendue `demo.read` pour l’utiliser plus tard, quand vous configurerez l’application monopage. La valeur d’étendue complète est similaire à `https://contosob2c.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
@@ -133,8 +133,8 @@ Pour modifier les paramètres dans l’application monopage :
 
 1. Ouvrez le fichier *index.html* dans le projet [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] que vous avez téléchargé ou cloné dans le tutoriel précédent.
 1. Configurez l’exemple avec l’URI pour l’étendue *demo.read* que vous avez créée précédemment et l’URL de l’API web.
-    1. Dans la définition de `appConfig`, remplacez la valeur de `b2cScopes` par l’URI complet de l’étendue (la valeur de **VALEUR DE PORTÉE COMPLÈTE** que vous avez notée précédemment).
-    1. Remplacez la valeur de `webApi` par la valeur de `applicationURL` que vous avez spécifiée dans la section précédente.
+    1. Dans la définition de `appConfig`, remplacez la valeur de `b2cScopes` par l’URI complet de l’étendue (la valeur **ÉTENDUE** que vous avez enregistrée précédemment).
+    1. Remplacez la valeur `webApi` par l’URI de redirection que vous avez ajouté lors de l’inscription de l’application API Web dans une étape antérieure.
 
     La définition de `appConfig` doit être similaire au bloc de code suivant (avec le nom de votre locataire à la place de `<your-tenant-name>`) :
 

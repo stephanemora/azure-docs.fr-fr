@@ -6,19 +6,19 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 10/07/2019
 ms.author: dapine
-ms.openlocfilehash: cbf11c13bfb5c90739ea67fab92df08796a88e50
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2cb2cfbdfbac5d496f109d85977b41a050766ab0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717283"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499106"
 ---
 ## <a name="create-an-computer-vision-resource"></a>Créer une ressource Vision par ordinateur
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Cliquez sur [Créer une ressource **Vision par ordinateur**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+1. Cliquez sur la ressource [Créer **Vision par ordinateur**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
 1. Entrez tous les paramètres obligatoires :
 
     |Paramètre|Valeur|
@@ -29,10 +29,5 @@ ms.locfileid: "67717283"
     |Niveau de tarification|`F0` - le niveau tarifaire minimal|
     |Groupe de ressources|Sélectionner un groupe de ressources disponible|
 
-1. Cliquez sur **Créer** et attendez que la ressource soit créée. Après sa création, accédez à la page de ressources
-1. Collectez le `endpoint` configuré et une clé d’API :
-
-    |Onglet Ressource dans le portail|Paramètre|Valeur|
-    |--|--|--|
-    |**Vue d'ensemble**|Point de terminaison|Copiez le point de terminaison. Il ressemble à `https://computer-vision.cognitiveservices.azure.com/`|
-    |**Clés**|Clé de l’API|Copiez 1 des deux clés. Il s’agit d’une chaîne de 32 caractères alphanumériques sans espaces ni tirets, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+1. Cliquez sur **Créer** et attendez que la ressource soit créée. Après sa création, accédez à la page de ressources.
+1. Collectez les `{ENDPOINT_URI}` et `{API_KEY}` configurés, consultez [collecte des paramètres requis](../computer-vision-how-to-install-containers.md#gathering-required-parameters) pour obtenir plus d’informations.

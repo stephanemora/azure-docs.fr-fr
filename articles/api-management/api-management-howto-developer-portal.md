@@ -1,6 +1,6 @@
 ---
-title: Accès et personnalisation du nouveau portail des développeurs - Gestion des API Azure | Microsoft Docs
-description: Découvrez comment utiliser le nouveau portail des développeurs pour la gestion des API.
+title: Vue d’ensemble du portail des développeurs Gestion des API Azure – Gestion des API Azure | Microsoft Docs
+description: Découvrez le portail des développeurs dans la Gestion des API Azure.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -10,105 +10,125 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c015b1afbc61e1501e656aaa480ee2a4e19ba094
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 1311328dde6fc70202ce3c6271b33f79d52102cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672786"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472227"
 ---
-# <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Accès et personnalisation du nouveau portail des développeurs pour la gestion des API Azure
+# <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
-Cet article explique comment accéder au nouveau portail des développeurs dédié à la gestion des API Azure. Il vous guide tout au long de l’expérience d’utilisation de l’éditeur visuel, lors de l’ajout et de la modification de contenu, et de la personnalisation de l’apparence du site web.
+Le portail des développeurs est un site web généré automatiquement et entièrement personnalisable avec la documentation de vos API. C’est là que les consommateurs d’API peuvent découvrir vos API, apprendre à les utiliser, y demander l’accès et les essayer.
 
-![Nouveau portail des développeurs pour la gestion des API](media/api-management-howto-developer-portal/cover.png)
+Cet article décrit les différences entre la version auto-hébergée et la version managée du portail des développeurs dans la Gestion des API. Il explique également son architecture et répond aux questions fréquentes.
 
-## <a name="prerequisites"></a> Conditions préalables
+> [!WARNING]
+> Le nouveau portail des développeurs est actuellement en cours de déploiement dans les services Gestion des API.
+> Si votre service vient d’être créé ou s’il s’agit d’un service de niveau développeur, vous disposez normalement déjà de la dernière version. Dans le cas contraire, il se peut que vous rencontriez des problèmes (par exemple, avec la fonctionnalité de publication). Le lancement des fonctionnalités s’achèvera lundi 11 novembre 2019.
+>
+> [Découvrez comment migrer de la préversion à la version en disponibilité générale](#preview-to-ga) du portail des développeurs.
 
-- Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-- Importez et publiez une instance Gestion des API Azure. Pour plus d’informations, consultez [Importer et publier](import-and-publish.md).
+![Portail des développeurs Gestion des API](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-> [!NOTE]
-> Le nouveau portail des développeurs est actuellement en préversion.
 
 ## <a name="managed-vs-self-hosted"></a> Version managée et version auto-hébergée
 
 Vous pouvez générer votre portail des développeurs de deux manières :
 
-- **Version managée**, via la modification et la personnalisation du portail : intégrée dans votre instance de Gestion des API et accessible via l’URL `<your-api-management-instance-name>.developer.azure-api.net` ;
-- **version auto-hébergée**, via le déploiement et l’auto-hébergement de votre portail en dehors d’une instance de gestion des API. Cette approche vous permet de modifier la base de code du portail et d’étendre la fonctionnalité principale fournie. Pour en savoir plus et accéder à des instructions, reportez-vous au [référentiel GitHub avec le code source du portail][1].
+- **Version managée**, via la modification et la personnalisation du portail : intégrée dans votre instance de Gestion des API et accessible via l’URL `<your-api-management-instance-name>.developer.azure-api.net` ; Pour savoir comment accéder au portail managé et le personnaliser, voir [cet article de documentation](api-management-howto-developer-portal-customize.md).
+- **version auto-hébergée**, via le déploiement et l’auto-hébergement de votre portail en dehors d’une instance de gestion des API. Cette approche vous permet de modifier la base de code du portail et d’étendre la fonctionnalité principale fournie. Vous devez également passer à la dernière version du portail par vous-même. Pour en savoir plus et accéder à des instructions, reportez-vous au [référentiel GitHub avec le code source du portail][1]. Le [tutoriel de la version managée](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, qui est également proposé dans la version auto-hébergée.
 
-## <a name="managed-access"></a> Accéder à la version managée du portail
+## <a name="portal-architectural-concepts"></a>Concepts architecturaux du portail
 
-Suivez les étapes ci-dessous pour accéder à la version managée du portail.
+Les composants du portail se divisent en deux catégories logiques : le *code* et le *contenu*.
 
-1. Accédez à votre instance du service Gestion des API dans le Portail Microsoft Azure.
-1. Cliquez sur le **nouveau portail des développeurs (préversion)** dans la barre de navigation supérieure. Un nouvel onglet de navigateur s’ouvre, en affichant une version d’administration du portail. Si vous accédez au portail pour la première fois, le contenu par défaut est automatiquement approvisionné.
+Le *code*, conservé dans le [référentiel GitHub][1], comprend les éléments suivants :
 
-## <a name="managed-tutorial"></a> Modifier et personnaliser la version managée du portail
+- les widgets, qui représentent des éléments visuels et associent du code HTML, du code JavaScript, des possibilités de stylisation, des paramètres et un mappage du contenu (exemples : image, paragraphe de texte, formulaire, liste d’API, etc.) ;
+- les définitions de style, qui spécifient les styles possibles des widgets ;
+- le moteur, écrit en JavaScript, qui génère des pages web statiques à partir du contenu du portail ;
+- l’éditeur visuel, qui offre une expérience de personnalisation et de création au sein du navigateur.
 
-Dans la vidéo ci-dessous, nous expliquons comment modifier le contenu du portail, personnaliser l’aspect du site web et publier les modifications.
+Le *contenu* est divisé en deux sous-catégories : le *contenu du portail* et le *contenu de la Gestion des API*.
 
-> [!VIDEO https://www.youtube.com/embed/5mMtUSmfUlw]
+Le *contenu du portail*, propre au portail, comprend les éléments suivants :
+
+- les pages (exemples : page de destination, tutoriels sur les API, billets de blog) ;
+- les contenus multimédias (exemples : images, animations et autres contenus basés sur des fichiers) ;
+- les dispositions : modèles qui sont confrontés avec une URL et définissent le mode d’affichage des pages ;
+- les styles : valeurs des définitions de style (exemples : polices, couleurs, bordures) ;
+- les paramètres : configuration (exemples : favicon, métadonnées du site web).
+
+Le *contenu du portail*, à l’exception des contenus multimédias, est exprimé sous la forme de documents JSON.
+
+Le *contenu Gestion des API* comprend des entités telles que les API, les Opérations, les Produits et les Abonnements.
+
+Le portail est basé sur une fourche adaptée du [framework Paperbits](https://paperbits.io/). La fonctionnalité Paperbits d’origine a été étendue de façon à fournir des widgets propres à la Gestion des API (par exemple, une liste d’API ou une liste de Produits) et un connecteur vers le service Gestion des API permettant d’enregistrer et de récupérer du contenu.
 
 ## <a name="faq"></a> Forum aux questions
 
-Dans cette section, nous répondons aux questions courantes sur le nouveau portail des développeurs. Pour toute question spécifique à la version auto-hébergée, reportez-vous à la [section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
+Dans cette section, nous répondons aux questions courantes d’ordre général sur le nouveau portail des développeurs. Pour toute question spécifique à la version auto-hébergée, reportez-vous à la [section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-content-from-the-old-developer-portal-to-the-new-one"></a>Comment migrer le contenu de l’ancien portail des développeurs vers le nouveau ?
+### <a name="a-idpreview-to-ga-how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"/> Comment migrer à partir de la préversion du portail ?
 
-Désolé... Cette migration est impossible. Les portails sont incompatibles.
+En utilisant la préversion du portail des développeurs, vous avez configuré le contenu en préversion dans votre service Gestion des API. Le contenu par défaut a été sensiblement modifié dans la version en disponibilité générale afin d’offrir une meilleure expérience utilisateur. Il comprend également de nouveaux widgets.
 
-### <a name="when-will-the-portal-become-generally-available"></a>Quand le portail sera-t-il mis à la disposition générale ?
+Si vous utilisez la version managée, réinitialisez le contenu du portail en cliquant sur **Réinitialiser le contenu** dans la section de menu **Opérations**. Une fois confirmée, cette opération supprimera tout le contenu du portail et configurera le nouveau contenu par défaut. Le moteur du portail a été automatiquement mis à jour dans votre service Gestion des API.
 
-Le portail est actuellement en version préliminaire et sera mis à la disposition générale dès la fin de l’année civile (2019). La version préliminaire ne doit pas être utilisée à des fins de production.
+![Réinitialiser le contenu du portail](media/api-management-howto-developer-portal/reset-content.png)
 
-### <a name="will-the-old-portal-be-deprecated"></a>L’ancien portail sera-t-il déconseillé ?
+Si vous utilisez la version auto-hébergée, utilisez les fichiers `scripts/cleanup.bat` et `scripts/generate.bat` du référentiel GitHub pour supprimer le contenu actuel et configurer un nouveau contenu. Veillez au préalable à passer à la dernière version du code de votre portail à partir du référentiel GitHub.
 
-Oui, il sera déconseillé après la disponibilité générale du nouveau. Si vous rencontrez des problèmes, signalez-les dans une publication [sur le site GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/121).
+Si vous ne souhaitez pas réinitialiser le contenu du portail, vous pouvez utiliser les nouveaux widgets sur toutes vos pages. Les widgets d’origine ont été automatiquement mis à jour vers les dernières versions.
+
+Si votre portail a été configuré après l’annonce de la mise à la disposition générale, il dispose normalement déjà du nouveau contenu par défaut. Aucune action de votre part n’est nécessaire.
+
+### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-new-developer-portal"></a>Comment migrer de l’ancien portail des développeurs au nouveau ?
+
+Les portails étant incompatibles, vous devez migrer le contenu manuellement.
 
 ### <a name="does-the-new-portal-have-all-the-features-of-the-old-portal"></a>Le nouveau portail a-t-il toutes les fonctionnalités de l’ancien portail ?
 
-L’objectif de la disponibilité générale est de fournir une parité de fonctionnalité basée sur les scénarios de l’ancien portail. Jusqu’à présent, les fonctionnalités sélectionnées ne sont peut-être pas encore implémentées dans la version préliminaire.
+Le nouveau portail des développeurs ne prend pas en charge les *Applications* et les *Problèmes*. Si vous avez utilisé les *Problèmes* sur l’ancien portail et que vous en avez besoin sur le nouveau, publiez un commentaire sur un [problème GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/122).
 
-Les exceptions concernent les sections *Applications* et les *Problèmes* de l’ancien portail, qui ne seront pas disponibles dans le nouveau portail. Si vous utilisez la section *Problèmes* de l’ancien portail et que vous en avez besoin dans le nouveau, publiez un commentaire [sur le site GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/122).
+### <a name="has-the-old-portal-been-deprecated"></a>L’ancien portail est-il déconseillé ?
 
-### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>J'ai trouvé des bogues et/ou j'aimerais demander une fonctionnalité.
+L’ancien portail des développeurs et l’ancien portail des éditeurs sont désormais des fonctionnalités *héritées*, qui ne recevront que des mises à jour de sécurité. Les nouvelles fonctionnalités ne seront implémentées que dans le nouveau portail des développeurs.
 
-Parfait ! Vous pouvez nous faire part de vos commentaires, soumettre une demande de fonctionnalité ou déposer un rapport de bogue via [la section Problèmes du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/issues). Et tant que vous y êtes, n'hésitez pas à nous donner votre avis sur les problèmes accompagnés de l'étiquette `community`.
+La dépréciation des portails hérités sera annoncée séparément. Si vous avez des questions, des doutes ou des commentaires, signalez-les dans un [problème GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/121).
 
-### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Je souhaite déplacer le contenu du nouveau portail entre des environnements. Comment puis-je effectuer cette opération ? Dois-je utiliser la version auto-hébergée ?
+### <a name="how-can-i-automate-portal-deployments"></a>Comment automatiser les déploiements de portails ?
 
-Vous pouvez le faire dans les deux versions du portail, managée et auto-hébergée. Le nouveau portail des développeurs prend en charge l’extraction de contenu via l’API de gestion de votre service Gestion des API. Les API sont documentées [dans la section wiki du référentiel GitHub](https://github.com/Azure/api-management-developer-portal/wiki/). Nous avons également écrit [un script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), qui peut vous aider à démarrer.
+Vous pouvez accéder programmatiquement au contenu du portail des développeurs et le gérer avec l’API REST, que vous utilisiez une version managée ou auto-hébergée.
 
-Nous travaillons toujours sur l’alignement de ce processus avec le kit de ressources DevOps de Gestion des API.
+L’API est documentée dans la [section wiki du référentiel GitHub][2]. Elle peut également servir à automatiser des migrations du contenu du portail entre différents environnements, par exemple d’un environnement de test vers l’environnement de production. Pour plus d’informations sur ce processus, lisez [cet article de documentation](https://aka.ms/apimdocs/migrateportal) sur GitHub.
 
-### <a name="what-do-i-need-to-configure-for-the-new-portal-to-work-in-my-api-management-service-in-vnet"></a>Que dois-je configurer pour que le nouveau portail fonctionne dans mon service Gestion des API dans le réseau virtuel ?
+### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>Le portail prend-il en charge les modèles Azure Resource Manager ? Est-il compatible avec le kit de ressources DevOps Gestion des API ?
 
-Pendant que le nouveau portail des développeurs est en préversion, vous devez autoriser la connectivité aux services de stockage Azure dans la région USA Ouest afin que le portail géré fonctionne dans un service Gestion des API dans le réseau virtuel. Vous trouverez plus d’informations dans la [documentation sur le stockage](../storage/common/storage-network-security.md#available-virtual-network-regions).
+Non.
 
-La configuration ci-dessus ne sera plus nécessaire une fois que le nouveau portail sera en disponibilité générale.
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>Faut-il activer une connectivité de réseau virtuel supplémentaire pour les dépendances du portail managé ?
 
-La version auto-hébergée du portail peut nécessiter une définition de connectivité supplémentaire, en fonction de votre configuration.
+Non.
 
-### <a name="how-can-i-select-a-layout-when-creating-a-new-page"></a>Comment puis-je sélectionner une *disposition* lors de la création d’une *page* ?
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>J’obtiens une erreur CORS lorsque j’utilise la console interactive. Que dois-je faire ?
 
-Une *disposition* est appliquée à une page en faisant correspondre son modèle d’URL à l’URL de la *page*. Par exemple, la *disposition* avec un modèle d’URL `/wiki/*` sera appliquée à chaque *page* avec le segment `/wiki/` : `/wiki/getting-started`, `/wiki/styles`, etc.
-
-### <a name="why-doesnt-the-interactive-developer-console-work"></a>Pourquoi la console de développement interactive ne fonctionne-t-elle pas ?
-
-Ce problème est probablement lié à CORS. La console interactive effectue une requête d’API côté client à partir du navigateur. Vous pouvez résoudre le problème CORS en ajoutant une [stratégie CORS ](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)sur vos API. Vous pouvez spécifier tous les paramètres manuellement (par exemple, https://contoso.com) comme origine, ou utiliser une valeur de caractère générique `*`.
+La console interactive effectue une requête d’API côté client à partir du navigateur. Vous pouvez résoudre le problème CORS en ajoutant une [stratégie CORS ](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS)sur vos API. Vous pouvez spécifier tous les paramètres manuellement (par exemple, https://contoso.com) comme origine, ou utiliser une valeur de caractère générique `*`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez le nouveau portail des développeurs :
 
+- [Accéder au portail managé des développeurs et le personnaliser](api-management-howto-developer-portal-customize.md)
+- [Configurer la version auto-hébergée du portail][2]
+
+Parcourez d’autres ressources :
+
 - [Référentiel GitHub avec le code source][1]
-- [Instructions sur l’auto-hébergement du portail][2]
 - [Calendrier de lancement public du projet][3]
 
 [1]: https://aka.ms/apimdevportal

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
-ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952097"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521231"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Évaluer les machines virtuelles VMware avec Azure Migrate : Server Assessment
 
@@ -104,7 +104,7 @@ Vérifiez que le fichier .OVA est sécurisé avant de le déployer.
 2. Exécutez la commande suivante pour générer le code de hachage du fichier OVA :
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemple d’utilisation : ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Pour la version 2.19.07.30, le code de hachage généré doit correspondre aux valeurs ci-après. 
+3. Pour la version 2.19.07.30, le code de hachage généré doit correspondre aux valeurs ci-après.
 
   **Algorithme** | **Valeur de hachage**
   --- | ---
@@ -166,17 +166,30 @@ Configurez l’appliance en suivant les étapes ci-après.
 3. Spécifiez un nom pour l’appliance. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
 4. Cliquez sur **S'inscrire**.
 
-
 ## <a name="start-continuous-discovery"></a>Démarrer la découverte en continu
 
-Connectez-vous ensuite depuis l’appliance à vCenter Server, puis démarrez la découverte des machines virtuelles.
+L’appliance doit se connecter à vCenter Server pour découvrir les données de configuration et de performances des machines virtuelles.
 
+### <a name="specify-vcenter-server-details"></a>Spécifier les détails vCenter Server
 1. Dans **Spécifier les détails vCenter Server**, spécifiez le nom (FQDN) ou l’adresse IP du serveur vCenter Server. Vous pouvez laisser le port par défaut, ou spécifier un port personnalisé sur lequel votre serveur vCenter Server est à l’écoute.
 2. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez les informations d’identification du compte en lecture seule que l’appliance utilisera pour découvrir les machines virtuelles sur le vCenter Server. Vérifiez que le compte dispose des [autorisations nécessaires pour la découverte](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Vous pouvez définir l’étendue de la découverte en limitant l’accès au compte vCenter. Pour en savoir plus sur la découverte délimitée, cliquez [ici](tutorial-assess-vmware.md#scoping-discovery).
 3. Cliquez sur **Valider la connexion** pour vérifier que l’appliance peut se connecter à vCenter Server.
-4. Une fois la connexion établie, cliquez sur **Enregistrer et lancer la découverte**.
 
-Ceci démarre la découverte. Environ 15 minutes sont nécessaires pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail.
+### <a name="specify-vm-credentials"></a>Spécifier des informations d’identification de machine virtuelle
+Pour la découverte des applications, des rôles et des fonctionnalités, et pour la visualisation des dépendances des machines virtuelles, vous pouvez fournir des informations d’identification de machine virtuelle qui permettent d’accéder aux machines virtuelles VMware. Vous pouvez ajouter des informations d’identification pour les machines virtuelles Windows et d’autres pour les machines virtuelles Linux. [En savoir plus](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sur les privilèges d’accès nécessaires.
+
+> [!NOTE]
+> Cette entrée est facultative. Elle est nécessaire pour activer la découverte des applications et pour visualiser les dépendances sans agent.
+
+1. Dans **Découvrir les applications et les dépendances sur les machines virtuelles**, cliquez sur **Ajouter les informations d’identification**.
+2. Sélectionnez le **Système d’exploitation**.
+3. Fournissez un nom convivial pour les informations d’identification.
+4. Dans **Nom d’utilisateur** et **Mot de passe**, spécifiez un compte disposant au moins d’un accès invité sur les machines virtuelles.
+5. Cliquez sur **Add**.
+
+Une fois que vous avez spécifié les informations d’identification de vCenter Server et de la machine virtuelle (facultatif), cliquez sur **Enregistrer et démarrer la découverte** pour démarrer la découverte de l’environnement local.
+
+Environ 15 minutes sont nécessaires pour que les métadonnées des machines virtuelles découvertes apparaissent dans le portail. La découverte des applications, des rôles et des fonctionnalités installés prend un certain temps et la durée dépend du nombre de machines virtuelles découvertes. Pour 500 machines virtuelles, il faut environ 1 heure pour que l’inventaire des applications s’affiche dans le portail Azure Migrate.
 
 ### <a name="scoping-discovery"></a>Définition de l’étendue de la découverte
 
@@ -205,18 +218,18 @@ Pour définir l’étendue, vous devez exécuter la procédure suivante :
 **Affecter des autorisations sur les objets vCenter**
 
 Il existe deux approches pour affecter des autorisations sur des objets d’inventaire dans vCenter au compte d’utilisateur vCenter avec un rôle qui lui est affecté.
-- Pour l’évaluation de serveur, le rôle en **lecture seule** doit être appliqué au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à découvrir sont hébergées. Tous les objets parents (hôte, dossier des hôtes, cluster, dossier des clusters) de la hiérarchie jusqu’au centre de données doivent être inclus. Ces autorisations doivent être propagées aux objets enfants dans la hiérarchie. 
+- Pour l’évaluation de serveur, le rôle en **lecture seule** doit être appliqué au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à découvrir sont hébergées. Tous les objets parents (hôte, dossier des hôtes, cluster, dossier des clusters) de la hiérarchie jusqu’au centre de données doivent être inclus. Ces autorisations doivent être propagées aux objets enfants dans la hiérarchie.
 
     De même pour la migration de serveur, un rôle défini par l’utilisateur (peut être nommé  <em>Azure _Migrate</em>) avec ces [privilèges](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) attribués doit être appliqué au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à migrer sont hébergées.
 
 ![Assigner des autorisations](./media/tutorial-assess-vmware/assign-perms.png)
 
 - L’approche alternative consiste à affecter le compte d’utilisateur et le rôle au niveau du centre de données et à les propager aux objets enfants. Attribuez ensuite au compte un rôle **Aucun accès** pour chaque objet (comme les machines virtuelles) que vous ne souhaitez pas découvrir/migrer. Cette configuration est fastidieuse. Elle entraîne des contrôles d’accès accidentels, car chaque nouvel objet enfant créé hérite automatiquement de l’accès de son parent. Nous vous recommandons donc d’utiliser la première approche.
- 
+
 > [!NOTE]
 > Pour le moment, Server Assessment ne peut pas découvrir les machines virtuelles si le compte vCenter s’est vu octroyer un accès au niveau du dossier de machine virtuelle vCenter. Si vous souhaitez définir l’étendue de la découverte en fonction de dossiers de machines virtuelles, vous pouvez le faire en vérifiant que le compte vCenter dispose d’un accès en lecture seule affecté au niveau de la machine virtuelle.  Voici des instructions sur la façon de procéder :
 >
-> 1. Attribuez des autorisations en lecture seule à toutes les machines virtuelles des dossiers de machines virtuelles représentant l’étendue de la découverte. 
+> 1. Attribuez des autorisations en lecture seule à toutes les machines virtuelles des dossiers de machines virtuelles représentant l’étendue de la découverte.
 > 2. Octroyez un accès en lecture seule à tous les objets parents où les machines virtuelles sont hébergées. Tous les objets parents (hôte, dossier des hôtes, cluster, dossier des clusters) de la hiérarchie jusqu’au centre de données doivent être inclus. Vous n’avez pas besoin de propager les autorisations à tous les objets enfants.
 > 3. Utilisez les informations d’identification pour la détection en sélectionnant le centre de données en tant qu’*étendue de collection*. La configuration RBAC garantit que l’utilisateur vCenter correspondant aura accès uniquement aux machines virtuelles spécifiques d’un locataire.
 >

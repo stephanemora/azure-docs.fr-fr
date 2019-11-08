@@ -7,16 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: nacharya1
-ms.author: nilesha
-ms.date: 06/20/2019
-ms.custom: seodec18
-ms.openlocfilehash: 999f554bf4a2b9ddda83ee6398950cefb11d32aa
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+author: cartacioS
+ms.author: sacartac
+ms.date: 11/04/2019
+ms.openlocfilehash: 5c8ce6a588fd630f69d8ffc682b611baba3afdd4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929336"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497555"
 ---
 # <a name="what-is-automated-machine-learning"></a>Qu’est-ce que le machine learning automatisé ?
 
@@ -54,7 +53,9 @@ classification ;| régression ; | Prévision de séries chronologiques
 
 1. **Configurer la cible de calcul pour l’apprentissage du modèle** : [ordinateur local, calculs Azure Machine Learning, machines virtuelles à distance ou Azure Databricks](how-to-set-up-training-targets.md).  Apprenez-en davantage sur l’apprentissage automatisé [sur une ressource distante](how-to-auto-train-remote.md).
 
-1. **Configurer les paramètres de Machine Learning automatisé** qui déterminent le nombre d’itérations sur les différents modèles, les réglages d’hyperparamètre, le prétraitement et la personnalisation avancés, ainsi que les métriques à examiner lors du choix du meilleur modèle.  Vous pouvez configurer les paramètres de l’expérience d’apprentissage automatique dans le [portail Azure](how-to-create-portal-experiments.md), [la page d’accueil de l’espace de travail (préversion)](https://ml.azure.com) ou [avec le Kit de développement logiciel (SDK)](how-to-configure-auto-train.md). 
+1. **Configurer les paramètres de Machine Learning automatisé** qui déterminent le nombre d’itérations sur les différents modèles, les réglages d’hyperparamètre, le prétraitement et la personnalisation avancés, ainsi que les métriques à examiner lors du choix du meilleur modèle.  Vous pouvez configurer les paramètres de l’expérience d’entraînement automatique dans [Azure Machine Learning Studio](https://ml.azure.com) ou [avec le SDK](how-to-configure-auto-train.md). 
+
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 1. **Lancer l’exécution de l’apprentissage.**
 
@@ -94,6 +95,8 @@ Dans chaque expérience de Machine Learning automatisé, vos données sont autom
 ### <a name="advanced-preprocessing-optional-featurization"></a>Prétraitement avancé : personnalisation facultative
 
 Un prétraitement avancé et une personnalisation supplémentaires sont également disponibles, tels qu’une imputation de valeurs manquantes, un codage et des transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#preprocess). Activez ce paramètre avec :
+
++ Azure Machine Learning Studio : En sélectionnant l’option permettant de **voir les paramètres de caractérisation** dans la section **Exécuter la configuration** [en effectuant ces étapes](how-to-create-portal-experiments.md).
 
 + Kit de développement logiciel (SDK) Python : en spécifiant `"feauturization": auto' / 'off' / FeaturizationConfig` pour la [`AutoMLConfig`classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
@@ -175,7 +178,7 @@ Consultez les exemples et découvrez comment générer des modèles à l’aide 
 + Suivez le [Didacticiel : Entraîner automatiquement un modèle de régression avec le Machine Learning Azure automatisé](tutorial-auto-train-models.md).
 
 + Configurez les paramètres pour l’expérience d’apprentissage automatique :
-  + Dans l'interface du portail Azur ou la page d'accueil de l'espace de travail (préversion), [procédez comme suit](how-to-create-portal-experiments.md).
+  + Dans Azure Machine Learning Studio, [suivez ces étapes](how-to-create-portal-experiments.md).
   + Avec le Kit de développement logiciel (SDK) Python, [procédez comme suit](how-to-configure-auto-train.md).
 
 + Découvrez comment effectuer l’apprentissage automatique à l’aide de données de série chronologique [en procédant comme suit](how-to-auto-train-forecast.md).

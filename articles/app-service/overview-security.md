@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074119"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470087"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
@@ -40,16 +40,20 @@ Les sections suivantes vous montrent comment renforcer la protection de votre ap
 
 ## <a name="https-and-certificates"></a>HTTPS et certificats
 
-App Service vous permet de sécuriser vos applications avec [HTTPS](https://wikipedia.org/wiki/HTTPS). Quand votre application est créée, son nom de domaine par défaut (\<nom_application>. azurewebsites.net) est déjà accessible à l’aide de HTTPS. Si vous [configurez un domaine personnalisé pour votre application](app-service-web-tutorial-custom-domain.md), vous devez également le [sécuriser avec un certificat personnalisé](app-service-web-tutorial-custom-ssl.md) afin que les navigateurs clients puissent établir des connexions HTTPS sécurisées à votre domaine personnalisé. Vous pouvez effectuer cette opération de deux façons :
+App Service vous permet de sécuriser vos applications avec [HTTPS](https://wikipedia.org/wiki/HTTPS). Quand votre application est créée, son nom de domaine par défaut (\<nom_application>. azurewebsites.net) est déjà accessible à l’aide de HTTPS. Si vous [configurez un domaine personnalisé pour votre application](app-service-web-tutorial-custom-domain.md), vous devez également le [sécuriser avec un certificat SSL](configure-ssl-bindings.md) afin que les navigateurs clients puissent établir des connexions HTTPS sécurisées vers votre domaine personnalisé. Plusieurs types de certificats sont pris en charge par App Service :
 
-- **Certificat App Service**  : créez un certificat directement dans Azure. Le certificat est sécurisé dans [Azure Key Vault](/azure/key-vault/) et peut être importé dans votre application App Service. Pour plus d’informations, consultez [Acheter et configurer un certificat SSL pour votre service Azure App Service](web-sites-purchase-ssl-web-site.md).
-- **Certificat tiers** : chargez un certificat SSL personnalisé que vous avez acheté auprès d’une autorité de certification de confiance et liez-le à votre application App Service. App Service prend en charge les certificats de domaine unique et les certificats avec caractères génériques. Il prend également en charge les certificats auto-signés à des fins de test. Pour plus d’informations, consultez [Lier un certificat SSL personnalisé existant à Azure App Service](app-service-web-tutorial-custom-ssl.md).
+- Certificat managé Free App Service
+- Certificat App Service
+- Certificat tiers
+- Certificat importé d’Azure Key Vault
+
+Pour plus d’informations, consultez [Ajouter un certificat SSL dans Azure App Service](configure-ssl-certificate.md).
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>Protocoles non sécurisés (HTTP, TLS 1.0, FTP)
 
-Dans App Service, vous pouvez appliquer le protocole HTTPS d’un seul clic pour sécuriser votre application vis-à-vis de toutes les connexions (HTTP) non chiffrées. Les demandes non sécurisées sont écartées avant même qu’elles n’atteignent votre code d’application. Pour plus d’informations, consultez [Appliquer le protocole HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https).
+Dans App Service, vous pouvez appliquer le protocole HTTPS d’un seul clic pour sécuriser votre application vis-à-vis de toutes les connexions (HTTP) non chiffrées. Les demandes non sécurisées sont écartées avant même qu’elles n’atteignent votre code d’application. Pour plus d’informations, consultez [Appliquer le protocole HTTPS](configure-ssl-bindings.md#enforce-https).
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 n’est plus considéré comme sécurisé par les normes du secteur telles que [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). App Service vous permet de désactiver les protocoles obsolètes en [appliquant le protocole TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 n’est plus considéré comme sécurisé par les normes du secteur telles que [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). App Service vous permet de désactiver les protocoles obsolètes en [appliquant le protocole TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions).
 
 App Service prend en charge FTP et FTPS pour le déploiement de vos fichiers. Toutefois, FTPS doit être utilisé à la place de FTP, dans la mesure du possible. Quand un de ces protocoles, ou les deux, ne sont pas utilisés, vous devez [les désactiver](deploy-ftp.md#enforce-ftps).
 

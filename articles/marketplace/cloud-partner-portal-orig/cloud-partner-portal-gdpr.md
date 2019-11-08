@@ -4,15 +4,16 @@ description: Portail Microsoft Cloud Partner et RGPD
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 91db369f9a2a0439bdbaf8600d1b329f0da00aa0
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: bc43a6cb3c30638d8c3904d7ca5b004e0905f1d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786470"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824310"
 ---
 <a name="cloud-partner-portal-gdpr-compliance"></a>Conformité RGPD du portail Microsoft Cloud Partner
 ====================================

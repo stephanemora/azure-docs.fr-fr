@@ -3,26 +3,27 @@ title: Créer et utiliser des cibles de calcul pour l’apprentissage du modèle
 titleSuffix: Azure Machine Learning
 description: Configurer les environnements d’entraînement (cibles de calcul) pour l’entraînement des modèles de machine learning. Vous pouvez facilement basculer entre différents environnements d’entraînement. Commencer l’entraînement en local. Si une montée en charge est nécessaire, basculez vers une cible de calcul basée sur le cloud.
 services: machine-learning
-author: rastala
-ms.author: roastala
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 46a212719846eddc7d21f3aeb0815dfbf4119e15
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935364"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489563"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurer et utiliser des cibles de calcul pour effectuer l’apprentissage du modèle 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning vous permet de faire l’apprentissage de votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-targets). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également créer des cibles de calcul pour le déploiement de modèle, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
 
-Vous pouvez créer et gérer une cible de calcul avec le kit SDK Azure Machine Learning, le portail Azure, la page d’accueil de votre espace de travail (préversion), Azure CLI ou l’extension Azure Machine Learning pour VS Code. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail Azure Machine Learning.
+Vous pouvez créer et gérer une cible de calcul avec le SDK Azure Machine Learning, Azure Machine Learning Studio, Azure CLI ou l’extension Azure Machine Learning VS Code. Si vous avez des cibles de calcul qui ont été créées via un autre service (par exemple un cluster HDInsight), vous pouvez les utiliser en les attachant à votre espace de travail Azure Machine Learning.
  
 Cet article explique comment utiliser les différentes cibles de calcul pour l’entraînement des modèles.  Pour toutes les cibles de calcul, le flux de travail est identique :
 1. __Créez__ une cible de calcul si vous n’en avez pas encore.
@@ -132,7 +133,7 @@ Une capacité de calcul Azure Machine Learning persistante peut être réutilis�
    Vous pouvez aussi configurer plusieurs propriétés avancées lors de la création d’une capacité de calcul Azure Machine Learning. Ces propriétés vous permettent de créer un cluster persistant de taille fixe, ou au sein d’un réseau virtuel Azure existant dans votre abonnement.  Pour plus de détails, voir la [classe AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py
     ).
     
-   Vous pouvez également créer et attacher une capacité de calcul Azure Machine Learning Compute persistante [via le portail Azure](#portal-create).
+   Vous pouvez également créer et attacher une ressource de capacité de calcul Azure Machine Learning persistante dans [Azure Machine Learning Studio](#portal-create).
 
 1. **Configurer** : Créez une configuration de série de tests pour la cible de calcul persistante.
 
@@ -179,7 +180,7 @@ Pour ce scénario, utilisez Azure Data Science Virtual Machine (DSVM) en tant qu
    compute.wait_for_completion(show_output=True)
    ```
 
-   Vous pouvez également attacher la Data Science Virtual Machine (DSVM) à votre espace de travail [via le portail Azure](#portal-reuse).
+   Vous pouvez également attacher la machine DSVM (Data Science Virtual Machine) à votre espace de travail [à l’aide d’Azure Machine Learning Studio](#portal-reuse).
 
 1. **Configurer** : Créez une configuration de série de tests pour la cible de calcul Data Science Virtual Machine (DSVM). Docker et Conda sont utilisés pour créer et configurer l’environnement d’entraînement sur la DSVM.
 
@@ -220,7 +221,7 @@ Azure HDInsight est une plateforme populaire pour l’analytique de Big Data. El
    hdi_compute.wait_for_completion(show_output=True)
    ```
 
-   Vous pouvez également attacher le cluster HDInsight à votre espace de travail [via le portail Azure](#portal-reuse).
+   Vous pouvez également attacher le cluster HDInsight à votre espace de travail [à l’aide d’Azure Machine Learning Studio](#portal-reuse).
 
 1. **Configurer** : Créez une configuration de série de tests pour la cible de calcul HDI. 
 
@@ -270,9 +271,9 @@ except ComputeTargetException:
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
 
-## <a name="set-up-in-azure-portal"></a>Configuré dans le portail Azure
+## <a name="set-up-in-azure-machine-learning-studio"></a>Effectuer une configuration dans Azure Machine Learning Studio
 
-Vous pouvez accéder aux cibles de calcul associées à votre espace de travail à partir du portail Azure.  Vous pouvez utiliser le portail pour :
+Vous pouvez accéder aux cibles de calcul associées à votre espace de travail dans Azure Machine Learning Studio.  Vous pouvez utiliser Studio pour effectuer les opérations suivantes :
 
 * [Afficher les cibles de calcul](#portal-view) attachées à votre espace de travail
 * [Créer une cible de calcul](#portal-create) dans votre espace de travail
@@ -291,7 +292,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 Pour consulter les cibles de calcul de votre espace de travail, procédez comme suit :
 
-1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre espace de travail. Les images ci-dessous montrent le portail Azure, mais vous pouvez également accéder à ces mêmes étapes dans la [page d’accueil de votre espace de travail (préversion)](https://ml.azure.com).
+1. Accédez à [Azure Machine Learning Studio](https://ml.azure.com).
  
 1. Sous __Applications__, sélectionnez __Capacité de calcul__.
 
@@ -310,7 +311,7 @@ Suivez la procédure ci-dessus pour afficher la liste des cibles de calcul. Puis
 1. Sélectionnez **Capacité de calcul Machine Learning** comme type de capacité de calcul à utiliser pour __Entraînement__. 
 
     >[!NOTE]
-    >La capacité de calcul Azure Machine Learning est la seule ressource de calcul géré que vous pouvez créer sur le portail Azure.  Toutes les autres ressources de calcul peuvent être attachées après leur création.
+    >La capacité de calcul Azure Machine Learning est la seule ressource de capacité de calcul managée que vous pouvez créer dans Azure Machine Learning Studio.  Toutes les autres ressources de calcul peuvent être attachées après leur création.
 
 1. Remplissez le formulaire. Indiquez une valeur pour les propriétés requises, notamment **Famille de machines virtuelles**, ainsi que le **nombre maximal de nœuds** à utiliser pour mettre en place la capacité de calcul.  
 
@@ -336,7 +337,7 @@ Suivez la procédure décrite plus haut pour afficher la liste des cibles de cal
 1. Sélectionnez le type de capacité de calcul à attacher pour __Entraînement__ :
 
     > [!IMPORTANT]
-    > Il n’est pas possible d’attacher tous les types de capacités de calcul à l’aide du portail Azure. Actuellement, les types qui peuvent être attachés pour l’entraînement sont les suivants :
+    > Il n’est pas possible d’attacher tous les types de capacités de calcul à partir d’Azure Machine Learning Studio. Actuellement, les types qui peuvent être attachés pour l’entraînement sont les suivants :
     >
     > * Machine virtuelle distante
     > * Azure Databricks (pour une utilisation dans des pipelines de Machine Learning)
@@ -446,6 +447,8 @@ Le fichier de configuration de série de tests au format YAML comprend les secti
  * Détails de configuration spécifiques de l’infrastructure sélectionnée.
  * Référence de données et détails du magasin de données.
  * Détails de configuration spécifiques de Capacité de calcul Machine Learning pour la création d’un cluster.
+
+Consultez l’exemple de [fichier JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) pour obtenir un schéma runconfig complet.
 
 ### <a name="create-an-experiment"></a>Création d'une expérience
 

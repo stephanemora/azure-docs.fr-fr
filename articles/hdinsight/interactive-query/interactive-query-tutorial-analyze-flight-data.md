@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Effectuer des opérations ETL à l’aide d’Interactive Query dans Azure HDInsight'
+title: 'Didacticiel : Opérations ETL avec Interactive Query - Azure HDInsight'
 description: Didacticiel - Découvrez comment extraire des données d’un jeu de données CSV brutes, les transformer dans Interactive Quary sur HDInsight, puis charger les données transformées dans la base de données Azure SQL à l’aide d’Apache Sqoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
-ms.openlocfilehash: 9ff215bb687ea2b6aa32ecb01dba7a61385b15a4
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d1136c153a529f58db1de277ec84ac332b9f78ae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735827"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494155"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight
 

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550318"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479610"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Linux à l’aide du portail Azure
 
@@ -55,8 +55,8 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 1. Dans la page Nouveau, sous Populaire, sélectionnez **Ubuntu Server 18.04 LTS**.
 1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné.
-1. Dans **Groupe de ressources**, sélectionnez le groupe de ressources que vous avez créé précédemment en même temps que votre coffre de clés (par exemple, **myResourceGroup**).
-1. Dans **Nom de la machine virtuelle**, entrez *MyVM*. 
+1. Dans **Groupe de ressources**, sélectionnez le groupe de ressources que vous avez créé en même temps que votre coffre de clés (par exemple, **myResourceGroup**).
+1. Dans **Nom de la machine virtuelle**, entrez *MyVM*.
 1. Dans **Région**, sélectionnez la même région que celle utilisée pour créer votre coffre de clés (par exemple, **East US**).
 1. Assurez-vous que la **Taille** est *Standard D2s v3*.
 1. Sous **Compte Administrateur**, sélectionnez **Mot de passe**. Entrez un nom d'utilisateur et un mot de passe.

@@ -1,27 +1,27 @@
 ---
-title: Ajouter des jeux de données à une préversion d’Azure Data Share
+title: Ajouter des jeux de données à Azure Data Share existant
 description: Découvrez comment ajouter des jeux de données à un partage de données existant dans Azure Data Share, et comment les partager avec les mêmes destinataires.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 8cc61307ae6664889f60469cc3ca65c840c43b86
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 00c96950565b077e65f84e2d8b4977092df5e317
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169189"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490539"
 ---
-# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>Guide pratique pour ajouter des jeux de données à un partage existant dans Azure Data Share en préversion
+# <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share"></a>Comment ajouter des jeux de données à un partage existant dans Azure Data Share
 
-Cet article explique comment ajouter des jeux de données à un partage de données existant à l’aide de la préversion d’Azure Data Share. Cela vous permet de partager plus de données avec les mêmes destinataires sans avoir à créer un nouveau partage.
+Cet article explique comment ajouter des jeux de données à un partage de données préexistant à l’aide d’Azure Data Share. Cela vous permet de partager plus de données avec les mêmes destinataires sans avoir à créer un nouveau partage.
 
 Pour plus d’informations sur l’ajout de jeux de données au fur et à mesure de la création d’un partage, consultez le tutoriel [Partager des données](share-your-data.md).
 
 ## <a name="navigate-to-a-sent-data-share"></a>Accéder à un partage de données envoyé
 
-Dans la préversion d’Azure Data Share, accédez à votre partage envoyé et sélectionnez l’onglet **Jeux de données**. Cliquez sur le bouton **+Ajouter des jeux de données** pour ajouter d’autres jeux de données.
+Dans Azure Data Share, accédez à votre partage envoyé et sélectionnez l’onglet **Jeux de données**. Cliquez sur le bouton **+Ajouter des jeux de données** pour ajouter d’autres jeux de données.
 
 ![Ajouter des jeux de données](./media/how-to/how-to-add-datasets/add-datasets.png)
 

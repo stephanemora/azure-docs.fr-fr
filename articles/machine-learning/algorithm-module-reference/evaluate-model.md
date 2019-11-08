@@ -1,7 +1,7 @@
 ---
 title: 'Évaluer le modèle : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Évaluer le modèle dans Azure Machine Learning service pour mesurer la précision d’un modèle formé.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Évaluer le modèle dans Azure Machine Learning pour mesurer la justesse d’un modèle entraîné.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693803"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497921"
 ---
 # <a name="evaluate-model-module"></a>Module Évaluer le modèle
 
-Cet article décrit un module de l’interface visuelle (préversion) d’Azure Machine Learning service.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour mesurer la précision d’un modèle formé. Vous fournissez un jeu de données qui contient les scores générés à partir d’un modèle et le module **Évaluer le modèle** calcule un ensemble de métriques d’évaluation standard du secteur.
   
@@ -69,7 +69,7 @@ Cette fonctionnalité est utile car vous pouvez facilement comparer les résulta
 Après avoir exécuté **Évaluer le modèle**, cliquez avec le bouton droit sur le module et sélectionnez **Résultats de l’évaluation** pour afficher les résultats. Vous pouvez :
 
 + Enregistrer les résultats dans un jeu de données, pour faciliter l’analyse avec d’autres outils
-+ Générer une visualisation dans l’interface
++ Générer une visualisation dans le concepteur
 
 Si vous connectez des jeux de données aux deux entrées du module **Évaluer le modèle**, les résultats contiennent des métriques pour les deux jeux de données ou les deux modèles.
 Le modèle ou les données associés au port de gauche apparaissent en premier dans le rapport, suivis des métriques pour le jeu de données ou le modèle associé au port de droite.  
@@ -126,4 +126,4 @@ Les métriques retournées pour les modèles de régression sont généralement 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

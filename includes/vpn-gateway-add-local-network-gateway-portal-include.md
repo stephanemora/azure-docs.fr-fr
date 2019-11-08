@@ -8,15 +8,17 @@ ms.topic: include
 ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6c59513c2c84b5f280e8200411b53848768eaf29
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 9648f4c16e8d266bbdd504d4a7599b67a5c846b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970826"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73522778"
 ---
-1. Dans le portail, cliquez sur **+Créer une ressource**.
-2. Dans la zone de recherche, tapez **passerelle de réseau local**, puis appuyez sur **Entrée** pour lancer la recherche. Une liste de résultats apparaîtra. Cliquez sur **Passerelle de réseau local**, puis cliquez sur le bouton **Créer** pour ouvrir la page **Créer une passerelle de réseau local**.
+1. Dans le menu du [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**. 
+
+   ![Créer une ressource dans le portail Azure](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
+2. Dans le champ **Rechercher dans la Place de marché**, tapez **Passerelle réseau local**, puis appuyez sur **Entrée** pour lancer la recherche. Une liste de résultats apparaîtra. Cliquez sur **Passerelle de réseau local**, puis cliquez sur le bouton **Créer** pour ouvrir la page **Créer une passerelle de réseau local**.
 
    ![Créer la passerelle de réseau local](./media/vpn-gateway-add-local-network-gateway-portal-include/create-local-network-gateway.png "Créer la passerelle de réseau local")
 

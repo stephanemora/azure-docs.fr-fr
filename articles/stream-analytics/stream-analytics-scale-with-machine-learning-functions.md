@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 3d478c2421066c8347622f9064c479bb8255b112
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 28734e5eaa693ca4ee31603863b69605a1d92c88
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621747"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467879"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>Mettre à l’échelle votre travail Stream Analytics avec des fonctions Azure Machine Learning Studio
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Mettre à l’échelle votre travail Stream Analytics avec des fonctions Azure Machine Learning Studio (classique)
 
 Cet article explique comment mettre efficacement à l’échelle les travaux Azure Stream Analytics qui utilisent des fonctions Azure Machine Learning. Pour plus d’informations sur la procédure de mise à l’échelle des travaux Stream Analytics en général, voir l’article [Mise à l’échelle des travaux](stream-analytics-scale-jobs.md).
 
@@ -23,7 +23,7 @@ Cet article explique comment mettre efficacement à l’échelle les travaux Azu
 
 Une fonction Machine Learning dans Stream Analytics peut être utilisée comme un appel de fonction normal dans le langage de requête Stream Analytics. Toutefois, en arrière-plan, ces appels de fonction sont en fait des demandes de service web Azure Machine Learning.
 
-Vous pouvez améliorer le débit des demandes de service web Machine Learning en « traitant par lot » plusieurs lignes d’un même appel d’API de services web. Ce regroupement est appelé un mini-lot. Pour plus d’informations, consultez [Services web Azure Machine Learning Studio ](../machine-learning/studio/consume-web-services.md). La prise en charge d’Azure Machine Learning Studio dans Stream Analytics est en préversion.
+Vous pouvez améliorer le débit des demandes de service web Machine Learning en « traitant par lot » plusieurs lignes d’un même appel d’API de services web. Ce regroupement est appelé un mini-lot. Pour plus d’informations, consultez [Services web Azure Machine Learning Studio (classique)](../machine-learning/studio/consume-web-services.md). Le support d’Azure Machine Learning Studio (classique) dans Stream Analytics est en préversion.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurer un travail Stream Analytics avec des fonctions Azure Machine Learning
 
@@ -34,11 +34,11 @@ Deux paramètres permettent de configurer la fonction Machine Learning utilisée
 
 Pour déterminer les valeurs appropriées de SU, choisissez d’optimiser la latence du travail Stream Analytics ou le débit de chaque SU. Il est toujours possible d’ajouter des SU à un travail pour augmenter le débit d’une requête Stream Analytics correctement partitionnée. Des SU supplémentaires augmentent le coût d’exécution du travail.
 
-Déterminez la *tolérance* de latence pour votre travail Stream Analytics. Une augmentation de la taille du lot augmentera la latence de vos demandes de service Azure Machine Learning et la latence du travail Stream Analytics.
+Déterminez la *tolérance* de latence pour votre travail Stream Analytics. Une augmentation de la taille du lot augmentera la latence de vos requêtes Azure Machine Learning et la latence du travail Stream Analytics.
 
 Une augmentation de la taille du lot permet au travail Stream Analytics de traiter **davantage d’événements** avec le **même nombre** de demandes de service web Machine Learning. Une augmentation de la latence de service web Machine Learning est généralement consécutive à l’augmentation de taille du lot. 
 
-Quelle que soit la situation, il est important de prendre en compte la taille du lot la plus rentable pour un service web Machine Learning. La taille de lot par défaut pour les demandes de service web est de 1 000. Vous pouvez modifier cette taille par défaut à l’aide [l’API REST Stream Analytics](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "API REST Stream Analytics") ou du [client PowerShell pour Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
+Quelle que soit la situation, il est important de prendre en compte la taille du lot la plus rentable pour un service web Machine Learning. La taille de lot par défaut pour les demandes de service web est de 1 000. Vous pouvez modifier cette taille par défaut à l’aide de [l’API REST Stream Analytics](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "API REST Stream Analytics") ou du [client PowerShell pour Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
 
 Lorsque vous avez choisi une taille de lot, vous pouvez définir le nombre d’unités de streaming (SU) en fonction du nombre d’événements que la fonction doit traiter par seconde. Pour plus d’informations sur les unités de diffusion en continu, voir [Mise à l’échelle des travaux Stream Analytics](stream-analytics-scale-jobs.md).
 
@@ -48,11 +48,11 @@ Si votre application génère 200 000 événements par seconde, et que taille du
 
 Pour traiter 200 000 événements par seconde, le travail Stream Analytics a besoin de 40 connexions simultanées, ce qui correspond à 12 SU. Le diagramme ci-dessous illustre les demandes émanant du travail Stream Analytics vers le point de terminaison de service web Machine Learning. Pour chaque ensemble de 6 unités de diffusion en continu, il existe jusqu’à 20 connexions simultanées au service web Machine Learning.
 
-![Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning - Exemple de deux travaux](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning - Exemple de deux travaux")
+![Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning : exemple de 2 travaux](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning : exemple de 2 travaux")
 
 Généralement, pour la taille de lot ***B*** et la latence de service web en millisecondes ***L*** pour la taille de lot B, le débit d’un travail Stream Analytics avec ***N*** unités de diffusion en continu est le suivant :
 
-![Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning - Formule](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning - Formule")
+![Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning : formule](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning - Formule")
 
 Vous pouvez également configurer le « nombre maximal d’appels simultanés » sur le service web Machine Learning. Il est recommandé de définir ce paramètre sur la valeur maximale (200 actuellement).
 
@@ -120,7 +120,7 @@ En règle générale, la taille de lot que nous définissons pour les fonctions 
 ## <a name="new-function-related-monitoring-metrics"></a>Nouvelles métriques de surveillance associées aux fonctions
 Dans la zone de surveillance d’un travail Stream Analytics, trois nouvelles métriques associées aux fonctions ont été ajoutées. Il s’agit des métriques **DEMANDES DE FONCTION**, **ÉVÉNEMENTS DE FONCTION** et **DEMANDES DE FONCTION AYANT ÉCHOUÉ**, comme illustré dans le graphique ci-après.
 
-![Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning - Métriques](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning - Métriques")
+![Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning : mesures](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Mettre à l’échelle Stream Analytics avec des fonctions Machine Learning - Métriques")
 
 Les définitions de ces métriques sont les suivantes :
 

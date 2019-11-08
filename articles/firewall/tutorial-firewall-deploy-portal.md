@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 124a87728a8d201c329b15d94ae7e61a225646ab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113474"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468448"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Didacticiel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -57,8 +57,8 @@ Tout d’abord, créez un groupe de ressources qui contiendra les ressources né
 Le groupe de ressources contient toutes les ressources utilisées dans ce didacticiel.
 
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
-2. Dans la page d’accueil du portail Azure, sélectionnez **Groupes de ressources** > **Ajouter**.
-3. Pour **Nom du groupe de ressources**, entrez **Test-FW-RG**.
+2. Dans le menu du Portail Azure, sélectionnez **Groupes de ressources** ou recherchez et sélectionnez *Groupes de ressources* dans n’importe quelle page. Sélectionnez ensuite **Ajouter**.
+3. Dans **Nom du groupe de ressources**, entrez *Test-FW-RG*.
 4. Pour **Abonnement**, sélectionnez votre abonnement.
 5. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les ressources suivantes que vous créez doivent se trouver dans le même emplacement.
 6. Sélectionnez **Create** (Créer).
@@ -70,22 +70,22 @@ Ce réseau virtuel contient trois sous-réseaux.
 > [!NOTE]
 > La taille du sous-réseau AzureFirewallSubnet est /26. Pour plus d’informations sur la taille du sous-réseau, consultez le [FAQ Pare-feu Azure](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
 
-1. Dans la page d’accueil du portail Azure, sélectionnez **Créer une ressource**.
-2. Sous **Mise en réseau**, sélectionnez **Réseau virtuel**.
-4. Pour **Nom**, entrez **Test-FW-VN**.
-5. Pour **Espace d’adressage**, entrez **10.0.0.0/16**.
-6. Pour **Abonnement**, sélectionnez votre abonnement.
-7. Pour **Groupe de ressources**, sélectionnez **Test-FW-RG**.
-8. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-9. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**. Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
-10. Pour **Plage d’adresses**, tapez **10.0.1.0/26**.
-11. Acceptez les autres paramètres par défaut, puis sélectionnez **Créer**.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Sélectionnez **Mise en réseau** > **Réseau virtuel**.
+1. Pour **Nom**, entrez **Test-FW-VN**.
+1. Pour **Espace d’adressage**, entrez **10.0.0.0/16**.
+1. Pour **Abonnement**, sélectionnez votre abonnement.
+1. Pour **Groupe de ressources**, sélectionnez **Test-FW-RG**.
+1. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
+1. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**. Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
+1. Pour **Plage d’adresses**, tapez **10.0.1.0/26**.
+1. Acceptez les autres paramètres par défaut, puis sélectionnez **Créer**.
 
 ### <a name="create-additional-subnets"></a>Créer des sous-réseaux supplémentaires
 
 Ensuite, créez des sous-réseaux pour le serveur de rebond et un sous-réseau pour les serveurs de la charge de travail.
 
-1. Dans la page d’accueil du portail Azure, sélectionnez **Groupes de ressources** > **Test-FW-RG**.
+1. Dans le menu du Portail Azure, sélectionnez **Groupes de ressources** ou recherchez et sélectionnez *Groupes de ressources* dans n’importe quelle page. Sélectionnez ensuite **test-FW-RG**.
 2. Sélectionnez le réseau virtuel **Test-FW-VN**.
 3. Sélectionnez **Sous-réseaux** >  **+Sous-réseau**.
 4. Pour **Nom**, entrez **Workload-SN**.
@@ -98,7 +98,7 @@ Créez un autre sous-réseau nommé **Jump-SN**, avec la plage d’adresses **10
 
 Maintenant créez les machines virtuelles de rebond et de charge de travail, et placez-les dans les sous-réseaux appropriés.
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource**.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Cliquez sur **Compute**, puis sélectionnez **Windows Server 2016 Datacenter** dans la liste de suggestions.
 3. Entrez ces valeurs pour la machine virtuelle :
 
@@ -133,7 +133,7 @@ Utilisez les informations du tableau suivant pour configurer une autre machine v
 
 Déployez le pare-feu dans le réseau virtuel.
 
-1. Dans la page d’accueil du portail, sélectionnez **Créer une ressource**.
+1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 2. Tapez **pare-feu** dans la zone de recherche, puis appuyez sur **Entrée**.
 3. Sélectionnez **Pare-feu**, puis **Créer**.
 4. Sur la page **Créer un pare-feu**, utilisez le tableau suivant pour configurer le pare-feu :
@@ -158,7 +158,7 @@ Déployez le pare-feu dans le réseau virtuel.
 
 Pour le sous-réseau **Workload-SN**, configurez l’itinéraire sortant par défaut pour qu’il traverse le pare-feu.
 
-1. À partir de la page d’accueil du portail Azure, sélectionnez **Tous les services**.
+1. Dans le menu du Portail Azure, sélectionnez **Tous les services** ou recherchez et sélectionnez *Tous les services* dans n’importe quelle page.
 2. Sous **Mise en réseau**, sélectionnez **Tables d’itinéraires**.
 3. Sélectionnez **Ajouter**.
 4. Pour **Nom**, entrez **Firewall-route**.
@@ -209,19 +209,20 @@ Il s’agit de la règle de réseau qui autorise un accès sortant à deux adres
 3. Pour **Nom**, entrez **Net-Coll01**.
 4. Pour **Priorité**, entrez **200**.
 5. Pour **Action**, sélectionnez **Autoriser**.
-
 6. Sous **Règles**, pour **Nom**, tapez **Allow-DNS**.
 7. Pour **Protocole**, sélectionnez **UDP**.
 8. Pour **Adresses sources**, entrez **10.0.2.0/24**.
 9. Pour Adresse de destination, entrez **209.244.0.3,209.244.0.4**
-10. Pour **Ports de destination**, entrez **53**.
-11. Sélectionnez **Ajouter**.
+
+   Il s’agit de serveurs DNS publics gérés par CenturyLink.
+1. Pour **Ports de destination**, entrez **53**.
+2. Sélectionnez **Ajouter**.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Modifier les adresses DNS principales et secondaires de l’interface réseau **Srv-Work**
 
 À des fins de test dans ce tutoriel, configurez les adresses DNS principales et secondaires du serveur. Ceci n’est pas obligatoire pour le pare-feu Azure.
 
-1. À partir du portail Azure, ouvrez le groupe de ressources **Test-FW-RG**.
+1. Dans le menu du Portail Azure, sélectionnez **Groupes de ressources** ou recherchez et sélectionnez *Groupes de ressources* dans n’importe quelle page. Sélectionnez le groupe de ressources **Test-FW-RG**.
 2. Sélectionnez l’interface réseau de la machine virtuelle **Srv-Work**.
 3. Sous**Paramètres**, sélectionnez **Serveurs DNS**.
 4. Sous **Serveurs DNS**, sélectionnez **Personnalisé**.
@@ -235,7 +236,6 @@ Testez maintenant le pare-feu pour vérifier qu’il fonctionne comme prévu.
 
 1. À partir du portail Azure, passez en revue les paramètres réseau de la machine virtuelle **Srv-Work** et notez l’adresse IP privée.
 2. Connectez un bureau à distance à la machine virtuelle **Srv-Jump**, puis connectez-vous. De là, ouvrez une connexion Bureau à distance à l’adresse IP privée **Srv-Work**.
-
 3. Ouvrez Internet Explorer et accédez à https://www.google.com.
 4. Sélectionnez **OK** > **Fermer** sur les alertes de sécurité d’Internet Explorer.
 

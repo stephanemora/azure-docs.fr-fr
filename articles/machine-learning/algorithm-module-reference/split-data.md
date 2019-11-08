@@ -1,24 +1,24 @@
 ---
 title: 'Fractionner les données : Informations de référence sur les modules'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Fractionner les données dans le service Azure Machine Learning pour diviser un jeu de données en deux jeux distincts.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Fractionner les données dans Azure Machine Learning pour diviser un jeu de données en deux jeux distincts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 3fa6b61b1b1761756339d6a7f05c74eb4a968777
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 0f6ba3c608c90d8634309a1843dc803b98be3d6d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692648"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492637"
 ---
 # <a name="split-data-module"></a>Module Fractionner les données
 
-Cet article décrit un module de l’interface visuelle (préversion) pour le service Azure Machine Learning.
+Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
 
 Utilisez ce module pour diviser un jeu de données en deux jeux distincts.
 
@@ -30,7 +30,7 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
 > Avant de choisir le mode de fractionnement, prenez connaissance de toutes les options afin de déterminer le type de fractionnement adapté à vos besoins.
 > Si vous modifiez le mode de fractionnement, toutes les autres options peuvent être réinitialisées.
 
-1. Ajoutez le module **Fractionner des données** à votre pipeline dans l’interface. Ce module est disponible sous **Transformation des données**, dans la catégorie **Échantillonner et fractionner**.
+1. Ajoutez le module **Fractionner les données** à votre pipeline dans le concepteur. Ce module est disponible sous **Transformation des données**, dans la catégorie **Échantillonner et fractionner**.
 
 2. **Mode de fractionnement** : Choisissez l'un des modes suivants, selon le type de données dont vous disposez et la manière dont vous souhaitez les diviser. Chaque mode de fractionnement s'accompagne de différentes options. Cliquez sur les rubriques suivantes pour obtenir des instructions détaillées et des exemples. 
 
@@ -45,7 +45,8 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
     - **Fractionnement Expression relative** :  Utilisez cette option si vous souhaitez appliquer une condition à une colonne numérique. Le nombre peut correspondre à un champ de date/heure, une colonne contenant un âge ou des montants en dollars, voire un pourcentage. Par exemple, vous souhaiterez peut-être diviser votre jeu de données en fonction du prix des éléments, grouper des personnes par tranches d'âge ou séparer les données par date.
 
 ### <a name="split-rows"></a>Fractionner les lignes
-1.  Ajoutez le module [Fractionner les données](./split-data.md) à votre pipeline dans l’interface et connectez le jeu de données que vous souhaitez fractionner.
+
+1.  Ajoutez le module [Fractionner les données](./split-data.md) à votre pipeline dans le concepteur et connectez le jeu de données que vous souhaitez fractionner.
   
 2.  Pour **Mode de fractionnement**, sélectionnez **Lignes fractionnées**. 
 
@@ -114,4 +115,4 @@ Ce module est particulièrement utile quand vous devez séparer des données en 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

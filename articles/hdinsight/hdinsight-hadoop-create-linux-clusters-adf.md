@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Clusters Apache Hadoop à la demande dans Azure HDInsight - Data Factory'
+title: 'Didacticiel : Clusters à la demande dans Azure HDInsight avec Data Factory'
 description: Didacticiel - Découvrez comment créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 10/09/2019
-ms.openlocfilehash: 00937197536ede7d6eed168e0a84bad294800159
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1d1ddb84c000efaf58356ffdd15382e0b74aa744
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264566"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494875"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Didacticiel : Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory
 
@@ -200,7 +200,7 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
     |Location | L’emplacement est automatiquement défini sur l’emplacement que vous avez spécifié au moment de la création du groupe de ressources. Pour ce tutoriel, l’emplacement est défini sur **USA Est**. |
     |Activer GIT|Décochez cette case.|
 
-    ![Créer une fabrique de données Azure Data Factory à l’aide du portail Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Créer une fabrique de données Azure Data Factory à l’aide du portail Azure")
+    ![Créer Azure Data Factory à l’aide du portail Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/create-data-factory-portal.png "Créer Azure Data Factory à l’aide du portail Azure")
 
 4. Sélectionnez **Create** (Créer). La création d’une fabrique de données peut prendre de 2 à 4 minutes.
 
@@ -208,7 +208,7 @@ Dans cet article, vous configurez l’activité Hive pour créer un cluster HDIn
 
 6. Sélectionnez **Créer & surveiller** pour lancer le portail de création et de surveillance Azure Data Factory.
 
-    ![Vue d’ensemble du portail Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Vue d’ensemble d’Azure Data Factory")
+    ![Aperçu du portail Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Aperçu d’Azure Data Factory")
 
 ## <a name="create-linked-services"></a>Créez des services liés
 
@@ -229,7 +229,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
 3. Dans la boîte de dialogue **Nouveau service lié**, sélectionnez **Stockage Blob Azure**, puis sélectionnez **Continuer**.
 
-    ![Créer un service lié Stockage Azure pour Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "Créer un service lié Stockage Azure pour Data Factory")
+    ![Créer un service lié stockage Azure pour Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service.png "Créer un service lié du stockage Azure pour Data Factory")
 
 4. Fournissez les valeurs suivantes pour le service lié de stockage :
 
@@ -241,7 +241,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     Sélectionnez **Tester la connexion**. Si le test réussit, sélectionnez **Créer**.
 
-    ![Fournir un nom pour le service lié Stockage Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service-details.png "Fournir un nom pour le service lié Stockage Azure")
+    ![Fournir un nom pour le service lié Azure Storage](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-storage-linked-service-details.png "Fournir un nom au service lié du stockage Azure")
 
 ### <a name="create-an-on-demand-hdinsight-linked-service"></a>Créer un service lié HDInsight à la demande
 
@@ -251,7 +251,7 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
 3. Sélectionnez **Azure HDInsight**, puis **Continuer**.
 
-    ![Créer un service lié HDInsight pour Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "Créer un service lié HDInsight pour Azure Data Factory")
+    ![Créer un service lié HDInsight pour Azure Data Factor](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service.png "Créer un service lié HDInsight pour Azure Data Factor")
 
 4. Dans la fenêtre **Nouveau service lié**, entrez les valeurs suivantes et conservez les autres valeurs par défaut :
 
@@ -274,21 +274,21 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
 
     Sélectionnez ensuite **Créer**.
 
-    ![Fournir des valeurs pour le service lié HDInsight](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "Fournir des valeurs pour le service lié HDInsight")
+    ![Fournir des valeurs pour le service lié HDInsight](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "Fournir des valeurs au service lié HDInsight")
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline
 
 1. Cliquez sur le bouton **+** (plus), puis sélectionnez **Pipeline**.
 
-    ![Créer un pipeline dans Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "Créer un pipeline dans Azure Data Factory")
+    ![Créez un pipeline dans Azure Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-create-pipeline.png "Créer un pipeline dans Azure Data Factory")
 
 2. Dans la boîte à outils **Activités**, développez l’activité **HDInsight** et faites glisser l’activité **Hive** vers la surface du concepteur de pipeline. Sous l’onglet **Général**, fournissez un nom pour l’activité.
 
-    ![Ajouter des activités à un pipeline Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Ajouter des activités à un pipeline Data Factory")
+    ![Ajouter des activités au pipeline Data Factory](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-add-hive-pipeline.png "Ajouter des activités au pipeline Data Factory")
 
 3. Vérifiez que l’activité Hive est sélectionnée, sélectionnez l’onglet **Cluster HDI**, puis, dans la liste déroulante **Service lié HDInsight**, sélectionnez le service lié que vous avez créé précédemment, **HDInsightLinkedService**, pour HDInsight.
 
-    ![Indiquer les détails du cluster HDInsight pour le pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Indiquer les détails du cluster HDInsight pour le pipeline")
+    ![Fournir les détails du cluster HDInsight pour le pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Fournir les détails du cluster HDInsight pour le pipeline")
 
 4. Sélectionnez l’onglet **Script**, puis effectuez les étapes suivantes :
 
@@ -356,7 +356,7 @@ Vous pouvez également supprimer le groupe de ressources entier que vous avez cr
 1. Dans la mosaïque **Ressources**, vous devez voir le compte de stockage par défaut et la fabrique de données, sauf si vous partagez le groupe de ressources avec d’autres projets.
 1. Sélectionnez **Supprimer le groupe de ressources**. Ce faisant, vous supprimez le compte de stockage et les données stockées dans ce dernier.
 
-    ![Portail Azure – Supprimer le groupe de ressources](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Supprimer le groupe de ressources")
+    ![Groupe de ressources de suppression du portail Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Supprimer un groupe de ressources")
 
 1. Entrez le nom du groupe de ressources pour confirmer la suppression, puis sélectionnez **Supprimer**.
 

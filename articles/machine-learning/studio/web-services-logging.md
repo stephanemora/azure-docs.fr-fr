@@ -1,8 +1,7 @@
 ---
-title: Journalisation de service web - Azure Machine Learning Studio | Microsoft Docs
-description: Découvrez comment activer la journalisation pour les services Web de Machine Learning Studio. La journalisation fournit des informations supplémentaires pour vous aider à résoudre les problèmes des API.
+title: Journalisation de service web - Azure Machine Learning Studio (classique) | Microsoft Docs
+description: Découvrez comment activer la journalisation pour les services web Machine Learning Studio (classique). La journalisation fournit des informations supplémentaires pour vous aider à résoudre les problèmes des API.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -10,26 +9,23 @@ editor: cgronlun
 ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 90ee036275e13b209d9f6c37aba6d16ed564cf5d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345633"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466959"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio
-Ce document fournit des informations sur la fonctionnalité de journalisation des services web Machine Learning Studio. La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning Studio.  
+# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Activer la journalisation pour les services web Azure Machine Learning Studio (classique)
+Ce document fournit des informations sur la capacité de journalisation des services web Machine Learning Studio (classique). La journalisation fournit des informations supplémentaires, au-delà d’un numéro et d’un message d’erreur, qui peuvent vous aider à résoudre des problèmes liés à vos appels aux API Machine Learning Studio (classique).  
 
 ## <a name="how-to-enable-logging-for-a-web-service"></a>Comment activer la journalisation pour un service web
 
-Vous activez la journalisation à partir du portail des [services web Azure Machine Learning Studio](https://services.azureml.net). 
+Vous activez la journalisation à partir du portail des [services web Azure Machine Learning Studio (classique)](https://services.azureml.net). 
 
-1. Connectez-vous au portail des services web Azure Machine Learning Studio à l’adresse [https://services.azureml.net](https://services.azureml.net). Pour un service web classique, vous pouvez également accéder au portail en cliquant sur **Nouvelle expérience de services web** dans la page des services web Machine Learning Studio dans Machine Learning Studio.
+1. Connectez-vous au portail des services web Azure Machine Learning Studio (classique) sur [https://services.azureml.net](https://services.azureml.net). Pour un service web classique, vous pouvez également accéder au portail en cliquant sur **Nouvelle expérience de services web** dans la page des services web Machine Learning Studio (classique) de la version classique de Machine Learning Studio.
 
    ![Lien Nouvelle expérience de services web](./media/web-services-logging/new-web-services-experience-link.png)
 
@@ -61,7 +57,7 @@ Vous activez la journalisation à partir du portail des [services web Azure Mach
 
 > [!TIP]
 >
-> Pour un service web classique, le tableau de bord Services Web dans Machine Learning Studio comprend également un commutateur pour activer la journalisation. Toutefois, la journalisation étant désormais gérée via le portail Services Web, vous devez l’activer via celui-ci, comme décrit dans cet article. Si vous déjà activé l’enregistrement dans Studio, puis dans le portail Services Web, désactiver, puis réactivez la journalisation.
+> Pour un service web classique, le tableau de bord des services web dans la version classique de Machine Learning Studio comprend également un commutateur pour activer la journalisation. Toutefois, la journalisation étant désormais gérée via le portail Services Web, vous devez l’activer via celui-ci, comme décrit dans cet article. Si vous avez déjà activé la journalisation dans Studio (classique), puis dans le portail des services web, désactivez la journalisation, puis réactivez-la.
 
 
 ## <a name="the-effects-of-enabling-logging"></a>Effets de l’activation de la journalisation

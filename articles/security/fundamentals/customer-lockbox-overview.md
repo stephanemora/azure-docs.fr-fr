@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 06/20/2019
-ms.openlocfilehash: 7ca5c890b1f3161923cd808c5ecec0ccf0165d64
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727515"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466406"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Customer Lockbox pour Microsoft Azure
 
@@ -91,7 +91,7 @@ Par exemple :
 
 ![Azure Customer Lockbox - Journaux d’activité](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios"></a>Services et scénarios pris en charge
+## <a name="supported-services-and-scenarios-in-general-availability"></a>Services et scénarios pris en charge dans la disponibilité générale
 
 Les services et les scénarios suivants sont actuellement disponibles globalement pour Customer Lockbox.
 
@@ -108,6 +108,23 @@ Customer Lockbox est actuellement activé pour les demandes d’accès Bureau à
 #### <a name="detailed-audit-logs"></a>Journaux d’audit détaillés
 
 Pour les scénarios qui impliquent l’accès Bureau à distance, vous pouvez utiliser les journaux des événements Windows pour passer en revue les actions effectuées par l’ingénieur Microsoft. Envisagez d’utiliser Azure Security Center pour collecter vos journaux des événements et de copier les données dans votre espace de travail à des fins d’analyse. Pour plus d’informations, voir [Collecte de données dans Azure Security Center](../../security-center/security-center-enable-data-collection.md).
+
+## <a name="supported-services-and-scenarios-in-preview"></a>Services et scénarios pris en charge en préversion
+
+Les services suivants sont désormais en version préliminaire pour Customer Lockbox :
+
+- Stockage Azure 
+
+- Base de données SQL Azure 
+
+- Explorateur de données Azure 
+
+- Machines virtuelles (qui couvrent désormais également l’accès aux images mémoire et aux disques managés) 
+
+- Transfert d'abonnement Azure
+
+Pour activer Customer Lockbox pour ces offres de préversion pour votre organisation, inscrivez-vous à [Customer Lockbox pour la préversion publique d’Azure](https://aka.ms/customerlockbox/insiderprogram).
+
 
 ## <a name="exclusions"></a>Exclusions
 
