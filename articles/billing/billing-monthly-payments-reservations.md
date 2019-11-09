@@ -6,14 +6,14 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b1cc034b4d397f170b57e873cb9a5d74c91f83f4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806922"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746460"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>Acheter des réservations avec paiements mensuels
 
@@ -24,6 +24,7 @@ Le montant de votre paiement mensuel peut varier en fonction du taux de change d
 Les paiements mensuels sont disponibles pour ce qui suit :
 
 - Machines virtuelles
+- Stockage Azure
 - Base de données SQL
 - SQL Data Warehouse
 - Cosmos DB
@@ -60,20 +61,6 @@ Quand vous échangez une réservation qui est payée mensuellement, le coût tot
 Si vous annulez une réservation qui est payée mensuellement, Microsoft peut appliquer des frais d’annulation aux futurs paiements validés qui sont annulés. Les paiements validés restants entrent dans la limite de remboursement de 50 000 USD.
 
 Pour plus d’informations sur les échanges et les remboursements, consultez [Échanges et remboursements en libre-service de réservations Azure](billing-azure-reservations-self-service-exchange-and-refund.md).
-
-## <a name="faq"></a>Forum Aux Questions
-
-Q. Azure propose-t-il des « réservations initiales partielles » ?<br>
-R. Non. Les coûts des réservations avec paiement initial et paiement mensuel étant identiques, Microsoft ne prend pas en charge les paiements initiaux partiels.
-
-Q. Les paiements mensuels sont-ils disponibles pour le programme Fournisseur de solutions Microsoft Cloud (CSP) ?<br>
-R. Oui, les partenaires peuvent acheter des réservations pour leurs clients CSP dans le portail Azure. La possibilité d’acheter des réservations avec facturation mensuelle n’est pas disponible dans l’espace Partenaire.
-
-Q. Je suis client Azure Government ; puis-je acheter une réservation avec paiement mensuel ?<br>
-R. Pas actuellement.
-
-Q. Quand puis-je procéder moi-même à un échange ou remboursement dans le portail Azure, au lieu de créer un ticket de support ?<br>
-R. Pas actuellement. Les demandes d’échange et de remboursement de réservations avec paiements mensuels sont gérées par le support Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

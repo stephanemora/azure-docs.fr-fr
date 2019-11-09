@@ -32,8 +32,8 @@
 - name: Ressources
   items:
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Support multilingue
       href: 'https://aka.ms/ltlangsupport'
     - name: Disponibilité régionale
-      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
