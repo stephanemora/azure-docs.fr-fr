@@ -138,6 +138,8 @@
           href: resource-group-create-multiple.md
         - name: Ressources de niveau abonnement
           href: deploy-to-subscription.md
+        - name: Ressources de niveau groupe d’administration
+          href: deploy-to-management-group.md
     - name: Déployer des modèles
       items:
         - name: Déployer - portail

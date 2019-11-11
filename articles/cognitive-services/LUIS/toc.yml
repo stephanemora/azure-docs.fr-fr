@@ -39,12 +39,15 @@
           href: get-started-get-model-rest-apis.md
 - name: Tutoriels
   items:
+    - name: Créer une application décomposable
+      items:
+        - name: 1. Déterminer les intentions d’un utilisateur
+          href: tutorial-intents-only.md
+        - name: 2. Extraire les données utilisateur
+          href: tutorial-machine-learned-entity.md
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity'
     - name: Créer une application
       items:
-        - name: Déterminer les intentions d’un utilisateur
-          href: tutorial-intents-only.md
-        - name: Identifier les données utilisateur courantes avec des modèles prédéfinis
-          href: luis-tutorial-prebuilt-intents-entities.md
         - name: Obtenir des sentiments à partir des énoncés utilisateur
           href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: Obtenir des données correctement mises en forme avec des expressions régulières

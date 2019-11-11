@@ -876,6 +876,8 @@
       href: service-fabric-common-questions.md
     - name: Forum MSDN
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Garde-fous de déploiement Azure Resource Manager
+      href: service-fabric-azure-resource-manager-guardrails.md
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: Calculatrice de prix

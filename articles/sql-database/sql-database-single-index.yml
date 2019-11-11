@@ -3,7 +3,7 @@ documentType: LandingData
 title: "Azure SQL Database\_: Base de données unique"
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Documentation Azure SQL Database - base de données unique
+  title: Documentation - base de données unique
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   requires-business-manager-approval: false
