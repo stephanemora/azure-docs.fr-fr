@@ -1,22 +1,23 @@
 ---
-title: Découverte et classification des données pour Azure SQL Database et SQL Data Warehouse | Microsoft Docs
+title: Découverte et classification des données
 description: Découverte et classification des données Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b85793223e23aa3d668d6f86494da3ee78c43e91
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 2767b1b5603baa311d480109988d66dd136297ab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009989"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808071"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Découverte et classification des données pour Azure SQL Database et SQL Data Warehouse
 
@@ -144,8 +145,8 @@ Vous pouvez également utiliser des API REST pour gérer par programme les class
 
 - [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crée ou met à jour l’étiquette de sensibilité d’une colonne donnée
 - [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : supprime l’étiquette de sensibilité d’une colonne donnée
-- [Désactiver la recommandation](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/disablerecommendation) : désactive les recommandations de sensibilité sur une colonne donnée
-- [Activer la recommandation](https://docs.microsoft.com/en-us/rest/api/sql/sensitivitylabels/enablerecommendation) : active les recommandations de sensibilité sur une colonne donnée (les recommandations sont activées par défaut sur toutes les colonnes)
+- [Désactiver la recommandation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation) : désactive les recommandations de sensibilité sur une colonne donnée
+- [Activer la recommandation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) : active les recommandations de sensibilité sur une colonne donnée (les recommandations sont activées par défaut sur toutes les colonnes)
 - [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : obtient l’étiquette de sensibilité d’une colonne donnée
 - [Liste actuelle par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : affiche les étiquettes de sensibilité actuelles d’une base de données spécifiée
 
@@ -161,6 +162,8 @@ Vous pouvez utiliser PowerShell pour regrouper toutes les colonnes recommandées
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
 - [Get-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
+- [Enable-AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/en-us/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
+- [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/en-us/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
 ### <a name="powershell-cmdlets-for-managed-instance"></a>Cmdlets PowerShell pour instance gérée
 
@@ -168,6 +171,8 @@ Vous pouvez utiliser PowerShell pour regrouper toutes les colonnes recommandées
 - [Set-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [Remove-AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
 - [Get-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
+- [Enable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/en-us/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
+- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/en-us/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
 ## <a name="permissions"></a>Autorisations
 
