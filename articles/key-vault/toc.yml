@@ -7,17 +7,21 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: 'Définir et récupérer un secret : CLI'
+    - name: Interface de ligne de commande
       href: quick-create-cli.md
-    - name: 'Définir et récupérer un secret : PowerShell'
+    - name: PowerShell
       href: quick-create-powershell.md
-    - name: 'Définir et récupérer un secret : portail'
+    - name: Portail
       href: quick-create-portal.md
-    - name: 'Définir et récupérer un secret : .NET'
+    - name: Python
+      href: quick-create-python.md
+    - name: .NET (SDK v4)
       href: quick-create-net.md
-    - name: 'Définir et récupérer un secret : Node.js'
+    - name: .NET (SDK v3)
+      href: quick-create-net-v3.md
+    - name: Node.js
       href: quick-create-node.md
-    - name: 'Définir et récupérer un secret : modèle'
+    - name: "Modèle Azure\_Resource\_Manager"
       displayName: 'resource manager, resource manager template, arm'
       href: quick-create-template.md
 - name: Tutoriels

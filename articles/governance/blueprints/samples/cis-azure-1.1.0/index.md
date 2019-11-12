@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 0c33c0832590fdfd4fe78a1645ef1b0e3e391163
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: bf4b79dbb3da15605dc4362b5f0578a457886316
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200572"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581372"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark
 
@@ -19,16 +19,16 @@ L’exemple de blueprint CIS Microsoft Azure Foundations Benchmark fournit des g
 
 ## <a name="recommendation-mapping"></a>Correspondances des recommandations
 
-La section relative aux correspondances des recommandations fournit des détails sur les stratégies incluses dans ce blueprint et sur la façon dont ces stratégies répondent aux différentes recommandations de CIS Microsoft Azure Foundations Benchmark.
-Quand des ressources sont attribuées à une architecture, elles sont évaluées par Azure Policy pour savoir si elles sont en conformité avec les stratégies affectées. Pour plus d’informations, consultez [Présentation d’Azure Policy](../../../policy/overview.md).
+La section relative aux correspondances des suggestions fournit des détails sur les stratégies incluses dans ce blueprint et sur la façon dont ces stratégies répondent aux différentes suggestions de CIS Microsoft Azure Foundations Benchmark v1.1.0. Quand des ressources sont attribuées à une architecture, elles sont évaluées par Azure Policy pour savoir si elles sont en conformité avec les stratégies affectées. Pour plus d’informations, consultez [Présentation d’Azure Policy](../../../policy/overview.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez consulté la vue d’ensemble de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark.
-Poursuivez en lisant l’article suivant pour en savoir plus sur les correspondances des recommandations :
+Poursuivez en lisant les articles suivants pour en savoir plus sur les correspondances des suggestions :
 
 > [!div class="nextstepaction"]
-> [Blueprint CIS Microsoft Azure Foundations Benchmark - Correspondances des recommandations](./control-mapping.md)
+> [Blueprint CIS Microsoft Azure Foundations Benchmark – Correspondances des suggestions](./control-mapping.md)
+> [Blueprint CIS Microsoft Azure Foundations Benchmark – Étapes du déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

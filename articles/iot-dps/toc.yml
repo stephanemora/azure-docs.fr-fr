@@ -91,7 +91,7 @@
       href: concepts-device.md
     - name: Sécurité
       href: concepts-security.md
-    - name: de diffusion en continu
+    - name: Service
       href: concepts-service.md
     - name: Attestation TPM
       href: concepts-tpm-attestation.md
@@ -141,6 +141,8 @@
       href: how-to-legacy-device-symm-key.md
     - name: Utilisez les outils du Kit de développement logiciel pour le développement
       href: how-to-use-sdk-tools.md
+    - name: Guide pratique pour envoyer des données supplémentaires depuis les appareils
+      href: how-to-send-additional-data.md
     - name: Résolution de problèmes
       href: how-to-troubleshoot-dps.md
 - name: Informations de référence

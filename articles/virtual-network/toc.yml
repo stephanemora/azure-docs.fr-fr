@@ -39,6 +39,8 @@
       href: security-overview.md
     - name: Routage
       href: virtual-networks-udr-overview.md
+    - name: Balises de service
+      href: service-tags-overview.md
     - name: Points de terminaison de service
       href: virtual-network-service-endpoints-overview.md
     - name: Stratégies de points de terminaison de service
@@ -65,6 +67,8 @@
       href: ipv6-public-ip-address-prefix.md
     - name: Protection DDoS
       href: ddos-protection-overview.md
+    - name: Extension de sous-réseau
+      href: subnet-extension.md
     - name: Interopérabilité de connectivité du serveur principal
       items:
         - name: Préface et initialisation (tearDown) de test
@@ -297,6 +301,8 @@
           href: diagnose-network-routing-problem.md
         - name: Test de débit
           href: virtual-network-bandwidth-testing.md
+        - name: Tester la latence du réseau des machines virtuelles
+          href: virtual-network-test-latency.md
         - name: Impossible de supprimer des réseaux virtuels
           href: virtual-network-troubleshoot-cannot-delete-vnet.md
         - name: Problèmes de connectivité entre machines virtuelles

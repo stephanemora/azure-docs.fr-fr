@@ -191,24 +191,22 @@
       href: /cli/azure/storage
     - name: .NET
       items:
-        - name: 'Objets blob, files d’attente et fichiers'
-          href: /dotnet/api/overview/azure/storage/client
+        - name: "Fichiers (version\_11.x)"
+          href: /dotnet/api/microsoft.azure.storage.file
         - name: Déplacement des données
           href: /dotnet/api/microsoft.azure.storage.datamovement
         - name: Fournisseur de ressources de stockage
           href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
-        - name: "Objets blob, files d’attente et fichiers (version\_12.x - préversion)"
-          href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-        - name: "Objets blob, files d’attente et fichiers (version\_8)"
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+        - name: "Fichiers (version\_8.x)"
+          href: /java/api/com.microsoft.azure.storage.file
         - name: Fournisseur de ressources de stockage
           href: /java/api/overview/azure/storage/management
-    - name: Node.js
-      href: /javascript/api/overview/azure/storage
-    - name: Python
-      href: /python/api/overview/azure/storage
+    - name: "JavaScript (version\_10.x)"
+      href: /javascript/api/@azure/storage-file
+    - name: "Python (version\_2.x)"
+      href: /python/api/azure-storage-file/?view=azure-python
     - name: REST
       items:
         - name: 'Objets blob, files d’attente, tables et fichiers'

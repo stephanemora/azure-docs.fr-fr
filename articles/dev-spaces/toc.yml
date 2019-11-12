@@ -91,7 +91,7 @@
           href: how-to/run-dev-spaces-windows-containers.md
         - name: Utiliser traefik pour une entrée personnalisée et HTTPS
           href: how-to/ingress-https-traefik.md
-        - name: Utiliser Azure Dev Spaces Connect (préversion)
+        - name: Connecter l’ordinateur de développement à un cluster AKS (préversion)
           href: how-to/connect.md
     - name: Résolution de problèmes
       href: troubleshooting.md

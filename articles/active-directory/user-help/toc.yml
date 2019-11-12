@@ -54,18 +54,22 @@
       href: user-help-auth-app-backup-recovery.md
     - name: Forum Aux Questions
       href: user-help-auth-app-faq.md
-- name: Aide du portail Mon profil (préversion)
+- name: Aide du portail Mon compte
   items:
     - name: Vue d'ensemble
-      href: myprofile-portal-overview.md
+      href: my-account-portal-overview.md
     - name: Gérer vos informations de sécurité
       href: user-help-security-info-overview.md
-    - name: Gérer vos organisations
-      href: myprofile-portal-organizations-page.md
     - name: Gérer vos appareils connectés
-      href: myprofile-portal-devices-page.md
+      href: my-account-portal-devices-page.md
+    - name: Changer votre mot de passe
+      href: my-account-change-password-page.md
+    - name: Gérer vos organisations
+      href: my-account-portal-organizations-page.md
     - name: Afficher vos informations de confidentialité
-      href: myprofile-portal-privacy-page.md
+      href: my-account-portal-privacy-page.md
+    - name: Afficher votre activité de connexion récente
+      href: my-account-portal-sign-ins-page.md
 - name: Aide relative aux informations de sécurité (préversion)
   items:
     - name: Vue d'ensemble

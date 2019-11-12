@@ -8,6 +8,8 @@
   items:
     - name: Créer un service - Portail
       href: quickstart-create-data-migration-service-portal.md
+    - name: Créer un service en mode hybride – Portail
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: Tutoriels
   items:
     - name: Migrer SQL Server vers une base de données unique Azure SQL DB hors connexion

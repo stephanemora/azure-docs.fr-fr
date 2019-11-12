@@ -1,4 +1,4 @@
-- name: Documentation Azure Data Box - Transfert en ligne
+- name: Documentation Azure Stack Edge et Data Box Gateway
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway
@@ -57,11 +57,11 @@
           href: data-box-gateway-1905-release-notes.md
         - name: Disponibilité générale
           href: data-box-gateway-release-notes.md
-- name: Data Box Edge
+- name: Azure Stack Edge
   items:
     - name: Vue d'ensemble
       items:
-        - name: Qu’est-ce qu’Azure Data Box Edge ?
+        - name: "Qu’est-ce qu’Azure Stack Edge\_?"
           href: data-box-edge-overview.md
     - name: Tutoriels
       items:
@@ -125,9 +125,9 @@
           href: data-box-gateway-release-notes.md
 - name: Ressources
   items:
-    - name: "Échantillons de module\_C# Data Box Edge (.NET)"
+    - name: "Exemples de modules\_C# Azure Stack Edge (.NET)"
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
-    - name: Produit Data Box Edge/Gateway
+    - name: Produit Azure Stack Edge/Data Box Gateway
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
     - name: Tarifs
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

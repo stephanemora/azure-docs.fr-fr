@@ -97,6 +97,8 @@
           href: stream-analytics-power-bi-dashboard.md
         - name: Arrêter ou supprimer une tâche
           href: stream-analytics-clean-up-your-job.md
+        - name: Copier ou sauvegarder un travail
+          href: copy-job.md
         - name: Associer les travaux à des fins de fiabilité
           href: stream-analytics-job-reliability.md
         - name: "S’authentifier avec une identité managée - sortie ADLS Gen\_1"
@@ -105,6 +107,8 @@
           href: sql-reference-data.md
         - name: S’authentifier avec une identité managée - sortie Blob
           href: blob-output-managed-identity.md
+        - name: S’authentifier avec une identité managée – Power BI
+          href: powerbi-output-managed-identity.md
     - name: Créer des solutions
       items:
         - name: Analyse d’opinions Twitter

@@ -5,7 +5,7 @@
   items:
     - name: "Qu’est-ce que la gestion d’applications cloud et l’authentification unique\_?"
       href: what-is-application-management.md
-    - name: "Qu’est-ce que le provisionnement utilisateur automatique\_?"
+    - name: "Qu’est-ce que le provisionnement d’application\_?"
       href: user-provisioning.md
     - name: "Qu’est-ce que le Proxy d’application pour les applications locales\_?"
       href: what-is-application-proxy.md
@@ -17,7 +17,7 @@
       href: view-applications-portal.md
 - name: Tutoriels
   items:
-    - name: Tutoriels sur les applications SaaS
+    - name: "Applications de galerie intégrées (p.\_ex., ServiceNow, Salesforce, Dropbox)"
       href: /azure/active-directory/saas-apps/
     - name: Ajouter une application locale via le proxy d’application
       href: application-proxy-add-on-premises-application.md
@@ -66,12 +66,12 @@
               href: howto-saml-token-encryption.md
             - name: Portails d’utilisateurs finaux
               href: end-user-experiences.md
-    - name: Provisionnement automatique d'utilisateurs
+    - name: Provisionnement d’application (SCIM)
       items:
-        - name: Planifier un déploiement de provisionnement d’utilisateurs automatique
-          href: plan-auto-user-provisioning.md
         - name: Provisionnement automatique pour les applications prenant en charge SCIM
           href: use-scim-to-provision-users-and-groups.md
+        - name: Planifier un déploiement d’attribution automatique d’utilisateurs
+          href: plan-auto-user-provisioning.md
     - name: Proxy d’application pour applications locales
       items:
         - name: Proxy d’application
@@ -223,23 +223,21 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Erreur lors de l’utilisation de l’accès aux applications en libre-service
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Provisionnement automatique d'utilisateurs
+    - name: Provisionnement d’application (SCIM)
       items:
         - name: Configurer l'approvisionnement de l'utilisateur
           items:
-            - name: Provisionnement d’utilisateurs pour les applications de galerie
+            - name: Provisionnement manuel ou automatique
               href: application-provisioning-config-how-to.md
-            - name: Activer le provisionnement utilisateur automatique pour les applications multilocataires
-              href: isv-automatic-provisioning-multi-tenant-apps.md
             - name: Configurer le provisionnement d’utilisateurs automatique
               href: configure-automatic-user-provisioning-portal.md
-            - name: Personnaliser les attributs de l’application
+            - name: Personnaliser des mappages d’attributs
               href: Customize-application-attributes.md
-            - name: Filtres d’étendue
+            - name: Étendue des utilisateurs ou des groupes à provisionner
               href: define-conditional-rules-for-provisioning-user-accounts.md
             - name: Ignorer la suppression pour les utilisateurs hors limites
               href: skip-out-of-scope-deletions.md
-            - name: Vérifier l’état du provisionnement
+            - name: Superviser les performances et l’état de provisionnement
               href: application-provisioning-when-will-provisioning-finish-specific-user.md
             - name: Créer des rapports sur le provisionnement automatique d’utilisateurs
               href: check-status-user-account-provisioning.md
@@ -249,20 +247,20 @@
           items:
             - name: Résoudre les problèmes de provisionnement d’utilisateurs
               href: application-provisioning-config-problem.md
-            - name: État de la quarantaine
+            - name: Problème d’autorisation (impossible d’enregistrer les informations d’identification de l’administrateur)
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Les utilisateurs ne sont pas provisionnés
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Les mauvais utilisateurs ont été provisionnés
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+            - name: Travail de provisionnement en quarantaine
               href: application-provisioning-quarantine-status.md
+            - name: Attribut source manquant
+              href: user-provisioning-sync-attributes-for-mapping.md
+            - name: Le travail de provisionnement est lent
+              href: application-provisioning-when-will-provisioning-finish.md
             - name: Journaux d’approvisionnement
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Synchroniser un attribut pour le mappage - application de galerie
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Provisionnement très lent - application de galerie
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration du provisionnement d’utilisateurs pour une application de galerie
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Aucun utilisateur provisionné - application de galerie
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Utilisateurs incorrects provisionnés - application de galerie
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
     - name: Proxy d’application pour applications locales
       items:
         - name: Configurer des connecteurs
@@ -357,10 +355,12 @@
               href: application-proxy-understand-cors-issues.md
 - name: Informations de référence
   items:
-    - name: Provisionnement automatique d'utilisateurs
+    - name: Provisionnement d’application (SCIM)
       items:
         - name: Écrire des expressions pour les mappages d’attributs
           href: functions-for-customizing-application-data.md
+        - name: Choix d’une méthode de provisionnement
+          href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Agent de provisionnement Azure AD Connect
       items:
         - name: Historique des versions de l’agent de provisionnement

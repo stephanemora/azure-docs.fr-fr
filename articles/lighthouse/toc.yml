@@ -18,6 +18,9 @@
     - name: Expériences de la gestion multilocataire
       displayName: scenarios
       href: ./concepts/cross-tenant-management-experience.md
+    - name: 'Locataires, rôles et utilisateurs'
+      displayName: 'Azure AD, Azure Active Directory'
+      href: ./concepts/tenants-users-roles.md
     - name: Offres de services managés dans la Place de marché Azure
       displayName: 'azure marketplace, marketplace, managed service, private, plan'
       href: ./concepts/managed-services-offers.md
