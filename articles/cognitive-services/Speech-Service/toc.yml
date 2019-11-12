@@ -307,9 +307,9 @@
               href: concepts-gating-overview.md
             - name: Déploiement de la technologie de synthèse
               href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Note sur la transparence pour Custom Voice
-              href: 'https://aka.ms/neural-tts-transparency-note'
-            - name: Directives pour la conception de la divulgation
+            - name: Divulgation d'un talent vocal
+              href: 'https://aka.ms/disclosure-voice-talent'
+            - name: Guide de conception de la divulgation
               href: concepts-disclosure-guidelines.md
             - name: Modèles de conception de divulgation
               href: concepts-disclosure-patterns.md
