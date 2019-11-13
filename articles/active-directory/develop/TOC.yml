@@ -392,9 +392,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: Configuration de l’application
           items:
-            - name: Guide de formation sur les inscriptions d’applications dans le portail Azure (hérité)
+            - name: Transition des inscriptions d’applications (hérité) à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: Guide d’inscription d’applications dans le Portail d’inscription des applications
+            - name: Transition du portail des inscriptions d’applications à la nouvelle expérience d’inscriptions d’applications dans le portail Azure
               href: app-registration-portal-training-guide.md
             - name: Convertir une application monolocataire en application multilocataire
               href: howto-convert-app-to-be-multi-tenant.md
