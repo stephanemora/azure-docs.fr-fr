@@ -20,6 +20,8 @@
   items:
     - name: Sauvegarder des machines virtuelles Azure à l’échelle
       href: tutorial-backup-vm-at-scale.md
+    - name: Sauvegarder des machines virtuelles Azure avec PowerShell
+      href: tutorial-backup-azure-vm.md
     - name: Restaurer un disque
       href: tutorial-restore-disk.md
     - name: Restaurer des fichiers individuels
