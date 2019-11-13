@@ -35,6 +35,8 @@
       items:
         - name: Composants Apache Hadoop sur HDInsight
           href: ./hdinsight-component-versioning.md
+        - name: Composants haute disponibilité
+          href: ./hdinsight-high-availability-components.md
         - name: Machine Learning dans HDInsight
           href: ./hdinsight-machine-learning-overview.md
         - name: Diffusion en continu à l’échelle dans HDInsight
