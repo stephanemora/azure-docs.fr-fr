@@ -166,9 +166,7 @@
       items:
         - name: Ajouter une intention
           href: luis-how-to-add-intents.md
-        - name: Ajouter une entité à un énoncé
-          href: luis-how-to-add-example-utterances.md
-        - name: Ajouter une entité sans énoncé
+        - name: Ajouter une entité pour extraire des données
           href: luis-how-to-add-entities.md
           displayName: 'roles, import'
         - name: Utiliser des modèles prédéfinis
@@ -306,6 +304,8 @@
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Informations de référence sur les entités personnalisées
       items:
+        - name: Entité apprise par la machine
+          href: reference-entity-machine-learned-entity.md
         - name: Entité composite
           href: reference-entity-composite.md
         - name: Entité de liste
@@ -316,6 +316,8 @@
           href: reference-entity-regular-expression.md
         - name: Entité simple
           href: reference-entity-simple.md
+    - name: Syntaxe du modèle
+      href: reference-pattern-syntax.md
     - name: Sentiments
       href: luis-reference-prebuilt-sentiment.md
     - name: Ressources pour les développeurs

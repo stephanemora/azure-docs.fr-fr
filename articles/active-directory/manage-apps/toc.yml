@@ -353,6 +353,10 @@
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: Problèmes CORS dans le proxy d’application
               href: application-proxy-understand-cors-issues.md
+    - name: Sécuriser l’accès hybride (cloud et local)
+      items:
+        - name: Sécuriser les applications héritées avec des réseaux ou des contrôleurs de livraison d’applications
+          href: secure-hybrid-access.md
 - name: Informations de référence
   items:
     - name: Provisionnement d’application (SCIM)

@@ -13,10 +13,10 @@
 - name: Concepts
   items:
     - name: Gestion des ressources déléguées Azure
-      displayName: delegation
+      displayName: 'delegation, projection'
       href: ./concepts/azure-delegated-resource-management.md
     - name: Expériences de la gestion multilocataire
-      displayName: scenarios
+      displayName: 'scenarios, supported, enhanced, services, limitations, current'
       href: ./concepts/cross-tenant-management-experience.md
     - name: 'Locataires, rôles et utilisateurs'
       displayName: 'Azure AD, Azure Active Directory'
@@ -39,16 +39,22 @@
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Publier des offres de services managés sur la Place de marché Azure
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'managed services offer, azure marketplace, publish, marketplace'
       href: ./how-to/publish-managed-services-offers.md
     - name: Voir et gérer les clients
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: Voir et gérer les fournisseurs de services
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'customer, update'
       href: ./how-to/view-manage-service-providers.md
-    - name: Déployer une stratégie pouvant être corrigée
-      href: ./how-to/deploy-policy-remediation.md
+    - name: Intégration d’Azure Policy
+      items:
+        - name: Déployer une stratégie à grande échelle
+          displayName: storage
+          href: ./how-to/policy-at-scale.md
+        - name: Déployer une stratégie pouvant être corrigée
+          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+          href: ./how-to/deploy-policy-remediation.md
 - name: Informations de référence
   items:
     - name: D’Azure CLI

@@ -165,8 +165,8 @@
               href: concepts-data-flow-monitoring.md
             - name: Performances de flux de données
               href: concepts-data-flow-performance.md
-            - name: Déplacer des nœuds
-              href: concepts-data-flow-move-nodes.md
+            - name: Gérer un graphe
+              href: concepts-data-flow-manage-graph.md
             - name: Générateur d’expressions
               href: concepts-data-flow-expression-builder.md
             - name: Langage d’expression
@@ -648,6 +648,8 @@
           href: scenario-ssis-migration-ssisdb-mi.md
 - name: Informations de référence
   items:
+    - name: Script de flux de données
+      href: data-flow-script.md
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.datafactory
     - name: PowerShell
