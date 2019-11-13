@@ -1,18 +1,14 @@
 ---
 title: Exemple de blueprint PCI-DSS v3.2.1 - Vue d’ensemble
 description: Vue d’ensemble de l’exemple de blueprint Payment Card Industry Data Security Standard v3.2.1 Cet exemple de blueprint aide les clients à évaluer des contrôles spécifiques.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: d0bcc4646f2e822de77fa89f23352ec438053d44
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 11ddf04e9e440fa811ed6a29498deeaf01f2c397
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200460"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037782"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint PCI-DSS v3.2.1
 

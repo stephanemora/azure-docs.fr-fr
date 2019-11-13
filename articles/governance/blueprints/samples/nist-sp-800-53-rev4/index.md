@@ -1,17 +1,14 @@
 ---
 title: Exemple de blueprint NIST SP 800-53 R4 - Vue d’ensemble
 description: Vue d’ensemble de l’exemple de blueprint NIST SP 800-53 R4. Cet exemple de blueprint aide les clients à évaluer des contrôles NIST SP 800-53 R4 spécifiques.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 3ab412da9c8ec857db2c0758e19491898165728f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: c1a1a64d3c5eed3da5d9b3d3b5443e92f2996e08
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200664"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037291"
 ---
 # <a name="overview-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint NIST SP 800-53 R4
 

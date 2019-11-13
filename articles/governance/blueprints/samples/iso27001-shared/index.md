@@ -1,17 +1,14 @@
 ---
 title: Exemple de blueprint Services partagés ISO 27001 - Vue d’ensemble
 description: Vue d’ensemble et architecture de l’exemple de blueprint Services partagés ISO 27001. Cet exemple de blueprint aide les clients à évaluer des contrôles ISO 27001 spécifiques.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 970d8d27dd59d0e2839d41cdf22d88ea197527c5
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 70c3b7838a2635b6befe4e7f624c505255f43998
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200706"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038358"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Vue d’ensemble de l’exemple de blueprint Services partagés ISO 27001
 
