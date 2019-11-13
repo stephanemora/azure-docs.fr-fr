@@ -1,22 +1,22 @@
 ---
-title: 'Applications SaaS : Sauvegardes géoredondantes Azure SQL Database pour la reprise d’activité après sinistre | Microsoft Docs'
+title: 'Applications SaaS : Sauvegardes géoredondantes pour la récupération d’urgence'
 description: Apprendre à utiliser des sauvegardes géoredondantes Azure SQL Database pour récupérer une application SaaS multilocataire en cas de panne
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
-ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 270fc157fa14efa19ed30d35b614fb769804b72e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570492"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826470"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utiliser la géorestauration pour récupérer une application SaaS multilocataire à partir de sauvegardes de bases de données
 

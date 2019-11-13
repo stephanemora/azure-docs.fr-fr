@@ -1,21 +1,19 @@
 ---
 title: Technologies de déploiement dans Azure Functions | Microsoft Docs
 description: Découvrez les différentes façons de déployer du code sur Azure Functions.
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674962"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576128"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -31,7 +29,7 @@ Azure Functions prend en charge le développement local multiplateforme ainsi qu
 
 Chaque plan a des comportements différents. Les technologies de déploiement ne sont pas toutes disponibles pour chaque environnement d’exécution d’Azure Functions. Le graphique suivant indique les technologies de déploiement prises en charge pour chaque combinaison de système d'exploitation et de plan d'hébergement :
 
-| Technologie de déploiement | Consommation Windows | Windows Premium (préversion) | Dédié (Windows)  | Consommation Linux | Premium (Linux) (préversion) | Dédié (Linux) |
+| Technologie de déploiement | Consommation Windows | Windows Premium | Dédié (Windows)  | Consommation Linux | Linux Premium | Dédié (Linux) |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | URL du package externe<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Zip Deploy |✔|✔|✔|✔|✔|✔|
@@ -86,7 +84,7 @@ Lorsque les applications sont créées à distance sur Linux, elles s’[exécut
 
 Les applications de fonction Linux qui s’exécutent dans le plan Consommation ne disposent pas de site SCM/Kudu, ce qui limite les options de déploiement. Toutefois, les applications de fonction sur Linux exécutées dans le plan Consommation prennent en charge les builds distantes.
 
-##### <a name="dedicated-and-premium-preview-plans"></a>Plans dédiés et Premium (préversion)
+##### <a name="dedicated-and-premium-plans"></a>Plans dédiés et Premium
 
 Les applications de fonction qui s’exécutent sur Linux dans le [plan dédié (App service)](functions-scale.md#app-service-plan) et le [plan Premium](functions-scale.md#premium-plan) disposent également d’un site SCM/Kudu limité.
 
@@ -183,8 +181,8 @@ Dans l’éditeur du portail, vous pouvez modifier directement les fichiers dans
 
 Le tableau suivant présente les systèmes d’exploitation et les langages qui prennent en charge la modification dans le portail :
 
-| | Consommation Windows | Windows Premium (préversion) | Dédié (Windows) | Consommation Linux | Premium (Linux) (préversion)| Dédié (Linux) |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Consommation Windows | Windows Premium | Dédié (Windows) | Consommation Linux | Linux Premium | Dédié (Linux) |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
 | Script C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |

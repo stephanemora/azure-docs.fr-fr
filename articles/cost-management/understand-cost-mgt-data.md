@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 6870297eea194b89a84a89e1e8ef8decf5c1788e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 681ccc768b1fa3d5a968847d11987fbd83898b59
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374527"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721368"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
 Cet article vise à détailler les informations sur l’utilisation et les coûts incluses dans Azure Cost Management. Il indique la fréquence à laquelle les données sont traitées, collectées, affichées et fermées. L’utilisation d’Azure vous est facturée tous les mois. Bien que les cycles de facturation soient mensuels, les dates de début et de fin d’un cycle varient selon le type d’abonnement. La fréquence à laquelle Cost Management reçoit les données d’utilisation varie selon différents facteurs. Ces facteurs comprennent le temps nécessaire pour traiter les données et la fréquence à laquelle les services Azure envoient les données d’utilisation au système de facturation.
 
-Azure Cost Management inclut toutes les informations sur les activités et achats, y compris les réservations et les offres tierces associées aux comptes des Contrats entreprise. Les comptes des Contrats client Microsoft (MCA) et les abonnements individuels avec des taux de paiement à l’utilisation portent uniquement sur l’utilisation des services de Place de marché et Azure. Les autres coûts, ainsi que les coûts liés au support, ne sont pas inclus. Les coûts font l’objet d’une estimation tant qu’aucune facture n’a été générée, et n’incluent pas les crédits.
+Azure Cost Management inclut toutes les informations sur les activités et achats, y compris les réservations et les offres tierces associées aux comptes des Contrats entreprise. Les comptes des Contrats client Microsoft et les abonnements individuels avec des taux de paiement à l’utilisation portent uniquement sur l’utilisation des services de Place de marché et Azure. Les autres coûts, ainsi que les coûts liés au support, ne sont pas inclus. Les coûts font l’objet d’une estimation tant qu’aucune facture n’a été générée, et n’incluent pas les crédits.
 
 ## <a name="supported-microsoft-azure-offers"></a>Offres Microsoft Azure prises en charge
 
@@ -34,7 +34,7 @@ Les informations suivantes présentent les [offres Microsoft Azure](https://azur
 | **Contrat Entreprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Mai 2014<sup>1</sup> |
 | **Contrat client Microsoft** | [Offre Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | Mars 2019<sup>3</sup> |
 | **Contrat client Microsoft** | [Offre Microsoft Azure pour Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | Mars 2019<sup>3</sup> |
-| **Contrat Partenaire Microsoft** | Offre Microsoft Azure | CSP_2015-05-01, CSP_MG_2017-12-01, CSPDEVTEST_2018-05-01 | N/A | Octobre 2019 |
+| **Contrat client Microsoft pris en charge par les partenaires** | Offre Microsoft Azure | CSP_2015-05-01, CSP_MG_2017-12-01 et CSPDEVTEST_2018-05-01<br><br>L’ID de quota est réutilisé pour le contrat client Microsoft et les abonnements CSP hérités. Actuellement, seuls les abonnements aux contrats clients Microsoft sont pris en charge. | N/A | Octobre 2019 |
 | **MSDN (Microsoft Developer Network)** | [Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 octobre 2018<sup>2</sup> |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 octobre 2018<sup>2</sup> |
 | **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 octobre 2018<sup>2</sup> |
@@ -126,6 +126,79 @@ Abonnements avec paiement à l’utilisation. Si le mois de facturation se termi
 ### <a name="rerated-data"></a>Données réestimées
 
 Que vous utilisiez les [API Cost Management](index.yml), Power BI ou le portail Azure pour récupérer des données, prévoyez une réestimation des frais de la période de facturation en cours, et donc des changements, jusqu’à la clôture de la facture.
+
+## <a name="cost-management-data-fields"></a>Champs de données Cost Management
+
+Les champs de données suivants sont disponibles dans les fichiers de détails sur l’utilisation et les API Cost Management. Pour les champs en gras suivants, les partenaires peuvent utiliser les fonctionnalités Filtrer et Regrouper lors de l’analyse des coûts pour analyser les frais en fonction de plusieurs champs. Les champs en gras s’appliquent uniquement aux contrats client Microsoft pris en charge par les partenaires.
+
+| **Nom du champ** | **Description** |
+| --- | --- |
+| invoiceId | ID de facture affiché sur la facture associée à la transaction spécifique. |
+| previousInvoiceID | Référence à une facture d’origine s’il y a un remboursement (coût négatif). Ce champ est renseigné uniquement en cas de remboursement. |
+| billingAccountName | Nom du compte de facturation représentant le partenaire. Il accumule tous les coûts associés aux clients qui ont été intégrés à un contrat client Microsoft et les clients CSP qui ont effectué des achats de droits tels que SaaS, la Place de marché Azure et les réservations. |
+| billingAccountID | Identificateur du compte de facturation représentant le partenaire. |
+| billingProfileID | Identificateur du profil de facturation qui regroupe les coûts de l’ensemble des factures dans une même devise, pour tous les clients qui ont été intégrés dans un contrat client Microsoft et les clients CSP ayant effectué des achats de droits tels que SaaS, la Place de marché Azure et les réservations. |
+| billingProfileName | Nom du profil de facturation qui regroupe les coûts de l’ensemble des factures dans une même devise, pour tous les clients qui ont été intégrés dans un contrat client Microsoft et les clients CSP ayant effectué des achats de droits tels que SaaS, la Place de marché Azure et les réservations. |
+| invoiceSectionName | Nom du projet dont le coût est répertorié dans la facture. Non applicable pour les contrats client Microsoft intégrés par les partenaires. |
+| invoiceSectionID | Identificateur du projet dont le coût est répertorié dans la facture. Non applicable pour les contrats client Microsoft intégrés par les partenaires. |
+| **CustomerTenantID** | Identificateur du locataire Azure Active Directory de l’abonnement du client. |
+| **CustomerName** | Nom du locataire Azure Active Directory de l’abonnement du client. |
+| **CustomerTenantDomainName** | Nom de domaine du locataire Azure Active Directory de l’abonnement du client. |
+| **PartnerTenantID** | Identificateur du locataire Azure Active Directory du partenaire. |
+| **PartnerName** | Nom du locataire Azure Active Directory du partenaire. |
+| **ResellerMPNID** | Valeur MPNID du revendeur associée à l’abonnement. |
+| costCenter | Centre de coûts associé à l’abonnement. |
+| billingPeriodStartDate | Date de début de la période de facturation, comme indiqué sur la facture. |
+| billingPeriodEndDate | Date de fin de la période de facturation, comme indiqué sur la facture. |
+| servicePeriodStartDate | Date de début de la période d’évaluation pendant laquelle l’utilisation du service a été évaluée, dans le but de déterminer les frais. Les tarifs associés aux services Azure sont déterminés pour la période d’évaluation. |
+| servicePeriodEndDate | Date de fin de la période pendant laquelle l’utilisation du service a été évaluée, dans le but de déterminer les frais. Les tarifs associés aux services Azure sont déterminés en fonction de la période d’évaluation. |
+| date | Pour les données de consommation Azure, ce champ affiche la date d’utilisation évaluée. Pour une instance réservée, il affiche la date d’achat. Dans le cas des frais récurrents et ponctuels, tels que la Place de marché et le support, il affiche la date d’achat. |
+| productID | Identificateur du produit qui a accumulé des frais par consommation ou achat. Il s’agit de la clé concaténée de productID et SKuID, comme indiqué dans l’Espace partenaires. |
+| product | Nom du produit qui a accumulé des frais par consommation ou achat, comme indiqué dans la facture. |
+| serviceFamily | Affiche la famille de services du produit acheté ou facturé. Par exemple, le stockage ou le calcul. |
+| productOrderID | Identificateur de la ressource ou nom du plan Azure auquel appartient l’abonnement. Par exemple, « Azure Plan ». |
+| productOrderName | Nom du plan Azure auquel appartient l’abonnement. Par exemple, « Azure Plan ». |
+| consumedService | Service consommé (taxonomie héritée) tel qu’il est utilisé dans les détails sur l’utilisation d’EA hérités. |
+| meterID | Identificateur contrôlé pour la consommation mesurée. |
+| meterName | Identifie le nom du compteur associé à la consommation mesurée. |
+| meterCategory | Identifie le service de niveau supérieur pour l’utilisation. |
+| meterSubCategory | Définit le type ou la sous-catégorie de service Azure qui peuvent affecter le tarif. |
+| meterRegion | Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement. |
+| ID d’abonnement | Identificateur unique de l’abonnement Azure généré par Microsoft. |
+| subscriptionName | Nom de l’abonnement Azure. |
+| Terme | Affiche le terme de validité de l’offre. Par exemple, les instances réservées affichent 12 mois d’une période annuelle de l’instance réservée. Pour les achats ponctuels ou récurrents, cette période indique un mois pour SaaS, la Place de marché Azure et le support. Cela ne s’applique pas à la consommation d’Azure. |
+| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type de serveur de publication qui identifie le serveur de publication en tant que premier tiers, revendeur tiers ou agence tierce. |
+| partNumber | Numéro de référence de l’instance réservée inutilisée et des services de la Place de marché Azure. |
+| publisherName | Nom de l’éditeur du service, y compris Microsoft ou des serveurs de publication tiers. |
+| reservationId | Identificateur de l’achat de l’instance réservée. |
+| reservationName | Nom de l’instance réservée. |
+| reservationOrderId | ID de commande de l’instance réservée. |
+| frequency | Fréquence des paiements d’une instance réservée. |
+| resourceGroup | Nom du groupe de ressources Azure utilisé pour la gestion des ressources du cycle de vie. |
+| instanceID (ou) ResourceID | Identificateur de l’instance de ressource. |
+| resourceLocation | Nom de l’emplacement de la ressource. |
+| Location | Emplacement normalisé de la ressource. |
+| effectivePrice | Prix unitaire effectif du service, dans la devise de tarification. Il est unique pour un produit, une famille de services, un compteur et une offre. Utilisé avec la tarification dans la grille tarifaire associée au compte de facturation. Lorsque la tarification est hiérarchisée ou qu’une quantité est incluse, cette option affiche le prix de consommation combiné. |
+| Quantité | Quantité mesurée achetée ou consommée. Quantité du compteur utilisée au cours de la période de facturation. |
+| unitOfMeasure | Identifie l’unité dans laquelle le service est facturé. Par exemple, des Go et des heures. |
+| pricingCurrency | Devise définissant le prix unitaire. |
+| billingCurrency | Devise définissant le coût facturé. |
+| chargeType | Définit le type de frais représenté par le coût dans Azure Cost Management, comme un achat et un remboursement. |
+| costinBillingCurrency | Coût étendu ou combiné avant l’application des taxes, dans la devise facturée. |
+| CostInPricingCurrency | Coût étendu ou combiné avant l’application des taxes, dans la devise de tarification, à corréler avec les prix. |
+| **costinUSD** | Estimation du coût du coût étendu ou combiné avant l’application des taxes, en USD. |
+| **paygCostInBillingCurrency** | Affiche les coûts si la tarification est indiquée dans les prix de vente au détail. Indique les tarifs du paiement à l’utilisateur dans la devise de facturation. Disponible uniquement dans les étendues RBAC. |
+| **paygCostInUSD** | Affiche les coûts si la tarification est indiquée dans les prix de vente au détail. Affiche les tarifs du paiement à l’utilisation, en USD. Disponible uniquement dans les étendues RBAC. |
+| exchangeRate | Taux de change utilisé pour convertir un montant de la devise de tarification vers la devise de facturation. |
+| exchangeRateDate | Date associée au taux de change utilisé pour convertir un montant de la devise de tarification vers la devise de facturation. |
+| isAzureCreditEligible | Indique si le coût est éligible au paiement en crédits Azure. |
+| serviceInfo1 | Champ hérité capturant les métadonnées facultatives propres au service. |
+| serviceInfo2 | Champ hérité capturant les métadonnées facultatives propres au service. |
+| additionalInfo | Métadonnées relatives au service. Par exemple, le type d’image d’une machine virtuelle. |
+| tags | Balise que vous affectez au compteur. Utilisez des balises pour regrouper les enregistrements de facturation. Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département qui utilise le compteur. |
+| **partnerEarnedCreditRate** | Taux de remise appliqué en présence d’un crédit Partenaires basé sur l’accès au lien d’administrateur partenaire. |
+| **partnerEarnedCreditApplied** | Indique si le crédit Partenaires a été appliqué. |
+
 
 ## <a name="usage-data-update-frequency-varies"></a>La fréquence de mise à jour des données d’utilisation varie
 

@@ -1,5 +1,5 @@
 ---
-title: Gérer des bases de données uniques et mises en pool après la migration - Azure SQL Database | Microsoft Docs
+title: Gérer les bases de données uniques et mises en pool après la migration
 description: Découvrez comment gérer votre base de données après la migration vers Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 16855bb218ba3ae4d221cb1329410c7848aab2c5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028257"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818967"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
 
@@ -39,7 +39,7 @@ Cet article traite de certaines caractéristiques essentielles d'Azure SQL Datab
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Analyser des bases de données au moyen du portail Azure
 
-Dans le [portail Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation d’une base de données en la sélectionnant et en cliquant sur le graphique **Supervision**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
+Dans le [Portail Microsoft Azure](https://portal.azure.com/), vous pouvez superviser l’utilisation d’une base de données individuelle en la sélectionnant et en cliquant sur le graphique **Supervision**. Une fenêtre **Métrique** apparaît. Vous pouvez la modifier en cliquant sur le bouton **Modifier le graphique**. Ajoutez les mesures suivantes :
 
 - Pourcentage UC
 - Pourcentage DTU

@@ -1,5 +1,5 @@
 ---
-title: Se connecter à Windows Virtual Desktop à partir d’iOS - Azure
+title: Se connecter à Windows Virtual Desktop à partir d’iOS – Azure
 description: Guide pratique pour se connecter à Windows Virtual Desktop à l’aide du client iOS.
 services: virtual-desktop
 author: heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: 764ed4fefd1a3aba1f0b7812fa2965505aa34161
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: bfc7efa6e8ead3b53704e3c9bd189b18cb787618
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338683"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605832"
 ---
 # <a name="connect-with-the-ios-client"></a>Se connecter avec le client iOS
 

@@ -1,6 +1,6 @@
 ---
 title: Conteneuriser une application .NET pour Service Fabric Mesh | Microsoft Docs
-description: Ajouter la prise en charge Mesh à une application .NET existante
+description: Ajoutez la prise en charge de l’orchestration de conteneurs Azure Service Fabric Mesh dans les projets de console et ASP.NET qui utilisent le .NET Framework complet.
 services: service-fabric-mesh
 keywords: Conteneuriser Service Fabric Mesh
 author: dkkapur
@@ -9,12 +9,12 @@ ms.date: 11/08/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chakdan
-ms.openlocfilehash: cb4e327e1c8c0a653cb94233f568b4847494c439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 070d07316c0ff06a45e76936e75cb5345548e78f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60419434"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686283"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Conteneuriser une application .NET pour Service Fabric Mesh
 

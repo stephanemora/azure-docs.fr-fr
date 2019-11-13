@@ -1,5 +1,5 @@
 ---
-title: Création d’un locataire Windows Virtual Desktop et d’un pool d’hôtes - Azure
+title: Création d’un pool d’hôtes et de locataires Windows Virtual Desktop – Azure
 description: Découvrez comment détecter et résoudre les problèmes de locataire et de pool d’hôtes lors de la configuration d’un environnement de locataire Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: e2d2da5e2c8c0236a4f42bc69a521891616df0d4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163285"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607433"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 

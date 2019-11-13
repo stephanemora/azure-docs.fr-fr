@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 6093e1017af2fb8c54eaf1c3192f937172567982
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21a66b7389df64a776cdecb45c41de56d7d258e4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080556"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606357"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestionnaires d’événements dans Azure Event Grid
 
@@ -72,51 +72,12 @@ Utilisez Logic Apps pour automatiser les processus métier afin de répondre aux
 | [Tutoriel : Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Une application logique envoie un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. |
 | [Tutoriel : Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
 
-## <a name="service-bus-queue-preview"></a>File d’attente Service Bus (préversion)
-
-Utilisez Service Bus comme gestionnaire d’événements pour router les événements Event Grid directement vers les files d’attente Service Bus. Cette fonctionnalité est utilisée pour les scénarios de mise en mémoire tampon ou de commande/contrôle dans les applications d’entreprise. Vous pouvez utiliser la préversion avec tous les niveaux de files d’attente Service Bus, mais pas avec les rubriques et les sessions Service Bus.
-
-Notez que du fait que le gestionnaire Service Bus est disponible en préversion publique, vous devez installer l’extension CLI ou l’extension PowerShell si vous les utilisez pour créer des abonnements aux événements.
-
-### <a name="install-extension-for-azure-cli"></a>Installer l'extension pour l'interface de ligne de commande Azure
-
-L'interface de ligne de commande Azure requiert l'[extension Event Grid](/cli/azure/azure-cli-extensions-list).
-
-Dans [CloudShell](/azure/cloud-shell/quickstart) :
-
-* Si vous avez installé l’extension précédemment, mettez-la à jour avec `az extension update -n eventgrid`.
-* Si vous ne l’avez pas fait, installez l’extension avec `az extension add -n eventgrid`.
-
-Pour une installation locale :
-
-1. [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli). Vérifiez que la dernière version est installée en exécutant `az --version`.
-1. Désinstallez les précédentes versions de l’extension avec `az extension remove -n eventgrid`.
-1. Installez l’extension `eventgrid` avec `az extension add -n eventgrid`.
-
-### <a name="install-module-for-powershell"></a>Installez le module pour PowerShell
-
-PowerShell requiert le [module AzureRM.EventGrid](https://www.powershellgallery.com/packages/AzureRM.EventGrid/0.4.1-preview).
-
-Dans [CloudShell](/azure/cloud-shell/quickstart-powershell) :
-
-* Installez le module avec `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
-
-Pour une installation locale :
-
-1. Ouvrez la console PowerShell en tant qu’administrateur.
-1. Installez le module avec `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
-
-Si le paramètre `-AllowPrerelease` n’est pas disponible, procédez comme suit :
-
-1. Exécutez `Install-Module PowerShellGet -Force`.
-1. Exécutez `Update-Module PowerShellGet`.
-1. Fermez la console PowerShell.
-1. Redémarrez PowerShell en tant qu’administrateur.
-1. Installez le module `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`.
+## <a name="service-bus-queue"></a>File d’attente Service Bus 
+Vous pouvez router les événements Event Grid directement vers les files d’attente Service Bus. Cette fonctionnalité est utilisée pour les scénarios de mise en mémoire tampon ou de commande et de contrôle dans les applications d’entreprise.
 
 ### <a name="using-cli-to-add-a-service-bus-handler"></a>Utilisation d’Azure CLI pour ajouter un gestionnaire Service Bus
 
-Dans Azure CLI, l’exemple suivant abonne et connecte une rubrique Event Grid à une file d’attente Service Bus :
+Dans Azure CLI, l’exemple suivant abonne et connecte une rubrique Event Grid à une file d’attente Service Bus :
 
 ```azurecli-interactive
 # If you haven't already installed the extension, do it now.

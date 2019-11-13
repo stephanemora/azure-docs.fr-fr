@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 35e6c61a8e8537035d70323c85dfc7a76f87cbcd
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869336"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825475"
 ---
 # <a name="marketplace-metering-service-apis"></a>API de service de mesure de la Place de marché
 
@@ -118,7 +119,7 @@ Conflit, lorsque nous recevons l’appel d’utilisation pour l’ID de ressourc
 L’API d’événement d’utilisation par lot vous permet d’émettre des événements d’utilisation pour plusieurs entités achetées en même temps. La requête d’événement d’utilisation par lot fait référence à la dimension des services de contrôle définie par le serveur de publication lors de la publication de l’offre.
 
 >[!Note]
->Vous pouvez inscrire plusieurs offres SaaS dans le Marketplace Microsoft. Chaque offre SaaS inscrite a une application Azure AD unique qui est inscrite pour authentification et autorisation. Les événements émis par lot doivent appartenir à des offres avec la même application Azure AD qu’au moment de l’inscription de l’offre.
+>Vous pouvez inscrire plusieurs offres SaaS dans la Place de marché commerciale de Microsoft. Chaque offre SaaS inscrite a une application Azure AD unique qui est inscrite pour authentification et autorisation. Les événements émis par lot doivent appartenir à des offres avec la même application Azure AD qu’au moment de l’inscription de l’offre.
 
 **POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 

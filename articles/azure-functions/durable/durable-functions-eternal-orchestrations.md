@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d96229bb5e3d288915b64e5a7ce29a8651f2a181
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 99f57f2e0b34f2e596ff9cf1a872650228ef0acd
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177376"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614849"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations externes dans Fonctions durables (Azure Functions)
 
@@ -26,7 +26,7 @@ Comme expliqué dans la rubrique [Historique d’orchestration](durable-function
 
 ## <a name="resetting-and-restarting"></a>Réinitialisation et redémarrage
 
-Au lieu d’utiliser des boucles infinies, les fonctions d’orchestrateur réinitialisent leur état en appelant la méthode [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_). Cette méthode n’utilise qu’un seul paramètre JSON sérialisable, qui devient la nouvelle entrée de la prochaine génération de la fonction d’orchestrateur.
+Au lieu d’utiliser des boucles infinies, les fonctions d’orchestrateur réinitialisent leur état en appelant la méthode `ContinueAsNew` (.NET) ou `continueAsNew` (JavaScript) de la [liaison du déclencheur d’orchestration](durable-functions-bindings.md#orchestration-trigger). Cette méthode n’utilise qu’un seul paramètre JSON sérialisable, qui devient la nouvelle entrée de la prochaine génération de la fonction d’orchestrateur.
 
 Lorsque la méthode `ContinueAsNew` est appelée, l’instance garde un message dans sa propre file d’attente avant de se fermer. Le message redémarre l’instance avec la nouvelle valeur d’entrée. Le même ID d’instance est conservé, mais l’historique de la fonction d’orchestrateur est tronqué.
 
@@ -42,7 +42,7 @@ Voici un cas d’utilisation des orchestrations externes : un code a besoin d’
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     await context.CallActivityAsync("DoCleanup", null);
 
@@ -54,7 +54,10 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+> [!NOTE]
+> L’exemple C# précédent porte sur Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
+
+### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -74,7 +77,8 @@ module.exports = df.orchestrator(function*(context) {
 La différence entre cet exemple et une fonction déclenchée par un minuteur est que les heures de déclenchement du nettoyage ne sont pas ici basées sur une planification. Par exemple, une planification CRON qui exécute une fonction toutes les heures se produira à 1 h 00, 2 h 00, 3 h 00 etc., et risque d’entraîner des problèmes de chevauchement. Mais dans cet exemple, si le nettoyage prend 30 minutes, il sera alors planifié à 1 h 00, 2 h 30, 4 h 00, etc., et il n’existe aucun risque de chevauchement.
 
 ## <a name="starting-an-eternal-orchestration"></a>Démarrage d’une orchestration externe
-Utilisez la méthode [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) pour démarrer une orchestration externe. Cela ne diffère en rien du déclenchement d’une autre fonction d’orchestration.  
+
+Utilisez la méthode `StartNewAsync` (.NET) ou `startNew` (JavaScript) pour démarrer une orchestration externe, comme vous le feriez pour toute autre fonction d’orchestration.  
 
 > [!NOTE]
 > Si vous devez vous assurer qu’une orchestration externe singleton est en cours d’exécution, il est important de conserver le même `id` d’instance lors du démarrage de l’orchestration. Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
@@ -83,7 +87,7 @@ Utilisez la méthode [StartNewAsync](https://azure.github.io/azure-functions-dur
 [FunctionName("Trigger_Eternal_Orchestration")]
 public static async Task<HttpResponseMessage> OrchestrationTrigger(
     [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage request,
-    [OrchestrationClient] DurableOrchestrationClientBase client)
+    [DurableClient] IDurableOrchestrationClient client)
 {
     string instanceId = "StaticId";
     // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
@@ -92,11 +96,14 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 }
 ```
 
+> [!NOTE]
+> Le code précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
+
 ## <a name="exit-from-an-eternal-orchestration"></a>Fermeture d’une orchestration externe
 
 Si une fonction d’orchestrateur doit se terminer, il vous suffit de ne *pas* appeler `ContinueAsNew` et de laisser la fonction se terminer.
 
-Si une fonction d’orchestrateur entre dans une boucle infinie et doit être arrêtée, utilisez dans ce cas la méthode [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_). Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
+Si une fonction d’orchestrateur est dans une boucle infinie et doit être arrêtée, utilisez la méthode `TerminateAsync` (.NET) ou `terminate` (JavaScript) de la [liaison du client d’orchestration](durable-functions-bindings.md#orchestration-client) pour l’arrêter. Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

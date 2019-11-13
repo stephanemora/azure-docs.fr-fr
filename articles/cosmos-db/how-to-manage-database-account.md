@@ -4,14 +4,14 @@ description: Découvrez comment gérer les comptes de base de données dans Azur
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812523"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582630"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
 
@@ -33,13 +33,13 @@ Voir [Créer un compte Azure Cosmos DB avec PowerShell](manage-with-powershell.m
 
 ### <a id="create-database-account-via-arm-template"></a>Modèle Azure Resource Manager
 
-Ce modèle Azure Resource Manager va créer un compte Azure Cosmos pour n’importe quelle API prise en charge configurée avec deux régions et des options pour sélectionner le niveau de cohérence, le basculement automatique et la fonction multimaître. Pour déployer ce modèle, cliquez sur Déployer sur Azure dans la page lisezmoi (readme) [Créer un compte Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account).
+Ce modèle Azure Resource Manager va créer un compte Azure Cosmos pour n’importe quelle API SQL configurée avec deux régions et des options pour sélectionner le niveau de cohérence, le basculement automatique et la fonction multimaître. Pour déployer ce modèle, cliquez sur Déployer sur Azure dans la page lisezmoi (readme) [Créer un compte Azure Cosmos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql).
 
 ## <a name="addremove-regions-from-your-database-account"></a>Ajouter/supprimer des régions à partir de votre compte de base de données
 
 ### <a id="add-remove-regions-via-portal"></a>Portail Azure
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Accédez à votre compte Azure Cosmos, puis ouvrez le menu **Répliquer les données globalement**.
 
@@ -113,7 +113,7 @@ Un compte peut passer de maître unique à multimaître en déployant le modèle
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -123,11 +123,13 @@ Un compte peut passer de maître unique à multimaître en déployant le modèle
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7256791c0b6bfbc72a26f6093cdd3c39410f702f
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 6a08779d171367d982392ae4e987fb46e019e61f
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807602"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720281"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Désactiver les connexions utilisateur pour une application d’entreprise dans Azure Active Directory
 
@@ -36,6 +36,25 @@ Il est facile de désactiver une application d’entreprise afin qu’aucun util
 1. Dans le volet ***NomApplication*** (autrement dit, le volet intitulé avec le nom de l’application sélectionnée), sélectionnez **Propriétés**.
 1. Dans le volet ***NomApplication*** - **Propriétés**, sélectionnez **Non** pour **Activé pour que les utilisateurs se connectent ?** .
 1. Sélectionnez la commande **Enregistrer** .
+
+## <a name="use-azure-ad-powershell-to-disable-an-unlisted-app"></a>Utiliser Azure AD PowerShell pour désactiver une application non répertoriée
+
+Si vous connaissez l’AppId d’une application qui n’apparaît pas dans la liste des applications d’entreprise (par exemple, parce que vous avez supprimé l’application ou que le principal du service n’a pas encore été créé, car l’application est en cours de préautorisation par Microsoft), vous pouvez créer manuellement le principal du service pour l’application, puis le désactiver à l’aide de la [cmdlet Azure AD PowerShell](https://docs.microsoft.com/powershell/module/azuread/New-AzureADServicePrincipal?view=azureadps-2.0).
+
+```PowerShell
+# The AppId of the app to be disabled
+$appId = "{AppId}"
+
+# Check if a service principal already exists for the app
+$servicePrincipal = Get-AzureADServicePrincipal -Filter "appId eq '$appId'"
+if ($servicePrincipal) {
+    # Service principal exists already, disable it
+    Set-AzureADServicePrincipal -ObjectId $servicePrincipal.ObjectId -AccountEnabled $false
+} else {
+    # Service principal does not yet exist, create it and disable it at the same time
+    $servicePrincipal = New-AzureADServicePrincipal -AppId $appId -AccountEnabled $false
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

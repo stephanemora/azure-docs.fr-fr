@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: abf222b7a6d6e8fd053fa83c066d2b7850f575ab
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756905"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601230"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Stockage transactionnel et analytique distribué à l’échelle mondiale pour les conteneurs Azure Cosmos
 
@@ -34,10 +34,10 @@ Le moteur de stockage transactionnel s’appuie sur des disques SSD locaux, tand
 |Encodage du stockage  |   Orienté lignes avec format interne   |   Orienté colonnes avec format Apache Parquet |
 |Emplacement de stockage |   Stockage répliqué s’appuyant sur des disques SSD locaux/dans un cluster |  Stockage répliqué s’appuyant sur des disques SSD distants/hors cluster peu coûteux       |
 |Durabilité  |    99,99999 (7-9 s)     |  99,99999 (7-9 s)       |
-|API accédant aux données  |   SQL, MongoDB, Cassandra, Gremlin, Tables et Etcd.       | Apache Spark         |
+|API accédant aux données  |   SQL, MongoDB, Cassandra, Gremlin, Tables et etcd.       | Apache Spark         |
 |Conservation (durée de vie ou TTL)   |  Basée sur des stratégies, configurée sur le conteneur Azure Cosmos à l’aide de la propriété `DefaultTimeToLive`.       |   Basée sur des stratégies, configurée sur le conteneur Azure Cosmos à l’aide de la propriété `ColumnStoreTimeToLive`.      |
-|Tarif par Go    |   0,25 $/Go      |  0,02 $/Go       |
-|Tarif pour les transactions de stockage    | Le débit provisionné est facturé 0,008 $ pour 100 RU/s selon une facturation horaire.        |  Le débit basé sur la consommation est facturé 0,05 $ pour 10 000 transactions d’écriture et 0,004 $ pour 10 000 transactions de lecture.       |
+|Tarif par Go    |   Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
+|Tarif pour les transactions de stockage    |  Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 
 ## <a name="benefits-of-transactional-and-analytical-storage"></a>Avantages du stockage transactionnel et du stockage analytique
 
@@ -66,53 +66,6 @@ Pour les comptes Azure Cosmos sur une ou plusieurs régions, qu’il existe une 
 Dans une région donnée, les charges de travail transactionnelles fonctionnent sur le stockage transactionnel/orienté lignes de votre conteneur. En revanche, les charges de travail analytiques fonctionnent sur le stockage analytique/orienté colonnes de votre conteneur. Les deux moteurs de stockage fonctionnent de façon indépendante et assurent une isolation stricte des performances entre les charges de travail.
 
 Les charges de travail transactionnelles consomment le débit provisionné (RU). En revanche, le débit des charges de travail analytiques est basé sur la consommation réelle. Les charges de travail analytiques consomment des ressources à la demande.
-
-### <a name="on-demand-snapshots-and-time-travel-analytics"></a>Captures instantanées à la demande et analytique en voyage dans le temps
-
-Vous pouvez effectuer des captures instantanées de vos données stockées dans le stockage analytique de vos conteneurs Azure Cosmos à tout moment en appelant la commande `CreateSnapshot (name, timestamp)` sur le conteneur. Les captures instantanées sont nommées « signets » dans l’historique des mises à jour appliquées au conteneur.
-
-![Captures instantanées à la demande et analytique en voyage dans le temps](./media/globally-distributed-transactional-analytical-storage/ondemand-analytical-data-snapshots.png)
-
-Au moment où vous créez la capture instantanée, vous pouvez spécifier, en plus du nom, l’horodatage qui définit l’état de votre conteneur dans l’historique des mises à jour. Vous pouvez ensuite charger les données de capture instantanée dans Spark et exécuter les requêtes.
-
-Actuellement, vous pouvez uniquement effectuer des captures instantanées à la demande sur le conteneur (à tout moment). La réalisation automatique de captures instantanées selon une planification ou une stratégie personnalisée n’est pas encore prise en charge.
-
-### <a name="configure-and-tier-data-between-transactional-and-analytical-storage-independently"></a>Configurer et hiérarchiser les données entre le stockage transactionnel et le stockage analytique de façon indépendante
-
-Selon votre scénario, vous pouvez activer ou désactiver chacun des deux moteurs de stockage de façon indépendante. Voici les configurations pour chaque scénario :
-
-|Scénario |Paramétrage du stockage transactionnel  |Paramétrage du stockage analytique |
-|---------|---------|---------|
-|Exécution des charges de travail analytiques exclusivement (avec conservation infinie) |  DefaultTimeToLive = 0       |  ColumnStoreTimeToLive = -1       |
-|Exécution des charges de travail transactionnelles exclusivement (avec conservation infinie)  |   DefaultTimeToLive = -1      |  ColumnStoreTimeToLive = 0       |
-|Exécution des charges de travail transactionnelles et analytiques (avec conservation infinie)   |   DefaultTimeToLive = -1      | ColumnStoreTimeToLive = -1        |
-|Exécution des charges de travail transactionnelles et analytiques avec différents intervalles de conservation (ou hiérarchisation du stockage)  |  DefaultTimeToLive = <Value1>       |     ColumnStoreTimeToLive = <Value2>    |
-
-1. **Configurer le conteneur pour les charges de travail analytiques exclusivement (avec conservation infinie)**
-
-   Vous pouvez configurer votre conteneur Azure Cosmos pour les charges de travail analytiques exclusivement. Cette configuration a pour avantage de vous épargner le paiement du stockage transactionnel. Si votre objectif est d’utiliser le conteneur pour des charges de travail analytiques uniquement, vous pouvez désactiver le stockage transactionnel en affectant à `DefaultTimeToLive` la valeur 0 sur le conteneur Cosmos et activer le stockage analytique avec une conservation infinie en affectant à `ColumnStoreTimeToLive` la valeur -1.
-
-   ![Charges de travail analytiques avec conservation infinie](./media/globally-distributed-transactional-analytical-storage/analytical-workload-configuration.png)
-
-1. **Configurer le conteneur pour les charges de travail transactionnelles exclusivement (avec conservation infinie)**
-
-   Vous pouvez configurer votre conteneur Azure Cosmos pour les charges de travail transactionnelles exclusivement. Vous pouvez désactiver le stockage analytique en affectant à `ColumnStoreTimeToLive` la valeur 0 sur le conteneur et activer le stockage transactionnel avec une conservation infinie en affectant à `DefaultTimeToLive` la valeur -1.
-
-   ![Charges de travail transactionnelles avec conservation infinie](./media/globally-distributed-transactional-analytical-storage/transactional-workload-configuration.png)
-
-1. **Configurer le conteneur pour les charges de travail transactionnelles et analytiques (avec conservation infinie)**
-
-   Vous pouvez configurer votre conteneur Azure Cosmos pour les charges de travail transactionnelles et analytiques avec une isolation totale des performances entre les deux. Vous pouvez activer le stockage analytique en affectant à `ColumnStoreTimeToLive` la valeur -1 et activer le stockage transactionnel avec une conservation infinie en affectant à `DefaultTimeToLive ` la valeur -1.
-
-   ![Charges de travail transactionnelles et analytiques avec conservation infinie](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-infinite-retention.png)
-
-1. **Configurer le conteneur pour les charges de travail transactionnelles et analytiques avec hiérarchisation du stockage**
-
-   Vous pouvez configurer votre conteneur Azure Cosmos pour les charges de travail transactionnelles et analytiques avec une isolation totale des performances entre les deux et avec différents intervalles de conservation. Azure Cosmos DB fait en sorte que l’intervalle de conservation du stockage analytique soit toujours plus long que celui du stockage transactionnel.
-
-   Vous pouvez activer le stockage transactionnel avec une conservation infinie en affectant à `DefaultTimeToLive` la valeur <Value 1> et activer le stockage analytique en affectant à `ColumnStoreTimeToLive` la valeur <Value 2>. Azure Cosmos DB fait en sorte que <Value 2> soit toujours supérieure à <Value 1>.
-
-   ![Charges de travail transactionnelles et analytiques avec hiérarchisation du stockage](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

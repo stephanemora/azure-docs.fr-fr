@@ -1,19 +1,19 @@
 ---
-title: Configurer la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware sur un site secondaire avec Azure Site Recovery | Microsoft Docs
+title: Récupération d’urgence de machines virtuelles ou de serveurs physiques VMware sur un site secondaire avec Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence de machines virtuelles VMware, ou de serveurs physiques Windows et Linux, sur un site secondaire avec Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: a87abfdd70db07e4310dc6a39a280e12f664d03b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 71d230c9fea25edfbf0ca4ea40f15b69779ad060
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972091"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620532"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurer la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware locaux sur un site secondaire
 

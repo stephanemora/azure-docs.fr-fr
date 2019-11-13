@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données depuis un serveur SFTP à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données d’un serveur SFTP à l’aide d’Azure Data Factory
 description: Découvrez comment déplacer des données depuis un serveur SFTP local ou cloud à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d35c4f410c29bba7848dde53d206cdd2ccd980ca
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1a75b3af46d79cc7a028fa5d36ef1653b1619e8d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836151"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682344"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Déplacer des données depuis un serveur SFTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -44,7 +44,7 @@ Vous pouvez créer un pipeline avec une activité de copie qui déplace les donn
 
 - Le moyen le plus simple de créer un pipeline consiste à utiliser **l’Assistant Copie**. Consultez le [tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir une procédure pas à pas rapide sur la création d’un pipeline à l’aide de l’Assistant Copie de données.
 
-- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **REST API**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Pour des exemples JSON visant à copier des données d’un serveur SFTP vers Stockage Blob Azure, consultez [Exemple JSON : copier des données d’un serveur SFTP vers Stockage Blob Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) de cet article.
+- Vous pouvez également utiliser les outils suivants pour créer un pipeline : **Visual Studio**, **Azure PowerShell**, **modèle Azure Resource Manager**, **.NET API** et **API REST**. Pour obtenir des instructions détaillées sur la création d’un pipeline avec une activité de copie, consultez le [didacticiel sur l’activité de copie](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). Pour des exemples JSON visant à copier des données d’un serveur SFTP vers Stockage Blob Azure, consultez [Exemple JSON : copier des données d’un serveur SFTP vers Stockage Blob Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) de cet article.
 
 ## <a name="linked-service-properties"></a>Propriétés du service lié
 Le tableau suivant fournit la description des éléments JSON spécifiques du service lié FTP.
@@ -66,7 +66,7 @@ Pour utiliser l’authentification de base, définissez `authenticationType` sur
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| userName | Utilisateur ayant accès au serveur SFTP. |OUI |
+| username | Utilisateur ayant accès au serveur SFTP. |OUI |
 | password | Mot de passe de l’utilisateur (nom d’utilisateur). | OUI |
 
 #### <a name="example-basic-authentication"></a>Exemple : Authentification de base
@@ -116,7 +116,7 @@ Pour utiliser l’authentification de clé publique SSH, définissez `authentica
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| userName |Utilisateur ayant accès au serveur SFTP |OUI |
+| username |Utilisateur ayant accès au serveur SFTP |OUI |
 | privateKeyPath | Spécifiez le chemin absolu au fichier de clé privée auquel la passerelle peut accéder. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. <br><br> S’applique uniquement pour la copie de données à partir d’un serveur SFTP local. |
 | privateKeyContent | Une chaîne sérialisée du contenu de la clé privée. L’Assistant de copie peut lire le fichier de clé privée et extraire le contenu de clé privée automatiquement. Si vous utilisez tout autre outil/SDK, utilisez plutôt la propriété privateKeyPath. | Spécifiez soit la propriété `privateKeyPath`, soit la propriété `privateKeyContent`. |
 | passPhrase | Spécifiez la phrase secrète/le mot de passe pour déchiffrer la clé privée si le fichier de clé est protégé par une phrase secrète. | Oui, si le fichier de clé privée est protégé par une phrase secrète. |

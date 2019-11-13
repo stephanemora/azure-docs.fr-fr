@@ -1,5 +1,5 @@
 ---
-title: Réduire les coûts des vCores Azure SQL Database | Microsoft Docs
+title: Réduire les coûts
 description: Découvrez comment acheter une capacité réservée Azure SQL Database pour réduire vos coûts de calcul.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 08/29/2019
-ms.openlocfilehash: 5ab5481a89f7bb9c74133487b01879b00b7def32
-ms.sourcegitcommit: b8578b14c8629c4e4dea4c2e90164e42393e8064
+ms.openlocfilehash: 52a3665da99ca9885c57db1a2779dc6ce4dbec21
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806580"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821173"
 ---
 # <a name="save-costs-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Réduire les coûts des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 

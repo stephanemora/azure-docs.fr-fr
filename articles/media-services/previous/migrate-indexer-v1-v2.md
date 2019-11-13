@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 329c7191482787f25cfddfd8c4d70074df9a7c1f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: d38b11b8fc4351c6b074ccfdf47df06a71e0a0a4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719960"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823973"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrer depuis Media Indexer et Media Indexer 2 vers Video Indexer
 
-Le processeur multimédia [Azure Media Indexer](media-services-index-content.md) sera mis hors service le 1er octobre 2020. Les processeurs multimédias [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) seront mis hors service le 1er janvier 2020.  [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ces processeurs multimédias hérités.
+Le processeur multimédia [Azure Media Indexer](media-services-index-content.md) sera mis hors service le 1er octobre 2020. Les processeurs multimédias [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) seront mis hors service le 1e janvier 2020.  [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ces processeurs multimédias hérités.
 
-Azure Media Services Video Indexer est basée sur Azure Media Analytics, Recherche Azure et Cognitive Services (par exemple, l’API Visage, Microsoft Translator, l’API Vision par ordinateur et Custom Speech Service). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Indexer. Pour connaître les scénarios dans lesquels Video Indexer peut être utilisés, les fonctionnalités qu’il propose et comment le prendre en main, consultez [Modèles vidéo et audio Video Indexer](../video-indexer/video-indexer-overview.md). 
+La solution Azure Media Services Video Indexer est basée sur Azure Media Analytics, la Recherche cognitive et Cognitive Services (par exemple, l’API Visage, Microsoft Translator, l’API Vision par ordinateur et Custom Speech Service). Elle vous permet d’extraire les insights de vos vidéos à l’aide de modèles vidéo et audio Video Indexer. Pour connaître les scénarios dans lesquels Video Indexer peut être utilisés, les fonctionnalités qu’il propose et comment le prendre en main, consultez [Modèles vidéo et audio Video Indexer](../video-indexer/video-indexer-overview.md). 
 
 Vous pouvez extraire les insights de vos fichiers vidéo et audio à l’aide des [présélections de l’analyseur d’Azure Media Services v3](../latest/analyzing-video-audio-files-concept.md) ou directement en utilisant les [API Video Indexer](https://api-portal.videoindexer.ai/). Il y a un chevauchement entre les fonctionnalités offertes par les API Video Indexer et celles offertes par les API Media Services v3.
 
@@ -77,9 +77,9 @@ Voici certaines différences connues :
 * Les fichiers AIB (Audio Indexing Blob) ne sont plus pris en charge. Cette fonctionnalité était spécifique à la technologie Indexer 1 et n’est plus proposée.  
 * Le service Cognitive Services Speech Services ne prend pas en charge l’extraction de mots clés. Toutefois, Video Indexer et AudioAnalyzerPreset de Media Services V3 offrent tous deux un ensemble de mots clés plus robuste au format de fichier JSON. 
 
-## <a name="contact-us"></a>Nous contacter 
+## <a name="need-help"></a>Vous avez besoin d’aide ?
 
-Si vous avez des questions sur la dépréciation d’Azure Media Indexer 1 et Azure Media Indexer 2 ou sur la migration vers un autre service, contactez-nous à l’adresse amshelp@microsoft.com. 
+Vous pouvez ouvrir un ticket de support en accédant à [Nouvelle demande de support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

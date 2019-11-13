@@ -1,37 +1,35 @@
 ---
 title: Activer les audits de sécurité pour Azure AD Domain Services | Microsoft Docs
-description: Activer les audits de sécurité pour Azure AD Domain Services
+description: Découvrez comment activer les audits de sécurité pour centraliser la journalisation des événements à des fins d’analyse et de gestion des alertes dans Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 3105296b3c670d3d44789c93878fa1fc6076973b
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 6ff996129cc140c9154edb8fb60840cd48017a5e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67566704"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569800"
 ---
-# <a name="enable-security-audits-for-azure-ad-domain-services-preview"></a>Activer les audits de sécurité pour Azure AD Domain Services (préversion)
-L’audit de sécurité du service de domaine Azure AD permet aux clients d’utiliser le portail du service de domaine Azure AD pour envoyer en streaming les événements d’audit de sécurité vers des ressources ciblées. Les ressources qui peuvent recevoir ces événements incluent le Stockage Azure, les espaces de travail Azure Log Analytics ou Azure Event Hub. Peu après avoir activé les événements d’audit de sécurité, le service de domaine Azure AD envoie tous les événements audités pour la catégorie sélectionnée à la ressource ciblée. Les événements d’audit de sécurité permettent aux clients d’archiver les événements audités dans le stockage Azure. De plus, les clients peuvent intégrer les événements à un logiciel SIEM (Security Information and Event Management) (ou équivalent) à l’aide de hubs d’événements ou effectuer leurs propres insights et analyses à l’aide d’Azure Log Analytics à partir du portail Azure. 
+# <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Activer les audits de sécurité pour Azure Active Directory Domain Services (préversion)
+
+Les audits de sécurité Azure Active Directory Domain Services (Azure AD DS) permettent à Azure de diffuser en continu les événements de sécurité aux ressources ciblées. Ces ressources incluent le Stockage Microsoft Azure, les espaces de travail Azure Log Analytics ou Azure Event Hub. Après avoir activé les événements d’audit de sécurité, le service de domaine Azure AD DS envoie tous les événements audités pour la catégorie sélectionnée à la ressource ciblée. Vous pouvez archiver les événements dans les événements de diffusion en continu et de Stockage Microsoft Azure à un logiciel SIEM (Security Information and Event Management) (ou équivalent) à l’aide d’Azure Event Hubs ou effectuer votre propre analyse et utiliser des espaces de travail Log Analytics, à partir du Portail Microsoft Azure.
 
 > [!IMPORTANT]
-> L’audit de sécurité Azure AD Domain Services est disponible uniquement sur les instances basées sur Azure Resource Manager pour Azure AD Domain Services.
->
->
+> Les audits de sécurité Azure AD DS sont disponibles uniquement pour les instances basées sur Azure Resource Manager. Pour en savoir plus sur la migration, voir [Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager][migrate-azure-adds].
 
-## <a name="auditing-event-categories"></a>Audit des catégories d’événements
-L’audit de sécurité Azure AD Domain Services s’aligne sur l’audit traditionnel qui est fourni pour les contrôleurs de domaine Active Directory Domain Services. La réutilisation de modèles d’audit existants garantit que la même logique peut être utilisée lors de l’analyse des événements. L’audit de sécurité Azure AD Domain Services inclut les catégories d’événements suivants.
+## <a name="audit-event-categories"></a>Catégories d’événements d’audit
+
+Les audits de sécurité Azure AD DS s’alignent sur l’audit traditionnel des contrôleurs de domaine AD DS traditionnels. Dans les environnements hybrides, la réutilisation de modèles d’audit existants garantit que la même logique peut être utilisée lors de l’analyse des événements. Selon le scénario que vous devez dépanner ou analyser, différentes catégories d’événements d’audit doivent être ciblées.
+
+Les catégories d’événements d’audit suivantes sont disponibles :
 
 | Nom de la catégorie d’audit | Description |
 |:---|:---|
@@ -46,7 +44,8 @@ L’audit de sécurité Azure AD Domain Services s’aligne sur l’audit tradit
 |System| Audite les modifications de niveau système apportées à un ordinateur non incluses dans les autres catégories et qui ont des implications de sécurité potentielles. Cette catégorie comprend les sous-catégories suivantes :<ul><li>[Auditer le pilote IPSEC](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[Auditer d’autres événements système](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[Auditer la modification de l’état de la sécurité](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[Auditer l’extension du système de sécurité](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[Auditer l’intégrité du système](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
 
 ## <a name="event-ids-per-category"></a>ID d’événements par catégorie
- L’audit de sécurité Azure AD Domain Services enregistre les ID d’événement suivants quand l’action spécifique déclenche un événement pouvant être audité.
+
+ Les audits de sécurité Azure AD DS enregistrent les ID d’événement suivants lorsque l’action spécifique déclenche un événement pouvant être audité :
 
 | Nom de la catégorie d’événements | ID d’événement |
 |:---|:---|
@@ -60,123 +59,130 @@ L’audit de sécurité Azure AD Domain Services s’aligne sur l’audit tradit
 |Sécurité de l’utilisation des privilèges|4985|
 |Sécurité système|4612, 4621|
 
-## <a name="enable-security-audit-events"></a>Activer les événements d’audit de sécurité
-Les conseils suivants vous aident à vous abonner aux événements d’audit de sécurité Azure AD Domain Services.
+## <a name="security-audit-destinations"></a>Destinations des audits de sécurité
+
+Vous pouvez utiliser n’importe quelle combinaison d’espaces de travail Stockage Microsoft Azure, Azure Event Hubs ou Azure Log Analytics comme ressource cible pour vos audits de sécurité Azure Active Directory Domain Services. Vous pouvez utiliser le Stockage Microsoft Azure pour l’archivage des événements d’audit de sécurité, ainsi qu’un espace de travail Azure Log Analytics pour analyser et créer des rapport sur les informations à court terme.
+
+La table suivante présente les scénarios pour chaque type de ressource de destination.
 
 > [!IMPORTANT]
-> Les audits de sécurité Azure AD Domain Services ne sont pas rétroactifs. Il est impossible de récupérer ou de relire des événements passés. Le service peut uniquement envoyer des événements qui se produisent une fois qu’il est activé.
->
-
-### <a name="choose-the-target-resource"></a>Choisir la ressource cible
-Vous pouvez utiliser n’importe quelle combinaison de stockage Azure, hubs d’événements Azure ou espaces de travail Azure Log Analytics comme ressource cible pour vos audits de sécurité. Consultez le tableau suivant afin de déterminer la meilleure ressource pour votre cas d’utilisation.
-
-> [!IMPORTANT]
-> Vous devez créer la ressource cible avant d’activer les audits de sécurité Azure AD Domain Services.
->
+> Vous devez créer la ressource cible avant d’activer les audits de sécurité Azure AD Domain Services. Vous pouvez créer ces ressources en utilisant le Portail Microsoft Azure, Azure PowerShell ou Azure CLI.
 
 | Ressource cible | Scénario |
 |:---|:---|
-|Stockage Azure|Envisagez cette cible quand votre principal besoin est de stocker les événements d’audit de sécurité à des fins d’archivage. Les autres cibles peuvent être utilisées à des fins d’archivage ; toutefois, ces cibles fournissent des fonctionnalités au-delà du besoin principal d’archivage. Pour créer un compte de stockage Azure, consultez [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal#create-a-storage-account-1).|
-|Hubs d'événements Azure|Envisagez cette cible quand votre principal besoin est de partager des événements d’audit de sécurité avec un autre logiciel tel qu’un logiciel d’analyse de données ou un logiciel SIEM (Security Information and Event Management). Pour créer un hub d’événements, consultez [Démarrage rapide : Créer un hub d’événements avec le portail Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).|
-|Espace de travail Azure Log Analytics|Envisagez cette cible quand votre principal besoin est d’analyser et de passer en revue les audits de sécurité directement à partir du portail Azure.  Pour créer un espace de travail Log Analytics, consultez [Créer un espace de travail Log Analytics dans le portail Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).|
+|Stockage Azure| Utilisez cette cible si votre besoin principal repose sur le stockage des événements d’audit de sécurité à des fins d’archivage. Les autres cibles peuvent être utilisées à des fins d’archivage ; toutefois, ces cibles fournissent des fonctionnalités au-delà du besoin principal d’archivage. Avant d’activer les événements d’audit de sécurité Azure AD DS, [créez un compte de Stockage Microsoft Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal#create-a-storage-account-1).|
+|Hubs d'événements Azure| Utilisez cette cible si votre besoin principal repose sur le partage des événements d’audit de sécurité avec un autre logiciel tel qu’un logiciel d’analyse de données ou un logiciel SIEM (Security Information and Event Management). Avant d’activer les événements d’audit de sécurité Azure AD DS, [créez un hub Event Hub avec le Portail Microsoft Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).|
+|Espace de travail Azure Log Analytics| Utilisez cette cible si votre besoin principal repose sur l’analyse et le passage en revue des audits de sécurité directement à partir du Portail Microsoft Azure. Avant d’activer les événements d’audit de sécurité Azure AD DS, [créez un espace de travail Log Analytics dans le Portail Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).|
 
-## <a name="using-the-azure-portal-to-enable-security-audit-events"></a>Utilisation du portail Azure pour activer les événements d’audit de sécurité 
-1. Connectez-vous au portail Azure sur https://portal.azure.com.  Dans le portail Azure, cliquez sur Tous les services. Dans la liste des ressources, tapez **Domaine**. Au fur et à mesure de la saisie, la liste est filtrée. Cliquez sur **Azure AD Domain Services**.
-2. Cliquez sur l’instance Azure AD Domain Services dans la liste.
-3. Cliquez sur **Paramètres de diagnostic (préversion)** dans la liste des actions sur la gauche.</p>
-![Action Paramètres de diagnostic](./media/security-audit-events/diagnostic-settings-action.png)
-4. Tapez le nom de la configuration de diagnostic (**aadds-auditing**, par exemple).</p>
-![Page Paramètres de diagnostic](./media/security-audit-events/diagnostic-settings-page.png)
-5. Cochez la case en regard des ressources ciblées que vous allez utiliser avec les événements d’audit de sécurité.
-    > [!NOTE]
-    > Vous ne pouvez pas créer de ressources cibles à partir de cette page.
-    >
-    
-    **Stockage Azure :**</p>
-    Cochez **Archiver dans un compte de stockage**. Cliquez sur **Configurer**. Sélectionnez l’**abonnement** et le **compte de stockage** que vous souhaitez utiliser pour archiver les événements d’audit de sécurité. Cliquez sur **OK**.</p>
-    
-    ![Paramètres de stockage du diagnostic](./media/security-audit-events/diag-settings-storage.png)
-    
-    **Hubs d’événements Azure :**</p>
-    Cochez la case **Diffuser vers Event Hub**. Cliquez sur **Configurer**. Dans la page **Sélectionner un hub d’événements**, sélectionnez l’**abonnement** utilisé pour créer le hub d’événements. Ensuite, sélectionnez l’**espace de noms du hub d’événements**, le **nom du hub d’événements** et le **nom de la stratégie du hub d’événements**. Cliquez sur **OK**.</p>
-    ![Paramètres du hub d’événements de diagnostic](./media/security-audit-events/diag-settings-eventhub.png)
-    
-    **Espaces de travail Azure Log Analytics :**</p>
-    Sélectionnez **Envoyer à Log Analytics**. Sélectionnez l’**abonnement** et l’**espace de travail Log Analytics** utilisés pour stocker les événements d’audit de sécurité.</p>
-    ![Paramètres de l’espace de travail de diagnostic](./media/security-audit-events/diag-settings-log-analytics.png)
+## <a name="enable-security-audit-events-using-the-azure-portal"></a>Activer des événements d’audit de sécurité à l’aide du Portail Microsoft Azure
 
-6. Sélectionnez les catégories de journaux à inclure pour la ressource cible particulière. Si vous utilisez des comptes de stockage, vous pouvez configurer des stratégies de conservation.
+Pour activer les événements d’audit de sécurité Azure AD DS à l’aide du Portail Microsoft Azure, procédez comme suit.
 
-    > [!NOTE]
-    > Vous pouvez sélectionner différentes catégories de journaux pour chaque ressource cible dans une même configuration. Cela vous permet de choisir les catégories de journaux à conserver pour Log Analytics et les catégories de journaux à archiver.
-    >
+> [!IMPORTANT]
+> Les audits de sécurité Azure AD DS ne sont pas rétroactifs. Il est impossible de récupérer ou de relire des événements passés. Le logiciel Azure AD DS peut uniquement envoyer des événements qui se produisent une fois qu’il est activé.
 
-7. Cliquez sur **Enregistrer** pour valider les modifications. Les ressources cibles reçoivent les événements d’audit de sécurité Azure AD Domain Services peu de temps après que vous avez enregistré votre configuration.
+1. Connectez-vous au portail Azure sur https://portal.azure.com.
+1. Sur le Portail Microsoft Azure, recherchez et sélectionnez **Azure AD Domain Services**. Choisissez votre domaine managé, par exemple *contoso.com*.
+1. Dans la fenêtre Azure AD DS, sélectionnez **Paramètres de diagnostic (préversion)** sur la partie gauche.
+1. Aucun diagnostic n’est configuré par défaut. Pour vous lancer, sélectionnez **Ajouter le paramètre de diagnostic**.
 
-## <a name="using-azure-powershell-to-enable-security-audit-events"></a>Utilisation d’Azure PowerShell pour activer les événements d’audit de sécurité
- 
-### <a name="prerequisites"></a>Prérequis
+    ![Ajouter un paramètre de diagnostic pour Azure AD Domain Services](./media/security-audit-events/add-diagnostic-settings.png)
 
-Suivez les instructions de l’article pour [Installer le module Azure PowerShell et vous connecter à votre abonnement Azure](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+1. Saisissez un nom pour la configuration de diagnostic, par exemple *aadds-audit*.
 
-### <a name="enable-security-audits"></a>Activer les audits de sécurité
+    Cochez la case correspondant à la destination de l’audit de sécurité de votre choix. Vous pouvez choisir un compte de Stockage Microsoft Azure, un hub Azure Event Hub ou un espace de travail Log Analytics. Ces ressources de destination doivent déjà figurer dans votre abonnement Azure. Vous ne pouvez pas créer de ressources de destination dans cet assistant.
 
-1. Authentifiez-vous auprès d’Azure Resource Manager pour le locataire et l’abonnement appropriés à l’aide de l’applet de commande Azure PowerShell **Connect-AzAccount**.
-2. Créez la ressource cible pour les événements d’audit de sécurité.</p>
-    **Stockage Azure :**</p>
-    Consultez [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell) pour créer votre compte de stockage.</p>
-    **Hubs d’événements Azure :**</p>
-    Consultez [Démarrage rapide : Créer un hub d’événements avec Azure PowerShell](https://docs.microsoft.com/azure/event-hubs/event-hubs-quickstart-powershell) pour créer votre hub d’événements. Vous devrez peut-être également utiliser l’applet de commande Azure PowerShell [New-AzEventHubAuthorizationRule](https://docs.microsoft.com/powershell/module/az.eventhub/new-azeventhubauthorizationrule?view=azps-2.3.2) pour créer une règle d’autorisation afin de permettre des autorisations Active Directory AD Domain Services sur l’**espace de noms** du hub d’événements. La règle d’autorisation doit inclure les droits **Manage** (Gérer), **Listen** (Écouter) et **Send** (Envoyer).
-    > [!IMPORTANT]
-    > Vérifiez que vous définissez la règle d’autorisation sur l’espace de noms du hub d’événements, et non sur ce dernier.
-       
-    </p>
-    
-    **Espaces de travail Azure Log Analytics :**</p>
-    Pour créer votre espace de travail, consultez [Créer un espace de travail Log Analytics avec Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace-posh).
-3. Obtenez l’ID de ressource pour votre instance Azure AD Domain Services. Dans une console Windows PowerShell ouverte et authentifiée, tapez la commande suivante. Utilisez la variable **$aadds.ResourceId** comme paramètre pour l’ID de ressource Azure AD Domain Services pour les applets de commande futures.
-    ```powershell
+    ![Activer la destination et le type d’événements d’audit requis pour la capture](./media/security-audit-events/diagnostic-settings-page.png)
+
+    * **Azure Storage**
+        * Sélectionnez **Archiver dans un compte de stockage**, puis **Configurer**.
+        * Sélectionnez l’**abonnement** et le **compte de stockage** que vous souhaitez utiliser pour archiver les événements d’audit de sécurité.
+        * Lorsque vous êtes prêt, sélectionnez **OK**.
+    * **Hubs Azure Event Hub**
+        * Sélectionnez **Diffuser vers Event Hub**, puis choisissez **Configurer**.
+        * Sélectionnez **l’abonnement** et **l’espace de noms Event Hub**. Si nécessaire, choisissez également un **nom de hub Event Hub**, puis un **nom de stratégie Event Hub**.
+        * Lorsque vous êtes prêt, sélectionnez **OK**.
+    * **Espaces de travail Azure Log Analytics**
+        * Sélectionnez **Envoyer à Log Analytics**, puis choisissez **l’abonnement** et **l’espace de travail Log Analytics** que vous souhaitez utiliser pour stocker les événements d’audit de sécurité.
+
+1. Sélectionnez les catégories de journaux à inclure pour la ressource cible particulière. Si vous envoyez les événements d’audit à un compte de Stockage Microsoft Azure, vous pouvez également configurer une stratégie de rétention qui définisse le nombre de jours pendant lesquels conserver les données. Un paramètre par défaut de *0* conserve toutes les données et ne fait pas pivoter les événements après un certain laps de temps.
+
+    Vous pouvez sélectionner différentes catégories de journaux pour chaque ressource cible dans une même configuration. Cela vous permet par exemple de choisir les catégories de journaux à conserver pour Log Analytics, ainsi que les catégories de journaux à archiver.
+
+1. Cela fait, sélectionnez **Enregistrer** pour valider vos modifications. Les ressources cibles commencent à recevoir des événements d’audit de sécurité Azure AD DS peu après l’enregistrement de la configuration.
+
+## <a name="enable-security-audit-events-using-azure-powershell"></a>Activation des événements d’audit de sécurité via Azure PowerShell
+
+Pour activer les événements d’audit de sécurité Azure AD DS à l’aide d’Azure PowerShell, procédez comme suit. Si nécessaire, commencez par [installer le module Azure PowerShell et vous connecter à votre abonnement Azure](/powershell/azure/install-az-ps).
+
+> [!IMPORTANT]
+> Les audits de sécurité Azure AD DS ne sont pas rétroactifs. Il est impossible de récupérer ou de relire des événements passés. Le logiciel Azure AD DS peut uniquement envoyer des événements qui se produisent une fois qu’il est activé.
+
+1. Connectez-vous à votre abonnement Azure à l’aide de la cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount). À l’invite, saisissez vos informations d’identification de compte.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Créez la ressource cible pour les événements d’audit de sécurité.
+
+    * **Stockage Microsoft Azure** - [Créer un compte de stockage avec Azure PowerShell](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)
+    * **Azure Event Hub** - [Créer un hub Event Hub à l’aide d’Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Vous devrez peut-être également utiliser la cmdlet [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) pour créer une règle d’autorisation qui accorde à Azure Active Directory Domain Services des autorisations d’accès à *l’espace de noms* Event Hub. La règle d’autorisation doit inclure les droits **Manage** (Gérer), **Listen** (Écouter) et **Send** (Envoyer).
+
+        > [!IMPORTANT]
+        > Vérifiez que vous définissez la règle d’autorisation sur l’espace de noms du hub Event Hub, et non sur le hub lui-même.
+
+    * **Espaces de travail Azure Log Analytics** - [Créer un espace de travail Log Analytics avec Azure PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
+
+1. Récupérez l’ID de ressource de votre domaine Azure AD DS géré à l’aide de la cmdlet [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource). Créez une variable nommée *$aadds.ResourceId* pour contenir la valeur :
+
+    ```azurepowershell
     $aadds = Get-AzResource -name aaddsDomainName
-    ``` 
-4. Utilisez l’applet de commande **Set-AzDiagnosticSetting** pour configurer les paramètres de diagnostic Azure afin d’utiliser la ressource cible pour les événements d’audit de sécurité Azure AD Domain Services. Dans les exemples ci-dessous, la variable $aadds.ResourceId représente l’ID de ressource de votre instance Azure AD Domain Services (voir l’étape 3).</p>
-    **Stockage Azure :**
-    ```powershell
-    Set-AzDiagnosticSetting `
-    -ResourceId $aadds.ResourceId` 
-    -StorageAccountId storageAccountId `
-    -Enabled $true
     ```
-    Remplacez *storageAccountId* par l’ID de votre compte de stockage.</p>
-    
-    **Hubs d’événements Azure :**
-    ```powershell
-    Set-AzDiagnosticSetting -ResourceId $aadds.ResourceId ` 
-    -EventHubName eventHubName `
-    -EventHubAuthorizationRuleId eventHubRuleId `
-    -Enabled $true
-    ```
-    Remplacez *eventHubName* par le nom de votre hub d’événements. Remplacez *eventHubRuleId* par l’ID de la règle d’autorisation que vous avez créée.</p>
-    
-    **Espaces de travail Azure Log Analytics :**
-    ```powershell
-    Set-AzureRmDiagnosticSetting -ResourceId $aadds.ResourceId ` 
-    -WorkspaceID workspaceId `
-    -Enabled $true
-    ```
-    Remplacez *workspaceId* par l’ID de l’espace de travail Log Analytics que vous avez créé. 
 
-## <a name="view-security-audit-events-using-azure-monitor"></a>Afficher les événements d’audit de sécurité à l’aide d’Azure Monitor
-Les espaces de travail log Analytics vous permettent d’afficher et d’analyser les événements d’audit de sécurité à l’aide d’Azure Monitor et du langage de requête Kusto. Le langage de requête est conçu pour être utilisé en lecture seule, offrant des capacités d’analyse puissantes avec une syntaxe facile à lire.
-Voici quelques ressources pour bien démarrer avec le langage de requête Kusto.
+1. Configurez les paramètres de diagnostic Azure à l’aide de la cmdlet [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) afin d’utiliser la ressource cible pour les événements d’audit de sécurité Azure AD Domain Services. Dans les exemples suivants, la variable *$aadds.ResourceId* de l’étape précédente est utilisée.
+
+    * **Stockage Microsoft Azure** : remplacez *storageAccountId* par le nom de votre compte de stockage :
+
+        ```powershell
+        Set-AzDiagnosticSetting `
+            -ResourceId $aadds.ResourceId `
+            -StorageAccountId storageAccountId `
+            -Enabled $true
+        ```
+
+    * **Azure Event Hubs** : remplacez *eventHubName* par le nom de votre hub Event Hub, et *eventHubRuleId* par l’ID de votre règle d’autorisation :
+
+        ```powershell
+        Set-AzDiagnosticSetting -ResourceId $aadds.ResourceId `
+            -EventHubName eventHubName `
+            -EventHubAuthorizationRuleId eventHubRuleId `
+            -Enabled $true
+        ```
+
+    * **Espaces de travail Azure Log Analytics** : remplacez *workspaceId* par l’ID de l’espace de travail Log Analytics :
+
+        ```powershell
+        Set-AzureRmDiagnosticSetting -ResourceId $aadds.ResourceId `
+            -WorkspaceID workspaceId `
+            -Enabled $true
+        ```
+
+## <a name="query-and-view-security-audit-events-using-azure-monitor"></a>Interroger et afficher les événements d’audit de sécurité à l’aide d’Azure Monitor
+
+Les espaces de travail log Analytics vous permettent d’afficher et d’analyser les événements d’audit de sécurité à l’aide d’Azure Monitor et du langage de requête Kusto. Ce langage de requête est conçu pour être utilisé en lecture seule, offrant des capacités d’analyse puissantes et une syntaxe facile à lire. Pour en savoir plus sur la prise en main des langages de requête Kusto, consultez les articles suivants :
+
 * [Documentation Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
-* [Prise en main de Log Analytics dans Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
-* [Bien démarrer avec les requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries).
-* [Créer et partager des tableaux de bord de données Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards)
+* [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+* [Bien démarrer avec les requêtes de journal Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+* [Créer et partager des tableaux de bord de données Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
-## <a name="sample-queries"></a>Exemples de requêtes
+Les exemples de requêtes suivants peuvent être utilisés pour lancer l’analyse des événements d’audit de sécurité à partir de Microsoft Azure AD DS.
 
 ### <a name="sample-query-1"></a>Exemple de requête 1
-Tous les événements de verrouillage de compte pour les sept derniers jours.
+
+Affichez tous les événements de verrouillage de compte au cours des sept derniers jours :
+
 ```Kusto
 AADDomainServicesAccountManagement
 | where TimeGenerated >= ago(7d)
@@ -184,16 +190,20 @@ AADDomainServicesAccountManagement
 ```
 
 ### <a name="sample-query-2"></a>Exemple de requête 2
-Tous les événements de verrouillage de compte (4740) entre le 26 juin 2019 à 9:00 et le 1er juillet 2019 minuit, triés par ordre croissant de date et heure.
+
+Affichez tous les événements de verrouillage de compte (*4740*) survenus entre le 26 juin 2019 à 9:00 et le 1er juillet 2019 minuit, triés par ordre croissant de date et heure :
+
 ```Kusto
 AADDomainServicesAccountManagement
-| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01) 
+| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
 | where OperationName has "4740"
 | sort by TimeGenerated asc
 ```
 
 ### <a name="sample-query-3"></a>Exemple de requête 3
-Événements de connexion de compte il y a sept jours (par rapport à maintenant) pour l’utilisateur de compte nommé.
+
+Affichez les événements de connexion de compte survenus sept jours plus tôt pour l’utilisateur de compte nommé :
+
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
@@ -201,7 +211,9 @@ AADDomainServicesAccountLogon
 ```
 
 ### <a name="sample-query-4"></a>Exemple de requête 4
-Événements de connexion de compte il y a sept jours par rapport à maintenant pour l’utilisateur de compte nommé qui a tenté de se connecter à l’aide d’un mot de passe incorrect (0xC0000006a).
+
+Affichez les événements de connexion de compte survenus sept jours plus tôt pour l’utilisateur de compte nommé qui a tenté de se connecter à l’aide d’un mot de passe incorrect (*0xC0000006a*) :
+
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
@@ -210,7 +222,9 @@ AADDomainServicesAccountLogon
 ```
 
 ### <a name="sample-query-5"></a>Exemple de requête 5
-Événements de connexion de compte il y a sept jours par rapport à maintenant pour l’utilisateur de compte nommé qui a tenté de se connecter alors que le compte était verrouillé (0xC0000234).
+
+Affichez les événements de connexion de compte survenus sept jours plus tôt pour l’utilisateur de compte nommé qui a tenté de se connecter alors que le compte était verrouillé (*0xC0000234*) :
+
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
@@ -219,7 +233,9 @@ AADDomainServicesAccountLogon
 ```
 
 ### <a name="sample-query-6"></a>Exemple de requête 6
-Nombre d’événements de connexion de compte il y a sept jours par rapport à maintenant pour toutes les tentatives de connexion qui se sont produites pour tous les utilisateurs verrouillés.
+
+Affichez le nombre d’événements de connexion de compte survenus sept jours plus tôt pour toutes les tentatives de connexion qui se sont produites pour tous les utilisateurs verrouillés :
+
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
@@ -227,23 +243,14 @@ AADDomainServicesAccountLogon
 | summarize count()
 ```
 
-## <a name="related-content"></a>Contenu connexe
-* [Vue d’ensemble](https://docs.microsoft.com/azure/kusto/query/) du langage de requête Kusto.
-* [Tutoriel Kusto](https://docs.microsoft.com/azure/kusto/query/tutorial) pour vous familiariser avec les principes fondamentaux des requêtes.
-* [Exemples de requêtes](https://docs.microsoft.com/azure/kusto/query/samples) qui vous aident à découvrir de nouvelles façons de voir vos données.
-* [Bonnes pratiques](https://docs.microsoft.com/azure/kusto/query/best-practices) Kusto pour optimiser vos requêtes.
+## <a name="next-steps"></a>Étapes suivantes
 
+Pour plus d’informations sur Kusto, consultez les articles suivants :
 
+* [Vue d’ensemble](/azure/kusto/query/) du langage de requête Kusto.
+* [Tutoriel Kusto](/azure/kusto/query/tutorial) pour vous familiariser avec les principes fondamentaux des requêtes.
+* [Exemples de requêtes](/azure/kusto/query/samples) qui vous aident à découvrir de nouvelles façons de voir vos données.
+* [Meilleures pratiques](/azure/kusto/query/best-practices) de Kusto pour optimiser vos requêtes.
 
-
-
-
-
-
-
-
-
-
-
-
- 
+<!-- LINKS - Internal -->
+[migrate-azure-adds]: migrate-from-classic-vnet.md

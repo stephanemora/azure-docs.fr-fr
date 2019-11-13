@@ -1,5 +1,5 @@
 ---
-title: Utiliser Azure Stream Analytics avec SQL Data Warehouse | Documents Microsoft
+title: Utilisation d’Azure Stream Analytics
 description: Conseils sur l’utilisation d’Azure Stream Analytics avec Azure SQL Data Warehouse pour le développement de solutions.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,20 +10,21 @@ ms.subservice: integration
 ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 63803f3ac477e48d8d1c14a72e2ee9b9d4860047
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873263"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685717"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utiliser Azure Stream Analytics avec SQL Data Warehouse
-Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Vous pouvez découvrir les principes de base en lisant [Présentation d’Azure Stream Analytics][Introduction to Azure Stream Analytics]. Vous pouvez ensuite apprendre à créer une solution de bout en bout avec Stream Analytics en suivant le didacticiel [Bien démarrer avec Azure Stream Analytics][Get started using Azure Stream Analytics].
+Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Pour découvrir les principes de base de ce service, voir l’article [Présentation d’Azure Stream Analytics][Introduction to Azure Stream Analytics]. Vous pouvez ensuite apprendre à créer une solution de bout en bout avec Stream Analytics en suivant le didacticiel [Prise en main d’Azure Stream Analytics][Get started using Azure Stream Analytics] .
 
 Dans cet article, vous allez apprendre à utiliser votre base de données Azure SQL Data Warehouse à la façon d’un récepteur de sortie pour vos travaux Stream Analytics.
 
 ## <a name="prerequisites"></a>Prérequis
-Exécutez d’abord les étapes suivantes dans le didacticiel [Bien démarrer avec Azure Stream Analytics][Get started using Azure Stream Analytics].  
+Tout d’abord, exécutez les étapes suivantes dans le didacticiel [Prise en main d’Azure Stream Analytics][Get started using Azure Stream Analytics] .  
 
 1. Création d’une entrée de hub d’événements
 2. Configuration et démarrage de l’application de génération d’événements
@@ -63,7 +64,7 @@ Cliquez sur la coche pour ajouter cette sortie du travail et pour vérifier que 
 Dès que la connexion à la base de données est établie, une notification s’affiche dans le portail. Vous pouvez cliquez sur Tester pour tester la connexion à la base de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour une vue d’ensemble de l’intégration, consultez [Vue d’ensemble sur l’intégration de SQL Data Warehouse][SQL Data Warehouse integration overview].
+Pour consulter une vue d’ensemble de l’intégration, accédez à la rubrique [Vue d’ensemble sur l’intégration de SQL Data Warehouse][SQL Data Warehouse integration overview].
 
 Pour obtenir des conseils supplémentaires en matière de développement, consultez l’article [Vue d’ensemble sur le développement SQL Data Warehouse][SQL Data Warehouse development overview].
 

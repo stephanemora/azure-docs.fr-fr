@@ -1,5 +1,5 @@
 ---
-title: Architecture de connectivité pour une instance gérée dans Azure SQL Database | Microsoft Docs
+title: Architecture de connectivité d’une instance gérée
 description: Découvrez l’architecture de connectivité et la communication d’instance gérée d’Azure SQL Database ainsi que la façon dont les composants redirigent le trafic vers l’instance gérée.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 7e32cb302322f7a80154a3f2a246d7d4f1743c09
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 0c21271eb19a8fd69cb42e30c6a45bd3af9a5600
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249371"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820473"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans Azure SQL Database
 
@@ -436,4 +436,4 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
   - À partir du [portail Azure](sql-database-managed-instance-get-started.md).
   - En utilisant [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - En utilisant [un modèle Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - En utilisant [un modèle Azure Resource Manager (à l’aide de JumpBox, avec SSMS inclus)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 
+  - En utilisant [un modèle Azure Resource Manager (à l’aide de JumpBox, avec SSMS inclus)](https://azure.microsoft.com/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

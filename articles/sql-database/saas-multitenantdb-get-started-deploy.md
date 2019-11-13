@@ -1,5 +1,5 @@
 ---
-title: Déployer une application SaaS multilocataire partitionnée qui utilise Azure SQL Database | Microsoft Docs
+title: Déployer une app SaaS de base de données multilocataire partitionnée
 description: Déployez et explorez l’application de base de données Wingtip Tickets SaaS multilocataire partitionnée, qui présente les modèles SaaS à l’aide d’Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570380"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827990"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
 

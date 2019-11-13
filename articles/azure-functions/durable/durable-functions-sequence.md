@@ -9,16 +9,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ee5b18ddc734335ddac2a7d3352de0e4388f445d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 133169c659328fa4f713eb4b75bc460dee7a3f76
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933254"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614686"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
 Un chaînage de fonctions fait référence au modèle d’exécution d’une séquence de fonctions dans un ordre particulier. La sortie d’une fonction doit souvent être appliquée à l’entrée d’une autre fonction. Cet article décrit la séquence de chaînage que vous créez quand vous suivez le guide de démarrage rapide de Durable Functions ([C#](durable-functions-create-first-csharp.md) ou [JavaScript](quickstart-js-vscode.md)). Pour plus d’informations sur Durable Functions, consultez [Vue d’ensemble de Durable Functions](durable-functions-overview.md).
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -32,7 +34,7 @@ Cet article explique les fonctions suivantes dans l’exemple d’application :
 Les sections suivantes décrivent la configuration et le code utilisés pour les scripts C# et JavaScript. Le code de développement de Visual Studio est affiché à la fin de l’article.
 
 > [!NOTE]
-> Les fonctions Durable Functions JavaScript sont disponibles uniquement pour le runtime de Functions 2.x.
+> Les fonctions JavaScript Durable Functions sont disponibles uniquement pour le runtime de Functions 2.0.x.
 
 ## <a name="e1_hellosequence"></a>E1_HelloSequence
 
@@ -45,7 +47,7 @@ Si vous utilisez Visual Studio Code ou le portail Azure pour le développement, 
 Le point essentiel est le type de liaison `orchestrationTrigger`. Toutes les fonctions d’orchestrateur doivent utiliser ce type de déclencheur.
 
 > [!WARNING]
-> Pour respecter la règle « Aucune E/S » des fonctions d’orchestrateur, n’utilisez aucune liaison d’entrée ou de sortie lors de l’utilisation de la liaison de déclenchement `orchestrationTrigger`.  Si d’autres liaisons d’entrée ou de sortie sont nécessaires, elles doivent plutôt être utilisées dans le contexte des fonctions `activityTrigger`, qui sont appelées par l’orchestrateur.
+> Pour respecter la règle « Aucune E/S » des fonctions d’orchestrateur, n’utilisez aucune liaison d’entrée ou de sortie lors de l’utilisation de la liaison de déclenchement `orchestrationTrigger`.  Si d’autres liaisons d’entrée ou de sortie sont nécessaires, elles doivent plutôt être utilisées dans le contexte des fonctions `activityTrigger`, qui sont appelées par l’orchestrateur. Pour plus d’informations, consultez l’article [Contraintes du code des fonctions orchestrator](durable-functions-code-constraints.md).
 
 ### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>Script C# (exemple de code Visual Studio Code et portail Azure)
 
@@ -53,7 +55,7 @@ Voici le code source :
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-Toutes les fonctions d’orchestration C# doivent avoir un paramètre de type `DurableOrchestrationContext`, qui existe dans l’assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Si vous utilisez un script C#, l’assembly peut être référencée à l’aide de la notation `#r`. Cet objet de contexte vous permet d’appeler d’autres fonctions *d’activité* et de passer les paramètres d’entrée à l’aide de sa méthode [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+Toutes les fonctions d’orchestration C# doivent avoir un paramètre de type `DurableOrchestrationContext`, qui existe dans l’assembly `Microsoft.Azure.WebJobs.Extensions.DurableTask`. Si vous utilisez un script C#, l’assembly peut être référencée à l’aide de la notation `#r`. Cet objet de contexte vous permet d’appeler d’autres fonctions *d’activité* et de passer les paramètres d’entrée à l’aide de sa méthode `CallActivityAsync`.
 
 Le code appelle trois fois `E1_SayHello` en séquence avec des valeurs de paramètre différentes. La valeur renvoyée de chaque appel est ajoutée à la liste `outputs`, qui est retournée à la fin de la fonction.
 
@@ -88,7 +90,7 @@ L’implémentation de `E1_SayHello` est une opération de mise en forme de cha�
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-Cette fonction a un paramètre de type [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), qu’elle utilise pour obtenir l’entrée qui lui a été passée par l’appel de la fonction d’orchestrateur à [`CallActivityAsync<T>`](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
+Cette fonction a un paramètre de type `DurableActivityContext`, qu’elle utilise pour obtenir l’entrée qui lui a été passée par l’appel de la fonction d’orchestrateur à `CallActivityAsync<T>`.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -115,7 +117,7 @@ Le résultat est une réponse HTTP 202, comme celle-ci (ajustée par souci de co
 HTTP/1.1 202 Accepted
 Content-Length: 719
 Content-Type: application/json; charset=utf-8
-Location: http://{host}/admin/extensions/DurableTaskExtension/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+Location: http://{host}/runtime/webhooks/durabletask/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
 (...trimmed...)
 ```
@@ -123,7 +125,7 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/96924899
 À ce stade, l’orchestration est mise en file d’attente et commence à s’exécuter immédiatement. L’URL dans l’en-tête `Location` peut être utilisée pour vérifier l’état de l’exécution.
 
 ```
-GET http://{host}/admin/extensions/DurableTaskExtension/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
+GET http://{host}/runtime/webhooks/durabletask/instances/96924899c16d43b08a536de376ac786b?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
 
 Le résultat est l'état de l'orchestration. Elle s’exécute et se termine rapidement, vous voyez donc le résultat dans l’état *Terminé* avec une réponse qui ressemble à ceci (ajustée par souci de concision) :

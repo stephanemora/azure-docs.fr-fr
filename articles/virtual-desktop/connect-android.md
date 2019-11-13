@@ -1,5 +1,5 @@
 ---
-title: Se connecter à Windows Virtual Desktop à partir d’Android – Azure
+title: Connexion à Windows Virtual Desktop via Android – Azure
 description: Comment se connecter à Windows Virtual Desktop à l’aide du client Android.
 services: virtual-desktop
 author: heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: c19aa6e0acc936c5b03afdab99ce0b9230838ce2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71341184"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605847"
 ---
 # <a name="connect-with-the-android-client"></a>Se connecter avec le client Android
 
@@ -39,8 +39,8 @@ Pour s’abonner à un flux :
    - Pour utiliser une adresse e-mail, entrez la vôtre. Le client recherche une URL associée à votre adresse de adresse e-mail si votre administrateur a configuré le serveur de cette façon.
 3. Appuyez sur **SUIVANT**.
 4. À l’invite, indiquez vos informations d’identification.
-   - Pour **Nom d´utilisateur**, entrez le nom de l’utilisateur autorisé à accéder aux ressources.
-   - Pour **Mot de passe**, entrez le mot de passe associé au nom d’utilisateur.
+   - Pour **Nom d’utilisateur**, indiquez le nom de l’utilisateur ayant l’autorisation d’accéder aux ressources.
+   - Pour **Mot de passe**, indiquez le mot de passe associé au nom d’utilisateur.
    - Il se peut que vous soyez invité à fournir des informations supplémentaires si votre administrateur a configuré l’authentification de cette façon.
 
 Une fois l’abonnement souscrit, le Connection Center doit afficher les ressources distantes.

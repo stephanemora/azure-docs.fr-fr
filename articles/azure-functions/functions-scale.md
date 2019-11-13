@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bf713029f26ac7ec0b6c043fb887fa5190083888
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550643"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576056"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -47,8 +47,8 @@ Le tableau suivant indique le niveau actuel de prise en charge pour les trois pl
 
 | | Plan de consommation | Plan Premium | Plan dédié |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | preview | GA |
-| Linux | GA | preview | GA |
+| Windows | GA | GA | GA |
+| Linux | GA | GA | GA |
 
 ## <a name="consumption-plan"></a>Plan de consommation
 
@@ -65,7 +65,7 @@ Les Function App d’une même région peuvent être affectées au même plan Co
 
 Pour en savoir plus sur la façon d’estimer les coûts pour une exécution dans le cadre d’un plan Consommation, consultez [Compréhension des coûts d’un plan Consommation](functions-consumption-costs.md).
 
-## <a name="premium-plan"></a>Plan Premium (préversion)
+## <a name="premium-plan"></a>Plan Premium
 
 Quand vous utilisez le plan Premium, les instances de l’hôte Azure Functions sont ajoutées et supprimées en fonction du nombre d’événements entrants, comme avec le plan Consommation.  Le plan Premium prend en charge les fonctionnalités suivantes :
 

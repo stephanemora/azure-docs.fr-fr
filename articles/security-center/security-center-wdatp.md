@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender Advanced Threat Protection avec Azure Security Center
+title: Microsoft Defender Advanced Threat Protection – Azure Security Center
 description: Ce document présente l’intégration entre Azure Security Center et Microsoft Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028082"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663606"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection avec Azure Security Center
 
@@ -50,7 +50,7 @@ Pour approfondir vos recherches, utilisez Microsoft Defender ATP. Microsoft Defe
 
 ## <a name="platform-support"></a>Prise en charge de plateformes
 
-Microsoft Defender ATP dans Security Center prend en charge la détection sur les systèmes d’exploitation Windows Server 2016, 2012 R2 et 2008 R2 SP1 appartenant à un abonnement au service Standard.
+Microsoft Defender ATP dans Security Center prend en charge la détection sur Windows Server 2016, 2012 R2 et 2008 R2 SP1. Pour les machines virtuelles Azure, vous avez besoin d’un abonnement de niveau standard ; pour les autres, il vous faut un niveau standard pour l’espace de travail uniquement.
 
 > [!NOTE]
 > Quand vous utilisez Azure Security Center pour superviser les serveurs, un locataire Microsoft Defender ATP est automatiquement créé et les données Microsoft Defender ATP sont stockées dans la région Europe par défaut. Si vous avez besoin de déplacer des données vers un autre emplacement, vous devez contacter le Support Microsoft pour réinitialiser le locataire. La supervision des points de terminaison de serveur qui utilise cette intégration a été désactivée pour les clients Office 365 GCC.
@@ -95,7 +95,7 @@ Si vous avez un proxy ou un pare-feu qui bloque le trafic anonyme, comme un capt
 
 Pour générer une alerte de test Microsoft Defender ATP inoffensive :
 
-1. Utilisez le Bureau à distance pour accéder à une machine virtuelle Windows Server 2012 R2 ou à une machine virtuelle Windows Server 2016.  Ouvrez une fenêtre d’invite de commandes.
+1. Utilisez le Bureau à distance pour accéder à une machine virtuelle Windows Server 2012 R2 ou à une machine virtuelle Windows Server 2016. Ouvrez une fenêtre d’invite de commandes.
 
 2. A l'invite, copiez et exécutez la commande suivante. La fenêtre d’invite de commandes se ferme automatiquement.
 
@@ -107,7 +107,7 @@ Pour générer une alerte de test Microsoft Defender ATP inoffensive :
 
 3. Si la commande réussit, une nouvelle alerte s’affiche sur le tableau de bord Azure Security Center et sur le portail Microsoft Defender ATP. L’alerte peut mettre quelques minutes à s’afficher.
 
-4. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** >  **Ligne de commande Powershell suspecte**.
+4. Pour examiner l’alerte dans Security Center, accédez à **Alertes de sécurité** > **Ligne de commande Powershell suspecte**.
 
 5. Dans la fenêtre d’enquête, sélectionnez le lien d’accès au portail Microsoft Defender ATP.
 

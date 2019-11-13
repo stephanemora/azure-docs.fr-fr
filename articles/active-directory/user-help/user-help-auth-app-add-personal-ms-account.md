@@ -1,5 +1,5 @@
 ---
-title: Ajout de vos comptes personnels Microsoft à l’application Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Ajouter un compte Microsoft personnel à une application Microsoft Authenticator – Azure AD
 description: Indique comment ajouter vos comptes Microsoft personnels, tels que vos comptes Outlook.com ou Xbox LIVE, à l’application Microsoft Authenticator pour la vérification en deux étapes.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616077"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820239"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Ajout de vos comptes Microsoft personnels
 

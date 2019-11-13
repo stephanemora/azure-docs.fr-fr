@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/01/2019
-ms.openlocfilehash: 9dbdd683a8545e0f8c573dfba60daa96ef5ff08d
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f9ab1f1ef2b64c07a3b0c8ddf93d6ef4293517db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677857"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668110"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Annotations sur les graphiques de métriques dans Application Insights
 
@@ -53,6 +53,9 @@ Créez une clé API distincte pour chacun de vos modèles de mise en production 
 1. Sélectionnez **Ajouter une tâche**, puis choisissez la tâche **Annotation de mise en production Application Insights** dans le menu.
    
    ![Sélectionnez Ajouter une tâche, puis choisissez la tâche Annotation de mise en production Application Insights.](./media/annotations/3-add-task.png)
+
+   > [!NOTE]
+   > Actuellement, la tâche d’annotation de mise en production ne prend en charge que les agents Windows. Elle ne s’exécute pas sur Linux, macOS ou d’autres types d’agents.
    
 1. Sous **ID d’application**, collez l’ID Application Insights que vous avez copié à partir de l’onglet **Accès d’API**.
    

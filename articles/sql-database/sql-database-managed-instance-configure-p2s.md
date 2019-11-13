@@ -1,5 +1,5 @@
 ---
-title: Configurer une connexion point à site - Azure SQL Database Managed Instance | Microsoft Docs
+title: Configurer P2S – Managed Instance
 description: Apprenez à vous connecter à Azure SQL Database Managed Instance à l’aide de SQL Server Management Studio via une connexion point à site à partir d’un ordinateur client local.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 3ba5190050d45385ad17a87f6dce88ffd601e83d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567683"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818912"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Démarrage rapide : Configurer une connexion point à site à Azure SQL Database Managed Instance à partir d’un emplacement local
 

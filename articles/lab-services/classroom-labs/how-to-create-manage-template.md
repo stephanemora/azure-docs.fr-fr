@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: f0fc1e143ce7d271d5faaa8dda0eb40cdfc9e006
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd3396a98359aef966cd8bb2f984e556fc6abcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332736"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584875"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Créer et gérer un modèle de laboratoire de classe dans Azure Lab Services
 Le modèle de laboratoire est une image de machine virtuelle de base, à partir de laquelle toutes les machines virtuelles des utilisateurs sont créées. Configurez la machine virtuelle du modèle de façon qu’elle propose exactement ce que vous souhaitez fournir aux utilisateurs du laboratoire. Vous pouvez indiquer le nom et la description du modèle que voient les utilisateurs du laboratoire. Ensuite, publiez le modèle pour rendre les instances du modèle de machine virtuelle accessibles aux utilisateurs de votre laboratoire. Quand vous publiez un modèle, Azure Lab Services crée les machines virtuelles dans le laboratoire à l’aide du modèle. Le nombre de machines virtuelles créées dans ce processus est identique au nombre maximal d’utilisateurs autorisés dans le laboratoire, que vous pouvez définir dans la politique d’utilisation du laboratoire. Toutes les machines virtuelles ont la même configuration que le modèle.
@@ -40,12 +40,10 @@ Effectuez les étapes suivantes pour définir un titre et une description pour l
 Suivez les étapes ci-dessous pour mettre à jour un modèle de machine virtuelle.  
 
 1. Dans la page **Modèle**, sélectionnez **Personnaliser le modèle** dans la barre d’outils. 
-
-    ![Bouton Personnaliser le modèle](../media/how-to-create-manage-template/customize-template-button.png)
 2. Dans la boîte de dialogue **Personnaliser le modèle**, sélectionnez **Continuer**. Une fois que vous avez démarré le modèle et apporté des modifications, il n’a plus la même configuration que les machines virtuelles dernièrement publiées pour vos utilisateurs. Les modifications de modèle sont reflétées sur les machines virtuelles de vos utilisateurs seulement une fois que vous republiez.
 
     ![Boîte de dialogue Personnaliser](../media/how-to-create-manage-template/customize-template-dialog.png)
-1. Sélectionnez le bouton **Se connecter au modèle** dans la barre d’outils pour vous connecter au modèle de machine virtuelle, et suivez les instructions. S’il s’agit d’une machine Windows, vous verrez une option permettant de télécharger le fichier RDP. 
+1. Attendez le démarrage du modèle de machine virtuelle, sélectionnez le bouton **Se connecter au modèle** dans la barre d’outils pour vous connecter au modèle, et suivez les instructions. S’il s’agit d’une machine Windows, vous verrez une option permettant de télécharger le fichier RDP. 
 
     ![Se connecter au modèle de machine virtuelle](../media/how-to-create-manage-template/connect-template-vm.png)
 1. Installez les logiciels nécessaires pour que les étudiants puissent travailler en laboratoire (par exemple Visual Studio, l’Explorateur Stockage Azure, et ainsi de suite). 

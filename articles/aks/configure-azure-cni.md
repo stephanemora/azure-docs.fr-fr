@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: e7c63d3b52a57a952c311937036f0f7da15ebefc
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ab28203a240cf360fb990ac42fdbc2d83864f68b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299602"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604783"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -71,10 +71,12 @@ Le nombre maximal de pods par nœud dans un cluster AKS est de 250. Le nombre ma
 
 Vous pouvez configurer le nombre maximal de pods par nœud *uniquement au moment du déploiement cluster*. Si vous procédez au déploiement avec Azure CLI ou avec un modèle Resource Manager, vous pouvez définir la valeur du nombre maximal de pods par nœud avec un maximum de 250.
 
+Une valeur minimale pour le nombre maximal de pods par nœud est appliquée afin de garantir l’espace des blocs système critiques pour l’intégrité du cluster. La valeur minimale qui peut être définie pour le nombre maximal de pods par nœud est égale à 10 si, et seulement si, la configuration de chaque pool de nœuds a un espace pour un minimum de 30 pods. Par exemple, la définition du nombre maximal de pods par nœud sur la valeur minimale de 10 nécessite que chaque pool de nœuds inclue un minimum de 3 nœuds. Cette exigence s’applique également à chaque pool de nœuds créé, de sorte que, si la valeur 10 est définie comme le nombre maximal de pods par nœud, chaque pool de nœuds ajouté doit inclure au moins 3 nœuds.
+
 | Mise en réseau | Minimale | Maximale |
 | -- | :--: | :--: |
-| Azure CNI | 30 | 250 |
-| Kubenet | 30 | 110 |
+| Azure CNI | 10 | 250 |
+| Kubenet | 10 | 110 |
 
 > [!NOTE]
 > La valeur minimale dans le tableau ci-dessus est strictement appliquée par le service AKS. Vous ne pouvez pas définir une valeur maxPods inférieure à la valeur minimale, car cela peut empêcher le cluster de démarrer.

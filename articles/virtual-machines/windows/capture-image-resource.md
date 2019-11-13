@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 54743b191b0334c92c63f374d38870a7dbfd9a38
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273867"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749623"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Créer une image managée d’une machine virtuelle généralisée dans Azure
 
 Une ressource d’image managée peut être créée à partir d’une machine virtuelle généralisée stockée en tant que disque managé ou non managé dans un compte de stockage. L’image peut ensuite être utilisée pour créer plusieurs machines virtuelles. Pour plus d'informations sur la facturation des images managées, reportez-vous à [Tarification de la fonctionnalité Disques managés](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Généraliser la machine virtuelle Windows à l’aide de Sysprep
 
@@ -56,6 +56,17 @@ Pour généraliser votre machine virtuelle Windows, procédez comme suit :
 
 6. Une fois l’exécution de Sysprep terminée, la machine virtuelle est arrêtée. Ne redémarrez pas la machine virtuelle.
 
+> [!TIP]
+> **Facultatif** Utilisez [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) pour optimiser votre image et réduire la durée du premier démarrage de votre machine virtuelle.
+>
+> Pour optimiser votre image, montez votre VHD en double-cliquant dessus dans l’Explorateur Windows, puis exécutez DISM avec le paramètre `/optimize-image`.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> Où D: est le chemin d’accès au VHD monté.
+>
+> L’exécution de `DISM /optimize-image` doit être la dernière modification apportée à votre VHD. Si vous apportez des modifications à votre VHD avant le déploiement, vous devrez réexécuter `DISM /optimize-image`.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>Créer une image managée dans le portail 
 
@@ -83,7 +94,7 @@ Pour généraliser votre machine virtuelle Windows, procédez comme suit :
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Créer une image de machine virtuelle à l’aide de Powershell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 La création d’une image directement à partir de la machine virtuelle permet de s’assurer que celle-ci comprend tous les disques associés à la machine virtuelle, y compris le disque du système d’exploitation et tous les disques de données. Cet exemple montre comment créer une image gérée à partir d’une machine virtuelle qui utilise des disques managés.
 

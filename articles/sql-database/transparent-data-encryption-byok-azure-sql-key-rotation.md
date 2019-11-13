@@ -1,22 +1,22 @@
 ---
-title: PowerShell - Faire pivoter le protecteur TDE - Azure SQL Database | Microsoft Docs
+title: Faire pivoter le protecteur TDE – PowerShell
 description: Découvrez comment faire pivoter le protecteur Chiffrement transparent des données (TDE) pour un serveur SQL Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 464ea73d9b3d7116205377600ffccee13a9e2dcb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5bfcacb9348940e0b36947f6e4e0d27839de35bb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566035"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824680"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Faire pivoter le protecteur Chiffrement transparent des données (TDE) à l’aide de PowerShell
 

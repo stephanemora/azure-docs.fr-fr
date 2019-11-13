@@ -1,5 +1,5 @@
 ---
-title: Télécharger et installer l’application Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Télécharger et installer l’application Microsoft Authenticator – Azure AD
 description: Comment télécharger, installer et utiliser l’application Microsoft Authenticator pour la vérification en deux étapes.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15ecdf0feb0d8e5307eac9916748e0bacdf51620
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: ebe80d44d52ffa348413e51cd5e82e8468537479
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616048"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820223"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Télécharger et installer l’application Microsoft Authenticator
 
@@ -52,7 +52,7 @@ Installez la dernière version de l’application Microsoft Authenticator corres
 - **Apple iOS.** Sur votre appareil iOS Apple, accédez à l’App Store pour [télécharger et installer l’application Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Si vous n'êtes actuellement pas sur votre appareil mobile, vous pouvez obtenir l'application Microsoft Authenticator en vous adressant un lien de téléchargement depuis la [page Microsoft Authenticator](https://www.microsoft.com/account/authenticator).
+>Si vous n'êtes actuellement pas sur votre appareil mobile, vous pouvez obtenir l'application Microsoft Authenticator en vous adressant un lien de téléchargement depuis la [page Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

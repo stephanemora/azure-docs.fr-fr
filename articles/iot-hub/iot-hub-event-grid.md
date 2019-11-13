@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648639"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748579"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
@@ -204,4 +204,4 @@ Les applications qui gèrent des événements IoT Hub doivent suivre ces pratiqu
 
 * [Comparer les différences entre le routage des messages et des événements IoT Hub](iot-hub-event-grid-routing-comparison.md)
 
-* [Découvrez comment utiliser les événements de télémétrie IoT pour implémenter l’analytique spatiale IoT à l’aide d’Azure Maps (et du routage des messages IoT Hub)](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)
+* [Découvrez comment utiliser les événements de télémétrie IoT pour implémenter l’analytique spatiale via Azure Maps](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)

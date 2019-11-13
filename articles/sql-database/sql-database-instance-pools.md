@@ -1,5 +1,5 @@
 ---
-title: Pools d’instances Azure SQL Database (préversion) | Microsoft Docs
+title: Pools d’instance (préversion)
 description: Cet article décrit les pools d’instances Azure SQL Database (préversion).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 34e779f04f59b23733c6fbfa3450931fccb442b1
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 8738d1ad54d3ab63d8d2efc939aa9daacbe91c13
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70293779"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810408"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Que sont les pools d’instances SQL Database (préversion) ?
 

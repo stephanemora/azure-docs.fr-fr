@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 578904d40b1354dde99644cb2fc73e0a56223b34
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376286"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825522"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -36,7 +37,7 @@ La boîte de dialogue **Nouvelle offre** s’affiche.
 
 ## <a name="offer-id-and-alias"></a>ID et alias de l’offre
 
-- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en minuscules, alphanumérique (dont traits d’union, tirets du bas, mais pas d’espace blanc). Il est limité à 50 caractères et ne peut pas être modifié après avoir cliqué sur *Créer*.  
+- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en minuscules, alphanumérique (dont traits d’union, tirets du bas, mais pas d’espace blanc). Il est limité à 50 caractères et vous ne pouvez pas le modifier après avoir cliqué sur *Créer*.  
 Exemple : test-offer-1
 <br>Voici l’URL obtenu : `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
@@ -59,7 +60,7 @@ La page **Présentation de l’offre** comprend les informations suivantes :
 - Le menu **Présentation de l’offre** contient une liste de liens pour réaliser des opérations sur cette offre. Cette liste d’opérations change selon la sélection que vous faites pour votre offre.  
     - Si l’offre est un brouillon : Supprimer le brouillon 
     - Si l’offre est publiée : Arrêter de vendre l’offre 
-    - Si l’offre est disponible en version préliminaire : Mettre en service 
+    - Si l’offre est disponible en préversion : Mettre en service 
     - Si vous n’avez pas complété Déconnexion de l’éditeur : Annuler la publication
 
 ## <a name="offer-setup"></a>Configuration de l’offre
@@ -72,7 +73,7 @@ L’onglet **Configuration de l’offre** nécessite les informations suivantes 
 
 ### <a name="sell-through-microsoft"></a>Vendre via Microsoft
 
-La vente via Microsoft fournit une meilleure découverte et acquisition de client, permet à Microsoft d’héberger des transactions de la place de marché, et tire profit des capacités commerciales mondiales disponibles de Microsoft.
+La vente via Microsoft fournit une meilleure découverte et acquisition de client, permet à Microsoft d’héberger des transactions de la Place de marché, et tire profit des capacités commerciales mondiales disponibles de Microsoft.
 
 #### <a name="saas-offer-requirements"></a>Exigences de l’offre SaaS
 
@@ -178,7 +179,8 @@ Sélectionnez **Enregistrer** après avoir renseigné ces champs.
 Sélectionnez un minimum d’une (1) catégorie et un maximum de trois (3) catégories utilisées pour grouper votre offre dans les zones de recherche appropriées sur la Place de marché. Expliquez dans la description comment votre offre prend en charge ces catégories dans la description de l’offre. 
 
 ### <a name="industry"></a>Secteur d’activité
-Sélectionnez jusqu’à deux (2) secteurs utilisés pour grouper votre offre dans les zones de recherche appropriées sur la Place de marché. Si votre offre n’est pas spécifique à un secteur, ne sélectionnez rien. Expliquez dans la description comment votre offre prend en charge les secteurs sélectionnés dans la description de l’offre. 
+
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Version de l’application
 Il s’agit d’un champ facultatif utilisé dans la Place de marché AppSource pour identifier le numéro de version de votre offre. 
@@ -195,7 +197,7 @@ Le contrat Standard est disponible ici : https://go.microsoft.com/fwlink/?linkid
 
 #### <a name="terms-of-use"></a>Conditions d’utilisation
 
-Si les termes du contrat de licence sont différents du contrat Standard, vous pouvez choisir d’entrer vos propres conditions d’utilisation ici. Vous pouvez également saisir jusqu’à 10 000 caractères dans ce champ. Si vos conditions d’utilisation nécessitent une description plus longue, saisissez un lien URL unique dans ce champ où trouver les conditions d’utilisation supplémentaires. Ceci affichera un lien actif aux clients.
+Si les termes du contrat de licence sont différents du contrat Standard, vous pouvez choisir d’entrer vos propres conditions d’utilisation ici. Vous pouvez les saisir sous forme de texte brut ou en tant qu’URL unique liée aux termes du contrat de licence.
 
 Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application. 
 
@@ -206,7 +208,7 @@ N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 L’onglet Annonce de l’offre affiche les langues (et les marchés) disponibles pour votre offre. English (États-Unis) est actuellement le seul emplacement disponible. De plus, cette page affiche le statut de l’annonce spécifique à une langue et l’heure et la date à laquelle elle a été ajoutée. Vous devez définir les informations de la Place de marché (nom de l’offre, description, termes de recherche, etc.) pour chaque langue / marché.
 
 > [!NOTE]
-> Il n’est pas nécessaire que le contenu de l’offre (telle que la description de l’offre, les documents, les captures d’écran, les conditions d’utilisation et la politique de confidentialité) soit en anglais tant que la description de l’offre commence par l’expression : « cette application est disponible uniquement en [langue qui n’est pas l’anglais] .» Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
+> Il n’est pas nécessaire que le contenu de l’offre (telle que la description de l’offre, les documents, les captures d’écran, les conditions d’utilisation et la politique de confidentialité) soit en anglais tant que la description de l’offre commence par l’expression : « Cette application est disponible uniquement en [langue qui n’est pas l’anglais] .» Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
 
 ### <a name="offer-listings"></a>Liste des offres
 
@@ -482,9 +484,9 @@ Une fois que vous avez rempli toutes les sections nécessaires de l’offre, sé
 S’il s’agit de votre première publication de cette offre, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre.
-    - *Non démarrée* : cela signifie que la section n’a pas encore été touchée et doit être complétée.
+    - *Non démarrée* : cela signifie que la section n’a pas encore été modifiée et doit être complétée.
     - *Incomplète* : cela signifie que la section contient des erreurs qui doivent être corrigées, ou qui nécessitent plus d’informations. Veuillez revenir à la ou les sections et mettez-les à jour.
-    - *Complète* : cela signifie que la section est terminée, toutes les données requises ont été renseignées, et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
+    - *Complète* : cela signifie que la section est terminée, que toutes les données requises ont été renseignées et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
 - Fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail pour vous faire savoir si une version d’essai de l’offre est disponible pour vérification et approbation. Vous devez revenir à Partner Center et sélectionner **Publier** pour que votre offre soit publiée pour le public (ou au public privé, si l’offre est privée).
 

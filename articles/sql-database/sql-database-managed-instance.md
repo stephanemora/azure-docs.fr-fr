@@ -1,5 +1,5 @@
 ---
-title: Présentation de l’instance managée Azure SQL Database | Microsoft Docs
+title: Vue d’ensemble des instances gérées SQL
 description: Cet article décrit l’instance managée Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 08/05/2019
-ms.openlocfilehash: 0d59b1cfed1de710725a5dfc91341fec0baa6cb4
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331025"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823290"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Qu’est-ce que l’instance managée Azure SQL Database ?
 
@@ -46,7 +46,7 @@ L’instance managée combine les meilleures fonctionnalités d’Azure SQL Data
 | --- | --- |
 |Aucun achat ni gestion de matériel <br>Aucun temps de gestion à dédier à l’infrastructure sous-jacente <br>Provisionnement et mise à l’échelle du service rapides <br>Application automatisée de correctifs et de mises à niveau de version <br>Intégration à d’autres services de données PaaS |Contrat SLA à 99,99 % de durée de fonctionnement  <br>[Haute disponibilité](sql-database-high-availability.md) intégrée <br>Données protégées par des [sauvegardes automatisées](sql-database-automated-backups.md) <br>Période de rétention de sauvegarde configurable par le client <br>[Sauvegardes](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) lancées par l’utilisateur <br>Fonctionnalité de [limite de restauration dans le temps d’une base de données](sql-database-recovery-using-backups.md#point-in-time-restore) |
 |**Sécurité et conformité** | **Gestion**|
-|Environnement isolé ([intégration de réseau virtuel](sql-database-managed-instance-connectivity-architecture.md), service de locataire unique, calcul et stockage dédiés) <br>[Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>Prise en charge de l’[authentification unique Azure AD](sql-database-aad-authentication.md) <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Principaux (connexions) de serveur Azure AD</a> (**préversion publique**) <br>Conformité aux mêmes normes qu’une base de données Azure SQL <br>[Audit SQL](sql-database-managed-instance-auditing.md) <br>[Protection avancée contre les menaces](sql-database-managed-instance-threat-detection.md) |API Azure Resource Manager pour automatiser le provisionnement et la mise à l’échelle des services <br>Fonctionnalités du portail Azure pour le provisionnement et la mise à l’échelle manuels des services <br>Service de migration des données
+|Environnement isolé ([intégration de réseau virtuel](sql-database-managed-instance-connectivity-architecture.md), service de locataire unique, calcul et stockage dédiés) <br>[Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>Prise en charge de l’[authentification unique Azure AD](sql-database-aad-authentication.md) <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Principaux de serveur (connexions) Azure AD</a>  <br>Conformité aux mêmes normes qu’une base de données Azure SQL <br>[Audit SQL](sql-database-managed-instance-auditing.md) <br>[Protection avancée contre les menaces](sql-database-managed-instance-threat-detection.md) |API Azure Resource Manager pour automatiser le provisionnement et la mise à l’échelle des services <br>Fonctionnalités du portail Azure pour le provisionnement et la mise à l’échelle manuels des services <br>Service de migration des données
 
 > [!IMPORTANT]
 > La base de données Azure SQL Database (toutes les options de déploiement) a été certifiée par rapport à plusieurs normes de conformité. Pour en savoir plus, accédez au [Centre de confidentialité Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942), qui inclut la liste la plus à jour des certifications de conformité de SQL Database.
@@ -131,7 +131,7 @@ Les opérations ultérieures sur les instances managées déployées peuvent ég
 Toutes les opérations de gestion peuvent être classées comme suit :
 
 - Déploiement d’instance (création d’une nouvelle instance) 
-- Mise à jour d’instance (modification des propriétés d’instance, telles que vCores, stockage réservé, etc.)
+- Mise à jour d’instance (modification des propriétés d’instance, telles que vCores ou stockage réservé).
 - Suppression d’instance
 
 En règle générale, les opérations sur les clusters virtuels prennent le plus de temps. La durée des opérations sur les clusters virtuels varie. Vous trouverez ci-dessous les valeurs généralement observées, en fonction des données de télémétrie de service existantes :
@@ -221,7 +221,7 @@ La migration d’une base de données chiffrée vers une instance managée est p
 
 L’option de déploiement d’instance managée prend en charge les connexions traditionnelles au moteur de base de données SQL Server et les connexions intégrées à Azure Active Directory (AAD). Les principaux (connexions) de serveur Azure AD (**préversion publique**) correspondent à une version cloud Azure des connexions aux bases de données locales que vous utilisez dans votre environnement local. Les principaux (connexions) de serveur Azure AD vous permettent de spécifier des utilisateurs et des groupes de votre locataire Azure Active Directory sous forme de principaux limités à une instance et capables d’effectuer toutes les opérations au niveau de l’instance, y compris les requêtes entre plusieurs bases de données au sein de la même instance managée.
 
-Une nouvelle syntaxe a été ajoutée pour créer des principaux (connexions) de serveur Azure AD (**préversion publique**), **À PARTIR D'UN FOURNISSEUR EXTERNE**. Pour plus d’informations sur la syntaxe, consultez <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> et lisez l’article [Provisionner un administrateur Azure Active Directory pour votre instance managée](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
+Une nouvelle syntaxe a été ajoutée pour créer des principaux (connexions) de serveur Azure AD (**À PARTIR D’UN FOURNISSEUR EXTERNE**). Pour plus d’informations sur la syntaxe, consultez <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> et lisez l’article [Provisionner un administrateur Azure Active Directory pour votre instance managée](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Intégration d’Azure Active Directory et authentification multifacteur
 
