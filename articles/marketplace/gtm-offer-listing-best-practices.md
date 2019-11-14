@@ -4,15 +4,16 @@ description: 'Services Go-To-Market : cette section décrit les bonnes pratique
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2a660fe0f7663ac87b82038a3bd3d4c4fbf18544
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962768"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818664"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
@@ -31,6 +32,30 @@ Les tableaux dans cette section fournissent des suggestions pour créer et propo
 | Catégories | Sélectionnez les catégories qui correspondent le mieux à votre offre :<br> <ul> <li> Choisissez soigneusement ces catégories, car les utilisateurs s’en servent pour rechercher les applications les plus adaptées à leurs besoins. </li> <li> Assurez-vous d’expliquer dans la description comment votre offre peut répondre aux besoins propres au secteur en question. </li> </ul> **Remarque**: Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
 | Produits avec lesquels votre application fonctionne (3 max.) : Applications AppSource uniquement | Citez des produits supplémentaires et les technologies que votre solution utilise ou prolonge. Par exemple, Azure IoT Hub ou Azure Machine Learning. |
 | Mots clés de recherche (3 max.) | Les mots clés de recherche peuvent aider les utilisateurs professionnels à trouver votre offre quand ils effectuent une recherche : <ul> <li> Dans la Place de marché Microsoft Azure </li> <li> Sur AppSource </li> <li> À l’aide de moteurs de recherche </li> </ul> Pour que votre annonce apparaisse dans ces recherches, vous devez : <ul> <li> Identifier les trois principaux mots clés de recherche pour votre offre </li> <li> Incorporer les mots clés de recherche au résumé et à la description de l’offre </li> <li> Lister les mots clés de recherche ici </li> </ul> |
+
+### <a name="category"></a>Category
+
+La Place de marché Azure et Microsoft AppSource sont des vitrines qui remplissent des exigences différentes et uniques pour les clients. Choisissez la vitrine et les catégories appropriées pour chaque offre pour cibler vos clients par rôle. 
+
+Vous pouvez sélectionner jusqu’à deux catégories et deux sous-catégories par offre. Les catégories et sous-catégories répertoriées ci-dessous sont disponibles dans les deux vitrines.  Assurez-vous que votre sélection de catégorie est alignée sur le public visé, la description de l’offre et la proposition de valeur de votre offre.
+
+| **Secteur d’activité**    | **Sous-secteur**  | 
+| :------------------- | :-------------------|
+| *Industrie automobile     | *Industrie automobile |
+| Agriculture     | *Autre - Non segmenté |
+| Distribution    | *Vente en gros <br> *Expédition de paquets et colis |
+| Formation     | *Enseignement supérieur <br> *Enseignement primaire et secondaire/K-12 <br> *Bibliothèques et musées |
+| Services financiers     | *Banques et marchés de capitaux <br> *Assurance |
+| Gouvernement américain    | *Défense et renseignement (précédemment Sécurité nationale et publique) <br> *Sécurité publique et justice <br> *Gouvernement civil |
+| Soins de santé (précédemment Santé)   | *Organisme de sécurité sociale <br> *Professionnel de santé <br> *Produits pharmaceutiques |
+| Fabrication et ressources (précédemment Fabrication)   | *Produits chimiques et agrochimiques <br> *Fabrication discrète <br> *Énergie |
+| Vente au détail et biens de consommation (précédemment Vente au détail)  | *Produits de consommation courante <br> *Détaillants |
+| *Médias et communications (précédemment Multimédia et divertissement)  | *Multimédia et divertissement <br> *Télécommunications |
+| Services professionnels  | *Juridique <br> *Services professionnels partenaires |
+| *Construction et architecture (précédemment Ingénierie d’architecture)  | *Autre - Non segmenté |
+| *Hôtellerie et voyage  | *Hôtels et loisirs <br> *Transport et voyages <br> *Restaurants et services alimentaires |
+| *Autres secteurs publics  | *Foresterie et pêche <br> *Organisations à but non lucratif |
+| *Immobilier  | *Autre - Non segmenté |
 
 ## <a name="storefront-marketing-details"></a>Détails marketing de la vitrine
 | Organisation de la vitrine | Bonne pratique |

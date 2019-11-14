@@ -4,19 +4,19 @@ description: La gestion des ressources déléguées Azure offre une expérience 
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/18/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8d7b1f24d5dcf3d66ffd04704c79a284c4810365
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598448"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825820"
 ---
 # <a name="cross-tenant-management-experiences"></a>Expériences de la gestion multilocataire
 
-Cet article décrit les scénarios que vous, en tant que fournisseur de services, pouvez utiliser avec la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md) pour gérer des ressources Azure pour plusieurs clients à partir de votre propre locataire dans le [portail Azure](https://portal.azure.com).
+En tant que fournisseur de services, vous pouvez utiliser la [gestion des ressources déléguées Azure](../concepts/azure-delegated-resource-management.md) pour gérer des ressources Azure pour plusieurs clients à partir de votre propre locataire dans le [portail Azure](https://portal.azure.com). La plupart des tâches et des services peuvent être exécutés sur des ressources Azure déléguées sur des locataires gérés. Cet article décrit quelques-uns des scénarios améliorés dans lesquels la gestion des ressources déléguées Azure peut être efficace.
 
 > [!NOTE]
 > La gestion des ressources déléguées Azure peut également être utilisée au sein d’une entreprise qui dispose de plusieurs locataires pour simplifier l’administration inter-locataire.
@@ -37,9 +37,20 @@ La gestion des ressources déléguées Azure offre davantage de flexibilité pou
 
 ![Ressources du client gérées via un locataire du fournisseur de services](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
-## <a name="supported-services-and-scenarios"></a>Services et scénarios pris en charge
+## <a name="apis-and-management-tool-support"></a>Prise en charge des API et de l’outil de gestion
 
-Actuellement, l’expérience de gestion inter-locataire prend en charge les scénarios suivants avec les ressources du client déléguées :
+Vous pouvez effectuer des tâches de gestion sur les ressources déléguées directement sur le portail ou à l’aide d’API et d’outils de gestion (tels que Azure CLI et Azure PowerShell). Toutes les API existantes peuvent être utilisées lorsque vous travaillez avec des ressources déléguées, tant que la fonctionnalité est prise en charge pour la gestion entre inter-locataires et que l’utilisateur dispose des autorisations appropriées.
+
+Nous fournissons également des API pour effectuer des tâches de gestion des ressources déléguées Azure. Pour plus d’informations, voir la section **Référence**.
+
+## <a name="enhanced-services-and-scenarios"></a>Services et scénarios améliorés
+
+La plupart des tâches et des services peuvent être exécutés sur des ressources déléguées sur des locataires gérés. Voici quelques-uns des principaux scénarios où la gestion inter-locataires peut être efficace.
+
+[Azure Arc pour les serveurs (préversion)](https://docs.microsoft.com/azure/azure-arc/servers/overview) :
+
+- [Connecter des machines Windows Server ou Linux en dehors d’Azure](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) à des abonnements et/ou à des groupes de ressources délégués dans Azure
+- Gérer des machines connectées à l’aide de constructions Azure, comme Azure Policy et le marquage
 
 [Azure Automation](https://docs.microsoft.com/azure/automation/) :
 
@@ -55,7 +66,7 @@ Actuellement, l’expérience de gestion inter-locataire prend en charge les sc�
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) :
 
-- Afficher les alertes relatives aux abonnements délégués sur le portail Azure, ou par programme via des appels d’API REST, avec la possibilité d’afficher des alertes dans tous les abonnements
+- Afficher les alertes pour les abonnements délégués, avec la possibilité d’afficher des alertes à travers tous les abonnements
 - Afficher les détails du journal d’activité pour des abonnements délégués
 - Log Analytics : interroger des données à partir d’espaces de travail du clients distants dans plusieurs locataires
 - Créer des alertes dans les locataires du client qui déclenchent une automatisation, par exemple des runbooks Azure Automation ou des fonctions Azure, dans le locataire du fournisseur de services par le biais de webhooks
@@ -121,16 +132,9 @@ Demandes de support :
 Dans tous les scénarios, gardez à l’esprit les limitations actuelles suivantes :
 
 - Les demandes traitées par Azure Resource Manager peuvent être effectuées à l’aide de la gestion des ressources déléguées Azure. Les URI d’opération pour ces demandes commencent par `https://management.azure.com`. Toutefois, les demandes qui sont gérées par une instance d’un type de ressource (par exemple, accès aux secrets du coffre de clés ou accès aux données de stockage) ne sont pas prises en charge avec la gestion des ressources déléguées Azure. Les URI d’opération pour ces demandes commencent généralement par une adresse propre à votre instance, telle que `https://myaccount.blob.core.windows.net` ou `https://mykeyvault.vault.azure.net/`. Ces dernières sont également des opérations sur les données plutôt que des opérations de gestion. 
-- Les attributions de rôles doivent utiliser des [rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) de contrôle d’accès en fonction du rôle (RBAC). Tous les rôles intégrés sont actuellement pris en charge avec la gestion des ressources déléguées Azure, à l’exception des rôles Propriétaire et Administrateur de l’accès utilisateur, ainsi que des rôles intégrés avec l’autorisation [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) ne sont pas non plus pris en charge.
+- Les attributions de rôles doivent utiliser des [rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) de contrôle d’accès en fonction du rôle (RBAC). Tous les rôles intégrés sont actuellement pris en charge avec la gestion des ressources déléguées Azure, à l’exception du propriétaire et des rôles intégrés avec l’autorisation [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). Le rôle Administrateur de l’accès utilisateur est pris en charge uniquement pour une utilisation limitée dans [l’affectation de rôles à des identités gérées](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) ne sont pas pris en charge.
 - Actuellement, vous ne pouvez pas intégrer un abonnement (ou un groupe de ressources au sein d’un abonnement) pour la gestion des ressources déléguées Azure si l’abonnement utilise Azure Databricks. De même, si un abonnement a été inscrit pour une intégration avec le fournisseur de ressources **Microsoft.ManagedServices**, vous ne pouvez pas actuellement créer d’espace de travail Databricks pour cet abonnement.
 - Bien que vous puissiez intégrer des abonnements et des groupes de ressources pour la gestion des ressources déléguées Azure qui ont des verrous de ressources, ces verrous n’empêchent pas les actions d’être effectuées par les utilisateurs dans le locataire gestionnaire. Les [affectations de refus](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments), qui protègent les ressources managées par le système, telles que celles créées par les applications managées Azure ou Azure Blueprints (affectations de refus émises par le système), empêchent les utilisateurs du locataire gestionnaire d’agir sur ces ressources. Toutefois, à ce moment-là, les utilisateurs du locataire client ne peuvent pas créer leurs propres affectations de refus (affectations de refus émises par l’utilisateur).
-
-## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>Utilisation d’API et d’outils de gestion avec la gestion inter-locataire
-
-Pour les services et les scénarios pris en charge répertoriés ci-dessus, vous pouvez effectuer des tâches de gestion directement sur le portail ou à l’aide d’API et d’outils de gestion (tels que Azure CLI et Azure PowerShell). Toutes les API existantes peuvent être utilisées lors de l’utilisation de ressources déléguées (pour les services pris en charge).
-
-Il existe également des API spécifiques pour l’exécution de tâches de gestion des ressources déléguées Azure. Pour plus d’informations, voir la section **Référence**.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Haute disponibilité : service Azure SQL Database | Microsoft Docs'
+title: Haute disponibilité
 description: En savoir plus sur les fonctionnalités de haute disponibilité du service Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390698"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811347"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Haute disponibilité et Azure SQL Database
 
@@ -89,12 +89,14 @@ La version avec redondance de zone de l’architecture de haute disponibilité e
 
 La [récupération de base de données accélérée](sql-database-accelerated-database-recovery.md) est une nouvelle fonctionnalité du moteur de base de données SQL qui améliore considérablement la disponibilité des bases de données, particulièrement en présence de transactions durables. La récupération de base de données accélérée est actuellement disponible pour les bases de données uniques, les pools élastiques et Azure SQL Data Warehouse.
 
-## <a name="testing-database-fault-resiliency"></a>Test de la résilience face aux erreurs de base de données
+## <a name="testing-application-fault-resiliency"></a>Test de résilience aux erreurs de l’application
 
-La haute disponibilité est un élément fondamental de la plateforme Azure SQL Database ; elle fonctionne de manière transparente pour votre application de base de données. Cependant, nous avons conscience qu’avant de déployer la fonctionnalité en production, vous pouvez souhaiter tester la façon dont les opérations de basculement automatique initiées pendant les événements planifiés ou non planifiés affectent l’application. Vous pouvez appeler une API spéciale pour redémarrer la base de données ou le pool élastique, ce qui aura pour effet de déclencher le basculement. Dans le cas d’une base de données ou d’un pool élastique redondant dans une zone, l’appel d’API entraînerait la redirection des connexions clientes vers le nouveau réplica principal dans une zone de disponibilité différente. Ainsi, en plus de tester l’impact du basculement sur les sessions de base de données existantes, vous pouvez aussi vérifier s’il a un impact sur les performances de bout en bout. Sachant que l’opération de redémarrage est intrusive et qu’un grand nombre de redémarrages pourrait peser sur la plateforme, seul un appel de basculement est autorisé toutes les 30 minutes pour chaque base de données ou pool élastique. Pour plus d’informations, consultez [Basculement des bases de données](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) et [Basculement des pools élastiques](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+La haute disponibilité est un élément fondamental de la plateforme Azure SQL Database ; elle fonctionne de manière transparente pour votre application de base de données. Cependant, nous avons conscience qu’avant de déployer la fonctionnalité en production, vous pouvez souhaiter tester la façon dont les opérations de basculement automatique initiées pendant les événements planifiés ou non planifiés affectent l’application. Vous pouvez appeler une API spéciale pour redémarrer une base de données ou un pool élastique, ce qui aura pour effet de déclencher le basculement. Dans le cas d’une base de données ou d’un pool élastique redondant dans une zone, l’appel d’API entraînerait la redirection des connexions clientes vers le nouveau réplica principal dans une zone de disponibilité différente de l’ancien. Ainsi, en plus de tester l’impact du basculement sur les sessions de base de données existantes, vous pouvez aussi vérifier s’il a un impact sur les performances de bout en bout en raison des changements de latence réseau. Sachant que l’opération de redémarrage est intrusive et qu’un grand nombre de redémarrages pourrait peser sur la plateforme, seul un appel de basculement est autorisé toutes les 30 minutes pour chaque base de données ou pool élastique. 
+
+Un basculement peut être initié à l’aide de l’API REST ou de PowerShell. Pour l’API REST, consultez [Basculement des bases de données](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) et [Basculement des pools élastiques](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). Pour PowerShell, consultez [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) et [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). Les appels de l’API REST peuvent également être effectués à partir d’Azure CLI à l’aide de la commande [az rest](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest).
 
 > [!IMPORTANT]
-> La commande de basculement n’est actuellement pas disponible pour les bases de données Hypescale et les instances managées.  
+> La commande de basculement n’est pas disponible actuellement dans le niveau de service hyperscale et pour Managed Instance.
 
 ## <a name="conclusion"></a>Conclusion
 

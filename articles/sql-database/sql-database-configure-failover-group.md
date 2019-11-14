@@ -1,5 +1,5 @@
 ---
-title: Configurer un groupe de basculement pour Azure SQL Database
+title: Configurer un groupe de basculement
 description: Découvrez comment configurer un groupe de basculement automatique pour une base de données unique Azure SQL Database, un pool élastique et une instance managée à l’aide du portail Azure, de l’interface de ligne de commande Azure et de PowerShell.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 9206fd264854cd9e5d8e46473dd60b05a3362fdd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71328707"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827150"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configurer un groupe de basculement pour Azure SQL Database
 
@@ -484,20 +484,24 @@ La clé partagée utilisée pour les deux connexions doit être la même pour ch
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Créez les connexions entre les deux passerelles à l’aide du portail Azure. 
 
-1. Accédez à votre groupe de ressources dans le [portail Azure](https://portal.azure.com) et sélectionnez la passerelle principale que vous avez créée à l’étape 4. 
-1. Sélectionnez **Connexions** sous **Paramètres**, puis sélectionnez **Ajouter** pour créer une nouvelle connexion. 
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
+1. Saisissez `connection` dans la zone de recherche et appuyez sur Entrée pour lancer la recherche. Ceci vous amène à la ressource **Connexion**, publiée par Microsoft.
+1. Sélectionnez **Créer** pour créer votre connexion. 
+1. Sous l’onglet **De base**, sélectionnez les valeurs suivantes, puis sélectionnez **OK**. 
+    1. Sélectionnez `VNet-to-VNet` pour le **Type de connexion**. 
+    1. Sélectionnez votre abonnement dans la liste déroulante. 
+    1. Sélectionnez le groupe de ressources de votre instance managée dans le menu déroulant. 
+    1. Sélectionnez l’emplacement de votre instance managée principale dans la liste déroulante 
+1. Sous l’onglet **Paramètres**, sélectionnez ou saisissez les valeurs suivantes, puis sélectionnez **OK** :
+    1. Choisissez la passerelle de réseau principal de la **Passerelle du premier réseau virtuel**, par exemple `Primary-Gateway`.  
+    1. Choisissez la passerelle de réseau principal de la **Passerelle du deuxième réseau virtuel**, par exemple `Secondary-Gateway`. 
+    1. Cochez la case en regard de **Établir une connectivité bidirectionnelle**. 
+    1. Laissez le nom de la connexion principale par défaut ou renommez-la en choisissant une valeur de votre choix. 
+    1. Fournissez une **Clé partagée (PSK)** à la connexion, par exemple `mi1m2psk`. 
 
-   ![Ajouter une connexion à la passerelle principale](media/sql-database-managed-instance-failover-group-tutorial/add-primary-gateway-connection.png)
+   ![Créer une connexion de passerelle](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
-1. Entrez un nom pour votre connexion, puis tapez une valeur pour la **clé partagée**. 
-1. Sélectionnez la **deuxième passerelle de réseau virtuel**, puis sélectionnez la passerelle pour l’instance managée secondaire. 
-
-   ![Créer une connexion entre les passerelles principale et secondaire](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
-
-1. Sélectionnez **OK** pour ajouter votre nouvelle connexion entre les passerelles principale et secondaire.
-1. Répétez ces étapes pour créer une connexion de la passerelle de l’instance managée secondaire à la passerelle de l’instance managée principale. 
-
-   ![Créer la connexion de la passerelle secondaire à principale](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
+1. Sous l’onglet **Résumé**, passez en revue les paramètres de votre connexion bidirectionnelle, puis sélectionnez **OK** pour créer votre connexion. 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

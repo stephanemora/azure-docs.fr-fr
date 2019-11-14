@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 11/05/2019
 ms.author: apimpm
-ms.openlocfilehash: d71d71c4d289235e5b67a5201c1f7417274b8fca
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d11239aa49a53a90a38f2b5336d36cea6c97e9df
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072329"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824172"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 
@@ -27,10 +27,10 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 | Attribut      | Type            | Description                                                                                                                         |
 | -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `Display name` | string          | Utilisé pour référencer la propriété dans les stratégies. Chaîne de 1 à 256 caractères. Seuls les lettres, les chiffres, les points et les tirets sont autorisés. |
+| `Display name` | string          | Utilisé pour référencer la valeur nommée dans les stratégies. Chaîne de 1 à 256 caractères. Seuls les lettres, les chiffres, les points et les tirets sont autorisés. |
 | `Value`        | string          | Valeur réelle. Ne peut pas être vide ni se composer uniquement d’espaces blancs. Longueur maximale de 4 096 caractères.                                     |
 | `Secret`       | boolean         | Détermine si la valeur est un secret et doit être chiffrée.                                                            |
-| `Tags`         | tableau de chaînes | Utilisé pour filtrer la liste des propriétés. Jusqu’à 32 étiquettes.                                                                                    |
+| `Tags`         | tableau de chaînes | Utilisé pour filtrer la liste de valeurs nommées. Jusqu’à 32 étiquettes.                                                                                    |
 
 ![Valeurs nommées](./media/api-management-howto-properties/named-values.png)
 
@@ -42,40 +42,40 @@ Les valeurs nommées peuvent contenir des chaînes littérales et des [expressio
 | Informations d'identification | ••••••••••••••••••••••     | True   | security      |
 | Expression | @(DateHeure.Now.ToString()) | False  |               |
 
-## <a name="to-add-and-edit-a-property"></a>Pour ajouter et modifier une propriété
+## <a name="to-add-and-edit-a-named-value"></a>Pour ajouter et modifier une valeur nommée
 
-![Ajouter une propriété](./media/api-management-howto-properties/add-property.png)
+![Ajouter une valeur nommée](./media/api-management-howto-properties/add-property.png)
 
 1. Sélectionnez **API** sous **Gestion des API**.
 2. Sélectionnez **Valeurs nommées**.
 3. Appuyez sur **+ Ajouter**.
 
-    Nom et Valeur doivent être renseignés. Si la valeur de propriété est un secret, cochez la case Il s’agit d’une clé secrète. Entrez une ou plusieurs balises facultatives pour aider à organiser vos valeurs nommées, puis cliquez sur Enregistrer.
+    Nom et Valeur doivent être renseignés. Si la valeur est un secret, cochez la case *Il s’agit d’une clé secrète*. Entrez une ou plusieurs balises facultatives pour aider à organiser vos valeurs nommées, puis cliquez sur Enregistrer.
 
 4. Cliquez sur **Créer**.
 
-Une fois que la propriété est créée, vous pouvez le modifier en cliquant sur la propriété. Si vous modifiez le nom de propriété, toutes les stratégies qui font référence à cette propriété sont automatiquement mises à jour pour utiliser le nouveau nom.
+Une fois la valeur nommée créée, vous pouvez la modifier en cliquant dessus. Si vous modifiez le nom de valeur nommée, toutes les stratégies qui font référence à cette valeur nommée sont automatiquement mises à jour pour utiliser le nouveau nom.
 
-Pour plus d’informations sur la modification d’une propriété à l’aide de l’API REST, consultez [Modifier une propriété à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property?patch).
+Pour plus d’informations sur la modification d’une valeur nommée à l’aide de l’API REST, consultez [Modifier une valeur nommée à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property?patch).
 
-## <a name="to-delete-a-property"></a>Pour supprimer une propriété
+## <a name="to-delete-a-named-value"></a>Pour supprimer une valeur nommée
 
-Pour supprimer une propriété, cliquez sur **Supprimer** en regard de la propriété à supprimer.
+Pour supprimer une valeur nommée, cliquez sur **Supprimer** en regard de la valeur nommée à supprimer.
 
 > [!IMPORTANT]
-> Si la propriété est référencée par des stratégies, vous ne pouvez pas la supprimer correctement tant que vous ne l’avez pas supprimée de toutes les stratégies qui l’utilisent.
+> Si la valeur nommée est référencée par des stratégies, vous ne pouvez pas la supprimer correctement tant que vous ne l’avez pas supprimée de toutes les stratégies qui l’utilisent.
 
-Pour plus d’informations sur la suppression d’une propriété à l’aide de l’API REST, consultez [Supprimer une propriété à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property/delete).
+Pour plus d’informations sur la suppression d’une valeur nommée à l’aide de l’API REST, consultez [Supprimer une valeur nommée à l’aide de l’API REST](/rest/api/apimanagement/2019-01-01/property/delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Pour rechercher et filtrer des valeurs nommées
 
-L’onglet **Valeurs nommées** inclut des fonctionnalités de recherche et de filtrage pour vous aider à gérer vos valeurs nommées. Pour filtrer la liste des propriétés par nom de propriété, entrez un terme à rechercher dans la zone de texte **Propriétés de recherche** . Pour afficher toutes les valeurs nommées, effacez la zone de texte **Propriétés de recherche**, puis appuyez sur Entrée.
+L’onglet **Valeurs nommées** inclut des fonctionnalités de recherche et de filtrage pour vous aider à gérer vos valeurs nommées. Pour filtrer la liste de valeurs nommées par nom, entrez un terme à rechercher dans la zone de texte **Propriétés de recherche** . Pour afficher toutes les valeurs nommées, effacez la zone de texte **Propriétés de recherche**, puis appuyez sur Entrée.
 
-Pour filtrer la liste des propriétés en fonction des valeurs de balise, entrez une ou plusieurs balises dans la zone de texte **Filtrer par balises** . Pour afficher toutes les valeurs nommées, effacez la zone de texte **Filtrer par balises**, puis appuyez sur Entrée.
+Pour filtrer la liste par balise, entrez une ou plusieurs balises dans la zone de texte **Filtrer par balises** . Pour afficher toutes les valeurs nommées, effacez la zone de texte **Filtrer par balises**, puis appuyez sur Entrée.
 
-## <a name="to-use-a-property"></a>Pour utiliser une propriété
+## <a name="to-use-a-named-value"></a>Pour utiliser une valeur nommée
 
-Pour utiliser une propriété dans une stratégie, placez le nom de la propriété dans une paire d’accolades telle que `{{ContosoHeader}}`, comme illustré dans l’exemple suivant :
+Pour utiliser une valeur nommée dans une stratégie, placez son nom dans une paire d’accolades telle que `{{ContosoHeader}}`, comme illustré dans l’exemple suivant :
 
 ```xml
 <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -83,7 +83,7 @@ Pour utiliser une propriété dans une stratégie, placez le nom de la propriét
 </set-header>
 ```
 
-Dans cet exemple, `ContosoHeader` est utilisé comme nom d’en-tête d’une stratégie `set-header`, et `ContosoHeaderValue` comme valeur de cet en-tête. Lorsque cette stratégie est évaluée lors d’une demande ou d’une réponse à la passerelle Gestion des API, `{{ContosoHeader}}` et `{{ContosoHeaderValue}}` sont remplacés par leurs valeurs de propriété respectives.
+Dans cet exemple, `ContosoHeader` est utilisé comme nom d’en-tête d’une stratégie `set-header`, et `ContosoHeaderValue` comme valeur de cet en-tête. Lorsque cette stratégie est évaluée lors d’une demande ou d’une réponse à la passerelle Gestion des API, `{{ContosoHeader}}` et `{{ContosoHeaderValue}}` sont remplacés par leurs valeurs respectives.
 
 Les valeurs nommées peuvent être utilisées comme attribut complet ou valeurs d’élément, comme indiqué dans l’exemple précédent. Elles peuvent également être insérées dans ou combinés avec une partie d’une expression de texte littéral, comme illustré dans l’exemple suivant : `<set-header name = "CustomHeader{{ContosoHeader}}" ...>`
 
@@ -101,11 +101,11 @@ Vous pouvez tester cette opération dans le portail des développeurs en appelan
 
 ![Portail des développeurs][api-management-send-results]
 
-Si vous examinez le [suivi de l’inspecteur d’API](api-management-howto-api-inspector.md) pour un appel qui inclut les deux exemples de stratégies précédents incluant des valeurs nommées, vous pouvez voir les deux stratégies `set-header` avec les valeurs de propriété insérées, ainsi que l’évaluation de l’expression de stratégie pour la propriété contenant l’expression de stratégie.
+Si vous examinez le [suivi de l’inspecteur d’API](api-management-howto-api-inspector.md) pour un appel qui inclut les deux exemples de stratégies précédents incluant des valeurs nommées, vous pouvez voir les deux stratégies `set-header` avec les valeurs nommées insérées, ainsi que l’évaluation de l’expression de stratégie pour la valeur nommée contenant l’expression de stratégie.
 
 ![Suivi de l’inspecteur d’API][api-management-api-inspector-trace]
 
-Alors que les valeurs de propriété peuvent contenir des expressions de stratégie, elles ne peuvent pas contenir d’autres valeurs nommées. Si le texte contenant une référence de propriété est utilisé pour une valeur de propriété, comme `Property value text {{MyProperty}}`, cette référence de propriété n’est pas remplacée et est incluse dans la valeur de propriété.
+Alors que les valeurs nommées peuvent contenir des expressions de stratégie, elles ne peuvent pas contenir d’autres valeurs nommées. Si le texte contenant une référence de valeur nommée est utilisé pour une valeur, telle que `Text: {{MyProperty}}`, cette référence ne sera pas résolue et remplacée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

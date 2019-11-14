@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad7bdfd3abc4d3b4b672f5471ea826d4cef0f3fc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 87071b8e1102067110baae70c424aa74a5e0702c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596882"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73570826"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -28,7 +28,7 @@ Voici les bonnes pratiques liées à la création et à l’élaboration de vos 
 
 Ces fonctions peuvent provoquer des problèmes de délai d’attente inattendus. Pour en savoir plus sur les délais d’attente pour un plan d’hébergement donné, consultez [Durée du délai d’attente de l’application de fonction](functions-scale.md#timeout). 
 
-Une fonction peut devenir volumineuse en raison d’un nombre important de dépendances Node.js. L’importation des dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances sont chargées tant explicitement qu’implicitement. Un module chargé par votre code peut charger ses propres modules supplémentaires. 
+Une fonction peut devenir volumineuse en raison des nombreuses dépendances Node.js. L’importation des dépendances peut entraîner une augmentation des temps de chargement aboutissant à des délais d’attente inattendus. Les dépendances sont chargées tant explicitement qu’implicitement. Un module chargé par votre code peut charger ses propres modules supplémentaires. 
 
 Autant que possible, subdivisez les fonctions volumineuses en ensembles de fonctions plus petits qui fonctionnent ensemble et retournent des réponses rapides. Par exemple, un webhook ou une fonction de déclenchement HTTP peut nécessiter une réponse avec accusé de réception dans un délai imparti. Il est courant que des webhooks demandent une réponse immédiate. Vous pouvez passer la charge utile du déclencheur HTTP dans une file d’attente en vue de son traitement par une fonction de déclenchement de file d’attente. Cette approche vous permet de différer le travail réel et de retourner une réponse immédiate.
 
@@ -37,7 +37,7 @@ Autant que possible, subdivisez les fonctions volumineuses en ensembles de fonct
 
 Les [Fonctions durables](durable/durable-functions-overview.md) et le service [Azure Logic Apps](../logic-apps/logic-apps-overview.md) sont conçus pour gérer les transitions d’état et la communication entre plusieurs fonctions.
 
-Si vous n’utilisez pas les fonctions durables ni Logic Apps pour l’intégration à plusieurs fonctions, une bonne pratique consiste en général à utiliser des files d’attente de stockage pour la communication entre les fonctions.  La principale raison est que les files d’attente de stockage sont plus économiques et beaucoup plus faciles à configurer. 
+Si vous n’utilisez pas les fonctions durables ni Logic Apps pour l’intégration à plusieurs fonctions, une bonne pratique consiste à utiliser des files d’attente de stockage pour la communication entre les fonctions. La principale raison est que les files d’attente de stockage sont plus économiques et beaucoup plus faciles à configurer que les autres options de stockage. 
 
 La taille de chaque message d’une file d’attente de stockage est limitée à 64 Ko. Pour transmettre des messages plus volumineux entre les fonctions, vous pouvez utiliser une file d’attente Azure Service Bus, qui prend en charge des tailles de message allant jusqu’à 256 Ko pour le niveau Standard, 1 Mo pour le niveau Premium.
 
@@ -62,7 +62,7 @@ Supposons que votre fonction peut être confrontée à une exception à tout mom
  
 Selon la complexité de votre système, il est possible que des services impliqués en aval se comportent de manière incorrecte, que des pannes réseau se produisent, que des limites de quota soient atteintes, etc. Tous ces facteurs peuvent affecter votre fonction à tout moment. Vous devez concevoir vos fonctions en conséquence.
 
-Comment votre code réagit-il si une défaillance se produit après l’insertion de 5 000 de ces éléments dans une file d’attente en vue de leur traitement ? Suivez les éléments dans un jeu que vous avez terminé. Sinon, vous pouvez les réinsérer la prochaine fois. Cela peut avoir un impact sérieux sur votre flux de travail. 
+Comment votre code réagit-il si une défaillance se produit après l’insertion de 5 000 de ces éléments dans une file d’attente en vue de leur traitement ? Suivez les éléments dans un jeu que vous avez terminé. Sinon, vous pouvez les réinsérer la prochaine fois. Cette double insertion peut avoir un impact sérieux sur votre flux de travail, veillez donc à [rendre vos fonctions idempotent](functions-idempotent.md). 
 
 Si un élément de file d’attente a déjà été traité, permettez à votre fonction d’être une absence d’opération.
 
@@ -82,13 +82,9 @@ Les fonctions d’une application de fonction partagent des ressources. Par exem
 
 Soyez attentif à ce que vous chargez dans vos applications de fonction en production. La mémoire moyenne est calculée pour chaque fonction au sein de l’application.
 
-Si un assembly partagé est référencé dans plusieurs fonctions .NET, placez-le dans un dossier partagé commun. Référencez l’assembly avec une instruction similaire à l’exemple suivant si des scripts C# (.csx) sont utilisés : 
+Si un assembly partagé est référencé dans plusieurs fonctions .NET, placez-le dans un dossier partagé commun. Sinon, vous pourriez déployer accidentellement plusieurs versions du même binaire qui se comportent différemment d’une fonction à l’autre.
 
-    #r "..\Shared\MyAssembly.dll". 
-
-Sinon, il est facile de déployer accidentellement plusieurs versions de test du même binaire qui se comportent différemment d’une fonction à l’autre.
-
-N’utilisez pas de journalisation détaillée dans le code de production. Cela affecte les performances.
+N’utilisez pas la journalisation détaillée dans le code de production, car cela a un impact négatif sur les performances.
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Utiliser du code asynchrone tout en évitant de bloquer les appels
 
@@ -104,15 +100,11 @@ Pour les fonctions C#, vous pouvez modifier le type en tableau d’objets fortem
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configurer les comportements d’hôte pour mieux gérer l’accès concurrentiel
 
-Le fichier `host.json` dans l’application de fonction permet la configuration des comportements de déclencheur et de runtime hôtes.  En plus des comportements de traitement par lot, vous pouvez gérer l’accès concurrentiel d’un certain nombre de déclencheurs.  Souvent l’ajustement des valeurs de ces options peut permettre la mise à l’échelle adéquate de chaque instance face aux demandes des fonctions appelées.
+Le fichier `host.json` dans l’application de fonction permet la configuration des comportements de déclencheur et de runtime hôtes.  En plus des comportements de traitement par lot, vous pouvez gérer l’accès concurrentiel d’un certain nombre de déclencheurs. Souvent l’ajustement des valeurs de ces options peut permettre la mise à l’échelle adéquate de chaque instance face aux demandes des fonctions appelées.
 
-Les paramètres dans le fichier des hôtes s’appliquent à toutes les fonctions de l’application, dans une *instance unique* de la fonction. Par exemple, si vous aviez une application de fonction dotée de 2 fonctions HTTP avec une valeur pour les demandes simultanées définie sur 25, une requête à l’un des déclencheurs HTTP serait comptabilisée dans les 25 demandes simultanées partagées.  Si cette application de fonction était redimensionnée à 10 instances, les 2 fonctions autoriseraient en réalité 250 demandes simultanées (10 instances * 25 demandes simultanées par instance).
+Les paramètres dans le fichier host.json s’appliquent à toutes les fonctions de l’application, dans une *instance unique* de la fonction. Par exemple, si vous aviez une application de fonction dotée de deux fonctions HTTP avec une valeur pour les demandes simultanées [`maxConcurrentRequests`](functions-bindings-http-webhook.md#hostjson-settings) définie sur 25, une requête à l’un des déclencheurs HTTP serait comptabilisée dans les 25 demandes simultanées partagées.  Si cette application de fonction était redimensionnée à 10 instances, les deux fonctions autoriseraient en réalité 250 demandes simultanées (10 instances * 25 demandes simultanées par instance). 
 
-**Options d’hôte concurrentiel HTTP**
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
-
-D’autres options de configuration d’hôte sont consultables [dans le document de configuration d’hôte](functions-host-json.md).
+D’autres options de configuration d’hôte sont consultables [dans l’article Configuration de host.json](functions-host-json.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

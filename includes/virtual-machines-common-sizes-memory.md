@@ -5,23 +5,23 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/08/2019
-ms.author: azcspmt;jonbeck;cynthn;joelpell
+ms.date: 10/17/2019
+ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 55f82344956af7d6096fce7dbc3d7023589daa69
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: da47a471ddcf2c083ed127b79e4d3da9713d2ed4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428017"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719048"
 ---
 Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement.
 
 * La série Ev3 dispose des processeurs Intel® Xeon® 8171M 2,1 GHz (Skylake) ou Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) dans une configuration hyperthread, ce qui lui permet d’offrir ce qui se fait de mieux pour les charges de travail à usage général et d’aligner la série Ev3 sur les machines virtuelles à usage général que l’on retrouve dans la plupart des autres clouds.  La mémoire a été étendue (de 7 Gio/vCPU à 8 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading.  La série Ev3 constitue la suite des tailles de machines virtuelles à mémoire haute des familles D/Dv2.
 
-* Les tailles en préversion des machines de séries Eav3 et Easv3 utilisent le processeur EPYC<sup>TM</sup> 7452 2,35 Ghz d’AMD dans une configuration multithread avec un cache L3 jusqu’à 256 Mo, ce qui améliore les options d’exécution de la plupart des charges de travail à mémoire optimisée.  Les séries Eav3 et Easv3 ont les mêmes configurations de mémoire et de disque que les séries Ev3 et Esv3.
+* Les machines de séries Eav4 et Easv4 utilisent le processeur EPYC<sup>TM</sup> 7452 2,35 Ghz d’AMD dans une configuration multithread avec un cache L3 jusqu’à 256 Mo, ce qui améliore les options d’exécution de la plupart des charges de travail à mémoire optimisée.  Les séries Eav4 et Easv4 ont les mêmes configurations de mémoire et de disque que les séries Ev3 et Esv3.
 
-* La série Mv2 offre le nombre de processeurs virtuels le plus élevé (jusqu’à 208 processeurs virtuels) et la plus grande mémoire (jusqu’à 5,7 Tio) parmi toutes les machines virtuelles dans le cloud. Elle est idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire.
+* La série Mv2 offre le nombre de processeurs virtuels le plus élevé (jusqu’à 416 processeurs virtuels) et la plus grande mémoire (jusqu’à 8,19 Tio) parmi toutes les machines virtuelles dans le cloud. Elle est idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire.
 
 * La série M propose un nombre élevé de processeurs virtuels (jusqu’à 128 processeurs virtuels) et une grande quantité de mémoire (jusqu’à 3,8 Tio). Elle est également idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire.
 
@@ -35,7 +35,7 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoi
 
 ACU : 160-190 <sup>1</sup>
 
-Premium Storage :  Pris en charge
+Premium Storage : Pris en charge
 
 Mise en cache du Stockage Premium :  Pris en charge
 
@@ -61,33 +61,37 @@ Les instances de la série ESv3 sont dotées des processeurs Intel® Xeon® 8171
 
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
-## <a name="easv3-series-preview"></a>Série Easv3 (préversion)
+## <a name="easv4-series"></a>Série Easv4
+
+ACU : 230 - 260
 
 Premium Storage : Pris en charge
 
 Mise en cache du Stockage Premium : Pris en charge
 
-Les tailles de la série Easv3 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une Fmax renforcée de 3,35 GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Easv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
+Les tailles de la série Easv4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz et utiliser un SSD Premium. Les tailles des machines virtuelles de la série Easv4 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
-[Cliquez ici pour vous inscrire et bénéficier de la préversion](http://aka.ms/azureamdpreview).
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (Mbps) |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_E2as_v4|2|16|32|4|4000 / 32 (50)|3200 / 48|2 / 1 000 |
+| Standard_E4as_v4|4|32|64|8|8000 / 64 (100)|6400 / 96|2 / 2 000 |
+| Standard_E8as_v4|8|64|128|16|16000 / 128 (200)|12800 / 192|4/4000 |
+| Standard_E16as_v4|16|128|256|32|32000 / 255 (400)|25600 / 384|8 / 8000 |
+| Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 / 10000 |
+| Standard_E32as_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 / 16 000 |
+| Standard_E48as_v4 <sup>**</sup> |48|384|768|32|  | | 
+| Standard_E64as_v4 <sup>**</sup> |64|512|1 024|32| | | 
+| Standard_E96as_v4 <sup>**</sup> |96|672|1344|32| | |  
 
-| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
-|---|---|---|---|
-| Standard_E2as_v3  | 2  | 16  | 32  |
-| Standard_E4as_v3  | 4  | 32  | 64  |
-| Standard_E8as_v3  | 8  | 64  | 128 |
-| Standard_E16as_v3 | 16 | 128 | 256 |
-| Standard_E32as_v3 | 32 | 256 | 512 |
-| Standard_E48as_v3 | 48 | 384 | 768 |
-| Standard_E64as_v3 | 64 | 432 | 864 |
+<sup>**</sup>  Ces tailles sont en préversion. Si vous souhaitez essayer ces tailles plus grandes, inscrivez-vous à [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## <a name="ev3-series"></a>Série Ev3 
 
 ACU : 160 - 190 <sup>1</sup>
 
-Premium Storage :  Non pris en charge
+Premium Storage : Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache du Stockage Premium : Non pris en charge
 
 Les instances de la série Ev3 sont dotées des processeurs Intel® Xeon® 8171M 2,1 GHz (Skylake) ou Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) et peuvent atteindre 3,5 GHz avec la technologie Intel Turbo Boost 2.0. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
@@ -112,27 +116,33 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
-## <a name="eav3-series-preview"></a>Série Eav3 (préversion)
+## <a name="eav4-series"></a>Série Eav4
+
+ACU : 230 - 260
 
 Premium Storage : Non pris en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 
-Les tailles de la série Eav3 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une Fmax renforcée de 3,35 GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Eav3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez les tailles de la série Easv3. Les tarifs et les compteurs de facturation pour les tailles Easv3 sont identiques à celles de la série Eav3.
+Les tailles de la série Eav4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une Fmax renforcée de 3,35 GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Eav4 sont idéales pour les applications d’entreprise nécessitant une mémoire importante. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser un SSD Premium, utilisez les tailles de la série Easv4. Les tarifs et les compteurs de facturation pour les tailles Easv4 sont identiques à celles de la série Eav3.
 
-[Cliquez ici pour vous inscrire et bénéficier de la préversion](http://aka.ms/azureamdpreview).
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Nombre max de cartes réseau / Bande passante réseau attendue (Mbps) |
+| -----|-----|-----|-----|-----|-----|-----|
+| Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 / 1 000 |
+| Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 / 2 000 |
+| Standard\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4/4000 |
+| Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
+| Standard\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 / 10000 |
+| Standard\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / 16 000 |
+| Standard\_E48a\_v4 <sup>**</sup> |48|384|1 200|32| | |
+| Standard\_E64a\_v4 <sup>**</sup> |64|512|1 600|32| | |
+| Standard\_E96a\_v4 <sup>**</sup> |96|672|2 400|32| | |
 
-| Size             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
-|------------------|------|-------------|-------------------------|
-| Standard_E2a_v3  | 2    | 16          | 50                      |
-| Standard_E4a_v3  | 4    | 32          | 100                     |
-| Standard_E8a_v3  | 8    | 64          | 200                     |
-| Standard_E16a_v3 | 16   | 128         | 400                     |
-| Standard_E32a_v3 | 32   | 256         | 800                     |
-| Standard_E48a_v3 | 48   | 384         | 1 200                    |
-| Standard_E64a_v3 | 64   | 432         | 1 600                    |
+<sup>**</sup>  Ces tailles sont en préversion.  Si vous souhaitez essayer ces tailles plus grandes, inscrivez-vous à [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## <a name="mv2-series"></a>Série Mv2
+
+ACU : 188-280<sup>1</sup>
 
 Premium Storage : Pris en charge
 
@@ -140,65 +150,28 @@ Mise en cache du Stockage Premium : Pris en charge
 
 Accélérateur d’écriture : [Pris en charge](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-La série Mv2 offre un stockage NVMe local directement mappé à haut débit et à faible latence en cours d’exécution sur un processeur Intel® Xeon® Platinum 8180M 2,5 GHz (Skylake) à technologie Hyper-thread avec une fréquence de base principale de 2,5 GHz et une fréquence turbo max de 3,8 GHz. Quelle que soit leur taille, toutes les machines virtuelles de la série Mv2 peuvent utiliser des disques persistants Standard et Premium. Les instances de série Mv2 sont des tailles de machine virtuelle à mémoire optimisée fournissant des performances de calcul inégalées pour prendre en charge des bases de données et des charges de travail en mémoire volumineuses, avec un ratio mémoire/processeur élevé idéal pour les serveurs de base de données relationnelle, les caches volumineux et l’analytique en mémoire. 
+La série Mv2 offre une plateforme à haut débit et faible latence sur un processeur Intel® Xeon® Platinum 8180M 2,5 GHz (Skylake) à technologie Hyper-thread avec une fréquence de base principale de 2,5 GHz et une fréquence turbo max de 3,8 GHz. Quelle que soit leur taille, toutes les machines virtuelles de la série Mv2 peuvent utiliser des disques persistants Standard et Premium. Les instances de série Mv2 sont des tailles de machine virtuelle à mémoire optimisée fournissant des performances de calcul inégalées pour prendre en charge des bases de données et des charges de travail en mémoire volumineuses, avec un ratio mémoire/processeur élevé idéal pour les serveurs de base de données relationnelle, les caches volumineux et l’analytique en mémoire.
 
 |Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16 000 |
-| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2 850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16 000 |
+| Standard_M208ms_v2<sup>2</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16 000 |
+| Standard_M208s_v2<sup>2</sup> | 208 | 2 850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16 000 |
+| Standard_M416ms_v2<sup>2, 3</sup> | 416 | 11400 | 8 192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M416s_v2<sup>2, 3</sup> | 416 | 5700 | 8 192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
-Machines virtuelles de série Mv2 dotées de la technologie Hyper-Threading d’Intel®  
+<sup>1</sup> Machines virtuelles de série Mv2 dotées de la technologie Hyper-Threading d’Intel®
 
-<sup>1</sup> Ces machines virtuelles de taille importante nécessitent l’un de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
+<sup>2</sup> Les machines virtuelles de série Mv2 sont de la 2e génération uniquement. Si vous utilisez Linux, consultez [Support des machines virtuelles de 2e génération dans Azure](../articles/virtual-machines/linux/generation-2.md) pour obtenir des instructions sur la façon de rechercher et sélectionner une image.
 
-<sup>2</sup> Les machines virtuelles de série Mv2 sont de la 2e génération uniquement. Si vous utilisez Linux, consultez la section suivante pour savoir comment rechercher et sélectionner une image SUSE Linux.
-
-#### <a name="find-a-suse-image"></a>Rechercher une image SUSE
-
-Pour sélectionner une image SUSE Linux appropriée dans le Portail Azure : 
-
-1. Dans le Portail Azure, sélectionnez **Créer une ressource** 
-1. Rechercher « SUSE SAP » 
-1. Les images de 2e génération SLES for SAP sont disponibles sous la forme d’un paiement à l’utilisation, ou d’un modèle « apportez votre propre abonnement » (BYOS). Dans les résultats de recherche, développez la catégorie de l’image de votre choix :
-
-    * SUSE Linux Enterprise Server (SLES) pour SAP
-    * SUSE Linux Enterprise Server (SLES) pour SAP (BYOS)
-    
-1. Les images SUSE compatibles avec la série Mv2 sont précédées du nom `GEN2:`. Les images SUSE suivantes sont disponibles pour les machines virtuelles de série Mv2 :
-
-    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 pour applications SAP
-    * GEN2: SUSE Linux Enterprise Server (SLES) 15 pour applications SAP
-    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 pour applications SAP (BYOS)
-    * GEN2: SUSE Linux Enterprise Server (SLES) 15 pour applications SAP (BYOS)
-
-#### <a name="select-a-suse-image-via-azure-cli"></a>Sélectionner une image SUSE via Azure CLI
-
-Pour afficher la liste des images SLES for SAP actuellement disponibles pour les machines virtuelles de série Mv2, utilisez la commande [`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) suivante :
-
-```azurecli
-az vm image list --output table --publisher SUSE --sku gen2 --all
-```
-
-La commande génère les machines virtuelles de 2e génération actuellement disponibles sur SUSE pour les machines virtuelles de série Mv2. 
-
-Exemple de sortie :
-
-```
-Offer          Publisher  Sku          Urn                                        Version
--------------  ---------  -----------  -----------------------------------------  ----------
-SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
-SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
-SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
-SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
-```
+<sup>3</sup> Pour les tailles M416ms_v2 et M416s_v2, notez qu’il existe une prise en charge initiale de l’image suivante uniquement : « GEN2 : SUSE Linux Enterprise Server (SLES) 12 SP4 pour applications SAP. »
 
 ## <a name="m-series"></a>Série M 
 
 ACU : 160-180 <sup>1</sup>
 
-Premium Storage :  Pris en charge
+Premium Storage : Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium : Pris en charge
 
 Les tailles de la série M sont basées sur le processeur Intel(R) Xeon(R) E7-8890 v3 @ 2,50 GHz   
 
@@ -225,7 +198,7 @@ Accélérateur d’écriture :  [Pris en charge](https://docs.microsoft.com/azu
 
 <sup>1</sup> Machines virtuelles de série M dotées de la technologie Hyper-Threading d’Intel®
 
-<sup>2</sup> Plus de 64 processeurs virtuels nécessitent l’un de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1.
+<sup>2</sup> Les machines virtuelles avec plus de 64 processeurs virtuels nécessitent l’un de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 et Red Hat Enterprise Linux, CentOS 7.3 ou Oracle Linux 7.3 avec LIS 4.2.1.
 
 <sup>3</sup> Tailles avec nombre de cœurs limité disponibles.
 
@@ -237,9 +210,9 @@ Accélérateur d’écriture :  [Pris en charge](https://docs.microsoft.com/azu
 
 ACU : 210 - 250 <sup>1</sup>
 
-Premium Storage :  Pris en charge
+Premium Storage : Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium : Pris en charge
 
 Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5 2673 v4 2,3 GHz (Broadwell) ou Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell).
 
@@ -262,9 +235,9 @@ Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® 
 
 ACU : 210 - 250
 
-Premium Storage :  Non pris en charge
+Premium Storage : Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache du Stockage Premium : Non pris en charge
 
 Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5 2673 v4 2,3 GHz (Broadwell) ou Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell).
 

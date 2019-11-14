@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: bobbytreed
 ms.author: robreed
-ms.date: 05/21/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 15036b33e637953de7dc12100468d3dd8570f775
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d7a43ee2ed8719df2c38d00c9a50811c6d5ea70d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376096"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718688"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -35,7 +35,7 @@ Les limitations de la solution actuelle sont les suivantes :
 - Cette solution est disponible dans Azure et AzureGov pour toutes les régions qui prennent en charge un espace de travail Log Analytics, un compte Azure Automation et les alertes. À l’heure actuelle, les régions AzureGov ne gèrent pas les fonctionnalités de messagerie électronique.
 
 > [!NOTE]
-> Si vous utilisez la solution pour les machines virtuelles classiques, toutes vos machines virtuelles sont traitées séquentiellement par service cloud. Les machines virtuelles sont toujours traitées en parallèle à travers les différents services cloud.
+> Si vous utilisez la solution pour les machines virtuelles classiques, toutes vos machines virtuelles sont traitées séquentiellement par service cloud. Les machines virtuelles sont toujours traitées en parallèle à travers les différents services cloud. Si vous avez plus de 20 machines virtuelles par service cloud, nous vous recommandons de créer plusieurs planifications avec le runbook parent **ScheduledStartStop_Parent** et de spécifier 20 machines virtuelles par planification. Dans les propriétés de planification, spécifiez les noms des machines virtuelles dans le paramètre **VMList**, sous forme d’une liste séparée par des virgules. Sinon, si le travail d’automatisation pour cette solution s’exécute pendant plus de trois heures, il est momentanément déchargé ou arrêté par la limite de [répartition de charge équilibrée](automation-runbook-execution.md#fair-share).
 >
 > Les abonnements Azure Cloud Solution Provider (Azure CSP) prennent uniquement en charge le modèle Azure Resource Manager ; les services hors Azure Resource Manager ne sont pas disponibles dans le programme. Quand la solution Start/Stop s’exécute, vous risquez de recevoir des erreurs du fait qu’elle contient des cmdlets pour gérer des ressources classiques. Pour en savoir plus sur CSP, consultez [Services disponibles dans les abonnements CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Si vous utilisez un abonnement CSP, vous devez définir la variable [**External_EnableClassicVMs**](#variables) sur **False** après le déploiement.
 
@@ -45,15 +45,15 @@ Les limitations de la solution actuelle sont les suivantes :
 
 Les runbooks de cette solution fonctionnent avec un [compte d’identification Azure](automation-create-runas-account.md). Le compte d’identification est la méthode d’authentification recommandée, car elle utilise l’authentification par certificat au lieu d’un mot de passe, susceptible d’expirer ou de changer fréquemment.
 
-Il est recommandé d’utiliser un compte Automation distinct pour la solution Start/Stop VM. En effet, les versions de module Azure sont fréquemment mises à niveau et leurs paramètres peuvent changer. La solution Start/Stop VM n’est pas mise à niveau à la même cadence, de sorte qu’elle risque de ne pas fonctionner avec des versions plus récentes des cmdlets qu’elle utilise. Il est recommandé de tester les mises à jour de module dans un compte Automation de test avant de les importer dans votre compte Automation de production.
+Il vous est recommandé d’utiliser un compte Automation distinct pour la solution Start/Stop VM. En effet, les versions de module Azure sont fréquemment mises à niveau et leurs paramètres peuvent changer. La solution Start/Stop VM n’est pas mise à niveau à la même cadence, de sorte qu’elle risque de ne pas fonctionner avec des versions plus récentes des cmdlets qu’elle utilise. Il vous est recommandé de tester les mises à jour de module dans un compte Automation de test avant de les importer dans votre ou vos comptes Automation de production.
 
 ### <a name="permissions-needed-to-deploy"></a>Autorisations nécessaires pour déployer
 
 Pour déployer la solution Start/Stop VMs during off-hours, un utilisateur doit disposer de certaines autorisations. Ces autorisations diffèrent selon que vous utilisez un compte Automation et un espace de travail Log Analytics, ou en créez de nouveaux lors du déploiement. Si vous êtes un contributeur pour l’abonnement et un administrateur général dans votre locataire Azure Active Directory, vous n’avez pas besoin de configurer les autorisations suivantes. Si vous ne disposez pas de ces droits ou devez configurer un rôle personnalisé, consultez les autorisations requises ci-dessous.
 
-#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Compte Automation et compte Log Analytics préexistants
+#### <a name="pre-existing-automation-account-and-log-analytics-workspace"></a>Compte Automation et espace de travail Log Analytics préexistants
 
-Pour déployer la solution Start/Stop VMs during off-hours sur un compte Automation et Log Analytics, l’utilisateur qui déploie la solution à besoin des autorisations suivantes sur le **Groupe de ressources**. Pour en savoir plus sur les rôles, voir [Rôles personnalisés pour les ressources Azure](../role-based-access-control/custom-roles.md).
+Pour déployer la solution Start/Stop VMs during off-hours sur un compte Automation existant et un espace de travail Log Analytics, l’utilisateur qui déploie la solution à besoin des autorisations suivantes sur le **Groupe de ressources**. Pour en savoir plus sur les rôles, voir [Rôles personnalisés pour les ressources Azure](../role-based-access-control/custom-roles.md).
 
 | Autorisation | Étendue|
 | --- | --- |
@@ -81,7 +81,7 @@ Pour déployer la solution Start/Stop VMs during off-hours sur un compte Automat
 Pour déployer la solution Start/Stop VMs during off-hours sur un nouveau compte Automation et espace de travail Log Analytics, l’utilisateur qui déploie la solution doit disposer des autorisations définies dans la section précédente, ainsi que les autorisations suivantes :
 
 - Coadministrateur pour l’abonnement – Cela n’est nécessaire que pour créer le compte d’identification Classic si vous comptez gérer des machines virtuelles Classic. Les [comptes d’identification Classic](automation-create-standalone-account.md#classic-run-as-accounts) ne sont plus créés par défaut.
-- Faire partie du rôle [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **Développeur d’applications**. Pour plus d’informations sur la configuration de comptes d’identification, voir [Autorisations pour configurer des comptes d’identification](manage-runas-account.md#permissions).
+- Un membre du rôle [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **Développeur d’applications**. Pour plus d’informations sur la configuration de comptes d’identification, voir [Autorisations pour configurer des comptes d’identification](manage-runas-account.md#permissions).
 - Contributeur sur l’abonnement ou les autorisations suivantes.
 
 | Autorisation |Étendue|

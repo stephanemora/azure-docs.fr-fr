@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: b1ce2d9efe44021b4e3191739bd2f922e34c44cb
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.date: 10/31/2019
+ms.openlocfilehash: 98598a28e14dfd8175cbb019ff1b001c65503580
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69519828"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73644589"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>Utiliser l’ingestion en un clic pour ingérer des données dans Azure Data Explorer
 
@@ -23,45 +23,54 @@ Cet article explique comment utiliser l’ingestion en un clic pour ingérer rap
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Connectez-vous à [l’application](https://dataexplorer.azure.com/).
 * Créer [un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md)
+* Connectez-vous à [l’interface utilisateur web](https://dataexplorer.azure.com/) et [ajoutez une connexion à votre cluster](/azure/data-explorer/web-query-data#add-clusters)
 * Source de données dans le stockage Azure.
 
 ## <a name="ingest-new-data"></a>Ingérer de nouvelles données
 
-1. Cliquez avec le bouton droit sur le *nom de la base de données* et sélectionnez **Ingérer de nouvelles données (préversion)**
+1. Cliquez avec le bouton droit sur la ligne *base de données* ou *table* dans le menu de gauche de l’interface utilisateur web, puis sélectionnez **Ingérer de nouvelles données (préversion)**
 
     ![sélectionner l’ingestion en un clic dans l’interface utilisateur web](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  
-1. Dans la fenêtre **Ingestion de données (préversion)** , sous l’onglet **Source**, renseignez les **Détails du projet** :
+1. Dans la fenêtre **Ingestion de nouvelles données (préversion)** , sous l’onglet **Source**, renseignez les **Détails du projet** :
 
-    * Entrez un nouveau **Nom de table**. 
-    * Sélectionnez le **Type d’ingestion** > **À partir du stockage**.
-    * Entrez le **Lien vers le stockage** avec l’URL du stockage. Utilisez l’URL SAS d’objet blob pour les comptes de stockage privés. 
-    * Sélectionnez **Modifier le schéma**
+    * **Table**: Sélectionnez le nom de la table existante dans la liste déroulante ou sélectionnez **Créer** pour créer une nouvelle table.
+    * Sélectionnez le **Type d’ingestion** > **À partir du stockage** ou **À partir d’un fichier**.
+        * Si vous avez sélectionné **à partir du stockage**, entrez le **Lien vers le stockage** pour ajouter l’URL au stockage. Utilisez [l’URL SAS d’objet blob](/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container) pour les comptes de stockage privés. 
+        * Si vous avez sélectionné **à partir d’un fichier**, sélectionnez **Parcourir**, puis faites glisser le fichier dans la zone.
+    * Sélectionnez **Modifier le schéma** pour afficher et modifier la configuration de colonne de votre table.
  
     ![détails de la source d’ingestion en un clic](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
-1. Sous l'onglet **Schéma**, sélectionnez **Format de données** dans la liste déroulante > **JSON** ou **CSV**. 
-   
-   Si vous sélectionnez **CSV** :
-    * Sélectionnez la case à cocher **Ignorer la ligne d’en-tête** pour ignorer la ligne d’en-tête du fichier CSV.    
+    > [!TIP]
+    > Si vous sélectionnez **Ingérer de nouvelles données (préversion)** sur une ligne de *table*, le nom de la table sélectionnée s’affiche dans les **Détails du projet**.
+
+1. Si vous avez sélectionné une table existante, la fenêtre **Mapper les colonnes** s’ouvre pour mapper les colonnes des données source aux colonnes de la table cible. 
+    * Utilisez **Omettre la colonne** pour supprimer une colonne cible de la table. 
+    * Utilisez **Nouvelle colonne** pour ajouter une nouvelle colonne à votre table. 
+
+    ![Fenêtre Mapper les colonnes](media/ingest-data-one-click/one-click-map-columns-window.png)
+
+1. Dans l’onglet **Schéma** :
+
+    * Sélectionnez **Type de compression** dans la liste déroulante > **Non compressé** ou **GZip**.
+    * Sélectionnez **Format des données** dans la liste déroulante > **JSON**, **CSV**, **TSV**, **SCSV**, **SOHSV**, **TSVE** ou **PSV**. 
+        * Lorsque vous sélectionnez le format **JSON**, sélectionnez **Niveaux JSON** : 1-10. Les niveaux affectent la représentation des données de colonne de la table. 
+        * Si vous sélectionnez un autre format que JSON : cochez la case **Inclure les noms des colonnes** pour ignorer la ligne d’en-tête du fichier.    
     * Le **Nom de mappage** est défini automatiquement, mais il peut être modifié.
+    * Si vous avez sélectionné une table existante, vous pouvez sélectionner le bouton **Mapper les colonnes** pour ouvrir la fenêtre **Mapper les colonnes**.
 
     ![schéma de format csv d’ingestion en un clic.png](media/ingest-data-one-click/one-click-csv-format.png)
 
-   Si vous sélectionnez **JSON** :
-    * Sélectionnez les **niveaux JSON** : 1-10 dans la liste déroulante. Les niveaux dans le fichier JSON sont affichés dans le tableau en bas à droite. 
-    * Le **Nom de mappage** est défini automatiquement, mais il peut être modifié.
-
-    ![schéma de format JSON d’ingestion en un clic](media/ingest-data-one-click/one-click-json-format.png)  
-
 1. Dans **l'éditeur**, sélectionnez **V** à droite pour ouvrir l’éditeur. Dans l’éditeur, vous pouvez afficher et copier les requêtes automatiques générées à partir de vos entrées. 
 
-1.  Dans le tableau en bas à droite : 
-    * Sélectionner **V** à droite de la colonne pour **Renommer la colonne**, **Supprimer la colonne**, **Trier par ordre croissant** ou **Trier par ordre décroissant**
-    * Double-cliquez sur le nom de la colonne à modifier.
-    * Sélectionnez l’icône à gauche du nom de la colonne pour modifier le type de données. 
+1.  Dans la table : 
+    * Cliquez avec le bouton droit sur les nouveaux en-têtes de colonne pour **Modifier le type de données**, **Renommer la colonne**, **Supprimer la colonne**, **Trier par ordre croissant** ou **Trier par ordre décroissant**. Sur les colonnes existantes, seul le tri des données est disponible. 
+    * Double-cliquez sur le nom de la nouvelle colonne à modifier.
 
 1. Sélectionnez **Démarrer l’ingestion** pour créer une table, créer un mappage et commencer l’ingestion de données.
+
+    ![schéma de format JSON d’ingestion en un clic](media/ingest-data-one-click/one-click-json-format.png) 
  
 ## <a name="query-data"></a>Données de requête
 

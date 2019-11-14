@@ -1,0 +1,58 @@
+---
+title: Gérer les autorisations des applications à partir du portail Mes applications (préversion) - Azure Active Directory | Microsoft Docs
+description: Découvrez comment gérer les autorisations les applications cloud de votre organisation et les utiliser à partir du portail Mes applications (version préliminaire).
+services: active-directory
+author: eross-msft
+manager: daveba
+ms.reviewer: kasimpso
+ms.service: active-directory
+ms.workload: identity
+ms.subservice: user-help
+ms.topic: overview
+ms.date: 10/30/2019
+ms.author: lizross
+ms.custom: user-help
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 9fa8bc27f014b794059f30a62d47f298096df2f1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573804"
+---
+# <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>Modifier ou révoquer des autorisations d’application dans le portail Mes applications (préversion)
+
+Lorsque vous utilisez des applications organisationnelles dans le portail **Mes applications** (version préliminaire), vous accordez des autorisations et enregistrez des informations de compte fréquemment. Pour sécuriser vos données, vous souhaiterez peut-être examiner et révoquer des autorisations ou effacer les informations d’identification de compte enregistrées. La suppression des autorisations ou comptes peut perturber certaines fonctionnalités de l’application. Si vous avez des problèmes après avoir supprimé des autorisations ou des comptes, contactez le support technique de votre organisation pour obtenir une assistance supplémentaire.
+
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
+
+>[!Important]
+>Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
+
+## <a name="manage-app-permissions"></a>Gérer les autorisations d’une application
+
+Pour afficher les autorisations accordées par vous ou par votre administrateur, sélectionnez **...** quand vous pointez sur une application dans le portail **Mes applications**, puis sélectionnez **Gérer votre application** :
+
+![Gérer une application dans le portail Mes applications](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
+
+La partie supérieure de la fenêtre Autorisations affiche ce à quoi vous avez consenti personnellement. Des exemples d’autorisations d’applications incluent la possibilité d’accéder à votre calendrier, vos contacts ou votre appareil photo.
+
+Vous pouvez révoquer les autorisations auxquelles vous avez consenti en sélectionnant **Révoquer les autorisations**, mais la suppression d’une autorisation peut perturber certaines des fonctionnalités des applications. Si vous avez des problèmes après avoir supprimé des autorisations ou des comptes, contactez le support technique de votre organisation pour obtenir une assistance supplémentaire.
+
+![Révoquer les autorisations pour une application dans le portail Mes applications](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
+
+La partie inférieure de la fenêtre Autorisations indique ce que votre administrateur a consenti en votre nom. Cette section ne s’affiche pas s’il n’y a pas d’autorisations accordées par l’administrateur. Vous ne pouvez pas révoquer ces autorisations, car l’administrateur a donné son consentement, et elles sont souvent requises pour la stratégie de votre organisation.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Une fois que vous avez géré les autorisations d’application et les comptes enregistrés dans le portail **Mes applications**, vous pouvez :
+
+- Organiser vos applications dans les différentes catégories créées et fournies par votre organisation. Pour plus d’informations, consultez [Accéder aux espaces de travail et les utiliser sur le portail Mes applications (préversion)](my-applications-portal-workspaces.md).
+
+## <a name="related-articles"></a>Articles connexes
+
+- [Mettre à jour vos informations de profil et de compte](my-account-portal-overview.md). Instructions sur la façon de mettre à jour vos informations personnelles qui s’affichent dans la page **Mon profil** du portail (préversion).
+
+- [Gérer vos organisations](my-account-portal-organizations-page.md). Instructions sur la façon d’afficher et de gérer les informations relatives à votre organisation dans la page **Organisations** du portail **Mon profil**.
+
+- [Gérer vos appareils connectés](my-account-portal-devices-page.md). Instructions pour gérer les appareils auxquels vous êtes connecté à l’aide de votre compte professionnel ou scolaire à partir de la page **Appareils** du portail **Mon profil**.

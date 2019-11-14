@@ -1,5 +1,5 @@
 ---
-title: Configurer l’authentification Azure Active Directory - SQL | Microsoft Docs
+title: Configurer l’authentification Azure Active Directory
 description: Découvrez comment vous connecter à SQL Database, à l’instance gérée et à SQL Data Warehouse avec l’authentification Azure Active Directory, après avoir configuré Azure AD.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 10/16/2019
-ms.openlocfilehash: 1dbccf43d03907cefb68315b6908a35735f373ce
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 11/06/2019
+ms.openlocfilehash: 48334d8ce266ddcc92e4d2b27634db3d8c9f1bc9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177635"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816791"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Configurer et gérer l’authentification Azure Active Directory avec SQL
 
@@ -57,6 +57,9 @@ Lorsque vous utilisez Azure Active Directory avec la géo-réplication, le com
 
 > [!IMPORTANT]
 > Suivez ces étapes uniquement si vous approvisionnez une instance gérée. Cette opération peut être exécutée uniquement par l’administrateur global/de la société ou un administrateur de rôle privilégié dans Azure AD. Les étapes suivantes décrivent le processus d’octroi d’autorisations pour les utilisateurs bénéficiant de privilèges différents dans le répertoire.
+
+> [!NOTE]
+> Pour les administrateurs Azure AD de MI créés avant la disponibilité générale, mais qui continuent à opérer après la disponibilité générale, aucune modification fonctionnelle n’est apportée au comportement existant. Pour plus d’informations, reportez-vous à la section [Nouvelle fonctionnalité d’administration Azure AD pour MI](#new-azure-ad-admin-functionality-for-mi).
 
 Votre instance gérée a besoin d’autorisations de lecture pour Azure AD afin d’effectuer correctement des tâches telles que l’authentification des utilisateurs via l’appartenance au groupe de sécurité ou la création de nouveaux utilisateurs. Pour ce faire, vous devez accorder des autorisations de lecture pour Azure AD à une instance gérée. Il y a deux manières de procéder : à partir du portail ou à partir de PowerShell. Les deux méthodes sont décrites ci-dessous.
 
@@ -146,10 +149,34 @@ Votre instance gérée a besoin d’autorisations de lecture pour Azure AD afin 
 
     La procédure de changement de l’administrateur peut prendre plusieurs minutes. Le nouvel administrateur apparaît dans la zone Administrateur Active Directory.
 
-Après avoir approvisionné un administrateur Azure AD pour l’instance gérée, vous pouvez commencer à créer des principaux de serveur (connexions) Azure AD (**préversion publique**) avec la syntaxe <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Pour plus d’informations, consultez [Vue d’ensemble de l’instance gérée](sql-database-managed-instance.md#azure-active-directory-integration).
+Après avoir approvisionné un administrateur Azure AD pour l’instance gérée, vous pouvez commencer à créer des principaux de serveur (connexions) Azure AD avec la syntaxe <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>. Pour plus d’informations, consultez [Vue d’ensemble de l’instance gérée](sql-database-managed-instance.md#azure-active-directory-integration).
 
 > [!TIP]
 > Pour supprimer un administrateur, en haut de la page Administrateur Active Directory, sélectionnez **Supprimer l’administrateur**, puis **Enregistrer**.
+
+### <a name="new-azure-ad-admin-functionality-for-mi"></a>Nouvelle fonctionnalité d’administration Azure AD pour MI
+
+Le tableau ci-dessous récapitule les fonctionnalités de la préversion publique de l’administration de connexions Azure AD pour MI, par rapport à la nouvelle fonctionnalité à disponibilité générale pour les connexions Azure AD.
+
+| Administration de connexions Azure AD pour MI en préversion publique | Fonctionnalité à disponibilité générale pour l’administration Azure AD pour MI |
+| --- | ---|
+| Se comporte de la même façon que l’administration Azure AD pour SQL Database, ce qui permet l’authentification Azure AD, mais l’administrateur Azure AD ne peut pas créer de connexions Azure AD ou SQL dans la base de données MASTER pour MI. | L’administrateur Azure AD dispose de l’autorisation sysadmin et peut créer des connexions AAD et SQL dans la base de données MASTER pour MI. |
+| N’est pas présent dans la vue sys.server_principals | Est présent dans la vue sys.server_principals |
+| Permet à des utilisateurs Azure AD invités d’être configurés comme administrateur Azure AD pour MI. Pour plus d’informations, consultez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le portail Azure](../active-directory/b2b/add-users-administrator.md). | Requiert la création d’un groupe Azure AD avec des utilisateurs invités en tant que membres pour configurer ce groupe en tant qu’administrateur Azure AD pour MI. Pour plus d’informations, consultez [Prise en charge d’Azure AD B2B](sql-database-ssms-mfa-authentication.md#azure-ad-business-to-business-support). |
+
+La meilleure pratique, pour les administrateurs Azure AD existants pour des MI créées avant la disponibilité générale et qui continuent à opérer après la disponibilité générale, est de réinitialiser l’administrateur Azure AD à l’aide du portail Azure avec les options « Supprimer l’administrateur » et « Définir l’administrateur » pour le même utilisateur ou groupe Azure AD.
+
+### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Problèmes connus avec la connexion Azure AD à disponibilité générale pour MI
+
+- Si une connexion Azure AD existe dans la base de données MASTER pour MI créée à l’aide de la commande T-SQL `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`, elle ne peut pas être configurée en tant qu’administrateur Azure AD pour MI. Vous rencontrerez une erreur lors de la définition de la connexion en tant qu’administrateur Azure AD avec les commandes du portail Azure, de PowerShell ou d’Azure CLI pour créer la connexion Azure AD. 
+  - La connexion doit être supprimée de la base de données MASTER à l’aide de la commande `DROP LOGIN [myaadaccount]` avant de pouvoir créer le compte en tant qu’administrateur Azure AD.
+  - Configurez le compte de l’administrateur Azure AD dans le portail Azure après le succès de la commande `DROP LOGIN`. 
+  - Si vous ne pouvez pas configurer le compte d’administrateur Azure AD, archivez la base de données MASTER de l’instance gérée pour la connexion. Utilisez la commande suivante : `SELECT * FROM sys.server_principals`
+  - La configuration d’un administrateur Azure AD pour MI crée automatiquement une connexion dans la base de données MASTER pour ce compte. La suppression de l’administrateur Azure AD entraîne automatiquement la suppression de la connexion de la base de données MASTER.
+   
+- Les utilisateurs Azure AD invités individuels ne sont pas pris en charge en tant qu’administrateurs Azure AD pour MI. Les utilisateurs invités doivent faire partie d’un groupe Azure AD pour être configurés comme administrateurs Azure AD. Actuellement, le panneau du portail Azure ne grise pas les utilisateurs invités pour un autre Azure AD, ce qui permet aux utilisateurs de poursuivre la configuration de l’administrateur. L’enregistrement des utilisateurs invités en tant qu’administrateurs Azure AD entraîne l’échec de la configuration. 
+  - Si vous souhaitez faire d’un utilisateur invité un administrateur Azure AD pour MI, incluez l’utilisateur invité dans un groupe Azure AD et définissez ce groupe comme administrateur Azure AD.
+
 
 ### <a name="powershell-for-sql-managed-instance"></a>PowerShell pour l’instance gérée SQL
 
@@ -318,8 +345,8 @@ Vous pouvez répondre à ces exigences en procédant comme suit :
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Créer des utilisateurs de base de données autonome dans votre base de données mappés sur les identités Azure AD
 
->[!IMPORTANT]
->Instance gérée prend désormais en charge les principaux de serveur (connexions) Azure AD (**préversion publique**), ce qui vous permet de créer des connexions à partir d’utilisateurs, de groupes ou d’applications Azure AD. Les principaux de serveur (connexions) Azure AD vous permettent de vous authentifier auprès de l’instance gérée sans avoir à créer les utilisateurs de base de données en tant qu’utilisateurs d’une base de données autonome. Pour plus d’informations, consultez [Vue d’ensemble de l’instance gérée](sql-database-managed-instance.md#azure-active-directory-integration). Pour la syntaxe de création des principaux de serveur (connexions) Azure AD, consultez <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+> [!IMPORTANT]
+> Instance gérée prend désormais en charge les principaux de serveur (connexions) Azure AD, ce qui vous permet de créer des connexions à partir d’utilisateurs, de groupes ou d’applications Azure AD. Les principaux de serveur (connexions) Azure AD vous permettent de vous authentifier auprès de l’instance gérée sans avoir à créer les utilisateurs de base de données en tant qu’utilisateurs d’une base de données autonome. Pour plus d’informations, consultez [Vue d’ensemble de l’instance gérée](sql-database-managed-instance.md#azure-active-directory-integration). Pour la syntaxe de création des principaux de serveur (connexions) Azure AD, consultez <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 L’authentification Azure Active Directory nécessite que les utilisateurs de base de données soient créés en tant qu’utilisateurs de base de données autonome. Un utilisateur de base de données autonome sur une identité Azure AD est un utilisateur de base de données qui ne dispose pas de connexion dans la base de données MASTER, et qui est mappé à une identité située dans l’annuaire Azure AD associé à la base de données. L’identité Azure AD peut être un compte d’utilisateur individuel ou un groupe. Pour plus d’informations sur les utilisateurs de base de données autonome, consultez [Utilisateurs de base de données - Rendre votre base de données portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
