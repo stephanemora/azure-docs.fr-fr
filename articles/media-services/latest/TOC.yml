@@ -109,7 +109,7 @@
     - name: Protection du contenu
       items:
         - name: Chiffrement dynamique et remise de clé
-          displayName: 'content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay'
+          displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
         - name: Conception d’un système multi-DRM
           displayName: 'drm, access control'
