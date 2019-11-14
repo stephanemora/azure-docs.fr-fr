@@ -11,14 +11,17 @@ ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 97ef0464655e55a84f4e5cc51171d00debd294d3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: c501e153649796ab8735935a3475b5a13f6016fa
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177266"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73613492"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-with-go"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST Vision par ordinateur et de Go
+
+> [!NOTE]
+> Si vous extrayez du texte en langue anglaise, envisagez d’utiliser la nouvelle [opération de lecture](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text). Un [Démarrage rapide de Go](https://docs.microsoft.com/azure/cognitive-services/computer-vision/quickstarts-sdk/go-sdk#call-the-read-api) est disponible.
 
 Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image par reconnaissance optique de caractères (OCR) à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), vous pouvez détecter le texte imprimé dans une image et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
 

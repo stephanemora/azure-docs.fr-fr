@@ -1,7 +1,7 @@
 ---
 title: Recettes pour conteneurs Docker
 titleSuffix: Azure Cognitive Services
-description: Utilisez ces recettes de conteneur pour créer des conteneurs Cognitive Services réutilisables. Les conteneurs peuvent être créés avec tout ou partie des paramètres de configuration de telle sorte qu’ils ne soient pas nécessaires au démarrage des conteneurs. Dès lors que vous disposez de cette nouvelle couche de conteneur (avec des paramètres) et que vous l’avez testée localement, vous pouvez stocker le conteneur dans un registre de conteneurs. Au moment de démarrer, le conteneur n’aura besoin que des paramètres qui ne sont pas actuellement stockés dans celui-ci.
+description: Découvrez comment créer, tester et stocker des conteneurs avec tout ou partie de vos paramètres de configuration à des fins de déploiement et de réutilisation.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: a8162f96051a73b9f6e6a6fe3ece020e0a94f08f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dbe2e288309b6682041bf3db9fe3d39455359806
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068828"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647279"
 ---
 # <a name="create-containers-for-reuse"></a>Créer des conteneurs à réutiliser
 

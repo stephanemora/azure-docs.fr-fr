@@ -1,7 +1,7 @@
 ---
-title: Guide pratique pour migrer votre projet vers l’API 3.0
+title: Comment mettre à jour votre projet vers l’API 3.0
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment migrer des projets Custom Vision à partir de la version précédente de l’API vers l’API 3.0.
+description: Découvrez comment mettre à jour des projets Custom Vision à partir de la version précédente de l’API vers l’API 3.0.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: areddish
-ms.openlocfilehash: 353fc0a2d8396def17b8e23d9a1c685c755349c5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c134f30b124113a23df0e73cd1bbc8209e335183
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560886"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647500"
 ---
-# <a name="migrate-to-the-30-api"></a>Migrer vers l’API 3.0
+# <a name="update-to-the-30-api"></a>Mettre à jour vers l’API 3.0
 
 Custom Vision est désormais en disponibilité générale et a subi une mise à jour de l’API.
 Cette mise à jour inclut plusieurs nouvelles fonctionnalités et, plus important encore, quelques changements cassants :
@@ -52,13 +52,6 @@ Une fois qu’une itération est formée, vous pouvez la rendre disponible pour 
 > Vous pouvez également obtenir cette information à partir du [portail Azure](https://portal.azure.com) en accédant à la ressource de prédiction Custom Vision et en sélectionnant **Propriétés**.
 
 Une fois que votre itération est publiée, les applications peuvent l’utiliser pour la prédiction en spécifiant le nom dans leur appel de l’API de prédiction. Pour rendre une itération non disponible pour les appels de prédiction, utilisez l’API **[UnpublishIteration](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.0/operations/5c771cdcbf6a2b18a0c3b81a)** .
-
-## <a name="additional-export-options"></a>Options d’exportation supplémentaires
-
-Avec les API 3.0, nous exposons deux autres cibles d’exportation : Architecture ARM et Kit Vision AI Developer.
-
-* Pour utiliser ARM, il vous suffit de choisir un domaine Compact, puis DockerFile et ARM comme options d’exportation.
-* Pour le Kit Vision AI Dev, le projet doit être créé avec le domaine __Général (Compact)__ tout en spécifiant VAIDK dans l’argument des plateformes d’exportation cibles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

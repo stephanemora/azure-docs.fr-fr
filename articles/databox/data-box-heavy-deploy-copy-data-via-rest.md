@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST | Microsoft Docs'
-description: Découvrez comment copier des données dans votre stockage Blob Azure Data Box par le biais des API REST.
+title: 'Didacticiel : Copier des données vers un stockage Azure Data Box Heavy via des API REST | Microsoft Docs'
+description: Découvrez comment copier des données dans votre stockage blob Azure Data Box Heavy via des API REST
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 2c66b94cbcfa4688d9dc45d99688abe76fa55d17
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: adc48acbadaef56958587dc79be377b76a21fdc0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595798"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606293"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Didacticiel : Copier des données vers le stockage Blob Azure Data Box par le biais des API REST  
 

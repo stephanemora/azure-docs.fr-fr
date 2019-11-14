@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 849c919950c57a1df3b0fb76021de6e10254c7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286379"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793933"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Prise en charge linguistique du contenu de la base de connaissances pour QnA Maker
 
@@ -38,9 +38,9 @@ La sélection de la langue fait partie des étapes de création de la première 
 ![Capture d’écran de la sélection de la langue pour la première base de connaissances dans le portail QnA Maker](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>Correspondance et pertinence des requêtes
-QnA Maker dépend des [analyseurs de langue Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) pour fournir des résultats. 
+QnA Maker dépend des [analyseurs de langue Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/language-support) pour fournir des résultats. 
 
-Même si les fonctionnalités de Recherche Azure sont à égalité pour les langues prises en charge, QnA Maker possède un outil de classement supplémentaire qui se trouve au-dessus des résultats de recherche Azure. Dans ce modèle d’outil de classement, nous utilisons une sémantique spéciale et des fonctionnalités basées sur des mots dans les langues suivantes. 
+Même si les fonctionnalités de Recherche cognitive Azure sont à égalité pour les langues prises en charge, QnA Maker possède un outil de classement supplémentaire qui se trouve au-dessus des résultats de recherche Azure. Dans ce modèle d’outil de classement, nous utilisons une sémantique spéciale et des fonctionnalités basées sur des mots dans les langues suivantes. 
 
 |Langues avec outil de classement supplémentaire|
 |--|

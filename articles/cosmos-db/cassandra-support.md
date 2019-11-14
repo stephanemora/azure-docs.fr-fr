@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 12df79696033e69abbf48f053c1a594be9409cda
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327156"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721108"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
@@ -96,7 +96,7 @@ L’API Cassandra Azure Cosmos DB prend en charge les fonctions CQL suivantes :
 
 ## <a name="cassandra-api-limits"></a>Limites de l’API Cassandra
 
-L’API Cassandra Azure Cosmos DB n’a aucune limite sur la taille des données stockées dans une table. Des centaines de téraoctets ou pétaoctets de données peuvent être stockées tout en garantissant le respect des limites de clé de partition. De même, chaque entité ou ligne équivalente n’a aucune limite sur le nombre de colonnes. Toutefois, la taille totale de l’entité ne doit pas dépasser 2 Mo. Les données par clé de partition ne peuvent pas dépasser 10 Go, comme dans toutes les autres API.
+L’API Cassandra Azure Cosmos DB n’a aucune limite sur la taille des données stockées dans une table. Des centaines de téraoctets ou pétaoctets de données peuvent être stockées tout en garantissant le respect des limites de clé de partition. De même, chaque entité ou ligne équivalente n’a aucune limite de nombre de colonnes. Toutefois, la taille totale de l’entité ne doit pas dépasser 2 Mo. Les données par clé de partition ne peuvent pas dépasser 10 Go, comme dans toutes les autres API.
 
 ## <a name="tools"></a>Outils 
 
@@ -106,24 +106,37 @@ L’API Cassandra Azure Cosmos DB est une plateforme de services managés. Elle 
 
 ## <a name="cql-shell"></a>Interpréteur de commandes CQL  
 
-L’utilitaire en ligne de commande CQLSH est fourni avec Apache Cassandra 3.1.1 et prêt à fonctionner avec les variables d’environnement activées suivantes :
+L’utilitaire de ligne de commande CQLSH est fourni avec Apache Cassandra 3.1.1. Il est prêt à fonctionner moyennant la définition de certaines variables d’environnement.
 
-Avant d’exécuter les commandes ci-après, [ajoutez un certificat racine Baltimore au magasin cacerts](https://docs.microsoft.com/java/azure/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store). 
+**Windows :**
 
-**Windows :** 
+Si vous utilisez Windows, nous vous recommandons d’activer le [système de fichiers Windows pour Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). Vous pouvez ensuite suivre les commandes Linux ci-dessous.
 
-```bash
-set SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to Baltimore root ca cert>
-set CQLSH_PORT=10350 
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
-```
 **Unix/Linux/Mac :**
 
 ```bash
-export SSL_VERSION=TLSv1_2 
-export SSL_CERTFILE=<path to Baltimore root ca cert>
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
+# Install default-jre and default-jdk
+sudo apt install default-jre
+sudo apt-get update
+sudo apt install default-jdk
+
+# Import the Baltimore CyberTrust root certificate:
+curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
+keytool -importcert -alias bc2025ca -file bc2025.crt
+
+# Install the Cassandra libraries in order to get CQLSH:
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install cassandra
+
+# Export the SSL variables:
+export SSL_VERSION=TLSv1_2
+export SSL_VALIDATE=false
+
+# Connect to Azure Cosmos DB API for Cassandra:
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
+
 ```
 
 ## <a name="cql-commands"></a>Commandes CQL
@@ -140,7 +153,8 @@ Azure Cosmos DB prend en charge les commandes de base de données suivantes sur 
 * BATCH - Seules les commandes non journalisées sont prises en charge 
 * SUPPRIMER
 
-Toutes les opérations crud, quand elles sont exécutées par le biais du kit SDK compatible CQLV4, retournent des informations supplémentaires sur l’erreur et les unités de requête consommées. Les commandes de suppression et de mise à jour doivent être gérées en prenant en considération la gouvernance des ressource, afin d’éviter une bonne utilisation du débit provisionné. 
+Toutes les opérations CRUD exécutées par le biais d’un Kit de développement logiciel (SDK) compatible CQL v4 retournent des informations supplémentaires sur l’erreur et les unités de demande consommées. Les commandes DELETE et UPDATE doivent être gérées en tenant compte de la gouvernance des ressources, afin de garantir l’utilisation la plus efficace du débit approvisionné.
+
 * Notez que la valeur gc_grace_seconds doit être égale à zéro si elle est spécifiée.
 
 ```csharp
@@ -151,13 +165,13 @@ foreach (string key in insertResult.Info.IncomingPayload)
         { 
             byte[] valueInBytes = customPayload[key]; 
             double value = Encoding.UTF8.GetString(valueInBytes); 
-            Console.WriteLine($“CustomPayload:  {key}: {value}”); 
+            Console.WriteLine($"CustomPayload:  {key}: {value}"); 
         } 
 ```
 
 ## <a name="consistency-mapping"></a>Mappage de cohérence 
 
-L’API Cassandra Azure Cosmos DB offre un choix de cohérence pour les opérations de lecture.  Le mappage de cohérence est détaillé [ici](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
+L’API Cassandra Azure Cosmos DB offre un choix de cohérence pour les opérations de lecture.  Le mappage de cohérence est détaillé [ici](consistency-levels-across-apis.md#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Gestion des rôles et des autorisations
 
@@ -165,7 +179,7 @@ Azure Cosmos DB prend en charge le contrôle d’accès en fonction du rôle (RB
 
 ## <a name="keyspace-and-table-options"></a>Options d’espace de clé et de table
 
-Les options pour le nom de région, la classe, replication_factor et le centre de centres dans la commande « CREATE KEYSPACE » sont actuellement ignorées. Le système utilise la méthode de réplication de [distribution globale](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) d’Azure Cosmos DB sous-jacente pour ajouter les régions. Si vous avez besoin de la présence de données inter-régions, vous pouvez l’activer au niveau du compte avec PowerShell, l’interface CLI ou le portail. Pour en savoir plus, consultez l’article expliquant [comment ajouter des régions](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes ne peut pas être désactivé, car Azure Cosmos DB garantit la durabilité de chaque écriture. Dans chaque région, Azure Cosmos DB réplique les données dans le jeu de réplicas composé de quatre réplicas, et cette [configuration](global-dist-under-the-hood.md) de jeu de réplicas ne peut pas être modifiée.
+Les options pour le nom de région, la classe, replication_factor et le centre de centres dans la commande « CREATE KEYSPACE » sont actuellement ignorées. Le système utilise la méthode de réplication de [distribution globale](global-dist-under-the-hood.md) d’Azure Cosmos DB sous-jacente pour ajouter les régions. Si vous avez besoin de la présence de données inter-régions, vous pouvez l’activer au niveau du compte avec PowerShell, CLI ou le portail. Pour en savoir plus, consultez l’article expliquant [comment ajouter des régions](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Durable_writes ne peut pas être désactivé, car Azure Cosmos DB garantit la durabilité de chaque écriture. Dans chaque région, Azure Cosmos DB réplique les données dans le jeu de réplicas composé de 4 réplicas, et cette [configuration](global-dist-under-the-hood.md) de jeu de réplicas ne peut pas être modifiée.
  
 Toutes les options sont ignorées lors de la création de la table, sauf gc_grace_seconds, qui doit être définie sur zéro.
 L’espace de clé et la table ont une option supplémentaire nommée « cosmosdb_provisioned_throughput » avec une valeur minimale de 400 RU/s. Le débit d’espace de clé permet de partager le débit entre plusieurs tables, et il est utile dans les scénarios où toutes les tables n’utilisent pas le débit provisionné. La commande ALTER TABLE permet de modifier le débit provisionné dans les régions. 

@@ -4,15 +4,15 @@ description: En tant que fournisseur de services utilisant la gestion des ressou
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: d68ac0a1b6a66482a85f7ab79840099a34c731c2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302748"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615539"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Voir et gérer les clients et les ressources déléguées
 
@@ -20,7 +20,7 @@ Les fournisseurs de services qui utilisent la [gestion des ressources délégué
 
 Pour accéder à la page **Mes clients** du portail Azure, sélectionnez **Tous les services**, puis recherchez et sélectionnez **Mes clients**. Vous pouvez également la trouver en entrant « Mes clients » dans la zone de recherche dans la partie supérieure du portail Azure.
 
-N’oubliez pas que la page **Mes clients** affiche des informations uniquement sur les clients qui ont délégué des abonnements ou des groupes de ressources. Si vous travaillez avec d’autres clients, par exemple, via le programme [Fournisseur de solutions cloud](https://docs.microsoft.com/partner-center/csp-overview), vous ne voyez pas d’informations sur ces clients ici, sauf si vous intégrez leurs ressources pour la gestion des ressources déléguées.
+N’oubliez pas que la section supérieure de la page **Mes clients** affiche des informations uniquement sur les clients qui ont délégué des abonnements ou des groupes de ressources. Si vous travaillez avec d’autres clients, par exemple, via le programme [Fournisseur de solutions cloud](https://docs.microsoft.com/partner-center/csp-overview), vous ne voyez pas d’informations sur ces clients ici, sauf si vous intégrez leurs ressources pour la gestion des ressources déléguées. Plus bas dans la page, la section **Fournisseur de solutions cloud (préversion)** affiche des informations de facturation et des ressources pour vos clients CSP qui ont signé le [Contrat client Microsoft (CCM)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) et qui relèvent du plan Azure, qu’ils aient ou non été intégrés pour la gestion des ressources déléguées Azure. Pour plus d’informations, voir [Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft](https://docs.microsoft.com/azure/billing/mpa-overview).
 
 > [!NOTE]
 > Vos clients peuvent afficher des informations sur les fournisseurs de services en accédant à **Fournisseurs de services** sur le portail Azure. Pour plus d’informations, consultez [Voir et gérer les fournisseurs de services](view-manage-service-providers.md).
@@ -30,6 +30,9 @@ N’oubliez pas que la page **Mes clients** affiche des informations uniquement 
 Pour afficher les détails du client, sélectionnez **Clients** sur le côté gauche de la page **Mes clients**.
 
 Pour chaque client, vous voyez le nom du client, l’ID client (ID de locataire) et l’offre associée à l’engagement. Dans la colonne **Délégations**, vous voyez le nombre d’abonnements ou de groupes de ressources délégués.
+
+> [!IMPORTANT]
+> Pour voir une délégation, les utilisateurs doivent avoir reçu le rôle [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (ou un autre rôle intégré incluant l’accès Lecteur) dans le cadre du processus d’intégration.
 
 Les filtres en haut de la page vous permettent de trier et regrouper vos informations client, ou de filtrer sur des clients, offres ou mots clés spécifiques.
 

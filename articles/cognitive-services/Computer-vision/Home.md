@@ -1,5 +1,5 @@
 ---
-title: Présentation de l’API Vision par ordinateur - Vision par ordinateur
+title: Qu’est-ce que le service Vision par ordinateur ? - Vision par ordinateur
 titleSuffix: Azure Cognitive Services
 description: Le service Vision par ordinateur offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations.
 services: cognitive-services
@@ -8,21 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719541"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794957"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
-Le service Vision par ordinateur d’Azure offre aux développeurs un accès à des algorithmes avancés permettant de traiter des images et de retourner des informations. Pour analyser une image, vous pouvez télécharger une image ou spécifier une URL d’image. Les algorithmes de traitement d’images peuvent analyser le contenu de différentes manières, selon les composants visuels qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient du contenu pour adultes ou rechercher tous les visages humains dans une image.
+Le service Vision par ordinateur d’Azure offre aux développeurs un accès à des algorithmes avancés permettant de traiter des images et de retourner des informations en fonction des caractéristique visuelles qui vous intéressent. Par exemple, le service Vision par ordinateur peut déterminer si une image contient du contenu pour adultes ou rechercher tous les visages humains dans une image.
 
-Vous pouvez utiliser le service Vision par ordinateur dans votre application en utilisant un kit SDK natif ou en appelant directement l’API REST. Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
+Vous pouvez utiliser le service Vision par ordinateur dans votre application via un Kit de développement logiciel (SDK) natif ou en appelant directement l’API REST. Cette page couvre globalement ce que vous pouvez faire avec le service Vision par ordinateur.
+
+## <a name="computer-vision-for-digital-asset-management"></a>Vision par ordinateur pour la gestion des ressources numériques
+
+Vision par ordinateur peut contribuer à de nombreux scénarios de gestion des actifs numériques (DAM). La gestion des actifs numériques est le processus métier d’organisation, de stockage et de récupération des éléments multimédias enrichis, et de gestion des droits et autorisations numériques. Par exemple, une entreprise peut décider de regrouper et d’identifier des images sur la base de logos, de visages, d’objets, de couleurs, ou d’autres éléments visibles. Vous pouvez également [générer automatiquement des légendes pour des images](./Tutorials/storage-lab-tutorial.md) et y associer des mots clés afin qu’elles puissent faire l’objet d’une recherche. Pour une solution gestion des actifs numériques tout-en-un utilisant Cognitive Services, Recherche cognitive Azure et une fonctionnalité de création de rapports intelligents, consultez le [Guide de l’accélérateur de solution d’exploration des connaissances](https://github.com/Azure-Samples/azure-search-knowledge-mining) sur GitHub. Pour d’autres exemples de Vision par ordinateur, consultez le dépôt [Modèles de solution Vision par ordinateur](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates).
 
 ## <a name="analyze-images-for-insight"></a>Analyser des images pour obtenir des informations
 
@@ -47,8 +51,6 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 Vous pouvez utiliser l’[API Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères exploitable automatiquement. L’API Read utilise nos derniers modèles et fonctionne avec le texte dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, les affiches, les cartes de visite, les lettres et les tableaux blancs. Actuellement, l’anglais est la seule langue prise en charge.
 
 Vous pouvez également utiliser l’API [OCR (reconnaissance optique des caractères)](concept-recognizing-text.md#ocr-optical-character-recognition-api) pour extraire le texte imprimé en plusieurs langues. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
-
-
 
 ## <a name="moderate-content-in-images"></a>Modérer du contenu dans les images
 

@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide Azure Security Center - Intégrer vos machines virtuelles Azure Stack à Security Center | Microsoft Docs
+title: Intégrer des machines virtuelles Azure Stack dans Azure Security Center
 description: Ce guide de démarrage rapide vous montre comment provisionner l’extension de machine virtuelle Azure Monitor, Update and Configuration Management sur une machine virtuelle Azure Stack.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202856"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686528"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Démarrage rapide :  Intégrer vos machines virtuelles Azure Stack à Security Center
+# <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Démarrage rapide : Intégrer vos machines virtuelles Azure Stack à Security Center
 Après avoir intégré votre abonnement Azure, vous pouvez activer Security Center pour protéger vos machines virtuelles en cours d’exécution sur Azure Stack en ajoutant l’extension de machine virtuelle **Azure Monitor, Update and Configuration Management** à partir de la Place de marché Azure Stack.
 
 Ce guide de démarrage rapide vous montre comment ajouter l’extension de machine virtuelle **Azure Monitor, Update and Configuration Management** sur une machine virtuelle (Linux et Windows sont tous deux pris en charge) en cours d’exécution sur Azure Stack.
@@ -69,7 +69,7 @@ Vous devez maintenant ajouter l’extension de machine virtuelle **Azure Monitor
 > Si l’extension **Azure Monitor, Update and Configuration Management** n’est pas listée dans votre place de marché, contactez votre opérateur Azure Stack pour qu’elle soit disponible.
 
 6. Dans la page de configuration **Installer l’extension**, collez l’**ID de l’espace de travail** et la **Clé de l’espace de travail (clé primaire)** que vous avez copiés dans le Bloc-notes au cours de la procédure précédente.
-7.  Une fois que vous avez fourni les paramètres de configuration nécessaires, cliquez sur **OK**.
+7. Une fois que vous avez fourni les paramètres de configuration nécessaires, cliquez sur **OK**.
 8. Une fois l’installation de l’extension terminée, son état s’affiche en tant qu’**Approvisionnement réussi**. Il peut s’écouler une heure avant que la machine virtuelle n’apparaisse dans le portail Security Center.
 
 Pour plus d’informations sur l’installation et la configuration de l’agent pour Windows, consultez la page [Connecter des ordinateurs Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).

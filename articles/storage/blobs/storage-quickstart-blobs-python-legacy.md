@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Créez un objet blob dans le stockage Blob Azure avec Python'
-description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
+title: 'Démarrage rapide : Bibliothèque de client de stockage blob Azure v2.1 pour Python'
+description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage v2.1 pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 09/11/2019
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609689"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825300"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>Démarrage rapide : Charger, télécharger et lister les objets blob du stockage Blob Azure avec Python
+# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Démarrage rapide : Bibliothèque de client de stockage blob Azure v2.1 pour Python
 
 Dans cet article, vous allez utiliser Python pour charger, télécharger et lister des objets blob de blocs dans un conteneur du Stockage Blob Azure. Les objets blob sont simplement des objets qui peuvent contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des éléments multimédias en streaming et des données d’archive. Les objets blob de Stockage Azure sont différents des partages de fichiers, des tables sans schéma et des files d’attente de messages.  Pour plus d’informations, consultez [Présentation de Stockage Azure](/azure/storage/common/storage-introduction).
 

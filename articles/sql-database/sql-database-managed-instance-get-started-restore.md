@@ -1,5 +1,5 @@
 ---
-title: Restaurer une sauvegarde dans Azure SQL Database Managed Instance | Microsoft Docs
+title: Restaurer une sauvegarde vers une instance gérée
 description: Restaurez une sauvegarde de base de données dans Azure SQL Database Managed Instance à l’aide de SSMS.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514007"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825705"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Démarrage rapide : Restaurer une base de données sur une instance managée
 
@@ -35,12 +35,12 @@ Dans ce guide de démarrage rapide :
 - Utilise des ressources du guide de démarrage rapide [Créer une instance managée](sql-database-managed-instance-get-started.md).
 - Votre ordinateur doit avoir la dernière version de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) installée.
 - Nécessite l’utilisation de SSMS pour se connecter à votre instance managée. Consultez ces guides de démarrage rapide sur la façon de se connecter :
+  - [Activer le point de terminaison public](sql-database-managed-instance-public-endpoint-configure.md) sur Managed Instance (il s’agit de l’approche recommandée pour ce didacticiel).
   - [Se connecter à une instance Azure SQL Database Managed Instance à partir d’une machine virtuelle Azure](sql-database-managed-instance-configure-vm.md)
   - [Configurer une connexion point à site à une instance managée Azure SQL Database à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
-- Nécessite un compte de stockage Blob Azure (par exemple, Standard_LRS V2) sur une **adresse IP publique**, protégé avec des **informations d’identification SAS** ayant l’autorisation `rw`. [Actuellement, les adresses IP privées pour un stockage d’objets blob protégé par un pare-feu](https://docs.microsoft.com/azure/storage/common/storage-network-security) et les points de terminaison de service de stockage Blob Azure ne sont pas pris en charge.
 
 > [!NOTE]
-> Pour plus d’informations sur la sauvegarde et la restauration d’une base de données SQL Server à l’aide du stockage Blob Azure et d’une [clé de signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consultez [Sauvegarde SQL Server vers une URL](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
+> Pour plus d’informations sur la sauvegarde et la restauration d’une base de données SQL Server à l’aide du stockage Blob Azure et d’une [clé de signature d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), consultez [Sauvegarde SQL Server vers une URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017).
 
 ## <a name="restore-the-database-from-a-backup-file"></a>Restaurer la base de données à partir d’un fichier de sauvegarde
 
@@ -86,7 +86,11 @@ Avec SSMS, suivez ces étapes pour restaurer la base de données Wide World Impo
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Une fois la restauration terminée, affichez-la dans l’Explorateur d’objets.
+7. Une fois la restauration terminée, affichez la base de données dans l’Explorateur d’objets. Vous pouvez vérifier que la restauration de la base de données est terminée dans la vue [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
+
+> [!NOTE]
+> L’opération de restauration de base de données est asynchrone et peut être retentée. SQL Server Management Studio peut générer une erreur en cas d’interruption de la connexion ou d’expiration d’un délai d’attente. Azure SQL Database continue d’essayer de restaurer la base de données en arrière-plan et vous pouvez suivre l’avancement de la restauration dans les vues [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) et [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).
+> Dans certaines phases du processus de restauration, un identificateur unique s’affiche au lieu du nom réel de la base de données dans les vues système. Découvrez les `RESTORE`différences de comportement d’instruction [ici](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,22 +1,22 @@
 ---
-title: Migrer des données d'événement vers SQL Data Warehouse - Azure Event Hubs | Microsoft Docs
-description: Ce didacticiel vous montre comment capturer des données de votre Event Hub dans SQL Data Warehouse à l’aide d’une fonction Azure déclenchée par une grille d’événements.
+title: 'Didacticiel : Migrer des données d’événement vers SQL Data Warehouse – Azure Event Hubs'
+description: 'Didacticiel : Ce didacticiel vous montre comment capturer des données de votre Event Hub dans SQL Data Warehouse à l’aide d’une fonction Azure déclenchée par une grille d’événements.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604291"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718892"
 ---
-# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Migrer des données Event Hubs capturées vers SQL Data Warehouse à l'aide d'Event Grid et d'Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Didacticiel : Migrer des données Event Hubs capturées vers SQL Data Warehouse à l'aide d'Event Grid et d'Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) est le moyen le plus simple pour fournir automatiquement les données diffusées en continu d’Event Hubs à un compte de stockage Blob Azure ou Azure Data Lake Store. Vous pouvez ensuite traiter et fournir les données vers n’importe quelle destination de stockage de votre choix, SQL Data Warehouse ou Cosmos DB par exemple. Dans ce didacticiel, vous allez apprendre à capturer des données de votre Event Hub dans SQL Data Warehouse à l’aide d’une fonction Azure déclenchée par une [grille d’événements](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -68,7 +68,7 @@ Les sections suivantes fournissent des commandes Azure CLI et Azure PowerShell p
 
 Ces scripts prennent un certain temps pour créer tous les artefacts Azure. Attendez que le script se termine avant de continuer. Si le déploiement échoue pour une raison quelconque, supprimez le groupe de ressources, corrigez le problème signalé et réexécutez la commande. 
 
-#### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-cli"></a>D’Azure CLI
 Pour déployer le modèle à l’aide d’Azure CLI, exécutez les commandes suivantes :
 
 ```azurecli-interactive
@@ -141,7 +141,7 @@ Après la publication de la fonction, vous êtes prêt à vous abonner à l’é
 
    ![Ajouter un abonnement](./media/store-captured-data-data-warehouse/add-event-grid-subscription.png)
 
-1. Donnez un nom à l’abonnement Event Grid. Utilisez les **espaces de noms Event Hubs** comme type d’événement. Indiquez des valeurs pour sélectionner votre instance de l’espace de noms Event Hubs. Conservez le point de terminaison de l’abonné fourni. Sélectionnez **Créer**.
+1. Donnez un nom à l’abonnement Event Grid. Utilisez les **espaces de noms Event Hubs** comme type d’événement. Indiquez des valeurs pour sélectionner votre instance de l’espace de noms Event Hubs. Conservez le point de terminaison de l’abonné fourni. Sélectionnez **Create** (Créer).
 
    ![Créer un abonnement](./media/store-captured-data-data-warehouse/set-subscription-values.png)
 

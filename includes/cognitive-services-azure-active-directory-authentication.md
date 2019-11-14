@@ -4,17 +4,18 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: 3a6807cc204a5f8a6957bb03cf4dcbaf3611c17c
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b9f84385e49fcf5f101b7ce642b0a82e3a4b9388
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148409"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799840"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>S’authentifier à l’aide d’Azure Active Directory
 
 > [!IMPORTANT]
-> Actuellement, **seuls** l’API Vision par ordinateur, l’API Visage, l’API Analyse de texte et le Lecteur immersif prennent en charge l’authentification avec Azure Active Directory (AAD).
+> 1. Actuellement, **seule** l’API Vision par ordinateur, l’API Visage, l’API Analyse de texte, le Lecteur immersif, Form Recognizer, le Détecteur d’anomalies et tous les services Bing, à l’exception de Recherche personnalisée Bing, prennent en charge l’authentification à l’aide d’Azure Active Directory (AAD).
+> 2. L’authentification AAD doit être toujours utilisée avec le nom de sous-domaine personnalisé de votre ressource Azure. Les [points de terminaison régionaux](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) ne prennent pas en charge l’authentification AAD.
 
 Dans les sections précédentes, nous vous avons montré comment vous authentifier auprès d’Azure Cognitive Services en utilisant une clé d’abonnement monoservice ou multiservice. Bien que ces clés offrent un moyen simple et rapide de démarrer le développement, elles ne conviennent plus dans des scénarios plus complexes qui nécessitent des contrôles d’accès basés sur les rôles. Voyons ce qui est nécessaire pour s’authentifier avec Azure Active Directory (AAD).
 
@@ -22,7 +23,7 @@ Dans les sections suivantes, vous allez utiliser l’environnement Azure Cloud S
 
 ### <a name="create-a-resource-with-a-custom-subdomain"></a>Créer une ressource avec un sous-domaine personnalisé
 
-La première étape consiste à créer un sous-domaine personnalisé.
+La première étape consiste à créer un sous-domaine personnalisé. Si vous voulez utiliser une ressource Cognitive Services existante n’ayant pas de nom de sous-domaine personnalisé, suivez les instructions de la rubrique [Sous-domaines personnalisés de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) pour activer un sous-domaine personnalisé pour votre ressource.
 
 1. Commencez par ouvrir Azure Cloud Shell. Ensuite, [sélectionnez un abonnement](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description) :
 

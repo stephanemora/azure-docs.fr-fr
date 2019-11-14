@@ -1,5 +1,5 @@
 ---
-title: Créer votre première fabrique de données Azure (PowerShell) | Microsoft Docs
+title: Créer votre première fabrique de données Azure (PowerShell)
 description: Dans ce didacticiel, vous allez créer un exemple de pipeline Azure Data Factory à l’aide d’Azure PowerShell.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 3e60e31f62d74a22a87c60f70e62bd5148906607
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 0209b004ba54417a26cd41716687d328ec1431cf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140417"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682996"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Didacticiel : Créer votre première fabrique de données Azure à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
