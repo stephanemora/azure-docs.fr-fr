@@ -138,6 +138,8 @@
         - name: Décalage et conversion du direct en VOD
           displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
+        - name: Transcription en direct
+          href: live-transcription.md
         - name: Comparaison des fonctionnalités
           href: live-event-types-comparison.md
         - name: États et facturation

@@ -361,8 +361,8 @@
               href: hyper-v-azure-failback.md
         - name: gérer
           items:
-            - name: Détails de la dépréciation à venir de la prise en charge des configurations SCVMM dans ASR
-              href: scvmm-site-recovery-deprecation.md
+            - name: Dépréciation de la reprise d’activité entre sites de clients
+              href: site-to-site-deprecation.md
             - name: Mettre à niveau les serveurs Windows configurés avec Site Recovery
               href: upgrade-2012R2-to-2016.md
             - name: Supprimer des serveurs et désactiver la protection

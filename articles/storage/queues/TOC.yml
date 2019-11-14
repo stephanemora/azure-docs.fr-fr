@@ -206,12 +206,16 @@
       items:
         - name: "Files d’attente (version\_11.x)"
           href: /dotnet/api/microsoft.azure.storage.queue
+        - name: "Files d’attente (version\_12.x)"
+          href: /dotnet/api/azure.storage.queues
         - name: Fournisseur de ressources de stockage
           href: /dotnet/api/overview/azure/storage/management
     - name: Java
       items:
         - name: "Files d’attente (version\_8.x)"
           href: /java/api/com.microsoft.azure.storage.queue
+        - name: "Files d’attente (version\_12.x)"
+          href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html'
         - name: Fournisseur de ressources de stockage
           href: /java/api/overview/azure/storage/management
     - name: "JavaScript (version\_12.x)"
@@ -267,11 +271,11 @@
       items:
         - name: "Microsoft.Azure.Storage.Common (version\_11.x)"
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
-        - name: "Azure.Storage.Common (version\_12.x - préversion)"
+        - name: "Azure.Storage.Common (version\_12.x)"
           href: 'https://www.nuget.org/packages/Azure.Storage.Common/'
         - name: "Microsoft.Azure.Storage.Queue (version\_11.x)"
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
-        - name: "Azure.Storage.Queue (version\_12.x - préversion)"
+        - name: "Azure.Storage.Queue (version\_12.x)"
           href: 'https://www.nuget.org/packages/Azure.Storage.Queues/'
         - name: Gestionnaire de configuration Azure
           href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
@@ -283,7 +287,7 @@
           items:
             - name: Bibliothèque de client Stockage Azure
               items:
-                - name: "Version\_12.x (préversion)"
+                - name: "Version\_12.x"
                   href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage'
                 - name: "Versions\_11.x et antérieures"
                   href: 'https://github.com/Azure/azure-storage-net'
@@ -293,7 +297,7 @@
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
         - name: Java
           items:
-            - name: "Bibliothèque de client Stockage Azure version\_12.x (préversion)"
+            - name: "Bibliothèque de client Stockage Azure version\_12.x"
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage'
             - name: "Objets blob, files d’attente et fichiers (version\_8)"
               href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
@@ -301,13 +305,13 @@
               href: 'https://github.com/Azure/azure-storage-java'
         - name: Node.js
           items:
-            - name: "Bibliothèque de client Stockage Azure version\_12.x (préversion)"
+            - name: "Bibliothèque de client Stockage Azure version\_12.x"
               href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage'
             - name: "Bibliothèque de client Stockage Azure version\_10.x"
               href: 'https://github.com/Azure/azure-storage-node'
         - name: Python
           items:
-            - name: "Bibliothèque de client Stockage Azure version\_12.x (préversion)"
+            - name: "Bibliothèque de client Stockage Azure version\_12.x"
               href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage'
             - name: "Bibliothèque de client Stockage Azure version\_2.1"
               href: 'https://github.com/Azure/azure-storage-python'

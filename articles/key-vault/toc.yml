@@ -114,6 +114,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: Acheminer les notifications du coffre de clés avec Event Grid
       href: event-grid-tutorial.md
+    - name: Intégrer avec Azure Policy
+      href: azure-policy.md
     - name: Journalisation d’Azure Key Vault
       href: key-vault-logging.md
     - name: Accès derrière des pare-feu

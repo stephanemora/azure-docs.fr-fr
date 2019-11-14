@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentation Gestion des utilisateurs en entreprise - Azure Active Directory
+title: Documentation Gestion des utilisateurs en entreprise - Azure AD
 summary: Les services de gestion des utilisateurs Azure AD, tels que les attributions de rôles d’administrateur et de groupes, vous aident à accomplir vos tâches principales rapidement. Attribuez des licences, accordez l’accès à une application à des groupes ou des utilisateurs, ou déléguez des autorisations pour distribuer les tâches de gestion des identités.
 metadata:
   title: Documentation Utilisateurs, groupes, rôles et licences Azure Active Directory
@@ -7,17 +7,17 @@ metadata:
   services: active-directory
   ms.service: active-directory
   ms.subservice: users-groups-roles
-  manager: mtillman
+  manager: daveba
   ms.topic: landing-page
-  ms.date: 08/28/2019
+  ms.date: 11/08/2019
   author: curtand
   ms.author: curtand
-  ms.openlocfilehash: db210331e07ec1b23c3300a5a5a972570be5b591
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 2e7a21395059a73047678aa02ff8119511597b74
+  ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73885802"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74026406"
 landingContent:
 - title: À propos des utilisateurs, des groupes, des rôles et des licences
   linkLists:
