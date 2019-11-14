@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 9b70a9c364768322a3eae6ef5b92c87b6839c540
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 11/04/2019
+ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242088"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614375"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>Didacticiel : Configurer des clusters Azure Kubernetes Service (AKS) dans Azure à l’aide d’Ansible
 
@@ -54,7 +54,8 @@ Enregistrez le playbook suivant en tant que `azure_create_aks.yml` :
     ssh_key: "your_ssh_key"
     client_id: "your_client_id"
     client_secret: "your_client_secret"
-  tasks:
+    aks_version: aks_version
+tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -65,6 +66,7 @@ Enregistrez le playbook suivant en tant que `azure_create_aks.yml` :
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
       dns_prefix: "{{ aks_name }}"
+      kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
         ssh_key: "{{ ssh_key }}"
@@ -84,6 +86,7 @@ Avant d’exécuter le playbook, consultez les notes suivantes :
 - La première section au sein de `tasks` définit un groupe de ressources nommé `myResourceGroup` dans l’emplacement `eastus`.
 - La deuxième section au sein de `tasks` définit un cluster AKS nommé `myAKSCluster` dans le groupe de ressources `myResourceGroup`.
 - Pour l’espace réservé `your_ssh_key`, entrez votre clé publique RSA dans un format de ligne unique, commençant par « ssh-rsa » (sans les guillemets).
+- Pour l'espace réservé `aks_version`, utilisez la commande [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions).
 
 Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 

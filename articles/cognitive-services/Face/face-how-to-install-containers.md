@@ -1,7 +1,7 @@
 ---
 title: Installer et exécuter des conteneurs - API VISAGE
 titleSuffix: Azure Cognitive Services
-description: Téléchargez, installez et exécutez des conteneurs pour l’API Visage dans ce tutoriel pas à pas.
+description: Cet article décrit la procédure pas à pas pour télécharger, installer et exécuter des conteneurs pour Visage.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: f2bf5766dc09b85f276349a5e72f1bc3b8ba23b3
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: b3c064ae2dbc37858ca6fe89742161e0dda1784f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316371"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743270"
 ---
 # <a name="install-and-run-face-containers"></a>Installer et exécuter des conteneurs d’API Visage
 

@@ -1,6 +1,6 @@
 ---
-title: Exemples d’intégration d’Azure Service Bus et d’Event Grid | Documents Microsoft
-description: Cet article fournit des exemples d’intégration de la messagerie Service Bus et d’Event Grid.
+title: "Didacticiel : Exemples d'intégration d'Azure Service Bus à Event Grid"
+description: 'Didacticiel : Cet article fournit des exemples d’intégration de la messagerie Service Bus et d’Event Grid.'
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: d3f523bbc0236536734f21870474492a61532ada
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304237"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719027"
 ---
-# <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Répondre aux événements Azure Service Bus reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps
+# <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Didacticiel : Répondre aux événements Azure Service Bus reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps
 Dans ce tutoriel, vous allez apprendre à répondre aux événements Azure Service Bus qui sont reçus via Azure Event Grid à l’aide d’Azure Functions et d’Azure Logic Apps. Vous allez effectuer les étapes suivantes :
  
 - Créer une fonction Azure de test pour déboguer et voir le flux initial d’événements à partir d’Event Grid.
@@ -294,7 +294,7 @@ Connectez une application logique avec Azure Service Bus et Azure Event Grid en 
     6. Sélectionnez **RootManageSharedAccessKey**.
 
         ![Concepteur Logic Apps - sélectionner la clé d’accès partagé](./media/service-bus-to-event-grid-integration-example/logic-app-shared-access-key.png) 
-    7. Sélectionnez **Créer**. 
+    7. Sélectionnez **Create** (Créer). 
     8. Sélectionnez votre rubrique et votre abonnement. 
     
         ![Concepteur Logic Apps - sélectionner votre rubrique Service Bus et votre abonnement](./media/service-bus-to-event-grid-integration-example/logic-app-select-topic-subscription.png)

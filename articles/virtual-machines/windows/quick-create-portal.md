@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer une machine virtuelle Windows sur le Portail Azure | Microsoft Docs'
+title: 'Démarrage rapide : Créer une machine virtuelle Windows dans le portail Azure'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser le Portail Azure pour créer une machine virtuelle Windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -7,24 +7,23 @@ author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 60f74de308938ee155cf61f3360f73d92feaa67c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102506"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685140"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows dans le portail Azure
 
-Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Cette méthode fournit une interface utilisateur sur navigateur permettant de créer les machines virtuelles et les ressources associées. Ce guide de démarrage rapide explique comment utiliser le Portail Azure pour déployer dans Azure une machine virtuelle qui fonctionne avec Windows Server 2016. Pour voir votre machine virtuelle en action, vous établirez une connexion RDP à la machine virtuelle et installerez le serveur web IIS.
+Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Cette méthode fournit une interface utilisateur sur navigateur permettant de créer les machines virtuelles et les ressources associées. Ce guide de démarrage rapide explique comment utiliser le portail Azure pour déployer dans Azure une machine virtuelle qui fonctionne avec Windows Server 2019. Pour voir votre machine virtuelle en action, vous établirez une connexion RDP à la machine virtuelle et installerez le serveur web IIS.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -34,15 +33,14 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
-1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du Portail Azure.
-
-1. Dans la page **Nouveau** sous **Populaire**, sélectionnez **Windows Server 2016 Datacenter**.
-
+1. Entrez **machines virtuelles** dans la zone de recherche.
+1. Sous **Services**, sélectionnez **Machines virtuelles**.
+1. Sur la page **Machines virtuelles**, sélectionnez **Ajouter**. 
 1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** pour créer un groupe de ressources. Tapez *myResourceGroup* comme nom. 
 
     ![Créer un groupe de ressources pour votre machine virtuelle](./media/quick-create-portal/project-details.png)
 
-1. Sous **Détails de l’instance**, tapez *myVM* comme **Nom de la machine virtuelle**, puis choisissez *USA Est* comme **Emplacement**. Conservez les autres valeurs par défaut.
+1. Sous **Détails de l’instance**, tapez *myVM* comme **Nom de la machine virtuelle**, puis choisissez *USA Est* comme **Région** et *Centre de données Windows Server 2019* pour **Image**. Conservez les autres valeurs par défaut.
 
     ![Section Détails de l’instance](./media/quick-create-portal/instance-details.png)
 
@@ -50,7 +48,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     ![Entrez votre nom d’utilisateur et votre mot de passe.](./media/quick-create-portal/administrator-account.png)
 
-1. Sous **Règles des ports d’entrée**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** et **HTTP** dans la liste déroulante.
+1. Sous **Règles des ports d’entrée**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** et **HTTP (80)** dans la liste déroulante.
 
     ![Ports ouverts pour RDP et HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -63,11 +61,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Créez une connexion Bureau à distance à la machine virtuelle. Ces instructions expliquent comment se connecter à la machine virtuelle à partir d’un ordinateur Windows. Sur un Mac, vous avez besoin d’un client RDP similaire à ce [Client Bureau à distance](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) disponible sur le Mac App Store.
 
-1. Cliquez sur le bouton **Se connecter** sur la page de propriétés de la machine virtuelle. 
+1. Cliquez sur le bouton **Se connecter** sur la page de vue d’ensemble de votre machine virtuelle. 
 
     ![Se connecter à une machine virtuelle Azure à partir du portail](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par nom DNS sur le port 3389 et cliquez sur **Télécharger le fichier RDP**.
+2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par adresse IP sur le port 3389 et cliquez sur **Télécharger le fichier RDP**.
 
 2. Ouvrez le fichier RDP téléchargé et, à l’invite, cliquez sur **Se connecter**. 
 
@@ -94,7 +92,9 @@ Dans le portail, sélectionnez la machine virtuelle et dans la vue d’ensemble 
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionnez **Supprimer**. Confirmez le nom du groupe de ressources pour terminer la suppression des ressources.
+Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. 
+
+Sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionnez **Supprimer**. Confirmez le nom du groupe de ressources pour terminer la suppression des ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

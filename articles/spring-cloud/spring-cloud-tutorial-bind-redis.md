@@ -1,20 +1,17 @@
 ---
 title: Guide pratique pour lier Cache Azure pour Redis à votre application Azure Spring Cloud | Microsoft Docs
 description: Découvrez comment lier Cache Azure pour Redis à votre application Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: d8fa31207baecc80674fb11b492927800676b8a2
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: tutorial
+ms.date: 10/31/2019
+ms.author: jeconnoc
+ms.openlocfilehash: a901e4194909df85f53799d5937515e42ea87a69
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038238"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607569"
 ---
 # <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-cache-for-redis"></a>Didacticiel : Lier des services Azure à votre application Azure Spring Cloud : Cache Azure pour Redis
 
@@ -26,14 +23,7 @@ Azure Spring Cloud vous permet de lier automatiquement certains services Azure �
 * Une instance du service Cache Azure pour Redis
 * L’extension Azure Spring Cloud pour Azure CLI
 
-Si nécessaire, installez l’extension Azure Spring Cloud pour Azure CLI avec la commande suivante :
-
-```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
-```
-
->[!TIP]
-> Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article.  Les outils Azure les plus courants sont préinstallés, notamment les dernières versions de Git, JDK, Maven et Azure CLI. Si vous êtes connecté à votre abonnement Azure, lancez votre [Azure Cloud Shell](https://shell.azure.com) à partir de shell.azure.com.  Vous pouvez découvrir plus d’informations sur Azure Cloud Shell [en lisant notre documentation](../cloud-shell/overview.md).
+Si vous n’avez pas encore déployé d’instance Azure Spring Cloud, suivez les étapes décrites dans ce [guide de démarrage rapide](spring-cloud-quickstart-launch-app-portal.md) pour déployer votre première application Spring Cloud.
 
 ## <a name="bind-azure-cache-for-redis"></a>Lier Cache Azure pour Redis
 

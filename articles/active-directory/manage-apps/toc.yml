@@ -24,6 +24,8 @@
 - name: Concepts
   expanded: true
   items:
+    - name: Bonnes pratiques sur la gestion des applications
+      href: application-management-fundamentals.md
     - name: Applications cloud et authentification unique
       items:
         - name: Planification d’une intégration d’applications cloud

@@ -1,6 +1,5 @@
 ---
-title: Utiliser le service Azure Site Recovery pour déplacer des machines virtuelles Azure IaaS vers une autre région Azure en tant que machines virtuelles rattachées à une zone | Microsoft Docs
-description: Utilisez Azure Site Recovery pour déplacer des machines virtuelles Azure IaaS vers une autre région Azure en tant que machines virtuelles rattachées à une zone.
+title: Déplacer des machines virtuelles vers une région Azure avec des zones de disponibilité à l’aide d’Azure Site Recovery
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375744"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693184"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Déplacer des machines virtuelles Azure vers des zones de disponibilité
 Les zones de disponibilité dans Azure contribuent à protéger les applications et les données contre des échecs du centre de données. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des zones de disponibilité au sein d’une région contribue à protéger les applications et les données contre des échecs du centre de données. Avec les zones de disponibilité, Azure offre un Contrat de niveau de service (SLA) de 99,99 % en lien avec la durée de fonctionnement des machines virtuelles. Les zones de disponibilité sont prises en charge dans certaines régions, comme indiqué dans [Que sont les zones de disponibilité dans Azure ?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region).

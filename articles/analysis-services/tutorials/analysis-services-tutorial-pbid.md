@@ -1,20 +1,20 @@
 ---
-title: 'Didacticiel : se connecter à Azure Analysis Services avec Power BI Desktop | Microsoft Docs'
+title: 'Didacticiel : Connecter Azure Analysis Services à Power BI Desktop | Microsoft Docs'
 author: minewiskan
-description: Découvrez comment vous connecter à Azure Analysis Services avec Power BI Desktop.
+description: Découvrez comment obtenir un nom de serveur Analysis Services à partir du portail Azure et vous connecter au serveur à l’aide de Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 04/25/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: f2123b6d8b11c89735e65cb0f48d93841f49328d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 4d8c753f06e58fd1cce1c55eca213637cb70e436
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294488"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572316"
 ---
-# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutoriel : Se connecter avec Power BI Desktop
+# <a name="tutorial-connect-with-power-bi-desktop"></a>Didacticiel : Se connecter avec Power BI Desktop
 
 Dans ce didacticiel, vous utilisez Power BI Desktop pour vous connecter à l’exemple de base de données de modèle adventureworks sur votre serveur. Les tâches que vous effectuez simulent une connexion utilisateur classique au modèle et la création d’un rapport à partir des données du modèle.
 

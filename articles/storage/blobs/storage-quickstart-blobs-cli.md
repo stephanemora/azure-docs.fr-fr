@@ -1,20 +1,19 @@
 ---
 title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide d’Azure CLI | Microsoft Docs
-description: Dans ce Démarrage rapide, vous utilisez Azure CLI dans un stockage d’objets (blob). Ensuite, vous utilisez le CLI pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur.
+description: Dans ce guide de démarrage rapide, vous allez apprendre à utiliser Azure CLI pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob d’un conteneur.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 11/06/2019
 ms.author: tamram
-ms.reviewer: seguler
-ms.openlocfilehash: 6a0aef9b2fc7a99183ebd6991691245731e00200
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f3143eced90f97c090c0005375ef50fe48c5f5f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565963"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747932"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Démarrage rapide : Charger, télécharger et lister des objets blob avec Azure CLI
 
@@ -39,30 +38,26 @@ Les objets blob sont toujours chargés dans un conteneur. Vous pouvez organiser 
 Créez un conteneur pour stocker des objets blob avec la commande [az storage container create](/cli/azure/storage/container).
 
 ```azurecli-interactive
-az storage container create --name mystoragecontainer
+az storage container create --name sample-container
 ```
 
 ## <a name="upload-a-blob"></a>Charger un objet blob
 
-Le stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. La plupart des fichiers stockés dans le stockage Blob sont stockés comme des objets blob de blocs. Les objets blob d’ajout sont utilisés quand les données doivent être ajoutées à un objet blob existant sans modifier son contenu existant, par exemple, pour la journalisation. Les objets blob de pages stockent les fichiers de disque dur virtuel des machines virtuelles IaaS.
+Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Les exemples de ce guide de démarrage rapide montrent comment utiliser des objets blob de blocs.
 
-Commencez par créer un fichier à charger dans un objet blob.
-Avec Azure Cloud Shell, procédez ainsi pour créer un fichier : utilisez `vi helloworld` lorsque le fichier s’ouvre, appuyez sur **Insérer**, tapez « Hello world », appuyez sur **Échap**, puis entrez `:x` et appuyez sur **Entrée**.
+Commencez par créer un fichier à charger dans un objet blob de blocs. Si vous utilisez Azure Cloud Shell, utilisez la commande suivante pour créer un fichier :
 
-Dans cet exemple, vous chargez un objet blob dans le conteneur que vous avez créé à la dernière étape avec la commande [az storage blob upload](/cli/azure/storage/blob).
-
-```azurecli-interactive
-az storage blob upload \
-    --container-name mystoragecontainer \
-    --name blobName \
-    --file ~/path/to/local/file
+```bash
+vi helloworld
 ```
 
-Si vous avez fait appel à la méthode décrite précédemment pour créer un fichier dans l’environnement Azure Cloud Shell, vous pouvez utiliser cette commande CLI à la place. Normalement, vous devez spécifier un chemin d’accès, mais notez que cela est inutile ici, car le fichier a été créé dans le répertoire de base :
+Lorsque le fichier s’ouvre, appuyez sur **Insérer**. Entrez *Hello world*, puis appuyez sur **Échap**. Entrez ensuite *:x*, puis appuyez sur **Entrée**.
+
+Dans cet exemple, vous chargez un objet blob dans le conteneur que vous avez créé à la dernière étape avec la commande [az storage blob upload](/cli/azure/storage/blob). Il n’est pas nécessaire de spécifier un chemin d’accès, car le fichier a été créé dans le répertoire racine :
 
 ```azurecli-interactive
 az storage blob upload \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --name helloworld \
     --file helloworld
 ```
@@ -77,7 +72,7 @@ Listez les objets blob d’un conteneur avec la commande [az storage blob list](
 
 ```azurecli-interactive
 az storage blob list \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --output table
 ```
 
@@ -87,36 +82,36 @@ Utilisez la commande [az storage blob download](/cli/azure/storage/blob) pour t�
 
 ```azurecli-interactive
 az storage blob download \
-    --container-name mystoragecontainer \
-    --name blobName \
+    --container-name sample-container \
+    --name helloworld \
     --file ~/destination/path/for/file
 ```
 
 ## <a name="data-transfer-with-azcopy"></a>Transfert de données avec AzCopy
 
-L’utilitaire [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une autre option hautes performances pour transférer des données par script avec le stockage Azure. Vous pouvez utiliser AzCopy pour transférer des données vers et à partir du stockage Blob, Table et Fichier.
+L’utilitaire [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) est une autre option hautes performances pour transférer des données par script avec le stockage Azure. Vous pouvez utiliser AzCopy pour transférer des données à destination et à partir du stockage Blob, Table et Fichier.
 
-Exemple rapide : voici la commande AzCopy qui permet de charger un fichier appelé *myfile.txt* dans le conteneur *mystoragecontainer*.
+L’exemple suivant utilise AzCopy pour charger un fichier appelé *myfile.txt* dans le conteneur *sample-container*. N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
 ```bash
 azcopy \
     --source /mnt/myfiles \
-    --destination https://mystorageaccount.blob.core.windows.net/mystoragecontainer \
-    --dest-key <storage-account-access-key> \
+    --destination https://<account-name>.blob.core.windows.net/sample-container \
+    --dest-key <account-key> \
     --include "myfile.txt"
 ```
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin des ressources de votre groupe de ressources, y compris du compte de stockage que vous avez créé dans ce guide de démarrage rapide, supprimez le groupe de ressources avec la commande [az group delete](/cli/azure/group).
+Si vous n’avez plus besoin des ressources de votre groupe de ressources, y compris du compte de stockage que vous avez créé dans ce guide de démarrage rapide, supprimez le groupe de ressources avec la commande [az group delete](/cli/azure/group). N’oubliez pas de remplacer les valeurs d’espace réservé entre crochets par vos propres valeurs :
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name <resource-group-name>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un disque local et un conteneur du stockage Blob Azure. Pour en savoir plus sur l’utilisation des objets blob dans le stockage Azure, consultez le didacticiel sur l’utilisation du stockage Blob Azure.
+Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers entre un système de fichiers local et un conteneur du stockage Blob Azure. Pour en savoir plus sur l’utilisation des objets blob dans le stockage Azure, consultez le didacticiel sur l’utilisation du stockage Blob Azure.
 
 > [!div class="nextstepaction"]
 > [Guide pratique pour des opérations de stockage Blob avec Azure CLI](storage-how-to-use-blobs-cli.md)

@@ -1,7 +1,7 @@
 ---
 title: Exporter votre modèle sur votre mobile - Service Vision personnalisée
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment exporter votre modèle afin de l’utiliser pour créer des applications mobiles.
+description: Cet article explique comment exporter votre modèle pour l'utiliser lors de la création d'applications mobiles ou pour l'exécuter localement à des fins de classification en temps réel.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,23 +10,26 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 554a392a7f815a6e646927f137b1e6c2856099bd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f734f4f1a11f57b759615e7a9ce2cd2f7f8028fb
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561083"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718955"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exporter votre modèle pour l’utiliser avec des appareils mobiles
 
 Le service Vision personnalisée permet d’exporter des classifieurs pour les exécuter en mode hors connexion. Vous pouvez incorporer un classifieur exporté dans une application et l’exécuter localement sur un appareil pour la classification en temps réel.
+
+## <a name="export-options"></a>Options d'exportation
 
 Le service Vision personnalisée prend en charge les exportations suivantes :
 
 * __Tensorflow__ pour __Android__.
 * __CoreML__ pour __iOS11__.
 * __ONNX__ pour __Windows ML__.
-* __Conteneur__ Windows ou Linux. Le conteneur inclut un modèle Tensorflow et le code du service pour utiliser l’API Service Vision personnalisée. 
+* __[Kit de développement Vision AI](https://azure.github.io/Vision-AI-DevKit-Pages/)__ .
+* Un __conteneur Docker__ pour l'architecture Windows, Linux ou ARM. Le conteneur inclut un modèle Tensorflow et un code de service permettant d'utiliser l'API Custom Vision.
 
 > [!IMPORTANT]
 > Le service Vision personnalisée exporte uniquement des domaines __compacts__. Les modèles générés par des domaines compacts sont optimisés en fonction des contraintes de la classification en temps réel sur les appareils mobiles. Les classifieurs conçus avec un domaine compact sont parfois légèrement moins précis qu’avec un domaine standard, pour une même quantité de données d’apprentissage.
@@ -36,23 +39,26 @@ Le service Vision personnalisée prend en charge les exportations suivantes :
 ## <a name="convert-to-a-compact-domain"></a>Convertir un domaine en domaine compact
 
 > [!NOTE]
-> Les étapes décrites dans cette section s’appliquent uniquement si vous utilisez un classifieur qui n’est pas défini avec un domaine compact.
+> Les étapes décrites dans cette section ne s'appliquent que si vous utilisez un modèle qui n'est pas défini avec un domaine compact.
 
-Pour convertir le domaine d’un classifieur existant, effectuez les étapes suivantes :
+Pour convertir le domaine d'un modèle existant, procédez comme suit :
 
-1. À partir de la [page Vision personnalisée](https://customvision.ai), sélectionnez l’icône __Accueil__ pour afficher la liste de vos projets. Vous pouvez également utiliser le lien [https://customvision.ai/projects](https://customvision.ai/projects) pour voir vos projets.
+1. Sur le [site web de Custom Vision](https://customvision.ai), sélectionnez l'icône __Accueil__ pour afficher la liste de vos projets.
 
     ![Image de l’icône Accueil et de la liste des projets](./media/export-your-model/projects-list.png)
 
-2. Sélectionnez un projet, puis sélectionnez l’icône __d’engrenage__ en haut à droite de la page.
+1. Sélectionnez un projet, puis sélectionnez l’icône __d’engrenage__ en haut à droite de la page.
 
     ![Image de l’icône d’engrenage](./media/export-your-model/gear-icon.png)
 
-3. Dans la section __Domaines__, sélectionnez un domaine __compact__. Sélectionnez __Enregistrer les modifications__.
+1. Dans la section __Domaines__, sélectionnez un des domaines __compacts__. Sélectionnez __Enregistrer les modifications__. 
+
+    > [!NOTE]
+    > Pour le kit de développement Vision AI, le projet doit être créé avec le domaine __Général (Compact)__ , et vous devez spécifier l'option **Kit de développement Vision AI** dans la section **Fonctionnalités d'exportation**.
 
     ![Image de la sélection des domaines](./media/export-your-model/domains.png)
 
-4. En haut de la page, sélectionnez __Entraîner__ pour recommencer l’entraînement avec le nouveau domaine.
+1. En haut de la page, sélectionnez __Entraîner__ pour recommencer l’entraînement avec le nouveau domaine.
 
 ## <a name="export-your-model"></a>Exporter votre modèle
 
@@ -65,7 +71,7 @@ Pour exporter le modèle après le nouvel entraînement, effectuez les étapes s
     > [!TIP]
     > Si l’option __Exporter__ n’est pas disponible, cela signifie que l’itération sélectionnée n’utilise pas un domaine compact. Dans la section __Itérations__ de cette page, sélectionnez une itération qui utilise un domaine compact, puis sélectionnez __Exporter__.
 
-2. Sélectionnez le format d’exportation, puis sélectionnez __Exporter__ pour télécharger le modèle.
+1. Sélectionnez le format d'exportation de votre choix, puis sélectionnez __Exporter__ pour télécharger le modèle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

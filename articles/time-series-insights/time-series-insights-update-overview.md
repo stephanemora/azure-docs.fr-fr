@@ -8,86 +8,89 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 588d6dafd3703743f5f4c50bea4f27ef0225bbf7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 05f4c64adad184e761e2b5a01b8c033c024dbc49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989732"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585266"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Qu’est-ce qu’Azure Time Series Insights (préversion) ?
 
-La préversion d’Azure Time Series Insights est une offre PaaS (platform-as-a-service) de bout en bout. Elle est utilisée pour collecter, traiter, stocker, analyser et interroger des données à l’échelle IoT optimisées pour une série chronologique hautement contextualisée. Time Series Insights est idéal pour l’exploration de données ad hoc et l’analyse opérationnelle. Time Series Insights est une offre de service personnalisée et extensible de manière unique qui répond aux besoins étendus des déploiements IoT sectoriels.
+La préversion d’Azure Time Series Insights est une offre PaaS (platform-as-a-service) de bout en bout. Vous pouvez l’utiliser pour collecter, traiter, stocker, analyser et interroger des données à l’échelle de l’Internet des objets (des données hautement contextualisées et optimisées pour les séries chronologiques). 
 
-> [!TIP]
-> Pour les fonctionnalités en disponibilité générale, consultez la [Vue d’ensemble d’Azure Time Series Insights en disponibilité générale](time-series-insights-overview.md).
+Time Series Insights est conçu pour l’exploration de données ad hoc et l’analyse opérationnelle. C’est une offre de service personnalisée et extensible qui répond aux besoins étendus des déploiements IoT sectoriels.
 
 ## <a name="video"></a>Vidéo
 
-### <a name="learn-more-about-azure-time-series-insights-preview-br"></a>Découvrez Azure Time Series Insights (préversion). </br>
+Découvrez Azure Time Series Insights (préversion).
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
-## <a name="define-iot-data"></a>Définir des données IoT
+## <a name="definition-of-iot-data"></a>Définition des données IoT
 
-Les données IoT sont des données « sectorielles » qui se trouvent dans des organisations qui utilisent un nombre considérable de ressources. Les données IoT sont souvent fortement déstructurées car elles sont envoyées à partir de ressources enregistrant des mesures assez bruyantes. Ces mesures incluent la température, le mouvement et l’humidité. Ces flux de données se caractérisent souvent par des lacunes importantes, des messages corrompus et des relevés erronés. Les données de ces flux doivent être nettoyées avant de pouvoir faire l’objet d’une analyse.
+Les données IoT sectorielles dans des organisations utilisant de nombreuses ressources manquent souvent de cohérence structurelle en raison de la diversité des appareils et capteurs présents dans un milieu industriel. Les données provenant de ces flux se caractérisent par des lacunes importantes, parfois des messages corrompus, et des relevés erronés. Les données IoT sont souvent utiles dans le contexte d’entrées de données supplémentaires provenant de sources internes ou tierces, comme CRM ou ERP qui ajoutent un contexte aux flux de travail de bout en bout. Les entrées provenant de sources de données tierces telles que des données météorologiques peuvent contribuer à augmenter les flux de télémétrie dans une installation donnée. 
 
-Les données IoT sont souvent utiles uniquement dans le contexte d’entrées de données supplémentaires provenant de sources internes, comme CRM ou ERP. Les entrées proviennent également de sources de données tierces, comme la météo ou l’emplacement.
-
-De ce fait, seule une fraction de ces données est utilisée à des fins opérationnelles et commerciales. Ces données sont des sources d’information cohérentes, complètes, actuelles et fiables qui permettent de créer des rapports d’entreprise et de procéder à des analyses. La transformation des données IoT collectées en informations exploitables nécessite :
+Tout cela implique que seule une fraction des données est utilisée à des fins commerciales et opérationnelles, et une contextualisation est requise pour l’analyse. Les données industrielles sont souvent replacées dans un historique pour une analyse approfondie sur de plus longues périodes afin de comprendre les tendances et les mettre en corrélation. La transformation des données IoT collectées en informations exploitables nécessite : 
 
 * Un traitement des données pour nettoyer, filtrer, interpoler, transformer et préparer les données en vue de leur analyse.
 * Une structuration des données pour pouvoir les explorer et les comprendre, la normalisation et la contextualisation des données.
-* Stocker à peu de frais l’équivalent de plusieurs décennies de données traitées ou dérivées et brutes dans l’optique d’une conservation longue ou infinie.
+* Stocker à peu de frais des données traitées (ou dérivées) et brutes dans l’optique d’une conservation longue ou infinie.
 
-Un flux de données IoT classique est illustré dans l’image suivante.
+Ces données sont des sources d’information cohérentes, complètes, actuelles et fiables qui permettent de créer des rapports d’entreprise et de procéder à des analyses.
 
-  [![Flux de données IoT](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
+L’image suivante illustre un flux de données IoT classique.
+
+[![Flux de données IoT](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>Azure Time Series Insights pour l’IoT sectoriel
 
-Le paysage actuel de l’IoT est divers et varié, Les clients couvrent la fabrication, l’industrie automobile, l’énergie, les utilitaires, les bâtiments intelligents et le secteur du conseil. Les scénarios incluent l’exploration de données ad hoc où la forme des données est inconnue. Les scénarios incluent également l’analyse du fonctionnement sur des données schématisées ou explicitement modélisées, pour renforcer l’efficacité. En général, ces scénarios coexistent et supportent différents cas d’usage. Les fonctionnalités de plateforme essentielles à la réussite des entreprises IoT de l’industrie et de leur révolution numérique incluent :
+Le paysage de l’IoT est varié et ses clients occupent différents segments d’activité tels que l’industrie, l’automobile, l’énergie, les services publics, le bâtiment intelligent et le conseil. Sur ce vaste marché de l’IoT pour le secteur industriel, les solutions natives du cloud offrant une analytique complète ciblée sur des données IoT à grande échelle sont en constante évolution. 
 
-- Le stockage multicouche, chaud et froid.
-- La capacité de stocker des dizaines d’années de données de séries chronologiques.
-- La possibilité de modéliser explicitement et d’optimiser les requêtes pour l’intelligence opérationnelle basée sur des ressources.
+Azure Time Series Insights répond à cette demande de marché en fournissant une solution d’analytique IoT de bout en bout clé en main avec la modélisation sémantique enrichie pour la contextualisation de données de série chronologique, les insights basés sur des ressources et une expérience utilisateur optimale pour la découverte, le repérage de tendances, la détection d’anomalies et l’intelligence opérationnelle. 
 
-Time Series Insights est une offre PaaS complète, destinée à explorer les données IoT et à tirer des insights opérationnels. Time Series Insights offre un service cloud entièrement géré dédié à l’analyse de données de séries chronologiques IoT.
+Grâce à la combinaison d’une plateforme d’analytique opérationnelle enrichie et de nos capacités d’exploration des données interactive, vous pouvez utiliser Time Series Insights pour mieux exploiter les données collectées auprès des ressources IoT. L’offre de préversion prend en charge : 
 
-Vous pouvez stocker des données brutes dans un magasin en mémoire sans schéma. Vous pouvez ensuite effectuer des requêtes ad hoc interactives via un moteur et une API de requête distribuée. Tirer parti de l’expérience utilisateur riche pour visualiser des milliards d’événements en quelques secondes. En savoir plus sur les [fonctionnalités d’exploration de données](./time-series-insights-overview.md).
+* Une solution de stockage multicouche avec prise en charge de l’analytique à chaud et à froid, offrant aux clients la possibilité d’acheminer des données entre chaud et froid pour l’analytique interactive sur des données à chaud ainsi que l’intelligence opérationnelle sur l’équivalent de plusieurs décennies de données d’historique. 
 
-Time Series Insights propose également des fonctionnalités d’insights opérationnels qui sont pour l’instant disponibles dans une préversion. Grâce à l’exploration de données interactive et à l’intelligence opérationnelle, vous pouvez utiliser Time Series Insights pour mieux exploiter les données collectées auprès des ressources IoT. L’offre de préversion prend en charge :
+    *   Une solution d’analytique à chaud hautement interactive pour exécuter des requêtes fréquentes et en grand nombre sur des données couvrant une période plus courte 
+    *   Un lac de données de série chronologique évolutif, optimisé en termes de performances et de coûts basé sur Stockage Azure, permettant aux clients d’afficher les tendances de données de série chronologique sur plusieurs années en quelques secondes. 
 
-* Un magasin de données de séries chronologiques scalable et optimisé en termes de performances et de coûts. Cette solution IoT basée sur le cloud peut donner une tendance de données de séries chronologiques portant sur plusieurs années et en seulement quelques secondes.
-* Modèle sémantique permettant de décrire le domaine et les métadonnées associés aux signaux dérivés et non dérivés de ressources et d’appareils.
-* Expérience utilisateur améliorée qui combine des insights de données basés sur des ressources et des analytiques données détaillées ad hoc. Cette combinaison pousse l’intelligence opérationnelle et de métier.
-* Intégration avec des outils avancés d’apprentissage automatique et d’analyse. Ces outils incluent Azure Databricks, Apache Spark, Azure Machine Learning, les notebooks Jupyter et Power BI. Ces outils vous aident à résoudre les défis liés aux données de séries chronologies et améliorent l’efficacité.
+* Un modèle sémantique permettant de décrire le domaine et les métadonnées associés aux signaux dérivés et bruts de ressources et d’appareils.
 
-L’offre couplée des insights opérationnels et de l’exploration de données obéit à un modèle de paiement à l’utilisation simple pour le traitement, le stockage et l’interrogation de données. Ce modèle de facturation est adapté aux besoins de votre entreprise.
+* Une plateforme d’analytique flexible permettant de stocker des données de série chronologique historiques dans un compte Stockage Azure appartenant au client. Les clients restent ainsi propriétaires de leurs données IoT. Les données sont stockées dans un format Apache Parquet open source qui permet la connectivité et l’interopérabilité dans différents scénarios de données, notamment l’analyse prédictive, le machine learning et d’autres calculs personnalisés effectués à l’aide de technologies classiques telles que Spark, Databricks et Jupyter.
 
-Ce diagramme de flux de données de haut niveau montre les mises à jour.
+* Une analytique enrichie avec des API de requête améliorées et une expérience utilisateur qui combine les insights de données basés sur des ressources et l’analytique de données ad hoc complète prenant en charge l’interpolation, les fonctions scalaire et d’agrégation, les variables catégoriques, les nuages de points et les signaux de série chronologique avec décalage temporel pour une analyse approfondie.
+
+*   Une plateforme de qualité professionnelle pour prendre en charge les besoins en matière d’évolutivité, de performance, de sécurité et de fiabilité de nos clients IoT d’entreprise.
+
+* La prise en charge de l’extensibilité et de l’intégration pour l’analytique de bout en bout. Time Series Insights offre une plateforme d’analytique extensible pour un large éventail de scénarios de données. Le connecteur Power BI Time Series Insights permet aux clients de traiter les requêtes qu’ils effectuent dans Time Series Insights directement dans Power BI afin d’obtenir une vue unifiée de leurs analyses de décisionnel et chronologiques dans un seul et même volet.
+
+Le schéma ci-dessous présente le flux de données général.
 
   [![Fonctionnalités clés](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
-Avec l’introduction de ces fonctionnalités IoT sectorielles clés, Time Series Insights offre les avantages suivants.
+Azure Time Series Insights offre un modèle de paiement à l’utilisation évolutif pour le traitement, le stockage (données et métadonnées) et l’interrogation des données, qui permet aux clients d’ajuster leur utilisation en fonction de leurs besoins professionnels. 
+ 
+Avec l’introduction de ces fonctionnalités IoT sectorielles clés, Time Series Insights offre également les avantages suivants.  
 
 | | |
 | ---| ---|
-| Stockage multicouche pour les données de séries chronologiques IoT | Avec un pipeline de traitement des données courantes pour le traitement de données, vous pouvez stocker des données dans un stockage à chaud pour les requêtes interactives. Vous pouvez également stocker des données dans un stockage à froid pour les gros volumes de données. Tirer parti des [requêtes](./time-series-insights-update-tsq.md) à hautes performances basées sur des ressources. |
-| Modèle de séries chronologiques pour la contextualisation des données de télémétrie brutes et la dérivation d’insights basés sur les ressources | Contextualiser des données de télémétrie brutes avec le [modèle de séries chronologiques](./time-series-insights-update-tsm.md) descriptif. Dériver une intelligence opérationnelle riche avec des requêtes basées sur les appareils qui sont hautement performantes et économiques. |
-| Intégration fluide et continue à d’autres solutions de données | Les données dans Time Series Insights sont [stockées](./time-series-insights-update-storage-ingress.md) dans des fichiers Apache Parquet open source. Cette intégration avec d’autres solutions de données, premières parties ou tierces, est facile pour les scénarios de bout en bout. Ces scénarios incluent l’aide à la décision, l’apprentissage profond avancé et l’analyse prédictive. |
-| Exploration de données en quasi temps réel | L’expérience utilisateur de [l’explorateur de la préversion d’Azure Time Series Insights](./time-series-insights-update-explorer.md) permet de visualiser toutes les données diffusées en continu via le pipeline d’ingestion. Peu de temps après la connexion à une source d’événement, vous pouvez afficher, explorer et interroger des données d’événements. De cette façon, vous pouvez vérifier si un appareil émet des données comme prévu. Vous pouvez également surveiller l’intégrité, la productivité et l’efficacité globale d’une ressource IoT. |
-| Analyse de la cause première et détection des anomalies | [L’explorateur de la préversion d’Azure Time Series Insights](./time-series-insights-update-explorer.md) prend en charge des modèles et des vues de perspective pour effectuer et enregistrer des analyses des causes racine à plusieurs étapes. Vous pouvez combiner Time Series Insights et Azure Stream Analytics pour détecter les alertes et les anomalies en quasi temps réel. |
-| Applications personnalisées créées sur la plateforme Time Series Insights | Time Series Insights prend en charge le [kit SDK JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Le kit SDK fournit des contrôles complets et un accès simplifié aux requêtes. Utilisez le kit SDK afin de créer des applications IoT personnalisées sur Time Series Insights et répondant à vos besoins professionnels spécifiques. Vous pouvez également utiliser les [API de requête](./time-series-insights-update-tsq.md) Time Series Insights directement pour intégrer directement des données dans des applications IoT personnalisées. |
+| Stockage multicouche pour les données de séries chronologiques IoT | Grâce à un pipeline de traitement de données partagé pour l’ingestion de données, vous pouvez ingérer des données dans des magasins chauds et froids. Utilisez un magasin chaud pour les requêtes interactives et un magasin froid pour le stockage de gros volumes de données. Pour savoir comment tirer parti des requêtes basées sur des ressources hautement performantes, consultez [requêtes](./time-series-insights-update-tsq.md). |
+| Modèle de séries chronologiques pour la contextualisation des données de télémétrie brutes et la dérivation d’insights basés sur les ressources | Vous pouvez utiliser le modèle de série chronologique pour créer des instances, des hiérarchies, des types et des variables pour vos données de série chronologique. Pour en savoir plus sur le modèle de série chronologique, consultez [Modèle de série chronologique](./time-series-insights-update-tsm.md).  |
+| Intégration fluide et continue à d’autres solutions de données | Les données dans le magasin froid Time Series Insights sont [stockées](./time-series-insights-update-storage-ingress.md) dans des fichiers Apache Parquet open source. Cela permet l’intégration de données avec d’autres solutions de données (internes ou tierces) pour des scénarios qui incluent le décisionnel, le machine learning avancé et l’analyse prédictive. |
+| Exploration de données en quasi temps réel | L’expérience utilisateur de [l’explorateur de la préversion d’Azure Time Series Insights](./time-series-insights-update-explorer.md) permet de visualiser toutes les données diffusées en continu via le pipeline d’ingestion. Après la connexion à une source d’événement, vous pouvez afficher, explorer et interroger des données d’événement. De cette façon, vous pouvez vérifier si un appareil émet des données comme prévu. Vous pouvez également surveiller l’intégrité, la productivité et l’efficacité globale d’une ressource IoT. | 
+| Extensibilité et intégration | L’intégration du connecteur Power BI Azure Time Series Insights est disponible directement dans l’expérience utilisateur de l’Explorateur Time Series via l’option **Exporter**, qui permet aux clients d’exporter les requêtes de série chronologique créées dans notre expérience utilisateur directement vers Power BI Desktop, et d’afficher leurs graphiques avec d’autres analyses de décisionnel. Cela ouvre la voie à une nouvelle classe de scénarios pour les entreprises IoT industrielles qui ont investi dans Power BI, en offrant une grande transparence sur l’analytique à partir de différentes sources de données y compris les séries chronologiques IoT. | 
+| Applications personnalisées créées sur la plateforme Time Series Insights | Time Series Insights prend en charge le [kit SDK JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Le kit SDK fournit des contrôles complets et un accès simplifié aux requêtes. Utilisez le kit SDK afin de créer des applications IoT personnalisées sur Time Series Insights pour répondre à vos besoins professionnels. Vous pouvez également utiliser les [API de requête](./time-series-insights-update-tsq.md) Time Series Insights directement pour intégrer directement des données dans des applications IoT personnalisées. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Prenez en main Azure Time Series Insights (préversion) :
 
 > [!div class="nextstepaction"]
-> [Lire le guide de démarrage rapide](./time-series-insights-update-quickstart.md)
+> [Guide de démarrage rapide](./time-series-insights-update-quickstart.md)
 
 Découvrez les cas d’utilisation :
 

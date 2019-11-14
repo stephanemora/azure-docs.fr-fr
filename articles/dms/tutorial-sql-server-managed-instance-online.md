@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: e1120abb06ec2c777114703cfe3fc7334477aecc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/06/2019
+ms.openlocfilehash: 556fb2c1caf9c763cf5a63b71d3dd1e522104e1d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592937"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646964"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Didacticiel : Effectuer la migration en ligne de SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
 
@@ -30,11 +30,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer une instance Azure Database Migration Service.
 > * Créer un projet de migration et lancer une migration en ligne en utilisant Azure Database Migration Service.
 > * Surveiller la migration.
-> * Basculer la migration lorsque vous êtes prêt.
+> * Effectuer le basculement de la migration lorsque vous êtes prêt.
 
 > [!IMPORTANT]
-> Pour effectuer une migration en ligne entre SQL Server et une instance managée SQL Database à l’aide d’Azure Database Migration Service, vous devez fournir la sauvegarde de base de données complète et les sauvegardes des journaux associés dans le partage réseau SMB que le service peut utiliser pour la migration de vos bases de données. Azure Database Migration Service ne lance pas les sauvegardes. Il utilise les sauvegardes existantes (qui peuvent déjà faire partie de votre plan de reprise d’activité) pour la migration.
-> N’oubliez pas d’effectuer des [sauvegardes à l’aide de l’option WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Par ailleurs, vous ne devez pas ajouter plusieurs sauvegardes (c’est-à-dire la sauvegarde complète et les journaux de transactions) sur un même support de sauvegarde. Vous devez placer chaque sauvegarde sur un fichier de sauvegarde distinct.
+> Pour effectuer une migration en ligne de SQL Server vers une instance gérée de SQL Database à l'aide d'Azure Database Migration Service, vous devez fournir la sauvegarde de base de données complète et les sauvegardes des journaux associés dans le partage réseau SMB que le service peut utiliser pour la migration de vos bases de données. Azure Database Migration Service ne lance pas les sauvegardes. Il utilise les sauvegardes existantes (qui peuvent déjà faire partie de votre plan de récupération d'urgence) pour la migration.
+> N’oubliez pas d’effectuer des [sauvegardes à l’aide de l’option WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Par ailleurs, vous ne devez pas ajouter plusieurs sauvegardes (c'est-à-dire la sauvegarde complète et les journaux de transactions) sur un même support de sauvegarde. Vous devez placer chaque sauvegarde sur un fichier de sauvegarde distinct. Enfin, vous pouvez utiliser des sauvegardes compressées pour réduire le risque de problèmes liés à la migration de sauvegardes volumineuses.
 
 > [!NOTE]
 > L’utilisation d’Azure Database Migration Service pour effectuer une migration en ligne nécessite la création d’une instance basée sur le niveau tarifaire Premium.
@@ -44,13 +44,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-Cet article décrit une migration en ligne de SQL Server vers une instance managée SQL Database. Pour une migration hors connexion, consultez [Migrer SQL Server vers une instance managée d’Azure SQL Database hors connexion à l’aide de DMS](tutorial-sql-server-to-managed-instance.md).
+Cet article décrit une migration en ligne de SQL Server vers une instance managée SQL Database. Pour une migration hors connexion, consultez [Migrer une instance de SQL Server vers une instance gérée de SQL Database hors connexion à l'aide de DMS](tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
-* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Découvrez les topologies de réseau pour les migrations d’instances managées d’Azure SQL Database à l’aide du service Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
+* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Découvrez les topologies réseau relatives à la migration d'instances gérées d'Azure SQL Database à l'aide d'Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
     > [!NOTE]
     > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de service au sous-réseau où doit être provisionné le service :
@@ -59,7 +59,9 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     > * Point de terminaison de stockage
     > * Point de terminaison Service Bus
     >
-    > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
+    > Cette configuration est nécessaire car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
+    >
+    >En l'absence de connectivité de site à site entre le réseau local et Azure, ou si la bande passante de la connectivité de site à site est limitée, vous pouvez utiliser Azure Database Migration Service en mode hybride (préversion). Le mode hybride utilise un Worker de migration local et une instance d'Azure Database Migration Service exécutée dans le cloud. Pour créer une instance d'Azure Database Migration Service en mode hybride, consultez l'article [Créer une instance d'Azure Database Migration Service en mode hybride à l'aide du portail Azure](https://aka.ms/dms-hybrid-create).
 
     > [!IMPORTANT]
     > En ce qui concerne le compte de stockage utilisé dans le cadre de la migration, vous devez :
@@ -73,13 +75,13 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 * Si vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration ainsi qu’aux fichiers, via le port SMB 445.
 * Créez une instance managée SQL Database en suivant les indications de l’article [Créer une instance managée Azure SQL Database dans le portail Azure](https://aka.ms/sqldbmi).
 * Vérifiez que les comptes de connexion utilisés pour connecter l’instance SQL Server source et l’instance managée cible sont membres du rôle serveur sysadmin.
-* Spécifiez un partage réseau SMB qui contient tous les fichiers de sauvegarde complète de votre base de données et les fichiers de sauvegarde des journaux des transactions associés qu’Azure Database Migration Service peut utiliser pour la migration de base de données.
+* Spécifiez un partage réseau SMB qui contient tous les fichiers de sauvegarde complète de votre base de données et les fichiers de sauvegarde des journaux des transactions associés qu'Azure Database Migration Service peut utiliser pour la migration de base de données.
 * Assurez-vous que le compte de service exécutant l’instance SQL Server source dispose de privilèges en écriture sur le partage réseau que vous avez créé, et que le compte d’ordinateur pour le serveur source a accès en lecture/écriture au même partage.
 * Repérez un utilisateur Windows (et son mot de passe) disposant d’un contrôle total sur le partage réseau que vous avez créé précédemment. Azure Database Migration Service emprunte les informations d’identification de l’utilisateur pour charger les fichiers de sauvegarde sur le conteneur de Stockage Azure pour l’opération de restauration.
 * Créez un ID d’application Azure Active Directory qui génère la clé de l’ID d’application permettant à Azure Database Migration Service de se connecter à l’instance managée Azure SQL Database et au conteneur Stockage Azure cibles. Pour plus d’informations, consultez l’article [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
   > [!NOTE]
-  > Azure Database Migration Service nécessite les autorisations de contributeur sur l’abonnement pour l’ID d’application spécifié. Nous travaillons activement à réduire ces exigences en autorisations.
+  > Azure Database Migration Service nécessite les autorisations de contributeur sur l’abonnement pour l’ID d’application spécifié. Vous pouvez également créer des rôles personnalisés qui accordent les autorisations spécifiques requises par Azure Database Migration Service. Pour obtenir des instructions pas à pas sur l'utilisation des rôles personnalisés, consultez l'article [Rôles personnalisés pour la migration en ligne de SQL Server vers une instance gérée de SQL Database](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Créez ou prenez note du **niveau de performance Standard**, compte Stockage Azure, qui permet à Azure Database Migration Service de charger les fichiers de sauvegarde de base de données sur les bases de données en cours de migration et de les utiliser pour celles-ci.  Veillez à créer le compte de stockage Azure dans la même région que celle où l’instance d’Azure Database Migration Service est créée.
 
@@ -117,7 +119,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
     Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/DMSVnet).
 
-    Pour plus d’informations, consultez l’article [Topologies de réseau pour les migrations d’instances managées d’Azure SQL Database à l’aide du service Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+    Pour plus d'informations, consultez l'article [Topologies réseau pour la migration d'instances gérées d'Azure SQL Database à l'aide d'Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
 6. Sélectionnez une référence (SKU) dans le niveau tarifaire Premium.
 
@@ -202,8 +204,8 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
     | | |
     |--------|---------|
-    |**SMB Network location share** (Partage d’emplacement réseau SMB) | Le partage réseau SMB local qui contient les fichiers de sauvegarde complète de votre base de données et les fichiers de sauvegarde de fichier journal associés qu’Azure Database Migration Service peut utiliser pour la migration. Le compte de service qui exécute l’instance source de SQL Server doit avoir des privilèges de lecture et d’écriture pour ce partage réseau. Fournissez un nom de domaine complet ou les adresses IP du serveur dans le partage réseau, par exemple, « \\\nomserveur.nomdomaine.com\dossiersauvegarde » ou « \\\adresse IP\dossiersauvegarde ».|
-    |**Nom d'utilisateur** | Assurez-vous que l’utilisateur Windows dispose d’un contrôle total sur le partage réseau que vous avez fourni précédemment. Azure Database Migration Service emprunte l’identité de l’utilisateur pour charger les fichiers de sauvegarde sur le conteneur de stockage Azure pour l’opération de restauration. |
+    |**SMB Network location share** (Partage d’emplacement réseau SMB) | Partage réseau SMB local contenant les fichiers de sauvegarde de la base de données complète et du journal des transactions qu'Azure Database Migration Service peut utiliser pour la migration. Le compte de service qui exécute l’instance source de SQL Server doit avoir des privilèges de lecture et d’écriture pour ce partage réseau. Fournissez un nom de domaine complet ou les adresses IP du serveur dans le partage réseau, par exemple, « \\\nomserveur.nomdomaine.com\dossiersauvegarde » ou « \\\adresse IP\dossiersauvegarde ».|
+    |**Nom d'utilisateur** | Assurez-vous que l’utilisateur Windows dispose d’un contrôle total sur le partage réseau que vous avez fourni précédemment. Azure Database Migration Service emprunte l'identité de l'utilisateur afin de charger les fichiers de sauvegarde sur le conteneur de stockage Azure pour l'opération de restauration. |
     |**Mot de passe** | Mot de passe pour l’utilisateur. |
     |**Subscription of the Azure Storage Account** (Abonnement du compte Stockage Azure) | Sélectionnez l’abonnement qui contient le compte Stockage Azure. |
     |**Compte Stockage Azure** | Sélectionnez le compte Stockage Azure sur lequel Azure Database Migration Service peut charger les fichiers de sauvegarde à partir du partage réseau SMB et qu’il peut utiliser pour la migration de base de données.  Nous vous recommandons de sélectionner le compte de stockage se trouvant dans la même région qu’Azure Database Migration Service pour bénéficier de performances de chargement de fichiers optimales. |

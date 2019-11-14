@@ -1,6 +1,6 @@
 ---
-title: Créer un hub d’événements avec un groupe de consommateurs - Azure Event Hubs | Microsoft Docs
-description: Créer un espace de noms Event Hubs avec un concentrateur d’événements et un groupe de consommateurs à l’aide de modèles Azure Resource Manager
+title: 'Démarrage rapide : Créer un hub d’événements avec un groupe de consommateurs - Azure Event Hubs'
+description: 'Démarrage rapide : Créer un espace de noms Event Hubs avec un concentrateur d’événements et un groupe de consommateurs à l’aide de modèles Azure Resource Manager'
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
 ms.service: event-hubs
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 29e494b23176f9e936816a371a09e1c4ffeceae0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: b262f5f4122256a55c005002c4323205a5b564f0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538001"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717668"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>Démarrage rapide : Créer un Event Hub à l’aide d’un modèle Azure Resource Manager
 

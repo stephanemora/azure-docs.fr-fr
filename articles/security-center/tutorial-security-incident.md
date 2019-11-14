@@ -1,5 +1,5 @@
 ---
-title: Didacticiel de Azure Security Center - Répondre aux incidents de sécurité | Microsoft Docs
+title: Didacticiel sur la réponse aux incidents - Azure Security Center
 description: Didacticiel de Azure Security Center - Répondre aux incidents de sécurité
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200610"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663640"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Didacticiel : Répondre à des incidents de sécurité
 Security center analyse continuellement vos charges de travail de cloud hybride à l’aide d’analyses avancées et d’informations sur les menaces pour vous avertir des activités malveillantes. En outre, vous pouvez intégrer des alertes à partir d’autres produits et services de sécurité dans Security Center et créer des alertes personnalisées en fonction de vos propres indicateurs ou sources d’informations. Une fois une alerte générée, une action rapide est nécessaire pour examiner et résoudre la situation. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
@@ -66,7 +66,7 @@ Security Center fournit une vue unifiée de toutes les alertes de sécurité. Le
 
 1. Dans le menu principal de Security Center sous **DETECTION**, sélectionnez **Alertes de sécurité** :
 
-   ![Alertes de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Alertes de sécurité](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. Dans la liste des alertes, cliquez sur un incident de sécurité, qui est un ensemble d’alertes, pour en savoir plus sur cet incident. **Incident de sécurité détecté** s’ouvre.
 

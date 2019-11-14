@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 64af398ec4829a0336294b33fef102392b9a4099
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6549cf030772d805b063510b9931968027639511
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163876"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583137"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Exemple de blueprint CIS Microsoft Azure Foundations Benchmark : correspondance des recommandations
 
@@ -356,11 +356,11 @@ Ce blueprint affecte une définition [Azure Policy](../../../policy/overview.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez revu la correspondance des recommandations du blueprint CIS Microsoft Azure Foundations Benchmark, consultez l’article suivant pour en savoir plus sur le blueprint, ou visitez Azure Policy dans le portail Azure pour attribuer l’initiative :
+Maintenant que vous avez revu la correspondance des recommandations du blueprint CIS Microsoft Azure Foundations Benchmark, consultez les articles suivants pour en savoir plus sur le blueprint, ou visitez Azure Policy dans le portail Azure pour attribuer l'initiative :
 
 > [!div class="nextstepaction"]
-> [Vue d’ensemble de l’exemple de blueprint CIS Microsoft Azure Foundations Benchmark](./index.md)
-> [Portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [Blueprint CIS Microsoft Azure Foundations Benchmark - Vue d'ensemble](./index.md)
+> [Blueprint CIS Microsoft Azure Foundations Benchmark - Étapes du déploiement](./deploy.md)
 
 Autres articles sur les blueprints et la manière de les utiliser :
 

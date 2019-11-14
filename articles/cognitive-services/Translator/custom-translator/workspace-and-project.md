@@ -1,7 +1,7 @@
 ---
 title: Qu’est-ce qu’un espace de travail et un projet ? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Un espace de travail est une zone de travail pour la composition et la création de votre système de traduction personnalisé. Un espace de travail peut contenir plusieurs projets, modèles et documents. Un projet est un wrapper avec un modèle, des documents et des tests. Chaque projet inclut automatiquement tous les documents téléchargés dans cet espace de travail dotés de la paire de langues qui convient.
+description: Cet article décrit les différences entre un espace de travail et un projet, et entre les catégories et les étiquettes de projet pour le service Custom Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 23db27ba7b51b0f5a312498dbcb1d0f2741245bb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595348"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647313"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Qu’est-ce qu’un espace de travail Custom Translator ?
 

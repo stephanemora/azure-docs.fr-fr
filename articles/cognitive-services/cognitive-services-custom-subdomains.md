@@ -1,7 +1,7 @@
 ---
 title: Créer des sous-domaines
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services utilise des noms de sous-domaines personnalisés pour chaque ressource créée à l’aide du portail Azure, Azure Cloud Shell ou Azure CLI. Contrairement aux points de terminaison régionaux, qui étaient communs à tous les clients dans une région Azure spécifique, les noms de sous-domaines personnalisés sont uniques à la ressource. Des noms de sous-domaines personnalisés sont requis pour activer des fonctionnalités telles que Azure Active Directory (Azure AD) pour l’authentification.
+description: Les noms de sous-domaines personnalisés de chaque ressource Cognitive Service sont créés via le portail Azure, Azure Cloud Shell ou Azure CLI.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 7153735052f96bef65bf3daaccde4eab3e61b0f9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473010"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647691"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Sous-domaines personnalisés pour Cognitive Services
 

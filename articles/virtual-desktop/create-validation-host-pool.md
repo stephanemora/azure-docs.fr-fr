@@ -1,5 +1,5 @@
 ---
-title: Créer un pool d’hôtes Windows Virtual Desktop pour valider les mises à jour de service - Azure
+title: Mises à jour du service de pool d'hôtes Windows Virtual Desktop - Azure
 description: Comment créer un pool d’hôtes de validation pour surveiller les mises à jour de service avant de déployer les mises à jour en production.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676672"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606929"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Didacticiel : Créer un pool d’hôtes pour valider les mises à jour de service
 

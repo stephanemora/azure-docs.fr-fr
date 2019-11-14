@@ -1,6 +1,6 @@
 ---
-title: Recevoir des événements à l’aide d’Apache Storm – Azure Event Hubs | Microsoft Docs
-description: Cet article fournit des informations à propos de l’utilisation d’Apache Storm pour recevoir des événements depuis Azure Event Hubs.
+title: "Démarrage rapide : Recevoir des événements à l'aide d'Apache Storm - Azure Event Hubs"
+description: 'Démarrage rapide : Cet article fournit des informations à propos de l’utilisation d’Apache Storm pour recevoir des événements depuis Azure Event Hubs.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: eaa461dd0c4ef6bd9ed0ae4379a710ee100929d2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 90293da07d3a7ef1c32e5f82d35198d4ffa536b1
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800199"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717610"
 ---
-# <a name="receive-events-from-event-hubs-using-apache-storm"></a>Recevoir des événements d’Event Hubs avec Apache Storm
+# <a name="quickstart-receive-events-from-event-hubs-using-apache-storm"></a>Démarrage rapide : Recevoir des événements d’Event Hubs avec Apache Storm
 
 [Apache Storm](https://storm.incubator.apache.org) est un système de calcul distribué en temps réel qui simplifie de façon fiable le traitement de vastes flux de données. Cette section illustre comment utiliser une commande « spout » Storm Azure Event Hubs pour recevoir des événements provenant d'Event Hubs. À l'aide d'Apache Storm, vous pouvez fractionner des événements entre plusieurs processus hébergés dans des nœuds différents. L'intégration d'Event Hubs à Storm simplifie la consommation d'événements grâce au contrôle transparent de sa progression via l'installation de Storm Zookeeper et à la gestion des points de contrôle permanents et des réceptions en parallèle d'Event Hubs.
 

@@ -1,7 +1,7 @@
 ---
 title: Points de terminaison et régions de publication – LUIS
 titleSuffix: Azure Cognitive Services
-description: 3 régions de création et leurs portails prennent en charge les nombreuses régions de publication. La région dans laquelle vous publiez votre application LUIS correspond à la région ou à l’emplacement que vous spécifiez dans le portail Azure lorsque vous créez une clé de point de terminaison Azure LUIS. Quand vous publiez une application, LUIS génère automatiquement une URL de point de terminaison pour la région associée à la clé.
+description: La région spécifiée sur le portail Azure est la même que celle dans laquelle vous allez publier l'application LUIS, et une URL de point de terminaison est générée pour cette même région.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: diberry
-ms.openlocfilehash: f859047caf64d27ef63783ecd42f12fc9b79b4fd
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fe4436afe56e631ae308b70ae35b1fb4a7c32e11
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933344"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669179"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Création et la publication de régions et des clés associées
 

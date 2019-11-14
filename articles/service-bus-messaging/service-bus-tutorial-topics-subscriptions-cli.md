@@ -1,20 +1,20 @@
 ---
-title: Tutoriel - Mise à jour d’un assortiment d’inventaire de vente au détail à l’aide de canaux de publication/abonnement et de filtres de rubrique avec Azure CLI | Microsoft Docs
-description: Dans ce tutoriel, vous découvrez comment envoyer et recevoir des messages à partir d’une rubrique et d’un abonnement et comment ajouter et utiliser les règles de filtre à l’aide d’Azure CLI
+title: 'Didacticiel : Mise à jour d’un assortiment d’inventaire de vente au détail à l’aide de canaux de publication/abonnement et de filtres de rubrique avec Azure CLI'
+description: 'Didacticiel : Dans ce tutoriel, vous découvrez comment envoyer et recevoir des messages à partir d’une rubrique et d’un abonnement et comment ajouter et utiliser les règles de filtre à l’aide d’Azure CLI'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: e55c8c6a579489c8ed5a13ccb93f0e72c286ab13
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0bd0d8eb8abe6f320f73e35b1e3b08e1d8dc1de3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991937"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718911"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Didacticiel : mise à jour de l’inventaire à l’aide de CLI et des rubriques/abonnements
 
@@ -30,9 +30,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Un exemple de ce scénario est une mise à jour d’assortiment d’inventaire pour plusieurs magasins de détail. Dans ce scénario, chaque magasin ou ensemble de magasins, reçoit les messages destinés à mettre à jour leurs assortiments. Ce tutoriel montre comment implémenter ce scénario à l’aide des filtres et des abonnements. Tout d’abord, vous créez une rubrique avec 3 abonnements, ajoutez des règles et des filtres, puis vous envoyez et recevez des messages à partir de la rubrique et des abonnements.
 
-![rubrique](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
+![topic](./media/service-bus-tutorial-topics-subscriptions-cli/about-service-bus-topic.png)
 
-Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer.
+Si vous n'avez pas d'abonnement Azure, vous pouvez créer un [compte gratuit][] avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 

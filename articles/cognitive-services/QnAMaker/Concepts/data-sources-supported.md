@@ -1,7 +1,7 @@
 ---
 title: Sources de données prises en charge - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker extrait automatiquement des paires de questions-réponses à partir de contenu semi-structuré tel que des Questions fréquentes (FAQ), manuels de produits, instructions, documents de prise en charge et stratégies stockés sous forme de pages web, fichiers PDF ou fichiers de documents MS Word. Le contenu peut également être ajouté à la base de connaissances à partir de fichiers de contenu QnA structurés.
+description: QnA Maker extrait automatiquement des paires question-réponse stockées sous forme de pages web, fichiers PDF, fichiers de document MS Word ou fichiers de contenu QnA structurés.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 39746032fd012de8e0868c3bc7f810cd8e780b68
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: a1fcc1bec5db3ad64dc045cf5e1a449fce808132
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176362"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721214"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Sources de données pour le contenu QnA Maker
 

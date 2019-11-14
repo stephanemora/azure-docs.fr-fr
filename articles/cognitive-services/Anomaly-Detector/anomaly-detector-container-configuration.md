@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 4a961080bc124e53a8c5fe4dcc5f3cd6f21e9e5c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f7e04a16fa35d492b8e5e6c53a05220e8b96a38a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102567"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795846"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurer des conteneurs Détecteur d’anomalies
 
@@ -61,7 +61,7 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westus2.api.cognitive.microsoft.com` |
+|OUI| `Billing` | Chaîne | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](anomaly-detector-container-howto.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 ## <a name="eula-setting"></a>Paramètre Eula
 

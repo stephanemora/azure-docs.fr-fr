@@ -1,5 +1,5 @@
 ---
-title: Didacticiel sur Azure Security Center - Protéger vos ressources avec Azure Security Center | Microsoft Docs
+title: Didacticiel sur les contrôles d'accès et d'applications - Azure Security Center
 description: Ce tutoriel montre comment configurer une stratégie d’accès juste-à-temps aux machines virtuelles et une stratégie de contrôle d’applications.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 4b40b7c6f755eb2107a09b1b881ea33fa2187f29
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996328"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686335"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Didacticiel : Protéger vos ressources avec Azure Security Center
 Security Center limite votre exposition aux menaces en utilisant des contrôles d’accès et d’applications pour bloquer les activités malveillantes. L’accès juste-à-temps (JIT) aux machines virtuelles réduit votre exposition aux attaques en vous permettant de refuser l’accès persistant aux machines virtuelles. À la place, vous fournissez un accès contrôlé et audité aux machines virtuelles uniquement en cas de besoin. Les contrôles d’applications adaptatifs permettent de renforcer la protection contre les logiciels malveillants en contrôlant les applications qui peuvent s’exécuter sur les machines virtuelles. Security Center utilise le machine learning pour analyser les processus en cours d’exécution sur la machine virtuelle et exploite ces informations pour vous aider à appliquer les règles de mise en liste verte.
@@ -29,8 +29,6 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
 > * Configurer une stratégie d’accès juste-à-temps aux machines virtuelles
 > * Configurer une stratégie de contrôle d’applications
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour parcourir les fonctionnalités traitées dans ce didacticiel, vous devez avoir accès au niveau tarifaire Standard de Security Center. Vous pouvez essayer Security Center Standard gratuitement. Pour en savoir plus, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/). Le démarrage rapide [Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guide dans la mise à niveau vers le plan Standard.
@@ -96,7 +94,7 @@ Les contrôles d’applications adaptatifs vous aident à définir un ensemble d
 4. Une fois que vous avez terminé vos sélections, sélectionnez **Créer**.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
-D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et gardez l’approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
+D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous envisagez de suivre les didacticiels et guides de démarrage rapide suivants, conservez le niveau Standard et maintenez l'approvisionnement automatique activé. Dans le cas contraire, ou si vous voulez revenir au niveau Gratuit :
 
 1. Revenez au menu principal de Security Center et sélectionnez **Stratégie de sécurité**.
 2. Sélectionnez la stratégie ou l’abonnement pour lequel vous voulez revenir au niveau Gratuit. La fenêtre **Stratégie de sécurité** s’ouvre.

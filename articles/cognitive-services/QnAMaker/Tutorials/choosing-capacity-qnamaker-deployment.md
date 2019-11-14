@@ -11,25 +11,25 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2d8f0fce3cb8f1cd8fdb596cb4e238a79d6cee4c
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5cbdb6fcf9fcdf12b54ff1db4b577bb975517131
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193504"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793959"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Choisir la capacité de votre déploiement QnA Maker
 
 Le service QnA Maker prend une dépendance sur trois ressources Azure :
 1.  App Service (pour l’exécution)
-2.  Recherche Azure (pour le stockage et la recherche des QnA)
+2.  Recherche cognitive Azure (pour le stockage et la recherche d’entités QnA)
 3.  App Insights (facultatif, pour le stockage des journaux d’activité de conversation et les données de télémétrie)
 
 Avant de créer votre service QnA Maker, vous devez décider quel niveau des services ci-dessus vous convient. 
 
 En général, il existe trois paramètres dont vous devez tenir compte :
 
-1. **Débit dont vous avez besoin à partir du service** : sélectionnez le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) approprié en fonction de vos besoins. Vous pouvez faire [monter en puissance](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou faire descendre en puissance l’application. Ceci doit également influencer votre sélection de la référence SKU de la Recherche Azure. Consultez plus d’informations [ici](https://docs.microsoft.com/azure/search/search-sku-tier).
+1. **Débit dont vous avez besoin à partir du service** : sélectionnez le [plan App Service](https://azure.microsoft.com/pricing/details/app-service/plans/) approprié en fonction de vos besoins. Vous pouvez faire [monter en puissance](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou faire descendre en puissance l’application. Ceci doit également influencer votre sélection de la référence SKU de la Recherche cognitive Azure. Consultez plus d’informations [ici](https://docs.microsoft.com/azure/search/search-sku-tier).
 
 1. **Taille et nombre de bases de connaissances** : Choisissez la [référence SKU Recherche Azure](https://azure.microsoft.com/pricing/details/search/) adaptée à votre scénario. Vous pouvez publier N-1 bases de connaissances dans un niveau spécifique, où N correspond au nombre maximal d’index autorisé dans le niveau. Vérifiez également la taille maximale et le nombre de documents autorisés par niveau.
 
@@ -39,7 +39,7 @@ En général, il existe trois paramètres dont vous devez tenir compte :
 
 Le tableau suivant vous donne des indications d’ordre général.
 
-|                        | Administration de QnA Maker | App Service | Recherche Azure | Limites                      |
+|                        | Administration de QnA Maker | App Service | Recherche cognitive Azure | Limites                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Expérimentation        | Référence SKU Gratuite             | Niveau Gratuit   | Niveau Gratuit    | Publier jusqu’à 2 Ko, taille de 50 Mo  |
 | Environnement de test/développement   | Référence SKU standard         | Partagé      | De base        | Publier jusqu’à 14 Ko, taille de 2 Go    |

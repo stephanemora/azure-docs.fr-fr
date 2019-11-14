@@ -75,6 +75,8 @@
           href: key-vault-access.md
         - name: Déployer avec Managed Identity
           href: publish-managed-identity.md
+        - name: Déployer avec Notifications
+          href: publish-notifications.md
     - name: Consommateurs
       items:
         - name: Surveiller l’application managée
