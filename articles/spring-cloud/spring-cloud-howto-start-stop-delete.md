@@ -1,20 +1,17 @@
 ---
 title: Guide pratique pour démarrer, arrêter et supprimer votre application Azure Spring Cloud | Microsoft Docs
 description: Guide pratique pour démarrer, arrêter et supprimer votre application Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: f7f76644d13c20704d2c3bd908176ac452df2a20
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: conceptual
+ms.date: 10/31/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 9f537ab425428728137e04713e434d8dc09e065a
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038438"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607719"
 ---
 # <a name="how-to-start-stop-and-delete-your-azure-spring-cloud-application"></a>Guide pratique pour démarrer, arrêter et supprimer votre application Azure Spring Cloud
 
@@ -32,24 +29,30 @@ Une fois que vous avez déployé une application, vous pouvez la **démarrer**, 
 ## <a name="using-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure (CLI)
 
 > [!NOTE]
-> Vous pouvez utiliser des paramètres facultatifs et configurer des valeurs par défaut avec Azure CLI. Découvrez plus d’informations à ce sujet en lisant notre [documentation de référence](spring-cloud-cli-reference.md).
+> Vous pouvez utiliser des paramètres facultatifs et configurer des valeurs par défaut avec Azure CLI. Découvrez plus d’informations à ce sujet en lisant notre [documentation de référence](spring-cloud-cli-reference.md).  
+
+Installez l’extension Spring Cloud pour Azure CLI :
+
+```azurecli
+az extension add --name spring-cloud
+```
 
 * Pour démarrer votre application :
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app start -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * Pour arrêter votre application :
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app stop -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * Pour redémarrer votre application :
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app restart -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```
 
 * Pour supprimer votre application :
-    ```Azure CLI
+    ```azurecli
     az spring-cloud app delete -n <application name> -g <resource group> -s <Azure Spring Cloud name>
     ```

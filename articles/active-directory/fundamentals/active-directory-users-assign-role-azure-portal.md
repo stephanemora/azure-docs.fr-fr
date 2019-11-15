@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2247b7678573594c4929bd33747fffb91203f457
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561801"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742584"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Attribuer des rôles administrateur et non-administrateur aux utilisateurs avec Azure Active Directory
 Si un utilisateur de votre organisation a besoin d’une autorisation pour gérer les ressources Azure Active Directory (Azure AD), vous devez assigner un rôle approprié à l’utilisateur dans Azure AD en fonction des actions qu’il souhaite effectuer et pour lesquelles il a besoin d’une permission.
@@ -35,13 +35,15 @@ Vous pouvez également assigner des rôles à l’aide de Privileged Identity Ma
 
 2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis recherchez et sélectionnez l’utilisateur auquel vous souhaitez assigner le rôle. Par exemple, _Alain Charon_.
 
-3. Sur la page **Alain Charon - Profil**, sélectionnez **Rôle d’annuaire**.
+      ![Page Tous les utilisateurs - Sélectionner l’utilisateur](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
+
+3. Sur la page **Alain Charon - Profil**, sélectionnez **Rôles affectés**.
 
     La page **Alain Charon - Rôle d’annuaire** s’affiche.
 
-4. Sélectionnez **Ajouter un rôle**. Ensuite, sélectionnez le rôle à assigner à Alain (par exemple, _Administrateur d’application_), puis choisissez **Sélectionner**.
+4. Sélectionnez **Ajouter une affectation**. Ensuite, sélectionnez le rôle à assigner à Alain (par exemple, _Administrateur d’application_), puis choisissez **Sélectionner**.
 
-    ![Page Rôles d’annuaire affichant le rôle sélectionné](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
+    ![Page Rôles affectés, affichant le rôle sélectionné](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
     Le rôle Administrateur d’application est assigné à Alain Charon et il apparaît sur la page **Alain Charon - Rôle d’annuaire**.
 
@@ -52,9 +54,9 @@ Si vous devez supprimer l’attribution de rôle d’un utilisateur, vous pouvez
 
 1. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis recherchez et sélectionnez l’utilisateur auquel vous souhaitez supprimer un rôle assigné. Par exemple, _Alain Charon_.
 
-2. Sélectionnez **Rôle d’annuaire**, **Administrateur d’application**, puis sélectionnez **Supprimer le rôle**.
+2. Sélectionnez **Rôles affectés**, **Administrateur d’application**, puis sélectionnez **Supprimer l’affectation**.
 
-    ![Page Rôles d’annuaire affichant le rôle sélectionné et l’option Supprimer](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+    ![Page Rôles affectés, affichant le rôle sélectionné et l’option Supprimer](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
     Le rôle Administrateur d’application d’Alain Charon est supprimé et il n’apparaît plus sur la page **Alain Charon - Rôle d’annuaire**.
 

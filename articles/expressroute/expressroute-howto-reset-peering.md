@@ -5,15 +5,15 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 10/25/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2258bfbf2a1bf6a8dccf9d274e6e89e4c53a978a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366298"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748232"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>Réinitialiser les peerings d’un circuit ExpressRoute
 
@@ -21,11 +21,11 @@ Cet article décrit comment désactiver et activer des peerings d’un circuit E
 
 Il existe quelques scénarios où il peut s’avérer utile de réinitialiser vos peerings ExpressRoute.
 * Testez votre conception et votre implémentation de récupération d’urgence. Par exemple, vous avez deux circuits ExpressRoute. Vous pouvez désactiver les peerings d’un circuit et forcer votre trafic réseau à basculer sur l’autre circuit.
-* Activez le protocole Bidirectional Forwarding Detection (BFD) sur le peering privé Azure de votre circuit ExpressRoute. Si votre circuit ExpressRoute a été créé après le 1er août 2018, BFD est activé par défaut. Si votre circuit a été créé avant, BFD n’a pas été activé. Vous pouvez activer BFD en désactivant le peering, puis en le réactivant. Il faut noter que BFD est pris en charge uniquement sur le peering privé Azure.
+* Activez le protocole Bidirectional Forwarding Detection (BFD) sur le peering privé Azure ou le peering Microsoft de votre circuit ExpressRoute. Ce protocole est activé par défaut sur le peering privé Azure si le circuit ExpressRoute a été créé après le 1er août 2018 et sur le peering Microsoft si le circuit ExpressRoute a été créé après le 1er octobre 2019. Si votre circuit a été créé avant, BFD n’a pas été activé. Vous pouvez activer BFD en désactivant le peering, puis en le réactivant. 
 
 ### <a name="working-with-azure-powershell"></a>Utilisation d’Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 

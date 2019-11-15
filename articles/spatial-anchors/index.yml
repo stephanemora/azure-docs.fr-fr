@@ -27,6 +27,7 @@ sections:
           - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">Relations d’ancrage et orientation.</a>
           - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">Recommandations d’expérience.</a>
           - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">Journalisation et diagnostics.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">Relocalisation grossière.</a>
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph

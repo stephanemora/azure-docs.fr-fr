@@ -1,5 +1,5 @@
 ---
-title: Dépannage d’Azure Site Recovery en cas de problèmes continus de réplication Azure vers Azure | Microsoft Docs
+title: Résolution des problèmes de réplication en cours des machines virtuelles Azure avec Azure Site Recovery
 description: Dépannage des erreurs et des problèmes lors de la réplication de machines virtuelles Azure pour la récupération d’urgence
 services: site-recovery
 author: asgang
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
 ms.author: asgang
-ms.openlocfilehash: 02f3dff4c9649beeadade942f4b32595f8543c2d
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 7b9da202704b20e5770343f857c044ea19ae696a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742546"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620883"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Résoudre les problèmes continus de réplication de machine virtuelle Azure vers Azure
 

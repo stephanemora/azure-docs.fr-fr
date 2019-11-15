@@ -1,5 +1,5 @@
 ---
-title: Prise en main de l’audit Azure SQL Database | Microsoft Docs
+title: Bien démarrer avec les audits
 description: Utilisez la fonctionnalité d’audit d’Azure SQL Database pour effectuer le suivi des événements de base de données dans un journal d’audit.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: cc12579a4932894b730b04cdc77acc0151168bdb
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 65d092b36ed0e339a77bb423f24079caae38ab84
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010213"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821973"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -48,7 +48,8 @@ Vous pouvez utiliser l’audit de bases de données SQL pour :
 > - Toutes les configurations de réplication de stockage sont prises en charge.
 > - Le **stockage Premium** n'est actuellement **pas pris en charge**.
 > - Le **stockage dans un réseau virtuel** n’est actuellement **pas pris en charge**.
-> - Le **stockage derrière un pare-feu** n’est actuellement **pas pris en charge**
+> - Le **stockage derrière un pare-feu** n’est actuellement **pas pris en charge**.
+> - **L’espace de noms hiérarchique** pour un **compte de stockage Azure Data Lake Storage Gen2** n’est actuellement **pas pris en charge**.
 
 ## <a id="subheading-8"></a>Définir une stratégie d’audit au niveau du serveur ou au niveau de la base de données
 
@@ -96,7 +97,8 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 6. Pour configurer l’écriture des journaux d’audit dans un compte de stockage, sélectionnez **Stockage**, puis ouvrez **Détails du stockage**. Sélectionnez le compte de stockage Azure dans lequel les journaux d’activité seront enregistrés, puis sélectionnez la période de rétention. Les anciens journaux d’activité seront supprimés. Cliquez ensuite sur **OK**.
 
    > [!IMPORTANT]
-   > La valeur par défaut de la période de conservation est 0 (conservation illimitée). Vous pouvez changer cette valeur en déplaçant le curseur **Rétention (jours)** dans **Paramètres de stockage** lors de la configuration du compte de stockage à des fins d’audit.
+   > - La valeur par défaut de la période de conservation est 0 (conservation illimitée). Vous pouvez changer cette valeur en déplaçant le curseur **Rétention (jours)** dans **Paramètres de stockage** lors de la configuration du compte de stockage à des fins d’audit.
+   > - Si vous remplacez la valeur 0 de la période de rétention (rétention illimitée) par une autre valeur, notez que la rétention s’appliquera uniquement aux journaux écrits après la modification de la valeur de rétention (les journaux écrits au cours de la période pendant laquelle la rétention était définie sur illimité sont conservés, même après activation de la rétention)
 
     ![compte de stockage](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 

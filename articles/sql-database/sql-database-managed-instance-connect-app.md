@@ -1,5 +1,5 @@
 ---
-title: Application de connexion Azure SQL Database Managed Instance | Microsoft Docs
+title: Connecter une application à Managed instance
 description: Cet article explique comment connecter votre application à Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 133110d015ac7a26f18f14f6ff957729a4f079b5
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 9f592c345b7cfcf5f21d816fde1fae6b8e6b98c7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70060657"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823381"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à l’instance gérée Azure SQL Database
 
@@ -38,7 +38,7 @@ Ce scénario est un peu plus complexe, car Managed Instance a une adresse IP pri
 
 Il existe deux options pour connecter des réseaux virtuels :
 
-- [Homologation de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
+- [Peering de réseaux virtuels Azure](../virtual-network/virtual-network-peering-overview.md)
 - Passerelle VPN de réseau virtuel à réseau virtuel ([portail Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
 L’option de peering est préférable car elle utilise le réseau principal de Microsoft, donc du point de vue de la connectivité, il n’y a pas de différence notable de latence entre les machines virtuelles dans le réseau virtuel appairé et dans le même réseau virtuel. Le peering de réseau virtuel est limité aux réseaux d’une même région.  

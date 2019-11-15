@@ -1,5 +1,5 @@
 ---
-title: Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory | Microsoft Docs
+title: Codes d’erreur sur le portail Azure Active Directory | Microsoft Docs
 description: Informations de référence des codes d’erreur des rapports d’activité des connexions.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383168"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809821"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -127,6 +127,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50177|La vérification externe n’est pas prise en charge pour les utilisateurs PassThrough.|
 |50178|Le contrôle de session n’est pas pris en charge pour les utilisateurs PassThrough.|
 |50180|L’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente.|
+|50181|Défaillance liée au mot de passe à usage unique lors de la connexion. |
 |50201|Ce message d’invite s’affiche lors de la connexion quand des informations supplémentaires doivent être fournies à l’utilisateur.|
 |51001|L’indicateur de domaine n’est pas présent avec identificateur de sécurité local - UPN local.|
 |51004|Le compte d’utilisateur n’existe pas dans le répertoire.|
@@ -193,4 +194,4 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Vue d’ensemble des rapports de connexion](concept-sign-ins.md)
-* [Accès par programme aux rapports Azure AD](concept-reporting-api.md)
+* [Accès par programmation aux rapports Azure AD](concept-reporting-api.md)

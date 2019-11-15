@@ -1,5 +1,5 @@
 ---
-title: Créer un conteneur de profils FSLogix pour un pool d'hôtes à l'aide d’un partage de fichiers basé sur machine virtuelle – Azure
+title: Partage de conteneurs de profil FSLogix Windows Virtual Desktop - Azure
 description: Guide pratique pour configurer un conteneur de profils FSLogix pour un pool d’hôtes Windows Virtual Desktop à l’aide d’un partage de fichiers basé sur une machine virtuelle.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311592"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606986"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Créer un conteneur de profils pour un pool hôte à l’aide d’un partage de fichiers
 

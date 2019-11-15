@@ -1,5 +1,5 @@
 ---
-title: Applets de commande PowerShell pour Azure SQL Data Warehouse
+title: Applets de commande PowerShell
 description: Recherchez les principaux applets de commande PowerShell pour Azure SQL Data Warehouse, y compris comment suspendre et reprendre une base de données.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 095e66c6c5f75a27b1f0231dfe8cabfd4d741d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b36a64bb82449ace7acc1de0b3c2bc7c5efebe70
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205172"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685556"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Applets de commande PowerShell et API REST pour SQL Data Warehouse
 De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST.  Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse.  Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST][Manage scalability with REST].
@@ -82,10 +83,10 @@ Ces applets de commande PowerShell sont prises en charge avec Azure SQL Data War
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’exemples PowerShell, consultez :
 
-* [Création de SQL Data Warehouse à l’aide de PowerShell][Create a SQL Data Warehouse using PowerShell]
+* [Création de SQL Data Warehouse à l’aide de Powershell][Create a SQL Data Warehouse using PowerShell]
 * [Restauration de base de données][Database restore]
 
-Pour d’autres tâches pouvant être automatisées avec PowerShell, consultez [Applets de commande Azure SQL Database][Azure SQL Database Cmdlets]. Notez que certaines applets de commande Azure SQL Database ne sont pas prises en charge pour Azure SQL Data Warehouse.  Pour obtenir la liste des tâches pouvant être automatisées avec REST, consultez [Opérations pour Azure SQL Database][Operations for Azure SQL Database].
+Pour connaître d’autres tâches automatisables avec PowerShell, voir [Cmdlets Azure SQL Database][Azure SQL Database Cmdlets]. Notez que certaines applets de commande Azure SQL Database ne sont pas prises en charge pour Azure SQL Data Warehouse.  Pour connaître la liste des tâches automatisables avec REST, voir [Opérations pour Azure SQL Database][Operations for Azure SQL Database].
 
 <!--Image references-->
 

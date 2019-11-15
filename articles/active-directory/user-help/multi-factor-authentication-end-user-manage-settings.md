@@ -1,5 +1,5 @@
 ---
-title: Gérer les paramètres de la vérification à deux facteurs - Azure Active Directory | Microsoft Docs
+title: 'Gérer les paramètres de la vérification à deux facteurs : Azure AD'
 description: Découvrez comment changer les détails de votre méthode de vérification de sécurité liés à la vérification à deux facteurs.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4c402e0992a3a04d674477bc9dd19e0181fd6775
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616144"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805262"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>Gérer les paramètres de la vérification à deux facteurs
 

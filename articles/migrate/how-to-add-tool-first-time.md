@@ -4,19 +4,19 @@ description: Décrit comment créer un projet Azure Migrate et ajouter un outil 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: bd119956ced79b73b0376fe4530c9eafaf870238
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: a4e66175b20552e632702cb2ba46d0ae6c0956d4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934174"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720241"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>Ajouter un outil d’évaluation/de migration pour la première fois
 
 Cet article explique comment ajouter un outil d’évaluation ou de migration à un projet de [Azure Migrate](migrate-overview.md) pour la première fois.  
-Azure Migrate offre un hub central pour suivre la découverte, l’évaluation et la migration vers Azure d’applications et de charges de travail locales, ainsi que des machines virtuelles cloud privées/publiques. Le hub fournit des outils Azure Migrate pour l’évaluation et la migration, ainsi que des [offres](migrate-services-overview.md#isv-integration) de fournisseurs de logiciels indépendants (ISV) tiers. 
+Azure Migrate offre un hub central pour suivre la découverte, l’évaluation et la migration vers Azure d’applications et de charges de travail locales, ainsi que des machines virtuelles cloud privées/publiques. Le hub fournit des outils d’évaluation et de migration Azure Migrate, ainsi que d’autres outils et des [offres](migrate-services-overview.md#isv-integration) d’éditeurs de logiciels indépendants (ISV). 
 
 ## <a name="create-a-project-and-add-a-tool"></a>Créez un projet et ajouter un outil
 

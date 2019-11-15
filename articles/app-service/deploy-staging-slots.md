@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720129"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669095"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -219,7 +219,7 @@ Vous pouvez également personnaliser le comportement d’initialisation en utili
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Codes de réponse HTTP valides pour l’opération d'initialisation. Ajoutez ce paramètre d’application avec une liste séparée par des virgules de codes HTTP. Par exemple `200,202`. Si le code d’état retourné ne figure pas dans la liste, les opérations d’initialisation et d’échange sont arrêtées. Par défaut, tous les codes de réponse sont valides.
 
 > [!NOTE]
-> `<applicationInitialization>` fait partie de chaque démarrage d’application, où ces deux paramètres d’application s’appliquent uniquement aux échanges d’emplacements.
+> L’élément de configuration `<applicationInitialization>` fait partie de chaque démarrage d’application, tandis que les deux paramètres d’application de comportement de préchauffage s’appliquent uniquement aux échanges d’emplacements.
 
 Si vous rencontrez des problèmes, consultez [Résoudre les problèmes liés aux échanges](#troubleshoot-swaps).
 
@@ -334,7 +334,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-arm-templates"></a>Automatiser avec des modèles ARM
 
-Les [modèles ARM](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) sont des fichiers JSON déclaratifs utilisés pour automatiser le déploiement et la configuration de ressources Azure. Pour échanger des emplacements à l’aide de modèles ARM, vous devez définir deux propriétés sur les ressources *Microsoft.Web/sites/slots* et *Microsoft.Web/sites* :
+Les [modèles ARM](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) sont des fichiers JSON déclaratifs utilisés pour automatiser le déploiement et la configuration de ressources Azure. Pour échanger des emplacements à l’aide de modèles ARM, vous devez définir deux propriétés sur les ressources *Microsoft.Web/sites/slots* et *Microsoft.Web/sites* :
 
 - `buildVersion` : propriété de type chaîne qui représente la version actuelle de l’application déployée dans l’emplacement. Par exemple : « v1 », « 1.0.0.1 » ou « 2019-09-20T11:53:25.2887393-07:00 ».
 - `targetBuildVersion` : propriété de type chaîne spécifiant la valeur `buildVersion` que l’emplacement doit avoir. Si la valeur targetBuildVersion n’est pas la valeur `buildVersion` actuelle, cela déclenche l’opération d’échange en recherchant l’emplacement qui a la valeur `buildVersion` spécifiée.

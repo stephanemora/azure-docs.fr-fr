@@ -1,6 +1,6 @@
 ---
 title: Guide pratique pour déployer des dépendances cloud OPC Twin dans Azure | Microsoft Docs
-description: Comment déployer des dépendances Azure OPC Twin.
+description: Cet article explique comment déployer les dépendances Azure OPC Twin nécessaires au développement et au débogage local.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cb07899b51280cff8613d637640c0da23debbc8e
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016512"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824098"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Déploiement de dépendances pour un développement local
 

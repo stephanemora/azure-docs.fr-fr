@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données depuis DB2 à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données de DB2 à l’aide d’Azure Data Factory
 description: Découvrez comment déplacer des données depuis une base de données DB2 locale à l’aide de l’activité de copie dans Azure Data Factory
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 0d066e66e4b9600eb5734ef2f3c6031dbc44f17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839035"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666601"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Déplacer des données depuis DB2 à l’aide de l’activité de copie dans Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -309,15 +309,15 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | Type de base de données DB2 | Type de .NET Framework |
 | --- | --- |
 | SmallInt |Int16 |
-| Entier |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
-| Real |Single |
+| Real |Unique |
 | Double |Double |
 | Float |Double |
 | Décimal |Decimal |
 | DecimalFloat |Decimal |
 | Chiffre |Decimal |
-| Date |Datetime |
+| Date |DateTime |
 | Temps |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
@@ -335,15 +335,15 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | Blob |Byte[] |
 | DbClob |Chaîne |
 | SmallInt |Int16 |
-| Entier |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
-| Real |Single |
+| Real |Unique |
 | Double |Double |
 | Float |Double |
 | Décimal |Decimal |
 | DecimalFloat |Decimal |
 | Chiffre |Decimal |
-| Date |Datetime |
+| Date |DateTime |
 | Temps |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |

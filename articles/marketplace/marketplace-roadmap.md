@@ -5,45 +5,38 @@ services: Azure, Marketplace, Compute
 author: qianw211
 manager: MaggiePucciEvans
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 11/02/2019
 ms.author: blevens
-ms.openlocfilehash: 83710085c4bdfc76b851e59046cb148f768e3513
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: ce2390f1aa71b6cfc10bbb5144127d46fc82fb19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621419"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826439"
 ---
-# <a name="azure-marketplace-and-appsource-roadmap"></a>Feuille de route de la Place de marché Azure et d’AppSource
+# <a name="microsoft-commercial-marketplace-roadmap"></a>Feuille de route de la place de marché commerciale de Microsoft
 
-Ce document donne un aperçu de ce qui est à venir sur la Place de marché commerciale de Microsoft pour les éditeurs, les vendeurs et les clients. Il inclut la liste de certaines des fonctionnalités importantes que nous développons, ainsi qu’un calendrier approximatif de leur sortie et de leur actualisation mensuelle. Il ne s’agit pas de la liste exhaustive des nouvelles fonctionnalités ; ce document vise à fournir un aperçu de nos projets importants. Cette liste de fonctionnalités et les délais de livraison sont à jour mais peuvent faire l’objet de modifications.
+Ce document donne un aperçu des nouveautés à venir sur la place de marché commerciale de Microsoft pour les éditeurs, les vendeurs et les clients. Il inclut la liste de certaines des fonctionnalités importantes que nous développons, ainsi qu’un calendrier approximatif de leur sortie et de leur actualisation mensuelle. Il ne s’agit pas de la liste exhaustive des nouvelles fonctionnalités ; ce document vise à fournir un aperçu de nos projets importants. Cette liste de fonctionnalités et les délais de livraison sont à jour mais peuvent faire l’objet de modifications.
 
 N’hésitez pas à nous faire part de vos suggestions. Rejoignez la conversation dans la [Communauté de partenaires Microsoft](https://www.microsoftpartnercommunity.com/) pour obtenir les dernières mises à jour sur les nouvelles fonctionnalités, les nouveaux programmes et les événements.
 
-
 ## <a name="roadmap"></a>Feuille de route
-![Feuille de route de la Place de marché pour juin](./media/marketplace-publishers-guide/roadmap-june19.png)
+![Feuille de route de la Place de marché pour novembre 2019](./media/marketplace-publishers-guide/roadmap-nov19.png)
 
+## <a name="recent-releases"></a>Dernières mises en production
 
-## <a name="recent-releases"></a>Mises en production récentes
+Une fois qu’une fonctionnalité est en ligne, elle est supprimée de la feuille de route. Les fonctionnalités ajoutées à la place de marché figurent dans la documentation suivante.
 
-Une fois qu’une fonctionnalité est en ligne, elle est supprimée de la feuille de route. Une fonctionnalité qui a été ajoutée à la Place de marché inclut les éléments suivants.
-
-
-### <a name="for-march-2019"></a>Pour mars 2019
-
-* [Blog sur la mise à jour de CSP + Place de marché](https://azure.microsoft.com/blog/azure-marketplace-and-cloud-solution-provider-updates-march-2019/)
-* [Publication des offres dans le canal CSP (ISV)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)
-* [Revendre des offres de la Place de marché (CSP)](https://docs.microsoft.com/partner-center/sell-marketplace-products)
-* [Contrat standard](https://docs.microsoft.com/azure/marketplace/standard-contract)
-* [API de traitement SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-apis)
-* [Devises et zones géographiques de la Place de marché](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
+* [Blog sur la mise à jour de CSP + Place de marché](https://aka.ms/marketplacemarchupdateblog)
+* [Publication des offres dans le canal CSP (ISV)](https://aka.ms/publishtocsp)
+* [Revendre des offres de la Place de marché (CSP)](h https://aka.ms/marketplaceincsp)
+* [Contrat standard](https://aka.ms/standardcontract)
+* [API de traitement SaaS](https://aka.ms/saasapiv2)
+* [Devises et zones géographiques de la Place de marché](https://aka.ms/marketplacegeos)
 * [Seller Insights](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
-
-### <a name="for-may-2019"></a>Pour mai 2019
-
-* [Blog de la Place de marché Microsoft Build](https://azure.microsoft.com/blog/announcing-new-marketplace-revenue-opportunities/)
+* [Blog de la Place de marché Microsoft Build](https://aka.ms/marketplacebuildblog)
 * [Blog sur les mises à jour de mai de la Place de marché](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
 * Espace partenaire : [Créer un compte](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Gérer un compte](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [Migration à partir de CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
 * Espace partenaire : [Créer une offre SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [Publication d’état](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status

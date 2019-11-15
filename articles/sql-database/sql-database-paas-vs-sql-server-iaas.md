@@ -1,5 +1,5 @@
 ---
-title: Choisir l’option de déploiement appropriée dans Azure SQL | Microsoft Docs
+title: Choisir l’option de déploiement appropriée
 description: Découvrez comment choisir parmi les options de déploiement dans Azure SQL, entre Bases de données SQL, Instances managées SQL et SQL Server sur des machines virtuelles Azure.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: 998318ad1418c1076676725af03bd7f33c963b3a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e642454807511e8e0bc0b6b6ca7af837e03de2cf
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279933"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821347"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Choisir l’option de déploiement appropriée dans Azure SQL
 

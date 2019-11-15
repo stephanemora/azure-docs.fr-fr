@@ -1,5 +1,5 @@
 ---
-title: Résultats des tests sur la réplication des machines virtuelles Hyper-V de clouds VMM vers un site secondaire avec Azure Site Recovery | Microsoft Docs
+title: Tester une réplication d’une machine virtuelle Hyper-V sur un site secondaire avec VMM à l’aide d’Azure Site Recovery
 description: Cet article fournit des informations sur les tests de performance liés à la réplication des machines virtuelles Hyper-V de clouds VMM vers un site secondaire à l’aide d’Azure Site Recovery.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68377215"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663172"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Résultats des tests de la réplication Hyper-V vers un site secondaire
 

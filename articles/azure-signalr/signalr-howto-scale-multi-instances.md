@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: e284a0492774e02cab79db6d9006c1718a7fcfc9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e31bc4133cced793d793c07d2e0ee3df29efddb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809130"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672331"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Comment mettre à l’échelle SignalR Service avec plusieurs instances ?
 La dernière version du SDK de SignalR Service prend en charge plusieurs points de terminaison pour les instances de SignalR Service. Vous pouvez utiliser cette fonctionnalité pour la messagerie multirégion ou pour mettre à l’échelle des connexions simultanées.
@@ -223,7 +223,7 @@ Dans les cas impliquant plusieurs régions, le réseau peut être instable. Pour
 
 ![Infrastructure multigéographique](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-Quand un client tente de négocier (`/negotiate`) avec le serveur d’applications, avec le routeur par défaut, le SDK **sélectionne de manière aléatoire** un point de terminaison dans l’ensemble de points de terminaison `primary` disponibles. Si aucun point de terminaison n’est disponible, le SDK **effectue une sélection aléatoire** parmi tous les points de terminaison `secondary` disponibles. Le point de terminaison est marqué comme **disponible** quand la connexion entre le serveur et le point de terminaison de service est active.
+Quand un client tente de négocier (`/negotiate`) avec le serveur d’applications, avec le routeur par défaut, le SDK **sélectionne de manière aléatoire** un point de terminaison dans l’ensemble de points de terminaison `primary` disponibles. Si le point de terminaison principal n’est pas disponible, le SDK **effectue une sélection aléatoire** parmi tous les points de terminaison `secondary` disponibles. Le point de terminaison est marqué comme **disponible** quand la connexion entre le serveur et le point de terminaison de service est active.
 
 Dans un scénario multirégion, quand un client tente de négocier (`/negotiate`) avec le serveur d’applications hébergé dans la région *USA Est*, par défaut, il retourne toujours le point de terminaison `primary` situé dans la même région. Si aucun point de terminaison *USA Est* n’est disponible, le client est redirigé vers des points de terminaison dans d’autres régions. La section Basculement ci-dessous décrit le scénario en détail.
 

@@ -1,5 +1,5 @@
 ---
-title: Exclure des disques de la réplication lors de la récupération d’urgence VMware vers Azure avec Azure Site Recovery | Microsoft Docs
+title: Exclure des disques de machines virtuelles VMware de la récupération d’urgence sur Azure avec Azure Site Recovery
 description: Décrit pourquoi et comment exclure des disques de machine virtuelle de la réplication lors de la récupération d’urgence VMware vers Azure.
 author: mayurigupta13
 manager: rochakm
@@ -8,14 +8,14 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c003620420611f3416e6481c575f987fbd1bd05f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921993"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622386"
 ---
-# <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Exclure les disques de la réplication des machines virtuelles VMware vers Azure
+# <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>Exclure des disques de la réplication de machines virtuelles VMware sur Azure
 
 Cet article explique comment exclure des disques pendant la réplication de machines virtuelles VMware dans Azure. Cette exclusion permet d’optimiser la bande passante utilisée pour la réplication ou les ressources côté serveur que ces disques utilisent. Si vous avez besoin d’informations sur l’exclusion de disques pour Hyper-V, lisez [cet article](hyper-v-exclude-disk.md)
 

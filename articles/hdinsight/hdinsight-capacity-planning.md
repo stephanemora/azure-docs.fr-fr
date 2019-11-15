@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529156"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682260"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planification de la capacité pour les clusters HDInsight
 
@@ -31,13 +31,13 @@ Les principales questions à se poser pour la planification de la capacité sont
 
 La région Azure détermine où votre cluster est physiquement mis en service. Pour réduire la latence de lecture et d’écriture, le cluster doit être proche de vos données.
 
-HDInsight est disponible dans de nombreuses régions Azure. Pour trouver la région la plus proche, consultez [Disponibilité des produits par région](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/).
+HDInsight est disponible dans de nombreuses régions Azure. Pour trouver la région la plus proche, consultez [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight).
 
 ## <a name="choose-storage-location-and-size"></a>Choisir la taille et l’emplacement de stockage
 
 ### <a name="location-of-default-storage"></a>Emplacement du stockage par défaut
 
-Le stockage par défaut (soit un compte Stockage Azure, soit Azure Data Lake Storage) doit être au même emplacement que votre cluster. Le stockage Azure est disponible à tous les emplacements. Data Lake Storage Gen1 est disponible dans certaines régions. Consultez la [disponibilité actuelle de Data Lake Storage](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage).
+Le stockage par défaut (soit un compte Stockage Azure, soit Azure Data Lake Storage) doit être au même emplacement que votre cluster. Le stockage Azure est disponible à tous les emplacements. Data Lake Storage Gen1 est disponible dans certaines régions. Consultez la [disponibilité actuelle de Data Lake Storage](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 
 ### <a name="location-of-existing-data"></a>Emplacement des données existantes
 
@@ -68,13 +68,7 @@ Chaque type de cluster a un ensemble de types de nœuds, et chaque type de nœud
 
 Pour déterminer la taille de cluster optimale pour votre application, vous pouvez évaluer la capacité de cluster et augmenter la taille comme indiqué. Vous pouvez par exemple utiliser une charge de travail simulée ou une *requête canary*. Avec la charge simulée, vous exécutez vos charges de travail attendues sur différentes tailles de cluster, en augmentant progressivement la taille jusqu’à obtenir les performances souhaitées. Vous pouvez insérer régulièrement une requête canary parmi les autres requêtes de production pour voir si le cluster a suffisamment de ressources.
 
-La taille et le type de machine virtuelle sont déterminés par la puissance de traitement de l’UC, la taille de la RAM et la latence du réseau :
-
-* Processeur : la taille de machine virtuelle détermine le nombre de cœurs. Plus il y a de cœurs, plus chaque nœud peut atteindre un degré élevé de calcul parallèle. En outre, certains types de machines virtuelles ont des cœurs plus rapides.
-
-* RAM : la taille de machine virtuelle détermine également la quantité de RAM disponible sur la machine virtuelle. Pour les charges de travail qui stockent des données en mémoire pour le traitement, au lieu de lire à partir du disque, vérifiez que vos nœuds worker disposent de suffisamment de mémoire pour stocker les données.
-
-* Réseau : pour la plupart des types de clusters, les données traitées par le cluster ne se trouvent pas sur le disque local, mais dans un service de stockage externe comme Data Lake Storage ou Stockage Azure. Prenez en compte le débit et la bande passante réseau entre la machine virtuelle du nœud et le service de stockage. La bande passante accessible à une machine virtuelle augmente généralement avec la taille. Pour plus d’informations, consultez [Tailles des machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Pour savoir plus en détails comment choisir la bonne famille de machines virtuelles pour votre charge de travail, voir [Sélectionner la taille de machine virtuelle adaptée à un cluster](hdinsight-selecting-vm-size.md).
 
 ## <a name="choose-the-cluster-scale"></a>Choix de l’échelle du cluster
 
@@ -104,10 +98,11 @@ Après avoir déterminé la taille, l’échelle et le type de la machine virtue
 1. Sélectionnez **Aide + support** en bas à gauche de la page.
 1. Sélectionnez **Nouvelle demande de support**.
 1. Dans la page **Nouvelle demande de support**, sous l’onglet **De base**, sélectionnez les options suivantes :
+
    - **Type de problème** : **Limites du service et de l’abonnement (quotas)**
    - **Abonnement** : l’abonnement à modifier
    - **Type de quota** : **HDInsight**
-    
+
      ![Créer une demande de support pour augmenter le quota de cœurs d’HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. Sélectionnez **Suivant : Solutions >>** .

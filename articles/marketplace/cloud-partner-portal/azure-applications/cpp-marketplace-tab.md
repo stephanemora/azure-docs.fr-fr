@@ -4,15 +4,16 @@ description: Utilisez l’onglet Place de marché pour identifier les ressources
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: b5d54e4c6744675da0dea5b095590b71df6d2641
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 967b66a67d51b3a79bcf930ce977af48acc3dd63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962879"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827578"
 ---
 # <a name="azure-application-marketplace-tab"></a>Onglet Place de marché - Application Azure
 
@@ -32,8 +33,8 @@ Le tableau suivant décrit les paramètres à utiliser pour la création d’une
 | **Résumé\***      | Court résumé de l’offre. La longueur maximale est de 100 caractères.           |
 | **Résumé long\*** | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ Résumé). La longueur maximale est de 256 caractères.           |
 | **Description\***  | Description de l’offre. La longueur maximale est de 3 000 caractères. Mise en forme HTML simple, comprenant des balises&lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; et header.  |
-| **Identificateur marketing\*** | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères. Choisissez un identificateur marketing court et convivial pour votre service. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est « contoso » et votre identificateur marketing est « sampleApp », l’URL de votre offre dans la Place de marché Azure sera https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
-| **ID d’abonnement pour préversion\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès qu’elle est disponible en préversion et après sa publication, avant sa mise en service.          |
+| **Identificateur marketing\*** | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères. Choisissez un identificateur marketing court et convivial pour votre service. Il sera utilisé dans les URL de la Place de marché pour cette offre. Par exemple, si votre ID d’éditeur est « contoso » et votre identificateur marketing « sampleApp », l’URL de votre offre sur la Place de marché Azure sera https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp  
+| **ID d’abonnement à la préversion\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès qu’elle est disponible en préversion et après sa publication, avant sa mise en service.          |
 | **Liens utiles**    | Vous pouvez éventuellement fournir des liens vers diverses ressources pour les utilisateurs de votre offre, comme la prise en charge, la documentation, les forums, etc.  Il vous est recommandé d’ajouter au moins un lien vers votre documentation.            |
 | **Catégories suggérées (5 maximum)\*** | Sélectionnez cinq catégories maximum. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la Place de marché Microsoft Azure et le portail Azure. Elles sont affichées sur les pages de navigation et la page des détails de votre produit. |
 |  |  |
@@ -65,7 +66,7 @@ La capture d’écran suivante montre un exemple de résultat de recherche dans 
 
 ![Résultat de recherche d’offre dans la Place de marché](./media/azureapp-marketplace-example-browse.png)
 
-L’illustration suivante montre comment l’offre apparaît sur la Place de marché lorsqu'un client clique sur le titre de l'offre dans le résultat de la recherche.
+L’illustration suivante montre comment l’offre apparaît sur la Place de marché lorsqu’un client clique sur le titre de l’offre dans le résultat de la recherche.
 
 ![Détails du résultat de recherche d’offre dans la Place de marché](./media/azureapp-marketplace-example-details.png)
 
@@ -114,7 +115,7 @@ Le formulaire Gestion des prospects a un champ facultatif pour configurer la ges
 ![Sélectionnez la destination de la gestion des prospects](./media/azureapp-marketplace-leadmgmt.png)
 
 >[!TIP]
->Sélectionnez l’icône d’information pour afficher ce message : « Sélectionnez le système dans lequel vos prospects seront stockés. Apprenez à connecter votre système CRM [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads). »
+>Sélectionnez l’icône d’information pour afficher ce message : « Sélectionnez le système dans lequel vos prospects seront stockés. Apprenez à connecter votre système CRM [ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads). »
 
 Pour plus d’informations, voir [Configurer des prospects](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads).
 

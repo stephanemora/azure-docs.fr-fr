@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 37d895d5631cf8487549fd9a9ebfb9dc37209c60
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: ca9b0289fbc8dd01427de38e0e7b30eec266bb12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839610"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818587"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -4778,8 +4778,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Search/searchServices/delete | Supprime le service de recherche. |
 > | Action | Microsoft.Search/searchServices/deleteQueryKey/delete | Supprime la clé de requête. |
 > | Action | Microsoft.Search/searchServices/listAdminKeys/action | Lit les clés d’administration. |
-> | Action | Microsoft.Search/searchServices/listQueryKeys/action | Retourne la liste des clés d’API de requête pour le service Recherche Azure donné. |
-> | Action | Microsoft.Search/searchServices/listQueryKeys/read | Retourne la liste des clés d’API de requête pour le service Recherche Azure donné. |
+> | Action | Microsoft.Search/searchServices/listQueryKeys/action | Retourne la liste des clés d’API de requête pour le service Recherche cognitive Azure donné. |
+> | Action | Microsoft.Search/searchServices/listQueryKeys/read | Retourne la liste des clés d’API de requête pour le service Recherche cognitive Azure donné. |
 > | Action | Microsoft.Search/searchServices/read | Lit le service de recherche. |
 > | Action | Microsoft.Search/searchServices/regenerateAdminKey/action | Régénère la clé d’administration. |
 > | Action | Microsoft.Search/searchServices/start/action | Démarre le service de recherche. |

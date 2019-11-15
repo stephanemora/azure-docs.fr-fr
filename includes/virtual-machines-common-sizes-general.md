@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn;joelpell
 ms.custom: include file
-ms.openlocfilehash: 9462d9c807f8300d65e8e5a3e997ebc858342a97
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3bccae7c0e45f21609a5a67d20811240648570d4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514469"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719153"
 ---
 Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article donne des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage pour chacune des tailles de ce regroupement.
 
@@ -29,7 +29,7 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 
   Voici des exemples de cas d’usage de la série D : applications de classe Entreprise, bases de données relationnelles, mise en cache en mémoire et analytique.
 
-- La série Da et la série Dasv3 sont de nouvelles tailles qui utilisent le processeur EPYC<sup>TM</sup> 7452V 2.35Ghz d’AMD dans une configuration multithread, avec un cache L3 allant jusqu’à 256 Go, dont 8 Go sont dédiés aux 8 cœurs, ce qui offre davantage d’options pour exécuter des charges de travail à usage général. Les séries Da et Dasv3 ont les mêmes configurations de mémoire et de disque que les séries D et Dsv3.
+- Les séries Dav4 et Dasv4 sont de nouvelles tailles qui utilisent le processeur EPYC<sup>TM</sup> 7452 2,35 GHz d’AMD dans une configuration multithread, avec un cache L3 allant jusqu’à 256 Go, dont 8 Go sont dédiés tous les 8 cœurs, ce qui offre aux clients davantage d’options pour exécuter leurs charges de travail à usage général. Elles ont les mêmes configurations de mémoire et de disque que les séries D et Dsv3.
   
 ## <a name="b-series"></a>Série B
 
@@ -80,25 +80,28 @@ Les tailles de la série Dsv3 s’exécutent sur les processeurs Intel® Xeon® 
 
 <sup>1</sup> Machines virtuelles de la série Dsv3 dotées de la technologie Hyper-Threading d’Intel®
 
-## <a name="dasv3-series-preview"></a>Série Dasv3 (Préversion)
+## <a name="dasv4-series"></a>Série Dasv4
+
+ACU :  230-260
 
 Premium Storage : Pris en charge
 
 Mise en cache du Stockage Premium : Pris en charge
 
-Les tailles de la série Dasv3 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une Fmax renforcée de 3,35 GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Dasv3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production.
+Les tailles de la série Dasv4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 2,35 GHz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz et utiliser un SSD Premium. Elles offrent une combinaison de processeur virtuel, de mémoire et de stockage temporaire adaptée à la plupart des charges de travail de production.
 
-[Cliquez ici pour vous inscrire et bénéficier de la préversion](http://aka.ms/azureamdpreview).
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2as_v4|2|8|16|4|4000 / 32 (50)|3200 / 48|2 / 1 000 |
+| Standard_D4as_v4|4|16|32|8|8000 / 64 (100)|6400 / 96|2 / 2 000 |
+| Standard_D8as_v4|8|32|64|16|16000 / 128 (200)|12800 / 192|4/4000 |
+| Standard_D16as_v4|16|64|128|32|32 000 / 255 (400)|25600 / 384|8 / 8000 |
+| Standard_D32as_v4|32|128|256|32|64 000 / 510 (800)|51200 / 768|8 / 16 000 |
+| Standard_D48as_v4 <sup>**</sup>|48|192|384|32| | | 
+| Standard_D64as_v4 <sup>**</sup>|64|256|512|32| | | 
+| Standard_D96as_v4 <sup>**</sup>|96|384|768|32| | | 
 
-| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
-|---|---|---|---|
-| Standard_D2as_v3  | 2  | 8   | 16  |
-| Standard_D4as_v3  | 4  | 16  | 32  |
-| Standard_D8as_v3  | 8  | 32  | 64  |
-| Standard_D16as_v3 | 16 | 64  | 128 |
-| Standard_D32as_v3 | 32 | 128 | 256 |
-| Standard_D48as_v3 | 48 | 192 | 384 |
-| Standard_D64as_v3 | 64 | 256 | 512 |
+<sup>**</sup> Ces tailles sont en préversion.  Si vous souhaitez essayer ces grandes tailles, inscrivez-vous à l’adresse [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## <a name="dv3-series-sup1sup"></a>Série Dv3 <sup>1</sup>
 
@@ -125,25 +128,28 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 
 <sup>1</sup> Machines virtuelles de série Dv3 dotées de la technologie Hyper-Threading d’Intel®
 
-## <a name="dav3-series-preview"></a>Série Dav3 (Préversion)
+## <a name="dav4-series"></a>Série Dav4
+
+ACU : 230-260
 
 Premium Storage : Non pris en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 
-Les tailles de la série Dav3 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz , qui peut atteindre une Fmax renforcée de 3,35 GHz. Les tailles des machines virtuelles de la série Dav3 offrent une combinaison de processeur virtuel, mémoire et stockage temporaire pour la plupart des charges de travail de production. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format Dasv3. Les tarifs et les compteurs de facturation pour les tailles Dasv3 sont identiques à celles de la série Dav3.
+Les tailles de la série Dav4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 2,35 GHz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz. Elles offrent une combinaison de processeur virtuel, de mémoire et de stockage temporaire adaptée à la plupart des charges de travail de production. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser un SSD Premium, optez pour les tailles Dasv4. Les tarifs et les compteurs de facturation de ces tailles sont identiques à ceux de la série Dav4.
 
-[Cliquez ici pour vous inscrire et bénéficier de la préversion](http://aka.ms/azureamdpreview).
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |
+|-----|-----|-----|-----|-----|-----|-----|
+| Standard_D2a_v4 |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 / 1 000 |
+| Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6000 / 93 / 46   | 2 / 2 000 |
+| Standard_D8a_v4 |  8  | 32 | 200 | 16 | 12000 / 187 / 93 | 4/4000 |
+| Standard_D16a_v4|  16 | 64 | 400 |32  | 24000 / 375 / 187 |8 / 8000 |
+| Standard_D32a_v4|  32 | 128| 800 | 32 | 48000 / 750 / 375 |8 / 16 000 |
+| Standard_D48a_v4<sup>**</sup> | 48 | 192| 1 200 | 32 | | |
+| Standard_D64a_v4<sup>**</sup> | 64 | 256 | 1 600 | 32 | | |
+| Standard_D96a_v4<sup>**</sup> | 96 | 384 | 2 400 | 32 | | |
 
-| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio |
-|---|---|---|---|
-| Standard_D2a_v3  | 2  | 8   | 50   |
-| Standard_D4a_v3  | 4  | 16  | 100  |
-| Standard_D8a_v3  | 8  | 32  | 200  |
-| Standard_D16a_v3 | 16 | 64  | 400  |
-| Standard_D32a_v3 | 32 | 128 | 800  |
-| Standard_D48a_v3 | 48 | 192 | 1 200 |
-| Standard_D64a_v3 | 64 | 256 | 1 600 |
+<sup>**</sup> Ces tailles sont en préversion.  Si vous souhaitez essayer ces grandes tailles, inscrivez-vous à l’adresse [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## <a name="dsv2-series"></a>Séries DSv2
 

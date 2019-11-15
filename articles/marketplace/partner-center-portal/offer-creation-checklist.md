@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 66c28039f9126ed9e3f56c3ac15b1b3d82279b64
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036381"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824624"
 ---
 # <a name="saas-offer-creation-checklist"></a>Check-list pour la création d’une offre SaaS
 
@@ -42,7 +43,7 @@ Les premiers éléments d’informations que vous serez invité à fournir sont 
 
 | **Nom du champ**    | **Remarques**   |  
 | :---------------- | :-----------| 
-| ID de l’offre  | Obligatoire, ne peut pas être modifié après la création. Maximum 50 caractères alphanumériques minuscules, tirets ou traits de soulignement. |
+| ID de l’offre  | Obligatoire et non modifiable après la création. Maximum 50 caractères alphanumériques minuscules, tirets ou traits de soulignement. |
 | Alias de l’offre  | Requis. |
 
 ## <a name="offer-setup-page"></a>Page de configuration de l’offre
@@ -52,17 +53,17 @@ La page de configuration de l’offre vous permet de choisir différents canaux 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------|  
 | Voulez-vous vendre via Microsoft ?  | Requis. Valeur par défaut : OUI |
-| Comment voulez-vous que des clients potentiels interagissent avec le référencement de l’offre ? (Invite à l’action)  | Obligatoire en cas de vente sans passer par Microsoft. Valeur par défaut : Essai gratuit, Options : « Télécharger maintenant », « Essai gratuit », « Me contacter ». |
-| URL de la version d’essai  | Obligatoire si « Essai gratuit » est sélectionné comme façon dont les clients doivent interagir avec le référencement de l’offre. |
-| URL de l’offre  | Obligatoire si « Obtenir maintenant » est sélectionné comme façon dont les clients doivent interagir avec le référencement de l’offre. |
+| Comment voulez-vous que des clients potentiels interagissent avec le référencement de l’offre ? (Invite à l’action)  | Obligatoire en cas de vente sans passer par Microsoft. Valeur par défaut : Essai gratuit, Options : « Obtenir maintenant », « Essai gratuit », « Me contacter ». |
+| URL de la version d’essai  | Obligatoire si « Essai gratuit » est sélectionné comme mode d’interaction des clients avec le référencement de l’offre. |
+| URL de l’offre  | Obligatoire si « Obtenir maintenant » est sélectionné comme mode d’interaction des clients avec le référencement de l’offre. |
 | Canaux  | facultatif. Valeur par défaut : Pas activé dans le canal CSP (revendeur).  |
 | Version d’évaluation | facultatif. Valeur par défaut : Aucune version d’évaluation activée.  |
 | Type de version d’évaluation | Obligatoire version d’évaluation activée. Valeur par défaut : Non sélectionné. Options : Azure Resource Manager, Dynamics 365 for Business Central, Dynamics 365 for Customer Engagement, Dynamics 365 for Operations, Logic Apps, Power BI.  |
-| Gestion des prospects – Se connecter à un système CRM | Obligatoire en cas de vente via Microsoft ou de référencement des offres via un lien « Me contacter ». Par défaut : aucun système CRM connecté. Options CRM : Azure table, Azure blob, Dynamics CRM Online, Point de terminaison HTTPS, Marketo, Salesforce  |
+| Gestion des prospects – Se connecter à un système CRM | Obligatoire en cas de vente via Microsoft ou de référencement des offres « Me contacter ». Par défaut : aucun système CRM connecté. Options CRM : Azure table, Azure blob, Dynamics CRM Online, Point de terminaison HTTPS, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Page Propriétés
 
-La page de propriétés est l’emplacement où vous définissez les catégories et secteurs utilisés pour grouper votre offre selon les places de marché, les contrats légaux associés, et la version de votre application. Veillez à fournir des détails complets et précis sur votre offre dans cette page, afin qu’elle soit correctement affichée et proposée aux clients appropriés. 
+La page de propriétés est l’emplacement où vous définissez les catégories et secteurs utilisés pour grouper votre offre selon les places de marché, les contrats légaux associés, et la version de votre application. Veillez à fournir sur cette page des informations complètes et précises sur votre offre, afin qu’elle soit correctement présentée et proposée aux clients concernés. 
 
 | **Nom du champ**    | **Remarques**   | 
 | :---------------- | :-----------|  
@@ -74,7 +75,7 @@ La page de propriétés est l’emplacement où vous définissez les catégories
 
 ## <a name="offer-listing-page"></a>Page de référencement de l’offre
 
-La page de référencement vous permet de fournir le texte et les images que les clients voient quand ils affichent le référencement de votre offre sur la Place de marché. 
+La page de référencement vous permet de fournir le texte et les images que les clients voient quand ils affichent le référencement de votre offre sur la place de marché. 
 
 | **Nom du champ**    | **Remarques**   |
 | :---------------- | :-----------| 
@@ -119,7 +120,7 @@ Les premiers éléments d’informations que vous êtes invité à fournir sont 
 
 | **Nom du champ**    | **Remarques**   |  
 | :---------------- | :-----------| 
-| ID du plan  | Obligatoire en cas de vente via Microsoft. Ne peut pas être modifié une fois créé. Maximum 50 caractères alphanumériques minuscules, tirets ou traits de soulignement. |
+| ID du plan  | Obligatoire en cas de vente via Microsoft. Non modifiable une fois créé. Maximum 50 caractères alphanumériques minuscules, tirets ou traits de soulignement. |
 | Nom du plan  | Obligatoire en cas de vente via Microsoft. Doit être unique pour tous les plans dans l’offre. 50 caractères maximum. |
 
 ## <a name="plan-listing-page"></a>Page de référencement du plan

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad0494868c494b488a238a81e504c58552813907
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: b2cc562f155fe3b84e5d28b2e0e22d50238d480c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508977"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816211"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Forum aux questions sur l’accès conditionnel dans Azure Active Directory
 
@@ -32,7 +32,7 @@ Les stratégies sont appliquées aux utilisateurs dans le cadre d’une collabor
 
 Oui. Une stratégie SharePoint Online s’applique également à OneDrive Entreprise.
 
-## <a name="why-cant-i-set-a-policy-on-client-apps-like-word-or-outlook"></a>Pourquoi ne puis-je pas définir une stratégie pour les applications clientes telles que Word ou Outlook ?
+## <a name="why-cant-i-set-a-policy-directly-on-client-apps-like-word-or-outlook"></a>Pourquoi ne peut-on pas définir directement une stratégie sur des applications clientes, par exemple Word ou Outlook ?
 
 Une stratégie d’accès conditionnel définit les conditions requises pour accéder à un service. Elle est appliquée quand l’authentification à ce service a lieu. La stratégie n’est pas définie directement sur une application cliente. Au lieu de cela, elle est appliquée quand un client appelle un service. Par exemple, une stratégie définie sur SharePoint s’applique aux clients qui appellent SharePoint. Une stratégie définie sur Exchange s’applique à Outlook.
 

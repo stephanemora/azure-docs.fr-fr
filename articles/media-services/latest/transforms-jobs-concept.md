@@ -1,6 +1,7 @@
 ---
-title: Transformations et travaux dans Azure Media Services | Microsoft Docs
-description: Lorsque vous utilisez Media Services, vous devez créer une transformation pour décrire les règles ou les spécifications de traitement de vos vidéos. Cet article explique ce qu’est une transformation et comment l’utiliser.
+title: Transformations et travaux dans Media Services
+titleSuffix: Azure Media Services
+description: Découvrez comment créer des transformations pour décrire les règles de traitement de vos vidéos dans Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,40 +12,40 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 466ab0737aa5af40bd1bc137b98ab57a48feafde
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69637352"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571237"
 ---
-# <a name="transforms-and-jobs"></a>Transformations et travaux
+# <a name="transforms-and-jobs-in-media-services"></a>Transformations et travaux dans Media Services
 
-Cette rubrique fournit des informations détaillées sur les [transformations](https://docs.microsoft.com/rest/api/media/transforms) et les [travaux](https://docs.microsoft.com/rest/api/media/jobs) et explique la relation entre ces entités. 
+Cette rubrique fournit des informations détaillées sur les [transformations](https://docs.microsoft.com/rest/api/media/transforms) et les [travaux](https://docs.microsoft.com/rest/api/media/jobs) et explique la relation entre ces entités.
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Vue d'ensemble
 
 ### <a name="transformsjobs-workflow"></a>Flux de travail de transformations/travaux
 
-Le schéma qui suit présente le flux de travail transformations/travaux.
+Le schéma qui suit présente le flux de travail transformations/travaux :
 
-![Transformations](./media/encoding/transforms-jobs.png)
+![Flux de travail des transformations et travaux dans Azure Media Services](./media/encoding/transforms-jobs.png)
 
 #### <a name="typical-workflow"></a>Flux de travail classique
 
-1. Créer une transformation 
-2. Envoyer des travaux sous cette transformation 
-3. Répertorier les transformations 
-4. Supprimer une transformation si vous ne prévoyez pas de l’utiliser ultérieurement. 
+1. Créer une transformation.
+2. Envoyer des travaux sous cette transformation.
+3. Répertorier les transformations.
+4. Supprimer une transformation si vous ne prévoyez pas de l’utiliser ultérieurement.
 
 #### <a name="example"></a>Exemples
 
-Supposons que vous souhaitez extraire la première image de toutes vos vidéos sous la forme d’une image miniature. Vous devrez effectuer les étapes suivantes : 
+Supposons que vous souhaitez extraire la première image de toutes vos vidéos sous la forme d’une image miniature. Vous devrez effectuer les étapes suivantes :
 
-1. Définir la recette, ou la règle de traitement de vos vidéos, « utiliser la première image de la vidéo comme miniature ». 
-2. Pour chaque vidéo, vous devez indiquer au service : 
-    1. où trouver cette vidéo ;  
-    2. à quel emplacement écrire l’image miniature de sortie. 
+1. Définir la recette, ou la règle de traitement de vos vidéos : « utiliser la première image de la vidéo comme miniature ».
+2. Pour chaque vidéo, vous devez indiquer au service :
+    1. où trouver cette vidéo ;
+    2. à quel emplacement écrire l’image miniature de sortie.
 
 Une **transformation** vous permet de créer la recette une seule fois (Étape 1) et d’envoyer des travaux à l’aide de cette recette (Étape 2).
 
@@ -57,7 +58,7 @@ Utilisez des **transformations** pour configurer des tâches courantes de codage
 
 ### <a name="viewing-schema"></a>Consultation du schéma
 
-Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
+Dans Media Services v3, les présélections sont des entités fortement typées dans l’API elle-même. Vous trouverez la définition « schema » (schéma) pour ces objets dans [Open API Specification (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Vous pouvez également consulter les définitions prédéfinies (comme **StandardEncoderPreset**) dans [l’API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [le Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou d’autres documents de référence sur le Kit de développement logiciel (SDK) Media Services v3).
 
 ### <a name="creating-transforms"></a>Création de transformations
 
@@ -69,13 +70,15 @@ Si vous avez besoin mettre à jour votre [transformation](https://docs.microsoft
 
 ### <a name="transform-object-diagram"></a>Schéma de l’objet de transformation
 
-Le schéma suivant illustre l’objet de **transformation** et les objets qu’il référence avec les relations de dérivation. Les flèches grises montrent un type référencé par le travail, et les flèches vertes indiquent les relations de dérivation de classe.<br/>Cliquez sur l’image pour l’afficher en plein écran.  
+Le schéma suivant illustre l’objet de **transformation** et les objets qu’il référence avec les relations de dérivation. Les flèches grises montrent un type référencé par le travail, et les flèches vertes indiquent les relations de dérivation de classe.
 
-<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
+Sélectionnez l’image pour l’afficher en plein écran.  
+
+<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
 
 ## <a name="jobs"></a>Tâches
 
-Un **travail** est la requête réelle envoyée à Azure Media Services pour appliquer la **transformation** à un contenu vidéo ou audio d’entrée donné. Lorsque la transformation est créée, vous pouvez envoyer des travaux à l’aide des API Media Services ou de l’un des kits de développement logiciel (SDK) publiés. Le **travail** spécifie des informations comme l’emplacement de la vidéo d’entrée et celui de la sortie. Vous pouvez spécifier l'emplacement de votre vidéo d'entrée en utilisant : des URL HTTPS, des URL SAS ou des [éléments multimédia](https://docs.microsoft.com/rest/api/media/assets).  
+Un **travail** est la demande réelle envoyée à Media Services pour appliquer la **transformation** à un contenu vidéo ou audio d’entrée donné. Lorsque la transformation est créée, vous pouvez envoyer des travaux à l’aide des API Media Services ou de l’un des kits de développement logiciel (SDK) publiés. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie. Vous pouvez spécifier l'emplacement de votre vidéo d'entrée en utilisant : des URL HTTPS, des URL SAS ou des [éléments multimédia](https://docs.microsoft.com/rest/api/media/assets).  
 
 ### <a name="job-input-from-https"></a>Entrée de travail à partir de HTTPS
 
@@ -91,13 +94,15 @@ La progression et l’état des travaux peuvent être obtenus en surveillant les
 
 ### <a name="updating-jobs"></a>Mise à jour des travaux
 
-L’opération de mise à jour de l’entité [Job](https://docs.microsoft.com/rest/api/media/jobs) (Travail) permet de modifier les propriétés *description*, et *priority* une fois le travail soumis. Une modification de la propriété *priority* ne s’applique que si le travail est toujours dans un état de file d’attente. Si le traitement du travail a commencé, ou est terminé, la modification de la priorité n’a aucun effet.
+L’opération de mise à jour de l’entité [Travail](https://docs.microsoft.com/rest/api/media/jobs) permet de modifier les propriétés *description*, et *priority* une fois le travail soumis. Une modification de la propriété *priority* ne s’applique que si le travail est toujours dans un état de file d’attente. Si le traitement du travail a commencé, ou est terminé, la modification de la priorité n’a aucun effet.
 
 ### <a name="job-object-diagram"></a>Schéma de l’objet de travail
 
-Le schéma suivant illustre l’objet de **travail** et les objets qu’il référence avec les relations de dérivation.<br/>Cliquez sur l’image pour l’afficher en plein écran.  
+Le schéma suivant illustre l’objet de **travail** et les objets qu’il référence avec les relations de dérivation.
 
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
+Cliquez sur l’image pour l’afficher en plein écran.  
+
+<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a>
 
 ## <a name="configure-media-reserved-units"></a>Configurer des unités réservées Multimédia
 

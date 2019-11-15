@@ -4,21 +4,22 @@ description: 'Services Go-To-Market : cette section explique comment faire appa
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: a99237ec52d302dbb7fc3914c6abfff5fecf4523
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 12dcdff082ce1bac350d0e3a426df6acec6efe99
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962751"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819016"
 ---
 # <a name="how-to-get-featured-in-appsource-and-azure-marketplace"></a>Guide pratique pour apparaître dans AppSource et dans la Place de marché Microsoft Azure
 
 La Place de marché Microsoft Azure et AppSource ont des sections **Applications proposées**, où votre application peut apparaître :
 
-* Tout d’abord, si vous avez une offre ESSAI ou TRANSACTION, vous pouvez utiliser votre avantage de « promotion de catégorie » dans le cadre des [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
+* Tout d’abord, si vous avez une offre ESSAI ou TRANSACTION, vous pouvez utiliser votre avantage de « promotion de catégorie » dans le cadre des [avantages de la place de marché commerciale](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 * Ensuite, passez en revue la liste des bonnes pratiques et les critères ci-dessous pour obtenir une place.
 
 L’algorithme de sélection des applications proposées génère un score pour une application établi par Microsoft.  La sélection hebdomadaire des applications proposées repose sur un calcul des performances des applications et des services.
@@ -27,7 +28,7 @@ L’algorithme de sélection des applications proposées génère un score pour 
 
 Vous pouvez effectuer les actions suivantes pour améliorer votre score :
 
-1. *Assurez-vous que votre application ou service est correctement classé* : choisissez trois catégories qui représentent les fonctionnalités de votre application ou service.
+1. *Assurez-vous que votre application ou service est correctement classé* : choisissez trois catégories qui représentent les fonctionnalités de votre application ou service.
 2. *Applications de la Place de marché Microsoft Azure : augmentez votre consommation d’Azure mois après mois.* Si vous êtes en mesure d’atteindre 1 000 heures d’utilisation d’Azure par mois, vous augmentez considérablement vos chances de gagner votre place.
 3. *Applications d’AppSource : augmentez les acquisitions de votre offre.* Si vous êtes en mesure d’atteindre 10 acquisitions par mois, vous augmentez considérablement vos chances de gagner votre place. 
 4. *Obtenez le statut Co-Sell Ready* : remplissez les conditions pour être éligible au programme Co-Sell Ready.

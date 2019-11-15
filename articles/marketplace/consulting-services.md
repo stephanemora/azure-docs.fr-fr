@@ -4,20 +4,21 @@ description: Cet article décrit les critères d’éligibilité et les exigence
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d56b83c8bd9a71ac30112f9e77a97ed8ab61a137
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285986"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825970"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
 
-La Place de marché Azure et AppSource prennent en charge le référencement des offres de services de conseil des partenaires intégrateurs de systèmes de Microsoft, l’objectif étant de fournir des services de conseil de qualité qui aident les clients à se connecter aux services spécifiques dont ils ont besoin. Les clients pourront ainsi mieux estimer, évaluer et déployer les solutions et l’implémentation appropriées qui les aideront à atteindre leurs objectifs commerciaux et professionnels.  
+La Place de marché Azure et AppSource prennent en charge le référencement des offres de services de conseil des intégrateurs système partenaires de Microsoft, l’objectif étant de proposer des services de conseil de qualité qui aident les clients à accéder aux services spécialisés dont ils ont besoin. Les clients pourront ainsi mieux estimer, évaluer et déployer les solutions et l’implémentation appropriées qui les aideront à atteindre leurs objectifs commerciaux et professionnels.  
 
 Ces offres de services de conseil sont des engagements propres au client. Les éditeurs ont la possibilité de déterminer le type de référencement ainsi que l’étendue fixe et la durée, à prix fixe ou gratuit, et d’établir un calendrier d’envoi des livrables au client. Les partenaires reçoivent les notifications de prospects dans leur système CRM et doivent faire leur possible pour répondre aux clients dans les 48 heures. 
 
@@ -123,13 +124,13 @@ Le référencement de votre offre de services de conseil dans la Place de march�
 ## <a name="offer-listings-and-content-review-criteria"></a>Référencements des offres et critères de révision du contenu
 Les offres doivent correspondre à l’un des cinq types de services suivants (vous pouvez en répertorier plus d’un) : 
 
-* **Évaluation** : évaluation de l’environnement d’un client pour déterminer la mise en application d’une solution et fournir une estimation du coût et de la durée. 
+* **Évaluation** : évaluation de l’environnement d’un client pour déterminer l’applicabilité d’une solution et donner une estimation du coût et de la durée. 
 * **Réunion d’information** : présentation d’une solution ou d’un service de conseil pour susciter l’intérêt du client à l’aide de frameworks, de démonstrations et d’exemples de clients. 
 * **Implémentation** : installation complète qui résulte en une solution entièrement fonctionnelle. Nous vous recommandons de la limiter à des solutions qui peuvent être implémentées en deux semaines ou moins. 
 * **Preuve de concept** : implémentation de portée limitée pour déterminer si une solution répond aux exigences du client. 
 * **Atelier** : engagement interactif réalisé dans les locaux du client. Il peut inclure une formation, des réunions d’information, des évaluations ou des démonstrations reposant sur les données ou l’environnement du client. 
 
-**Remarque :** À l’exception du type de service *Réunion d’information*, les services de conseil peuvent être offerts en personne (à savoir, sur site chez un client ou dans l’établissement d’un partenaire) ou virtuellement (à savoir, via la téléconférence, la conférence web ou l’implémentation à distance). Les réunions doivent être proposées en personne.
+**Remarque :** À l’exception du type de service *Réunion d’information*, les services de conseil peuvent être proposés en personne (à savoir, sur site chez un client ou dans l’établissement d’un partenaire) ou virtuellement (à savoir, par téléconférence, conférence web ou implémentation à distance). Les réunions doivent être proposées en personne.
 
 Une fois que vous avez configuré les éléments requis répertoriés ci-dessus, l’équipe de révision du contenu vérifie que la description de votre offre est informative et exhaustive pour votre public cible. 
 

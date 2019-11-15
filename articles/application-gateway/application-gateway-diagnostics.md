@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 72549a2df3490344987567d1e62c65f76f151097
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693261"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718727"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Intégrité du serveur principal et journaux de diagnostic pour la passerelle Application Gateway
 
@@ -213,10 +213,10 @@ Pour Application Gateway et WAF v2, les journaux contiennent un peu plus d’inf
 |httpVersion     | Version HTTP de la requête.        |
 |receivedBytes     | Taille du paquet reçu, en octets.        |
 |sentBytes| Taille du paquet envoyé, en octets.|
-|timeTaken| Durée (en millisecondes) nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que le champ Time-Taken inclut généralement l’heure à laquelle la requête et les paquets de réponse circulent sur le réseau. |
+|timeTaken| Durée (en **secondes**) nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que le champ Time-Taken inclut généralement l’heure à laquelle la requête et les paquets de réponse circulent sur le réseau. |
 |sslEnabled| Détermine si la communication avec les pools principaux utilisait SSL. Les valeurs valides sont On (Activé) et Off (Désactivé).|
 |sslCipher| Suite de chiffrement utilisée pour la communication SSL (si SSL est activé).|
-|sslProtocol| Protocole SSL en cours d’utilisation (si SSL est activé).|
+|sslProtocol| Protocole SSL/TLS utilisé (si SSL est activé).|
 |serverRouted| Serveur back-end vers lequel la passerelle d’application route les demandes.|
 |serverStatus| Code d’état HTTP du serveur back-end.|
 |serverResponseLatency| Latence de la réponse du serveur back-end.|

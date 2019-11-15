@@ -7,13 +7,13 @@ ms.service: logic-apps
 ms.topic: include
 ms.author: estfan
 ms.custom: include file
-ms.date: 05/15/2018
-ms.openlocfilehash: aa1001661d8fe03855e1a28b882f674bee3606b2
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.date: 11/08/2019
+ms.openlocfilehash: 0be29f6f541aa58e57eb665ebaf29e35f42865e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312023"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826315"
 ---
 * Si vous utilisez Azure SQL Database, suivez les étapes décrites dans [Connexion à Azure SQL Database](#connect-azure-sql-db).
 
@@ -44,7 +44,9 @@ Lorsque le déclencheur ou l’action SQL vous invite à fournir des information
 
 ### <a name="connect-to-sql-server"></a>Se connecter à SQL Server
 
-Lorsque le déclencheur ou l’action SQL vous invite à fournir des informations de connexion, effectuez les étapes suivantes, qui fonctionnent à la fois pour les déclencheurs et les actions. Toutefois, avant de commencer, assurez-vous que vous avez déjà [configuré votre passerelle de données locale](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Sinon, votre passerelle n’apparaît pas dans la liste des passerelles lorsque vous créez votre connexion.
+Lorsque le déclencheur ou l’action SQL vous invite à fournir des informations de connexion, effectuez les étapes suivantes, qui fonctionnent à la fois pour les déclencheurs et les actions. Dans les scénarios qui requièrent l’installation de la [passerelle de données locale](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) sur un ordinateur local et la [création de la ressource de passerelle de données Azure](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection), veillez à respecter ces prérequis avant toute chose. Sinon, votre ressource passerelle n’apparaîtra pas dans la liste des passerelles lorsque vous créerez votre connexion.
+
+Par ailleurs, pour utiliser l’authentification Windows avec le connecteur SQL Server dans un [environnement de service d’intégration (ISE)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview), utilisez la version non ISE du connecteur et la passerelle de données locale. La version étiquetée ISE ne prend pas en charge l’authentification Windows.
 
 1. Pour **Nom de la connexion**, créez un nom pour votre connexion.
 
@@ -59,7 +61,7 @@ Lorsque le déclencheur ou l’action SQL vous invite à fournir des information
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Créer une connexion SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   ![Créer une connexion à SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
 1. Si votre serveur SQL utilise l’authentification Windows ou l’authentification De base, sélectionnez le **type d’authentification**.
 

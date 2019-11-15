@@ -1,5 +1,5 @@
 ---
-title: Exporter une base de données Azure SQL unique ou mise en pool dans un fichier BACPAC | Microsoft Docs
+title: Exporter une base de données unique ou mise en pool dans un fichier BACPAC
 description: Exporter une base de données Azure SQL dans un fichier BACPAC à l’aide du portail Azure
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9b4770f565f256d444ab6a6f06bb369b8417eb18
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b96d2e69b757774afe177341caffe2f3cbf00e2b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568243"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823448"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exporter une base de données Azure SQL dans un fichier BACPAC
 

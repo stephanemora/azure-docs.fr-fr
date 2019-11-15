@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259188"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825521"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>Comment gérer votre compte Place de marché commerciale dans l’Espace partenaires 
 
@@ -38,7 +39,7 @@ Dans cet article, nous aborderons comment gérer votre compte Espace partenaires
 Si vous ne l’avez pas déjà fait, vous (ou l’administrateur de votre organisation) devez accéder aux [paramètres du compte](https://partner.microsoft.com/dashboard/account/management) de votre compte Espace partenaires pour :
 - vérifier l’état de la vérification du compte de votre entreprise
 - confirmer vos ID de vendeur, ID MPN, ID d’éditeur et informations de contact, y compris les informations de contact du vendeur et de l’approbateur de l’entreprise
-- définir les détails financiers de votre entreprise, y compris les exonérations de taxe le cas échéant
+- définir les informations financières de votre entreprise, y compris les exonérations fiscales le cas échéant
 - créer des comptes d’utilisateur pour toute personne qui utilise votre compte professionnel dans l’Espace partenaires
 
 ### <a name="open-developer-settings"></a>Ouvrir les paramètres du développeur
@@ -113,11 +114,11 @@ Si vous êtes situé en dehors des États-Unis, vous pourrez peut-être tirer pa
 
 #### <a name="payout-hold-status"></a>État de paiement en attente
 
-Par défaut, Microsoft vous envoie les paiements sur une base mensuelle. Toutefois, vous avez la possibilité de mettre vos paiements en attente, ce qui empêche l’envoi des paiements à votre compte. Si vous choisissez de mettre vos paiements en attente, nous allons continuer d’enregistrer les revenus que vous gagnez et à vous fournir les informations dans votre **Synthèse des paiements**. Toutefois, nous n’enverrons les paiements à votre compte que lorsque vous aurez retiré la mise en attente. 
+Par défaut, Microsoft vous envoie les paiements sur une base mensuelle. Toutefois, vous avez la possibilité de mettre vos paiements en attente, ce qui empêche l’envoi des paiements à votre compte. Même si vous choisissez de mettre vos paiements en attente, nous continuerons d’enregistrer vos revenus et de vous fournir les informations associées dans votre **Synthèse des paiements**. Toutefois, nous n’enverrons pas de paiements à votre compte tant que vous n’aurez pas retiré la mise en attente. 
 
-Pour mettre vos paiements en attente, accédez à **Paramètres de compte**. Sous **Détails financiers**, dans la section **État de paiement en attente**, placez le curseur sur **Activé**. Vous pouvez modifier votre état de paiement en attente à tout moment, mais n’oubliez pas que votre décision aura un impact sur le paiement mensuel suivant. Par exemple, si vous souhaitez mettre les paiements d’avril en attente, veillez à définir votre état de paiement en attente sur **Activé** avant la fin du mois de mars.
+Pour mettre vos paiements en attente, accédez à **Paramètres de compte**. Sous **Détails financiers**, dans la section **État de paiement en attente**, placez le curseur sur **Activé**. Vous pouvez modifier votre état de paiement en attente à tout moment, mais n’oubliez pas que votre décision aura un impact sur le paiement mensuel suivant. Par exemple, si vous souhaitez mettre le paiement d’avril en attente, veillez à définir votre état de paiement en attente sur **Activé** avant la fin du mois de mars.
 
-Une fois que vous avez défini votre état de paiement en attente sur **Activé**, tous les paiements seront bloqués jusqu’à ce que vous fassiez glisser le curseur vers **Désactivé**. En procédant ainsi, vous serez inclus dans le prochain cycle de paiement mensuel (à condition que les seuils de paiement applicables aient été atteints). Par exemple, si vous avez mis vos paiements en attente, mais que vous souhaitez générer un paiement en juin, veillez à définir votre état de paiement en attente sur **Désactiver** avant la fin du mois de mai.
+Une fois que vous avez défini votre état de paiement en attente sur **Activé**, tous les paiements seront bloqués jusqu’à ce que vous fassiez glisser le curseur vers **Désactivé**. Dans ce cas, votre paiement sera intégré au prochain cycle mensuel (à condition que les seuils de paiement applicables aient été atteints). Par exemple, si vous avez mis vos paiements en attente, mais que vous souhaitez générer un paiement en juin, faites basculer votre état de paiement en attente sur **Désactivé** avant la fin du mois de mai.
 
 > [!NOTE]
 > Votre sélection pour l’**état de paiement en attente** s’applique à **toutes** les sources de revenus payés via l’Espace partenaires Microsoft, y compris la Place de marché Azure, AppSource, Microsoft Store, la publicité, etc.). Vous ne pouvez pas sélectionner des états d’attente différents pour chaque source de revenus.
@@ -339,7 +340,7 @@ Pour créer un nouveau locataire Azure AD avec votre compte Espace partenaires :
 
 1.  Depuis la page **Locataires** (sous **Paramètres de compte**), sélectionnez **Créer un nouveau locataire Azure AD**.
 2. Entrez les informations de répertoire de votre nouveau locataire Azure AD :
-    - **Nom de domaine** : Le nom unique que nous allons utiliser pour le domaine Azure AD, avec « .onmicrosoft.com ». Par exemple, si vous entrez « example », votre domaine Azure AD sera « example.onmicrosoft.com ».
+    - **Nom de domaine** : Le nom unique que nous allons utiliser pour le domaine Azure AD, avec « .onmicrosoft.com ». Par exemple, si vous entrez « exemple », votre domaine Azure AD sera « exemple.onmicrosoft.com ».
     - **E-mail du contact** : Une adresse e-mail à laquelle nous pouvons vous contacter sur votre compte si nécessaire.
     - **Informations du compte utilisateur de l’administrateur général** : Le prénom, nom de famille, nom d’utilisateur et mot de passe que vous souhaitez utiliser pour le nouveau compte d’administrateur général.
 3. Sélectionnez **Créer** pour confirmer les nouvelles informations du compte et du domaine.
@@ -354,7 +355,7 @@ Pour supprimer un locataire depuis votre compte Espace partenaires, recherchez s
 Lorsque vous supprimez un locataire, tous les utilisateurs qui ont été ajoutés au compte Espace partenaires depuis ce locataire ne pourront plus se connecter au compte.
 
 > [!TIP]
-> Vous ne pouvez pas supprimer un locataire si vous êtes actuellement connecté à l’Espace partenaires à l’aide d’un compte de ce locataire. Pour supprimer un locataire, vous devez vous connecter à l’Espace partenaires en tant que **Manager** pour un autre locataire associé au compte. S’il n’existe qu’un seul locataire associé au compte, ce locataire peut être supprimé uniquement après vous être connecté avec le compte Microsoft qui a ouvert le compte.
+> Vous ne pouvez pas supprimer un locataire si vous avez ouvert une session dans l’Espace partenaires avec un compte de ce locataire. Pour supprimer un locataire, vous devez vous connecter à l’Espace partenaires en tant que **Manager** pour un autre locataire associé au compte. S’il n’existe qu’un seul locataire associé au compte, ce locataire peut être supprimé uniquement après vous être connecté avec le compte Microsoft qui a ouvert le compte.
 
 
 ## <a name="agreements"></a>Accords

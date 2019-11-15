@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données depuis SAP HANA à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données à partir de SAP HANA avec Azure Data Factory
 description: Découvrez comment déplacer des données depuis SAP HANA à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 159e10354726e86ff04cb12bff33b6a83bd1fa70
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ebd1cf22bffc6a136845672cedcefa7936eeece5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836102"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682352"
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>Déplacer des données depuis SAP HANA à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -60,9 +60,9 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-serveur | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | string | OUI
+server | Le nom du serveur sur lequel réside l’instance SAP HANA. Si votre serveur utilise un port personnalisé, spécifiez `server:port`. | string | OUI
 authenticationType | Type d'authentification. | chaîne. « Basic » ou « Windows » | OUI 
-userName | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
+username | Nom de l’utilisateur qui a accès au serveur SAP | string | OUI
 password | Mot de passe pour l’utilisateur. | string | OUI
 gatewayName | Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à l’instance SAP HANA locale. | string | OUI
 encryptedCredential | La chaîne d’informations d’identification chiffrée. | string | Non
@@ -288,19 +288,19 @@ TINYINT | Byte
 SMALLINT | Int16
 INT | Int32
 BIGINT | Int64
-REAL | Single
-DOUBLE | Single
-DÉCIMAL | Decimal
+REAL | Unique
+DOUBLE | Unique
+DECIMAL | Decimal
 BOOLEAN | Byte
 VARCHAR | Chaîne
 NVARCHAR | Chaîne
 CLOB | Byte[]
 ALPHANUM | Chaîne
 BLOB | Byte[]
-DATE | Datetime
+DATE | DateTime
 TEMPS | TimeSpan
-TIMESTAMP | Datetime
-SECONDDATE | Datetime
+TIMESTAMP | DateTime
+SECONDDATE | DateTime
 
 ## <a name="known-limitations"></a>Limites connues
 Il existe quelques limitations connues lors de la copie des données à partir de SAP HANA :

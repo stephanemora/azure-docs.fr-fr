@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 555b4d95358978e84e14e8a2e8b3d1c9cb2efc18
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "70933152"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614595"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Types et fonctionnalités Durable Functions (Azure Functions)
 
@@ -24,7 +24,7 @@ Il existe actuellement 4 types de fonctions durables dans Azure Functions : le
 
 ## <a name="orchestrator-functions"></a>Fonctions d’orchestrateur
 
-Les fonctions d’orchestrateur décrivent la façon dont les actions sont exécutées et l’ordre dans lequel elles sont exécutées. Les fonctions d’orchestrateur décrivent l’orchestration dans le code (C# ou JavaScript), comme indiqué dans les [modèles d’application Durable Functions](durable-functions-overview.md#application-patterns). Une orchestration peut avoir de nombreux types d’actions différents, comme des [fonctions d’activité](#activity-functions), des [orchestrations secondaires](durable-functions-orchestrations.md#sub-orchestrations), l’[attente d’événements externes](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-orchestrations.md#calling-http-endpoints) et des [minuteurs](durable-functions-orchestrations.md#durable-timers). Les fonctions d’orchestrateur peuvent également interagir avec des [fonctions d’entité](#entity-functions).
+Les fonctions d’orchestrateur décrivent la façon dont les actions sont exécutées et l’ordre dans lequel elles sont exécutées. Les fonctions d’orchestrateur décrivent l’orchestration dans le code (C# ou JavaScript), comme indiqué dans les [modèles d’application Durable Functions](durable-functions-overview.md#application-patterns). Une orchestration peut avoir de nombreux types d’actions différents, comme des [fonctions d’activité](#activity-functions), des [orchestrations secondaires](durable-functions-orchestrations.md#sub-orchestrations), l’[attente d’événements externes](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-http-features.md) et des [minuteurs](durable-functions-orchestrations.md#durable-timers). Les fonctions d’orchestrateur peuvent également interagir avec des [fonctions d’entité](#entity-functions).
 
 > [!NOTE]
 > Les fonctions d’orchestrateur sont écrites à l’aide de code ordinaire, mais des conditions strictes s’appliquent à l’écriture du code. Plus précisément, le code de la fonction d’orchestrateur doit être *déterministe*. Le non-respect de ces conditions de déterminisme peut entraîner l’échec de l’exécution des fonctions d’orchestrateur. Vous trouverez des informations détaillées sur ces conditions et sur la façon de les contourner dans la rubrique sur les [contraintes de code](durable-functions-code-constraints.md).
@@ -40,7 +40,7 @@ Les fonctions d’activité sont à la base de l’orchestration de fonction dur
 > [!NOTE]
 > Comme les fonctions d’activité garantissent uniquement une exécution *au moins une fois*, nous vous recommandons de rendre *idempotente* votre logique de fonction d’activité chaque fois que cela est possible.
 
-Utilisez un [déclencheur d’activité](durable-functions-bindings.md#activity-trigger) pour définir une fonction d’activité. Les fonctions .NET reçoivent un [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) comme paramètre. Vous pouvez également lier le déclencheur à un autre objet sérialisable au format JSON pour transmettre des entrées à la fonction. En JavaScript, vous pouvez accéder à l’entrée via la propriété `<activity trigger binding name>` de l’[objet `context.bindings`](../functions-reference-node.md#bindings). Une seule valeur peut être passée aux fonctions d’activité. Pour passer plusieurs valeurs, vous devez utiliser des tuples, des tableaux ou des types complexes.
+Utilisez un [déclencheur d’activité](durable-functions-bindings.md#activity-trigger) pour définir une fonction d’activité. Les fonctions .NET reçoivent `DurableActivityContext` en tant que paramètre. Vous pouvez également lier le déclencheur à un autre objet sérialisable au format JSON pour transmettre des entrées à la fonction. En JavaScript, vous pouvez accéder à l’entrée via la propriété `<activity trigger binding name>` de l’[objet `context.bindings`](../functions-reference-node.md#bindings). Une seule valeur peut être passée aux fonctions d’activité. Pour passer plusieurs valeurs, vous devez utiliser des tuples, des tableaux ou des types complexes.
 
 > [!NOTE]
 > Vous ne pouvez déclencher une fonction d’activité qu’à partir d’une fonction d’orchestrateur.
@@ -50,7 +50,7 @@ Utilisez un [déclencheur d’activité](durable-functions-bindings.md#activity-
 Les fonctions d’entité définissent les opérations pour la lecture et la mise à jour de petits éléments d’état. Nous faisons souvent référence à ces entités avec état en tant qu’*entités durables*. Comme les fonctions d’orchestrateur, les fonctions d’entité sont des fonctions ayant un type spécial de déclencheur, *déclencheur d’entité*. Elles peuvent également être appelées à partir de fonctions clientes ou de fonctions d’orchestrateur. Contrairement aux fonctions d’orchestrateur, les fonctions d’entité n’ont pas de contraintes code spécifiques. Les fonctions d’entité gèrent également l’état explicitement plutôt que de représenter implicitement l’état via le flux de contrôle.
 
 > [!NOTE]
-> Les fonctions d’entité et les fonctionnalités associées sont uniquement disponibles dans Durable Functions 2.0 et versions ultérieures. Les fonctions d’entité sont actuellement en préversion publique.
+> Les fonctions d’entité et les fonctionnalités associées sont uniquement disponibles dans Durable Functions 2.0 et versions ultérieures.
 
 Pour plus d’informations sur les fonctions d’entité, consultez l’article [Entités durables](durable-functions-entities.md).
 

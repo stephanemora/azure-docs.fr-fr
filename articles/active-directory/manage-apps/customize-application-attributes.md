@@ -1,5 +1,5 @@
 ---
-title: Personnalisation des mappages d’attributs Azure AD | Microsoft Docs
+title: Personnalisation des mappages d’attributs Azure AD | Microsoft Docs
 description: Découvrez ce que sont les mappages d’attributs pour les applications SaaS dans Azure Active Directory et comment les modifier pour répondre aux besoins de votre entreprise.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3d6a47986056925f9964638c9c7192341ca5f9
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240990"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641507"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -77,6 +77,16 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
   - **Toujours** : appliquez ce mappage à la création de l’utilisateur et aux actions de mise à jour.
   - **Lors de la création uniquement** : appliquez ce mappage uniquement aux actions de création d’utilisateur.
 
+## <a name="matching-users-in-the-source-and-target--systems"></a>Correspondance des utilisateurs dans les systèmes source et cible
+Le service de provisionnement Azure AD peut être déployé dans les deux scénarios Greenfield (les utilisateurs ne quittent pas le système cible) et Brownfield (les utilisateurs existent déjà dans le système cible). Pour prendre en charge les deux scénarios, le service d’approvisionnement utilise le concept de correspondance d’attribut(s). L’attribut ou les attributs correspondants vous permettent de déterminer comment identifier de manière unique un utilisateur dans la source et correspondre à l’utilisateur dans la cible. Dans le cadre de la planification de votre déploiement, identifiez l’attribut qui peut être utilisé pour identifier de manière unique un utilisateur dans les systèmes source et cible. Points à noter :
+
+- **Les attributs correspondants doivent être uniques :** Les clients utilisent souvent des attributs tels que userPrincipalName, le courrier électronique ou l’ID d’objet comme attribut correspondant.
+- **Plusieurs attributs peuvent être utilisés comme attributs correspondants :** Vous pouvez définir plusieurs attributs à évaluer lors de la correspondance des utilisateurs et de l’ordre dans lequel ils sont évalués (définis comme priorité correspondante dans l’interface utilisateur). Si, par exemple, vous définissez trois attributs comme attributs correspondants et qu’un utilisateur est mis en correspondance de manière unique après l’évaluation des deux premiers attributs, le service n’évalue pas le troisième attribut. Le service évalue les attributs correspondants dans l’ordre spécifié et arrête l’évaluation lorsqu’une correspondance est trouvée.  
+- **La valeur dans la source et la cible n’ont pas besoin de correspondre exactement :** La valeur de la cible peut être une fonction simple de la valeur de la source. Par conséquent, l’une d’elles peut avoir un attribut emailAddress dans la source et userPrincipalName dans la cible, et correspondre à une fonction de l’attribut emailAddress qui remplace certains caractères par une valeur constante.  
+- **La correspondance basée sur une combinaison d’attributs n’est pas prise en charge :** La plupart des applications ne prennent pas en charge l’interrogation basée sur deux propriétés et, par conséquent, il n’est pas possible d’effectuer une correspondance basée sur une combinaison d’attributs. Il est possible d’évaluer des propriétés uniques les unes après les autres.
+- **Tous les utilisateurs doivent avoir une valeur pour au moins un attribut correspondant :** Si vous définissez un attribut correspondant, tous les utilisateurs doivent avoir une valeur pour cet attribut dans le système source. Si, par exemple, vous définissez userPrincipalName comme attribut de correspondance, tous les utilisateurs doivent avoir un userPrincipalName. Si vous définissez plusieurs attributs correspondants (par exemple, extensionAttribute1 et mail), tous les utilisateurs ne doivent pas avoir le même attribut de correspondance. Un utilisateur peut avoir extensionAttribute1 mais pas mail, alors qu’un autre utilisateur peut avoir mail, mais pas extensionAttribute1. 
+- **L’application cible doit prendre en charge le filtrage sur l’attribut correspondant :** Les développeurs d’applications permettent de filtrer un sous-ensemble d’attributs sur leur API d’utilisateur ou de groupe. Pour les applications de la galerie, nous garantissons que le mappage d’attribut par défaut concerne un attribut sur lequel l’API de l’application cible prend en charge le filtrage. Lorsque vous modifiez l’attribut correspondant par défaut pour l’application cible, vérifiez la documentation de l’API tierce pour vous assurer que l’attribut peut être filtré.  
+
 ## <a name="editing-group-attribute-mappings"></a>Modification des mappages d’attributs de groupe
 
 Un certain nombre d’applications, telles que ServiceNow, Box et G Suite, prennent en charge la possibilité d’approvisionner des objets Groupe et Utilisateur. Les objets Groupe peuvent contenir des propriétés de groupe telles que des noms d’affichage et des alias d’e-mail en plus des membres du groupe.
@@ -125,6 +135,113 @@ Lorsque vous modifiez la liste des attributs pris en charge, les propriétés su
 - **Referenced Object Attribute** : s’il s’agit d’un attribut de type référence, ce menu vous permet de sélectionner la table et l’attribut dans l’application cible qui contient la valeur associée à l’attribut. Par exemple, si vous avez un attribut nommé « Department » dont la valeur stockée fait référence à un objet dans une table « Departments » distincte, sélectionnez « Departments.Name ». Les tables de référence et les champs d’ID primaires pris en charge pour une application donnée sont préconfigurés et ne peuvent actuellement pas être modifiés via le portail Azure, mais qu’ils peuvent être modifiés à l’aide de l’[API Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Pour ajouter un nouvel attribut, faites défiler jusqu'à la fin de la liste des attributs pris en charge, remplissez les champs ci-dessus à l’aide des entrées fournies, puis sélectionnez **ajouter un attribut**. Sélectionnez **Enregistrer** lorsque vous avez fini d’ajouter des attributs. Vous devez ensuite recharger l’onglet **Approvisionnement** pour que les nouveaux attributs soient disponibles dans l’éditeur de mappage d’attributs.
+## <a name="provisioning-a-role-to-a-scim-app"></a>Approvisionnement d’un rôle sur une application SCIM
+Utilisez les étapes ci-dessous pour approvisionner des rôles pour un utilisateur dans votre application. Notez que la description ci-dessous est spécifique aux applications SCIM personnalisées. Pour les applications de la galerie telles que Salesforce et ServiceNow, utilisez les mappages de rôles prédéfinis. Les puces ci-dessous décrivent comment convertir l’attribut AppRoleAssignments au format attendu par votre application.
+
+- Le mappage de l’attribut appRoleAssignment dans Azure AD à un rôle dans votre application nécessite que vous transformiez l’attribut à l’aide d’une [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). L’attribut appRoleAssignment **ne doit pas être mappé directement** à un attribut de rôle sans utiliser d’expression pour analyser les détails du rôle. 
+
+- **SingleAppRoleAssignment** 
+  - **Quand l’utiliser** : utilisez l’expression SingleAppRoleAssignment pour approvisionner un rôle unique pour un utilisateur et spécifier le rôle principal. 
+  - **Comment configurer :** utilisez les étapes décrites ci-dessus pour accéder à la page mappages d’attributs et utilisez l’expression SingleAppRoleAssignment pour mapper à l’attribut de rôles. Vous avez le choix entre trois attributs de rôle : (roles[primary eq "True"].display, roles[primary eq "True].type, et roles[primary eq "True"].value). Vous pouvez choisir d’inclure tout ou partie des attributs de rôle dans vos mappages. Si vous souhaitez en inclure plus d’un, ajoutez simplement un nouveau mappage et incluez-le en tant qu’attribut cible.  
+  
+  ![Ajouter SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  - **Points importants à prendre en compte**
+    - Assurez-vous que plusieurs rôles ne sont pas attribués à un utilisateur. Nous ne pouvons pas garantir le rôle qui sera approvisionné.
+    
+  - **Exemple de sortie** 
+
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
+  
+- **AppRoleAssignmentsComplex** 
+  - **Quand l’utiliser** : Utilisez l’expression AppRoleAssignmentsComplex pour approvisionner plusieurs rôles pour un utilisateur. 
+  - **Comment configurer :** Modifiez la liste des attributs pris en charge comme décrit ci-dessus pour inclure un nouvel attribut pour les rôles : 
+  
+    ![Ajouter des rôles](./media/customize-application-attributes/add-roles.png)<br>
+
+    Utilisez ensuite l’expression AppRoleAssignmentsComplex pour mapper à l’attribut de rôle personnalisé comme indiqué dans l’image ci-dessous :
+
+    ![Ajouter AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+  - **Points importants à prendre en compte**
+    - Tous les rôles seront approvisionnés en tant que principal = faux.
+    - La requête POST contient le type de rôle. La requête PATCH ne contient pas de type. Nous travaillons à l’envoi du type dans les requêtes POST et PATCH.
+    
+  - **Exemple de sortie** 
+  
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
+
+  
+
+
+## <a name="provisioning-a-multi-value-attribute"></a>Approvisionnement d’un attribut à valeurs multiples
+Certains attributs, tels que phoneNumbers et emails sont des attributs à valeurs multiples pour lesquels vous devrez peut-être spécifier différents types de numéros de téléphone ou d’adresses e-mail. Utilisez l’expression ci-dessous pour les attributs à valeurs multiples. Elle vous permet de spécifier le type d’attribut et de le mapper à l’attribut d’utilisateur Azure AD correspondant pour la valeur. 
+
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
+* phoneNumbers[type eq "fax"].value
+
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Restauration des attributs par défaut et des mappages d’attributs
 

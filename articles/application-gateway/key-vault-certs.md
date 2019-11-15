@@ -7,21 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 725a9d67e6a6412fc48a4278b5a8a163272e5133
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000980"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571975"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Arrêt SSL avec certificats Key Vault
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) est un magasin des secrets managé par une plateforme, que vous pouvez utiliser pour protéger des secrets, des clés et des certificats SSL. Azure Application Gateway prend en charge l’intégration dans Key Vault (préversion publique) des certificats de serveur associés à des écouteurs HTTPS. Cette prise en charge se limite à la référence SKU v2 d’Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-overview.md) est un magasin des secrets managé par une plateforme, que vous pouvez utiliser pour protéger des secrets, des clés et des certificats SSL. Azure Application Gateway prend en charge l’intégration dans Key Vault des certificats de serveur associés à des écouteurs HTTPS. Cette prise en charge se limite à la référence SKU v2 d’Application Gateway.
 
-> [!IMPORTANT]
-> L’intégration d’Application Gateway avec Key Vault est actuellement en préversion publique. Cette préversion est fournie sans contrat de niveau de service (SLA) et elle n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Cette préversion publique propose deux modèles d’arrêt SSL :
+L’intégration de Key Vault propose deux modèles d’arrêt SSL :
 
 - Vous pouvez fournir explicitement des certificats SSL associés à l’écouteur. Ce modèle constitue la façon traditionnelle de transmettre des certificats SSL à Application Gateway pour un arrêt SSL.
 - Vous pouvez éventuellement fournir une référence à un certificat Key Vault existant ou un secret lorsque vous créez un écouteur HTTPS.

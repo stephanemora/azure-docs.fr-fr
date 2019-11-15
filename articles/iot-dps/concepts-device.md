@@ -3,17 +3,17 @@ title: Concepts d’appareil dans Azure Device Provisioning | Microsoft Docs
 description: Décrit les concepts d’approvisionnement d’appareil spécifiques aux appareils avec le service Device Provisioning et IoT Hub
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 8ea1be02dee0e0ef00010e8ac7a4dfb75eadbe96
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 0e3557588281cd392a7a8a1c2654f10e8387dd83
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173382"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720536"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concepts d’appareil du service IoT Hub Device Provisioning
 
@@ -44,14 +44,14 @@ Les secrets de l’appareil peuvent également être stockés sous forme logicie
 
 ## <a name="registration-id"></a>ID d’enregistrement
 
-L’ID d’enregistrement est utilisé pour identifier de manière unique un appareil dans le service Device Provisioning. L’ID d’inscription doit être unique dans l’[étendue d’ID](#id-scope) du service de provisionnement. Chaque appareil doit avoir un ID d’enregistrement. L’ID d’enregistrement est alphanumérique, en minuscules et peut contenir des traits d’union.
+L’ID d’enregistrement est utilisé pour identifier de manière unique un appareil dans le service Device Provisioning. L’ID d’appareil doit être unique dans l’[étendue de l’ID](#id-scope) du service d’approvisionnement. Chaque appareil doit avoir un ID d’enregistrement. L’ID d’inscription est insensible à la casse ; il peut comporter des caractères alphanumériques et des caractères spéciaux (deux points, point, trait de soulignement et trait d’union).
 
 * Dans le cas d’un module TPM, l’ID d’enregistrement est fourni par le TPM lui-même.
 * Dans le cas d’une attestation X.509, l’ID d’enregistrement est le nom de sujet du certificat.
 
 ## <a name="device-id"></a>ID de périphérique
 
-L’ID d’appareil est l’ID tel qu’il apparaît dans IoT Hub. L’ID d’appareil de votre choix peut être défini dans l’entrée d’inscription, mais ce n’est pas obligatoire. Si aucun ID d’appareil souhaité n’est spécifié dans la liste d’inscriptions, l’ID d’inscription est utilisé comme ID d’appareil durant l’enregistrement de l’appareil. Découvrez plus d’informations sur les [ID d’appareil dans IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
+L’ID d’appareil est l’ID tel qu’il apparaît dans IoT Hub. L’ID d’appareil de votre choix peut être défini dans l’entrée d’inscription, mais ce n’est pas obligatoire. Il n’est possible de définir l’ID d’appareil souhaité que dans les inscriptions individuelles. Si aucun ID d’appareil souhaité n’est spécifié dans la liste d’inscriptions, l’ID d’inscription est utilisé comme ID d’appareil durant l’enregistrement de l’appareil. Découvrez plus d’informations sur les [ID d’appareil dans IoT Hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
 ## <a name="id-scope"></a>Étendue de l’ID
 

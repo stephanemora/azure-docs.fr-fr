@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 82910bf5c42629c2d4f077ad6df2adbfc9dcf021
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d7d4d7b331198982f7c5513d23420bdde9455c66
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989992"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796661"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -140,7 +140,7 @@ Les EGT activent les transactions atomiques de plusieurs entités qui partagent 
 * des entités stockées dans deux partitions différentes de la même table, dans des tables différentes ou dans différents comptes de stockage ;  
 * une entité stockée dans le service de Table et un objet blob stocké dans le service d'objets blob ;  
 * une entité stockée dans le service de Table et un fichier dans un système de fichiers ;  
-* un magasin d'entités du service de Table encore indexé en utilisant le service Azure Search.  
+* une entité stockée dans le service de Table, mais indexée avec le service Recherche cognitive Azure.  
 
 ### <a name="solution"></a>Solution
 À l'aide des files d'attente Azure, vous pouvez implémenter une solution cohérente entre plusieurs partitions ou systèmes de stockage.

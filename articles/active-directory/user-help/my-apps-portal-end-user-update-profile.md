@@ -1,5 +1,5 @@
 ---
-title: Mettre à jour vos informations de profil et de compte à partir du portail Mes applications – Azure Active Directory | Microsoft Docs
+title: Mettre à jour vos informations de profil et de compte sur le portail Mes applications - Azure AD
 description: Découvrez comment mettre à jour vos informations de profil et de compte professionnel ou scolaire, qu’il s’agisse de changer votre mot de passe, d’activer la réinitialisation de mot de passe, de mettre à jour vos méthodes de vérification de sécurité, de consulter la déclaration des conditions d’utilisation de votre organisation ou de vous déconnecter partout où vous vous êtes connecté avec votre compte professionnel ou scolaire.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160756"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820383"
 ---
-# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Mettre à jour vos informations de profil et de compte à partir du portail Mes applications
+# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>Mettre à jour vos informations de profil et de compte sur le portail Mes applications
 
 Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 

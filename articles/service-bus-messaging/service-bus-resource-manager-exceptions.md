@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2019
 ms.author: aschhab
-ms.openlocfilehash: 9a2d25aba03156d6d14fe5ef9aa58b3748033b85
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 25b0c14fb94cba611dfa9fa9bece1b728f39a905
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296387"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585205"
 ---
 # <a name="service-bus-resource-manager-exceptions"></a>Exceptions Service Bus dans Azure Resource Manager
 
@@ -71,4 +71,21 @@ Cette classe d’erreurs indique que la ressource est introuvable.
 | Introuvable | Aucun | L’entité *'nom de l’entité'* est introuvable. | L’entité sur laquelle porte l’opération est introuvable. | Vérifiez si l’entité existe, puis réessayez d’effectuer l’opération. |
 | Introuvable | Aucun | Introuvable. L’opération n’existe pas. | L’opération que vous essayez d’effectuer n’existe pas. | Vérifiez l’opération, puis réessayez. |
 | Introuvable | Aucun | La demande entrante n’est pas reconnue en tant que demande Put de stratégie d’espace de noms. | Le corps de la demande entrante est Null et ne peut donc pas être exécuté en tant que demande Put. | Vérifiez le corps de la demande pour vous assurer qu’il n’est pas Null. | 
-| Introuvable | Aucun | L’entité de messagerie *'nom de l’entité'* est introuvable. | L’entité sur laquelle vous tentez d’exécuter l’opération est introuvable. | Vérifiez que l’entité existe, puis recommencez l’opération. |
+| Introuvable | Aucun | L’entité de messagerie *'nom de l’entité'* est introuvable. | L’entité sur laquelle vous tentez d’exécuter l’opération est introuvable. | Vérifiez que l’entité existe, puis réessayez l’opération. |
+
+## <a name="error-code-internal-server-error"></a>Code d’erreur : Erreur interne du serveur
+
+Cette classe d’erreurs indique qu’une erreur de serveur interne s’est produite.
+
+| Code d'erreur | Sous-code d’erreur | Message d’erreur | Description | Recommandation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Erreur interne du serveur | 50000 | SubCode=50000. Erreur interne du serveur| Il existe diverses raisons possibles. Voici quelques-uns des symptômes : <ul> <li> Le corps/la demande du client est endommagé et génère une erreur. </li> <li> La demande du client a expiré en raison de problèmes de traitement sur le service. </li> </ul> | Pour résoudre ce problème : <ul> <li> Vérifiez que les paramètres de la demande ne sont pas Null ou incorrects. </li> <li> Relancez la requête. </li> </ul> |
+
+## <a name="error-code-unauthorized"></a>Code d’erreur : Non autorisé
+
+Cette classe d’erreurs indique une absence d’autorisation d’exécution de la commande.
+
+| Code d'erreur | Sous-code d’erreur | Message d’erreur | Description | Recommandation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Non autorisé | Aucun | Opération non valide sur l’espace de noms secondaire. Celui-ci est en lecture seule. | L’opération a été effectuée sur l’espace de noms secondaire, qui est configuré en lecture seule. | Réessayez la commande sur l’espace de noms principal. [En savoir plus sur l’espace de noms secondaire](service-bus-geo-dr.md). |
+| Non autorisé | Aucun | MissingToken : Aucun en-tête d’autorisation n’a été trouvé. | Cette erreur se produit lorsque l’autorisation a des valeurs Null ou incorrectes. | Vérifiez que la valeur du jeton mentionnée dans l’en-tête d’autorisation est correcte et non Null. |

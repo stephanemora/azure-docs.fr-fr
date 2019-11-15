@@ -4,15 +4,16 @@ description: Fournit les conditions préalables pour la publication d’une appl
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: c436522bd5f1a9d52b71d85b7b47ac9a089c0b25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 486a1b9ca213828b5a26571de7bc34d06f56d434
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258166"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826020"
 ---
 # <a name="power-bi-app-offer-prerequisites"></a>Conditions préalables à une offre d’application Power BI
 
@@ -35,7 +36,7 @@ Les exigences de l’entreprise incluent des obligations procédurales, contract
     > Utilisez le même compte d’inscription au Centre de développement Microsoft pour vous connecter au [Portail Cloud Partner](https://cloudpartner.azure.com). Vous ne devez utiliser qu’un seul compte Microsoft pour vos offres AppSource. Les comptes ne doivent pas être propres à des services ou des offres spécifiques.
  
 - Consentez tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique.
-- Fournissez un contenu conforme aux critères définis pour que votre offre soit répertoriée sur AppSource. Pour plus d’informations, voir [Vous avez une application à répertorier sur AppSource ? Voici comment procéder](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
+- Fournissez un contenu conforme aux critères définis pour que votre offre soit répertoriée sur AppSource. Pour plus d’informations, voir [Vous avez une application à répertorier sur AppSource ? Voici comment faire](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how).
 - Conformez-vous à la [Déclaration de confidentialité Microsoft](https://privacy.microsoft.com/privacystatement).
 
 

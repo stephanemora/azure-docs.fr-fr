@@ -1,6 +1,6 @@
 ---
 title: Résoudre les problèmes de l’agent Sauvegarde Azure
-description: Résoudre les problèmes liés à l’installation et l’inscription de l’agent Sauvegarde Azure
+description: Dans cet article, découvrez comment résoudre les problèmes liés à l’installation et l’inscription de l’agent Sauvegarde Azure.
 ms.reviewer: saurse
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2ff5d760579c31c4bd11252e09da1cbb94576229
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a59ac45d157f8674374c894a280e51392038524b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954656"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747414"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Résoudre les problèmes liés à l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -50,6 +50,7 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 | **Un logiciel antivirus bloque l’inscription** | Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers : <br/><ul> <li> CBengine.exe <li> CSC.exe<li> Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Recommandations supplémentaires
+
 - Accédez à C:/Windows/Temp et vérifiez s’il y a plus de 60 000 ou 65 000 fichiers comportant l’extension .tmp. Si c’est le cas, supprimez ces fichiers.
 - Vérifiez que la date et l’heure de la machine correspondent au fuseau horaire local.
 - Vérifiez que [ces sites](backup-configure-vault.md#verify-internet-access) sont ajoutés à vos sites de confiance dans Internet Explorer.
@@ -78,7 +79,6 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 | ---     | ---     | ---    |
 | <br /><ul><li>L’agent MARS n’a pas pu se connecter à Sauvegarde Microsoft Azure. (ID : 100050) Vérifiez vos paramètres réseau et assurez-vous que vous pouvez vous connecter à Internet.<li>(407) Authentification proxy requise. |Un proxy bloque la connexion. |  <ul><li>Dans Internet Explorer, accédez à **Outils** > **Options Internet** > **Sécurité** > **Internet**. Sélectionnez **Personnaliser le niveau** et faites défiler l’écran jusqu’à la section **Télécharger le fichier**. Sélectionnez **Activer**.<p>En outre, vous devez peut-être ajouter des [URL et adresses IP](backup-configure-vault.md#verify-internet-access) aux sites de confiance dans Internet Explorer.<li>Modifiez les paramètres pour utiliser un serveur proxy. Fournissez ensuite les détails du serveur proxy.<li> Si votre machine a un accès à Internet limité, assurez-vous que les paramètres du pare-feu sur la machine ou le proxy autorisent ces [URL et adresses IP](backup-configure-vault.md#verify-internet-access). <li>Si un logiciel antivirus est installé sur le serveur, excluez ces fichiers de l’analyse antivirus : <ul><li>CBEngine.exe (au lieu de dpmra.exe).<li>CSC.exe (lié à .NET Framework). Il existe un fichier CSC.exe pour chaque version de .NET Framework installée sur le serveur. Excluez les fichiers CSC.exe de toutes les versions de .NET Framework sur le serveur concerné. <li>L’emplacement du dossier de travail ou du cache. <br>L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin.
 
-
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Échec de définition de la clé de chiffrement pour les sauvegardes sécurisées
 
 | Error | Causes possibles | Actions recommandées |
@@ -97,8 +97,8 @@ Nous vous recommandons de passer en revue les points suivants avant de commencer
 |---------|---------|---------|
 | <br />Erreur 34506. La phrase secrète de chiffrement stockée sur cet ordinateur n’est pas configurée correctement.    | <li> Le dossier de travail se situe sur un volume dont l’espace est insuffisant. <li> Le dossier de travail a été déplacé de façon incorrecte. <li> Le fichier OnlineBackup.KEK est manquant.        | <li>Effectuez une mise à niveau vers la [dernière version](https://aka.ms/azurebackup_agent) de l’Agent MARS.<li>Déplacez l’emplacement du dossier de travail ou du cache vers un volume avec un espace disponible compris entre 5 et 10 % de la taille totale des données de sauvegarde. Pour déplacer correctement l’emplacement du cache, reportez-vous aux étapes contenues dans [Questions courantes sur la sauvegarde de fichiers et de dossiers](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder).<li> Assurez-vous que le fichier OnlineBackup.KEK est présent. <br>*L’emplacement par défaut du dossier de travail ou le chemin d’accès à l’emplacement du cache est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
 
-
 ## <a name="backups-dont-run-according-to-schedule"></a>Les sauvegardes ne s’exécutent pas comme prévu
+
 Si les sauvegardes planifiées ne se déclenchent pas automatiquement, alors que les sauvegardes manuelles fonctionnent correctement, essayez ceci :
 
 - Vérifiez que la planification de la sauvegarde de Windows Server n’est pas en conflit avec la planification de la sauvegarde des fichiers et dossiers Azure.
@@ -132,39 +132,36 @@ Si les sauvegardes planifiées ne se déclenchent pas automatiquement, alors que
 
      S’il existe déjà un dossier MSOnlineBackup sur la machine, collez les fichiers dessus ou remplacez les fichiers existants.
 
-
 > [!TIP]
 > Pour veiller à ce que les modifications soient appliquées de manière cohérente, redémarrez le serveur après avoir suivi les étapes ci-dessus.
-
 
 ## <a name="troubleshoot-restore-problems"></a>Résoudre les problèmes de restauration
 
 Sauvegarde Azure peut ne pas correctement monter le volume de récupération, même au bout de plusieurs minutes. Vous pouvez également recevoir des messages d’erreur pendant le processus. Pour entamer normalement la récupération, procédez comme suit :
 
-1.  Si le processus de montage s’exécute depuis plusieurs minutes, annulez-le.
+1. Si le processus de montage s’exécute depuis plusieurs minutes, annulez-le.
 
-2.  Vérifiez que vous disposez de la dernière version de l’agent Sauvegarde. Pour vérifier la version, dans le volet **Actions** de la console MARS, sélectionnez **À propos de l’agent Microsoft Azure Recovery Services**. Vérifiez que le numéro de la **version** est supérieur ou égal à la celui mentionné dans [cet article](https://go.microsoft.com/fwlink/?linkid=229525). Sélectionnez ce lien pour [télécharger la dernière version](https://go.microsoft.com/fwLink/?LinkID=288905).
+2. Vérifiez que vous disposez de la dernière version de l’agent Sauvegarde. Pour vérifier la version, dans le volet **Actions** de la console MARS, sélectionnez **À propos de l’agent Microsoft Azure Recovery Services**. Vérifiez que le numéro de la **version** est supérieur ou égal à la celui mentionné dans [cet article](https://go.microsoft.com/fwlink/?linkid=229525). Sélectionnez ce lien pour [télécharger la dernière version](https://go.microsoft.com/fwLink/?LinkID=288905).
 
-3.  Cliquez sur **Gestionnaire de périphériques** > **Contrôleurs de stockage** et localisez le service **Initiateur Microsoft iSCSI**. Si vous le localisez, passez directement à l’étape 7.
+3. Cliquez sur **Gestionnaire de périphériques** > **Contrôleurs de stockage** et localisez le service **Initiateur Microsoft iSCSI**. Si vous le localisez, passez directement à l’étape 7.
 
-4.  Si vous ne parvenez pas à localiser le service Initiateur Microsoft iSCSI, essayez de trouver sous **Gestionnaire de périphériques** > **Contrôleurs de stockage** l’entrée **Appareil inconnu** associée à l’ID matériel **ROOT\ISCSIPRT**.
+4. Si vous ne parvenez pas à localiser le service Initiateur Microsoft iSCSI, essayez de trouver sous **Gestionnaire de périphériques** > **Contrôleurs de stockage** l’entrée **Appareil inconnu** associée à l’ID matériel **ROOT\ISCSIPRT**.
 
-5.  Cliquez avec le bouton droit sur l’entrée **Appareil inconnu** et sélectionnez **Mettre à jour le pilote**.
+5. Cliquez avec le bouton droit sur l’entrée **Appareil inconnu** et sélectionnez **Mettre à jour le pilote**.
 
-6.  Mettez à jour le pilote, en sélectionnant l’option **Rechercher automatiquement un pilote logiciel mis à jour**. Cette mise à jour doit remplacer l’entrée **Appareil inconnu** par **Initiateur Microsoft iSCSI** :
+6. Mettez à jour le pilote, en sélectionnant l’option **Rechercher automatiquement un pilote logiciel mis à jour**. Cette mise à jour doit remplacer l’entrée **Appareil inconnu** par **Initiateur Microsoft iSCSI** :
 
     ![Capture d’écran du Gestionnaire de périphériques de Sauvegarde Azure, avec Contrôleurs de stockage en surbrillance](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
 
-7.  Cliquez sur **Gestionnaire des tâches** > **Services (local)**  > **Service Initiateur iSCSI de Microsoft** :
+7. Cliquez sur **Gestionnaire des tâches** > **Services (local)**  > **Service Initiateur iSCSI de Microsoft** :
 
     ![Capture d’écran du Gestionnaire des tâches de Sauvegarde Azure, avec Services (local) en surbrillance](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
 
-8.  Redémarrez le service Initiateur Microsoft iSCSI. Pour ce faire, cliquez avec le bouton droit sur le service, puis sélectionnez **Arrêter**. Cliquez de nouveau avec le bouton droit et sélectionnez **Démarrer**.
+8. Redémarrez le service Initiateur Microsoft iSCSI. Pour ce faire, cliquez avec le bouton droit sur le service, puis sélectionnez **Arrêter**. Cliquez de nouveau avec le bouton droit et sélectionnez **Démarrer**.
 
-9.  Retentez la récupération à l’aide de la [Restauration instantanée](backup-instant-restore-capability.md).
+9. Retentez la récupération à l’aide de la [Restauration instantanée](backup-instant-restore-capability.md).
 
 Si celle-ci échoue encore, redémarrez votre serveur ou client. Si vous ne souhaitez pas redémarrer, ou si la récupération échoue encore après le redémarrage du serveur, essayez de [l’exécuter depuis une autre machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
-
 
 ## <a name="troubleshoot-cache-problems"></a>Résoudre les problèmes de cache
 
@@ -181,20 +178,25 @@ Pour que les opérations de l’agent MARS fonctionnent correctement, le dossier
 - [Vérifiez qu’aucun autre processus (par exemple, un logiciel antivirus) ne restreint l’accès au dossier du cache](#another-process-or-antivirus-software-blocking-access-to-cache-folder)
 
 ### <a name="increase-shadow-copy-storage"></a>Augmenter l’espace de stockage de cliché instantané
+
 Les opérations de sauvegarde peuvent échouer si l’espace de stockage de cliché instantané est insuffisant pour protéger la source de données. Pour résoudre ce problème, augmentez l’espace de stockage de clichés instantanés sur le volume protégé à l’aide de vssadmin comme indiqué ci-dessous :
+
 - Vérifiez l’espace de stockage de cliché instantané actuel à partir de l’invite de commandes avec élévation de privilèges :<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
 - Augmentez l’espace de stockage de cliché instantané en utilisant la commande ci-dessous :<br/>
   `vssadmin Resize ShadowStorage /On=[Volume letter]: /For=[Volume letter]: /Maxsize=[size]`
 
 ### <a name="another-process-or-antivirus-software-blocking-access-to-cache-folder"></a>Un autre processus ou logiciel antivirus bloque l’accès au dossier du cache
+
 Si vous avez un logiciel antivirus installé sur le serveur, ajoutez les règles d’exclusion nécessaires à l’analyse antivirus pour ces fichiers et dossiers :  
+
 - Le dossier de travail. Son emplacement par défaut est C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch
 - Le dossier Bin à l’emplacement C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 - CBengine.exe
 - CSC.exe
 
 ## <a name="common-issues"></a>Problèmes courants
+
 Cette section décrit les erreurs courantes que vous rencontrez lors de l’utilisation de l’agent MARS.
 
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
@@ -221,7 +223,7 @@ Message d’erreur | Action recommandée |
 -- | --
 Impossible de localiser les changements apportés à un fichier. Cela peut être dû à diverses raisons. Réessayez l’opération | Pour résoudre ce problème, suivez les étapes ci-dessous, puis réessayez l’opération :<br/> - [Vérifiez que la version de l’agent MARS est à jour](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Vérifiez et résolvez les problèmes de stockage impactant l’espace temporaire de la sauvegarde](#pre-requisites)
 
-
 ## <a name="next-steps"></a>Étapes suivantes
-* Obtenez plus de détails sur [comment sauvegarder votre serveur Windows avec l’agent Sauvegarde Azure](tutorial-backup-windows-server-to-azure.md).
-* Si vous avez besoin de restaurer une sauvegarde, consultez l’article dédié à la [restauration de fichiers sur une machine Windows](backup-azure-restore-windows-server.md).
+
+- Obtenez plus de détails sur [comment sauvegarder votre serveur Windows avec l’agent Sauvegarde Azure](tutorial-backup-windows-server-to-azure.md).
+- Si vous avez besoin de restaurer une sauvegarde, consultez l’article dédié à la [restauration de fichiers sur une machine Windows](backup-azure-restore-windows-server.md).

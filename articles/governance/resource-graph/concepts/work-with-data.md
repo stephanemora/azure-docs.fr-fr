@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: bcc272a8189ebb175f546f6a50c2c117a7975216
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 44f31a8c9e5b47fdcc62c87f6181a3812697aa4b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800187"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622623"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -171,4 +171,4 @@ response = client.resources(request)
 
 - Examinez le langage utilisé dans les [requêtes de démarrage](../samples/starter.md).
 - Examinez les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md).
-- Apprenez à [explorer les ressources](explore-resources.md).
+- Découvrez plus en détails comment [explorer des ressources](explore-resources.md).

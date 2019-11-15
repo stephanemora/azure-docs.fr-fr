@@ -1,18 +1,18 @@
 ---
-title: Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery
+title: Prendre en charge la récupération d’urgence matrice-Hyper-V sur un site VMM secondaire avec Azure Site Recovery
 description: Résume la prise en charge de la réplication des machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 9c3a19d44a4ac0fba37f4815b65b17c26d257dbc
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813619"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686171"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
 
@@ -21,7 +21,9 @@ Cet article résume ce qui est pris en charge lorsque vous utilisez le service [
 > [!NOTE]
 > Vous pouvez uniquement répliquer vers un site secondaire lorsque vos hôtes Hyper-V sont gérés dans des clouds VMM.
 
-  
+> [!WARNING]
+> Notez que la prise en charge par ASR de la configuration SCVMM dans un compte sera bientôt dépréciée. Par conséquent, nous vous recommandons de lire les informations sur la [Dépréciation](scvmm-site-recovery-deprecation.md) avant de continuer.
+
 
 ## <a name="host-servers"></a>Serveurs hôtes
 

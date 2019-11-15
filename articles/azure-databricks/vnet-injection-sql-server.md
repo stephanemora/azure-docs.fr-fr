@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.date: 11/07/2019
+ms.openlocfilehash: 460079248e6cbd939c36b84f94cac41dce4dda2b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273986"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747669"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Didacticiel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un notebook Azure Databricks
 
@@ -42,7 +42,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     ![Ajouter une machine virtuelle Azure](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. Sous l’onglet **De base**, sélectionnez Ubuntu Server 16.04 LTS. Définissez la taille de la machine virtuelle sur B1ms, qui fournit un processeur virtuel et 2 Go de RAM. La valeur minimale pour un conteneur Docker Linux SQL Server est de 2 Go. Choisissez un nom d’utilisateur et un mot de passe administrateur.
+2. Dans l’onglet **Informations de base**, choisissez Ubuntu Server 18.04 LTS et remplacez la taille de machine virtuelle par B2s. Choisissez un nom d’utilisateur et un mot de passe administrateur.
 
     ![Onglet De base de la configuration de la nouvelle machine virtuelle](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
@@ -80,8 +80,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
     |Paramètre|Valeur suggérée|Description|
     |-------|---------------|-----------|
-    |Source|Adresses IP|Spécifie que le trafic entrant provenant d’une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
-    |Adresses IP sources|10.179.0.0/16|Entrez la plage d’adresses de votre réseau virtuel.|
+    |Source|Quelconque|La source spécifie que le trafic entrant provenant d’une adresse IP source spécifique sera autorisé ou refusé par cette règle.|
     |Source port ranges|*|Autorise le trafic de tous les ports.|
     |Destination|Adresses IP|Spécifie que le trafic sortant vers une adresse IP de source spécifique est autorisé ou refusé par cette règle.|
     |Adresses IP de destination|<adresse IP publique de votre machine virtuelle\>|Entrez l’adresse IP publique de votre machine virtuelle. Celle-ci se trouve dans la page **Vue d’ensemble** de votre machine virtuelle.|

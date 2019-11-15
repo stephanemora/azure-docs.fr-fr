@@ -1,6 +1,6 @@
 ---
 title: Gérer des applications logiques avec Visual Studio - Azure Logic Apps
-description: Gestion d’applications logiques et d’autres ressources à l’aide de Visual Studio Cloud Explorer
+description: Gestion d’applications logiques et d’autres ressources Azure à l’aide de Visual Studio avec Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 05/07/2019
-ms.openlocfilehash: db4143b3bf75d1745245d5baae267a55ce71e95f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.date: 10/29/2019
+ms.openlocfilehash: e10683bcd5612db788d6dd5675425fec4130ffeb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212600"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796504"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -44,7 +44,7 @@ Même si vous pouvez créer, modifier, gérer et déployer des applications logi
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Outils Azure Logic Apps pour la version Visual Studio souhaitée :
+  * Les derniers outils d’Azure Logic Apps pour l’extension Visual Studio correspondant à la version que vous souhaitez :
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
@@ -112,7 +112,7 @@ Vous pouvez télécharger des applications logiques à partir du [portail Azure]
 
 1. Sur la barre d'outils du Concepteur, sélectionnez **Télécharger**.
 
-   ![Sélectionnez « Télécharger ».](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
+   ![Télécharger l’application logique à partir du Portail Azure](./media/manage-logic-apps-with-visual-studio/download-logic-app-from-portal.png)
 
 1. Lorsque vous êtes invité à entrer un emplacement, accédez à cet emplacement et enregistrez le modèle Resource Manager de la définition d’application logique au format de fichier JSON (.json).
 
@@ -126,24 +126,74 @@ Pour créer des applications logiques pour des scénarios d’intégration d’e
 
 1. Dans Visual Studio, ouvrez le projet Azure Resource Group qui contient votre application logique.
 
-1. Dans l’Explorateur de solutions, ouvrez le menu contextuel du fichier **<nom_application_logique>.json**, puis sélectionnez **Ouvrir avec le concepteur d’application logique**. (Clavier : Ctrl+L)
+1. Dans l’Explorateur de solutions, ouvrez le menu contextuel du fichier **<nom_application_logique>.json**, puis sélectionnez **Ouvrir avec le concepteur d’application logique**. (Clavier : Ctrl + L)
 
    ![Ouvrir le fichier .json de l’application logique avec le concepteur d’application logique](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
-   > Si vous ne voyez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio.
+   > Si vous ne voyez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio et l’extension Azure Logic Apps Tools.
 
-1. Pour garantir que le concepteur d’application logique a le focus, sélectionnez l’onglet ou la surface du concepteur afin que le volet Propriétés montre la propriété **Compte d’intégration** pour votre application logique.
+1. Assurez-vous que le concepteur d’application logique a le focus en sélectionnant l’onglet ou la surface du concepteur, afin que la fenêtre Propriétés montre la propriété **Compte d’intégration** pour votre application logique.
 
-   ![Le volet Propriétés montre la propriété « Compte d’intégration ».](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+   ![Fenêtre Propriétés - Propriété « Compte d’intégration »](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
-1. Ouvrez la liste **Compte d’intégration**, puis sélectionnez le compte d’intégration que vous voulez lier à votre application logique, par exemple :
+   > [!TIP]
+   > Si la fenêtre Propriétés n’est pas déjà ouverte, dans le menu **Afficher**, sélectionnez **Fenêtre Propriétés**. (Clavier : appuyez sur F4)
+
+1. Ouvrez la liste de propriétés **Compte d’intégration**, puis sélectionnez le compte d’intégration que vous voulez lier à votre application logique, par exemple :
 
    ![Ouvrir la liste de propriétés « Compte d’intégration »](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
 
 1. Quand vous avez terminé, n’oubliez pas d’enregistrer votre solution Visual Studio.
 
 Quand vous définissez la propriété **Compte d’intégration** dans Visual Studio et que vous enregistrez votre application logique en tant que modèle Azure Resource Manager, ce modèle comprend également une déclaration de paramètre pour le compte d’intégration sélectionné. Pour plus d’informations sur les paramètres de modèle et les applications logiques, consultez [Vue d’ensemble : Automatiser le déploiement d’applications logiques](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters).
+
+<a name="change-location"></a>
+
+## <a name="change-deployment-location"></a>Modifier l’emplacement de déploiement
+
+Dans Visual Studio, si votre application logique existe en tant que fichier JSON (.json) au sein d’un [projet de groupe de ressources Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) que vous utilisez pour automatiser le déploiement, cette application logique est définie sur un type d’emplacement et un emplacement spécifique. Cet emplacement est soit une région Azure, soit un [environnement de service d’intégration (ISE)](connect-virtual-network-vnet-isolated-environment.md) existant.
+
+Pour modifier le type d’emplacement ou l’emplacement de votre application logique, vous devez ouvrir le fichier de définition de flux de travail de votre application logique (.json) à partir de l’Explorateur de solutions à l’aide du Concepteur d’application logique. Vous ne pouvez pas modifier ces propriétés à l’aide de Cloud Explorer.
+
+> [!IMPORTANT]
+> La modification du type d’emplacement de **Région** à [**Environnement de service d’intégration**](connect-virtual-network-vnet-isolated-environment-overview.md) affecte le [modèle de tarification](logic-apps-pricing.md#fixed-pricing) de votre application logique lequel est utilisé pour la facturation, [les limites](logic-apps-limits-and-config.md#integration-account-limits), [la prise en charge des comptes d’intégration](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), etc. Avant de sélectionner un autre type d’emplacement, assurez-vous que vous comprenez l’impact qui en résulte sur votre application logique.
+
+1. Dans Visual Studio, ouvrez le projet Azure Resource Group qui contient votre application logique.
+
+1. Dans l’Explorateur de solutions, ouvrez le menu contextuel du fichier `<logic-app-name>.json` et sélectionnez **Ouvrir avec le concepteur d’application logique**. (Clavier : Ctrl + L)
+
+   ![Ouvrir le fichier .json de l’application logique avec le concepteur d’application logique](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > Si vous ne voyez pas cette commande dans Visual Studio 2019, vérifiez que vous avez les dernières mises à jour pour Visual Studio et l’extension Azure Logic Apps Tools.
+
+1. Assurez-vous que le concepteur d’application logique a le focus en sélectionnant l’onglet ou la surface du concepteur, afin que la fenêtre Propriétés montre les propriétés **Choisir un type d’emplacement** et **Emplacement** pour votre application logique. Le type d’emplacement du projet est défini sur **Région** ou **Environnement de service d’intégration**.
+
+   ![Fenêtre Propriétés : « Choisir un type d’emplacement » et propriétés « Emplacement »](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+
+   > [!TIP]
+   > Si la fenêtre Propriétés n’est pas déjà ouverte, dans le menu **Afficher**, sélectionnez **Fenêtre Propriétés**. (Clavier : appuyez sur F4)
+
+1. Pour modifier le type d’emplacement, ouvrez la liste de propriétés **Choisir un type d’emplacement**, puis sélectionnez le type d’emplacement de votre choix.
+
+   Par exemple, si le type d’emplacement est **Environnement de service d’intégration**, vous pouvez sélectionner **Région**.
+
+   ![Propriété « Choisir un type d’emplacement » : modifier le type d’emplacement](./media/manage-logic-apps-with-visual-studio/change-location-type.png)
+
+1. Pour modifier l’emplacement spécifique, ouvrez la liste des propriétés **Emplacement**. En fonction du type d’emplacement, sélectionnez l’emplacement de votre choix, par exemple :
+
+   * Sélectionner une autre région Azure :
+
+     ![Ouvrez la liste de propriétés « Emplacement », puis sélectionnez une autre région Azure](./media/manage-logic-apps-with-visual-studio/change-azure-resource-group-region.png)
+
+   * Sélectionnez un autre environnement ISE :
+
+     ![Ouvrez la liste de propriétés « Emplacement », puis sélectionnez un autre environnement ISE](./media/manage-logic-apps-with-visual-studio/change-integration-service-environment.png)
+
+1. Quand vous avez terminé, n’oubliez pas d’enregistrer votre solution Visual Studio.
+
+Lorsque vous modifiez le type d’emplacement ou l’emplacement dans Visual Studio et que vous enregistrez votre application logique en tant que modèle Azure Resource Manager, ce modèle comprend également des déclarations de paramètres pour ce type d’emplacement et pour cet emplacement. Pour plus d’informations sur les paramètres de modèle et les applications logiques, consultez [Vue d’ensemble : Automatiser le déploiement d’applications logiques](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters).
 
 <a name="refresh"></a>
 
@@ -157,19 +207,19 @@ Si vous modifiez votre application logique dans le portail Azure et souhaitez co
 
 * Dans Visual Studio Cloud Explorer, ouvrez le menu contextuel de l’application logique et sélectionnez **Actualiser**.
 
-![Actualiser l’application logique avec des mises à jour](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
+![Actualiser l’application logique avec des mises à jour](./media/manage-logic-apps-with-visual-studio/refresh-logic-app-with-updates-from-portal.png)
 
 ## <a name="publish-logic-app-updates"></a>Publier des mises à jour d’application logique
 
 Lorsque vous êtes prêt à déployer vos mises à jour d'application logique de Visual Studio vers Azure, accédez à la barre d'outils du Concepteur d'applications logiques et sélectionnez **Publier**.
 
-![Publier une application logique mise à jour](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
+![Publier une application logique mise à jour sur le Portail Azure](./media/manage-logic-apps-with-visual-studio/publish-logic-app-to-azure-portal.png)
 
 ## <a name="manually-run-your-logic-app"></a>Exécuter manuellement votre application logique
 
 Vous pouvez déclencher manuellement une application logique déployée dans Azure à partir de Visual Studio. Sur la barre d'outils du Concepteur d'applications logiques, sélectionnez **Déclencheur d'exécution**.
 
-![Exécuter manuellement une application logique](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
+![Exécuter manuellement le déclencheur pour votre application logique](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
 ## <a name="review-run-history"></a>Examiner l’historique des exécutions
 
@@ -177,37 +227,37 @@ Pour vérifier l’état des exécutions d’application logique et résoudre le
 
 1. Dans Cloud Explorer, ouvrez le menu contextuel de l’application logique et sélectionnez **Ouvrir l’historique des exécutions**.
 
-   ![Ouvrir l’historique des exécutions](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
+   ![Ouvrir l’historique des exécutions de votre application logique](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
 1. Pour afficher les détails d’une exécution spécifique, double-cliquez dessus. Par exemple :
 
-   ![Historique des exécutions détaillé](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
+   ![Affichage des informations relatives à une exécution spécifique](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Pour trier la table par propriété, sélectionnez l'en-tête de colonne de cette propriété.
 
 1. Développez les étapes dont vous souhaitez examiner les entrées et sorties, par exemple :
 
-   ![Afficher les entrées et sorties de chaque étape](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
+   ![Afficher les entrées et sorties de chaque étape](./media/manage-logic-apps-with-visual-studio/view-run-history-inputs-outputs.png)
 
 ## <a name="disable-or-enable-logic-app"></a>Activer ou désactiver une application logique
 
 Sans supprimer votre application logique, vous pouvez arrêter l’exécution du déclencheur dès que la prochaine condition de déclenchement est remplie. La désactivation de votre application logique empêche le moteur de Logic Apps de créer et d’exécuter les futures instances de workflow de votre application logique. Dans Cloud Explorer, ouvrez le menu contextuel de votre application logique et sélectionnez **Désactiver**.
 
-![Désactiver votre application logique](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
+![Désactiver votre application logique dans Cloud Explorer](./media/manage-logic-apps-with-visual-studio/disable-logic-app-cloud-explorer.png)
 
 > [!NOTE]
 > Lorsque vous désactivez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées, ce qui peut prendre du temps.
 
 Pour réactiver votre application logique, dans Cloud Explorer, ouvrez le menu contextuel de celle-ci et sélectionnez **Activer**.
 
-![Activer votre application logique](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
+![Activer votre application logique dans Cloud Explorer](./media/manage-logic-apps-with-visual-studio/enable-logic-app-cloud-explorer.png)
 
 ## <a name="delete-your-logic-app"></a>Supprimer votre application logique
 
 Pour supprimer votre application logique à partir du portail Azure, dans Cloud Explorer, ouvrez le menu contextuel de votre application logique, puis sélectionnez **Supprimer**.
 
-![Supprimer votre application logique](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+![Supprimer votre application logique de Portail Azure](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
 > Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente sont annulées. Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps. 

@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: e5dc913d682088296f84fb6bd7595a09d9d3fe7b
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 0d73f40c77c1b73a52522eafdb3c093b691d3e14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609852"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583453"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
 
@@ -53,7 +53,7 @@ Les API personnalisées permettent d’appeler des API qui ne sont pas des conne
 * Ils apparaissent sous forme d’icônes avec les connecteurs gérés par Microsoft dans le Concepteur Logic Apps.
 * Ils sont uniquement accessibles aux auteurs du connecteur et aux utilisateurs de l’application logique qui ont le même client Azure Active Directory et un abonnement Azure dans la région où sont déployées les applications logiques.
 
-Vous pouvez également proposer des connecteurs inscrits à la certification Microsoft. Ce processus vérifie que les connecteurs inscrits répondent aux critères d’utilisation publique et les met à la disposition des utilisateurs de Microsoft Flow et de Microsoft PowerApps.
+Vous pouvez également proposer des connecteurs inscrits à la certification Microsoft. Ce processus vérifie que les connecteurs inscrits répondent aux critères d’utilisation publique et les met à la disposition des utilisateurs de Power Automate et de Microsoft Power Apps.
 
 Pour plus d’informations sur les connecteurs personnalisés, consultez les pages : 
 
@@ -222,7 +222,7 @@ Après avoir configuré l’authentification, passez au déploiement de vos API.
 
 Pour mettre vos API personnalisées à la disposition d’autres utilisateurs Logic Apps dans Azure, vous devez ajouter un dispositif de sécurité et les inscrire en tant que connecteurs Logic Apps. Pour plus d’informations, consultez la page [Vue d’ensemble des connecteurs personnalisés](../logic-apps/custom-connector-overview.md). 
 
-Pour mettre vos API personnalisées à la disposition de tous les utilisateurs de Logic Apps, Microsoft Flow et Microsoft PowerApps, vous devez ajouter un dispositif de sécurité, inscrire vos API en tant que connecteurs Logic Apps et les proposer au [Programme Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
+Pour mettre vos API personnalisées à la disposition de tous les utilisateurs de Logic Apps, Power Automate et Microsoft Power Apps, vous devez ajouter un dispositif de sécurité, inscrire vos API en tant que connecteurs Logic Apps et les proposer au [Programme Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

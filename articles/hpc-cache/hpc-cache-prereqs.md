@@ -1,19 +1,19 @@
 ---
-title: Prérequis pour la préversion d’Azure HPC Cache
+title: Prérequis pour Azure HPC Cache
 description: Prérequis à l’utilisation d’Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709974"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582148"
 ---
-# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Prérequis pour Azure HPC Cache (préversion)
+# <a name="prerequisites-for-azure-hpc-cache"></a>Prérequis pour Azure HPC Cache
 
 Avant d’utiliser le portail Azure pour créer une nouvelle instance d’Azure HPC Cache, vérifiez que votre environnement répond à ces exigences.
 
@@ -22,7 +22,7 @@ Avant d’utiliser le portail Azure pour créer une nouvelle instance d’Azure 
 Un abonnement payant est recommandé.
 
 > [!NOTE]
-> Dans la préversion, l’équipe Azure HPC Cache doit ajouter votre abonnement à la liste d’accès afin que vous puissiez l’utiliser pour créer une instance de cache. Cette procédure garantit à chaque client une très grande réactivité de ses caches de test. Remplissez [ce formulaire](https://aka.ms/onboard-hpc-cache) pour demander l’accès.
+> Durant les premiers mois de la version mise à la disposition générale, l’équipe Azure HPC Cache doit ajouter votre abonnement à la liste d’accès afin que vous puissiez l’utiliser pour créer une instance de cache. Cette procédure garantit à chaque client une très grande réactivité de ses caches. Remplissez [ce formulaire](https://aka.ms/onboard-hpc-cache) pour demander l’accès.
 
 ## <a name="network-infrastructure"></a>Infrastructure réseau
 
@@ -86,7 +86,7 @@ Pour créer un compte de stockage compatible, utilisez les paramètres suivants�
 * Niveau d’accès (par défaut) : **Chaud**
 
 Il est recommandé d’utiliser un compte de stockage se trouvant au même emplacement que votre cache.
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
 Vous devez également autoriser l’application de cache à accéder à votre compte de stockage Azure. Suivez les instructions fournies dans [Ajouter des cibles de stockage](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) pour accorder au cache les rôles d’accès Contributeur de comptes de stockage et Contributeur aux données Blob du stockage. Si vous n’êtes pas le propriétaire du compte de stockage, demandez au propriétaire d’effectuer cette étape.
 

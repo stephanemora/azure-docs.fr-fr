@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 24ce6de63d06402e24abdeb33996a3853175ce91
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942782"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582982"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -119,7 +119,7 @@ Secouez l’appareil pour envoyer une propriété rapportée. L’appareil envoi
 
 Vous pouvez consulter les mesures de télémétrie et les valeurs des propriétés signalées et configurer les paramètres dans Azure IoT Central :
 
-1. Utilisez l’**Explorateur d’appareils** pour accéder à la page **Mesures** pour l’appareil MXChip réel que vous avez ajouté :
+1. Utilisez **Appareils** pour accéder à la page **Mesures** de l’appareil MXChip réel que vous avez ajouté :
 
     ![Accéder à l’appareil réel](media/howto-connect-devkit/realdevicenew.png)
 

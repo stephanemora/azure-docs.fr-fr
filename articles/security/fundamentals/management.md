@@ -1,10 +1,10 @@
 ---
 title: Améliorer la sécurité de la gestion à distance dans Azure | Microsoft Docs
-description: Cet article décrit les étapes permettant d’améliorer la sécurité de l’administration à distance lors de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées.
+description: Cet article décrit les étapes à suivre pour améliorer la sécurité de l’administration à distance dans le cadre de l’administration des environnements Microsoft Azure, notamment les services cloud, les machines virtuelles et les applications personnalisées.
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
+manager: rkarlin
 editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: 5efd82a2cb0652f6dd2aab621c578ff90aca0111
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927866"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643793"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -224,7 +224,6 @@ Une station de travail renforcée pour l’administration de vos services cloud 
 ## <a name="next-steps"></a>Étapes suivantes
 Les ressources suivantes fournissent des informations générales sur les services Azure et Microsoft associés, ainsi que sur les éléments évoqués dans cet article :
 
-* [Sécurisation de l’accès privilégié](https://technet.microsoft.com/library/mt631194.aspx) : obtenez les détails techniques de conception et de création d’une station de travail d’administration sécurisée pour la gestion Azure
+* [Sécurisation de l’accès privilégié](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access) : obtenez les détails techniques de conception et de création d’une station de travail d’administration sécurisée pour la gestion Azure
 * [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/en-us/trustcenter/cloudservices/azure) : approfondissez vos connaissances sur les fonctionnalités de la plateforme Azure qui protègent la structure Azure et les charges de travail s’exécutant sur Azure
-* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/security/dn440717.aspx) : les vulnérabilités de sécurité Microsoft, y compris les problèmes avec Azure, peuvent être rapportées ou signalées par courrier électronique à l’adresse [secure@microsoft.com](mailto:secure@microsoft.com)
-* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : restez informé des toutes dernières actualités sur la sécurité Azure
+* [Centre de réponse aux problèmes de sécurité Microsoft](https://www.microsoft.com/msrc) : les vulnérabilités de sécurité Microsoft, y compris les problèmes avec Azure, peuvent être rapportées ou signalées par courrier électronique à l’adresse [secure@microsoft.com](mailto:secure@microsoft.com)

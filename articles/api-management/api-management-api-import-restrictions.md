@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
-ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294347"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796038"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrictions et problèmes connus relatifs à l’importation d’API
 
@@ -40,6 +40,8 @@ Si vous recevez des erreurs durant l’importation de votre document OpenAPI, v�
 -   L’URL de fichier source (si disponible) est appliquée aux URL de serveur relatives.
 -   Les définitions de sécurité sont ignorées.
 -   Les définitions de schéma Inline pour les opérations d’API ne sont pas prises en charge. Les définitions de schéma sont définies dans l’étendue de l’API et peuvent être référencées dans les étendues de la réponse ou de la réponse des opérations de l’API.
+-   Un paramètre d’URL défini doit faire partie du modèle d’URL.
+-   Le mot clé **Produces**, qui décrit les types MIME retournés par une API, n’est pas pris en charge. 
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 

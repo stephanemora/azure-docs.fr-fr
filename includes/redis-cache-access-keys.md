@@ -5,27 +5,25 @@ services: redis-cache
 author: wesmc7777
 ms.service: cache
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 8d0973b8d4de280842930a8a70618600daab849b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a737e130d616a67bab28c7c96c0372216a6707af
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849923"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720381"
 ---
-### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Récupération du nom d’hôte, des ports et des clés d’accès à l’aide du portail Azure
+### <a name="retrieve-host-name-ports-and-access-keys-from-the-azure-portal"></a>Récupération du nom d’hôte, des ports et des clés d’accès à partir du portail Azure
 
-Lors de la connexion à une instance de cache Azure pour Redis, les clients de cache ont besoin du nom d’hôte, des ports et d’une clé pour le cache. Certains clients peuvent référencer ces éléments par des noms légèrement différents. Vous pouvez récupérer ces informations dans le portail Azure.
+Pour vous connecter à une instance Azure Cache pour Redis, les clients de cache ont besoin du nom d’hôte, des ports et d’une clé pour le cache. Certains clients peuvent référencer ces éléments par des noms légèrement différents. Vous pouvez récupérer le nom d’hôte, les ports et les clés d’accès à partir du [portail Azure](https://portal.azure.com).
 
-#### <a name="to-retrieve-the-access-keys-and-host-name"></a>Récupération des clés d'accès et du nom d’hôte
+- Pour récupérer les clés d’accès, sélectionnez **Clés d’accès** dans la barre de navigation de gauche du cache. 
+  
+  ![Clés du cache Azure pour Redis](media/redis-cache-access-keys/redis-cache-keys.png)
 
-1. Pour récupérer les clés d’accès à l’aide du [portail Azure](https://portal.azure.com), accédez à votre cache, puis sélectionnez **Clés d’accès**. 
+- Pour récupérer le nom d’hôte et les ports, sélectionnez **Propriétés** dans la barre de navigation de gauche du cache. Le nom d'hôte prend la forme *\<Nom DNS>.redis.cache.windows.net*.
 
-    ![Clés du cache Azure pour Redis](media/redis-cache-access-keys/redis-cache-keys.png)
-
-2. Pour récupérer le nom d’hôte et les ports, sélectionnez **Propriétés**.
-
-    ![Propriétés du cache Azure pour Redis](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+  ![Propriétés du cache Azure pour Redis](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

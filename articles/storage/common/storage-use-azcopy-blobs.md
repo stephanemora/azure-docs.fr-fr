@@ -4,16 +4,16 @@ description: Cet article contient une collection d’exemples de commandes AzCop
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: f1b18601629db12d4f9e75f180488e91b6a6857a
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 78e3f1d4f457e041d386ac7754d089b8b3635b08
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274859"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686636"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transférer des données avec AzCopy et le stockage Blob
 
@@ -31,6 +31,9 @@ Consultez l’article [Prise en main d’AzCopy](storage-use-azcopy-v10.md) pour
 > Par exemple : `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'`.
 
 ## <a name="create-a-container"></a>Créez un conteneur.
+
+> [!TIP]
+> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (''). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles ("") au lieu de guillemets simples ('').
 
 Vous pouvez utiliser la commande [azcopy make](storage-ref-azcopy-make.md) pour créer un conteneur. Les exemples de cette section créent un conteneur nommé `mycontainer`.
 
@@ -54,10 +57,10 @@ Cette section contient les exemples suivants :
 > * Charger le contenu d’un annuaire 
 > * Charger des fichiers spécifiques
 
-> [!NOTE]
-> AzCopy ne calcule pas automatiquement et ne stocke pas le code de hachage MD5 du fichier. Si vous souhaitez que l’utilitaire AzCopy effectue ces opérations, ajoutez l’indicateur `--put-md5` à chaque commande de copie. De cette façon, lorsque l’objet blob est téléchargé, AzCopy calcule un code de hachage MD5 pour les données téléchargées et vérifie que le code de hachage MD5 stocké dans la propriété `Content-md5` de l’objet blob correspond au code de hachage calculé.
-
 Pour obtenir des informations de référence détaillées, consultez [azcopy copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (''). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles ("") au lieu de guillemets simples ('').
 
 ### <a name="upload-a-file"></a>Charger un fichier
 
@@ -122,7 +125,6 @@ Dans cet exemple, AzCopy transfère le répertoire `C:\myDirectory\photos` et le
 
 Vous pouvez également exclure des fichiers à l’aide de l’option `--exclude-path`. Pour plus d’informations, consultez la documentation de référence sur [azcopy copy](storage-ref-azcopy-copy.md).
 
-
 #### <a name="use-wildcard-characters"></a>Utiliser des caractères génériques
 
 Utilisez la commande [azcopy copy](storage-ref-azcopy-copy.md) avec l’option `--include-pattern`. Spécifiez des noms partiels qui incluent les caractères génériques. Séparez les noms à l’aide d’un point-virgule (`;`). 
@@ -153,6 +155,9 @@ Cette section contient les exemples suivants :
 > Si la valeur de propriété `Content-md5` d’un objet blob contient un code de hachage, AzCopy calcule un code de hachage MD5 pour les données téléchargées et vérifie que le code de hachage MD5 stocké dans la propriété `Content-md5` de l’objet blob correspond au code de hachage calculé. Si ces valeurs ne correspondent pas, le téléchargement échoue, sauf si vous remplacez ce comportement en ajoutant `--check-md5=NoCheck` ou `--check-md5=LogOnly` à la commande de copie.
 
 Pour obtenir des informations de référence détaillées, consultez [azcopy copy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (''). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles ("") au lieu de guillemets simples ('').
 
 ### <a name="download-a-file"></a>Téléchargement d’un fichier
 
@@ -242,6 +247,9 @@ Cette section contient les exemples suivants :
 
 Pour obtenir des informations de référence détaillées, consultez [azcopy copy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (''). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles ("") au lieu de guillemets simples ('').
+
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copier un objet blob vers un autre compte de stockage
 
 |    |     |
@@ -272,7 +280,7 @@ Pour obtenir des informations de référence détaillées, consultez [azcopy cop
 
 ## <a name="synchronize-files"></a>Synchroniser des fichiers
 
-Vous pouvez synchroniser le contenu d’un système de fichiers local avec un conteneur d’objets blob. La synchronisation est unidirectionnelle. En d’autres termes, vous choisissez lequel de ces deux points de terminaison est la source et lequel est la destination. La synchronisation utilise également un serveur pour les API de serveur.
+Vous pouvez synchroniser le contenu d’un système de fichiers local avec un conteneur d’objets blob. Vous pouvez également synchroniser des conteneurs et des répertoires virtuels les uns avec les autres. La synchronisation est unidirectionnelle. En d’autres termes, vous choisissez lequel de ces deux points de terminaison est la source et lequel est la destination. La synchronisation utilise également un serveur pour les API de serveur.
 
 > [!NOTE]
 > Actuellement, ce scénario est pris en charge uniquement pour les comptes qui ne disposent pas d’un espace de noms hiérarchique. La version actuelle de l’utilitaire AzCopy n’effectue pas de synchronisation entre d’autres sources et destinations (exemple : stockage de fichiers ou compartiments Amazon Web Services (AWS) S3).
@@ -285,6 +293,9 @@ Si vous définissez l’indicateur `--delete-destination` sur `true`, AzCopy sup
 > Pour empêcher les suppressions accidentelles, veillez à activer la fonctionnalité de [suppression réversible](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) avant d’utiliser l’indicateur `--delete-destination=prompt|true`.
 
 Pour obtenir des informations de référence détaillées, consultez [azcopy sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> Dans les exemples de cette section, les arguments de chemin d’accès sont entre guillemets simples (''). Utilisez des guillemets simples dans tous les interpréteurs de commandes, à l’exception de l’interface de commande Windows (cmd. exe). Si vous utilisez une interface de commande Windows (cmd. exe), placez les arguments de chemin d’accès entre guillemets doubles ("") au lieu de guillemets simples ('').
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Mettre à jour un conteneur avec les modifications apportées à un système de fichiers local
 
@@ -304,6 +315,24 @@ Dans ce cas, le système de fichiers local est la destination, et le conteneur e
 | **Syntaxe** | `azcopy sync 'https://<storage-account-name>.blob.core.windows.net/<container-name>' 'C:\myDirectory' --recursive` |
 | **Exemple** | `azcopy sync 'https://mystorageaccount.blob.core.windows.net/mycontainer' 'C:\myDirectory' --recursive` |
 |
+
+### <a name="update-a-container-with-changes-in-another-container"></a>Mettre à jour un conteneur avec les modifications d’un autre conteneur
+
+Le premier conteneur qui s’affiche dans cette commande est la source. La deuxième est la destination.
+
+|    |     |
+|--------|-----------|
+| **Syntaxe** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>' --recursive` |
+| **Exemple** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/mycontainer' 'https://mydestinationaccount.blob.core.windows.net/mycontainer' --recursive` |
+
+### <a name="update-a-directory-with-changes-to-a-directory-in-another-file-share"></a>Mettre à jour un répertoire avec les modifications apportées à un répertoire dans un autre partage de fichiers
+
+Le premier répertoire qui s’affiche dans cette commande est la source. La deuxième est la destination.
+
+|    |     |
+|--------|-----------|
+| **Syntaxe** | `azcopy sync 'https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' 'https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive` |
+| **Exemple** | `azcopy sync 'https://mysourceaccount.blob.core.windows.net/<container-name>/myDirectory' 'https://mydestinationaccount.blob.core.windows.net/mycontainer/myDirectory' --recursive` |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

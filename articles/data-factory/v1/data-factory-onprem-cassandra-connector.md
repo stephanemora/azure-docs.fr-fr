@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données depuis Cassandra à l’aide de Data Factory | Microsoft Docs
+title: Déplacer des données à partir de Cassandra avec Data Factory
 description: Découvrez comment déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b098aaf2df5e04983aa53563d5e0203f3287b42
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 4edd4d663e02601a97474c5d3a54adaa6b7fd27d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839942"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682446"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -70,7 +70,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 | host |Une ou plusieurs adresses IP ou noms d’hôte de serveurs Cassandra.<br/><br/>Renseignez une liste des adresses IP ou des noms d’hôte séparée par des virgules pour vous connecter simultanément à tous les serveurs. |OUI |
 | port |Le port TCP utilisé par le serveur Cassandra pour écouter les connexions clientes. |Aucune valeur par défaut : 9042 |
 | authenticationType |Basique ou anonyme |OUI |
-| userName |Spécifiez le nom d’utilisateur du compte d’utilisateur. |Oui, si authenticationType est défini sur De base. |
+| username |Spécifiez le nom d’utilisateur du compte d’utilisateur. |Oui, si authenticationType est défini sur De base. |
 | password |Spécifiez le mot de passe du compte d'utilisateur. |Oui, si authenticationType est défini sur De base. |
 | gatewayName |Le nom de la passerelle qui est utilisée pour se connecter à la base de données Cassandra locale. |OUI |
 | Encryptedcredential |Informations d’identification chiffrées par la passerelle. |Non |
@@ -266,13 +266,13 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, co
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
-| DÉCIMAL |Decimal |
+| DECIMAL |Decimal |
 | DOUBLE |DOUBLE |
-| FLOAT |Single |
+| FLOAT |Unique |
 | INET |Chaîne |
 | INT |Int32 |
-| TEXTE |Chaîne |
-| TIMESTAMP |Datetime |
+| TEXTE |String |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |Chaîne |
@@ -316,7 +316,7 @@ La première table virtuelle est la table de base nommée « ExampleTable » aff
 
 Les tableaux suivants montrent les tables virtuelles qui renormalisent les données des colonnes Liste, Mappage et StringSet. Les colonnes portant des noms se terminant par « _index » ou « _key » indiquent la position des données dans la liste ou le mappage d’origine. Les colonnes portant des noms se terminant par « _value » contiennent les données étendues de la collection.
 
-#### <a name="table-exampletablevtlist"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletable_vt_list"></a>Table « ExampleTable_vt_List » :
 | pk_int | List_index | List_value |
 | --- | --- | --- |
 | 1 |0 |1 |
@@ -327,14 +327,14 @@ Les tableaux suivants montrent les tables virtuelles qui renormalisent les donn�
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-#### <a name="table-exampletablevtmap"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletable_vt_map"></a>Table « ExampleTable_vt_List » :
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
 | 1 |S1 |A |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-#### <a name="table-exampletablevtstringset"></a>Table « ExampleTable_vt_List » :
+#### <a name="table-exampletable_vt_stringset"></a>Table « ExampleTable_vt_List » :
 | pk_int | StringSet_value |
 | --- | --- |
 | 1 |A |

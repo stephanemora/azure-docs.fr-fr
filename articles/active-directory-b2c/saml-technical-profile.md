@@ -1,5 +1,5 @@
 ---
-title: Définir un profil technique SAML dans une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
+title: Définir un profil technique SAML dans une stratégie personnalisée dans Azure Active Directory B2C
 description: Définir un profil technique SAML dans une stratégie personnalisée dans Azure Active Directory B2C
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/21/2018
+ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 38215ef49bdc5788e43e4ea0fedef2efd32d8213
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: b75367a90ce557f055ff4a9b1ff85f5b1f8f9637
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063786"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603060"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique SAML dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -57,7 +57,6 @@ Un certificat auto-signé est acceptable pour la plupart des scénarios. Pour le
 Le diagramme suivant illustre l’échange de métadonnées et de certificat :
 
 ![échange de métadonnées et de certificat](media/saml-technical-profile/technical-profile-idp-saml-metadata.png)
-
 
 ## <a name="digital-encryption"></a>Chiffrement numérique
 
@@ -133,7 +132,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 | NameIdPolicyFormat | Non | Spécifie les contraintes appliquées à l’identificateur de nom à utiliser pour représenter l’objet demandé. En cas d’omission, tout type d’identificateur pris en charge par le fournisseur d’identité pour l’objet demandé peut être utilisé. Par exemple : `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** peut être utilisé avec **NameIdPolicyAllowCreate**. Pour obtenir des conseils concernant les stratégies d’identificateur de nom prises en charge, consultez la documentation de votre fournisseur d’identité. |
 | NameIdPolicyAllowCreate | Non | Lorsque vous utilisez **NameIdPolicyFormat**, vous pouvez également spécifier la propriété `AllowCreate` de **NameIDPolicy**. La valeur de ces métadonnées est `true` ou `false` pour indiquer si le fournisseur d’identité est autorisé à créer un compte pendant le flux de connexion. Pour obtenir des conseils sur la marche à suivre, consultez la documentation de votre fournisseur d’identité. |
 | AuthenticationRequestExtensions | Non | Éléments d’extension de message de protocole facultatifs convenus entre Azure AD BC et le fournisseur d’identité. L’extension est présentée au format XML. Vous ajoutez les données XML dans l’élément CDATA `<![CDATA[Your IDP metadata]]>`. Pour voir si l’élément d’extensions est pris en charge, consultez la documentation de votre fournisseur d’identité. |
-| IncludeAuthnContextClassReferences | Non | Spécifie une ou plusieurs références d’URI identifiant des classes de contexte d’authentification. Par exemple, pour autoriser un utilisateur à se connecter uniquement avec un nom d’utilisateur et un mot de passe, définissez la valeur sur `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Pour autoriser la connexion avec nom d’utilisateur et mot de passe sur une session protégée (SSL/TLS), spécifiez `PasswordProtectedTransport`. Pour obtenir des conseils concernant les URI **AuthnContextClassRef** pris en charge, consultez la documentation de votre fournisseur d’identité. |
+| IncludeAuthnContextClassReferences | Non | Spécifie une ou plusieurs références d’URI identifiant des classes de contexte d’authentification. Par exemple, pour autoriser un utilisateur à se connecter uniquement avec un nom d’utilisateur et un mot de passe, définissez la valeur sur `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`. Pour autoriser la connexion avec nom d’utilisateur et mot de passe sur une session protégée (SSL/TLS), spécifiez `PasswordProtectedTransport`. Pour obtenir des conseils concernant les URI **AuthnContextClassRef** pris en charge, consultez la documentation de votre fournisseur d’identité. Spécifiez plusieurs URI sous la forme d’une liste délimitée par des virgules. |
 | IncludeKeyInfo | Non | Indique si la demande d’authentification SAML contient la clé publique ou le certificat lorsque la liaison est définie sur `HTTP-POST`. Valeurs possibles : `true` ou `false`. |
 
 ## <a name="cryptographic-keys"></a>Clés de chiffrement
@@ -146,20 +145,9 @@ L’élément **CryptographicKeys** contient les attributs suivants :
 | SamlAssertionDecryption |OUI | Certificat X509 (jeu de clés RSA) à utiliser pour déchiffrer les messages SAML. Ce certificat doit être fourni par le fournisseur d’identité. Azure AD B2C utilise ce certificat pour déchiffrer les données envoyées par le fournisseur d’identité. |
 | MetadataSigning |Non | Certificat X509 (jeu de clés RSA) à utiliser pour signer les métadonnées SAML. Azure AD B2C utilise cette clé pour signer les métadonnées.  |
 
-## <a name="examples"></a>Exemples
+## <a name="next-steps"></a>Étapes suivantes
+
+Consultez les articles suivants pour obtenir des exemples d’utilisation des fournisseurs d’identité SAML dans Azure AD B2C :
 
 - [Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-custom-setup-adfs2016-idp.md)
 - [Se connecter à l’aide de comptes Salesforce via SAML](active-directory-b2c-setup-sf-app-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

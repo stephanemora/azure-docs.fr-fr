@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88c4b2065576bd5bdcb29a266bd564c60b0e537c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286510"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622703"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -448,6 +448,8 @@ Configurez le proxy Docker sur la sortie de la commande précédente et le port 
 
 - [Comment annuler des exécutions par lots ?](#how-do-i-batch-cancel-runs)
 - [Comment inclure le dossier .git dans la commande az acr build ?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Les tâches prennent-elles en charge GitLab pour les déclencheurs source ?](#does-tasks-support-gitlab-for-source-triggers)
+- [Quel est le service de gestion du référentiel Git pris en charge par les tâches ?](#what-git-repository-management-service-does-tasks-support)
 
 ### <a name="how-do-i-batch-cancel-runs"></a>Comment annuler des exécutions par lots ?
 
@@ -462,11 +464,30 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 Si vous passez un dossier source local à la commande `az acr build`, le dossier `.git` est exclu du package chargé par défaut. Vous pouvez créer un fichier `.dockerignore` avec le paramètre suivant. Il indique à la commande de restaurer tous les fichiers sous `.git` dans le package chargé. 
 
-```
+```sh
 !.git/**
 ```
 
 Ce paramètre s’applique également à la commande `az acr run`.
+
+### <a name="does-tasks-support-gitlab-for-source-triggers"></a>Les tâches prennent-elles en charge GitLab pour les déclencheurs source ?
+
+Nous ne prenons actuellement pas en charge GitLab pour les déclencheurs source.
+
+### <a name="what-git-repository-management-service-does-tasks-support"></a>Quel est le service de gestion du référentiel Git pris en charge par les tâches ?
+
+| Service Git | Contexte source | Build manuelle | Génération automatique via un déclencheur de validation |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | OUI | OUI |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | OUI | OUI |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | OUI | Non |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | OUI | Non |
+
+## <a name="run-error-message-troubleshooting"></a>Exécuter la résolution des problèmes liés aux messages d’erreur
+
+| Message d’erreur | Guide de résolution des problèmes |
+|---|---|
+|Aucun accès n’a été configuré pour la machine virtuelle, ainsi aucun abonnement n’a été trouvé|Cela peut se produire si vous utilisez `az login --identity` dans votre tâche ACR. Il s’agit d’une erreur temporaire qui se produit lorsque l’attribution de rôle de votre identité managée n’a pas été propagée. Attendez quelques secondes avant de réessayer.|
 
 ## <a name="cicd-integration"></a>Intégration CI/CD
 

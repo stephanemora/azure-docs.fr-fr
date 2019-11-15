@@ -1,18 +1,18 @@
 ---
 title: À propos de la sauvegarde de machine virtuelle Azure
-description: Découvrez la sauvegarde de machine virtuelle Azure et quelques bonnes pratiques.
+description: Dans cet article, découvrez la manière dont le service Sauvegarde Azure sauvegarde les machines virtuelles Azure, et comment suivre les meilleures pratiques.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: db3e4b8a8abea4718f5779790906bf45591d221c
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: e22c4c24e83be0f89b306eed0eb1d80bdd9387e1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018688"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747204"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Vue d’ensemble de la sauvegarde de machines virtuelles Azure
 
@@ -34,10 +34,10 @@ Voici comment Sauvegarde Azure effectue une sauvegarde de machines virtuelles Az
     - La sauvegarde est optimisée grâce à la sauvegarde de chaque disque de machine virtuelle en parallèle.
     - Pour chaque disque sauvegardé, Sauvegarde Azure lit les blocs sur le disque, puis identifie et transfère uniquement les blocs de données ayant changé (le delta) depuis la sauvegarde précédente.
     - Les données d’instantanés peuvent ne pas être immédiatement copiées dans le coffre. Aux heures de pointe, cela peut prendre quelques heures. La durée de sauvegarde totale d’une machine virtuelle est inférieure à 24 heures pour les stratégies de sauvegarde quotidienne.
- 1. Les modifications apportées à une machine virtuelle Windows une fois la Sauvegarde Azure activée sur celle-ci sont les suivantes :
-    -   Le composant redistribuable de Microsoft Visual C++ 2013 (x64) – 12.0.40660 est installé sur la machine virtuelle
-    -   Le type de démarrage du Service VSS est passé de manuel à automatique
-    -   Le service Windows IaaSVmProvider est ajouté
+1. Les modifications apportées à une machine virtuelle Windows une fois la Sauvegarde Azure activée sur celle-ci sont les suivantes :
+    - Le composant redistribuable de Microsoft Visual C++ 2013 (x64) – 12.0.40660 est installé sur la machine virtuelle
+    - Le type de démarrage du Service VSS est passé de manuel à automatique
+    - Le service Windows IaaSVmProvider est ajouté
 
 1. Une fois le transfert de données terminé, l’instantané est supprimé et un point de récupération est créé.
 
@@ -140,11 +140,12 @@ Disque de données 2 | 4095 Go | 0 Go
 La taille réelle de la machine virtuelle est dans ce cas 17 Go + 30 Go + 0 Go= 47 Go. Cette taille d’instance protégée (47 Go) devient la base de la facture mensuelle. La taille de l’instance protégée utilisée pour la facturation augmente proportionnellement à la quantité de données dans la machine virtuelle.
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+
 ## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>Préversion publique : Sauvegarde de machine virtuelle avec des tailles de disque jusqu’à 30 To
 
 Sauvegarde Azure prend désormais en charge une préversion publique de [disques Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) plus volumineux et plus puissants d’une taille allant jusqu’à 30 To. Cette préversion fournit une prise en charge au niveau de la production pour les machines virtuelles managées.
 
-Les sauvegardes de vos machines virtuelles avec chaque taille de disque allant jusqu’à 30 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle doivent fonctionner de manière fluide sans impact sur vos sauvegardes existantes. Aucune action de l’utilisateur n’est requise pour que les sauvegardes s’exécutent sur les disques volumineux, si la machine virtuelle est déjà configurée avec Sauvegarde Azure.
+Les sauvegardes de vos machines virtuelles avec chaque taille de disque allant jusqu’à 30 To et un maximum de 256 To combinés pour tous les disques d’une machine virtuelle doivent fonctionner de manière fluide sans impact sur vos sauvegardes existantes. Aucune action de l’utilisateur n’est requise pour que les sauvegardes s’exécutent sur les disques volumineux, si la machine virtuelle est déjà configurée avec Sauvegarde Azure.
 
 Toutes les machines virtuelles Azure avec des disques volumineux pour lesquels une sauvegarde est configurée doivent être sauvegardées avec succès.
 

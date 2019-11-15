@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 325de36f3aa480847bc647827260f7f65765b5d7
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: beef37b0ece9cf57c86927b9f57d85ad4a25dbd1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103746"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746323"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transfert de la propriété de facturation d’un abonnement Azure à un autre compte
 
@@ -202,6 +202,10 @@ Votre compte est responsable du paiement de toute utilisation qui est signalée 
 ### <a name="can-i-use-a-different-payment-method"></a>Puis-je utiliser un autre mode de paiement ?
 
 Oui. Lors de l’acceptation de la demande de transfert, vous pouvez sélectionner un mode de paiement existant qui est lié à votre compte ou ajouter un nouveau mode de paiement.
+
+### <a name="how-can-i-transfer-ownership-of-my-enterprise-agreement-ea-subscription-account-ownership-if-the-original-account-owner-is-no-longer-with-the-organization"></a>Comment transférer la propriété de mon compte d’abonnement Contrat Entreprise (EA) si le propriétaire du compte d’origine n’est plus associé à l’organisation ?
+
+L’administrateur d’entreprise peut mettre à jour la propriété d’un compte même si le propriétaire du compte d’origine ne fait plus partie de l’organisation. Pour cela, il peut suivre les instructions relatives au [transfert de la propriété du compte de tous les abonnements](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) dans le portail EA.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

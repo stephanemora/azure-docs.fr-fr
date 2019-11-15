@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278339"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748453"
 ---
 # <a name="service-bus-faq"></a>FAQ Service Bus
 
@@ -43,7 +43,7 @@ Le classement n’est pas garanti lors de l’utilisation d’entités partition
  Les entités partitionnées ne sont plus prises en charge dans la [référence SKU Premium](service-bus-premium-messaging.md). 
 
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quels ports du pare-feu dois-je ouvrir ? 
-Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer et recevoir des messages :
+Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer et recevoir des messages :
 
 - Advanced Message Queuing Protocol (AMQP)
 - Service Bus Messaging Protocol (SBMP)
@@ -51,30 +51,30 @@ Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer
 
 Consultez le tableau suivant pour savoir quels ports de sortie vous devez ouvrir pour utiliser ces protocoles afin de communiquer avec Azure Event Hubs. 
 
-| Protocole | Ports | Détails | 
+| Protocol | Ports | Détails | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 et 5672 | Consultez le [Guide du protocole AMQP](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 à 9354 | Consultez l’article sur le [Mode de connectivité](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quelles adresses IP dois-je ajouter à la liste verte ?
-Pour trouver les adresses IP à ajouter à la liste verte de vos connexions, procédez comme suit :
+Pour trouver les adresses IP à ajouter à la liste verte de vos connexions, procédez comme suit :
 
-1. Exécutez la commande suivante depuis un invite de commande : 
+1. Exécutez la commande suivante depuis une invite de commandes : 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
 2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. Cette adresse IP est statique. La seule modification susceptible d’entraîner une conséquence serait une restauration de l’espace de noms sur un autre cluster.
 
-Si vous utilisez la redondance de zone pour votre espace de noms, vous devez suivre quelques étapes supplémentaires : 
+Si vous utilisez la redondance de zone pour votre espace de noms, vous devez suivre quelques étapes supplémentaires : 
 
 1. Tout d’abord, exécutez nslookup sur l’espace de noms.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Notez le nom dans la section **Réponse ne faisant pas autorité**, qui se présente dans un des formats suivants : 
+2. Notez le nom dans la section **Réponse ne faisant pas autorité**, qui se présente dans l’un des formats suivants : 
 
     ```
     <name>-s1.servicebus.windows.net
@@ -111,6 +111,13 @@ Les transferts de données au sein d’une région Azure donnée sont effectués
 
 ### <a name="does-service-bus-charge-for-storage"></a>Service Bus facture-t-il le stockage ?
 Non, Service Bus ne facture pas le stockage ? Toutefois, il existe un quota limitant la quantité maximale de données qui peuvent être conservées par la file d’attente/rubrique. Voir le Forum aux questions suivants.
+
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Je dispose d’un espace de noms Service Bus Standard. Pourquoi des frais sont-ils facturés dans le groupe de ressources « $system » ?
+Azure Service Bus a récemment mis à niveau les composants de facturation. C’est pourquoi, si vous disposez d’un espace de noms Service Bus Standard, des postes peuvent apparaître pour la ressource « /subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system » sous le groupe de ressources « $system ».
+
+Ces frais représentent les frais de base par abonnement Azure pour lequel un espace de noms Service Bus Standard est approvisionné. 
+
+Il est important de noter qu’il ne s’agit pas de nouveaux frais, c’est-à-dire qu’ils existaient également dans le modèle de facturation précédent. La seule modification est qu’ils apparaissent maintenant sous « $system ». Cela est dû aux contraintes posées par le nouveau système de facturation, qui regroupe les frais engendrés au niveau de l’abonnement, non liés à une ressource en particulier, sous l’ID de ressource « $system ».
 
 ## <a name="quotas"></a>Quotas
 

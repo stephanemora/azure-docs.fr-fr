@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/29/2019
+ms.date: 11/04/2019
 ms.author: markvi
-ms.reviewer: dhanyahk
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: c6e0c697f9ab9796feade9b4d5c2a64794f3980b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70983502"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612796"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Approvisionnement des rapports dans le portail Azure Active Directory (version préliminaire)
 
@@ -205,6 +205,29 @@ L’onglet **résumé** fournit une vue d’ensemble des événements et des ide
 - Il n’existe actuellement aucun support pour Log Analytics.
 
 - Lorsque vous accédez aux journaux d’approvisionnement à partir du contexte d’une application, cela ne filtre pas automatiquement les événements sur l’application spécifique comme le font les journaux d’audit.
+
+## <a name="error-codes"></a>Codes d’erreur
+
+Utilisez le tableau ci-dessous pour mieux comprendre comment résoudre les erreurs que vous pouvez trouver dans les journaux d’approvisionnement. Pour tous les codes d’erreur manquants, fournissez vos commentaires à l’aide du lien en bas de cette page. 
+
+|Code d'erreur|Description|
+|---|---|
+|Conflict, EntryConflict|Corrigez les valeurs d’attribut en conflit dans Azure AD ou l’application, ou passez en revue votre configuration d’attribut correspondante si le compte d’utilisateur en conflit était supposé être mis en correspondance et pris en charge. Consultez la [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) suivante pour plus d’informations sur la configuration des attributs correspondants.|
+|TooManyRequests|L’application cible a rejeté cette tentative de mise à jour de l’utilisateur, car elle est surchargée et reçoit trop de requêtes. Il n’y a rien à faire. Cette tentative sera automatiquement supprimée. Microsoft a également été informé de ce problème.|
+|InternalServerError |L’application cible a retourné une erreur inattendue. Il peut y avoir un problème de service avec l’application cible qui empêche cela de fonctionner. Cette tentative sera automatiquement mise hors service dans 40 minutes.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, Unauthorized| Azure AD a pu s’authentifier auprès de l’application cible, mais n’a pas été autorisé à effectuer la mise à jour. Passez en revue toutes les instructions fournies par l’application cible, ainsi que le [didacticiel](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) de l’application correspondante.|
+|UnprocessableEntity|L’application cible a renvoyé une réponse inattendue. La configuration de l’application cible n’est peut-être pas correcte, ou il peut y avoir un problème de service avec l’application cible qui empêche cela de fonctionner.|
+|WebExceptionProtocolError |Une erreur de protocole HTTP s’est produite lors de la connexion à l’application cible. Il n’y a rien à faire. Cette tentative sera automatiquement mise hors service dans 40 minutes.|
+|InvalidAnchor|Un utilisateur qui a été précédemment créé ou mis en correspondance par le service d’approvisionnement n’existe plus. Vérifiez que l’utilisateur existe. Pour forcer une nouvelle correspondance de tous les utilisateurs, utilisez l’API MS Graph pour [redémarrer un travail](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Notez que le redémarrage de l’approvisionnement déclenche un cycle initial, ce qui peut prendre du temps. Il supprime également le cache utilisé par le service de provisionnement pour fonctionner, ce qui signifie que tous les utilisateurs et groupes du locataire devront être réévalués et que certains événements d’approvisionnement pourraient être supprimés.|
+|NotImplemented | L’application cible a retourné une réponse inattendue. La configuration de l’application n’est peut-être pas correcte, ou il peut y avoir un problème de service avec l’application cible qui empêche cela de fonctionner. Passez en revue toutes les instructions fournies par l’application cible, ainsi que le [didacticiel](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) de l’application correspondante. |
+|MandatoryFieldsMissing, MissingValues |L’utilisateur n’a pas pu être créé, car des valeurs requises sont manquantes. Corrigez les valeurs d’attribut manquantes dans l’enregistrement source ou vérifiez la configuration de l’attribut correspondant pour vous assurer que les champs obligatoires ne sont pas omis. [En savoir plus](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sur la configuration des attributs correspondants.|
+|SchemaAttributeNotFound |Impossible d’effectuer l’opération, car un attribut spécifié n’existe pas dans l’application cible. Consultez la [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sur la personnalisation des attributs et assurez-vous que votre configuration est correcte.|
+|InternalError |Une erreur de service interne s’est produite au sein du service de provisionnement Azure AD. Il n’y a rien à faire. Cette tentative sera automatiquement mise hors service dans 40 minutes.|
+|InvalidDomain |L’opération n’a pas pu être effectuée en raison d’une valeur d’attribut contenant un nom de domaine non valide. Mettez à jour le nom de domaine sur l’utilisateur ou ajoutez-le à la liste autorisée dans l’application cible. |
+|Délai d'expiration |L’opération n’a pas pu aboutir car l’application cible a mis trop de temps à répondre. Il n’y a rien à faire. Cette tentative sera automatiquement mise hors service dans 40 minutes.|
+|LicenseLimitExceeded|L’utilisateur n’a pas pu être créé dans l’application cible, car il n’existe aucune licence disponible pour cet utilisateur. Procurez-vous des licences supplémentaires pour l’application cible, ou passez en revue vos attributions d’utilisateurs et la configuration de mappage des attributs pour vous assurer que les utilisateurs appropriés sont affectés avec les attributs appropriés.|
+|DuplicateTargetEntries  |L’opération n’a pas pu aboutir car plusieurs utilisateurs de l’application cible ont été trouvés avec les attributs correspondants configurés. Supprimez l’utilisateur en double de l’application cible ou reconfigurez vos mappages d’attributs comme décrit [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateSourceEntries | L’opération n’a pas pu aboutir car plusieurs utilisateurs ont été trouvés avec les attributs correspondants configurés. Supprimez l’utilisateur en double ou reconfigurez vos mappages d’attributs comme décrit [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

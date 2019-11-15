@@ -1,5 +1,5 @@
 ---
-title: Créer des rapports sur des bases de données cloud avec montée en charge (partitionnement horizontal) | Microsoft Docs
+title: Créer des rapports sur des bases de données cloud montées en charge (scale out)
 description: Utilisez des requêtes de base de données croisées pour créer des rapports sur plusieurs bases de données.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: bad52b364dc83994e7985fc80b1b9f9e7f50481e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264239"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823776"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Créer des rapports sur des bases de données cloud avec montée en charge (version préliminaire)
 

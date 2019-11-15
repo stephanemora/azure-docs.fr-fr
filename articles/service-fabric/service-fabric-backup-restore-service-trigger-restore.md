@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: e4ada412547360f97e869d3312b65d869fa3df48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff705eabde111b5ebac1e2d714e3ece221c36e90
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413733"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819315"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Restauration de la sauvegarde dans Azure Service Fabric
 
@@ -199,7 +199,18 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 Vous pouvez suivre la progression d’une restauration avec TrackRestoreProgress.
 
-### <a name="data-restore-for-data-corruptiondata-loss"></a>Restauration des données après une _altération_/_perte de données_
+### <a name="using-service-fabric-explorer"></a>Utiliser Service Fabric Explorer
+Il est possible de déclencher une restauration à partir de Service Fabric Explorer. Vérifiez que le mode avancé est activé dans les paramètres Service Fabric Explorer.
+1. Sélectionnez les partitions souhaitées, puis cliquez sur Actions. 
+2. Sélectionnez Déclencher la restauration de partition, puis renseignez les informations pour Azure :
+
+    ![Déclencher la restauration de partition][2]
+
+    ou FileShare :
+
+    ![Déclencher la restauration de partition pour FileShare][3]
+
+### <a name="data-restore-for-_data-corruption__data-loss_"></a>Restauration des données après une _altération_/_perte de données_
 
 Dans le cas d’une _perte de données_ ou d’une _altération des données_, vous pouvez restaurer les données des partitions du service fiable avec état et Reliable Actors à l’aide de l’une des sauvegardes choisies.
 
@@ -324,3 +335,6 @@ Vous pouvez configurer les partitions du service fiable avec état et Reliable A
 ## <a name="next-steps"></a>Étapes suivantes
 - [Présentation de la configuration de la sauvegarde périodique](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Informations de référence sur l’API REST de sauvegarde et restauration](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+
+[2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
+[3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

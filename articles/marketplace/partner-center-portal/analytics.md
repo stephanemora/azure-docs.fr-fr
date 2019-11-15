@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 593d43339961ab4576081aaa18a8d68716e40e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b1d3167828f2c2c49bb22580222fbd0e54d31d8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332134"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813189"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analytics pour la Place de marché commerciale dans l’Espace partenaires
 
@@ -78,7 +79,7 @@ Vous pouvez afficher des tendances basées sur la croissance de vos **Commandes 
 Les 50 clients présentant le plus grand nombre de commandes s'affichent dans un *classement*, trié par plus grand nombre de commandes et pourcentage de commandes. 
 
 - Sélectionnez un client pour afficher les détails de son profil, ses commandes organisées par offre ou ses commandes organisées par type de licence Azure et canal de tarification. 
-- Le graphique en anneau **Offres par commandes** présente les quatre meilleures offres (par nombre de commandes) et les offres restantes groupées dans « Autres offres ».
+- Le graphique en anneau **Offres par commandes** présente les quatre meilleures offres (par nombre de commandes) et les offres restantes groupées dans « Autres offres ».
 
 > [!NOTE]
 > Les informations personnelles sur les clients s'affichent uniquement si le client a donné son le consentement. Pour consulter ces informations, vous devez être connecté avec un rôle **Propriétaire**. Les utilisateurs dotés d'un rôle **Contributeur** n'y ont pas accès. [En savoir plus sur les rôles et autorisations d'utilisateur](./manage-account.md#define-user-roles-and-permissions).
@@ -123,7 +124,7 @@ La carte thermique **Commandes par zone géographique** affiche le nombre de vos
 
 Le graphique en anneau **Commandes actives par offres** organise l’ensemble de vos commandes actives en fonction de leurs noms d'offres.
 
-- Les quatre meilleures offres s’affichent dans le graphique et les autres offres sont regroupées sous « Autres offres ».
+- Les quatre meilleures offres s’affichent dans le graphique et les autres offres sont regroupées sous « Autres offres ».
 - Vous pouvez sélectionner des offres spécifiques dans la légende pour afficher uniquement ces offres dans le graphique. 
 - Placez le curseur sur une tranche du graphique pour afficher le nombre de commandes et le pourcentage de cette offre par rapport au nombre total de vos commandes pour toutes les offres.
 - **Tendance des commandes par offres** affiche les tendances de croissance mois par mois. La colonne du mois représente le nombre de commandes par nom d'offre. Le graphique en courbes affiche la tendance du pourcentage de croissance tracée sur un axe z.
@@ -239,7 +240,7 @@ Vous recevez une notification contextuelle et un e-mail contenant un lien vers l
 | Type de licence Azure : Fournisseur de solutions cloud | Client, Commande | Le client final se procure Azure et votre offre de la Place de marché par le biais de son fournisseur de solutions cloud, qui agit en tant que revendeur.|
 | Type de licence Azure : Entreprise | Client, Commande | Le client final se procure Azure et votre offre de la Place de marché par le biais d'un contrat Entreprise, signé directement auprès de Microsoft.|
 | Type de licence Azure : entreprise, via un revendeur  | Client, Commande | Le client final se procure Azure et votre offre de Place de marché par le biais d’un revendeur qui lui propose un contrat Entreprise avec Microsoft.|  |
-| Type de licence Azure : paiement à l’utilisation| Client, Commande | Le client final se procure Azure et votre offre de la Place de marché par le biais d’un contrat « Paiement à l’utilisation », signé directement auprès de Microsoft.||
+| Type de licence Azure : paiement à l’utilisation| Client, Commande | Le client final se procure Azure et votre offre de la Place de marché par le biais d’un contrat « Paiement à l’utilisation », signé directement auprès de Microsoft.||
 | Nom de l’instance cloud| Ordre| Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées.||
 | Nom de l’instance cloud : Azure Global| Ordre| Cloud public global de Microsoft.|| |
 | Nom de l’instance cloud : Azure Government | Ordre| Clouds de Microsoft réservés aux gouvernements suivants : Chine, Allemagne ou États-Unis d’Amérique.| |
@@ -247,15 +248,15 @@ Vous recevez une notification contextuelle et un e-mail contenant un lien vers l
 | Langue de communication du client  | Client| Langue dans laquelle le client préfère communiquer.||
 | Nom de la société du client | Client, Commande | Nom de société fourni par le client. Le nom peut être différent du nom de la ville associée à l’abonnement Azure du client.|  |
 | Pays du client | Client, Commande | Nom de pays fourni par le client. Le pays peut être différent du pays associé à l’abonnement Azure du client.|  |
-| Adresse e-mail du client| Client| Adresse e-mail fournie par le client final. L'adresse e-mail peut être différente de l’adresse e-mail associée à l’abonnement Azure du client.||
+| Adresse e-mail du client| Client| Adresse e-mail fournie par le client final. L’adresse e-mail peut être différente de l’adresse e-mail associée à l’abonnement Azure du client.||
 | Prénom du client| Client| Prénom fourni par le client. Le prénom peut être différent du prénom associé à l’abonnement Azure du client.| |
 | ID du client | Client, Commande | Identificateur unique attribué à un client. Un client peut avoir zéro ou plusieurs abonnements de la Place de marché Azure.|  |
 | Code postal du client  | Client| Code postal fourni par le client. Le code postal peut être différent du code postal associé à l’abonnement Azure du client.| |
-| État du client| Client| État (adresse) fourni par le client. L'État peut être différent de l’État associé à l’abonnement Azure du client.| |
+| État du client| Client| État (adresse) fourni par le client. L’État peut être différent de l’État associé à l’abonnement Azure du client.| |
 | Date d'acquisition| Client| Date à laquelle le client a acheté pour la première fois une offre que vous avez publiée.| |
 | Date d'annulation| Client| Date à laquelle le client a annulé la dernière des offres achetées précédemment.||
-| Nouveau client  | Ordre| La valeur identifie un nouveau client achetant une ou plusieurs de vos offres pour la première fois (ou pas). La valeur est « Oui » si le mois calendaire correspond avec la date d’acquisition. La valeur est « Non » si le client a acheté une de vos offres avant le mois calendaire signalé. |
-| Référence SKU en préversion| Ordre| La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ».  |
+| Nouveau client  | Ordre| La valeur identifie un nouveau client achetant une ou plusieurs de vos offres pour la première fois (ou pas). La valeur est « Oui » si le mois calendaire correspond avec la « date d’acquisition ». La valeur est « Non » si le client a acheté une de vos offres avant le mois calendaire signalé. |
+| Référence SKU en préversion| Ordre| La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image. La valeur est « Non » si la référence SKU n’a pas été identifiée en tant que « préversion ».  |
 | Acceptation des messages promotionnels| Client| La valeur indique si le client a accepté les messages promotionnels provenant d’éditeurs de manière proactive. À ce stade, nous n'offrons pas cette possibilité aux clients. Par conséquent, nous avons indiqué « Non » sur le tableau. Une mise à jour interviendra lorsque cette fonctionnalité sera déployée.|
 | Type de licence de la Place de marché| Ordre| Mode de facturation de l’offre de la Place de marché.||
 | Type de licence de la Place de marché : facturé via Azure| Ordre| Pour cette offre de la Place de marché, Microsoft est votre agent et facture les clients de votre part. (Carte de crédit avec paiement à l’utilisation ou facture d’entreprise)||

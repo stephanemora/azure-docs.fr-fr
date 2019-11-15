@@ -1,5 +1,5 @@
 ---
-title: Implémenter une solution de base de données Azure SQL géodistribuée | Microsoft Docs
+title: Implémenter une solution répartie géographiquement
 description: Découvrez comment configurer votre application et votre base de données Azure SQL pour le basculement sur une base de données répliquée et comment tester le basculement.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568098"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810920"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Didacticiel : Implémenter une base de données géo-distribuée
 

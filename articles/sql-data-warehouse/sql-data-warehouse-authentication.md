@@ -1,28 +1,29 @@
 ---
-title: S’authentifier sur Azure SQL Data Warehouse | Microsoft Docs
+title: Authentication
 description: Découvrez comment vous authentifier sur Azure SQL Data Warehouse à l’aide d’Azure Active Directory (AAD) ou de l’authentification SQL Server.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/02/2019
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: fda29e432fbd952261893f3c32a4df7b9990ae66
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475029"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692936"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>S’authentifier sur Azure SQL Data Warehouse
 Découvrez comment vous authentifier sur Azure SQL Data Warehouse à l’aide d’Azure Active Directory (AAD) ou de l’authentification SQL Server.
 
 Pour vous connecter à SQL Data Warehouse, vous devez transmettre des informations d’identification de sécurité à des fins d’authentification. Lors de l’établissement d’une connexion, certains paramètres de connexion sont configurés dans le cadre de l’établissement de votre session de requête.  
 
-Vous pouvez consulter l’article [Sécuriser une base de données dans SQL Data Warehouse][Secure a database in SQL Data Warehouse] pour plus d’informations sur la sécurité et la manière d’activer des connexions à votre entrepôt de données.
+Vous pouvez consulter l’article [Sécuriser une base de données dans SQL Data Warehouse][Secure a database in SQL Data Warehouse]pour plus d’informations sur la sécurité et la manière d’activer des connexions à votre entrepôt de données.
 
 ## <a name="sql-authentication"></a>Authentification SQL
 Pour vous connecter à SQL Data Warehouse, vous devez fournir les informations suivantes :
@@ -39,7 +40,7 @@ Par défaut, votre connexion se connecte à la base de données *MASTER* et non 
 * Sélectionnez la base de données utilisateur avant de créer une session dans SSDT.
 
 > [!NOTE]
-> L’instruction Transact-SQL **USE MyDatabase;** n’est pas prise en charge pour la modification de la base de données pour une connexion. Pour obtenir des conseils en matière de connexion à SQL Data Warehouse avec SSDT, consultez l’article [Envoyer des requêtes avec Visual Studio][Query with Visual Studio].
+> L’instruction Transact-SQL **USE MyDatabase;** n’est pas prise en charge pour la modification de la base de données pour une connexion. Pour obtenir des conseils en matière de connexion à SQL Data Warehouse avec SSDT, consultez l’article [Envoyer des requêtes avec Visual Studio][Query with Visual Studio] .
 > 
 > 
 
@@ -59,7 +60,7 @@ Les avantages d’Azure Active Directory incluent :
 * Prend en charge l'authentification multifacteur via l'authentification universelle Active Directory pour divers outils, notamment [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) et [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json).
 
 > [!NOTE]
-> Azure Active Directory est encore relativement nouveau et présente certaines limitations. Pour vérifier qu’Azure Active Directory est adapté à votre environnement, consultez [Limitations et fonctionnalités Azure AD][Azure AD features and limitations], en particulier la section Considérations supplémentaires.
+> Azure Active Directory est encore relativement nouveau et présente certaines limitations. Pour vous assurer qu’Azure Active Directory est adapté à votre environnement, consultez [Limitations et fonctionnalités Azure AD][Azure AD features and limitations], en particulier les considérations supplémentaires.
 > 
 > 
 

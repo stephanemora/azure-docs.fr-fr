@@ -1,5 +1,5 @@
 ---
-title: Intégration d’Azure Security Center Standard pour une sécurité renforcée | Microsoft Docs
+title: 'Sécurité améliorée du niveau standard : Azure Security Center'
 description: " Apprenez à intégrer Azure Security Center Standard pour une sécurité renforcée. "
 services: security-center
 documentationcenter: na
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: 01cc625767cbf437031f503cf4b0d4dc59b62e08
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: db74415d3c6c5f6636a150d212bc2bc3d790fbec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996298"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686387"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
-Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides.  Vous pouvez essayer gratuitement le niveau Standard. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
+Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides. Vous pouvez essayer gratuitement le niveau Standard. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 
 Security Center Standard inclut :
 
 - **Sécurité hybride** : obtenez une vue unifiée de la sécurité sur l’ensemble de vos charges de travail cloud et locales. Appliquez des stratégies de sécurité et évaluez en continu la sécurité de vos charges de travail cloud hybrides pour garantir la conformité aux normes de sécurité. Collectez, recherchez et analysez les données de sécurité à partir d’un large éventail de sources, dont les pare-feu et d’autres solutions partenaires.
-- **Détection avancée des menaces** : utilisez l’analytique avancée et Microsoft Intelligent Security Graph pour avoir un avantage sur les cyberattaques en constante évolution.  Tirez parti des analytiques comportementales intégrées et de l’apprentissage machine pour identifier les attaques et les vulnérabilités zero-day. Surveillez les réseaux, machines et services cloud pour prévenir les attaques entrantes et les activités consécutives à une violation. Simplifiez l’investigation avec des outils interactifs et des informations sur les menaces contextuelles.
+- **Détection avancée des menaces** : utilisez l’analytique avancée et Microsoft Intelligent Security Graph pour avoir un avantage sur les cyberattaques en constante évolution. Tirez parti des analytiques comportementales intégrées et de l’apprentissage machine pour identifier les attaques et les vulnérabilités zero-day. Surveillez les réseaux, machines et services cloud pour prévenir les attaques entrantes et les activités consécutives à une violation. Simplifiez l’investigation avec des outils interactifs et des informations sur les menaces contextuelles.
 - **Contrôles d’accès et d’application** : bloquez les programmes malveillants et les autres applications indésirables en appliquant des recommandations de mise en liste verte adaptées à vos charges de travail spécifiques et alimentées par l’apprentissage machine. Réduisez la surface exposée aux attaques du réseau avec l’accès contrôlé juste à temps aux ports de gestion sur les machines virtuelles Azure, ce qui diminue de façon significative l’exposition aux attaques par force brute et autres attaques réseau.
 
-## <a name="detecting-unprotected-resources"></a>Détection des ressources non protégées     
+## <a name="detecting-unprotected-resources"></a>Détection des ressources non protégées
 Security Center détecte automatiquement les abonnements Azure ou les espaces de travail dans lesquels Security Center Standard n’est pas activé. Cela inclut les abonnements Azure utilisant Security Center Gratuit et les espaces de travail dans lesquels la solution de sécurité n’est pas activée.
 
 Vous pouvez mettre à niveau un abonnement Azure entier vers le niveau Standard, qui est hérité par toutes les ressources prises en charge dans l’abonnement. L’application du niveau Standard à un espace de travail concerne toutes les ressources associées à l’espace de travail.
 
 > [!NOTE]
-> Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents. Le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) vous permet d’appliquer une étendue à la solution et de cibler un sous-ensemble d’ordinateurs dans l’espace de travail.  Si vous utilisez le ciblage de solution, Security Center répertorie l’espace de travail comme n’ayant pas de solution.
+> Vous pouvez gérer vos coûts et limiter la quantité de données collectées pour une solution en limitant celle-ci à un ensemble spécifique d’agents. Le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) vous permet d’appliquer une étendue à la solution et de cibler un sous-ensemble d’ordinateurs dans l’espace de travail. Si vous utilisez le ciblage de solution, Security Center répertorie l’espace de travail comme n’ayant pas de solution.
 >
 >
 
@@ -54,14 +54,13 @@ Pour mettre à niveau un abonnement ou un espace de travail vers Standard :
    > [!NOTE]
    > Les fonctionnalités du niveau Gratuit de Security Center sont appliquées à vos machines virtuelles Azure et VMSS uniquement. Les fonctionnalités du niveau Gratuit ne sont pas appliquées aux ordinateurs autres qu’Azure. Si vous sélectionnez le niveau Standard, les fonctionnalités du niveau Standard sont appliquées à toutes les machines virtuelles Azure, tous les groupes identiques de machines virtuelles et à tous les ordinateurs autres qu’Azure associés à l’espace de travail. Nous vous conseillons d’appliquer le niveau Standard pour offrir une sécurité avancée à vos ressources Azure et autres qu’Azure.
    >
-   >
 
 ## <a name="onboard-non-azure-computers"></a>Intégrer des ordinateurs autres qu’Azure
 Security Center peut surveiller l’état de sécurité de vos ordinateurs autres qu’Azure, mais vous devez d’abord intégrer ces ressources. Vous pouvez ajouter des ordinateurs autres qu’Azure à partir du panneau **Prise en main** ou du panneau **Calcul**. Nous allons examiner les deux méthodes.
 
 ### <a name="add-new-non-azure-computers-from-getting-started"></a>Ajouter des ordinateurs autres qu’Azure à partir du panneau **Prise en main**
 
-1. Retournez à **Prise en main**.   
+1. Retournez à **Prise en main**.
 2. Sélectionnez l’onglet **Prise en main**.
 
    ![Non-Azure](./media/security-center-onboarding/non-azure.png)
@@ -84,7 +83,7 @@ Si vous avez des espaces de travail existants, ils sont répertoriés dans **Add
    > [!NOTE]
    > Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».
 3. Dans **Espace de travail OMS**, entrez les informations de votre espace de travail.
-4. Dans **Espace de travail OMS**, sélectionnez **OK**.  Une fois que vous sélectionnez OK, vous obtenez un lien pour télécharger un agent Windows ou Linux et des clés pour votre ID d’espace de travail, afin de les utiliser pour la configuration de l’agent.
+4. Dans **Espace de travail OMS**, sélectionnez **OK**. Une fois que vous sélectionnez OK, vous obtenez un lien pour télécharger un agent Windows ou Linux et des clés pour votre ID d’espace de travail, afin de les utiliser pour la configuration de l’agent.
 5. Dans **Security and Audit**, sélectionnez **OK**.
 
 **Sélectionner un espace de travail existant et ajouter un ordinateur**
@@ -104,10 +103,10 @@ Vous pouvez ajouter un ordinateur en suivant le flux de travail du panneau **Int
 
    ![Ajouter des ordinateurs][7]
 
-   Le panneau **Agent direct** fournit un lien pour télécharger un agent Windows ou Linux ainsi que l’ID d’espace de travail et les clés à utiliser pour la configuration de l’agent.   
+   Le panneau **Agent direct** fournit un lien pour télécharger un agent Windows ou Linux ainsi que l’ID d’espace de travail et les clés à utiliser pour la configuration de l’agent.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris à intégrer des ressources Azure et autres qu’Azure pour tirer parti de la sécurité avancée de Security Center.  Pour utiliser davantage vos ressources intégrées, consultez les articles suivants :
+Dans cet article, vous avez appris à intégrer des ressources Azure et autres qu’Azure pour tirer parti de la sécurité avancée de Security Center. Pour utiliser davantage vos ressources intégrées, consultez les articles suivants :
 
 - [Activer la collecte des données](security-center-enable-data-collection.md)
 - [Rapport d’informations sur les menaces](security-center-threat-report.md)

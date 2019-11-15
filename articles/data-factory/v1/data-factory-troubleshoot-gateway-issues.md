@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes de la passerelle de gestion des données | Microsoft Docs
+title: Résoudre les problèmes des passerelles de gestion des données
 description: Fournit des conseils pour résoudre les problèmes liés à la passerelle de gestion des données.
 services: data-factory
 author: nabhishek
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34930061189c11c9cea9c2cd0feb2ede9aade74d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61252441"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682320"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Résoudre les problèmes liés à l’utilisation de la passerelle de gestion des données
 Cet article fournit des informations sur la résolution des problèmes liés à l’utilisation de la passerelle de gestion des données.

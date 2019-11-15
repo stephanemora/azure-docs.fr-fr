@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 40cdd0adf7bf100e1dbca64dbba68db3bc59a4fe
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331423"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583636"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurer et gérer un pool de machines virtuelles 
 Cet article explique comment effectuer les tâches suivantes :
@@ -35,7 +35,7 @@ Pour augmenter ou diminuer la capacité du labo (nombre de machines virtuelles d
 3. Sélectionnez ensuite **Enregistrer**. 
 
     ![Bouton Démarrer tout](../media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
-4. Si vous avez augmenté la capacité, vous pouvez voir la ou les machines virtuelles en cours de création. 
+4. Si vous avez augmenté la capacité, vous pouvez voir la ou les machines virtuelles en cours de création. Si vous ne voyez pas la nouvelle machine virtuelle dans la liste, actualisez la page. 
 
     ![Machine virtuelle en cours de création](../media/how-to-set-virtual-machine-passwords/vm-being-created.png)
 
@@ -51,11 +51,13 @@ Pour augmenter ou diminuer la capacité du labo (nombre de machines virtuelles d
     ![Bouton Arrêter tout](../media/how-to-set-virtual-machine-passwords/stop-all-vms-button.png)
 
 ### <a name="start-selected-vms"></a>Démarrer les machines virtuelles sélectionnées
-Il existe deux façons de démarrer des machines virtuelles sélectionnées (une ou plusieurs). La première consiste à sélectionner la ou les machines virtuelles dans la liste, puis à sélectionner **Démarrer** dans la barre d’outils. La seconde consiste à sélectionner la ou les machines virtuelles dans la liste, à sélectionner la liste déroulante dans la colonne **État** de l’une des lignes, puis à sélectionner **Démarrer**. 
+Il existe deux façons de démarrer des machines virtuelles sélectionnées (une ou plusieurs). La première consiste à sélectionner la ou les machines virtuelles dans la liste, puis à sélectionner **Démarrer** dans la barre d’outils. 
+
+La seconde consiste à sélectionner une ou plusieurs machines virtuelles dans la liste et à basculer le bouton dans la colonne **État**. 
 
 ![Démarrer les machines virtuelles sélectionnées](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
-De même, vous pouvez arrêter une ou plusieurs machines virtuelles à l’aide de la liste déroulante dans la colonne **État** ou **Arrêter** dans la barre d’outils. 
+De même, vous pouvez arrêter une ou plusieurs machines virtuelles en activant le bouton dans la colonne **État** ou en sélectionnant **Arrêter** dans la barre d’outils. 
 
 ## <a name="reset-vms"></a>Réinitialiser les machines virtuelles
 Pour réinitialiser une ou plusieurs machines virtuelles, sélectionnez-les dans la liste, puis sélectionnez **Réinitialiser** dans la barre d’outils. 
@@ -81,11 +83,19 @@ En activant ou désactivant l’option **Use same password for all virtual machi
 ### <a name="reset-password-later"></a>Réinitialiser le mot de passe plus tard
 
 1. Dans la page **Modèle** du laboratoire, sélectionnez **Réinitialiser le mot de passe** dans la barre d’outils. 
-
-    ![Menu Réinitialiser le mot de passe figurant sur la page d’accueil](../media/how-to-set-virtual-machine-passwords/reset-password-menu-dashboard.png)
 1. Dans la boîte de dialogue **Réinitialiser le mot de passe**, entrez un mot de passe et sélectionnez **Réinitialiser le mot de passe**.
     
     ![Boîte de dialogue Set Password (Définir un mot de passe)](../media/how-to-set-virtual-machine-passwords/set-password.png)
+
+## <a name="connect-to-student-vms"></a>Se connecter à des machines virtuelles d’étudiant
+Le créateur de laboratoire (formateur/professeur) peut se connecter à une machine virtuelle d’étudiant, si les conditions suivantes sont remplies : 
+
+- L’option **Use same password for all virtual machines** (Utiliser le même mot de passe pour toutes les machines virtuelles) a été sélectionnée lors de la création du laboratoire
+- La machine virtuelle est en cours d’exécution 
+
+ Pour vous connecter à la machine virtuelle d’étudiant, pointez la souris sur la machine virtuelle dans la liste et sélectionnez le bouton ordinateur.  
+
+![Se connecter au bouton de machines virtuelles d’étudiant](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les autres options d’utilisation que vous pouvez configurer pour les étudiants (en tant que propriétaire du labo), consultez l’article suivant : [Configure student usage](how-to-configure-student-usage.md) (Configurer l’utilisation pour les étudiants).

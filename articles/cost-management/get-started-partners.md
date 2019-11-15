@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 9d95e23cf92c7ee98291831d60088d610c3e5c52
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377430"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720758"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
-Azure Cost Management est disponible de façon native pour les partenaires qui ont intégré leurs clients à un contrat client Microsoft. Cet article explique aux partenaires comment utiliser les fonctionnalités d’[Azure Cost Management](https://docs.microsoft.com/azure/cost-management/). Il leur explique également comment autoriser l’accès à Cost Management à leurs clients. Les clients CSP peuvent utiliser les fonctionnalités de Cost Management si elles sont activées par leur partenaire CSP.
+Azure Cost Management est disponible de façon native pour les partenaires qui ont intégré leurs clients à un contrat client Microsoft. Cet article explique aux partenaires comment utiliser les fonctionnalités d’[Azure Cost Management](https://docs.microsoft.com/azure/cost-management/). Il leur explique également comment autoriser l’accès à Cost Management à leurs clients. Les clients peuvent utiliser les fonctionnalités de Cost Management si elles sont activées par leur partenaire CSP.
 
 Les partenaires CSP utilisent Cost Management pour :
 
@@ -29,11 +29,19 @@ Les partenaires CSP utilisent Cost Management pour :
 - Configurer des notifications et une automatisation à l’aide de [budgets](tutorial-acm-create-budgets.md) programmatiques ainsi que des alertes quand les coûts dépassent les budgets.
 - Activer la stratégie Azure Resource Manager qui accorde aux clients l’accès aux données de Cost Management. Les clients peuvent ensuite voir les données de coût de consommation pour leurs abonnements selon les [tarifs de paiement à l’utilisation](https://azure.microsoft.com/pricing/calculator/).
 
+Voici un exemple montrant les coûts pour tous les clients.
+![Exemple montrant les coûts pour tous les clients](./media/get-started-partners/customer-costs1.png)
+
+Voici un exemple montrant les coûts pour un client unique.
+![Exemple montrant les coûts pour un client unique](./media/get-started-partners/customer-costs2.png)
+
 Toutes les fonctionnalités disponibles dans Azure Cost Management sont également disponibles avec les API REST. Utilisez les API pour automatiser les tâches de gestion des coûts.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Azure Cost Management nécessite un accès en lecture à votre abonnement ou votre compte de facturation. L’accès peut être accordé à n’importe quel niveau au-dessus de vos ressources : du compte de facturation ou d’un groupe d’administration jusqu’aux groupes de ressources individuels où vous gérez vos applications. Pour que les utilisateurs d’abonnement puissent voir les tarifs et les coûts, vous devez autoriser l’accès à la visualisation des frais pour votre compte de facturation. Pour plus d’informations sur l’autorisation et l’attribution de l’accès à Azure Cost Management, consultez [Assigner l’accès aux données](assign-access-acm-data.md). Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données de Cost Management](understand-cost-mgt-data.md).
+Azure Cost Management nécessite un accès en lecture à votre abonnement ou votre compte de facturation. L’accès peut être accordé à n’importe quel niveau au-dessus de vos ressources : du compte de facturation ou d’un groupe d’administration jusqu’aux groupes de ressources individuels où vous gérez vos applications. Pour plus d’informations sur l’autorisation et l’attribution de l’accès à Azure Cost Management pour un compte de facturation, consultez [Attribuer des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview). Les rôles **Administrateur général** et **Agent d’administration** peuvent gérer les coûts d’un compte de facturation.
+
+Pour accéder à la liste complète des types de comptes pris en charge, consultez [Comprendre les données de Cost Management](understand-cost-mgt-data.md).
 
 
 ## <a name="how-cost-management-uses-scopes"></a>Utilisation des étendues par Cost Management
@@ -48,9 +56,9 @@ Une fois que vous avez intégré vos clients à un contrat client Microsoft, les
 
 ### <a name="billing-account-scope"></a>Étendue de compte de facturation
 
-Utilisez l’étendue de compte de facturation afin de voir les coûts avant impôts pour l’ensemble de vos clients et profils de facturation. Vous pouvez également visualiser les coûts facturés liés aux produits basés sur la consommation pour les clients bénéficiant du contrat client Microsoft. Les coûts facturés sont également indiqués pour les produits basés sur les achats pour les clients bénéficiant du contrat client Microsoft et de l’offre CSP. Actuellement, la devise utilisée par défaut pour l’affichage des coûts dans l’étendue est le dollar américain. Les budgets définis pour l’étendue sont également exprimés en USD.
+Utilisez l’étendue de compte de facturation afin de voir les coûts avant impôts pour l’ensemble de vos clients et profils de facturation. Les coûts facturés liés aux produits basés sur la consommation sont uniquement affichés pour les clients bénéficiant du contrat client Microsoft. Cependant, les coûts facturés sont indiqués pour les produits basés sur les achats pour les clients bénéficiant du contrat client Microsoft et de l’offre CSP. Actuellement, la devise utilisée par défaut pour l’affichage des coûts dans l’étendue est le dollar américain. Les budgets définis pour l’étendue sont également exprimés en USD.
 
-Quelle que soit la devise de facturation du client, les partenaires utilisent l’étendue afin de définir les budgets et de gérer les coûts en USD pour les clients, les abonnements, les ressources et les groupes de ressources.
+Quelles que soient les différentes devises de facturation du client, les partenaires utilisent l’étendue du compte de facturation afin de définir les budgets et de gérer les coûts en USD pour les clients, les abonnements, les ressources et les groupes de ressources.
 
 Les partenaires filtrent également les coûts selon une devise de facturation spécifique pour les clients dans la vue d’analyse des coûts. Sélectionnez la liste **Coût réel** pour voir les coûts dans les devises de facturation client prises en charge.
 
@@ -62,17 +70,17 @@ Utilisez la [vue des coûts amortis](quick-acm-cost-analysis.md#customize-cost-v
 
 Utilisez l’étendue de profil de facturation pour voir les coûts avant impôts dans la devise de facturation pour tous vos clients et pour tous les produits et abonnements inclus dans une facture. Vous pouvez filtrer les coûts dans un profil de facturation pour une facture spécifique à l’aide du filtre **InvoiceID**. Le filtre permet d’afficher les coûts de consommation et d’achat de produits pour une facture spécifique. Vous pouvez également filtrer les coûts pour un client spécifique sur la facture pour voir les coûts avant impôts.
 
-Une fois que vous avez intégré des clients à un contrat client Microsoft, vous recevez une facture client qui indique les frais liés aux produits de droit et aux produits achetés (SaaS, Place de marché Azure et réservations, par exemple). Quand elle est établie avec la même devise de facturation, la facture indique également les frais facturés au client, qui ne sont pas inclus dans le nouveau contrat client Microsoft.
+Une fois que vous avez intégré les clients à un contrat client Microsoft, vous recevez une facture incluant tous les frais pour tous les produits (consommation, achats et droits) pour ces clients disposant d’un contrat de client Microsoft. Quand elles sont établies avec la même devise, ces factures incluent également les frais relatifs au droit et aux produits achetés, tels que SaaS, la Place de marché Azure et les réservations pour les clients qui utilisent encore l’offre CSP.
 
 Pour simplifier le rapprochement des frais avec la facture client, l’étendue de profil de facturation vous permet de voir tous les coûts s’accumulant sur une facture pour vos clients. À l’instar de la facture, l’étendue indique les coûts pour chaque client bénéficiant du nouveau contrat client Microsoft. L’étendue indique également tous les frais pour les produits de droit client toujours inclus dans l’offre CSP actuelle.
 
-Les étendues de profil et de compte de facturation sont les seules qui indiquent les frais pour les produits de droit et basés sur les achats.
+Les étendues de profil et de compte de facturation sont les seules qui indiquent les frais pour les produits de droit et basés sur les achats, tels que la Place de marché Azure et les achats de réservation.
 
-Les profils de facturation définissent les abonnements inclus dans une facture. Les profils de facturation sont l’équivalent fonctionnel d’une inscription à un contrat Entreprise. Une inscription correspond à l’étendue dans laquelle les factures sont générées. De même, les achats qui ne sont pas basés sur l’utilisation (par exemple, Place de marché Azure et réservations) sont uniquement disponibles dans l’étendue de profil de facturation.
+Les profils de facturation définissent les abonnements inclus dans une facture. Les profils de facturation sont l’équivalent fonctionnel d’une inscription à un contrat Entreprise. Un profil de facturation correspond à l’étendue dans laquelle les factures sont générées.
 
 Actuellement, la devise de facturation du client est la devise utilisée par défaut quand vous consultez les coûts dans l’étendue de profil de facturation. Les budgets définis dans l’étendue de profil de facturation sont exprimés dans la devise de facturation.
 
-Les partenaires peuvent utiliser l’étendue pour effectuer un rapprochement avec les factures. Par ailleurs, ils utilisent l’étendue afin de définir des budgets dans la devise de facturation pour les éléments suivants :
+Les partenaires peuvent utiliser l’étendue pour effectuer un rapprochement avec les factures. Par ailleurs, ils utilisent l’étendue afin de définir des budgets dans la devise de facturation pour les éléments suivants :
 
 - Facture filtrée spécifique
 - Client
@@ -87,13 +95,13 @@ Les partenaires peuvent utiliser l’étendue pour effectuer un rapprochement av
 
 Les partenaires utilisent l’étendue pour gérer les coûts associés aux clients intégrés au contrat client Microsoft. L’étendue permet aux partenaires de voir les coûts avant impôts pour un client spécifique. Vous pouvez également filtrer les coûts avant impôts pour un abonnement, un groupe de ressources ou une ressource spécifique.
 
-L’étendue de client n’inclut pas les clients bénéficiant de l’offre CSP actuelle. Les coûts de droit (et non les coûts d’utilisation d’Azure) pour les clients de l’offre CSP actuelle sont disponibles dans les étendues de compte de facturation et de profil de facturation quand vous appliquez le filtre client.
+L’étendue de client n’inclut pas les clients bénéficiant de l’offre CSP actuelle. L’étendue comprend uniquement les clients qui disposent d’un contrat client Microsoft. Les coûts de droit (et non les coûts d’utilisation d’Azure) pour les clients de l’offre CSP actuelle sont disponibles dans les étendues de compte de facturation et de profil de facturation quand vous appliquez le filtre client.
 
 ## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Accès des partenaires aux étendues de facturation dans Cost Management
 
 Seuls les utilisateurs ayant les rôles **Administrateur général** et **Agent d’administration** peuvent gérer et voir les coûts pour les comptes de facturation, les profils de facturation et les clients directement dans le locataire Azure du partenaire. Pour plus d’informations sur les rôles de l’espace Partenaires, consultez [Affecter des rôles et des autorisations aux utilisateurs](/partner-center/permissions-overview).
 
-### <a name="enable-cost-management-in-the-customer-tenant"></a>Autoriser l’accès à la gestion des coûts dans le locataire client
+## <a name="enable-cost-management-in-the-customer-tenant"></a>Autoriser l’accès à la gestion des coûts dans le locataire client
 
 Les partenaires peuvent autoriser l’accès à Cost Management une fois les clients intégrés à un contrat client Microsoft. Ils peuvent ainsi activer une stratégie permettant aux clients de voir leurs coûts calculés selon les tarifs de paiement à l’utilisation au détail. Les coûts sont indiqués dans la devise de facturation du client pour sa consommation dans les étendues de groupe de ressources et d’abonnement RBAC.
 
@@ -131,7 +139,7 @@ Sous **Facturation**, cliquez sur **Abonnements Azure**, puis cliquez sur un cli
 ![Sélectionner un client d’abonnement Azure](./media/get-started-partners/subscriptions-select-customer.png)
 
 Cliquez sur **Analyse des coûts** et commencez à examiner les coûts.
-L’analyse des coûts, les budgets et les alertes sont désormais disponibles pour les étendues RBAC de groupe de ressources et d’abonnement selon les tarifs de paiement à l’utilisation.
+L’analyse des coûts, les budgets et les alertes sont disponibles pour les étendues RBAC de groupe de ressources et d’abonnement selon les tarifs de paiement à l’utilisation.
 
 ![Voir l’analyse des coûts en tant que client ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
 
@@ -139,22 +147,23 @@ Les vues amorties et les coûts réels pour les instances réservées dans les �
 
 ## <a name="analyze-costs-in-cost-analysis"></a>Analyser les coûts dans la vue d’analyse des coûts
 
-Les partenaires peuvent explorer et analyser les coûts dans la vue d’analyse des coûts pour l’ensemble des clients, pour un client spécifique ou pour une facture. Les fonctionnalités de filtre et l’option Grouper par vous permettent d’analyser les coûts en fonction de plusieurs champs, dont certains sont présentés dans le tableau suivant :
+Les partenaires peuvent explorer et analyser les coûts dans la vue d’analyse des coûts pour l’ensemble des clients, pour un client spécifique ou pour une facture.
 
-| **Champ** | **Description** | **Colonne équivalente dans l’espace Partenaires** |
-| --- | --- | --- |
-| PartnerTenantID | Identificateur du locataire Azure Active Directory du partenaire | ID de locataire Azure Active Directory du partenaire appelé ID partenaire. Au format GUID. |
-| PartnerName | Nom du locataire Azure Active Directory du partenaire | Nom du partenaire |
-| CustomerTenantID | Identificateur du locataire Azure Active Directory de l’abonnement du client | ID d’organisation du client. Par exemple, ID de locataire Azure Active Directory du client. |
-| CustomerName | Nom du locataire Azure Active Directory contenant l’abonnement du client | Nom de l’organisation du client comme indiqué dans l’espace Partenaires. Cet élément est important pour le rapprochement de la facture avec vos informations système. |
-| ResellerMPNID | MPNID du revendeur associée à l’abonnement | ID MPN du revendeur de l’enregistrement pour l’abonnement. Non disponible pour l’activité en cours. |
-| ID d’abonnement | Identificateur unique de l’abonnement Azure généré par Microsoft | N/A |
-| subscriptionName | Nom de l’abonnement Azure | N/A |
-| billingProfileID | Identificateur du profil de facturation. Il regroupe les coûts relatifs aux différentes factures selon une devise de facturation unique pour l’ensemble des clients. | ID de groupe de facturation du partenaire MCAPI. Utilisé dans les requêtes d’API, mais non inclus dans les réponses. |
-| invoiceID | ID de facture sur la facture où apparaît la transaction spécifique | Numéro de facture sur lequel figure la transaction spécifiée. |
-| resourceGroup | Nom du groupe de ressources Azure. Utilisé pour la gestion du cycle de vie des ressources. | Nom du groupe de ressources. |
-| partnerEarnedCreditRate | Taux de remise appliqué en présence d’un crédit Partenaires basé sur l’accès au lien d’administrateur partenaire. | Taux de remise pour le crédit Partenaires. Par exemple, 0 % ou 15 %. |
-| partnerEarnedCreditApplied | Indique si le crédit Partenaires a été appliqué. | N/A |
+Les champs suivants sont disponibles dans les fichiers de détails sur l’utilisation et les API Cost Management. Vous pouvez utiliser les fonctionnalités Filtrer et Regrouper lors de l’analyse des coûts pour analyser les frais en fonction de plusieurs champs. Pour afficher la liste complète des champs, consultez [Champs de données Cost Management](understand-cost-mgt-data.md#cost-management-data-fields).
+
+| Nom du champ | Description |
+| --- | --- |
+| CustomerTenantID | Identificateur du locataire Azure Active Directory de l’abonnement du client. |
+| CustomerName | Nom du locataire Azure Active Directory de l’abonnement du client. |
+| CustomerTenantDomainName | Nom de domaine du locataire Azure Active Directory de l’abonnement du client. |
+| PartnerTenantID | Identificateur du locataire Azure Active Directory du partenaire. |
+| PartnerName | Nom du locataire Azure Active Directory du partenaire. |
+| ResellerMPNID | Valeur MPNID du revendeur associée à l’abonnement. |
+| costinUSD | Estimation du coût du coût étendu ou combiné avant l’application des taxes, en USD. |
+| paygCostInBillingCurrency | Affiche les coûts si la tarification est indiquée dans les prix de vente au détail. Indique les tarifs du paiement à l’utilisation dans la devise de facturation. Disponible uniquement dans les étendues RBAC. |
+| paygCostInUSD | Affiche les coûts si la tarification est indiquée dans les prix de vente au détail. Affiche les tarifs du paiement à l’utilisation, en USD. Disponible uniquement dans les étendues RBAC. |
+| partnerEarnedCreditRate | Taux de remise appliqué en présence d’un crédit Partenaires basé sur l’accès au lien d’administrateur partenaire. |
+| partnerEarnedCreditApplied | Indique si le crédit Partenaires a été appliqué. |
 
 Dans la vue d’[analyse des coûts](quick-acm-cost-analysis.md), vous pouvez également [enregistrer des vues](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) et exporter des données dans des fichiers [CSV et PNG](quick-acm-cost-analysis.md#automation-and-offline-analysis).
 
@@ -183,126 +192,133 @@ Vous pouvez également grouper et filtrer sur la propriété **PartnerEarnedCred
 
 ## <a name="cost-management-rest-apis"></a>API REST Cost Management
 
-Les partenaires, les fournisseurs indirects et les clients peuvent utiliser les API Cost Management décrites dans les sections suivantes pour les tâches courantes.
+Les partenaires et les clients peuvent utiliser les API Cost Management décrites dans les sections suivantes pour les tâches courantes.
 
-### <a name="azure-cost-management-apis-for-partners"></a>API Azure Cost Management pour les partenaires
+### <a name="azure-cost-management-apis---direct-and-indirect-providers"></a>API Azure Cost Management : Fournisseurs directs et indirects
 
-Les partenaires et les utilisateurs ayant accès aux étendues de facturation d’un locataire partenaire peuvent utiliser les API suivantes.
+Les partenaires ayant accès aux étendues de facturation d’un locataire partenaire peuvent utiliser les API suivantes pour afficher les coûts facturés.
+
+Les API de l’étendue de l’abonnement peuvent être appelées par un partenaire, quelle que soit la stratégie de coût, s’il a accès à l’abonnement. Les autres utilisateurs ayant accès à l’abonnement, comme le client ou le revendeur, peuvent appeler les API uniquement après l’activation de la stratégie de coût par le partenaire pour le locataire client.
+
 
 #### <a name="to-get-a-list-of-billing-accounts"></a>Pour obtenir une liste des comptes de facturation
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-get-a-list-of-customers"></a>Pour obtenir une liste des clients
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31/customers?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers?api-version=2019-10-01-preview
 ```
+
 #### <a name="to-get-a-list-of-subscriptions"></a>Pour obtenir une liste des abonnements
 
 ```
-armclient get "/providers/Microsoft.Billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31/customers/9553eda2-2bd7-4ae6-a1f8-6a19eb40be22/billingSubscriptions?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview
 ```
 
-#### <a name="to-create-new-subscription"></a>Pour créer un abonnement
+#### <a name="to-get-a-list-of-invoices-for-a-period-of-time"></a>Pour obtenir la liste des factures pendant une période donnée
 
 ```
-armclient post "/providers/Microsoft.Billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31/customers/9553eda2-2bd7-4ae6-a1f8-6a19eb40be22/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview" @createsub.json -verbose
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate}
 ```
 
-#### <a name="to-get-or-download-usage-for-azure-services"></a>Pour obtenir ou télécharger les données d’utilisation des services Azure
+L’appel d’API retourne un tableau de factures qui contient des éléments similaires au code JSON suivant.
 
 ```
-armclient GET /providers/Microsoft.Billing/BillingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountID}/billingProfiles/{BillingProfileID}/invoices/{InvoiceID}",
+      "name": "{InvoiceID}",
+      "properties": {
+        "amountDue": {
+          "currency": "USD",
+          "value": x.xx
+        },
+        ...
+    }
 ```
 
-#### <a name="to-get-a-list-of-billing-profiles"></a>Pour obtenir une liste des profils de facturation
+Utilisez la valeur du champ ID renvoyé précédemment et remplacez-la dans l’exemple suivant comme étendue pour rechercher les détails d’utilisation.
 
 ```
-armclient get "providers/Microsoft.Billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31/billingProfiles?api-version=2019-10-01-preview
+GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01
 ```
 
-#### <a name="to-get-or-download-the-price-sheet-for-consumed-azure-services"></a>Pour obtenir ou télécharger la grille tarifaire des services Azure consommés
+L’exemple retourne les enregistrements d’utilisation associés à la facture spécifique.
 
-```
-armclient post "/providers/Microsoft.Billing/BillingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31/BillingProfiles/JUT6-EU3Q-BG7-TGB/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
-```
-
-#### <a name="to-get-customer-costs-for-the-last-two-months-sorted-by-month"></a>Pour obtenir les coûts client sur les deux derniers mois, triés par mois
-
-```
-armclient post providers/microsoft.billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryCustomer.json
-```
-
-#### <a name="to-get-azure-subscription-costs-for-the-last-two-months-sorted-by-month"></a>Pour obtenir les coûts d’abonnement Azure sur les deux derniers mois, triés par mois
-
-```
-armclient post providers/microsoft.billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQuerySubscription.json
-```
-
-#### <a name="to-get-daily-costs-for-the-current-month"></a>Pour obtenir les coûts quotidiens sur le mois en cours
-
-```
-armclient post providers/microsoft.billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryDaily.json
-```
 
 #### <a name="to-get-the-policy-for-customers-to-view-costs"></a>Pour obtenir la stratégie permettant aux clients de voir les coûts
 
 ```
-armclient get "providers/Microsoft.Billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31/customers/9553eda2-2bd7-4ae6-a1f8-6a19eb40be22/policies/default?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-set-the-policy-for-customers-to-view-costs"></a>Pour définir la stratégie permettant aux clients de voir les coûts
 
 ```
-armclient put "providers/Microsoft.Billing/billingAccounts/99a13315-2f87-5b46-9dbd-606071106352:1d100e69-2833-4677-a5d4-8ad35035d9a3_2019-05-31/customers/9553eda2-2bd7-4ae6-a1f8-6a19eb40be22/policies/default?api-version=2019-10-01-preview" @policy.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
-### <a name="azure-cost-management-apis-for-indirect-providers"></a>API Azure Cost Management pour les fournisseurs indirects
-
-Les fournisseurs indirects disposant d’un accès aux étendues RBAC dans un locataire client peuvent utiliser les API suivantes. Pour commencer, connectez-vous en tant qu’utilisateur ou avec un principal de service.
-
-#### <a name="to-get-the-billing-account-information"></a>Pour obtenir les informations relatives au compte de facturation
+#### <a name="to-get-azure-service-usage-for-a-billing-account"></a>Pour obtenir l’utilisation des services Azure pour un compte de facturation
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
 ```
 
-#### <a name="to-get-a-list-of-customers"></a>Pour obtenir une liste des clients
+#### <a name="to-download-a-customers-azure-service-usage"></a>Pour télécharger l’utilisation des services Azure d’un client
+
+L’appel GET suivant est une opération asynchrone.
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts/ec1b88ba-5681-517e-f657-4cc6a4a407cb:52f143a9-6524-4e5e-9d4a-120c7a79ca65_2019-05-31/customers?api-version=2019-10-01-preview"
+GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
 ```
 
-#### <a name="to-get-a-list-of-resellers-associated-with-the-customer"></a>Pour obtenir une liste des revendeurs associés au client
+Appelez l’URI `Location` retourné dans la réponse pour vérifier l’état de l’opération. Lorsque l’état est *Terminé*, la propriété `downloadUrl` contient un lien que vous pouvez utiliser pour télécharger le rapport généré.
+
+
+#### <a name="to-get-or-download-the-price-sheet-for-consumed-azure-services"></a>Pour obtenir ou télécharger la grille tarifaire des services Azure consommés
+
+Tout d’abord, utilisez la publication suivante.
 
 ```
-armclient get "/providers/Microsoft.Billing/billingAccounts/ec1b88ba-5681-517e-f657-4cc6a4a407cb:52f143a9-6524-4e5e-9d4a-120c7a79ca65_2019-05-31/customers/b51df1fa-62fa-4c92-9a74-fe860016d4db?api-version=2019-10-01-preview&$expand=resellers
+POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-#### <a name="to-get-a-list-of-subscriptions-with-reseller-information"></a>Pour obtenir une liste des abonnements avec les informations du revendeur
+Ensuite, appelez la valeur de la propriété de l’opération asynchrone. Par exemple :
 
 ```
-armclient get "/providers/Microsoft.Billing/billingAccounts/ec1b88ba-5681-517e-f657-4cc6a4a407cb:52f143a9-6524-4e5e-9d4a-120c7a79ca65_2019-05-31/customers/b51df1fa-62fa-4c92-9a74-fe860016d4db/billingSubscriptions?api-version=2019-10-01-preview
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview
 ```
+L’appel GET précédent retourne le lien de téléchargement contenant la table de tarification.
 
-#### <a name="to-create-a-subscription"></a>Pour créer un abonnement
 
-```
-armclient post "/providers/Microsoft.Billing/billingAccounts/ec1b88ba-5681-517e-f657-4cc6a4a407cb:52f143a9-6524-4e5e-9d4a-120c7a79ca65_2019-05-31/customers/b51df1fa-62fa-4c92-9a74-fe860016d4db/providers/Microsoft.Subscription/createSubscription?api-version=2018-11-01-preview" @createsub_reseller.json
-```
-
-### <a name="azure-cost-management-apis-for-customers"></a>API Azure Cost Management pour les clients
-
-Les clients utilisent les informations suivantes pour accéder aux API. Pour commencer, connectez-vous en tant qu’utilisateur.
-
-#### <a name="to-get-or-download-azure-consumption-usage-information-with-retail-rates"></a>Pour obtenir ou télécharger des informations sur l’utilisation de la consommation Azure avec des tarifs au détail
+#### <a name="to-get-aggregated-costs"></a>Pour recevoir des coûts agrégés
 
 ```
-armclient post /subscriptions/66bada28-271e-4b7a-aaf5-c0ead63923d7/providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryDaily.json
+POST https://management.azure.com/providers/microsoft.billing/billingAccounts/{billingAccountName}/providers/microsoft.costmanagement/query?api-version=2019-10-01
 ```
+
+#### <a name="create-a-budget-for-a-partner"></a>Créer un budget pour un partenaire
+
+```
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01
+```
+
+#### <a name="create-a-budget-for-a-customer"></a>Créer un budget pour un client
+
+```
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2019-10-01
+```
+
+#### <a name="delete-a-budget"></a>Supprimer un budget
+
+```
+PUT
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
+```
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrer l’analyse des coûts](quick-acm-cost-analysis.md) dans Cost Management

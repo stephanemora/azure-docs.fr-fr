@@ -1,7 +1,7 @@
 ---
 title: 'Didacticiel : Créer une application Flask pour traduire, synthétiser et analyser du texte - API Traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
-description: 'Dans ce tutoriel, vous allez créer une application web Flask qui utilise Azure Cognitive Services pour traduire du texte, analyser les sentiments et synthétiser du texte traduit en voix. Notre objectif principal est le code Python et les routes Flask qui servent de base à notre application. Nous ne passerons pas beaucoup de temps sur le code Javascript qui contrôle l’application : nous fournissons tous les fichiers, que vous pouvez examiner.'
+description: Dans ce tutoriel, vous allez créer une application web Flask pour traduire du texte, analyser les sentiments et synthétiser du texte traduit en voix.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 8d85db0e9aa9da48713ca0c119a12160cc99dbff
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 7b9f1cfeb6ebcbc693135d83ad167092e16f478d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671841"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647333"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Didacticiel : Créer une application Flask avec Azure Cognitive Services
 

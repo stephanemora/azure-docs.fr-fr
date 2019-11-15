@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 791821fbfe5854c27b7e3e6927a56a66ac1f1dc2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242470"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819080"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
@@ -56,7 +56,7 @@ Les règles des groupes de sécurité réseau permettent de limiter la connectiv
 Non, seuls les réseaux virtuels Azure Resource Manager peuvent bénéficier d’un point de terminaison de service. Les réseaux virtuels classiques ne prennent pas en charge les points de terminaison de service.
 
 ### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Puis-je « Accepter les connexions provenant des centres de données Azure publics » quand l’accès aux points de terminaison de service est activé pour Azure Cosmos DB ?  
-Ceci est nécessaire uniquement quand vous souhaitez que votre compte Azure Cosmos DB soit accessible par d’autres services Azure internes tels qu’Azure Data Factory, Recherche Azure ou tout autre service déployé dans une région Azure donnée.
+Ceci est nécessaire uniquement lorsque vous souhaitez que votre compte Azure Cosmos DB soit accessible par d’autres services Azure internes tels qu’Azure Data Factory, Recherche cognitive Azure ou tout autre service déployé dans une région Azure donnée.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

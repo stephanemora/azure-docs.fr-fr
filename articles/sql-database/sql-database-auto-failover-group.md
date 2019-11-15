@@ -1,5 +1,5 @@
 ---
-title: Groupes de basculement - Azure SQL Database | Microsoft Docs
+title: Groupes de basculement
 description: Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement automatique/coordonné d’un groupe de bases de données sur un serveur SQL Database ou de toutes les bases de données d’une instance gérée.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/21/2019
-ms.openlocfilehash: 1e847fd2ac39c93b28925cff3fe0a4c17a69da9f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 10/23/2019
+ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750473"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821953"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -65,7 +65,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
   Vous pouvez placer plusieurs bases de données uniques sur le même serveur SQL Database dans le même groupe de basculement. Si vous ajoutez une base de données unique au groupe de basculement, une base de données secondaire de la même édition et de la même taille de calcul est automatiquement créée sur le serveur secondaire  que vous avez spécifié à la création du groupe de basculement. Si vous ajoutez une base de données qui présente déjà une base de données secondaire dans le serveur secondaire, ce lien de géoréplication est hérité par le groupe. Lors de l’ajout d’une base de données qui présente déjà une base de données secondaire sur un serveur qui ne fait pas partie du groupe de basculement, une nouvelle base de données secondaire est créée sur le serveur secondaire.
   
   > [!IMPORTANT]
-  > Dans une instance gérée, toutes les bases de données utilisateur sont répliquées. Vous ne pouvez pas choisir un sous-ensemble de bases de données utilisateur pour la réplication dans le groupe de basculement.
+  > Assurez-vous que le serveur secondaire ne dispose pas d’une base de données portant le même nom, sauf s’il s’agit d’une base de données secondaire existante. Dans les groupes de basculement d’une instance gérée, toutes les bases de données utilisateur sont répliquées. Vous ne pouvez pas choisir un sous-ensemble de bases de données utilisateur pour la réplication dans le groupe de basculement.
 
 - **Ajouter des bases de données d’un pool élastique au groupe de basculement**
 
@@ -89,6 +89,9 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 - **Stratégie de basculement automatique**
 
   Par défaut, un groupe de basculement est configuré avec une stratégie de basculement automatique. Le service SQL Database déclenche le basculement dès que la défaillance est détectée et que la période de grâce a expiré. Le système doit vérifier que la panne ne peut pas être atténuée par l’[infrastructure de haute disponibilité intégrée du service SQL Database](sql-database-high-availability.md) en raison de l’échelle de l’impact. Si vous souhaitez contrôler le flux de travail de basculement à partir de l’application, vous pouvez désactiver le basculement automatique.
+  
+  > [!NOTE]
+  > Compte tenu du fait que la vérification de l’étendue de la panne et que la rapidité avec laquelle elle peut être atténuée impliquent des actions humaines de la part de l’équipe des opérations, la période de grâce ne peut pas être fixée en dessous d’une heure.  Cette limitation s’applique à toutes les bases de données du groupe de basculement, quel que soit l’état de synchronisation des données. 
 
 - **Stratégie de basculement en lecture seule**
 
@@ -150,7 +153,7 @@ Quand vous concevez un service en pensant à la continuité d’activité, suive
   Un ou plusieurs groupes de basculement peuvent être créés entre deux serveurs situés dans des régions différentes (serveurs principal et serveur secondaire). Chaque groupe peut inclure une ou plusieurs bases de données qui sont récupérées ensemble dans le cas où une partie ou la totalité des bases de données primaires deviennent indisponibles en raison d’une panne dans la région principale. Le groupe de basculement crée une base de données géo-secondaire avec le même objectif de service que la base de données primaire. Si vous ajoutez une relation de géoréplication existante au groupe de basculement, vérifiez que la base de données géosecondaire est configurée avec le même niveau de service et la même taille de calcul que la base de données primaire.
   
   > [!IMPORTANT]
-  > La création de groupes de basculement entre deux serveurs dans différents abonnements n’est actuellement pas prise en charge pour les bases de données uniques et les pools élastiques.
+  > La création de groupes de basculement entre deux serveurs dans différents abonnements n’est actuellement pas prise en charge pour les bases de données uniques et les pools élastiques. Le fait de déplacer le serveur principal ou secondaire vers un autre abonnement après la création du groupe de basculement peut entraîner des défaillances au niveau des requêtes de basculement et d’autres opérations.
 
 - **Utiliser un écouteur en lecture-écriture pour la charge de travail OLTP**
 
@@ -326,7 +329,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 | Applet de commande | Description |
 | --- | --- |
-| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasefailovergroup) |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Supprime le groupe de basculement du serveur et efface toutes les bases de données secondaires incluses dans le groupe. |
 | [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Récupère la configuration du groupe de basculement. |
 | [Set-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Modifie la configuration du groupe de basculement. |
@@ -342,7 +345,7 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 | Applet de commande | Description |
 | --- | --- |
-| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
+| [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup) |Cette commande crée un groupe de basculement et l’enregistre dans les serveurs primaire et secondaire|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Modifie la configuration du groupe de basculement.|
 | [Get-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) |Récupère la configuration du groupe de basculement.|
 | [Switch-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) |Déclenche le basculement du groupe de basculement vers le serveur secondaire.|

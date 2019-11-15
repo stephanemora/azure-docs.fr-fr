@@ -1,22 +1,22 @@
 ---
-title: Surveiller les performances d’une base de données Azure SQL multi-locataire partitionnée dans une application SaaS multi-locataire | Microsoft Docs
+title: Monitorage des performances d’une base de données multilocataire partitionnée
 description: Surveiller et gérer les performances d’une base de données Azure SQL multi-locataire partitionnée dans une application SaaS multi-locataire
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cc8ccbbde56b57af684ad47840002a846bdcd8c0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570325"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827969"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données Azure SQL multi-locataire partitionnée dans une application SaaS multi-locataire
 

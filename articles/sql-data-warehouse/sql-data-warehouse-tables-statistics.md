@@ -1,5 +1,5 @@
 ---
-title: Création, mise à jour de statistiques - Azure SQL Data Warehouse | Microsoft Docs
+title: Créer et mettre à jour des statistiques
 description: Recommandations et exemples pour la création et la mise à jour de statistiques d’optimisation des requêtes sur des tables dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,13 +10,13 @@ ms.subservice: development
 ms.date: 05/09/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: 00643e303b3352ce9ce39e5a27fd8b42246aac51
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c995358fc0135a1f9b504b57b23ecb3f6b41d6da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479167"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692398"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Statistiques de table dans Azure SQL Data Warehouse
 
@@ -465,7 +465,7 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## <a name="dbcc-showstatistics-examples"></a>Exemples portant sur la fonction DBCC SHOW_STATISTICS()
+## <a name="dbcc-show_statistics-examples"></a>Exemples portant sur la fonction DBCC SHOW_STATISTICS()
 
 La fonction DBCC SHOW_STATISTICS() présente les données contenues dans un objet de statistiques. Ces données sont affichées en trois parties :
 
@@ -489,7 +489,7 @@ Par exemple :
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>Afficher une ou plusieurs parties de la fonction DBCC SHOW_STATISTICS()
+### <a name="show-one-or-more-parts-of-dbcc-show_statistics"></a>Afficher une ou plusieurs parties de la fonction DBCC SHOW_STATISTICS()
 
 Si vous êtes uniquement intéressé par l’affichage de certaines parties, utilisez la clause `WITH` et spécifiez les parties que vous voulez voir :
 
@@ -503,7 +503,7 @@ Par exemple :
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## <a name="dbcc-showstatistics-differences"></a>Différences liées à la fonction DBCC SHOW_STATISTICS()
+## <a name="dbcc-show_statistics-differences"></a>Différences liées à la fonction DBCC SHOW_STATISTICS()
 
 La fonction DBCC SHOW_STATISTICS() est implémentée de manière plus stricte dans SQL Data Warehouse que dans SQL Server :
 

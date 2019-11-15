@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes de dépassement de délai d’expiration | Microsoft Docs
+title: Résoudre les problèmes de dépassement de délai d’expiration avec Azure Cache pour Redis | Microsoft Docs
 description: Découvrir comment résoudre les problèmes courants de dépassement de délai d’expiration avec Azure Cache pour Redis
 services: cache
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 8cf1ade80de015f1f981ff6610c242a5d0f1a1a7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795237"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826350"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Résoudre les problèmes de dépassement de délai d’expiration avec Azure Cache pour Redis
 
@@ -34,7 +34,7 @@ Cette section traite de la résolution des problèmes de dépassement de délai 
 
 ## <a name="redis-server-patching"></a>Mise à jour corrective du serveur Redis
 
-Azure Cache pour Redis met régulièrement à jour son logiciel serveur dans le cadre de la fonctionnalité de service managé qu’il fournit. Cette activité de [mise à jour corrective ](cache-failover.md) se déroule en grande partie en arrière-plan. Durant les basculements qui ont lieu lors de l’application de correctifs aux nœuds serveurs Redis, les clients Redis connectés à ces nœuds peuvent connaître des dépassements temporaires de délai d’expiration dus à la permutation des connexions entre ces nœuds. Pour plus d’informations sur les effets secondaires potentiels de la mise à jour corrective sur votre application et sur la façon dont vous pouvez améliorer sa gestion des événements de mise à jour corrective, consultez [Quel est l’impact d’un basculement sur mon application cliente ?](cache-failover.md#how-does-a-failover-impact-my-client-application).
+Azure Cache pour Redis met régulièrement à jour son logiciel serveur dans le cadre de la fonctionnalité de service managé qu’il fournit. Cette activité de [mise à jour corrective ](cache-failover.md) se déroule en grande partie en arrière-plan. Durant les basculements qui ont lieu lors de l’application de correctifs aux nœuds serveurs Redis, les clients Redis connectés à ces nœuds peuvent connaître des dépassements temporaires de délai d’expiration dus à la permutation des connexions entre ces nœuds. Pour plus d’informations sur les effets secondaires potentiels de la mise à jour corrective sur votre application et sur la façon dont vous pouvez améliorer sa gestion des événements de mise à jour corrective, consultez [Quel est l’impact d’un basculement sur mon application cliente ?](cache-failover.md#how-does-a-failover-affect-my-client-application).
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>Exceptions au délai d’expiration de StackExchange.Redis
 

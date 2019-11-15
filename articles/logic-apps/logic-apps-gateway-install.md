@@ -8,21 +8,21 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.date: 11/06/2019
+ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675683"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796306"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
-Pour pouvoir vous [connecter à des sources de données locales à partir d’Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), téléchargez et installez la [passerelle de données locale](https://aka.ms/on-premises-data-gateway-installer) sur un ordinateur local. La passerelle fonctionne comme un pont permettant un transfert et un chiffrement de données rapides entre les sources de données locales et vos applications logiques. Vous pouvez utiliser la même installation de passerelle pour d’autres services cloud, comme Power BI, Microsoft Flow, PowerApps et Azure Analysis Services. Pour plus d’informations sur l’utilisation de la passerelle avec ces services, consultez ces articles :
+Pour pouvoir vous [connecter à des sources de données locales à partir d’Azure Logic Apps](../logic-apps/logic-apps-gateway-connection.md), téléchargez et installez la [passerelle de données locale](https://aka.ms/on-premises-data-gateway-installer) sur un ordinateur local. La passerelle fonctionne comme un pont permettant un transfert et un chiffrement de données rapides entre les sources de données locales et vos applications logiques. Vous pouvez utiliser la même installation de passerelle pour d’autres services cloud, comme Power BI, Power Automate, Power Apps et Azure Analysis Services. Pour plus d’informations sur l’utilisation de la passerelle avec ces services, consultez ces articles :
 
 * [Passerelle de données locale Microsoft Power BI](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Passerelle de données locale Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Passerelle de données locale Microsoft Flow](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Passerelle de données locale Microsoft Power Apps](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [Passerelle de données locale Power Automate](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Passerelle de données locale Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
 Cet article explique comment télécharger, installer et configurer votre passerelle de données locale afin de pouvoir accéder à des sources de données locales à partir d’Azure Logic Apps. Vous pouvez également en savoir plus sur le [fonctionnement de la passerelle de données](#gateway-cloud-service) plus loin dans cette rubrique. Pour obtenir des informations détaillées sur la passerelle, voir [Qu’est-ce qu’une passerelle de données locale ?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem).
@@ -33,9 +33,9 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 * Un compte et un abonnement Azure. Si vous n’avez pas de compte Azure avec un abonnement, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-  * Vous devez utiliser le même compte Azure pour installer et administrer la passerelle sur votre ordinateur local.
+  * Votre compte Azure doit appartenir à un seul [client ou répertoire Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Vous devez utiliser le même compte Azure pour installer et administrer la passerelle sur votre ordinateur local.
 
-    Pendant l’installation de la passerelle, vous vous connectez avec votre compte Azure, qui relie l’installation de votre passerelle à votre compte Azure et uniquement à ce compte. Plus tard, dans le portail Azure, vous devez utiliser le même compte Azure pour créer une ressource de passerelle Azure qui inscrit et revendique l’installation de votre passerelle. Dans Azure Logic Apps, les déclencheurs et les actions locaux utilisent ensuite la ressource de passerelle pour se connecter aux sources de données locales.
+  * Pendant l’installation de la passerelle, vous vous connectez avec votre compte Azure, qui relie l’installation de votre passerelle à votre compte Azure et uniquement à ce compte. Plus tard, dans le Portail Azure, vous devez utiliser le même compte Azure et le même client Azure AD, lorsque vous créez une ressource de passerelle Azure qui inscrit et réclame votre installation de passerelle. Dans Azure Logic Apps, les déclencheurs et les actions locaux utilisent ensuite la ressource de passerelle pour se connecter aux sources de données locales.
 
     > [!NOTE]
     > Vous ne pouvez lier qu’une seule installation de passerelle et une seule ressource de passerelle Azure l’une à l’autre. Vous ne pouvez pas lier la même installation de passerelle à plusieurs comptes Azure ou ressources de passerelle Azure. Toutefois, un compte Azure peut être lié à plusieurs installations de passerelle et ressources de passerelle Azure. Dans un déclencheur ou une action locale, vous pouvez choisir parmi vos différents abonnements Azure, puis sélectionner une ressource de passerelle associée.
@@ -89,15 +89,15 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 1. Une fois le programme d’installation ouvert, sélectionnez **Suivant**.
 
-   ![Introduction au programme d’installation](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![Écran de présentation pour le programme d’installation de la passerelle](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
 1. Sélectionnez **Passerelle de données locale (recommandé)** , qui est le mode standard, puis sélectionnez **Suivant**.
 
-   ![Sélectionner le mode de passerelle](./media/logic-apps-gateway-install/select-gateway-mode.png)
+   ![Sélectionner le mode d’exécution pour la passerelle de données](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. Passez en revue la configuration minimale requise, conservez le chemin d’installation par défaut, acceptez les conditions d’utilisation, puis sélectionnez **Installer**.
 
-   ![Passer en revue les conditions requises et accepter les conditions d’utilisation](./media/logic-apps-gateway-install/accept-terms.png)
+   ![Passer en revue les conditions requises et accepter les conditions d’utilisation](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
 1. Une fois la passerelle installée avec succès, fournissez l’adresse e-mail pour votre compte Azure, puis choisissez **Se connecter**, par exemple :
 
@@ -107,7 +107,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 1. Sélectionnez **Inscrivez une nouvelle passerelle sur cet ordinateur** > **Suivant**. Cette étape inscrit l’installation de votre passerelle auprès du [service cloud de passerelle](#gateway-cloud-service).
 
-   ![Inscrivez la passerelle](./media/logic-apps-gateway-install/register-gateway.png)
+   ![Inscrire la passerelle sur l’ordinateur local](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. Fournissez les informations suivantes pour votre installation de passerelle :
 
@@ -115,7 +115,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
    * La clé de récupération (qui doit comporter au moins huit caractères) que vous voulez utiliser
    * Confirmation de votre clé de récupération
 
-   ![Configuration de la passerelle](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![Fournir des informations pour l’installation de la passerelle](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
    > Sauvegardez votre clé de récupération dans un endroit sûr. Vous avez besoin de cette clé si vous voulez changer l’emplacement, déplacer, récupérer ou reprendre l’installation d’une passerelle.
@@ -124,7 +124,7 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
 1. Vérifiez la région sélectionnée pour le service cloud de passerelle et pour [Azure Service Bus](https://azure.microsoft.com/services/service-bus/), qui est utilisée par votre installation de passerelle. Par défaut, cette région est le même emplacement que votre locataire Azure AD pour votre compte Azure.
 
-   ![Vérification de la région](./media/logic-apps-gateway-install/check-region.png)
+   ![Confirmer la région pour le service de passerelle et le service bus](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
 1. Pour accepter la région par défaut, sélectionnez **Configurer**. Cependant, si la région par défaut n’est pas celle qui est la plus proche de vous, vous pouvez changer la région.
 
@@ -134,15 +134,15 @@ Cet article explique comment télécharger, installer et configurer votre passer
 
    1. À côté de la région actuelle, sélectionnez **Changer la région**.
 
-      ![Modification de la région](./media/logic-apps-gateway-install/change-region.png)
+      ![Modifier la région de passerelle actuelle](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
    1. Sur la page suivante, ouvrez la liste **Sélectionner une région**, sélectionnez la région de votre choix, puis sélectionnez **Terminé**.
 
-      ![Sélection d’une autre région](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![Sélectionner une autre région pour le service de passerelle](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. Passez en revue les informations de la fenêtre de confirmation finale. Cet exemple utilise le même compte pour Logic Apps, Power BI, PowerApps et Microsoft Flow : la passerelle est donc disponible pour tous ces services. Quand vous êtes prêt, sélectionnez **Fermer**.
+1. Passez en revue les informations de la fenêtre de confirmation finale. Cet exemple utilise le même compte pour Logic Apps, Power BI, Power Apps et Power Automate : la passerelle est donc disponible pour tous ces services. Quand vous êtes prêt, sélectionnez **Fermer**.
 
-   ![Passerelle terminée](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![Confirmer les informations de la passerelle de données](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 1. Maintenant, [créez la ressource Azure pour votre installation de passerelle](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -185,7 +185,7 @@ Si vous devez modifier l’emplacement de votre passerelle, déplacer votre prog
 
 1. Sélectionnez parmi les clusters et les passerelles disponibles, puis entrez la clé de récupération pour la passerelle sélectionnée, par exemple :
 
-   ![Sélectionner une passerelle](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![Sélectionner une passerelle et fournir une clé de récupération](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
 1. Pour changer la région, sélectionnez **Changer la région** et sélectionnez la nouvelle région.
 
@@ -270,9 +270,9 @@ Voici comment faire correspondre vos comptes Active Directory locaux avec Azure 
 
 Pour plus d’informations, consultez les rubriques suivantes :
 
-* [Questions fréquentes (FAQ) sur la passerelle de données locale](/data-integration/gateway/service-gateway-onprem-faq)
-* [Résoudre des problèmes de passerelle de données locale](/data-integration/gateway/service-gateway-tshoot)
-* [Surveiller et optimiser les performances de la passerelle](/data-integration/gateway/service-gateway-performance)
+* [Questions fréquentes (FAQ) sur la passerelle de données locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [Résoudre des problèmes de passerelle de données locale](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [Surveiller et optimiser les performances de la passerelle](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

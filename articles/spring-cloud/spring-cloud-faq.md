@@ -1,20 +1,17 @@
 ---
 title: Questions fréquentes (FAQ) sur Azure Spring Cloud | Microsoft Docs
 description: Passez en revue les questions fréquentes sur Azure Spring Cloud
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 69b3827bbb53a5f989f3bdec0d5c4ea6035130f0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.author: jeconnoc
+ms.openlocfilehash: 1fb241ab1335e6b9c9be55acbbe2e21378831b69
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592304"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607223"
 ---
 # <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
@@ -66,13 +63,13 @@ Voici les limitations connues d’Azure Spring Cloud en préversion.
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Comment puis-je donner un feedback et signaler des problèmes ?
 
-Si vous avez créé vos instances de service Spring dans Azure Spring Cloud, vous pouvez créer une [demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Si vous n’avez pas encore intégré Azure Spring Cloud, vous pouvez accéder à [Azure Feedback](https://feedback.azure.com/) pour demander des fonctionnalités ou donner un feedback.
+Si vous rencontrez des problèmes avec Azure Spring Cloud, créez une [Demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pour demander des fonctionnalités ou formuler des commentaires, accédez à [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Développement
 
 ### <a name="i-am-a-spring-developer-but-new-to-azure-what-is-the-quickest-way-for-me-to-learn-how-to-develop-aazure-spring-cloud-application"></a>Je suis développeur Spring mais je débute avec Azure : quel est le moyen le plus rapide pour apprendre à développer une application Azure Spring Cloud ?
 
-Le moyen le plus rapide de démarrer avec Azure Spring Cloud est de suivre [ce guide de démarrage rapide](spring-cloud-quickstart-launch-app-portal.md).
+Le moyen le plus rapide de se lancer avec Azure Spring Cloud est de suivre [ce démarrage rapide](spring-cloud-quickstart-launch-app-portal.md).
 
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Quel runtime Java est pris en charge par Azure Spring Cloud ?
 

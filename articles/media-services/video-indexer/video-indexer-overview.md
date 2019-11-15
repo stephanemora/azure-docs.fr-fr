@@ -1,7 +1,7 @@
 ---
-title: Qu’est-ce qu’Azure Media Services Video Indexer ?
+title: Qu’est-ce que Video Indexer ?
 titleSuffix: Azure Media Services
-description: Cette rubrique offre une vue d’ensemble du service Azure Media Services Video Indexer.
+description: Une vue d’ensemble du service Azure Media Services Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,59 +10,59 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: 2afc3a859ddb5378b6313c43d693842fdb5fce14
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9f6a5fa96034e0bf43ddd573a425de8d114d47ce
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72296436"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575112"
 ---
 # <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?
 
-Video Indexer (VI) est la solution IA Azure Media Services. Elle fait partie de la marque Microsoft Cognitive Services. Video Indexer permet d’extraire des insights détaillés (sans avoir besoin de compétences en matière d’analyse des données ou de programmation) à l’aide de modèles Machine Learning basés sur plusieurs canaux (voix, visuel). Vous pouvez affiner la personnalisation et l’entraînement des modèles. Le service permet d’effectuer une recherche détaillée, réduit les coûts d’exploitation, offre de nouvelles opportunités de monétisation et de nouvelles expériences utilisateur sur un grand nombre de vidéos archivées (avec de faibles barrières d’entrée). 
+Video Indexer (VI) est la solution IA Azure Media Services. Elle fait partie de la marque Azure Cognitive Services. Video Indexer permet d’extraire des insights détaillés (sans avoir besoin de compétences en matière d’analyse des données ou de programmation) à l’aide de modèles Machine Learning basés sur plusieurs canaux (voix, visuel). Vous pouvez affiner la personnalisation et l’entraînement des modèles. Le service permet d’effectuer une recherche détaillée, réduit les coûts d’exploitation, offre de nouvelles opportunités de monétisation et crée de nouvelles expériences utilisateur sur un grand nombre de vidéos archivées (avec de faibles barrières d’entrée).
 
-Pour commencer à extraire des insights avec Video Indexer, vous devez créer un compte et charger des vidéos. Quand vous chargez vos vidéos dans Video Indexer, il analyse les éléments audio-visuels en exécutant différents modèles d’IA. À mesure que Video Indexer analyse votre vidéo, les insights sont extraits par les modèles.
+Pour commencer à extraire des insights avec Video Indexer, vous devez créer un compte et charger des vidéos. Quand vous chargez vos vidéos dans Video Indexer, il analyse les éléments audio-visuels en exécutant différents modèles d’IA. À mesure que Video Indexer analyse votre vidéo, les insights sont extraits par les modèles IA.
 
 Le diagramme suivant est une illustration et non une explication technique de la façon dont Video Indexer fonctionne dans le back-end.
 
-![Diagramme de flux](./media/video-indexer-overview/model-chart.png)
+![Diagramme de flux Azure Media Services Video Indexer](./media/video-indexer-overview/model-chart.png)
 
 ## <a name="what-can-i-do-with-video-indexer"></a>Que puis-je faire avec Video Indexer ?
 
 Les insights de Video Indexer peuvent être appliqués à de nombreux scénarios, parmi lesquels :
 
-* *Recherche approfondie* : utilisez les insights extraits de la vidéo pour améliorer l’expérience de recherche au sein d’une bibliothèque vidéo. Par exemple, l’indexation des visages et des mots prononcés peut permettre de trouver les moments spécifiques d’une vidéo où une personne a prononcé certains mots ou le moment où deux personnes se sont vues. La recherche basée sur de tels aperçus de vidéos s’applique aux agences de presse, aux instituts de formation, aux diffuseurs, aux propriétaires de contenu de divertissement, aux LOB d’entreprise et d’une façon générale à n’importe quel secteur d’activité possédant une bibliothèque vidéo au sein de laquelle les utilisateurs doivent faire des recherches.
-* *Création de contenu* : créez des bandes-annonces, des séquences de meilleurs moments, du contenu de réseaux sociaux ou des clips d’actualité basés sur des insights Video Indexer extraits de votre contenu. Les images clés, les marqueurs de scènes et les horodatages pour les apparences des étiquettes et des personnes rendent le processus de création beaucoup plus lisse et plus simple, et vous permettent d’accéder directement aux parties intéressantes de la vidéo dont vous avez besoin pour le contenu que vous créez.
-* *Accessibilité* : si vous souhaitez que votre contenu soit disponible pour les personnes handicapées ou qu’il soit distribué dans différentes régions en différentes langues, vous pouvez utiliser la transcription et la traduction fournies par Video Indexer dans plusieurs langues.
-* *Monétisation* : Video Indexer peut aider à augmenter la valeur des vidéos. Par exemple, les secteurs d’activité s’appuyant sur le chiffre d’affaires publicitaire (tels que les médias d’information, les médias sociaux, et ainsi de suite), peuvent fournir des publicités pertinentes en utilisant les insights extraits en tant que signaux supplémentaires pour le serveur publicitaire.
-* *Modération du contenu* : utilisez des modèles de modération de contenu textuel et visuel afin de protéger vos utilisateurs contre le contenu inapproprié et de vous assurer que le contenu que vous publiez correspond aux valeurs de votre organisation. Vous pouvez bloquer automatiquement certaines vidéos ou alerter vos utilisateurs au sujet du contenu. 
-* *Suggestions* : les insights vidéo peuvent être utilisés pour améliorer l’engagement utilisateur en soulignant les moments intéressants d’une vidéo. En marquant chaque vidéo avec des métadonnées supplémentaires, vous pouvez recommander aux utilisateurs les vidéos les plus pertinentes et mettre en évidence la partie de la vidéo qui répondra à leurs besoins. 
+* *Recherche profonde* : Utilisez les insights extraits de la vidéo pour améliorer l’expérience de recherche au sein d’une bibliothèque vidéo. Par exemple, l’indexation des visages et des mots prononcés peut permettre de trouver les moments spécifiques d’une vidéo où une personne a prononcé certains mots ou le moment où deux personnes se sont vues. La recherche basée sur de tels aperçus de vidéos s’applique aux agences de presse, aux instituts de formation, aux diffuseurs, aux propriétaires de contenu de divertissement, aux LOB d’entreprise et d’une façon générale à n’importe quel secteur d’activité possédant une bibliothèque vidéo au sein de laquelle les utilisateurs doivent faire des recherches.
+* *Création de contenu* : Créez des bandes-annonces, des séquences de meilleurs moments, du contenu de réseaux sociaux ou des clips d’actualité basés sur des insights Video Indexer extraits de votre contenu. Les images clés, les marqueurs de scènes et les timestamps pour les apparences des étiquettes et des personnes rendent le processus de création beaucoup plus lisse et plus simple, et vous permettent d’accéder aux parties de la vidéo dont vous avez besoin pour le contenu que vous créez.
+* *Accessibilité* : Si vous souhaitez que votre contenu soit disponible pour les personnes handicapées ou qu’il soit distribué dans différentes régions en différentes langues, vous pouvez utiliser la transcription et la traduction fournies par Video Indexer dans plusieurs langues.
+* *Monétisation* : Video Indexer peut aider à augmenter la valeur des vidéos. Par exemple, les secteurs d’activité s’appuyant sur le chiffre d’affaires publicitaire (es médias d’information, les médias sociaux, et ainsi de suite), peuvent fournir des publicités pertinentes en utilisant les insights extraits en tant que signaux supplémentaires pour le serveur publicitaire.
+* *Modération du contenu* : Utilisez des modèles de modération de contenu textuel et visuel afin de protéger vos utilisateurs contre le contenu inapproprié et de vous assurer que le contenu que vous publiez correspond aux valeurs de votre organisation. Vous pouvez bloquer automatiquement certaines vidéos ou alerter vos utilisateurs au sujet du contenu.
+* *Suggestions* : les insights vidéo peuvent être utilisés pour améliorer l’engagement utilisateur en soulignant les moments intéressants d’une vidéo. En marquant chaque vidéo avec des métadonnées supplémentaires, vous pouvez recommander aux utilisateurs les vidéos les plus pertinentes et mettre en évidence la partie de la vidéo qui répondra à leurs besoins.
 
 ## <a name="features"></a>Caractéristiques
 
-Voici la liste des insights que vous pouvez récupérer à partir de vos vidéos à l’aide des modèles vidéo et audio de Video Indexer :
+La liste suivante présente les insights que vous pouvez récupérer à partir de vos vidéos à l’aide des modèles vidéo et audio de Video Indexer :
 
 ### <a name="video-insights"></a>Insights vidéo
 
 * **Détection de visage** : Détecte et regroupe les visages qui apparaissent dans la vidéo.
-* **Identification de célébrités** : Video Indexer identifie automatiquement plus de 1 million de célébrités : dirigeants, acteurs et actrices, athlètes, chercheurs, dirigeants d’entreprise et spécialistes techniques du monde entier. Les données relatives à ces célébrités figurent également sur plusieurs sites Web connus, par exemple, IMDB et Wikipedia.
+* **Identification de célébrités** : Video Indexer identifie automatiquement plus de 1 million de célébrités : dirigeants, acteurs et actrices, athlètes, chercheurs, dirigeants d’entreprise et spécialistes techniques du monde entier. Les données relatives à ces célébrités figurent également sur plusieurs sites Web (tels que IMDB, Wikipedia, etc.).
 * **Identification des visages basée sur le compte** : Video Indexer effectue l’apprentissage d’un modèle pour un compte spécifique. Il reconnaît ensuite les visages dans la vidéo en fonction du modèle formé. Pour plus d’informations, consultez [Personnaliser un modèle de personne depuis le site web Video Indexer](customize-person-model-with-website.md) et [Personnaliser un modèle de personne avec l’API Video Indexer](customize-person-model-with-api.md).
 * **Extraction de miniatures pour les visages (« meilleurs visages »)**  : Identifie automatiquement le meilleur visage capturé dans chaque groupe de visages (en fonction de la qualité, de la taille et de la position frontale) et l’extrait en tant qu’actif d’image.
 * **Reconnaissance visuelle du texte** (OCR) : Extrait le texte qui s’affiche visuellement dans la vidéo.
 * **Modération du contenu visuel** : Détecte les contenus choquants et/ou destinés aux adultes.
 * **Identification des étiquettes** : Identifie les objets visuels et les actions affichés.
-* **Segmentation de la scène** : détermine quand une scène change dans la vidéo via des signaux visuels. Une scène représente un événement unique et est composée d’une série de captures consécutives, qui sont sémantiquement liées.
-* **Détection de plan** : détermine quand un plan change dans la vidéo via des signaux visuels. Un plan est une série d’images prises par la même caméra. Pour plus d’informations, consultez Scènes, plans et images clés.
+* **Segmentation de scène** : Détermine quand une scène change dans la vidéo via des signaux visuels. Une scène représente un événement unique et est composée d’une série de captures consécutives, qui sont sémantiquement liées.
+* **Détection de plan** : Détermine quand un plan change dans la vidéo via des signaux visuels. Un plan est une série d’images prises par la même caméra. Pour plus d’informations, consultez [Scènes, plans et images clés](scenes-shots-keyframes.md).
 * **Détection de cadre noir** : Identifie les cadres noirs présents dans la vidéo.
 * **Extraction d’images clés** : Détecte les images clés stables dans une vidéo.
-* **Déploiement de crédits** : identifie le début et la fin des crédits à la fin des émissions de télévision et des films.
-* **Détection de personnages animés** (préversion) : détection, regroupement et reconnaissance de personnages dans le contenu animé via l’intégration avec [Cognitive Services Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Pour plus d’informations, consultez [Détection de personnages animés](animated-characters-recognition.md).
-* **Détection du type de plan éditorial** : marquage de plans en fonction de leur type (par exemple, plan large, plan moyen, gros plan, très gros plan, deux plans, plusieurs personnes, extérieur et intérieur, etc.). Pour plus d’informations, consultez [Détection du type de plan éditorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* **Déploiement de crédits** : Identifie le début et la fin des crédits à la fin des émissions de télévision et des films.
+* **Détection de personnages animés** (préversion) : Détection, regroupement et reconnaissance de personnages dans le contenu animé via l’intégration avec [Cognitive Services Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). Pour plus d’informations, consultez [Détection de personnages animés](animated-characters-recognition.md).
+* **Détection du type de plan éditorial** : Marquage de plans en fonction de leur type (par exemple, plan large, plan moyen, gros plan, très gros plan, deux plans, plusieurs personnes, extérieur et intérieur, etc.). Pour plus d’informations, consultez [Détection du type de plan éditorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
 ### <a name="audio-insights"></a>Insights audio
 
 * **Détection de langue automatique** : Identifie automatiquement la langue parlée dominante. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, le russe et le portugais (Brésil). Si la langue ne peut pas être identifiée en toute confiance, Video Indexer suppose que la langue parlée est l’anglais. Pour plus d'informations, voir [Modèle d’identification de langues](language-identification-model.md).
-* **Identification et transcription de discours en plusieurs langues** (préversion) : identifie automatiquement la langue parlée dans différents segments à partir de l’audio, en envoyant chaque segment du fichier multimédia à transcrire et en regroupant toutes les transcriptions en une seule. Pour plus d’informations, consultez [Identifier et transcrire automatiquement un contenu multilingue](multi-language-identification-transcription.md).
+* **Identification et transcription de discours en plusieurs langues** (préversion) : Identifie automatiquement la langue parlée dans les segments différents de l’audio. Il envoie chaque segment du fichier multimédia à transcrire, puis regroupe la transcription dans une transcription unifiée. Pour plus d’informations, consultez [Identifier et transcrire automatiquement un contenu multilingue](multi-language-identification-transcription.md).
 * **Transcription audio** : Convertit la parole en texte dans 12 langues et autorise les extensions. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (simplifié), le japonais, l’arabe, le russe, le portugais brésilien, l’hindi et le coréen.
 * **Sous-titrage** : Crée un sous-titrage dans trois formats : VTT, TTML, SRT.
 * **Traitement en deux canaux** : Détecte automatiquement, sépare la transcription et fusionne en une chronologie unique.
@@ -77,7 +77,7 @@ Voici la liste des insights que vous pouvez récupérer à partir de vos vidéos
 
 ### <a name="audio-and-video-insights-multi-channels"></a>Insights audio et vidéo (plusieurs canaux)
 
-Lorsque l’indexation par le résultat partiel d’un canal pour ces modèles sera disponible
+Lors de l’indexation d’un canal, le résultat partiel pour ces modèles sera disponible.
 
 * **Extraction de mots-clés** : Extrait les mots clés du texte visuel ou vocal.
 * **Extraction des entités nommées** : extrait des marques, des emplacements et des personnes à partir de la reconnaissance vocale et du texte visuel via le traitement en langage naturel (NLP).
@@ -87,24 +87,26 @@ Lorsque l’indexation par le résultat partiel d’un canal pour ces modèles s
 
 ## <a name="how-can-i-get-started-with-video-indexer"></a>Comment bien démarrer avec Video Indexer ?
 
-Vous pouvez accéder aux fonctionnalités de Video Indexer de trois façons différentes : 
+Vous pouvez accéder aux fonctionnalités de Video Indexer de trois façons :
 
-* Portail Video Indexer : solution facile à utiliser qui vous permet d’évaluer le produit, de gérer le compte et de personnaliser les modèles. 
+* Portail Video Indexer : Une solution facile à utiliser qui vous permet d’évaluer le produit, de gérer le compte et de personnaliser les modèles.
 
     Pour plus d’informations sur le portail, consultez le [site web Bien démarrer avec Video Indexer](video-indexer-get-started.md).  
-* Intégration d’API : toutes les fonctionnalités de Video Indexer sont disponibles par le biais d’une API REST, afin de vous permettre d’intégrer la solution dans vos applications et votre infrastructure. 
 
-    Pour bien démarrer en tant que développeur, consultez  [Utiliser l’API REST Video Indexer](video-indexer-use-apis.md). 
-* Widget incorporable : vous permet d’incorporer les expériences d’insights, de lecteur et d’éditeur Video Indexer dans votre application. 
+* Intégration d’API : Toutes les fonctionnalités de Video Indexer sont disponibles par le biais d’une API REST, qui vous permet d’intégrer la solution dans vos applications et votre infrastructure.
 
-    Pour plus d’informations, consultez  [Incorporer des widgets Video Indexer dans vos applications](video-indexer-embed-widgets.md). 
+    Pour bien démarrer en tant que développeur, consultez  [Utiliser l’API REST Video Indexer](video-indexer-use-apis.md).
 
-Si vous utilisez le site web, les insights sont ajoutés en tant que métadonnées et sont visibles dans le portail. Si vous utilisez des API, les insights sont disponibles sous forme de fichier JSON. 
+* Widget incorporable : Vous permet d’incorporer les expériences d’insights, de lecteur et d’éditeur Video Indexer dans votre application.
+
+    Pour plus d’informations, consultez  [Incorporer des widgets Video Indexer dans vos applications](video-indexer-embed-widgets.md).
+
+Si vous utilisez le site web, les insights sont ajoutés en tant que métadonnées et sont visibles dans le portail. Si vous utilisez des API, les insights sont disponibles sous forme de fichier JSON.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous êtes prêt à vous lancer avec Video Indexer. Pour plus d’informations, consultez les articles suivants :
 
-- [Prise en main du site web Video Indexer](video-indexer-get-started.md)
-- [Traiter du contenu avec l’API REST de Video Indexer](video-indexer-use-apis.md)
-- [Incorporer des widgets visuels dans votre application](video-indexer-embed-widgets.md)
+- [Prise en main du site web Video Indexer](video-indexer-get-started.md).
+- [Traiter du contenu avec l’API REST de Video Indexer](video-indexer-use-apis.md).
+- [Incorporer des widgets visuels dans votre application](video-indexer-embed-widgets.md).

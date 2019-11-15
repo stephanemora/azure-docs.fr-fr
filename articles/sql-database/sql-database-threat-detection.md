@@ -1,20 +1,21 @@
 ---
-title: Advanced Threat Protection - Azure SQL Database | Microsoft Docs
+title: Configurer Advanced Threat Protection
 description: Advanced Threat Protection détecte les activités de base de données anormales indiquant des menaces de sécurité potentielles pour la base de données dans une base de données unique ou un pool élastique.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-dt-2019
 ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
-ms.openlocfilehash: 755a3b391cb7b4909169b034cc8d89892ec2ed05
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8eb8e4fccc17fe31def671cf6e8edb19d867b244
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816541"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822505"
 ---
 # <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>Advanced Threat Protection d’Azure SQL Database pour les bases de données uniques ou mises en pool
 
@@ -24,7 +25,7 @@ Vous pouvez recevoir des notifications à propos des menaces détectées par l�
 
 [Advanced Threat Protection](sql-database-threat-detection-overview.md) fait partie de l’offre [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) qui est un package unifié de fonctionnalités de sécurité SQL avancées. Advanced Threat Protection est accessible et gérable par le biais du portail SQL ADS central.
 
-## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Configurer Advanced Threat Protection dans le portail Azure
+## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Configurer la protection avancée contre les menaces dans le portail Azure
 
 1. Lancez le portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Accédez à la page de configuration du serveur Azure SQL Database que vous voulez protéger. Dans les paramètres de sécurité, sélectionnez **Advanced Data Security**.

@@ -4,15 +4,16 @@ description: Comment configurer les références SKU pour une application manag�
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: ef4ea2419c64d0376023ea5d291460df48a51c63
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943445"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826178"
 ---
 # <a name="azure-application-skus-tab"></a>Onglet Références de l’application Azure
 
@@ -32,8 +33,8 @@ Pour créer une référence SKU, suivez les étapes ci-dessous :
 
     ![Invite de nouvelle référence SKU](./media/azureapp-plus-sku.png)
 
-3. Dans la fenêtre New SKU (Nouvelle référence SKU), entrez un **identificateur pour la référence SKU**. Cet ID doit être composé d’un maximum de 50 caractères (uniquement des minuscules, des caractères alphanumériques, des tirets ou des traits de soulignement). L’ID de référence SKU ne peut pas se terminer par un tiret.
-4. L’ID de référence SKU est visible par les clients dans les URL de produit, les modèles Resource Manager (le cas échéant) et les états de facturation. Ce nom ne peut pas être modifié une fois l’offre publiée.
+3. Dans la fenêtre New SKU (Nouvelle référence SKU), entrez un **identificateur pour la référence SKU**. Cet ID doit être composé d’un maximum de 50 caractères (uniquement des minuscules, des caractères alphanumériques, des tirets ou des traits de soulignement). L’ID de la référence SKU ne peut pas se terminer par un tiret.
+4. L’ID de référence SKU est visible par les clients dans les URL de produit, les modèles Resource Manager (le cas échéant) et les états de facturation. Cet ID n’est pas modifiable une fois l’offre publiée.
 
 ### <a name="sku-details-for-a-solution-template"></a>Détails de la référence SKU pour un modèle de solution
 
@@ -74,7 +75,7 @@ Configurez les paramètres de référence SKU suivants. Les champs marqués d’
 | **Disponibilité dans le cloud\*** | Emplacement de la référence SKU. La valeur par défaut est **Public Azure**.  <b/>   **Public Azure** : l’application pourra être déployée vers des clients dans toutes les régions Azure publiques intégrées à la Place de marché.  <b/>   **Cloud Azure Government** : l’application sera déployée dans le cloud Azure Government. Avant de publier sur [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), Microsoft recommande aux éditeurs de tester et valider le fait que leur solution fonctionne comme prévu dans cet environnement. Pour effectuer une copie intermédiaire et tester, demandez un [compte d’essai](https://azure.microsoft.com/offers/ms-azr-usgov-0044p/).   Microsoft Azure Government est un cloud communautaire pour le secteur public, accessible à des clients d’administrations fédérales, étatiques, locales ou tribales des États-Unis, ainsi qu’à des partenaires éligibles pour servir ces entités. |
 | **S’agit-il d’une référence SKU privée ?\*** | Sélectionnez **Oui** si cette référence SKU est accessible uniquement à un groupe choisi de clients. |
 | **Disponibilité par pays/région\*** | Utilisez **Sélectionner des régions** pour afficher la liste des pays/régions disponibles. Sélectionnez chaque pays/région, puis cliquez sur **OK** pour enregistrer votre sélection.  <b/>   ![Liste des disponibilités par pays et région](./media/azure-app-select-country-region.png)  |
-| **Ancienne tarification\*** | Prix de la référence (SKU), en USD par mois. Les prix sont définis dans la devise locale à l’aide du taux de change actuel au moment de la configuration. Vous pouvez les valider étant donné que vous êtes au final propriétaire de ces paramètres. Pour définir ou afficher individuellement le prix pour chaque pays/région, exportez la feuille de calcul de tarification, puis importez-la avec une tarification personnalisée.  Vous devez enregistrer les modifications de votre tarification pour autoriser l’export/import des données de tarification.  |
+| **Ancienne tarification\*** | Prix de la référence (SKU), en USD par mois. Les prix sont définis dans la devise locale à l’aide du taux de change actuel au moment de la configuration. Vous pouvez les valider étant donné que vous êtes au final propriétaire de ces paramètres. Pour définir ou afficher individuellement le prix dans chaque pays/région, exportez la feuille de calcul des tarifs, puis importez-la avec une tarification personnalisée.  Vous devez enregistrer les modifications de votre tarification pour autoriser l’export/import des données de tarification.  |
 | **Tarifs simplifiés en devises\*** | Prix de la référence (SKU), en USD par mois. Il doit être identique à l’ancienne tarification. Pour plus d’informations, consultez [Tarification simplifiée des devises](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer). |
 |  |  |
 
@@ -107,8 +108,8 @@ Fournissez les détails du package suivants.  Les champs marqués d’un astéri
   - mainTemplate.json : le fichier de modèle qui contient uniquement la ressource Microsoft.Solution/appliances. Pour plus d’informations, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates). <br>
 Notez les propriétés de clé suivantes de cette ressource :
     - « kind » : la valeur doit être « Marketplace » dans le cas d’une application gérée par la Place de marché.
-    - « ManagedResourceGroupId » : le groupe de ressources de l’abonnement du client dans lequel toutes les ressources définies dans le fichier applianceMainTemplate.json sont déployées.
-    - « PublisherPackageId » : la chaîne qui identifie de façon unique le package. La valeur doit être construite comme suit : il s’agit d’une concaténation de [publisherId].[OfferId]-preview[SKUID].[PackageVersion].
+    - « ManagedResourceGroupId » : le groupe de ressources de l’abonnement du client dans lequel toutes les ressources définies dans applianceMainTemplate.json sont déployées.
+    - « PublisherPackageId » : la chaîne qui identifie de façon unique le package. Cette valeur doit être construite de la façon suivante : il s’agit d’une concaténation de [ID_éditeur].[ID_offre]-preview[ID_SKU].[version_package].
 
   >[!IMPORTANT] 
   >Ce package doit contenir tous les modèles ou scripts imbriqués nécessaires à l’approvisionnement de cette application. Les fichiers suivants doivent être dans le dossier racine :  MainTemplate.json, applianceMainTemplate.json et applianceCreateUIDefinition.json.
@@ -140,7 +141,7 @@ Ajoutez les stratégies auxquelles l’application managée est conforme. Pour e
 3. Dans **Définition de rôle**, sélectionnez l’une des options suivantes dans la liste déroulante :  Propriétaire ou Contributeur. Pour plus d’informations, consultez [Rôles intégrés pour les ressources Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 >[!NOTE] 
->Plusieurs autorisations peuvent être ajoutées. Toutefois, il est recommandé de créer un groupe d’utilisateurs Active Directory et de spécifier son ID au niveau de la propriété « PrincipalId ». Cela permettra d’ajouter davantage d’utilisateurs au groupe d’utilisateurs sans avoir à mettre à jour la référence SKU.
+>Plusieurs autorisations peuvent être ajoutées. Toutefois, il est recommandé de créer un groupe d’utilisateurs Active Directory et de spécifier son ID dans « PrincipalId ». Cela permettra d’ajouter davantage d’utilisateurs au groupe d’utilisateurs sans avoir à mettre à jour la référence SKU.
 
 **Pour créer une nouvelle stratégie :**
 

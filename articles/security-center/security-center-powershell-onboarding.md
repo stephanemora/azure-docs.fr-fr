@@ -1,5 +1,5 @@
 ---
-title: Utiliser PowerShell pour intégrer Azure Security Center et protéger votre réseau | Microsoft Docs
+title: Intégration à Azure Security Center avec PowerShell
 description: Ce document vous guide tout au long du processus d’intégration d’Azure Security Center à l’aide de cmdlets PowerShell.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201224"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686368"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell
 
@@ -31,13 +31,13 @@ Cet article fournit un exemple de script PowerShell que vous pouvez modifier et 
 
 Dans cet exemple, nous allons activer Azure Security Center sur un abonnement dont l’ID est d07c0080-170c-4c24-861d-9c817742786c, puis appliquer les paramètres recommandés qui fournissent un niveau élevé de protection, en implémentant le niveau Standard d’Azure Security Center qui fournit des fonctionnalités avancées de détection des menaces et de protection contre celles-ci :
 
-1. Définissez le [niveau de protection ASC Standard](https://azure.microsoft.com/pricing/details/security-center/). 
+1. Définissez le [niveau de protection Security Center standard](https://azure.microsoft.com/pricing/details/security-center/). 
  
 2. Définissez l’espace de travail Log Analytics auquel le Microsoft Monitoring Agent enverra les données collectées sur les machines virtuelles associées à l’abonnement. Dans cet exemple, il s’agit d’un espace de travail défini par l’utilisateur (myWorkspace).
 
 3. Activez la fonctionnalité d’approvisionnement automatique d’agent d’Azure Security Center qui [déploie Microsoft Monitoring Agent](security-center-enable-data-collection.md#auto-provision-mma).
 
-5. Définissez le [CISO de l’organisation en tant que contact de sécurité pour les événements notables et alertes ASC](security-center-provide-security-contact-details.md).
+5. Définissez le [CISO de l’organisation en tant que contact de sécurité pour les événements notables et alertes Security Center](security-center-provide-security-contact-details.md).
 
 6. Assignez les [stratégies de sécurité par défaut](tutorial-security-policy.md) d’Azure Security Center.
 

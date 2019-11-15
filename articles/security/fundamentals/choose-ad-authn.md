@@ -4,23 +4,23 @@ description: Ce guide s’adresse aux directeurs d’entreprise, directeurs des 
 keywords: ''
 author: martincoetzer
 ms.author: martinco
-ms.date: 04/12/2018
+ms.date: 10/30/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 71b4a8abc641a3ab11d6b17bbc8de3b42b61c34c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529400"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820556"
 ---
-# <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
+# <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory
 
 La première étape pour les organisations souhaitant migrer leurs applications vers le cloud est de choisir une méthode d’authentification appropriée. Cette décision ne doit pas être prise à la légère, et ce pour les raisons suivantes :
 
-1. Il s’agit de la première décision que doit prendre une organisation souhaitant migrer vers le cloud. 
+1. Il s’agit de la première décision que doit prendre une organisation souhaitant migrer vers le cloud.
 
 2. La méthode d’authentification est un composant essentiel de la présence d’une organisation dans le cloud. Elle contrôle l’accès à l’ensemble des données et des ressources du cloud.
 
@@ -36,21 +36,21 @@ Les organisations qui ne présentent aucune empreinte d’un annuaire local exis
 ## <a name="authentication-methods"></a>Méthodes d’authentification
 En choisissant la solution d’identité hybride Azure AD comme nouveau plan de contrôle, l’authentification constitue la base de l’accès au cloud. Le choix de la méthode d’authentification est une première décision essentielle dans la configuration d’une solution d’identité hybride Azure AD. L’implémentation de la méthode d’authentification est configurée à l’aide d’Azure AD Connect, qui provisionne également les utilisateurs dans le cloud.
 
-Pour choisir une méthode d’authentification, vous devez prendre en compte l’infrastructure existante, le temps nécessaire à l’implémentation, sa complexité et les coûts associés. Ces facteurs sont différents pour chaque organisation et peuvent varier au fil du temps. 
+Pour choisir une méthode d’authentification, vous devez prendre en compte l’infrastructure existante, le temps nécessaire à l’implémentation, sa complexité et les coûts associés. Ces facteurs sont différents pour chaque organisation et peuvent varier au fil du temps.
 
 >[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD prend en charge les méthodes d’authentification suivantes pour les solutions d’identité hybride.
 
 ### <a name="cloud-authentication"></a>Authentification cloud
-Quand vous choisissez cette méthode d’authentification, Azure AD gère le processus de connexion des utilisateurs. Si vous l’associez à une authentification unique (SSO) fluide, les utilisateurs peuvent se connectent aux applications cloud sans avoir à retaper leurs informations d’identification. L’authentification cloud propose deux options : 
+Quand vous choisissez cette méthode d’authentification, Azure AD gère le processus de connexion des utilisateurs. Si vous l’associez à une authentification unique (SSO) fluide, les utilisateurs peuvent se connectent aux applications cloud sans avoir à retaper leurs informations d’identification. L’authentification cloud propose deux options :
 
 **Synchronisation de hachage de mot de passe Azure AD**. Il s’agit du moyen le plus simple d’activer l’authentification pour les objets d’annuaire locaux dans Azure AD. Elle permet aux utilisateurs d’utiliser les mêmes nom d’utilisateur et mot de passe qu’ils utilisent localement sans avoir à déployer une infrastructure supplémentaire. Certaines fonctionnalités Premium d’Azure AD, comme Identity Protection et [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md), nécessitent la synchronisation de hachage du mot de passe, quelle que soit la méthode d’authentification choisie.
 
-> [!NOTE] 
-> Les mots de passe ne sont jamais stockés en texte clair ni chiffrés avec un algorithme réversible dans Azure AD. Pour plus d’informations sur le processus réel de la synchronisation de hachage du mot de passe, consultez [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+> [!NOTE]
+> Les mots de passe ne sont jamais stockés en texte clair ni chiffrés avec un algorithme réversible dans Azure AD. Pour plus d’informations sur le processus réel de la synchronisation de hachage du mot de passe, consultez [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md).
 
-**Authentification directe Azure AD**. Fournit une validation de mot de passe simple pour les services d’authentification Azure AD à l’aide d’un agent logiciel qui s’exécute sur un ou plusieurs serveurs locaux. Les serveurs valident les utilisateurs directement avec votre Active Directory local, ce qui garantit que la validation du mot de passe ne se produit pas dans le cloud. 
+**Authentification directe Azure AD**. Fournit une validation de mot de passe simple pour les services d’authentification Azure AD à l’aide d’un agent logiciel qui s’exécute sur un ou plusieurs serveurs locaux. Les serveurs valident les utilisateurs directement avec votre Active Directory local, ce qui garantit que la validation du mot de passe ne se produit pas dans le cloud.
 
 Cette méthode d’authentification convient pour les entreprises qui, pour des raisons de sécurité, requièrent l’application immédiate d’heures d’ouverture de session, de stratégies de mot de passe et d’états des comptes d’utilisateur locaux. Pour plus d’informations sur le processus réel de l’authentification directe, consultez [Connexion de l’utilisateur avec l’authentification directe Azure AD](../../active-directory/hybrid/how-to-connect-pta.md).
 
@@ -106,21 +106,21 @@ Pour obtenir les étapes de déploiement, consultez [Implémentation de la synch
 
 ### <a name="cloud-authentication-pass-through-authentication"></a>Authentification cloud : Authentification directe  
 
-* **Effort**. L’authentification directe nécessite l’installation d’un ou plusieurs agents légers (trois sont recommandés) sur des serveurs existants. Ces agents doivent avoir accès à vos services AD DS (Active Directory Domain Services) locaux et à vos contrôleurs de domaine AD locaux. Ils doivent disposer d’un accès sortant à Internet et à vos contrôleurs de domaine. Le déploiement des agents dans un réseau de périmètre n’est donc pas pris en charge. 
+* **Effort**. L’authentification directe nécessite l’installation d’un ou plusieurs agents légers (trois sont recommandés) sur des serveurs existants. Ces agents doivent avoir accès à vos services AD DS (Active Directory Domain Services) locaux et à vos contrôleurs de domaine AD locaux. Ils doivent disposer d’un accès sortant à Internet et à vos contrôleurs de domaine. Le déploiement des agents dans un réseau de périmètre n’est donc pas pris en charge.
 
     L’authentification directe nécessite un accès réseau sans contrainte aux contrôleurs de domaine. Tout le trafic réseau est chiffré et limité aux demandes d’authentification. Pour plus d’informations sur ce processus, consultez [l’immersion dans la sécurité](../../active-directory/hybrid/how-to-connect-pta-security-deep-dive.md) sur l’authentification directe.
 
 * **Expérience utilisateur**. Pour améliorer l’expérience de connexion des utilisateurs, déployez l’authentification unique transparente avec l’authentification directe. L’authentification unique transparente élimine les invites inutiles quand les utilisateurs sont connectés.
 
-* **Scénarios avancés**. L’authentification directe applique la stratégie de compte local au moment de la connexion. Par exemple, l’accès est refusé quand l’état d’un compte d’utilisateur local indique que le compte est désactivé, verrouillé, que le [mot de passe a expiré](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou que les heures de connexion associées au compte ne correspondent pas aux heures d’ouverture de session autorisées de l’utilisateur. 
+* **Scénarios avancés**. L’authentification directe applique la stratégie de compte local au moment de la connexion. Par exemple, l’accès est refusé quand l’état d’un compte d’utilisateur local indique que le compte est désactivé, verrouillé, que le [mot de passe a expiré](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) ou que les heures de connexion associées au compte ne correspondent pas aux heures d’ouverture de session autorisées de l’utilisateur.
 
     Les organisations qui requièrent une authentification multifacteur avec l’authentification directe doivent utiliser Azure Multi-Factor Authentication (MFA) ou des [contrôles personnalisés d’accès conditionnel](../../active-directory/conditional-access/controls.md#custom-controls-preview). Ces organisations ne peuvent pas utiliser des méthodes d’authentification multifacteur tierces ou locales qui reposent sur la fédération. Les fonctionnalités avancées nécessitent le déploiement de la synchronisation de hachage du mot de passe (que vous choisissiez l’authentification directe ou non). C’est le cas notamment du rapport sur la fuite des informations d’identification généré par Identity Protection.
 
-* **Continuité des activités**. Nous vous recommandons de déployer deux agents d’authentification directe supplémentaires. Ces agents complètent le premier agent sur le serveur Azure AD Connect. Ce déploiement supplémentaire garantit la haute disponibilité des demandes d’authentification. Quand trois agents sont déployés et que l’un d’eux est hors service pour maintenance, l’échec d’un agent n’a aucune incidence. 
+* **Continuité des activités**. Nous vous recommandons de déployer deux agents d’authentification directe supplémentaires. Ces agents complètent le premier agent sur le serveur Azure AD Connect. Ce déploiement supplémentaire garantit la haute disponibilité des demandes d’authentification. Quand trois agents sont déployés et que l’un d’eux est hors service pour maintenance, l’échec d’un agent n’a aucune incidence.
 
     Outre l’authentification directe, le déploiement de la synchronisation de hachage du mot de passe offre un autre avantage. Il sert de méthode d’authentification de secours lorsque la méthode d’authentification principale n’est plus disponible.
 
-* **Considérations**. Vous pouvez utiliser la synchronisation de hachage de mot de passe comme une méthode d’authentification de secours pour l’authentification directe, et les agents ne peuvent pas valider les informations d’identification d’un utilisateur en raison d’un incident local. Le basculement vers la synchronisation de hachage du mot de passe ne se produit pas automatiquement et vous devez utiliser Azure AD Connect pour basculer manuellement la méthode de connexion. 
+* **Considérations**. Vous pouvez utiliser la synchronisation de hachage de mot de passe comme une méthode d’authentification de secours pour l’authentification directe, et les agents ne peuvent pas valider les informations d’identification d’un utilisateur en raison d’un incident local. Le basculement vers la synchronisation de hachage du mot de passe ne se produit pas automatiquement et vous devez utiliser Azure AD Connect pour basculer manuellement la méthode de connexion.
 
     Pour découvrir d’autres considérations sur l’authentification directe, notamment la prise en charge d’ID de connexion de substitution, consultez le [forum aux questions](../../active-directory/hybrid/how-to-connect-pta-faq.md).
 
@@ -128,7 +128,7 @@ Pour obtenir les étapes de déploiement à suivre, consultez [Implémentation d
 
 ### <a name="federated-authentication"></a>Authentification fédérée
 
-* **Effort**. L’utilisation d’un système d’authentification fédérée s’appuie sur un système externe de confiance pour authentifier les utilisateurs. Certaines entreprises souhaitent rentabiliser leur investissement et réutiliser leur système fédéré existant avec leur solution d’identité hybride Azure AD. La maintenance et la gestion du système fédéré ne relèvent pas d’Azure AD. Il appartient à l’organisation d’utiliser le système fédéré pour vérifier qu’il est déployé de manière sécurisée et qu’il peut gérer la charge de l’authentification. 
+* **Effort**. L’utilisation d’un système d’authentification fédérée s’appuie sur un système externe de confiance pour authentifier les utilisateurs. Certaines entreprises souhaitent rentabiliser leur investissement et réutiliser leur système fédéré existant avec leur solution d’identité hybride Azure AD. La maintenance et la gestion du système fédéré ne relèvent pas d’Azure AD. Il appartient à l’organisation d’utiliser le système fédéré pour vérifier qu’il est déployé de manière sécurisée et qu’il peut gérer la charge de l’authentification.
 
 * **Expérience utilisateur**. L’expérience utilisateur de l’authentification fédérée dépend de l’implémentation de fonctionnalités, de la topologie et de la configuration de la batterie de serveurs de fédération. Certaines organisations ont besoin de cette souplesse pour configurer l’accès à la batterie de serveurs de fédération en fonction de leurs exigences en matière de sécurité. Par exemple, il est possible de configurer en interne des utilisateurs connectés et des appareils capables de connecter automatiquement les utilisateurs. Aucune information d’identification n’est donc demandée aux utilisateurs. Cette configuration fonctionne car ils sont déjà connectés à leur appareil. Si nécessaire, certaines fonctionnalités de sécurité avancées compliquent le processus de connexion des utilisateurs.
 
@@ -149,7 +149,7 @@ Avec un domaine non routable qui ne peut pas être vérifié dans Azure AD, l’
 
 Pour accéder aux étapes de déploiement, consultez [Déploiement des serveurs de fédération](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers).
 
-> [!NOTE] 
+> [!NOTE]
 > Quand vous déployez votre solution d’identité hybride Azure AD, vous devez veiller à implémenter l’une des topologies prises en charge d’Azure AD Connect. Pour découvrir les configurations prises en charge et celles qui ne le sont pas, consultez[Topologies pour Azure AD Connect](../../active-directory/hybrid/plan-connect-topologies.md).
 
 ## <a name="architecture-diagrams"></a>Diagrammes architecturaux
@@ -187,7 +187,7 @@ Les diagrammes suivants présentent les composants architecturaux de haut niveau
 |Pouvez-vous personnaliser le logo, l’image et la description sur les pages de connexion ?|[Oui, avec Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Oui, avec Azure AD Premium](../../active-directory/fundamentals/customize-branding.md)|[Oui](../../active-directory/hybrid/how-to-connect-fed-management.md)|
 |Quels sont les scénarios avancés pris en charge ?|[Verrouillage de mot de passe intelligent](../../active-directory/authentication/concept-sspr-howitworks.md)<br><br>[Rapports des informations d’identification divulguées, avec Azure AD Premium P2](../../active-directory/reports-monitoring/concept-risk-events.md)|[Verrouillage de mot de passe intelligent](../../active-directory/authentication/howto-password-smart-lockout.md)|Système d’authentification multisite à faible latence<br><br>[Verrouillage extranet AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Intégration aux systèmes d’identité tiers](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 
-> [!NOTE] 
+> [!NOTE]
 > Contrôles personnalisés dans Azure AD. L’accès conditionnel ne prend actuellement pas en charge l’inscription d’appareil.
 
 ## <a name="recommendations"></a>Recommandations
@@ -195,7 +195,7 @@ Votre système d’identité garantit à vos utilisateurs l’accès aux applica
 
 Utilisez ou activez la synchronisation de hachage du mot de passe, quelle que soit la méthode d’authentification choisie, et ce pour les raisons suivantes :
 
-1. **Haute disponibilité et récupération d’urgence**. L’authentification directe et la fédération s’appuient sur une infrastructure locale. Pour l’authentification directe, l’empreinte locale inclut le matériel de serveur et la mise en réseau requis par les agents d’authentification directe. Pour la fédération, l’empreinte locale est encore plus importante. Elle nécessite des serveurs dans votre réseau de périmètre pour rediriger par l’intermédiaire d’un proxy les demandes d’authentification et les serveurs de fédération interne. 
+1. **Haute disponibilité et récupération d’urgence**. L’authentification directe et la fédération s’appuient sur une infrastructure locale. Pour l’authentification directe, l’empreinte locale inclut le matériel de serveur et la mise en réseau requis par les agents d’authentification directe. Pour la fédération, l’empreinte locale est encore plus importante. Elle nécessite des serveurs dans votre réseau de périmètre pour rediriger par l’intermédiaire d’un proxy les demandes d’authentification et les serveurs de fédération interne.
 
     Pour éviter des points de défaillance uniques, déployez des serveurs redondants. Cette méthode garantit le traitement des requêtes d’authentification en cas d’échec d’un composant. Du point de vue de l’authentification directe comme de la fédération, il est aussi attendu que les contrôleurs de domaine répondent aux demandes d’authentification, qui peuvent également échouer. L’intégrité de nombreux composants passe par des opérations de maintenance. Si celles-ci ne sont pas planifiées et implémentées correctement, le risque de panne est plus élevé. La synchronisation de hachage du mot de passe permet d’éviter les pannes, car le service d’authentification cloud Azure AD de Microsoft est mis à l’échelle globalement et toujours disponible.
 
@@ -207,11 +207,9 @@ Utilisez ou activez la synchronisation de hachage du mot de passe, quelle que so
 
 3. **Protection des identités**. Azure AD Identity Protection avec Azure AD Premium P2 est un des meilleurs moyens de protéger les utilisateurs dans le cloud. Microsoft analyse en permanence Internet à la recherche de listes d’utilisateurs et de mots de passe vendues et mises à disposition sur le « dark web » par des utilisateurs malveillants. Azure AD peut utiliser ces informations pour vérifier si les noms d’utilisateur et les mots de passe de votre organisation sont compromis. Il est donc essentiel d’activer la synchronisation de hachage du mot de passe, et ce quelle que soit la méthode d’authentification vous utilisez (fédérée ou directe). Les informations d’identification divulguées sont présentées sous forme de rapport. Utilisez ces informations pour bloquer ou forcer les utilisateurs à modifier leurs mots de passe lorsqu’ils tentent de se connecter avec des mots de passe divulgués.
 
-Enfin, selon [Gartner](https://info.microsoft.com/landingIAMGartnerreportregistration.html), Microsoft propose l’ensemble le plus complet de fonctions de gestion de l’identité et de l’accès. Microsoft gère [450 milliards de demandes d’authentification](https://www.microsoft.com/en-us/security/intelligence-report) chaque mois pour fournir l’accès à des milliers d’applications SaaS telles qu’Office 365 à partir de pratiquement n’importe quel appareil. 
-
 ## <a name="conclusion"></a>Conclusion
 
-Cet article présente les différentes options d’authentification que les organisations peuvent configurer et déployer pour prendre en charge l’accès aux applications cloud. Face à des exigences professionnelles, sécuritaires et techniques variées, les organisations ont le choix entre la synchronisation de hachage du mot de passe, l’authentification directe et la fédération. 
+Cet article présente les différentes options d’authentification que les organisations peuvent configurer et déployer pour prendre en charge l’accès aux applications cloud. Face à des exigences professionnelles, sécuritaires et techniques variées, les organisations ont le choix entre la synchronisation de hachage du mot de passe, l’authentification directe et la fédération.
 
 Examinez chaque méthode d’authentification. L’effort pour déployer la solution et l’expérience utilisateur du processus de connexion répondent-ils aux besoins de votre entreprise ? Déterminez également si votre organisation a besoin des scénarios avancés et des fonctionnalités de continuité d’activité de chaque méthode d’authentification. Enfin, vous devez évaluer les considérations relatives à chaque méthode d’authentification pour voir si l’une d’elles empêche l’implémentation de votre choix.
 
@@ -221,4 +219,4 @@ Aujourd’hui, les menaces sont présentes 24 heures sur 24 et proviennent de pa
 
 [Démarrez](../../active-directory/fundamentals/get-started-azure-ad.md) avec Azure AD et déployez la solution d’authentification adaptée à votre organisation.
 
-Si vous envisagez de passer de l’authentification fédérée à l’authentification cloud, découvrez plus en détail [comment changer la méthode de connexion](../../active-directory/hybrid/plan-connect-user-signin.md). Pour vous aider à planifier et à implémenter la migration, utilisez [ces plans de déploiement de projet](https://aka.ms/deploymentplans).
+Si vous envisagez de passer de l’authentification fédérée à l’authentification cloud, découvrez plus en détail [comment changer la méthode de connexion](../../active-directory/hybrid/plan-connect-user-signin.md). Pour vous aider à planifier et à implémenter la migration, utilisez [ces plans de déploiement de projet](https://aka.ms/deploymentplans) ou envisagez d’utiliser la nouvelle fonctionnalité de [Déploiement intermédiaire](../../active-directory/hybrid/how-to-connect-staged-rollout.md) pour migrer les utilisateurs fédérés vers à l’aide de l’authentification cloud dans une approche intermédiaire.

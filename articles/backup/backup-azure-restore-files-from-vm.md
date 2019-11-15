@@ -1,6 +1,6 @@
 ---
 title: 'Sauvegarde Azure : Récupérer des fichiers et des dossiers à partir d’une sauvegarde de machine virtuelle Azure'
-description: Récupérer des fichiers à partir d’un point de récupération de machine virtuelle Azure
+description: Dans cet article, découvrez comment récupérer des fichiers et des dossiers à partir d’un point de récupération de machine virtuelle Azure.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ff4f1ff8a3d6143285b2842c351e1d26bd356ea
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210371"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747368"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -74,10 +74,9 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
     - port sortant 3260
 
 > [!Note]
-> 
-> * Le nom de fichier de script téléchargé a le **nom de zone géographique** devant être rempli dans l’URL. Par exemple : Le nom de script téléchargé commence par \'nomMachineVirtuelle\'\_\'NomZoneGéographique\'_\'GUID\', par exemple ContosoVM_wcus_12345678...<br><br>
-> * L’URL est alors « https:\//pod01-rec2.wcus.backup.windowsazure.com »
-
+>
+> - Le nom de fichier de script téléchargé a le **nom de zone géographique** devant être rempli dans l’URL. Par exemple : Le nom de script téléchargé commence par \'nomMachineVirtuelle\'\_\'NomZoneGéographique\'_\'GUID\', par exemple ContosoVM_wcus_12345678...<br><br>
+> - L’URL est alors « https:\//pod01-rec2.wcus.backup.windowsazure.com »
 
    Pour Linux, le script requiert les composants « open-iscsi » et « lshw » pour vous connecter au point de récupération. Si les composants n’existent pas sur l’ordinateur depuis lequel le script est exécuté, le script demande l’autorisation d’installer les composants. Autorisez l’installation des composants nécessaires.
 
@@ -219,6 +218,35 @@ Le script requiert également les composants Python et bash pour exécuter et é
 | python | 2.6.6 et versions ultérieures  |
 | TLS | La version 1.2 devrait être prise en charge  |
 
+## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Récupération de fichiers à partir de sauvegardes de machines virtuelles avec des disques de grande taille
+
+Cette section explique comment effectuer une récupération de fichiers à partir de sauvegardes de machines virtuelles Azure dont le nombre de disques est > 16 et où chaque taille de disque est > 4 To.
+
+Étant donné que le processus de récupération de fichier joint tous les disques de la sauvegarde, lorsqu’un grand nombre de disques (> 16) ou des disques de grande taille (> 4 To chacun) sont utilisés, les points d’action suivants sont recommandés :
+
+- Conservez un serveur de restauration distinct (machines virtuelles D2v3 machine virtuelle Azure) pour la récupération de fichiers. Vous pouvez utiliser cette récupération de fichier, puis l’arrêter si elle n’est pas nécessaire. La restauration sur l’ordinateur d’origine n’est pas recommandée, car elle aura un impact significatif sur la machine virtuelle elle-même.
+- Exécutez ensuite une fois le script afin de vérifier si l’opération de récupération de fichiers a été effectuée correctement.
+- Si le processus de récupération de fichier se bloque (les disques ne sont pas montés ou sont montés mais les volumes n’apparaissent pas), procédez comme suit.
+  - Si le serveur de restauration est une machine virtuelle Windows
+    - Assurez-vous que le système d’exploitation est WS 2012+.
+    - Vérifiez que les clés de Registre sont définies comme indiqué ci-dessous dans le serveur de restauration et assurez-vous de redémarrer le serveur. Le nombre en regard du GUID peut être compris entre 0001 et 0005. Dans l’exemple suivant, il s’agit de 0004. Parcourez le chemin d’accès de la clé de Registre jusqu’à la section des paramètres.
+
+    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+
+```registry
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+```
+
+- Si le serveur de restauration est une machine virtuelle Linux
+  - Dans le fichier /etc/iscsi/iscsid.conf, modifiez le paramètre de
+    - node.conn[0].timeo.noop_out_timeout = 5 à node.conn[0].timeo.noop_out_timeout = 30
+- Après avoir effectué les opérations suivantes, exécutez à nouveau le script. Avec ces modifications, il est très probable que la récupération de fichiers aboutisse.
+- Chaque fois que l’utilisateur télécharge un script, Sauvegarde Azure lance le processus de préparation du point de récupération pour le téléchargement. Avec les disques de grande taille, cette opération prend beaucoup de temps. S’il y a des rafales successives de requêtes, la préparation cible passera en spirale de téléchargement. Par conséquent, il est recommandé de télécharger un script à partir du portail/PowerShell/CLI, d’attendre 20 à 30 minutes (une heuristique), puis de l’exécuter. À ce stade, la cible est supposée être prête pour la connexion à partir du script.
+- Après la récupération de fichiers, veillez à revenir au portail pour cliquer sur « Démonter les disques » pour les points de récupération où vous n’avez pas pu monter des volumes. Pour l’essentiel, cette étape nettoie les processus et les sessions existantes et augmente les chances de récupération.
+
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 Si vous rencontrez des problèmes lors de la récupération de fichiers à partir de machines virtuelles, consultez le tableau suivant pour plus d’informations.
@@ -247,7 +275,7 @@ Cette fonctionnalité a été conçue pour accéder aux données de machine virt
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>Sélectionner le point de récupération (quel utilisateur peut générer un script)
 
-Comme le script fournit l’accès aux données de la machine virtuelle, il convient de réglementer qui peut le générer en premier lieu. Un utilisateur doit se connecter au portail Azure et doit avoir des [autorisations de contrôle d’accès en fonction du rôle (RBAC)](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) pour être en mesure de générer le script.
+Comme le script fournit l’accès aux données de la machine virtuelle, il convient de réglementer qui peut le générer en premier lieu. Un utilisateur doit se connecter au Portail Azure et doit avoir des [autorisations de contrôle d’accès en fonction du rôle (RBAC)](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) pour être en mesure de générer le script.
 
 La récupération de fichier doit avoir le même niveau d’autorisation que pour la restauration des disques et des machines virtuelles. En d’autres termes, seuls les utilisateurs autorisés peuvent visualiser les données de la machine virtuelle et générer le script.
 

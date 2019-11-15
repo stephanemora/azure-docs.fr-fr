@@ -10,13 +10,13 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 10/14/2019
-ms.openlocfilehash: 6c86ef26bbf7bd9dbce8aa77aef2213b14b57f5f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.date: 11/08/2019
+ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311923"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826325"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatiser les workflows pour SQL Server ou Azure SQL Database à l’aide d’Azure Logic Apps
 
@@ -44,7 +44,11 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* Avant de pouvoir connecter les applications logiques aux systèmes locaux, tels que SQL Server, vous devez [configurer une passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). De cette façon, vous pouvez sélectionner la passerelle lorsque vous créez la connexion SQL pour votre application logique.
+* La [passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) installée sur un ordinateur local et une [ressource de passerelle de données Azure créée sur le Portail Azure](../logic-apps/logic-apps-gateway-connection.md) dans ces scénarios :
+
+  * Les applications logiques ne s’exécutent pas dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+
+  * Les applications logiques *s’exécutent* bien dans un environnement de service d’intégration, mais vous devez utiliser l’authentification Windows pour votre connexion à SQL Server. Dans ce scénario, utilisez la version non ISE du connecteur SQL Server ainsi que la passerelle de données, car la version ISE ne prend pas en charge l’authentification Windows.
 
 * L’application logique où vous devez avoir accès à votre base de données SQL. Pour démarrer votre application logique avec un déclencheur SQL, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -68,7 +72,7 @@ Dans Azure Logic Apps, chaque application logique doit démarrer avec un [décle
 
 1. Définissez les propriétés **Intervalle** et **Fréquence** qui spécifient la fréquence à laquelle votre application logique vérifie la table.
 
-   Ce déclencheur ne renvoie qu’une seule ligne de la table sélectionnée. Pour effectuer d’autres tâches, ajoutez d’autres actions qui effectuent les tâches de votre choix. Par exemple, pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, puis envoient des alertes par e-mail. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/).
+   Ce déclencheur ne renvoie qu’une seule ligne de la table sélectionnée. Pour effectuer d’autres tâches, ajoutez d’autres actions qui effectuent les tâches de votre choix. Par exemple, pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, puis envoient des alertes par e-mail. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
 
 1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
@@ -84,7 +88,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
 1. Sous le déclencheur auquel/l’action à laquelle vous souhaitez ajouter l’action SQL, sélectionnez **Nouvelle étape**.
 
-   ![Sélectionner « Nouvelle étape »](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+   ![Ajouter une nouvelle étape à une application logique](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
    Pour ajouter une action entre des étapes, déplacez votre souris sur la flèche de connexion. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
@@ -92,13 +96,13 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
    Cet exemple utilise l’action **Obtenir la ligne**, qui obtient un enregistrement unique.
 
-   ![Rechercher et sélectionner l’action SQL « Obtenir la ligne »](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+   ![Rechercher et sélectionner l’action SQL « Obtenir la ligne »](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
-   Cette action ne renvoie qu’une seule ligne de la table sélectionnée. Pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](/connectors/sql/).
+   Cette action ne renvoie qu’une seule ligne de la table sélectionnée. Pour afficher les données de cette ligne, vous pouvez ajouter d’autres actions qui créent un fichier qui comprend les champs de la ligne retournée, et stocker ce fichier dans un compte de stockage cloud. Pour en savoir plus sur les autres actions disponibles pour ce connecteur, consultez la [page de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
 
 1. Si vous êtes invité à créer une connexion, [créez votre connexion SQL maintenant](#create-connection). Si vous avez établi une connexion, sélectionnez un **nom de table**, puis entrez l’**ID de ligne** correspondant à l’enregistrement souhaité.
 
-   ![Entrez le nom de la table et l’ID de ligne.](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![Entrez le nom de la table et l’ID de ligne.](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
 
 1. Lorsque c’est chose faite, dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
@@ -132,7 +136,7 @@ Parfois, vous manipulez des jeux de résultats tellement volumineux que le conne
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Pour obtenir des informations techniques sur les déclencheurs, les actions et les limites de ce connecteur, consultez la page [Informations de référence du connecteur](/connectors/sql/).
+Pour obtenir des informations techniques sur les déclencheurs, les actions et les limites de ce connecteur, consultez la page [Informations de référence du connecteur](https://docs.microsoft.com/connectors/sql/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

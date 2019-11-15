@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772344"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606451"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurer des tables et des règles de pare-feu pour des clouds privés
 
@@ -33,6 +33,9 @@ Les tables de pare-feu et les règles associées vous permettent de spécifier d
 4. Entrez un nom pour la table.
 5. Une règle par défaut est listée pour la table. Cliquez sur **Create New Rule** (Créer une règle) pour créer une règle supplémentaire. Pour plus d’informations, consultez la procédure suivante.
 6. Cliquez sur **Terminé** pour enregistrer la table de pare-feu.
+
+> [!IMPORTANT]
+> Il est possible de créer jusqu’à deux tables de pare-feu par cloud privé.
 
 ## <a name="firewall-rules"></a>Règles de pare-feu
 
@@ -61,6 +64,9 @@ Les règles de pare-feu déterminent la manière dont le pare-feu traite certain
     ![Ajout d’une règle dans la table de pare-feu](media/firewall-rule-create.png)
 
 3. Cliquez sur **Terminé** pour enregistrer la règle et l’ajouter à la liste des règles de la table de pare-feu.
+
+> [!IMPORTANT]
+> Chaque table de pare-feu peut comporter jusqu’à 10 règles de trafic entrant et 20 règles de trafic sortant. Il est possible d’augmenter ces limites en [contactant le support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="attach-vlanssubnets"></a>Attacher des VLAN/sous-réseaux
 

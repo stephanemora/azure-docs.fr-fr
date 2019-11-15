@@ -1,18 +1,18 @@
 ---
 title: Gérer les serveurs et les coffres Azure Recovery Services
-description: Gérez les travaux et les alertes dans un coffre Azure Recovery Services.
+description: Dans cet article, découvrez comment utiliser le tableau de bord Vue d’ensemble du coffre Recovery Services pour gérer et effectuer le monitorage de vos coffres Recovery Services.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7e7312f942103125217c1f61ae8fe8007a49529b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954757"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747441"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Surveiller et gérer les coffres Recovery Services
 
@@ -23,7 +23,6 @@ Cet article explique comment utiliser le tableau de bord **Vue d’ensemble** du
 Les prérequis de cet article sont : un abonnement Azure, un coffre Recovery Services, et au moins un élément de sauvegarde configuré pour le coffre.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
-
 
 ## <a name="open-a-recovery-services-vault"></a>Ouvrez un coffre Recovery Services
 
@@ -259,7 +258,6 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
 * L’utilisation du stockage cloud LRS associée au coffre
 * L’utilisation du stockage cloud GRS associée au coffre
 
-
 ## <a name="troubleshooting-monitoring-issues"></a>Résolution des problèmes de surveillance
 
 **Problème :** Les travaux et/ou les alertes de l’agent de sauvegarde Azure n’apparaissent pas dans le portail.
@@ -275,6 +273,7 @@ Dans le tableau de bord, la vignette Stockage de sauvegarde indique le stockage 
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Restaurer un serveur Windows Server ou un client Windows à partir d’Azure](backup-azure-restore-windows-server.md)
 * Pour en savoir plus sur Azure Backup, consultez la [vue d’ensemble d’Azure Backup](backup-introduction-to-azure-backup.md)
 * Consultez le [forum Azure Backup](https://go.microsoft.com/fwlink/p/?LinkId=290933)

@@ -1,6 +1,6 @@
 ---
 title: Résoudre les erreurs de sauvegarde avec les machines virtuelles Azure
-description: Dépannage de la sauvegarde et de la restauration de machines virtuelles Azure
+description: Dans cet article, découvrez comment résoudre les erreurs rencontrées lors de la sauvegarde et de la restauration de machines virtuelles Azure.
 ms.reviewer: srinathv
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 280ac51dbc32bca7024f850a379f29fb86d5e684
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 78de85cede228f4b1c6ff01388fd7a08f78aa74f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130096"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747196"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -28,16 +28,16 @@ Cette section traite de l’échec d’opération de sauvegarde d’une machine 
 * Assurez-vous que l’agent de machine virtuelle (WA Agent) est la [version la plus récente](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Vérifiez que la version du système d’exploitation de la machine virtuelle Windows ou Linux est prise en charge, consultez la [matrice de prise en charge de sauvegarde de machine virtuelle IaaS](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas).
 * Vérifiez qu’un autre service de sauvegarde ne fonctionne pas.
-   * Pour vous assurer qu’il n’existe aucun problème d’extension de capture instantanée, [désinstallez les extensions pour forcer le rechargement, puis réessayez la sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
+  * Pour vous assurer qu’il n’existe aucun problème d’extension de capture instantanée, [désinstallez les extensions pour forcer le rechargement, puis réessayez la sauvegarde](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load).
 * Vérifiez la connectivité Internet de la machine virtuelle.
-   * Assurez-vous qu’un autre service de sauvegarde n’est pas en cours d’exécution.
+  * Assurez-vous qu’un autre service de sauvegarde n’est pas en cours d’exécution.
 * À partir de `Services.msc`, assurez-vous que le service d’**agent invité Windows Azure** est en **cours d’exécution**. Si le service d’**agent invité Windows Azure** est manquant, installez-le à partir de la [sauvegarde de machines virtuelles Azure dans un coffre Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * Le **journal des événements** peut présenter des échecs de sauvegarde provenant d’autres produits de sauvegarde, par exemple, la sauvegarde de Windows Server, et ne sont pas dus à la sauvegarde Azure. Pour déterminer si le problème est lié à la sauvegarde Azure, procédez comme suit :
-   * En cas d’erreur avec une entrée **Sauvegarde** dans la source ou le message de l’événement, vérifiez si les sauvegardes de la machine virtuelle IaaS Azure ont réussi et si un point de restauration a été créé avec le type d’instantané souhaité.
-    * Si la sauvegarde Azure fonctionne, le problème est probablement lié à une autre solution de sauvegarde.
-    * Voici un exemple d’erreur 517 de l’observateur d’événements dans laquelle la Sauvegarde Azure fonctionnait correctement mais la « Sauvegarde Windows Server » échouait :<br>
+  * En cas d’erreur avec une entrée **Sauvegarde** dans la source ou le message de l’événement, vérifiez si les sauvegardes de la machine virtuelle IaaS Azure ont réussi et si un point de restauration a été créé avec le type d’instantané souhaité.
+  * Si la sauvegarde Azure fonctionne, le problème est probablement lié à une autre solution de sauvegarde.
+  * Voici un exemple d’erreur 517 de l’observateur d’événements dans laquelle la Sauvegarde Azure fonctionnait correctement mais la « Sauvegarde Windows Server » échouait :<br>
     ![Échec de la Sauvegarde Windows Server](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * En cas d’échec de la Sauvegarde Azure, recherchez le code d’erreur correspondant dans la section Erreurs de sauvegarde de machine virtuelle courantes dans cet article.
+  * En cas d’échec de la Sauvegarde Azure, recherchez le code d’erreur correspondant dans la section Erreurs de sauvegarde de machine virtuelle courantes dans cet article.
 
 ## <a name="common-issues"></a>Problèmes courants
 
@@ -84,13 +84,13 @@ Message d’erreur : L’installation de l’extension a échoué en renvoyant 
 L’opération de sauvegarde a échoué en raison d’un problème avec l’**application système COM+** du service Windows.  Pour résoudre ce problème, effectuez les étapes suivantes :
 
 * Essayez de démarrer ou redémarrer l’**application système COM+** du service Windows  (dans une invite de commandes avec élévation de privilèges **- net start COMSysApp**).
-* Vérifiez que les services **Distributed Transaction Coordinator** s’exécutent en tant que compte de **Service réseau**. Sinon, modifiez l’**application système COM+** pour qu’elle s’exécute en tant que compte de **Service réseau**, puis redémarrez-la.
+* Vérifiez que le service **Distributed Transaction Coordinator** s’exécute en tant que compte de **Service réseau**. Sinon, modifiez l’**application système COM+** pour qu’elle s’exécute en tant que compte de **Service réseau**, puis redémarrez-la.
 * Si vous ne parvenez pas à redémarrer le service, réinstallez le service **Distributed Transaction Coordinator** en procédant comme suit :
-    * Arrêtez le service MSDTC
-    * Ouvrez une invite de commandes (cmd)
-    * Exécutez la commande « msdtc -uninstall »
-    * Exécutez la commande « msdtc -install »
-    * Lancez le service MSDTC
+  * Arrêtez le service MSDTC
+  * Ouvrez une invite de commandes (cmd)
+  * Exécutez la commande « msdtc -uninstall »
+  * Exécutez la commande « msdtc -install »
+  * Lancez le service MSDTC
 * Démarrez le service Windows **Application système COM+** . Une fois que **Application système COM+** démarre, déclenchez un travail de sauvegarde à partir du Portail Azure.</ol>
 
 ## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState – L’opération de capture instantanée a échoué, car les enregistreurs VSS étaient dans un état incorrect
@@ -100,8 +100,8 @@ Message d’erreur : L’opération de capture instantanée a échoué parce qu
 
 Redémarrez les enregistreurs VSS qui se trouvent dans un état incorrect. À partir d’une invite de commandes avec élévation de privilèges, exécutez ```vssadmin list writers```. La sortie contient tous les enregistreurs VSS et leur état. Pour chaque enregistreur VSS dont l’état n’est pas **[1] Stable**, redémarrez l’enregistreur VSS en exécutant les commandes suivantes à partir d’une invite de commandes avec élévation de privilèges :
 
-  * ```net stop serviceName```
-  * ```net start serviceName```
+* ```net stop serviceName```
+* ```net start serviceName```
 
 ## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure – Échec d’analyse de la configuration pour l’extension de sauvegarde
 
@@ -112,6 +112,7 @@ Cette erreur se produit en raison de modifications des autorisations sur le rép
 Exécutez la commande suivante et vérifiez que les autorisations sur le répertoire **MachineKeys** sont celles par défaut :**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 
 Les autorisations par défaut sont comme suit :
+
 * Tout le monde : (R,W)
 * BUILTIN\Administrateurs : (F)
 
@@ -119,17 +120,18 @@ Si les autorisations que vous voyez dans le répertoire **MachineKeys** sont dif
 
 1. Corrigez les autorisations sur le répertoire **MachineKeys**. À l’aide des propriétés de sécurité de l’explorateur et des paramètres de sécurité avancés du répertoire, réinitialisez les autorisations aux valeurs par défaut. Supprimez tous les objets utilisateur (sauf ceux par défaut) du répertoire, et assurez-vous que l’autorisation **Tout le monde** dispose d’un accès spécial comme suit :
 
-    * Lister le dossier/lire les données
-    * Lire les attributs
-    * Lire les attributs étendus
-    * Créer les fichiers/écrire les données
-    * Créer les dossiers/ajouter les données
-    * Écrire les attributs
-    * Écrire les attributs étendus
-    * Autorisations de lecture
+   * Lister le dossier/lire les données
+   * Lire les attributs
+   * Lire les attributs étendus
+   * Créer les fichiers/écrire les données
+   * Créer les dossiers/ajouter les données
+   * Écrire les attributs
+   * Écrire les attributs étendus
+   * Autorisations de lecture
 2. Supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP** :
-    * [Ouvrez les certificats sur une console d’ordinateur local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
-    * Sous **Certificats** > **personnels**, supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP**.
+
+   * [Ouvrez les certificats sur une console d’ordinateur local](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * Sous **Certificats** > **personnels**, supprimez tous les certificats dont le modèle de déploiement classique est de type **Délivré à** ou **générateur de certificats Windows Azure CRP**.
 3. Lancez une opération de sauvegarde de machine virtuelle.
 
 ## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState – L’état de l’extension ne prend pas en charge l’opération de sauvegarde.
@@ -154,10 +156,10 @@ L’opération de capture instantanée a échoué parce que la limite de capture
 
 * Supprimez les instantanés d’objet blob de disque qui ne sont pas nécessaires. Faites attention à ne pas supprimer l’objet blob de disque. Seuls les objets blobs d’instantané doivent être supprimés.
 * Si la suppression réversible est activée sur les comptes de stockage sur disque de machine virtuelle, configurez la rétention de suppression réversible de sorte que le nombre d’instantanés existants soit toujours inférieur au nombre maximum autorisé.
-* Si Azure Site Recovery est activé sur la machine virtuelle sauvegardée, procédez comme suit :
+* Si Azure Site Recovery est activé sur la machine virtuelle sauvegardée, effectuez les étapes suivantes :
 
-    * Assurez-vous que la valeur **isanysnapshotfailed** est définie sur false dans /etc/azure/vmbackup.conf.
-    * Planifiez l’exécution d’Azure Site Recovery à un autre moment, de sorte qu’elle ne soit pas en conflit avec l’opération de sauvegarde.
+  * Assurez-vous que la valeur **isanysnapshotfailed** est définie sur false dans /etc/azure/vmbackup.conf.
+  * Planifiez l’exécution d’Azure Site Recovery à un autre moment, de sorte qu’elle ne soit pas en conflit avec l’opération de sauvegarde.
 
 ## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive – Échec de l’opération de capture instantanée en raison de ressources de machine virtuelle inadéquates.
 
@@ -195,7 +197,6 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 | **Code d’erreur** : ExtensionSnapshotFailedNoSecureNetwork <br/> **Message d’erreur** : Échec de l’opération de capture instantanée en raison de l’échec de la création du canal de communication réseau sécurisé. | <ol><li> Ouvrez l’Éditeur du Registre en exécutant **regedit.exe** avec élévation de privilèges. <li> Identifiez toutes les versions de. NET Framework présentes dans votre système. Elles se trouvent dans la hiérarchie de la clé de Registre **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**. <li> Pour chaque .NET Framework présent dans la clé de Registre, ajoutez la clé suivante : <br> **SchUseStrongCrypto"=dword:00000001**. </ol>|
 | **Code d’erreur** : ExtensionVCRedistInstallationFailure <br/> **Message d’erreur** : Échec de l’opération de capture instantanée en raison de l’échec de l’installation de Redistribuable Visual C++ pour Visual Studio 2012. | Accédez à C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion et installez vcredist2013_x64.<br/>Assurez-vous que la valeur de clé de Registre qui permet l’installation du service est correctement définie. Autrement dit, définissez la valeur **Démarrer** dans **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** sur **3** et non sur **4**. <br><br>Si vous rencontrez toujours des problèmes d’installation, redémarrez le service d’installation en exécutant **MSIEXEC /UNREGISTER** suivi de **MSIEXEC /REGISTER** dans une invite de commandes avec élévation de privilèges.  |
 
-
 ## <a name="jobs"></a>Tâches
 
 | Détails de l’erreur | Solution de contournement |
@@ -222,10 +223,13 @@ Cela garantira que les captures instantanées soient effectuées via l’hôte p
 | Le service Sauvegarde Azure n’a pas l’autorisation d’accéder aux ressources dans votre abonnement. |Pour résoudre cette erreur, commencez par restaurer les disques à l’aide de la procédure décrite dans [Restaurer des disques sauvegardés](backup-azure-arm-restore-vms.md#restore-disks). Utilisez ensuite les étapes PowerShell indiquées dans [Créer une machine virtuelle à partir de disques restaurés](backup-azure-vms-automation.md#restore-an-azure-vm). |
 
 ## <a name="backup-or-restore-takes-time"></a>Sauvegarde ou restauration qui prend du temps
-Si votre sauvegarde prend plus de 12 heures, ou si la restauration prend plus de 6 heures, passez en revue les [meilleures pratiques](backup-azure-vms-introduction.md#best-practices) et les [considérations relatives aux performances](backup-azure-vms-introduction.md#backup-performance)
+
+Si votre sauvegarde prend plus de 12 heures, ou si la restauration prend plus de 6 heures, passez en revue les [meilleures pratiques](backup-azure-vms-introduction.md#best-practices) et les [considérations relatives aux performances](backup-azure-vms-introduction.md#backup-performance)
 
 ## <a name="vm-agent"></a>Agent VM
+
 ### <a name="set-up-the-vm-agent"></a>Configurer l’agent de machine virtuelle
+
 En règle générale, l’agent de machine virtuelle est déjà présent dans les machines virtuelles qui sont créées à partir de la galerie Azure. Cependant, les machines virtuelles qui sont migrées à partir de centres de données locaux n’ont pas d’agent de machine virtuelle installé. Pour ces machines virtuelles, l’agent de machine virtuelle doit être installé de manière explicite.
 
 #### <a name="windows-vms"></a>Machines virtuelles Windows
@@ -239,6 +243,7 @@ En règle générale, l’agent de machine virtuelle est déjà présent dans le
 * Pour les machines virtuelles créées à l’aide du modèle de déploiement classique, [consultez ce blog](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) pour mettre à jour la propriété de la machine virtuelle et vérifiez que l’agent est installé. Cette étape n’est pas requise pour les machines virtuelles du Gestionnaire des ressources.
 
 ### <a name="update-the-vm-agent"></a>Mettre à jour l’agent de machine virtuelle
+
 #### <a name="windows-vms"></a>Machines virtuelles Windows
 
 * Pour mettre à jour l’agent de machine virtuelle, réinstallez les [fichiers binaires de l’agent de machine virtuelle](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Avant de mettre à jour l’agent, assurez-vous qu’aucune opération de sauvegarde ne se déroule pendant la mise à jour de l’agent de machine virtuelle.
@@ -260,21 +265,23 @@ Vérifiez la version de l’agent de machine virtuelle sur les machines virtuell
 2. Cliquez avec le bouton droit sur le fichier et accédez à **Propriétés**. Sélectionnez ensuite l’onglet **Détails**. Le champ **Version du produit** doit indiquer 2.6.1198.718 ou une version ultérieure.
 
 ## <a name="troubleshoot-vm-snapshot-issues"></a>Résoudre les problèmes de capture instantanée de machine virtuelle
+
 La sauvegarde de machines virtuelles émet des commandes de capture instantanée à destination du stockage sous-jacent. Le fait de ne pas avoir accès au stockage ou tout retard dans l’exécution d’une tâche de capture instantanée peut faire échouer le travail de sauvegarde. Voici les causes possibles de l’échec d’une tâche de capture instantanée :
 
-- **Accès réseau au Stockage bloqué par l’utilisation du groupe de sécurité réseau**. Découvrez plus en détail comment [établir un accès réseau](backup-azure-arm-vms-prepare.md#establish-network-connectivity) au Stockage en utilisant une liste verte d’adresses IP ou via un serveur proxy.
-- **Les machines virtuelles pour lesquelles la sauvegarde SQL Server est configurée peuvent provoquer des retards de tâches de capture instantanée**. Par défaut, la sauvegarde de machines virtuelles crée une sauvegarde complète VSS sur les machines virtuelles Windows. Les machines virtuelles qui exécutent SQL Server, avec la sauvegarde SQL Server configurée, peuvent subir des retards dans les captures instantanées. Si des retards dans les captures instantanées font échouer la sauvegarde, définissez la clé de Registre suivante :
+* **Accès réseau au Stockage bloqué par l’utilisation du groupe de sécurité réseau**. Découvrez plus en détail comment [établir un accès réseau](backup-azure-arm-vms-prepare.md#establish-network-connectivity) au Stockage en utilisant une liste verte d’adresses IP ou via un serveur proxy.
+* **Les machines virtuelles pour lesquelles la sauvegarde SQL Server est configurée peuvent provoquer des retards de tâches de capture instantanée**. Par défaut, la sauvegarde de machines virtuelles crée une sauvegarde complète VSS sur les machines virtuelles Windows. Les machines virtuelles qui exécutent SQL Server, avec la sauvegarde SQL Server configurée, peuvent subir des retards dans les captures instantanées. Si des retards dans les captures instantanées font échouer la sauvegarde, définissez la clé de Registre suivante :
 
    ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
 
-- **L’état de la machine virtuelle est rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP**. Si vous avez arrêté la machine virtuelle à l’aide du bureau distant, vérifiez que l’état de la machine virtuelle dans le portail est correct. Si l’état est incorrect, utilisez l’option **Arrêt** dans le tableau de bord de la machine virtuelle du portail pour éteindre la machine virtuelle.
-- **Si plus de quatre machines virtuelles partagent le même service cloud, répartissez les machines virtuelles sur plusieurs stratégies de sauvegarde**. Échelonnez les heures de sauvegarde de façon que quatre sauvegardes de machine virtuelle maximum ne démarrent pas en même temps. Essayez de décaler d’au moins une heure les démarrages d’une stratégie à une autre.
-- **La machine virtuelle s’exécute avec un niveau de mémoire ou d’UC élevé**. Si la machine virtuelle sollicite fortement la mémoire ou le processeur (plus de 90 pour cent), votre tâche de capture instantanée est mise en file d’attente et retardée. Elle peut éventuellement arriver à expiration. Si ce problème se produit, essayez de procéder à une sauvegarde à la demande.
+* **L’état de la machine virtuelle est rapporté de manière incorrecte en raison de l’arrêt de la machine virtuelle dans RDP**. Si vous avez arrêté la machine virtuelle à l’aide du bureau distant, vérifiez que l’état de la machine virtuelle dans le portail est correct. Si l’état est incorrect, utilisez l’option **Arrêt** dans le tableau de bord de la machine virtuelle du portail pour éteindre la machine virtuelle.
+* **Si plus de quatre machines virtuelles partagent le même service cloud, répartissez les machines virtuelles sur plusieurs stratégies de sauvegarde**. Échelonnez les heures de sauvegarde de façon que quatre sauvegardes de machine virtuelle maximum ne démarrent pas en même temps. Essayez de décaler d’au moins une heure les démarrages d’une stratégie à une autre.
+* **La machine virtuelle s’exécute avec un niveau de mémoire ou d’UC élevé**. Si la machine virtuelle sollicite fortement la mémoire ou le processeur (plus de 90 pour cent), votre tâche de capture instantanée est mise en file d’attente et retardée. Elle peut éventuellement arriver à expiration. Si ce problème se produit, essayez de procéder à une sauvegarde à la demande.
 
 ## <a name="networking"></a>Mise en réseau
+
 Comme toutes les extensions, l’extension Sauvegarde Azure a besoin d’accéder à l’Internet public pour fonctionner. En l’absence d’accès Internet public, plusieurs cas de figure sont possibles :
 
 * L’installation de l’extension peut échouer.
@@ -285,18 +292,19 @@ La nécessité de résoudre les adresses Internet publiques est abordée dans [c
 
 Une fois que la résolution de noms a été effectuée correctement, l’accès aux adresses IP Azure doit également être fourni. Pour débloquer l’accès à l’infrastructure Azure, effectuez une des opérations suivantes :
 
-- Autorisez la liste des plages d’adresses IP du centre de données Azure :
+* Autorisez la liste des plages d’adresses IP du centre de données Azure :
    1. Obtenez la liste des [adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) à mettre en liste verte.
    1. Débloquez les adresses IP à l’aide de la cmdlet [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute). Exécutez cette cmdlet dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges. Exécutez en tant qu’Administrateur.
    1. Ajoutez des règles au groupe de sécurité réseau, le cas échéant, pour autoriser l’accès aux adresses IP.
-- Créez un chemin d’accès pour le trafic HTTP :
+* Créez un chemin d’accès pour le trafic HTTP :
    1. Si vous avez des restrictions réseau en place, déployez un serveur proxy HTTP pour acheminer le trafic. Par exemple, un groupe de sécurité réseau. Consultez la procédure de déploiement d’un serveur proxy HTTP dans [Établir la connectivité réseau](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    1. Ajoutez des règles au groupe de sécurité réseau, le cas échéant, pour autoriser l’accès à Internet à partir du proxy HTTP.
 
 > [!NOTE]
 > Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si vous avez besoin d’une adresse IP privée statique, configurez-la via le Portail Azure ou PowerShell. Vérifiez que l’option DHCP à l’intérieur de la machine virtuelle est activée.
 > Pour obtenir plus d’informations sur la configuration d’une adresse IP statique via PowerShell :
-> - [Ajout d’une adresse IP interne statique à une machine virtuelle existante](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> - [Modifier la méthode d’allocation pour une adresse IP privée affectée à une interface réseau](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+>
+> * [Ajout d’une adresse IP interne statique à une machine virtuelle existante](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+> * [Modifier la méthode d’allocation pour une adresse IP privée affectée à une interface réseau](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 >
 >

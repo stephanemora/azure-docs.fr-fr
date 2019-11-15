@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 manager: nunoc
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/25/2019
 ms.author: ellacroi
-ms.openlocfilehash: 725be2ee239a879be8200d33acaf566b1d42d446
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 934a5e050e190c9a1f90bb3a22c2d1323a3ccecf
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300338"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808301"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Applications Azure : Guide de publication d’offres de modèle de solution
 
@@ -28,7 +29,7 @@ Ces modèles de solution ne sont pas des offres de transaction, mais peuvent êt
 
 | **Configuration requise** | **Détails**  |
 | ---------------  | -----------  |
-|Facturation et mesure    |  Les ressources seront approvisionnées dans l’abonnement Azure du client. Les machines virtuelles avec paiement à l’utilisation (PAYGO) feront l’objet de transactions avec le client par le biais de Microsoft, facturées dans le cadre de l’abonnement (PAYGO) Azure du client.  <br/> Dans le cas de BYOL (apportez votre propre licence), tandis que Microsoft facturera les frais d’infrastructure engagés dans l’abonnement client, vous effectuerez la transaction de vos frais de licence logicielle directement avec le client.   |
+|Facturation et mesure    |  Les ressources seront approvisionnées dans l’abonnement Azure du client. Les machines virtuelles avec paiement à l’utilisation (PAYGO) feront l’objet de transactions avec le client par le biais de Microsoft et seront facturées dans le cadre de l’abonnement Azure (PAYGO) du client.  <br/> Dans le cas de BYOL (apportez votre propre licence), tandis que Microsoft facturera les frais d’infrastructure engagés dans l’abonnement client, vous effectuerez la transaction de vos frais de licence logicielle directement avec le client.   |
 |Disque dur virtuel compatible avec Azure  |   Les machines virtuelles doivent être basées sur Windows ou Linux.  Pour plus d’informations, consultez [Créer un disque dur virtuel compatible avec Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
 | Attribution de l’utilisation de client | L’activation de l’attribution de l’utilisation de client est obligatoire pour tous les modèles de solution publiés dans la Place de marché Azure. Pour plus d’informations sur l’attribution de l’utilisation de client et sur son activation, consultez [Attribution de l’utilisation de client partenaire Azure](./azure-partner-customer-usage-attribution.md).  |
 | Utiliser des disques managés | Les [disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) représentent l’option par défaut pour les disques persistants des machines virtuelles IaaS dans Azure. Vous devez utiliser des disques managés dans les modèles de solution. <br> <br> 1. Suivez les [conseils](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) et les [exemples](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) pour l’utilisation de disques managés dans les modèles Azure Resource Manager pour mettre à jour vos modèles de solution. <br> <br> 2. Suivez les instructions ci-dessous pour importer le disque dur virtuel sous-jacent des disques managés dans un compte de stockage pour publier le disque dur virtuel en tant qu’image sur la Place de marché : <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |

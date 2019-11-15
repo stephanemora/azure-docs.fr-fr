@@ -1,5 +1,5 @@
 ---
-title: Bienvenue dans l’application Wingtips - Azure SQL Database | Microsoft Docs
+title: Bienvenue dans l’application Wingtips
 description: Obtenez des informations sur les modèles de client de base de données, ainsi que l’exemple d’application Wingtips SaaS pour Azure SQL Database dans l’environnement cloud.
 keywords: didacticiel sur les bases de données SQL
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4e0b3afe51ac7c7a6b9213fcee79af57cbbd8197
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570106"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818330"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Application SaaS Wingtip Tickets
 

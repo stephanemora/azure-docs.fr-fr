@@ -1,6 +1,7 @@
 ---
-title: Le service Import/Export d’Azure SQL Database prend beaucoup de temps pour importer ou exporter une base de données | Microsoft Docs
+title: Le service Import/Export prend beaucoup de temps
 description: Le service Import/Export d’Azure SQL Database prend beaucoup de temps pour importer ou exporter une base de données
+ms.custom: seo-lt-2019
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
@@ -8,12 +9,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 8d6cd5e925e17130e9ddee8074294275558d3cc2
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 29edd7da42a5eb4586cd52cc0f913a56e199a5ba
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331872"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808276"
 ---
 # <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Le service Import/Export d’Azure SQL Database prend beaucoup de temps pour importer ou exporter une base de données
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd0829afca05058892d3a0ceeb50c9955d792dc3
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517062"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720290"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Télécharger une liste d’utilisateurs (préversion) dans le portail Azure Active Directory
 
@@ -31,8 +31,9 @@ Pour télécharger la liste des utilisateurs à partir du centre d’administrat
 ## <a name="to-download-a-list-of-users"></a>Pour télécharger une liste d’utilisateurs
 
 1. [Connectez-vous à votre organisation](https://aad.portal.azure.com) Azure AD avec un compte Administrateur d’utilisateurs de l’organisation.
-1. Dans Azure AD, sélectionnez **Utilisateurs** > **Télécharger les utilisateurs**.
-1. Dans la page **Télécharger les utilisateurs**, sélectionnez **Démarrer** pour recevoir un fichier CSV répertoriant les propriétés de profil utilisateur. Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats sur la page Résultats de l’opération en bloc. Le fichier contient la raison de chaque erreur.
+2. Accédez à Azure Active Directory > Utilisateurs. Sélectionnez ensuite les utilisateurs que vous souhaitez inclure dans le téléchargement en cochant la case dans la colonne de gauche en regard de chaque utilisateur. Remarque : Pour le moment, il n’existe aucun moyen de sélectionner tous les utilisateurs pour l’exportation. Chacun d’eux doit être sélectionné individuellement.
+3. Dans Azure AD, sélectionnez **Utilisateurs** > **Télécharger les utilisateurs**.
+4. Dans la page **Télécharger les utilisateurs**, sélectionnez **Démarrer** pour recevoir un fichier CSV répertoriant les propriétés de profil utilisateur. Si des erreurs se produisent, vous pouvez télécharger et consulter le fichier de résultats sur la page Résultats de l’opération en bloc. Le fichier contient la raison de chaque erreur.
 
    ![Sélectionnez l’emplacement où vous souhaitez télécharger la liste des utilisateurs](./media/users-bulk-download/bulk-download.png)
 

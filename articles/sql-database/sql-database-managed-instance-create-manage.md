@@ -1,5 +1,5 @@
 ---
-title: Informations de référence sur l’API de gestion pour Azure SQL Database Managed Instance | Microsoft Docs
+title: Informations de référence sur l’API de gestion pour Managed instance
 description: Apprenez à créer et à gérer des instances Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 6bbba3910315be39d9fca81b95083f32ebd60e64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 713217a933c646cc4d04759f5697bbc0312827ce
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567605"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823398"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Informations de référence sur l’API de gestion pour Azure SQL Database Managed Instance
 

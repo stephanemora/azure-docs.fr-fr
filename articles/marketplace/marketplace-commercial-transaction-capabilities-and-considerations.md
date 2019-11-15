@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
 author: yijenj
 manager: nuno costa
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279737"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823022"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions dans la Place de marché commerciale
 
@@ -34,11 +35,11 @@ Les éditeurs peuvent utiliser les options de publication Liste, Essai et BYOL p
 
 ### <a name="transact-publishing-option"></a>Option de publication Transaction
 
-En plus des options de publication Liste et Essai, les éditeurs disposent de l’option de publication Transaction. Elle tire parti des fonctionnalités de transactions commerciales de Microsoft qui sont disponibles dans le monde entier, et autorise Microsoft à héberger les transactions de la Place de marché dans le cloud pour le compte de l’éditeur.
+En plus des options de publication Liste et Essai, les éditeurs disposent de l’option de publication Transaction. Elle tire parti des fonctionnalités de transactions commerciales de Microsoft qui sont disponibles dans le monde entier, et autorise Microsoft à héberger les transactions de la place de marché dans le cloud pour le compte de l’éditeur.
 
 ## <a name="transact-general-overview"></a>Présentation générale des offres Transaction
 
-Lorsque vous choisissez l’option de publication Transaction, Microsoft permet la vente de logiciels tiers et le déploiement de certains types d'offres dans l’abonnement Azure du client. Pour choisir le modèle de facturation et le type d’offre, l’éditeur doit prendre en compte la facturation des frais d’infrastructure et de ses propres frais de licence logicielle.
+Lorsque vous choisissez l’option de publication Transaction, Microsoft permet la vente de logiciels tiers et le déploiement de certains types d’offres dans l’abonnement Azure du client. Pour choisir le modèle de facturation et le type d’offre, l’éditeur doit prendre en compte la facturation des frais d’infrastructure et ses propres frais de licence logicielle.
 
 L’option de publication Transaction est actuellement disponible pour ces types d’offres : Machines virtuelles, Applications Azure et Applications SaaS.
 
@@ -49,7 +50,7 @@ L’option de publication Transaction est actuellement disponible pour ces types
 
 **Pour les offres Machines virtuelles et Applications Azure**
 
-Pour les offres Machines virtuelles et Applications Azure, les frais d’utilisation de l’infrastructure Azure sont facturés sur l’abonnement Azure du client.  Les frais d’utilisation de l’infrastructure sont détaillés et présentés séparément des frais de licence logicielle du fournisseur sur la facture du client.
+Pour les offres Machines virtuelles et Applications Azure, des frais d’utilisation de l’infrastructure Azure sont facturés sur l’abonnement Azure du client.  Ils sont détaillés et présentés séparément des frais de licence logicielle du fournisseur sur la facture du client.
 
 **Pour les offres Applications SaaS**
 
@@ -57,7 +58,7 @@ Pour les offres Applications SaaS, l’éditeur doit regrouper les frais d’uti
 
 ## <a name="transact-billing-models"></a>Modèles de facturation des offres Transaction
 
-Selon l’option Transaction choisie, les frais de licence logicielle de l’éditeur peuvent se présenter comme suit :  
+Selon l’option Transaction choisie, les frais de licence logicielle de l’éditeur peuvent se présenter ainsi :  
 
 * Gratuit : aucuns frais ne sont facturés pour les licences logicielles. 
 
@@ -77,7 +78,7 @@ Quand vous publiez une offre Transaction avec l’option Gratuit ou BYOL (apport
 
 Quand vous publiez une offre Transaction avec l’option de tarification Paiement à l’utilisation ou Abonnement, Microsoft fournit la technologie et les services nécessaires pour traiter les achats, retours et rétrofacturations des licences logicielles. Dans ce scénario, l’éditeur autorise Microsoft à agir en tant qu’agent. L’éditeur autorise Microsoft à faciliter la transaction de licence logicielle, tout en conservant sa qualité de vendeur, fournisseur, distributeur et concédant.
 
-Microsoft permet aux clients de commander, acquérir une licence et utiliser le logiciel de l’éditeur selon les conditions générales de la Place de marché commerciale de Microsoft et du contrat de licence utilisateur final de l’éditeur. Les éditeurs sont tenus de fournir leur contrat de licence utilisateur final ou de sélectionnez le [contrat Standard](https://docs.microsoft.com/azure/marketplace/standard-contract) lors de la création de l'offre.
+Microsoft permet aux clients de commander, d’acquérir sous licence et d’utiliser le logiciel de l’éditeur selon les conditions générales de la Place de marché commerciale de Microsoft et du contrat de licence utilisateur final de l’éditeur. Les éditeurs sont tenus de fournir leur contrat de licence utilisateur final ou de sélectionnez le [contrat Standard](https://docs.microsoft.com/azure/marketplace/standard-contract) lors de la création de l'offre.
 
 
 ### <a name="free-software-trials"></a>Essai logiciel gratuit
@@ -150,11 +151,11 @@ Cette option doit être configurée pour la vente via Microsoft et peut être fa
 
 **Facturation et paiement**
 
-L’éditeur peut choisir la méthode de facturation par défaut du client pour présenter les frais de licence logicielle avec abonnement ou paiement à l’utilisation.
+L’éditeur peut appliquer la méthode de facturation par défaut du client pour présenter les frais de licence logicielle avec abonnement ou paiement à l’utilisation.
 
 **Contrat Entreprise** 
 
-Si la méthode de facturation par défaut du client est un Contrat Entreprise Microsoft, vos frais de licence logicielle seront facturés selon cette méthode et présentés de manière détaillée et séparée des coûts propres à l’utilisation d’Azure.
+Si la méthode de facturation par défaut du client est un Contrat Entreprise Microsoft, les frais de licence logicielle sont facturés selon cette méthode et présentés de manière détaillée et séparée des coûts propres à l’utilisation d’Azure.
 
 **Cartes de crédit et facture mensuelle** 
 
@@ -168,7 +169,7 @@ Exemple d’un client qui fait un achat avec une carte de crédit :
 |Échéance (mois)   | 30 août 2018 |
 |Date de facturation | 1er septembre 2018 |
 |Date de paiement du client | 1er septembre 2018 |
-|Période de dépôt (cartes de crédit uniquement, 30 jours) | 1er septembre 2018 au 30 septembre 2018 |
+|Période de dépôt (cartes de crédit uniquement, 30 jours) | Du 1er au 30 septembre 2018 |
 |Début de la période de collecte | 1er septembre 2018 |
 |Fin de la période de collecte (30 jours au maximum) | 30 septembre 2018 |
 |Date de calcul du paiement (tous les mois le 15) | 1er octobre 2018 |
@@ -219,7 +220,7 @@ Cette section expose les exigences relatives aux différents types d’offres Tr
 
 ### <a name="requirements-for-all-offer-types"></a>Exigences applicables à tous les types d’offres
 
-- Un compte Microsoft et des informations financières sont requis pour l’offre de publication Transaction, quel que soit le modèle de tarification de l’offre.
+- Un compte Microsoft et des informations financières sont requis pour l’offre de publication Transaction, quel que soit son modèle de tarification.
 - Les informations financières obligatoires comprennent un compte de paiement et un profil fiscal.
 
 Pour plus d’informations sur la configuration de ces comptes, consultez [Gérer votre compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
@@ -231,7 +232,7 @@ L’option de publication Transaction est uniquement disponible pour les types d
 
 **Machine virtuelle** 
 
-Choisissez entre le modèle tarifaire Gratuit, BYOL (apportez votre propre licence) et Paiement à l’utilisation, et présentez les frais comme des références SKU définies au niveau de l’offre. Sur la facture Azure du client, Microsoft présente les frais de licence logicielle de l’éditeur séparément des frais attribuables à l’utilisation de l’infrastructure Azure. Les frais d’utilisation de l’infrastructure Azure sont occasionnés par l’utilisation du logiciel de l’éditeur.
+Choisissez entre le modèle tarifaire Gratuit, BYOL (apportez votre propre licence) et Paiement à l’utilisation, et présentez les frais comme des références SKU définies au niveau de l’offre. Sur la facture Azure du client, Microsoft présente les frais de licence logicielle de l’éditeur séparément des frais d’infrastructure Azure sous-jacents. Les frais d’utilisation de l’infrastructure Azure sont occasionnés par l’utilisation du logiciel de l’éditeur.
 
 **Applications Azure : modèle de solution ou application gérée** 
 

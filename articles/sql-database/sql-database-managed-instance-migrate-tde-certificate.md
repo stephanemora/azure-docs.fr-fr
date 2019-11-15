@@ -1,5 +1,5 @@
 ---
-title: Migrer un certificat TDE vers Azure SQL Database Managed Instance | Microsoft Docs
+title: 'Migrer un certificat TDE : instance gérée'
 description: Découvrez comment migrer un certificat protégeant la clé de chiffrement d’une base de données vers Azure SQL Database Managed Instance à l’aide de Transparent Data Encryption.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 6f9c1cefafdf6f7f33db3c5143e6b97b328fe699
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567410"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821787"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrer le certificat d’une base de données protégée par TDE vers Azure SQL Database Managed Instance
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: be66fd51b37c0e62b2b757a88ee1db9319b2093a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6ecd27c1be0fa6b4f13415cc21a57fcdaaf962de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878829"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824583"
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Copier des données d’objets blob de Stockage Azure vers Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ ms.locfileid: "60878829"
 >
 >
 
-Data Lake Storage Gen1 fournit un outil en ligne de commande nommé [AdlCopy](https://aka.ms/downloadadlcopy), qui permet de copier des données à partir des sources suivantes :
+Data Lake Storage Gen1 fournit un outil en ligne de commande nommé [AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358), qui permet de copier des données à partir des sources suivantes :
 
 * D’objets blob de Stockage Azure vers Azure Data Lake Storage Gen1. Vous ne pouvez pas utiliser AdlCopy pour copier des données d’Azure Data Lake Storage Gen1 vers des objets blob de Stockage Azure.
 * Entre comptes Azure Data Lake Storage Gen1.
@@ -43,7 +43,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 * **objets blob Azure Storage** avec quelques données.
 * **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Compte Azure Data Lake Analytics (facultatif)**  : voir [Prise en main d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) pour obtenir des instructions sur la création d’un compte Data Lake Analytics.
-* **Outil AdlCopy**. Installez l’outil AdlCopy à partir de [https://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
+* **Outil AdlCopy**. Installez [l’outil AdlCopy](https://www.microsoft.com/download/details.aspx?id=50358).
 
 ## <a name="syntax-of-the-adlcopy-tool"></a>Syntaxe de l’outil AdlCopy
 L’outil AdlCopy utilise la syntaxe suivante.

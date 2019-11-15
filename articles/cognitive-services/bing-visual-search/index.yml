@@ -5,7 +5,7 @@ metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
   title: "Documentation de l’API Recherche visuelle Bing\_- Tutoriels, guides de démarrage rapide, informations de référence sur l’API"
   titleSuffix: Azure Cognitive Services
-  description: Découvrez comment utiliser l’API Recherche visuelle Bing pour obtenir des insights sur une image.
+  description: 'En chargeant une image ou en fournissant une URL d’image, l’API peut identifier de nombreux détails, notamment des images visuellement similaires, des sources d’achat et des pages web.'
   services: cognitive-services
   author: swhite-msft
   manager: nitinme

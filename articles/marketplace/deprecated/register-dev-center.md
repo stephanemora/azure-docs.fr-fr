@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0dd53689f7528e73845ab47a9791f062e0f2cb0c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: a7abb73f229c444f88626ef03c90f62e138023c6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962781"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825929"
 ---
 # <a name="register-in-dev-center"></a>S’inscrire dans le centre de développement  
 Ouvrez une nouvelle session de navigation Internet Explorer InPrivate ou Chrome Incognito pour vérifier que vous n’êtes pas connecté à un compte de navigateur personnel.  
@@ -153,17 +154,17 @@ Les informations fiscales et bancaires sont requises pour toutes les offres comm
 * **Est-il possible de changer mon type de compte « Individuel » en « Société » après la création du compte ?**
   > Non, le type de compte ne peut pas être mis à jour une fois que le compte est créé.
 
-* **Pourquoi le message d’erreur « La ville est obligatoire » s’affiche alors que j’ai correctement entré la ville ?**
+* **Pourquoi le message d’erreur « La ville est obligatoire » s’affiche alors que j’ai correctement entré la ville ?**
   > Vérifiez bien que le code postal indiqué est correct. Il y a une validation de ville et de code postal.
 
 * **Comment obtenir un code promotionnel ?**
   > Finissez de remplir le formulaire d’[Inscription à la Place de marché](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) pour recevoir un code promotionnel du Centre de développement. Pour plus d’informations, consultez [Créer un compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
  
 * **Et ensuite, que se passe-t-il après l’inscription ?**
-  > Recherchez un e-mail provenant de verify@microsoft.com avec pour ligne d’objet « Action nécessaire : Vérifiez votre compte de messagerie Microsoft ». Cliquez sur le lien de vérification soumis à une contrainte de temps pour terminer l’inscription. *Si vous n’avez reçu aucun e-mail dans les 24 heures, vérifiez votre dossier de courrier indésirable.*
+  > Recherchez un e-mail provenant de verify@microsoft.com avec pour ligne d’objet « Action nécessaire : Vérifiez votre compte de messagerie Microsoft ». Cliquez sur le lien de vérification soumis à une contrainte de temps pour terminer l’inscription. *Si vous n’avez reçu aucun e-mail dans les 24 heures, vérifiez votre dossier de courrier indésirable.*
 
 * **Quelles sont les étapes suivantes après la vérification du Centre de développement ?**
-  > Accédez à « Vos programmes » (https://developer.microsoft.com/dashboard/Account/Programs) et connectez-vous au compte de Centre de développement. Si vous ne voyez pas Azure en tant que programme enregistré, regardez sous « Programmes recommandé pour vous », puis recherchez Azure pour sélectionner « Prise en main ».
+  > Accédez à « Vos programmes » (https://developer.microsoft.com/dashboard/Account/Programs) ) et connectez-vous au compte de Centre de développement. Si vous ne voyez pas Azure en tant que programme enregistré, regardez sous « Programmes recommandé pour vous », puis recherchez Azure pour sélectionner « Prise en main ».
 
 * **Comment lier mon compte Centre de développement à mon profil d’éditeur portail Cloud Partner ?**
   > La dernière étape avant la publication consiste à est associer votre compte de centre de développement à votre [profil](https://cloudpartner.azure.com/#profile) de portail Cloud Partner. Si votre compte Centre de développement est différent de votre compte sur le [portail Cloud Partner](https://cloudpartner.azure.com/#alloffers), ajoutez votre compte Centre de développement en tant que nouvel [utilisateur](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users) dans le portail Cloud Partner. Connectez-vous au [portail Cloud Partner](https://cloudpartner.azure.com/#alloffers) avec votre compte Centre de développement. Sélectionnez Profil d’éditeur dans le menu en haut à droite de votre navigateur web. Sélectionnez le lien du compte Centre de développement.

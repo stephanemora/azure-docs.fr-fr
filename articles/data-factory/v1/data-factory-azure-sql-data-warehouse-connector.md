@@ -1,5 +1,5 @@
 ---
-title: Copie de données vers/à partir d’Azure SQL Data Warehouse | Microsoft Docs
+title: Copier des données vers/à partir de Azure SQL Data Warehouse
 description: Découvrez comment copier des données vers et à partir d’Azure SQL Data Warehouse à l’aide d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7570cfc8a9804f753a9de140a71436bcc0cebb43
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: d0306d891b327422383120ef322ece407829f7ed
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836649"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683055"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copier des données vers et à partir d’Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -316,7 +316,7 @@ Data Factory crée la table dans le magasin de destination portant le même nom 
 | Binary | Binary |
 | Varbinary | Varbinary (jusqu’à 8 000) |
 | Date | Date |
-| Datetime | Datetime |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Temps | Temps |
 | DateTimeOffset | DateTimeOffset |
@@ -363,7 +363,7 @@ Le mappage est identique au [mappage du type de données SQL Server pour ADO.NET
 | ntext |String, Char[] |
 | numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Unique |
 | rowversion |Byte[] |
 | smalldatetime |Datetime |
 | smallint |Int16 |

@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 9919521c8cb77f23f50a8097c4e630b4467dc725
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 5f794420eebb052538de0903727951de39f44a48
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176772"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747851"
 ---
 ### <a name="installation-failures"></a>Échecs d’installation
 | **Exemple de message d’erreur** | **Action recommandée** |

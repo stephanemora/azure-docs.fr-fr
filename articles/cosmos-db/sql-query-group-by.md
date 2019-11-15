@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
-ms.openlocfilehash: d92e24836a0eb5757de9bbdb516be290456deb7f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333418"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819103"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Clause GROUP BY dans Azure Cosmos DB
 
 La clause GROUP BY divise les résultats de la requête en fonction des valeurs d’une ou plusieurs propriétés spécifiées.
 
 > [!NOTE]
-> Actuellement, Azure Cosmos DB prend en charge la clause GROUP BY dans le [SDK .NET version 3.3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0) ou ultérieure.
-> La prise en charge de SDK dans d’autres langages et du portail Azure n’est pas encore disponible, mais elle est prévue.
+> Azure Cosmos DB prend actuellement en charge GROUP BY dans le kit SDK .NET 3.3 et les versions ultérieures, ainsi que le kit SDK JavaScript 3.4 et les versions ultérieures.
+> La prise en charge de kits SDK dans d’autres langages n’est pas encore disponible, mais elle est prévue.
 
 ## <a name="syntax"></a>Syntaxe
 

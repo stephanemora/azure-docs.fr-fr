@@ -1,20 +1,21 @@
 ---
-title: Migrer les utilisateurs et les groupes Windows locaux de SQL Server vers Azure SQL Database Managed Instance en utilisant la syntaxe DDL T-SQL | Microsoft Docs
+title: Migrer des utilisateurs et des groupes SQL ServerWindows vers une instance gérée à l’aide de T-SQL
 description: Découvrir plus d’informations sur la migration des utilisateurs et des groupes Windows locaux de SQL Server vers Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/22/2019
-ms.openlocfilehash: ca0997010fef40c0927960c04588c031dd85fff8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/30/2019
+ms.openlocfilehash: 3ed4e4b1d37a9705378281ca74b53a6b60713d97
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795060"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807173"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>Didacticiel : Migrer les utilisateurs et les groupes Windows locaux de SQL Server vers Azure SQL Database Managed Instance en utilisant la syntaxe DDL T-SQL
 
@@ -41,6 +42,8 @@ Pour effectuer ce tutoriel, vous avez besoin des prérequis suivants :
 - L’accès à Active Directory pour créer des utilisateurs/groupes.
 - Un serveur SQL Server existant dans votre environnement local.
 - Une instance managée existante. Consultez [Démarrage rapide : Créer une instance Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
+  - Il est nécessaire d’utiliser un `sysadmin` dans l’instance gérée pour créer des connexions Azure AD.
+- [Créez un administrateur Azure AD pour l’instance gérée](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - Vous pouvez vous connecter à votre instance managée au sein de votre réseau. Pour plus d’informations, consultez les articles suivants : 
     - [Connecter votre application à Azure SQL Database Managed Instance](sql-database-managed-instance-connect-app.md)
     - [Démarrage rapide : Configurer une connexion point à site à une instance managée Azure SQL Database à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md)
@@ -212,9 +215,12 @@ Suivez notre [Démarrage rapide : Restaurer une base de données sur une instan
 
 ## <a name="part-4-migrate-users-to-managed-instance"></a>Partie 4 : Migrer les utilisateurs vers l’instance managée
 
+> [!NOTE]
+> L’administrateur Azure AD de la fonctionnalité d’instance qui a été gérée après la création a changé. Pour plus d’informations, consultez [Nouvelle fonctionnalité d’administration Azure AD pour MI](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi).
+
 Exécutez la commande ALTER USER pour effectuer le processus de migration sur l’instance managée.
 
-1. Connectez-vous à votre instance managée en utilisant le compte d’administrateur SQL pour Managed Instance. Créez ensuite votre connexion Azure AD dans l’instance managée en utilisant la syntaxe suivante :
+1. Connectez-vous à votre instance managée en utilisant le compte d’administrateur Azure AD pour l’instance gérée. Créez ensuite votre connexion Azure AD dans l’instance managée en utilisant la syntaxe suivante. Pour plus d’informations, consultez [Tutoriel : Sécurité des instances managées dans Azure SQL Database à l’aide de principaux de serveur (connexions) Azure AD](sql-database-managed-instance-aad-security-tutorial.md).
 
     ```sql
     use master 

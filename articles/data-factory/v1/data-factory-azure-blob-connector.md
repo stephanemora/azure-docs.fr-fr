@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données vers et à partir de Stockage Blob Azure | Microsoft Docs
+title: Déplacer des données vers et à partir de Stockage Blob Azure
 description: 'Découvrez comment copier des données d’objets blob dans Azure Data Factory. Utilisez notre exemple : Guide pratique pour copier des données vers et à partir de Stockage Blob Azure et Azure SQL Database.'
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 16d11a707851cdbb3e315c9a6d2fe592a97eca9a
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 9aeef3a2f6a43346a7637c3e2497979632b04762
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839584"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683282"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]

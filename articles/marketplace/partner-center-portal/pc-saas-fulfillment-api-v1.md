@@ -4,16 +4,17 @@ description: Explique comment créer et gérer une offre SaaS sur la Place de ma
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78162983601e9126bd34cb737e74783df982bacb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99dd6db7003e0358ddde2438f6897cd767932227
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258938"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816570"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>API de traitement SaaS version 1 (obsolète)
 
@@ -46,7 +47,7 @@ La version actuelle de l’API est `api-version=2017-04-15`.
 
 L’action POST sur le point de terminaison de résolution permet aux utilisateurs d’associer un jeton de place de marché à un ID de ressource persistant.  L’ID de ressource est l’identificateur unique de l’abonnement SAAS. 
 
-Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logiciels indépendant, les paramètres de requête figurant dans l’URL contiennent un jeton. L’éditeur de logiciels indépendant doit utiliser ce jeton et effectuer une requête pour le résoudre. La réponse contient l’ID d’abonnement SAAS unique, le nom, l’ID d’offre et le plan associé à la ressource. Ce jeton est valide pendant une heure uniquement.
+Lorsqu’un utilisateur est redirigé vers le site web d’un éditeur de logiciels indépendant, les paramètres de requête figurant dans l’URL contiennent un jeton. L’éditeur de logiciels indépendant doit utiliser ce jeton et effectuer une requête pour le résoudre. La réponse contient l’ID d’abonnement SAAS unique, le nom, l’ID d’offre et le plan associé à la ressource. Ce jeton est valide pendant une heure uniquement.
 
 *Requête*
 
@@ -68,7 +69,7 @@ Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logici
 | x-ms-correlationid | Non           | Valeur de chaîne unique pour l’opération sur le client. Ce champ sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | Content-Type       | OUI          | `application/json`                                        |
 | autorisation      | OUI          | Jeton du porteur Web JSON (JWT).                    |
-| x-ms-marketplace-token| OUI| Le paramètre de requête de jeton dans l’URL lorsque l’utilisateur est redirigé vers le site de l’ISV SaaS depuis Azure. **Remarque :** Ce jeton n’est valide que pendant 1 heure. De plus, une URL décode la valeur du jeton à partir du navigateur avant de l’utiliser.|
+| x-ms-marketplace-token| OUI| Paramètre de requête de jeton présent dans l’URL lorsque l’utilisateur est redirigé d’Azure vers le site web de l’éditeur de logiciels indépendant SaaS. **Remarque :** Ce jeton n’est valide que pendant 1 heure. De plus, une URL décode la valeur du jeton à partir du navigateur avant de l’utiliser.|
 |  |  |  |
   
 
@@ -138,7 +139,7 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 | If-Match/If-None-Match |   Non         |   Valeur forte d’ETag de validateur.                                                          |
 | content-type           |   OUI        |    `application/json`                                                                   |
 |  autorisation         |   OUI        |    Jeton du porteur Web JSON (JWT).                                               |
-| x-ms-marketplace-session-mode| Non | Drapeau pour activer le mode marche à vide lors de l’abonnement à une offre SaaS. S’il est défini, l’abonnement n’est pas facturé. Cela est utile pour les scénarios de test des éditeurs de logiciels indépendants. Définissez-le sur **‘dryrun’**|
+| x-ms-marketplace-session-mode| Non | Drapeau pour activer le mode marche à vide lors de l’abonnement à une offre SaaS. S’il est défini, l’abonnement n’est pas facturé. Cela est utile pour les scénarios de test des éditeurs de logiciels indépendants. Définissez-le sur **« dryrun »** .|
 |  |  |  |
 
 *Corps*
@@ -334,8 +335,8 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 | id                 | Chaîne        | ID de l’opération.                                                                      |
 | status             | Enum          | État de l’opération, une des valeurs suivantes : `In Progress`, `Succeeded` ou `Failed`.          |
 | resourceLocation   | Chaîne        | Lien vers l’abonnement qui a été créé ou modifié. Cela permet au client d’obtenir une mise à jour de l’état après l’opération. Cette valeur n’est pas définie pour `Unsubscribe` opérations. |
-| created            | Datetime      | Heure de création de l’opération en UTC.                                                           |
-| lastModified       | Datetime      | Dernière mise à jour de l’opération en heure UTC.                                                      |
+| created            | DateTime      | Heure de création de l’opération en UTC.                                                           |
+| lastModified       | DateTime      | Dernière mise à jour de l’opération en heure UTC.                                                      |
 |  |  |  |
 
 *Codes de réponse*
@@ -406,8 +407,8 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | planId                 | Chaîne        | ID du plan auquel l’utilisateur s’est abonné.          |
 | saasSubscriptionName   | Chaîne        | Nom de l’abonnement SaaS.                |
 | saasSubscriptionStatus | Enum          | État de l’opération.  Celui-ci peut avoir l'une des valeurs suivantes :  <br/> - `Subscribed` : l’abonnement est actif.  <br/> - `Pending` : l’utilisateur crée la ressource mais elle n’est pas activée par l’ISV.   <br/> - `Unsubscribed` : l’utilisateur a annulé son abonnement.   <br/> - `Suspended` : l’utilisateur a suspendu l’abonnement.   <br/> - `Deactivated` :  l’abonnement Azure est suspendu.  |
-| created                | Datetime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
-| lastModified           | Datetime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
+| created                | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
+| lastModified           | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
 |  |  |  |
 
 *Codes de réponse*
@@ -430,7 +431,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | x-ms-correlationid | OUI          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
 | x-ms-activityid    | OUI          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
 | Retry-After        | Non           | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
-| etag               | OUI          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
+| eTag               | OUI          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
 |  |  |  |
 
 ### <a name="get-subscriptions"></a>Obtenir des abonnements
@@ -478,8 +479,8 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 | planId                 | Chaîne        | ID du plan auquel l’utilisateur s’est abonné          |
 | saasSubscriptionName   | Chaîne        | Nom de l’abonnement SaaS                |
 | saasSubscriptionStatus | Enum          | État de l’opération.  Celui-ci peut avoir l'une des valeurs suivantes :  <br/> - `Subscribed` : l’abonnement est actif.  <br/> - `Pending` : l’utilisateur crée la ressource mais elle n’est pas activée par l’ISV.   <br/> - `Unsubscribed` : l’utilisateur a annulé son abonnement.   <br/> - `Suspended` : l’utilisateur a suspendu l’abonnement.   <br/> - `Deactivated` :  l’abonnement Azure est suspendu.  |
-| created                | Datetime      | Valeur d’horodatage de création de l’abonnement au format UTC |
-| lastModified           | Datetime      | Valeur d’horodatage de création de l’abonnement au format UTC |
+| created                | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC |
+| lastModified           | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC |
 |  |  |  |
 
 *Codes de réponse*

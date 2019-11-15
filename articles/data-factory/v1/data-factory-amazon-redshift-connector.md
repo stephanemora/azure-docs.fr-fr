@@ -1,5 +1,5 @@
 ---
-title: Déplacer des données d’Amazon Redshift à l’aide d’Azure Data Factory | Microsoft Docs
+title: Déplacer des données à partir d’Amazon Redshift avec Azure Data Factory
 description: Découvrez comment déplacer des données à partir d’Amazon Redshift à l’aide de l’activité de copie d’Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3a1497211cc42c702537cbbdfea32ff71a400c7c
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 707061f523e5e991c851abfe7960a9aa66fb2066
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836680"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683253"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Déplacer des données depuis Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -336,12 +336,12 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | DÉCIMAL |Decimal |
 | REAL |Single |
 | DOUBLE PRECISION |Double |
-| BOOLEAN |Chaîne |
+| BOOLEAN |String |
 | CHAR |Chaîne |
 | VARCHAR |Chaîne |
-| DATE |Datetime |
-| TIMESTAMP |Datetime |
-| TEXTE |Chaîne |
+| DATE |DateTime |
+| TIMESTAMP |DateTime |
+| TEXT |Chaîne |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour savoir comment mapper des colonnes du jeu de données source à des colonnes du jeu de données récepteur, consultez [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).

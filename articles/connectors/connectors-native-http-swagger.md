@@ -8,14 +8,14 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: f0410ed7a98e4838e41407868cf26b5254811ae3
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67541718"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824814"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Appeler des points de terminaison REST à l'aide d'Azure Logic Apps
 
@@ -25,7 +25,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur i
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* URL du fichier Swagger qui décrit le point de terminaison REST cible
+* URL du fichier Swagger (non OpenAPI) qui décrit le point de terminaison REST cible
 
   En règle générale, le point de terminaison REST doit répondre aux critères suivant pour permettre le bon fonctionnement du connecteur :
 
@@ -71,7 +71,7 @@ Ce déclencheur intégré envoie une requête HTTP vers une URL de fichier Swagg
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
-   Pour en savoir plus sur les types d’authentification disponibles pour HTTP + Swagger, consultez [Authentifier les actions et déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Pour en savoir plus sur les types d’authentification disponibles pour HTTP + Swagger, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Continuez à générer le flux de travail de votre application logique avec des actions qui s’exécutent quand le déclencheur se déclenche.
 
@@ -111,7 +111,7 @@ Cette action intégrée effectue une requête HTTP vers l'URL du fichier Swagger
 
 1. Pour ajouter d’autres paramètres disponibles, ouvrez la liste **Ajouter un nouveau paramètre**, puis sélectionnez les paramètres de votre choix.
 
-   Pour en savoir plus sur les types d’authentification disponibles pour HTTP + Swagger, consultez [Authentifier les actions et déclencheurs HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   Pour en savoir plus sur les types d’authentification disponibles pour HTTP + Swagger, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
@@ -150,8 +150,8 @@ Voici d’autres informations sur les sorties d’un déclencheur ou d’une act
 
 | Nom de la propriété | type | Description |
 |---------------|------|-------------|
-| headers | objet | En-têtes de la requête |
-| body | objet | Objet JSON | Objet avec le contenu du corps de la requête |
+| headers | object | En-têtes de la requête |
+| body | object | Objet JSON | Objet avec le contenu du corps de la requête |
 | Code d’état | int | Code d’état de la requête |
 |||
 

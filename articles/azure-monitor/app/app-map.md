@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678386"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577063"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -180,13 +180,22 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
+À partir du kit SDK Java Application Insights 2.5.0, vous pouvez spécifier le nom du rôle cloud en ajoutant `<RoleName>` à votre fichier `ApplicationInsights.xml` :
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 Si vous utilisez Spring Boot avec le starter SpringBoot Application Insights, le seul changement nécessaire consiste à définir votre nom personnalisé pour l’application dans le fichier application.properties.
 
 `spring.application.name=<name-of-app>`
 
 Le starter SpringBoot attribue automatiquement nom du rôle cloud à la valeur que vous entrez pour la propriété spring.application.name.
-
-Pour plus d’informations sur la corrélation Java et sur la façon de configurer nom du rôle cloud pour les applications non-SpringBoot, consultez cette [section](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sur la corrélation.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript côté client/navigateur
 

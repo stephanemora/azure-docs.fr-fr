@@ -1,20 +1,21 @@
 ---
 title: 'Démarrage rapide : Bibliothèque cliente Content Moderator pour Python | Microsoft Docs'
-description: Commencez à utiliser la bibliothèque cliente Content Moderator pour Python.
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment prendre en main la bibliothèque cliente Azure Cognitive Services Content Moderator pour Python.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755248"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744410"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>Démarrage rapide : Bibliothèque cliente Content Moderator pour Python
 
@@ -295,7 +296,7 @@ Utilisez le code suivant pour supprimer une liste d’images donnée.
 
 ## <a name="create-a-review"></a>Créer une révision
 
-Vous pouvez utiliser le SDK Python Content Moderator pour alimenter le contenu dans l’[outil de révision](https://contentmoderator.cognitive.microsoft.com) afin que les modérateurs humains puissent le passer en revue. Pour en savoir plus sur l’outil de révision, consultez le [Guide conceptuel](./review-tool-user-guide/human-in-the-loop.md).
+Vous pouvez utiliser le SDK Python Content Moderator pour alimenter le contenu dans l’[outil de révision](https://contentmoderator.cognitive.microsoft.com) afin que les modérateurs humains puissent le passer en revue. Pour en savoir plus sur l’outil de révision, consultez le [Guide conceptuel de l’outil de révision du code](./review-tool-user-guide/human-in-the-loop.md).
 
 Le code suivant utilise la classe [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) pour créer une révision, récupérer son ID et vérifier ses détails après avoir reçu une entrée humaine via le portail web de l’outil de révision.
 
@@ -312,7 +313,7 @@ Ajoutez le code suivant pour créer et poster une révision pour l’URL de l’
 
 ### <a name="get-review-details"></a>Obtenir les informations d’une révision
 
-Utilisez le code suivant pour vérifier les détails d’une révision donnée. Une fois la révision créée, vous pouvez accéder à l’outil de révision vous-même et interagir avec le contenu. Lorsque vous avez terminé, vous pouvez réexécuter ce code et récupérer les résultats du processus de révision.
+Utilisez le code suivant pour vérifier les détails d’une révision donnée. Une fois la révision créée, vous pouvez accéder à l’outil de révision vous-même et interagir avec le contenu. Pour plus d’informations sur la procédure à suivre, consultez le [Guide pratiques sur les révisions du code](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). Lorsque vous avez terminé, vous pouvez réexécuter ce code et récupérer les résultats du processus de révision.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagereview_getdetails)]
 

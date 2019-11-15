@@ -1,5 +1,5 @@
 ---
-title: Récupération accélérée de base de données - Azure SQL Database | Microsoft Docs
+title: Récupération de la base de données accélérée
 description: Azure SQL Database dispose d’une nouvelle fonctionnalité qui permet une récupération de base de données rapide et cohérente, l’annulation de transaction instantanée et la troncation agressive du journal pour les bases de données uniques et les bases de données mises en pool dans Azure SQL Database, et les bases de données dans Azure SQL Data Warehouse.
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: d516dc51a25cbef92ff9fa22012773507b528a99
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: eff81693ff4c34dc00f66e9e5ea22e56d3ff9d77
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569622"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808086"
 ---
 # <a name="accelerated-database-recovery"></a>Récupération de base de données accélérée
 
@@ -99,11 +99,11 @@ Les quatre composants clés de la récupération de base de données accéléré
 
 - **Rétablissement logique**
 
-  Le rétablissement logique est le processus asynchrone responsable de l’exécution des annulations basées sur la version au niveau de la ligne, qui permet l’annulation instantanée des transactions et l’annulation des opérations avec version.
+  Le rétablissement logique est le processus asynchrone responsable de l’exécution des annulations basées sur la version au niveau de la ligne, qui permet l’annulation instantanée des transactions et l’annulation des opérations avec version. La restauration logique s’effectue en :
 
-  - Effectue le suivi des transactions abandonnées
-  - Effectue l’annulation avec le magasin de versions persistantes pour toutes les transactions utilisateur
-  - Libère tous les verrous immédiatement après l’abandon de la transaction
+  - assurant le suivi de toutes les transactions abandonnées et en les marquant comme invisibles pour d’autres transactions ; 
+  - exécutant une restauration par PVS pour toutes les transactions utilisateurs, plutôt que d’analyser physiquement le journal des transactions et d’annuler les modifications une par une ;
+  - libérant tous les verrous juste après l’abandon de la transaction. Étant donné que l’abandon implique simplement le marquage des modifications en mémoire, le processus est très efficace et il n’est pas nécessaire de maintenir longtemps les verrous.
 
 - **sLog**
 

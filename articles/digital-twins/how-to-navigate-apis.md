@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: 5df8bb0ba0323692bddf94ae2888e8fcf1ad24a9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b0c3d72085e008524811f479ccbdeec013e26c4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063265"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822241"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Guide pratique pour utiliser les API de gestion Azure Digital Twins
 
@@ -116,4 +116,4 @@ Pour découvrir quelques modèles de requête d’API courants, consultez [Guide
 
 Pour en savoir plus sur vos points de terminaison d’API, consultez [Comment utiliser Digital Twins Swagger](./how-to-use-swagger.md).
 
-Pour consulter la syntaxe OData et les opérateurs de comparaison disponibles, consultez [Opérateurs de comparaison OData dans Recherche Azure](../search/search-query-odata-comparison-operators.md).
+Pour connaître la syntaxe OData et les opérateurs de comparaison disponibles, voir [Opérateurs de comparaison OData dans la Recherche cognitive Azure](../search/search-query-odata-comparison-operators.md).

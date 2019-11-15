@@ -1,6 +1,6 @@
 ---
 title: Questions fréquentes (FAQ) sur les accélérateurs de solution IoT - Azure | Microsoft Docs
-description: Questions fréquentes (FAQ) sur les accélérateurs de solution IoT
+description: Cet article répond aux questions fréquentes sur les accélérateurs de solution IoT. Il comporte les liens des référentiels GitHub.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b448099dab0e79dca38310396896be46cf2e0ff6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447951"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826255"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Questions fréquentes (FAQ) sur les accélérateurs de solution IoT
 

@@ -1,5 +1,5 @@
 ---
-title: Configurer Azure SQL Database - Base de données unique | Microsoft Docs
+title: Configuration d’une base de données unique
 description: Apprenez à configurer et gérer Azure SQL Database - Base de données unique
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 02/08/2019
-ms.openlocfilehash: 2117a811f977230dd9c9eecf6ea09b9b7deda3be
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568041"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811218"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Utilisation d’une base de données unique dans Azure SQL Database
 

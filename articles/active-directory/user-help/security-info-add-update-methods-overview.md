@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble du changement des méthodes et données relatives aux informations de sécurité (préversion) - Azure Active Directory | Microsoft Docs
-description: Vue d’ensemble montrant comment ajouter, mettre à jour et supprimer les méthodes relatives aux informations de sécurité pour la vérification à deux facteurs et la réinitialisation de mot de passe libre-service.
+title: Vue d’ensemble du changement de vos informations de sécurité (préversion) - Azure AD
+description: Liens vers les articles expliquant comment ajouter, mettre à jour et supprimer les méthodes relatives aux informations de sécurité pour la vérification à deux facteurs et la réinitialisation de mot de passe libre-service.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bcef64c8bf8c2b52e5cc5d954de933d830ba4c1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b781cd30bc5f63199ef9bff45670fa618e2ca17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382891"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803825"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>Vue d’ensemble du changement des méthodes et données relatives aux informations de sécurité (préversion)
 

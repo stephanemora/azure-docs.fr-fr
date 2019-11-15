@@ -1,22 +1,20 @@
 ---
-title: Plan Azure Functions Premium (préversion) | Microsoft Docs
+title: Plan Premium Azure Functions
 description: Détails et options de configuration (VNet, pas de démarrage à froid, durée d’exécution illimitée) pour le plan Azure Functions Premium.
-services: functions
 author: jeffhollan
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8cda3ce85e6e7e9d5d7787406eb3b9785c1f7724
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755413"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719035"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Plan Azure Functions Premium (préversion)
+# <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
 Le plan Azure Functions Premium est une option d’hébergement pour les applications de fonction. Il présente des avantages tels que la connectivité réseau virtuel, l’absence de démarrage à froid et du matériel de pointe.  Plusieurs applications de fonction peuvent être déployées sur le même plan Premium, et celui-ci vous permet de configurer la taille d’instance de calcul, la taille du plan de base et taille maximale de plan.  Pour une comparaison entre le plan Premium et d’autres types de plans et d’hébergements, voir [options de mise à l’échelle et d’hébergement de fonction](functions-scale.md).
 
@@ -59,7 +57,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 Azure Functions déployée sur un plan Premium tire parti de la [nouvelle expérience d’intégration de réseau virtuel pour les applications web](../app-service/web-sites-integrate-with-vnet.md).  Une fois configurée, votre application peut communiquer avec des ressources de votre réseau virtuel ou sécurisées via des points de terminaison de service.  Des restrictions d’adresse IP sont également disponibles sur l’application pour limiter le trafic entrant.
 
-Lors de l’attribution d’un sous-réseau à votre Function App dans un plan Premium, vous avez besoin d’un sous-réseau avec suffisamment d’adresses IP pour chaque instance potentielle. Si le nombre maximal d’instances peut varier pendant la période de préversion, nous avons besoin d’une liste d’adresses IP bloquées comprenant au moins 100 adresses disponibles.
+Lors de l’attribution d’un sous-réseau à votre Function App dans un plan Premium, vous avez besoin d’un sous-réseau avec suffisamment d’adresses IP pour chaque instance potentielle. Nous imposons un bloc d’au moins 100 adresses IP disponibles.
 
 Pour plus d’informations, voir [intégrer votre Function App avec un réseau virtuel](functions-create-vnet.md).
 
@@ -71,11 +69,9 @@ Des instances de calcul supplémentaires sont automatiquement ajoutées pour vot
 
 Azure Functions dans un Plan Consommation est limité à 10 minutes par exécution.  Dans le plan Premium, la durée d’exécution par défaut est de 30 minutes pour éviter tout perte de contrôle. Cependant, vous pouvez [modifier la configuration de host.json](./functions-host-json.md#functiontimeout) afin de rendre son exécution illimitée pour les applications du plan Premium.
 
-En préversion, la durée d’exécution n’est pas garantie au-delà de 12 minutes et aura les meilleures chances de dépasser 30 minutes si votre application n’est pas mise à l’échelle au-delà de son nombre de workers minimal.
-
 ## <a name="plan-and-sku-settings"></a>Paramètres du plan et de la référence SKU
 
-Lorsque vous créez le plan, vous configurez deux paramètres : le nombre minimal d’instances (ou taille du plan) et la limite maximale en rafale.  Le nombre minimal d’instances pour un plan Premium est de 1, et la limite maximale en rafale pendant la période de préversion est de 20.  Les instances minimales sont réservées et toujours opérationnelles.
+Lorsque vous créez le plan, vous configurez deux paramètres : le nombre minimal d’instances (ou taille du plan) et la limite maximale en rafale.  Les instances minimales sont réservées et toujours opérationnelles.
 
 > [!IMPORTANT]
 > Vous êtes facturé pour chaque instance allouée en lien avec le nombre minimal d’instances, que les fonctions s’exécutent ou non.
@@ -102,42 +98,39 @@ Pendant la création ou la mise à l’échelle de votre plan, vous pouvez chois
 
 ## <a name="regions"></a>Régions
 
-Vous trouverez ci-dessous les régions prenant actuellement en charge la préversion publique, pour chaque système d’exploitation.
+Vous trouverez ci-dessous les régions prises en charge actuellement pour chaque système d’exploitation.
 
 |Région| Windows | Linux |
 |--| -- | -- |
-|Australie Centre| ✔* | |
-|Australie Centre 2| ✔* | |
+|Centre de l’Australie| ✔<sup>1</sup> | |
+|Centre de l’Australie 2| ✔<sup>1</sup> | |
 |Australie Est| ✔ | |
-|Australie Sud-est | ✔ | ✔ |
-|Brésil Sud| ✔** |  |
-|Canada Centre| ✔ |  |
+|Sud-Australie Est | ✔ | ✔ |
+|Brésil Sud| ✔<sup>2</sup> |  |
+|Centre du Canada| ✔ |  |
 |USA Centre| ✔ |  |
 |Asie Est| ✔ |  |
 |USA Est | ✔ | ✔ |
 |USA Est 2| ✔ |  |
 |France Centre| ✔ |  |
 |Japon Est| ✔ | ✔ |
-|Japon Ouest| ✔ | |
-|Corée Centre| ✔ |  |
-|USA Centre Nord| ✔ |  |
+|OuJapon Est| ✔ | |
+|Centre de la Corée| ✔ |  |
+|Centre-Nord des États-Unis| ✔ |  |
 |Europe Nord| ✔ | ✔ |
-|USA Centre Sud| ✔ |  |
+|États-Unis - partie centrale méridionale| ✔ |  |
 |Inde Sud | ✔ | |
 |Asie Sud-Est| ✔ | ✔ |
-|Royaume-Uni Sud| ✔ | |
-|Royaume-Uni Ouest| ✔ |  |
+|Sud du Royaume-Uni| ✔ | |
+|Ouest du Royaume-Uni| ✔ |  |
 |Europe Ouest| ✔ | ✔ |
 |Inde Ouest| ✔ |  |
 |USA Ouest| ✔ | ✔ |
+|USA Ouest 2| ✔ |  |
 
-\* Scale-out maximal limité à 20 instances
+<sup>1</sup> Montée en charge (scale out) maximale limitée à 20 instances.  
+<sup>2</sup> Montée en charge (scale out) maximale limitée à 60 instances.
 
-\** Scale-out maximal limité à 60 instances
-
-## <a name="known-issues"></a>Problèmes connus
-
-Vous pouvez suivre l’état des problèmes connus de la [préversion publique sur GitHub](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,17 +1,17 @@
 ---
-title: Ajouter du stockage à Azure HPC Cache (préversion)
+title: Ajouter du stockage à Azure HPC Cache
 description: Comment définir des cibles de stockage pour qu’Azure HPC Cache puisse utiliser votre système NFS local ou des conteneurs d’objets blob Azure dans le but de stocker des fichiers à long terme
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b10692e352007ee2b0fd18543d8ae2ad8f9819dc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72024565"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621470"
 ---
 # <a name="add-storage-targets"></a>Ajouter des cibles de stockage
 
@@ -74,7 +74,7 @@ Vous pouvez le faire à l’avance, ou en cliquant sur le lien de la page à par
 1. Dans le champ **Sélectionner**, recherchez « hpc ».  Cette chaîne doit correspondre au principal de service nommé « HPC Cache Resource Provider ». Cliquez sur ce principal pour le sélectionner.
 
    > [!NOTE]
-   > Si la recherche de « hpc » ne retourne aucun résultat, essayez la chaîne « storagecache » à la place. Les utilisateurs qui se sont inscrits à la préversion dans les tout débuts devront peut-être utiliser l’ancien nom du principal de service.
+   > Si la recherche de « hpc » ne retourne aucun résultat, essayez la chaîne « storagecache » à la place. Les utilisateurs qui se sont inscrits à la préversion (avant la mise à disposition générale) devront peut-être utiliser l’ancien nom du principal de service.
 
 1. Cliquez sur le bouton **Enregistrer** pour ajouter l’attribution de rôle au compte de stockage.
 
@@ -134,3 +134,5 @@ Après avoir créé les cibles de stockage, vous pouvez effectuer l’une des t�
 
 * [Monter le cache Azure HPC Cache](hpc-cache-mount.md)
 * [Déplacer les données dans le stockage d’objets blob Azure](hpc-cache-ingest.md)
+
+Si vous avez besoin de modifier une cible de stockage, lisez [Modifier les cibles de stockage](hpc-cache-edit-storage.md) pour en savoir plus.

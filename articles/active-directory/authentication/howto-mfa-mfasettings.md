@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf732ec97a57a5bc1d2bcaa39e5fd14a305504d0
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 29ea89af780df72b97fef553cf79b84c4b28da05
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075496"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569874"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -114,6 +114,8 @@ Configurez les adresses e-mail ici pour les utilisateurs qui recevront les e-mai
 
 >[!NOTE]
 >Lorsque des appels Multi-Factor Authentication sont transmis sur le réseau téléphonique public, ils sont parfois acheminés par le biais d’un opérateur qui ne prend pas en charge les ID d’appelant. Pour cette raison, l’ID de l’appelant n’est pas garanti, même si le système Multi-Factor Authentication l’envoie toujours.
+
+Aux États-Unis, si vous n’avez pas configuré l’ID de l’appelant MFA, les appels vocaux de Microsoft proviennent des numéros suivants : +1 (866) 539 4191, +1 (855) 330 8653 et +1 (877) 668 6536. Si vous utilisez des filtres de courrier indésirable, veillez à exclure ces numéros.
 
 ### <a name="custom-voice-messages"></a>Messages vocaux personnalisés
 
@@ -296,7 +298,7 @@ Si votre organisation déploie l’extension de serveur NPS pour fournir l’aut
 
 | Type de locataire Azure AD | Options de la fonctionnalité Adresses IP approuvées |
 |:--- |:--- |
-| Adresses IP gérées |**Plage d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise.|
+| Adresses IP gérées |**Plage d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise. Un maximum de 50 plages d’adresses IP approuvées peuvent être configurées.|
 | Adresses IP fédérées |**Tous les utilisateurs fédérés** : tous les utilisateurs fédérés qui se connectent au sein de l’organisation peuvent contourner la vérification en deux étapes. Les utilisateurs contournent la vérification à l’aide d’une revendication émise par les Services de fédération Active Directory (AD FS).<br/>**Plage d’adresses IP spécifiques** : les administrateurs peuvent spécifier une plage d’adresses IP pouvant contourner la vérification en deux étapes des utilisateurs qui se connectent à partir de l’intranet de l’entreprise. |
 
 Le contournement des adresses IP approuvées ne fonctionne que depuis l’intranet de l’entreprise. Si vous sélectionnez l’option **All Federated Users (Tous les utilisateurs fédérés)** et qu’un utilisateur se connecte en dehors de l’intranet de l’entreprise, il doit s’authentifier avec la vérification en deux étapes. Le processus est le même, même si l’utilisateur présente une revendication AD FS. 
@@ -368,8 +370,8 @@ Lorsque vos utilisateurs inscrivent leurs comptes à Multi-Factor Authentication
 |:--- |:--- |
 | Appel vers le téléphone |Passe un appel vocal automatisé. L’utilisateur répond à l’appel et appuie sur la touche # du clavier du téléphone pour s’authentifier. Ce numéro de téléphone n’est pas synchronisé avec Active Directory en local. |
 | Message texte vers le téléphone |Envoie un message texte contenant un code de vérification. L’utilisateur est invité à entrer le code de vérification dans l’interface de connexion. On parle alors « SMS unidirectionnel ». Ce terme signifie que l’utilisateur doit renvoyer par SMS dans un code spécifique. Le SMS bidirectionnel est déconseillé et ne sera plus pris en charge après le 14 novembre 2018. Les utilisateurs qui ont configuré les SMS bidirectionnels passeront automatiquement à la vérification _appel téléphonique_ à ce moment-là.|
-| Notification via une application mobile |Envoie une notification Push sur votre téléphone ou votre appareil inscrit. L’utilisateur consulte la notification et sélectionne **Vérifier** pour terminer la vérification. L’application Microsoft Authenticator est disponible pour [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Code de vérification provenant d’une application mobile ou d’un jeton matériel |L’application Microsoft Authenticator génère un nouveau code de vérification OATH toutes les 30 secondes. L’utilisateur entre ce code de vérification dans l’interface de connexion. L’application Microsoft Authenticator est disponible pour [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Notification via une application mobile |Envoie une notification Push sur votre téléphone ou votre appareil inscrit. L’utilisateur consulte la notification et sélectionne **Vérifier** pour terminer la vérification. L’application Microsoft Authenticator est disponible pour [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Code de vérification provenant d’une application mobile ou d’un jeton matériel |L’application Microsoft Authenticator génère un nouveau code de vérification OATH toutes les 30 secondes. L’utilisateur entre ce code de vérification dans l’interface de connexion. L’application Microsoft Authenticator est disponible pour [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
 ### <a name="enable-and-disable-verification-methods"></a>Activer et désactiver des méthodes de vérification
 
@@ -387,7 +389,7 @@ Vous trouverez plus d’informations sur l’utilisation des méthodes d’authe
 La fonctionnalité _Mémoriser Multi-Factor Authentication_ pour les appareils et navigateurs approuvés par l’utilisateur est gratuite pour tous les utilisateurs de Multi-Factor Authentication. Les utilisateurs peuvent contourner les vérifications suivantes pendant un nombre spécifié de jours, une fois qu’ils se sont connectés à un appareil à l’aide de Multi-Factor Authentication. Cette fonctionnalité améliore le confort d’utilisation en réduisant le nombre d’exécutions de la vérification en deux étapes sur un même appareil.
 
 >[!IMPORTANT]
->Si un appareil ou un compte est compromis, la mémorisation de Multi-Factor Authentication sur des appareils approuvés peut affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [restaurer Multi-Factor Authentication sur tous les appareils](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
+>Si un appareil ou un compte est compromis, la mémorisation de Multi-Factor Authentication sur des appareils approuvés peut affecter la sécurité. En cas de violation d’un compte d’entreprise ou de perte/vol d’un appareil fiable, vous devez [révoquer les sessions MFA](howto-mfa-userdevicesettings.md).
 >
 >L’action de restauration révoque le statut approuvé de tous les appareils et oblige l’utilisateur à procéder de nouveau à la vérification en deux étapes. Vous pouvez également demander à vos utilisateurs de restaurer Multi-Factor Authentication sur leurs propres appareils, en suivant les instructions détaillées dans l’article [Gérer les paramètres de la vérification en deux étapes](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 

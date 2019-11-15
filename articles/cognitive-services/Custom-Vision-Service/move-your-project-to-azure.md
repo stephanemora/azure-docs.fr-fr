@@ -1,7 +1,7 @@
 ---
 title: Déplacer un projet d’évaluation limité vers Azure
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment déplacer un projet d’évaluation limité vers Azure.
+description: Avez-vous un projet d’essai limité dans Custom Vision ? Cet article explique comment le déplacer vers Azure à l’aide d’un script de migration.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 22c3767dfac1e377890f1e01517d18263e694854
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0a2b48a6c046150f6e685ecda0c0d765342e0194
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560925"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818953"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>Comment déplacer votre projet d’évaluation limité vers Azure
 
@@ -46,7 +46,7 @@ Plusieurs projets peuvent être associés à une ressource unique. Plus de déta
 
 ## <a name="find-your-limited-trial-project-information"></a>Trouver des informations sur votre projet d’évaluation limité
 
-Pour déplacer votre projet, vous avez besoin de l’_ID du projet_ et de la _clé de formation_ pour le projet que vous essayez de migrer. Si vous n’avez pas ces informations, visitez [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) pour obtenir l’ID et la clé pour chacun de vos projets. 
+Pour déplacer votre projet, vous avez besoin de l’_ID du projet_ et de la _clé de formation_ pour le projet que vous essayez de migrer. Si vous n’avez pas ces informations, visitez [https://www.customvision.ai/projects](https://www.customvision.ai/projects) pour obtenir l’ID et la clé pour chacun de vos projets. 
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Utilisez l’exemple de code Python pour copier votre projet vers Azure
 

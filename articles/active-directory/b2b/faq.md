@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/10/2019
+ms.date: 11/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2fd72aea9087b03dcd5c6072676e8f98e7cfc1ee
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293073"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816448"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>FAQ sur Azure Active Directory B2B Collaboration
 
@@ -57,15 +57,21 @@ Absolument. Pour plus d’informations, consultez [Ajouter des utilisateurs invi
 À moins que le rôle d’administrateur limité ne leur soit assigné, les utilisateurs de collaboration B2B n’ont pas besoin d’accéder au portail Azure. Toutefois, les utilisateurs de collaboration B2B qui disposent du rôle d’administrateur limité peuvent accéder au portail. En outre, si un utilisateur invité qui ne possède aucun de ces rôles Administrateur accède au portail, il peut être en mesure d’accéder à certaines parties de l’expérience. Le rôle utilisateur invité possède quelques autorisations dans le répertoire.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>Puis-je bloquer l’accès au portail Azure pour les utilisateurs invités ?
-Oui. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
-Pour bloquer l’accès d’un utilisateur invité au [portail Azure](https://portal.azure.com), utilisez une stratégie d’accès conditionnel dans l’API de modèle de déploiement Windows Azure Classic :
-1. Modifiez le groupe **Tous les utilisateurs** pour qu’il contienne uniquement les membres.
-   ![Capture d’écran montrant le groupe Tous les utilisateurs où UserType (Type d’utilisateur) n’est pas égal à Guest (Invité)](media/faq/modify-all-users-group.png)
-2. Créez un groupe dynamique contenant des utilisateurs invités.
-   ![Capture d’écran montrant un nouveau groupe Tous les utilisateurs invités](media/faq/group-with-guest-users.png)
-3. Configurez une stratégie d’accès conditionnel pour empêcher les utilisateurs invités d’accéder au portail, comme le montre la vidéo suivante :
-  
-   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+
+Oui. Vous pouvez créer une stratégie d’accès conditionnel qui empêche tous les utilisateurs invités et externes d’accéder au Portail Azure. Lorsque vous configurez cette stratégie, faites attention à ne pas bloquer accidentellement l’accès aux membres et aux administrateurs.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur de sécurité ou administrateur de l’accès conditionnel.
+2. Dans le portail Azure, sélectionnez **Azure Active Directory**. 
+3. Dans **Gérer**, sélectionnez **Sécurité**.
+4. Sous **Sécurité**, sélectionnez **Accès conditionnel**. Sélectionnez **Nouvelle stratégie**.
+5. Sur la page **Nouveau**, donnez un nom à la stratégie (par exemple, « Empêcher les invités d’accéder au portail ») dans la zone de texte **Nom**.
+6. Sous **Affectations**, sélectionnez **Utilisateurs et groupes**.
+7. Dans l’onglet **Inclure**, choisissez **Sélectionner des utilisateurs et groupes**, puis **Tous les utilisateurs invités et externes (préversion)** .
+9. Sélectionnez **Terminé**.
+10. Sur la page **Nouveau**, sélectionnez **Applications cloud ou actions** dans la section **Affectations**.
+11. Sur la page **Applications cloud ou actions**, choisissez **Sélectionner des applications**, puis **Sélectionner**.
+12. Dans la page **Sélectionner**, choisissez **Gestion Microsoft Azure**, puis **Sélectionner**.
+13. Sur la page **Applications cloud ou actions**, sélectionnez **Terminé**.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B Collaboration prend-il en charge l’authentification multifacteur et les comptes de messagerie grand public ?
 Oui. Les comptes de messagerie grand public et l’authentification multifacteur sont tous deux pris en charge par Azure AD B2B Collaboration.

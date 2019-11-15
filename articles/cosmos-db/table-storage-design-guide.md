@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 499ac3a394339ebb07c36abeaaa761de22927941
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447293"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827772"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de tables de Stockage Azure : concevoir des tables scalables et performantes
 
@@ -204,7 +204,7 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 | **RowKey** (ID d’employé) |Chaîne |
 | **FirstName** |Chaîne |
 | **LastName** |Chaîne |
-| **Age** |Entier |
+| **Age** |Integer |
 | **EmailAddress** |Chaîne |
 
 La section précédente Présentation du service de Table Azure décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. La syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
@@ -531,7 +531,7 @@ Les EGT activent les transactions atomiques de plusieurs entités qui partagent 
 * des entités stockées dans deux partitions différentes de la même table, dans des tables différentes ou dans différents comptes de stockage ;  
 * une entité stockée dans le service de Table et un objet blob stocké dans le service d'objets blob ;  
 * une entité stockée dans le service de Table et un fichier dans un système de fichiers ;  
-* un magasin d'entités du service de Table encore indexé en utilisant le service Azure Search.  
+* une entité stockée dans le service de Table, mais indexée avec le service Recherche cognitive Azure.  
 
 #### <a name="solution"></a>Solution
 À l'aide des files d'attente Azure, vous pouvez implémenter une solution cohérente entre plusieurs partitions ou systèmes de stockage.

@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 49723a80bb198e8151c7e85a90453183068c9d2b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962822"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825899"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 L’option de publication que vous choisissez pour votre offre est directement liée aux conditions d’éligibilité et aux avantages GTM propres à la place de marché. Plus important encore, la sélection de l’option de publication et du type d’offre définit comment les utilisateurs vont interagir avec votre offre sur la place de marché.
@@ -33,7 +34,7 @@ Cet article portera sur les éléments suivants …
 
 Avant de sélectionner une option de publication, il est important de comprendre les conditions d’éligibilité des vitrines pour les solutions, les applications et les services de la place de marché :
 
-Les applications de la **Place de marché Azure** sont des solutions techniques de type « module » créées sur ou pour Azure. Elles sont destinées à un public informatique généraliste ou spécialisé (développeurs). Les services de conseil de la Place de marché Azure sont des offres de services professionnels qui aident les clients à commencer à utiliser Azure ou à l’utiliser plus.
+Les applications de la **Place de marché Azure** sont des solutions techniques de type « module » créées sur ou pour Azure. Elles sont destinées à un public d’informaticiens généralistes ou spécialisés (développeurs). Les services de conseil de la Place de marché Azure sont des offres de services professionnels qui aident les clients à commencer à utiliser Azure ou à l’utiliser plus.
 
 Les applications **AppSource** sont des solutions métier qui peuvent être créées sur Azure ou créées pour : Dynamics 365, Office 365, Power BI ou Power Apps. Les services de conseil AppSource sont des offres de services professionnels qui aident les clients à commencer à utiliser Dynamics 365 et Power BI ou à les utiliser plus.
 
@@ -43,7 +44,7 @@ Les applications **AppSource** sont des solutions métier qui peuvent être cré
 La vitrine où votre offre sera présentée, Place de marché Azure et/ou AppSource, est déterminée automatiquement sur la base des détails et du public ciblé de votre offre, ainsi que des catégories et des secteurs que vous avez choisis lors de la création de votre offre. 
 
 >[!Note]
->« Listes croisées » (pour applications SaaS uniquement) : lorsqu’une offre basée sur un listing ou un essai répond aux critères propres à la fois à un public d’utilisateurs professionnels et à un public technique, l’offre est listée dans les deux vitrines. Découvrez plus en détail les options de publication ci-dessous.
+>« Listes croisées » (pour applications SaaS uniquement) : lorsqu’une offre basée sur un listing ou un essai répond à la fois aux critères d’un public d’utilisateurs professionnels et d’un public technique, l’offre est publiée dans les deux vitrines. Découvrez plus en détail les options de publication ci-dessous.
 
 ## <a name="choose-a-publishing-option"></a>Choisir une option de publication
 
@@ -52,9 +53,9 @@ Les options de publication disponibles offrent un engagement client différenci�
 | **Option de publication**    | **Description**  |
 | :------------------- | :-------------------|
 | **Liste** | Référencement simple de votre application ou service qui permet à un utilisateur de la place de marché de vous demander de le mettre en relation avec le client via l’appel à l’action **Me contacter**. |
-| **Version d’évaluation** | Utilisez la Place de marché pour augmenter la visibilité et automatiser le provisionnement de l’expérience d’essai de votre solution. Vous permettez ainsi à des utilisateurs potentiels d’utiliser votre application dans l’environnement intégré Microsoft, SaaS ou IaaS, gratuitement pendant une période limitée, avant de l’acheter. Les appels à l’action utilisés pour l’option de publication de l’essai sont : **Essai gratuit** et **Test Drive**. |
+| **Version d’évaluation** | Utilisez la place de marché pour augmenter la visibilité et automatiser la configuration de l’expérience d’essai de votre solution. Vous permettez ainsi à des utilisateurs potentiels de découvrir gratuitement votre expérience SaaS, IaaS ou intégrée à Microsoft pendant une période limitée avant de l’acheter. Les appels à l’action utilisés pour l’option de publication de l’essai sont : **Essai gratuit** et **Test Drive**. |
 |**BYOL**  |Utilisez la Place de marché pour améliorer la détectabilité et automatiser l’approvisionnement de votre solution; et pour effectuer la transaction financière séparément. Les types d’offres BYOL sont idéaux pour les migrations site vers cloud. L’appel à l’action est **Obtenir maintenant**.
-| **Transaction** | Votre application s’exécute sur Azure et peut être approvisionnée en tant que ressource directement dans l’abonnement Azure du client lorsque le client sélectionne l’appel à l’action **Obtenir maintenant**. Les frais de licence de votre logiciel peuvent éventuellement être réglés et facturés selon le mode et les conditions de paiement choisis par le client. Vous pouvez aussi proposer un accès à durée limitée à votre **Essai logiciel gratuit** (disponible uniquement sur la Place de marché Azure). |
+| **Transaction** | Votre application s’exécute sur Azure et peut être approvisionnée directement en tant que ressource dans l’abonnement Azure du client lorsque celui-ci sélectionne l’appel à l’action **Obtenir maintenant**. Les frais de licence de votre logiciel peuvent éventuellement être réglés et facturés selon l’instrument et les conditions de paiement choisis par le client. Vous pouvez aussi proposer un accès à durée limitée à votre **Essai logiciel gratuit** (disponible uniquement sur la Place de marché Azure). |
 
 >[!Note]
 >Quand vous utilisez l’option de publication Transaction, il est important de bien comprendre les prix, la tarification, la facturation et le paiement avant de sélectionner un type d’offre et de créer votre offre. Lisez l’[article sur les considérations d’ordre commercial et de facturation de la Place de marché pour en savoir plus](./marketplace-commercial-transaction-capabilities-and-considerations.md).

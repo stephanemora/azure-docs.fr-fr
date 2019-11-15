@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: atsenthi
-ms.openlocfilehash: 6ee7c71a66488e9636752676d68a79fdfaf855cb
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cf808bef75a73cef6e8c17045506f29fabf3b52e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599833"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819440"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
-Un cluster Azure Service Fabric est une ressource que vous possédez. Il vous incombe la responsabilité de sécuriser vos clusters pour empêcher les utilisateurs non autorisés de s’y connecter. La sécurisation des clusters est particulièrement importante lorsque vous exécutez des charges de travail de production sur le cluster. Même s’il est possible d’en créer, les clusters non sécurisés permettent aux utilisateurs anonymes de s’y connecter si les points de terminaison de gestion sont exposés sur l’Internet public. Les clusters non sécurisés ne sont pas gérés pour les charges de travail de production. 
+Un cluster Azure Service Fabric est une ressource que vous possédez. Il vous incombe la responsabilité de sécuriser vos clusters pour empêcher les utilisateurs non autorisés de s’y connecter. La sécurisation des clusters est particulièrement importante lorsque vous exécutez des charges de travail de production sur le cluster. Il est possible de créer des clusters non sécurisés ; cependant, ils permettent aux utilisateurs anonymes de s’y connecter si les points de terminaison de gestion sont exposés sur l’Internet public. Les clusters non sécurisés ne sont pas gérés pour les charges de travail de production. 
 
 Cet article présente des scénarios de sécurité relatifs aux clusters Azure et aux clusters autonomes, ainsi que les différentes technologies que vous pouvez utiliser pour implémenter ces scénarios :
 
@@ -57,7 +57,7 @@ La sécurité client à nœud authentifie les clients et sécurise la communicat
 Les clusters exécutés dans Azure et les clusters autonomes exécutés sur Windows peuvent utiliser la [sécurité par certificat](https://msdn.microsoft.com/library/ff649801.aspx) ou la [sécurité Windows](https://msdn.microsoft.com/library/ff649396.aspx).
 
 ### <a name="client-to-node-certificate-security"></a>Sécurité par certificat de client à nœud
-Pour configurer la sécurité par certificat de type « client à nœud » lors de la création du cluster, vous pouvez utiliser un modèle Azure Resource Manager dans le portail Azure, ou un modèle JSON autonome. Pour créer le certificat, spécifiez un certificat client d’administration ou un certificat client utilisateur. Selon les bonnes pratiques, les certificats client d’administration et client utilisateur que vous spécifiez doivent être différents des certificats principaux et secondaires que vous spécifiez pour la [sécurité de nœud à nœud](#node-to-node-security). Par défaut, les certificats de cluster pour la sécurité de nœud à nœud sont ajoutés à la liste de certificats client d’administration autorisés.
+Pour configurer la sécurité par certificat de type « client à nœud » lors de la création du cluster, vous pouvez utiliser un modèle Azure Resource Manager dans le portail Azure, ou un modèle JSON autonome. Pour créer le certificat, spécifiez un certificat client d’administration ou un certificat client utilisateur. Selon les bonnes pratiques, les certificats client d’administration et client utilisateur que vous spécifiez doivent être différents des certificats principaux et secondaires que vous spécifiez pour la [sécurité de nœud à nœud](#node-to-node-security). Les certificats de cluster ont les mêmes droits que les certificats d’administrateur client. Toutefois, il est conseillé pour des raisons de sécurité que seul le cluster les utilise, et non les utilisateurs administratifs.
 
 Les clients se connectant au cluster avec le certificat d’administration ont un accès complet aux fonctions de gestion. Les clients se connectant au cluster avec le certificat client utilisateur en lecture seule ont uniquement un accès en lecture aux fonctions de gestion. Ces certificats sont utilisés pour le contrôle d’accès en fonction du rôle (RBAC), qui est abordé plus loin dans cet article.
 

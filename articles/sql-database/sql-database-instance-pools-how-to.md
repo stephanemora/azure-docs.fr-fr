@@ -1,5 +1,5 @@
 ---
-title: Guide de procédures des pools d’instances Azure SQL Database (préversion) | Microsoft Docs
+title: Guide pratique des pools d’instances (préversion)
 description: Cet article explique comment créer et gérer des pools d’instances Azure SQL Database (préversion).
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5862a54c92de7395ce42865ae32d453e926048d8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70293783"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810350"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guide de procédures des pools d’instances Azure SQL Database (préversion)
 

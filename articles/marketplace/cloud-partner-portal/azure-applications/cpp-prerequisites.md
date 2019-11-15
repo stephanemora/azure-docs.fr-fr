@@ -4,15 +4,16 @@ description: Conditions préalables à la publication d’une offre Azure Applic
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 64039234a3863332ca19b915fb59a5271625d695
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 261af94e233bdb6189d7819f8f28c7e23b5dd112
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258180"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826143"
 ---
 # <a name="azure-application-prerequisites"></a>Conditions préalables à Azure Application
 
@@ -38,14 +39,14 @@ Pour plus d’informations, consultez [Créer une interface utilisateur de porta
 
 Les exigences de l’entreprise incluent des obligations procédurales, contractuelles et légales suivantes :
 
-* Vous devez être inscrit en tant qu’éditeur de la place de marché Cloud. Si vous n’êtes pas inscrit, suivez les étapes décrites dans l’article [Devenir un éditeur sur la Place de marché dans le cloud](https://docs.microsoft.com/azure/marketplace/become-publisher
+* Vous devez être inscrit en tant qu’éditeur de la place de marché Cloud. Si ce n’est pas le cas, suivez les étapes décrites dans l’article [Devenir un éditeur de la Place de marché Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher
 ).
 
 >[!NOTE]
 >Vous devez utiliser le même compte d’inscription au Centre de développement Microsoft pour vous connecter au Portail Cloud Partner. Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Ce compte ne doit pas être propre à des services ou des offres spécifiques.
 
 * Votre entreprise (ou sa filiale) doit être située dans un pays/une région expéditeur pris en charge par la Place de marché Microsoft Azure. Pour obtenir la liste actuelle de ces pays/régions, consultez les [politiques concernant la participation à la Place de marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
-* Votre produit doit être disponible sous licence d’une manière compatible avec les modèles de facturation pris en charge par la Place de marché Microsoft Azure. Pour plus d’informations, consultez [Options de facturation sur la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+* Votre produit doit être disponible sous licence d’une manière compatible avec les modèles de facturation pris en charge par la Place de marché Azure. Pour plus d’informations, consultez [Options de facturation sur la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
 * Il vous incombe de consentir tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique. Ce support peut être gratuit, payant ou accessible via une communauté.
 * Il vous incombe de gérer les licences de vos logiciels et de toutes les dépendances de logiciels tiers.
 * Vous devez fournir un contenu conforme aux critères définis pour que votre offre soit répertoriée sur la Place de marché Microsoft Azure et sur le portail Azure.

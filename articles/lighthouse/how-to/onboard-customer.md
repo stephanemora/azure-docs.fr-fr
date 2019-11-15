@@ -4,15 +4,15 @@ description: Découvrez comment intégrer un client à la gestion des ressources
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 10/17/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 882afb83aa2a9bad9633df43b29e00b43162bf87
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1d5e9c44fe7669a89c52d2ac14299c2687f11dc5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595660"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827252"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -66,12 +66,9 @@ az account show
 
 ## <a name="define-roles-and-permissions"></a>Définir des rôles et des autorisations
 
-En tant que fournisseur de services, vous souhaitez peut-être utiliser plusieurs offres avec un seul client, ce qui requiert un accès différent pour les différentes étendues.
+En tant que fournisseur de services, vous souhaitez peut-être effectuer plusieurs tâches pour un seul client, ce qui requiert un accès différent pour les différentes étendues. Vous pouvez définir autant d’autorisations que nécessaire pour affecter des [rôles intégrés RBAC (contrôle d’accès basé sur un rôle](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) aux utilisateurs de votre locataire.
 
-Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle, ce qui vous permet d’ajouter ou de supprimer des utilisateurs dans le groupe au lieu d’attribuer directement des autorisations aux utilisateurs. Vous pouvez également attribuer des rôles à un principal de service. Veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail, ce qui contribue à réduire le risque d’erreurs accidentelles. Pour plus d’informations, voir [Pratiques de sécurité recommandées](../concepts/recommended-security-practices.md).
-
-> [!NOTE]
-> Les attributions de rôles doivent utiliser des [rôles intégrés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) de contrôle d’accès en fonction du rôle (RBAC). Tous les rôles intégrés sont actuellement pris en charge avec la gestion des ressources déléguées Azure, à l’exception du propriétaire et des rôles intégrés avec l’autorisation [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions). Le rôle intégré Administrateur de l’accès utilisateur est pris en charge pour une utilisation limitée, comme décrit ci-dessous. Les rôles personnalisés et les [Rôles Administrateur classique de l’abonnement](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) ne sont pas non plus pris en charge.
+Pour faciliter la gestion, nous vous recommandons d’utiliser des groupes d’utilisateurs Azure AD pour chaque rôle, ce qui vous permet d’ajouter ou de supprimer des utilisateurs dans le groupe au lieu d’attribuer directement des autorisations aux utilisateurs. Vous pouvez également attribuer des rôles à un principal de service. Veillez à suivre le principe du privilège minimum afin que les utilisateurs disposent uniquement des autorisations nécessaires pour accomplir leur travail. Pour plus de recommandations et d’informations sur les rôles pris en charge, consultez [Locataires, utilisateurs et rôles dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 Pour définir des autorisations, vous devez connaître les valeurs d’ID pour chaque utilisateur, groupe d’utilisateurs ou principal de service auquel vous souhaitez accorder l’accès. Vous aurez également besoin de l’ID de définition de rôle pour chaque rôle intégré que vous souhaitez attribuer. Si vous ne disposez pas des ces informations, vous pouvez les récupérer de l’une des manières suivantes.
 
@@ -110,6 +107,8 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 # To retrieve role definition IDs
 az role definition list --name "<roleName>" | grep name
 ```
+> [!TIP]
+> Nous vous recommandons d’attribuer le [rôle de suppression de l’affectation d’inscription des services managés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) lors de l’intégration d’un client, afin que les utilisateurs de votre locataire puissent [supprimer l’accès à la délégation](#remove-access-to-a-delegation) ultérieurement si nécessaire. Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Créer un modèle Azure Resource Manager
 
@@ -124,7 +123,7 @@ Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manage
 
 Pour intégrer l’abonnement d’un client, utilisez le modèle Azure Resource Manager approprié que nous fournissons dans nos [exemples de référentiels](https://github.com/Azure/Azure-Lighthouse-samples/), ainsi qu’un fichier de paramètres correspondant que vous modifiez pour qu’il corresponde à votre configuration, puis définissez votre autorisations. Des modèles distincts sont fournis selon que vous intégrez un abonnement entier, un groupe de ressources ou plusieurs groupes de ressources au sein d’un abonnement. Nous fournissons également un modèle qui peut être utilisé pour des clients qui ont acheté une offre de service managé que vous avez publiée sur la Place de marché Azure, si vous préférez intégrer leurs abonnements de cette façon.
 
-|**Pour intégrer ceci**  |**Utiliser ce modèle Azure Resource Manager**  |**Et modifier ce fichier de paramètres** |
+|Pour intégrer ceci  |Utiliser ce modèle Azure Resource Manager  |Et modifier ce fichier de paramètres |
 |---------|---------|---------|
 |Subscription   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
 |Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
@@ -188,15 +187,18 @@ L’exemple suivant montre un fichier **delegatedResourceManagement.parameters.j
     }
 }
 ```
-La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** avec le rôle Administrateur de l’accès utilisateur (18d7d88d-d35e-4fb5-A5C3-7773c20a72d9). Lorsque vous attribuez ce rôle, vous devez inclure la propriété **delegatedRoleDefinitionIds** et un ou plusieurs rôles intégrés. L’utilisateur créé dans cette autorisation sera en mesure d’attribuer ces rôles intégrés à des [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur.
+La dernière autorisation dans l’exemple ci-dessus ajoute un **principalId** avec le rôle Administrateur de l’accès utilisateur (18d7d88d-d35e-4fb5-A5C3-7773c20a72d9). Lorsque vous attribuez ce rôle, vous devez inclure la propriété **delegatedRoleDefinitionIds** et un ou plusieurs rôles intégrés. L’utilisateur créé dans cette autorisation pourra attribuer ces rôles intégrés aux [identités managées](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), ce qui est nécessaire au [déploiement des stratégies pouvant être corrigées](deploy-policy-remediation.md). Aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Déployer les modèles Azure Resource Manager
 
-Une fois que vous avez mis à jour votre fichier de paramètres, le client doit déployer le modèle de gestion des ressources dans le locataire du client en tant que déploiement de niveau abonnement. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer à la gestion des ressources déléguées Azure (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer).
+Une fois que vous avez mis à jour votre fichier de paramètres, le client doit déployer le modèle Azure Resource Manager dans le locataire du client en tant que déploiement de niveau abonnement. Un déploiement distinct est nécessaire pour chaque abonnement que vous souhaitez intégrer à la gestion des ressources déléguées Azure (ou pour chaque abonnement contenant des groupes de ressources que vous souhaitez intégrer).
+
+Comme il s’agit d’un déploiement au niveau de l’abonnement, il ne peut pas être lancé dans le Portail Azure. Le déploiement peut être effectué à l’aide de PowerShell ou d’Azure CLI, comme indiqué ci-dessous.
 
 > [!IMPORTANT]
 > Le déploiement doit être effectué par un compte non invité dans le locataire du client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -248,6 +250,9 @@ Dans le locataire du fournisseur de services :
 2. Sélectionnez **Clients**.
 3. Vérifiez que vous pouvez voir les abonnements portant le nom de l’offre que vous avez fourni dans le modèle Resource Manager.
 
+> [!IMPORTANT]
+> Pour afficher l’abonnement délégué dans [Mes clients](view-manage-customers.md), les utilisateurs du locataire du fournisseur de services doivent avoir reçu le rôle [Lecteur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) (ou un autre rôle intégré qui comprend un accès Lecteur) lorsque l’abonnement a été intégré dans le cadre de la gestion des ressources déléguées Azure.
+
 Dans le locataire du client :
 
 1. Accédez à la [page Fournisseurs de services](view-manage-service-providers.md).
@@ -271,6 +276,70 @@ Get-AzContext
 # Log in first with az login if you're not using Cloud Shell
 
 az account list
+```
+
+## <a name="remove-access-to-a-delegation"></a>Supprimer l’accès à une délégation
+
+Par défaut, un utilisateur résidant dans le locataire du client qui dispose des autorisations appropriées peut supprimer l’accès aux ressources qui ont été déléguées à un fournisseur de services dans la page [Fournisseurs de services](view-manage-service-providers.md#add-or-remove-service-provider-offers) du Portail Azure.
+
+Si vous avez inclus des utilisateurs avec le [rôle Supprimer l’attribution de l’inscription des services managés](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role) lors de l’intégration du client dans le cadre de la gestion des ressources déléguées Azure, ces utilisateurs de votre locataire peuvent également supprimer la délégation. Dans ce cas, aucun utilisateur du locataire du fournisseur de services ne pourra accéder aux ressources précédemment déléguées.
+
+L’exemple ci-dessous montre une affectation octroyant le **rôle Supprimer l’attribution de l’inscription des services managés** pouvant être inclus dans un fichier de paramètres :
+
+```json
+    "authorizations": [ 
+        { 
+            "principalId": "cfa7496e-a619-4a14-a740-85c5ad2063bb", 
+            "principalIdDisplayName": "MSP Operators", 
+            "roleDefinitionId": "91c1777a-f3dc-4fae-b103-61d183457e46" 
+        } 
+    ] 
+```
+
+Un utilisateur disposant de cette autorisation peut supprimer une délégation de l’une des manières suivantes.
+
+### <a name="powershell"></a>PowerShell
+
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if you're not using Cloud Shell
+
+# Sign in as a user from the managing tenant directory 
+
+Login-AzAccount
+
+# Select the subscription that is delegated - or contains the delegated resource group(s)
+
+Select-AzSubscription -SubscriptionName "<subscriptionName>"
+
+# Get the registration assignment
+
+Get-AzManagedServicesAssignment -Scope "/subscriptions/{delegatedSubscriptionId}"
+
+# Delete the registration assignment
+
+Remove-AzManagedServicesAssignment -ResourceId "/subscriptions/{delegatedSubscriptionId}/providers/Microsoft.ManagedServices/registrationAssignments/{assignmentGuid}"
+```
+
+### <a name="azure-cli"></a>D’Azure CLI
+
+```azurecli-interactive
+# Log in first with az login if you're not using Cloud Shell
+
+# Sign in as a user from the managing tenant directory
+
+az login
+
+# Select the subscription that is delegated – or contains the delegated resource group(s)
+
+az account set -s <subscriptionId/name>
+
+# List registration assignments
+
+az managedservices assignment list
+
+# Delete the registration assignment
+
+az managedservices assignment delete –assignment <id or full resourceId>
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

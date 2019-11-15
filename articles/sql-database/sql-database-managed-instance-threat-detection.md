@@ -1,5 +1,5 @@
 ---
-title: Configurer la protection avancée contre les menaces – Instance managée Azure SQL Database | Microsoft Docs
+title: Configurer Advanced Threat Protection – Managed Instance
 description: Advanced Threat Protection détecte les activités de base de données anormales indiquant des menaces de sécurité potentielles pour la base de données dans une instance gérée.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: eb6d8229e85e54a6a3fc8591dc4688a73773fd8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 69292a934af8b8777f11ab58ed3fe306abf8b408
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816577"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822551"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-database-managed-instance"></a>Configurer la protection avancée contre les menaces dans Instance managée Azure SQL Database
 

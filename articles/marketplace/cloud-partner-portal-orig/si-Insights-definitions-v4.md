@@ -4,15 +4,16 @@ description: Contient les définitions de la plupart des termes que vous rencont
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2571f916f6efc61772b2734119e197996e2ffe3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606909"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809106"
 ---
 <a name="seller-insights-definitions"></a>Définitions des insights vendeur
 =======================
@@ -25,10 +26,10 @@ Le tableau suivant contient les définitions de la plupart des termes que vous r
 | **Type de licence Azure : fournisseur de solutions cloud**      | Le client final se procure Azure et votre offre de la Place de marché par le biais de son fournisseur de solutions cloud, qui agit en tant que revendeur.                 |
 | **Type de licence Azure : entreprise**                   | Le client final se procure Azure et votre offre de la Place de marché par le biais d'un contrat Entreprise, signé directement auprès de Microsoft.                  |
 | **Type de licence Azure : entreprise, via un revendeur**  | Le client final se procure Azure et votre offre de la Place de marché par le biais d’un revendeur qui lui propose un contrat Entreprise avec Microsoft.     |
-| **Type de licence Azure : paiement à l’utilisation**                | Le client final se procure Azure et votre offre de la Place de marché par le biais d’un contrat « Paiement à l’utilisation », signé directement auprès de Microsoft.                |
+| **Type de licence Azure : paiement à l’utilisation**                | Le client final se procure Azure et votre offre de la Place de marché dans le cadre d’un contrat « Paiement à l’utilisation », signé directement avec Microsoft.                |
 | **Montant des frais (DC)**                              | Montant facturé au client, dans la devise de facturation du client (*devise client*, DC).                                                                 |
 | **Montant des frais (DE)**                               | Montant facturé au client, dans la *devise de paiement* (DE).                                                                      |
-| **Date de facturation**                                      | Date à laquelle les frais imputables au client ont été calculés, généralement juste après la période d’utilisation.                                             |
+| **Date de facturation**                                      | Date à laquelle les frais imputables au client ont été calculés (généralement juste après la période d’utilisation).                                             |
 | **Nom de l’instance cloud**                              | Instance de Microsoft Cloud sur laquelle des machines virtuelles ont été déployées.                                   |
 | **Nom de l’instance cloud : Azure Global**                | Cloud public global de Microsoft.                           |
 | **Nom de l’instance cloud : Azure Government**        | Clouds de Microsoft réservés aux gouvernements suivants : Chine, Allemagne ou États-Unis d’Amérique.                           |
@@ -48,12 +49,12 @@ Le tableau suivant contient les définitions de la plupart des termes que vous r
 | **État du client**                                   | État (adresse) fourni par le client.  Il peut être différent de l’État associé à l’abonnement Azure du client.                                                                 |
 | **Date d’acquisition**                                    | Date à laquelle le client a acheté pour la première fois une offre que vous avez publiée.                 |
 | **Date d’annulation**                                        | Date à laquelle le client a annulé la dernière des offres achetées précédemment.                                                         |
-| **Estimation des frais d’extension (DC)**                   | Estimation des frais d'extension relatifs à la quantité d’unités d’utilisation pour une référence SKU donnée (dans la devise du client). Cette valeur peut ne pas être exacte pour cause d’erreurs d’arrondi ou de troncation.                            |
-| **Estimation des frais d’extension (DE)**                   | Estimation des frais d’extension relatifs à la quantité d’unités d’utilisation pour une référence SKU donnée en fonction du taux de change des devises à la date de calcul de l’utilisation (dans la devise de l’éditeur). Cette valeur peut ne pas être exacte pour cause d’erreurs d’arrondi ou de troncation.                  |
-| **Paiement estimé (DE)**                            | Estimation du paiement relatif à la quantité d’unités d’utilisation pour une référence SKU donnée en fonction du taux de change des devises à la date de calcul de l’utilisation (dans la devise de l’éditeur). Cette valeur peut ne pas être exacte pour cause d’erreurs d’arrondi ou de troncation.                        |
-| **Prix estimé (DE)**                             | Estimation du prix d’une unité d’utilisation pour une référence SKU donnée en fonction du taux de change des devises à la date de calcul de l’utilisation (dans la devise de l’éditeur). Cette valeur peut ne pas être exacte pour cause d’erreurs d’arrondi ou de troncation.                                             |
-| **Nouveau client**                                  | La valeur vous permet de savoir s’il s’agit d’un nouveau client qui consomme ou achète une ou plusieurs de vos offres sur la Place de marché pour la première fois (ou pas).  La valeur est « Oui » si le mois calendaire correspond avec la date d’acquisition.  La valeur est « Non » si le client a acheté une de vos offres avant le mois calendaire signalé.                                                       |
-| **Référence SKU en préversion**                                  | La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée en conséquence, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image.  La valeur est « Non » si la référence SKU n’a pas été identifié comme « préversion ».                                          |
+| **Estimation des frais d’extension (DC)**                   | Estimation des frais d’extension relatifs à la quantité d’unités d’utilisation pour une référence SKU donnée (dans la devise du client). Cette valeur peut ne pas être exacte pour cause d’erreurs d’arrondi ou de troncation.                            |
+| **Estimation des frais d’extension (DE)**                   | Estimation des frais d’extension relatifs à la quantité d’unités d’utilisation pour une référence SKU donnée en fonction du taux de change à la date de calcul de l’utilisation (dans la devise de l’éditeur). Cette valeur peut ne pas être exacte pour cause d’erreurs d’arrondi ou de troncation.                  |
+| **Paiement estimé (DE)**                            | Estimation du paiement relatif à la quantité d’unités d’utilisation pour une référence SKU donnée en fonction du taux de change à la date de calcul de l’utilisation (dans la devise de l’éditeur). Cette valeur peut ne pas être exacte pour cause d’erreurs d’arrondi ou de troncation.                        |
+| **Prix estimé (DE)**                             | Estimation du prix d’une unité d’utilisation pour une référence SKU donnée en fonction du taux de change à la date de calcul de l’utilisation (dans la devise de l’éditeur). Cette valeur peut ne pas être exacte pour cause d’erreurs d’arrondi ou de troncation.                                             |
+| **Nouveau client**                                  | La valeur vous permet de savoir s’il s’agit d’un nouveau client qui consomme ou achète une ou plusieurs de vos offres sur la Place de marché pour la première fois (ou pas).  La valeur est « Oui » si le mois civil est celui de la date d’acquisition.  La valeur est « Non » si le client a acheté une de vos offres avant le mois civil signalé.                                                       |
+| **Référence SKU en préversion**                                  | La valeur indique si vous avez étiqueté la référence SKU en tant que « préversion ». La valeur est « Oui » si la référence SKU a été étiquetée ainsi, et seuls les abonnements Azure que vous avez autorisés peuvent déployer et utiliser cette image.  La valeur est « Non » si la référence SKU n’a pas été identifiée comme « préversion ».                                          |
 | **Acceptation des messages promotionnels**                   | La valeur indique si le client a accepté les messages promotionnels provenant d’éditeurs de manière proactive. À ce stade, nous n'offrons pas cette possibilité aux clients. Par conséquent, nous avons indiqué « Non » sur le tableau. Une mise à jour interviendra lorsque cette fonctionnalité sera déployée.                                          |
 | **Type de licence de la Place de marché**                         | Mode de facturation de l’offre de la Place de marché.                             |
 | **Type de licence de la Place de marché : facturé via Azure**   | Pour cette offre de la Place de marché, Microsoft est votre agent et facture les clients de votre part. (Carte de crédit avec paiement à l’utilisation ou facture d’entreprise)       |
@@ -99,7 +100,7 @@ Le tableau suivant contient les définitions de la plupart des termes que vous r
 | **Référence d’utilisation**                                       | Identificateur correspondant à un ou plusieurs jours d’utilisation client pour une référence SKU associée à une entrée du rapport de paiement.                                               |
 | **Type d'utilisation**                                       | Description de l’utilisation mesurée. (Utilisation normalisée ou Utilisation brute)                                                              |
 | **Type d’utilisation : utilisation normalisée**                | Heures d’utilisation normalisées afin de prendre en compte le nombre de cœurs de machines virtuelles impliqués dans l’utilisation : [nombre de cœurs de machines virtuelles] x [heures d’utilisation brutes]. Les machines virtuelles désignées sous le nom de « SHAREDCORE » utilisent 1/6 (ou 0,1666) comme multiplicateur [nombre de cœurs de machines virtuelles].                                        |
-| **Type d’utilisation : utilisation brute**                        | Heures d’utilisation de votre offre de la Place de marché.  Cette valeur est présentée en heures « calendaires ».  Il s’agit du nombre d’exécutions des machines virtuelles.                           |
+| **Type d’utilisation : utilisation brute**                        | Heures d’utilisation de votre offre de la Place de marché.  Cette valeur est présentée en heures « civiles ».  Il s’agit du nombre d’exécutions des machines virtuelles.                           |
 | **Unités d’utilisation**                                   | Unité de mesure de l’utilisation mentionnée. Les machines virtuelles sont toujours mesurées à l'aide d’unités horaires.                               |
 | **Taille de la machine virtuelle**                                       | Représente la taille du matériel de la machine virtuelle associée à l’offre Azure. Exemples : `Basic_A0`, `Standard_A11`, `Standard_D12`, et `Standard_G4`.   |
 |  |  |

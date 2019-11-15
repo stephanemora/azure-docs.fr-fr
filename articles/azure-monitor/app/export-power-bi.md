@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677311"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668005"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](https://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -88,8 +88,10 @@ Vous pouvez rencontrer des erreurs liées aux informations d’identification ou
 ### <a name="unauthorized-401-or-403"></a>Non autorisé (401 ou 403)
 Cela peut se produire si votre jeton d’actualisation n’a pas été mis à jour. Essayez les opérations suivantes pour vérifier que vous avez toujours accès :
 
-1. Connectez-vous au portail Azure et vérifiez que vous avez accès à la ressource.
+1. Connectez-vous au Portail Azure et vérifiez que vous avez accès à la ressource.
 2. Essayez d’actualiser les informations d’identification du tableau de bord.
+3. Essayez d’effacer le cache de votre bureau PowerBI.
+
 
    Si vous avez accès et que l’actualisation des informations d’identification échoue, ouvrez un ticket de support.
 

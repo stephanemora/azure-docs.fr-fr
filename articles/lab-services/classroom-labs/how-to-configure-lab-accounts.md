@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: spelluru
-ms.openlocfilehash: ba469c038f04a31a57e798b97b5120bec573feae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9faf7de25b8bf227dd4c7f3588972f98f7493439
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65414036"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583948"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Configurer des comptes de laboratoire dans Azure Lab Services 
 Dans Azure Lab Services, un compte de laboratoire est un conteneur pour les types de laboratoires gérés tels que les laboratoires de classe. Un administrateur configure un compte de laboratoire avec Azure Lab Services et fournit l’accès à tous les propriétaires de laboratoire qui peuvent alors créer des laboratoires dans leur compte. Cet article explique comment créer un compte de laboratoire, voir tous les comptes de laboratoire et supprimer un compte de laboratoire.
@@ -76,6 +76,9 @@ Pour donner aux formateurs l’autorisation de créer des laboratoires pour leur
 
     ![Ajouter un créateur lab](../media/tutorial-setup-lab-account/add-lab-creator.png)
 
+    > [!NOTE]
+    > Si vous ajoutez un utilisateur de compte non Microsoft en tant que créateur de laboratoire, consultez la section [Ajouter un utilisateur de compte non Microsoft en tant que créateur de laboratoire](#add-a-non-microsoft-account-user-as-a-lab-creator). 
+
 ## <a name="specify-marketplace-images-available-to-lab-creators"></a>Spécifier les images de la Place de marché accessibles aux créateurs lab
 En tant que propriétaire d’un compte de laboratoire, vous pouvez spécifier les images de la place de marché que les créateurs de laboratoire peuvent utiliser pour créer des laboratoires dans le compte de laboratoire. 
 
@@ -99,7 +102,36 @@ En tant que propriétaire d’un compte de laboratoire, vous pouvez spécifier l
     1. Sélectionnez **... (points de suspension)** dans la dernière colonne, puis sélectionnez **Enable image (Désactiver l’image)** . 
     2. Sélectionnez une ou plusieurs images dans la liste en cochant la case à côté du nom de l’image, puis sélectionnez **Disable selected images (Désactiver les images sélectionnées)** . 
 
+## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Ajouter un utilisateur de compte non Microsoft en tant que créateur de laboratoire
+Pour ajouter un utilisateur en tant que créateur de laboratoire, utilisez ses comptes de messagerie. Les types de comptes de messagerie suivants peuvent être utilisés :
 
+- Un compte de messagerie fourni par l’Office 365 Azure Active Directory (AAD) de votre université. 
+- Un compte de messagerie Microsoft, tel que `@outlook.com`, `@hotmail.com`, `@msn.com` ou `@live.com`.
+- Un compte de messagerie non Microsoft, tel qu’un compte fourni par Yahoo ou Google. Cependant, ces types de comptes doivent être liés à un compte Microsoft.
+- Un compte GitHub. Ce compte doit être lié à un compte Microsoft.
+
+### <a name="using-a-non-microsoft-email-account"></a>Utiliser un compte de messagerie non Microsoft
+Les créateurs de laboratoire et formateurs peuvent utiliser des comptes de messagerie non Microsoft pour s’inscrire et se connecter à un labo de classe.  Toutefois, la connexion au portail Lab Services nécessite que les formateurs créent d’abord un compte Microsoft lié à leur adresse e-mail non Microsoft.
+
+De nombreux formateurs ont peut-être déjà un compte Microsoft lié à leurs adresses e-mail non Microsoft. Par exemple, les formateurs ont déjà un compte Microsoft s’ils ont utilisé leur adresse e-mail avec d’autres produits ou services Microsoft, tels que Office, Skype, OneDrive ou Windows.  
+
+Lorsque les formateurs se connectent au portail Lab Services, ils sont invités à entrer leur adresse e-mail et leur mot de passe. Si le formateur tente de se connecter avec un compte non Microsoft qui n’a pas de compte Microsoft lié, le message d’erreur suivant s’affiche : 
+
+![Message d’erreur](../media/how-to-configure-student-usage/cant-find-account.png)
+
+Pour s’inscrire à un compte Microsoft, les formateurs doivent accéder à la page [http://signup.live.com](http://signup.live.com).  
+
+
+### <a name="using-a-github-account"></a>Utiliser un compte GitHub
+Les formateurs peuvent également utiliser un compte GitHub existant pour s’inscrire et se connecter à un labo de classe. Si le formateur a déjà un compte Microsoft lié à son compte GitHub, il peut se connecter et fournir son mot de passe, comme indiqué dans la section précédente. S’il n’a pas encore lié son compte GitHub à un compte Microsoft, il doit sélectionner **Options de connexion** :
+
+![Lien Options de connexion](../media/how-to-configure-student-usage/signin-options.png)
+
+Dans la page **Options de connexion**, sélectionnez **Se connecter avec GitHub**.
+
+![Lien Se connecter avec GitHub](../media/how-to-configure-student-usage/signin-github.png)
+
+Enfin, il est invité à créer un compte Microsoft qui est lié à son compte GitHub. Cela se produit automatiquement lorsque le formateur sélectionne **Suivant**.  Le formateur est alors immédiatement inscrit et connecté au labo de classe.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

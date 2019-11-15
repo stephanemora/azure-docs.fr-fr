@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 0e4daaa3417ce349111fbc811be36a4615058c76
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c20fc2142718d3cc49d4b80c6a5e22e26a350335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791720"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824861"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité pour NFS sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -94,7 +94,7 @@ Le serveur NFS utilise un nom d’hôte virtuel dédié et des adresses IP virtu
 * Port de la sonde
   * Port 61000 pour NW1
   * Port 61001 pour NW2
-* Règles d’équilibrage de charge
+* Règles d’équilibrage de charge (si vous utilisez l’équilibrage de charge de base)
   * TCP 2049 pour NW1
   * UDP 2049 pour NW1
   * TCP 2049 pour NW2
@@ -114,7 +114,7 @@ Vous pouvez utiliser l’un des modèles de démarrage rapide disponibles sur Gi
    1. Préfixe de ressource  
       Entrez le préfixe à utiliser. Cette valeur sera utilisée comme préfixe pour les ressources déployées.
    2. Nombre de systèmes SAP  
-      Entrez le nombre de systèmes qui utiliseront ce serveur de fichiers. Cette action déploie la quantité requise de configurations de serveurs frontaux, de règles d’équilibrage de charge, de ports de sondage, de disques, etc.
+      Entrez le nombre de systèmes qui utiliseront ce serveur de fichiers. Cette action a pour effet de déployer la quantité requise de configurations frontales, de règles d’équilibrage de charge, de ports de sondage, de disques, etc.
    3. Type de système d’exploitation  
       Sélectionnez l’une des distributions Linux. Dans cet exemple, sélectionnez SLES 12.
    4. Nom d’utilisateur et mot de passe d’administrateur  
@@ -136,48 +136,88 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster NFS. Pa
    SLES For SAP Applications 12 SP3 (BYOS) est utilisé  
    Sélectionner le groupe à haute disponibilité créé précédemment  
 1. Ajouter un disque de données pour chaque système SAP sur les deux machines virtuelles
-1. Créer un équilibrage de charge (interne)  
-   1. Créer les adresses IP de serveurs frontaux
-      1. Adresse IP 10.0.0.4 pour NW1
-         1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
-         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple **nw1-frontend**)
-         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.4**)
-         1. Cliquez sur OK
-      1. Adresse IP 10.0.0.5 pour NW2
-         * Répéter les étapes ci-dessus pour NW2
-   1. Créer les pools principaux
-      1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW1
-         1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
-         1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
-         1. Cliquer sur Ajouter une machine virtuelle
-         1. Sélectionner le groupe à haute disponibilité créé précédemment
-         1. Sélectionner les machines virtuelles du cluster NFS
-         1. Cliquez sur OK
-      1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW2
-         * Répéter les étapes ci-dessus pour créer un pool principal pour NW2
-   1. Créer les sondes d’intégrité
-      1. Port 61000 pour NW1
-         1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple **nw1-hp**)
-         1. Sélectionner le protocole TCP et le port 610**00**, et conserver un intervalle de 5 et un seuil de défaillance de 2
-         1. Cliquez sur OK
-      1. Port 61001 pour NW2
-         * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour NW2
-   1. Règles d’équilibrage de charge
-      1. TCP 2049 pour NW1
-         1. Ouvrir l’équilibrage de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
-         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-2049**)
-         1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-frontend**)
-         1. Conserver le protocole **TCP** et choisir le port **2049**
+1. Créez un équilibreur de charge (interne). Nous vous recommandons [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+   1. Suivez ces instructions pour créer un équilibreur Standard Load Balancer :
+      1. Créer les adresses IP de serveurs frontaux
+         1. Adresse IP 10.0.0.4 pour NW1
+            1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
+            1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple **nw1-frontend**)
+            1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.4**)
+            1. Cliquez sur OK
+         1. Adresse IP 10.0.0.5 pour NW2
+            * Répéter les étapes ci-dessus pour NW2
+      1. Créer les pools principaux
+         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW1
+            1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
+            1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
+            1. Sélectionnez Réseau virtuel.
+            1. Cliquer sur Ajouter une machine virtuelle
+            1. Sélectionnez les machines virtuelles du cluster NFS et leurs adresses IP.
+            1. Cliquez sur Ajouter.
+         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW2
+            * Répéter les étapes ci-dessus pour créer un pool principal pour NW2
+      1. Créer les sondes d’intégrité
+         1. Port 61000 pour NW1
+            1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
+            1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple **nw1-hp**)
+            1. Sélectionner le protocole TCP et le port 610**00**, et conserver un intervalle de 5 et un seuil de défaillance de 2
+            1. Cliquez sur OK
+         1. Port 61001 pour NW2
+            * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour NW2
+      1. Règles d’équilibrage de charge
+         1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
+         1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **nw1-lb**).
+         1. Sélectionner l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple, **nw1-frontend**, **nw1-backend** et **nw1-hp**).
+         1. Sélectionnez **Ports HA**.
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
          1. Cliquez sur OK
-      1. UDP 2049 pour NW1
-         * Répéter les étapes ci-dessus pour les ports 2049 et UDP pour NW1
-      1. TCP 2049 pour NW2
-         * Répéter les étapes ci-dessus pour les ports 2049 et TCP pour NW2
-      1. UDP 2049 pour NW2
-         * Répéter les étapes ci-dessus pour les ports 2049 et UDP pour NW2
+         * Répétez les étapes ci-dessus afin de créer une règle d’équilibrage de charge pour NW2.
+   1. Si à l’inverse votre scénario exige l’équilibrage de charge de base, suivez ces instructions :
+      1. Créer les adresses IP de serveurs frontaux
+         1. Adresse IP 10.0.0.4 pour NW1
+            1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
+            1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple **nw1-frontend**)
+            1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.4**)
+            1. Cliquez sur OK
+         1. Adresse IP 10.0.0.5 pour NW2
+            * Répéter les étapes ci-dessus pour NW2
+      1. Créer les pools principaux
+         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW1
+            1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
+            1. Entrer le nom du nouveau pool principal (par exemple **nw1-backend**)
+            1. Cliquer sur Ajouter une machine virtuelle
+            1. Sélectionner le groupe à haute disponibilité créé précédemment
+            1. Sélectionner les machines virtuelles du cluster NFS
+            1. Cliquez sur OK
+         1. Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster NFS pour NW2
+            * Répéter les étapes ci-dessus pour créer un pool principal pour NW2
+      1. Créer les sondes d’intégrité
+         1. Port 61000 pour NW1
+            1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
+            1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple **nw1-hp**)
+            1. Sélectionner le protocole TCP et le port 610**00**, et conserver un intervalle de 5 et un seuil de défaillance de 2
+            1. Cliquez sur OK
+         1. Port 61001 pour NW2
+            * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour NW2
+      1. Règles d’équilibrage de charge
+         1. TCP 2049 pour NW1
+            1. Ouvrir l’équilibrage de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
+            1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-2049**)
+            1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-frontend**)
+            1. Conserver le protocole **TCP** et choisir le port **2049**
+            1. Augmenter le délai d’inactivité à 30 minutes
+            1. **Veiller à activer IP flottante**
+            1. Cliquez sur OK
+         1. UDP 2049 pour NW1
+            * Répéter les étapes ci-dessus pour les ports 2049 et UDP pour NW1
+         1. TCP 2049 pour NW2
+            * Répéter les étapes ci-dessus pour les ports 2049 et TCP pour NW2
+         1. UDP 2049 pour NW2
+            * Répéter les étapes ci-dessus pour les ports 2049 et UDP pour NW2
+
+> [!Note]
+> Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
 > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
@@ -438,7 +478,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
    > [!IMPORTANT]
    > Des tests récents ont révélé des cas où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à ne gérer qu’une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
-   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions fournies dans [Renforcement de la détection dans Azure Load-Balancer](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessitera un bref temps d’arrêt.  
+   > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions de la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessitera un bref temps d’arrêt.  
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 

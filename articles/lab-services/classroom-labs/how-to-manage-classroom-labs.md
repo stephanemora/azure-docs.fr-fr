@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 85a3a9f7afac8250b225d42462f6b29042e34a2a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330457"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606344"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
@@ -28,9 +28,9 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
 
-1. Accédez au [site web Azure Lab Services](https://labs.azure.com). Notez qu’Internet Explorer 11 n’est pas encore pris en charge. 
+1. Accédez au [site web Azure Lab Services](https://labs.azure.com). Internet Explorer 11 n’est pas encore pris en charge. 
 2. Sélectionnez **Se connecter** et entrez vos informations d’identification. Sélectionnez ou entrez un **ID utilisateur** qui est un membre du rôle **Créateur de laboratoire** dans le compte de laboratoire, puis entrez un mot de passe. Azure Lab Services prend en charge les comptes professionnels et les comptes Microsoft. 
-3. Sélectionnez **New Lab** (Nouveau laboratoire). 
+3. Sélectionnez **Nouveau labo**. 
     
     ![Créer un laboratoire de classe](../media/tutorial-setup-classroom-lab/new-lab-button.png)
 3. Dans la fenêtre **New Lab** (Nouveau laboratoire), effectuez les actions suivantes : 
@@ -76,19 +76,19 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     > Une fois que vous publiez, vous ne pouvez pas annuler la publication. 
 8. Dans la page **Publier le modèle**, entrez le nombre de machines virtuelles que vous souhaitez créer dans le labo, puis sélectionnez **Publier**. 
 
-    ![Publier le modèle - Nombre de machines virtuelles](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
-11. Vous pouvez voir **l’état de publication** du modèle sur la page. Ce processus peut prendre jusqu’à une heure. 
+    ![Publier le modèle - nombre de machines virtuelles](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+11. Vous pouvez voir l’**état de publication** du modèle sur la page. Ce processus peut prendre jusqu’à une heure. 
 
     ![Publier un modèle - progression](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-4. Passez à la page **Pool de machines virtuelles** en sélectionnant Machines virtuelles dans le menu de gauche, ou en sélectionnant la vignette Machines virtuelles. Vérifiez que des machines virtuelles se trouvent à l’état **Non affectée**. Ces machines virtuelles ne sont pas encore affectées aux étudiants. Elles doivent être à l’état **Arrêtée**. Vous pouvez démarrer la machine virtuelle d’un étudiant, vous y connecter, l’arrêter et la supprimer dans cette page. Vous pouvez démarrer les machines virtuelles dans cette page ou laisser les étudiants le faire. 
+4. Passez à la page **Pool de machines virtuelles** en sélectionnant Machines virtuelles dans le menu de gauche ou en sélectionnant la vignette Machines virtuelles. Vérifiez que des machines virtuelles se trouvent à l’état **Non affectée**. Ces machines virtuelles ne sont pas encore affectées aux étudiants. Elles doivent être à l’état **Arrêtée**. Vous pouvez démarrer la machine virtuelle d’un étudiant, vous y connecter, l’arrêter et la supprimer dans cette page. Vous pouvez démarrer les machines virtuelles dans cette page ou laisser les étudiants le faire. 
 
     ![Machines virtuelles à l’état Arrêtée](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
-    Vous effectuez les tâches suivantes sur cette page (Ne suivez pas ces étapes pour le didacticiel. Ces liens sont uniquement fournis à titre informatif.) : 
+    Vous effectuerez les tâches suivantes dans cette page, mais pas dans le cadre de ce tutoriel. Elles sont fournies ici à titre indicatif uniquement : 
     
-    1. Pour modifier la capacité du labo (nombre de machines virtuelles dans le labo), sélectionnez **Capacité du labo** dans la barre d’outils.
+    1. Pour changer la capacité du labo (nombre de machines virtuelles dans le labo), sélectionnez **Capacité du labo** dans la barre d’outils.
     2. Pour démarrer toutes les machines virtuelles en même temps, sélectionnez **Démarrer tout** dans la barre d’outils. 
-    3. Pour démarrer une machine virtuelle spécifique, sélectionnez la flèche vers le bas dans **État**, puis sélectionnez **Démarrer**. Vous pouvez également démarrer une machine virtuelle en sélectionnant une machine virtuelle dans la première colonne, puis en sélectionnant **Démarrer** dans la barre d’outils.                
+    3. Pour démarrer une machine virtuelle spécifique, sélectionnez la flèche vers le bas sous **État**, puis sélectionnez **Démarrer**. Vous pouvez également démarrer une machine virtuelle en sélectionnant une machine virtuelle dans la première colonne, puis en sélectionnant **Démarrer** dans la barre d’outils.                
 
 ### <a name="vm-sizes"></a>Tailles de machine virtuelle  
 
@@ -123,6 +123,10 @@ Pour passer d'un laboratoire de classe à un autre, sélectionnez la liste déro
 
 Vous pouvez également créer un labo à l’aide de **Nouveau labo** dans cette liste déroulante. 
 
+> [!NOTE]
+> Vous pouvez également utiliser le module PowerShell Az.LabServices (préversion) pour gérer les laboratoires. Pour plus d’informations, consultez la [page d’accueil Az.LabServices sur GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+
+Pour basculer vers un autre compte Lab, sélectionnez la liste déroulante en regard du compte lab et sélectionnez l’autre compte lab. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les articles suivants :
