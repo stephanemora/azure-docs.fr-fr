@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 75b2c08ab02ef41ee4d196d8f81c633aeb46a14e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2cda2c4e640c48d712ea5ebc8534cf5a4e35da7a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390052"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620546"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -50,7 +50,7 @@ RAM | 16 Go
 Nombre de disques | 3 disques<br/><br/> Les disques comprennent le disque du système d’exploitation, le disque de cache du serveur de traitement et le lecteur de rétention pour la restauration automatique.
 Espace disque libre | 600 Go d’espace pour le cache du serveur de processus.
 Espace disque libre | 600 Go d’espace pour le lecteur de rétention.
-Système d’exploitation  | Windows Server 2012 R2 ou Windows Server 2016 avec l’Expérience utilisateur |
+Système d’exploitation  | Windows Server 2012 R2 ou Windows Server 2016 avec l’Expérience utilisateur <br/><br> Si vous envisagez d’utiliser le serveur cible maître intégré de cet appareil pour la restauration automatique, vérifiez que la version du système d’exploitation est identique ou supérieure à celle des éléments répliqués.|
 Paramètres régionaux du système d’exploitation | Anglais (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Non nécessaire pour le serveur de configuration version [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) ou ultérieure. 
 Rôles Windows Server | N’activez pas Active Directory Domain Services, Internet Information Services (IIS) ou Hyper-V 
@@ -76,16 +76,15 @@ Windows Server 2008 avec SP2 ou version ultérieure (64 bits/32 bits) |  Pris
 Windows 10, Windows 8.1, Windows 8 | Pris en charge.
 Windows 7 avec SP1 64 bits | Pris en charge à partir du [Correctif cumulatif 36](https://support.microsoft.com/help/4503156) (version 9.22 de Mobility Service). </br></br> À partir de la version 9.30.x.x (version attendue à partir de novembre 2019) de l’agent Mobility Service, vous devez installer la [mise à jour de la pile de maintenance (SSU)](https://support.microsoft.com/help/4490628) et la [mise à jour SHA-2](https://support.microsoft.com/help/4474419) sur les ordinateurs Windows 7 SP1.  SHA-1 n’est pas pris en charge à partir de septembre 2019, et si la signature de code SHA-2 n’est pas activée, l’extension de l’agent ne sera pas installée/mise à niveau comme prévu. En savoir plus sur la [mise à niveau et la configuration requise pour SHA-2](https://aka.ms/SHA-2KB).
 Linux | Seul le système 64 bits est pris en charge. Le système 32 bits n’est pas pris en charge.<br/><br/>Les [composants Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) doivent être installés sur chaque serveur Linux. Il sont nécessaires pour démarrer le serveur dans Azure après le test de basculement et le basculement. Si les [composants](https://www.microsoft.com/download/details.aspx?id=55106) LIS sont manquants, veillez à les installer avant d’activer la réplication pour les machines à démarrer dans Azure. <br/><br/> Site Recovery orchestre le basculement pour exécuter des serveurs Linux dans Azure. Toutefois, les fournisseurs Linux peuvent limiter la prise en charge aux versions de distribution qui n’ont pas atteint leur fin de vie.<br/><br/> Dans les distributions Linux, seuls les noyaux de stockage qui font partie de la version/mise à jour mineure de distribution sont pris en charge.<br/><br/> La mise à niveau des machines protégées sur des versions de distribution majeures Linux n’est pas prise en charge. Pour effectuer la mettre à niveau, désactivez la réplication, mettez à niveau le système d’exploitation, puis réactivez la réplication.<br/><br/> [Apprenez-en davantage](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sur la prise en charge des technologies Linux et open source dans Azure.
-Red Hat Enterprise Linux | 5.2 à 5.11</b><br/> 6.1 à 6.10</b><br/> 7.0 à 7.6<br/> <br/> Les [composants Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) ne sont pas préinstallés sur les serveurs exécutant Red Hat Enterprise Linux 5.2 à 5.11 et 6.1-6.10. Veillez à installer les [composants](https://www.microsoft.com/download/details.aspx?id=55106) avant d’activer la réplication pour les machines à démarrer dans Azure.
+Red Hat Enterprise Linux | 5.2 à 5.11</b><br/> 6.1 à 6.10</b><br/> 7.0 à 7.7. </br>La version 7.7 est prise en charge à partir de la [version 9.29 de l’agent de mobilité](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery)<br/> <br/> Les [composants Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) ne sont pas préinstallés sur les serveurs exécutant Red Hat Enterprise Linux 5.2 à 5.11 et 6.1-6.10. Veillez à installer les [composants](https://www.microsoft.com/download/details.aspx?id=55106) avant d’activer la réplication pour les machines à démarrer dans Azure.
 Linux : CentOS | 5.2 à 5.11</b><br/> 6.1 à 6.10</b><br/> 7.0 à 7.6<br/> <br/> Les [composants Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) ne sont pas préinstallés sur les serveurs exécutant CentOS 5.2 à 5.11 et 6.1 à 6.10. Veillez à installer les [composants](https://www.microsoft.com/download/details.aspx?id=55106) avant d’activer la réplication pour les machines à démarrer dans Azure.
-Ubuntu | Serveur LTS Ubuntu 14.04[ (voir les versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04[ (voir les versions du noyau prises en charge)](#ubuntu-kernel-versions)
+Ubuntu | Serveur LTS Ubuntu 14.04[ (voir les versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04[ (voir les versions du noyau prises en charge)](#ubuntu-kernel-versions) </br> Serveur LTS Ubuntu 18.04 [(voir les versions du noyau prises en charge)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8[ (voir les versions du noyau prises en charge)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [ (voir les versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication, puis réactiver-la après la mise à niveau.
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6<br/><br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7<br/><br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5) 
 
 
 ### <a name="ubuntu-kernel-versions"></a>Version du noyau Ubuntu
-
 
 **Version prise en charge** | **Version du service Mobilité** | **Version du noyau** |
 --- | --- | --- |
@@ -98,6 +97,10 @@ LTS 16.04 | [9.28][9.28 UR] | 4.4.0-21-generic à 4.4.0-159-generic,<br/>4.8.0-3
 LTS 16.04 | [9.27][9.27 UR] | 4.4.0-21-generic à 4.4.0-154-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-54-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1050-azure|
 LTS 16.04 | [9.26][9.26 UR] | 4.4.0-21-generic à 4.4.0-148-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-50-generic<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1045-azure|
 LTS 16.04 | [9.25][9.25 UR] | 4.4.0-21-generic à 4.4.0-146-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-48-generic,<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1042-azure|
+LTS 16.04 | [9.24][9.24 UR] | 4.4.0-21-generic à 4.4.0-143-generic,<br/>4.8.0-34-generic à 4.8.0-58-generic,<br/>4.10.0-14-generic à 4.10.0-42-generic,<br/>4.11.0-13-generic à 4.11.0-14-generic,<br/>4.13.0-16-generic à 4.13.0-45-generic,<br/>4.15.0-13-generic à 4.15.0-46-generic,<br/>4.11.0-1009-azure à 4.11.0-1016-azure,<br/>4.13.0-1005-azure à 4.13.0-1018-azure <br/>4.15.0-1012-azure à 4.15.0-1040-azure|
+|||
+18.04 LTS | [9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-générique à 4.15.0-62-générique </br> 4.18.0-13-générique à 4.18.0-25-générique </br> 5.0.0-15-générique à 5.0.0-27-générique </br> 4.15.0-1009-azure à 4.15.0-1037-azure </br> 4.18.0-1006-azure à 4.18.0-1025-azure </br> 5.0.0-1012-azure à 5.0.0-1018-azure
+
 
 ### <a name="debian-kernel-versions"></a>Versions du noyau Debian
 
@@ -276,7 +279,6 @@ Disque Premium P20 ou P30 ou P40 ou P50 | 16 Ko ou plus |20 Mo/s | 1 684 Go 
 
 **Activité de données sources** | **Limite maximale**
 ---|---
-Activité moyenne des données par machine virtuelle| 25 Mo/s
 Activité des données de pointe sur tous les disques d’une machine virtuelle | 54 Mo/s
 Activité des données maximale par jour prise en charge par un serveur de processus | 2 To
 

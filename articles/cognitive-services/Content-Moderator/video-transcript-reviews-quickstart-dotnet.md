@@ -152,7 +152,7 @@ Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideo
 - **Status**. Définissez la valeur sur « Unpublished ». Si vous ne définissez pas cette propriété, sa valeur par défaut est « Pending », ce qui signifie que la révision de la vidéo est publiée et en attente d’une révision par un opérateur humain. Une fois qu’une révision de vidéo est publiée, vous ne pouvez plus y ajouter de trames vidéo, de transcription ou de résultat de la modération des transcriptions.
 
 > [!NOTE]
-> **CreateVideoReviews** retourne une chaîne IList\<>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**.
+> **CreateVideoReviews** retourne une chaîne IList\<string>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**.
 
 Ajoutez la définition de méthode suivante à l’espace de noms VideoReviews de la classe Program.
 

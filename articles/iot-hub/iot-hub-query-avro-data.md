@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 84e1dd77c6e873dc2facb5126bbddf795192b60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257743"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605613"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Interroger les données Avro à l’aide d’Azure Data Lake Analytics
 
@@ -20,7 +20,7 @@ Cet article vous explique comment interroger les données Avro afin d’achemine
 
 La principale difficulté survient lorsque Azure IoT Hub achemine les messages vers le stockage Blob Azure et qu’IoT Hub écrit par défaut le contenu au format Avro, qui présente à la fois une propriété de corps de message et une propriété de message. Le format Avro n’est pas utilisé pour d’autres points de terminaison. Bien que le format Avro soit exceptionnellement adapté pour la conservation des messages et des données, il est moins adapté pour l’interrogation des données. En comparaison, le format JSON ou CSV est beaucoup plus pratique pour interroger des données. IoT Hub prend désormais en charge l’écriture de données dans le stockage d’objets Blob aux formats JSON et AVRO.
 
-Pour plus d’informations, consultez [Using Azure Blob Storage as a routing endpoint (Utilisation du stockage Blob Azure comme point de terminaison de routage)](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+Pour plus d’informations, consultez [Using Azure Storage as a routing endpoint (Utilisation du stockage Azure comme point de terminaison de routage)](iot-hub-devguide-messages-d2c.md#azure-storage).
 
 Pour résoudre ce problème, vous pouvez utiliser la plupart des modèles de Big Data pour transformer et mettre à l’échelle les données afin de répondre aux besoins et aux formats en matière de Big Data non relationnelles. Un de ces modèles, le « paiement à la requête », est Azure Data Lake Analytics, qui constitue l’objet principal de cet article. Bien que vous puissiez facilement exécuter la requête dans Hadoop ou dans d’autres solutions, Data Lake Analytics se révèle souvent mieux adapté pour cette approche de « paiement à la requête ».
 
@@ -56,7 +56,7 @@ Dans cette section, vous interrogez des données Avro et les exportez vers un fi
 
 6. Dans Visual Studio, créez un projet U-SQL.
 
-   [Créer un projet U-SQL](./media/iot-hub-query-avro-data/query-avro-data-6.png)
+   ![Créer un projet U-SQL](./media/iot-hub-query-avro-data/query-avro-data-6.png)
 
 7. Collez le contenu du script suivant dans le fichier qui vient d’être créé. Modifiez les trois sections en surbrillance : votre compte Data Lake Analytics, les chemins d’accès aux DLL associés et le chemin d’accès correct à votre compte de stockage.
 

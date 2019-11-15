@@ -1,5 +1,5 @@
 ---
-title: Conteneurs de profil FSLogix et Azure Files dans Windows Virtual Desktop - Azure
+title: Fichiers de conteneurs de profil FSLogix Windows Virtual Desktop - Azure
 description: Cet article décrit les conteneurs de profil FSLogix dans Windows Virtual Desktop et Azure Files.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: e651695055b9bfdbfbb5b6281af8c1d21235009b
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311800"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606848"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>Conteneurs de profil FSLogix et fichiers Azure
 

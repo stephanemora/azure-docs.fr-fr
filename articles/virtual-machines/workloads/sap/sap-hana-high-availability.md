@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2019
+ms.date: 11/06/2019
 ms.author: sedusch
-ms.openlocfilehash: 5632ccf6c9b9cb67d169c5b60f1adefd85b576b8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ffa2f937a14aa14750480d1c45498fb4c49fcc30
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791661"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721499"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure sur SUSE Linux Enterprise Server
 
@@ -124,7 +124,7 @@ Suivez ces étapes pour déployer le modèle :
 1. Créez un réseau virtuel.
 1. Créer un groupe à haute disponibilité.
    - Définir le domaine de mise à jour maximal.
-1. Créer un équilibrage de charge (interne).
+1. Créer un équilibrage de charge (interne). Nous vous recommandons [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    - Sélectionnez le réseau virtuel créé à l’étape 2.
 1. Créez la machine virtuelle 1.
    - Utilisez une image SLES4SAP de la galerie Azure prise en charge pour SAP HANA sur le type de machine virtuelle que vous avez sélectionné.
@@ -133,64 +133,104 @@ Suivez ces étapes pour déployer le modèle :
    - Utilisez une image SLES4SAP de la galerie Azure prise en charge pour SAP HANA sur le type de machine virtuelle que vous avez sélectionné.
    - Sélectionnez le groupe à haute disponibilité créé à l’étape 3. 
 1. Ajoutez des disques de données.
-1. Configurez l’équilibrage de charge. Commencez par créer un pool d’adresses IP frontales :
+1. Si vous utilisez Standard Load Balancer, suivez ces étapes de configuration :
+   1. Commencez par créer un pool d’adresses IP frontales :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend**).
+      1. Définissez l’**affectation** sur **Statique** et entrez l’adresse IP (par exemple **10.0.0.13**).
+      1. Sélectionnez **OK**.
+      1. Une fois le pool d’adresses IP frontal créé, notez son adresse IP.
+   
+   1. Créez ensuite un pool principal :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
+      1. Entrer le nom du nouveau pool principal (par exemple **hana-backend**).
+      1. Sélectionnez **Réseau virtuel**.
+      1. Cliquez sur **Ajouter une machine virtuelle**.
+      1. Sélectionnez **Machine virtuelle**.
+      1. Sélectionnez les machines virtuelles du cluster SAP HANA et leurs adresses IP.
+      1. Sélectionnez **Ajouter**.
+   
+   1. Créez ensuite une sonde d’intégrité :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp**).
+      1. Sélectionnez **TCP** pour le protocole et le port 625**03**. Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
+      1. Sélectionnez **OK**.
+   
+   1. Ensuite, créez les règles d’équilibrage de charge :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-lb**).
+      1. Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple,**hana-frontend**, **hana-backend** et **hana-hp**).
+      1. Sélectionnez **Ports HA**.
+      1. Augmentez le **délai d’inactivité** à 30 minutes.
+      1. Veillez à **activer l’IP flottante** .
+      1. Sélectionnez **OK**.
 
-   1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
-   1. Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend**).
-   1. Définissez l’**affectation** sur **Statique** et entrez l’adresse IP (par exemple **10.0.0.13**).
-   1. Sélectionnez **OK**.
-   1. Une fois le pool d’adresses IP frontal créé, notez son adresse IP.
+   > [!Note]
+   > Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. Créez ensuite un pool principal :
+1. Si à l’inverse votre scénario exige d’utiliser l’équilibreur de charge de base, suivez ces étapes de configuration :
+   1. Commencez par créer un pool d’adresses IP frontales :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom du nouveau pool d’adresses IP frontales (par exemple **hana-frontend**).
+      1. Définissez l’**affectation** sur **Statique** et entrez l’adresse IP (par exemple **10.0.0.13**).
+      1. Sélectionnez **OK**.
+      1. Une fois le pool d’adresses IP frontal créé, notez son adresse IP.
+   
+   1. Créez ensuite un pool principal :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
+      1. Entrer le nom du nouveau pool principal (par exemple **hana-backend**).
+      1. Cliquez sur **Ajouter une machine virtuelle**.
+      1. Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
+      1. Sélectionnez les machines virtuelles du cluster SAP HANA.
+      1. Sélectionnez **OK**.
+   
+   1. Créez ensuite une sonde d’intégrité :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp**).
+      1. Sélectionnez **TCP** pour le protocole et le port 625**03**. Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
+      1. Sélectionnez **OK**.
+   
+   1. Pour SAP HANA 1.0, créez les règles d’équilibrage de charge :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
+      1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**15).
+      1. Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple, **hana-frontend**).
+      1. Conservez le **Protocole**à **TCP**, puis entrez le port 3**03**15.
+      1. Augmentez le **délai d’inactivité** à 30 minutes.
+      1. Veillez à **activer l’IP flottante** .
+      1. Sélectionnez **OK**.
+      1. Répétez ces étapes pour le port 3**03**17.
+   
+   1. Pour SAP HANA 2.0, créez les règles d’équilibrage de charge pour la base de données du système :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**13).
+      1. Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple, **hana-frontend**).
+      1. Conservez le **Protocole** à **TCP**, puis entrez le port 3**03**13.
+      1. Augmentez le **délai d’inactivité** à 30 minutes.
+      1. Veillez à **activer l’IP flottante** .
+      1. Sélectionnez **OK**.
+      1. Répétez ces étapes pour le port 3**03**14.
+   
+   1. Pour SAP HANA 2.0, créez d’abord les règles d’équilibrage de charge pour la base de données locataire :
+   
+      1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
+      1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**40).
+      1. Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **hana-frontend**).
+      1. Conservez le **Protocole** à **TCP**, puis entrez le port 3**03**40.
+      1. Augmentez le **délai d’inactivité** à 30 minutes.
+      1. Veillez à **activer l’IP flottante** .
+      1. Sélectionnez **OK**.
+      1. Répétez ces étapes pour les ports 3**03**41 et 3**03**42.
 
-   1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
-   1. Entrer le nom du nouveau pool principal (par exemple **hana-backend**).
-   1. Cliquez sur **Ajouter une machine virtuelle**.
-   1. Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
-   1. Sélectionnez les machines virtuelles du cluster SAP HANA.
-   1. Sélectionnez **OK**.
-
-1. Créez ensuite une sonde d’intégrité :
-
-   1. Ouvrez l’équilibrage de charge, sélectionnez les **sondes d’intégrité**, puis cliquez sur **Ajouter**.
-   1. Entrez le nom de la nouvelle sonde d’intégrité (par exemple **hana-hp**).
-   1. Sélectionnez **TCP** pour le protocole et le port 625**03**. Consersez la valeur **Intervalle** à 5, et la valeur **Seuil de défaillance** à 2.
-   1. Sélectionnez **OK**.
-
-1. Pour SAP HANA 1.0, créez les règles d’équilibrage de charge :
-
-   1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
-   1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**15).
-   1. Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple, **hana-frontend**).
-   1. Conservez le **Protocole**à **TCP**, puis entrez le port 3**03**15.
-   1. Augmentez le **délai d’inactivité** à 30 minutes.
-   1. Veillez à **activer l’IP flottante** .
-   1. Sélectionnez **OK**.
-   1. Répétez ces étapes pour le port 3**03**17.
-
-1. Pour SAP HANA 2.0, créez les règles d’équilibrage de charge pour la base de données du système :
-
-   1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
-   1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**13).
-   1. Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple, **hana-frontend**).
-   1. Conservez le **Protocole** à **TCP**, puis entrez le port 3**03**13.
-   1. Augmentez le **délai d’inactivité** à 30 minutes.
-   1. Veillez à **activer l’IP flottante** .
-   1. Sélectionnez **OK**.
-   1. Répétez ces étapes pour le port 3**03**14.
-
-1. Pour SAP HANA 2.0, créez d’abord les règles d’équilibrage de charge pour la base de données locataire :
-
-   1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
-   1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple hana-lb-3**03**40).
-   1. Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **hana-frontend**).
-   1. Conservez le **Protocole** à **TCP**, puis entrez le port 3**03**40.
-   1. Augmentez le **délai d’inactivité** à 30 minutes.
-   1. Veillez à **activer l’IP flottante** .
-   1. Sélectionnez **OK**.
-   1. Répétez ces étapes pour les ports 3**03**41 et 3**03**42.
-
-Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) dans le guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la [Note SAP 2388694][2388694].
+   Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) dans le guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la [Note SAP 2388694][2388694].
 
 > [!IMPORTANT]
 > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, voir [Sondes d’intégrité Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
@@ -473,7 +513,7 @@ sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana
 Ensuite, créez les ressources HANA :
 
 > [!IMPORTANT]
-> Des tests récents ont révélé des situations où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à gérer une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
+> Des tests récents ont révélé des situations où netcat cessait de répondre aux demandes en raison du backlog et de sa capacité à gérer une seule connexion. La ressource netcat cesse d’écouter les demandes d’Azure Load Balancer et l’adresse IP flottante devient indisponible.  
 > Pour les clusters Pacemaker existants, nous vous recommandons de remplacer netcat par socat en suivant les instructions de la page [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Notez que la modification nécessite un bref temps d’arrêt.  
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 

@@ -1,5 +1,5 @@
 ---
-title: Utilisation des rubriques Azure Service Bus avec Python | Microsoft Docs
+title: 'Démarrage rapide : Utiliser des rubriques et abonnements Azure Service Bus avec Python'
 description: Découvrez comment utiliser les rubriques et abonnements Service Bus Azure depuis Python.
 services: service-bus-messaging
 documentationcenter: python
@@ -11,60 +11,59 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ef0237b38c8f640c0fc4b1b1788215c8804a5cd4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 94a49b31139947c6323ab391b78ecd03ee911e0a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141897"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748492"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Utilisation des rubriques et abonnements Service Bus avec Python
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Démarrage rapide : Utiliser des rubriques et des abonnements Service Bus avec Python
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-Cet article explique comment utiliser les rubriques et les abonnements Service Bus. Ces exemples sont écrits en Python et utilisent le [package du Kit de développement logiciel (SDK) Python][Azure Python package]. Parmi les scénarios présentés :
+Cet article explique comment utiliser Python avec des rubriques et des abonnements Azure Service Bus. Les exemples utilisent le package du [kit de développement logiciel (SDK) Azure Python][Azure Python package] pour : 
 
-- Création de rubriques et d’abonnements 
-- Création de filtres d’abonnement 
-- Envoi de messages à une rubrique 
-- Réception de messages à partir d’un abonnement
-- Suppression de rubriques et d’abonnements
+- créer des rubriques et des abonnements à des rubriques
+- créer des filtres et des règles d’abonnement
+- envoyer des messages aux rubriques 
+- recevoir des messages d’abonnements
+- Suppression de rubriques et d'abonnements
 
 ## <a name="prerequisites"></a>Prérequis
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**.
+- Un abonnement Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Un espace de noms Service Bus, créé en suivant les étapes décrites dans [Démarrage rapide : Utilisez le portail Azure pour créer une rubrique Service Bus et des abonnements](service-bus-quickstart-topics-subscriptions-portal.md). Copiez le nom de l’espace de noms, le nom de la clé d’accès partagé et la valeur de clé primaire à partir de l’écran **Stratégies d’accès partagé** à utiliser ultérieurement dans ce démarrage rapide. 
+- Python 3.4x ou version ultérieure, avec le package du [kit de développement logiciel (SDK) Azure Python][Azure Python package] installé. Pour plus d’informations, consultez le [Guide d’installation Python](/azure/python/python-sdk-azure-install).
 
-    > [!NOTE]
-    > Vous allez créer une **rubrique** et un **abonnement** à la rubrique à l’aide de **Python** dans ce démarrage rapide. 
-3. Installez le [package Python Azure][Azure Python package]. Consultez le [Guide d’installation de Python](/azure/python/python-sdk-azure-install).
+## <a name="create-a-servicebusservice-object"></a>Créer un objet ServiceBusService
 
-## <a name="create-a-topic"></a>Création d'une rubrique
-
-L’objet **ServiceBusService** permet d’utiliser des rubriques. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à Service Bus par programme :
+Un objet **ServiceBusService** vous permet d’utiliser des rubriques et des abonnements à des rubriques. Pour accéder à Service Bus par programme, ajoutez la ligne suivante vers le début de chaque fichier Python :
 
 ```python
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-Le code suivant crée un objet **ServiceBusService**. Remplacez `mynamespace`, `sharedaccesskeyname` et `sharedaccesskey` par un espace de noms, un nom et une valeur de clé de signature d’accès partagé (SAP) réels.
+Ajoutez le code suivant pour créer un objet **ServiceBusService**. Remplacez `<namespace>`, `<sharedaccesskeyname>` et `<sharedaccesskeyvalue>` par le nom de votre espace de noms Service Bus, le nom clé de la signature d’accès partagé (SAP) et la valeur de clé primaire. Vous pouvez trouver ces valeurs sous **Stratégies d’accès partagé** dans votre espace de noms Service Bus du [Portail Azure][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
-    service_namespace='mynamespace',
-    shared_access_key_name='sharedaccesskeyname',
-    shared_access_key_value='sharedaccesskey')
+    service_namespace='<namespace>',
+    shared_access_key_name='<sharedaccesskeyname>',
+    shared_access_key_value='<sharedaccesskeyvalue>')
 ```
 
-Vous pouvez obtenir les valeurs pour la valeur et le nom de la clé SAP à partir de la fenêtre à partir du [portail Azure][Azure portal].
+## <a name="create-a-topic"></a>Création d'une rubrique
+
+Le code suivant utilise la méthode `create_topic` pour créer une rubrique Service Bus appelée `mytopic`, avec des paramètres par défaut :
 
 ```python
 bus_service.create_topic('mytopic')
 ```
 
-La méthode `create_topic` prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de rubrique par défaut, comme la durée de vie du message ou la taille maximale de la rubrique. L’exemple suivant définit la taille maximale de la rubrique sur 5 Go et la durée de vie de message (TTL) sur une minute :
+Vous pouvez utiliser les options de rubrique pour remplacer les paramètres de rubrique par défaut, tels que la durée de vie des messages ou la taille maximale de la rubrique. L’exemple suivant crée une rubrique nommée `mytopic` avec une taille de rubrique maximale de 5 Go et une durée de vie de message par défaut d’une minute :
 
 ```python
 topic_options = Topic()
@@ -76,134 +75,127 @@ bus_service.create_topic('mytopic', topic_options)
 
 ## <a name="create-subscriptions"></a>Création d’abonnements
 
-Les abonnements à des rubriques sont également créés à l’aide de l’objet **ServiceBusService**. Les abonnements sont nommés et peuvent être assortis d'un filtre facultatif qui limite l'ensemble des messages transmis à la file d'attente virtuelle de l'abonnement.
-
-> [!NOTE]
-> Par défaut, les abonnements sont persistants et continuent à exister jusqu’à leur suppression ou celle de la rubrique à laquelle ils sont abonnés.
-> 
-> Vous pouvez supprimer automatiquement les abonnements en définissant la [propriété auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
-
-### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Création d’un abonnement avec le filtre par défaut (MatchAll)
-
-Si aucun filtre n’est spécifié lors de la création d’un abonnement, le filtre **MatchAll** (par défaut) est utilisé. Lorsque le filtre **MatchAll** est utilisé, tous les messages publiés dans la rubrique sont placés dans la file d’attente virtuelle de l’abonnement. L’exemple suivant crée un abonnement intitulé `AllMessages` et utilise le filtre par défaut **MatchAll**.
+Vous utilisez également l’objet **ServiceBusService** pour créer des abonnements à des rubriques. Un abonnement peut avoir un filtre pour limiter l’ensemble de messages remis à sa file d’attente virtuelle. Si vous ne spécifiez pas de filtre, les nouveaux abonnements utilisent le filtre par défaut **MatchAll**, ce qui place tous les messages publiés dans la rubrique dans la file d’attente virtuelle de l’abonnement. L’exemple suivant crée un abonnement à `mytopic` intitulé `AllMessages` qui utilise le filtre **MatchAll** :
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
-### <a name="create-subscriptions-with-filters"></a>Création d’abonnements avec des filtres
+### <a name="use-filters-with-subscriptions"></a>Utiliser des filtres avec des abonnements
 
-Vous pouvez également définir des filtres pour spécifier quels sont les messages, parmi ceux envoyés à une rubrique, qui doivent apparaître dans un abonnement de rubrique spécifique.
+Utilisez la méthode `create_rule` de l’objet **ServiceBusService** pour filtrer les messages qui s’affichent dans un abonnement. Vous pouvez spécifier des règles lorsque vous créez l’abonnement ou ajouter des règles à des abonnements existants.
 
-Le type de filtre le plus flexible pris en charge par les abonnements est **SqlFilter**, qui implémente un sous-ensemble de SQL92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, examinez la syntaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+Le type de filtre le plus flexible est un **SqlFilter**, qui utilise un sous-ensemble de SQL-92. Les filtres SQL opèrent au niveau des propriétés des messages publiés dans la rubrique. Pour plus d’informations sur les expressions utilisables avec un filtre SQL, consultez la syntaxe [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
-Vous pouvez ajouter des filtres à un abonnement en utilisant la méthode **create\_rule** de l’objet **ServiceBusService**. Cette méthode vous permet d’ajouter de nouveaux filtres à un abonnement existant.
+Comme le filtre par défaut **MatchAll** est appliqué automatiquement à tous les nouveaux abonnements, vous devez le supprimer des abonnements à filtrer, sans quoi **MatchAll** remplacera tous les autres filtres spécifiés. Vous pouvez supprimer la règle par défaut en utilisant la méthode `delete_rule` de l’objet **ServiceBusService**.
 
-> [!NOTE]
-> Comme le filtre par défaut est appliqué automatiquement à tous les nouveaux abonnements, vous devez commencer par supprimer le filtre par défaut, sans quoi le filtre **MatchAll** remplace tous les autres filtres spécifiés. Vous pouvez supprimer la règle par défaut en utilisant la méthode `delete_rule` de l’objet **ServiceBusService**.
-> 
-> 
-
-L’exemple suivant crée l’abonnement `HighMessages` avec un objet **SqlFilter** qui ne sélectionne que les messages dont la propriété personnalisée `messagenumber` a une valeur supérieure à 3 :
+L’exemple suivant crée un abonnement à `mytopic` nommé `HighMessages`, avec une règle **SqlFilter** nommée `HighMessageFilter`. La règle `HighMessageFilter` sélectionne uniquement les messages dont la propriété personnalisée `messageposition` est supérieure à 3 :
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
 
 rule = Rule()
 rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messagenumber > 3'
+rule.filter_expression = 'messageposition > 3'
 
 bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-De même, l’exemple suivant crée l’abonnement `LowMessages` avec un objet **SqlFilter** qui ne sélectionne que les messages dont la propriété `messagenumber` a une valeur inférieure ou égale à 3 :
+L’exemple suivant crée un abonnement à `mytopic` nommé `LowMessages`, avec une règle **SqlFilter** nommée `LowMessageFilter`. La règle `LowMessageFilter` sélectionne uniquement les messages dont la propriété personnalisée `messageposition` est inférieure ou égale à 3 :
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
 
 rule = Rule()
 rule.filter_type = 'SqlFilter'
-rule.filter_expression = 'messagenumber <= 3'
+rule.filter_expression = 'messageposition <= 3'
 
 bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-À présent, dès lors qu’un message est envoyé à `mytopic`, il est toujours remis aux destinataires abonnés à l’abonnement de rubrique **AllMessages** et est remis de manière sélective aux destinataires abonnés aux abonnements de rubrique **HighMessages** et **LowMessages** (en fonction du contenu du message).
+Avec `AllMessages`, `HighMessages` et `LowMessages` activés, les messages envoyés à `mytopic` sont toujours remis aux destinataires de l’abonnement `AllMessages`. Les messages sont également remis de manière sélective à l’abonnement `HighMessages` ou `LowMessages`, en fonction de la valeur de la propriété `messageposition` du message. 
 
 ## <a name="send-messages-to-a-topic"></a>Envoi de messages à une rubrique
 
-Pour envoyer un message à une rubrique Service Bus, votre application doit utiliser la méthode `send_topic_message` de l’objet **ServiceBusService**.
+Les applications utilisent la méthode `send_topic_message` de l’objet **ServiceBusService** pour envoyer des messages à une rubrique Service Bus.
 
-L’exemple suivant montre comment envoyer cinq messages de test à `mytopic`. La valeur de la propriété `messagenumber` de chaque message varie au niveau de l’itération de la boucle (ce qui détermine les abonnements qui le reçoivent) :
+L’exemple suivant envoie cinq messages de test à la rubrique `mytopic`. La valeur de propriété `messageposition` personnalisée dépend de l’itération de la boucle et détermine les abonnements qui reçoivent les messages. 
 
 ```python
 for i in range(5):
     msg = Message('Msg {0}'.format(i).encode('utf-8'),
-                  custom_properties={'messagenumber': i})
+                  custom_properties={'messageposition': i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
-Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de rubrique est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].
+### <a name="message-size-limits-and-quotas"></a>Limites et quotas de taille des messages
+
+Les rubriques Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une rubrique n’est pas limitée par le nombre de messages qu’elle peut contenir, elle l’est en revanche par la taille totale des messages qu’elle contient. Vous pouvez définir la taille de la rubrique au moment de la création. La limite maximale est de 5 Go. 
+
+Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
 
-La méthode `receive_subscription_message` de l’objet **ServiceBusService** permet de recevoir les messages associés à un abonnement.
+Les applications utilisent la méthode `receive_subscription_message` de l’objet **ServiceBusService** pour recevoir les messages d’un abonnement. L’exemple suivant reçoit les messages de l’abonnement `LowMessages` et les supprime au fur et à mesure de leur lecture :
 
 ```python
-msg = bus_service.receive_subscription_message(
-    'mytopic', 'LowMessages', peek_lock=False)
+msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
-Les messages sont supprimés de l’abonnement au fur et à mesure de leur lecture si le paramètre `peek_lock` est défini sur **False**. Vous pouvez lire (afficher un aperçu) et verrouiller le message sans le supprimer de la file d’attente en définissant le paramètre `peek_lock` sur **True**.
+Le paramètre facultatif `peek_lock` de `receive_subscription_message` détermine si Service Bus supprime les messages de l’abonnement au fur et à mesure de leur lecture. Le mode par défaut pour la réception des messages est *PeekLock* ou `peek_lock` défini sur **True**, qui lit et verrouille les messages sans les supprimer de l’abonnement. Chaque message doit ensuite être explicitement complété pour être supprimé de l’abonnement.
 
-Le comportement de lecture et de suppression du message dans le cadre de l’opération de réception est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application peut tolérer le non-traitement d’un message après un échec. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, quand l’application redémarre et recommence à consommer des messages, elle a manqué le message consommé avant l’incident.
+Pour supprimer des messages de l’abonnement au fur et à mesure de leur lecture, vous pouvez définir le paramètre `peek_lock` sur **False**, comme dans l’exemple précédent. La suppression de messages dans le cadre de l’opération de réception est le modèle le plus simple et fonctionne correctement si l’application peut tolérer les messages manquants en cas de défaillance. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel l’application émet la requête de réception et subit un incident avant de la traiter. Si le message a été supprimé lors de la réception, lorsque l’application redémarre et recommence à consommer des messages, elle a manqué le message qu’elle a reçu avant l’incident.
 
-Si le paramètre `peek_lock` est défini sur **True**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer de messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode `delete` sur l’objet **Message**. La méthode `delete` marque le message comme étant consommé et le supprime de l’abonnement.
+Si votre application ne peut pas tolérer les messages manqués, la réception devient une opération en deux étapes. PeekLock recherche le message suivant à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Une fois le message traité ou stockée, l’application accomplit la deuxième étape du processus de réception en appelant la méthode `complete` sur l’objet **Message**.  La méthode `complete` marque le message comme étant consommé et le supprime de l’abonnement.
+
+L’exemple suivant illustre un scénario Peek-Lock :
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
 if msg.body is not None:
-print(msg.body)
-msg.delete()
+    print(msg.body)
+    msg.complete()
 ```
 
-## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Gestion des blocages d’application et des messages illisibles
+## <a name="handle-application-crashes-and-unreadable-messages"></a>Gestion des blocages d'application et des messages illisibles
 
-Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d’erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message, pour une raison quelconque, elle appelle la méthode `unlock` pour l’objet **Message**. Cette méthode amène Service Bus à déverrouiller le message dans l’abonnement et à le rendre à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
+Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d’erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message, pour une raison quelconque, elle appelle la méthode `unlock` pour l’objet **Message**. Cela amène Service Bus à déverrouiller le message dans l’abonnement et à le rendre à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 
-De même, il faut savoir qu’un message verrouillé dans un abonnement est assorti d’un délai d’expiration et que si l’application ne parvient pas à traiter le message dans le temps imparti (par exemple, si l’application subit un incident), Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
+Il y a également un délai d’expiration pour les messages verrouillés au sein de l’abonnement. Si une application ne parvient pas à traiter un message avant l’expiration du dépassement de délai d'attente de verrou, par exemple, si l’application subit un incident, Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
 
-Si l’application subit un incident après le traitement du message, mais avant l’appel de la méthode `delete`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Ce traitement est souvent appelé Au moins une fois\*. Chaque message est traité au moins une fois, mais dans certaines circonstances, un même message peut être remis une nouvelle fois. Toutefois, dans certaines circonstances, un même message peut être remis une nouvelle fois. Pour cela, vous pouvez utiliser la propriété **MessageId** du message, qui reste constante pendant les tentatives de remise.
+Si l’application subit un incident après le traitement d’un message, mais avant l’appel de la méthode `complete`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Ce comportement est souvent appelé *Traitement au moins une fois*. Chaque message est traité au moins une fois, mais dans certaines situations, le même message peut être redistribué. Si votre scénario ne peut pas tolérer un traitement en double, vous pouvez utiliser la propriété **MessageId** du message, qui reste constante entre les tentatives de livraison, pour gérer la livraison des messages en double. 
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
 
-Les rubriques et abonnements sont persistants, sauf si la [propriété auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) est définie. Ils peuvent être supprimés via le [portail Azure][Azure portal] ou par programmation. L’exemple suivant indique comment supprimer la rubrique nommée `mytopic` :
+Pour supprimer des rubriques et des abonnements, utilisez la méthode [Portail Azure][Azure portal] ou `delete_topic`. Le code suivant supprime la rubrique nommée `mytopic` :
 
 ```python
 bus_service.delete_topic('mytopic')
 ```
 
-La suppression d’une rubrique a également pour effet de supprimer les abonnements inscrits dans la rubrique. Les abonnements peuvent aussi être supprimés de manière indépendante. Le code suivant montre comment supprimer l’abonnement `HighMessages` de la rubrique `mytopic` :
+La suppression d’une rubrique supprime tous les abonnements à la rubrique. Vous pouvez également supprimer des abonnements de manière indépendante. Le code suivant montre comment supprimer l’abonnement nommé`HighMessages` de la rubrique `mytopic` :
 
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-> [!NOTE]
-> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer permet aux utilisateurs de se connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction d’importation/exportation ou la possibilité de tester une rubrique, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
+Par défaut, les rubriques et les abonnements sont persistants et existent jusqu’à ce que vous les supprimiez. Pour supprimer automatiquement des abonnements après l’expiration d’une période donnée, vous pouvez définir le paramètre [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) sur l’abonnement. 
+
+> [!TIP]
+> Vous pouvez gérer les ressources Service Bus à l'aide de [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer vous permet de vous connecter à un espace de noms Service Bus et de gérer les entités de messagerie en toute simplicité. L’outil fournit des fonctionnalités avancées telles que la fonction importer/exporter ou la possibilité de tester des rubriques, des files d’attente, des abonnements, des services de relais, des hubs de notification et des hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus.
+Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus :
 
-* Consultez [Files d’attente, rubriques et abonnements Service Bus][Queues, topics, and subscriptions].
-* Référence pour [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+* [Files d’attente, rubriques et abonnements.][Queues, topics, and subscriptions]
+* Référence à [SqlFilter.SqlExpression][SqlFilter.SqlExpression]
 
 [Azure portal]: https://portal.azure.com
-[Azure Python package]: https://pypi.python.org/pypi/azure  
+[Azure Python package]: https://pypi.python.org/pypi/azure
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
 [Service Bus quotas]: service-bus-quotas.md 

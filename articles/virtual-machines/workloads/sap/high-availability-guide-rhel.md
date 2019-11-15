@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: sedusch
-ms.openlocfilehash: 95cf66b8960b03c8bc055443945d5569450855a2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 13f751b472b3443ba50be5d54ab08e015d1a8f5a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101080"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824891"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux
 
@@ -84,7 +84,7 @@ Pour obtenir une haute disponibilité, SAP NetWeaver nécessite stockage partag�
 
 ![Vue d’ensemble de la haute disponibilité SAP NetWeaver](./media/high-availability-guide-rhel/ha-rhel.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. Nous vous recommandons d’utiliser [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal). La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
 
 > [!IMPORTANT]
 > Le clustering multi-SID de SAP ASC/ERS avec Red Hat Linux comme système d’exploitation invité des machines virtuelles Azure n’est **PAS pris en charge**. Le clustering multi-SID décrit l’installation de plusieurs instances de SAP ASCS/ERS avec des SID différents dans un cluster Pacemaker.
@@ -98,13 +98,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Port de la sonde
   * Port 620<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
-  * TCP 32<strong>&lt;nr&gt;</strong>
-  * TCP 36<strong>&lt;nr&gt;</strong>
-  * TCP 39<strong>&lt;nr&gt;</strong>
-  * TCP 81<strong>&lt;nr&gt;</strong>
-  * TCP 5<strong>&lt;nr&gt;</strong>13
-  * TCP 5<strong>&lt;nr&gt;</strong>14
-  * TCP 5<strong>&lt;nr&gt;</strong>16
+  * Si vous utilisez Standard Load Balancer, sélectionnez **Ports haute disponibilité**
+  * Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
+    * TCP 32<strong>&lt;nr&gt;</strong>
+    * TCP 36<strong>&lt;nr&gt;</strong>
+    * TCP 39<strong>&lt;nr&gt;</strong>
+    * TCP 81<strong>&lt;nr&gt;</strong>
+    * TCP 5<strong>&lt;nr&gt;</strong>13
+    * TCP 5<strong>&lt;nr&gt;</strong>14
+    * TCP 5<strong>&lt;nr&gt;</strong>16
 
 ### <a name="ers"></a>ERS
 
@@ -115,11 +117,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Port de la sonde
   * Port 621<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
-  * TCP 32<strong>&lt;nr&gt;</strong>
-  * TCP 33<strong>&lt;nr&gt;</strong>
-  * TCP 5<strong>&lt;nr&gt;</strong>13
-  * TCP 5<strong>&lt;nr&gt;</strong>14
-  * TCP 5<strong>&lt;nr&gt;</strong>16
+  * Si vous utilisez Standard Load Balancer, sélectionnez ** Ports haute disponibilité**
+  * Si vous utilisez Basic Load Balancer, créez des règles d’équilibrage de charge pour les ports suivants
+    * TCP 32<strong>&lt;nr&gt;</strong>
+    * TCP 33<strong>&lt;nr&gt;</strong>
+    * TCP 5<strong>&lt;nr&gt;</strong>13
+    * TCP 5<strong>&lt;nr&gt;</strong>14
+    * TCP 5<strong>&lt;nr&gt;</strong>16
 
 ## <a name="setting-up-glusterfs"></a>Configuration de GlusterFS
 
@@ -168,7 +172,44 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
    Sélectionner le groupe à haute disponibilité créé précédemment  
 1. Ajouter au moins un disque de données sur les deux machines virtuelles  
    Les disques de données sont utilisés pour le répertoire /usr/sap/`<SAPSID`>
-1. Créer un équilibrage de charge (interne)  
+1. Créer un équilibreur de charge (interne, standard) :  
+   1. Créer les adresses IP de serveurs frontaux
+      1. Adresse IP 10.0.0.7 pour l’instance ASCS
+         1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
+         1. Entrer le nom du nouveau pool d’adresses IP frontal (par exemple **nw1-ascs-frontend**)
+         1. Définir l’affectation sur Statique et entrer l’adresse IP (par exemple **10.0.0.7**)
+         1. Cliquez sur OK
+      1. Adresse IP 10.0.0.8 pour les instances ASCS ERS
+         * Répéter les étapes ci-dessus pour créer une adresse IP pour l’instance ERS (par exemple **10.0.0.8** et **nw1-aers-backend**)
+   1. Créer les pools principaux
+      1. Créer un pool principal pour l’instance ASCS
+         1. Ouvrir l’équilibrage de charge, sélectionner les pools principaux et cliquer sur Ajouter
+         1. Entrer le nom du nouveau pool principal (par exemple **nw1-ascs-backend**)
+         1. Cliquer sur Ajouter une machine virtuelle
+         1. Sélectionnez une machine virtuelle.
+         1. Sélectionnez les machines virtuelles du cluster (A)SCS et leurs adresses IP.
+         1. Cliquez sur Ajouter.
+      1. Créer un pool principal pour les instances ASCS ERS
+         * Répéter les étapes ci-dessus pour créer un pool principal pour l’instance ERS (par exemple **nw1-aers-backend**)
+   1. Créer les sondes d’intégrité
+      1. Port 620**00** pour l’instance ASCS
+         1. Ouvrir l’équilibrage de charge, sélectionner les sondes d’intégrité et cliquer sur Ajouter
+         1. Entrer le nom de la nouvelle sonde d’intégrité (par exemple **nw1-ascs-hp**)
+         1. Sélectionner le protocole TCP et le port 620**00**, et conserver un intervalle de 5 et un seuil de défaillance sur le plan de l’intégrité de 2
+         1. Cliquez sur OK
+      1. Port 621**02** pour les instances ASCS ERS
+         * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour l’instance ERS (par exemple **62102** et **nw1-aers-hp**)
+   1. Règles d’équilibrage de charge
+      1. Règles d’équilibreur de charge pour ASCS
+         1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
+         1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-ascs**)
+         1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-ascs-frontend**, **nw1-ascs-backend** et **nw1-ascs-hp**)
+         1. Sélectionnez **Ports haute disponibilité**
+         1. Augmenter le délai d’inactivité à 30 minutes
+         1. **Veiller à activer IP flottante**
+         1. Cliquez sur OK
+         * Répétez les étapes ci-dessus pour créer des règles d’équilibrage de charge pour ERS (par exemple **nw1-lb-ers**)
+1. Sinon, si votre scénario requiert l’équilibrage de charge de base (interne), procédez comme suit :  
    1. Créer les adresses IP de serveurs frontaux
       1. Adresse IP 10.0.0.7 pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionner le pool d’adresses IP frontal et cliquer sur Ajouter
@@ -208,6 +249,10 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
          * Répéter les étapes ci-dessus pour les ports 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 et TCP pour l’instance ASCS
       1. Ports supplémentaires pour les instances ASCS ERS
          * Répéter les étapes ci-dessus pour les ports 33**02**, 5**02**13, 5**02**14, 5**02**16 et TCP pour les instances ASCS ERS
+
+> [!TIP]
+> Lorsque des machines virtuelles sans adresses IP publiques sont placées dans le pool principal de l’équilibreur de charge standard interne, les machines virtuelles ne disposent pas d’une connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée.  
+> Si votre scénario requiert des connexions sortantes vers des points de terminaison publics, consultez [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) (Connectivité des points de terminaison publics pour les machines virtuelles utilisant Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP) pour obtenir des conseils et des considérations sur la façon d’obtenir une connectivité sortante aux points de terminaison publics.
 
 > [!IMPORTANT]
 > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
