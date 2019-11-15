@@ -4,20 +4,21 @@ description: Vue d’ensemble des différentes questions relatives à la publica
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: pabutler
-ms.openlocfilehash: a89921d4b5ec25bc0c924646d3bd41aecf3e8d9c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 047ffd983cecd9f9bd971ee3f97e15734d14ce66
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67870921"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813273"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestion des prospects pour la Place de marché cloud
 
 
-Les clients sont au centre de toute entreprise prospère. Dans la transformation des modes d’acquisition de produits d’aujourd’hui, les responsables marketing doivent se concentrer sur la connexion directe avec les clients et la construction d’une relation. C’est pourquoi la génération de prospects de haute qualité est un outil essentiel pour votre cycle de vente. Une fois votre offre publiée sur le [portail Cloud Partner](https://cloudpartner.azure.com/), des outils vous permettent de recevoir systématiquement les informations de contact des clients qui manifestent leur l’intérêt pour votre produit ou qui le déploient sur la Place de marché. 
+Les clients sont au centre de toute entreprise prospère. Dans la transformation actuelle de l’acquisition des produits, les responsables marketing doivent s’attacher à établir un lien direct avec les clients et à nouer une relation. C’est pourquoi la génération de prospects de haute qualité est un outil essentiel pour votre cycle de vente. Une fois votre offre publiée sur le [portail Cloud Partner](https://cloudpartner.azure.com/), des outils vous permettent de recevoir systématiquement les informations de contact des clients qui manifestent leur l’intérêt pour votre produit ou qui le déploient sur la Place de marché. 
 
 
 
@@ -38,16 +39,16 @@ Voici les instructions pas à pas pour vous connecter à chacune des destination
 
 **Salesforce** - [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) pour obtenir des instructions sur la manière de configurer votre instance Salesforce pour obtenir des prospects.
 
-**Table Azure** – [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) pour obtenir des instructions sur la manière de configurer votre compte Stockage Azure pour obtenir des prospects dans une table Azure.
+**Table Azure** - [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) pour savoir comment configurer votre compte de stockage Azure afin d’obtenir des prospects dans une table Azure.
 
-**Point de terminaison HTTPS** – [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) pour obtenir des instructions sur la manière de configurer votre point de terminaison HTTPS pour obtenir des prospects.
+**Point de terminaison HTTPS** - [Cliquez ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) pour savoir comment configurer votre point de terminaison HTTPS de façon à obtenir des prospects.
 
-Une fois que vous avez correctement configuré votre destination de prospect et que vous avez publié votre offre, nous validons la connexion et vous envoyons un prospect de test. Lorsque vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acquérir vous-même l’offre dans l’environnement en version préliminaire. Il est important de s’assurer que vos paramètres de prospects restent à jour afin d’éviter de perdre des prospects. Veillez donc à mettre à jour ces connexions chaque fois que quelque chose change de votre côté.
+Une fois que vous avez correctement configuré votre destination de prospect et que vous avez publié votre offre, nous validons la connexion et vous envoyons un prospect de test. Lorsque vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acquérir vous-même l’offre dans l’environnement en version préliminaire. Il est important de s’assurer que vos paramètres de prospects restent à jour afin d’éviter de perdre des prospects. Veillez donc à mettre à jour ces connexions chaque fois qu’une modification intervient de votre côté.
 
 
 ### <a name="what-are-the-next-steps"></a>Quelles sont les étapes suivantes ?
 
-Une fois les paramètres techniques configurés, vous devez incorporer ces prospects dans votre stratégie commerciale et marketing, ainsi que dans vos processus opérationnels actuels. Nous cherchons à mieux comprendre votre processus de vente global. C’est pourquoi nous tenons à travailler en étroite collaboration avec vous pour vous apporter des prospects de qualité et des données en quantité suffisante pour garantir votre réussite. Nous apprécions vos commentaires sur la façon dont nous pouvons optimiser et améliorer les prospects que nous vous envoyons, accompagnés de toutes les données nécessaires pour assurer la réussite de ces clients. Faites-nous savoir si vous souhaitez nous communiquer des commentaires et des suggestions pour permettre à votre équipe de vente de mieux exploiter les prospects de la Place de marché.
+Une fois les paramètres techniques configurés, vous devez incorporer ces prospects dans votre stratégie commerciale et marketing, ainsi que dans vos processus opérationnels actuels. Nous cherchons à mieux comprendre votre processus de vente global. C’est pourquoi nous tenons à travailler en étroite collaboration avec vous pour vous apporter des prospects de qualité et des données en quantité suffisante pour garantir votre réussite. Nous apprécions vos commentaires sur la façon dont nous pouvons optimiser et améliorer les prospects que nous vous envoyons, accompagnés de toutes les données nécessaires pour assurer la réussite de ces clients. Faites-nous savoir si vous souhaitez nous communiquer vos commentaires et suggestions pour permettre à votre équipe commerciale de mieux exploiter les prospects de la Place de marché.
 
 
 
@@ -80,11 +81,11 @@ Une fois les paramètres techniques configurés, vous devez incorporer ces prosp
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM en utilisant AAD. Exception:: Erreur de validation des informations d’identification. Le secret client fourni n’est pas valide.** 
 
-> Résolution : Connectez-vous au portail Azure, vérifiez si la clé d’application correspond à celle indiquée dans le portail Cloud Partner. Générez un mot de passe en suivant les instructions fournies à l’étape 10 (sous Azure Active Directory, à partir d’[ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
+> Résolution : Connectez-vous au Portail Azure et vérifiez que la clé d’application correspond à celle du portail Cloud Partner. Générez un mot de passe en suivant les instructions fournies à l’étape 10 (sous Azure Active Directory, à partir d’[ici](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)). 
 
 **Impossible d’enregistrer le prospect dans Dynamics CRM. LastCRMError : Le canal de demande a dépassé le délai de réponse après 00:02:00. Augmentez la valeur de délai d’attente passée à l’appel de Request ou augmentez la valeur de SendTimeout de la liaison. Le temps alloué à cette opération fait peut-être partie d’un délai d’attente plus long.**  
 
-> Résolution : Connectez-vous au portail Cloud Partner puis, dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez s’il s’agit d’une instance Dynamics CRM valide
+> Résolution : Connectez-vous au portail Cloud Partner, puis, dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez qu’il s’agit d’une instance Dynamics CRM valide.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -141,38 +142,38 @@ title = MSFT_TEST_636573304831318844
 
  
 
-**J’ai une offre en ligne, mais je ne vois aucun prospect ?**
+**J’ai une offre en ligne, mais je ne vois aucun prospect.**
 
 Les données de chaque prospect passent dans les champs de la destination des prospects que vous avez sélectionnée ; les offres se présentent sous la forme suivante : **Source-Action|Offre** 
 
   *Sources :*
 
-    “AzureMarketplace”, 
-    “AzurePortal”, 
-    “TestDrive”,  
-    “SPZA” (acronym for AppSource) 
+    "AzureMarketplace", 
+    "AzurePortal", 
+    "TestDrive",  
+    "SPZA" (acronym for AppSource) 
 
   *Actions :*
 
-    “INS” – Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
-    “PLT” – Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
+    "INS" - Stands for Installation. This is on Azure Marketplace or AppSource whenever a customer hits the button to acquire your product. 
+    "PLT" - Stands for Partner Led Trial. This is on AppSource whenever a customer hits the Contact me button. 
 
-    “DNC” – Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
+    "DNC" - Stands for Do Not Contact. This is on AppSource whenever a Partner who was cross listed on your app page gets requested to be contacted. We are sharing the heads up that this customer was cross listed on your app, but they do not need to be contacted. 
 
-    “Create” – This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
+    "Create" - This is inside Azure Portal only and is whenever a customer purchases your offer to their account. 
 
-    “StartTestDrive” – This is for Test Drives only and is whenever a customer starts their test drive. 
+    "StartTestDrive" - This is for Test Drives only and is whenever a customer starts their test drive. 
 
 
   *Offres :*
 
-    “checkpoint.check-point-r77-10sg-byol”, 
-    “bitnami.openedxcypress”, 
-    “docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a” 
+    "checkpoint.check-point-r77-10sg-byol", 
+    "bitnami.openedxcypress", 
+    "docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a" 
 
  
 
-  *Voici des exemples de données d’informations client*
+  *Voici des exemples de données d’informations client :*
 
     { 
 
@@ -207,7 +208,7 @@ Il est possible que le domaine de messagerie de l’utilisateur final soit .edu.
 
  **J’ai configuré Table Azure/Blob Azure comme destination des prospects. Pourquoi ne vois-je pas les prospects ?** 
 
-Vous pouvez accéder à Blob ou à Table à partir du portail Azure, ou vous pouvez télécharger et installer [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) gratuitement pour afficher les tables et les objets blob du compte Stockage Azure. 
+Vous pouvez accéder à l’objet blob ou à la table Azure sur le Portail Azure ou bien télécharger et installer gratuitement [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour afficher les tables/objets blob de votre compte de stockage Azure. 
 
 
 **J’ai configuré Table Azure comme destination des prospects. Puis-je recevoir une notification chaque fois qu’un nouveau prospect est envoyé par la Place de marché ?** 

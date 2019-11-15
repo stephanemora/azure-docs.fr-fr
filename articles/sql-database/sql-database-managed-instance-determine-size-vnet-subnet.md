@@ -1,22 +1,22 @@
 ---
-title: Azure SQL Database Managed Instance - Déterminer la taille du réseau virtuel/sous-réseau | Microsoft Docs
+title: Managed Instance – Déterminer la taille du réseau virtuel/sous-réseau
 description: Cette rubrique explique comment calculer la taille du sous-réseau dans lequel les instances Azure SQL Database Managed Instance seront déployées.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 7f0ef26343284b7b668e71676114586f4bec8b9e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273552"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825753"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Déterminer la taille du sous-réseau d’un réseau virtuel pour Azure SQL Database Managed Instance
 

@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 16b75a98a5a42c9acf6d9a68330cbf8e005f7179
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b3d66cab8cf43d862bbf17d5783f0469e3e1a5f8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819797"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825647"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -31,7 +32,7 @@ Sélectionnez le bouton **+ Nouvelle offre**, puis sélectionnez l'élément de 
 
 ### <a name="offer-id-and-alias"></a>ID et alias de l’offre
 
-- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en caractères minuscules, alphanumériques (dont traits d’union, tirets du bas, mais pas d’espace blanc), limité à 50 caractères et ne peut pas être modifié une fois que vous avez sélectionné **Créer**.  Par exemple, si vous entrez *test-offer-1* ici, l’URL de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- **ID de l’offre** : Identificateur unique par offre dans votre compte. Cet ID sera visible par les clients dans l’adresse URL de l’offre de la Place de marché et des modèles Resource Manager (si applicable). L’ID de l’offre doit être en caractères alphanumériques minuscules (traits d’union et traits de soulignement compris, mais sans espaces blancs), est limité à 50 caractères et n’est pas modifiable une fois que vous avez sélectionné **Créer**.  Par exemple, si vous entrez *test-offer-1* ici, l’URL de l’offre sera `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
 - **Alias de l’offre** : Le nom utilisé pour faire référence à l’offre dans l’espace partenaires. Ce nom n’est pas utilisé dans la place de marché et est différent du nom de l’offre et d’autres valeurs qui seront présentées aux clients. Cette valeur ne peut pas être modifiée après que vous ayez sélectionné **Créer**.
 
@@ -58,7 +59,7 @@ Répertoriez votre offre en tant qu’essai gratuit pour les clients en fourniss
 
 #### <a name="contact-me"></a>Me contacter
 
-Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la Place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management). 
+Collectez des informations de contact client en connectant votre système de gestion de la relation client (CRM). Le client devra autoriser le partage de ses informations. Ces informations client, ainsi que le nom de l’offre, son ID et la place de marché sur laquelle il a trouvé votre offre, seront envoyées au système CRM que vous avez configuré. Pour plus d’informations sur la configuration de votre CRM, consultez [Connecter la gestion des prospects](#connect-lead-management). 
 
 ### <a name="test-drive"></a>Test drive
 
@@ -128,7 +129,7 @@ La page de référencement de l’offre affiche les langues dans lesquelles votr
 Vous devez définir les informations de la Place de marché (nom de l’offre, description, images, etc.) pour chaque langue/marché. Sélectionnez le nom de la langue/du marché pour fournir ces informations.
 
 > [!NOTE]
-> Il n’est pas nécessaire que le contenu de l’offre (telle que la description de l’offre, les documents, les captures d’écran, les conditions d’utilisation, etc.) soit en anglais tant que la description de l’offre commence par l’expression : « cette application est disponible uniquement en [langue qui n’est pas l’anglais] .» Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
+> Il n’est pas nécessaire que le contenu du référencement de l’offre (par exemple, la description, les documents, les captures d’écran, les conditions d’utilisation, etc.) soit en anglais, tant que sa description commence par l’expression : « This application is available only in [langue autre que l’anglais]. » Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
 
 ### <a name="name"></a>Nom
 
@@ -388,9 +389,9 @@ Une fois que vous avez rempli toutes les sections nécessaires de l’offre, sé
 S’il s’agit de votre première publication de cette offre, vous pouvez :
 
 - Consultez l’état d’achèvement de chaque section de l’offre.
-    - *Non démarrée* : cela signifie que la section n’a pas encore été touchée et doit être complétée.
-    - *Incomplète* : cela signifie que la section contient des erreurs qui doivent être corrigées, ou qui nécessitent plus d’informations. Revenir à la ou les sections et les mettre à jour.
-    - *Complète* : cela signifie que la section est terminée, toutes les données requises ont été renseignées, et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
+    - *Non démarrée* : cela signifie que la section n’a pas encore été modifiée et doit être complétée.
+    - *Incomplète* : cela signifie que la section comporte des erreurs qui doivent être corrigées ou qui nécessitent plus d’informations. Revenir à la ou les sections et les mettre à jour.
+    - *Complète* : cela signifie que la section est terminée, que toutes les données requises ont été renseignées et qu’il n’y a aucune erreur. Toutes les sections de l’offre doivent être dans l’état Complète avant de pouvoir envoyer l’offre.
 - Dans la sections **Notes pour la certification**, fournissez des instructions de test à l’équipe de certification pour veiller à ce que votre application soit testée correctement, en plus de toutes autres notes supplémentaires utiles pour comprendre l’application.
 - Envoyez l’offre pour publication en sélectionnant **Envoyer**. Nous vous enverrons un e-mail si une version d’essai de l’offre est disponible pour vérification et approbation. Retourner dans Partner Center et sélectionner **Publier** pour que votre offre soit publiée pour le public (ou au public privé, si l’offre est privée).
 

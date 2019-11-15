@@ -1,7 +1,7 @@
 ---
 title: Limites et quotas – Service Vision personnalisée
 titleSuffix: Azure Cognitive Services
-description: Découvrez les limites et quotas applicables au service Vision personnalisée.
+description: Cet article présente les différents types de clés de licence, ainsi que les limites et quotas applicables au service Custom Vision.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: anroth
-ms.openlocfilehash: 878e2b03e21c18ef4ee845251e91642037c6c5ff
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e4fc3555d7d880dcbd4f76d8f507300e98c237db
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114646"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718353"
 ---
 # <a name="limits-and-quotas"></a>Limites et quotas
 

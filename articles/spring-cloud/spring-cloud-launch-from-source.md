@@ -3,31 +3,41 @@ title: 'Démarrage rapide : Lancer votre application Spring Cloud à partir du 
 description: Découvrez comment lancer votre application Azure Spring Cloud directement à partir de votre code source.
 author: jpconnock
 ms.service: spring-cloud
-ms.topic: conceptual
-ms.date: 9/27/2019
+ms.topic: quickstart
+ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 445cac1494828362d54a8c15e68d27f01b165841
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 7ca80966ccab83991246f0ed7ea35cf2c9524b1d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170530"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721276"
 ---
 # <a name="launch-your-spring-cloud-application-from-source-code"></a>Lancer votre application Spring Cloud à partir du code source
 
+Azure Spring Cloud vous permet d’exécuter facilement sur Azure une application de microservices basée sur Spring Cloud.
+
 Azure Spring Cloud vous permet de lancer votre application directement à partir de votre code source Java ou à partir d’un fichier JAR prédéfini. Cet article vous guide tout au long des étapes nécessaires.
+
+Dans ce guide de démarrage rapide, vous découvrez comment :
+
+> [!div class="checklist"]
+> * Provisionner une instance de service
+> * Définir un serveur de configuration pour une instance
+> * Générer localement une application de microservices
+> * Déployer chaque microservice
+> * Affecter un point de terminaison public pour votre application
 
 ## <a name="prerequisites"></a>Prérequis
 
 >[!Note]
-> Avant de commencer ce guide de démarrage rapide, vérifiez que votre abonnement Azure a accès à Azure Spring Cloud.  Comme il s’agit d’un service en préversion, nous vous demandons de nous contacter pour que nous puissions ajouter votre abonnement à notre liste verte.  Si vous souhaitez explorer les fonctionnalités d’Azure Spring Cloud, [remplissez ce formulaire](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+> Azure Spring Cloud est actuellement disponible en préversion publique. Les offres de préversion publique permettent aux clients de tester les nouvelles fonctionnalités avant leur publication officielle.  Les fonctionnalités et services en préversion publique ne sont pas destinés à être utilisés en production.  Pour plus d’informations sur le support offert lors des préversions, consultez notre [FAQ](https://azure.microsoft.com/support/faq/) ou soumettez une [Demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
 
 Avant de commencer, vérifiez que votre abonnement Azure a les dépendances requises :
 
-1. [Installer Git](https://git-scm.com/)
-2. [Installer JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-3. [Installer Maven 3.0 ou ultérieur](https://maven.apache.org/download.cgi)
+1. [Installez Git](https://git-scm.com/)
+2. [Installez JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+3. [Installez Maven 3.0 ou ultérieur](https://maven.apache.org/download.cgi)
 4. [Installer l’interface de ligne de commande Microsoft Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Souscrire à un abonnement Azure](https://azure.microsoft.com/free/)
 
@@ -39,7 +49,7 @@ Avant de commencer, vérifiez que votre abonnement Azure a les dépendances requ
 Installez l’extension Azure Spring Cloud pour Azure CLI avec la commande suivante.
 
 ```Azure CLI
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-using-the-azure-cli"></a>Provisionner une instance de service à l’aide d’Azure CLI

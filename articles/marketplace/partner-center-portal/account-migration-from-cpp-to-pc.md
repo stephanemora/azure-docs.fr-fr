@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 6887430cad06ad33434f0f01e741979014b4558b
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: f8644a2aa989b7013cbbd64e8a8194bc08f40251
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219575"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813099"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Migration de compte du Portail Cloud Partner vers l’Espace partenaires
 
@@ -37,7 +38,7 @@ Cliquez sur la bannière pour démarrer le processus de migration de votre compt
 
     * Compte Microsoft : Si le compte du portail Cloud Partner est un compte Microsoft, entrez une adresse e-mail professionnelle valide associée au locataire pour lequel l’ID Microsoft Partner Network (MPN) est inscrit. Pour plus d’informations, consultez [S’inscrire au programme Microsoft Partner Network](#sign-up-for-microsoft-partner-network-program).
 
-    * Incompatibilité du locataire : Si votre adresse e-mail professionnelle n’appartient pas au locataire associé à l’ID Microsoft Partner Network présent sur votre compte du portail Cloud Partner, une erreur s’affiche. Pour y remédier, entrez une adresse e-mail associée au locataire. Un message d’erreur indiquera le nom du locataire.
+    * Incompatibilité du locataire : Si votre adresse e-mail professionnelle n’appartient pas au locataire associé à l’ID Microsoft Partner Network présent sur votre compte CPP, une erreur s’affiche. Pour y remédier, entrez une adresse e-mail associée au locataire. Un message d’erreur indiquera le nom du locataire.
 
 2. S'inscrire au programme Microsoft Partner Network
 
@@ -45,7 +46,7 @@ Cliquez sur la bannière pour démarrer le processus de migration de votre compt
 
 ## <a name="sign-up-for-microsoft-partner-network-program"></a>S'inscrire au programme Microsoft Partner Network
 
-Les entreprises qui souhaitent s’associer à Microsoft doivent rejoindre le Microsoft Partner Network (MPN) et obtenir un ID MPN. Si vous êtes déjà membre du Microsoft Partner Network et que vous avez un ID MPN, conservez les informations à portée de main car vous en aurez besoin lors du processus d’activation du compte.  
+Les entreprises qui souhaitent s’associer à Microsoft doivent rejoindre le Microsoft Partner Network (MPN) et obtenir un ID MPN. Si vous êtes déjà membre de Microsoft Partner Network et que vous avez un ID MPN, conservez les informations à portée de main, car vous en aurez besoin lors du processus d’activation du compte.  
 
 Si vous n’êtes pas membre du Microsoft Partner Network, vous pouvez [vous inscrire ici](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) pour obtenir un ID MPN. Prenez note de votre ID MPN, car vous devrez l’entrer pendant le processus d’activation du compte.
 
@@ -63,13 +64,13 @@ Pour obtenir des informations spécifiques sur ce qui doit être fait d’ici le
 1. Si votre compte d’appartenance MPN a été initialement créé dans Partner Membership Center (PMC), connectez-vous à l’[Espace partenaires](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) pour vérifier que ce compte a été migré. Si vous voyez un écran de profil avec votre ID MPN, vous pouvez continuer. Sinon, vous devez démarrer la migration de votre compte en suivant les invites affichées dans [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Si vous avez besoin d’aide, consultez la page de [support](https://partner.microsoft.com/support?issueid=100-0077).
 2. Accédez à la [page Vue d’ensemble de la Place de marché commerciale dans l’Espace partenaires](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Si vous voyez la mention « Place de marché commerciale » dans le volet de navigation de gauche, vous êtes inscrit et vous pouvez passer à l’étape suivante. Sinon, [inscrivez-vous dès maintenant sur la Place de marché commerciale](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv).
 3. Vérifiez que vos offres sont proposées dans AppSource [en recherchant vos offres](https://appsource.microsoft.com/). Si vos offres se trouvent déjà dans AppSource, passez à l’étape suivante. Si l’une de vos offres n’est pas dans AppSource, créez une [offre Dynamics 365 Customer Engagement](create-new-customer-engagement-offer.md) ou une [offre Dynamics 365 Operations](create-new-operations-offer.md).
-4. Dans la [page Contrats](https://partner.microsoft.com/dashboard/account/agreements) de l’Espace partenaires, assurez-vous d’avoir consulté et accepté l’**addenda du Programme Business Applications ISV**.
+4. Sur la [page Contrats](https://partner.microsoft.com/dashboard/account/agreements) de l’Espace partenaires, consultez et acceptez **l’addendum Business Applications ISV**.
 5. Dans les [Paramètres du compte](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) de l’Espace partenaires, vérifiez que vos informations de facturation sont complètes.
 6. Soumettez toutes vos offres nouvelles ou existantes pour certification et publication, même si elles ont déjà été certifiées.
     * Complétez les écrans d’informations, notamment en fournissant votre application à des fins de certification, ainsi que des informations de marketing. Sélectionnez **Soumettre** (dans le coin supérieur droit de l’écran) au plus tard le **15 octobre 2019**. Ces étapes doivent être effectuées afin que la disponibilité de l’offre ne soit pas affectée.
     * Si vous êtes éligible, vous pouvez demander à participer au niveau Premium au cours de ce processus.
     * La certification ou la recertification nécessite que votre application prenne en charge la version la plus récente de notre plateforme Business Applications.
-    * Une fois votre application approuvée, vous recevrez un e-mail pour revenir à l’offre et sélectionner « Démarrer » afin que l’offre soit mise en ligne sur Microsoft AppSource.
+    * Une fois votre application approuvée, vous recevrez un e-mail pour revenir à l’offre et sélectionner « Mettre en ligne » afin que l’offre soit mise en ligne sur Microsoft AppSource.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

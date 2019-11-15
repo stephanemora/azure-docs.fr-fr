@@ -1,22 +1,22 @@
 ---
-title: Guide pour un exemple d’application mutualisée SQL Database - SaaS Wingtip | Microsoft Docs
+title: Exemple d’application multilocataire – Wingtip SaaS
 description: Fournit des instructions et des étapes pour installer et exécuter l’exemple d’application multilocataire qui utilise Azure SQL Database, l’exemple Wingtip Tickets SaaS.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 6c14fd69521be85dbda5ec4ceda991dfdff54ae0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3589310ff93aca3cec735d6b2f1609ee3d1d2e68
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570066"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825780"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Conseils généraux pour utiliser des exemples d'applications Wingtip Tickets SaaS
 

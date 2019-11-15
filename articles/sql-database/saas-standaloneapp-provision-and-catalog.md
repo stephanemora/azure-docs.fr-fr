@@ -1,5 +1,5 @@
 ---
-title: Tutoriel SaaS multi-locataire - Azure SQL Database | Microsoft Docs
+title: Tutoriel SaaS multilocataire
 description: Approvisionner et cataloguer de nouveaux clients à l’aide du modèle d’application autonome
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/24/2018
-ms.openlocfilehash: f9087ff33bccb54497ec8d781a47469553683d65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c4859554f361b262366bc2442d3819e2a029aa85
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822089"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Approvisionner et cataloguer de nouveaux clients à l’aide du modèle SaaS d’application par client
 

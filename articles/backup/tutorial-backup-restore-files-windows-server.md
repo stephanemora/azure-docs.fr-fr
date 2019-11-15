@@ -1,6 +1,6 @@
 ---
 title: Récupérer des fichiers à partir d’Azure vers un serveur Windows Server
-description: Ce didacticiel détaille les éléments de récupération d’Azure vers un serveur Windows Server.
+description: Dans ce didacticiel, vous allez apprendre comment utiliser l’agent Microsoft Azure Recovery Services (MARS) pour récupérer des éléments à partir d’Azure sur un serveur Windows.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,27 +8,28 @@ ms.topic: tutorial
 ms.date: 02/14/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: e03c085a9671ba84d3af63da658f749f09ebcdef
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a0945c70b271d5213e8eb5b6adbd768ec390f40b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210071"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746931"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Récupérer des fichiers à partir d’Azure vers un serveur Windows Server
 
 La sauvegarde Azure permet de récupérer des éléments individuels à partir de sauvegardes de votre serveur Windows Server. La récupération de fichiers individuels est utile si vous devez restaurer rapidement des fichiers accidentellement supprimés. Ce didacticiel décrit l’utilisation de l’agent Microsoft Azure Recovery Services pour récupérer des éléments à partir de sauvegardes que vous avez déjà effectuées dans Azure. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Lancer la récupération d’éléments individuels 
-> * Sélectionner un point de récupération 
+>
+> * Lancer la récupération d’éléments individuels
+> * Sélectionner un point de récupération
 > * Restaurer des éléments à partir d’un point de récupération
 
 Ce didacticiel suppose que vous avez déjà effectué les étapes permettant de [Sauvegarder un serveur Windows Server vers Azure](backup-configure-vault.md) et que vous avez au moins une sauvegarde de vos fichiers Windows Server dans Azure.
 
 ## <a name="initiate-recovery-of-individual-items"></a>Lancer la récupération d’éléments individuels
 
-Un Assistant d’interface utilisateur utile nommé Sauvegarde Microsoft Azure est installé avec l’agent Microsoft Azure Recovery Services. L’Assistant Sauvegarde Microsoft Azure fonctionne avec l’agent Microsoft Azure Recovery Services pour récupérer des données de sauvegarde à partir de points de récupération stockés dans Azure. Utilisez l’Assistant Sauvegarde Microsoft Azure pour identifier les fichiers ou dossiers que vous voulez restaurer sur Windows Server. 
+Un Assistant d’interface utilisateur utile nommé Sauvegarde Microsoft Azure est installé avec l’agent Microsoft Azure Recovery Services. L’Assistant Sauvegarde Microsoft Azure fonctionne avec l’agent Microsoft Azure Recovery Services pour récupérer des données de sauvegarde à partir de points de récupération stockés dans Azure. Utilisez l’Assistant Sauvegarde Microsoft Azure pour identifier les fichiers ou dossiers que vous voulez restaurer sur Windows Server.
 
 1. Ouvrez le composant logiciel enfichable **Sauvegarde Microsoft Azure**. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure** sur votre ordinateur.
 
@@ -41,16 +42,16 @@ Un Assistant d’interface utilisateur utile nommé Sauvegarde Microsoft Azure e
 3. Dans la page **Prise en main**, sélectionnez **Ce serveur (nom du serveur)** et cliquez sur **Suivant**.
 
 4. Dans la page **Sélectionner le mode de récupération**, sélectionnez **Fichiers et dossiers individuels**, puis cliquez sur **Suivant** pour commencer le processus de sélection de point de récupération.
- 
+
 5. Dans la page **Sélectionner le volume et la date**, sélectionnez le volume qui contient les fichiers ou les dossiers à restaurer, et cliquez sur **Monter**. Sélectionnez une date et une heure dans le menu déroulant qui correspondent à un point de récupération. Les dates en **gras** indiquent la disponibilité d’au moins un point de récupération ce jour-là.
 
     ![Sauvegarde en attente](./media/tutorial-backup-restore-files-windows-server/mars-select-date.png)
- 
+
     Quand vous cliquez sur **Monter**, la sauvegarde Azure rend le point de récupération disponible sous la forme d’un disque. Parcourez et restaurez les fichiers à partir du disque.
 
 ## <a name="restore-items-from-a-recovery-point"></a>Restaurer des éléments à partir d’un point de récupération
 
-1. Une fois le volume de récupération monté, cliquez sur **Parcourir** pour ouvrir l’Explorateur Windows et rechercher les fichiers et dossiers à récupérer. 
+1. Une fois le volume de récupération monté, cliquez sur **Parcourir** pour ouvrir l’Explorateur Windows et rechercher les fichiers et dossiers à récupérer.
 
     ![Sauvegarde en attente](./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png)
 
@@ -60,11 +61,11 @@ Un Assistant d’interface utilisateur utile nommé Sauvegarde Microsoft Azure e
 
     ![Sauvegarde en attente](./media/tutorial-backup-restore-files-windows-server/mars-final.png)
 
-3. Quand vous avez terminé la restauration des fichiers et/ou des dossiers, dans la page **Rechercher et récupérer des fichiers** de l’Assistant **Récupérer des données**, cliquez sur **Démonter**. 
+3. Quand vous avez terminé la restauration des fichiers et/ou des dossiers, dans la page **Rechercher et récupérer des fichiers** de l’Assistant **Récupérer des données**, cliquez sur **Démonter**.
 
     ![Sauvegarde en attente](./media/tutorial-backup-restore-files-windows-server/unmount-and-confirm.png)
 
-4.  Cliquez sur **Oui** pour confirmer que vous voulez démonter le volume.
+4. Cliquez sur **Oui** pour confirmer que vous voulez démonter le volume.
 
     Une fois la capture instantanée démontée, le message **Tâche terminée** s’affiche dans le volet **Tâches** de la console de l’agent.
 

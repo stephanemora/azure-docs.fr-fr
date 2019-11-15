@@ -4,15 +4,16 @@ description: Configurer la gestion des prospects pour Azure Table.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 7151be3ac9f55825fd2e9dde35c9afda6a30726a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901537"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812336"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Configuration de la gestion des prospects à l’aide d’une table Azure
 
@@ -66,10 +67,10 @@ Utilisez cet exemple comme guide pour créer un simple flux qui envoie automatiq
 
    ![Mes flux **+ Planifié entièrement**](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-scheduled-from-blank.png)
 
-5.  Dans la fenêtre *Créer un flux planifié*, sous *Répéter tou(te)s les*, sélectionnez « 1 » comme intervalle et « heure » comme fréquence. Par ailleurs, attribuez un nom au flux si vous le souhaitez. Sélectionnez **Créer**.
+5.  Dans la fenêtre *Créer un flux planifié*, sélectionnez l’intervalle « 1 » et la fréquence « heure » sous *Répéter tou(te)s les*. Par ailleurs, attribuez un nom au flux si vous le souhaitez. Sélectionnez **Create** (Créer).
 
     >[!Note]
-    >Bien que cet exemple utilise un intervalle de 1 heure, vous pouvez sélectionner l’intervalle et la fréquence qui conviennent le mieux à vos besoins.
+    >Même si cet exemple utilise un intervalle d’une heure, vous pouvez sélectionner l’intervalle et la fréquence les plus adaptés à vos besoins professionnels.
 
     ![Créez un flux planifié.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
@@ -88,29 +89,29 @@ Utilisez cet exemple comme guide pour créer un simple flux qui envoie automatiq
 >[!TIP] 
 >Vous pouvez vérifier votre flux à tout moment pour confirmer que chaque étape est correctement configurée. Pour vérifier votre flux, sélectionnez **Vérificateur de flux** dans la barre de menus Flux.
 
-Dans les étapes suivantes, vous allez vous connecter à votre table Azure et configurer la logique de traitement afin de gérer de nouveaux prospects.
+Dans les étapes suivantes, vous allez vous connecter à votre table Azure et configurer la logique de traitement des nouveaux prospects.
 
-9. Après l’étape Obtenir l'heure passée, sélectionnez **+ Nouvelle étape**, puis recherchez « Obtenir des entités » dans la fenêtre *Choisir une action*.
+9. Après l’étape Obtenir l’heure passée, sélectionnez **+ Nouvelle étape**, puis recherchez « Obtenir des entités » dans la fenêtre *Choisir une action*.
 10. Sous **Actions**, sélectionnez **Obtenir des entités (Stockage Table Azure)** .
 11. Dans la fenêtre **Stockage Table Azure**, fournissez les informations dans les champs suivants, puis sélectionnez **Créer** :
 
-    * *Nom de la connexion* : fournissez un nom significatif pour la connexion que vous établissez entre ce flux et la Table Azure.
-    * *Nom du compte de stockage* : fournissez le nom du compte de stockage pour votre table Azure. Vous pouvez trouver cette information dans la page **Clés d’accès** du compte de stockage.
-    * *Clé de stockage partagée* : fournissez la valeur de clé de votre compte de stockage pour votre Table Azure. Vous pouvez trouver cette information dans la page **Clés d’accès** du compte de stockage.
+    * *Nom de la connexion* : donnez un nom significatif à la connexion que vous établissez entre ce flux et la table Azure.
+    * *Nom du compte de stockage* : indiquez le nom du compte de stockage pour votre table Azure. Vous trouverez cette information sur la page **Clés d’accès** du compte de stockage.
+    * *Clé de stockage partagée* : indiquez la valeur de clé de votre compte de stockage pour votre table Azure. Vous trouverez cette information sur la page **Clés d’accès** du compte de stockage.
 
         ![Stockage Table Azure](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
     La fenêtre *Obtenir des entités* s’affiche une fois que vous avez cliqué sur Créer. Sélectionnez **Afficher les options avancées** et complétez les champs suivants :
 
-       * *Table* : sélectionnez le nom de votre Stockage Table Azure (à partir de l'étape 6 de la procédure de configuration d’une table Azure). La capture d’écran suivante montre l’invite lorsque la table « marketplaceleads » est sélectionnée pour cet exemple.
+       * *Table* : sélectionnez le nom de votre Stockage Table Azure (à partir de l’étape 6 des instructions de configuration d’une table Azure). La capture d’écran suivante montre l’invite lorsque la table « marketplaceleads » est sélectionnée pour cet exemple.
 
             ![La Table Azure est complétée par des entités.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        * *Requête de filtre* : sélectionnez ce champ et collez cette fonction dans le champ : `Timestamp gt datetime'@{body('Get_past_time')}'`
+        * *Requête de filtre* : sélectionnez ce champ et collez cette fonction dans le champ `Timestamp gt datetime'@{body('Get_past_time')}'`.
 
             ![La Table Azure est complétée par des entités - Requête de filtre.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
-12. Après avoir effectué la configuration de la connexion à la table Azure, sélectionnez **Nouvelle étape** pour ajouter une condition afin de rechercher de nouveaux prospects dans la table Azure. 
+12. Maintenant que vous avez effectué la configuration de la connexion à la table Azure, sélectionnez **Nouvelle étape** pour ajouter une condition afin de rechercher de nouveaux prospects dans la table Azure. 
 
 13. Dans la fenêtre **Choisir une action**, choisissez **Actions**, puis sélectionnez le contrôle **Condition**.
 
@@ -128,7 +129,7 @@ Dans les étapes suivantes, vous allez vous connecter à votre table Azure et co
 
 Dans les étapes suivantes, vous allez définir l’action à exécuter selon le résultat de la condition.
 
-* Si la condition affiche la valeur **If no**, vous n’avez rien à faire.
+* Si la condition donne **If no**, vous n’avez rien à faire.
 * Si la condition affiche la valeur **If yes**, déclenchez une action pour vous connecter à votre compte Office 365 afin d’envoyer un message électronique. 
 
 17. Sélectionnez **Ajouter une action** sous **Si oui**.
@@ -153,7 +154,7 @@ Dans les étapes suivantes, vous allez définir l’action à exécuter selon le
 
     ![Table Azure, **Si oui**, fenêtre Office 365 Outlook.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
-20. Sélectionnez **Enregistrer** pour enregistrer le flux. Microsoft Flow vérifie automatiquement si le flux contient des erreurs. Si aucune erreur n’est détectée, votre flux s’exécute dès qu’il est enregistré.
+20. Sélectionnez **Enregistrer** pour enregistrer le flux. Microsoft Flow vérifie automatiquement si le flux contient des erreurs. Si aucune erreur n’est détectée, le flux s’exécute dès qu’il est enregistré.
 
 La capture d’écran suivante montre à quoi devrait ressembler le flux final.
 
@@ -161,13 +162,13 @@ La capture d’écran suivante montre à quoi devrait ressembler le flux final.
 
 ### <a name="manage-your-flow"></a>Gérer votre flux
 
-Vous pouvez facilement gérer un flux en cours d’exécution. Vous disposez d’un contrôle total sur votre flux. Par exemple, vous pouvez l’arrêter le modifier, afficher un historique des exécutions et obtenir des données analytiques. La capture d’écran suivante montre les options disponibles pour gérer un flux. 
+Il est facile de gérer un flux en cours d’exécution. Vous disposez d’un contrôle total sur votre flux. Par exemple, vous pouvez l’arrêter le modifier, afficher un historique des exécutions et obtenir des données analytiques. La capture d’écran suivante montre les options disponibles pour gérer un flux. 
 
  ![Gestion d’un flux](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
 
 Le flux continue de s’exécuter jusqu'à ce que vous l’arrêtiez à l’aide de l’option **Désactiver le flux**.
 
-Si vous ne recevez aucune notification de prospect par courrier électronique, cela signifie que les nouveaux prospects n’ont pas été ajoutés à la table Azure. Si votre flux contient des erreurs, vous recevrez un message électronique similaire à celui de l’exemple dans la capture d’écran suivante.
+Si vous ne recevez aucune notification de prospect par e-mail, cela signifie qu’aucun nouveau prospect n’a été ajouté à la table Azure. Si votre flux contient des erreurs, vous recevrez un e-mail similaire à celui de l’exemple dans la capture d’écran suivante.
 
  ![Notification par e-mail d’une erreur de flux](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-failure-note.png)
 

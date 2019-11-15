@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : créer un entrepôt de données SQL Azure - Azure Powershell | Microsoft Docs'
+title: 'Démarrage rapide : Créer un entrepôt - Azure PowerShell'
 description: Créez rapidement un serveur logique SQL Database, une règle de pare-feu au niveau du serveur et un entrepôt de données avec Azure PowerShell.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 4/11/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f5ee4227b0aeb53be4512dafc91f814468b50c12
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cfc427b11944cb81d8bc3d12d13668d53be698b7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574904"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693098"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Démarrage rapide : Créer et interroger un entrepôt de données SQL Azure avec Azure PowerShell
 
@@ -119,7 +120,7 @@ New-AzSqlDatabase `
 
 Les paramètres obligatoires sont :
 
-* **RequestedServiceObjectiveName** : quantité de valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) que vous demandez. L’augmentation de cette quantité augmente les coûts de calcul. Pour obtenir la liste des valeurs prises en charge, consultez les [limites de mémoire et de concurrence](memory-and-concurrency-limits.md).
+* **RequestedServiceObjectiveName** : quantité de valeurs [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md) que vous demandez. L’augmentation de cette quantité augmente les coûts de calcul. Pour obtenir la liste des valeurs prises en charge, consultez les [limites de mémoire et de concurrence]memory-concurrency-limits.md).
 * **DatabaseName** : nom de l’entrepôt de données SQL que vous créez.
 * **ServerName** : nom du serveur que vous utilisez pour la création.
 * **ResourceGroupName** : groupe de ressources que vous utilisez. Pour trouver des groupes de ressources disponibles dans votre abonnement, utilisez Get-AzureResource.

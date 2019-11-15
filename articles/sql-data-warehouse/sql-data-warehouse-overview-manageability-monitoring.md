@@ -1,6 +1,6 @@
 ---
-title: Facilité de gestion et surveillance SQL Data Warehouse - Vue d’ensemble | Microsoft Docs
-description: Vue d’ensemble de la surveillance et de la facilité de gestion pour l’utilisation des ressources, l’activité de journal et de requête, les recommandations et la protection des données (sauvegarde et restauration).
+title: Facilité de gestion et monitorage – Vue d’ensemble
+description: Vue d’ensemble du monitorage et de la facilité de gestion pour l’utilisation des ressources, l’activité de journal et de requête, les recommandations et la protection des données (sauvegarde et restauration) dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9fb06b8ba34566689f769ca9a69328eee37e3c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3bacd77f49f97bd98a5e1bee844bc80c595f5cbe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60747572"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685598"
 ---
 # <a name="manageability-and-monitoring-with-azure-sql-data-warehouse"></a>Facilité de gestion et surveillance avec Azure SQL Data Warehouse
 
@@ -24,11 +25,11 @@ Découvrez ce qui est disponible pour vous aider à gérer et à surveiller SQL 
 ## <a name="overview"></a>Vue d'ensemble
 
 * [En savoir plus sur la gestion du calcul et l’élasticité][manage compute]
-* [Découvrir les métriques et les journaux d’activité disponibles dans le portail Azure][resource utilization]
+* [Découvrir les métriques et les journaux disponibles sur le Portail Azure][resource utilization]
 * [En savoir plus sur les fonctionnalités de sauvegarde et de restauration][data protection]
-* [En savoir plus sur les recommandations et l’intelligence intégrée][recommendations]
-* [En savoir plus sur les périodes de maintenance et ce qui est disponible pour réduire le temps d’arrêt de votre entrepôt de données][maintenance]
-* [Trouver des conseils de dépannage courants][troubleshoot]
+* [En savoir plus sur l’intelligence et les recommandations intégrées][recommendations]
+* [En savoir plus sur les périodes de maintenance et les possibilités de réduction du temps d’arrêt d’un entrepôt de données][maintenance]
+* [Obtenir des conseils de dépannage courants][troubleshoot]
 
 
 ## <a name="next-steps"></a>Étapes suivantes

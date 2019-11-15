@@ -1,6 +1,6 @@
 ---
-title: Visualiser les anomalies des données dans les événements en temps réel - Azure Event Hubs | Microsoft Docs
-description: 'Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Microsoft Azure Event Hubs'
+title: 'Didacticiel : Visualiser les anomalies des données dans les événements en temps réel - Azure Event Hubs'
+description: 'Didacticiel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Microsoft Azure Event Hubs'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -8,15 +8,15 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 02/26/2019
-ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 11/05/2019
+ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867139"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717993"
 ---
-# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
+# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Didacticiel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
 
 Avec Azure Event Hubs, vous pouvez utiliser Azure Stream Analytics pour vérifier les données entrantes et rejeter les anomalies, que vous pouvez ensuite visualiser dans Power BI. Supposons que vous avez des milliers d’appareils qui envoient en permanence des données en temps réel à un hub d’événements, ajoutant des millions d’événements par seconde. Comment trouver les anomalies ou les erreurs dans de telles quantités de données ? Par exemple, que se passe-t-il si les appareils envoient des transactions par carte de crédit, et que vous devez les capturer partout où vous devez gérer plusieurs transactions dans plusieurs pays/régions, dans un intervalle de 5 secondes ? Ce scénario peut se produire si quelqu’un vole des cartes de crédit et les utilise pour acheter des articles à travers le monde au même moment. 
 

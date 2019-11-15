@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 8428e417f5f86edca77edae6ca4b7ef84e5ff425
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342107"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827297"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 
@@ -194,13 +194,13 @@ En cas de modification où l’un des attributs du bloc est affecté, il est fac
 
 Les utilisateurs vont heureusement générer beaucoup de contenu. Et vous devriez être en mesure de fournir la possibilité de rechercher et de trouver du contenu qui n’est peut-être pas directement dans leur flux de contenu, car vous ne suivez pas les créateurs ou vous essayez peut-être simplement de trouver une publication créée il y a six mois.
 
-Comme vous utilisez Azure Cosmos DB, vous pouvez facilement implémenter un moteur de recherche avec [Recherche Azure](https://azure.microsoft.com/services/search/) en quelques minutes et sans taper une seule ligne de code (autre que le processus de recherche et l’interface utilisateur).
+Comme vous utilisez Azure Cosmos DB, vous pouvez implémenter un moteur de recherche avec la [Recherche cognitive Azure](https://azure.microsoft.com/services/search/) en quelques minutes et sans taper une seule ligne de code (autre que le processus de recherche et l’interface utilisateur).
 
 Pourquoi ce processus est-il si simple ?
 
-Le service Recherche Azure implémente des [indexeurs](https://msdn.microsoft.com/library/azure/dn946891.aspx). Ce sont des processus d’arrière-plan intégrés dans vos référentiels de données et qui ajoutent, mettent à jour ou suppriment automatiquement vos objets dans les index. Ils prennent en charge les [indexeurs Azure SQL Database](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), les [indexeurs d’objets blob Azure](../search/search-howto-indexing-azure-blob-storage.md) et les [indexeurs Azure Cosmos DB](../search/search-howto-index-documentdb.md). Le passage des informations de Cosmos DB à Recherche Azure est simple. Ces deux technologies stockent les informations au format JSON. Il vous suffit donc de [créer votre index](../search/search-create-index-portal.md) et de mapper les attributs de vos documents à indexer. Et voilà ! En fonction de la taille des données, tout votre contenu est disponible pour la recherche en quelques minutes, grâce à la meilleure solution Search-as-a-Service de l’infrastructure cloud.
+Le service Recherche cognitive Azure implémente des [indexeurs](https://msdn.microsoft.com/library/azure/dn946891.aspx). Ce sont des processus d’arrière-plan intégrés aux référentiels de données qui ajoutent, mettent à jour ou suppriment automatiquement les objets dans les index. Ils prennent en charge les [indexeurs Azure SQL Database](https://blogs.msdn.microsoft.com/kaevans/2015/03/06/indexing-azure-sql-database-with-azure-search/), les [indexeurs d’objets blob Azure](../search/search-howto-indexing-azure-blob-storage.md) et les [indexeurs Azure Cosmos DB](../search/search-howto-index-documentdb.md). Le passage des informations de Cosmos DB à la Recherche cognitive Azure est simple. Ces deux technologies stockent les informations au format JSON. Il vous suffit donc de [créer votre index](../search/search-create-index-portal.md) et de mapper les attributs de vos documents à indexer. Et voilà ! En fonction de la taille des données, tout votre contenu est disponible pour la recherche en quelques minutes, grâce à la meilleure solution Search-as-a-Service de l’infrastructure cloud.
 
-Pour plus d’informations sur Recherche Azure, vous pouvez consulter le document [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
+Pour plus d’informations sur la Recherche cognitive Azure, consultez le document [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
 ## <a name="the-underlying-knowledge"></a>Les connaissances sous-jacentes
 
@@ -248,7 +248,7 @@ Cet article tente de vous éclairer sur les alternatives de création de réseau
 
 ![Diagramme de l’interaction entre les services Azure pour les réseaux sociaux](./media/social-media-apps/social-media-apps-azure-solution.png)
 
-La vérité est qu’il n’existe aucune solution parfaite pour ce genre de scénarios. C’est la synergie créée par la combinaison d’excellents services qui nous permet de concevoir des expériences exceptionnelles : la rapidité et la liberté d’Azure Cosmos DB pour une application sociale intéressante, l’intelligence d’une solution de recherche de premier ordre comme Recherche Azure, la flexibilité d’Azure App Services pour héberger non pas des applications indépendantes du langage, mais des processus d’arrière-plan puissants, ainsi que les outils de stockage Azure et Azure SQL Database extensibles pour le stockage de grandes quantités de données et la puissance d’analyse d’Azure Machine Learning pour créer les connaissances et l’intelligence décisionnelle capables de fournir un feedback à vos processus et de nous aider à délivrer le bon contenu aux bons utilisateurs.
+La vérité est qu’il n’existe aucune solution parfaite pour ce genre de scénarios. C’est la synergie créée par la combinaison d’excellents services qui nous permet de concevoir des expériences exceptionnelles : la rapidité et la liberté offertes par Azure Cosmos DB pour proposer une application sociale de qualité, l’intelligence d’une solution de recherche de premier ordre comme la Recherche cognitive Azure, la flexibilité d’Azure App Service qui permet d’héberger non pas des applications indépendantes du langage, mais de puissants processus d’arrière-plan, ainsi que les outils extensibles Stockage Azure et Azure SQL Database qui stockent de grandes quantités de données et la puissance d’analyse d’Azure Machine Learning pour créer des connaissances et une intelligence permettant de fournir un feedback aux processus et de nous aider à délivrer le bon contenu aux bons utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Effectuer une révision d’accès à partir du portail Mes applications – Azure Active Directory | Microsoft Docs
+title: Effectuer une révision d’accès sur le portail Mes applications – Azure AD
 description: Découvrez comment afficher et gérer l’accès de sécurité pour les applications et groupes de votre organisation.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf803027aac7c62ea500d1af104ae3234fadf8b5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383148"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73804042"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Effectuer une révision d’accès à partir du portail Mes applications
 

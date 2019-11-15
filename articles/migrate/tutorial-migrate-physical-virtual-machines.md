@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9b1944cdad67f9f1b74c8dae95bc9d8409e56f54
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ffa072f593a06a38e6e3d121fb76806e41bf568e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309465"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605547"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrer des serveurs physiques ou virtualisés vers Azure 
 
@@ -135,7 +135,7 @@ Azure Migrate Server Migration utilise une appliance de réplication pour répli
 - **Serveur de configuration** : Le serveur de configuration coordonne la communication entre les ordinateurs locaux et Azure.et gère la réplication des données.
 - **Serveur de traitement**: Le serveur de processus fait office de passerelle de réplication. Il reçoit les données de réplication, les optimise grâce à une mise en cache, une compression et un chiffrement, puis les envoie à un compte de stockage de cache dans Azure. 
 
-Avant de commencer, vous devez préparer une machine Windows Server 2016 pour qu’elle héberge l’appliance de réplication. La machine doit être conforme à [ces exigences](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements).
+Avant de commencer, vous devez préparer une machine Windows Server 2016 pour qu’elle héberge l’appliance de réplication. La machine doit être conforme à [ces exigences](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements). L’appliance ne doit pas être installée sur une machine source que vous souhaitez protéger.
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Ajouter l’outil Azure Migrate Server Migration

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b52f356b112cff51105ed44c79788ee4542c6e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8c8bfa5fc31ce8500d1ed339ba28afeed21e25a0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430496"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603504"
 ---
 # <a name="passwordless-authentication-options"></a>Options d’authentification sans mot de passe
 
@@ -28,15 +28,15 @@ L’authentification multifacteur (MFA) est un excellent moyen de sécuriser vot
 
 Chaque organisation a des besoins différents en matière d’authentification. Microsoft propose trois options d’authentification sans mot de passe :
 
-- Windows Hello Entreprise 
-- Application Microsoft Authenticator 
+- Windows Hello Entreprise
+- Application Microsoft Authenticator
 - Clés de sécurité FIDO2
 
 ![Authentification : Sécurité et commodité](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>Windows Hello Entreprise 
+## <a name="windows-hello-for-business"></a>Windows Hello Entreprise
 
-Windows Hello Entreprise est idéal pour les professionnels de l’information qui disposent de leur propre PC Windows. Les données biométriques et le code confidentiel sont directement liés au PC de l’utilisateur, personne à part son propriétaire ne peut donc y accéder. Avec l’intégration PKI et la prise en charge intégrée de l'authentification unique (SSO), Windows Hello Entreprise offre une méthode d'accès simple et pratique aux ressources d'entreprise localement et dans le cloud.
+Windows Hello Entreprise est idéal pour les professionnels de l’information qui disposent de leur propre PC Windows. Les données biométriques et le code confidentiel sont directement liés au PC de l’utilisateur ; personne à part son propriétaire ne peut donc y accéder. Avec l’intégration PKI et la prise en charge intégrée de l'authentification unique (SSO), Windows Hello Entreprise offre une méthode d'accès simple et pratique aux ressources d'entreprise localement et dans le cloud.
 
 Le [guide de planification](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) Windows Hello Entreprise peut vous aider à déterminer le type de déploiement de Windows Hello Entreprise dont vous avez besoin, ainsi que les options à prendre en compte.
 
@@ -52,7 +52,7 @@ Elle transforme n’importe quel téléphone iOS ou Android en méthode d’iden
 
 Les clés de sécurité FIDO2 sont une méthode d’authentification sans mot de passe basée sur une norme. Elles ne peuvent pas être usurpées et peuvent s’afficher dans n’importe quel facteur de forme. Fast Identity Online (FIDO) est une norme ouverte d’authentification sans mot de passe. Elle permet aux utilisateurs et aux organisations de tirer parti de la norme pour se connecter à leurs ressources sans nom d’utilisateur ou mot de passe, à l’aide d’une clé de sécurité externe ou d’une clé de plateforme intégrée à un appareil.
 
-Avec la préversion publique, les employés peuvent utiliser des clés de sécurité externes pour se connecter à leurs machines Windows 10 (version 1809 ou ultérieure) jointes à Azure Active Directory et bénéficier de l’authentification unique pour leurs ressources cloud. Ils peuvent également se connecter sur les navigateurs pris en charge.
+Avec la préversion publique, les employés peuvent utiliser des clés de sécurité pour se connecter à leurs appareils Windows 10 joints à Azure AD et bénéficier de l’authentification unique sur leurs ressources cloud et locales. Ils peuvent également se connecter sur les navigateurs pris en charge.
 
 ![Connectez-vous à Microsoft Edge avec une clé de sécurité](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -76,6 +76,10 @@ Les fournisseurs suivants offrent des clés de sécurité FIDO2 de différents f
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
+| AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
+
+> [!NOTE]
+> Si vous achetez et prévoyez d’utiliser des clés de sécurité NFC, vous aurez besoin d’un lecteur NFC pris en charge.
 
 Si vous êtes un fournisseur et que vous voulez que votre appareil figure dans cette liste, contactez [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
 
@@ -88,7 +92,7 @@ Les clés de sécurité FIDO2 constituent une excellente solution pour les entre
 - Les utilisateurs finaux peuvent inscrire et gérer ces méthodes d’authentification sans mot de passe sur le portail de leur compte
 - Les utilisateurs finaux peuvent se connecter avec ces méthodes d’authentification sans mot de passe
    - Application Microsoft Authenticator : Fonctionnera dans les scénarios dans lequel l’authentification Azure AD est utilisée, y compris sur tous les navigateurs, pendant la configuration de Windows 10 (OOBE) et avec les applications mobiles intégrées sur n’importe quel système d’exploitation.
-   - Clés de sécurité : Fonctionnent sur l’écran de verrouillage Windows 10 version 1809 ou ultérieure et les navigateurs web pris en charge, comme Microsoft Edge.
+   - Clés de sécurité : Fonctionneront sur l’écran de verrouillage Windows 10 et les navigateurs web pris en charge, comme Microsoft Edge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

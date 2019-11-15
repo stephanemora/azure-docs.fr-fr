@@ -1,6 +1,6 @@
 ---
-title: Utilisation des rubriques et abonnements Azure Service Bus avec Node.js | Microsoft Docs
-description: Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure à partir d’une application Node.js.
+title: 'Démarrage rapide : Guide pratique pour utiliser les rubriques et les abonnements Azure Service Bus avec Node.js'
+description: 'Démarrage rapide : Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure à partir d’une application Node.js.'
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/15/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: f927274e1e866a9cba72330280316cc5ee7d8047
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: fa6f40eba02ffe171dc521f952e0d00fc35fc7e6
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178053"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721669"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Utilisation des rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus
+# <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec Node.js et le package azure/service-bus
 > [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)

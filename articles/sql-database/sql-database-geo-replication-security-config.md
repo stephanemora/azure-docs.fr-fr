@@ -1,5 +1,5 @@
 ---
-title: Configurer la sécurité d’Azure SQL Database pour la reprise d’activité | Microsoft Docs
+title: Configurer la sécurité pour la récupération d’urgence
 description: Découvrez les considérations de sécurité pour la configuration et la gestion de la sécurité après une restauration de base de données ou un basculement vers un serveur secondaire.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 4d4939b7a0179216d11f594ce12f384276d15e05
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9d628583168883276e67d9e2f2fcafdce292769e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568132"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807493"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement
 

@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8cc75fde348d070a19d1987d1403c63e8e6d2278
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: c2aa393f04a8db470dd8b739c0ed003477df0221
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286635"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615412"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 
@@ -23,7 +23,7 @@ La gestion des ressources déléguées Azure est l’un des principaux composant
 La gestion des ressources déléguées Azure permet d’opérer une projection logique des ressources d’un locataire sur un autre. Des utilisateurs autorisés dans un locataire Azure Active Directory (Azure AD) peuvent ainsi effectuer des opérations de gestion sur différents locataire Azure AD appartenant à leurs clients. Les fournisseurs de services peuvent se connecter à leur propre locataire Azure AD et être autorisés à travailler dans des abonnements et groupes de ressources délégués de clients. Cela leur permet d’effectuer des opérations de gestion au nom de leurs clients, sans avoir à se connecter à chaque locataire du client.
 
 > [!NOTE]
-> La gestion des ressources déléguées Azure peut également être utilisée au sein d’une entreprise comptant plusieurs locataires Azure AD propres afin de simplifier la gestion inter-locataire.
+> La gestion des ressources déléguées Azure peut également être utilisée [au sein d’une entreprise comptant plusieurs locataires Azure AD propres](enterprise.md) afin de simplifier la gestion inter-locataire.
 
 Avec la gestion des ressources déléguées Azure, les utilisateurs autorisés peuvent travailler directement dans le contexte d’un abonnement client sans avoir de compte dans le locataire de ce client ou être copropriétaire du locataire du client. Ils peuvent également [voir et gérer tous les abonnements délégués du client**dans la nouvelle page**Mes clients](../how-to/view-manage-customers.md) du portail Azure.
 

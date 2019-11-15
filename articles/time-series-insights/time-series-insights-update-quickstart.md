@@ -3,20 +3,19 @@ title: 'Démarrage rapide : Explorer l’environnement de démonstration Azure T
 description: Démarrage rapide pour comprendre comment fonctionne l’environnement de démonstration Azure Time Series Insights (préversion).
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 09/23/2019
-ms.openlocfilehash: 633eb00b479c6d2e2bf233b42aff7d393b110fd2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.date: 10/24/2019
+ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258416"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579651"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Démarrage rapide : Explorer l’environnement de démonstration Azure Time Series Insights (préversion)
 
@@ -31,7 +30,7 @@ Dans ce démarrage rapide, vous allez apprendre à utiliser Time Series Insights
 
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>Découvrir l’Explorateur Time Series Insights dans un environnement de démonstration
 
-L’Explorateur Time Series Insights (préversion) présente des données d’historique et l’analyse des causes racines. Pour commencer :
+L’Explorateur Time Series Insights (préversion) présente des données historiques et l’analyse des causes racines. Pour commencer :
 
 1. Accédez à l’environnement de  [démonstration Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples).  
 
@@ -41,14 +40,14 @@ L’Explorateur Time Series Insights (préversion) présente des données d’hi
 
 1. Intéressons-nous à l’éolienne **W7** du parc **Contoso Plant 1**.  
 
-   1. Modifiez la plage d’affichage sur **01/01/17 20:00 au 10/03/17 20:00 (UTC)** .
+   1. Remplacez la plage d’affichage par **Du 01/01/17 20:00:00.00 au 10/03/17 20:00:00.00 (UTC)** .
    1. Pour sélectionner un capteur, choisissez **Contoso Plant 1** > **W7** > **Generator System** > **GeneratorSpeed**. Ensuite, passez en revue les valeurs qui sont affichées.
 
       [![W7 dans Contoso Plant 1](media/v2-update-quickstart/quickstart-one.png)](media/v2-update-quickstart/quickstart-one.png#lightbox)
 
 1. Dernièrement, Contoso a détecté un incendie sur l’éolienne **W7**. Les opinions varient sur ce qui a provoqué l’incendie. Dans Time Series Insights, nous pouvons constater que le capteur d’alerte incendie a été activé au cours de l’incendie.
 
-   1. Modifiez la plage d’affichage sur **09/03/17 20:00 au 10/03/17 20:00 (UTC)** .
+   1. Remplacez la plage d’affichage par **Du 09/03/17 20:00:00.00 au 10/03/17 20:00:00.00 (UTC)** .
    1. Sélectionnez **Safety System** > **FireAlert**.
 
       [![Détection par Contoso d’un incendie sur l’éolienne W7](media/v2-update-quickstart/quickstart-two.png)](media/v2-update-quickstart/quickstart-two.png#lightbox)
@@ -62,7 +61,7 @@ L’Explorateur Time Series Insights (préversion) présente des données d’hi
 
 1. Notez l’augmentation des capteurs associés à la pression de l’huile et aux avertissements actifs juste avant l’incendie. Développez la série chronologique affichée pour déterminer la présence d’autres signes précurseurs de l’incendie. Les deux capteurs ont fluctué de manière cohérente au fil du temps. Les fluctuations indiquent un modèle persistant et préoccupant.
 
-    * Modifiez la plage d’affichage sur **24/02/17 20:00 au 10/03/17 20:00 (UTC)** .
+    * Remplacez la plage d’affichage par **Du 24/02/17 20:00:00.00 au 10/03/17 20:00:00.00 (UTC)** .
 
       [![Augmentation des capteurs associés à la pression de l’huile et aux avertissements actifs](media/v2-update-quickstart/quickstart-four.png)](media/v2-update-quickstart/quickstart-four.png#lightbox)
 
@@ -72,22 +71,22 @@ L’Explorateur Time Series Insights (préversion) présente des données d’hi
 
       [![Recherche de tendances historiques](media/v2-update-quickstart/quickstart-five.png)](media/v2-update-quickstart/quickstart-five.png#lightbox)
 
-Avec Time Series Insights et les données de télémétrie de nos capteurs, nous avons découvert une tendance problématique à long terme dissimulée dans les données d’historique. Avec ces nouveaux insights, nous pouvons :
+Avec Time Series Insights et la télémétrie des capteurs, nous avons découvert une tendance à long terme dissimulée dans les données historiques. Avec ces nouveaux insights, nous pouvons :
 
 * Expliquer ce qui s’est réellement passé.
 * Corriger le problème.
-* Mettre en place des systèmes de notification d’alerte supérieurs.
+* Mettre en place de meilleurs systèmes de notification d’alerte.
 
 ## <a name="root-cause-analysis"></a>Analyse de la cause racine
 
-1. Certains scénarios nécessitent une analyse sophistiquée pour découvrir des indices subtils dans les données. Sélectionnez l’éolienne **W6** en date du **25/6**.
+1. Certains scénarios exigent une analyse sophistiquée pour découvrir des indices dans les données. Sélectionnez l’éolienne **W6** en date du **25/6**.
 
-    1. Modifiez la plage d’affichage sur **01/06/17 20:00 au 01/07/17 20:00 (UTC)** .
+    1. Remplacez la plage d’affichage par **Du 01/06/17 20:00:00.00 au 01/07/17 20:00:00.00 (UTC)** .
     1. Sélectionnez **Contoso Plant 1** > **W6** > **Safety System** > **VoltageActuatorSwitchWarning**.
 
        [![Modifier la plage d’affichage et sélectionner W6](media/v2-update-quickstart/quickstart-six.png)](media/v2-update-quickstart/quickstart-six.png#lightbox)
 
-1. L’avertissement indique un problème au niveau de la tension émise par la génératrice. La puissance de sortie totale de la génératrice se trouve dans les limites de la normale compte tenu de l’intervalle actuel. Si nous augmentons notre intervalle, une autre tendance se dégage. Une baisse nette est évidente.
+1. L’avertissement indique un problème au niveau de la tension du générateur. La puissance de sortie totale du générateur se trouve dans les paramètres normaux dans l’intervalle actuel. Si nous augmentons notre intervalle, une autre tendance se dégage. Il se produit une nette baisse.
 
     1. Supprimez le capteur **VoltageActuatorSwitchWarning**.
     1. Sélectionnez **Generator System** > **ActivePower**.
@@ -118,9 +117,9 @@ Avec Time Series Insights et les données de télémétrie de nos capteurs, nous
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Maintenant que vous avez terminé le didacticiel, nettoyez les ressources que vous avez créées :
+Maintenant que vous avez suivi le démarrage rapide, nettoyez les ressources que vous avez créées :
 
-1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Azure Time Series Insights.
+1. Dans le menu de gauche du [Portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis recherchez votre groupe de ressources Azure Time Series Insights.
 1. Vous pouvez supprimer l’intégralité du groupe de ressources (et toutes les ressources qu’il contient) en sélectionnant **Supprimer** ou supprimer chaque ressource individuellement.
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -130,7 +129,7 @@ Vous êtes prêt à créer votre propre environnement en préversion Time Series
 > [!div class="nextstepaction"]
 > [Planifier votre environnement Time Series Insights (préversion)](time-series-insights-update-plan.md)
 
-Apprendre à naviguer dans la démonstration et ses fonctionnalités :
+Apprenez à utiliser la démonstration et ses fonctionnalités :
 
 > [!div class="nextstepaction"]
 > [Explorateur Time Series Insights (préversion)](time-series-insights-update-explorer.md)

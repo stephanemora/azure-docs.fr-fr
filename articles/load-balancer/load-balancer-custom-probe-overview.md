@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 62af688c6090b61f2596ab376cb479c270b87759
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 78e085aae97114e6848b736c40b16c755256d0cd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274121"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571114"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -48,6 +48,9 @@ La configuration de la sonde d’intégrité se compose des éléments suivants�
 - Protocole de la sonde
 - Port de la sonde
 - Chemin HTTP à utiliser pour HTTP GET lors de l’utilisation de sondes HTTP(S)
+
+> [!NOTE]
+> La présence d’une définition de sonde n’est ni obligatoire ni vérifiée en cas d’utilisation d’Azure PowerShell, d’Azure CLI, de modèles ou d’une API. Les tests de validation de la sonde ne sont effectués que si vous utilisez le Portail Azure.
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>Description du signal d’application, de la détection du signal et de la réaction de la plateforme
 

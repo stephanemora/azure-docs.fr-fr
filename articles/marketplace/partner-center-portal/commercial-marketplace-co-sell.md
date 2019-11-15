@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784815"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812720"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Option Co-vente de l'Espace partenaires
 
@@ -33,8 +34,8 @@ Sélectionnez votre type d'offre :
 | **Type d’offre**    | **Description**  |
 | :------------------- | :-------------------|
 | Appareil | Offre impliquant la production ou la vente de matériel d'un fabricant d'appareils. |
-| IP | Applications ou autres matériaux protégés par une licence et destinés à l'usage du client. Par exemple : programme CRM qui peut être concédé sous licence et installé localement. |
-| de diffusion en continu | Compétences pratiques pour un projet ponctuel spécifique, souvent proposées par des consultants. Par exemple : configuration d'une base de données pour un client (le client assumant la responsabilité de l'exploitation de la base de données à l'issue de la livraison). |
+| IP | Applications ou autres matériaux protégés par une licence et destinés à être utilisés par le client. Par exemple : programme CRM qui peut être concédé sous licence et installé localement. |
+| Service | Compétences pratiques pour un projet ponctuel spécifique, souvent proposées par des consultants. Par exemple : configuration d'une base de données pour un client (le client assumant la responsabilité de l'exploitation de la base de données à l'issue de la livraison). |
 | Service managé | Compétences pratiques pour un projet basé sur le cloud, généralement sur une base continue. Par exemple :  fournir une plateforme et des outils pour exécuter une base de données en ligne, la gestion en continu étant assurée par le fournisseur du service managé. |
 
 ## <a name="solution-areas"></a>Domaines fonctionnels
@@ -75,11 +76,11 @@ Vous pouvez également exporter la liste de contacts existante d'une offre, puis
     | *:::no-loc text="Partner marketing":::* | Ce rôle est axé sur l'aspect marketing de votre solution et sur la collaboration aux efforts de marketing avec les équipes commerciales de Microsoft et les revendeurs partenaires. Principal point de contact pour les engagements marketing et le contenu des listes d'offres, comme les descriptions de produits, les images et les vidéos. |
     | *:::no-loc text="Partner sales":::* | Ce rôle est axé sur la vente de votre solution ainsi que sur la collaboration avec les équipes commerciales de Microsoft et les revendeurs partenaires. Pour les solutions de co-vente, fournissez au moins un contact commercial partenaire par région dans laquelle vous souhaitez devenir « Co-sell Ready ». Le même contact commercial partenaire peut couvrir plusieurs régions. |
     | *:::no-loc text="Partner technical sales":::* | Prend en charge l'architecture technique et les considérations relatives au déploiement pendant le cycle de vente, l'intégration après-vente et les périodes de déploiement. |
-    | *:::no-loc text="Partner customer success manager":::* | Assure généralement la prise en charge des clients après le déploiement, pour les aider à tirer le meilleur parti de votre solution et à accroître son empreinte au sein de l'organisation du client. |
+    | *:::no-loc text="Partner customer success manager":::* | Assure généralement le support client après le déploiement, pour les aider à tirer le meilleur parti de votre solution et à accroître son empreinte au sein de l’organisation. |
 
-* *Pays/Régions (obligatoire) :*  lorsque vous complétez le modèle, utilisez les [codes de pays/région à deux lettres répertoriés ici](./commercial-marketplace-co-sell-countries.md). Si le contact couvre l'ensemble des pays/régions, utilisez le code à trois lettres « OOO ». Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux lettres séparés par une virgule (par exemple, entrez « US, CA, FR » sans guillemets dans le modèle).
+* *Pays/Régions (obligatoire) :*  lorsque vous complétez le modèle, utilisez les [codes de pays/région à deux lettres répertoriés ici](./commercial-marketplace-co-sell-countries.md). Si le contact couvre l’ensemble des pays/régions, utilisez le code à trois lettres « OOO ». Si un contact couvre plusieurs pays/régions, entrez chacun des codes à deux lettres séparés par une virgule (par exemple, entrez « US, CA, FR » sans guillemets dans le modèle).
 
-    Les pays/régions doivent refléter le territoire de chaque contact. Les équipes commerciales de Microsoft et les revendeurs partenaires utiliseront ces informations pour demander des renseignements ou collaborer sur les ventes dans le pays ou la région en question.
+    Les pays/régions doivent refléter le territoire de chacun des contacts. Les équipes commerciales de Microsoft et les revendeurs partenaires utiliseront ces informations pour demander des renseignements ou collaborer sur les ventes dans le pays ou la région en question.
 
 * *États/Provinces (facultatif) :*  lorsque vous complétez le modèle, utilisez le format XX-XX, comme indiqué dans le [tableau États/Provinces](./commercial-marketplace-co-sell-states.md).
 

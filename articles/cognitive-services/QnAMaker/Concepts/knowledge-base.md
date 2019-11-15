@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 78fc9fe34eb3463021dae69990fe1d30668d453f
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 355556e98300ecad6aa3141f0f4ab14b834cd91e
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300509"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794896"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Qu’est-ce qu’une base de connaissances QnA Maker ?
 
@@ -53,9 +53,9 @@ Le processus est expliqué dans le tableau suivant.
 |1|L’application cliente envoie la requête de l’utilisateur vers l’[API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
 |2|QnA Maker prétraite la requête de l’utilisateur avec détection de la langue, vérificateurs d’orthographe et analyseurs lexicaux.|
 |3|Ce prétraitement modifie la requête utilisateur afin d’offrir des résultats de recherche optimaux.|
-|4|Cette requête modifiée est envoyée à l’Index de Recherche Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes.|
-|5\.|QnA Maker s’applique à une personnalisation avancée afin de déterminer l’exactitude des résultats de Recherche Azure récupérés pour la requête utilisateur. |
-|6|Le modèle d’outil de classement entraîné utilise le score de fonctionnalité, de l’étape 5, pour classer les résultats Recherche Azure.|
+|4|Cette requête modifiée est envoyée à l’Index de Recherche cognitive Azure qui reçoit `top` résultats. Si la réponse correcte n’est pas dans ces résultats, augmentez légèrement la valeur de `top`. En règle générale, une valeur de 10 pour `top` fonctionne dans 90 % des requêtes.|
+|5\.|QnA Maker s’applique à une personnalisation avancée afin de déterminer l’exactitude des résultats récupérés pour la requête utilisateur. |
+|6|Le modèle d’outil de classement formé utilise le score de fonctionnalité, de l’étape 5, pour classer les résultats Recherche cognitive Azure.|
 |7|Les nouveaux résultats sont renvoyés vers l’application cliente selon l’ordre de classement.|
 |||
 
@@ -136,9 +136,9 @@ La *base de connaissances publiée* est la version utilisée dans votre bot conv
 [Vue d’ensemble de QnA Maker](../Overview/overview.md)
 
 Créez et modifiez la base de connaissances avec : 
-* [API REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
-* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
 
 Générez une réponse avec : 
-* [API REST](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
-* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)
+* [API REST](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

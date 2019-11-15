@@ -1,6 +1,6 @@
 ---
-title: Créer un package d’accès dans la gestion des droits d’utilisation d’Azure Active Directory (préversion) - Azure Active Directory
-description: Découvrez comment créer un package d’accès de ressources que vous souhaitez partager dans la gestion des droits d’utilisation Azure Active Directory (préversion).
+title: Créer un package d’accès dans la gestion des droits d’utilisation Azure AD – Azure Active Directory
+description: Découvrez comment créer un package d’accès de ressources que vous souhaitez partager dans la gestion des droits d’utilisation Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389513"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602716"
 ---
-# <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Créer un package d’accès dans la gestion des droits d’utilisation Azure AD (préversion)
-
-> [!IMPORTANT]
-> La gestion des droits d’utilisation Azure Active Directory (Azure AD) est actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
-> Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Créer un package d’accès dans la gestion des droits d’utilisation Azure AD
 
 Un package d’accès vous permet d’effectuer une configuration unique des ressources et des stratégies qui gèrent automatiquement l’accès pendant toute la durée de vie du package d’accès. Cet article décrit comment créer un package d’accès.
 
@@ -68,9 +63,9 @@ Voici les principales étapes à suivre pour créer un package d’accès.
 
 1. Dans le menu gauche, cliquez sur **Packages d’accès**.
 
-    ![Gestion des droits d’utilisation dans le portail Azure](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. Cliquez sur **Nouveau package d’accès**.
+   
+    ![Gestion des droits d’utilisation dans le portail Azure](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>Concepts de base
 
@@ -100,11 +95,11 @@ Sous l’onglet **Rôles de ressources**, sélectionnez les ressources à inclur
 
     ![Package d’accès - Rôles des ressources](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    Si vous créez le package d’accès dans le catalogue Général ou dans un nouveau catalogue, vous pouvez récupérer n’importe quelle ressource à partir du répertoire que vous possédez. Vous devez être au moins un Administrateur général, un Administrateur d’utilisateurs ou le Créateur du catalogue.
+    Si vous créez le package d’accès dans le catalogue Général ou dans un nouveau catalogue, vous pouvez récupérer n’importe quelle ressource à partir du répertoire que vous possédez. Vous devez être au moins Administrateur général, Administrateur d’utilisateurs ou Créateur de catalogue.
 
     Si vous créez le package d’accès dans un catalogue existant, vous pouvez sélectionner n’importe quelle ressource déjà présente dans le catalogue sans avoir à en être propriétaire.
 
-    Si vous êtes un Administrateur général, un Administrateur d’utilisateurs ou un propriétaire de catalogue, vous avez également la possibilité de sélectionner des ressources que vous possédez et qui ne sont pas encore dans le catalogue. Si vous sélectionnez des ressources qui ne sont actuellement pas présentes dans le catalogue sélectionné, ces ressources sont ajoutées au catalogue pour que d’autres administrateurs du catalogue puissent créer des packages d’accès à partir de ces dernières. Si vous souhaitez uniquement sélectionner les ressources qui se trouvent actuellement dans le catalogue sélectionné, cochez la case **Voir uniquement** en haut du volet Sélectionner.
+    Si vous êtes Administrateur général, Administrateur d’utilisateurs ou Propriétaire de catalogue, vous avez également la possibilité de sélectionner des ressources que vous possédez et qui ne sont pas encore dans le catalogue. Si vous sélectionnez des ressources qui ne sont actuellement pas présentes dans le catalogue sélectionné, ces ressources sont ajoutées au catalogue pour que d’autres administrateurs du catalogue puissent créer des packages d’accès à partir de ces dernières. Si les ressources que vous souhaitez sélectionner se trouvent actuellement dans le catalogue choisi, cochez la case **Voir uniquement** en haut du volet Sélectionner.
 
 1. Une fois que vous avez sélectionné les ressources, dans la liste **Rôle**, sélectionnez le rôle à assigner aux utilisateurs pour les ressources.
 
@@ -118,7 +113,7 @@ Sous l’onglet **Requêtes**, vous créez la première stratégie afin de spéc
 
 ![Onglet Requêtes de package d’accès](./media/entitlement-management-access-package-create/requests.png)
 
-Suivez la procédure décrite dans l’une des sections suivantes.
+Selon les utilisateurs qui pourront demander ce package d’accès, suivez les étapes décrites dans l’une des sections suivantes.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Inscription pour la réinitialisation de mot de passe libre-service - Azure Active Directory | Microsoft Docs
-description: Inscrire les données d’authentification en vue de la réinitialisation de mot de passe en libre-service Azure AD
+title: S’inscrire pour réinitialiser son propre mot de passe – Azure AD
+description: Inscrivez vos données d’authentification à la réinitialisation de mot de passe en libre-service Azure AD pour pouvoir réinitialiser votre propre mot de passe sans l’aide d’un administrateur.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f113c42ff45811f31eb77a92873fb187dd51ea6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530890"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820448"
 ---
-# <a name="register-for-self-service-password-reset"></a>S’inscrire à la réinitialisation de mot de passe en libre-service
+# <a name="register-to-reset-your-own-password"></a>S’inscrire pour réinitialiser son propre mot de passe
 
 > [!IMPORTANT]
 > Vous ne pouvez pas vous connecter et vous êtes retrouvé ici ? Dans ce cas, consultez [Réinitialiser votre mot de passe professionnel ou scolaire](active-directory-passwords-update-your-own-password.md).

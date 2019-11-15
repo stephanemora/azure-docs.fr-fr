@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: eba0c6a8932a8c6d50bd98d94712c95516519274
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d6347d75e0a3883f23fdf76016080c8b7b330163
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300331"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580806"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen2 pour le Big Data
 
@@ -27,7 +27,7 @@ Il existe quatre étapes principales dans traitement des données Big Data :
 
 Commencez par créer un compte de stockage et un conteneur. Puis, octroyez l'accès aux données. Les premières sections de cet article vous aideront à accomplir ces tâches. Dans les sections suivantes, nous nous pencherons sur les options et outils à utiliser lors de chacune des phases de traitement.
 
-Pour obtenir la liste complète des services Azure que vous pouvez utiliser avec Azure Data Lake Storage Gen2, consultez [Intégrer Azure Data Lake Storage avec les services Azure](data-lake-store-integrate-with-azure-services.md).
+Pour obtenir la liste complète des services Azure que vous pouvez utiliser avec Azure Data Lake Storage Gen2, consultez [Intégrer Azure Data Lake Storage avec les services Azure](data-lake-storage-integrate-with-azure-services.md).
 
 ## <a name="create-a-data-lake-storage-gen2-account"></a>Créer un compte Data Lake Storage Gen2
 
@@ -191,7 +191,7 @@ Vous pouvez également être amené à télécharger ou à déplacer les donnée
 
 * Télécharger des données sur votre ordinateur local pour le traitement dans des environnements IDE lors de la création de prototypes d’applications.
 
-![Sortir des données à partir de Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Sortir des données à partir de Data Lake Storage Gen2")
+![Extraire des données de Data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Extraire des données de Data Lake Storage Gen2")
 
 Voici une liste d'outils que vous pouvez utiliser pour télécharger des données à partir de Data Lake Storage Gen2.
 

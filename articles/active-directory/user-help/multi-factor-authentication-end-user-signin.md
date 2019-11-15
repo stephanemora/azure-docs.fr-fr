@@ -1,7 +1,6 @@
 ---
-title: Authentification multifacteur Azure avec vérification en deux étapes - Azure Active Directory | Microsoft Docs
-description: Cette page vous fournit des conseils pour consulter les différentes méthodes de connexion disponibles avec Azure MFA.
-keywords: authentification de l'utilisateur, expérience de connexion, connexion avec un téléphone mobile, connexion avec le téléphone de bureau
+title: Se connecter à l’aide de la vérification à deux facteurs – Azure AD
+description: Découvrez comment vous connecter à votre compte professionnel ou scolaire avec les différentes méthodes de vérification à deux facteurs.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,14 +14,15 @@ ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1350b2d86e18f213d99f1c27d64e371451f5f9b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: de080a613c69dd6f48f548c4ba89b2728e8c5e1d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60334434"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820423"
 ---
-# <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Expérience de connexion avec Azure Multi-Factor Authentication
+# <a name="sign-in-to-your-work-or-school-account-using-two-factor-verification"></a>Se connecter à un compte professionnel ou scolaire à l’aide de la vérification à deux facteurs
+
 > [!NOTE]
 > Cet article vise à présenter de manière détaillée une expérience de connexion classique. Pour obtenir de l’aide concernant la connexion ou pour résoudre des problèmes, voir [Difficultés avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md).
 

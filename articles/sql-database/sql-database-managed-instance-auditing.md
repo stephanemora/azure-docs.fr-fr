@@ -1,5 +1,5 @@
 ---
-title: Audit des instances managées Azure SQL Database | Microsoft Docs
+title: Audit d’une instance managée
 description: Découvrez comment démarrer avec l’audit d’instances managées Azure SQL Database à l’aide de T-SQL
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: a4941038288b90bcbfd61660458c564ce64add9e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 41d632b145a7187dd0aeaab740cd8546a3955e7f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958502"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819009"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
@@ -153,7 +153,7 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
 Pour toute information supplémentaire :
 
-- [Audit des différences entre les bases de données uniques, pools élastiques et instances managées dans Azure SQL Database et les bases de données dans SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Audit des différences entre les bases de données uniques, les pools élastiques et les instances managées dans Azure SQL Database et les bases de données dans SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -225,7 +225,6 @@ Les journaux Azure Monitor vous donnent des insights opérationnels en temps ré
 Les principales différences entre l’audit des bases de données dans Azure SQL Database et des bases de données dans SQL Server sont les suivantes :
 
 - Avec l’option de déploiement d’instance managée dans Azure SQL Database, l’audit s’effectue au niveau du serveur et stocke les fichiers journaux `.xel` dans Stockage Blob Azure.
-- Avec les options de déploiement de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
 - Dans SQL Server (en local ou sur machines virtuelles), l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
 
 L’audit XEvent d’une instance gérée prend en charge les cibles de Stockage Blob Azure. Les journaux d’activité de fichiers et de Windows ne sont **pas pris en charge**.

@@ -4,20 +4,21 @@ description: Configurer la gestion des prospects pour Blob Azure
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/30/2019
 ms.author: evansma
-ms.openlocfilehash: c67855422808f5ec4c81242edcece4e447f2f44f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5da4e0ab315b3f66a477b816f6fc5d27de7aa339
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901453"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812369"
 ---
 # <a name="lead-management-instructions-for-azure-blob"></a>Instructions de gestion des prospects pour Blob Azure
 
 >[!Caution]
->L’option Blob Azure pour traiter les prospects de votre offre de la Place de marché est déconseillée. Si vous avez actuellement une offre publiée avec une configuration de gestion des prospects pour Blob Azure, vous ne recevez plus de prospects. Mettez à jour votre configuration de gestion des prospects avec l’une des autres options de gestion des prospects. Pour en savoir plus sur les autres options, voir la page d’accueil [Gestion des prospects](./commercial-marketplace-get-customer-leads.md).
+>L’option Blob Azure pour traiter les prospects de votre offre de la Place de marché est déconseillée. Si vous avez actuellement une offre publiée avec une configuration de gestion des prospects pour Blob Azure, vous ne recevez plus de prospects. Mettez à jour votre configuration de gestion des prospects avec l’une des autres options de gestion des prospects. Pour plus d’informations sur les autres options, voir la page d’accueil [Gestion des prospects](./commercial-marketplace-get-customer-leads.md).
 
 Si votre système de gestion de la relation client (CRM) n’est pas explicitement pris en charge dans l’Espace partenaires afin de recevoir des prospects de la Place de marché Azure et d’AppSource, vous pouvez utiliser un Blob Azure pour gérer ces prospects. Vous pouvez ensuite décider d’exporter les données et de les importer dans votre système CRM. Les instructions de cet article décrivent le processus de création d’un compte de Stockage Azure et d’un Blob Azure sous ce compte. De plus, vous pouvez créer un flux à l’aide de Microsoft Flow pour envoyer une notification par e-mail quand votre offre reçoit un prospect.
 
@@ -69,7 +70,7 @@ Si votre système de gestion de la relation client (CRM) n’est pas expliciteme
 
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre dans le portail de publication, procédez comme suit :
 
-1. Accédez à la page **Configuration de l’offre** de votre offre.
+1. Accédez à la page **Configuration de l'offre** de votre offre.
 2. Sélectionnez **Connexion** dans la section Gestion des prospects.
 
     ![Offre de connexion](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)

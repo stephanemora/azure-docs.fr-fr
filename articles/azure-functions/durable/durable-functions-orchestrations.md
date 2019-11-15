@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 82c4a27ac2491e668c1d99e2a14b870e82ec5665
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 4e11070f4e766f83b0e7ead7757c675de3fef33f
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935417"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614768"
 ---
 # <a name="durable-orchestrations"></a>Orchestrations durables
 
@@ -64,7 +64,7 @@ Le comportement de l’approvisionnement en événements du framework Durable Ta
 ```csharp
 [FunctionName("E1_HelloSequence")]
 public static async Task<List<string>> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var outputs = new List<string>();
 
@@ -133,7 +133,7 @@ Quelques remarques sur les valeurs de colonne :
 
 * **PartitionKey** : contient l’ID d’instance de l’orchestration.
 * **EventType** : représente le type de l’événement. qui peut être l’un des suivants :
-  * **OrchestrationStarted** : la fonction orchestrator a repris après une expression await ou s’exécute pour la première fois. La colonne `Timestamp` sert à indiquer la valeur déterministe pour l’API [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime).
+  * **OrchestrationStarted** : la fonction orchestrator a repris après une expression await ou s’exécute pour la première fois. La colonne `Timestamp` indique la valeur déterministe pour les API `CurrentUtcDateTime` (.NET) `currentUtcDateTime` (JavaScript).
   * **ExecutionStarted** : la fonction orchestrator a commencé à s’exécuter pour la première fois. Cet événement contient également l’entrée de la fonction dans la colonne `Input`.
   * **TaskScheduled** : une fonction d’activité a été planifiée. Le nom de la fonction d’activité est indiqué dans la colonne `Name`.
   * **TaskCompleted** : une fonction d’activité s’est terminée. Le résultat de la fonction se trouve dans la colonne `Result`.
@@ -186,7 +186,7 @@ Les fonctions orchestrator peuvent également ajouter des stratégies de nouvell
 
 Pour obtenir plus d’informations et des exemples, consultez l’article [Gestion des erreurs](durable-functions-error-handling.md).
 
-### <a name="critical-sections"></a>Sections critiques
+### <a name="critical-sections-durable-functions-2x"></a>Sections critiques (Durable Functions 2. x)
 
 Les instances d’orchestration étant à thread unique, il n’est pas nécessaire de se soucier des conditions de concurrence *dans* une orchestration. Toutefois, des conditions de concurrence sont possibles quand les orchestrations interagissent avec des systèmes externes. Pour atténuer les conditions de concurrence en cas d’interaction avec des systèmes externes, les fonctions orchestrator peuvent définir des *sections critiques* à l’aide d’une méthode `LockAsync` dans .NET.
 
@@ -212,7 +212,7 @@ La fonctionnalité de section critique est également utile pour coordonner les 
 > [!NOTE]
 > Les sections critiques sont disponibles dans Durable Functions 2.0 et les versions ultérieures. Actuellement, seules les orchestrations .NET implémentent cette fonctionnalité.
 
-### <a name="calling-http-endpoints"></a>Appels de points de terminaison HTTP
+### <a name="calling-http-endpoints-durable-functions-2x"></a>Appel de points de terminaison HTTP (Durable Functions 2.x)
 
 Les fonctions orchestrator ne sont pas autorisées à effectuer des E/S, comme décrit dans [Contraintes du code des fonctions orchestrator](durable-functions-code-constraints.md). La solution de contournement classique de cette limitation consiste à wrapper dans une fonction d’activité tout code qui doit effectuer des E/S. Les orchestrations qui interagissent avec des systèmes externes utilisent fréquemment des fonctions d’activité pour effectuer des appels HTTP et retourner le résultat à l’orchestration.
 
@@ -236,10 +236,22 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const url = context.df.getInput();
+    var res = yield context.df.callHttp("GET", url);
+    if (res.statusCode >= 400) {
+        // handling of error codes goes here
+    }
+});
+```
+
 Pour obtenir plus d’informations et des exemples détaillés, consultez l’article [Fonctionnalités HTTP](durable-functions-http-features.md).
 
 > [!NOTE]
-> L’appel des points de terminaison HTTP directement à partir de fonctions orchestrator est disponible dans Durable Functions 2.0 et les versions ultérieures. Actuellement, seules les orchestrations .NET implémentent cette fonctionnalité.
+> L’appel des points de terminaison HTTP directement à partir de fonctions orchestrator est disponible dans Durable Functions 2.0 et les versions ultérieures.
 
 ### <a name="passing-multiple-parameters"></a>Transmission de plusieurs paramètres
 
@@ -250,7 +262,7 @@ Dans l’exemple suivant, de nouvelles fonctionnalités des objets [ValueTuples]
 ```csharp
 [FunctionName("GetCourseRecommendations")]
 public static async Task<object> RunOrchestrator(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string major = "ComputerScience";
     int universityYear = context.GetInput<int>();
@@ -262,7 +274,7 @@ public static async Task<object> RunOrchestrator(
 }
 
 [FunctionName("CourseRecommendations")]
-public static async Task<object> Mapper([ActivityTrigger] DurableActivityContext inputs)
+public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContext inputs)
 {
     // parse input for student's major and year in university
     (string Major, int UniversityYear) studentInfo = inputs.GetInput<(string, int)>();

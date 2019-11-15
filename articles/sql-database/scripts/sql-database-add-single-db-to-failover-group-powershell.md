@@ -1,5 +1,5 @@
 ---
-title: Exemple PowerShell - Groupe de basculement - Base de données unique Azure SQL Database | Microsoft Docs
+title: 'Exemple PowerShell : groupe de basculement - Base de données unique Azure SQL Database'
 description: Exemple de script Azure PowerShell pour créer une base de données unique Azure SQL Database, l’ajouter à un groupe de basculement et tester le basculement.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 1f975eb11e546a0ece862ac239ac4321ed8e4110
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7315f747fb7319521b25e2eb6e7af72449867888
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570092"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691768"
 ---
 # <a name="use-powershell-to-add-an-azure-sql-database-single-database-to-a-failover-group"></a>Utiliser PowerShell pour ajouter une base de données unique Azure SQL Database à un groupe de basculement 
 

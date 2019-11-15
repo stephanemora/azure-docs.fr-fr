@@ -1,6 +1,6 @@
 ---
 title: Scalabilité des applications Azure Service Fabric Mesh | Microsoft Docs
-description: Découvrez les services de mise à l’échelle dans Azure Service Fabric Mesh.
+description: Le déploiement d’applications vers Service Fabric Mesh permet notamment de mettre à l’échelle les services en toute simplicité, soit manuellement soit avec des stratégies de mise à l’échelle automatique.
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,12 +9,12 @@ ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 1688cac35ea9de43bac529a4994bd4ea55eb0ab7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 59fdf68ed1ead4665ec8944d67f2d5112d370716
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811091"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662994"
 ---
 # <a name="scaling-service-fabric-mesh-applications"></a>Mise à l’échelle des applications Service Fabric Mesh
 

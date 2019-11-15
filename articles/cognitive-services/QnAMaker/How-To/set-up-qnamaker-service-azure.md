@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a2b467eed010edbb842d536bd8f6e3f4107fcea8
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 6d52062561e3f08a214f3e191706583edc844786
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984357"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794212"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -52,8 +52,8 @@ Cette procédure permet de créer les ressources Azure nécessaires pour gérer 
     * Sélectionnez le **Niveau tarifaire** pour les services d’administration de QnA Maker (portail et API de gestion). Voir [plus d’informations sur la tarification des références SKU](https://aka.ms/qnamaker-pricing).
     * Créez un nouveau **Groupe de ressources** (recommandé) ou utilisez un groupe de ressources existant dans lequel déployer cette ressource QnA Maker. QnA Maker crée plusieurs ressources Azure. Lorsque vous créez un groupe de ressources pour conserver ces ressources, vous pouvez facilement les rechercher, les gérer et les supprimer par le biais du nom du groupe de ressources.
     * Sélectionnez un **Emplacement du groupe de ressources**.
-    * Choisissez le **Niveau tarifaire de recherche** du service Recherche Azure. Si l’option de niveau Gratuit est indisponible (semble grisée), cela signifie que vous disposez déjà d’un niveau Recherche Azure Gratuit déployé dans votre abonnement. Dans ce cas, vous devrez commencer par le niveau De base de la Recherche Azure. Consulter les [détails de la tarification de Recherche Azure](https://azure.microsoft.com/pricing/details/search/).
-    * Choisissez **l’emplacement de recherche** où vous souhaitez que les données de Recherche Azure soient déployées. Les restrictions relatives à l’emplacement de stockage des données client vous aideront à déterminer l’emplacement que vous choisissez pour la Recherche Azure.
+    * Choisissez le **Niveau tarifaire de recherche** du service Recherche cognitive Azure. Si l’option de niveau Gratuit est indisponible (semble grisée), cela signifie que vous disposez déjà d’un service gratuit déployé dans votre abonnement. Dans ce cas, vous devrez commencer par le niveau De base. Consultez les [Détails de la tarification du service Recherche cognitive Azure](https://azure.microsoft.com/pricing/details/search/).
+    * Choisissez **l’emplacement de recherche** où vous souhaitez déployer les index du service Recherche cognitive Azure. Les restrictions relatives à l’emplacement de stockage des données client vous aideront à déterminer l’emplacement que vous choisissez pour la Recherche cognitive Azure.
     * Dans le champ **Nom de l’application**, entrez un nom pour votre instance Azure App Service.
     * Par défaut, App Service utilise le niveau Standard (S1). Vous pouvez modifier le plan après sa création. Consultez des informations supplémentaires sur [la tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).
     * Choisissez **l’emplacement du site web** où App Service sera déployé.
@@ -106,7 +106,7 @@ Les clés de point de terminaison peuvent être gérées à partir du [portail Q
 
 QnA Maker crée plusieurs ressources Azure. Pour alléger la gestion et profiter du partage des coûts, utilisez le tableau suivant pour comprendre ce que vous pouvez et ne pouvez pas partager :
 
-|de diffusion en continu|Partager|Motif|
+|Service|Partager|Motif|
 |--|--|--|
 |Cognitive Services|X|Impossible à la base|
 |Plan App Service|✔|Espace disque fixe alloué à un plan App Service. Si d’autres applications qui partagent le même plan App Service utilisent une quantité d’espace disque significative, l’instance QnAMaker App Service rencontrera des problèmes.|
@@ -128,7 +128,7 @@ Si vous créez un service QnA par le biais de modèles Azure Resource Manager, v
 |--|--|
 |[Mise à niveau](#upgrade-qna-maker-sku) de la référence SKU de gestion de QnA Maker|Vous souhaitez avoir plus de questions et de réponses dans votre base de connaissances.|
 |[Mettre à niveau](#upgrade-app-service) la référence SKU d’App Service|Votre base de connaissances doit traiter plus de demandes de votre application cliente, comme un bot de conversation.|
-|[Mise à niveau](#upgrade-the-azure-search-service) du service Recherche Azure|Vous envisagez de disposer de nombreuses bases de connaissances.|
+|[Mettre à niveau](#upgrade-the-azure-cognitive-search-service) le service Recherche cognitive Azure|Vous envisagez de disposer de nombreuses bases de connaissances.|
 
 
 ### <a name="upgrade-qna-maker-sku"></a>Mettre à niveau la référence SKU de QnA Maker
@@ -155,9 +155,9 @@ Accédez à la ressource App Service dans le portail Azure et sélectionnez l’
 
 ![Mise à l'échelle du service d’application QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-### <a name="upgrade-the-azure-search-service"></a>Mise à niveau du service Recherche Azure
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Mettre à niveau le service Recherche cognitive Azure
 
-Si vous prévoyez de disposer de plusieurs bases de connaissances, mettez à niveau votre niveau tarifaire du service Recherche Azure.
+Si vous prévoyez de disposer de plusieurs bases de connaissances, mettez à niveau votre niveau tarifaire du service Recherche cognitive Azure.
 
 Il n’est actuellement pas possible d’effectuer une mise à niveau sur place de la référence SKU de la recherche Azure. Toutefois, vous pouvez créer une ressource de recherche Azure avec la référence SKU souhaitée, restaurer les données vers la nouvelle ressource, puis la lier à la pile QnA Maker. Pour ce faire, procédez comme suit :
 

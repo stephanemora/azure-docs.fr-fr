@@ -1,5 +1,5 @@
 ---
-title: 'Azure Site Recovery : configuration et test de récupération d’urgence pour des machines virtuelles Azure avec Azure PowerShell | Microsoft Docs'
+title: Récupération d’urgence de machines virtuelles Azure avec Azure PowerShell et Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence pour des machines virtuelles Azure avec Azure Site Recovery à l’aide d’Azure PowerShell.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: aa91725daf36113334849dd15dd01b6ce6ed4389
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671885"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621094"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure à l’aide d’Azure PowerShell
 

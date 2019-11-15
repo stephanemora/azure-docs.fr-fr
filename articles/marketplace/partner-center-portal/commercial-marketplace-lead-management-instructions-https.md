@@ -4,15 +4,16 @@ description: Configurez la gestion des prospects pour un point de terminaison HT
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: evansma
-ms.openlocfilehash: 6a34bdcab5a13af682515bbae96e9a1800ccc37f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 83efb9cfd1ee7464a334ebc4064dbfaa20ab30de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69901401"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812284"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuration de la gestion des prospects à l’aide d’un point de terminaison HTTPS
 
@@ -20,11 +21,11 @@ Si votre système de gestion de la relation client (CRM) n’est pas expliciteme
 
 ## <a name="create-a-flow-using-microsoft-flow"></a>Création d’un flux à l’aide de Microsoft Flow
 
-1. Ouvrez la page web [Flow](https://flow.microsoft.com/). Sélectionnez **Se connecter** ou, si vous n’avez pas encore compte, **S’inscrire gratuitement** pour créer un compte Flow gratuit.
+1. Ouvrez la page web [Flow](https://flow.microsoft.com/). Sélectionnez **Se connecter** ou, si vous n’avez pas encore de compte, **S’inscrire gratuitement** pour créer un compte Flow gratuit.
 
 2. Connectez-vous et sélectionnez **Mes flux** dans la barre de menus.
 
-3. Sélectionnez **+Automatisé - vierge**.
+3. Sélectionnez **+Automatisé – vierge**.
 
     ![Mes flux +Automatisé - vierge](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
@@ -118,7 +119,7 @@ Si votre système de gestion de la relation client (CRM) n’est pas expliciteme
 
     ![Ajout de contenu dynamique](./media/commercial-marketplace-lead-management-instructions-https/add-dynamic-content.png)
 
-5. Mappez les champs de votre choix, puis sélectionnez **Enregistrer** pour enregistrer votre flux. Une URL HTTP POST est créée et elle est accessible dans la fenêtre *Quand une requête HTTP arrive*. Copiez cette URL en utilisant le contrôle de copie qui se trouve à droite de l’URL HTTP POST. Cette opération est importante, car vous n’oublierez pas par erreur une partie de l’URL. Enregistrez cette URL, car vous en aurez besoin lors de la configuration de la gestion des prospects dans le portail de publication.
+5. Mappez les champs de votre choix, puis sélectionnez **Enregistrer** pour enregistrer votre flux. Une URL HTTP POST est créée et elle est accessible dans la fenêtre *Quand une requête HTTP arrive*. Copiez cette URL en utilisant le contrôle de copie qui se trouve à droite de l’URL HTTP POST. Cette opération est importante pour ne pas oublier par erreur une partie de l’URL. Enregistrez cette URL, car vous en aurez besoin lors de la configuration de la gestion des prospects dans le portail de publication.
 
     ![Quand une requête HTTP arrive.](./media/commercial-marketplace-lead-management-instructions-https/when-http-request-received.png)
 
@@ -148,7 +149,7 @@ Si votre système de gestion de la relation client (CRM) n’est pas expliciteme
 
        ![Ajouter une action de messagerie](./media/commercial-marketplace-lead-management-instructions-https/send-an-email.png)
 
-5. Sélectionnez **Enregistrer** pour terminer votre flux. Une URL HTTP POST est créée et accessible dans la fenêtre *Quand une requête HTTP arrive*. Copiez cette URL en utilisant le contrôle de copie qui se trouve à droite de l’URL HTTP POST. Cette opération est importante, car vous n’oublierez pas par erreur une partie de l’URL. Enregistrez cette URL, car vous en aurez besoin lors de la configuration de la gestion des prospects dans le portail de publication.
+5. Sélectionnez **Enregistrer** pour terminer votre flux. Une URL HTTP POST est créée et accessible dans la fenêtre *Quand une requête HTTP arrive*. Copiez cette URL en utilisant le contrôle de copie qui se trouve à droite de l’URL HTTP POST. Cette opération est importante pour ne pas oublier par erreur une partie de l’URL. Enregistrez cette URL, car vous en aurez besoin lors de la configuration de la gestion des prospects dans le portail de publication.
 
    ![URL HTTP POST ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
@@ -176,7 +177,7 @@ Vous pouvez vérifier que tout fonctionne comme prévu en utilisant les étapes 
 
    ![Mes flux - Modifier](./media/commercial-marketplace-lead-management-instructions-https/my-flows-edit.png)
 
-6. Sélectionnez **Tester** en haut à droite, sélectionnez « Je vais exécuter l’action de déclenchement », puis sélectionnez **Tester**. Vous verrez une indication dans le haut de l’écran indiquant que le test a démarré.
+6. Sélectionnez **Tester** en haut à droite, puis « Je vais exécuter l’action de déclenchement », et enfin **Tester**. Vous verrez une indication dans le haut de l’écran indiquant que le test a démarré.
 
    ![Flux de test - Déclencheur](./media/commercial-marketplace-lead-management-instructions-https/test-flow-trigger-action.png)
 
@@ -199,7 +200,7 @@ Vous pouvez vérifier que tout fonctionne comme prévu en utilisant les étapes 
 
 Lorsque vous êtes prêt à configurer les informations de gestion des prospects pour votre offre dans le portail de publication, procédez comme suit :
 
-1. Accédez à la page **Configuration de l’offre** de votre offre.
+1. Accédez à la page **Configuration de l'offre** de votre offre.
 2. Sélectionnez **Connecter** dans la section de gestion des prospects.
 3. Dans la fenêtre contextuelle des détails de la connexion, sélectionnez **Point de terminaison HTTPS** pour **Destination du prospect** et collez l’URL HTTP POST dans le flux que vous avez créé en suivant les étapes précédentes dans le champ **URL du point de terminaison HTTPS**.
 4. Sélectionnez **Enregistrer**. 

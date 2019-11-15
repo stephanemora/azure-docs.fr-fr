@@ -1,7 +1,7 @@
 ---
 title: Type d’entité simple - LUIS
 titleSuffix: Azure Cognitive Services
-description: Une entité simple est une entité générique qui décrit un concept unique et est apprise à partir d’un contexte issu de l’apprentissage automatique. Les entités simples étant généralement des noms tels que des noms de société, des noms de produits ou d’autres catégories de noms, ajoutez une liste de phrases lorsque vous utilisez une entité simple pour renforcer le signal des noms utilisés.
+description: Une entité simple décrit un même concept issu de l'apprentissage automatique. Ajoutez une liste d’expressions lorsque vous utilisez une entité simple pour améliorer les résultats.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2eb3ff847f9bfc162adfb281d2ac1fad6f8c5093
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695129"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671520"
 ---
 # <a name="simple-entity"></a>Entité simple 
 

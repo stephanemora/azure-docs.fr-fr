@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aecbaab1ed29a1acfdcb4eec53b88fc266bbab09
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309404"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720176"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrer des machines virtuelles VMware vers Azure (migration basée sur un agent)
 
@@ -424,7 +424,19 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
 
 ## <a name="post-migration-best-practices"></a>Bonnes pratiques après la migration
 
-- Pour une meilleure résilience :
+- Local
+    - Déplacez le trafic de l’application vers l’application en cours d’exécution sur l’instance de machine virtuelle Azure migrée.
+    - Supprimez les machines virtuelles locales de votre inventaire des machines virtuelles locales.
+    - Supprimez les machines virtuelles locales des sauvegardes locales.
+    - Mettez à jour la documentation interne en y mentionnant le nouvel emplacement et la nouvelle adresse IP des machines virtuelles Azure.
+- Ajuster les paramètres de machine virtuelle Azure après migration :
+    - [L’agent de machine virtuelle Azure](../virtual-machines/extensions/agent-windows.md) gère les interactions entre une machine virtuelle Azure et le contrôleur Azure Fabric. Il est nécessaire pour certains services Azure, comme Sauvegarde Azure, Site Recovery et Azure Security. Lors de la migration de machines virtuelles VMare avec la migration basée sur l’agent, le programme d’installation du service Mobility installe l’agent de machine virtuelle Azure sur les ordinateurs Windows. Sur les machines virtuelles Linux, nous vous recommandons d’installer l’agent après la migration.
+    - Désinstallez manuellement le service Mobility de la machine virtuelle Azure après la migration.
+    - Désinstallez manuellement les outils VMware après la migration.
+- Dans Azure :
+    - Effectuez les éventuels ajustements post-migration de l’application, comme la mise à jour des chaînes de connexion de base de données et les configurations du serveur web.
+    - Effectuez les tests finaux de réception de l’application et de la migration sur l’application migrée qui s’exécute maintenant dans Azure.
+- Continuité d'activité/Récupération d'urgence
     - Sécurisez les données en sauvegardant les machines virtuelles Azure avec le service Sauvegarde Azure. [Plus d’informations](../backup/quick-backup-vm-portal.md)
     - Conservez les charges de travail en cours d’exécution et disponibles en continu en répliquant des machines virtuelles Azure vers une région secondaire avec Site Recovery. [Plus d’informations](../site-recovery/azure-to-azure-tutorial-enable-replication.md)
 - Pour renforcer la sécurité :
@@ -433,9 +445,11 @@ Après avoir vérifié que la migration de test fonctionne comme prévu, vous po
     - Déployez [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) pour sécuriser les disques, et protégez les données contre le vol et les accès non autorisés.
     - Découvrez plus d’informations sur la [sécurisation des ressources IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) et visitez [Azure Security Center](https://azure.microsoft.com/services/security-center/).
 - Pour la surveillance et la gestion :
--  Envisagez de déployer [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) pour surveiller l’utilisation et les coûts des ressources.
+    - Envisagez de déployer [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview) pour surveiller l’utilisation et les coûts des ressources.
 
 
-## <a name="next-steps"></a>Étapes suivantes
+
+
+ ## <a name="next-steps"></a>Étapes suivantes
 
 Examinez le [parcours de migration cloud](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate) dans le framework d’adoption du cloud Azure.

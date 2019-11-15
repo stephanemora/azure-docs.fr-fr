@@ -3,15 +3,15 @@ title: Comprendre le langage de requête
 description: Décrit les tables Resource Graph et les fonctions, opérateurs et types de données Kusto disponibles, utilisables avec Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 6189920cb03a6cf388f0b5d232c6ce97ae4f3f82
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389759"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622637"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Présentation du langage de requête Azure Resource Graph
 
@@ -30,7 +30,7 @@ Resource Graph fournit plusieurs tables contenant les données qu’il stocke, r
 |Tables Resource Graph |Description |
 |---|---|
 |Ressources |Table par défaut si aucune table n’est définie dans la requête. Elle contient la plupart des types de ressources et propriétés Resource Manager. |
-|ResourceContainers |Inclut les données et les types de ressources d’abonnement (`Microsoft.Resources/subscriptions`) et de groupe de ressources (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|ResourceContainers |Inclut les données et les types de ressources d’abonnement (en préversion : `Microsoft.Resources/subscriptions`) et de groupe de ressources (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AlertsManagementResources |Inclut les ressources _associées_ à `Microsoft.AlertsManagement`. |
 |SecurityResources |Inclut les ressources _associées_ à `Microsoft.Security`. |
 
@@ -51,8 +51,8 @@ La requête suivante illustre une utilisation plus complexe de l’opérateur `j
 
 ```kusto
 Resources
-| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | where type == 'microsoft.keyvault/vaults'
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | project type, name, SubName
 | limit 1
 ```
@@ -120,6 +120,6 @@ Certains noms propres, tels que ceux qui incluent un `.` ou `$`, doivent être i
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Voir l’utilisation du langage dans les [requêtes de démarrage](../samples/starter.md)
-- Voir les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md)
-- Apprendre à [explorer les ressources](explore-resources.md)
+- Examinez le langage utilisé dans les [requêtes de démarrage](../samples/starter.md).
+- Examinez les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md).
+- Découvrez plus en détails comment [explorer des ressources](explore-resources.md).

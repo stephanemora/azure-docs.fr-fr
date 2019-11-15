@@ -1,40 +1,40 @@
 ---
-title: Étiqueter les images plus rapidement en utilisant des suggestions d’étiquettes
+title: Étiqueter les images plus rapidement avec Smart Labeler
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide, vous allez découvrir comment utiliser des suggestions d’étiquettes pour étiqueter un grand nombre d’images plus rapidement pendant l’entraînement de modèles Custom Vision.
+description: Dans ce guide, vous découvrirez comment utiliser Smart Labeler pour générer des balises suggérées pour les images. Vous pourrez ainsi étiqueter un grand nombre d’images plus rapidement lorsque vous formez un modèle Custom Vision.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/29/2019
 ms.author: pafarley
-ms.openlocfilehash: 06735240729fb2bfd21b87f592e143e9ceabb390
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 94ca47e6114e4f8c3485f6072facd07c25e4b96a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753485"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647754"
 ---
-# <a name="label-images-faster-with-suggested-tags"></a>Étiqueter les images plus rapidement en utilisant des suggestions d’étiquettes
+# <a name="label-images-faster-with-smart-labeler"></a>Étiqueter les images plus rapidement avec Smart Labeler
 
-Dans ce guide, vous allez découvrir comment utiliser des suggestions d’étiquettes pour étiqueter un grand nombre d’images plus rapidement pendant l’entraînement d’un modèle Custom Vision. 
+Dans ce guide, vous découvrirez comment utiliser Smart Labeler pour générer des balises suggérées pour les images. Vous pourrez ainsi étiqueter un grand nombre d’images plus rapidement lorsque vous formez un modèle Custom Vision.
 
 Quand vous étiquetez des images pour un modèle Custom Vision, le service utilise la dernière itération entraînée du modèle pour prédire les étiquettes d’images non balisées. Il présente ensuite ces prédictions sous forme de suggestions d’étiquettes en fonction du seuil de confiance sélectionné et du niveau d’incertitude de prédiction. Vous pouvez alors confirmer ou modifier les suggestions, ce qui a pour effet d’accélérer l’étiquetage manuel des images pour l’entraînement.
 
-## <a name="when-to-use-suggested-tags"></a>Quand utiliser des suggestions d’étiquettes
+## <a name="when-to-use-smart-labeler"></a>Quand utiliser Smart Labeler ?
 
 Gardez à l’esprit les limitations suivantes :
 
 * Vous n’avez qu’à demander des étiquettes suggérées pour les images dont le contenu a déjà subi un apprentissage une fois. Ne sollicitez pas de suggestions pour une nouvelle étiquette dont vous commencez à peine l’entraînement.
 
 > [!IMPORTANT]
-> La fonctionnalité de suggestion d’étiquettes s’appuie sur le même [modèle de prix](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) que les prédictions normales. La première fois que vous déclenchez les suggestions d’étiquettes pour un ensemble d’images, vous êtes facturé comme si vous appeliez des prédictions. Après quoi, le service stocke les résultats pour les images sélectionnées dans une base de données pendant 30 jours, et vous pouvez y accéder gratuitement à tout moment au cours de cette période. Passé ce délai de 30 jours, vous êtes facturé si vous demandez à nouveau ces suggestions d’étiquettes.
+> La fonctionnalité Smart Labeler s’appuie sur le même [modèle de prix](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) que les prédictions normales. La première fois que vous déclenchez les suggestions d’étiquettes pour un ensemble d’images, vous êtes facturé comme si vous appeliez des prédictions. Après quoi, le service stocke les résultats pour les images sélectionnées dans une base de données pendant 30 jours, et vous pouvez y accéder gratuitement à tout moment au cours de cette période. Passé ce délai de 30 jours, vous êtes facturé si vous demandez à nouveau ces suggestions d’étiquettes.
 
-## <a name="suggested-tags-workflow"></a>Workflow des suggestions d’étiquettes
+## <a name="smart-labeler-workflow"></a>Workflow de Smart Labeler
 
-Les étapes suivantes montrent comment utiliser la fonctionnalité de suggestion d’étiquettes :
+Les étapes suivantes montrent comment utiliser Smart Labeler :
 
 1. Chargez toutes vos images d’entraînement dans votre projet Custom Vision.
 1. Étiquetez une partie de votre jeu de données en choisissant un nombre égale d’images pour chaque étiquette.
@@ -44,7 +44,7 @@ Les étapes suivantes montrent comment utiliser la fonctionnalité de suggestion
 1. Une fois l’entraînement terminé, accédez à la vue **Untagged** (Non étiqueté), puis sélectionnez le bouton **Get suggested tags** (Obtenir des suggestions d’étiquettes) dans le volet gauche.
     > [!div class="mx-imgBorder"]
     > ![Le bouton de suggestion d’étiquettes figure sous l’onglet des images non étiquetées.](./media/suggested-tags/suggested-tags-button.png)
-1. Sélectionnez l’ensemble d’images pour lesquelles vous voulez des suggestions. Dans un premier temps, vous obtenez des suggestions d’étiquettes seulement pour une partie des images non étiquetées. Des suggestions plus abouties vous sont ensuite proposées à mesure que vous répétez ce processus.
+1. Dans la fenêtre contextuelle qui s’affiche, définissez le nombre d’images pour lesquelles vous souhaitez obtenir des suggestions. Dans un premier temps, vous obtenez des suggestions d’étiquettes seulement pour une partie des images non étiquetées. Des suggestions plus abouties vous sont ensuite proposées à mesure que vous répétez ce processus.
 1. Confirmez les étiquettes suggérées tout en prenant soin de corriger celles qui sont incorrectes.
     > [!TIP]
     > Les images assorties d’étiquettes suggérées sont triées selon le niveau d’incertitude de leur prédiction (des valeurs faibles indiquant un haut niveau de confiance). Vous pouvez changer l’ordre de tri à l’aide de l’option **Sort by uncertainty** (Trier par niveau d’incertitude). Si vous définissez cet ordre sur **high to low** (élevé à faible), vous pouvez corriger d’abord les prédictions à fort niveau d’incertitude, puis confirmer rapidement celles dont le niveau d’incertitude est faible.

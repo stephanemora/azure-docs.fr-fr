@@ -1,5 +1,5 @@
 ---
-title: Obtenir des valeurs pour l’authentification de l’application - Azure SQL Database | Microsoft Docs
+title: Obtenir des valeurs pour l’authentification d’applications
 description: Créez un principal du service pour l’accès à la base de données SQL à partir du code.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: d7c8c6788a8699c5b57c39731c148454ad8dcfcf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1c2f45aeeaadbbaedc839dd0e2c10804d720a6cd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569326"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827178"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtenir l’ID client et la clé pour la connexion à une base de données SQL à partir du code
 

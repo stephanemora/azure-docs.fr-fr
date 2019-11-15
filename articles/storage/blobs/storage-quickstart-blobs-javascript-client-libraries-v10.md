@@ -2,19 +2,19 @@
 title: Démarrage rapide - Créer un objet blob dans Stockage Azure à l’aide de JavaScript et de HTML dans le navigateur
 description: Apprenez à télécharger, lister et supprimer des objets blob à l’aide de JavaScript dans une page HTML.
 services: storage
-author: KarlErickson
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
-ms.author: karler
+ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: fc6ccaae698043db631c7724c6aabbca16f4328f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172836"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686672"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -168,23 +168,23 @@ Lorsque vous apportez des modifications à *index.html*, veillez à recharger la
 
 ### <a name="add-the-blob-storage-client-library"></a>Ajouter la bibliothèque cliente de stockage Blob
 
-Pour activer les appels vers l’API de stockage Blob, tout d’abord [téléchargez le SDK Stockage Azure pour JavaScript - bibliothèque cliente Blob](https://aka.ms/downloadazurestoragejsblob), extrayez le contenu du fichier zip et placez le fichier *azure-storage.blob.js* dans le dossier *azure-blobs-javascript*.
+Pour activer les appels vers l’API de Stockage Blob, commencez par [télécharger le kit SDK Stockage Azure pour JavaScript – Bibliothèque de client Blob](https://aka.ms/downloadazurestoragejsblob), extrayez le contenu du fichier zip et placez le fichier *azure-storage-blob.js* dans le dossier *azure-blobs-javascript*.
 
 Ensuite, collez le code HTML suivant dans *index.html* après la balise de fermeture `</body>`, en remplaçant le commentaire de l’espace réservé.
 
 ```html
-<script src="azure-storage.blob.js" charset="utf-8"></script>
+<script src="azure-storage-blob.js" charset="utf-8"></script>
 
 <script>
 // You'll add code here in the following sections.
 </script>
 ```
 
-Ce code ajoute une référence au fichier de script et fournit un emplacement pour votre propre code JavaScript. Dans le cadre de ce démarrage rapide, nous utilisons le fichier de script *azure-storage.blob.js* afin que vous puissiez l’ouvrir dans Visual Studio Code, lire son contenu et définir des points d’arrêt. En production, vous devez utiliser le fichier *azure-storage.blob.min.js* plus compact, également fourni dans le fichier zip.
+Ce code ajoute une référence au fichier de script et fournit un emplacement pour votre propre code JavaScript. Dans le cadre de ce démarrage rapide, nous utilisons le fichier de script *azure-storage-blob.js* afin que vous puissiez l’ouvrir dans VS Code, lire son contenu et définir des points d’arrêt. En production, vous devez utiliser le fichier *azure-storage.blob.min.js* plus compact, également fourni dans le fichier zip.
 
 Vous trouverez plus d’informations sur chaque fonction de stockage Blob dans la [documentation de référence](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index). Notez que certaines des fonctions dans le SDK sont uniquement disponibles dans Node.js ou uniquement disponibles dans le navigateur.
 
-Le code dans *azure-storage.blob.js* exporte une variable globale appelée `azblob`, que vous utiliserez dans votre code JavaScript pour accéder aux API de stockage Blob.
+Le code présent dans *azure-storage.blob.js* exporte une variable globale nommée `azblob`, que vous utiliserez dans votre code JavaScript pour accéder aux API de Stockage Blob.
 
 ### <a name="add-the-initial-javascript-code"></a>Ajouter le code JavaScript initial
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: f22d8c57b0127e646321a20587d0cd89f5c9ea45
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325420"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825767"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -85,9 +85,9 @@ Pour prouver que vous êtes propriétaire du point de terminaison, renvoyez le c
 }
 ```
 
-Vous devez renvoyer un code d'état de réponse HTTP 200 OK. HTTP 202 Accepté n'est pas considéré comme une réponse de validation d'abonnement Event Grid valide.
+Vous devez renvoyer un code d'état de réponse HTTP 200 OK. HTTP 202 Accepté n’est pas considéré comme une réponse de validation d’abonnement Event Grid valide. La requête HTTP doit s’achever dans un délai de 30 secondes. Si l’opération ne se termine pas dans les 30 secondes, elle est annulée et pourra faire l’objet d’une nouvelle tentative au bout de 5 secondes. Si toutes les tentatives échouent, elle est traitée comme une erreur d’établissement d’une liaison de validation.
 
-Sinon, vous pouvez valider manuellement l’abonnement en envoyant une demande GET à l’URL de validation. L’abonnement aux événements reste dans un état d’attente jusqu’à ce qu’il soit validé.
+Sinon, vous pouvez valider manuellement l’abonnement en envoyant une demande GET à l’URL de validation. L’abonnement aux événements reste dans un état d’attente tant qu’il n’est pas validé. L’URL de validation utilise le port 553. Si les règles de pare-feu bloquent le port 553, il faudra peut-être les mettre à jour pour que l’établissement manuel d’une liaison réussisse.
 
 Pour accéder à un exemple de gestion d'établissement de liaison de validation d'abonnement, consultez un [exemple C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
@@ -204,7 +204,7 @@ Event Grid fournit deux rôles intégrés pour gérer les abonnements aux évén
 
 Vous pouvez [affecter ces rôles à un utilisateur ou groupe](../role-based-access-control/quickstart-assign-role-user-portal.md).
 
-**EventGrid EventSubscription Contributeur (préversion)**  : permet de gérer les opérations relatives aux abonnements Event Grid
+**Contributeur EventGrid EventSubscription** : gère les opérations relatives aux abonnements Event Grid.
 
 ```json
 [
@@ -212,7 +212,7 @@ Vous pouvez [affecter ces rôles à un utilisateur ou groupe](../role-based-acce
     "Description": "Lets you manage EventGrid event subscription operations.",
     "IsBuiltIn": true,
     "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "Name": "EventGrid EventSubscription Contributor",
     "IsServiceRole": false,
     "Permissions": [
       {
@@ -240,7 +240,7 @@ Vous pouvez [affecter ces rôles à un utilisateur ou groupe](../role-based-acce
 ]
 ```
 
-**EventGrid EventSubscription Lecteur (préversion)**  : permet de lire les abonnements Event Grid
+**Lecteur EventGrid EventSubscription** : lit les abonnements Event Grid.
 
 ```json
 [
@@ -248,7 +248,7 @@ Vous pouvez [affecter ces rôles à un utilisateur ou groupe](../role-based-acce
     "Description": "Lets you read EventGrid event subscriptions.",
     "IsBuiltIn": true,
     "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "Name": "EventGrid EventSubscription Reader",
     "IsServiceRole": false,
     "Permissions": [
       {

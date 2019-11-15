@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: c2a8c60502aeb75173371d40475b5d2875417791
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808636"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622507"
 ---
 # <a name="starter-resource-graph-queries"></a>Requêtes Resource Graph de démarrage
 
@@ -534,6 +534,6 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [langage de requête](../concepts/query-language.md)
-- Apprendre à [explorer les ressources](../concepts/explore-resources.md)
-- Consulter des exemples de [requêtes avancées](advanced.md)
+- Découvrez plus en détails le [langage de requête](../concepts/query-language.md).
+- Découvrez plus en détails comment [explorer des ressources](../concepts/explore-resources.md).
+- Consultez des exemples de [Requêtes avancées](advanced.md).

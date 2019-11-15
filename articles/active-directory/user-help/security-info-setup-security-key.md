@@ -1,5 +1,5 @@
 ---
-title: Configurer des informations de sécurité pour utiliser une clé de sécurité (préversion) - Azure Active Directory | Microsoft Docs
+title: Configurer les informations de sécurité (préversion) d’une clé de sécurité – Azure AD
 description: Comment configurer vos informations de sécurité pour vérifier votre identité à l’aide d’une clé de sécurité Fast Identity Online (FIDO2).
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160708"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803791"
 ---
-# <a name="set-up-security-info-to-use-a-security-key-preview"></a>Configurer des informations de sécurité pour utiliser une clé de sécurité (préversion)
+# <a name="set-up-security-info-preview-for-a-security-key"></a>Configurer les informations de sécurité (préversion) d’une clé de sécurité
 
 Vous pouvez utiliser des clés de sécurité comme méthode de connexion avec mot de passe dans votre organisation. Une clé de sécurité est un appareil physique qui est utilisé avec un code confidentiel unique pour se connecter à votre compte professionnel ou scolaire. Étant donné que les clés de sécurité nécessitent que vous disposiez de l’appareil physique et d’un nom que vous seul connaissez, il s’agit d’une méthode d’authentification plus puissante qu’un nom d’utilisateur et un mot de passe.
 

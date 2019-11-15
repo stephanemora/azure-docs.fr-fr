@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: a917a823d47d6a072cf5a3ee5d636b432913df9a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0b85d6fbe8e66b94bad372ccb29e5489dd81587b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299439"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614780"
 ---
 # <a name="what-are-durable-functions"></a>Présentation de Durable Functions
 
@@ -57,7 +57,7 @@ Vous pouvez utiliser Durable Functions pour implémenter le modèle de chaînage
 ```csharp
 [FunctionName("Chaining")]
 public static async Task<object> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     try
     {
@@ -73,7 +73,7 @@ public static async Task<object> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,10 +88,10 @@ module.exports = df.orchestrator(function*(context) {
 
 Dans cet exemple, les valeurs `F1`, `F2`, `F3` et `F4` représentent les noms des autres fonctions dans l’application de fonction. Vous pouvez implémenter le flux de contrôle à l’aide de constructions de codage impératives normales. Le code s’exécute du haut vers le bas. Le code peut impliquer une sémantique de flux contrôle de langage existante, notamment des instructions conditionnelles et des boucles. Vous pouvez inclure une logique de gestion des erreurs dans des blocs `try`/`catch`/`finally`.
 
-Vous pouvez utiliser le paramètre `context` [DurableOrchestrationContext] \(.NET\) et l’objet `context.df` (JavaScript) pour appeler d’autres fonctions par nom, passer des paramètres et retourner la sortie d’une fonction. Chaque fois que le code appelle `await` (C#) ou `yield` (JavaScript), l’infrastructure Durable Functions crée des points de contrôle de la progression de l’instance de la fonction actuelle. En cas de recyclage du processus ou de la machine virtuelle au milieu de l’exécution, l’instance de la fonction reprend à partir de l’appel à `await` ou `yield` précédent. Pour en savoir plus, consultez la section suivante, Modèle 2 : Fan out/fan in.
+Vous pouvez utiliser le paramètre `context` [IDurableOrchestrationContext] \(.NET\) et l’objet `context.df` (JavaScript) pour appeler d’autres fonctions par nom, passer des paramètres et retourner la sortie d’une fonction. Chaque fois que le code appelle `await` (C#) ou `yield` (JavaScript), l’infrastructure Durable Functions crée des points de contrôle de la progression de l’instance de la fonction actuelle. En cas de recyclage du processus ou de la machine virtuelle au milieu de l’exécution, l’instance de la fonction reprend à partir de l’appel à `await` ou `yield` précédent. Pour en savoir plus, consultez la section suivante, Modèle 2 : Fan out/fan in.
 
 > [!NOTE]
-> L’objet `context` dans JavaScript représente le [contexte de fonction](../functions-reference-node.md#context-object) dans son ensemble, et pas uniquement le paramètre [DurableOrchestrationContext].
+> L’objet `context` dans JavaScript représente le [contexte de fonction](../functions-reference-node.md#context-object) dans son ensemble, et pas uniquement le paramètre [IDurableOrchestrationContext].
 
 ### <a name="fan-in-out"></a>Modèle 2 : Fan out/fan in
 
@@ -108,7 +108,7 @@ L’extension Durable Functions gère ce modèle avec un code relativement simpl
 ```csharp
 [FunctionName("FanOutFanIn")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
 
@@ -128,7 +128,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -204,7 +204,7 @@ L’inversion du scénario d’API HTTP asynchrone antérieur représente un exe
 
 ![Schéma du modèle de surveillance](./media/durable-functions-concepts/monitor.png)
 
-Avec quelques lignes de code, vous pouvez utiliser Durable Functions pour créer plusieurs moniteurs qui observent des points de terminaison arbitraires. Les moniteurs peuvent mettre fin à une exécution lorsqu’une condition est remplie, ou [DurableOrchestrationClient](durable-functions-instance-management.md) peut arrêter les moniteurs. Vous pouvez modifier l’intervalle `wait` d’un moniteur selon une condition spécifique (par exemple, avec un backoff exponentiel). 
+Avec quelques lignes de code, vous pouvez utiliser Durable Functions pour créer plusieurs moniteurs qui observent des points de terminaison arbitraires. Les moniteurs peuvent mettre fin à une exécution lorsqu’une condition est remplie, ou `IDurableOrchestrationClient` peut arrêter les moniteurs. Vous pouvez modifier l’intervalle `wait` d’un moniteur selon une condition spécifique (par exemple, avec un backoff exponentiel). 
 
 Le code suivant implémente un moniteur de base :
 
@@ -213,7 +213,7 @@ Le code suivant implémente un moniteur de base :
 ```csharp
 [FunctionName("MonitorJobStatus")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int jobId = context.GetInput<int>();
     int pollingInterval = GetPollingInterval();
@@ -238,7 +238,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -285,7 +285,7 @@ Les exemples suivants créent un processus d’approbation illustrant le modèle
 ```csharp
 [FunctionName("ApprovalWorkflow")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     await context.CallActivityAsync("RequestApproval", null);
     using (var timeoutCts = new CancellationTokenSource())
@@ -307,7 +307,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+#### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
 
 ```javascript
 const df = require("durable-functions");
@@ -331,13 +331,13 @@ module.exports = df.orchestrator(function*(context) {
 
 Pour créer le minuteur durable, appelez `context.CreateTimer` (.NET) ou `context.df.createTimer` (JavaScript). La notification est reçue par `context.WaitForExternalEvent` (.NET) ou `context.df.waitForExternalEvent` (JavaScript). Ensuite, `Task.WhenAny` (.NET) ou `context.df.Task.any` (JavaScript) est appelée pour déterminer s’il faut procéder à l’escalade (le délai d’expiration est atteint en premier) ou traiter l’approbation (approbation reçue avant la fin du délai d’expiration).
 
-Un client externe peut remettre la notification d’événement à une fonction d’orchestrateur en attente au moyen [d’APIS HTTP intégrées](durable-functions-http-api.md#raise-event) ou de l’API [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) à partir d’une autre fonction :
+Un client externe peut remettre la notification d’événement à une fonction d’orchestrateur en attente au moyen [d’APIS HTTP intégrées](durable-functions-http-api.md#raise-event) ou de la méthode `RaiseEventAsync` (.NET) ou `raiseEvent` (JavaScript) à partir d’une autre fonction :
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
 public static async Task Run(
     [HttpTrigger] string instanceId,
-    [OrchestrationClient] DurableOrchestrationClient client)
+    [DurableClient] IDurableOrchestrationClient client)
 {
     bool isApproved = true;
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
@@ -358,7 +358,7 @@ module.exports = async function (context) {
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-### <a name="aggregator"></a>Modèle 6 : Agrégateur (préversion)
+### <a name="aggregator"></a>Modèle 6 : Aggrégateur
 
 Le sixième modèle repose sur l’agrégation de données d’événement sur une période au sein d’une seule *entité* adressable. Dans ce modèle, les données agrégées peuvent provenir de plusieurs sources, être transmises par lots ou être dispersées sur de longues périodes. L’agrégateur devra peut-être effectuer une action sur les données d’événement à leur arrivée, et des clients externes devront peut-être interroger les données agrégées.
 
@@ -366,33 +366,50 @@ Le sixième modèle repose sur l’agrégation de données d’événement sur u
 
 L’implémentation de ce modèle avec des fonctions normales sans état fait naître un défi de taille : le contrôle d’accès concurrentiel. Vous devrez non seulement vous soucier du risque de modification des mêmes données par plusieurs threads au même moment, mais également veiller à ce que l’agrégateur s’exécute sur une seule machine virtuelle à la fois.
 
-À l’aide d’une [fonction d’entité durable](durable-functions-preview.md#entity-functions), vous pouvez implémenter ce modèle facilement par le biais d’une fonction unique.
+Vous pouvez utiliser des [entités durables](durable-functions-entities.md) pour implémenter facilement ce modèle en tant que fonction unique.
 
 ```csharp
 [FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
             int amount = ctx.GetInput<int>();
-            currentValue += amount;
+            ctx.SetState(currentValue + amount);
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
             ctx.Return(currentValue);
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-Les entités durables peuvent également être modélisées en tant que classes .NET. Ce modèle peut être utile si la liste des opérations est fixe et devient volumineuse. L’exemple suivant est une implémentation équivalente de l’entité `Counter` à l’aide de classes et de méthodes .NET.
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+Les entités durables peuvent également être modélisées en tant que classes dans .NET. Ce modèle peut être utile si la liste des opérations est fixe et devient volumineuse. L’exemple suivant est une implémentation équivalente de l’entité `Counter` à l’aide de classes et de méthodes .NET.
 
 ```csharp
 public class Counter
@@ -418,7 +435,7 @@ Les clients peuvent empiler les *opérations* dans le cadre d’une fonction d�
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableOrchestrationClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
@@ -429,10 +446,21 @@ public static async Task Run(
 }
 ```
 
-Les proxies générés dynamiquement sont également disponibles pour signaler les entités de type sécurisé. En plus de la signalisation, les clients peuvent aussi interroger l’état d’une fonction d’entité à l’aide de [méthodes de type sécurisé](durable-functions-bindings.md#entity-client-usage) sur la liaison du client d’orchestration.
-
 > [!NOTE]
-> Actuellement, les fonctions d’entité sont disponibles uniquement dans .NET dans le cadre de la [préversion de Durable Functions 2.0](durable-functions-preview.md).
+> Les proxies générés dynamiquement sont également disponibles dans .NET pour signaler les entités de type sécurisé. En plus de la signalisation, les clients peuvent aussi interroger l’état d’une fonction d’entité à l’aide de [méthodes de type sécurisé](durable-functions-bindings.md#entity-client-usage) sur la liaison du client d’orchestration.
+
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
+Les fonctions d’entité sont disponibles dans [Durable Functions 2.0](durable-functions-versions.md) et les versions ultérieures.
 
 ## <a name="the-technology"></a>La technologie
 

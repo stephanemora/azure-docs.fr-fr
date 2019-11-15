@@ -1,5 +1,5 @@
 ---
-title: Copier des données vers ou à partir d’Azure SQL Database | Microsoft Docs
+title: Copier des données vers ou à partir d’Azure SQL Database
 description: Apprenez à copier des données vers/depuis Azure SQL Database en utilisant Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: efc7e255a8b3644d8b95bf461e49cd67b2219676
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 8d53d61991f191d2cd0636dba918e9499c4f5d2b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839525"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683087"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -655,7 +655,7 @@ Lors du déplacement des données vers et à partir d’Azure SQL Database, le
 | ntext |String, Char[] |
 | numeric |Decimal |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |Unique |
 | rowversion |Byte[] |
 | smalldatetime |Datetime |
 | smallint |Int16 |

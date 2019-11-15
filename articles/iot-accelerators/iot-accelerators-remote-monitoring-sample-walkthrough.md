@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des accélérateurs de solution de supervision à distance | Microsoft Docs
-description: Cet article présente le déploiement de l’accélérateur de solution de supervision à distance.
+description: Cet article propose une vue d’ensemble de certains des éléments clés de la solution de supervision à distance pour vous permettre de comprendre son fonctionnement.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: af09ea39f373d518d5600e3fa46adc378fd9236d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442532"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824829"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Vue d’ensemble des accélérateurs de solution de supervision à distance
 

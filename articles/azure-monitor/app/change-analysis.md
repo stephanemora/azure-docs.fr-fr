@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678256"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605993"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Utilise l’analyse des changements applicatifs (préversion) dans Azure Monitor
 
@@ -37,7 +37,7 @@ Actuellement, l’analyse des changements est intégrée à l’expérience **Di
 
 À l’aide [d’Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), l’analyse des changements fournit un historique de la façon dont les ressources Azure qui hébergent votre application ont été modifiées au fil du temps. L’analyse des changements peut détecter, par exemple, les changements dans les règles de configuration IP, les identités gérées et les paramètres SSL. Par conséquent, si une balise est ajoutée à une application web, l’analyse des changements reflète la modification. Ces informations sont disponibles tant que le fournisseur de ressources `Microsoft.ChangeAnalysis` est activé dans l’abonnement Azure.
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>Modifications de configuration et de déploiement de l’application web
+### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Modifications dans le déploiement et la configuration des applications web (dans l’invité)
 
 L’analyse des changements capture l’état de déploiement et la configuration d’une application toutes les 4 heures. Elle peut détecter, par exemple, les modifications dans les variables d’environnement de l’application. L’outil calcule les différences et présente ce qui a changé. Contrairement aux modifications de Resource Manager, les informations de modification de déploiement de code peuvent ne pas être disponibles immédiatement dans l’outil. Pour afficher les dernières modifications dans l’analyse des changements, cliquez sur le bouton **Scan changes now** (« Analyser les changements »).
 
@@ -51,10 +51,32 @@ Actuellement, les dépendances suivantes sont prises en charge :
 - Stockage Azure
 - Azure SQL
 
+## <a name="viewing-changes-for-all-resources-in-azure"></a>Afficher les modifications de toutes les ressources dans Azure
+Il existe dans Azure Monitor un panneau autonome pour l’Analyse des changements qui permet d’afficher toutes les modifications avec des insights et les ressources des dépendances de l’application.
+
+Recherchez Analyse des changements dans la barre de recherche du Portail Azure pour lancer le panneau.
+
+![Capture d’écran de la recherche de l’Analyse des changements sur le Portail Azure](./media/change-analysis/search-change-analysis.png)
+
+Sélectionnez Groupe de ressources et les ressources pour afficher les modifications.
+
+![Capture d’écran du panneau Analyse des changements sur le Portail Azure](./media/change-analysis/change-analysis-standalone-blade.png)
+
+Vous pouvez y voir des insights et les ressources des dépendances associées qui hébergent votre application. Cette vue est conçue pour être centrée sur l’application et permettre ainsi aux développeurs de résoudre les problèmes.
+
+Les ressources actuellement prises en charge sont les suivantes :
+- Virtual Machines
+- Groupe de machines virtuelles identiques
+- Ressources réseau Azure
+- Application web avec suivi des fichiers dans l’invité et modification des variables d’environnement
+
+Pour tout commentaire, utilisez le bouton Envoyer des commentaires dans le panneau ou envoyez un e-mail à l’adresse changeanalysisteam@microsoft.com. 
+
+![Capture d’écran du bouton Commentaires dans le panneau Analyse des changements](./media/change-analysis/change-analysis-feedback.png)
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>Analyse des changements pour la fonctionnalité Web Apps
 
-Dans Azure Monitor, l’analyse des changements est actuellement intégrée dans l’expérience en libre-service **Diagnostiquer et résoudre les problèmes**. Accédez à cette expérience à partir de la page **Vue d’ensemble** de votre application App Service.
+Dans Azure Monitor, l’Analyse des changements est également intégrée à l’expérience en libre-service **Diagnostiquer et résoudre les problèmes**. Accédez à cette expérience à partir de la page **Vue d’ensemble** de votre application App Service.
 
 ![Capture d’écran du bouton « Vue d’ensemble » et du bouton « Diagnostiquer et résoudre les problèmes »](./media/change-analysis/change-analysis.png)
 

@@ -1,5 +1,6 @@
 ---
-title: Démarrage rapide JavaScript pour la plateforme d’identités Microsoft - Azure
+title: Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript | Azure
+titleSuffix: Microsoft identity platform
 description: Découvrez comment les applications JavaScript peuvent appeler une API qui nécessite des jetons d’accès en utilisant la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
@@ -8,7 +9,7 @@ manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +17,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5ca9a8b87713508a581a833f60fbe863fd93919a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827114"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795609"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application monopage JavaScript
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
 Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour découvrir comment une application monopage JavaScript peut connecter les utilisateurs de comptes personnels, professionnels et scolaires. Une application monopage JavaScript peut également obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou une API web. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
 
@@ -79,12 +80,11 @@ Sélectionnez l’option qui convient à votre environnement de développement 
 
 * (Facultatif) Pour exécuter le projet avec le serveur IIS, [téléchargez le projet Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extrayez le fichier zip dans un dossier local (par exemple, *C:\Azure-Samples*).
 
-#### <a name="step-3-configure-your-javascript-app"></a>Étape 3 : Configurer une application JavaScript
-
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-javascript-app"></a>Étape 3 : Configurer une application JavaScript
 > Dans le dossier *JavaScriptSPA*, éditez *index.html*, et définissez les valeurs `clientID` et `authority` sous `msalConfig`.
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="docs"]
 > Dans le dossier *JavaScriptSPA*, éditez *index.html* et remplacez `msalConfig` par le code suivant :
 
 ```javascript
@@ -101,10 +101,6 @@ var msalConfig = {
 };
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > Ce guide de démarrage rapide prend en charge Enter_the_Supported_Account_Info_Here.
-
 
 > [!div renderon="docs"]
 >
@@ -119,7 +115,12 @@ var msalConfig = {
 > > Pour connaître les valeurs de l’**ID d’Application (client)** , de l’**ID de l’annuaire (locataire)** , et des **Types de comptes pris en charge**, consultez la page **Vue d’ensemble** de l’application dans le Portail Azure.
 >
 
-#### <a name="step-4-run-the-project"></a>Étape 4 : Exécuter le projet
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>Étape 3 : Votre application est configurée et prête à être exécutée
+> Nous avons configuré votre projet avec les valeurs des propriétés de votre application. 
+
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>Étape 4 : Exécuter le projet
 
 * Si vous utilisez [Node.js](https://nodejs.org/en/download/) :
 

@@ -1,6 +1,6 @@
 ---
-title: Utilisation des files d’attente Azure Service Bus avec Ruby | Microsoft Docs
-description: Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Ruby.
+title: 'Démarrage rapide : Guide pratique pour utiliser les files d’attente Azure Service Bus avec Ruby'
+description: "Démarrage rapide : Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Ruby."
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -11,17 +11,17 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 48f60b7c07cc16b4d9994d5644069fdcb4881e0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09fdc58254d260b6ffeff958b6bbda50332adfac
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991873"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718760"
 ---
-# <a name="how-to-use-service-bus-queues-with-ruby"></a>Utilisation des files d’attente Service Bus avec Ruby
+# <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Démarrage rapide : Utilisation des files d’attente Service Bus avec Ruby
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 

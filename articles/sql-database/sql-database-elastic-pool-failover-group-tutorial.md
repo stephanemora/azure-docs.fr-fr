@@ -1,22 +1,22 @@
 ---
-title: 'Didacticiel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement | Microsoft Docs'
+title: 'Didacticiel : Ajouter un pool élastique à un groupe de basculement'
 description: Ajoutez un pool élastique Azure SQL Database à un groupe de basculement à l’aide du portail Azure, de PowerShell ou d’Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
-ms.date: 06/19/2019
-ms.openlocfilehash: 2d46e6f1d5c7079ab5bbfea39a85ea0a7592afc8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 08/27/2019
+ms.openlocfilehash: e2ae9afaf7c1dcc1794b90d4851fdd60298b5ad6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099284"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823887"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Didacticiel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement
 
@@ -25,8 +25,8 @@ Configurez un groupe de basculement pour un pool élastique Azure SQL Database e
 > [!div class="checklist"]
 > - Créer une base de données unique Azure SQL Database
 > - Ajouter la base de données unique à un pool élastique 
-> - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour un pool élastique entre deux serveurs SQL logiques
-> - Tester le basculement
+> - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour deux pools élastiques entre deux serveurs SQL logiques
+> - Tester le basculement.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,6 +40,13 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 [!INCLUDE [sql-database-create-single-database](includes/sql-database-create-single-database.md)]
 
 ## <a name="2---add-single-database-to-elastic-pool"></a>2 - Ajouter la base de données unique au pool élastique
+Dans cette étape, vous allez créer un pool élastique et y ajouter votre base de données unique. 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Créez votre pool élastique avec le Portail Azure. 
+
 
 1. Dans le menu de gauche du portail Azure, sélectionnez **Azure SQL**. Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
 1. Sélectionnez **+Ajouter** pour ouvrir la page **Sélectionner l’option de déploiement SQL**. Vous pouvez afficher des informations supplémentaires sur les différentes bases de données en sélectionnant Afficher les détails sur la vignette Bases de données.
@@ -51,7 +58,7 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
    - **Nom** : spécifiez un nom unique pour votre pool élastique, par exemple `myElasticPool`. 
    - **Abonnement**: Sélectionnez votre abonnement dans la liste déroulante.
    - **Groupe de ressources** : sélectionnez `myResourceGroup` dans la liste déroulante, le groupe de ressources que vous avez créé dans la section 1. 
-   - **Server** (Serveur) : sélectionnez le serveur créé dans la section 1 dans la liste déroulante.  
+   - **Server** (Serveur) : sélectionnez dans la liste déroulante le serveur créé dans la section 1.  
 
        ![Créer un serveur pour le pool élastique](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
 
@@ -64,8 +71,67 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 1. Sélectionnez **Vérifier + créer** pour passer en revue les paramètres de votre pool élastique, puis sélectionnez **Créer** pour créer votre pool élastique. 
 
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Créez vos pools élastiques et votre serveur secondaire avec PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   $poolName = "myElasticPool"
+   $databaseName = "mySampleDatabase"
+   $drLocation = "West US"
+   $drServerName = "mysqlsecondary-$(Get-Random)"
+   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   
+   # The ip address range that you want to allow to access your server 
+   # Leaving at 0.0.0.0 will prevent outside-of-azure connections
+   # $startIp = "0.0.0.0"
+   # $endIp = "0.0.0.0"
+   
+   # Show randomized variables
+   Write-host "DR Server name is" $drServerName 
+   Write-host "Failover group name is" $failoverGroupName
+   
+   # Create primary Gen5 elastic 2 vCore pool
+   Write-host "Creating elastic pool..."
+   $elasticPool = New-AzSqlElasticPool -ResourceGroupName $resourceGroupName `
+       -ServerName $serverName `
+       -ElasticPoolName $poolName `
+       -Edition "GeneralPurpose" `
+       -vCore 2 `
+       -ComputeGeneration Gen5
+   $elasticPool
+   
+   # Add single db into elastic pool
+   Write-host "Creating elastic pool..."
+   $addDatabase = Set-AzSqlDatabase -ResourceGroupName $resourceGroupName `
+       -ServerName $serverName `
+       -DatabaseName $databaseName `
+       -ElasticPoolName $poolName
+   $addDatabase
+   ```
+
+Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
+
+| Commande | Notes |
+|---|---|
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crée un pool de bases de données élastique pour une base de données Azure SQL Database.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Définit les propriétés d’une base de données, ou déplace une base de données existante dans un pool élastique. | 
+
+---
+
 ## <a name="3---create-the-failover-group"></a>3 - Créer le groupe de basculement 
 Lors de cette étape, vous allez créer un [groupe de basculement](sql-database-auto-failover-group.md) entre un serveur SQL Azure existant et un nouveau serveur SQL Azure dans une autre région. Ensuite, vous ajouterez le pool élastique au groupe de basculement. 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Créez votre groupe de basculement avec le Portail Azure. 
 
 1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
 1. Sélectionnez le pool élastique créé dans la section précédente, par exemple `myElasticPool`. 
@@ -94,11 +160,101 @@ Lors de cette étape, vous allez créer un [groupe de basculement](sql-database-
         
     ![Ajouter un pool élastique à un groupe de basculement](media/sql-database-elastic-pool-failover-group-tutorial/add-elastic-pool-to-failover-group.png)
         
-1. Sélectionnez **Sélectionner** pour appliquer les paramètres de votre pool élastique au groupe de basculement, puis sélectionnez **Créer** pour créer votre groupe de basculement. L’ajout du pool élastique au groupe de basculement démarre automatiquement le processus de géoréplication. 
+1. Sélectionnez **Sélectionner** pour appliquer les paramètres de votre pool élastique au groupe de basculement, puis sélectionnez **Créer** pour créer votre groupe de basculement. L’ajout du pool élastique au groupe de basculement démarre automatiquement le processus de géoréplication.
+
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Créez votre groupe de basculement avec PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+
+   # Create a secondary server in the failover region
+   Write-host "Creating a secondary logical server in the failover region..."
+   New-AzSqlServer -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -Location $drLocation `
+      -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+         -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+   Write-host "Secondary logical server =" $drServerName
+   
+   # Create a server firewall rule that allows access from the specified IP range
+   Write-host "Configuring firewall for secondary logical server..."
+   New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+   Write-host "Firewall configured" 
+   
+   # Create secondary Gen5 elastic 2 vCore pool
+   Write-host "Creating secondary elastic pool..."
+   $elasticPool = New-AzSqlElasticPool -ResourceGroupName $resourceGroupName `
+       -ServerName $drServerName `
+       -ElasticPoolName $poolName `
+       -Edition "GeneralPurpose" `
+       -vCore 2 `
+       -ComputeGeneration Gen5
+   $elasticPool
+   
+   # Create a failover group between the servers
+   Write-host "Creating failover group..." 
+   New-AzSqlDatabaseFailoverGroup `
+     –ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -PartnerServerName $drServerName  `
+      –FailoverGroupName $failoverGroupName `
+      –FailoverPolicy Automatic `
+      -GracePeriodWithDataLossHours 2
+   Write-host "Failover group created successfully." 
+   
+   # Add elastic pool to the failover group
+   Write-host "Enumerating databases in elastic pool...." 
+   $FailoverGroup = Get-AzSqlDatabaseFailoverGroup `
+                    -ResourceGroupName $resourceGroupName `
+                    -ServerName $serverName `
+                    -FailoverGroupName $failoverGroupName
+   $databases = Get-AzSqlElasticPoolDatabase `
+                  -ResourceGroupName $resourceGroupName `
+                  -ServerName $serverName `
+                  -ElasticPoolName $poolName
+   Write-host "Adding databases to failover group..." 
+   $failoverGroup = $failoverGroup | Add-AzSqlDatabaseToFailoverGroup `
+                                     -Database $databases 
+   $failoverGroup
+   ```
+
+Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
+
+| Commande | Notes |
+|---|---|
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crée un serveur SQL Database qui héberge des bases de données uniques et des pools élastiques. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crée une règle de pare-feu pour un serveur logique. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crée un pool de bases de données élastique pour une base de données Azure SQL Database.| 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Crée un groupe de basculement. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Ajoute une ou plusieurs bases de données Azure SQL à un groupe de basculement. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtient ou dresse la liste des groupes de basculement Azure SQL Database. |
+
+---
 
 
 ## <a name="4---test-failover"></a>4 - Tester le basculement 
 Dans cette étape, vous allez faire basculer votre groupe de basculement sur le serveur secondaire, puis effectuer une restauration automatique en utilisant le portail Azure. 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
+Testez le basculement de votre groupe de basculement à l’aide du portail Azure. 
 
 1. Dans le menu de gauche du **Portail Azure**, sélectionnez [Azure SQL](https://portal.azure.com). Si **Azure SQL** ne figure pas dans la liste, sélectionnez **Tous les services**, puis tapez Azure SQL dans la zone de recherche. (Facultatif) Sélectionnez l’étoile en regard d’**Azure SQL** pour l’ajouter aux favoris et l’ajouter en tant qu’élément dans le volet de navigation de gauche. 
 1. Sélectionnez le pool élastique créé dans la section précédente, par exemple `myElasticPool`. 
@@ -119,23 +275,157 @@ Dans cette étape, vous allez faire basculer votre groupe de basculement sur le 
 1. Vérifiez quel est le serveur principal et quel est le serveur secondaire. Si le basculement a réussi, les deux serveurs doivent avoir échangé leur rôle. 
 1. Sélectionnez **Basculement** à nouveau pour rétablir les paramètres d’origine du groupe de basculement. 
 
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Testez le basculement de votre groupe de basculement à l’aide de PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   
+   # Check role of secondary replica
+   Write-host "Confirming the secondary server is secondary...." 
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $failoverGroupName `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+   
+   # Failover to secondary server
+   Write-host "Failing over failover group to the secondary..." 
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failover group failed over to" $drServerName 
+   ```
+
+Faites basculer votre groupe de basculement sur le serveur secondaire, puis effectuez une restauration automatique avec PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "East US"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $poolName = "myElasticPool"
+   # $databaseName = "mySampleDatabase"
+   # $drLocation = "West US"
+   # $drServerName = "mysqlsecondary-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+
+   # Check role of secondary replica
+   Write-host "Confirming the secondary server is now primary" 
+   (Get-AzSqlDatabaseFailoverGroup `
+      -FailoverGroupName $failoverGroupName `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName).ReplicationRole
+   
+   # Revert failover to primary server
+   Write-host "Failing over failover group to the primary...." 
+   Switch-AzSqlDatabaseFailoverGroup `
+      -ResourceGroupName $resourceGroupName `
+      -ServerName $serverName `
+      -FailoverGroupName $failoverGroupName
+   Write-host "Failover group failed over to" $serverName 
+   ```
+
+Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
+
+| Commande | Notes |
+|---|---|
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtient ou dresse la liste des groupes de basculement Azure SQL Database. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Exécute le basculement d’un groupe de basculement Azure SQL Database. |
+
+
+---
+
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
+
 Nettoyez les ressources en supprimant le groupe de ressources. 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
 
 1. Accédez à votre groupe de ressources sur le [portail Azure](https://portal.azure.com).
 1. Sélectionnez **Supprimer le groupe de ressources** pour supprimer toutes les ressources du groupe ainsi que le groupe de ressources lui-même. 
-1. Tapez le nom du groupe de ressources, `myResourceGroup`, dans la zone de texte, puis sélectionnez **Supprimer** pour supprimer le groupe de ressources.  
+1. Tapez le nom du groupe de ressources, `myResourceGroup`, dans la zone de texte, puis sélectionnez **Supprimer** pour supprimer le groupe de ressources. 
 
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Nettoyez vos ressources avec PowerShell. 
+
+   ```powershell-interactive
+   # Set variables for your server and database
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   
+   # Clean up resources by removing the resource group
+   Write-host "Removing resource group..."
+   Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
+   Write-host "Resource group removed =" $resourceGroupName
+   ```
+---
+
+Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
+
+| Commande | Notes |
+|---|---|
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
+
+Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
+
+## <a name="full-script"></a>Script complet
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
+
+Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
+
+| Commande | Notes |
+|---|---|
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crée un serveur SQL Database qui héberge des bases de données uniques et des pools élastiques. |
+| [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Crée une règle de pare-feu pour un serveur logique. | 
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crée une base de données unique Azure SQL Database. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crée un pool de bases de données élastique pour une base de données Azure SQL Database.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Définit les propriétés d’une base de données, ou déplace une base de données existante dans un pool élastique. | 
+| [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Crée un groupe de basculement. |
+| [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Obtient une ou plusieurs bases de données SQL. |
+| [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Ajoute une ou plusieurs bases de données Azure SQL à un groupe de basculement. |
+| [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Obtient ou dresse la liste des groupes de basculement Azure SQL Database. |
+| [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Exécute le basculement d’un groupe de basculement Azure SQL Database. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
+
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+Aucun script n’est disponible pour le portail Azure.
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez ajouté une base de données unique Azure SQL Database à un groupe de basculement et vous avez testé le basculement. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez ajouté un pool élastique Azure SQL Database à un groupe de basculement et testé le basculement. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > - Créer une base de données unique Azure SQL Database
 > - Ajouter la base de données unique à un pool élastique 
-> - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour un pool élastique entre deux serveurs SQL logiques
-> - Tester le basculement
+> - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour deux pools élastiques entre deux serveurs SQL logiques
+> - Tester le basculement.
 
 Passez au tutoriel suivant sur la migration à l’aide de DMS.
 

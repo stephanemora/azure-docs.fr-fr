@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide de Azure : sauvegarder une machine virtuelle avec PowerShell'
-description: Découvrez comment sauvegarder vos machines virtuelles avec Azure PowerShell
+description: Dans ce démarrage rapide, découvrez comment sauvegarder vos machines virtuelles Azure avec le module Azure PowerShell.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: ea4f982409f339487cd570230ebbb75682f409ec
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874595"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747088"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Sauvegarder une machine virtuelle dans Azure avec PowerShell
 
-Le module [AZ Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. 
+Le module [AZ Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) est utilisé pour créer et gérer des ressources Azure à partir de la ligne de commande ou dans des scripts.
 
 La [sauvegarde Azure](backup-overview.md) sauvegarde les applications et machines locales, ainsi que les machines virtuelles Azure. Cet article montre comment sauvegarder une machine virtuelle Azure avec le module AZ. Vous pouvez également sauvegarder une machine virtuelle en utilisant l’interface [Azure CLI](quick-backup-vm-cli.md), ou le [portail Azure](quick-backup-vm-portal.md).
 
@@ -35,12 +35,12 @@ Ce guide de démarrage rapide nécessite le module AZ Azure PowerShell version 
     ```powershell
     Connect-AzAccount
     ```
+
 2. Si vous utilisez la sauvegarde Azure pour la première fois, vous devez inscrire le fournisseur Azure Recovery Services dans votre abonnement avec [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), de la façon suivante :
 
     ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -53,7 +53,6 @@ Lorsque vous créez le coffre :
 - La sauvegarde Azure gère automatiquement le stockage des données sauvegardées. Par défaut, le coffre utilise [le stockage géoredondant (GRS)](../storage/common/storage-redundancy-grs.md). La géoredondance garantit que les données sauvegardées sont répliquées dans une région Azure secondaire, à des centaines de kilomètres de la région primaire.
 
 À présent, créez un coffre :
-
 
 1. Utilisez [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) pour créer le coffre :
 
@@ -72,11 +71,12 @@ Lorsque vous créez le coffre :
     ```
 
 3. Modifiez la configuration de la redondance de stockage (LRS/GRS) du coffre avec [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) comme suit :
-    
+
     ```powershell
     Get-AzRecoveryServicesVault `
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
+
     > [!NOTE]
     > La redondance de stockage peut être modifiée uniquement si aucun élément de sauvegarde n’est protégé dans le coffre.
 
@@ -85,7 +85,7 @@ Lorsque vous créez le coffre :
 Vous activez la sauvegarde d’une machine virtuelle Azure et spécifiez une stratégie de sauvegarde.
 
 - La stratégie définit les moments auxquels les sauvegardes s’exécutent, et la durée de conservation des points de récupération créés par les sauvegardes.
-- La stratégie de protection par défaut effectue une sauvegarde quotidienne pour la machine virtuelle, et conserve les points de récupération créés pendant 30 jours. Vous pouvez utiliser cette stratégie par défaut pour rapidement protéger votre machine virtuelle. 
+- La stratégie de protection par défaut effectue une sauvegarde quotidienne pour la machine virtuelle, et conserve les points de récupération créés pendant 30 jours. Vous pouvez utiliser cette stratégie par défaut pour rapidement protéger votre machine virtuelle.
 
 Configurez la sauvegarde de la façon suivante :
 
@@ -112,7 +112,8 @@ Les sauvegardes s’exécutent conformément à la planification spécifiée dan
 - Après cette sauvegarde initiale, chaque travail de sauvegarde crée des points de récupération incrémentielle.
 - Les points de récupération incrémentielle constituent un mode de stockage rapide et efficace, car ils transfèrent uniquement les modifications apportées depuis la dernière sauvegarde.
 
-Pour exécuter une sauvegarde ad hoc, vous utilisez [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem). 
+Pour exécuter une sauvegarde ad hoc, vous utilisez [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
+
 - Vous spécifiez un conteneur dans le coffre qui contient vos données de sauvegarde avec [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer).
 - Chaque machine virtuelle à sauvegarder est traitée comme un élément. Pour démarrer un travail de sauvegarde, vous obtenez des informations sur la machine virtuelle avec [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem).
 
@@ -134,7 +135,6 @@ Exécutez un travail de sauvegarde ad hoc de la façon suivante :
 
 2. À partir du moment où ce premier travail de sauvegarde crée un point de récupération complet, il est possible que votre attente dure un certain temps, sans toutefois excéder 20 minutes. Supervisez le travail tel qu’il est décrit dans la procédure suivante.
 
-
 ## <a name="monitor-the-backup-job"></a>Surveiller le travail de sauvegarde
 
 1. Exécutez [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) pour superviser l’état du travail.
@@ -142,6 +142,7 @@ Exécutez un travail de sauvegarde ad hoc de la façon suivante :
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
+
     Le résultat est similaire à l’exemple suivant, et montre la tâche **en cours** d’exécution :
 
     ```output
@@ -153,10 +154,10 @@ Exécutez un travail de sauvegarde ad hoc de la façon suivante :
 
 2. Lorsque l’état du travail est **Terminé**, la machine virtuelle est protégée, et dotée d’un point de récupération complet stocké.
 
-
 ## <a name="clean-up-the-deployment"></a>Nettoyer le déploiement
 
 Si vous n’avez plus besoin de sauvegarder la machine virtuelle, vous pouvez la nettoyer.
+
 - Si vous voulez essayer de restaurer la machine virtuelle, ignorez cette opération de nettoyage.
 - Si vous avez utilisé une machine virtuelle existante, vous pouvez ignorer l’applet de commande finale [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour laisser en place le groupe de ressources et la machine virtuelle.
 
@@ -169,10 +170,9 @@ Remove-AzRecoveryServicesVault -Vault $vault
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un coffre Recovery Services, activé la protection sur une machine virtuelle et créé le point de récupération initial. 
+Dans ce guide de démarrage rapide, vous avez créé un coffre Recovery Services, activé la protection sur une machine virtuelle et créé le point de récupération initial.
 
 - [Découvrez comment](tutorial-backup-vm-at-scale.md) sauvegarder des machines virtuelles dans le portail Azure.
 - [Découvrez comment](tutorial-restore-disk.md) rapidement restaurer une machine virtuelle

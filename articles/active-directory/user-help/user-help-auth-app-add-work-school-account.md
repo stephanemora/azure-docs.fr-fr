@@ -1,5 +1,5 @@
 ---
-title: Ajout de votre compte professionnel ou scolaire à l’application Microsoft Authenticator - Azure Active Directory | Microsoft Docs
+title: Ajouter un compte professionnel ou scolaire à une application Authenticator – Azure AD
 description: Décrit comment ajouter vos comptes professionnels ou scolaires à l’application Microsoft Authenticator pour la vérification en deux étapes.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be2ee662a061cdcb6acc58e47eda5feda3b9eee
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880796"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803734"
 ---
 # <a name="add-your-work-or-school-account"></a>Ajout de votre compte professionnel ou scolaire
 

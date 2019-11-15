@@ -1,6 +1,6 @@
 ---
-title: Envoyer des événements à l’aide de C - Azure Event Hubs | Microsoft Docs
-description: Cet article décrit la procédure à suivre pour créer une application C qui envoie des événements à Azure Event Hubs.
+title: 'Démarrage rapide : Envoyer des événements avec C – Azure Event Hubs'
+description: 'Démarrage rapide : Cet article décrit la procédure à suivre pour créer une application C qui envoie des événements à Azure Event Hubs.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: a8f647018ba6ed3c9e951db2054036b60c7d4ab5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bd4bb66b7e3c3ec37724f8684105befbc9132ff
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822475"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720665"
 ---
-# <a name="send-events-to-azure-event-hubs-using-c"></a>Envoyer des événements vers Azure Event Hubs avec C
+# <a name="quickstart-send-events-to-azure-event-hubs-using-c"></a>Démarrage rapide : Envoyer des événements vers Azure Event Hubs avec C
 
 ## <a name="introduction"></a>Introduction
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).

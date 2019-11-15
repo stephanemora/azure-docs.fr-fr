@@ -1,7 +1,7 @@
 ---
 title: Configurer des conteneurs - API VISAGE
 titleSuffix: Azure Cognitive Services
-description: Paramètres de configuration des conteneurs.
+description: L’environnement d’exécution de conteneur Visage est configuré à l’aide des arguments de la commande `docker run`. Il s'agit de paramètres obligatoires et facultatifs.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: a07f088f7f5699a2698c0ea8fb0e853b3d287572
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 78fd2aa977062d2f0d6b981140f3db5b263e4651
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101949"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795029"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
 
@@ -53,7 +53,7 @@ Pensez à ajouter le routage _Visage_ à l’URI de point de terminaison, comme 
 
 |Obligatoire| Nom | Type de données | Description |
 |--|------|-----------|-------------|
-|OUI| `Billing` | Chaîne | URI du point de terminaison de facturation<br><br>Exemple :<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/face/v1.0` |
+|OUI| `Billing` | Chaîne | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](face-how-to-install-containers.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 
@@ -138,7 +138,7 @@ Remplacez {_argument_name_} par vos propres valeurs :
 
 | Placeholder | Valeur | Format ou exemple |
 |-------------|-------|---|
-| **{API_KEY}** | Clé de point de terminaison de la ressource `Face` dans la page Clés `Face` Azure. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{API_KEY}** | Clé de point de terminaison de la ressource `Face` dans la page Clés Azure `Face`. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | La valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble Azure `Face`.| Pour obtenir des exemples explicites, consultez [Collecte des paramètres requis](face-how-to-install-containers.md#gathering-required-parameters). |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]

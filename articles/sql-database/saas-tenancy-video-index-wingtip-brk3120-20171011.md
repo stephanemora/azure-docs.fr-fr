@@ -1,5 +1,5 @@
 ---
-title: Vidéo indexée, application SQL SaaS Azure | Microsoft Docs
+title: Vidéo sur l’application SQL SaaS
 description: Cet article de la conférence Ignite, qui s’est tenue le 11 octobre 2017, indexe plusieurs points de temps dans notre vidéo de 81 minutes sur la conception de l’application de location de bases de données SaaS. Vous pouvez passer directement à la partie qui vous intéresse. Au moins 3 modèles sont décrits. Fonctionnalités Azure qui simplifient le développement et la gestion sont décrites.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 7c1f93bb7cfe1e088aa88d9ff194c8fbce9ea3c6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0194d99a10eb34ecd8ad10fa0a1509baf8436381
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570230"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818473"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>Vidéo indexée et annotée pour l’application SaaS multi-locataire à l’aide d’Azure SQL Database
 
@@ -62,7 +62,7 @@ Les titres suivants sont des liens vers leurs sections annotées correspondantes
 - [17. Application SaaS multi-locataire hybride Canonical, 0:47:33](#anchor-image-wtip-min04733)
 - [18. Application exemple SaaS Wingtip, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Scénarios et modèles explorés dans les didacticiels, 0:49:10](#anchor-image-wtip-min04910)
-- [20. Tutoriels de démonstration et dépôt GitHub, 0:50:18](#anchor-image-wtip-min05018)
+- [20. Didacticiels de démonstration et référentiel GitHub, 0:50:18](#anchor-image-wtip-min05018)
 - [21. Réf GitHub Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. Exploration des modèles, 0:56:20](#anchor-image-wtip-min05620)
 - [23. Approvisionnement de locataires et intégration, 0:57:44](#anchor-image-wtip-min05744)
@@ -198,13 +198,13 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 
 &nbsp;<a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Tutoriels de démonstration et dépôt GitHub, 0:50:12
-[![Tutoriels de démonstration et dépôt GitHub][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20. Didacticiels de démonstration et référentiel GitHub, 0:50:12
+[![Didacticiels de démonstration et réf GitHub][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp;<a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Dépôt GitHub Microsoft/WingtipSaaS, 0:50:32
-[![Dépôt GitHub Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21. Réf GitHub Microsoft/WingtipSaaS, 0:50:32
+[![Réf GitHub Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp;<a name="anchor-image-wtip-min05620"/>
@@ -297,7 +297,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 - *Tutoriels:* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
-- Dépôts GitHub pour des variantes de l’application locative SaaS Wingtip Tickets :
+- Référentiels GitHub pour des variantes de l’application locative SaaS Wingtip Tickets :
     - [Dépôt GitHub pour : modèle d’application autonome][github-wingtip-standaloneapp].
     - [Dépôt GitHub pour : modèle de base de données par locataire][github-wingtip-dbpertenant].
     - [Dépôt GitHub pour : modèle de base de données multilocataire][github-wingtip-multitenantdb].
@@ -353,7 +353,7 @@ Cliquer sur une image de la capture d’écran vous permet d’extraire l’empl
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Scénarios et modèles explorés dans les didacticiels"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Tutoriels de démonstration et dépôt GitHub"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Didacticiels de démonstration et référentiel GitHub"
 
 [image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Réf GitHub Microsoft/WingtipSaaS"
 

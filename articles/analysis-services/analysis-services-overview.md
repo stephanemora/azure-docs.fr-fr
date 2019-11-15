@@ -1,18 +1,18 @@
 ---
 title: Qu’est-ce qu’Azure Analysis Services ? | Microsoft Docs
-description: Obtenez une vue d’ensemble d’Analysis Services dans Azure.
+description: Découvrez Azure Analysis Services, une plateforme complètement managée en tant que service (PaaS) qui fournit des modèles de données de qualité professionnelle dans le cloud.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512594"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572807"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -200,9 +200,9 @@ Pour plus d’informations sur la sécurité Azure, consultez [Microsoft Trust C
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Développez et déployez gratuitement des modèles avec [SQL Server Data Tools (SSDT) pour Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). SSDT inclut des modèles de projet Analysis Services opérationnels rapidement. SSDT inclut maintenant la requête de source de données et la fonctionnalité de mashup modernes Get Data pour les modèles tabulaires 1400. Si connaissez déjà Get Data dans Power BI Desktop et Excel 2016, vous devriez déjà savoir à quel point il est aisé de créer des requêtes de source de données hautement personnalisables. 
+Développez et déployez des modèles à l’aide de Visual Studio avec des projets Analysis Services. L’extension de projets Analysis Services inclut des modèles et des Assistants qui permettent d’être rapidement opérationnel. L’environnement de création de modèles dans Visual Studio comprend maintenant la fonctionnalité moderne de mashup et de requête de source de données Get Data pour les modèles tabulaires 1400 et versions ultérieures. Si connaissez déjà Get Data dans Power BI Desktop et Excel 2016, vous devriez déjà savoir à quel point il est aisé de créer des requêtes de source de données hautement personnalisables. 
 
-Si vous utilisez Visual Studio 2017 ou ultérieur, les projets Microsoft Analysis Services sont disponibles sous forme de package VSIX installable gratuit. [Téléchargez à partir de la Place de marché](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Les projets Microsoft Analysis Services sont disponibles sous la forme d’un package VSIX installable gratuitement. [Téléchargez à partir de la Place de marché](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). L’extension fonctionne avec n’importe quelle version de Visual Studio 2017 (et versions ultérieures), y compris l’édition Community gratuite.
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

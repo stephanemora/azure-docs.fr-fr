@@ -1,18 +1,18 @@
 ---
 title: Sources de données prises en charge par Azure Analysis Services | Microsoft Docs
-description: Décrit les sources de données prises en charge pour les modèles de données dans Azure Analysis Services.
+description: Décrit les sources de données et les connecteurs pris en charge pour les modèles de données tabulaires 1200 et versions ultérieures dans Azure Analysis Services.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512446"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572961"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -97,12 +97,12 @@ Lorsque vous migrez un modèle tabulaire SQL Server Analysis Services local vers
 
 **Pour spécifier un fournisseur**
 
-1. Dans SSDT > **Explorateur de modèles tabulaires** > **Sources de données**, cliquez sur une connexion de source de données, puis cliquez sur **Modifier la source de données**.
+1. Dans Visual Studio > **Explorateur de modèles tabulaires** > **Sources de données**, cliquez avec le bouton droit sur une connexion de source de données, puis sur **Modifier la source de données**.
 2. Dans **Modifier la connexion**, cliquez sur **Avancé** pour ouvrir la fenêtre de propriétés avancées.
 3. Dans **Définir les propriétés avancées** > **Fournisseurs**, sélectionnez le fournisseur approprié.
 
 ## <a name="impersonation"></a>Emprunt d’identité
-Dans certains cas, il peut être nécessaire de spécifier un autre compte d’emprunt d’identité. Le compte d’emprunt d’identité peut être spécifié dans Visual Studio SSDT ou SSMS.
+Dans certains cas, il peut être nécessaire de spécifier un autre compte d’emprunt d’identité. Le compte d’emprunt d’identité peut être spécifié dans Visual Studio ou SSMS.
 
 Pour les sources de données locales :
 

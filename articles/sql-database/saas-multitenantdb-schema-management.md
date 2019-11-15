@@ -1,5 +1,5 @@
 ---
-title: Gérer le schéma Azure SQL Database dans une application multilocataire | Microsoft Docs
+title: Gérer le schéma dans une application multilocataire
 description: Gérer un schéma pour plusieurs locataires dans une application multilocataire qui utilise Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: db6f471438324e984434704a2cab01d57c800ba5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570253"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822121"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
 

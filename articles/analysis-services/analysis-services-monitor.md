@@ -1,18 +1,18 @@
 ---
 title: Surveiller les indicateurs de performance de serveur de Azure Analysis Services | Microsoft Docs
-description: Découvrez comment surveiller les indicateurs de performance de serveur Analysis Services dans un portail Azure.
+description: Découvrez comment Analysis Services utilise Azure Metrics Explorer, un outil gratuit du portail permettant d’effectuer le monitorage des performances et de l’intégrité des serveurs.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a66089d01ed9eabdb78975eb1738b87c99fbf311
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9e6eab38e0f7bd55fa671aa8c1e99693eeb54c84
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294876"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572734"
 ---
 # <a name="monitor-server-metrics"></a>Surveiller les indicateurs de performances du serveur
 
@@ -27,7 +27,7 @@ Pour effectuer des diagnostics plus approfondis, suivre des performances et iden
 
     ![Surveiller dans le portail Azure](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. Dans **Indicateurs de performances disponibles**, sélectionnez les indicateurs de performances à inclure sur votre graphique. 
+2. Dans **Métrique**, sélectionnez les métriques à inclure sur votre graphique. 
 
     ![Graphique de surveillance](./media/analysis-services-monitor/aas-monitor-chart.png)
 

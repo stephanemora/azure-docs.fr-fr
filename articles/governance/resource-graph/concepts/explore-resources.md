@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: b92975e3fe73fb1c882bdfc4338fd8e169728e8b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 58eb5abc9a8857b81ada65c96eb7deaaa5cc5aeb
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387648"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622662"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorer vos ressources Azure avec Resource Graph
 
@@ -312,6 +312,6 @@ Pour savoir comment effectuer ces étapes au sein d’une même requête avec l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le [langage de requête](query-language.md)
-- Examiner le langage utilisé dans les [requêtes de démarrage](../samples/starter.md)
-- Examiner des utilisations avancées dans les [Requêtes avancées](../samples/advanced.md)
+- Découvrez plus en détails le [langage de requête](query-language.md).
+- Examinez le langage utilisé dans les [requêtes de démarrage](../samples/starter.md).
+- Examinez les utilisations avancées dans les [Requêtes avancées](../samples/advanced.md).

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/08/2019
+ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680498"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820672"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
@@ -28,7 +28,7 @@ Après avoir créé votre ISE, lorsque vous vous apprêtez à créer votre appli
 
 Votre application logique peut désormais accéder directement aux systèmes se trouvant dans votre réseau virtuel ou connectés à votre réseau virtuel à l’aide de l’un de ces éléments :
 
-* Un connecteur étiqueté **ISE** pour ce système, tel que SQL Server
+* Un connecteur étiqueté **ISE** pour ce système
 * Une action ou un déclencheur intégré étiqueté **Core**, tel qu’une action ou un déclencheur HTTP
 * Un connecteur personnalisé
 
@@ -51,7 +51,7 @@ Les applications logiques d’un ISE fournissent les mêmes expériences d’uti
 * Stockage Fichier, stockage Table et stockage Blob Azure
 * Files d’attente Azure, Azure Service Bus, Azure Event Hubs et IBM MQ
 * FTP et SFTP-SSH
-* SQL Server, SQL Data Warehouse, Azure Cosmos DB
+* SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 et EDIFACT
 
 La différence entre les connecteurs d’environnement de service d’intégration et les autres connecteurs réside dans les emplacements où s’exécutent les déclencheurs et les actions :
@@ -92,6 +92,7 @@ Pour connaître la tarification, consultez [Tarification Logic Apps](https://azu
 Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de terminaison d’accès internes ou externes. Ces points de terminaison déterminent si les déclencheurs de demande ou de webhook sur les applications logiques dans votre ISE peuvent recevoir des appels en dehors de votre réseau virtuel. Ces points de terminaison affectent également l’accès aux entrées et aux sorties dans l’historique d’exécution des applications logiques.
 
 * **Interne** : Les points de terminaison privés qui autorisent les appels à des applications logiques dans votre ISE, ainsi que l’accès aux entrées et aux sorties dans l’historique des exécutions *uniquement à partir de votre réseau virtuel*
+
 * **Externe** : Les points de terminaison publics qui autorisent les appels à des applications logiques dans votre ISE, ainsi que l’accès aux entrées et aux sorties dans l’historique des exécutions *hors de votre réseau virtuel*
 
 > [!IMPORTANT]
@@ -103,15 +104,20 @@ Lorsque vous créez votre ISE, vous pouvez choisir d’utiliser des points de te
 
 Pour les systèmes locaux qui sont connectés à un réseau virtuel Azure, injectez un environnement de service d’intégration dans ce réseau, pour que vos applications logiques puissent accéder directement à ces systèmes en utilisant un de ces éléments :
 
-* Connecteur de version ISE pour ce système, par exemple, SQL Server
 * Action HTTP
+
+* Connecteur étiqueté ISE pour ce système
+
+  > [!NOTE]
+  > Pour utiliser l’authentification Windows avec le connecteur SQL Server dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), utilisez la version non ISE du connecteur avec la [passerelle de données locale](../logic-apps/logic-apps-gateway-install.md). La version étiquetée ISE ne prend pas en charge l’authentification Windows.
+
 * Connecteur personnalisé
 
   * Si vous disposez de connecteurs personnalisés qui ont besoin de la passerelle de données locale et que vous avez créé ces connecteurs hors d’un ISE, les applications logiques d’un ISE peuvent également utiliser ces connecteurs.
   
   * Les connecteurs personnalisés créés au sein d’un ISE ne fonctionnent pas avec la passerelle de données locale. Toutefois, ces connecteurs peuvent accéder directement aux sources de données locales qui sont connectées au réseau virtuel hébergeant l’ISE. Par conséquent, les applications logiques d’un ISE n’ont généralement pas besoin de la passerelle de données lorsqu’elles communiquent avec ces ressources.
 
-Pour les systèmes locaux qui ne sont pas connectés à un réseau virtuel ou qui n’ont pas de connecteurs de version ISE, vous devez [configurer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) pour que vos applications logiques puissent se connecter à ces systèmes.
+Dans le cas de systèmes locaux non connectés à un réseau virtuel ou sans connecteurs étiquetés ISE, il faut [configurer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md) pour que les applications logiques puissent se connecter à ces systèmes.
 
 <a name="create-integration-account-environment"></a>
 

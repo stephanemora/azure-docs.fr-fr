@@ -1,5 +1,5 @@
 ---
-title: Avis de migration du trafic de passerelle pour Azure SQL Database | Microsoft Docs
+title: Avis de migration du trafic des passerelles
 description: Cet article informe les utilisateurs de la migration des adresses IP des passerelles Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: a2064e0012abea237c1b4c0c6f7e35119c1aeff5
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686802"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807704"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migration du trafic des bases de données Azure SQL Database vers des passerelles plus récentes
 

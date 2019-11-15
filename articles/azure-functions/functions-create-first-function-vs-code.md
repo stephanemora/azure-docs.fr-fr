@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: fbde3c939a23e4023c0403c27433717a11762b08
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70744069"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622053"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Créer votre première fonction à l’aide de Visual Studio Code
 
@@ -26,7 +26,7 @@ Dans cet article, vous allez apprendre à utiliser l’extension [Extension Azur
 
 ![Code Azure Functions dans un projet Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-L’extension prend actuellement en charge les fonctions C#, JavaScript, Java et Python. Les étapes décrites dans cet article et l’article qui suit sont valables uniquement pour les fonctions JavaScript et C#. Pour savoir comment utiliser Visual Studio Code pour créer et publier des fonctions Python, consultez [Déployer Python sur Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Pour savoir comment utiliser Visual Studio Code pour créer et publier des fonctions PowerShell, consultez [Créer votre première fonction PowerShell dans Azure](functions-create-first-function-powershell.md). 
+L’extension prend actuellement en charge les fonctions C#, JavaScript, Java et Python. Les étapes décrites dans cet article et l’article qui suit sont valables uniquement pour les fonctions JavaScript et C#. Pour savoir comment utiliser Visual Studio Code afin de créer et de publier des fonctions Python, voir [Créer et déployer des fonctions Azure Functions serverless en Python avec Visual Studio Code](/azure/python/tutorial-vs-code-serverless-python-01). Pour savoir comment utiliser Visual Studio Code pour créer et publier des fonctions PowerShell, consultez [Créer votre première fonction PowerShell dans Azure](functions-create-first-function-powershell.md). 
 
 L’extension est actuellement en préversion. Pour plus d’informations, consultez la page d’extension [Extension Azure Functions pour Visual Studio Code].
 

@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 08/16/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: 43b551639fface699b1c0ec95500de8ea2089b26
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 059a2691c8e7905295a65daf262338ece65247d1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900104"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812668"
 ---
 Lorsque vous publiez votre offre sur la Place de marché via l'Espace partenaires, vous devez la connecter à votre système de gestion de la relation client (CRM) afin de recevoir les informations de contact client immédiatement après qu'un client ait manifesté son intérêt ou déployé votre produit.
 
@@ -37,4 +38,4 @@ Lorsque vous publiez votre offre sur la Place de marché via l'Espace partenaire
 2. Lisez la documentation mentionnée ci-dessus afin de savoir comment configurer la destination de prospect que vous avez sélectionnée pour recevoir des prospects issus de votre offre de la Place de marché. 
 3. Connectez votre offre à la destination de prospect tout en la publiant sur la Place de marché de l'Espace partenaires. Consultez la documentation mentionnée ci-dessus pour savoir comment procéder.
 4. Vérifiez que la connexion à la destination de prospect est correctement configurée. Une fois votre destination de prospect correctement configurée et votre offre publiée dans l'Espace partenaires, nous validons la connexion et vous envoyons un prospect de test. Lorsque vous visualisez l’offre avant son lancement, vous pouvez également tester votre connexion de prospect en essayant d’acquérir vous-même l’offre dans l’environnement en version préliminaire. 
-5. La connexion à la destination de prospect doit rester à jour afin d'éviter de perdre des prospects. Veillez donc à mettre à jour ces connexions chaque fois qu'une modification intervient de votre côté.
+5. La connexion à la destination des prospects doit rester à jour afin d’éviter de perdre des prospects. Veillez donc à mettre à jour ces connexions chaque fois qu’une modification intervient de votre côté.

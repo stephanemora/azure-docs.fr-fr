@@ -1,17 +1,17 @@
 ---
-title: Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics avec la sortie de stockage Blob Azure (préversion)
+title: Authentifier la sortie blob avec Managed Identity Azure Stream Analytics
 description: Cet article explique comment utiliser des identités managées afin d’authentifier votre tâche Azure Stream Analytics pour la sortie de stockage Blob Azure.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 2bde1e8556fb1255e27595630e061f6b80870ce1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278629"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664332"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>Utiliser des identités managées pour authentifier votre travail Azure Stream Analytics avec la sortie de stockage Blob Azure (préversion)
 
@@ -23,7 +23,7 @@ Cet article vous montre comment activer une identité managée pour une ou des s
 
 1. Créez un travail Stream Analytics ou ouvrez un travail existant dans le portail Azure. Dans la barre de menus située sur le côté gauche de l’écran, sélectionnez **Identité managée** sous **Configurer**. Vérifiez que l’option « Utiliser l'identité managée affectée par le système » est sélectionnée, puis cliquez sur le bouton **Enregistrer** en bas de l’écran.
 
-   ![Configurer une identité managée Stream Analytics](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![Configurer une identité managée Stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Dans la fenêtre de propriétés de sortie du récepteur de sortie de stockage Blob Azure, sélectionnez la liste déroulante Mode d’authentification, puis **Identité managée**. Pour plus d’informations sur les autres propriétés de sortie, consultez [Comprendre les sorties d’Azure Stream Analytics](./stream-analytics-define-outputs.md). Quand vous avez terminé, cliquez sur **Enregistrer**.
 

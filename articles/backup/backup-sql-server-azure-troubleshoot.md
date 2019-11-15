@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: c456dfec72f98dc4ae06f1d7d5d9fb461182d579
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018982"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614395"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -32,7 +32,6 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 | severity | Description | Causes possibles | Action recommandée |
 |---|---|---|---|
 | Avertissement | Les paramètres actuels de cette base de données ne prennent pas en charge certains types de sauvegarde présents dans la stratégie associée. | <li>Seule une opération de sauvegarde complète de base de données peut être effectuée sur la base de données master. Ni une sauvegarde différentielle ni une sauvegarde du journal des transactions n’est possible. </li> <li>Aucune base de données en mode de récupération simple n’autorise la sauvegarde des journaux des transactions.</li> | Modifiez les paramètres de la base de données de manière à ce que tous les types de sauvegarde de la stratégie soient pris en charge. Vous pouvez aussi changer la stratégie actuelle pour y inclure seulement les types de sauvegarde pris en charge. Sinon, les types de sauvegarde non pris en charge seront ignorés lors de la sauvegarde planifiée ou le travail de sauvegarde échouera pour une sauvegarde ad hoc.
-
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -83,7 +82,7 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 |---|---|---|
 | Restore failed as the database could not be brought offline. (Échec de la restauration car la base de données n’a pas pu être mise hors connexion.) | Pendant que vous effectuez une restauration, la base de données cible doit être mise hors connexion. Sauvegarde Azure ne peut pas mettre ces données hors connexion. | Utilisez les informations supplémentaires disponibles sur le menu des erreurs du portail Azure pour déterminer les causes racines. Pour plus d’informations, consultez la [documentation SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
+### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
@@ -94,7 +93,6 @@ Pour configurer la protection d’une base de données SQL Server sur une machin
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
 | La sauvegarde de fichier journal utilisée pour la récupération contient des modifications journalisées en bloc. Elle n’est pas utilisable pour s’arrêter à un point arbitraire dans le temps conformément aux directives SQL. | Quand une base de données est en mode de récupération avec journalisation en bloc, les données entre une transaction journalisée en bloc et la transaction de journal suivante ne peuvent pas être récupérées. | Choisissez un autre point de récupération dans le temps. [Plus d’informations](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
-
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -130,8 +128,7 @@ L’opération est bloquée, car vous avez atteint la limite du nombre d’opér
 
 | Message d’erreur | Causes possibles | Action recommandée |
 |---|---|---|
-L’opération est bloquée, car le coffre a atteint sa limite maximale pour ces opérations autorisées dans une plage de 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur est survenue. Cette erreur est généralement liée à des opérations à l’échelle, telles que la modification de la stratégie ou la protection automatique. Contrairement au cas de CloudDosAbsoluteLimitReached, il n’y a pas grand-chose à faire pour résoudre cet état. En fait, le service Sauvegarde Azure réessaiera les opérations en interne pour tous les éléments en question.<br> Par exemple :  si vous avez un grand nombre de sources de données protégées par une stratégie et que vous essayez de modifier cette stratégie, des tâches de protection de configuration sont déclenchées pour chaque élément protégé et peuvent parfois atteindre la limite maximale autorisée pour de telles opérations par jour.| Le service Sauvegarde Azure réessaiera automatiquement cette opération après 24 heures. 
-
+L’opération est bloquée, car le coffre a atteint sa limite maximale pour ces opérations autorisées dans une plage de 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur est survenue. Cette erreur se produit généralement en cas d’opérations à grande échelle, comme une modification de la stratégie ou la protection automatique. Contrairement au cas de CloudDosAbsoluteLimitReached, il n’y a pas grand-chose à faire pour résoudre cet état. En fait, le service Sauvegarde Azure réessaiera les opérations en interne pour tous les éléments en question.<br> Par exemple :  si vous avez un grand nombre de sources de données protégées par une stratégie et que vous essayez de modifier cette stratégie, des tâches de protection de configuration sont déclenchées pour chaque élément protégé et peuvent parfois atteindre la limite maximale autorisée pour de telles opérations par jour.| Le service Sauvegarde Azure réessaiera automatiquement cette opération après 24 heures.
 
 ## <a name="re-registration-failures"></a>Échecs de réinscription
 
@@ -150,14 +147,14 @@ Vérifiez la présence d’un ou plusieurs des symptômes suivants avant de déc
 
 Ces symptômes peuvent survenir pour une ou plusieurs des raisons suivantes :
 
-* Une extension a été supprimée ou désinstallée sur le portail. 
+* Une extension a été supprimée ou désinstallée sur le portail.
 * Une extension a été désinstallée depuis le **Panneau de configuration** de la machine virtuelle sous **Désinstaller ou modifier un programme**.
 * La machine virtuelle a été restaurée à un point dans le temps via une restauration de disques sur place.
 * La machine virtuelle a été arrêtée pendant une période prolongée, entraînant l’expiration de la configuration d’extension qui s’y trouvait.
 * La machine virtuelle a été supprimée et une autre machine virtuelle a été créée avec le même nom et le même groupe de ressources que la machine virtuelle supprimée.
 * Un des nœuds du groupe de disponibilité n’a pas reçu la configuration de sauvegarde complète. Ceci peut se produire quand le groupe de disponibilité est inscrit dans le coffre ou quand un nouveau nœud est ajouté.
 
-Dans les scénarios précédents, nous vous recommandons de déclencher une opération de réinscription sur la machine virtuelle. Pour le moment, cette option est disponible seulement via PowerShell.
+Dans les scénarios précédents, nous vous recommandons de déclencher une opération de réinscription sur la machine virtuelle. Pour savoir comment effectuer cette tâche dans PowerShell, cliquez [ici](https://docs.microsoft.com/azure/backup/backup-azure-sql-automation#enable-backup).
 
 ## <a name="size-limit-for-files"></a>Limite de taille pour les fichiers
 
@@ -188,6 +185,7 @@ Si la taille de la chaîne du contenu dépasse 20 000 octets, les fichiers de b
 Vous pouvez remplacer le chemin du fichier de restauration cible pendant l’opération de restauration en plaçant un fichier JSON contenant le mappage du fichier de base de données au chemin de restauration cible. Créez un fichier `database_name.json` et placez-le à l’emplacement *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
 Le contenu du fichier doit être à ce format :
+
 ```json
 [
   {
@@ -227,7 +225,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
   ```
-
 
 Ce fichier doit être placé avant de déclencher l’opération de restauration.
 

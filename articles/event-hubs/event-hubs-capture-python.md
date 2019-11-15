@@ -1,6 +1,6 @@
 ---
-title: Lire des données capturées à partir d’une application Python - Azure Event Hubs | Microsoft Docs
-description: Des scripts qui utilisent le Kit de développement logiciel (SDK) Azure Python pour illustrer la fonctionnalité Event Hubs Capture.
+title: 'Démarrage rapide : Lire des données capturées à partir d’une application Python – Azure Event Hubs'
+description: 'Démarrage rapide : Des scripts qui utilisent le Kit de développement logiciel (SDK) Azure Python pour illustrer la fonctionnalité Event Hubs Capture.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,18 +11,18 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 10/10/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 354964e1b66b55dcccd9b5674f011f8c5a38a1c5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ade4aa79b2de005bfecd7a5882f06cb491ea4e6d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428963"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717846"
 ---
-# <a name="event-hubs-capture-walkthrough-python"></a>Procédure pas à pas d’Event Hubs Capture : Python
+# <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Démarrage rapide : Procédure pas à pas d’Event Hubs Capture : Python
 
 Capture est une fonctionnalité d’Azure Event Hubs. Vous pouvez utiliser Capture pour fournir automatiquement les données de streaming de votre hub d’événements à un compte de stockage Blob Azure de votre choix. Cette fonctionnalité facilite le traitement par lots des données de flux en temps réel. Cet article décrit comment utiliser Event Hubs Capture avec Python. Pour plus d’informations sur Event Hubs Capture, consultez [Capturer des événements avec Azure Event Hubs][Overview of Event Hubs Capture].
 

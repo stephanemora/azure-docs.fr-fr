@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b436fbdb0d70318e6820d3f59f1e198c639e5a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e98b09d8b07c625613e3be149e64ac8f06adc089
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561698"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805563"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
-Ajoutez de nouveaux utilisateurs ou supprimez des utilisateurs existants de votre organisation Azure Active Directory (Azure AD).
+Ajoutez de nouveaux utilisateurs ou supprimez des utilisateurs existants de votre organisation Azure Active Directory (Azure AD). Pour ajouter ou supprimer des utilisateurs, vous devez être Administrateur d’utilisateurs ou Administrateur général. 
 
 ## <a name="add-a-new-user"></a>Ajouter un nouvel utilisateur
 Vous pouvez créer un utilisateur à l’aide du portail Azure Active Directory.
@@ -51,7 +51,7 @@ Vous pouvez créer un utilisateur à l’aide du portail Azure Active Directory.
 
 4. Copiez le mot de passe généré automatiquement fourni dans le champ **Mot de passe**. Vous devrez donner ce mot de passe à l’utilisateur pour qu’il se connecte la première fois.
 
-5. Sélectionnez **Créer**.
+5. Sélectionnez **Create** (Créer).
 
     L’utilisateur est créé et ajouté à votre locataire Azure AD.
 

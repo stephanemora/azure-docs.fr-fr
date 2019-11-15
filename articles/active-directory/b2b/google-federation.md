@@ -5,31 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 11/1/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b26679542753d5fb429c33e4220c23a3937c5cb
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 68acf32660fe36ddd4c2982b818ce21adde7ddab
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430445"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603594"
 ---
-# <a name="add-google-as-an-identity-provider-for-b2b-guest-users-preview"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B (préversion)
+# <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Ajouter Google comme fournisseur d’identité pour les utilisateurs invités B2B
 
-|     |
-| --- |
-| La fédération Google est une fonctionnalité en préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+En configurant la fédération avec Google, vous pouvez autoriser les utilisateurs invités à se connecter à vos applications et ressources partagées avec leur propre compte Gmail, sans avoir besoin de créer un compte Microsoft (MSA). 
 
-En configurant la fédération avec Google, vous pouvez autoriser des utilisateurs invités à se connecter à vos applications et ressources partagées au moyen de leurs propres comptes Gmail, sans avoir besoin de créer de comptes Microsoft (MSA) ou Azure AD. La fédération Google est conçue spécialement pour les utilisateurs Gmail. Pour fédérer avec les domaines G Suite, utilisez la [fonctionnalité de fédération directe](direct-federation.md) à la place.
 > [!NOTE]
-> Vos utilisateurs Google invités doivent se connecter à l'aide d'un lien incluant le contexte du locataire (par exemple, `https://myapps.microsoft.com/?tenantid=<tenant id>` ou `https://portal.azure.com/<tenant id>`, ou dans le cas d'un domaine vérifié, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Liens directs aux applications et ressources fonctionnent également tant qu’ils incluent le contexte client. Les utilisateurs invités ne peuvent actuellement pas se connecter à l’aide de points de terminaison qui n’ont aucun contexte locataire. Par exemple, l’utilisation de `https://myapps.microsoft.com`, de `https://portal.azure.com` ou du point de terminaison commun des équipes entraînera une erreur.
- 
+> La fédération Google est conçue spécialement pour les utilisateurs Gmail. Pour fédérer avec les domaines G Suite, utilisez la [fonctionnalité de fédération directe](direct-federation.md).
+
 ## <a name="what-is-the-experience-for-the-google-user"></a>Quelle est l’expérience de l’utilisateur Google ?
 Lorsque vous envoyez une invitation à un utilisateur de Google Gmail, l’utilisateur invité doit accéder à vos applications ou ressources partagées à l’aide d’un lien qui inclut le contexte locataire. Son expérience varie selon qu’il est ou non déjà connecté à Google :
   - Si l’utilisateur invité n’est pas connecté à Google, il est invité à se connecter à Google.
@@ -38,6 +34,19 @@ Lorsque vous envoyez une invitation à un utilisateur de Google Gmail, l’utili
 Si l’utilisateur invité voit une erreur « en-tête trop long », il peut essayer d’effacer ses cookies, ou ouvrir une fenêtre privée ou bien incognito et essayer de se reconnecter.
 
 ![Capture d’écran montrant la page de connexion Google](media/google-federation/google-sign-in.png)
+
+## <a name="limitations"></a>Limites
+
+Teams prend entièrement en charge les utilisateurs invités Google sur tous les appareils. Les utilisateurs de Google peuvent se connecter à Teams à partir d’un point de terminaison commun, comme `https://teams.microsoft.com`.
+
+Les points de terminaison communs d’autres applications ne prennent pas forcément en charge les utilisateurs Google. Les utilisateurs invités Google doivent se connecter à l’aide d’un lien comportant les informations de votre locataire. Voici quelques exemples :
+  * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
+  * `https://portal.azure.com/<your tenant id>`
+  * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
+
+   S’ils essaient d’utiliser un lien comme `https://myapps.microsoft.com` ou `https://portal.azure.com`, les utilisateurs invités Google obtiendront une erreur.
+
+Vous pouvez également fournir aux utilisateurs invités Google un lien direct vers une application ou une ressource, à condition qu’il comprenne les informations de votre locataire, par exemple `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Étape 1 : Configurer un projet de développeur Google
 Commencez par créer un projet dans la console des développeurs Google pour obtenir un ID client et une clé secrète client que vous pourrez ajouter plus tard à Azure AD. 

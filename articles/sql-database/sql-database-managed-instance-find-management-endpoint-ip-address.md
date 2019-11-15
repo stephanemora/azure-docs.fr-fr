@@ -1,5 +1,5 @@
 ---
-title: Découvrir le point de terminaison de gestion Azure SQL Database Managed Instance | Microsoft Docs
+title: Découvrir le point de terminaison de gestion des instances managées
 description: Découvrir la façon d’obtenir l’adresse IP publique du point de terminaison de gestion Azure SQL Database Managed Instance et de vérifier la protection de son pare-feu intégré
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: a0d47c61bf84cfb22c767fd09b3feed74f55b7fc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03cd89084c2bae3339311f2f684a0d5e7bac1f68
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567480"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825714"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Déterminer l’adresse IP du point de terminaison de gestion
 

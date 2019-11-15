@@ -8,18 +8,20 @@ manager: jeconnoc
 keywords: azure functions, functions, traitement des événements, calcul, architecture sans serveur
 ms.service: azure-functions
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1579a4dfbab1ec9d9aa6bb3995bd88d948d6d5e2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 563412fbc5e8d9af3c399b1f75696053549143c4
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933971"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615012"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Créer votre première fonction durable dans C\#
 
 *Durable Functions* est une extension d’[Azure Functions](../functions-overview.md) qui vous permet d’écrire des fonctions avec état dans un environnement serverless. L’extension gère l’état, les points de contrôle et les redémarrages à votre place.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 Cet article explique comment utiliser Visual Studio 2019 pour créer et tester en local une fonction durable « Hello World ».  Cette fonction orchestre et chaîne des appels à d’autres fonctions. Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2019.
 
@@ -53,7 +55,7 @@ Le modèle Azure Functions crée un projet qui peut être publié dans une appli
 
     | Paramètre      | Valeur suggérée  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Version** | Azure Functions 2.x <br />(.NET Core) | Crée un projet de fonction qui utilise le Runtime Azure Functions version 2.x qui prend en charge .NET Core. La version 1.x d’Azure Functions prend en charge .NET Framework. Pour plus d’informations, consultez [Guide pratique pour cibler la version du runtime Azure Functions](../functions-versions.md).   |
+    | **Version** | Azure Functions 2.0 <br />(.NET Core) | Crée un projet de fonction qui utilise le Runtime Azure Functions version 2.0 qui prend en charge .NET Core. La version 1.0 d’Azure Functions prend en charge .NET Framework. Pour plus d’informations, consultez [Guide pratique pour cibler la version du runtime Azure Functions](../functions-versions.md).   |
     | **Modèle** | Vide | Crée une application de fonction vide. |
     | **Compte de stockage**  | Émulateur de stockage | Un compte de stockage est nécessaire pour la gestion des états de fonction durable. |
 
@@ -73,12 +75,15 @@ Les étapes suivantes utilisent un modèle pour créer le code de fonction durab
 
     ![Sélectionner un modèle durable](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
+> [!NOTE]
+> Ce modèle crée actuellement une fonction durable à l’aide d’une ancienne version 1.x de l’extension. Pour plus d’informations sur la mise à niveau vers les versions 2. x les plus récentes de Durable Functions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
+
 Une nouvelle fonction durable est ajoutée à l’application.  Ouvrez le nouveau fichier .cs pour afficher le contenu. Cette fonction durable est un exemple de chaînage de fonctions simple avec les méthodes suivantes :  
 
 | Méthode | FunctionName | Description |
 | -----  | ------------ | ----------- |
 | **`RunOrchestrator`** | `<file-name>` | Gère l’orchestration durable. Dans ce cas, l’orchestration démarre, crée une liste et ajoute le résultat des trois appels de fonctions à la liste.  À la fin des trois appels de fonctions, elle retourne la liste. |
-| **`SayHello`** | `<file-name>_Hello` | La fonction retourne « hello ». Il s’agit de la fonction qui contient la logique métier actuellement orchestrée. |
+| **`SayHello`** | `<file-name>_Hello` | La fonction retourne « hello ». Cette fonction contient la logique métier actuellement orchestrée. |
 | **`HttpStart`** | `<file-name>_HttpStart` | [Fonction déclenchée par HTTP](../functions-bindings-http-webhook.md) qui démarre une instance de l’orchestration et retourne une réponse d’état de vérification. |
 
 Maintenant que vous avez créé un projet de fonction et une fonction durable, vous pouvez tester la fonction sur votre ordinateur local.
@@ -101,7 +106,7 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
 
 4. Copiez la valeur de l’URL pour `statusQueryGetUri` et collez-la dans la barre d’adresse du navigateur, puis exécutez la requête.
 
-    La requête interroge l’instance d’orchestration pour obtenir l’état. Vous obtenez une réponse éventuelle qui ressemble à l’exemple ci-dessous.  Cette réponse nous indique que l’instance est terminée. Elle contient les sorties ou résultats de la fonction durable.
+    La requête interroge l’instance d’orchestration pour obtenir l’état. Vous obtenez une réponse éventuelle qui ressemble à l’exemple ci-dessous.  Cette sortie nous indique que l’instance est terminée. Elle contient les sorties ou résultats de la fonction durable.
 
     ```json
     {
@@ -114,8 +119,8 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
             "Hello Seattle!",
             "Hello London!"
         ],
-        "createdTime": "2018-11-08T07:07:40Z",
-        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+        "createdTime": "2019-11-02T07:07:40Z",
+        "lastUpdatedTime": "2019-11-02T07:07:52Z"
     }
     ```
 

@@ -1,20 +1,20 @@
 ---
-title: Démarrage rapide - Créer un serveur Analysis Services à l’aide du portail Azure | Microsoft Docs
-description: Apprenez à créer une instance de serveur Analysis Services dans Azure.
+title: 'Démarrage rapide : Créer un serveur Analysis Services sur le Portail Azure | Microsoft Docs'
+description: Découvrez comment créer rapidement une instance serveur Azure Analysis Services avec le Portail Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 07/02/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e6973ee311f1d3f5ba19714695f67bd321d953b7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cfd624ce49add0f8fd04bfccca9d6b7c3f1f71bd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295034"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573068"
 ---
-# <a name="quickstart-create-a-server---portal"></a>Démarrage rapide : Créer un serveur - Portail
+# <a name="quickstart-create-a-server---portal"></a>Démarrage rapide : Créer un serveur - Portail
 
 Ce démarrage rapide explique comment créer une ressource de serveur Analysis Services dans votre abonnement Azure à l’aide du portail.
 
@@ -45,7 +45,7 @@ Ce démarrage rapide explique comment créer une ressource de serveur Analysis S
    * **Paramètres du stockage de sauvegarde** : facultatif. Si vous possédez déjà un [compte de stockage](../storage/common/storage-introduction.md), vous pouvez le spécifier en tant que compte par défaut pour la sauvegarde de la base de données model. Vous pouvez également spécifier les paramètres de [sauvegarde et restauration](analysis-services-backup.md) ultérieurement.
    * **Date d’expiration de la clé de stockage** : facultatif. Spécifiez une période d’expiration pour la clé de stockage.
 
-La création du serveur prend généralement moins d’une minute. Si vous avez sélectionné **Add to Portal** (Ajouter au portail), accédez au portail pour voir votre nouveau serveur. Ou, accédez à **Tous les services** > **Analysis Services** pour voir si votre serveur est prêt. Les serveurs prennent en charge les modèles tabulaires aux niveaux de compatibilité 1200 et ultérieurs. Le niveau de compatibilité des modèles est spécifié dans SSDT ou SSMS.
+La création du serveur prend généralement moins d’une minute. Si vous avez sélectionné **Add to Portal** (Ajouter au portail), accédez au portail pour voir votre nouveau serveur. Ou, accédez à **Tous les services** > **Analysis Services** pour voir si votre serveur est prêt. Les serveurs prennent en charge les modèles tabulaires aux niveaux de compatibilité 1200 et ultérieurs. Le niveau de compatibilité des modèles est spécifié dans Visual Studio ou SSMS.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

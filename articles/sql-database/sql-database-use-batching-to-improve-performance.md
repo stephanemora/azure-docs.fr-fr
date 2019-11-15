@@ -1,5 +1,5 @@
 ---
-title: Comment utiliser le traitement par lots pour améliorer les performances des applications Azure SQL Database
+title: Guide pratique pour utiliser le traitement par lot afin d’améliorer les performances des applications
 description: Cette rubrique explique comment le traitement par lots des opérations de base de données contribue à améliorer la rapidité et la scalabilité de vos applications Azure SQL Database. Bien que ces techniques de traitement par lot fonctionnent pour les bases de données SQL Server, cet article porte exclusivement sur Azure.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566237"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822418"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 

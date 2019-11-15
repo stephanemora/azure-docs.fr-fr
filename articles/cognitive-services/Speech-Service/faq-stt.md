@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.author: panosper
-ms.openlocfilehash: 1f934bc5627331cc92ad3f497f1f7e4e0e5526cd
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3b957181015cba06eb361272ca1004ba3e7a7008
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595342"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579683"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
@@ -175,6 +175,18 @@ or
 **Q : Puis-je simplement charger une liste de mots ?**
 
 **R** : Le chargement d’une liste de mots a pour effet d’ajouter des mots au vocabulaire, mais n’enseigne pas au système la manière dont ceux-ci sont généralement utilisés. En fournissant des énoncés complets ou partiels (phrases ou expressions que les utilisateurs sont susceptibles de prononcer), le modèle linguistique peut apprendre les mots nouveaux ainsi que la façon dont ils sont utilisés. Le modèle linguistique personnalisé convient, non seulement pour l’ajout de mots au système, mais aussi pour l’ajustement de la probabilité d’occurrence de mots connus pour votre application. Fournir des énoncés complets permet au système de mieux apprendre. 
+
+## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modèle de locataire (Custom Speech avec des données Office 365)
+
+**Q : Quelles sont les informations incluses dans le modèle de locataire et comment sont-elles créées ?**
+
+**R :** Un modèle de locataire est créé à l’aide d’un [groupe public](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) d’e-mails et de documents qui peuvent être consultés par toute personne de votre organisation. 
+ 
+**Q : Quelles sont les améliorations apportées par le modèle de locataire aux expériences de reconnaissance vocale ?**
+
+**R :** Une fois le modèle de locataire activé, créé et publié, il permet d’améliorer les capacités de reconnaissance de toutes les applications d’entreprise basées sur le service de reconnaissance vocale, qui transmettent également un jeton AAD d’utilisateur indiquant l’appartenance à l’entreprise. 
+ 
+La création d’un modèle de locataire pour vos applications de service de reconnaissance vocale ne modifie pas les expériences de reconnaissance vocale intégrées à Office 365, telles que Dictée et Sous-titrage PowerPoint.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

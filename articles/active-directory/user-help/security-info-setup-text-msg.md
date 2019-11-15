@@ -1,5 +1,5 @@
 ---
-title: Configurer les informations de sécurité (préversion) pour utiliser la messagerie texte - Azure Active Directory | Microsoft Docs
+title: Configurer les informations de sécurité (préversion) de SMS – Azure AD
 description: Procédure de configuration de vos informations de sécurité pour vérifier votre identité à l’aide de la messagerie texte et de votre appareil mobile.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3544094da72c1c0f854f3d02a34f8540ad2f784
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5a4be99a84964b7a55448692385d027262ecfec3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160872"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803840"
 ---
 # <a name="set-up-security-info-preview-to-use-text-messaging"></a>Configurer les informations de sécurité (préversion) pour utiliser la messagerie texte
 

@@ -1,5 +1,5 @@
 ---
-title: FAQ sur l’infrastructure élastique d’Azure SQL | Microsoft Docs
+title: FAQ sur la mise à l’échelle élastique
 description: Questions fréquentes (FAQ) sur la mise à l’échelle élastique d’Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 2b101aebd048b94ac95e1dba0f6504446d6d6803
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3eedfb1e9ec59fbe12ee94a65d3702a7ef8ca95a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568446"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823641"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Forum aux questions sur les outils de bases de données élastiques
 

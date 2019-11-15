@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/21/2019
+ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750251"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685110"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Didacticiel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
 
@@ -258,34 +258,36 @@ Consultez [Codes d’erreur](https://docs.microsoft.com/rest/api/media/jobs/get#
 
 ### <a name="create-a-streaming-locator"></a>Créer un localisateur de diffusion en continu
 
-Une fois le travail d’encodage terminé, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans l’**actif multimédia** de sortie pour qu’ils puissent la lire. Vous pouvez le faire en deux étapes : d’abord, créez un [localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), puis générez les URL de streaming que les clients peuvent utiliser. 
+Une fois le travail d’encodage terminé, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans l’**actif multimédia** de sortie pour qu’ils puissent la lire. Vous pouvez le faire en deux étapes : d’abord, créez un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puis générez les URL de diffusion en continu que les clients peuvent utiliser. 
 
-Le processus de création d’un **localisateur de streaming** est appelée « publication ». Par défaut, le **localisateur de streaming** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
+Le processus de création d’un localisateur de streaming est appelée « publication ». Par défaut, le localisateur de streaming est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les heures de début et de fin facultatives. 
 
-Lors de la création d’un élément [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le nom **StreamingPolicyName** souhaité. Dans cet exemple, vous allez diffuser en continu du contenu en clair (ou non chiffré), la stratégie de diffusion en continu en clair prédéfinie (« Predefined_ClearStreamingOnly ») est donc utilisée.
+Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le nom **StreamingPolicyName** souhaité. Dans cet exemple, vous allez diffuser en continu du contenu en clair (ou non chiffré), la stratégie de diffusion en continu en clair prédéfinie (« Predefined_ClearStreamingOnly ») est donc utilisée.
 
 > [!IMPORTANT]
 > Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. 
 
-Votre compte Media Services a un quota en matière de nombre d’entrées de **stratégie de streaming**. Vous ne devez pas créer une **stratégie de streaming** pour chaque **localisateur de streaming**.
+Votre compte Media Services a un quota en matière de nombre d’entrées de **stratégie de streaming**. Vous ne devez pas créer de **stratégie de streaming** pour chaque localisateur de streaming.
 
-1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Streaming Policies » (Stratégies de streaming).
-2. Ensuite, sélectionnez « Créer un localisateur de diffusion en continu ».
+1. Dans la fenêtre de gauche de l’application Postman, sélectionnez « Stratégies de streaming et localisateurs ».
+2. Sélectionnez ensuite « Créer un localisateur de streaming (clair) ».
 3. Appuyez sur **Envoyer**.
 
     * L’opération **PUT** suivante est envoyée.
 
         ```
-        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingPolicies/:streamingPolicyName?api-version={{api-version}}
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
     * L’opération a le corps suivant :
 
         ```json
         {
-            "properties":{
-            "assetName": "{{assetName}}",
-            "streamingPolicyName": "{{streamingPolicyName}}"
-            }
+          "properties": {
+            "streamingPolicyName": "Predefined_ClearStreamingOnly",
+            "assetName": "testAsset1",
+            "contentKeys": [],
+            "filters": []
+         }
         }
         ```
 
