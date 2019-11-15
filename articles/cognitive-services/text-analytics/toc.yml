@@ -27,9 +27,9 @@
         - name: Utilisation de PHP
           href: quickstarts/php.md
         - name: Utilisation de Go
-          href: quickstarts/php.md
+          href: quickstarts/go.md
         - name: Utilisation de Ruby
-          href: quickstarts/php.md
+          href: quickstarts/ruby.md
 - name: Tutoriels
   items:
     - name: Intégrer Power BI pour analyser les commentaires des clients

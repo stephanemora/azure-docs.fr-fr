@@ -4,7 +4,7 @@ title: Documentation de l’API Recherche d’actualités Bing
 metadata:
   title: "Documentation de l’API Recherche d’actualités Bing\_- Tutoriels, guides de démarrage rapide, informations de référence sur l’API"
   titleSuffix: Azure Cognitive Services
-  description: Découvrez comment utiliser l’API Recherche d’actualités Bing pour rechercher des actualités sur le web.
+  description: L’API Recherche d’actualités Bing vous permet d’intégrer les fonctionnalités Bing de recherche d’actualités à vos applications.
   services: cognitive-services
   author: aahill
   manager: nitinme
